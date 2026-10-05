@@ -46,9 +46,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   no trial-reminder notification, analytics is an interface only.
 - 2026-10-05 — Sample chains reach the web app from `web/public/menus-sample/` and are shown only when
   `NEXT_PUBLIC_SHOW_SAMPLE_DATA=1` or the build isn't production; real chains come from `web/public/menus/`.
-- 2026-10-05 — Supabase: the founder's free plan allows 2 active projects and both are used (revise,
-  readfluent), so the `menumacros` project could not be created yet. Vercel project `menumacros` exists
-  (root `web`, linked to aman66-web/MenuAi).
+- 2026-10-05 — Supabase: the first account's free plan was full (2 active projects), so the founder connected a new
+  account. Project `menumacros` (ref rbbalkfkpacazzhsqfzz, org "Aman's Org", free plan, us-east-1) now exists with
+  both migrations applied, `supabase/tests/security_and_constraints.sql` passing (ALL CHECKS PASSED, rolled back, tables
+  empty) and RLS on every table. SUPABASE_URL is set in Vercel (Production + Preview). **Still missing: the secret
+  key** — the connection can't read it, so the founder adds it in the dashboards (see Founder to-do). Vercel project
+  `menumacros` (root `web`, linked to aman66-web/MenuAi) exists.
 - 2026-10-05 — Web app deviations beyond docs/WEB_BUILD_PLAN.md: (1) onboarding step 3 asks which foods to avoid
   (the spec's location step has no web equivalent); (2) paywall bullet "Log to Apple Health in one tap" became "Keep a
   log of what you eat today" (Apple Health doesn't exist on the web); (3) light-mode accent darkened from #D9481E to
@@ -73,7 +76,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   never be set on a public production site; Pro is client-side only until payments exist (real payments need a
   server-verified entitlement).
 - 2026-10-05 — Vercel project `menumacros` has env vars IP_HASH_SALT and CRON_SECRET (sensitive) and
-  NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 on Preview only. Still to set: SUPABASE_URL, SUPABASE_SECRET_KEY,
+  NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 on Preview only, SUPABASE_URL on both. Still to set: SUPABASE_SECRET_KEY,
   NEXT_PUBLIC_SUPPORT_EMAIL, NEXT_PUBLIC_SITE_URL.
 - 2026-10-05 — User-facing name comes from `AppConfig.appName` (currently "Menu Math") — name not final.
 
@@ -89,7 +92,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Xcode: iPhone-only destination, iOS 17.0 minimum, capabilities (App Groups, HealthKit, In-App Purchase), shared scheme
 - [ ] App Store Connect: app record, subscription group, both products, 7-day trial offer
 - [ ] Vercel + Supabase set up (docs/SETUP_VERCEL_SUPABASE.md) → put the URLs in `AppConfig`
-- [ ] Supabase: free a slot (pause or delete an unused project) or upgrade to Pro, then ask Claude to create the `menumacros` project and apply the migrations
+- [ ] Supabase secret key: Supabase › menumacros › Project Settings › API Keys › create a secret key (`sb_secret_…`) → Vercel › menumacros › Settings › Environment Variables → add `SUPABASE_SECRET_KEY` (tick Sensitive; Production and Preview), then redeploy. Never paste it into chat or the app
 - [ ] Payments for the web app (Stripe or RevenueCat Web Billing: both add a dependency/account; needs your decision)
 - [ ] Domain + support email; Vercel Pro before the site is public
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
