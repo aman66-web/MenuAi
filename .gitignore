@@ -1,0 +1,17 @@
+# Build output
+build/
+dist/
+DerivedData/
+*.xcresult
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+# Claude Code personal files
+.claude/settings.local.json
+CLAUDE.local.md
+# macOS / Python
+.DS_Store
+__pycache__/
+# Supabase CLI local state
+supabase/.temp/
+supabase/.branches/

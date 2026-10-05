@@ -1,0 +1,18 @@
+id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,sugar_g,fiber_g,tags,removable,allow_double
+white-rice,base,White rice,4 oz,210,4,40,4,1,350,0,1,vegetarian,false,false
+brown-rice,base,Brown rice,4 oz,210,4,36,6,1,190,0,2,vegetarian,false,false
+lettuce,base,Romaine lettuce,2.5 oz,5,0,1,0,0,5,0,1,vegetarian,false,false
+tortilla,wrap,Flour tortilla,1 tortilla,320,8,50,9,3,600,0,3,vegetarian,false,false
+chicken,protein,Chicken,4 oz,180,32,0,7,3,310,0,0,,false,true
+steak,protein,Steak,4 oz,150,21,1,6,2,330,0,0,contains_beef,false,true
+sofritas,protein,Sofritas (tofu),4 oz,150,8,9,10,1.5,560,5,3,vegetarian,false,true
+black-beans,topping,Black beans,4 oz,130,8,22,1,0,210,2,7,vegetarian,false,false
+pinto-beans,topping,Pinto beans,4 oz,130,8,21,1.5,0,210,1,8,vegetarian,false,false
+fajita-veg,topping,Fajita vegetables,2.5 oz,20,1,5,0,0,150,2,1,vegetarian,false,false
+corn-salsa,topping,Corn salsa,4 oz,80,3,15,2,0,330,4,3,vegetarian,false,false
+tomato-salsa,topping,Tomato salsa,4 oz,25,0,4,0,0,550,1,1,vegetarian,false,false
+cheese,topping,Cheese,1 oz,110,6,1,8.5,5,190,0,0,vegetarian,true,false
+sour-cream,topping,Sour cream,2 oz,110,2,2,9,7,30,2,0,vegetarian,true,false
+guacamole,topping,Guacamole,4 oz,230,2,8,22,3.5,370,1,6,vegetarian,true,false
+vinaigrette,sauce,Honey lime vinaigrette,2 oz,220,1,18,16,2.5,,12,1,vegetarian,true,false
+chips,side,Tortilla chips,4 oz,540,7,73,25,3.5,390,1,7,vegetarian,false,false

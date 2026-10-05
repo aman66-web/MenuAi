@@ -1,0 +1,8 @@
+item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,sugar_g,fiber_g,tags
+classic-sandwich,no-mayo,No mayo,remove,100,0,0,11,2,80,0,0,
+classic-sandwich,extra-fillet,Extra fillet,add,190,24,6,8,1.5,780,0,0,
+classic-sandwich,add-bacon,Add bacon,add,40,3,0,3,1,150,0,0,contains_pork
+spicy-deluxe,no-mayo,No mayo,remove,100,0,0,11,2,80,0,0,
+spicy-deluxe,no-cheese,No cheese,remove,70,4,0,6,3.5,150,0,0,
+grilled-sandwich,no-sauce,No BBQ sauce,remove,60,0,14,0,0,170,13,0,
+cobb-salad,no-dressing,No ranch dressing,remove,310,1,2,33,5,500,1,0,

@@ -1,0 +1,8 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+chicken-bowl,Chicken bowl,Bowls,1 bowl,,,,,,,,,,,,chicken|white-rice|black-beans|tomato-salsa|cheese,2026-10-01,
+steak-bowl,Steak bowl,Bowls,1 bowl,,,,,,,,,,,,steak|brown-rice|pinto-beans|fajita-veg|sour-cream|cheese,2026-10-01,
+sofritas-bowl,Sofritas bowl,Bowls,1 bowl,,,,,,,,,,,,sofritas|brown-rice|black-beans|fajita-veg|corn-salsa|guacamole,2026-10-01,
+chicken-burrito,Chicken burrito,Burritos,1 burrito,,,,,,,,,,,,tortilla|white-rice|chicken|black-beans|cheese|sour-cream|tomato-salsa,2026-10-01,
+chicken-salad,Chicken salad,Salads,1 salad,,,,,,,,,,,,lettuce|chicken|fajita-veg|tomato-salsa|cheese|vinaigrette,2026-10-01,
+chips,Chips,Sides,1 bag,,,,,,,,,,,,chips,2026-10-01,
+agua-fresca,Agua fresca,Drinks,16 fl oz,120,0,30,0,0,10,28,0,vegetarian,false,false,,2026-10-01,

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://menumacros.app/schema/manifest.schema.json",
+  "title": "MenuMacros menu manifest (menus-manifest.json)",
+  "description": "Lists every chain file with its SHA-256. The app downloads this first and fetches only chains whose sha256 changed. See docs/DATA.md.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "dataVersion",
+    "generatedAt",
+    "chains"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "dataVersion": {
+      "type": "integer",
+      "minimum": 20000101000000,
+      "description": "UTC build time as YYYYMMDDHHMMSS. Higher = newer. The app compares it between the bundled set, the downloaded set and the host."
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "chains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "file",
+          "sha256",
+          "contentHash",
+          "sample",
+          "itemCount",
+          "checkedOn"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^chain-[a-z0-9-]+\\.json$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "SHA-256 of the exact file bytes; the app verifies downloads against it."
+          },
+          "contentHash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "SHA-256 of the chain document's canonical JSON; used to detect changed content (e.g. stale bundled menus)."
+          },
+          "sample": {
+            "type": "boolean"
+          },
+          "itemCount": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "checkedOn": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
+        }
+      }
+    }
+  }
+}

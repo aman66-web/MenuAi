@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./scripts/test.sh *)",
+      "Bash(xcodebuild *)",
+      "Bash(xcrun simctl *)",
+      "Bash(xcrun xcresulttool *)",
+      "Bash(python3 tools/build_menus.py *)",
+      "Bash(python3 tools/reference_ranking.py *)",
+      "Bash(python3 -m unittest *)",
+      "Bash(plutil *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(./scripts/publish_menus.sh *)",
+      "Bash(npm test *)",
+      "Bash(npm run *)",
+      "Bash(npx vitest *)"
+    ],
+    "deny": [
+      "Bash(git push *)",
+      "Read(./web/.env.local)",
+      "Read(./web/.env)"
+    ],
+    "ask": [
+      "Bash(npx supabase db push *)",
+      "Bash(supabase db push *)",
+      "Bash(npx supabase link *)"
+    ]
+  }
+}
