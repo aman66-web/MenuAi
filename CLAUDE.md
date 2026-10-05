@@ -14,6 +14,7 @@ item at popular restaurant chains (free), plus "Best for you" ranked orders and 
 | Ranking oracle + golden cases | `tools/reference_ranking.py`, `data/fixtures/` (golden cases + the sample chain JSON they use) |
 | App Store copy, release checklist, privacy answers | `docs/STORE.md` |
 | Backend (Vercel site + API, Supabase), API contract for the app | `docs/BACKEND.md`; code in `web/` and `supabase/` |
+| The web app (built first; how it differs from the iPhone spec) | `docs/WEB_BUILD_PLAN.md`; code in `web/app/app/` and `web/lib/mm/` |
 | Founder's Vercel/Supabase setup steps | `docs/SETUP_VERCEL_SUPABASE.md` |
 | Business context (rarely needed) | `docs/MenuMacros_App_Blueprint.pdf` — where it differs from SPEC, SPEC wins |
 

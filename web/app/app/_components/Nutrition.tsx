@@ -5,12 +5,12 @@ import type { Nutrients } from "@/lib/mm/types";
 export function MacroSummary({ nutrients, label, compact }: { nutrients: Nutrients; label?: string; compact?: boolean }) {
   if (compact) {
     return (
-      <div className="app-numbers flex items-end justify-between gap-3" role="group" aria-label={label ?? nutrientAriaLabel("Totals", nutrients)}>
-        <div className="flex items-end gap-4">
+      <div className="app-numbers flex flex-wrap items-end justify-between gap-x-4 gap-y-2" role="group" aria-label={label ?? nutrientAriaLabel("Totals", nutrients)}>
+        <div className="flex flex-wrap items-end gap-x-4 gap-y-1">
           <div><span className="text-3xl font-bold leading-none">{formatInt(nutrients.calories)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">cal</span></div>
           <div><span className="text-3xl font-bold leading-none text-accent">{formatGrams(nutrients.protein)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">protein</span></div>
         </div>
-        <div className="text-right text-sm text-muted">
+        <div className="text-sm text-muted sm:text-right">
           <div><span className="font-semibold text-foreground">{formatGrams(nutrients.carbs)}</span> carbs</div>
           <div><span className="font-semibold text-foreground">{formatGrams(nutrients.fat)}</span> fat</div>
         </div>

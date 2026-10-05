@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { outbox } from "@/lib/mm/stores";
 import { useMenu } from "../_lib/hooks";
-import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { BookmarkIcon, GearIcon, HomeIcon, TodayIcon } from "./icons";
 import { PaywallProvider } from "./Paywall";
@@ -26,13 +25,13 @@ export function AppShell({ children }: { children: ReactNode }) {
   // Warm the offline cache once the catalogue is known (production only; see _lib/warm.ts).
   useEffect(() => {
     if (process.env.NODE_ENV !== "production" || menu.status !== "ready" || menu.chains.length === 0) return;
-    void warmOffline(menu.chains, (id) => menuClient.loadChain(id));
+    void warmOffline(menu.chains);
   }, [menu.status, menu.chains]);
 
   // Offline support (public/sw.js). Production only, so development never serves stale files.
   useEffect(() => {
     if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js", { scope: "/app", updateViaCache: "none" }).catch(() => undefined);
+      navigator.serviceWorker.register(`/sw.js?v=${process.env.NEXT_PUBLIC_BUILD_ID ?? "dev"}`, { scope: "/app", updateViaCache: "none" }).catch(() => undefined);
     }
   }, []);
 

@@ -25,15 +25,56 @@ function cacheKey(request) {
   return request;
 }
 
-self.addEventListener("install", (event) => {
-  // Keep the offline page and the app shell on hand from the very first visit.
-  event.waitUntil(
-    caches
-      .open(PAGES)
-      .then((cache) => cache.addAll(SHELLS))
-      .catch(() => undefined)
-      .then(() => self.skipWaiting()),
+/**
+ * Precache every page shell and the files each one needs (scripts, styles, fonts), so a screen that was never opened
+ * still works offline. The assets are found by reading the HTML and CSS, which keeps this independent of how Next.js
+ * names its chunks. Everything here is best-effort: a failure just means that file is cached when first used.
+ */
+async function precacheShells() {
+  const pages = await caches.open(PAGES);
+  const statics = await caches.open(STATIC);
+  const assets = new Set();
+  const scrape = (text, re) => {
+    for (const m of text.matchAll(re)) assets.add(m[0]);
+  };
+  await Promise.all(
+    SHELLS.map(async (path) => {
+      try {
+        const response = await fetch(path, { cache: "reload" });
+        if (!response.ok) return;
+        scrape(await response.clone().text(), /\/_next\/static\/[^"'\\\s<>)]+\.(?:js|css)/g);
+        await pages.put(path, response);
+      } catch {
+        // ignore
+      }
+    }),
   );
+  const styles = [...assets].filter((a) => a.endsWith(".css"));
+  await Promise.all(
+    styles.map(async (url) => {
+      try {
+        const response = await fetch(url);
+        if (response.ok) scrape(await response.clone().text(), /\/_next\/static\/[^"'\\\s<>)]+\.(?:woff2?|ttf)/g);
+      } catch {
+        // ignore
+      }
+    }),
+  );
+  await Promise.all(
+    [...assets].map(async (url) => {
+      try {
+        if (await statics.match(url)) return;
+        const response = await fetch(url);
+        if (response.ok) await statics.put(url, response);
+      } catch {
+        // ignore
+      }
+    }),
+  );
+}
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(precacheShells().catch(() => undefined).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (event) => {

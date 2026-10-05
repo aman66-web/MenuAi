@@ -8,15 +8,15 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 | Milestone | Status | Notes |
 |---|---|---|
 | W0 Plan, sample menus for web | done | `web/public/menus-sample/`, `scripts/build_web_samples.sh` |
-| W1 Domain core (TypeScript) | not started | |
-| W2 Client state + menu store | not started | |
-| W3 Shell, onboarding, Home, Search | not started | |
-| W4 Chain page, item detail | not started | |
-| W5 Order builder | not started | |
-| W6 Best for you, paywall, gating | not started | |
-| W7 Saved, Today, Settings | not started | |
-| W8 Reports, requests, contact, share card | not started | |
-| W9 PWA, privacy page, verification | not started | |
+| W1 Domain core (TypeScript) | done | `web/lib/mm/`; golden ranking cases + every sample variation reproduced |
+| W2 Client state + menu store | done | localStorage stores, outbox, menu client with SHA-256 check |
+| W3 Shell, onboarding, Home, Search | done |  |
+| W4 Chain page, item detail | done |  |
+| W5 Order builder | done |  |
+| W6 Best for you, paywall, gating | done | paywall is honest: payments not wired |
+| W7 Saved, Today, Settings | done |  |
+| W8 Reports, requests, contact, share card | done |  |
+| W9 PWA, privacy page, verification | done | offline, a11y (axe 0), text-size, production-mode checked |
 
 ## Native iPhone app (later)
 
@@ -49,11 +49,22 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - 2026-10-05 — Supabase: the founder's free plan allows 2 active projects and both are used (revise,
   readfluent), so the `menumacros` project could not be created yet. Vercel project `menumacros` exists
   (root `web`, linked to aman66-web/MenuAi).
+- 2026-10-05 — Web app deviations beyond docs/WEB_BUILD_PLAN.md: (1) onboarding step 3 asks which foods to avoid
+  (the spec's location step has no web equivalent); (2) paywall bullet "Log to Apple Health in one tap" became "Keep a
+  log of what you eat today" (Apple Health doesn't exist on the web); (3) light-mode accent darkened from #D9481E to
+  #C0360F so text and white-on-accent buttons pass WCAG AA (4.3:1 → 5.6:1); dark mode unchanged; (4) chain, item and
+  builder are static shells that read ids from the query string (`/app/chain?id=…`), so one cached shell opens any
+  restaurant offline; (5) the 4th Save shows the paywall at 3 free saved orders exactly as in the spec.
+- 2026-10-05 — Vercel project `menumacros` has env vars IP_HASH_SALT and CRON_SECRET (sensitive) and
+  NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 on Preview only. Still to set: SUPABASE_URL, SUPABASE_SECRET_KEY,
+  NEXT_PUBLIC_SUPPORT_EMAIL, NEXT_PUBLIC_SITE_URL.
 - 2026-10-05 — User-facing name comes from `AppConfig.appName` (currently "Menu Math") — name not final.
 
 ## Known issues
 
-- none yet
+- Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
+- Web offline: item/chain pages work offline after one online visit (the service worker precaches the shells and the menus are cached on first load); the first visit needs a connection.
+- `docs/BUILD_PLAN.md` M0–M10 (native iPhone app) are untouched and still planned.
 
 ## Founder to-do (things Claude can't do)
 
@@ -66,4 +77,6 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Domain + support email; Vercel Pro before the site is public
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
 - [ ] Real chain data in `data/source/` (keep the two sample folders; release builds use `--no-samples`)
-- [ ] App icon and screenshots
+- [ ] App icon and screenshots (the web app and PWA use a placeholder `M` icon in `web/public/icons/` and `web/app/icon.png`)
+- [ ] Support email: set `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel (the site defaults to support@example.com)
+- [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)

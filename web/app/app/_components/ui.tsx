@@ -108,7 +108,7 @@ export function Chip({ selected, children, onClick, ...rest }: ButtonHTMLAttribu
 
 export function Segmented<T extends string>({ value, options, onChange, label }: { value: T; options: ReadonlyArray<{ value: T; label: string }>; onChange: (v: T) => void; label: string }) {
   return (
-    <div role="radiogroup" aria-label={label} className="flex rounded-xl border border-line bg-soft p-1">
+    <div role="radiogroup" aria-label={label} className="grid grid-cols-[repeat(auto-fit,minmax(6.5rem,1fr))] gap-1 rounded-xl border border-line bg-soft p-1">
       {options.map((o) => (
         <button
           key={o.value}
@@ -117,7 +117,7 @@ export function Segmented<T extends string>({ value, options, onChange, label }:
           aria-checked={o.value === value}
           onClick={() => onChange(o.value)}
           className={cx(
-            "min-h-10 flex-1 rounded-lg px-2 text-sm font-medium focus-visible:outline-2 focus-visible:outline-accent",
+            "min-h-10 rounded-lg px-2 text-sm font-medium focus-visible:outline-2 focus-visible:outline-accent",
             o.value === value ? "bg-background shadow-sm text-foreground" : "text-muted",
           )}
         >

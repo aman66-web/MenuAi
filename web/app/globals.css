@@ -6,7 +6,8 @@
   --muted: #5b6577;
   --line: #e3e7ee;
   --soft: #f5f7fa;
-  --accent: #d9481e;
+  /* Spec accent is #d9481e; darkened so text and white-on-accent buttons reach WCAG AA (5.6:1, was 4.3:1). */
+  --accent: #c0360f;
   --accent-soft: #fdeee8;
   --on-accent: #ffffff;
 }

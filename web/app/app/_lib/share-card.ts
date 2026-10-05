@@ -56,13 +56,15 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
   ctx.fillText("g protein", PAD + proteinWidth + 24, 560);
 
   ctx.fillStyle = "#1d2433";
-  ctx.font = font(54, 700);
   const sub = `${formatCalories(input.nutrients.calories).replace(" cal", " calories")} · ${formatGrams(input.nutrients.carbs)} carbs · ${formatGrams(input.nutrients.fat)} fat`;
-  wrap(ctx, sub, W - PAD * 2, 2).forEach((l, i) => ctx.fillText(l, PAD, 680 + i * 68));
+  let subSize = 54;
+  ctx.font = font(subSize, 700);
+  while (subSize > 34 && ctx.measureText(sub).width > W - PAD * 2) ctx.font = font(--subSize, 700); // keep it on one line
+  ctx.fillText(sub, PAD, 680);
 
   ctx.fillStyle = "#1d2433";
   ctx.font = font(46, 500);
-  wrap(ctx, input.description, W - PAD * 2, 4).forEach((l, i) => ctx.fillText(l, PAD, 860 + i * 62));
+  wrap(ctx, input.description, W - PAD * 2, 4).forEach((l, i) => ctx.fillText(l, PAD, 800 + i * 62));
 
   ctx.fillStyle = "#1d2433";
   ctx.font = font(60, 800);

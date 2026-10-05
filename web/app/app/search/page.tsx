@@ -24,6 +24,7 @@ export default function SearchPage() {
 
   return (
     <div>
+      <h1 className="sr-only">Search</h1>
       <div className="flex items-center gap-2">
         <Link href="/app" aria-label="Back" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></Link>
         <div className="relative flex-1">

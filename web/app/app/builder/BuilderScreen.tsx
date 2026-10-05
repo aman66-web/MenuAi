@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { chainHref } from "@/lib/mm/routes";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
@@ -111,6 +111,22 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
     analytics.track({ name: "builderOpened", origin: start.kind });
   }, [start.kind]);
 
+  const summaryRef = useRef<HTMLDivElement>(null);
+  const [pinned, setPinned] = useState(true);
+  useEffect(() => {
+    const el = summaryRef.current;
+    if (!el) return;
+    const check = () => setPinned(el.offsetHeight <= window.innerHeight * 0.4);
+    check();
+    const observer = new ResizeObserver(check);
+    observer.observe(el);
+    window.addEventListener("resize", check);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", check);
+    };
+  }, []);
+
   const total = useMemo(() => orderNutrients(ix, lines), [ix, lines]);
   const valid = validateOrder(lines);
   const defaultName = orderName(ix, lines);
@@ -183,13 +199,13 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
         </Field>
       </div>
 
-      {/* Sticky summary (SPEC §7.6): totals and actions stay in reach while the lines scroll */}
-      <div className="sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom))] z-10 -mx-4 mt-4 border-t border-line bg-background/95 px-4 pb-3 pt-3 backdrop-blur">
+      {/* Sticky summary (SPEC §7.6): totals and actions stay in reach while the lines scroll. Pinned only while it takes under 40% of the screen, so large text or zoom never leaves no room for the order itself. */}
+      <div ref={summaryRef} className={`z-10 -mx-4 mt-4 border-t border-line bg-background/95 px-4 pb-3 pt-3 backdrop-blur ${pinned ? "sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom))]" : ""}`}>
         {total && valid.ok ? (
           <>
             <div aria-live="polite"><MacroSummary compact nutrients={total} label={`Order total: ${formatCalories(total.calories)}, ${Math.round(total.protein)} grams protein`} /></div>
             <p className="app-numbers mt-1 text-sm text-muted">{after}</p>
-            <div className="mt-2 grid grid-cols-3 gap-2">
+            <div className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(5.5rem,1fr))] gap-2">
               <Button
                 full
                 onClick={() =>
@@ -255,11 +271,11 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
           <ul className="divide-y divide-line rounded-lg border border-line bg-background">
             {rows.filter((r) => r.comp.group === group).map(({ ref, comp }) => (
               <li key={comp.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-2">
-                <div className="min-w-0 flex-1">
+                <div className="min-w-0 flex-1 basis-32">
                   <div className="font-medium">{ref.qty === 2 ? `Double ${comp.name.toLowerCase()}` : comp.name}</div>
                   <div className="app-numbers text-sm text-muted">{[comp.portion && (ref.qty === 2 ? `2 × ${comp.portion}` : comp.portion), formatCalories(comp.nutrients.calories * ref.qty)].filter(Boolean).join(" · ")}</div>
                 </div>
-                <div className="flex items-center">
+                <div className="flex flex-wrap items-center">
                   {comp.allowDouble && (
                     <button type="button" aria-pressed={ref.qty === 2} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`min-h-11 rounded-lg px-3 text-sm font-semibold ${ref.qty === 2 ? "bg-accent-soft text-accent" : "text-muted hover:bg-soft"}`}>Double</button>
                   )}
