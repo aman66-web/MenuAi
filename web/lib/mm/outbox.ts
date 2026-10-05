@@ -137,12 +137,23 @@ export class OutboxSender {
     return item;
   }
 
-  /** Retry pending items that are due (called when the app becomes active or comes back online). */
-  async flush(force = false): Promise<void> {
+  /**
+   * Retry pending items that are due. Called when the app becomes active (at most once per 10 minutes per item) and
+   * when the network comes back: an item that failed because it never reached the server (a network error) is
+   * retried at once then, since nothing was rejected.
+   */
+  async flush(options: { force?: boolean; afterReconnect?: boolean } = {}): Promise<void> {
     const now = this.deps.now();
     const due = this.deps.store
       .get()
-      .filter((i) => i.status === "pending" && (force || !i.lastAttemptAt || now - Date.parse(i.lastAttemptAt) >= OUTBOX_RETRY_MS));
+      .filter(
+        (i) =>
+          i.status === "pending" &&
+          (options.force ||
+            !i.lastAttemptAt ||
+            now - Date.parse(i.lastAttemptAt) >= OUTBOX_RETRY_MS ||
+            (options.afterReconnect && i.failureReason === "network")),
+      );
     await Promise.all(due.map((i) => this.attempt(i.id)));
   }
 

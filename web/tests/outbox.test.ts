@@ -84,7 +84,7 @@ describe("outbox sending (SPEC §12)", () => {
     await settle();
     expect(status(s)).toBe("failed");
     s.advance(OUTBOX_RETRY_MS * 3);
-    await s.sender.flush(true);
+    await s.sender.flush({ force: true });
     expect(s.calls).toHaveLength(1);
   });
   it("five failed attempts → failed", async () => {
@@ -98,8 +98,28 @@ describe("outbox sending (SPEC §12)", () => {
     expect(s.calls).toHaveLength(OUTBOX_MAX_ATTEMPTS);
     expect(status(s)).toBe("failed");
     s.advance(OUTBOX_RETRY_MS);
-    await s.sender.flush(true);
+    await s.sender.flush({ force: true });
     expect(s.calls).toHaveLength(OUTBOX_MAX_ATTEMPTS);
+  });
+  it("after the network comes back, an item that never reached the server is retried at once (no 10-minute wait)", async () => {
+    let online = false;
+    const s = setup(() => { if (!online) throw new TypeError("offline"); return json(201); });
+    await s.sender.enqueue("support", supportPayload("hello there"));
+    await settle();
+    expect(s.store.get()[0]!.failureReason).toBe("network");
+    online = true;
+    await s.sender.flush(); // app became active: still within the 10-minute window
+    expect(s.calls).toHaveLength(1);
+    await s.sender.flush({ afterReconnect: true });
+    expect(status(s)).toBe("sent");
+  });
+  it("reconnecting does not hammer the server: a 429/5xx item still waits out the 10 minutes", async () => {
+    const s = setup(() => json(503));
+    await s.sender.enqueue("support", supportPayload("hello there"));
+    await settle();
+    expect(s.store.get()[0]!.failureReason).toBe("http_503");
+    await s.sender.flush({ afterReconnect: true });
+    expect(s.calls).toHaveLength(1);
   });
   it("never sends the same item twice at once", async () => {
     let release!: () => void;
@@ -124,7 +144,7 @@ describe("outbox sending (SPEC §12)", () => {
     expect(s.calls[1]!.init.body).toBe(photo);
     expect(s.photos.blobs.size).toBe(0);
     s.advance(OUTBOX_RETRY_MS);
-    await s.sender.flush(true);
+    await s.sender.flush({ force: true });
     expect(s.calls).toHaveLength(2);
   });
   it("remove deletes the item and its photo", async () => {

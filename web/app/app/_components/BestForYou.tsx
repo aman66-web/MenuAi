@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { builderHref } from "@/lib/mm/routes";
 import { useEffect, useMemo } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, MEAL_LABEL } from "@/lib/mm/budget";
@@ -47,7 +48,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
   const open = (pick: Pick, rankNumber: number) =>
     gate("orderBuilder", () => {
       analytics.track({ name: "bestForYouPickOpened", rank: rankNumber });
-      router.push(`/app/builder?chain=${encodeURIComponent(index.chain.id)}&pick=${encodeURIComponent(pick.id)}`);
+      router.push(builderHref({ chain: index.chain.id, pick: pick.id }));
     });
 
   const copy =

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { chainHref, itemHref } from "@/lib/mm/routes";
 import { useDeferredValue, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { formatCalories } from "@/lib/mm/format";
@@ -57,7 +58,7 @@ export default function SearchPage() {
           <ul>
             {results.chains.map((c) => (
               <li key={c.chainId}>
-                <Link href={`/app/chain/${c.chainId}`} onClick={() => analytics.track({ name: "chainOpened", chainId: c.chainId, source: "search" })} className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft">
+                <Link href={chainHref(c.chainId)} onClick={() => analytics.track({ name: "chainOpened", chainId: c.chainId, source: "search" })} className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft">
                   <span>
                     <span className="block font-semibold">{c.name}</span>
                     <span className="flex items-center gap-2 text-sm text-muted">{c.cuisine} {c.sample && <SampleBadge />}</span>
@@ -76,7 +77,7 @@ export default function SearchPage() {
           <ul>
             {results.items.map((i) => (
               <li key={`${i.chainId}/${i.itemId}`}>
-                <Link href={`/app/chain/${i.chainId}/item/${i.itemId}`} className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft">
+                <Link href={itemHref(i.chainId, i.itemId)} className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft">
                   <span className="app-numbers">
                     <span className="block font-semibold">{i.name}</span>
                     <span className="block text-sm text-muted">{i.chainName} · {formatCalories(i.calories)}</span>

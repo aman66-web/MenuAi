@@ -39,10 +39,15 @@ export function AppShell({ children }: { children: ReactNode }) {
   // Retry queued submissions whenever the app becomes active or the network returns (SPEC §12).
   useEffect(() => {
     const flush = () => void outbox().flush();
+    const reconnected = () => void outbox().flush({ afterReconnect: true });
+    const visible = () => document.visibilityState === "visible" && flush();
     flush();
-    window.addEventListener("online", flush);
-    document.addEventListener("visibilitychange", () => document.visibilityState === "visible" && flush());
-    return () => window.removeEventListener("online", flush);
+    window.addEventListener("online", reconnected);
+    document.addEventListener("visibilitychange", visible);
+    return () => {
+      window.removeEventListener("online", reconnected);
+      document.removeEventListener("visibilitychange", visible);
+    };
   }, []);
 
   return (

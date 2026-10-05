@@ -1,6 +1,6 @@
-// Offline warm-up: once a day, on a good connection, fetch each chain's page and menu so every restaurant opens
-// without a connection (the service worker, public/sw.js, keeps what passes through it). Small and polite:
-// skipped on Save-Data or slow connections, run one at a time when the browser is idle.
+// Offline warm-up: once a day, on a good connection, fetch every chain's menu so every restaurant opens without a
+// connection (the pages themselves are static shells the service worker, public/sw.js, caches on install).
+// Small and polite: skipped on Save-Data or slow connections, one chain at a time when the browser is idle.
 
 const KEY = "mm.v1.warmedAt";
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -28,7 +28,7 @@ export async function warmOffline(chains: ReadonlyArray<{ id: string }>, loadCha
     if (!navigator.onLine) return; // try again next time
     await idle();
     try {
-      await Promise.all([fetch(`/app/chain/${encodeURIComponent(id)}`, { credentials: "same-origin" }).then((r) => r.arrayBuffer()), loadChain(id)]);
+      await loadChain(id);
     } catch {
       return;
     }

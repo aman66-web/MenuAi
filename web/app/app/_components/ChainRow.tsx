@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { chainHref } from "@/lib/mm/routes";
 import type { CatalogChain } from "@/lib/mm/menu-client";
 import { ChevronRightIcon } from "./icons";
 import { SampleBadge } from "./ui";
@@ -7,7 +8,7 @@ import { SampleBadge } from "./ui";
 export function ChainRow({ chain, onOpen }: { chain: Pick<CatalogChain, "id" | "name" | "sample" | "itemCount">; onOpen?: () => void }) {
   return (
     <Link
-      href={`/app/chain/${chain.id}`}
+      href={chainHref(chain.id)}
       onClick={onOpen}
       className="flex min-h-14 items-center justify-between gap-3 border-b border-line px-1 py-2 last:border-b-0 hover:bg-soft"
     >

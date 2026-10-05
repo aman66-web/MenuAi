@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { chainHref } from "@/lib/mm/routes";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
@@ -57,7 +58,7 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   const saved = useStore(savedStore);
 
   const back = (
-    <Link href={props.chainId ? `/app/chain/${props.chainId}` : "/app"} aria-label="Back" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></Link>
+    <Link href={props.chainId ? chainHref(props.chainId) : "/app"} aria-label="Back" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></Link>
   );
   if (!hydrated || status === "loading") return (<div>{back}<Spinner label="Loading" /></div>);
   if (!pro) {

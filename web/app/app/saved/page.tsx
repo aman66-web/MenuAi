@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { builderHref, chainHref } from "@/lib/mm/routes";
 import { useEffect, useRef, useState } from "react";
 import { FREE_SAVED_ORDER_LIMIT } from "@/lib/mm/config";
 import { macroLine } from "@/lib/mm/format";
@@ -65,11 +66,11 @@ export default function SavedPage() {
                 </div>
                 <div className="mt-3 flex gap-2">
                   {pro && !gone ? (
-                    <LinkButton href={`/app/builder?chain=${encodeURIComponent(o.chainId)}&saved=${encodeURIComponent(o.id)}`} variant="secondary" className="flex-1">Open in builder</LinkButton>
+                    <LinkButton href={builderHref({ chain: o.chainId, saved: o.id })} variant="secondary" className="flex-1">Open in builder</LinkButton>
                   ) : (
                     <Button variant="secondary" className="flex-1" aria-expanded={expanded} onClick={() => setOpen(expanded ? null : o.id)}>{expanded ? "Hide details" : "Details"}</Button>
                   )}
-                  {!gone && <Link href={`/app/chain/${o.chainId}`} className="inline-flex min-h-11 items-center justify-center rounded-xl px-4 font-medium text-accent hover:bg-accent-soft">Menu</Link>}
+                  {!gone && <Link href={chainHref(o.chainId)} className="inline-flex min-h-11 items-center justify-center rounded-xl px-4 font-medium text-accent hover:bg-accent-soft">Menu</Link>}
                 </div>
                 {expanded && (
                   <div className="mt-3 rounded-lg bg-background p-3">
