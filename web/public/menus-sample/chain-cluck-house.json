@@ -1,0 +1,772 @@
+{
+ "schemaVersion": 1,
+ "id": "cluck-house",
+ "name": "Cluck House",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "cluck house",
+  "cluckhouse"
+ ],
+ "sample": true,
+ "source": {
+  "title": "Cluck House Nutrition Facts (FICTIONAL SAMPLE)",
+  "url": "https://example.com/cluck-house/nutrition",
+  "checkedOn": "2026-10-01"
+ },
+ "categories": [
+  "Sandwiches",
+  "Nuggets",
+  "Salads",
+  "Sides",
+  "Breakfast",
+  "Treats",
+  "Drinks",
+  "Sauces"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "classic-sandwich",
+   "name": "Classic chicken sandwich",
+   "category": "Sandwiches",
+   "serving": "1 sandwich",
+   "nutrients": {
+    "calories": 440,
+    "protein": 28,
+    "carbs": 41,
+    "fat": 18,
+    "saturatedFat": 4,
+    "sodium": 1400,
+    "sugar": 6,
+    "fiber": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [
+    {
+     "id": "no-mayo",
+     "label": "No mayo",
+     "kind": "remove",
+     "nutrients": {
+      "calories": 100,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 11,
+      "saturatedFat": 2,
+      "sodium": 80,
+      "sugar": 0,
+      "fiber": 0
+     },
+     "tags": []
+    },
+    {
+     "id": "extra-fillet",
+     "label": "Extra fillet",
+     "kind": "add",
+     "nutrients": {
+      "calories": 190,
+      "protein": 24,
+      "carbs": 6,
+      "fat": 8,
+      "saturatedFat": 1.5,
+      "sodium": 780,
+      "sugar": 0,
+      "fiber": 0
+     },
+     "tags": []
+    },
+    {
+     "id": "add-bacon",
+     "label": "Add bacon",
+     "kind": "add",
+     "nutrients": {
+      "calories": 40,
+      "protein": 3,
+      "carbs": 0,
+      "fat": 3,
+      "saturatedFat": 1,
+      "sodium": 150,
+      "sugar": 0,
+      "fiber": 0
+     },
+     "tags": [
+      "contains_pork"
+     ]
+    }
+   ],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "spicy-deluxe",
+   "name": "Spicy deluxe sandwich",
+   "category": "Sandwiches",
+   "serving": "1 sandwich",
+   "nutrients": {
+    "calories": 550,
+    "protein": 30,
+    "carbs": 46,
+    "fat": 27,
+    "saturatedFat": 8,
+    "sodium": 1750,
+    "sugar": 7,
+    "fiber": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [
+    {
+     "id": "no-mayo",
+     "label": "No mayo",
+     "kind": "remove",
+     "nutrients": {
+      "calories": 100,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 11,
+      "saturatedFat": 2,
+      "sodium": 80,
+      "sugar": 0,
+      "fiber": 0
+     },
+     "tags": []
+    },
+    {
+     "id": "no-cheese",
+     "label": "No cheese",
+     "kind": "remove",
+     "nutrients": {
+      "calories": 70,
+      "protein": 4,
+      "carbs": 0,
+      "fat": 6,
+      "saturatedFat": 3.5,
+      "sodium": 150,
+      "sugar": 0,
+      "fiber": 0
+     },
+     "tags": []
+    }
+   ],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "grilled-sandwich",
+   "name": "Grilled chicken sandwich",
+   "category": "Sandwiches",
+   "serving": "1 sandwich",
+   "nutrients": {
+    "calories": 380,
+    "protein": 31,
+    "carbs": 40,
+    "fat": 10,
+    "saturatedFat": 2,
+    "sodium": 1120,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [
+    {
+     "id": "no-sauce",
+     "label": "No BBQ sauce",
+     "kind": "remove",
+     "nutrients": {
+      "calories": 60,
+      "protein": 0,
+      "carbs": 14,
+      "fat": 0,
+      "saturatedFat": 0,
+      "sodium": 170,
+      "sugar": 13,
+      "fiber": 0
+     },
+     "tags": []
+    }
+   ],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "nuggets-8",
+   "name": "Nuggets (8 ct)",
+   "category": "Nuggets",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 250,
+    "protein": 27,
+    "carbs": 11,
+    "fat": 11,
+    "saturatedFat": 2.5,
+    "sodium": 1060,
+    "sugar": 1,
+    "fiber": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "nuggets-12",
+   "name": "Nuggets (12 ct)",
+   "category": "Nuggets",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 380,
+    "protein": 40,
+    "carbs": 16,
+    "fat": 17,
+    "saturatedFat": 3.5,
+    "sodium": 1590,
+    "sugar": 1,
+    "fiber": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "grilled-nuggets-8",
+   "name": "Grilled nuggets (8 ct)",
+   "category": "Nuggets",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 130,
+    "protein": 25,
+    "carbs": 1,
+    "fat": 3,
+    "saturatedFat": 1,
+    "sodium": 440,
+    "sugar": 1,
+    "fiber": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "cobb-salad",
+   "name": "Cobb salad with nuggets",
+   "category": "Salads",
+   "serving": "1 salad",
+   "nutrients": {
+    "calories": 690,
+    "protein": 38,
+    "carbs": 32,
+    "fat": 45,
+    "saturatedFat": 11,
+    "sodium": 1500,
+    "sugar": 7,
+    "fiber": 5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [
+    {
+     "id": "no-dressing",
+     "label": "No ranch dressing",
+     "kind": "remove",
+     "nutrients": {
+      "calories": 310,
+      "protein": 1,
+      "carbs": 2,
+      "fat": 33,
+      "saturatedFat": 5,
+      "sodium": 500,
+      "sugar": 1,
+      "fiber": 0
+     },
+     "tags": []
+    }
+   ],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "waffle-fries",
+   "name": "Waffle fries (medium)",
+   "category": "Sides",
+   "serving": "1 medium",
+   "nutrients": {
+    "calories": 420,
+    "protein": 5,
+    "carbs": 45,
+    "fat": 24,
+    "saturatedFat": 4,
+    "sodium": 240,
+    "sugar": 1,
+    "fiber": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "fruit-cup",
+   "name": "Fruit cup",
+   "category": "Sides",
+   "serving": "1 cup",
+   "nutrients": {
+    "calories": 60,
+    "protein": 1,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sodium": 0,
+    "sugar": 11,
+    "fiber": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "side-salad",
+   "name": "Side salad",
+   "category": "Sides",
+   "serving": "1 salad",
+   "nutrients": {
+    "calories": 160,
+    "protein": 6,
+    "carbs": 12,
+    "fat": 10,
+    "saturatedFat": 5,
+    "sodium": 180,
+    "sugar": 5,
+    "fiber": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "egg-white-grill",
+   "name": "Egg white grill",
+   "category": "Breakfast",
+   "serving": "1 sandwich",
+   "nutrients": {
+    "calories": 300,
+    "protein": 28,
+    "carbs": 30,
+    "fat": 8,
+    "saturatedFat": 3.5,
+    "sodium": 970,
+    "sugar": 2,
+    "fiber": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "chicken-biscuit",
+   "name": "Chicken biscuit",
+   "category": "Breakfast",
+   "serving": "1 biscuit",
+   "nutrients": {
+    "calories": 460,
+    "protein": 19,
+    "carbs": 45,
+    "fat": 23,
+    "saturatedFat": 8,
+    "sodium": 1510,
+    "sugar": 6,
+    "fiber": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "pumpkin-shake",
+   "name": "Pumpkin spice shake",
+   "category": "Treats",
+   "serving": "16 fl oz",
+   "nutrients": {
+    "calories": 590,
+    "protein": 13,
+    "carbs": 90,
+    "fat": 21,
+    "saturatedFat": 13,
+    "sugar": 85,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "lemonade",
+   "name": "Lemonade (medium)",
+   "category": "Drinks",
+   "serving": "20 fl oz",
+   "nutrients": {
+    "calories": 220,
+    "protein": 0,
+    "carbs": 58,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sodium": 10,
+    "sugar": 55,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "cluck-sauce",
+   "name": "Cluck sauce",
+   "category": "Sauces",
+   "serving": "1 packet",
+   "nutrients": {
+    "calories": 140,
+    "protein": 0,
+    "carbs": 6,
+    "fat": 13,
+    "saturatedFat": 2,
+    "sodium": 220,
+    "sugar": 6,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  }
+ ],
+ "combinations": [
+  {
+   "id": "var-classic-sandwich-e80ad1cf",
+   "name": "Classic chicken sandwich · no mayo",
+   "kind": "variation",
+   "baseItemId": "classic-sandwich",
+   "components": [],
+   "items": [
+    {
+     "itemId": "classic-sandwich",
+     "modifierIds": [
+      "no-mayo"
+     ]
+    }
+   ],
+   "nutrients": {
+    "calories": 340,
+    "protein": 28,
+    "carbs": 41,
+    "fat": 7,
+    "saturatedFat": 2,
+    "sodium": 1320,
+    "sugar": 6,
+    "fiber": 1
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-classic-sandwich-ca503c1b",
+   "name": "Classic chicken sandwich · extra fillet",
+   "kind": "variation",
+   "baseItemId": "classic-sandwich",
+   "components": [],
+   "items": [
+    {
+     "itemId": "classic-sandwich",
+     "modifierIds": [
+      "extra-fillet"
+     ]
+    }
+   ],
+   "nutrients": {
+    "calories": 630,
+    "protein": 52,
+    "carbs": 47,
+    "fat": 26,
+    "saturatedFat": 5.5,
+    "sodium": 2180,
+    "sugar": 6,
+    "fiber": 1
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-classic-sandwich-90800215",
+   "name": "Classic chicken sandwich · add bacon",
+   "kind": "variation",
+   "baseItemId": "classic-sandwich",
+   "components": [],
+   "items": [
+    {
+     "itemId": "classic-sandwich",
+     "modifierIds": [
+      "add-bacon"
+     ]
+    }
+   ],
+   "nutrients": {
+    "calories": 480,
+    "protein": 31,
+    "carbs": 41,
+    "fat": 21,
+    "saturatedFat": 5,
+    "sodium": 1550,
+    "sugar": 6,
+    "fiber": 1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-spicy-deluxe-3381688a",
+   "name": "Spicy deluxe sandwich · no mayo",
+   "kind": "variation",
+   "baseItemId": "spicy-deluxe",
+   "components": [],
+   "items": [
+    {
+     "itemId": "spicy-deluxe",
+     "modifierIds": [
+      "no-mayo"
+     ]
+    }
+   ],
+   "nutrients": {
+    "calories": 450,
+    "protein": 30,
+    "carbs": 46,
+    "fat": 16,
+    "saturatedFat": 6,
+    "sodium": 1670,
+    "sugar": 7,
+    "fiber": 2
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-spicy-deluxe-79c89a63",
+   "name": "Spicy deluxe sandwich · no cheese",
+   "kind": "variation",
+   "baseItemId": "spicy-deluxe",
+   "components": [],
+   "items": [
+    {
+     "itemId": "spicy-deluxe",
+     "modifierIds": [
+      "no-cheese"
+     ]
+    }
+   ],
+   "nutrients": {
+    "calories": 480,
+    "protein": 26,
+    "carbs": 46,
+    "fat": 21,
+    "saturatedFat": 4.5,
+    "sodium": 1600,
+    "sugar": 7,
+    "fiber": 2
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-spicy-deluxe-24eea064",
+   "name": "Spicy deluxe sandwich · no mayo · no cheese",
+   "kind": "variation",
+   "baseItemId": "spicy-deluxe",
+   "components": [],
+   "items": [
+    {
+     "itemId": "spicy-deluxe",
+     "modifierIds": [
+      "no-mayo",
+      "no-cheese"
+     ]
+    }
+   ],
+   "nutrients": {
+    "calories": 380,
+    "protein": 26,
+    "carbs": 46,
+    "fat": 10,
+    "saturatedFat": 2.5,
+    "sodium": 1520,
+    "sugar": 7,
+    "fiber": 2
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-grilled-sandwich-03f6e40d",
+   "name": "Grilled chicken sandwich · no BBQ sauce",
+   "kind": "variation",
+   "baseItemId": "grilled-sandwich",
+   "components": [],
+   "items": [
+    {
+     "itemId": "grilled-sandwich",
+     "modifierIds": [
+      "no-sauce"
+     ]
+    }
+   ],
+   "nutrients": {
+    "calories": 320,
+    "protein": 31,
+    "carbs": 26,
+    "fat": 10,
+    "saturatedFat": 2,
+    "sodium": 950,
+    "sugar": 2,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-cobb-salad-485f021c",
+   "name": "Cobb salad with nuggets · no ranch dressing",
+   "kind": "variation",
+   "baseItemId": "cobb-salad",
+   "components": [],
+   "items": [
+    {
+     "itemId": "cobb-salad",
+     "modifierIds": [
+      "no-dressing"
+     ]
+    }
+   ],
+   "nutrients": {
+    "calories": 380,
+    "protein": 37,
+    "carbs": 30,
+    "fat": 12,
+    "saturatedFat": 6,
+    "sodium": 1000,
+    "sugar": 6,
+    "fiber": 5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "combo-nuggets-12-fruit",
+   "name": "Nuggets (12 ct) + fruit cup",
+   "kind": "combo",
+   "baseItemId": null,
+   "components": [],
+   "items": [
+    {
+     "itemId": "nuggets-12",
+     "modifierIds": []
+    },
+    {
+     "itemId": "fruit-cup",
+     "modifierIds": []
+    }
+   ],
+   "nutrients": {
+    "calories": 440,
+    "protein": 41,
+    "carbs": 31,
+    "fat": 17,
+    "saturatedFat": 3.5,
+    "sodium": 1590,
+    "sugar": 12,
+    "fiber": 2
+   },
+   "tags": [],
+   "itemCount": 2
+  },
+  {
+   "id": "combo-grilled-sandwich-side-salad",
+   "name": "Grilled chicken sandwich + side salad",
+   "kind": "combo",
+   "baseItemId": null,
+   "components": [],
+   "items": [
+    {
+     "itemId": "grilled-sandwich",
+     "modifierIds": []
+    },
+    {
+     "itemId": "side-salad",
+     "modifierIds": []
+    }
+   ],
+   "nutrients": {
+    "calories": 540,
+    "protein": 37,
+    "carbs": 52,
+    "fat": 20,
+    "saturatedFat": 7,
+    "sodium": 1300,
+    "sugar": 20,
+    "fiber": 7
+   },
+   "tags": [],
+   "itemCount": 2
+  }
+ ]
+}

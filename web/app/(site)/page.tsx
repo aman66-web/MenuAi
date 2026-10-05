@@ -1,5 +1,5 @@
 import { site } from "@/site.config";
-import { WaitlistForm } from "./components/WaitlistForm";
+import { WaitlistForm } from "@/app/components/WaitlistForm";
 
 const steps = [
   { title: "Pick the restaurant", body: "Choose a chain near you or search by name. Works offline." },

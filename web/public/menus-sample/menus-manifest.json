@@ -1,0 +1,27 @@
+{
+ "schemaVersion": 1,
+ "dataVersion": 20261005150948,
+ "generatedAt": "2026-10-05T15:09:48Z",
+ "chains": [
+  {
+   "id": "bowl-and-co",
+   "name": "Bowl & Co.",
+   "file": "chain-bowl-and-co.json",
+   "sha256": "5357ad811f4029ab96608d118d7d28dc80d5656d6d74bcf87bca66d3b2ecb634",
+   "contentHash": "d9ad833caee16efed39f424bc603bc3655469dbb438e8adf4e37ef5b276f7e74",
+   "sample": true,
+   "itemCount": 7,
+   "checkedOn": "2026-10-01"
+  },
+  {
+   "id": "cluck-house",
+   "name": "Cluck House",
+   "file": "chain-cluck-house.json",
+   "sha256": "5bb8d251744fa3942d5a89b8275cc5b7e8128e4afb4bb0c036b63460223458ed",
+   "contentHash": "882f47167c4898752381a7eb689b92bdb6fe604a55e91557a2ecb37cf5d39418",
+   "sample": true,
+   "itemCount": 15,
+   "checkedOn": "2026-10-01"
+  }
+ ]
+}

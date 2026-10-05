@@ -1,0 +1,4540 @@
+{
+ "schemaVersion": 1,
+ "id": "bowl-and-co",
+ "name": "Bowl & Co.",
+ "cuisine": "Mexican",
+ "builderType": "build_your_own",
+ "aliases": [
+  "bowl and co",
+  "bowl co",
+  "bowl & co"
+ ],
+ "sample": true,
+ "source": {
+  "title": "Bowl & Co. Nutrition Guide (FICTIONAL SAMPLE)",
+  "url": "https://example.com/bowl-and-co/nutrition",
+  "checkedOn": "2026-10-01"
+ },
+ "categories": [
+  "Bowls",
+  "Burritos",
+  "Salads",
+  "Sides",
+  "Drinks"
+ ],
+ "components": [
+  {
+   "id": "white-rice",
+   "group": "base",
+   "name": "White rice",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 210,
+    "protein": 4,
+    "carbs": 40,
+    "fat": 4,
+    "saturatedFat": 1,
+    "sodium": 350,
+    "sugar": 0,
+    "fiber": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "brown-rice",
+   "group": "base",
+   "name": "Brown rice",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 210,
+    "protein": 4,
+    "carbs": 36,
+    "fat": 6,
+    "saturatedFat": 1,
+    "sodium": 190,
+    "sugar": 0,
+    "fiber": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "lettuce",
+   "group": "base",
+   "name": "Romaine lettuce",
+   "portion": "2.5 oz",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sodium": 5,
+    "sugar": 0,
+    "fiber": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "tortilla",
+   "group": "wrap",
+   "name": "Flour tortilla",
+   "portion": "1 tortilla",
+   "nutrients": {
+    "calories": 320,
+    "protein": 8,
+    "carbs": 50,
+    "fat": 9,
+    "saturatedFat": 3,
+    "sodium": 600,
+    "sugar": 0,
+    "fiber": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "chicken",
+   "group": "protein",
+   "name": "Chicken",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 180,
+    "protein": 32,
+    "carbs": 0,
+    "fat": 7,
+    "saturatedFat": 3,
+    "sodium": 310,
+    "sugar": 0,
+    "fiber": 0
+   },
+   "tags": [],
+   "removable": false,
+   "allowDouble": true
+  },
+  {
+   "id": "steak",
+   "group": "protein",
+   "name": "Steak",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 150,
+    "protein": 21,
+    "carbs": 1,
+    "fat": 6,
+    "saturatedFat": 2,
+    "sodium": 330,
+    "sugar": 0,
+    "fiber": 0
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "removable": false,
+   "allowDouble": true
+  },
+  {
+   "id": "sofritas",
+   "group": "protein",
+   "name": "Sofritas (tofu)",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 150,
+    "protein": 8,
+    "carbs": 9,
+    "fat": 10,
+    "saturatedFat": 1.5,
+    "sodium": 560,
+    "sugar": 5,
+    "fiber": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": true
+  },
+  {
+   "id": "black-beans",
+   "group": "topping",
+   "name": "Black beans",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 130,
+    "protein": 8,
+    "carbs": 22,
+    "fat": 1,
+    "saturatedFat": 0,
+    "sodium": 210,
+    "sugar": 2,
+    "fiber": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "pinto-beans",
+   "group": "topping",
+   "name": "Pinto beans",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 130,
+    "protein": 8,
+    "carbs": 21,
+    "fat": 1.5,
+    "saturatedFat": 0,
+    "sodium": 210,
+    "sugar": 1,
+    "fiber": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "fajita-veg",
+   "group": "topping",
+   "name": "Fajita vegetables",
+   "portion": "2.5 oz",
+   "nutrients": {
+    "calories": 20,
+    "protein": 1,
+    "carbs": 5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sodium": 150,
+    "sugar": 2,
+    "fiber": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "corn-salsa",
+   "group": "topping",
+   "name": "Corn salsa",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 80,
+    "protein": 3,
+    "carbs": 15,
+    "fat": 2,
+    "saturatedFat": 0,
+    "sodium": 330,
+    "sugar": 4,
+    "fiber": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "tomato-salsa",
+   "group": "topping",
+   "name": "Tomato salsa",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 25,
+    "protein": 0,
+    "carbs": 4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sodium": 550,
+    "sugar": 1,
+    "fiber": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "cheese",
+   "group": "topping",
+   "name": "Cheese",
+   "portion": "1 oz",
+   "nutrients": {
+    "calories": 110,
+    "protein": 6,
+    "carbs": 1,
+    "fat": 8.5,
+    "saturatedFat": 5,
+    "sodium": 190,
+    "sugar": 0,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": true,
+   "allowDouble": false
+  },
+  {
+   "id": "sour-cream",
+   "group": "topping",
+   "name": "Sour cream",
+   "portion": "2 oz",
+   "nutrients": {
+    "calories": 110,
+    "protein": 2,
+    "carbs": 2,
+    "fat": 9,
+    "saturatedFat": 7,
+    "sodium": 30,
+    "sugar": 2,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": true,
+   "allowDouble": false
+  },
+  {
+   "id": "guacamole",
+   "group": "topping",
+   "name": "Guacamole",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 230,
+    "protein": 2,
+    "carbs": 8,
+    "fat": 22,
+    "saturatedFat": 3.5,
+    "sodium": 370,
+    "sugar": 1,
+    "fiber": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": true,
+   "allowDouble": false
+  },
+  {
+   "id": "vinaigrette",
+   "group": "sauce",
+   "name": "Honey lime vinaigrette",
+   "portion": "2 oz",
+   "nutrients": {
+    "calories": 220,
+    "protein": 1,
+    "carbs": 18,
+    "fat": 16,
+    "saturatedFat": 2.5,
+    "sugar": 12,
+    "fiber": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": true,
+   "allowDouble": false
+  },
+  {
+   "id": "chips",
+   "group": "side",
+   "name": "Tortilla chips",
+   "portion": "4 oz",
+   "nutrients": {
+    "calories": 540,
+    "protein": 7,
+    "carbs": 73,
+    "fat": 25,
+    "saturatedFat": 3.5,
+    "sodium": 390,
+    "sugar": 1,
+    "fiber": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  }
+ ],
+ "items": [
+  {
+   "id": "chicken-bowl",
+   "name": "Chicken bowl",
+   "category": "Bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 655,
+    "protein": 50,
+    "carbs": 67,
+    "fat": 20.5,
+    "saturatedFat": 9,
+    "sodium": 1610,
+    "sugar": 3,
+    "fiber": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    }
+   ],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "steak-bowl",
+   "name": "Steak bowl",
+   "category": "Bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 730,
+    "protein": 42,
+    "carbs": 66,
+    "fat": 31,
+    "saturatedFat": 15,
+    "sodium": 1100,
+    "sugar": 5,
+    "fiber": 11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    }
+   ],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "sofritas-bowl",
+   "name": "Sofritas bowl",
+   "category": "Bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 820,
+    "protein": 26,
+    "carbs": 95,
+    "fat": 41,
+    "saturatedFat": 6,
+    "sodium": 1810,
+    "sugar": 14,
+    "fiber": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "sofritas",
+     "qty": 1
+    },
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    }
+   ],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "chicken-burrito",
+   "name": "Chicken burrito",
+   "category": "Burritos",
+   "serving": "1 burrito",
+   "nutrients": {
+    "calories": 1085,
+    "protein": 60,
+    "carbs": 119,
+    "fat": 38.5,
+    "saturatedFat": 19,
+    "sodium": 2240,
+    "sugar": 5,
+    "fiber": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "chicken-salad",
+   "name": "Chicken salad",
+   "category": "Salads",
+   "serving": "1 salad",
+   "nutrients": {
+    "calories": 560,
+    "protein": 40,
+    "carbs": 29,
+    "fat": 31.5,
+    "saturatedFat": 10.5,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Sides",
+   "serving": "1 bag",
+   "nutrients": {
+    "calories": 540,
+    "protein": 7,
+    "carbs": 73,
+    "fat": 25,
+    "saturatedFat": 3.5,
+    "sodium": 390,
+    "sugar": 1,
+    "fiber": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "chips",
+     "qty": 1
+    }
+   ],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  },
+  {
+   "id": "agua-fresca",
+   "name": "Agua fresca",
+   "category": "Drinks",
+   "serving": "16 fl oz",
+   "nutrients": {
+    "calories": 120,
+    "protein": 0,
+    "carbs": 30,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sodium": 10,
+    "sugar": 28,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "addedOn": "2026-10-01"
+  }
+ ],
+ "combinations": [
+  {
+   "id": "var-chicken-bowl-e5a1606f",
+   "name": "Chicken bowl · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 655,
+    "protein": 50,
+    "carbs": 63,
+    "fat": 22.5,
+    "saturatedFat": 9,
+    "sodium": 1450,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-46a8eca3",
+   "name": "Chicken bowl · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 450,
+    "protein": 46,
+    "carbs": 28,
+    "fat": 16.5,
+    "saturatedFat": 8,
+    "sodium": 1265,
+    "sugar": 3,
+    "fiber": 9
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-263d8805",
+   "name": "Chicken bowl · no cheese",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 545,
+    "protein": 44,
+    "carbs": 66,
+    "fat": 12,
+    "saturatedFat": 4,
+    "sodium": 1420,
+    "sugar": 3,
+    "fiber": 9
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-67514d53",
+   "name": "Chicken bowl · no cheese · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 545,
+    "protein": 44,
+    "carbs": 62,
+    "fat": 14,
+    "saturatedFat": 4,
+    "sodium": 1260,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-3653431d",
+   "name": "Chicken bowl · no cheese · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 340,
+    "protein": 40,
+    "carbs": 27,
+    "fat": 8,
+    "saturatedFat": 3,
+    "sodium": 1075,
+    "sugar": 3,
+    "fiber": 9
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-310d0919",
+   "name": "Chicken bowl · double chicken",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 835,
+    "protein": 82,
+    "carbs": 67,
+    "fat": 27.5,
+    "saturatedFat": 12,
+    "sodium": 1920,
+    "sugar": 3,
+    "fiber": 9
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-4fd1b92b",
+   "name": "Chicken bowl · double chicken · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 835,
+    "protein": 82,
+    "carbs": 63,
+    "fat": 29.5,
+    "saturatedFat": 12,
+    "sodium": 1760,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-4de1e655",
+   "name": "Chicken bowl · double chicken · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 630,
+    "protein": 78,
+    "carbs": 28,
+    "fat": 23.5,
+    "saturatedFat": 11,
+    "sodium": 1575,
+    "sugar": 3,
+    "fiber": 9
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-fc7387b6",
+   "name": "Chicken bowl · double chicken · no cheese",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 725,
+    "protein": 76,
+    "carbs": 66,
+    "fat": 19,
+    "saturatedFat": 7,
+    "sodium": 1730,
+    "sugar": 3,
+    "fiber": 9
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-4928f79b",
+   "name": "Chicken bowl · double chicken · no cheese · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 725,
+    "protein": 76,
+    "carbs": 62,
+    "fat": 21,
+    "saturatedFat": 7,
+    "sodium": 1570,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-bowl-9b4a80a3",
+   "name": "Chicken bowl · double chicken · no cheese · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 520,
+    "protein": 72,
+    "carbs": 27,
+    "fat": 15,
+    "saturatedFat": 6,
+    "sodium": 1385,
+    "sugar": 3,
+    "fiber": 9
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-24d5f095",
+   "name": "Steak bowl · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 730,
+    "protein": 42,
+    "carbs": 70,
+    "fat": 29,
+    "saturatedFat": 15,
+    "sodium": 1260,
+    "sugar": 5,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-d51d6d7b",
+   "name": "Steak bowl · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 525,
+    "protein": 38,
+    "carbs": 31,
+    "fat": 25,
+    "saturatedFat": 14,
+    "sodium": 915,
+    "sugar": 5,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-5d5d68b7",
+   "name": "Steak bowl · no sour cream",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 620,
+    "protein": 40,
+    "carbs": 64,
+    "fat": 22,
+    "saturatedFat": 8,
+    "sodium": 1070,
+    "sugar": 3,
+    "fiber": 11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-867e56d6",
+   "name": "Steak bowl · no sour cream · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 620,
+    "protein": 40,
+    "carbs": 68,
+    "fat": 20,
+    "saturatedFat": 8,
+    "sodium": 1230,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-ee14c5e3",
+   "name": "Steak bowl · no sour cream · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 415,
+    "protein": 36,
+    "carbs": 29,
+    "fat": 16,
+    "saturatedFat": 7,
+    "sodium": 885,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-01ceec29",
+   "name": "Steak bowl · no cheese",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 620,
+    "protein": 36,
+    "carbs": 65,
+    "fat": 22.5,
+    "saturatedFat": 10,
+    "sodium": 910,
+    "sugar": 5,
+    "fiber": 11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-ef4c6e3b",
+   "name": "Steak bowl · no cheese · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 620,
+    "protein": 36,
+    "carbs": 69,
+    "fat": 20.5,
+    "saturatedFat": 10,
+    "sodium": 1070,
+    "sugar": 5,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-60f6b2af",
+   "name": "Steak bowl · no cheese · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 415,
+    "protein": 32,
+    "carbs": 30,
+    "fat": 16.5,
+    "saturatedFat": 9,
+    "sodium": 725,
+    "sugar": 5,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-657c16f8",
+   "name": "Steak bowl · no sour cream, no cheese",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 510,
+    "protein": 34,
+    "carbs": 63,
+    "fat": 13.5,
+    "saturatedFat": 3,
+    "sodium": 880,
+    "sugar": 3,
+    "fiber": 11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-2ca2283b",
+   "name": "Steak bowl · no sour cream, no cheese · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 510,
+    "protein": 34,
+    "carbs": 67,
+    "fat": 11.5,
+    "saturatedFat": 3,
+    "sodium": 1040,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-11a889c8",
+   "name": "Steak bowl · no sour cream, no cheese · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 305,
+    "protein": 30,
+    "carbs": 28,
+    "fat": 7.5,
+    "saturatedFat": 2,
+    "sodium": 695,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-2e104b60",
+   "name": "Steak bowl · double steak",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 880,
+    "protein": 63,
+    "carbs": 67,
+    "fat": 37,
+    "saturatedFat": 17,
+    "sodium": 1430,
+    "sugar": 5,
+    "fiber": 11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-f2817c11",
+   "name": "Steak bowl · double steak · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 880,
+    "protein": 63,
+    "carbs": 71,
+    "fat": 35,
+    "saturatedFat": 17,
+    "sodium": 1590,
+    "sugar": 5,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-0c2b6c0e",
+   "name": "Steak bowl · double steak · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 675,
+    "protein": 59,
+    "carbs": 32,
+    "fat": 31,
+    "saturatedFat": 16,
+    "sodium": 1245,
+    "sugar": 5,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-1ef5f8fe",
+   "name": "Steak bowl · double steak · no sour cream",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 770,
+    "protein": 61,
+    "carbs": 65,
+    "fat": 28,
+    "saturatedFat": 10,
+    "sodium": 1400,
+    "sugar": 3,
+    "fiber": 11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-a94efdfe",
+   "name": "Steak bowl · double steak · no sour cream · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 770,
+    "protein": 61,
+    "carbs": 69,
+    "fat": 26,
+    "saturatedFat": 10,
+    "sodium": 1560,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-146bb656",
+   "name": "Steak bowl · double steak · no sour cream · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 565,
+    "protein": 57,
+    "carbs": 30,
+    "fat": 22,
+    "saturatedFat": 9,
+    "sodium": 1215,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-55df3f62",
+   "name": "Steak bowl · double steak · no cheese",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 770,
+    "protein": 57,
+    "carbs": 66,
+    "fat": 28.5,
+    "saturatedFat": 12,
+    "sodium": 1240,
+    "sugar": 5,
+    "fiber": 11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-971a2a26",
+   "name": "Steak bowl · double steak · no cheese · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 770,
+    "protein": 57,
+    "carbs": 70,
+    "fat": 26.5,
+    "saturatedFat": 12,
+    "sodium": 1400,
+    "sugar": 5,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-cc9914dd",
+   "name": "Steak bowl · double steak · no cheese · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 565,
+    "protein": 53,
+    "carbs": 31,
+    "fat": 22.5,
+    "saturatedFat": 11,
+    "sodium": 1055,
+    "sugar": 5,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-7e0b378c",
+   "name": "Steak bowl · double steak · no sour cream, no cheese",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 660,
+    "protein": 55,
+    "carbs": 64,
+    "fat": 19.5,
+    "saturatedFat": 5,
+    "sodium": 1210,
+    "sugar": 3,
+    "fiber": 11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-3ef8d11c",
+   "name": "Steak bowl · double steak · no sour cream, no cheese · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 660,
+    "protein": 55,
+    "carbs": 68,
+    "fat": 17.5,
+    "saturatedFat": 5,
+    "sodium": 1370,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-steak-bowl-dad69305",
+   "name": "Steak bowl · double steak · no sour cream, no cheese · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "steak-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "pinto-beans",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 455,
+    "protein": 51,
+    "carbs": 29,
+    "fat": 13.5,
+    "saturatedFat": 4,
+    "sodium": 1025,
+    "sugar": 3,
+    "fiber": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-f7750d4d",
+   "name": "Sofritas bowl · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 820,
+    "protein": 26,
+    "carbs": 99,
+    "fat": 39,
+    "saturatedFat": 6,
+    "sodium": 1970,
+    "sugar": 14,
+    "fiber": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-f6d128e5",
+   "name": "Sofritas bowl · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 615,
+    "protein": 22,
+    "carbs": 60,
+    "fat": 35,
+    "saturatedFat": 5,
+    "sodium": 1625,
+    "sugar": 14,
+    "fiber": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-7acb8dd7",
+   "name": "Sofritas bowl · no guacamole",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 590,
+    "protein": 24,
+    "carbs": 87,
+    "fat": 19,
+    "saturatedFat": 2.5,
+    "sodium": 1440,
+    "sugar": 13,
+    "fiber": 16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-e1c10b58",
+   "name": "Sofritas bowl · no guacamole · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 590,
+    "protein": 24,
+    "carbs": 91,
+    "fat": 17,
+    "saturatedFat": 2.5,
+    "sodium": 1600,
+    "sugar": 13,
+    "fiber": 15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-b897d81c",
+   "name": "Sofritas bowl · no guacamole · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 385,
+    "protein": 20,
+    "carbs": 52,
+    "fat": 13,
+    "saturatedFat": 1.5,
+    "sodium": 1255,
+    "sugar": 13,
+    "fiber": 15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-9b139dbd",
+   "name": "Sofritas bowl · double sofritas (tofu)",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 970,
+    "protein": 34,
+    "carbs": 104,
+    "fat": 51,
+    "saturatedFat": 7.5,
+    "sodium": 2370,
+    "sugar": 19,
+    "fiber": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-607e2344",
+   "name": "Sofritas bowl · double sofritas (tofu) · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 970,
+    "protein": 34,
+    "carbs": 108,
+    "fat": 49,
+    "saturatedFat": 7.5,
+    "sodium": 2530,
+    "sugar": 19,
+    "fiber": 24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-88db82b4",
+   "name": "Sofritas bowl · double sofritas (tofu) · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 765,
+    "protein": 30,
+    "carbs": 69,
+    "fat": 45,
+    "saturatedFat": 6.5,
+    "sodium": 2185,
+    "sugar": 19,
+    "fiber": 24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-cfddfe70",
+   "name": "Sofritas bowl · double sofritas (tofu) · no guacamole",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 740,
+    "protein": 32,
+    "carbs": 96,
+    "fat": 29,
+    "saturatedFat": 4,
+    "sodium": 2000,
+    "sugar": 18,
+    "fiber": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-ec23f5d5",
+   "name": "Sofritas bowl · double sofritas (tofu) · no guacamole · white rice instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 740,
+    "protein": 32,
+    "carbs": 100,
+    "fat": 27,
+    "saturatedFat": 4,
+    "sodium": 2160,
+    "sugar": 18,
+    "fiber": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-sofritas-bowl-c1192e6f",
+   "name": "Sofritas bowl · double sofritas (tofu) · no guacamole · romaine lettuce instead of brown rice",
+   "kind": "variation",
+   "baseItemId": "sofritas-bowl",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "sofritas",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "corn-salsa",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 535,
+    "protein": 28,
+    "carbs": 61,
+    "fat": 23,
+    "saturatedFat": 3,
+    "sodium": 1815,
+    "sugar": 18,
+    "fiber": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-cd36148a",
+   "name": "Chicken burrito · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1085,
+    "protein": 60,
+    "carbs": 115,
+    "fat": 40.5,
+    "saturatedFat": 19,
+    "sodium": 2080,
+    "sugar": 5,
+    "fiber": 13
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-0d0a47db",
+   "name": "Chicken burrito · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 880,
+    "protein": 56,
+    "carbs": 80,
+    "fat": 34.5,
+    "saturatedFat": 18,
+    "sodium": 1895,
+    "sugar": 5,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-f773ad82",
+   "name": "Chicken burrito · no cheese",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 975,
+    "protein": 54,
+    "carbs": 118,
+    "fat": 30,
+    "saturatedFat": 14,
+    "sodium": 2050,
+    "sugar": 5,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-9fb3b122",
+   "name": "Chicken burrito · no cheese · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 975,
+    "protein": 54,
+    "carbs": 114,
+    "fat": 32,
+    "saturatedFat": 14,
+    "sodium": 1890,
+    "sugar": 5,
+    "fiber": 13
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-4851d8dd",
+   "name": "Chicken burrito · no cheese · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 770,
+    "protein": 50,
+    "carbs": 79,
+    "fat": 26,
+    "saturatedFat": 13,
+    "sodium": 1705,
+    "sugar": 5,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-1f976227",
+   "name": "Chicken burrito · no sour cream",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 975,
+    "protein": 58,
+    "carbs": 117,
+    "fat": 29.5,
+    "saturatedFat": 12,
+    "sodium": 2210,
+    "sugar": 3,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-5daf2416",
+   "name": "Chicken burrito · no sour cream · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 975,
+    "protein": 58,
+    "carbs": 113,
+    "fat": 31.5,
+    "saturatedFat": 12,
+    "sodium": 2050,
+    "sugar": 3,
+    "fiber": 13
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-5fa5e5a6",
+   "name": "Chicken burrito · no sour cream · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 770,
+    "protein": 54,
+    "carbs": 78,
+    "fat": 25.5,
+    "saturatedFat": 11,
+    "sodium": 1865,
+    "sugar": 3,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-28db5de9",
+   "name": "Chicken burrito · no cheese, no sour cream",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 865,
+    "protein": 52,
+    "carbs": 116,
+    "fat": 21,
+    "saturatedFat": 7,
+    "sodium": 2020,
+    "sugar": 3,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-cbf7d7f5",
+   "name": "Chicken burrito · no cheese, no sour cream · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 865,
+    "protein": 52,
+    "carbs": 112,
+    "fat": 23,
+    "saturatedFat": 7,
+    "sodium": 1860,
+    "sugar": 3,
+    "fiber": 13
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-3fa75af4",
+   "name": "Chicken burrito · no cheese, no sour cream · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 660,
+    "protein": 48,
+    "carbs": 77,
+    "fat": 17,
+    "saturatedFat": 6,
+    "sodium": 1675,
+    "sugar": 3,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-cabb7951",
+   "name": "Chicken burrito · double chicken",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1265,
+    "protein": 92,
+    "carbs": 119,
+    "fat": 45.5,
+    "saturatedFat": 22,
+    "sodium": 2550,
+    "sugar": 5,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-803aadea",
+   "name": "Chicken burrito · double chicken · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1265,
+    "protein": 92,
+    "carbs": 115,
+    "fat": 47.5,
+    "saturatedFat": 22,
+    "sodium": 2390,
+    "sugar": 5,
+    "fiber": 13
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-13b0bcd6",
+   "name": "Chicken burrito · double chicken · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1060,
+    "protein": 88,
+    "carbs": 80,
+    "fat": 41.5,
+    "saturatedFat": 21,
+    "sodium": 2205,
+    "sugar": 5,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-bb6abeb5",
+   "name": "Chicken burrito · double chicken · no cheese",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1155,
+    "protein": 86,
+    "carbs": 118,
+    "fat": 37,
+    "saturatedFat": 17,
+    "sodium": 2360,
+    "sugar": 5,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-a602d4e0",
+   "name": "Chicken burrito · double chicken · no cheese · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1155,
+    "protein": 86,
+    "carbs": 114,
+    "fat": 39,
+    "saturatedFat": 17,
+    "sodium": 2200,
+    "sugar": 5,
+    "fiber": 13
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-da930826",
+   "name": "Chicken burrito · double chicken · no cheese · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 950,
+    "protein": 82,
+    "carbs": 79,
+    "fat": 33,
+    "saturatedFat": 16,
+    "sodium": 2015,
+    "sugar": 5,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-d083e472",
+   "name": "Chicken burrito · double chicken · no sour cream",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1155,
+    "protein": 90,
+    "carbs": 117,
+    "fat": 36.5,
+    "saturatedFat": 15,
+    "sodium": 2520,
+    "sugar": 3,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-62eff7a6",
+   "name": "Chicken burrito · double chicken · no sour cream · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1155,
+    "protein": 90,
+    "carbs": 113,
+    "fat": 38.5,
+    "saturatedFat": 15,
+    "sodium": 2360,
+    "sugar": 3,
+    "fiber": 13
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-2e82ac77",
+   "name": "Chicken burrito · double chicken · no sour cream · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 950,
+    "protein": 86,
+    "carbs": 78,
+    "fat": 32.5,
+    "saturatedFat": 14,
+    "sodium": 2175,
+    "sugar": 3,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-0eb338bf",
+   "name": "Chicken burrito · double chicken · no cheese, no sour cream",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1045,
+    "protein": 84,
+    "carbs": 116,
+    "fat": 28,
+    "saturatedFat": 10,
+    "sodium": 2330,
+    "sugar": 3,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-a59a8590",
+   "name": "Chicken burrito · double chicken · no cheese, no sour cream · brown rice instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 1045,
+    "protein": 84,
+    "carbs": 112,
+    "fat": 30,
+    "saturatedFat": 10,
+    "sodium": 2170,
+    "sugar": 3,
+    "fiber": 13
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-burrito-29ae77f9",
+   "name": "Chicken burrito · double chicken · no cheese, no sour cream · romaine lettuce instead of white rice",
+   "kind": "variation",
+   "baseItemId": "chicken-burrito",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "tortilla",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 840,
+    "protein": 80,
+    "carbs": 77,
+    "fat": 24,
+    "saturatedFat": 9,
+    "sodium": 1985,
+    "sugar": 3,
+    "fiber": 12
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-534a4772",
+   "name": "Chicken salad · white rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 765,
+    "protein": 44,
+    "carbs": 68,
+    "fat": 35.5,
+    "saturatedFat": 11.5,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-7ef50630",
+   "name": "Chicken salad · brown rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 765,
+    "protein": 44,
+    "carbs": 64,
+    "fat": 37.5,
+    "saturatedFat": 11.5,
+    "sugar": 15,
+    "fiber": 5
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-83e5ddea",
+   "name": "Chicken salad · no cheese",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 450,
+    "protein": 34,
+    "carbs": 28,
+    "fat": 23,
+    "saturatedFat": 5.5,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-8baa21ff",
+   "name": "Chicken salad · no cheese · white rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 655,
+    "protein": 38,
+    "carbs": 67,
+    "fat": 27,
+    "saturatedFat": 6.5,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-2d7d24b3",
+   "name": "Chicken salad · no cheese · brown rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 655,
+    "protein": 38,
+    "carbs": 63,
+    "fat": 29,
+    "saturatedFat": 6.5,
+    "sugar": 15,
+    "fiber": 5
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-fd6b2ec5",
+   "name": "Chicken salad · no honey lime vinaigrette",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 340,
+    "protein": 39,
+    "carbs": 11,
+    "fat": 15.5,
+    "saturatedFat": 8,
+    "sodium": 1205,
+    "sugar": 3,
+    "fiber": 3
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-3245b2db",
+   "name": "Chicken salad · no honey lime vinaigrette · white rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 545,
+    "protein": 43,
+    "carbs": 50,
+    "fat": 19.5,
+    "saturatedFat": 9,
+    "sodium": 1550,
+    "sugar": 3,
+    "fiber": 3
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-d2de94f8",
+   "name": "Chicken salad · no honey lime vinaigrette · brown rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 545,
+    "protein": 43,
+    "carbs": 46,
+    "fat": 21.5,
+    "saturatedFat": 9,
+    "sodium": 1390,
+    "sugar": 3,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-5f4dbd25",
+   "name": "Chicken salad · no cheese, no honey lime vinaigrette",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 230,
+    "protein": 33,
+    "carbs": 10,
+    "fat": 7,
+    "saturatedFat": 3,
+    "sodium": 1015,
+    "sugar": 3,
+    "fiber": 3
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-6bf042b7",
+   "name": "Chicken salad · no cheese, no honey lime vinaigrette · white rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 435,
+    "protein": 37,
+    "carbs": 49,
+    "fat": 11,
+    "saturatedFat": 4,
+    "sodium": 1360,
+    "sugar": 3,
+    "fiber": 3
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-b2c56775",
+   "name": "Chicken salad · no cheese, no honey lime vinaigrette · brown rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 435,
+    "protein": 37,
+    "carbs": 45,
+    "fat": 13,
+    "saturatedFat": 4,
+    "sodium": 1200,
+    "sugar": 3,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-e4d7b8e2",
+   "name": "Chicken salad · double chicken",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 740,
+    "protein": 72,
+    "carbs": 29,
+    "fat": 38.5,
+    "saturatedFat": 13.5,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-b5ff4548",
+   "name": "Chicken salad · double chicken · white rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 945,
+    "protein": 76,
+    "carbs": 68,
+    "fat": 42.5,
+    "saturatedFat": 14.5,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-f19ab4c4",
+   "name": "Chicken salad · double chicken · brown rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 945,
+    "protein": 76,
+    "carbs": 64,
+    "fat": 44.5,
+    "saturatedFat": 14.5,
+    "sugar": 15,
+    "fiber": 5
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-e164a630",
+   "name": "Chicken salad · double chicken · no cheese",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 630,
+    "protein": 66,
+    "carbs": 28,
+    "fat": 30,
+    "saturatedFat": 8.5,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-88e43c26",
+   "name": "Chicken salad · double chicken · no cheese · white rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 835,
+    "protein": 70,
+    "carbs": 67,
+    "fat": 34,
+    "saturatedFat": 9.5,
+    "sugar": 15,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-3cb67d92",
+   "name": "Chicken salad · double chicken · no cheese · brown rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    },
+    {
+     "id": "vinaigrette",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 835,
+    "protein": 70,
+    "carbs": 63,
+    "fat": 36,
+    "saturatedFat": 9.5,
+    "sugar": 15,
+    "fiber": 5
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-71157f55",
+   "name": "Chicken salad · double chicken · no honey lime vinaigrette",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 520,
+    "protein": 71,
+    "carbs": 11,
+    "fat": 22.5,
+    "saturatedFat": 11,
+    "sodium": 1515,
+    "sugar": 3,
+    "fiber": 3
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-ec57916e",
+   "name": "Chicken salad · double chicken · no honey lime vinaigrette · white rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 725,
+    "protein": 75,
+    "carbs": 50,
+    "fat": 26.5,
+    "saturatedFat": 12,
+    "sodium": 1860,
+    "sugar": 3,
+    "fiber": 3
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-07665a72",
+   "name": "Chicken salad · double chicken · no honey lime vinaigrette · brown rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "cheese",
+     "qty": 1
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 725,
+    "protein": 75,
+    "carbs": 46,
+    "fat": 28.5,
+    "saturatedFat": 12,
+    "sodium": 1700,
+    "sugar": 3,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-6d0e1216",
+   "name": "Chicken salad · double chicken · no cheese, no honey lime vinaigrette",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 410,
+    "protein": 65,
+    "carbs": 10,
+    "fat": 14,
+    "saturatedFat": 6,
+    "sodium": 1325,
+    "sugar": 3,
+    "fiber": 3
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-793d0a61",
+   "name": "Chicken salad · double chicken · no cheese, no honey lime vinaigrette · white rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "white-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 615,
+    "protein": 69,
+    "carbs": 49,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sodium": 1670,
+    "sugar": 3,
+    "fiber": 3
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-chicken-salad-013d6f2e",
+   "name": "Chicken salad · double chicken · no cheese, no honey lime vinaigrette · brown rice instead of romaine lettuce",
+   "kind": "variation",
+   "baseItemId": "chicken-salad",
+   "components": [
+    {
+     "id": "brown-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 2
+    },
+    {
+     "id": "fajita-veg",
+     "qty": 1
+    },
+    {
+     "id": "tomato-salsa",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 615,
+    "protein": 69,
+    "carbs": 45,
+    "fat": 20,
+    "saturatedFat": 7,
+    "sodium": 1510,
+    "sugar": 3,
+    "fiber": 4
+   },
+   "tags": [],
+   "itemCount": 1
+  }
+ ]
+}

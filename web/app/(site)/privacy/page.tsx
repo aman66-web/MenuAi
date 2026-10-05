@@ -14,19 +14,25 @@ export default function Privacy() {
 
       <p>
         {site.name} is built to know as little about you as possible. There is no account and no sign-in. This policy
-        covers the {site.name} iPhone app and this website.
+        covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website.
       </p>
 
-      <h2>What stays on your phone</h2>
+      <h2>What stays on your phone or in your browser</h2>
       <ul>
         <li>Your goal, daily targets, preferences, favourite restaurants, saved orders and the meals you log.</li>
-        <li>These are stored only on your device. We never receive them.</li>
+        <li>
+          In the iPhone app these are stored only on your device. In the web app they are stored only in this browser
+          on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). We never
+          receive them. Clearing your browser&apos;s site data, or using &ldquo;Clear data on this device&rdquo; in
+          Settings, removes them.
+        </li>
       </ul>
 
       <h2>Location</h2>
       <p>
-        If you allow it, the app uses your location on your phone to list restaurant chains near you. The search is
-        handled by Apple Maps under Apple&apos;s privacy policy. We never store or receive your location.
+        If you allow it, the iPhone app uses your location on your phone to list restaurant chains near you. The
+        search is handled by Apple Maps under Apple&apos;s privacy policy. We never store or receive your location. The
+        web app doesn&apos;t use your location.
       </p>
 
       <h2>Apple Health</h2>
@@ -37,24 +43,32 @@ export default function Privacy() {
       </p>
 
       <h2>Purchases</h2>
-      <p>Subscriptions are handled by Apple. We don&apos;t receive your name, email or payment details.</p>
-
-      <h2>Anonymous usage statistics</h2>
       <p>
-        The app sends anonymous counts of how features are used (for example &ldquo;order builder opened&rdquo;) so
-        we can improve it. They aren&apos;t linked to you, contain no location or health data, and aren&apos;t used
-        for advertising or tracking.
+        Subscriptions in the iPhone app are handled by Apple. We don&apos;t receive your name, email or payment
+        details. Paid features aren&apos;t available in the web app yet.
+      </p>
+
+      <h2>Cookies, offline storage and usage statistics</h2>
+      <p>
+        We don&apos;t use cookies or advertising trackers. The web app saves menus and its own files in your browser&apos;s
+        cache so it keeps working with a poor connection. The iPhone app sends anonymous counts of how features are used
+        (for example &ldquo;order builder opened&rdquo;) so we can improve it. They aren&apos;t linked to you, contain no
+        location or health data, and aren&apos;t used for advertising or tracking. The web app doesn&apos;t send usage
+        statistics.
       </p>
 
       <h2>Things you choose to send us</h2>
       <ul>
         <li>
           <strong>Report a number:</strong> the restaurant and item, the value you think is wrong and the correct value,
-          your note, an optional photo, and the app and data version.
+          your note, an optional photo, and the app (or web app) version and menu data version.
         </li>
         <li><strong>Request a restaurant:</strong> the name you type and the app version.</li>
         <li><strong>Support messages:</strong> your message and, if you give it, your email address so we can reply.</li>
-        <li><strong>Website waitlist:</strong> your email address, and which link brought you here if there was one.</li>
+        <li>
+          <strong>Website and web app waitlist:</strong> your email address, and which link or screen brought you here
+          (for example a link you followed, or the Pro screen in the web app).
+        </li>
       </ul>
       <p>
         To prevent spam we also keep a one-way, salted hash of the IP address each message came from (not the IP
@@ -65,8 +79,8 @@ export default function Privacy() {
       <ul>
         <li>Supabase (database and file storage) stores what you send us.</li>
         <li>Vercel hosts this website and the service that receives your messages.</li>
-        <li>TelemetryDeck receives the anonymous usage statistics.</li>
-        <li>Apple processes App Store purchases, Apple Maps searches and Apple Health storage.</li>
+        <li>TelemetryDeck receives the iPhone app&apos;s anonymous usage statistics.</li>
+        <li>Apple processes App Store purchases, Apple Maps searches and Apple Health storage for the iPhone app.</li>
       </ul>
       <p>We don&apos;t sell or share your data, show ads, or track you across other apps and websites.</p>
 

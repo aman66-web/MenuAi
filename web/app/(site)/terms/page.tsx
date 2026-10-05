@@ -15,11 +15,18 @@ export default function Terms() {
         and managed by Apple; you can cancel any time in your App Store account settings.
       </p>
 
+      <h2>The web app</h2>
+      <p>
+        The {site.name} web app (at /app on this website) is free to use. Paid features aren&apos;t available in it yet.
+        Your goal, targets, saved orders and log are kept only in your browser; if you clear your browser&apos;s site
+        data they are deleted and we can&apos;t restore them.
+      </p>
+
       <h2>Nutrition information</h2>
       <p>
         Nutrition values come from each restaurant&apos;s published information and are shown with their source and
         the date we last checked. Restaurants change recipes and portions, and mistakes can happen, so values may not
-        match what you&apos;re served. If something looks wrong, please report it in the app.
+        match what you&apos;re served. If something looks wrong, please report it in the app or the web app.
       </p>
 
       <h2>Not medical advice</h2>

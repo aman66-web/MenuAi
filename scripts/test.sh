@@ -36,6 +36,18 @@ if stale or missing:
 print("  ✓ bundled menus match data/source")
 PY
 fi
+if [ -f web/public/menus-sample/menus-manifest.json ]; then
+  python3 - "$TMP_OUT/menus-manifest.json" web/public/menus-sample/menus-manifest.json <<'PY'
+import json, sys
+fresh = {c["id"]: c["contentHash"] for c in json.load(open(sys.argv[1]))["chains"] if c["sample"]}
+web = {c["id"]: c["contentHash"] for c in json.load(open(sys.argv[2]))["chains"]}
+if fresh != web:
+    print(f"  ✗ web/public/menus-sample is out of date (sample chains in data/source: {sorted(fresh)}, on the web: {sorted(web)})")
+    print("    Run: ./scripts/build_web_samples.sh")
+    sys.exit(1)
+print("  ✓ web sample menus match data/source")
+PY
+fi
 if [ -d MenuMacrosTests/Fixtures ]; then
   if ! diff -rq data/fixtures MenuMacrosTests/Fixtures >/dev/null; then
     echo "  ✗ MenuMacrosTests/Fixtures differs from data/fixtures. Run: cp data/fixtures/* MenuMacrosTests/Fixtures/"

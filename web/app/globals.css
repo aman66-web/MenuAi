@@ -8,6 +8,7 @@
   --soft: #f5f7fa;
   --accent: #d9481e;
   --accent-soft: #fdeee8;
+  --on-accent: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +20,7 @@
     --soft: #171b23;
     --accent: #ff6a3d;
     --accent-soft: #2a1a14;
+    --on-accent: #1a0c06;
   }
 }
 
@@ -30,6 +32,7 @@
   --color-soft: var(--soft);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -43,3 +46,9 @@ body {
 .prose-legal p, .prose-legal li { color: var(--foreground); line-height: 1.65; margin: 0.5rem 0; }
 .prose-legal ul { list-style: disc; padding-left: 1.25rem; }
 .prose-legal a { color: var(--accent); text-decoration: underline; }
+
+/* Web app (/app): numbers are the hero, so they line up. */
+.app-numbers { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
