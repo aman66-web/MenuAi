@@ -249,5 +249,81 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(json.loads((self.out / "menus-manifest.json").read_text())["chains"], [])
 
 
+class SaltTests(unittest.TestCase):
+    """UK guides publish salt (g) instead of sodium: an optional `salt_g` column, kept to 2 decimals, never converted."""
+    NUT_SALT = "calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g"
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.src = self.tmp / "source"
+        self.out = self.tmp / "out"
+        self.src.mkdir()
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def chain(self, items, components="", modifiers=""):
+        folder = self.src / "uk-chain"
+        folder.mkdir(parents=True)
+        (folder / "chain.csv").write_text(
+            "id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample\n"
+            "uk-chain,UK Chain,Test,standard,Guide,https://example.com,2026-10-01,uk chain,true\n")
+        (folder / "components.csv").write_text(f"id,group,name,portion,{self.NUT_SALT},tags,removable,allow_double\n" + components)
+        (folder / "items.csv").write_text(f"id,name,category,serving,{self.NUT_SALT},tags,limited_time,rankable,components,added_on,notes\n" + items)
+        (folder / "modifiers.csv").write_text(f"item_id,id,label,kind,{self.NUT_SALT},tags\n" + modifiers)
+        (folder / "combos.csv").write_text("id,name,item_ids\n")
+
+    def build(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            return bm.main(["--source", str(self.src), "--out", str(self.out), "--quiet"])
+
+    def doc(self):
+        return json.loads((self.out / "chain-uk-chain.json").read_text())
+
+    @staticmethod
+    def row(item_id, name, nutrients):
+        """One items.csv row: nutrients is the nine cells calories,protein,carbs,fat,sat_fat,sodium,salt,sugar,fiber."""
+        return ",".join([item_id, name, "Sides", "1", *nutrients, "", "", "", "", "2026-10-01", ""]) + "\n"
+
+    def test_salt_is_read_and_kept_to_two_decimals(self):
+        self.chain(self.row("burger", "Burger", ["463", "28.8", "43.0", "18.7", "2.2", "", "2.20", "6.5", ""]))
+        self.assertEqual(self.build(), 0)
+        n = self.doc()["items"][0]["nutrients"]
+        self.assertEqual(n["salt"], 2.2)
+        self.assertNotIn("sodium", n)  # sodium was blank: not published, and never derived from salt
+
+    def test_small_salt_values_are_not_rounded_away(self):
+        self.chain(self.row("side", "Side salad", ["56", "0.8", "4.7", "3.6", "0.3", "", "0.20", "2.1", ""])
+                   + self.row("hash", "Hash brown", ["92", "0.9", "8.8", "5.5", "0.2", "", "0.55", "0.7", ""]))
+        self.assertEqual(self.build(), 0)
+        salts = {i["id"]: i["nutrients"]["salt"] for i in self.doc()["items"]}
+        self.assertEqual(salts, {"side": 0.2, "hash": 0.55})
+        self.assertEqual(bm.round_nutrient("salt", 0.164), 0.16)
+        self.assertEqual(bm.round_nutrient("salt", 0.165), 0.17)  # half up
+        self.assertEqual(bm.round_nutrient("sugar", 6.55), 6.6)  # other nutrients still use one decimal
+
+    def test_salt_total_only_when_every_part_publishes_it(self):
+        total = bm.add_nutrients([({"calories": 100, "protein": 1, "carbs": 1, "fat": 1, "salt": 0.5}, 1),
+                                  ({"calories": 50, "protein": 1, "carbs": 1, "fat": 1, "salt": 0.16}, 2)])
+        self.assertEqual(total["salt"], 0.82)
+        missing = bm.add_nutrients([({"calories": 100, "protein": 1, "carbs": 1, "fat": 1, "salt": 0.5}, 1),
+                                    ({"calories": 50, "protein": 1, "carbs": 1, "fat": 1}, 1)])
+        self.assertNotIn("salt", missing)
+
+    def test_the_salt_column_may_be_left_out_of_older_files(self):
+        # the shipped samples have no salt_g column and must keep building (and stay byte-identical)
+        out = self.tmp / "samples"
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(bm.main(["--source", str(ROOT / "data" / "source"), "--out", str(out), "--quiet"]), 0)
+        self.assertNotIn("salt", (out / "chain-cluck-house.json").read_text())
+
+    def test_other_unknown_columns_are_still_rejected(self):
+        self.chain(self.row("burger", "Burger", ["463", "28.8", "43.0", "18.7", "2.2", "", "2.20", "6.5", ""]))
+        folder = self.src / "uk-chain"
+        text = (folder / "items.csv").read_text().replace("salt_g", "salt_mg")
+        (folder / "items.csv").write_text(text)
+        self.assertEqual(self.build(), 1)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -120,7 +120,7 @@
     },
     "nutrients": {
       "type": "object",
-      "description": "calories in kcal; protein/carbs/fat/saturatedFat/sugar/fiber in grams; sodium in mg. Optional keys are OMITTED when not published (never estimated).",
+      "description": "calories in kcal; protein/carbs/fat/saturatedFat/sugar/fiber in grams; sodium in mg, salt in g (UK guides publish salt, not sodium). Optional keys are OMITTED when not published (never estimated).",
       "required": [
         "calories",
         "protein",
@@ -158,6 +158,10 @@
           "minimum": 0
         },
         "fiber": {
+          "type": "number",
+          "minimum": 0
+        },
+        "salt": {
           "type": "number",
           "minimum": 0
         }

@@ -3,7 +3,10 @@
 
 export type Tag = "vegetarian" | "contains_pork" | "contains_beef";
 
-/** calories in kcal; grams for the rest; sodium in mg. Optional keys are omitted when not published. */
+/**
+ * calories in kcal; grams for the rest; sodium in mg. Optional keys are omitted when not published.
+ * UK guides publish salt (g, 2 decimals) instead of sodium; US guides publish sodium. They are never converted.
+ */
 export interface Nutrients {
   calories: number;
   protein: number;
@@ -13,10 +16,11 @@ export interface Nutrients {
   sodium?: number;
   sugar?: number;
   fiber?: number;
+  salt?: number;
 }
 
 export const REQUIRED_NUTRIENTS = ["calories", "protein", "carbs", "fat"] as const;
-export const OPTIONAL_NUTRIENTS = ["saturatedFat", "sodium", "sugar", "fiber"] as const;
+export const OPTIONAL_NUTRIENTS = ["saturatedFat", "sodium", "sugar", "fiber", "salt"] as const;
 export type NutrientKey = (typeof REQUIRED_NUTRIENTS)[number] | (typeof OPTIONAL_NUTRIENTS)[number];
 
 export const COMPONENT_GROUPS = ["base", "wrap", "protein", "topping", "sauce", "side", "drink", "extra"] as const;

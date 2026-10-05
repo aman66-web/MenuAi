@@ -37,7 +37,7 @@ SCHEMA_VERSION = 1
 ROOT = Path(__file__).resolve().parent.parent
 
 REQUIRED_NUTRIENTS = ["calories", "protein", "carbs", "fat"]
-OPTIONAL_NUTRIENTS = ["saturatedFat", "sodium", "sugar", "fiber"]
+OPTIONAL_NUTRIENTS = ["saturatedFat", "sodium", "sugar", "fiber", "salt"]  # salt last: charts without it stay byte-identical
 NUTRIENT_COLUMNS = {  # CSV column -> JSON key
     "calories": "calories",
     "protein_g": "protein",
@@ -47,8 +47,12 @@ NUTRIENT_COLUMNS = {  # CSV column -> JSON key
     "sodium_mg": "sodium",
     "sugar_g": "sugar",
     "fiber_g": "fiber",
+    "salt_g": "salt",  # UK guides publish salt in grams, not sodium (docs/DATA.md)
 }
+# Columns a CSV may leave out entirely (older files); when present they are read like any other nutrient column.
+OPTIONAL_COLUMNS = {"salt_g"}
 INTEGER_NUTRIENTS = {"calories", "sodium"}
+TWO_DECIMAL_NUTRIENTS = {"salt"}  # salt is published to 2 decimals (e.g. 0.16 g); rounding it to 1 would change the published figure
 _N = list(NUTRIENT_COLUMNS)
 
 # Exact headers per file (order doesn't matter; every column must be present, no extras).
@@ -86,7 +90,7 @@ def half_up(x: float, places: int = 0) -> float:
 def round_nutrient(key: str, val: float):
     if key in INTEGER_NUTRIENTS:
         return int(half_up(val))
-    r = half_up(val, 1)
+    r = half_up(val, 2 if key in TWO_DECIMAL_NUTRIENTS else 1)
     return int(r) if r == int(r) else r
 
 
@@ -176,7 +180,7 @@ def read_csv(path: Path, errors: list, where: str) -> list[tuple[int, dict]]:
     except StopIteration:
         errors.append(f"{where}: file is empty (it needs at least the header row)")
         return []
-    missing = [h for h in expected if h not in header]
+    missing = [h for h in expected if h not in header and h not in OPTIONAL_COLUMNS]
     unknown = [h for h in header if h not in expected]
     if missing or unknown:
         errors.append(f"{where}: header mismatch — missing {missing or '-'}, unknown {unknown or '-'}. Copy the header row from data/source/_template/{path.name}")

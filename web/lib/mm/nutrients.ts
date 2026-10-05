@@ -11,6 +11,7 @@ export function halfUp(x: number, places = 0): number {
 /** Same rounding the menu pipeline uses when it stores a value (tools/build_menus.py round_nutrient). */
 export function roundNutrient(key: NutrientKey, value: number): number {
   if (INTEGER_NUTRIENTS.has(key)) return halfUp(value);
+  if (key === "salt") return halfUp(value, 2); // UK guides publish salt to 2 decimals (0.05g must not round away)
   return halfUp(value, 1);
 }
 

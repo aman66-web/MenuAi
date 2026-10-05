@@ -74,7 +74,7 @@ Folder name = chain id (lowercase, hyphens: `chick-fil-a`). Copy `data/source/_t
 | group | yes | `base` (rice, lettuce), `wrap` (tortilla, bun, shell), `protein`, `topping`, `sauce`, `side`, `drink`, `extra` |
 | portion | no | As published: "4 oz", "1 tortilla" |
 | calories, protein_g, carbs_g, fat_g | yes | |
-| sat_fat_g, sodium_mg, sugar_g, fiber_g | no | |
+| sat_fat_g, sodium_mg, salt_g, sugar_g, fiber_g | no | `salt_g` is for UK guides, which publish salt in grams (stored to 2 decimals, e.g. 0.16). Enter what the guide prints: sodium if it prints sodium, salt if it prints salt. **Never convert one into the other.** The `salt_g` column may be left out of older files |
 | tags | no | `vegetarian`, `contains_pork`, `contains_beef` |
 | removable | no (false) | true for things people commonly drop: cheese, sour cream, sauces, dressing |
 | allow_double | no (false) | true only if the chain sells and publishes a double portion (usually proteins) |

@@ -1,4 +1,4 @@
-import { formatCalories, formatGrams, formatInt, formatOptionalGrams, formatSodium, nutrientAriaLabel } from "@/lib/mm/format";
+import { formatCalories, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel } from "@/lib/mm/format";
 import type { Nutrients } from "@/lib/mm/types";
 
 /** Big calories + protein, then carbs and fat (SPEC §15: same order everywhere). */
@@ -46,14 +46,22 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
   );
 }
 
-/** Full nutrient list for the item detail screen; missing optionals read "not published". */
+/**
+ * Full nutrient list for the item detail screen; missing optionals read "not published".
+ * Salt and sodium are different published figures (UK vs US guides) and are never converted: show whichever
+ * the chain publishes, both if both, and a single "Salt: not published" row if neither.
+ */
 export function NutrientTable({ nutrients, name }: { nutrients: Nutrients; name: string }) {
+  const saltOrSodium: Array<[string, string, boolean]> = [];
+  if (nutrients.salt !== undefined) saltOrSodium.push(["Salt", formatSalt(nutrients.salt), true]);
+  if (nutrients.sodium !== undefined) saltOrSodium.push(["Sodium", formatSodium(nutrients.sodium), true]);
+  if (saltOrSodium.length === 0) saltOrSodium.push(["Salt", formatSalt(undefined), false]);
   const rows: Array<[string, string, boolean]> = [
     ["Protein", formatGrams(nutrients.protein), true],
     ["Carbs", formatGrams(nutrients.carbs), true],
     ["Fat", formatGrams(nutrients.fat), true],
     ["Saturated fat", formatOptionalGrams(nutrients.saturatedFat), nutrients.saturatedFat !== undefined],
-    ["Sodium", formatSodium(nutrients.sodium), nutrients.sodium !== undefined],
+    ...saltOrSodium,
     ["Sugar", formatOptionalGrams(nutrients.sugar), nutrients.sugar !== undefined],
     ["Fibre", formatOptionalGrams(nutrients.fiber), nutrients.fiber !== undefined],
   ];

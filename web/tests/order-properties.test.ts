@@ -56,7 +56,7 @@ describe("order calculator invariants under random builder operations", () => {
         const parts = line.components.map((c) => [ix.components.get(c.id)!.nutrients, c.qty] as const);
         if (JSON.stringify(total) !== JSON.stringify(sumNutrients(parts))) failures.push(`seed ${seed} step ${step}: total mismatch`);
         for (const [k, v] of Object.entries(total)) if (typeof v === "number" && v < 0) failures.push(`seed ${seed}: negative ${k}`);
-        for (const key of ["saturatedFat", "sodium", "sugar", "fiber"] as const) {
+        for (const key of ["saturatedFat", "sodium", "sugar", "fiber", "salt"] as const) {
           const everyPart = parts.every(([n]) => n[key] !== undefined);
           if (everyPart !== (total[key] !== undefined)) failures.push(`seed ${seed} step ${step}: optional ${key} propagation`);
         }

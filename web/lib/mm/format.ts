@@ -31,6 +31,13 @@ export function formatSodium(value: number | undefined): string {
   return value === undefined ? NOT_PUBLISHED : `${formatInt(value)}mg`;
 }
 
+const saltFmt = new Intl.NumberFormat("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+
+/** Salt in grams, up to 2 decimals as the UK guides publish it: 0.9 → "0.9g", 1.25 → "1.25g". */
+export function formatSalt(value: number | undefined): string {
+  return value === undefined ? NOT_PUBLISHED : `${saltFmt.format(halfUp(value, 2))}g`;
+}
+
 /** "520 cal · 32g protein · 55g carbs · 18g fat" — same order everywhere (SPEC §15). */
 export function macroLine(n: Nutrients): string {
   return `${formatCalories(n.calories)} · ${formatGrams(n.protein)} protein · ${formatGrams(n.carbs)} carbs · ${formatGrams(n.fat)} fat`;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatCalories, formatDate, formatDensity, formatGrams, formatOptionalGrams, formatSodium, lowerFirst, macroLine, nutrientAriaLabel, reasonLine } from "../lib/mm/format";
+import { formatCalories, formatDate, formatDensity, formatGrams, formatOptionalGrams, formatSalt, formatSodium, lowerFirst, macroLine, nutrientAriaLabel, reasonLine } from "../lib/mm/format";
 import { addNutrients, halfUp, proteinPer100Cal, scaleNutrients, sumNutrients } from "../lib/mm/nutrients";
 import type { Nutrients } from "../lib/mm/types";
 
@@ -31,6 +31,15 @@ describe("rounding and formatting (SPEC §6.1)", () => {
     expect(formatSodium(undefined)).toBe("not published");
     expect(formatOptionalGrams(0)).toBe("0g");
     expect(formatSodium(1610)).toBe("1,610mg");
+  });
+  it("formats salt in grams with up to 2 decimals (UK guides) and never converts it from sodium", () => {
+    expect(formatSalt(undefined)).toBe("not published");
+    expect(formatSalt(0.9)).toBe("0.9g");
+    expect(formatSalt(1.25)).toBe("1.25g");
+    expect(formatSalt(0.05)).toBe("0.05g");
+    expect(formatSalt(2)).toBe("2g");
+    expect(formatSalt(0)).toBe("0g");
+    expect(formatSalt(0.125)).toBe("0.13g"); // half away from zero, like the pipeline (0.125 is exact in binary)
   });
   it("builds the macro, reason and VoiceOver strings with the same rounding", () => {
     const n: Nutrients = { calories: 655, protein: 50, carbs: 67, fat: 20.5 };
@@ -75,6 +84,18 @@ describe("nutrient maths (docs/DATA.md)", () => {
     const total = sumNutrients([[n, 3]]);
     expect(total.protein).toBe(0.8); // 0.75 → 0.8 (half up)
     expect(total.calories).toBe(3);
+  });
+  it("keeps salt to 2 decimals so small values are not rounded away, and propagates 'not published'", () => {
+    const a: Nutrients = { calories: 10, protein: 1, carbs: 1, fat: 1, salt: 0.05 };
+    const b: Nutrients = { calories: 10, protein: 1, carbs: 1, fat: 1, salt: 0.12 };
+    expect(sumNutrients([[a, 1], [b, 1]]).salt).toBe(0.17);
+    expect(sumNutrients([[a, 3]]).salt).toBe(0.15);
+    expect(sumNutrients([[b, -1], [a, 1]]).salt).toBe(0); // never below zero
+    const noSalt: Nutrients = { calories: 10, protein: 1, carbs: 1, fat: 1 };
+    const total = sumNutrients([[a, 1], [noSalt, 1]]);
+    expect("salt" in total).toBe(false);
+    // salt and sodium are independent: one published does not create the other
+    expect("sodium" in sumNutrients([[a, 1], [b, 1]])).toBe(false);
   });
   it("computes protein per 100 calories", () => {
     expect(proteinPer100Cal({ calories: 400, protein: 40 })).toBe(10);
