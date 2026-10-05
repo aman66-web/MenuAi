@@ -1,0 +1,7429 @@
+{
+ "schemaVersion": 1,
+ "id": "starbucks",
+ "name": "Starbucks",
+ "cuisine": "Coffee",
+ "builderType": "standard",
+ "aliases": [
+  "starbucks",
+  "starbucks coffee",
+  "starbucks uk"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Starbucks UK Nutrition & Allergen Guides, Autumn 2026: Beverages (version 18/09/26) and Food (version 17/08/26)",
+  "url": "https://www.starbucks.co.uk/quick-links/nutrition-info",
+  "checkedOn": "2026-10-05"
+ },
+ "note": "Drinks follow the guide's standard build where it marks one; otherwise the milk is named on the row. Syrups, toppings and other milks aren't included.",
+ "categories": [
+  "Espresso & coffee",
+  "Mocha & hot chocolate",
+  "Tea & matcha",
+  "Iced coffee",
+  "Iced tea, matcha & Refresha",
+  "Frappuccino",
+  "Protein drinks",
+  "Seasonal drinks",
+  "Breakfast",
+  "Sandwiches, wraps & toasties",
+  "Bakery"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "americano-short",
+   "name": "Americano (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.5,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-tall",
+   "name": "Americano (Tall)",
+   "category": "Espresso & coffee",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.4,
+    "carbs": 0.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-grande",
+   "name": "Americano (Grande)",
+   "category": "Espresso & coffee",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0.6,
+    "carbs": 1.4,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0.1,
+    "fiber": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-venti",
+   "name": "Americano (Venti)",
+   "category": "Espresso & coffee",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0.8,
+    "carbs": 1.8,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.2,
+    "fiber": 0.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caffe-latte-short",
+   "name": "Caffe Latte (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 74,
+    "protein": 5.3,
+    "carbs": 7.3,
+    "fat": 2.6,
+    "saturatedFat": 2.5,
+    "sugar": 6.9,
+    "fiber": 0.1,
+    "salt": 0.16
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caffe-latte-tall",
+   "name": "Caffe Latte (Tall)",
+   "category": "Espresso & coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 124,
+    "protein": 8.9,
+    "carbs": 12.3,
+    "fat": 4.3,
+    "saturatedFat": 4.2,
+    "sugar": 11.5,
+    "fiber": 0.3,
+    "salt": 0.26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caffe-latte-grande",
+   "name": "Caffe Latte (Grande)",
+   "category": "Espresso & coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 151,
+    "protein": 10.9,
+    "carbs": 15,
+    "fat": 5.2,
+    "saturatedFat": 5.2,
+    "sugar": 14.2,
+    "fiber": 0.3,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caffe-latte-venti",
+   "name": "Caffe Latte (Venti)",
+   "category": "Espresso & coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 204,
+    "protein": 14.7,
+    "carbs": 20.3,
+    "fat": 7.1,
+    "saturatedFat": 6.9,
+    "sugar": 19.1,
+    "fiber": 0.4,
+    "salt": 0.43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-short",
+   "name": "Cappuccino (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 64,
+    "protein": 4.6,
+    "carbs": 6.4,
+    "fat": 2.2,
+    "saturatedFat": 2.2,
+    "sugar": 6,
+    "fiber": 0.1,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-tall",
+   "name": "Cappuccino (Tall)",
+   "category": "Espresso & coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 103,
+    "protein": 7.4,
+    "carbs": 10.3,
+    "fat": 3.5,
+    "saturatedFat": 3.4,
+    "sugar": 9.5,
+    "fiber": 0.3,
+    "salt": 0.22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-grande",
+   "name": "Cappuccino (Grande)",
+   "category": "Espresso & coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 130,
+    "protein": 9.4,
+    "carbs": 12.9,
+    "fat": 4.5,
+    "saturatedFat": 4.4,
+    "sugar": 12.1,
+    "fiber": 0.3,
+    "salt": 0.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-venti",
+   "name": "Cappuccino (Venti)",
+   "category": "Espresso & coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 169,
+    "protein": 12.1,
+    "carbs": 16.8,
+    "fat": 5.8,
+    "saturatedFat": 5.7,
+    "sugar": 15.6,
+    "fiber": 0.4,
+    "salt": 0.36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-macchiato-short",
+   "name": "Caramel Macchiato (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 103,
+    "protein": 5.3,
+    "carbs": 13.4,
+    "fat": 3.2,
+    "saturatedFat": 2.9,
+    "sugar": 12.7,
+    "fiber": 0.1,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-macchiato-tall",
+   "name": "Caramel Macchiato (Tall)",
+   "category": "Espresso & coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 167,
+    "protein": 8.5,
+    "carbs": 22.2,
+    "fat": 4.9,
+    "saturatedFat": 4.5,
+    "sugar": 21,
+    "fiber": 0.3,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-macchiato-grande",
+   "name": "Caramel Macchiato (Grande)",
+   "category": "Espresso & coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 214,
+    "protein": 10.9,
+    "carbs": 28.9,
+    "fat": 6,
+    "saturatedFat": 5.6,
+    "sugar": 27.6,
+    "fiber": 0.3,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-macchiato-venti",
+   "name": "Caramel Macchiato (Venti)",
+   "category": "Espresso & coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 273,
+    "protein": 14,
+    "carbs": 37,
+    "fat": 7.5,
+    "saturatedFat": 7.1,
+    "sugar": 35.2,
+    "fiber": 0.4,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cortado-short",
+   "name": "Cortado (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 49,
+    "protein": 3.5,
+    "carbs": 5.3,
+    "fat": 1.6,
+    "saturatedFat": 1,
+    "sugar": 4.3,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-single",
+   "name": "Espresso (Single)",
+   "category": "Espresso & coffee",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.5,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-doppio",
+   "name": "Espresso (Doppio)",
+   "category": "Espresso & coffee",
+   "serving": "Doppio",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.4,
+    "carbs": 0.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-macchiato-single",
+   "name": "Espresso Macchiato (Single)",
+   "category": "Espresso & coffee",
+   "serving": "Single, semi-skimmed milk",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.4,
+    "carbs": 0.7,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0.3,
+    "fiber": 0.1,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-macchiato-double",
+   "name": "Espresso Macchiato (Double)",
+   "category": "Espresso & coffee",
+   "serving": "Double, semi-skimmed milk",
+   "nutrients": {
+    "calories": 15,
+    "protein": 1,
+    "carbs": 1.7,
+    "fat": 0.4,
+    "saturatedFat": 0.3,
+    "sugar": 0.9,
+    "fiber": 0.3,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-short",
+   "name": "Flat White (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 59,
+    "protein": 4.2,
+    "carbs": 6,
+    "fat": 2,
+    "saturatedFat": 1.9,
+    "sugar": 5.1,
+    "fiber": 0.3,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freshly-brewed-coffee-short",
+   "name": "Freshly Brewed Coffee (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 16,
+    "protein": 0.7,
+    "carbs": 1.4,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 0.2,
+    "fiber": 1.1,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freshly-brewed-coffee-tall",
+   "name": "Freshly Brewed Coffee (Tall)",
+   "category": "Espresso & coffee",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 25,
+    "protein": 1.1,
+    "carbs": 2.2,
+    "fat": 1.1,
+    "saturatedFat": 0.4,
+    "sugar": 0.4,
+    "fiber": 1.8,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freshly-brewed-coffee-grande",
+   "name": "Freshly Brewed Coffee (Grande)",
+   "category": "Espresso & coffee",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 31,
+    "protein": 1.3,
+    "carbs": 2.6,
+    "fat": 1.3,
+    "saturatedFat": 0.4,
+    "sugar": 0.4,
+    "fiber": 2.2,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freshly-brewed-coffee-venti",
+   "name": "Freshly Brewed Coffee (Venti)",
+   "category": "Espresso & coffee",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 39,
+    "protein": 1.7,
+    "carbs": 3.4,
+    "fat": 1.7,
+    "saturatedFat": 0.6,
+    "sugar": 0.6,
+    "fiber": 2.8,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-macchiato-short",
+   "name": "Latte Macchiato (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 64,
+    "protein": 4.6,
+    "carbs": 6.4,
+    "fat": 2.2,
+    "saturatedFat": 2.2,
+    "sugar": 6,
+    "fiber": 0.1,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-macchiato-tall",
+   "name": "Latte Macchiato (Tall)",
+   "category": "Espresso & coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 113,
+    "protein": 8.1,
+    "carbs": 11.3,
+    "fat": 3.9,
+    "saturatedFat": 3.8,
+    "sugar": 10.5,
+    "fiber": 0.3,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-macchiato-grande",
+   "name": "Latte Macchiato (Grande)",
+   "category": "Espresso & coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 147,
+    "protein": 10.6,
+    "carbs": 14.6,
+    "fat": 5.1,
+    "saturatedFat": 5,
+    "sugar": 13.7,
+    "fiber": 0.3,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-macchiato-venti",
+   "name": "Latte Macchiato (Venti)",
+   "category": "Espresso & coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 194,
+    "protein": 14,
+    "carbs": 19.3,
+    "fat": 6.7,
+    "saturatedFat": 6.6,
+    "sugar": 18.1,
+    "fiber": 0.4,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ristretto-bianco-short",
+   "name": "Ristretto Bianco (Short)",
+   "category": "Espresso & coffee",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 82,
+    "protein": 5.8,
+    "carbs": 8.7,
+    "fat": 2.6,
+    "saturatedFat": 1.7,
+    "sugar": 7.2,
+    "fiber": 0,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-hot-chocolate-short",
+   "name": "Classic Hot Chocolate (Short)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 163,
+    "protein": 5.8,
+    "carbs": 17.6,
+    "fat": 7.3,
+    "saturatedFat": 5,
+    "sugar": 16.8,
+    "fiber": 2,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-hot-chocolate-tall",
+   "name": "Classic Hot Chocolate (Tall)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 246,
+    "protein": 9.6,
+    "carbs": 27.2,
+    "fat": 10.3,
+    "saturatedFat": 7,
+    "sugar": 26.1,
+    "fiber": 3,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-hot-chocolate-grande",
+   "name": "Classic Hot Chocolate (Grande)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 309,
+    "protein": 12.7,
+    "carbs": 35.4,
+    "fat": 12.1,
+    "saturatedFat": 8.1,
+    "sugar": 34,
+    "fiber": 3.9,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-hot-chocolate-venti",
+   "name": "Classic Hot Chocolate (Venti)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 382,
+    "protein": 16.3,
+    "carbs": 44.4,
+    "fat": 14.5,
+    "saturatedFat": 9.7,
+    "sugar": 42.6,
+    "fiber": 4.7,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chocolate-tall",
+   "name": "Iced Chocolate (Tall)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 269,
+    "protein": 8.5,
+    "carbs": 26.4,
+    "fat": 13.8,
+    "saturatedFat": 9.5,
+    "sugar": 25.3,
+    "fiber": 2.9,
+    "salt": 0.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chocolate-grande",
+   "name": "Iced Chocolate (Grande)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 364,
+    "protein": 11.9,
+    "carbs": 35.6,
+    "fat": 18.5,
+    "saturatedFat": 12.8,
+    "sugar": 34.1,
+    "fiber": 3.8,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chocolate-venti",
+   "name": "Iced Chocolate (Venti)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 398,
+    "protein": 12.9,
+    "carbs": 41.2,
+    "fat": 19.2,
+    "saturatedFat": 13.2,
+    "sugar": 39.4,
+    "fiber": 4.8,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-mocha-tall",
+   "name": "Iced Mocha (Tall)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 244,
+    "protein": 7,
+    "carbs": 23.6,
+    "fat": 12.9,
+    "saturatedFat": 8.9,
+    "sugar": 21.7,
+    "fiber": 3,
+    "salt": 0.15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-mocha-grande",
+   "name": "Iced Mocha (Grande)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 340,
+    "protein": 10.5,
+    "carbs": 32.9,
+    "fat": 17.7,
+    "saturatedFat": 12.2,
+    "sugar": 30.7,
+    "fiber": 3.9,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-mocha-venti",
+   "name": "Iced Mocha (Venti)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 360,
+    "protein": 10.4,
+    "carbs": 37,
+    "fat": 17.8,
+    "saturatedFat": 12.3,
+    "sugar": 34.1,
+    "fiber": 4.9,
+    "salt": 0.22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-white-mocha-tall",
+   "name": "Iced White Mocha (Tall)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 288,
+    "protein": 7,
+    "carbs": 33.7,
+    "fat": 13.9,
+    "saturatedFat": 10,
+    "sugar": 32.8,
+    "fiber": 0.3,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-white-mocha-grande",
+   "name": "Iced White Mocha (Grande)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 401,
+    "protein": 10.6,
+    "carbs": 46.5,
+    "fat": 19.1,
+    "saturatedFat": 13.7,
+    "sugar": 45.7,
+    "fiber": 0.3,
+    "salt": 0.48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-white-mocha-venti",
+   "name": "Iced White Mocha (Venti)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 438,
+    "protein": 10.7,
+    "carbs": 54.2,
+    "fat": 19.6,
+    "saturatedFat": 14.2,
+    "sugar": 53,
+    "fiber": 0.5,
+    "salt": 0.52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-short",
+   "name": "Mocha (Short)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 146,
+    "protein": 4.8,
+    "carbs": 15.5,
+    "fat": 6.7,
+    "saturatedFat": 4.6,
+    "sugar": 14.5,
+    "fiber": 1.9,
+    "salt": 0.11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-tall",
+   "name": "Mocha (Tall)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 228,
+    "protein": 8.6,
+    "carbs": 25,
+    "fat": 9.7,
+    "saturatedFat": 6.6,
+    "sugar": 23.2,
+    "fiber": 3,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-grande",
+   "name": "Mocha (Grande)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 281,
+    "protein": 10.9,
+    "carbs": 32.2,
+    "fat": 11.2,
+    "saturatedFat": 7.5,
+    "sugar": 30.1,
+    "fiber": 3.9,
+    "salt": 0.26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-venti",
+   "name": "Mocha (Venti)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 358,
+    "protein": 14.7,
+    "carbs": 41.7,
+    "fat": 13.6,
+    "saturatedFat": 9,
+    "sugar": 38.8,
+    "fiber": 4.9,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-mocha-short",
+   "name": "White Mocha (Short)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 181,
+    "protein": 5.2,
+    "carbs": 22.8,
+    "fat": 7.6,
+    "saturatedFat": 5.5,
+    "sugar": 22.4,
+    "fiber": 0.2,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-mocha-tall",
+   "name": "White Mocha (Tall)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 265,
+    "protein": 8.1,
+    "carbs": 34.4,
+    "fat": 10.5,
+    "saturatedFat": 7.5,
+    "sugar": 33.6,
+    "fiber": 0.3,
+    "salt": 0.36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-mocha-grande",
+   "name": "White Mocha (Grande)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 345,
+    "protein": 11.3,
+    "carbs": 46.2,
+    "fat": 12.7,
+    "saturatedFat": 9.1,
+    "sugar": 45.4,
+    "fiber": 0.3,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-mocha-venti",
+   "name": "White Mocha (Venti)",
+   "category": "Mocha & hot chocolate",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 417,
+    "protein": 13.7,
+    "carbs": 57.1,
+    "fat": 14.7,
+    "saturatedFat": 10.6,
+    "sugar": 55.9,
+    "fiber": 0.5,
+    "salt": 0.61
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea-short",
+   "name": "Chai Tea (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.9,
+    "carbs": 0.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea-tall",
+   "name": "Chai Tea (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.9,
+    "carbs": 0.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea-grande",
+   "name": "Chai Tea (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.9,
+    "carbs": 0.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea-venti",
+   "name": "Chai Tea (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 14,
+    "protein": 1.8,
+    "carbs": 1.1,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 0.6,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chamomile-short",
+   "name": "Chamomile (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.3,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chamomile-tall",
+   "name": "Chamomile (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.3,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chamomile-grande",
+   "name": "Chamomile (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.3,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chamomile-venti",
+   "name": "Chamomile (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.5,
+    "carbs": 0.7,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.6,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey-tea-short",
+   "name": "Earl Grey Tea (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.7,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey-tea-tall",
+   "name": "Earl Grey Tea (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.7,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey-tea-grande",
+   "name": "Earl Grey Tea (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.7,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey-tea-venti",
+   "name": "Earl Grey Tea (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 8,
+    "protein": 1.4,
+    "carbs": 0.1,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "emperors-clouds-mist-tea-short",
+   "name": "Emperor's Clouds & Mist Tea (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.6,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "emperors-clouds-mist-tea-tall",
+   "name": "Emperor's Clouds & Mist Tea (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.6,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "emperors-clouds-mist-tea-grande",
+   "name": "Emperor's Clouds & Mist Tea (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.6,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "emperors-clouds-mist-tea-venti",
+   "name": "Emperor's Clouds & Mist Tea (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 7,
+    "protein": 1.3,
+    "carbs": 0,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea-short",
+   "name": "English Breakfast Tea (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.8,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea-tall",
+   "name": "English Breakfast Tea (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.8,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea-grande",
+   "name": "English Breakfast Tea (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.8,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea-venti",
+   "name": "English Breakfast Tea (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 10,
+    "protein": 1.7,
+    "carbs": 0.1,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hibiscus-tea-short",
+   "name": "Hibiscus Tea (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.2,
+    "carbs": 1.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hibiscus-tea-tall",
+   "name": "Hibiscus Tea (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.2,
+    "carbs": 1.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hibiscus-tea-grande",
+   "name": "Hibiscus Tea (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.2,
+    "carbs": 1.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hibiscus-tea-venti",
+   "name": "Hibiscus Tea (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.4,
+    "carbs": 2.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1.7,
+    "fiber": 0.1,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-pearls-tea-short",
+   "name": "Jasmine Pearls Tea (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 6,
+    "protein": 1,
+    "carbs": 0,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-pearls-tea-tall",
+   "name": "Jasmine Pearls Tea (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 6,
+    "protein": 1,
+    "carbs": 0,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-pearls-tea-grande",
+   "name": "Jasmine Pearls Tea (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 6,
+    "protein": 1,
+    "carbs": 0,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-pearls-tea-venti",
+   "name": "Jasmine Pearls Tea (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 11,
+    "protein": 2,
+    "carbs": 0.1,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-citrus-green-tea-short",
+   "name": "Mint Citrus Green Tea (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.3,
+    "carbs": 0.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-citrus-green-tea-tall",
+   "name": "Mint Citrus Green Tea (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.3,
+    "carbs": 0.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-citrus-green-tea-grande",
+   "name": "Mint Citrus Green Tea (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.3,
+    "carbs": 0.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-citrus-green-tea-venti",
+   "name": "Mint Citrus Green Tea (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.7,
+    "carbs": 0.5,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.5,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-herbal-blend-short",
+   "name": "Mint Herbal Blend (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-herbal-blend-tall",
+   "name": "Mint Herbal Blend (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-herbal-blend-grande",
+   "name": "Mint Herbal Blend (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-herbal-blend-venti",
+   "name": "Mint Herbal Blend (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.4,
+    "carbs": 1.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.7,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "youthberry-tea-short",
+   "name": "Youthberry Tea (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.2,
+    "carbs": 1.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "youthberry-tea-tall",
+   "name": "Youthberry Tea (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.2,
+    "carbs": 1.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "youthberry-tea-grande",
+   "name": "Youthberry Tea (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.2,
+    "carbs": 1.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "youthberry-tea-venti",
+   "name": "Youthberry Tea (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0.5,
+    "carbs": 2.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 2.4,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea-latte-short",
+   "name": "Chai Tea Latte (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 89,
+    "protein": 3.6,
+    "carbs": 14.6,
+    "fat": 1.8,
+    "saturatedFat": 1.7,
+    "sugar": 14.5,
+    "fiber": 0.1,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea-latte-tall",
+   "name": "Chai Tea Latte (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 129,
+    "protein": 5.1,
+    "carbs": 21.4,
+    "fat": 2.5,
+    "saturatedFat": 2.5,
+    "sugar": 21.4,
+    "fiber": 0.2,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea-latte-grande",
+   "name": "Chai Tea Latte (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 181,
+    "protein": 7.4,
+    "carbs": 29.4,
+    "fat": 3.7,
+    "saturatedFat": 3.6,
+    "sugar": 29.3,
+    "fiber": 0.3,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea-latte-venti",
+   "name": "Chai Tea Latte (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 227,
+    "protein": 9.3,
+    "carbs": 36.8,
+    "fat": 4.6,
+    "saturatedFat": 4.5,
+    "sugar": 36.7,
+    "fiber": 0.3,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-green-tea-latte-short",
+   "name": "Matcha Green Tea Latte (Short)",
+   "category": "Tea & matcha",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 82,
+    "protein": 6,
+    "carbs": 7.8,
+    "fat": 2.9,
+    "saturatedFat": 1.8,
+    "sugar": 7.8,
+    "fiber": 0.4,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-green-tea-latte-tall",
+   "name": "Matcha Green Tea Latte (Tall)",
+   "category": "Tea & matcha",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 134,
+    "protein": 10,
+    "carbs": 12.7,
+    "fat": 4.7,
+    "saturatedFat": 3,
+    "sugar": 12.7,
+    "fiber": 0.8,
+    "salt": 0.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-green-tea-latte-grande",
+   "name": "Matcha Green Tea Latte (Grande)",
+   "category": "Tea & matcha",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 161,
+    "protein": 12,
+    "carbs": 15.2,
+    "fat": 5.6,
+    "saturatedFat": 3.6,
+    "sugar": 15.2,
+    "fiber": 1.2,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-green-tea-latte-venti",
+   "name": "Matcha Green Tea Latte (Venti)",
+   "category": "Tea & matcha",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 217,
+    "protein": 16.2,
+    "carbs": 20.4,
+    "fat": 7.5,
+    "saturatedFat": 4.8,
+    "sugar": 20.4,
+    "fiber": 1.7,
+    "salt": 0.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cold-brew-tall",
+   "name": "Cold Brew (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0.8,
+    "carbs": 1.7,
+    "fat": 0.6,
+    "saturatedFat": 0.2,
+    "sugar": 0.1,
+    "fiber": 1.1,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cold-brew-grande",
+   "name": "Cold Brew (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 23,
+    "protein": 1.2,
+    "carbs": 2.3,
+    "fat": 0.9,
+    "saturatedFat": 0.3,
+    "sugar": 0.1,
+    "fiber": 1.4,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cold-brew-venti",
+   "name": "Cold Brew (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 25,
+    "protein": 1.2,
+    "carbs": 2.5,
+    "fat": 0.9,
+    "saturatedFat": 0.3,
+    "sugar": 0.2,
+    "fiber": 1.5,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-iced-cappuccino-tall",
+   "name": "Classic Iced Cappuccino (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 71,
+    "protein": 5,
+    "carbs": 7.1,
+    "fat": 2.4,
+    "saturatedFat": 2.3,
+    "sugar": 6.3,
+    "fiber": 0.3,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-iced-cappuccino-grande",
+   "name": "Classic Iced Cappuccino (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 106,
+    "protein": 7.6,
+    "carbs": 10.6,
+    "fat": 3.6,
+    "saturatedFat": 3.5,
+    "sugar": 9.8,
+    "fiber": 0.3,
+    "salt": 0.22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-iced-cappuccino-venti",
+   "name": "Classic Iced Cappuccino (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 115,
+    "protein": 8.2,
+    "carbs": 11.6,
+    "fat": 3.9,
+    "saturatedFat": 3.8,
+    "sugar": 10.4,
+    "fiber": 0.4,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano-tall",
+   "name": "Iced Americano (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.4,
+    "carbs": 0.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano-grande",
+   "name": "Iced Americano (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0.6,
+    "carbs": 1.4,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0.1,
+    "fiber": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano-venti",
+   "name": "Iced Americano (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0.8,
+    "carbs": 1.8,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.2,
+    "fiber": 0.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-brown-sugar-oat-shaken-espresso-tall",
+   "name": "Iced Brown Sugar Oat Shaken Espresso (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall, oat drink",
+   "nutrients": {
+    "calories": 98,
+    "protein": 1.2,
+    "carbs": 14.7,
+    "fat": 3.5,
+    "saturatedFat": 0.4,
+    "sugar": 10.1,
+    "fiber": 1.4,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-brown-sugar-oat-shaken-espresso-grande",
+   "name": "Iced Brown Sugar Oat Shaken Espresso (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande, oat drink",
+   "nutrients": {
+    "calories": 128,
+    "protein": 1.6,
+    "carbs": 19.9,
+    "fat": 4.3,
+    "saturatedFat": 0.5,
+    "sugar": 14.1,
+    "fiber": 1.8,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-brown-sugar-oat-shaken-espresso-venti",
+   "name": "Iced Brown Sugar Oat Shaken Espresso (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti, oat drink",
+   "nutrients": {
+    "calories": 155,
+    "protein": 1.9,
+    "carbs": 24.8,
+    "fat": 4.9,
+    "saturatedFat": 0.6,
+    "sugar": 18,
+    "fiber": 2.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-tall",
+   "name": "Iced Caramel Macchiato (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 146,
+    "protein": 6.6,
+    "carbs": 20.4,
+    "fat": 4.2,
+    "saturatedFat": 3.7,
+    "sugar": 19.1,
+    "fiber": 0.3,
+    "salt": 0.22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-grande",
+   "name": "Iced Caramel Macchiato (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 201,
+    "protein": 9.6,
+    "carbs": 27.9,
+    "fat": 5.6,
+    "saturatedFat": 5.1,
+    "sugar": 26.6,
+    "fiber": 0.3,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-venti",
+   "name": "Iced Caramel Macchiato (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 221,
+    "protein": 10,
+    "carbs": 32.2,
+    "fat": 5.8,
+    "saturatedFat": 5.2,
+    "sugar": 30.4,
+    "fiber": 0.4,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-tall",
+   "name": "Iced Latte (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 83,
+    "protein": 5.9,
+    "carbs": 8.3,
+    "fat": 2.8,
+    "saturatedFat": 2.7,
+    "sugar": 7.5,
+    "fiber": 0.3,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-grande",
+   "name": "Iced Latte (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 128,
+    "protein": 9.2,
+    "carbs": 12.7,
+    "fat": 4.4,
+    "saturatedFat": 4.3,
+    "sugar": 11.9,
+    "fiber": 0.3,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-venti",
+   "name": "Iced Latte (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 130,
+    "protein": 9.3,
+    "carbs": 13,
+    "fat": 4.4,
+    "saturatedFat": 4.3,
+    "sugar": 11.8,
+    "fiber": 0.4,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-macchiato-tall",
+   "name": "Iced Latte Macchiato (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 91,
+    "protein": 6.5,
+    "carbs": 9.1,
+    "fat": 3.1,
+    "saturatedFat": 3,
+    "sugar": 8.3,
+    "fiber": 0.3,
+    "salt": 0.19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-macchiato-grande",
+   "name": "Iced Latte Macchiato (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 132,
+    "protein": 9.5,
+    "carbs": 13.1,
+    "fat": 4.5,
+    "saturatedFat": 4.4,
+    "sugar": 12.3,
+    "fiber": 0.3,
+    "salt": 0.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-macchiato-venti",
+   "name": "Iced Latte Macchiato (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 138,
+    "protein": 9.9,
+    "carbs": 13.8,
+    "fat": 4.7,
+    "saturatedFat": 4.6,
+    "sugar": 12.6,
+    "fiber": 0.4,
+    "salt": 0.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "starbucks-doubleshot-iced-coffee-mini",
+   "name": "Starbucks Doubleshot Iced Coffee (Mini)",
+   "category": "Iced coffee",
+   "serving": "Mini",
+   "nutrients": {
+    "calories": 86,
+    "protein": 1,
+    "carbs": 2.2,
+    "fat": 8,
+    "saturatedFat": 5,
+    "sugar": 1.4,
+    "fiber": 0.3,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "starbucks-doubleshot-vanilla-iced-coffee-mini",
+   "name": "Starbucks Doubleshot Vanilla Iced Coffee (Mini)",
+   "category": "Iced coffee",
+   "serving": "Mini",
+   "nutrients": {
+    "calories": 102,
+    "protein": 1,
+    "carbs": 6.2,
+    "fat": 8,
+    "saturatedFat": 5,
+    "sugar": 5.3,
+    "fiber": 0.3,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-iced-latte-tall",
+   "name": "Vanilla Iced Latte (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 120,
+    "protein": 5.8,
+    "carbs": 18.3,
+    "fat": 2.6,
+    "saturatedFat": 2.4,
+    "sugar": 17.3,
+    "fiber": 0.2,
+    "salt": 0.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-iced-latte-grande",
+   "name": "Vanilla Iced Latte (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 176,
+    "protein": 8.8,
+    "carbs": 26,
+    "fat": 4.1,
+    "saturatedFat": 3.9,
+    "sugar": 24.8,
+    "fiber": 0.2,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-iced-latte-venti",
+   "name": "Vanilla Iced Latte (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 190,
+    "protein": 8.9,
+    "carbs": 29.5,
+    "fat": 4,
+    "saturatedFat": 3.7,
+    "sugar": 27.9,
+    "fiber": 0.3,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-carmaelised-macadamia-oat-shaken-espresso-tall",
+   "name": "Iced Carmaelised Macadamia Oat Shaken Espresso (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall, oat drink",
+   "nutrients": {
+    "calories": 99,
+    "protein": 1.7,
+    "carbs": 14.1,
+    "fat": 3.7,
+    "saturatedFat": 0.4,
+    "sugar": 9.2,
+    "fiber": 1.4,
+    "salt": 0.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-carmaelised-macadamia-oat-shaken-espresso-grande",
+   "name": "Iced Carmaelised Macadamia Oat Shaken Espresso (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande, oat drink",
+   "nutrients": {
+    "calories": 129,
+    "protein": 2.3,
+    "carbs": 19,
+    "fat": 4.5,
+    "saturatedFat": 0.5,
+    "sugar": 12.8,
+    "fiber": 1.7,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-carmaelised-macadamia-oat-shaken-espresso-venti",
+   "name": "Iced Carmaelised Macadamia Oat Shaken Espresso (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti, oat drink",
+   "nutrients": {
+    "calories": 157,
+    "protein": 2.9,
+    "carbs": 23.5,
+    "fat": 5.3,
+    "saturatedFat": 0.6,
+    "sugar": 16.2,
+    "fiber": 2.1,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-toasted-vanilla-oat-shaken-espresso-tall",
+   "name": "Iced Toasted Vanilla Oat Shaken Espresso (Tall)",
+   "category": "Iced coffee",
+   "serving": "Tall, oat drink",
+   "nutrients": {
+    "calories": 102,
+    "protein": 1.7,
+    "carbs": 14.9,
+    "fat": 3.7,
+    "saturatedFat": 0.4,
+    "sugar": 10,
+    "fiber": 1.4,
+    "salt": 0.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-toasted-vanilla-oat-shaken-espresso-grande",
+   "name": "Iced Toasted Vanilla Oat Shaken Espresso (Grande)",
+   "category": "Iced coffee",
+   "serving": "Grande, oat drink",
+   "nutrients": {
+    "calories": 134,
+    "protein": 2.3,
+    "carbs": 20.2,
+    "fat": 4.5,
+    "saturatedFat": 0.5,
+    "sugar": 13.9,
+    "fiber": 1.7,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-toasted-vanilla-oat-shaken-espresso-venti",
+   "name": "Iced Toasted Vanilla Oat Shaken Espresso (Venti)",
+   "category": "Iced coffee",
+   "serving": "Venti, oat drink",
+   "nutrients": {
+    "calories": 163,
+    "protein": 2.9,
+    "carbs": 25.1,
+    "fat": 5.3,
+    "saturatedFat": 0.6,
+    "sugar": 17.6,
+    "fiber": 2.1,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-black-tea-tall",
+   "name": "Classic Shaken Iced Black Tea (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-black-tea-grande",
+   "name": "Classic Shaken Iced Black Tea (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-black-tea-venti",
+   "name": "Classic Shaken Iced Black Tea (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-black-tea-lemonade-tall",
+   "name": "Classic Shaken Iced Black Tea Lemonade (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 32,
+    "protein": 0.1,
+    "carbs": 7.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.4,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-black-tea-lemonade-grande",
+   "name": "Classic Shaken Iced Black Tea Lemonade (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.1,
+    "carbs": 10,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 10,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-black-tea-lemonade-venti",
+   "name": "Classic Shaken Iced Black Tea Lemonade (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.1,
+    "carbs": 9.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 9.9,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-green-tea-tall",
+   "name": "Classic Shaken Iced Green Tea (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-green-tea-grande",
+   "name": "Classic Shaken Iced Green Tea (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-green-tea-venti",
+   "name": "Classic Shaken Iced Green Tea (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-green-tea-lemonade-tall",
+   "name": "Classic Shaken Iced Green Tea Lemonade (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 32,
+    "protein": 0.1,
+    "carbs": 7.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.4,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-green-tea-lemonade-grande",
+   "name": "Classic Shaken Iced Green Tea Lemonade (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.1,
+    "carbs": 10,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 10,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-iced-green-tea-lemonade-venti",
+   "name": "Classic Shaken Iced Green Tea Lemonade (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.1,
+    "carbs": 9.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 9.9,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-hibiscus-tea-tall",
+   "name": "Classic Shaken Hibiscus Tea (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-hibiscus-tea-grande",
+   "name": "Classic Shaken Hibiscus Tea (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-hibiscus-tea-venti",
+   "name": "Classic Shaken Hibiscus Tea (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-hibiscus-tea-lemonade-tall",
+   "name": "Classic Shaken Hibiscus Tea Lemonade (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 32,
+    "protein": 0.1,
+    "carbs": 7.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.4,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-hibiscus-tea-lemonade-grande",
+   "name": "Classic Shaken Hibiscus Tea Lemonade (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.1,
+    "carbs": 10,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 10,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-shaken-hibiscus-tea-lemonade-venti",
+   "name": "Classic Shaken Hibiscus Tea Lemonade (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.1,
+    "carbs": 9.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 9.9,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-iced-tea-tall",
+   "name": "Lemon Iced Tea (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.1,
+    "carbs": 12.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 11.9,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-iced-tea-grande",
+   "name": "Lemon Iced Tea (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 72,
+    "protein": 0.1,
+    "carbs": 17.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 16.8,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-iced-tea-venti",
+   "name": "Lemon Iced Tea (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 81,
+    "protein": 0.1,
+    "carbs": 19.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 19,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-iced-tea-tall",
+   "name": "Peach Iced Tea (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.1,
+    "carbs": 12.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-iced-tea-grande",
+   "name": "Peach Iced Tea (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 72,
+    "protein": 0.1,
+    "carbs": 17.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 16.9,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-iced-tea-venti",
+   "name": "Peach Iced Tea (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 82,
+    "protein": 0.1,
+    "carbs": 19.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 19.2,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-acai-starbucks-refresha-drink-tall",
+   "name": "Strawberry Acai Starbucks Refresha Drink (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 62,
+    "protein": 0.3,
+    "carbs": 14.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 14.1,
+    "fiber": 0.6,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-acai-starbucks-refresha-drink-grande",
+   "name": "Strawberry Acai Starbucks Refresha Drink (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 79,
+    "protein": 0.4,
+    "carbs": 18.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 18.1,
+    "fiber": 0.6,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-acai-starbucks-refresha-drink-venti",
+   "name": "Strawberry Acai Starbucks Refresha Drink (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 97,
+    "protein": 0.4,
+    "carbs": 22.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 22.4,
+    "fiber": 0.7,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cool-lime-starbucks-refresha-drink-tall",
+   "name": "Cool Lime Starbucks Refresha Drink (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 53,
+    "protein": 0.2,
+    "carbs": 12.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 11.9,
+    "fiber": 0.4,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cool-lime-starbucks-refresha-drink-grande",
+   "name": "Cool Lime Starbucks Refresha Drink (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 69,
+    "protein": 0.2,
+    "carbs": 16.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 15.6,
+    "fiber": 0.4,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cool-lime-starbucks-refresha-drink-venti",
+   "name": "Cool Lime Starbucks Refresha Drink (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 86,
+    "protein": 0.2,
+    "carbs": 20.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 19.6,
+    "fiber": 0.4,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-dragonfruit-starbucks-refresha-drink-tall",
+   "name": "Mango Dragonfruit Starbucks Refresha Drink (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 76,
+    "protein": 0.4,
+    "carbs": 17.5,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 16.1,
+    "fiber": 0.5,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-dragonfruit-starbucks-refresha-drink-grande",
+   "name": "Mango Dragonfruit Starbucks Refresha Drink (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 92,
+    "protein": 0.4,
+    "carbs": 21.5,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "fiber": 0.5,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-dragonfruit-starbucks-refresha-drink-venti",
+   "name": "Mango Dragonfruit Starbucks Refresha Drink (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 109,
+    "protein": 0.4,
+    "carbs": 25.7,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 24.2,
+    "fiber": 0.5,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-coconut-starbucks-refresha-drink-tall",
+   "name": "Dragon Coconut Starbucks Refresha Drink (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 119,
+    "protein": 1.4,
+    "carbs": 21,
+    "fat": 2.6,
+    "saturatedFat": 2.3,
+    "sugar": 19.6,
+    "fiber": 2,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-coconut-starbucks-refresha-drink-grande",
+   "name": "Dragon Coconut Starbucks Refresha Drink (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 150,
+    "protein": 1.7,
+    "carbs": 26,
+    "fat": 3.4,
+    "saturatedFat": 3.1,
+    "sugar": 24.6,
+    "fiber": 2.5,
+    "salt": 0.07
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-coconut-starbucks-refresha-drink-venti",
+   "name": "Dragon Coconut Starbucks Refresha Drink (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 179,
+    "protein": 2,
+    "carbs": 31.2,
+    "fat": 4.1,
+    "saturatedFat": 3.7,
+    "sugar": 29.7,
+    "fiber": 2.9,
+    "salt": 0.08
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-coconut-starbucks-refresha-tall",
+   "name": "Pink Coconut Starbucks Refresha (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 94,
+    "protein": 1.8,
+    "carbs": 17.5,
+    "fat": 1.6,
+    "saturatedFat": 0.7,
+    "sugar": 17.3,
+    "fiber": 1,
+    "salt": 0.09
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-coconut-starbucks-refresha-grande",
+   "name": "Pink Coconut Starbucks Refresha (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 121,
+    "protein": 2.3,
+    "carbs": 22.6,
+    "fat": 2.1,
+    "saturatedFat": 0.9,
+    "sugar": 22.3,
+    "fiber": 1.1,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-coconut-starbucks-refresha-venti",
+   "name": "Pink Coconut Starbucks Refresha (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 148,
+    "protein": 2.7,
+    "carbs": 27.8,
+    "fat": 2.5,
+    "saturatedFat": 1.1,
+    "sugar": 27.5,
+    "fiber": 1.2,
+    "salt": 0.15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chai-tea-latte-tall",
+   "name": "Iced Chai Tea Latte (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 132,
+    "protein": 5.3,
+    "carbs": 21.7,
+    "fat": 2.6,
+    "saturatedFat": 2.6,
+    "sugar": 21.7,
+    "fiber": 0.2,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chai-tea-latte-grande",
+   "name": "Iced Chai Tea Latte (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 180,
+    "protein": 7.4,
+    "carbs": 29.3,
+    "fat": 3.6,
+    "saturatedFat": 3.5,
+    "sugar": 29.2,
+    "fiber": 0.3,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chai-tea-latte-venti",
+   "name": "Iced Chai Tea Latte (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 209,
+    "protein": 8,
+    "carbs": 35.1,
+    "fat": 4,
+    "saturatedFat": 3.9,
+    "sugar": 35,
+    "fiber": 0.3,
+    "salt": 0.26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-green-tea-latte-tall",
+   "name": "Iced Matcha Green Tea Latte (Tall)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 82,
+    "protein": 6.2,
+    "carbs": 7.6,
+    "fat": 2.8,
+    "saturatedFat": 1.8,
+    "sugar": 7.6,
+    "fiber": 0.8,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-green-tea-latte-grande",
+   "name": "Iced Matcha Green Tea Latte (Grande)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 117,
+    "protein": 8.8,
+    "carbs": 10.9,
+    "fat": 4,
+    "saturatedFat": 2.5,
+    "sugar": 10.9,
+    "fiber": 1.3,
+    "salt": 0.25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-green-tea-latte-venti",
+   "name": "Iced Matcha Green Tea Latte (Venti)",
+   "category": "Iced tea, matcha & Refresha",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 135,
+    "protein": 10.2,
+    "carbs": 12.4,
+    "fat": 4.6,
+    "saturatedFat": 2.9,
+    "sugar": 12.4,
+    "fiber": 1.7,
+    "salt": 0.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-frappuccino-mini",
+   "name": "Caramel Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 198,
+    "protein": 2.6,
+    "carbs": 25.5,
+    "fat": 9.4,
+    "saturatedFat": 6.4,
+    "sugar": 24.5,
+    "fiber": 0.1,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-frappuccino-tall",
+   "name": "Caramel Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 282,
+    "protein": 3.8,
+    "carbs": 35.5,
+    "fat": 13.8,
+    "saturatedFat": 9.5,
+    "sugar": 34.2,
+    "fiber": 0.1,
+    "salt": 0.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-frappuccino-grande",
+   "name": "Caramel Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 362,
+    "protein": 4.9,
+    "carbs": 45.5,
+    "fat": 17.7,
+    "saturatedFat": 12.2,
+    "sugar": 43.8,
+    "fiber": 0.2,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-frappuccino-venti",
+   "name": "Caramel Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 403,
+    "protein": 5.1,
+    "carbs": 54.8,
+    "fat": 18,
+    "saturatedFat": 12.3,
+    "sugar": 52.8,
+    "fiber": 0.2,
+    "salt": 0.72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-cream-frappuccino-mini",
+   "name": "Caramel Cream Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 200,
+    "protein": 3.1,
+    "carbs": 24.1,
+    "fat": 10.2,
+    "saturatedFat": 7,
+    "sugar": 23.3,
+    "fiber": 0,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-cream-frappuccino-tall",
+   "name": "Caramel Cream Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 270,
+    "protein": 4.1,
+    "carbs": 30.9,
+    "fat": 14.4,
+    "saturatedFat": 9.9,
+    "sugar": 29.9,
+    "fiber": 0,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-cream-frappuccino-grande",
+   "name": "Caramel Cream Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 358,
+    "protein": 5.7,
+    "carbs": 41.4,
+    "fat": 18.9,
+    "saturatedFat": 13,
+    "sugar": 40.2,
+    "fiber": 0,
+    "salt": 0.61
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-cream-frappuccino-venti",
+   "name": "Caramel Cream Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 405,
+    "protein": 6.3,
+    "carbs": 50.6,
+    "fat": 19.7,
+    "saturatedFat": 13.5,
+    "sugar": 49.2,
+    "fiber": 0,
+    "salt": 0.75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cream-frappuccino-mini",
+   "name": "Chocolate Cream Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 178,
+    "protein": 3.8,
+    "carbs": 20,
+    "fat": 9.2,
+    "saturatedFat": 6.3,
+    "sugar": 19.3,
+    "fiber": 0.6,
+    "salt": 0.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cream-frappuccino-tall",
+   "name": "Chocolate Cream Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 253,
+    "protein": 4.9,
+    "carbs": 27.4,
+    "fat": 13.5,
+    "saturatedFat": 9.3,
+    "sugar": 26.5,
+    "fiber": 1.1,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cream-frappuccino-grande",
+   "name": "Chocolate Cream Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 345,
+    "protein": 6.7,
+    "carbs": 38.2,
+    "fat": 18.1,
+    "saturatedFat": 12.5,
+    "sugar": 36.9,
+    "fiber": 1.5,
+    "salt": 0.57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cream-frappuccino-venti",
+   "name": "Chocolate Cream Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 383,
+    "protein": 7.3,
+    "carbs": 45.7,
+    "fat": 18.7,
+    "saturatedFat": 12.9,
+    "sugar": 44.2,
+    "fiber": 1.9,
+    "salt": 0.68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-frappuccino-mini",
+   "name": "Coffee Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 159,
+    "protein": 2.7,
+    "carbs": 18.6,
+    "fat": 8.2,
+    "saturatedFat": 5.7,
+    "sugar": 18.1,
+    "fiber": 0.1,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-frappuccino-tall",
+   "name": "Coffee Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 225,
+    "protein": 3.6,
+    "carbs": 25.2,
+    "fat": 12.1,
+    "saturatedFat": 8.4,
+    "sugar": 24.4,
+    "fiber": 0.1,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-frappuccino-grande",
+   "name": "Coffee Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 299,
+    "protein": 4.8,
+    "carbs": 34,
+    "fat": 15.9,
+    "saturatedFat": 11.1,
+    "sugar": 32.9,
+    "fiber": 0.2,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-frappuccino-venti",
+   "name": "Coffee Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 328,
+    "protein": 4.9,
+    "carbs": 40.8,
+    "fat": 16,
+    "saturatedFat": 11.1,
+    "sugar": 39.4,
+    "fiber": 0.2,
+    "salt": 0.66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-cream-frappuccino-mini",
+   "name": "Cookies & Cream Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 208,
+    "protein": 3.9,
+    "carbs": 23.7,
+    "fat": 10.9,
+    "saturatedFat": 7.4,
+    "sugar": 19.9,
+    "fiber": 0.2,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-cream-frappuccino-tall",
+   "name": "Cookies & Cream Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 289,
+    "protein": 5.3,
+    "carbs": 31.8,
+    "fat": 15.6,
+    "saturatedFat": 10.7,
+    "sugar": 26.9,
+    "fiber": 0.3,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-cream-frappuccino-grande",
+   "name": "Cookies & Cream Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 387,
+    "protein": 7.1,
+    "carbs": 43,
+    "fat": 20.7,
+    "saturatedFat": 14.1,
+    "sugar": 36.4,
+    "fiber": 0.4,
+    "salt": 0.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-cream-frappuccino-venti",
+   "name": "Cookies & Cream Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 446,
+    "protein": 8.1,
+    "carbs": 53.3,
+    "fat": 22.3,
+    "saturatedFat": 15.1,
+    "sugar": 45,
+    "fiber": 0.5,
+    "salt": 0.92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolatey-chip-cream-frappuccino-mini",
+   "name": "Double Chocolatey Chip Cream Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 201,
+    "protein": 3.9,
+    "carbs": 22,
+    "fat": 10.7,
+    "saturatedFat": 7.6,
+    "sugar": 20.5,
+    "fiber": 0.9,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolatey-chip-cream-frappuccino-tall",
+   "name": "Double Chocolatey Chip Cream Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 296,
+    "protein": 5.3,
+    "carbs": 32,
+    "fat": 16,
+    "saturatedFat": 11.4,
+    "sugar": 29.8,
+    "fiber": 1.7,
+    "salt": 0.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolatey-chip-cream-frappuccino-grande",
+   "name": "Double Chocolatey Chip Cream Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 401,
+    "protein": 7.2,
+    "carbs": 43.9,
+    "fat": 21.4,
+    "saturatedFat": 15.3,
+    "sugar": 40.9,
+    "fiber": 2.3,
+    "salt": 0.63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolatey-chip-cream-frappuccino-venti",
+   "name": "Double Chocolatey Chip Cream Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 448,
+    "protein": 7.8,
+    "carbs": 52,
+    "fat": 22.7,
+    "saturatedFat": 16.2,
+    "sugar": 48.3,
+    "fiber": 2.8,
+    "salt": 0.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "java-chip-frappuccino-mini",
+   "name": "Java Chip Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 193,
+    "protein": 3.3,
+    "carbs": 22.4,
+    "fat": 9.7,
+    "saturatedFat": 6.9,
+    "sugar": 20.9,
+    "fiber": 0.9,
+    "salt": 0.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "java-chip-frappuccino-tall",
+   "name": "Java Chip Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 287,
+    "protein": 4.5,
+    "carbs": 33.1,
+    "fat": 14.7,
+    "saturatedFat": 10.5,
+    "sugar": 30.8,
+    "fiber": 1.7,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "java-chip-frappuccino-grande",
+   "name": "Java Chip Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 393,
+    "protein": 6.2,
+    "carbs": 46.3,
+    "fat": 19.8,
+    "saturatedFat": 14.1,
+    "sugar": 43.1,
+    "fiber": 2.3,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "java-chip-frappuccino-venti",
+   "name": "Java Chip Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 465,
+    "protein": 7,
+    "carbs": 59.3,
+    "fat": 21.4,
+    "saturatedFat": 15.3,
+    "sugar": 55,
+    "fiber": 3,
+    "salt": 0.76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-cream-frappuccino-mini",
+   "name": "Matcha Cream Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 170,
+    "protein": 3.4,
+    "carbs": 19.1,
+    "fat": 8.8,
+    "saturatedFat": 6.1,
+    "sugar": 18.2,
+    "fiber": 0.6,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-cream-frappuccino-tall",
+   "name": "Matcha Cream Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 238,
+    "protein": 4.7,
+    "carbs": 25.3,
+    "fat": 13,
+    "saturatedFat": 9,
+    "sugar": 24.8,
+    "fiber": 0.8,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-cream-frappuccino-grande",
+   "name": "Matcha Cream Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 320,
+    "protein": 6.3,
+    "carbs": 34.6,
+    "fat": 17.2,
+    "saturatedFat": 11.9,
+    "sugar": 33.9,
+    "fiber": 1.1,
+    "salt": 0.56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-cream-frappuccino-venti",
+   "name": "Matcha Cream Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 353,
+    "protein": 6.8,
+    "carbs": 41.3,
+    "fat": 17.6,
+    "saturatedFat": 12.2,
+    "sugar": 40.4,
+    "fiber": 1.4,
+    "salt": 0.66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-frappuccino-mini",
+   "name": "Mocha Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 173,
+    "protein": 3.1,
+    "carbs": 20.9,
+    "fat": 8.4,
+    "saturatedFat": 5.8,
+    "sugar": 20.1,
+    "fiber": 0.5,
+    "salt": 0.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-frappuccino-tall",
+   "name": "Mocha Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 251,
+    "protein": 4.2,
+    "carbs": 29.6,
+    "fat": 12.6,
+    "saturatedFat": 8.7,
+    "sugar": 28.5,
+    "fiber": 1,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-frappuccino-grande",
+   "name": "Mocha Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 329,
+    "protein": 5.4,
+    "carbs": 39,
+    "fat": 16.5,
+    "saturatedFat": 11.4,
+    "sugar": 37.6,
+    "fiber": 1.3,
+    "salt": 0.53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-frappuccino-venti",
+   "name": "Mocha Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 376,
+    "protein": 6,
+    "carbs": 49,
+    "fat": 16.9,
+    "saturatedFat": 11.6,
+    "sugar": 47,
+    "fiber": 1.7,
+    "salt": 0.66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-cream-frappuccino-mini",
+   "name": "Strawberries & Cream Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 177,
+    "protein": 3,
+    "carbs": 21.3,
+    "fat": 8.7,
+    "saturatedFat": 6,
+    "sugar": 20.5,
+    "fiber": 0.2,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-cream-frappuccino-tall",
+   "name": "Strawberries & Cream Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 245,
+    "protein": 4.1,
+    "carbs": 28.2,
+    "fat": 12.8,
+    "saturatedFat": 8.8,
+    "sugar": 27.1,
+    "fiber": 0.2,
+    "salt": 0.39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-cream-frappuccino-grande",
+   "name": "Strawberries & Cream Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 325,
+    "protein": 5.5,
+    "carbs": 39,
+    "fat": 17,
+    "saturatedFat": 11.7,
+    "sugar": 37.5,
+    "fiber": 0.3,
+    "salt": 0.54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-cream-frappuccino-venti",
+   "name": "Strawberries & Cream Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 364,
+    "protein": 5.8,
+    "carbs": 46.2,
+    "fat": 17.2,
+    "saturatedFat": 11.9,
+    "sugar": 44.3,
+    "fiber": 0.4,
+    "salt": 0.63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-cream-frappuccino-tall",
+   "name": "Vanilla Cream Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 227,
+    "protein": 4,
+    "carbs": 24.3,
+    "fat": 12.8,
+    "saturatedFat": 8.9,
+    "sugar": 23.8,
+    "fiber": 0,
+    "salt": 0.39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-cream-frappuccino-grande",
+   "name": "Vanilla Cream Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 312,
+    "protein": 5.5,
+    "carbs": 34.3,
+    "fat": 17.1,
+    "saturatedFat": 11.9,
+    "sugar": 33.5,
+    "fiber": 0,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-cream-frappuccino-venti",
+   "name": "Vanilla Cream Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 354,
+    "protein": 6.1,
+    "carbs": 42.8,
+    "fat": 17.7,
+    "saturatedFat": 12.3,
+    "sugar": 41.9,
+    "fiber": 0,
+    "salt": 0.69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-cream-frappuccino-mini",
+   "name": "White Chocolate Cream Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 184,
+    "protein": 3.5,
+    "carbs": 21.5,
+    "fat": 9.4,
+    "saturatedFat": 6.5,
+    "sugar": 21.2,
+    "fiber": 0,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-cream-frappuccino-tall",
+   "name": "White Chocolate Cream Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 256,
+    "protein": 4.6,
+    "carbs": 28.8,
+    "fat": 13.6,
+    "saturatedFat": 9.6,
+    "sugar": 28.3,
+    "fiber": 0,
+    "salt": 0.45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-cream-frappuccino-grande",
+   "name": "White Chocolate Cream Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 367,
+    "protein": 6.6,
+    "carbs": 43.5,
+    "fat": 18.6,
+    "saturatedFat": 13.1,
+    "sugar": 42.9,
+    "fiber": 0,
+    "salt": 0.66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-cream-frappuccino-venti",
+   "name": "White Chocolate Cream Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 388,
+    "protein": 6.8,
+    "carbs": 47.9,
+    "fat": 18.8,
+    "saturatedFat": 13.2,
+    "sugar": 47.1,
+    "fiber": 0,
+    "salt": 0.75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-mocha-frappuccino-mini",
+   "name": "White Mocha Frappuccino (Mini)",
+   "category": "Frappuccino",
+   "serving": "Mini, whole milk",
+   "nutrients": {
+    "calories": 183,
+    "protein": 3,
+    "carbs": 23.1,
+    "fat": 8.6,
+    "saturatedFat": 6,
+    "sugar": 22.6,
+    "fiber": 0.1,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-mocha-frappuccino-tall",
+   "name": "White Mocha Frappuccino (Tall)",
+   "category": "Frappuccino",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 262,
+    "protein": 4.1,
+    "carbs": 32.2,
+    "fat": 12.8,
+    "saturatedFat": 9,
+    "sugar": 31.5,
+    "fiber": 0.1,
+    "salt": 0.45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-mocha-frappuccino-grande",
+   "name": "White Mocha Frappuccino (Grande)",
+   "category": "Frappuccino",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 371,
+    "protein": 5.8,
+    "carbs": 47.5,
+    "fat": 17.3,
+    "saturatedFat": 12.2,
+    "sugar": 46.5,
+    "fiber": 0.2,
+    "salt": 0.64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-mocha-frappuccino-venti",
+   "name": "White Mocha Frappuccino (Venti)",
+   "category": "Frappuccino",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 398,
+    "protein": 5.9,
+    "carbs": 53.9,
+    "fat": 17.4,
+    "saturatedFat": 12.2,
+    "sugar": 52.6,
+    "fiber": 0.2,
+    "salt": 0.75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-protein-americano-tall",
+   "name": "Caramel Protein Americano (Tall)",
+   "category": "Protein drinks",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 98,
+    "protein": 16.3,
+    "carbs": 6.4,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 2.9,
+    "fiber": 0.7,
+    "salt": 0.43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-protein-americano-grande",
+   "name": "Caramel Protein Americano (Grande)",
+   "category": "Protein drinks",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 102,
+    "protein": 16.5,
+    "carbs": 7,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 3,
+    "fiber": 0.8,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-protein-americano-venti",
+   "name": "Caramel Protein Americano (Venti)",
+   "category": "Protein drinks",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 106,
+    "protein": 16.7,
+    "carbs": 7.5,
+    "fat": 0.9,
+    "saturatedFat": 0.3,
+    "sugar": 3,
+    "fiber": 0.9,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-protein-latte-tall",
+   "name": "Caramel Protein Latte (Tall)",
+   "category": "Protein drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 172,
+    "protein": 21.7,
+    "carbs": 13.7,
+    "fat": 3.4,
+    "saturatedFat": 1.9,
+    "sugar": 10.2,
+    "fiber": 0.7,
+    "salt": 0.59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-protein-latte-grande",
+   "name": "Caramel Protein Latte (Grande)",
+   "category": "Protein drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 209,
+    "protein": 24.4,
+    "carbs": 17.4,
+    "fat": 4.7,
+    "saturatedFat": 2.8,
+    "sugar": 13.8,
+    "fiber": 0.7,
+    "salt": 0.68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-protein-latte-venti",
+   "name": "Caramel Protein Latte (Venti)",
+   "category": "Protein drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 259,
+    "protein": 27.9,
+    "carbs": 22.4,
+    "fat": 6.3,
+    "saturatedFat": 3.8,
+    "sugar": 18.3,
+    "fiber": 0.8,
+    "salt": 0.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-protein-matcha-latte-tall",
+   "name": "Vanilla Protein Matcha Latte (Tall)",
+   "category": "Protein drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 171,
+    "protein": 22,
+    "carbs": 13,
+    "fat": 3.4,
+    "saturatedFat": 1.9,
+    "sugar": 10.3,
+    "fiber": 1.3,
+    "salt": 0.56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-protein-matcha-latte-grande",
+   "name": "Vanilla Protein Matcha Latte (Grande)",
+   "category": "Protein drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 215,
+    "protein": 25.2,
+    "carbs": 17.2,
+    "fat": 4.8,
+    "saturatedFat": 2.9,
+    "sugar": 14.3,
+    "fiber": 1.7,
+    "salt": 0.65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-protein-matcha-latte-venti",
+   "name": "Vanilla Protein Matcha Latte (Venti)",
+   "category": "Protein drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 271,
+    "protein": 29.4,
+    "carbs": 22.6,
+    "fat": 6.8,
+    "saturatedFat": 4.1,
+    "sugar": 19.6,
+    "fiber": 2.1,
+    "salt": 0.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-protein-americano-tall",
+   "name": "Iced Caramel Protein Americano (Tall)",
+   "category": "Protein drinks",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 98,
+    "protein": 16.3,
+    "carbs": 6.4,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 2.9,
+    "fiber": 0.7,
+    "salt": 0.43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-protein-americano-grande",
+   "name": "Iced Caramel Protein Americano (Grande)",
+   "category": "Protein drinks",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 102,
+    "protein": 16.5,
+    "carbs": 7,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 3,
+    "fiber": 0.8,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-protein-americano-venti",
+   "name": "Iced Caramel Protein Americano (Venti)",
+   "category": "Protein drinks",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 106,
+    "protein": 16.7,
+    "carbs": 7.5,
+    "fat": 0.9,
+    "saturatedFat": 0.3,
+    "sugar": 3,
+    "fiber": 0.9,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-protein-latte-tall",
+   "name": "Iced Caramel Protein Latte (Tall)",
+   "category": "Protein drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 165,
+    "protein": 21.2,
+    "carbs": 12.9,
+    "fat": 3.1,
+    "saturatedFat": 1.8,
+    "sugar": 9.5,
+    "fiber": 0.7,
+    "salt": 0.58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-protein-latte-grande",
+   "name": "Iced Caramel Protein Latte (Grande)",
+   "category": "Protein drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 206,
+    "protein": 24.2,
+    "carbs": 17.1,
+    "fat": 4.6,
+    "saturatedFat": 2.7,
+    "sugar": 13.5,
+    "fiber": 0.7,
+    "salt": 0.68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-protein-latte-venti",
+   "name": "Iced Caramel Protein Latte (Venti)",
+   "category": "Protein drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 205,
+    "protein": 24,
+    "carbs": 17.2,
+    "fat": 4.4,
+    "saturatedFat": 2.6,
+    "sugar": 13,
+    "fiber": 0.8,
+    "salt": 0.67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-protein-matcha-latte-tall",
+   "name": "Iced Vanilla Protein Matcha Latte (Tall)",
+   "category": "Protein drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 145,
+    "protein": 20.1,
+    "carbs": 10.5,
+    "fat": 2.4,
+    "saturatedFat": 1.3,
+    "sugar": 7.7,
+    "fiber": 1.3,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-protein-matcha-latte-grande",
+   "name": "Iced Vanilla Protein Matcha Latte (Grande)",
+   "category": "Protein drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 160,
+    "protein": 21.1,
+    "carbs": 11.9,
+    "fat": 2.9,
+    "saturatedFat": 1.6,
+    "sugar": 9,
+    "fiber": 1.5,
+    "salt": 0.53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-protein-matcha-latte-venti",
+   "name": "Iced Vanilla Protein Matcha Latte (Venti)",
+   "category": "Protein drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 168,
+    "protein": 21.8,
+    "carbs": 12.7,
+    "fat": 3.2,
+    "saturatedFat": 1.8,
+    "sugar": 9.7,
+    "fiber": 1.7,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-short",
+   "name": "Pumpkin Spice Latte (Short)",
+   "category": "Seasonal drinks",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 141,
+    "protein": 4.3,
+    "carbs": 16.1,
+    "fat": 6.1,
+    "saturatedFat": 4.2,
+    "sugar": 15.7,
+    "fiber": 2.2,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-tall",
+   "name": "Pumpkin Spice Latte (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 205,
+    "protein": 6.7,
+    "carbs": 24.3,
+    "fat": 8.2,
+    "saturatedFat": 5.6,
+    "sugar": 23.4,
+    "fiber": 3.4,
+    "salt": 0.26
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-grande",
+   "name": "Pumpkin Spice Latte (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 259,
+    "protein": 9.1,
+    "carbs": 32.3,
+    "fat": 9.4,
+    "saturatedFat": 6.4,
+    "sugar": 31.4,
+    "fiber": 4.4,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-venti",
+   "name": "Pumpkin Spice Latte (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 331,
+    "protein": 12.4,
+    "carbs": 41.7,
+    "fat": 11.4,
+    "saturatedFat": 7.7,
+    "sugar": 40.4,
+    "fiber": 5.6,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pumpkin-spice-latte-tall",
+   "name": "Iced Pumpkin Spice Latte (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 135,
+    "protein": 5.1,
+    "carbs": 21.3,
+    "fat": 2.5,
+    "saturatedFat": 1.5,
+    "sugar": 20.4,
+    "fiber": 3.4,
+    "salt": 0.21
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pumpkin-spice-latte-grande",
+   "name": "Iced Pumpkin Spice Latte (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 192,
+    "protein": 7.7,
+    "carbs": 29.5,
+    "fat": 3.8,
+    "saturatedFat": 2.4,
+    "sugar": 28.6,
+    "fiber": 4.4,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pumpkin-spice-latte-venti",
+   "name": "Iced Pumpkin Spice Latte (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 215,
+    "protein": 7.8,
+    "carbs": 34.5,
+    "fat": 3.8,
+    "saturatedFat": 2.4,
+    "sugar": 33.2,
+    "fiber": 5.6,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-caramel-macchiato-short",
+   "name": "Pumpkin Spice Caramel Macchiato (Short)",
+   "category": "Seasonal drinks",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 89,
+    "protein": 3.7,
+    "carbs": 12.4,
+    "fat": 2.4,
+    "saturatedFat": 1.5,
+    "sugar": 11.7,
+    "fiber": 1.2,
+    "salt": 0.15
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-caramel-macchiato-tall",
+   "name": "Pumpkin Spice Caramel Macchiato (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 167,
+    "protein": 7.5,
+    "carbs": 23,
+    "fat": 4.4,
+    "saturatedFat": 2.8,
+    "sugar": 21.9,
+    "fiber": 2.4,
+    "salt": 0.29
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-caramel-macchiato-grande",
+   "name": "Pumpkin Spice Caramel Macchiato (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 234,
+    "protein": 10.8,
+    "carbs": 32.2,
+    "fat": 6.1,
+    "saturatedFat": 3.8,
+    "sugar": 31,
+    "fiber": 3.4,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-caramel-macchiato-venti",
+   "name": "Pumpkin Spice Caramel Macchiato (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 305,
+    "protein": 14.4,
+    "carbs": 41.9,
+    "fat": 7.8,
+    "saturatedFat": 4.9,
+    "sugar": 40.3,
+    "fiber": 4.5,
+    "salt": 0.53
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pumpkin-spice-caramel-macchiato-tall",
+   "name": "Iced Pumpkin Spice Caramel Macchiato (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 163,
+    "protein": 6.6,
+    "carbs": 23,
+    "fat": 4.3,
+    "saturatedFat": 2.7,
+    "sugar": 21.8,
+    "fiber": 2.4,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pumpkin-spice-caramel-macchiato-grande",
+   "name": "Iced Pumpkin Spice Caramel Macchiato (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 209,
+    "protein": 8.5,
+    "carbs": 30.2,
+    "fat": 5.2,
+    "saturatedFat": 3.3,
+    "sugar": 28.9,
+    "fiber": 3.4,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pumpkin-spice-caramel-macchiato-venti",
+   "name": "Iced Pumpkin Spice Caramel Macchiato (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 252,
+    "protein": 10,
+    "carbs": 37.1,
+    "fat": 6,
+    "saturatedFat": 3.7,
+    "sugar": 35.4,
+    "fiber": 4.5,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-macchiato-short",
+   "name": "Maple Pecan Macchiato (Short)",
+   "category": "Seasonal drinks",
+   "serving": "Short, semi-skimmed milk",
+   "nutrients": {
+    "calories": 82,
+    "protein": 3.4,
+    "carbs": 13.3,
+    "fat": 1.6,
+    "saturatedFat": 1,
+    "sugar": 12.3,
+    "fiber": 0.1,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-macchiato-tall",
+   "name": "Maple Pecan Macchiato (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 155,
+    "protein": 7,
+    "carbs": 24,
+    "fat": 3.4,
+    "saturatedFat": 2.1,
+    "sugar": 22.4,
+    "fiber": 0.3,
+    "salt": 0.23
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-macchiato-grande",
+   "name": "Maple Pecan Macchiato (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 215,
+    "protein": 9.9,
+    "carbs": 32.7,
+    "fat": 4.8,
+    "saturatedFat": 3.1,
+    "sugar": 31.2,
+    "fiber": 0.3,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-macchiato-venti",
+   "name": "Maple Pecan Macchiato (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 293,
+    "protein": 14.1,
+    "carbs": 43.3,
+    "fat": 6.8,
+    "saturatedFat": 4.3,
+    "sugar": 41.4,
+    "fiber": 0.4,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-maple-pecan-macchiato-tall",
+   "name": "Iced Maple Pecan Macchiato (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 163,
+    "protein": 7.5,
+    "carbs": 24.7,
+    "fat": 3.6,
+    "saturatedFat": 2.3,
+    "sugar": 23.2,
+    "fiber": 0.3,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-maple-pecan-macchiato-grande",
+   "name": "Iced Maple Pecan Macchiato (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 214,
+    "protein": 9.8,
+    "carbs": 32.6,
+    "fat": 4.8,
+    "saturatedFat": 3,
+    "sugar": 31.1,
+    "fiber": 0.3,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-maple-pecan-macchiato-venti",
+   "name": "Iced Maple Pecan Macchiato (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 248,
+    "protein": 10.8,
+    "carbs": 38.9,
+    "fat": 5.2,
+    "saturatedFat": 3.3,
+    "sugar": 37.1,
+    "fiber": 0.4,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-apple-crumble-matcha-latte-tall",
+   "name": "Iced Apple Crumble Matcha Latte (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, semi-skimmed milk",
+   "nutrients": {
+    "calories": 296,
+    "protein": 5.7,
+    "carbs": 32.2,
+    "fat": 15.7,
+    "saturatedFat": 9.8,
+    "sugar": 29.7,
+    "fiber": 1.1,
+    "salt": 0.19
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-apple-crumble-matcha-latte-grande",
+   "name": "Iced Apple Crumble Matcha Latte (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, semi-skimmed milk",
+   "nutrients": {
+    "calories": 328,
+    "protein": 6.7,
+    "carbs": 38.5,
+    "fat": 15.9,
+    "saturatedFat": 10,
+    "sugar": 35.6,
+    "fiber": 1.4,
+    "salt": 0.22
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-apple-crumble-matcha-latte-venti",
+   "name": "Iced Apple Crumble Matcha Latte (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, semi-skimmed milk",
+   "nutrients": {
+    "calories": 356,
+    "protein": 7.3,
+    "carbs": 44.3,
+    "fat": 16.1,
+    "saturatedFat": 10,
+    "sugar": 41.2,
+    "fiber": 1.6,
+    "salt": 0.23
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-cream-frappuccino-tall",
+   "name": "Pumpkin Spice Cream Frappuccino (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 263,
+    "protein": 4.3,
+    "carbs": 31.1,
+    "fat": 13.1,
+    "saturatedFat": 9,
+    "sugar": 30.5,
+    "fiber": 2,
+    "salt": 0.46
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-cream-frappuccino-grande",
+   "name": "Pumpkin Spice Cream Frappuccino (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 359,
+    "protein": 5.8,
+    "carbs": 43.5,
+    "fat": 17.4,
+    "saturatedFat": 12.1,
+    "sugar": 42.7,
+    "fiber": 2.8,
+    "salt": 0.64
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-cream-frappuccino-venti",
+   "name": "Pumpkin Spice Cream Frappuccino (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 414,
+    "protein": 6.4,
+    "carbs": 54.5,
+    "fat": 18.1,
+    "saturatedFat": 12.5,
+    "sugar": 53.6,
+    "fiber": 3.7,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-coffee-frappuccino-tall",
+   "name": "Pumpkin Spice Coffee Frappuccino (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 266,
+    "protein": 3.7,
+    "carbs": 34.2,
+    "fat": 12.2,
+    "saturatedFat": 8.4,
+    "sugar": 33.4,
+    "fiber": 2.1,
+    "salt": 0.45
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-coffee-frappuccino-grande",
+   "name": "Pumpkin Spice Coffee Frappuccino (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 368,
+    "protein": 5.1,
+    "carbs": 48.6,
+    "fat": 16.3,
+    "saturatedFat": 11.2,
+    "sugar": 47.4,
+    "fiber": 3,
+    "salt": 0.64
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-coffee-frappuccino-venti",
+   "name": "Pumpkin Spice Coffee Frappuccino (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 424,
+    "protein": 5.4,
+    "carbs": 61.2,
+    "fat": 16.5,
+    "saturatedFat": 11.4,
+    "sugar": 59.5,
+    "fiber": 3.8,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-crisp-inspired-macchiato-tall",
+   "name": "Apple Crisp Inspired Macchiato (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, oat drink",
+   "nutrients": {
+    "calories": 222,
+    "protein": 2.3,
+    "carbs": 34.8,
+    "fat": 7.6,
+    "saturatedFat": 1.2,
+    "sugar": 25.8,
+    "fiber": 2.6,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-crisp-inspired-macchiato-grande",
+   "name": "Apple Crisp Inspired Macchiato (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, oat drink",
+   "nutrients": {
+    "calories": 308,
+    "protein": 2.9,
+    "carbs": 50.6,
+    "fat": 9.7,
+    "saturatedFat": 1.5,
+    "sugar": 38.9,
+    "fiber": 3.4,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-crisp-inspired-macchiato-venti",
+   "name": "Apple Crisp Inspired Macchiato (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, oat drink",
+   "nutrients": {
+    "calories": 404,
+    "protein": 3.8,
+    "carbs": 67.4,
+    "fat": 12.3,
+    "saturatedFat": 1.8,
+    "sugar": 52.1,
+    "fiber": 4.4,
+    "salt": 0.54
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-apple-crisp-inspired-macchiato-tall",
+   "name": "Iced Apple Crisp Inspired Macchiato (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, oat drink",
+   "nutrients": {
+    "calories": 172,
+    "protein": 1.6,
+    "carbs": 29.1,
+    "fat": 5.1,
+    "saturatedFat": 0.9,
+    "sugar": 23,
+    "fiber": 1.8,
+    "salt": 0.21
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-apple-crisp-inspired-macchiato-grande",
+   "name": "Iced Apple Crisp Inspired Macchiato (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, oat drink",
+   "nutrients": {
+    "calories": 263,
+    "protein": 2.2,
+    "carbs": 45.5,
+    "fat": 7.5,
+    "saturatedFat": 1.3,
+    "sugar": 36.4,
+    "fiber": 2.6,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-apple-crisp-inspired-macchiato-venti",
+   "name": "Iced Apple Crisp Inspired Macchiato (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, oat drink",
+   "nutrients": {
+    "calories": 313,
+    "protein": 2.5,
+    "carbs": 57,
+    "fat": 7.7,
+    "saturatedFat": 1.3,
+    "sugar": 47,
+    "fiber": 2.8,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-oat-shaken-apple-espresso-tall",
+   "name": "Iced Oat Shaken Apple Espresso (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, oat drink",
+   "nutrients": {
+    "calories": 137,
+    "protein": 1.2,
+    "carbs": 24.4,
+    "fat": 3.6,
+    "saturatedFat": 0.4,
+    "sugar": 19.6,
+    "fiber": 1.5,
+    "salt": 0.16
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-oat-shaken-apple-espresso-grande",
+   "name": "Iced Oat Shaken Apple Espresso (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, oat drink",
+   "nutrients": {
+    "calories": 199,
+    "protein": 1.6,
+    "carbs": 37.2,
+    "fat": 4.4,
+    "saturatedFat": 0.5,
+    "sugar": 30.8,
+    "fiber": 1.9,
+    "salt": 0.19
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-oat-shaken-apple-espresso-venti",
+   "name": "Iced Oat Shaken Apple Espresso (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, oat drink",
+   "nutrients": {
+    "calories": 257,
+    "protein": 1.9,
+    "carbs": 49.7,
+    "fat": 5.1,
+    "saturatedFat": 0.6,
+    "sugar": 41.9,
+    "fiber": 2.3,
+    "salt": 0.22
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aerocano-tall",
+   "name": "Aerocano (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.3,
+    "carbs": 0.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aerocano-grande",
+   "name": "Aerocano (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.4,
+    "carbs": 1.1,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0.1,
+    "fiber": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aerocano-venti",
+   "name": "Aerocano (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.6,
+    "carbs": 1.4,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.2,
+    "fiber": 0.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-aerocano-tall",
+   "name": "Caramel Aerocano (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0.3,
+    "carbs": 7.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7,
+    "fiber": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-aerocano-grande",
+   "name": "Caramel Aerocano (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.5,
+    "carbs": 11.7,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 10.7,
+    "fiber": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-aerocano-venti",
+   "name": "Caramel Aerocano (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti",
+   "nutrients": {
+    "calories": 65,
+    "protein": 0.6,
+    "carbs": 14.6,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 13.3,
+    "fiber": 0.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mummy-frappuccino-tall",
+   "name": "Mummy Frappuccino (Tall)",
+   "category": "Seasonal drinks",
+   "serving": "Tall, whole milk",
+   "nutrients": {
+    "calories": 367,
+    "protein": 6.3,
+    "carbs": 47.6,
+    "fat": 16.6,
+    "saturatedFat": 11.6,
+    "sugar": 44.9,
+    "fiber": 1,
+    "salt": 0.62
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mummy-frappuccino-grande",
+   "name": "Mummy Frappuccino (Grande)",
+   "category": "Seasonal drinks",
+   "serving": "Grande, whole milk",
+   "nutrients": {
+    "calories": 477,
+    "protein": 8,
+    "carbs": 63.2,
+    "fat": 21.2,
+    "saturatedFat": 15,
+    "sugar": 60.3,
+    "fiber": 1,
+    "salt": 0.83
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mummy-frappuccino-venti",
+   "name": "Mummy Frappuccino (Venti)",
+   "category": "Seasonal drinks",
+   "serving": "Venti, whole milk",
+   "nutrients": {
+    "calories": 559,
+    "protein": 9.6,
+    "carbs": 77.7,
+    "fat": 23.1,
+    "saturatedFat": 16.3,
+    "sugar": 74.7,
+    "fiber": 1.1,
+    "salt": 1.04
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "all-day-breakfast-wrap",
+   "name": "All Day Breakfast Wrap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 465,
+    "protein": 21,
+    "carbs": 42,
+    "fat": 23,
+    "saturatedFat": 9.5,
+    "sugar": 6,
+    "fiber": 3.1,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beyond-meat-breakfast-sandwich",
+   "name": "Beyond Meat Breakfast Sandwich",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 432,
+    "protein": 21,
+    "carbs": 46,
+    "fat": 17,
+    "saturatedFat": 8.9,
+    "sugar": 3.1,
+    "fiber": 5.3,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-cheese-croissant",
+   "name": "Ham & Cheese Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 385,
+    "protein": 15,
+    "carbs": 36,
+    "fat": 20,
+    "saturatedFat": 12,
+    "sugar": 5.9,
+    "fiber": 0.6,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-bacon-roll",
+   "name": "Smoked Bacon Roll",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 400,
+    "protein": 21,
+    "carbs": 49,
+    "fat": 13,
+    "saturatedFat": 4.5,
+    "sugar": 3.6,
+    "fiber": 1.7,
+    "salt": 2.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-sausage-sandwich",
+   "name": "Traditional Sausage Sandwich",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 495,
+    "protein": 20,
+    "carbs": 40,
+    "fat": 28,
+    "saturatedFat": 10,
+    "sugar": 4.9,
+    "fiber": 1.4,
+    "salt": 2
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-porridge",
+   "name": "Classic Porridge",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "protein": 10,
+    "carbs": 33,
+    "fat": 6.3,
+    "saturatedFat": 3,
+    "sugar": 8.7,
+    "fiber": 2.1,
+    "salt": 0.17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-seed-porridge-topper",
+   "name": "Fruit & Seed Porridge Topper",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 120,
+    "protein": 3.9,
+    "carbs": 15,
+    "fat": 4.5,
+    "saturatedFat": 0.7,
+    "sugar": 13,
+    "fiber": 1.8,
+    "salt": 0.08
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "greek-style-yogurt-with-berries-granola",
+   "name": "Greek Style Yogurt with Berries & Granola",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 241,
+    "protein": 11,
+    "carbs": 30,
+    "fat": 8.2,
+    "saturatedFat": 3.9,
+    "sugar": 19,
+    "fiber": 1.7,
+    "salt": 0.17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-passionfruit-overnight-oats",
+   "name": "Mango & Passionfruit Overnight Oats",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 254,
+    "protein": 5.3,
+    "carbs": 36,
+    "fat": 9.1,
+    "saturatedFat": 6.6,
+    "sugar": 13,
+    "fiber": 3.4,
+    "salt": 0.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-white-bites-with-three-cheese-and-red-pepper",
+   "name": "Egg White Bites with Three Cheese and Red Pepper",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 13,
+    "carbs": 5.9,
+    "fat": 9.5,
+    "saturatedFat": 5.9,
+    "sugar": 1.3,
+    "fiber": 0.5,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-bites-with-three-cheese-ham",
+   "name": "Egg Bites with Three Cheese & Ham",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 13,
+    "carbs": 5.7,
+    "fat": 11,
+    "saturatedFat": 5.4,
+    "sugar": 0.5,
+    "fiber": 1.4,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "charred-chickpea-chimichurri-wrap",
+   "name": "Charred Chickpea & Chimichurri Wrap",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 478,
+    "protein": 13,
+    "carbs": 66,
+    "fat": 17,
+    "saturatedFat": 3.5,
+    "sugar": 11,
+    "fiber": 4.4,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-chorizo-focaccia",
+   "name": "Chicken & Chorizo Focaccia",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 394,
+    "protein": 19,
+    "carbs": 50,
+    "fat": 12,
+    "saturatedFat": 2.1,
+    "sugar": 3.6,
+    "fiber": 4.8,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bacon-caesar-wrap",
+   "name": "Chicken & Bacon Caesar Wrap",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 482,
+    "protein": 22,
+    "carbs": 52,
+    "fat": 20,
+    "saturatedFat": 4.6,
+    "sugar": 3.8,
+    "fiber": 2.8,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "free-range-egg-and-mayo-sandwich",
+   "name": "Free Range Egg and Mayo Sandwich",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 404,
+    "protein": 17,
+    "carbs": 47,
+    "fat": 16,
+    "saturatedFat": 2.6,
+    "sugar": 2.6,
+    "fiber": 2.2,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-ham-and-cheddar-sandwich",
+   "name": "Smoked Ham and Cheddar Sandwich",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 381,
+    "protein": 20,
+    "carbs": 44,
+    "fat": 13,
+    "saturatedFat": 4.8,
+    "sugar": 2.6,
+    "fiber": 3.9,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-marmite-mini-ciabatta",
+   "name": "Cheese & Marmite Mini Ciabatta",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 352,
+    "protein": 19,
+    "carbs": 41,
+    "fat": 12,
+    "saturatedFat": 7.2,
+    "sugar": 3,
+    "fiber": 1.9,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-grilled-cheese-toastie",
+   "name": "Signature Grilled Cheese Toastie",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 414,
+    "protein": 17,
+    "carbs": 51,
+    "fat": 15,
+    "saturatedFat": 8.6,
+    "sugar": 3.6,
+    "fiber": 3.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-smoked-ham-cheese-toastie",
+   "name": "Signature Smoked Ham & Cheese Toastie",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 26,
+    "carbs": 51,
+    "fat": 15,
+    "saturatedFat": 8.9,
+    "sugar": 3.8,
+    "fiber": 3.6,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-tomato-mozzarella-panini",
+   "name": "Signature Tomato & Mozzarella Panini",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 444,
+    "protein": 21,
+    "carbs": 50,
+    "fat": 17,
+    "saturatedFat": 7.3,
+    "sugar": 5.7,
+    "fiber": 3.3,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-tuna-melt-panini",
+   "name": "Signature Tuna Melt Panini",
+   "category": "Sandwiches, wraps & toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 448,
+    "protein": 26,
+    "carbs": 58,
+    "fat": 12,
+    "saturatedFat": 5.6,
+    "sugar": 4.3,
+    "fiber": 1.9,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-marble-loaf-cake",
+   "name": "Pumpkin Marble Loaf Cake",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 7,
+    "carbs": 42,
+    "fat": 23,
+    "saturatedFat": 7.4,
+    "sugar": 20,
+    "fiber": 2.8,
+    "salt": 0.71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-crumble-muffin",
+   "name": "Apple Crumble Muffin",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 549,
+    "protein": 6.4,
+    "carbs": 83,
+    "fat": 21,
+    "saturatedFat": 4.9,
+    "sugar": 41,
+    "fiber": 1.4,
+    "salt": 0.74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-double-chocolate-chunk-cookie",
+   "name": "Loaded Double Chocolate Chunk Cookie",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 470,
+    "protein": 7.1,
+    "carbs": 57,
+    "fat": 23,
+    "saturatedFat": 13,
+    "sugar": 32,
+    "fiber": 3.1,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-triple-chocolate-hazelnut-cookie",
+   "name": "Loaded Triple Chocolate & Hazelnut Cookie",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 458,
+    "protein": 6.9,
+    "carbs": 57,
+    "fat": 22,
+    "saturatedFat": 14,
+    "sugar": 29,
+    "fiber": 2.1,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-cake-pop",
+   "name": "Pumpkin Spice Cake Pop",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 174,
+    "protein": 1.9,
+    "carbs": 19,
+    "fat": 10,
+    "saturatedFat": 5.3,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mummy-cake-pop",
+   "name": "Mummy Cake Pop",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 1.5,
+    "carbs": 19,
+    "fat": 9.9,
+    "saturatedFat": 4.8,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "all-butter-croissant-freshly-baked",
+   "name": "All-Butter Croissant (Freshly Baked)",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 230,
+    "protein": 4.9,
+    "carbs": 23,
+    "fat": 13,
+    "saturatedFat": 8.6,
+    "sugar": 3,
+    "fiber": 0.9,
+    "salt": 0.54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "almond-croissant",
+   "name": "Almond Croissant",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 341,
+    "protein": 6.6,
+    "carbs": 35,
+    "fat": 19,
+    "saturatedFat": 11,
+    "sugar": 10,
+    "fiber": 1.9,
+    "salt": 0.62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "almond-croissant-freshly-baked",
+   "name": "Almond Croissant (Freshly Baked)",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 345,
+    "protein": 7.8,
+    "carbs": 41,
+    "fat": 16,
+    "saturatedFat": 8.2,
+    "sugar": 14,
+    "fiber": 2.8,
+    "salt": 0.94
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-croissant",
+   "name": "Butter Croissant",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 259,
+    "protein": 5.6,
+    "carbs": 27,
+    "fat": 14,
+    "saturatedFat": 9,
+    "sugar": 5.4,
+    "fiber": 1.4,
+    "salt": 0.36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-twist",
+   "name": "Cheese Twist",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 188,
+    "protein": 5.7,
+    "carbs": 16,
+    "fat": 11,
+    "saturatedFat": 7.3,
+    "sugar": 3,
+    "fiber": 0.5,
+    "salt": 0.68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-twist",
+   "name": "Chocolate Twist",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 4.3,
+    "carbs": 36,
+    "fat": 12,
+    "saturatedFat": 7.3,
+    "sugar": 16,
+    "fiber": 2.2,
+    "salt": 0.55
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun",
+   "name": "Cinnamon Bun",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 471,
+    "protein": 9.7,
+    "carbs": 76,
+    "fat": 13,
+    "saturatedFat": 5.1,
+    "sugar": 30,
+    "fiber": 5.7,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "danish-style-apple-cinnamon-swirl-freshly-baked",
+   "name": "Danish-Style Apple Cinnamon Swirl (Freshly Baked)",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 415,
+    "protein": 6.1,
+    "carbs": 51,
+    "fat": 20,
+    "saturatedFat": 13,
+    "sugar": 19,
+    "fiber": 3.1,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "luxury-fruit-toast",
+   "name": "Luxury Fruit Toast",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 491,
+    "protein": 12,
+    "carbs": 84,
+    "fat": 11,
+    "saturatedFat": 4.5,
+    "sugar": 38,
+    "fiber": 4.1,
+    "salt": 0.26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain au Chocolat",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 314,
+    "protein": 6.2,
+    "carbs": 33,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 9.8,
+    "fiber": 2,
+    "salt": 0.37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackberry-vanilla-cream-danish-freshly-baked",
+   "name": "Blackberry & Vanilla Cream Danish (Freshly Baked)",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 314,
+    "protein": 5.9,
+    "carbs": 36,
+    "fat": 16,
+    "saturatedFat": 10,
+    "sugar": 10,
+    "fiber": 1.2,
+    "salt": 0.68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-chocolat-freshly-baked",
+   "name": "Pain au Chocolat (Freshly Baked)",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 301,
+    "protein": 6.3,
+    "carbs": 32,
+    "fat": 16,
+    "saturatedFat": 11,
+    "sugar": 9.2,
+    "fiber": 2.1,
+    "salt": 0.71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-nut-loaf-cake",
+   "name": "Banana Nut Loaf Cake",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 390,
+    "protein": 5.2,
+    "carbs": 44,
+    "fat": 21,
+    "saturatedFat": 1.7,
+    "sugar": 23,
+    "fiber": 2.3,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "birthday-cake-pop",
+   "name": "Birthday Cake Pop",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 1.7,
+    "carbs": 19,
+    "fat": 9.9,
+    "saturatedFat": 4.8,
+    "sugar": 8.5,
+    "fiber": 0,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-cake",
+   "name": "Carrot Cake",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 505,
+    "protein": 5.6,
+    "carbs": 55,
+    "fat": 28,
+    "saturatedFat": 9.5,
+    "sugar": 40,
+    "fiber": 5.4,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-loaf-cake",
+   "name": "Lemon Loaf Cake",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 367,
+    "protein": 5.2,
+    "carbs": 43,
+    "fat": 19,
+    "saturatedFat": 4.9,
+    "sugar": 26,
+    "fiber": 1.6,
+    "salt": 0.59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "victoria-sponge",
+   "name": "Victoria Sponge",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 497,
+    "protein": 5,
+    "carbs": 66,
+    "fat": 23,
+    "saturatedFat": 14,
+    "sugar": 49,
+    "fiber": 3.1,
+    "salt": 0.66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-double-chocolate-chunk-cookie-freshly-baked",
+   "name": "Loaded Double Chocolate Chunk Cookie (Freshly Baked)",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 470,
+    "protein": 7.1,
+    "carbs": 57,
+    "fat": 23,
+    "saturatedFat": 13,
+    "sugar": 32,
+    "fiber": 3.1,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-triple-chocolate-hazelnut-cookie-freshly-baked",
+   "name": "Loaded Triple Chocolate & Hazelnut Cookie (Freshly Baked)",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 458,
+    "protein": 6.9,
+    "carbs": 57,
+    "fat": 22,
+    "saturatedFat": 14,
+    "sugar": 29,
+    "fiber": 2.1,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belgian-chocolate-chunk-cookie",
+   "name": "Belgian Chocolate Chunk Cookie",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 323,
+    "protein": 3.5,
+    "carbs": 47,
+    "fat": 13,
+    "saturatedFat": 8.4,
+    "sugar": 23,
+    "fiber": 2.2,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin",
+   "name": "Blueberry Muffin",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 485,
+    "protein": 6.4,
+    "carbs": 66,
+    "fat": 21,
+    "saturatedFat": 2.1,
+    "sugar": 31,
+    "fiber": 3,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-muffin",
+   "name": "Chocolate Muffin",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 572,
+    "protein": 7.5,
+    "carbs": 68,
+    "fat": 29,
+    "saturatedFat": 5.9,
+    "sugar": 44,
+    "fiber": 4.3,
+    "salt": 0.62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belgian-chocolate-caramel-shortbread",
+   "name": "Belgian Chocolate Caramel Shortbread",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 406,
+    "protein": 4.8,
+    "carbs": 51,
+    "fat": 20,
+    "saturatedFat": 12,
+    "sugar": 34,
+    "fiber": 1.2,
+    "salt": 0.42
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-chocolate-brownie",
+   "name": "Triple Chocolate Brownie",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 418,
+    "protein": 6,
+    "carbs": 38,
+    "fat": 26,
+    "saturatedFat": 16,
+    "sugar": 33,
+    "fiber": 3.9,
+    "salt": 0.51
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-scroll",
+   "name": "Pistachio Scroll",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 464,
+    "protein": 7.5,
+    "carbs": 46,
+    "fat": 27,
+    "saturatedFat": 15,
+    "sugar": 19,
+    "fiber": 3.5,
+    "salt": 0.78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-jam-custard-doughnut",
+   "name": "Raspberry Jam & Custard Doughnut",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 353,
+    "protein": 6.2,
+    "carbs": 50,
+    "fat": 14,
+    "saturatedFat": 6,
+    "sugar": 25,
+    "fiber": 1.3,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

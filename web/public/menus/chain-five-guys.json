@@ -1,0 +1,1519 @@
+{
+ "schemaVersion": 1,
+ "id": "five-guys",
+ "name": "Five Guys",
+ "cuisine": "Burgers",
+ "builderType": "standard",
+ "aliases": [
+  "five guys",
+  "fiveguys",
+  "five guys burgers and fries"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20260805)",
+  "url": "https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf",
+  "checkedOn": "2026-10-05"
+ },
+ "note": "Milkshake mix-in values vary with how many you add and aren't added to the shake.",
+ "categories": [
+  "Burgers",
+  "Hot dogs",
+  "Sandwiches",
+  "Fries",
+  "Milkshakes",
+  "Milkshake mix-ins",
+  "Toppings & sauces",
+  "Burger & hot dog parts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "hamburger",
+   "name": "Hamburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 666,
+    "protein": 42,
+    "carbs": 35,
+    "fat": 39,
+    "saturatedFat": 16,
+    "sugar": 6.8,
+    "fiber": 3.4,
+    "salt": 1.14
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-hamburger",
+   "name": "Little Hamburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 457,
+    "protein": 24,
+    "carbs": 35,
+    "fat": 24,
+    "saturatedFat": 9.4,
+    "sugar": 6.2,
+    "fiber": 2,
+    "salt": 0.99
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseburger",
+   "name": "Cheeseburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 801,
+    "protein": 50,
+    "carbs": 39,
+    "fat": 49,
+    "saturatedFat": 22,
+    "sugar": 8.6,
+    "fiber": 2.8,
+    "salt": 3.01
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-cheeseburger",
+   "name": "Little Cheeseburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 506,
+    "protein": 27,
+    "carbs": 39,
+    "fat": 27,
+    "saturatedFat": 12,
+    "sugar": 7,
+    "fiber": 2.7,
+    "salt": 1.72
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-burger",
+   "name": "Bacon Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 734,
+    "protein": 49,
+    "carbs": 36,
+    "fat": 43,
+    "saturatedFat": 17,
+    "sugar": 7.2,
+    "fiber": 3.2,
+    "salt": 2.23
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-cheeseburger",
+   "name": "Bacon Cheeseburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 870,
+    "protein": 56,
+    "carbs": 37,
+    "fat": 55,
+    "saturatedFat": 24,
+    "sugar": 8.8,
+    "fiber": 3.5,
+    "salt": 4.07
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-bacon-cheeseburger",
+   "name": "Little Bacon Cheeseburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 566,
+    "protein": 32,
+    "carbs": 36,
+    "fat": 32,
+    "saturatedFat": 13,
+    "sugar": 7.3,
+    "fiber": 2.4,
+    "salt": 2.44
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-dog",
+   "name": "Hot Dog",
+   "category": "Hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "protein": 18,
+    "carbs": 35,
+    "fat": 29,
+    "saturatedFat": 12,
+    "sugar": 6.6,
+    "fiber": 2.3,
+    "salt": 2.78
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-dog",
+   "name": "Cheese Dog",
+   "category": "Hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 549,
+    "protein": 22,
+    "carbs": 39,
+    "fat": 34,
+    "saturatedFat": 15,
+    "sugar": 7.6,
+    "fiber": 1.8,
+    "salt": 3.54
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-dog",
+   "name": "Bacon Dog",
+   "category": "Hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 559,
+    "protein": 23,
+    "carbs": 38,
+    "fat": 35,
+    "saturatedFat": 14,
+    "sugar": 7.1,
+    "fiber": 2.1,
+    "salt": 3.68
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-cheese-dog",
+   "name": "Bacon Cheese Dog",
+   "category": "Hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 603,
+    "protein": 28,
+    "carbs": 36,
+    "fat": 38,
+    "saturatedFat": 16,
+    "sugar": 7.6,
+    "fiber": 3.1,
+    "salt": 4.36
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-sandwich",
+   "name": "Veggie Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 330,
+    "protein": 10,
+    "carbs": 52,
+    "fat": 7.4,
+    "saturatedFat": 2.4,
+    "sugar": 13,
+    "fiber": 5.4,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-veggie-sandwich",
+   "name": "Cheese Veggie Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 14,
+    "carbs": 57,
+    "fat": 14,
+    "saturatedFat": 5.9,
+    "sugar": 15,
+    "fiber": 5.9,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-cheese",
+   "name": "Grilled Cheese",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 434,
+    "protein": 12,
+    "carbs": 42,
+    "fat": 24,
+    "saturatedFat": 7.6,
+    "sugar": 7.3,
+    "fiber": 2.2,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt-bacon-lettuce-and-tomato",
+   "name": "BLT (Bacon, Lettuce and Tomato)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 652,
+    "protein": 22,
+    "carbs": 45,
+    "fat": 41,
+    "saturatedFat": 9.9,
+    "sugar": 8.8,
+    "fiber": 3.6,
+    "salt": 2.67
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lettuce-wrap",
+   "name": "Lettuce Wrap",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 246,
+    "protein": 24,
+    "carbs": 5,
+    "fat": 14,
+    "saturatedFat": 6,
+    "sugar": 3.7,
+    "fiber": 1.8,
+    "salt": 0.76
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-fries",
+   "name": "Mini Fries",
+   "category": "Fries",
+   "serving": "Mini",
+   "nutrients": {
+    "calories": 350,
+    "protein": 5,
+    "carbs": 37,
+    "fat": 21,
+    "saturatedFat": 2.8,
+    "sugar": 0.5,
+    "fiber": 3.4,
+    "salt": 0.56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-fries",
+   "name": "Little Fries",
+   "category": "Fries",
+   "serving": "Little",
+   "nutrients": {
+    "calories": 659,
+    "protein": 10,
+    "carbs": 70,
+    "fat": 39,
+    "saturatedFat": 5.4,
+    "sugar": 1,
+    "fiber": 6.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-fries",
+   "name": "Regular Fries",
+   "category": "Fries",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 1073,
+    "protein": 16,
+    "carbs": 115,
+    "fat": 63,
+    "saturatedFat": 8.7,
+    "sugar": 1.6,
+    "fiber": 10,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-fries",
+   "name": "Large Fries",
+   "category": "Fries",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1509,
+    "protein": 23,
+    "carbs": 162,
+    "fat": 89,
+    "saturatedFat": 12,
+    "sugar": 2.2,
+    "fiber": 14,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "five-guys-milkshake-base",
+   "name": "Five Guys Milkshake Base",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 625,
+    "protein": 7.8,
+    "carbs": 75,
+    "fat": 33,
+    "saturatedFat": 22,
+    "sugar": 69,
+    "fiber": 0,
+    "salt": 0.71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "five-guys-milkshake-base-little",
+   "name": "Five Guys Milkshake Base (little)",
+   "category": "Milkshakes",
+   "serving": "Little",
+   "nutrients": {
+    "calories": 313,
+    "protein": 3.9,
+    "carbs": 37,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 35,
+    "fiber": 0,
+    "salt": 0.36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whipped-cream-milkshake",
+   "name": "Whipped Cream (milkshake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 68,
+    "protein": 0,
+    "carbs": 0.6,
+    "fat": 7,
+    "saturatedFat": 5.2,
+    "sugar": 0.6,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-mix-in",
+   "name": "Banana mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 194,
+    "protein": 0,
+    "carbs": 36,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 36,
+    "fiber": 0,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-mix-in",
+   "name": "Chocolate mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 217,
+    "protein": 1.3,
+    "carbs": 48,
+    "fat": 2,
+    "saturatedFat": 1.2,
+    "sugar": 30,
+    "fiber": 1.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lotus-biscoff-mix-in",
+   "name": "Lotus Biscoff mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 111,
+    "protein": 1.1,
+    "carbs": 17,
+    "fat": 4.4,
+    "saturatedFat": 1.8,
+    "sugar": 9,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-cookie-pieces-mix-in",
+   "name": "Oreo Cookie Pieces mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 115,
+    "protein": 1.2,
+    "carbs": 17,
+    "fat": 4.8,
+    "saturatedFat": 1.4,
+    "sugar": 9.1,
+    "fiber": 0.6,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jimmys-iced-coffee-mix-in",
+   "name": "Jimmy’s Iced Coffee mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.4,
+    "carbs": 1.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-mix-in",
+   "name": "Pistachio mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 194,
+    "protein": 7.8,
+    "carbs": 2.1,
+    "fat": 17,
+    "saturatedFat": 2.1,
+    "sugar": 1.5,
+    "fiber": 2.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "reeses-peanut-butter-cups-mix-in",
+   "name": "Reese's Peanut Butter Cups mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 173,
+    "protein": 3.1,
+    "carbs": 20,
+    "fat": 8.9,
+    "saturatedFat": 3.2,
+    "sugar": 19,
+    "fiber": 1.1,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanut-butter-mix-in",
+   "name": "Peanut Butter mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 286,
+    "protein": 12,
+    "carbs": 6.4,
+    "fat": 23,
+    "saturatedFat": 3.5,
+    "sugar": 3,
+    "fiber": 1.7,
+    "salt": 0.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-mix-in",
+   "name": "Salted Caramel mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 181,
+    "protein": 0,
+    "carbs": 42,
+    "fat": 1.1,
+    "saturatedFat": 0.6,
+    "sugar": 33,
+    "fiber": 0,
+    "salt": 0.53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-mix-in",
+   "name": "Strawberry mix-in",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 115,
+    "protein": 0,
+    "carbs": 28,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 27,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "myprotein-mix-in-12-g",
+   "name": "Myprotein mix-in (12 g)",
+   "category": "Milkshake mix-ins",
+   "serving": "12 g",
+   "nutrients": {
+    "calories": 54,
+    "protein": 12,
+    "carbs": 0.7,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whipped-cream-little-shake",
+   "name": "Whipped Cream (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 3.5,
+    "saturatedFat": 2.6,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-mix-in-little-shake",
+   "name": "Banana mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 97,
+    "protein": 0,
+    "carbs": 18,
+    "fat": 2.5,
+    "saturatedFat": 1,
+    "sugar": 18,
+    "fiber": 0,
+    "salt": 0.07
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-mix-in-little-shake",
+   "name": "Chocolate mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 109,
+    "protein": 0.7,
+    "carbs": 24,
+    "fat": 1,
+    "saturatedFat": 0.6,
+    "sugar": 15,
+    "fiber": 1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lotus-biscoff-mix-in-little-shake",
+   "name": "Lotus Biscoff mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0.6,
+    "carbs": 8,
+    "fat": 2.2,
+    "saturatedFat": 0.9,
+    "sugar": 4.4,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-cookie-pieces-mix-in-little-shake",
+   "name": "Oreo Cookie Pieces mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.6,
+    "carbs": 8,
+    "fat": 2.4,
+    "saturatedFat": 1.2,
+    "sugar": 4.6,
+    "fiber": 0,
+    "salt": 0.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jimmys-iced-coffee-mix-in-little-shake",
+   "name": "Jimmy’s Iced Coffee mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-mix-in-little-shake",
+   "name": "Pistachio mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 97,
+    "protein": 3.9,
+    "carbs": 1.1,
+    "fat": 8.3,
+    "saturatedFat": 1.1,
+    "sugar": 0.8,
+    "fiber": 1.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "reeses-peanut-butter-cups-mix-in-little-shake",
+   "name": "Reese's Peanut Butter Cups mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 86,
+    "protein": 1.6,
+    "carbs": 10,
+    "fat": 4.5,
+    "saturatedFat": 1.6,
+    "sugar": 9.4,
+    "fiber": 0.6,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanut-butter-mix-in-little-shake",
+   "name": "Peanut Butter mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 6,
+    "carbs": 3.2,
+    "fat": 12,
+    "saturatedFat": 1.8,
+    "sugar": 1.5,
+    "fiber": 0.8,
+    "salt": 0.37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-mix-in-little-shake",
+   "name": "Salted Caramel mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 91,
+    "protein": 0,
+    "carbs": 21,
+    "fat": 0.6,
+    "saturatedFat": 0.3,
+    "sugar": 17,
+    "fiber": 0,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-mix-in-little-shake",
+   "name": "Strawberry mix-in (little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "myprotein-mix-in-6-g-little-shake",
+   "name": "Myprotein mix-in (6 g, little shake)",
+   "category": "Milkshake mix-ins",
+   "serving": "6 g",
+   "nutrients": {
+    "calories": 27,
+    "protein": 6.2,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 16,
+    "protein": 0,
+    "carbs": 3.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.2,
+    "fiber": 0,
+    "salt": 0.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-pasteurised",
+   "name": "Cheese (pasteurised)",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 64,
+    "protein": 3.6,
+    "carbs": 1.1,
+    "fat": 4.9,
+    "saturatedFat": 3.2,
+    "sugar": 0.8,
+    "fiber": 0,
+    "salt": 0.76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-peppers",
+   "name": "Green Peppers",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-mushrooms",
+   "name": "Grilled Mushrooms",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 1,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.7,
+    "salt": 0.23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-sauce",
+   "name": "Hot Sauce",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hp-brown-sauce",
+   "name": "HP Brown Sauce",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.6,
+    "fiber": 0,
+    "salt": 0.09
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jalapeno-peppers",
+   "name": "Jalapeño Peppers",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-ketchup",
+   "name": "Tomato Ketchup",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0,
+    "carbs": 3.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.2,
+    "fiber": 0,
+    "salt": 0.25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lettuce",
+   "name": "Lettuce",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mayonnaise",
+   "name": "Mayonnaise",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 113,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 12,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mustard",
+   "name": "Mustard",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-onions",
+   "name": "Fresh Onions",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0,
+    "carbs": 1.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-onions",
+   "name": "Grilled Onions",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0,
+    "carbs": 2.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickles",
+   "name": "Pickles",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "relish",
+   "name": "Relish",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 4.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "fiber": 0,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomatoes",
+   "name": "Tomatoes",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 1.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.3,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-fried-onions",
+   "name": "Crispy Fried Onions",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 47,
+    "protein": 0.5,
+    "carbs": 3.2,
+    "fat": 3.5,
+    "saturatedFat": 1.7,
+    "sugar": 0.7,
+    "fiber": 0.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cajun-seasoning",
+   "name": "Cajun seasoning",
+   "category": "Toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0.8,
+    "carbs": 2.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.1,
+    "fiber": 0,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon",
+   "name": "Bacon",
+   "category": "Burger & hot dog parts",
+   "serving": "",
+   "nutrients": {
+    "calories": 78,
+    "protein": 6.4,
+    "carbs": 0.7,
+    "fat": 5.5,
+    "saturatedFat": 2.2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.92
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-burger-patty",
+   "name": "Beef Burger Patty",
+   "category": "Burger & hot dog parts",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 18,
+    "carbs": 0,
+    "fat": 14,
+    "saturatedFat": 5.6,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.13
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-dog-sausage-only",
+   "name": "Hot Dog (sausage only)",
+   "category": "Burger & hot dog parts",
+   "serving": "",
+   "nutrients": {
+    "calories": 192,
+    "protein": 11,
+    "carbs": 2.1,
+    "fat": 15,
+    "saturatedFat": 6.4,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burger-bun",
+   "name": "Burger Bun",
+   "category": "Burger & hot dog parts",
+   "serving": "",
+   "nutrients": {
+    "calories": 238,
+    "protein": 6,
+    "carbs": 38,
+    "fat": 7.5,
+    "saturatedFat": 2.6,
+    "sugar": 6.2,
+    "fiber": 1.4,
+    "salt": 0.49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-dog-bun",
+   "name": "Hot Dog Bun",
+   "category": "Burger & hot dog parts",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 5.3,
+    "carbs": 34,
+    "fat": 6.7,
+    "saturatedFat": 2.3,
+    "sugar": 5.9,
+    "fiber": 1.2,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

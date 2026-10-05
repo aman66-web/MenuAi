@@ -1,6 +1,117 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20000101000000,
- "generatedAt": "2000-01-01T00:00:00Z",
- "chains": []
+ "dataVersion": 20261005183130,
+ "generatedAt": "2026-10-05T18:31:30Z",
+ "chains": [
+  {
+   "id": "five-guys",
+   "name": "Five Guys",
+   "cuisine": "Burgers",
+   "file": "chain-five-guys.json",
+   "sha256": "1cdc5e4003980e1e592ff90a347eb04fd59d21022f2ea2ad69e82b4ec2254f23",
+   "contentHash": "1bb776c1733a9181fb7710f2a1c36bfcbf917eb7c88bb330b166c8ba44e3eb7a",
+   "sample": false,
+   "itemCount": 69,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "greggs",
+   "name": "Greggs",
+   "cuisine": "Bakery",
+   "file": "chain-greggs.json",
+   "sha256": "c42e7b971d41fbf393a6d9e0bf3d158566fda14b750a929ff4d35ae4edd5e231",
+   "contentHash": "20b0dca3842f2edcbdde70c43ccd873d599ba1803d2fa175cb0c5843fe5b8ea4",
+   "sample": false,
+   "itemCount": 263,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "kfc",
+   "name": "KFC",
+   "cuisine": "Chicken",
+   "file": "chain-kfc.json",
+   "sha256": "6bdb6206411616e708b618fbb69e2cd38beed05d9af64580bcada3f3422409b5",
+   "contentHash": "e9555a4ea659ad304b683ee5d8ca236174a746572f992020645a4aa1e7fcf473",
+   "sample": false,
+   "itemCount": 108,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "nandos",
+   "name": "Nando's",
+   "cuisine": "Chicken",
+   "file": "chain-nandos.json",
+   "sha256": "f8f054df517e559d571669407ed67bf5d830e45601ffb2f1026abf16d3a2da9b",
+   "contentHash": "caa32710996f9b7abc892fefa91e642ee29cb024911e1a6b0b03933af434f127",
+   "sample": false,
+   "itemCount": 138,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "pizza-hut",
+   "name": "Pizza Hut",
+   "cuisine": "Pizza",
+   "file": "chain-pizza-hut.json",
+   "sha256": "0db935ebe188c873afd3e630be51b6db0ef91cbe82ef9bc9ab6df580b59e0385",
+   "contentHash": "0b6e1d6457a563e60e2be05341ce90469d593fb3ae11b0bd90e1d6d4bd422a04",
+   "sample": false,
+   "itemCount": 237,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "popeyes",
+   "name": "Popeyes",
+   "cuisine": "Chicken",
+   "file": "chain-popeyes.json",
+   "sha256": "267d26f928073f2e9dc4452283af38d3214b67ecb2eb25f2a867a5c5af20cd4a",
+   "contentHash": "181b9756891a1679f93a10dc8dedd3eddc2f34bc5eb6a37ebbf484b551158581",
+   "sample": false,
+   "itemCount": 187,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "pret",
+   "name": "Pret A Manger",
+   "cuisine": "Sandwiches",
+   "file": "chain-pret.json",
+   "sha256": "952b14823ca9e14ebf181d4aebda9efcc6cd1a0e977ac695b2beaab082ec50bd",
+   "contentHash": "9de5dd5ba758061459eda224c6ad8107c5fd751e7c0659a1667c290c1428a3be",
+   "sample": false,
+   "itemCount": 329,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "starbucks",
+   "name": "Starbucks",
+   "cuisine": "Coffee",
+   "file": "chain-starbucks.json",
+   "sha256": "f25933d76d4b131193a7de6ad567f268a56462ac1b57441adcd084f0760fc00e",
+   "contentHash": "b345990641e25c776d34fa6be1c895ebf8101de91b08b8617a92697702ba0356",
+   "sample": false,
+   "itemCount": 347,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "subway",
+   "name": "Subway",
+   "cuisine": "Sandwiches",
+   "file": "chain-subway.json",
+   "sha256": "b0e334455c91e43da350f08d319ac6ea7fa9df4e1d82a7d12e782dd7961fb6cc",
+   "contentHash": "d1359a0fbf72da27fcc06796905a455bdec4d10c42899797c87f12bfcc46998c",
+   "sample": false,
+   "itemCount": 145,
+   "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "taco-bell",
+   "name": "Taco Bell",
+   "cuisine": "Mexican",
+   "file": "chain-taco-bell.json",
+   "sha256": "8669476c4bceb41dc041a99afea82d65c89a260c909571bddc0a4b03aa55bbfd",
+   "contentHash": "d7298574cef8d6a97a8b4f4ea641e7a3b0ec06290517a43845e3e63148503893",
+   "sample": false,
+   "itemCount": 102,
+   "checkedOn": "2026-10-05"
+  }
+ ]
 }

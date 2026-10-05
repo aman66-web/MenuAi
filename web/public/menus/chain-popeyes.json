@@ -1,0 +1,4132 @@
+{
+ "schemaVersion": 1,
+ "id": "popeyes",
+ "name": "Popeyes",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "popeyes",
+  "popeyes uk",
+  "popeyes louisiana kitchen"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Popeyes UK Nutritional Information, per serving (live table; no issue date or version shown)",
+  "url": "https://allergensandnutritions.popeyesuk.com/nutritional-information",
+  "checkedOn": "2026-10-05"
+ },
+ "categories": [
+  "Sandwiches",
+  "Wraps",
+  "Signature Louisiana Chicken",
+  "Tenders",
+  "Boneless",
+  "Hot Wings",
+  "Breakfast",
+  "Sides",
+  "Dips",
+  "Desserts & treats",
+  "Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chicken-sandwich-classic",
+   "name": "Chicken Sandwich Classic",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 528,
+    "protein": 36.6,
+    "carbs": 35,
+    "fat": 26.3,
+    "saturatedFat": 4.9,
+    "sugar": 9.1,
+    "fiber": 2.7,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-deluxe-chicken-sandwich",
+   "name": "Classic Deluxe Chicken Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 608,
+    "protein": 41.3,
+    "carbs": 36.8,
+    "fat": 32.2,
+    "saturatedFat": 8.8,
+    "sugar": 10.5,
+    "fiber": 3.4,
+    "salt": 3.26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ghost-pepper-sandwich",
+   "name": "Ghost Pepper Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 525,
+    "protein": 36.7,
+    "carbs": 38.4,
+    "fat": 24.2,
+    "saturatedFat": 4.8,
+    "sugar": 11.3,
+    "fiber": 3,
+    "salt": 3.67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ghost-pepper-superstack-sandwich",
+   "name": "Ghost Pepper Superstack Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 734,
+    "protein": 41.9,
+    "carbs": 52,
+    "fat": 38.6,
+    "saturatedFat": 10.5,
+    "sugar": 12.2,
+    "fiber": 5.2,
+    "salt": 4.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sandwich",
+   "name": "Hot Honey Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 517,
+    "protein": 40.6,
+    "carbs": 47.8,
+    "fat": 17.4,
+    "saturatedFat": 7.6,
+    "sugar": 21.1,
+    "fiber": 2.9,
+    "salt": 3.37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-superstack-sandwich",
+   "name": "Hot Honey Superstack Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 708,
+    "protein": 42.2,
+    "carbs": 61.2,
+    "fat": 31.5,
+    "saturatedFat": 10.3,
+    "sugar": 22,
+    "fiber": 5.1,
+    "salt": 4.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-sandwich-ketchup",
+   "name": "Kids Sandwich Ketchup",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 183,
+    "protein": 13.8,
+    "carbs": 21,
+    "fat": 4.1,
+    "saturatedFat": 0.7,
+    "sugar": 7.2,
+    "fiber": 2.6,
+    "salt": 1.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-sandwich-mayo",
+   "name": "Kids Sandwich Mayo",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 222,
+    "protein": 13.8,
+    "carbs": 19.2,
+    "fat": 9.3,
+    "saturatedFat": 1.1,
+    "sugar": 5.2,
+    "fiber": 2.5,
+    "salt": 1.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-sandwich-plain",
+   "name": "Kids Sandwich Plain",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 173,
+    "protein": 13.7,
+    "carbs": 18.7,
+    "fat": 4.1,
+    "saturatedFat": 0.7,
+    "sugar": 5,
+    "fiber": 2.5,
+    "salt": 1.15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bean-creole-vegan-sandwich",
+   "name": "Red Bean Creole Vegan Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 545,
+    "protein": 13.8,
+    "carbs": 47.1,
+    "fat": 34.1,
+    "saturatedFat": 4,
+    "sugar": 9.9,
+    "fiber": 9.3,
+    "salt": 2.57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-sandwich",
+   "name": "Spicy Chicken Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 529,
+    "protein": 36.7,
+    "carbs": 35.2,
+    "fat": 26.2,
+    "saturatedFat": 4.9,
+    "sugar": 9.6,
+    "fiber": 3,
+    "salt": 3.53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-deluxe-chicken-sandwich",
+   "name": "Spicy Deluxe Chicken Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 610,
+    "protein": 41.3,
+    "carbs": 37.1,
+    "fat": 32.1,
+    "saturatedFat": 8.8,
+    "sugar": 11,
+    "fiber": 3.6,
+    "salt": 3.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-superstack-sandwich",
+   "name": "Spicy Superstack Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 781,
+    "protein": 40.6,
+    "carbs": 53.2,
+    "fat": 44,
+    "saturatedFat": 12,
+    "sugar": 9.8,
+    "fiber": 4.5,
+    "salt": 4.08
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "superstack-classic-chicken-sandwich",
+   "name": "Superstack Classic Chicken Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 788,
+    "protein": 42.4,
+    "carbs": 48.9,
+    "fat": 45.9,
+    "saturatedFat": 11.4,
+    "sugar": 10.1,
+    "fiber": 5.1,
+    "salt": 4.06
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "superstack-classic-deluxe-sandwich",
+   "name": "Superstack Classic Deluxe Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 799,
+    "protein": 42.9,
+    "carbs": 50.2,
+    "fat": 46.2,
+    "saturatedFat": 11.5,
+    "sugar": 11.4,
+    "fiber": 5.6,
+    "salt": 4.06
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "superstack-hot-honey-sandwich",
+   "name": "Superstack Hot Honey Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 708,
+    "protein": 42.2,
+    "carbs": 61.2,
+    "fat": 31.5,
+    "saturatedFat": 10.3,
+    "sugar": 22,
+    "fiber": 5.1,
+    "salt": 4.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "superstack-spicy-chicken-sandwich",
+   "name": "Superstack Spicy Chicken Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 790,
+    "protein": 42.4,
+    "carbs": 49.2,
+    "fat": 45.9,
+    "saturatedFat": 11.4,
+    "sugar": 10.6,
+    "fiber": 5.3,
+    "salt": 4.59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "superstack-spicy-deluxe-sandwich",
+   "name": "Superstack Spicy Deluxe Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 801,
+    "protein": 42.9,
+    "carbs": 50.5,
+    "fat": 46.2,
+    "saturatedFat": 11.5,
+    "sugar": 11.9,
+    "fiber": 5.8,
+    "salt": 4.59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-chicken-cruncher",
+   "name": "The Chicken Cruncher",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 268,
+    "protein": 16,
+    "carbs": 27.3,
+    "fat": 10.3,
+    "saturatedFat": 1.3,
+    "sugar": 4.8,
+    "fiber": 1.7,
+    "salt": 1.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-double-stack",
+   "name": "The Double Stack",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 876,
+    "protein": 64.2,
+    "carbs": 51.7,
+    "fat": 45.2,
+    "saturatedFat": 12.2,
+    "sugar": 9.3,
+    "fiber": 3.4,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-mini-sandwich",
+   "name": "The Mini Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 275,
+    "protein": 17.5,
+    "carbs": 25.5,
+    "fat": 11.2,
+    "saturatedFat": 1.8,
+    "sugar": 3.7,
+    "fiber": 1.4,
+    "salt": 1.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-spicy-double-stack",
+   "name": "The Spicy Double Stack",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 878,
+    "protein": 64.2,
+    "carbs": 52,
+    "fat": 45.2,
+    "saturatedFat": 12.2,
+    "sugar": 9.8,
+    "fiber": 3.6,
+    "salt": 5.84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-spicy-mini-sandwich",
+   "name": "The Spicy Mini Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 276,
+    "protein": 17.5,
+    "carbs": 25.6,
+    "fat": 11.2,
+    "saturatedFat": 1.8,
+    "sugar": 3.9,
+    "fiber": 1.5,
+    "salt": 1.68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-chicken-wrap",
+   "name": "Classic Chicken Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 436,
+    "protein": 28.1,
+    "carbs": 35.1,
+    "fat": 20.2,
+    "saturatedFat": 2.6,
+    "sugar": 2.1,
+    "fiber": 2.6,
+    "salt": 2.54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-wrap",
+   "name": "Spicy Chicken Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 437,
+    "protein": 28.1,
+    "carbs": 35.3,
+    "fat": 20.1,
+    "saturatedFat": 2.6,
+    "sugar": 2.5,
+    "fiber": 2.8,
+    "salt": 2.92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-piece-signature-louisiana-chicken",
+   "name": "1 Piece Signature Louisiana Chicken",
+   "category": "Signature Louisiana Chicken",
+   "serving": "1 piece",
+   "nutrients": {
+    "calories": 237,
+    "protein": 35,
+    "carbs": 1.3,
+    "fat": 9.9,
+    "saturatedFat": 2.5,
+    "sugar": 0.1,
+    "fiber": 0.7,
+    "salt": 2.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-piece-signature-louisiana-chicken",
+   "name": "2 Piece Signature Louisiana Chicken",
+   "category": "Signature Louisiana Chicken",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 473,
+    "protein": 70,
+    "carbs": 2.5,
+    "fat": 19.9,
+    "saturatedFat": 5,
+    "sugar": 0.3,
+    "fiber": 1.4,
+    "salt": 4.37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-piece-signature-louisiana-chicken",
+   "name": "3 Piece Signature Louisiana Chicken",
+   "category": "Signature Louisiana Chicken",
+   "serving": "3 pieces",
+   "nutrients": {
+    "calories": 710,
+    "protein": 105,
+    "carbs": 3.8,
+    "fat": 29.8,
+    "saturatedFat": 7.6,
+    "sugar": 0.4,
+    "fiber": 2.1,
+    "salt": 6.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-piece-signature-louisiana-chicken",
+   "name": "6 Piece Signature Louisiana Chicken",
+   "category": "Signature Louisiana Chicken",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 1420,
+    "protein": 210,
+    "carbs": 7.6,
+    "fat": 59.6,
+    "saturatedFat": 15.1,
+    "sugar": 0.8,
+    "fiber": 4.2,
+    "salt": 13.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-classic-tender",
+   "name": "1 Classic Tender",
+   "category": "Tenders",
+   "serving": "1 tender",
+   "nutrients": {
+    "calories": 75,
+    "protein": 11.5,
+    "carbs": 1.5,
+    "fat": 2.7,
+    "saturatedFat": 0.5,
+    "sugar": 0.1,
+    "fiber": 0.5,
+    "salt": 0.85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-spicy-tender",
+   "name": "1 Spicy Tender",
+   "category": "Tenders",
+   "serving": "1 tender",
+   "nutrients": {
+    "calories": 76,
+    "protein": 11.7,
+    "carbs": 1.3,
+    "fat": 2.7,
+    "saturatedFat": 0.5,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0.86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-classic-tenders-kids-tenders",
+   "name": "2 Classic Tenders / Kids Tenders",
+   "category": "Tenders",
+   "serving": "2 tenders",
+   "nutrients": {
+    "calories": 150,
+    "protein": 22.9,
+    "carbs": 3,
+    "fat": 5.4,
+    "saturatedFat": 1,
+    "sugar": 0.1,
+    "fiber": 1,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-spicy-tenders",
+   "name": "2 Spicy Tenders",
+   "category": "Tenders",
+   "serving": "2 tenders",
+   "nutrients": {
+    "calories": 151,
+    "protein": 23.3,
+    "carbs": 2.5,
+    "fat": 5.4,
+    "saturatedFat": 1,
+    "sugar": 0.1,
+    "fiber": 0.5,
+    "salt": 1.73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-classic-tenders",
+   "name": "3 Classic Tenders",
+   "category": "Tenders",
+   "serving": "3 tenders",
+   "nutrients": {
+    "calories": 225,
+    "protein": 34.4,
+    "carbs": 4.5,
+    "fat": 8.1,
+    "saturatedFat": 1.5,
+    "sugar": 0.2,
+    "fiber": 1.5,
+    "salt": 2.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-spicy-tenders",
+   "name": "3 Spicy Tenders",
+   "category": "Tenders",
+   "serving": "3 tenders",
+   "nutrients": {
+    "calories": 227,
+    "protein": 35,
+    "carbs": 3.8,
+    "fat": 8.1,
+    "saturatedFat": 1.5,
+    "sugar": 0.2,
+    "fiber": 0.8,
+    "salt": 2.59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-classic-tenders",
+   "name": "5 Classic Tenders",
+   "category": "Tenders",
+   "serving": "5 tenders",
+   "nutrients": {
+    "calories": 375,
+    "protein": 57.3,
+    "carbs": 7.5,
+    "fat": 13.5,
+    "saturatedFat": 2.5,
+    "sugar": 0.3,
+    "fiber": 2.5,
+    "salt": 4.25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-spicy-tenders",
+   "name": "5 Spicy Tenders",
+   "category": "Tenders",
+   "serving": "5 tenders",
+   "nutrients": {
+    "calories": 378,
+    "protein": 58.3,
+    "carbs": 6.3,
+    "fat": 13.5,
+    "saturatedFat": 2.5,
+    "sugar": 0.3,
+    "fiber": 1.3,
+    "salt": 4.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-boneless-plain-kids-nuggets",
+   "name": "4 Boneless Plain / Kids Nuggets",
+   "category": "Boneless",
+   "serving": "4 pieces",
+   "nutrients": {
+    "calories": 145,
+    "protein": 18.2,
+    "carbs": 4.9,
+    "fat": 5.8,
+    "saturatedFat": 1.2,
+    "sugar": 0.3,
+    "fiber": 0.3,
+    "salt": 0.89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-cajun-citrus-boneless",
+   "name": "4 Cajun Citrus Boneless",
+   "category": "Boneless",
+   "serving": "4 pieces",
+   "nutrients": {
+    "calories": 152,
+    "protein": 18.3,
+    "carbs": 6.4,
+    "fat": 5.9,
+    "saturatedFat": 1.2,
+    "sugar": 0.6,
+    "fiber": 0.6,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-garlic-parmesan-boneless",
+   "name": "4 Garlic Parmesan Boneless",
+   "category": "Boneless",
+   "serving": "4 pieces",
+   "nutrients": {
+    "calories": 316,
+    "protein": 19.8,
+    "carbs": 8,
+    "fat": 22.6,
+    "saturatedFat": 3.1,
+    "sugar": 2.7,
+    "fiber": 0.6,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-ghost-pepper-boneless",
+   "name": "4 Ghost Pepper Boneless",
+   "category": "Boneless",
+   "serving": "4 pieces",
+   "nutrients": {
+    "calories": 152,
+    "protein": 18.4,
+    "carbs": 6.1,
+    "fat": 5.9,
+    "saturatedFat": 1.3,
+    "sugar": 0.6,
+    "fiber": 0.5,
+    "salt": 1.39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-honey-bbq-boneless",
+   "name": "4 Honey BBQ Boneless",
+   "category": "Boneless",
+   "serving": "4 pieces",
+   "nutrients": {
+    "calories": 212,
+    "protein": 18.6,
+    "carbs": 18.2,
+    "fat": 7,
+    "saturatedFat": 1.3,
+    "sugar": 12.3,
+    "fiber": 1.1,
+    "salt": 1.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-boneless-plain",
+   "name": "6 Boneless Plain",
+   "category": "Boneless",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 217,
+    "protein": 27.2,
+    "carbs": 7.3,
+    "fat": 8.7,
+    "saturatedFat": 1.8,
+    "sugar": 0.4,
+    "fiber": 0.5,
+    "salt": 1.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-cajun-citrus-boneless",
+   "name": "6 Cajun Citrus Boneless",
+   "category": "Boneless",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 225,
+    "protein": 27.4,
+    "carbs": 8.8,
+    "fat": 8.8,
+    "saturatedFat": 1.9,
+    "sugar": 0.8,
+    "fiber": 0.8,
+    "salt": 1.64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-garlic-parmesan-boneless",
+   "name": "6 Garlic Parmesan Boneless",
+   "category": "Boneless",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 474,
+    "protein": 29.7,
+    "carbs": 12.1,
+    "fat": 33.9,
+    "saturatedFat": 4.6,
+    "sugar": 4,
+    "fiber": 0.9,
+    "salt": 2.84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-ghost-pepper-boneless",
+   "name": "6 Ghost Pepper Boneless",
+   "category": "Boneless",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 224,
+    "protein": 27.4,
+    "carbs": 8.5,
+    "fat": 8.8,
+    "saturatedFat": 1.9,
+    "sugar": 0.7,
+    "fiber": 0.7,
+    "salt": 1.83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-honey-bbq-boneless",
+   "name": "6 Honey BBQ Boneless",
+   "category": "Boneless",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 319,
+    "protein": 27.8,
+    "carbs": 27.3,
+    "fat": 10.5,
+    "saturatedFat": 2,
+    "sugar": 18.4,
+    "fiber": 1.7,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-boneless-plain",
+   "name": "8 Boneless Plain",
+   "category": "Boneless",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 290,
+    "protein": 36.3,
+    "carbs": 9.8,
+    "fat": 11.6,
+    "saturatedFat": 2.5,
+    "sugar": 0.5,
+    "fiber": 0.7,
+    "salt": 1.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-cajun-citrus-boneless",
+   "name": "8 Cajun Citrus Boneless",
+   "category": "Boneless",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 300,
+    "protein": 36.6,
+    "carbs": 11.9,
+    "fat": 11.7,
+    "saturatedFat": 2.5,
+    "sugar": 1,
+    "fiber": 1,
+    "salt": 2.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-garlic-parmesan-boneless",
+   "name": "8 Garlic Parmesan Boneless",
+   "category": "Boneless",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 632,
+    "protein": 39.6,
+    "carbs": 16.1,
+    "fat": 45.3,
+    "saturatedFat": 6.2,
+    "sugar": 5.3,
+    "fiber": 1.2,
+    "salt": 3.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-ghost-pepper-boneless",
+   "name": "8 Ghost Pepper Boneless",
+   "category": "Boneless",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 299,
+    "protein": 36.6,
+    "carbs": 11.5,
+    "fat": 11.8,
+    "saturatedFat": 2.5,
+    "sugar": 1,
+    "fiber": 1,
+    "salt": 2.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-honey-bbq-boneless",
+   "name": "8 Honey BBQ Boneless",
+   "category": "Boneless",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 425,
+    "protein": 37.1,
+    "carbs": 36.4,
+    "fat": 14,
+    "saturatedFat": 2.7,
+    "sugar": 24.5,
+    "fiber": 2.2,
+    "salt": 2.54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-boneless-plain",
+   "name": "10 Boneless Plain",
+   "category": "Boneless",
+   "serving": "10 pieces",
+   "nutrients": {
+    "calories": 362,
+    "protein": 45.4,
+    "carbs": 12.2,
+    "fat": 14.5,
+    "saturatedFat": 3.1,
+    "sugar": 0.7,
+    "fiber": 0.9,
+    "salt": 2.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-cajun-citrus-boneless",
+   "name": "10 Cajun Citrus Boneless",
+   "category": "Boneless",
+   "serving": "10 pieces",
+   "nutrients": {
+    "calories": 377,
+    "protein": 45.8,
+    "carbs": 15.2,
+    "fat": 14.6,
+    "saturatedFat": 3.1,
+    "sugar": 1.4,
+    "fiber": 1.4,
+    "salt": 2.84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-garlic-parmesan-boneless",
+   "name": "10 Garlic Parmesan Boneless",
+   "category": "Boneless",
+   "serving": "10 pieces",
+   "nutrients": {
+    "calories": 790,
+    "protein": 49.4,
+    "carbs": 20.1,
+    "fat": 56.6,
+    "saturatedFat": 7.7,
+    "sugar": 6.6,
+    "fiber": 1.5,
+    "salt": 4.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-ghost-pepper-boneless",
+   "name": "10 Ghost Pepper Boneless",
+   "category": "Boneless",
+   "serving": "10 pieces",
+   "nutrients": {
+    "calories": 376,
+    "protein": 45.8,
+    "carbs": 14.7,
+    "fat": 14.8,
+    "saturatedFat": 3.1,
+    "sugar": 1.3,
+    "fiber": 1.3,
+    "salt": 3.22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-honey-bbq-boneless",
+   "name": "10 Honey BBQ Boneless",
+   "category": "Boneless",
+   "serving": "10 pieces",
+   "nutrients": {
+    "calories": 531,
+    "protein": 46.4,
+    "carbs": 45.4,
+    "fat": 17.6,
+    "saturatedFat": 3.4,
+    "sugar": 30.7,
+    "fiber": 2.8,
+    "salt": 3.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-hot-honey-boneless",
+   "name": "10 Hot Honey Boneless",
+   "category": "Boneless",
+   "serving": "10 pieces",
+   "nutrients": {
+    "calories": 548,
+    "protein": 45.6,
+    "carbs": 57.3,
+    "fat": 14.7,
+    "saturatedFat": 3.1,
+    "sugar": 41.5,
+    "fiber": 1.2,
+    "salt": 3.91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-boneless-plain",
+   "name": "12 Boneless Plain",
+   "category": "Boneless",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 435,
+    "protein": 54.5,
+    "carbs": 14.7,
+    "fat": 17.3,
+    "saturatedFat": 3.7,
+    "sugar": 0.8,
+    "fiber": 1,
+    "salt": 2.65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-cajun-citrus-boneless",
+   "name": "12 Cajun Citrus Boneless",
+   "category": "Boneless",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 450,
+    "protein": 54.8,
+    "carbs": 17.6,
+    "fat": 17.5,
+    "saturatedFat": 3.7,
+    "sugar": 1.5,
+    "fiber": 1.5,
+    "salt": 3.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-garlic-parmesan-boneless",
+   "name": "12 Garlic Parmesan Boneless",
+   "category": "Boneless",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 948,
+    "protein": 59.3,
+    "carbs": 24.1,
+    "fat": 67.9,
+    "saturatedFat": 9.3,
+    "sugar": 7.9,
+    "fiber": 1.7,
+    "salt": 5.69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-ghost-pepper-boneless",
+   "name": "12 Ghost Pepper Boneless",
+   "category": "Boneless",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 449,
+    "protein": 54.9,
+    "carbs": 17.1,
+    "fat": 17.7,
+    "saturatedFat": 3.7,
+    "sugar": 1.5,
+    "fiber": 1.4,
+    "salt": 3.66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-honey-bbq-boneless",
+   "name": "12 Honey BBQ Boneless",
+   "category": "Boneless",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 637,
+    "protein": 55.7,
+    "carbs": 54.5,
+    "fat": 21.1,
+    "saturatedFat": 4,
+    "sugar": 36.8,
+    "fiber": 3.3,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-hot-honey-boneless",
+   "name": "12 Hot Honey Boneless",
+   "category": "Boneless",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 658,
+    "protein": 54.7,
+    "carbs": 68.7,
+    "fat": 17.6,
+    "saturatedFat": 3.7,
+    "sugar": 49.8,
+    "fiber": 1.4,
+    "salt": 4.69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "20-boneless-plain",
+   "name": "20 Boneless Plain",
+   "category": "Boneless",
+   "serving": "20 pieces",
+   "nutrients": {
+    "calories": 724,
+    "protein": 90.8,
+    "carbs": 24.5,
+    "fat": 28.9,
+    "saturatedFat": 6.1,
+    "sugar": 1.4,
+    "fiber": 1.7,
+    "salt": 4.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-hot-wings",
+   "name": "2 Hot Wings",
+   "category": "Hot Wings",
+   "serving": "2 wings",
+   "nutrients": {
+    "calories": 185,
+    "protein": 19,
+    "carbs": 3.3,
+    "fat": 10.6,
+    "saturatedFat": 2.5,
+    "sugar": 0.2,
+    "fiber": 0.4,
+    "salt": 1.89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-hot-wings",
+   "name": "3 Hot Wings",
+   "category": "Hot Wings",
+   "serving": "3 wings",
+   "nutrients": {
+    "calories": 277,
+    "protein": 28.5,
+    "carbs": 5,
+    "fat": 15.8,
+    "saturatedFat": 3.7,
+    "sugar": 0.3,
+    "fiber": 0.6,
+    "salt": 2.83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-cajun-citrus-hot-wings",
+   "name": "6 Cajun Citrus Hot Wings",
+   "category": "Hot Wings",
+   "serving": "6 wings",
+   "nutrients": {
+    "calories": 562,
+    "protein": 57.2,
+    "carbs": 11.4,
+    "fat": 31.8,
+    "saturatedFat": 7.5,
+    "sugar": 1,
+    "fiber": 1.5,
+    "salt": 5.98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-garlic-parmesan-hot-wings",
+   "name": "6 Garlic Parmesan Hot Wings",
+   "category": "Hot Wings",
+   "serving": "6 wings",
+   "nutrients": {
+    "calories": 940,
+    "protein": 60.7,
+    "carbs": 17,
+    "fat": 69.6,
+    "saturatedFat": 11.6,
+    "sugar": 6,
+    "fiber": 1.7,
+    "salt": 7.94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-ghost-pepper-hot-wings",
+   "name": "6 Ghost Pepper Hot Wings",
+   "category": "Hot Wings",
+   "serving": "6 wings",
+   "nutrients": {
+    "calories": 561,
+    "protein": 57.2,
+    "carbs": 11.2,
+    "fat": 31.8,
+    "saturatedFat": 7.5,
+    "sugar": 0.9,
+    "fiber": 1.4,
+    "salt": 6.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-honey-bbq-hot-wings",
+   "name": "6 Honey BBQ Hot Wings",
+   "category": "Hot Wings",
+   "serving": "6 wings",
+   "nutrients": {
+    "calories": 707,
+    "protein": 57.9,
+    "carbs": 39.9,
+    "fat": 34.5,
+    "saturatedFat": 7.7,
+    "sugar": 27.6,
+    "fiber": 2.9,
+    "salt": 6.53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-hot-wings",
+   "name": "6 Hot Wings",
+   "category": "Hot Wings",
+   "serving": "6 wings",
+   "nutrients": {
+    "calories": 554,
+    "protein": 57,
+    "carbs": 10,
+    "fat": 31.7,
+    "saturatedFat": 7.4,
+    "sugar": 0.6,
+    "fiber": 1.2,
+    "salt": 5.67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-cajun-citrus-hot-wings",
+   "name": "8 Cajun Citrus Hot Wings",
+   "category": "Hot Wings",
+   "serving": "8 wings",
+   "nutrients": {
+    "calories": 750,
+    "protein": 76.3,
+    "carbs": 15.4,
+    "fat": 42.4,
+    "saturatedFat": 9.9,
+    "sugar": 1.3,
+    "fiber": 2,
+    "salt": 7.99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-garlic-parmesan-hot-wings",
+   "name": "8 Garlic Parmesan Hot Wings",
+   "category": "Hot Wings",
+   "serving": "8 wings",
+   "nutrients": {
+    "calories": 1253,
+    "protein": 80.9,
+    "carbs": 22.7,
+    "fat": 92.8,
+    "saturatedFat": 15.5,
+    "sugar": 7.9,
+    "fiber": 2.3,
+    "salt": 10.59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-ghost-pepper-hot-wings",
+   "name": "8 Ghost Pepper Hot Wings",
+   "category": "Hot Wings",
+   "serving": "8 wings",
+   "nutrients": {
+    "calories": 749,
+    "protein": 76.3,
+    "carbs": 15,
+    "fat": 42.5,
+    "saturatedFat": 10,
+    "sugar": 1.3,
+    "fiber": 1.9,
+    "salt": 8.26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-honey-bbq-hot-wings",
+   "name": "8 Honey BBQ Hot Wings",
+   "category": "Hot Wings",
+   "serving": "8 wings",
+   "nutrients": {
+    "calories": 942,
+    "protein": 77.2,
+    "carbs": 53.1,
+    "fat": 46,
+    "saturatedFat": 10.3,
+    "sugar": 36.8,
+    "fiber": 3.9,
+    "salt": 8.71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-hot-wings",
+   "name": "8 Hot Wings",
+   "category": "Hot Wings",
+   "serving": "8 wings",
+   "nutrients": {
+    "calories": 739,
+    "protein": 76,
+    "carbs": 13.3,
+    "fat": 42.2,
+    "saturatedFat": 9.9,
+    "sugar": 0.8,
+    "fiber": 1.6,
+    "salt": 7.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-hot-wings",
+   "name": "10 Hot Wings",
+   "category": "Hot Wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 924,
+    "protein": 95,
+    "carbs": 16.6,
+    "fat": 52.8,
+    "saturatedFat": 12.4,
+    "sugar": 1,
+    "fiber": 2,
+    "salt": 9.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-cajun-citrus-hot-wings",
+   "name": "12 Cajun Citrus Hot Wings",
+   "category": "Hot Wings",
+   "serving": "12 wings",
+   "nutrients": {
+    "calories": 1124,
+    "protein": 114.4,
+    "carbs": 22.9,
+    "fat": 63.6,
+    "saturatedFat": 14.9,
+    "sugar": 1.9,
+    "fiber": 2.9,
+    "salt": 11.95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-garlic-parmesan-hot-wings",
+   "name": "12 Garlic Parmesan Hot Wings",
+   "category": "Hot Wings",
+   "serving": "12 wings",
+   "nutrients": {
+    "calories": 1879,
+    "protein": 121.3,
+    "carbs": 34.1,
+    "fat": 139.2,
+    "saturatedFat": 23.3,
+    "sugar": 11.9,
+    "fiber": 3.5,
+    "salt": 15.88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-ghost-pepper-hot-wings",
+   "name": "12 Ghost Pepper Hot Wings",
+   "category": "Hot Wings",
+   "serving": "12 wings",
+   "nutrients": {
+    "calories": 1123,
+    "protein": 114.4,
+    "carbs": 22.3,
+    "fat": 63.7,
+    "saturatedFat": 14.9,
+    "sugar": 1.9,
+    "fiber": 2.8,
+    "salt": 12.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-honey-bbq-hot-wings",
+   "name": "12 Honey BBQ Hot Wings",
+   "category": "Hot Wings",
+   "serving": "12 wings",
+   "nutrients": {
+    "calories": 1413,
+    "protein": 115.8,
+    "carbs": 79.7,
+    "fat": 68.9,
+    "saturatedFat": 15.4,
+    "sugar": 55.2,
+    "fiber": 5.8,
+    "salt": 13.06
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-hot-wings",
+   "name": "12 Hot Wings",
+   "category": "Hot Wings",
+   "serving": "12 wings",
+   "nutrients": {
+    "calories": 1109,
+    "protein": 114,
+    "carbs": 19.9,
+    "fat": 63.4,
+    "saturatedFat": 14.9,
+    "sugar": 1.2,
+    "fiber": 2.4,
+    "salt": 11.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "20-hot-wings",
+   "name": "20 Hot Wings",
+   "category": "Hot Wings",
+   "serving": "20 wings",
+   "nutrients": {
+    "calories": 1848,
+    "protein": 190,
+    "carbs": 33.2,
+    "fat": 105.6,
+    "saturatedFat": 24.8,
+    "sugar": 2,
+    "fiber": 4,
+    "salt": 18.88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-egg-and-cheese-muffin",
+   "name": "Bacon Egg and Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 399,
+    "protein": 20.6,
+    "carbs": 26.6,
+    "fat": 22.9,
+    "saturatedFat": 6.8,
+    "sugar": 3.1,
+    "fiber": 2.1,
+    "salt": 1.86
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-roll-plain",
+   "name": "Bacon Roll - Plain",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 346,
+    "protein": 18.7,
+    "carbs": 29.4,
+    "fat": 16.5,
+    "saturatedFat": 6.4,
+    "sugar": 7.8,
+    "fiber": 2.3,
+    "salt": 1.66
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-roll-with-cajun-ketchup",
+   "name": "Bacon Roll with Cajun Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 365,
+    "protein": 18.8,
+    "carbs": 33.3,
+    "fat": 16.8,
+    "saturatedFat": 6.5,
+    "sugar": 11.2,
+    "fiber": 2.5,
+    "salt": 1.83
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-roll-with-heinz-ketchup",
+   "name": "Bacon Roll with Heinz Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "protein": 18.8,
+    "carbs": 31.8,
+    "fat": 16.5,
+    "saturatedFat": 6.4,
+    "sugar": 10.1,
+    "fiber": 2.4,
+    "salt": 1.84
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-roll-with-hp-sauce",
+   "name": "Bacon Roll with HP Sauce",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 358,
+    "protein": 18.8,
+    "carbs": 32.2,
+    "fat": 16.5,
+    "saturatedFat": 6.5,
+    "sugar": 9.9,
+    "fiber": 2.4,
+    "salt": 1.79
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-roll-with-chicken-breakfast-patty-heinz-ketchup",
+   "name": "Big Breakfast Roll with Chicken Breakfast Patty & Heinz Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 404,
+    "protein": 23.3,
+    "carbs": 36,
+    "fat": 18.1,
+    "saturatedFat": 7.7,
+    "sugar": 10.9,
+    "fiber": 2.9,
+    "salt": 2.15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-roll-with-chicken-breakfast-patty-hp-sauce",
+   "name": "Big Breakfast Roll with Chicken Breakfast Patty & HP Sauce",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 406,
+    "protein": 23.3,
+    "carbs": 36.4,
+    "fat": 18.2,
+    "saturatedFat": 7.7,
+    "sugar": 10.7,
+    "fiber": 2.9,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-heinz-ketchup",
+   "name": "Big Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & Heinz Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 460,
+    "protein": 26.9,
+    "carbs": 36,
+    "fat": 22.7,
+    "saturatedFat": 9.4,
+    "sugar": 11.1,
+    "fiber": 2.9,
+    "salt": 2.63
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-hp-sauce",
+   "name": "Big Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & HP Sauce",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 462,
+    "protein": 26.8,
+    "carbs": 36.4,
+    "fat": 22.7,
+    "saturatedFat": 9.4,
+    "sugar": 10.9,
+    "fiber": 2.9,
+    "salt": 2.57
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-wrap-with-chicken-breakfast-patty-heinz-ketchup",
+   "name": "Big Breakfast Wrap with Chicken Breakfast Patty & Heinz Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 703,
+    "protein": 31.5,
+    "carbs": 50.3,
+    "fat": 41.1,
+    "saturatedFat": 10.8,
+    "sugar": 5.1,
+    "fiber": 4.4,
+    "salt": 3.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-wrap-with-chicken-breakfast-patty-streaky-bacon-heinz-ketchup",
+   "name": "Big Breakfast Wrap with Chicken Breakfast Patty, Streaky Bacon & Heinz Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 764,
+    "protein": 35.1,
+    "carbs": 51.5,
+    "fat": 45.7,
+    "saturatedFat": 12.5,
+    "sugar": 6.5,
+    "fiber": 4.4,
+    "salt": 3.85
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-wrap-with-chicken-breakfast-patty-streaky-bacon-hp-sauce",
+   "name": "Big Breakfast Wrap with Chicken Breakfast Patty, Streaky Bacon & HP Sauce",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 767,
+    "protein": 35.1,
+    "carbs": 52.2,
+    "fat": 45.8,
+    "saturatedFat": 12.6,
+    "sugar": 6.2,
+    "fiber": 4.3,
+    "salt": 3.77
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-cajun-roll-with-chicken-breakfast-patty",
+   "name": "Big Cajun Roll with Chicken Breakfast Patty",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 439,
+    "protein": 23.7,
+    "carbs": 38.8,
+    "fat": 20.5,
+    "saturatedFat": 7.9,
+    "sugar": 12.5,
+    "fiber": 3.3,
+    "salt": 2.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-cajun-roll-with-chicken-breakfast-patty-streaky-bacon",
+   "name": "Big Cajun Roll with Chicken Breakfast Patty & Streaky Bacon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 715,
+    "protein": 29.5,
+    "carbs": 56.1,
+    "fat": 40.2,
+    "saturatedFat": 12.6,
+    "sugar": 17,
+    "fiber": 5.7,
+    "salt": 4.27
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-cajun-wrap-with-chicken-breakfast-patty",
+   "name": "Big Cajun Wrap with Chicken Breakfast Patty",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 517,
+    "protein": 29.9,
+    "carbs": 37.7,
+    "fat": 27.3,
+    "saturatedFat": 8.1,
+    "sugar": 4.7,
+    "fiber": 2.2,
+    "salt": 2.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-cajun-wrap-with-chicken-breakfast-patty-streaky-bacon",
+   "name": "Big Cajun Wrap with Chicken Breakfast Patty & Streaky Bacon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 786,
+    "protein": 35.5,
+    "carbs": 55.1,
+    "fat": 46.3,
+    "saturatedFat": 12.6,
+    "sugar": 8.6,
+    "fiber": 4.8,
+    "salt": 4.42
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-roll-with-chicken-breakfast-patty-cajun-ketchup",
+   "name": "Breakfast Roll with Chicken Breakfast Patty & Cajun Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 313,
+    "protein": 13.4,
+    "carbs": 36.7,
+    "fat": 11.9,
+    "saturatedFat": 4.2,
+    "sugar": 11.3,
+    "fiber": 2.9,
+    "salt": 1.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-roll-with-chicken-breakfast-patty-heinz-ketchup",
+   "name": "Breakfast Roll with Chicken Breakfast Patty & Heinz Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 304,
+    "protein": 13.5,
+    "carbs": 35.1,
+    "fat": 11.7,
+    "saturatedFat": 4.2,
+    "sugar": 10.2,
+    "fiber": 2.9,
+    "salt": 1.43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-roll-with-chicken-breakfast-patty-hp-sauce",
+   "name": "Breakfast Roll with Chicken Breakfast Patty & HP Sauce",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 306,
+    "protein": 13.4,
+    "carbs": 35.6,
+    "fat": 11.7,
+    "saturatedFat": 4.2,
+    "sugar": 10.1,
+    "fiber": 2.8,
+    "salt": 1.38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-cajun-ketchup",
+   "name": "Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & Cajun Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 388,
+    "protein": 18.2,
+    "carbs": 36.7,
+    "fat": 18,
+    "saturatedFat": 6.5,
+    "sugar": 11.6,
+    "fiber": 2.9,
+    "salt": 2.05
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-heinz-ketchup",
+   "name": "Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & Heinz Ketchup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 379,
+    "protein": 18.2,
+    "carbs": 35.1,
+    "fat": 17.8,
+    "saturatedFat": 6.4,
+    "sugar": 10.5,
+    "fiber": 2.9,
+    "salt": 2.06
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-roll-with-chicken-breakfast-patty-streaky-bacon-hp-sauce",
+   "name": "Breakfast Roll with Chicken Breakfast Patty, Streaky Bacon & HP Sauce",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 381,
+    "protein": 18.2,
+    "carbs": 35.6,
+    "fat": 17.8,
+    "saturatedFat": 6.5,
+    "sugar": 10.3,
+    "fiber": 2.8,
+    "salt": 2.01
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cajun-hash-brown",
+   "name": "Cajun Hash Brown",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 115,
+    "protein": 1.6,
+    "carbs": 12,
+    "fat": 6.4,
+    "saturatedFat": 0.3,
+    "sugar": 0.6,
+    "fiber": 1.8,
+    "salt": 0.78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-breakfast-patty-egg-cheese-muffin",
+   "name": "Chicken Breakfast Patty, Egg & Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 440,
+    "protein": 24,
+    "carbs": 30,
+    "fat": 24.6,
+    "saturatedFat": 6.5,
+    "sugar": 3.3,
+    "fiber": 2.9,
+    "salt": 2.08
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-bacon-egg-and-cheese-muffin",
+   "name": "Double Bacon, Egg and Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 464,
+    "protein": 24.8,
+    "carbs": 26.6,
+    "fat": 28.2,
+    "saturatedFat": 8.8,
+    "sugar": 3.3,
+    "fiber": 2.1,
+    "salt": 2.41
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chicken-breakfast-patty-egg-cheese-muffin",
+   "name": "Double Chicken Breakfast Patty, Egg & Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 511,
+    "protein": 31.5,
+    "carbs": 33.4,
+    "fat": 27.6,
+    "saturatedFat": 7.7,
+    "sugar": 3.8,
+    "fiber": 3.6,
+    "salt": 2.81
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-and-cheese-muffin",
+   "name": "Egg and Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 333,
+    "protein": 16.5,
+    "carbs": 26.6,
+    "fat": 17.6,
+    "saturatedFat": 4.8,
+    "sugar": 2.9,
+    "fiber": 2.1,
+    "salt": 1.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash Brown",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 106,
+    "protein": 1.2,
+    "carbs": 10.7,
+    "fat": 6.2,
+    "saturatedFat": 0.2,
+    "sugar": 0.1,
+    "fiber": 1.5,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscuit",
+   "name": "Biscuit",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 217,
+    "protein": 5.8,
+    "carbs": 22.9,
+    "fat": 10.8,
+    "saturatedFat": 5.1,
+    "sugar": 1.3,
+    "fiber": 2.3,
+    "salt": 1.19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscuit-gravy",
+   "name": "Biscuit & Gravy",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 6.8,
+    "carbs": 33.7,
+    "fat": 11.9,
+    "saturatedFat": 5.7,
+    "sugar": 1.5,
+    "fiber": 2.8,
+    "salt": 2.97
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscuit-honey",
+   "name": "Biscuit & Honey",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 308,
+    "protein": 5.9,
+    "carbs": 38.9,
+    "fat": 13.8,
+    "saturatedFat": 5.4,
+    "sugar": 16.3,
+    "fiber": 2.3,
+    "salt": 1.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscuit-hot-honey",
+   "name": "Biscuit & Hot Honey",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 311,
+    "protein": 5.9,
+    "carbs": 39.4,
+    "fat": 14,
+    "saturatedFat": 5.4,
+    "sugar": 15.7,
+    "fiber": 2.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cajun-fries-large",
+   "name": "Cajun Fries (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 428,
+    "protein": 7.2,
+    "carbs": 50.2,
+    "fat": 20.5,
+    "saturatedFat": 3.8,
+    "sugar": 1.4,
+    "fiber": 6.9,
+    "salt": 3.48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cajun-fries-regular",
+   "name": "Cajun Fries (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 337,
+    "protein": 5.5,
+    "carbs": 39.4,
+    "fat": 16.3,
+    "saturatedFat": 3,
+    "sugar": 0.9,
+    "fiber": 5.3,
+    "salt": 2.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cajun-gravy",
+   "name": "Cajun Gravy",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "protein": 1,
+    "carbs": 10.9,
+    "fat": 1,
+    "saturatedFat": 0.6,
+    "sugar": 0.2,
+    "fiber": 0.4,
+    "salt": 1.78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-fries",
+   "name": "Cheesy Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 628,
+    "protein": 12,
+    "carbs": 69.6,
+    "fat": 31.5,
+    "saturatedFat": 7.6,
+    "sugar": 2.2,
+    "fiber": 8.6,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-large",
+   "name": "Fries (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 410,
+    "protein": 6.4,
+    "carbs": 47.6,
+    "fat": 20.1,
+    "saturatedFat": 3.8,
+    "sugar": 0.5,
+    "fiber": 6.3,
+    "salt": 2.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-regular",
+   "name": "Fries (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 328,
+    "protein": 5.1,
+    "carbs": 38.1,
+    "fat": 16.1,
+    "saturatedFat": 3,
+    "sugar": 0.4,
+    "fiber": 5,
+    "salt": 1.86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-small",
+   "name": "Fries (small)",
+   "category": "Sides",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 285,
+    "protein": 4.4,
+    "carbs": 33.2,
+    "fat": 14,
+    "saturatedFat": 2.6,
+    "sugar": 0.4,
+    "fiber": 4.4,
+    "salt": 1.62
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-bbq-cheesy-loaded-fries",
+   "name": "Honey BBQ Cheesy Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 672,
+    "protein": 10.4,
+    "carbs": 87,
+    "fat": 33.4,
+    "saturatedFat": 11.2,
+    "sugar": 8.7,
+    "fiber": 10.2,
+    "salt": 3.99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-side-salad",
+   "name": "Kids Side Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.4,
+    "carbs": 1.3,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "fiber": 0.5,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-cheese",
+   "name": "Mac & Cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 245,
+    "protein": 11,
+    "carbs": 27.9,
+    "fat": 8.8,
+    "saturatedFat": 5.4,
+    "sugar": 2,
+    "fiber": 1.6,
+    "salt": 1.39
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mash-gravy",
+   "name": "Mash & Gravy",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 429,
+    "protein": 3.4,
+    "carbs": 34.9,
+    "fat": 30.8,
+    "saturatedFat": 4.7,
+    "sugar": 0.4,
+    "fiber": 3.6,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoky-beans",
+   "name": "Smoky Beans",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 5.1,
+    "carbs": 21,
+    "fat": 4.1,
+    "saturatedFat": 0.4,
+    "sugar": 5.1,
+    "fiber": 6.3,
+    "salt": 1.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bold-bbq",
+   "name": "Bold BBQ",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 0.3,
+    "carbs": 17.4,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 12.2,
+    "fiber": 0.2,
+    "salt": 0.75
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo",
+   "name": "Buffalo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.1,
+    "carbs": 0.5,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 0.5,
+    "fiber": 0.2,
+    "salt": 2.15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-mayonnaise",
+   "name": "Classic Mayonnaise",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 219,
+    "protein": 0.5,
+    "carbs": 2,
+    "fat": 23.2,
+    "saturatedFat": 1.8,
+    "sugar": 1.3,
+    "fiber": 0.2,
+    "salt": 0.57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-mayo",
+   "name": "Garlic Mayo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 218,
+    "protein": 0.5,
+    "carbs": 1.9,
+    "fat": 23.2,
+    "saturatedFat": 1.7,
+    "sugar": 0.8,
+    "fiber": 0.2,
+    "salt": 0.57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ghost-pepper-big-dip",
+   "name": "Ghost Pepper Big Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 0.8,
+    "carbs": 64.5,
+    "fat": 0.5,
+    "saturatedFat": 0,
+    "sugar": 31.4,
+    "fiber": 0.8,
+    "salt": 5.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey",
+   "name": "Hot Honey",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 68,
+    "protein": 0.1,
+    "carbs": 16.6,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 14.4,
+    "fiber": 0.2,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kickback-dip-pot",
+   "name": "Kickback Dip Pot",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 198,
+    "protein": 0.5,
+    "carbs": 2.5,
+    "fat": 20.7,
+    "saturatedFat": 1.5,
+    "sugar": 1.9,
+    "fiber": 0.2,
+    "salt": 0.56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisiana-hot",
+   "name": "Louisiana Hot",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.2,
+    "carbs": 1.5,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0.3,
+    "fiber": 0.2,
+    "salt": 2.19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-habanero",
+   "name": "Mango Habanero",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.1,
+    "carbs": 12.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.9,
+    "fiber": 0.2,
+    "salt": 0.52
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ranch",
+   "name": "Ranch",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 0.2,
+    "carbs": 2.2,
+    "fat": 19.4,
+    "saturatedFat": 1.4,
+    "sugar": 1.3,
+    "fiber": 0.2,
+    "salt": 0.57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-cheese",
+   "name": "The Big Cheese",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 187,
+    "protein": 9,
+    "carbs": 13,
+    "fat": 10.9,
+    "saturatedFat": 6.7,
+    "sugar": 4.2,
+    "fiber": 0.2,
+    "salt": 2.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-honey-bbq-dip",
+   "name": "The Big Honey BBQ Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 287,
+    "protein": 1.7,
+    "carbs": 56.4,
+    "fat": 5.3,
+    "saturatedFat": 0.4,
+    "sugar": 51,
+    "fiber": 3.2,
+    "salt": 1.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-kickback-dip",
+   "name": "The Big Kickback Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 809,
+    "protein": 2.3,
+    "carbs": 13.5,
+    "fat": 82.5,
+    "saturatedFat": 6.3,
+    "sugar": 7.8,
+    "fiber": 0.9,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-ranch-dip",
+   "name": "The Big Ranch Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 794,
+    "protein": 0.8,
+    "carbs": 9.5,
+    "fat": 83.1,
+    "saturatedFat": 6,
+    "sugar": 5.6,
+    "fiber": 0.8,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-whipz",
+   "name": "Biscoff Whipz",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 351,
+    "protein": 6.2,
+    "carbs": 36.7,
+    "fat": 19.6,
+    "saturatedFat": 4.6,
+    "sugar": 29,
+    "fiber": 1.5,
+    "salt": 0.36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-whipz",
+   "name": "Chocolate Whipz",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 222,
+    "protein": 5.3,
+    "carbs": 28.7,
+    "fat": 8.9,
+    "saturatedFat": 2.4,
+    "sugar": 26.9,
+    "fiber": 1.5,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "m-ms-whipz",
+   "name": "M&Ms Whipz",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 288,
+    "protein": 6,
+    "carbs": 38,
+    "fat": 11.7,
+    "saturatedFat": 4.1,
+    "sugar": 35.8,
+    "fiber": 2,
+    "salt": 0.26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-whipz-biscoff",
+   "name": "Mini Whipz - Biscoff",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 186,
+    "protein": 3.5,
+    "carbs": 19.7,
+    "fat": 10.2,
+    "saturatedFat": 2.4,
+    "sugar": 16,
+    "fiber": 0.8,
+    "salt": 0.19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-whipz-chocolate",
+   "name": "Mini Whipz - Chocolate",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 124,
+    "protein": 3,
+    "carbs": 15.6,
+    "fat": 5.1,
+    "saturatedFat": 1.4,
+    "sugar": 14.8,
+    "fiber": 0.8,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-whipz-m-ms",
+   "name": "Mini Whipz - M&Ms",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 3.4,
+    "carbs": 20.3,
+    "fat": 6.5,
+    "saturatedFat": 2.2,
+    "sugar": 19.3,
+    "fiber": 1.1,
+    "salt": 0.14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-whipz-mud-pie",
+   "name": "Mini Whipz - Mud Pie",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 219,
+    "protein": 3.9,
+    "carbs": 26.7,
+    "fat": 10,
+    "saturatedFat": 4.2,
+    "sugar": 23,
+    "fiber": 1.2,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-whipz-oreo",
+   "name": "Mini Whipz - Oreo",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 3.4,
+    "carbs": 20.4,
+    "fat": 6.5,
+    "saturatedFat": 1.7,
+    "sugar": 17.4,
+    "fiber": 1,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-whipz-strawberry",
+   "name": "Mini Whipz - Strawberry",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 125,
+    "protein": 2.9,
+    "carbs": 16.8,
+    "fat": 5,
+    "saturatedFat": 1.3,
+    "sugar": 14.4,
+    "fiber": 0.7,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-whipz-vanilla",
+   "name": "Mini Whipz - Vanilla",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 105,
+    "protein": 2.9,
+    "carbs": 11.9,
+    "fat": 5,
+    "saturatedFat": 1.3,
+    "sugar": 11.8,
+    "fiber": 0.7,
+    "salt": 0.09
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mud-pie-whipz",
+   "name": "Mud Pie Whipz",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 374,
+    "protein": 6.7,
+    "carbs": 48,
+    "fat": 15.9,
+    "saturatedFat": 6.4,
+    "sugar": 41.2,
+    "fiber": 2.2,
+    "salt": 0.41
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-whipz",
+   "name": "Oreo Whipz",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 288,
+    "protein": 6,
+    "carbs": 38.2,
+    "fat": 11.7,
+    "saturatedFat": 3.1,
+    "sugar": 32,
+    "fiber": 1.9,
+    "salt": 0.33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-whipz",
+   "name": "Strawberry Whipz",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 224,
+    "protein": 5.1,
+    "carbs": 31,
+    "fat": 8.6,
+    "saturatedFat": 2.2,
+    "sugar": 26,
+    "fiber": 1.2,
+    "salt": 0.19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-whipz",
+   "name": "Vanilla Whipz",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 182,
+    "protein": 5.1,
+    "carbs": 20.5,
+    "fat": 8.6,
+    "saturatedFat": 2.2,
+    "sugar": 20.4,
+    "fiber": 1.2,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscuit-nutella",
+   "name": "Biscuit & Nutella",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 324,
+    "protein": 6.7,
+    "carbs": 31.5,
+    "fat": 18.5,
+    "saturatedFat": 7,
+    "sugar": 9.7,
+    "fiber": 2.9,
+    "salt": 1.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolate-cookie",
+   "name": "Double Chocolate Cookie",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 411,
+    "protein": 4.9,
+    "carbs": 50.2,
+    "fat": 20.7,
+    "saturatedFat": 10.8,
+    "sugar": 31.4,
+    "fiber": 1.9,
+    "salt": 0.85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-cookie",
+   "name": "Milk Chocolate Cookie",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 417,
+    "protein": 4.9,
+    "carbs": 50.2,
+    "fat": 21.5,
+    "saturatedFat": 11.5,
+    "sugar": 27.4,
+    "fiber": 1.4,
+    "salt": 0.85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-americano",
+   "name": "Black Americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 81,
+    "protein": 5.6,
+    "carbs": 8.3,
+    "fat": 2.8,
+    "saturatedFat": 1.7,
+    "sugar": 8.3,
+    "fiber": 0,
+    "salt": 0.33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-latte",
+   "name": "Caramel Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 151,
+    "protein": 8.1,
+    "carbs": 20.5,
+    "fat": 4,
+    "saturatedFat": 2.4,
+    "sugar": 20.2,
+    "fiber": 0,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-shake",
+   "name": "Chocolate Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 557,
+    "protein": 16.2,
+    "carbs": 80,
+    "fat": 8.8,
+    "saturatedFat": 4.9,
+    "sugar": 69.1,
+    "fiber": 2.3,
+    "salt": 0.43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 55,
+    "protein": 3.8,
+    "carbs": 5.6,
+    "fat": 1.9,
+    "saturatedFat": 1.1,
+    "sugar": 5.6,
+    "fiber": 0,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jimmys-iced-coffee",
+   "name": "Jimmy's Iced Coffee",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 98,
+    "protein": 5.5,
+    "carbs": 12.3,
+    "fat": 2.8,
+    "saturatedFat": 1.8,
+    "sugar": 12.3,
+    "fiber": 0,
+    "salt": 0.43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-oasis-summer-fruits",
+   "name": "Kids Oasis Summer Fruits",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0,
+    "carbs": 14.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14.4,
+    "fiber": 0,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-shake-chocolate",
+   "name": "Kids Shake - Chocolate",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 10.5,
+    "carbs": 52.7,
+    "fat": 5.7,
+    "saturatedFat": 3.2,
+    "sugar": 45.2,
+    "fiber": 1.5,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-shake-strawberry",
+   "name": "Kids Shake - Strawberry",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 353,
+    "protein": 10.3,
+    "carbs": 50.5,
+    "fat": 5.5,
+    "saturatedFat": 3.1,
+    "sugar": 44,
+    "fiber": 1.2,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-shake-vanilla",
+   "name": "Kids Shake - Vanilla",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 286,
+    "protein": 10.3,
+    "carbs": 34.5,
+    "fat": 5.5,
+    "saturatedFat": 3.1,
+    "sugar": 32.5,
+    "fiber": 1.1,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-chocolate-shake",
+   "name": "Large Chocolate Shake",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 741,
+    "protein": 22.3,
+    "carbs": 104,
+    "fat": 12.1,
+    "saturatedFat": 6.7,
+    "sugar": 90.8,
+    "fiber": 3.1,
+    "salt": 0.57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-lotus-biscoff-shake",
+   "name": "Large Lotus Biscoff Shake",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 758,
+    "protein": 23,
+    "carbs": 91,
+    "fat": 19.9,
+    "saturatedFat": 8.8,
+    "sugar": 78.5,
+    "fiber": 2.6,
+    "salt": 0.69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-oreo-shake",
+   "name": "Large Oreo Shake",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 841,
+    "protein": 23.4,
+    "carbs": 118.7,
+    "fat": 16.1,
+    "saturatedFat": 7.8,
+    "sugar": 99,
+    "fiber": 3.7,
+    "salt": 0.73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-strawberry-shake",
+   "name": "Large Strawberry Shake",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 726,
+    "protein": 21.9,
+    "carbs": 101.6,
+    "fat": 11.6,
+    "saturatedFat": 6.5,
+    "sugar": 88.6,
+    "fiber": 2.5,
+    "salt": 0.48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-vanilla-shake",
+   "name": "Large Vanilla Shake",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 608,
+    "protein": 21.8,
+    "carbs": 73.3,
+    "fat": 11.6,
+    "saturatedFat": 6.5,
+    "sugar": 69.1,
+    "fiber": 2.3,
+    "salt": 0.46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 8.1,
+    "carbs": 11.9,
+    "fat": 4,
+    "saturatedFat": 2.4,
+    "sugar": 11.9,
+    "fiber": 0,
+    "salt": 0.47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade",
+   "name": "Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139,
+    "protein": 0.3,
+    "carbs": 35.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 32.7,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lotus-biscoff-shake",
+   "name": "Lotus Biscoff Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 548,
+    "protein": 16.6,
+    "carbs": 65.6,
+    "fat": 14.4,
+    "saturatedFat": 6.3,
+    "sugar": 56.6,
+    "fiber": 1.9,
+    "salt": 0.49
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oasis-summer-fruits-large",
+   "name": "Oasis Summer Fruits (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 113,
+    "protein": 0,
+    "carbs": 25.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 25.6,
+    "fiber": 0,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oasis-summer-fruits-regular",
+   "name": "Oasis Summer Fruits (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 85,
+    "protein": 0,
+    "carbs": 19.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 19.3,
+    "fiber": 0,
+    "salt": 0.38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-shake",
+   "name": "Oreo Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 698,
+    "protein": 17.2,
+    "carbs": 106.9,
+    "fat": 11.9,
+    "saturatedFat": 5.8,
+    "sugar": 86.3,
+    "fiber": 3.2,
+    "salt": 0.59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-lemonade",
+   "name": "Peach Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139,
+    "protein": 0.3,
+    "carbs": 35.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 32.7,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-citrus-zest",
+   "name": "Red Bull Citrus Zest",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 119,
+    "protein": 0,
+    "carbs": 28.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 28.4,
+    "fiber": 0,
+    "salt": 0.26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-lemonade",
+   "name": "Strawberry Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 167,
+    "protein": 0.3,
+    "carbs": 42.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 39.5,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shake",
+   "name": "Strawberry Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 524,
+    "protein": 15.9,
+    "carbs": 73.2,
+    "fat": 8.4,
+    "saturatedFat": 4.7,
+    "sugar": 63.7,
+    "fiber": 1.8,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea",
+   "name": "Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.2,
+    "carbs": 0.3,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-shake",
+   "name": "Vanilla Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 439,
+    "protein": 15.8,
+    "carbs": 53,
+    "fat": 8.4,
+    "saturatedFat": 4.7,
+    "sugar": 50,
+    "fiber": 1.7,
+    "salt": 0.34
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-americano",
+   "name": "White Americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.2,
+    "carbs": 0.3,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

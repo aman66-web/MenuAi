@@ -1,0 +1,3113 @@
+{
+ "schemaVersion": 1,
+ "id": "nandos",
+ "name": "Nando's",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "nandos",
+  "nando's",
+  "nandos restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Nando's UK menu and nutrition information (nandos.co.uk/food/menu, published 2 October 2026)",
+  "url": "https://www.nandos.co.uk/food/menu",
+  "checkedOn": "2026-10-05"
+ },
+ "note": "Sharing platters aren't included: Nando's publishes their values for the chicken only. Add items to build a total.",
+ "categories": [
+  "The Lunch Fix",
+  "Starters",
+  "PERi-PERi Chicken",
+  "Burgers, Pittas, Wraps",
+  "Salads & Bowls",
+  "Veggie",
+  "Nandinos (Kids)",
+  "Sides",
+  "Dips & Extras",
+  "Spice levels",
+  "Drinks",
+  "Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "sol-bowl",
+   "name": "Sol Bowl",
+   "category": "The Lunch Fix",
+   "serving": "",
+   "nutrients": {
+    "calories": 583,
+    "protein": 7.2,
+    "carbs": 63,
+    "fat": 31.5,
+    "saturatedFat": 2.3,
+    "sugar": 15.2,
+    "fiber": 8.1,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hearty-bowl",
+   "name": "Hearty Bowl",
+   "category": "The Lunch Fix",
+   "serving": "",
+   "nutrients": {
+    "calories": 432,
+    "protein": 9.3,
+    "carbs": 44.3,
+    "fat": 22.9,
+    "saturatedFat": 2.2,
+    "sugar": 14.1,
+    "fiber": 11.4,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hallooooooomi-sticks",
+   "name": "HalloOoOoOomi Sticks",
+   "category": "Starters",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 466,
+    "protein": 26.8,
+    "carbs": 8.3,
+    "fat": 36.8,
+    "saturatedFat": 17.1,
+    "sugar": 6.1,
+    "fiber": 1.3,
+    "salt": 3.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-chorizo",
+   "name": "Chicken Chorizo",
+   "category": "Starters",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 340,
+    "protein": 21.4,
+    "carbs": 19,
+    "fat": 21.6,
+    "saturatedFat": 5.4,
+    "sugar": 16.2,
+    "fiber": 1.8,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-sticks-chilli-jam",
+   "name": "Halloumi Sticks & Chilli Jam",
+   "category": "Starters",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 458,
+    "protein": 26.7,
+    "carbs": 15.9,
+    "fat": 32,
+    "saturatedFat": 16.6,
+    "sugar": 12.6,
+    "fiber": 0.4,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-sticks-peri-honey",
+   "name": "Halloumi Sticks & PERi-Honey",
+   "category": "Starters",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 526,
+    "protein": 26.2,
+    "carbs": 35.6,
+    "fat": 32,
+    "saturatedFat": 16.6,
+    "sugar": 33.6,
+    "fiber": 0,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "houmous-with-peri-peri-drizzle",
+   "name": "Houmous with PERi-PERi Drizzle",
+   "category": "Starters",
+   "serving": "Serves 2-3",
+   "nutrients": {
+    "calories": 792,
+    "protein": 25,
+    "carbs": 98.7,
+    "fat": 32.6,
+    "saturatedFat": 4.3,
+    "sugar": 4.2,
+    "fiber": 14.3,
+    "salt": 2.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-wedges",
+   "name": "Sweet Potato Wedges",
+   "category": "Starters",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 398,
+    "protein": 7.6,
+    "carbs": 43.6,
+    "fat": 22.8,
+    "saturatedFat": 10,
+    "sugar": 24.4,
+    "fiber": 6,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-garlic-pitta",
+   "name": "Cheesy Garlic Pitta",
+   "category": "Starters",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 597,
+    "protein": 17.7,
+    "carbs": 61.7,
+    "fat": 31.6,
+    "saturatedFat": 12.2,
+    "sugar": 15.4,
+    "fiber": 3.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-mixed-olives",
+   "name": "Spicy Mixed Olives",
+   "category": "Starters",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 138,
+    "protein": 1.2,
+    "carbs": 4.7,
+    "fat": 13.5,
+    "saturatedFat": 1.4,
+    "sugar": 0,
+    "fiber": 3.9,
+    "salt": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-peri-nuts",
+   "name": "PERi-PERi Nuts",
+   "category": "Starters",
+   "serving": "Serves 2-3",
+   "nutrients": {
+    "calories": 793,
+    "protein": 27.3,
+    "carbs": 14.8,
+    "fat": 67.4,
+    "saturatedFat": 8.8,
+    "sugar": 5.9,
+    "fiber": 9,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-boneless-chicken-thighs",
+   "name": "4 Boneless Chicken Thighs",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 706,
+    "protein": 85.5,
+    "carbs": 0.3,
+    "fat": 37.2,
+    "saturatedFat": 9.6,
+    "sugar": 0.3,
+    "fiber": 1.4,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-butterfly",
+   "name": "Chicken Butterfly",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 332,
+    "protein": 59.4,
+    "carbs": 0.2,
+    "fat": 10.1,
+    "saturatedFat": 2.3,
+    "sugar": 0.2,
+    "fiber": 1.5,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-2-chicken",
+   "name": "1/2 Chicken",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 579,
+    "protein": 78.7,
+    "carbs": 0.6,
+    "fat": 29.1,
+    "saturatedFat": 8,
+    "sugar": 0,
+    "fiber": 1.4,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-4-chicken",
+   "name": "1/4 Chicken",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 289,
+    "protein": 39.3,
+    "carbs": 0.3,
+    "fat": 14.5,
+    "saturatedFat": 4,
+    "sugar": 0,
+    "fiber": 0.7,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whole-chicken",
+   "name": "Whole Chicken",
+   "category": "PERi-PERi Chicken",
+   "serving": "Serves 2-3",
+   "nutrients": {
+    "calories": 1159,
+    "protein": 157.6,
+    "carbs": 1.1,
+    "fat": 58,
+    "saturatedFat": 16.3,
+    "sugar": 0.6,
+    "fiber": 3,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-phantom-wings",
+   "name": "5 Phantom Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 497,
+    "protein": 55.1,
+    "carbs": 9.7,
+    "fat": 26.3,
+    "saturatedFat": 5.3,
+    "sugar": 6.4,
+    "fiber": 2.9,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-phantom-wings",
+   "name": "10 Phantom Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "Serves 2-3",
+   "nutrients": {
+    "calories": 959,
+    "protein": 109.1,
+    "carbs": 13.1,
+    "fat": 52,
+    "saturatedFat": 10.6,
+    "sugar": 8,
+    "fiber": 5.2,
+    "salt": 10.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-phantom-wings",
+   "name": "3 Phantom Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 295,
+    "protein": 33,
+    "carbs": 5.1,
+    "fat": 15.7,
+    "saturatedFat": 3.2,
+    "sugar": 3.3,
+    "fiber": 1.7,
+    "salt": 3.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-chicken-wings",
+   "name": "5 Chicken Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 393,
+    "protein": 53.2,
+    "carbs": 0.4,
+    "fat": 19.7,
+    "saturatedFat": 4.7,
+    "sugar": 0.2,
+    "fiber": 1.2,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-chicken-wings",
+   "name": "10 Chicken Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "Serves 2-3",
+   "nutrients": {
+    "calories": 786,
+    "protein": 106.4,
+    "carbs": 0.9,
+    "fat": 39.4,
+    "saturatedFat": 9.4,
+    "sugar": 0.4,
+    "fiber": 2.5,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-chicken-wings",
+   "name": "3 Chicken Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 236,
+    "protein": 31.9,
+    "carbs": 0.3,
+    "fat": 11.8,
+    "saturatedFat": 2.8,
+    "sugar": 0.1,
+    "fiber": 0.7,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wing-roulette",
+   "name": "Wing Roulette",
+   "category": "PERi-PERi Chicken",
+   "serving": "Serves 2-3",
+   "nutrients": {
+    "calories": 893,
+    "protein": 107.1,
+    "carbs": 7.5,
+    "fat": 48.1,
+    "saturatedFat": 10.2,
+    "sugar": 5.2,
+    "fiber": 3.7,
+    "salt": 6.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-extra-saucy-wings",
+   "name": "5 Extra Saucy Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 513,
+    "protein": 53.9,
+    "carbs": 11.4,
+    "fat": 27.8,
+    "saturatedFat": 5.5,
+    "sugar": 9.8,
+    "fiber": 1.6,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-extra-saucy-wings",
+   "name": "10 Extra Saucy Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "Serves 2-3",
+   "nutrients": {
+    "calories": 958,
+    "protein": 107.4,
+    "carbs": 19.8,
+    "fat": 49.5,
+    "saturatedFat": 10.4,
+    "sugar": 17.4,
+    "fiber": 3.1,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-extra-saucy-wings",
+   "name": "3 Extra Saucy Wings",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 299,
+    "protein": 32.3,
+    "carbs": 6.4,
+    "fat": 15.9,
+    "saturatedFat": 3.2,
+    "sugar": 5.6,
+    "fiber": 0.9,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-livers-rustic-portuguese-roll",
+   "name": "Chicken Livers & Rustic Portuguese Roll",
+   "category": "PERi-PERi Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 653,
+    "protein": 38.2,
+    "carbs": 54.1,
+    "fat": 32.6,
+    "saturatedFat": 12.6,
+    "sugar": 2.9,
+    "fiber": 3.4,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butterfly-burger",
+   "name": "Butterfly Burger",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 651,
+    "protein": 65.2,
+    "carbs": 55.3,
+    "fat": 19.5,
+    "saturatedFat": 3.5,
+    "sugar": 6.8,
+    "fiber": 4.4,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunset-burger",
+   "name": "Sunset Burger",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 723,
+    "protein": 53.1,
+    "carbs": 56.5,
+    "fat": 31.2,
+    "saturatedFat": 10.8,
+    "sugar": 8.4,
+    "fiber": 3.2,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-churrasco-burger",
+   "name": "Garlic Churrasco Burger",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 787,
+    "protein": 49,
+    "carbs": 55.3,
+    "fat": 39.9,
+    "saturatedFat": 12,
+    "sugar": 5,
+    "fiber": 3.9,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-burger",
+   "name": "Grilled Chicken Burger",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 448,
+    "protein": 34.8,
+    "carbs": 58.5,
+    "fat": 9.6,
+    "saturatedFat": 1.6,
+    "sugar": 7.2,
+    "fiber": 3.5,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chicken-burger",
+   "name": "Double Chicken Burger",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 586,
+    "protein": 63.4,
+    "carbs": 58.6,
+    "fat": 12.2,
+    "saturatedFat": 2.1,
+    "sugar": 7.2,
+    "fiber": 4,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-wrap",
+   "name": "Grilled Chicken Wrap",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 514,
+    "protein": 36.2,
+    "carbs": 54.1,
+    "fat": 16.3,
+    "saturatedFat": 4.2,
+    "sugar": 9.7,
+    "fiber": 4.9,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chicken-wrap",
+   "name": "Double Chicken Wrap",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 742,
+    "protein": 65.3,
+    "carbs": 54.9,
+    "fat": 29,
+    "saturatedFat": 5.4,
+    "sugar": 10.1,
+    "fiber": 5.9,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fino-pitta",
+   "name": "Fino Pitta",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 838,
+    "protein": 61.8,
+    "carbs": 57.9,
+    "fat": 40,
+    "saturatedFat": 15.2,
+    "sugar": 14.4,
+    "fiber": 3.5,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-pitta",
+   "name": "Grilled Chicken Pitta",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 508,
+    "protein": 36.4,
+    "carbs": 50.2,
+    "fat": 19.1,
+    "saturatedFat": 3.7,
+    "sugar": 5.9,
+    "fiber": 1.9,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chicken-pitta",
+   "name": "Double Chicken Pitta",
+   "category": "Burgers, Pittas, Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 691,
+    "protein": 65,
+    "carbs": 50.3,
+    "fat": 26.7,
+    "saturatedFat": 4.5,
+    "sugar": 6,
+    "fiber": 2.6,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-rice-bowl",
+   "name": "Spicy Rice Bowl",
+   "category": "Salads & Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 600,
+    "protein": 15.1,
+    "carbs": 21.5,
+    "fat": 31.7,
+    "saturatedFat": 3.5,
+    "sugar": 8.3,
+    "fiber": 3.6,
+    "salt": 3.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-salad",
+   "name": "Mediterranean Salad",
+   "category": "Salads & Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 350,
+    "protein": 7,
+    "carbs": 15.8,
+    "fat": 28.3,
+    "saturatedFat": 5.6,
+    "sugar": 12,
+    "fiber": 4.9,
+    "salt": 3.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad",
+   "name": "Caesar Salad",
+   "category": "Salads & Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "protein": 12.8,
+    "carbs": 16.5,
+    "fat": 39.6,
+    "saturatedFat": 7.4,
+    "sugar": 3.5,
+    "fiber": 2.9,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-cheese",
+   "name": "The Big Cheese",
+   "category": "Veggie",
+   "serving": "",
+   "nutrients": {
+    "calories": 748,
+    "protein": 27.6,
+    "carbs": 60.6,
+    "fat": 45.4,
+    "saturatedFat": 20.4,
+    "sugar": 8.6,
+    "fiber": 3.4,
+    "salt": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-great-imitator-wrap",
+   "name": "The Great Imitator Wrap",
+   "category": "Veggie",
+   "serving": "",
+   "nutrients": {
+    "calories": 486,
+    "protein": 16.8,
+    "carbs": 57,
+    "fat": 19.4,
+    "saturatedFat": 8,
+    "sugar": 9.9,
+    "fiber": 9.8,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beanie-wrap",
+   "name": "Beanie Wrap",
+   "category": "Veggie",
+   "serving": "",
+   "nutrients": {
+    "calories": 644,
+    "protein": 21.5,
+    "carbs": 37,
+    "fat": 26.5,
+    "saturatedFat": 7.2,
+    "sugar": 10.7,
+    "fiber": 11.3,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beanie-burger",
+   "name": "Beanie Burger",
+   "category": "Veggie",
+   "serving": "",
+   "nutrients": {
+    "calories": 562,
+    "protein": 19.5,
+    "carbs": 83.5,
+    "fat": 19.2,
+    "saturatedFat": 5,
+    "sugar": 6.9,
+    "fiber": 9.3,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beanie-pitta",
+   "name": "Beanie Pitta",
+   "category": "Veggie",
+   "serving": "",
+   "nutrients": {
+    "calories": 632,
+    "protein": 21.2,
+    "carbs": 76.5,
+    "fat": 29.2,
+    "saturatedFat": 6.7,
+    "sugar": 6.6,
+    "fiber": 2.6,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nandino-burger",
+   "name": "Nandino Burger",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 285,
+    "protein": 31.4,
+    "carbs": 27.5,
+    "fat": 6,
+    "saturatedFat": 1.6,
+    "sugar": 3,
+    "fiber": 1.6,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-cheese",
+   "name": "Mac & Cheese",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 435,
+    "protein": 20.5,
+    "carbs": 40.5,
+    "fat": 21.9,
+    "saturatedFat": 13.1,
+    "sugar": 2.5,
+    "fiber": 0,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-breast",
+   "name": "Chicken Breast",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 28.6,
+    "carbs": 0.1,
+    "fat": 2.6,
+    "saturatedFat": 0.6,
+    "sugar": 0.1,
+    "fiber": 0.5,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-chicken-wings-nandinos",
+   "name": "3 Chicken Wings (Nandinos)",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 235,
+    "protein": 31.9,
+    "carbs": 0.2,
+    "fat": 11.8,
+    "saturatedFat": 2.8,
+    "sugar": 0,
+    "fiber": 0.7,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-pitta",
+   "name": "Little Pitta",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 302,
+    "protein": 32.5,
+    "carbs": 24.7,
+    "fat": 7.8,
+    "saturatedFat": 1.8,
+    "sugar": 4.5,
+    "fiber": 1.6,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-soft-swirl-tub-nandinos",
+   "name": "Bottomless Soft Swirl Tub (Nandinos)",
+   "category": "Nandinos (Kids)",
+   "serving": "Filled tub",
+   "nutrients": {
+    "calories": 189,
+    "protein": 5.3,
+    "carbs": 21.3,
+    "fat": 8.9,
+    "saturatedFat": 2.3,
+    "sugar": 21.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-organic-cloudy-apple-juice",
+   "name": "Pip Organic Cloudy Apple Juice",
+   "category": "Nandinos (Kids)",
+   "serving": "180ml",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0,
+    "carbs": 18.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 17.6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-organic-pineapple-mango-smoothie",
+   "name": "Pip Organic Pineapple & Mango Smoothie",
+   "category": "Nandinos (Kids)",
+   "serving": "180ml",
+   "nutrients": {
+    "calories": 95,
+    "protein": 0,
+    "carbs": 22.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 21.4,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-nandinos-side",
+   "name": "Chips (Nandinos side)",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 248,
+    "protein": 2.3,
+    "carbs": 35.7,
+    "fat": 11.5,
+    "saturatedFat": 1.1,
+    "sugar": 0.1,
+    "fiber": 3.9,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-on-the-cob-nandinos-side",
+   "name": "Corn on the Cob (Nandinos side)",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 1.8,
+    "carbs": 7.9,
+    "fat": 1,
+    "saturatedFat": 0.3,
+    "sugar": 3.5,
+    "fiber": 0.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber-sticks-nandinos-side",
+   "name": "Cucumber Sticks (Nandinos side)",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 1.7,
+    "carbs": 0.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 2.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-rice-nandinos-side",
+   "name": "Spicy Rice (Nandinos side)",
+   "category": "Nandinos (Kids)",
+   "serving": "",
+   "nutrients": {
+    "calories": 123,
+    "protein": 1.9,
+    "carbs": 21.1,
+    "fat": 3,
+    "saturatedFat": 0.2,
+    "sugar": 0.6,
+    "fiber": 2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fully-loaded-chips",
+   "name": "Fully Loaded Chips",
+   "category": "Sides",
+   "serving": "Serves 2-3",
+   "nutrients": {
+    "calories": 1174,
+    "protein": 34.5,
+    "carbs": 118.8,
+    "fat": 62.5,
+    "saturatedFat": 12.1,
+    "sugar": 6.4,
+    "fiber": 12.6,
+    "salt": 5.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-peri-mac",
+   "name": "Loaded PERi-Mac",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 621,
+    "protein": 39.9,
+    "carbs": 52.1,
+    "fat": 26.1,
+    "saturatedFat": 14.4,
+    "sugar": 6,
+    "fiber": 3,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-mac-cheese",
+   "name": "PERi-Mac & Cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 494,
+    "protein": 21,
+    "carbs": 46,
+    "fat": 25.5,
+    "saturatedFat": 14,
+    "sugar": 2.7,
+    "fiber": 0.2,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "charred-corn",
+   "name": "Charred Corn",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 4.9,
+    "carbs": 27.4,
+    "fat": 12.6,
+    "saturatedFat": 0.9,
+    "sugar": 11.7,
+    "fiber": 0.8,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "portuguese-tomato-salad",
+   "name": "Portuguese Tomato Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 3.4,
+    "carbs": 13.4,
+    "fat": 7.7,
+    "saturatedFat": 0.8,
+    "sugar": 9.8,
+    "fiber": 5,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tombstone-chips",
+   "name": "Tombstone Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 498,
+    "protein": 4.8,
+    "carbs": 71.6,
+    "fat": 23.1,
+    "saturatedFat": 2.2,
+    "sugar": 0.3,
+    "fiber": 7.9,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-salted-chips-regular",
+   "name": "PERi-Salted Chips (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 498,
+    "protein": 4.7,
+    "carbs": 71.7,
+    "fat": 23,
+    "saturatedFat": 2.2,
+    "sugar": 0.7,
+    "fiber": 7.9,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-salted-chips-large",
+   "name": "PERi-Salted Chips (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 1243,
+    "protein": 11.6,
+    "carbs": 179.2,
+    "fat": 57.6,
+    "saturatedFat": 5.5,
+    "sugar": 0.8,
+    "fiber": 19.6,
+    "salt": 6.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-regular",
+   "name": "Chips (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 496,
+    "protein": 4.6,
+    "carbs": 71.4,
+    "fat": 23,
+    "saturatedFat": 2.2,
+    "sugar": 0.2,
+    "fiber": 7.8,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-large",
+   "name": "Chips (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 1240,
+    "protein": 11.5,
+    "carbs": 178.5,
+    "fat": 57.5,
+    "saturatedFat": 5.5,
+    "sugar": 0.5,
+    "fiber": 19.5,
+    "salt": 5.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-regular",
+   "name": "Garlic Bread (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 372,
+    "protein": 5.9,
+    "carbs": 51.9,
+    "fat": 16.1,
+    "saturatedFat": 4.1,
+    "sugar": 0.6,
+    "fiber": 2.3,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-large",
+   "name": "Garlic Bread (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 743,
+    "protein": 11.8,
+    "carbs": 103.9,
+    "fat": 32.2,
+    "saturatedFat": 8.2,
+    "sugar": 1.2,
+    "fiber": 4.7,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-rice-regular",
+   "name": "Spicy Rice (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 246,
+    "protein": 3.8,
+    "carbs": 42.2,
+    "fat": 6,
+    "saturatedFat": 0.5,
+    "sugar": 1.2,
+    "fiber": 3.9,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-rice-large",
+   "name": "Spicy Rice (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 492,
+    "protein": 7.5,
+    "carbs": 84.3,
+    "fat": 12,
+    "saturatedFat": 0.9,
+    "sugar": 2.4,
+    "fiber": 7.8,
+    "salt": 3.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coleslaw-regular",
+   "name": "Coleslaw (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 233,
+    "protein": 1.2,
+    "carbs": 8.1,
+    "fat": 21.2,
+    "saturatedFat": 1.5,
+    "sugar": 6.9,
+    "fiber": 2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coleslaw-large",
+   "name": "Coleslaw (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 465,
+    "protein": 2.4,
+    "carbs": 16.2,
+    "fat": 42.3,
+    "saturatedFat": 3,
+    "sugar": 13.8,
+    "fiber": 3.9,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamy-mash-regular",
+   "name": "Creamy Mash (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 308,
+    "protein": 2.8,
+    "carbs": 25.4,
+    "fat": 22,
+    "saturatedFat": 13.4,
+    "sugar": 0.6,
+    "fiber": 1.8,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamy-mash-large",
+   "name": "Creamy Mash (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 616,
+    "protein": 5.6,
+    "carbs": 50.8,
+    "fat": 44,
+    "saturatedFat": 26.8,
+    "sugar": 1.2,
+    "fiber": 3.6,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-on-the-cob-regular",
+   "name": "Corn on the Cob (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 142,
+    "protein": 3.5,
+    "carbs": 15.8,
+    "fat": 7.5,
+    "saturatedFat": 4.3,
+    "sugar": 6.9,
+    "fiber": 1.7,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-on-the-cob-large",
+   "name": "Corn on the Cob (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 283,
+    "protein": 7.1,
+    "carbs": 31.6,
+    "fat": 15,
+    "saturatedFat": 8.5,
+    "sugar": 13.8,
+    "fiber": 3.4,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tenderstem-broccoli-regular",
+   "name": "Tenderstem® Broccoli (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 32,
+    "protein": 2.1,
+    "carbs": 3.7,
+    "fat": 1.5,
+    "saturatedFat": 0.1,
+    "sugar": 0.3,
+    "fiber": 2.2,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tenderstem-broccoli-large",
+   "name": "Tenderstem® Broccoli (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 65,
+    "protein": 4.3,
+    "carbs": 7.3,
+    "fat": 3.1,
+    "saturatedFat": 0.2,
+    "sugar": 0.5,
+    "fiber": 4.4,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macho-peas-regular",
+   "name": "Macho Peas (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 155,
+    "protein": 7.1,
+    "carbs": 17.9,
+    "fat": 8.3,
+    "saturatedFat": 1.2,
+    "sugar": 3.4,
+    "fiber": 10,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macho-peas-large",
+   "name": "Macho Peas (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 310,
+    "protein": 14.1,
+    "carbs": 35.8,
+    "fat": 16.5,
+    "saturatedFat": 2.4,
+    "sugar": 6.9,
+    "fiber": 20,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-slaw-regular",
+   "name": "Rainbow Slaw (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 132,
+    "protein": 1.8,
+    "carbs": 7.4,
+    "fat": 11.6,
+    "saturatedFat": 1.4,
+    "sugar": 4.2,
+    "fiber": 0.5,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-slaw-large",
+   "name": "Rainbow Slaw (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 263,
+    "protein": 3.6,
+    "carbs": 14.8,
+    "fat": 23.1,
+    "saturatedFat": 2.8,
+    "sugar": 8.3,
+    "fiber": 0.9,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hearty-grains-regular",
+   "name": "Hearty Grains (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 245,
+    "protein": 5.3,
+    "carbs": 25.4,
+    "fat": 12.1,
+    "saturatedFat": 1.1,
+    "sugar": 3.2,
+    "fiber": 6.3,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hearty-grains-large",
+   "name": "Hearty Grains (large)",
+   "category": "Sides",
+   "serving": "Large (serves 2)",
+   "nutrients": {
+    "calories": 441,
+    "protein": 10.5,
+    "carbs": 50,
+    "fat": 19.1,
+    "saturatedFat": 1.6,
+    "sugar": 6,
+    "fiber": 12.6,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-halloumi-cheese",
+   "name": "Grilled Halloumi Cheese",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 267,
+    "protein": 11.9,
+    "carbs": 1.3,
+    "fat": 23.8,
+    "saturatedFat": 9.1,
+    "sugar": 1.3,
+    "fiber": 0,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-boneless-chicken-thighs",
+   "name": "2 Boneless Chicken Thighs",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 353,
+    "protein": 42.8,
+    "carbs": 0.1,
+    "fat": 18.6,
+    "saturatedFat": 4.8,
+    "sugar": 0.1,
+    "fiber": 0.7,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheddar-cheese",
+   "name": "Cheddar Cheese",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 79,
+    "protein": 4.8,
+    "carbs": 0.7,
+    "fat": 6.3,
+    "saturatedFat": 3.7,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-breast",
+   "name": "Grilled Chicken Breast",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 28.6,
+    "carbs": 0.1,
+    "fat": 2.6,
+    "saturatedFat": 0.6,
+    "sugar": 0.1,
+    "fiber": 0.5,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-pineapple",
+   "name": "Grilled Pineapple",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 39,
+    "protein": 0.2,
+    "carbs": 8.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.6,
+    "fiber": 0.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "herby-pickle-bowl",
+   "name": "Herby Pickle Bowl",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 1.4,
+    "carbs": 7,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 5.5,
+    "fiber": 1.4,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-2-avocado",
+   "name": "1/2 Avocado",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 149,
+    "protein": 1.6,
+    "carbs": 1.6,
+    "fat": 15,
+    "saturatedFat": 3.6,
+    "sugar": 0.4,
+    "fiber": 1.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-peri-drizzle",
+   "name": "PERi-PERi Drizzle",
+   "category": "Dips & Extras",
+   "serving": "20ml",
+   "nutrients": {
+    "calories": 97,
+    "protein": 0.3,
+    "carbs": 0.9,
+    "fat": 10.3,
+    "saturatedFat": 1.5,
+    "sugar": 0.3,
+    "fiber": 0.4,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beanie-patty",
+   "name": "Beanie Patty",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 261,
+    "protein": 13.3,
+    "carbs": 19.6,
+    "fat": 12.7,
+    "saturatedFat": 3.6,
+    "sugar": 1.2,
+    "fiber": 7.9,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-plant-fillet",
+   "name": "PERi-Plant Fillet",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 7.8,
+    "carbs": 3.5,
+    "fat": 4.9,
+    "saturatedFat": 1,
+    "sugar": 0.1,
+    "fiber": 5.3,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "perinaise",
+   "name": "PERinaise",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 0.3,
+    "carbs": 7,
+    "fat": 14.3,
+    "saturatedFat": 1.1,
+    "sugar": 5.1,
+    "fiber": 0.1,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-perinaise",
+   "name": "Garlic PERinaise",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 176,
+    "protein": 4.2,
+    "carbs": 4.4,
+    "fat": 15.8,
+    "saturatedFat": 9.1,
+    "sugar": 4.1,
+    "fiber": 0.3,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-chicken-gravy",
+   "name": "PERi-Chicken Gravy",
+   "category": "Dips & Extras",
+   "serving": "Filled jug/pot",
+   "nutrients": {
+    "calories": 39,
+    "protein": 2,
+    "carbs": 5.5,
+    "fat": 1,
+    "saturatedFat": 0.2,
+    "sugar": 1.2,
+    "fiber": 0.5,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-jam",
+   "name": "Chilli Jam",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 61,
+    "protein": 0.2,
+    "carbs": 16.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13.4,
+    "fiber": 0.3,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-honey",
+   "name": "PERi-Honey",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 0,
+    "carbs": 35.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 33.3,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-pitta",
+   "name": "Toasted Pitta",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 246,
+    "protein": 7.1,
+    "carbs": 40.8,
+    "fat": 5.6,
+    "saturatedFat": 3.4,
+    "sugar": 1.9,
+    "fiber": 1.9,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "portuguese-roll",
+   "name": "Portuguese Roll",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 278,
+    "protein": 5.7,
+    "carbs": 49.2,
+    "fat": 6.3,
+    "saturatedFat": 3.5,
+    "sugar": 0.4,
+    "fiber": 2.2,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tortilla-wrap",
+   "name": "Tortilla Wrap",
+   "category": "Dips & Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 275,
+    "protein": 6.8,
+    "carbs": 43.7,
+    "fat": 7.2,
+    "saturatedFat": 3,
+    "sugar": 2.4,
+    "fiber": 4.1,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vusa-xx-hot-spice-level",
+   "name": "VUSA XX Hot (spice level)",
+   "category": "Spice levels",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0.4,
+    "carbs": 5.9,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 5,
+    "fiber": 0.5,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-hot-spice-level",
+   "name": "Extra Hot (spice level)",
+   "category": "Spice levels",
+   "serving": "",
+   "nutrients": {
+    "calories": 82,
+    "protein": 0.5,
+    "carbs": 1.9,
+    "fat": 8,
+    "saturatedFat": 0.6,
+    "sugar": 0.4,
+    "fiber": 1,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-spice-level",
+   "name": "Hot (spice level)",
+   "category": "Spice levels",
+   "serving": "",
+   "nutrients": {
+    "calories": 41,
+    "protein": 0.2,
+    "carbs": 1,
+    "fat": 4,
+    "saturatedFat": 0.3,
+    "sugar": 0.2,
+    "fiber": 0.5,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "medium-spice-level",
+   "name": "Medium (spice level)",
+   "category": "Spice levels",
+   "serving": "",
+   "nutrients": {
+    "calories": 21,
+    "protein": 0.2,
+    "carbs": 0.3,
+    "fat": 2.2,
+    "saturatedFat": 0.3,
+    "sugar": 0.1,
+    "fiber": 0.2,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-herb-spice-level",
+   "name": "Lemon & Herb (spice level)",
+   "category": "Spice levels",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.8,
+    "saturatedFat": 0.1,
+    "sugar": 0.1,
+    "fiber": 0.2,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-tamer-spice-level",
+   "name": "PERi-Tamer (spice level)",
+   "category": "Spice levels",
+   "serving": "",
+   "nutrients": {
+    "calories": 40,
+    "protein": 0.2,
+    "carbs": 8.5,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 8.2,
+    "fiber": 0.3,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-classic",
+   "name": "Coca-Cola Classic",
+   "category": "Drinks",
+   "serving": "300ml glass",
+   "nutrients": {
+    "calories": 126,
+    "protein": 0,
+    "carbs": 31.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 31.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-diet-coke",
+   "name": "Bottomless Diet Coke",
+   "category": "Drinks",
+   "serving": "300ml glass",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-coke-zero",
+   "name": "Bottomless Coke Zero",
+   "category": "Drinks",
+   "serving": "300ml glass",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-dr-pepper-zero",
+   "name": "Bottomless Dr Pepper Zero",
+   "category": "Drinks",
+   "serving": "300ml glass",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-sprite-zero",
+   "name": "Bottomless Sprite Zero",
+   "category": "Drinks",
+   "serving": "300ml glass",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-fanta-zero",
+   "name": "Bottomless Fanta Zero",
+   "category": "Drinks",
+   "serving": "300ml glass",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0,
+    "carbs": 1.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.5,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cloudy-lemonade",
+   "name": "Cloudy Lemonade",
+   "category": "Drinks",
+   "serving": "300ml glass",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.3,
+    "carbs": 12.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.9,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "still-water",
+   "name": "Still Water",
+   "category": "Drinks",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-water",
+   "name": "Sparkling Water",
+   "category": "Drinks",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "karma-drinks-gingerella",
+   "name": "Karma Drinks Gingerella",
+   "category": "Drinks",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0,
+    "carbs": 14.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14.4,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rubro-peach-iced-tea",
+   "name": "RUBRO Peach Iced Tea",
+   "category": "Drinks",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0,
+    "carbs": 13.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13.5,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rubro-berry-iced-tea",
+   "name": "RUBRO Berry Iced Tea",
+   "category": "Drinks",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0,
+    "carbs": 13.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13.5,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rubro-lemon-iced-tea",
+   "name": "RUBRO Lemon Iced Tea",
+   "category": "Drinks",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0,
+    "carbs": 13.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13.5,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiny-rebel-session-ipa",
+   "name": "Tiny Rebel Session IPA",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 129,
+    "protein": 1.3,
+    "carbs": 9.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.3,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sagres",
+   "name": "Sagres",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 129,
+    "protein": 0.7,
+    "carbs": 10.2,
+    "fat": 0.3,
+    "saturatedFat": 0.3,
+    "sugar": 0.7,
+    "fiber": 1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sxollie-cider",
+   "name": "Sxollie Cider",
+   "category": "Drinks",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 290,
+    "protein": 0.5,
+    "carbs": 30,
+    "fat": 1,
+    "saturatedFat": 0,
+    "sugar": 23.5,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bero-kingston-golden-pils",
+   "name": "BERO Kingston Golden Pils",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 83,
+    "protein": 1,
+    "carbs": 16.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freedom-pils",
+   "name": "Freedom Pils",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 119,
+    "protein": 1.3,
+    "carbs": 8.6,
+    "fat": 0.3,
+    "saturatedFat": 0.3,
+    "sugar": 0.3,
+    "fiber": 1.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beavertown-lazer-crush-alcohol-free-ipa",
+   "name": "Beavertown Lazer Crush Alcohol Free IPA",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 89,
+    "protein": 1,
+    "carbs": 19.5,
+    "fat": 0.3,
+    "saturatedFat": 0.3,
+    "sugar": 9.9,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spier-sauvignon-blanc-south-africa",
+   "name": "Spier Sauvignon Blanc (South Africa)",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 190,
+    "protein": 0,
+    "carbs": 0.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spier-merlot-south-africa",
+   "name": "Spier Merlot (South Africa)",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 203,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spier-rose-south-africa",
+   "name": "Spier Rose (South Africa)",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 188,
+    "protein": 0,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toffee-apple-pastel-de-nata",
+   "name": "Toffee Apple Pastel de Nata",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 228,
+    "protein": 2.6,
+    "carbs": 30.1,
+    "fat": 10.6,
+    "saturatedFat": 7,
+    "sugar": 16,
+    "fiber": 0.9,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "four-toffee-apple-pastel-de-natas",
+   "name": "Four Toffee Apple Pastel de Natas",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 912,
+    "protein": 10.2,
+    "carbs": 120.3,
+    "fat": 42.6,
+    "saturatedFat": 29,
+    "sugar": 63,
+    "fiber": 3.5,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ultimate-chocolate-brownie",
+   "name": "Ultimate Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 635,
+    "protein": 8.3,
+    "carbs": 78,
+    "fat": 32.1,
+    "saturatedFat": 20,
+    "sugar": 63,
+    "fiber": 1.8,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-soft-swirl-tub",
+   "name": "Bottomless Soft Swirl Tub",
+   "category": "Desserts",
+   "serving": "Filled tub",
+   "nutrients": {
+    "calories": 189,
+    "protein": 5.3,
+    "carbs": 21.3,
+    "fat": 8.9,
+    "saturatedFat": 2.3,
+    "sugar": 21.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "choc-a-lot-cake",
+   "name": "Choc-A-Lot Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 425,
+    "protein": 4.6,
+    "carbs": 59.8,
+    "fat": 24.8,
+    "saturatedFat": 10.2,
+    "sugar": 50,
+    "fiber": 0.5,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gooey-caramel-cheesecake",
+   "name": "Gooey Caramel Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 464,
+    "protein": 13.7,
+    "carbs": 36.3,
+    "fat": 29.2,
+    "saturatedFat": 18.5,
+    "sugar": 28.1,
+    "fiber": 1,
+    "salt": 4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-gelado",
+   "name": "Mango Gelado",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 93,
+    "protein": 0,
+    "carbs": 23.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 18,
+    "fiber": 1.7,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

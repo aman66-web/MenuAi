@@ -1,0 +1,2199 @@
+{
+ "schemaVersion": 1,
+ "id": "taco-bell",
+ "name": "Taco Bell",
+ "cuisine": "Mexican",
+ "builderType": "standard",
+ "aliases": [
+  "taco bell",
+  "tacobell"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Taco Bell UK Full Nutrition Information (last updated 30 September 2026)",
+  "url": "https://www.tacobell.co.uk/nutrition-information/",
+  "checkedOn": "2026-10-05"
+ },
+ "note": "Fixed meals, sharing boxes and drinks aren't included.",
+ "categories": [
+  "Tacos",
+  "Burritos",
+  "Specialties",
+  "Chicken",
+  "Sides",
+  "Desserts",
+  "Sauces & add-ons"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "crispy-chicken-soft-taco",
+   "name": "Crispy Chicken Soft Taco",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 312,
+    "protein": 13,
+    "carbs": 25,
+    "fat": 17,
+    "saturatedFat": 2.9,
+    "sugar": 1.7,
+    "fiber": 1.1,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-taco-beef",
+   "name": "Crunchy Taco - Beef",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 174,
+    "protein": 8.7,
+    "carbs": 12,
+    "fat": 9.8,
+    "saturatedFat": 3.7,
+    "sugar": 0.7,
+    "fiber": 2.4,
+    "salt": 0.64
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-taco-black-beans",
+   "name": "Crunchy Taco - Black Beans",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 4.7,
+    "carbs": 13,
+    "fat": 5.7,
+    "saturatedFat": 1.7,
+    "sugar": 0,
+    "fiber": 4.8,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-taco-grilled-chicken",
+   "name": "Crunchy Taco - Grilled Chicken",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 11,
+    "carbs": 12,
+    "fat": 5.9,
+    "saturatedFat": 1.8,
+    "sugar": 0.8,
+    "fiber": 1.5,
+    "salt": 0.72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-taco-supreme-beef",
+   "name": "Crunchy Taco Supreme - Beef",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 193,
+    "protein": 9.2,
+    "carbs": 13,
+    "fat": 11,
+    "saturatedFat": 4.5,
+    "sugar": 1.7,
+    "fiber": 2.5,
+    "salt": 0.65
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-taco-supreme-black-beans",
+   "name": "Crunchy Taco Supreme - Black Beans",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 151,
+    "protein": 5.2,
+    "carbs": 15,
+    "fat": 6.9,
+    "saturatedFat": 2.4,
+    "sugar": 1.5,
+    "fiber": 4.9,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-taco-supreme-grilled-chicken",
+   "name": "Crunchy Taco Supreme - Grilled Chicken",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 168,
+    "protein": 12,
+    "carbs": 14,
+    "fat": 7.1,
+    "saturatedFat": 2.6,
+    "sugar": 1.8,
+    "fiber": 1.7,
+    "salt": 0.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-taco-beef",
+   "name": "Soft Taco - Beef",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 189,
+    "protein": 10,
+    "carbs": 17,
+    "fat": 8.5,
+    "saturatedFat": 3.8,
+    "sugar": 1,
+    "fiber": 2.1,
+    "salt": 0.99
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-taco-black-beans",
+   "name": "Soft Taco - Black Beans",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 147,
+    "protein": 6.1,
+    "carbs": 19,
+    "fat": 4.4,
+    "saturatedFat": 1.7,
+    "sugar": 0.7,
+    "fiber": 4.5,
+    "salt": 0.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-taco-grilled-chicken",
+   "name": "Soft Taco - Grilled Chicken",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 165,
+    "protein": 13,
+    "carbs": 18,
+    "fat": 4.6,
+    "saturatedFat": 1.8,
+    "sugar": 1,
+    "fiber": 1.2,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-taco-supreme-beef",
+   "name": "Soft Taco Supreme - Beef",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 208,
+    "protein": 11,
+    "carbs": 18,
+    "fat": 9.7,
+    "saturatedFat": 4.5,
+    "sugar": 2,
+    "fiber": 2.2,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-taco-supreme-black-beans",
+   "name": "Soft Taco Supreme - Black Beans",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 6.6,
+    "carbs": 20,
+    "fat": 5.6,
+    "saturatedFat": 2.5,
+    "sugar": 1.7,
+    "fiber": 4.6,
+    "salt": 0.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-taco-supreme-grilled-chicken",
+   "name": "Soft Taco Supreme - Grilled Chicken",
+   "category": "Tacos",
+   "serving": "",
+   "nutrients": {
+    "calories": 183,
+    "protein": 13,
+    "carbs": 19,
+    "fat": 5.8,
+    "saturatedFat": 2.6,
+    "sugar": 2,
+    "fiber": 1.4,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beefy-melt-burrito",
+   "name": "Beefy Melt Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 587,
+    "protein": 21,
+    "carbs": 67,
+    "fat": 26,
+    "saturatedFat": 10,
+    "sugar": 3.4,
+    "fiber": 4.6,
+    "salt": 2.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-cheese-volcano-burrito-beef",
+   "name": "Grilled Cheese Volcano Burrito - Beef",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 736,
+    "protein": 23,
+    "carbs": 68,
+    "fat": 41,
+    "saturatedFat": 11,
+    "sugar": 4.1,
+    "fiber": 4.5,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-cheese-volcano-burrito-black-beans",
+   "name": "Grilled Cheese Volcano Burrito - Black Beans",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 694,
+    "protein": 19,
+    "carbs": 70,
+    "fat": 37,
+    "saturatedFat": 8.9,
+    "sugar": 3.8,
+    "fiber": 6.9,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-cheese-volcano-burrito-chicken",
+   "name": "Grilled Cheese Volcano Burrito - Chicken",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 712,
+    "protein": 25,
+    "carbs": 69,
+    "fat": 37,
+    "saturatedFat": 9,
+    "sugar": 4.1,
+    "fiber": 3.7,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-xl-burrito-beef",
+   "name": "Loaded XL Burrito - Beef",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 885,
+    "protein": 30,
+    "carbs": 90,
+    "fat": 45,
+    "saturatedFat": 12,
+    "sugar": 7.7,
+    "fiber": 8.8,
+    "salt": 3.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-xl-burrito-black-beans",
+   "name": "Loaded XL Burrito - Black Beans",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 801,
+    "protein": 22,
+    "carbs": 93,
+    "fat": 37,
+    "saturatedFat": 8.3,
+    "sugar": 7.1,
+    "fiber": 14,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-xl-burrito-grilled-chicken",
+   "name": "Loaded XL Burrito - Grilled Chicken",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 836,
+    "protein": 35,
+    "carbs": 91,
+    "fat": 37,
+    "saturatedFat": 8.6,
+    "sugar": 7.8,
+    "fiber": 7.1,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7-layer-burrito",
+   "name": "7-Layer Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 452,
+    "protein": 15,
+    "carbs": 61,
+    "fat": 15,
+    "saturatedFat": 4.8,
+    "sugar": 2.9,
+    "fiber": 11,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beefy-nacho-cravings-burrito",
+   "name": "Beefy Nacho Cravings Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 392,
+    "protein": 13,
+    "carbs": 49,
+    "fat": 16,
+    "saturatedFat": 5,
+    "sugar": 2.3,
+    "fiber": 3.5,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-burrito",
+   "name": "Crispy Chicken Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 578,
+    "protein": 25,
+    "carbs": 58,
+    "fat": 27,
+    "saturatedFat": 4.3,
+    "sugar": 6.1,
+    "fiber": 2.5,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-cheesy-black-bean-cravings-burrito",
+   "name": "Double Cheesy Black Bean Cravings Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 389,
+    "protein": 11,
+    "carbs": 57,
+    "fat": 12,
+    "saturatedFat": 4.2,
+    "sugar": 2.2,
+    "fiber": 6.2,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-cravings-burrito",
+   "name": "Spicy Chicken Cravings Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 277,
+    "protein": 15,
+    "carbs": 40,
+    "fat": 6.1,
+    "saturatedFat": 1.7,
+    "sugar": 2,
+    "fiber": 1.9,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "volcano-burrito-beef",
+   "name": "Volcano Burrito - Beef",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 638,
+    "protein": 17,
+    "carbs": 67,
+    "fat": 34,
+    "saturatedFat": 6.6,
+    "sugar": 3.9,
+    "fiber": 4.5,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "volcano-burrito-black-beans",
+   "name": "Volcano Burrito - Black Beans",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 596,
+    "protein": 13,
+    "carbs": 68,
+    "fat": 30,
+    "saturatedFat": 4.5,
+    "sugar": 3.7,
+    "fiber": 6.9,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "volcano-burrito-grilled-chicken",
+   "name": "Volcano Burrito - Grilled Chicken",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 614,
+    "protein": 19,
+    "carbs": 67,
+    "fat": 30,
+    "saturatedFat": 4.6,
+    "sugar": 4,
+    "fiber": 3.7,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-cheese-crunchwrap-beef",
+   "name": "Grilled Cheese Crunchwrap - Beef",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 614,
+    "protein": 21,
+    "carbs": 64,
+    "fat": 30,
+    "saturatedFat": 12,
+    "sugar": 4.7,
+    "fiber": 4.2,
+    "salt": 2.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-cheese-crunchwrap-black-beans",
+   "name": "Grilled Cheese Crunchwrap - Black Beans",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 572,
+    "protein": 17,
+    "carbs": 66,
+    "fat": 25,
+    "saturatedFat": 10,
+    "sugar": 4.4,
+    "fiber": 6.6,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-cheese-crunchwrap-chicken",
+   "name": "Grilled Cheese Crunchwrap - Chicken",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 590,
+    "protein": 24,
+    "carbs": 65,
+    "fat": 26,
+    "saturatedFat": 10,
+    "sugar": 4.7,
+    "fiber": 3.3,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-protein-bowl",
+   "name": "Loaded Protein Bowl",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 234,
+    "protein": 21,
+    "carbs": 22,
+    "fat": 6.1,
+    "saturatedFat": 1.3,
+    "sugar": 1.7,
+    "fiber": 6.8,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baby-quesadilla",
+   "name": "Baby Quesadilla",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 9.7,
+    "carbs": 19,
+    "fat": 7.8,
+    "saturatedFat": 2.7,
+    "sugar": 1.4,
+    "fiber": 0.8,
+    "salt": 0.88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chalupa-supreme-beef",
+   "name": "Chalupa Supreme - Beef",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 371,
+    "protein": 14,
+    "carbs": 32,
+    "fat": 21,
+    "saturatedFat": 5.1,
+    "sugar": 3.6,
+    "fiber": 2.9,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chalupa-supreme-black-bean",
+   "name": "Chalupa Supreme - Black Bean",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 329,
+    "protein": 9.6,
+    "carbs": 34,
+    "fat": 17,
+    "saturatedFat": 3.1,
+    "sugar": 3.4,
+    "fiber": 5.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chalupa-supreme-grilled-chicken",
+   "name": "Chalupa Supreme - Grilled Chicken",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 346,
+    "protein": 16,
+    "carbs": 33,
+    "fat": 17,
+    "saturatedFat": 3.2,
+    "sugar": 3.7,
+    "fiber": 2,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-gordita-crunch",
+   "name": "Cheesy Gordita Crunch",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 527,
+    "protein": 20,
+    "carbs": 44,
+    "fat": 30,
+    "saturatedFat": 9,
+    "sugar": 3.7,
+    "fiber": 3.9,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-gordita-crunch-black-beans",
+   "name": "Cheesy Gordita Crunch - Black Beans",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 485,
+    "protein": 16,
+    "carbs": 46,
+    "fat": 26,
+    "saturatedFat": 7,
+    "sugar": 3.5,
+    "fiber": 6.3,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-gordita-crunch-grilled-chicken",
+   "name": "Cheesy Gordita Crunch - Grilled Chicken",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 502,
+    "protein": 23,
+    "carbs": 45,
+    "fat": 26,
+    "saturatedFat": 7.1,
+    "sugar": 3.8,
+    "fiber": 3,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchwrap-supreme-beef",
+   "name": "Crunchwrap Supreme - Beef",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 516,
+    "protein": 16,
+    "carbs": 62,
+    "fat": 22,
+    "saturatedFat": 7.9,
+    "sugar": 4.5,
+    "fiber": 4.2,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchwrap-supreme-black-beans",
+   "name": "Crunchwrap Supreme - Black Beans",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 474,
+    "protein": 12,
+    "carbs": 64,
+    "fat": 18,
+    "saturatedFat": 5.8,
+    "sugar": 4.3,
+    "fiber": 6.6,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchwrap-supreme-grilled-chicken",
+   "name": "Crunchwrap Supreme - Grilled Chicken",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 491,
+    "protein": 18,
+    "carbs": 63,
+    "fat": 18,
+    "saturatedFat": 6,
+    "sugar": 4.6,
+    "fiber": 3.3,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-roll-up",
+   "name": "Cheesy Roll Up",
+   "category": "Specialties",
+   "serving": "",
+   "nutrients": {
+    "calories": 191,
+    "protein": 8.3,
+    "carbs": 18,
+    "fat": 9.3,
+    "saturatedFat": 4.7,
+    "sugar": 0.6,
+    "fiber": 0.6,
+    "salt": 0.76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bite-1",
+   "name": "Chicken Bite (1)",
+   "category": "Chicken",
+   "serving": "1 bite",
+   "nutrients": {
+    "calories": 52,
+    "protein": 2,
+    "carbs": 3,
+    "fat": 3.7,
+    "saturatedFat": 0.7,
+    "sugar": 0.7,
+    "fiber": 0,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bites-3",
+   "name": "Chicken Bites (3)",
+   "category": "Chicken",
+   "serving": "3 bites",
+   "nutrients": {
+    "calories": 156,
+    "protein": 6,
+    "carbs": 9,
+    "fat": 11,
+    "saturatedFat": 2,
+    "sugar": 2,
+    "fiber": 1,
+    "salt": 0.54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bites-3-with-nacho-cheese-sauce",
+   "name": "Chicken Bites (3) with Nacho Cheese Sauce",
+   "category": "Chicken",
+   "serving": "3 bites + sauce",
+   "nutrients": {
+    "calories": 324,
+    "protein": 7.8,
+    "carbs": 15,
+    "fat": 26,
+    "saturatedFat": 9.4,
+    "sugar": 4.9,
+    "fiber": 1.4,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bites-5",
+   "name": "Chicken Bites (5)",
+   "category": "Chicken",
+   "serving": "5 bites",
+   "nutrients": {
+    "calories": 260,
+    "protein": 10,
+    "carbs": 15,
+    "fat": 18,
+    "saturatedFat": 3.3,
+    "sugar": 3.3,
+    "fiber": 1.7,
+    "salt": 0.89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bites-5-with-nacho-cheese-sauce",
+   "name": "Chicken Bites (5) with Nacho Cheese Sauce",
+   "category": "Chicken",
+   "serving": "5 bites + sauce",
+   "nutrients": {
+    "calories": 428,
+    "protein": 12,
+    "carbs": 21,
+    "fat": 33,
+    "saturatedFat": 11,
+    "sugar": 6.3,
+    "fiber": 2.1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bites-20",
+   "name": "Chicken Bites (20)",
+   "category": "Chicken",
+   "serving": "20 bites",
+   "nutrients": {
+    "calories": 1040,
+    "protein": 40,
+    "carbs": 60,
+    "fat": 73,
+    "saturatedFat": 13,
+    "sugar": 13,
+    "fiber": 6.7,
+    "salt": 3.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bites-20-with-nacho-cheese-sauce-2",
+   "name": "Chicken Bites (20) with Nacho Cheese Sauce (2)",
+   "category": "Chicken",
+   "serving": "20 bites + 2 sauces",
+   "nutrients": {
+    "calories": 1376,
+    "protein": 44,
+    "carbs": 72,
+    "fat": 103,
+    "saturatedFat": 28,
+    "sugar": 19,
+    "fiber": 7.5,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-crispy-chicken-sharer",
+   "name": "Large Crispy Chicken Sharer",
+   "category": "Chicken",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1272,
+    "protein": 75,
+    "carbs": 80,
+    "fat": 74,
+    "saturatedFat": 13,
+    "sugar": 9.6,
+    "fiber": 5.4,
+    "salt": 5.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-crispy-chicken-sharer",
+   "name": "Regular Crispy Chicken Sharer",
+   "category": "Chicken",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 532,
+    "protein": 33,
+    "carbs": 34,
+    "fat": 30,
+    "saturatedFat": 5,
+    "sugar": 3.5,
+    "fiber": 2,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-2",
+   "name": "Crispy Chicken Tenders (2)",
+   "category": "Chicken",
+   "serving": "2 tenders",
+   "nutrients": {
+    "calories": 216,
+    "protein": 17,
+    "carbs": 15,
+    "fat": 9.9,
+    "saturatedFat": 1.5,
+    "sugar": 0.5,
+    "fiber": 0,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-3",
+   "name": "Crispy Chicken Tenders (3)",
+   "category": "Chicken",
+   "serving": "3 tenders",
+   "nutrients": {
+    "calories": 324,
+    "protein": 25,
+    "carbs": 22,
+    "fat": 15,
+    "saturatedFat": 2.3,
+    "sugar": 0.8,
+    "fiber": 0.7,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-3-with-cali-ranch-sauce",
+   "name": "Crispy Chicken Tenders (3) with Cali Ranch Sauce",
+   "category": "Chicken",
+   "serving": "3 tenders + sauce",
+   "nutrients": {
+    "calories": 475,
+    "protein": 26,
+    "carbs": 24,
+    "fat": 30,
+    "saturatedFat": 3.2,
+    "sugar": 2.3,
+    "fiber": 0.8,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-3-with-creamy-jalapeno-sauce",
+   "name": "Crispy Chicken Tenders (3) with Creamy Jalapeno Sauce",
+   "category": "Chicken",
+   "serving": "3 tenders + sauce",
+   "nutrients": {
+    "calories": 429,
+    "protein": 26,
+    "carbs": 26,
+    "fat": 24,
+    "saturatedFat": 2.8,
+    "sugar": 4.1,
+    "fiber": 0.8,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-3-with-lava-sauce",
+   "name": "Crispy Chicken Tenders (3) with Lava Sauce",
+   "category": "Chicken",
+   "serving": "3 tenders + sauce",
+   "nutrients": {
+    "calories": 472,
+    "protein": 26,
+    "carbs": 24,
+    "fat": 30,
+    "saturatedFat": 3.3,
+    "sugar": 2.1,
+    "fiber": 0.7,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-3-with-nacho-cheese-sauce",
+   "name": "Crispy Chicken Tenders (3) with Nacho Cheese Sauce",
+   "category": "Chicken",
+   "serving": "3 tenders + sauce",
+   "nutrients": {
+    "calories": 408,
+    "protein": 26,
+    "carbs": 25,
+    "fat": 22,
+    "saturatedFat": 6,
+    "sugar": 2.3,
+    "fiber": 0.9,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-5",
+   "name": "Crispy Chicken Tenders (5)",
+   "category": "Chicken",
+   "serving": "5 tenders",
+   "nutrients": {
+    "calories": 540,
+    "protein": 42,
+    "carbs": 37,
+    "fat": 25,
+    "saturatedFat": 3.8,
+    "sugar": 1.4,
+    "fiber": 1.1,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-5-with-cali-ranch-sauce",
+   "name": "Crispy Chicken Tenders (5) with Cali Ranch Sauce",
+   "category": "Chicken",
+   "serving": "5 tenders + sauce",
+   "nutrients": {
+    "calories": 691,
+    "protein": 43,
+    "carbs": 39,
+    "fat": 40,
+    "saturatedFat": 4.7,
+    "sugar": 2.8,
+    "fiber": 1.3,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-5-with-creamy-jalapeno-sauce",
+   "name": "Crispy Chicken Tenders (5) with Creamy Jalapeno Sauce",
+   "category": "Chicken",
+   "serving": "5 tenders + sauce",
+   "nutrients": {
+    "calories": 645,
+    "protein": 43,
+    "carbs": 41,
+    "fat": 34,
+    "saturatedFat": 4.4,
+    "sugar": 4.7,
+    "fiber": 1.3,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-5-with-lava-sauce",
+   "name": "Crispy Chicken Tenders (5) with Lava Sauce",
+   "category": "Chicken",
+   "serving": "5 tenders + sauce",
+   "nutrients": {
+    "calories": 688,
+    "protein": 43,
+    "carbs": 39,
+    "fat": 40,
+    "saturatedFat": 4.8,
+    "sugar": 2.6,
+    "fiber": 1.2,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-tenders-5-with-nacho-cheese-sauce",
+   "name": "Crispy Chicken Tenders (5) with Nacho Cheese Sauce",
+   "category": "Chicken",
+   "serving": "5 tenders + sauce",
+   "nutrients": {
+    "calories": 624,
+    "protein": 43,
+    "carbs": 40,
+    "fat": 32,
+    "saturatedFat": 7.5,
+    "sugar": 2.8,
+    "fiber": 1.3,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-beans",
+   "name": "Black Beans",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 83,
+    "protein": 5.8,
+    "carbs": 6.5,
+    "fat": 1.3,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "fiber": 11,
+    "salt": 0.86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-bell-grande",
+   "name": "Fries Bell Grande",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1055,
+    "protein": 21,
+    "carbs": 121,
+    "fat": 56,
+    "saturatedFat": 17,
+    "sugar": 6.8,
+    "fiber": 14,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-supreme",
+   "name": "Fries Supreme",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 614,
+    "protein": 14,
+    "carbs": 63,
+    "fat": 35,
+    "saturatedFat": 12,
+    "sugar": 4.8,
+    "fiber": 7.6,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chips-large",
+   "name": "Nacho Chips (Large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 333,
+    "protein": 4.3,
+    "carbs": 46,
+    "fat": 16,
+    "saturatedFat": 1.5,
+    "sugar": 0.9,
+    "fiber": 3.6,
+    "salt": 0.72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chips-regular",
+   "name": "Nacho Chips (Regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 200,
+    "protein": 2.6,
+    "carbs": 28,
+    "fat": 9.5,
+    "saturatedFat": 0.9,
+    "sugar": 0.5,
+    "fiber": 2.2,
+    "salt": 0.43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chips-with-cheese-sauce-large",
+   "name": "Nacho Chips with Cheese Sauce (Large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 417,
+    "protein": 5.2,
+    "carbs": 49,
+    "fat": 23,
+    "saturatedFat": 5.2,
+    "sugar": 2.4,
+    "fiber": 3.9,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chips-with-cheese-sauce-regular",
+   "name": "Nacho Chips with Cheese Sauce (Regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 284,
+    "protein": 3.5,
+    "carbs": 31,
+    "fat": 17,
+    "saturatedFat": 4.6,
+    "sugar": 2,
+    "fiber": 2.4,
+    "salt": 0.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nachos-bell-grande",
+   "name": "Nachos Bell Grande",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 768,
+    "protein": 16,
+    "carbs": 69,
+    "fat": 48,
+    "saturatedFat": 16,
+    "sugar": 6.8,
+    "fiber": 10,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasoned-fries-large",
+   "name": "Seasoned Fries (Large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 358,
+    "protein": 5.9,
+    "carbs": 55,
+    "fat": 14,
+    "saturatedFat": 1.4,
+    "sugar": 0.5,
+    "fiber": 5.8,
+    "salt": 0.99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasoned-fries-regular",
+   "name": "Seasoned Fries (Regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 261,
+    "protein": 4.3,
+    "carbs": 40,
+    "fat": 10,
+    "saturatedFat": 1,
+    "sugar": 0,
+    "fiber": 4.2,
+    "salt": 0.73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasoned-fries-xl",
+   "name": "Seasoned Fries (XL)",
+   "category": "Sides",
+   "serving": "XL",
+   "nutrients": {
+    "calories": 522,
+    "protein": 8.6,
+    "carbs": 81,
+    "fat": 20,
+    "saturatedFat": 2,
+    "sugar": 0.8,
+    "fiber": 8.4,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasoned-fries-with-cheese-sauce-large",
+   "name": "Seasoned Fries with Cheese Sauce (Large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 442,
+    "protein": 6.8,
+    "carbs": 58,
+    "fat": 21,
+    "saturatedFat": 5.1,
+    "sugar": 2,
+    "fiber": 6,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasoned-fries-with-cheese-sauce-regular",
+   "name": "Seasoned Fries with Cheese Sauce (Regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 345,
+    "protein": 5.2,
+    "carbs": 43,
+    "fat": 18,
+    "saturatedFat": 4.7,
+    "sugar": 1.9,
+    "fiber": 4.4,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasoned-rice",
+   "name": "Seasoned Rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 3,
+    "carbs": 31,
+    "fat": 3.1,
+    "saturatedFat": 0.4,
+    "sugar": 0.8,
+    "fiber": 2.2,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-salted-caramel-churro-bites",
+   "name": "3x Salted Caramel Churro Bites",
+   "category": "Desserts",
+   "serving": "3 bites",
+   "nutrients": {
+    "calories": 150,
+    "protein": 1.9,
+    "carbs": 28,
+    "fat": 3,
+    "saturatedFat": 0.4,
+    "sugar": 11,
+    "fiber": 2.2,
+    "salt": 0.68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6x-salted-caramel-churro-bites",
+   "name": "6x Salted Caramel Churro Bites",
+   "category": "Desserts",
+   "serving": "6 bites",
+   "nutrients": {
+    "calories": 300,
+    "protein": 3.9,
+    "carbs": 56,
+    "fat": 6.1,
+    "saturatedFat": 0.9,
+    "sugar": 22,
+    "fiber": 4.4,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "9x-salted-caramel-churro-bites",
+   "name": "9x Salted Caramel Churro Bites",
+   "category": "Desserts",
+   "serving": "9 bites",
+   "nutrients": {
+    "calories": 450,
+    "protein": 5.8,
+    "carbs": 83,
+    "fat": 9.1,
+    "saturatedFat": 1.3,
+    "sugar": 32,
+    "fiber": 6.6,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-apple-empanada",
+   "name": "Caramel Apple Empanada",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 3.2,
+    "carbs": 34,
+    "fat": 12,
+    "saturatedFat": 3.8,
+    "sugar": 14,
+    "fiber": 0.8,
+    "salt": 0.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churros",
+   "name": "Churros",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 151,
+    "protein": 1.9,
+    "carbs": 23,
+    "fat": 6.1,
+    "saturatedFat": 0.6,
+    "sugar": 4,
+    "fiber": 2.5,
+    "salt": 0.64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churros-2-with-caramel-sauce",
+   "name": "Churros (2) with Caramel Sauce",
+   "category": "Desserts",
+   "serving": "2 churros",
+   "nutrients": {
+    "calories": 244,
+    "protein": 2.3,
+    "carbs": 42,
+    "fat": 8.2,
+    "saturatedFat": 2,
+    "sugar": 16,
+    "fiber": 2.5,
+    "salt": 0.91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churros-6-with-caramel-sauce",
+   "name": "Churros (6) with Caramel Sauce",
+   "category": "Desserts",
+   "serving": "6 churros",
+   "nutrients": {
+    "calories": 639,
+    "protein": 6.6,
+    "carbs": 107,
+    "fat": 22,
+    "saturatedFat": 4.6,
+    "sugar": 36,
+    "fiber": 7.6,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-twists",
+   "name": "Cinnamon Twists",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 1.7,
+    "carbs": 24,
+    "fat": 7.9,
+    "saturatedFat": 0.7,
+    "sugar": 6.3,
+    "fiber": 0,
+    "salt": 0.78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grande-cinnamon-twists",
+   "name": "Grande Cinnamon Twists",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 687,
+    "protein": 6.7,
+    "carbs": 95,
+    "fat": 32,
+    "saturatedFat": 2.8,
+    "sugar": 25,
+    "fiber": 2,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-cali-ranch-sauce",
+   "name": "Dip Pot - Cali Ranch Sauce",
+   "category": "Sauces & add-ons",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 151,
+    "protein": 1,
+    "carbs": 2.3,
+    "fat": 15,
+    "saturatedFat": 0.9,
+    "sugar": 1.5,
+    "fiber": 0,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-creamy-jalapeno-sauce",
+   "name": "Dip Pot - Creamy Jalapeno Sauce",
+   "category": "Sauces & add-ons",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 105,
+    "protein": 0.6,
+    "carbs": 4.3,
+    "fat": 9.5,
+    "saturatedFat": 0.5,
+    "sugar": 3.3,
+    "fiber": 0,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-lava-sauce",
+   "name": "Dip Pot - Lava Sauce",
+   "category": "Sauces & add-ons",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 148,
+    "protein": 0.8,
+    "carbs": 2.3,
+    "fat": 15,
+    "saturatedFat": 1,
+    "sugar": 1.3,
+    "fiber": 0,
+    "salt": 0.49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-nacho-cheese",
+   "name": "Dip Pot - Nacho Cheese",
+   "category": "Sauces & add-ons",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 252,
+    "protein": 2.7,
+    "carbs": 9.2,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 4.4,
+    "fiber": 0.6,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole",
+   "name": "Guacamole",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0,
+    "carbs": 1,
+    "fat": 2.9,
+    "saturatedFat": 0.7,
+    "sugar": 0,
+    "fiber": 0.7,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jalape-os",
+   "name": "Jalapeños",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-cheese-sauce",
+   "name": "Nacho Cheese Sauce",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 84,
+    "protein": 0.9,
+    "carbs": 3.1,
+    "fat": 7.5,
+    "saturatedFat": 3.7,
+    "sugar": 1.5,
+    "fiber": 0,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sour-cream",
+   "name": "Sour Cream",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 49,
+    "protein": 1.5,
+    "carbs": 2.7,
+    "fat": 3.6,
+    "saturatedFat": 2.3,
+    "sugar": 1.8,
+    "fiber": 0,
+    "salt": 0.04
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-black-beans",
+   "name": "Extra Black Beans",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 28,
+    "protein": 1.9,
+    "carbs": 2.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 3.7,
+    "salt": 0.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-grilled-chicken",
+   "name": "Extra Grilled Chicken",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 8.4,
+    "carbs": 1.3,
+    "fat": 0.6,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-seasoned-beef",
+   "name": "Extra Seasoned Beef",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 70,
+    "protein": 5.9,
+    "carbs": 0.5,
+    "fat": 4.5,
+    "saturatedFat": 2.1,
+    "sugar": 0,
+    "fiber": 1.3,
+    "salt": 0.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fire-sauce",
+   "name": "Fire Sauce",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0.6,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-light-mayonnaise-sachet",
+   "name": "Heinz Light Mayonnaise Sachet",
+   "category": "Sauces & add-ons",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 30,
+    "protein": 0,
+    "carbs": 0.7,
+    "fat": 2.5,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-mayonnaise-sachet",
+   "name": "Heinz Mayonnaise Sachet",
+   "category": "Sauces & add-ons",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 6.5,
+    "saturatedFat": 0.5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-tomato-ketchup-sachet",
+   "name": "Heinz Tomato Ketchup Sachet",
+   "category": "Sauces & add-ons",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 10,
+    "protein": 1,
+    "carbs": 2.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.9,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mild-sauce",
+   "name": "Mild Sauce",
+   "category": "Sauces & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0,
+    "carbs": 2.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,5083 @@
+{
+ "schemaVersion": 1,
+ "id": "pizza-hut",
+ "name": "Pizza Hut",
+ "cuisine": "Pizza",
+ "builderType": "standard",
+ "aliases": [
+  "pizza hut",
+  "pizzahut",
+  "pizza hut restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Pizza Hut Restaurants UK dine-in Dietary Information booklet: allergen, ingredients and nutrition (July 2026, Version 1)",
+  "url": "https://assets.ctfassets.net/kahtja4ygpol/3lSanvl3X7vbTSxlptqtfx/d3479ac67d929e328d4638b469749a79/DINE-IN_AIN_Booklet_C3_2026_FINAL_V1.pdf",
+  "checkedOn": "2026-10-05"
+ },
+ "note": "Dine-in restaurant menu values, per slice. The delivery and takeaway menu isn't included.",
+ "categories": [
+  "Pan pizzas",
+  "Handcrafted pizzas",
+  "Stuffed crust pizzas",
+  "Cheesy Bites pizzas",
+  "Gluten free pizzas",
+  "Vegan pizzas",
+  "Flatbreads",
+  "Pasta",
+  "Sides",
+  "Kids menu",
+  "Salad station",
+  "Sauces & dips",
+  "Desserts",
+  "Buffet pizzas",
+  "Buffet sides"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "pepperoni-individual-pan-9",
+   "name": "Pepperoni - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 178,
+    "protein": 7,
+    "carbs": 18,
+    "fat": 8.8,
+    "saturatedFat": 2.9,
+    "sugar": 0.9,
+    "salt": 0.75
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-sharing-pan-13",
+   "name": "Pepperoni - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 263,
+    "protein": 10.3,
+    "carbs": 28,
+    "fat": 12,
+    "saturatedFat": 3.8,
+    "sugar": 1.4,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-individual-pan-9",
+   "name": "Pepperoni Feast - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 195,
+    "protein": 7.7,
+    "carbs": 18,
+    "fat": 10,
+    "saturatedFat": 3.1,
+    "sugar": 1,
+    "salt": 0.91
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-sharing-pan-13",
+   "name": "Pepperoni Feast - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 288,
+    "protein": 11,
+    "carbs": 28,
+    "fat": 15,
+    "saturatedFat": 4.1,
+    "sugar": 1.4,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-individual-pan-9",
+   "name": "Hawaiian - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 166,
+    "protein": 7.6,
+    "carbs": 19,
+    "fat": 6.4,
+    "saturatedFat": 2,
+    "sugar": 1.7,
+    "salt": 0.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-sharing-pan-13",
+   "name": "Hawaiian - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 249,
+    "protein": 11,
+    "carbs": 30,
+    "fat": 9,
+    "saturatedFat": 2.7,
+    "sugar": 2.8,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-individual-pan-9",
+   "name": "Chicken Supreme - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 168,
+    "protein": 8.7,
+    "carbs": 19,
+    "fat": 6.3,
+    "saturatedFat": 2,
+    "sugar": 1.2,
+    "salt": 0.62
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-sharing-pan-13",
+   "name": "Chicken Supreme - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 256,
+    "protein": 14,
+    "carbs": 29,
+    "fat": 8.9,
+    "saturatedFat": 2.7,
+    "sugar": 1.8,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-individual-pan-9",
+   "name": "Meat Feast - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 194,
+    "protein": 9.1,
+    "carbs": 18,
+    "fat": 9.3,
+    "saturatedFat": 3.1,
+    "sugar": 1.2,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-sharing-pan-13",
+   "name": "Meat Feast - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 299,
+    "protein": 14,
+    "carbs": 29,
+    "fat": 14,
+    "saturatedFat": 4.6,
+    "sugar": 1.7,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-individual-pan-9",
+   "name": "BBQ Americano - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 191,
+    "protein": 9.4,
+    "carbs": 21,
+    "fat": 7.5,
+    "saturatedFat": 2.7,
+    "sugar": 2.4,
+    "salt": 0.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-sharing-pan-13",
+   "name": "BBQ Americano - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 289,
+    "protein": 15,
+    "carbs": 33,
+    "fat": 11,
+    "saturatedFat": 3.6,
+    "sugar": 3.7,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-individual-pan-9",
+   "name": "Margherita - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 169,
+    "protein": 7,
+    "carbs": 18,
+    "fat": 7.4,
+    "saturatedFat": 2.7,
+    "sugar": 0.9,
+    "salt": 0.64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-sharing-pan-13",
+   "name": "Margherita - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 250,
+    "protein": 10,
+    "carbs": 29,
+    "fat": 10,
+    "saturatedFat": 3.5,
+    "sugar": 1.3,
+    "salt": 0.96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-individual-pan-9",
+   "name": "Veggie Supreme - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 162,
+    "protein": 6.2,
+    "carbs": 19,
+    "fat": 6.8,
+    "saturatedFat": 2,
+    "sugar": 1.4,
+    "salt": 0.59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-sharing-pan-13",
+   "name": "Veggie Supreme - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 241,
+    "protein": 9,
+    "carbs": 30,
+    "fat": 9,
+    "saturatedFat": 2.7,
+    "sugar": 2.1,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-individual-pan-9",
+   "name": "Farmhouse - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 162,
+    "protein": 7.6,
+    "carbs": 18,
+    "fat": 6.4,
+    "saturatedFat": 2,
+    "sugar": 0.9,
+    "salt": 0.78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-sharing-pan-13",
+   "name": "Farmhouse - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 242,
+    "protein": 11,
+    "carbs": 29,
+    "fat": 8.9,
+    "saturatedFat": 2.7,
+    "sugar": 1.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-chicken-pepperoni-individual-pan-9",
+   "name": "Hot Honey Sriracha Chicken & Pepperoni - Individual Pan (9\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 178,
+    "protein": 7.7,
+    "carbs": 19,
+    "fat": 7.6,
+    "saturatedFat": 2.3,
+    "sugar": 2.3,
+    "salt": 0.85
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-chicken-pepperoni-sharing-pan-13",
+   "name": "Hot Honey Sriracha Chicken & Pepperoni - Sharing Pan (13\")",
+   "category": "Pan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 264,
+    "protein": 12,
+    "carbs": 30,
+    "fat": 11,
+    "saturatedFat": 3.1,
+    "sugar": 3,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-individual-handcrafted-11",
+   "name": "Pepperoni - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 157,
+    "protein": 6.8,
+    "carbs": 18,
+    "fat": 6.5,
+    "saturatedFat": 2.7,
+    "sugar": 1.4,
+    "salt": 0.76
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-sharing-handcrafted-14",
+   "name": "Pepperoni - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 205,
+    "protein": 8.9,
+    "carbs": 23,
+    "fat": 8.4,
+    "saturatedFat": 3.5,
+    "sugar": 1.9,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Pepperoni - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 157,
+    "protein": 6.8,
+    "carbs": 18,
+    "fat": 6.5,
+    "saturatedFat": 2.7,
+    "sugar": 1.4,
+    "salt": 0.76
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Pepperoni - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 205,
+    "protein": 8.9,
+    "carbs": 23,
+    "fat": 8.4,
+    "saturatedFat": 3.5,
+    "sugar": 1.9,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-individual-handcrafted-11",
+   "name": "Pepperoni Feast - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 174,
+    "protein": 7.5,
+    "carbs": 18,
+    "fat": 8.1,
+    "saturatedFat": 2.9,
+    "sugar": 1.4,
+    "salt": 0.91
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-sharing-handcrafted-14",
+   "name": "Pepperoni Feast - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 231,
+    "protein": 9.9,
+    "carbs": 23,
+    "fat": 11,
+    "saturatedFat": 3.8,
+    "sugar": 2,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Pepperoni Feast - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 174,
+    "protein": 7.5,
+    "carbs": 18,
+    "fat": 8.1,
+    "saturatedFat": 2.9,
+    "sugar": 1.4,
+    "salt": 0.91
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Pepperoni Feast - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 231,
+    "protein": 9.9,
+    "carbs": 23,
+    "fat": 11,
+    "saturatedFat": 3.8,
+    "sugar": 2,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-individual-handcrafted-11",
+   "name": "Hawaiian - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 158,
+    "protein": 7.6,
+    "carbs": 21,
+    "fat": 4.6,
+    "saturatedFat": 1.8,
+    "sugar": 2.6,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-sharing-handcrafted-14",
+   "name": "Hawaiian - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 211,
+    "protein": 10,
+    "carbs": 28,
+    "fat": 6,
+    "saturatedFat": 2.4,
+    "sugar": 4,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Hawaiian - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 142,
+    "protein": 7.3,
+    "carbs": 19,
+    "fat": 4,
+    "saturatedFat": 1.7,
+    "sugar": 2.3,
+    "salt": 0.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Hawaiian - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 187,
+    "protein": 9.8,
+    "carbs": 25,
+    "fat": 5.1,
+    "saturatedFat": 2.2,
+    "sugar": 3.5,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-individual-handcrafted-11",
+   "name": "Chicken Supreme - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 148,
+    "protein": 8.4,
+    "carbs": 19,
+    "fat": 4.1,
+    "saturatedFat": 1.7,
+    "sugar": 1.8,
+    "salt": 0.69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-sharing-handcrafted-14",
+   "name": "Chicken Supreme - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 197,
+    "protein": 12,
+    "carbs": 24,
+    "fat": 5.2,
+    "saturatedFat": 2.2,
+    "sugar": 2.6,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Chicken Supreme - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 145,
+    "protein": 8.4,
+    "carbs": 18,
+    "fat": 4,
+    "saturatedFat": 1.7,
+    "sugar": 1.8,
+    "salt": 0.61
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Chicken Supreme - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 194,
+    "protein": 12,
+    "carbs": 24,
+    "fat": 5.1,
+    "saturatedFat": 2.2,
+    "sugar": 2.6,
+    "salt": 0.99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-individual-handcrafted-11",
+   "name": "Meat Feast - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 173,
+    "protein": 8.9,
+    "carbs": 18,
+    "fat": 7,
+    "saturatedFat": 2.9,
+    "sugar": 1.6,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-sharing-handcrafted-14",
+   "name": "Meat Feast - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 241,
+    "protein": 13,
+    "carbs": 24,
+    "fat": 10,
+    "saturatedFat": 4.3,
+    "sugar": 2.3,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Meat Feast - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 173,
+    "protein": 8.9,
+    "carbs": 18,
+    "fat": 7,
+    "saturatedFat": 2.9,
+    "sugar": 1.6,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Meat Feast - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 241,
+    "protein": 13,
+    "carbs": 24,
+    "fat": 10,
+    "saturatedFat": 4.3,
+    "sugar": 2.3,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-individual-handcrafted-11",
+   "name": "BBQ Americano - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 168,
+    "protein": 9.6,
+    "carbs": 21,
+    "fat": 4.8,
+    "saturatedFat": 2,
+    "sugar": 2.5,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-sharing-handcrafted-14",
+   "name": "BBQ Americano - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 233,
+    "protein": 14,
+    "carbs": 28,
+    "fat": 6.6,
+    "saturatedFat": 2.7,
+    "sugar": 4.5,
+    "salt": 1.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "BBQ Americano - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 166,
+    "protein": 9.5,
+    "carbs": 20,
+    "fat": 4.7,
+    "saturatedFat": 1.9,
+    "sugar": 2.1,
+    "salt": 0.82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "BBQ Americano - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 230,
+    "protein": 14,
+    "carbs": 27,
+    "fat": 6.5,
+    "saturatedFat": 2.7,
+    "sugar": 4.4,
+    "salt": 1.19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-individual-handcrafted-11",
+   "name": "Margherita - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 149,
+    "protein": 6.8,
+    "carbs": 18,
+    "fat": 5.1,
+    "saturatedFat": 2.3,
+    "sugar": 1.6,
+    "salt": 0.71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-sharing-handcrafted-14",
+   "name": "Margherita - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 191,
+    "protein": 8.7,
+    "carbs": 24,
+    "fat": 6.4,
+    "saturatedFat": 3,
+    "sugar": 2.1,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Margherita - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 146,
+    "protein": 6.7,
+    "carbs": 18,
+    "fat": 5,
+    "saturatedFat": 2.3,
+    "sugar": 1.5,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Margherita - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 188,
+    "protein": 8.7,
+    "carbs": 23,
+    "fat": 6.3,
+    "saturatedFat": 3,
+    "sugar": 2.1,
+    "salt": 0.81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-individual-handcrafted-11",
+   "name": "Veggie Supreme - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 142,
+    "protein": 5.9,
+    "carbs": 19,
+    "fat": 4.5,
+    "saturatedFat": 1.7,
+    "sugar": 2,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-sharing-handcrafted-14",
+   "name": "Veggie Supreme - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 182,
+    "protein": 8,
+    "carbs": 25,
+    "fat": 6,
+    "saturatedFat": 2.2,
+    "sugar": 2.9,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Veggie Supreme - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 139,
+    "protein": 5.9,
+    "carbs": 18,
+    "fat": 4.4,
+    "saturatedFat": 1.7,
+    "sugar": 2,
+    "salt": 0.59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Veggie Supreme - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 179,
+    "protein": 7.7,
+    "carbs": 24,
+    "fat": 5.4,
+    "saturatedFat": 2.1,
+    "sugar": 2.9,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-individual-handcrafted-11",
+   "name": "Farmhouse - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 142,
+    "protein": 7.4,
+    "carbs": 18,
+    "fat": 4.1,
+    "saturatedFat": 1.7,
+    "sugar": 1.6,
+    "salt": 0.85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-sharing-handcrafted-14",
+   "name": "Farmhouse - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 183,
+    "protein": 9.6,
+    "carbs": 24,
+    "fat": 5.2,
+    "saturatedFat": 2.2,
+    "sugar": 2.1,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Farmhouse - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 139,
+    "protein": 7.3,
+    "carbs": 18,
+    "fat": 4,
+    "saturatedFat": 1.7,
+    "sugar": 1.5,
+    "salt": 0.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Farmhouse - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 180,
+    "protein": 10,
+    "carbs": 23,
+    "fat": 5.1,
+    "saturatedFat": 2.2,
+    "sugar": 2.1,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-chicken-pepperoni-individual-handcrafted-11",
+   "name": "Hot Honey Sriracha Chicken & Pepperoni - Individual Handcrafted (11\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 157,
+    "protein": 7.6,
+    "carbs": 19,
+    "fat": 5.3,
+    "saturatedFat": 2.2,
+    "sugar": 2.8,
+    "salt": 0.85
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-chicken-pepperoni-sharing-handcrafted-14",
+   "name": "Hot Honey Sriracha Chicken & Pepperoni - Sharing Handcrafted (14\")",
+   "category": "Handcrafted pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 206,
+    "protein": 10.4,
+    "carbs": 25,
+    "fat": 6.8,
+    "saturatedFat": 2.9,
+    "sugar": 3.6,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-individual-stuffed-crust-11",
+   "name": "Pepperoni - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 240,
+    "protein": 11,
+    "carbs": 24,
+    "fat": 11,
+    "saturatedFat": 5.2,
+    "sugar": 2.7,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-sharing-stuffed-crust-14",
+   "name": "Pepperoni - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 298,
+    "protein": 14,
+    "carbs": 30,
+    "fat": 13,
+    "saturatedFat": 6.5,
+    "sugar": 2.7,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-individual-stuffed-crust-11",
+   "name": "Pepperoni Feast - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 257,
+    "protein": 12,
+    "carbs": 24,
+    "fat": 12,
+    "saturatedFat": 5.4,
+    "sugar": 2.7,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-sharing-stuffed-crust-14",
+   "name": "Pepperoni Feast - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 324,
+    "protein": 15,
+    "carbs": 30,
+    "fat": 16,
+    "saturatedFat": 6.8,
+    "sugar": 2.8,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-individual-stuffed-crust-11",
+   "name": "Hawaiian - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 222,
+    "protein": 12,
+    "carbs": 24,
+    "fat": 8.4,
+    "saturatedFat": 4.2,
+    "sugar": 2.9,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-sharing-stuffed-crust-14",
+   "name": "Hawaiian - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 268,
+    "protein": 15,
+    "carbs": 31,
+    "fat": 9.1,
+    "saturatedFat": 4.5,
+    "sugar": 4.2,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-individual-stuffed-crust-11",
+   "name": "Chicken Supreme - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 224,
+    "protein": 13,
+    "carbs": 23,
+    "fat": 8.4,
+    "saturatedFat": 4.2,
+    "sugar": 2.3,
+    "salt": 0.91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-sharing-stuffed-crust-14",
+   "name": "Chicken Supreme - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 275,
+    "protein": 17,
+    "carbs": 30,
+    "fat": 9.1,
+    "saturatedFat": 4.5,
+    "sugar": 3.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-individual-stuffed-crust-11",
+   "name": "Meat Feast - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 256,
+    "protein": 14,
+    "carbs": 25,
+    "fat": 11,
+    "saturatedFat": 5.4,
+    "sugar": 3,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-sharing-stuffed-crust-14",
+   "name": "Meat Feast - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 335,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 16,
+    "saturatedFat": 7.3,
+    "sugar": 3.1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-individual-stuffed-crust-11",
+   "name": "BBQ Americano - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 245,
+    "protein": 14,
+    "carbs": 26,
+    "fat": 9.1,
+    "saturatedFat": 4.4,
+    "sugar": 3.6,
+    "salt": 1.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-sharing-stuffed-crust-14",
+   "name": "BBQ Americano - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 311,
+    "protein": 19,
+    "carbs": 34,
+    "fat": 11,
+    "saturatedFat": 5,
+    "sugar": 5.2,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-individual-stuffed-crust-11",
+   "name": "Margherita - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 225,
+    "protein": 11,
+    "carbs": 23,
+    "fat": 9.4,
+    "saturatedFat": 4.8,
+    "sugar": 2.1,
+    "salt": 0.93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-sharing-stuffed-crust-14",
+   "name": "Margherita - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 269,
+    "protein": 13,
+    "carbs": 30,
+    "fat": 10,
+    "saturatedFat": 5.3,
+    "sugar": 2.8,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-individual-stuffed-crust-11",
+   "name": "Veggie Supreme - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 219,
+    "protein": 11,
+    "carbs": 24,
+    "fat": 9,
+    "saturatedFat": 4.2,
+    "sugar": 2.5,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-sharing-stuffed-crust-14",
+   "name": "Veggie Supreme - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 260,
+    "protein": 12,
+    "carbs": 31,
+    "fat": 9,
+    "saturatedFat": 4.5,
+    "sugar": 3.6,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-individual-stuffed-crust-11",
+   "name": "Farmhouse - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 219,
+    "protein": 12,
+    "carbs": 23,
+    "fat": 8.4,
+    "saturatedFat": 4.2,
+    "sugar": 2.1,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-sharing-stuffed-crust-14",
+   "name": "Farmhouse - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 261,
+    "protein": 14,
+    "carbs": 30,
+    "fat": 9.1,
+    "saturatedFat": 4.5,
+    "sugar": 2.8,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-chicken-pepperoni-individual-stuffed-crust-11",
+   "name": "Hot Honey Sriracha Chicken & Pepperoni - Individual Stuffed Crust (11\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 240,
+    "protein": 12,
+    "carbs": 26,
+    "fat": 9.6,
+    "saturatedFat": 4.7,
+    "sugar": 4.1,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-chicken-pepperoni-sharing-stuffed-crust-14",
+   "name": "Hot Honey Sriracha Chicken & Pepperoni - Sharing Stuffed Crust (14\")",
+   "category": "Stuffed crust pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 299,
+    "protein": 16,
+    "carbs": 31,
+    "fat": 11.9,
+    "saturatedFat": 5.9,
+    "sugar": 4.3,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-cheesy-bites-14",
+   "name": "Pepperoni - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 298,
+    "protein": 14,
+    "carbs": 30,
+    "fat": 13,
+    "saturatedFat": 7,
+    "sugar": 3,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-cheesy-bites-14",
+   "name": "Pepperoni Feast - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 324,
+    "protein": 15,
+    "carbs": 30,
+    "fat": 16,
+    "saturatedFat": 6.8,
+    "sugar": 2.8,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-cheesy-bites-14",
+   "name": "Hawaiian - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 268,
+    "protein": 15,
+    "carbs": 31,
+    "fat": 9.1,
+    "saturatedFat": 4.5,
+    "sugar": 4.2,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-cheesy-bites-14",
+   "name": "Chicken Supreme - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 275,
+    "protein": 17,
+    "carbs": 30,
+    "fat": 9.1,
+    "saturatedFat": 4.5,
+    "sugar": 3.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-cheesy-bites-14",
+   "name": "Meat Feast - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 335,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 16,
+    "saturatedFat": 7.3,
+    "sugar": 3.1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-cheesy-bites-14",
+   "name": "BBQ Americano - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 311,
+    "protein": 19,
+    "carbs": 34,
+    "fat": 11,
+    "saturatedFat": 5,
+    "sugar": 5.2,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-cheesy-bites-14",
+   "name": "Margherita - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 269,
+    "protein": 13,
+    "carbs": 30,
+    "fat": 10,
+    "saturatedFat": 5.3,
+    "sugar": 2.8,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-cheesy-bites-14",
+   "name": "Veggie Supreme - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 260,
+    "protein": 12,
+    "carbs": 31,
+    "fat": 9,
+    "saturatedFat": 4.5,
+    "sugar": 3.6,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-cheesy-bites-14",
+   "name": "Farmhouse - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 261,
+    "protein": 14,
+    "carbs": 30,
+    "fat": 9.1,
+    "saturatedFat": 4.5,
+    "sugar": 2.8,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-chicken-pepperoni-cheesy-bites-14",
+   "name": "Hot Honey Sriracha Chicken & Pepperoni - Cheesy Bites (14\")",
+   "category": "Cheesy Bites pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 299,
+    "protein": 16,
+    "carbs": 31,
+    "fat": 11.9,
+    "saturatedFat": 5.9,
+    "sugar": 4.3,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-gluten-free-9-square",
+   "name": "Pepperoni - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 163,
+    "protein": 4,
+    "carbs": 20,
+    "fat": 7.3,
+    "saturatedFat": 2.7,
+    "sugar": 1.6,
+    "salt": 0.7
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-feast-gluten-free-9-square",
+   "name": "Pepperoni Feast - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 180,
+    "protein": 5.1,
+    "carbs": 20,
+    "fat": 8.9,
+    "saturatedFat": 2.9,
+    "sugar": 1.6,
+    "salt": 0.85
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-gluten-free-9-square",
+   "name": "Hawaiian - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 149,
+    "protein": 4.9,
+    "carbs": 20,
+    "fat": 4.8,
+    "saturatedFat": 1.7,
+    "sugar": 2.5,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-supreme-gluten-free-9-square",
+   "name": "Chicken Supreme - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 151,
+    "protein": 6,
+    "carbs": 20,
+    "fat": 4.7,
+    "saturatedFat": 1.9,
+    "sugar": 1.9,
+    "salt": 0.56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-gluten-free-9-square",
+   "name": "Meat Feast - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 179,
+    "protein": 6.5,
+    "carbs": 20,
+    "fat": 7.8,
+    "saturatedFat": 2.9,
+    "sugar": 1.8,
+    "salt": 0.85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-americano-gluten-free-9-square",
+   "name": "BBQ Americano - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 175,
+    "protein": 6.6,
+    "carbs": 23,
+    "fat": 5.9,
+    "saturatedFat": 2.4,
+    "sugar": 3.4,
+    "salt": 0.75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-gluten-free-9-square",
+   "name": "Margherita - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 114,
+    "protein": 3.2,
+    "carbs": 15,
+    "fat": 4.3,
+    "saturatedFat": 1.8,
+    "sugar": 1.3,
+    "salt": 0.43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-gluten-free-9-square",
+   "name": "Veggie Supreme - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 145,
+    "protein": 3.4,
+    "carbs": 20,
+    "fat": 5.2,
+    "saturatedFat": 1.7,
+    "sugar": 2.1,
+    "salt": 0.53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-gluten-free-9-square",
+   "name": "Farmhouse - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 145,
+    "protein": 4.9,
+    "carbs": 20,
+    "fat": 4.8,
+    "saturatedFat": 1.7,
+    "sugar": 1.7,
+    "salt": 0.72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-chicken-pepperoni-gluten-free-9-square",
+   "name": "Hot Honey Sriracha Chicken & Pepperoni - Gluten Free (9\" Square)",
+   "category": "Gluten free pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 163,
+    "protein": 5.1,
+    "carbs": 21,
+    "fat": 6,
+    "saturatedFat": 2.2,
+    "sugar": 3,
+    "salt": 0.79
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-margherita-individual-pan-9",
+   "name": "Vegan Margherita - Individual Pan (9\")",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 163,
+    "protein": 4,
+    "carbs": 20,
+    "fat": 7.1,
+    "saturatedFat": 3.6,
+    "sugar": 0.6,
+    "salt": 0.68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-margherita-sharing-pan-13",
+   "name": "Vegan Margherita - Sharing Pan (13\")",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 231,
+    "protein": 6.3,
+    "carbs": 31,
+    "fat": 8.8,
+    "saturatedFat": 3.8,
+    "sugar": 0.9,
+    "salt": 0.92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-margherita-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Vegan Margherita - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 140,
+    "protein": 3.7,
+    "carbs": 20,
+    "fat": 4.7,
+    "saturatedFat": 3.2,
+    "sugar": 1.2,
+    "salt": 0.68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-margherita-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Vegan Margherita - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 169,
+    "protein": 4.8,
+    "carbs": 25,
+    "fat": 5,
+    "saturatedFat": 3.3,
+    "sugar": 1.6,
+    "salt": 0.84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-margherita-gluten-free-9-square",
+   "name": "Vegan Margherita - Gluten Free (9\" Square)",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 146,
+    "protein": 1.3,
+    "carbs": 22,
+    "fat": 5.5,
+    "saturatedFat": 3.2,
+    "sugar": 1.3,
+    "salt": 0.65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-veggie-supreme-individual-pan-9",
+   "name": "Vegan Veggie Supreme - Individual Pan (9\")",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 157,
+    "protein": 4.2,
+    "carbs": 20,
+    "fat": 6.4,
+    "saturatedFat": 2.4,
+    "sugar": 1.2,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-veggie-supreme-sharing-pan-13",
+   "name": "Vegan Veggie Supreme - Sharing Pan (13\")",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 240,
+    "protein": 6.7,
+    "carbs": 32,
+    "fat": 9.2,
+    "saturatedFat": 3.6,
+    "sugar": 2,
+    "salt": 0.92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-veggie-supreme-individual-handcrafted-11-without-garlic-sprinkle",
+   "name": "Vegan Veggie Supreme - Individual Handcrafted (11\") WITHOUT Garlic Sprinkle",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 134,
+    "protein": 3.9,
+    "carbs": 20,
+    "fat": 4.1,
+    "saturatedFat": 2.1,
+    "sugar": 1.8,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-veggie-supreme-sharing-handcrafted-14-without-garlic-sprinkle",
+   "name": "Vegan Veggie Supreme - Sharing Handcrafted (14\") WITHOUT Garlic Sprinkle",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 178,
+    "protein": 5.1,
+    "carbs": 27,
+    "fat": 5.4,
+    "saturatedFat": 3.1,
+    "sugar": 2.7,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-veggie-supreme-gluten-free-9-square",
+   "name": "Vegan Veggie Supreme - Gluten Free (9\" Square)",
+   "category": "Vegan pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 140,
+    "protein": 1.5,
+    "carbs": 22,
+    "fat": 4.8,
+    "saturatedFat": 2.1,
+    "sugar": 2,
+    "salt": 0.54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-delight-flatbread",
+   "name": "Chicken Delight Flatbread",
+   "category": "Flatbreads",
+   "serving": "1 portion (289 g average)",
+   "nutrients": {
+    "calories": 499,
+    "protein": 27,
+    "carbs": 60,
+    "fat": 19,
+    "saturatedFat": 5.5,
+    "sugar": 6,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "virtuous-veg-flatbread",
+   "name": "Virtuous Veg Flatbread",
+   "category": "Flatbreads",
+   "serving": "1 portion (301 g average)",
+   "nutrients": {
+    "calories": 439,
+    "protein": 20,
+    "carbs": 60,
+    "fat": 12,
+    "saturatedFat": 5.2,
+    "sugar": 6.7,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-virtuous-veg-flatbread",
+   "name": "Vegan Virtuous Veg Flatbread",
+   "category": "Flatbreads",
+   "serving": "1 portion (289 g average)",
+   "nutrients": {
+    "calories": 401,
+    "protein": 13,
+    "carbs": 65,
+    "fat": 8.9,
+    "saturatedFat": 6.4,
+    "sugar": 6,
+    "salt": 2.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lasagne",
+   "name": "Lasagne",
+   "category": "Pasta",
+   "serving": "1 portion (416 g average)",
+   "nutrients": {
+    "calories": 552,
+    "protein": 29,
+    "carbs": 43,
+    "fat": 29,
+    "saturatedFat": 13,
+    "sugar": 11,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-mac-n-cheese",
+   "name": "Classic Mac 'N' Cheese",
+   "category": "Pasta",
+   "serving": "1 portion (460 g average)",
+   "nutrients": {
+    "calories": 811,
+    "protein": 38,
+    "carbs": 86,
+    "fat": 38,
+    "saturatedFat": 22,
+    "sugar": 10,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Sides",
+   "serving": "1 portion (230 g average)",
+   "nutrients": {
+    "calories": 384,
+    "protein": 5.1,
+    "carbs": 51,
+    "fat": 17,
+    "saturatedFat": 2.1,
+    "sugar": 1.2,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Sides",
+   "serving": "1 portion (158 g average)",
+   "nutrients": {
+    "calories": 338,
+    "protein": 5.5,
+    "carbs": 47,
+    "fat": 15,
+    "saturatedFat": 1.7,
+    "sugar": 7,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Sides",
+   "serving": "1 portion (120 g average)",
+   "nutrients": {
+    "calories": 360,
+    "protein": 9,
+    "carbs": 47,
+    "fat": 14,
+    "saturatedFat": 4.3,
+    "sugar": 3.4,
+    "salt": 0.84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-cheese",
+   "name": "Garlic Bread with Cheese",
+   "category": "Sides",
+   "serving": "1 portion (181 g average)",
+   "nutrients": {
+    "calories": 530,
+    "protein": 20,
+    "carbs": 49,
+    "fat": 27,
+    "saturatedFat": 12,
+    "sugar": 4.6,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-fries",
+   "name": "Halloumi Fries",
+   "category": "Sides",
+   "serving": "1 portion (85 g average)",
+   "nutrients": {
+    "calories": 275,
+    "protein": 14,
+    "carbs": 11,
+    "fat": 20,
+    "saturatedFat": 9,
+    "sugar": 3,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-bite-bites",
+   "name": "Cheesy Bite Bites",
+   "category": "Sides",
+   "serving": "1 portion (240 g average)",
+   "nutrients": {
+    "calories": 534,
+    "protein": 24,
+    "carbs": 75,
+    "fat": 15,
+    "saturatedFat": 6.2,
+    "sugar": 2.2,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-bacon-cheesy-bite-bites",
+   "name": "Loaded Bacon Cheesy Bite Bites",
+   "category": "Sides",
+   "serving": "1 portion (297 g average)",
+   "nutrients": {
+    "calories": 711,
+    "protein": 34,
+    "carbs": 77,
+    "fat": 29,
+    "saturatedFat": 15,
+    "sugar": 2.5,
+    "salt": 3.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-wings",
+   "name": "BBQ Chicken Wings",
+   "category": "Sides",
+   "serving": "1 portion (121 g average)",
+   "nutrients": {
+    "calories": 247,
+    "protein": 24,
+    "carbs": 6.7,
+    "fat": 14,
+    "saturatedFat": 3.4,
+    "sugar": 4.4,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breaded-chicken-tenders",
+   "name": "Breaded Chicken Tenders",
+   "category": "Sides",
+   "serving": "1 portion (200 g average)",
+   "nutrients": {
+    "calories": 404,
+    "protein": 32,
+    "carbs": 34,
+    "fat": 15,
+    "saturatedFat": 2.8,
+    "sugar": 1,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-sriracha-marinated-breaded-chicken-tenders",
+   "name": "Hot Honey Sriracha Marinated Breaded Chicken Tenders",
+   "category": "Sides",
+   "serving": "1 portion (218 g average)",
+   "nutrients": {
+    "calories": 458,
+    "protein": 33,
+    "carbs": 45,
+    "fat": 15,
+    "saturatedFat": 2.9,
+    "sugar": 11,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-macaroni-cheese-classic",
+   "name": "Take Away Macaroni Cheese - Classic",
+   "category": "Sides",
+   "serving": "1 portion (230 g average)",
+   "nutrients": {
+    "calories": 396,
+    "protein": 17,
+    "carbs": 42,
+    "fat": 19,
+    "saturatedFat": 10,
+    "sugar": 3.9,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pan-pizza-margherita",
+   "name": "Kids Pan Pizza Margherita",
+   "category": "Kids menu",
+   "serving": "1 portion (206 g average)",
+   "nutrients": {
+    "calories": 448,
+    "protein": 20,
+    "carbs": 57,
+    "fat": 15,
+    "saturatedFat": 5.5,
+    "sugar": 3.1,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-thin-pizza-margherita",
+   "name": "Kids Thin Pizza Margherita",
+   "category": "Kids menu",
+   "serving": "1 portion (206 g average)",
+   "nutrients": {
+    "calories": 448,
+    "protein": 20,
+    "carbs": 57,
+    "fat": 15,
+    "saturatedFat": 5.5,
+    "sugar": 3.1,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-gluten-free-margherita",
+   "name": "Kids Gluten Free Margherita",
+   "category": "Kids menu",
+   "serving": "1 portion (181 g average)",
+   "nutrients": {
+    "calories": 394,
+    "protein": 14,
+    "carbs": 43,
+    "fat": 17,
+    "saturatedFat": 8,
+    "sugar": 6.2,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-n-fries",
+   "name": "Kids Chicken 'N' Fries",
+   "category": "Kids menu",
+   "serving": "1 portion (230 g average)",
+   "nutrients": {
+    "calories": 395,
+    "protein": 21,
+    "carbs": 37,
+    "fat": 17,
+    "saturatedFat": 4,
+    "sugar": 0.7,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mac-n-cheese",
+   "name": "Kids Mac 'N' Cheese",
+   "category": "Kids menu",
+   "serving": "1 portion (230 g average)",
+   "nutrients": {
+    "calories": 406,
+    "protein": 19,
+    "carbs": 43,
+    "fat": 19,
+    "saturatedFat": 11,
+    "sugar": 5,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-bolognese",
+   "name": "Kids Spaghetti Bolognese",
+   "category": "Kids menu",
+   "serving": "1 portion (250 g average)",
+   "nutrients": {
+    "calories": 198,
+    "protein": 13,
+    "carbs": 28,
+    "fat": 3.3,
+    "saturatedFat": 1.3,
+    "sugar": 5.8,
+    "salt": 0.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fries",
+   "name": "Kids Fries",
+   "category": "Kids menu",
+   "serving": "1 portion (125 g average)",
+   "nutrients": {
+    "calories": 209,
+    "protein": 2.8,
+    "carbs": 28,
+    "fat": 9.3,
+    "saturatedFat": 1.1,
+    "sugar": 0.6,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-garlic-bread",
+   "name": "Kids Garlic Bread",
+   "category": "Kids menu",
+   "serving": "1 portion (60 g average)",
+   "nutrients": {
+    "calories": 180,
+    "protein": 4.5,
+    "carbs": 23,
+    "fat": 7.2,
+    "saturatedFat": 2.2,
+    "sugar": 1.7,
+    "salt": 0.43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-onion-rings",
+   "name": "Kids Onion Rings",
+   "category": "Kids menu",
+   "serving": "1 portion (79 g average)",
+   "nutrients": {
+    "calories": 169,
+    "protein": 2.8,
+    "carbs": 23,
+    "fat": 7.4,
+    "saturatedFat": 0.9,
+    "sugar": 3.5,
+    "salt": 0.71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-semi-skimmed-milk",
+   "name": "Kids Semi Skimmed Milk",
+   "category": "Kids menu",
+   "serving": "1 portion (225 g average)",
+   "nutrients": {
+    "calories": 101,
+    "protein": 7.9,
+    "carbs": 10,
+    "fat": 3.4,
+    "saturatedFat": 2,
+    "sugar": 10,
+    "salt": 0.25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-orange-juice",
+   "name": "Kids Orange Juice",
+   "category": "Kids menu",
+   "serving": "1 portion (230 g average)",
+   "nutrients": {
+    "calories": 94,
+    "protein": 1.6,
+    "carbs": 21,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 21,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-apple-juice",
+   "name": "Kids Apple Juice",
+   "category": "Kids menu",
+   "serving": "1 portion (230 g average)",
+   "nutrients": {
+    "calories": 104,
+    "protein": 0,
+    "carbs": 25,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 25,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-robinsons-squash-orange",
+   "name": "Kids Robinsons Squash - Orange",
+   "category": "Kids menu",
+   "serving": "1 portion (230 g average)",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-robinsons-squash-apple-blackcurrant",
+   "name": "Kids Robinsons Squash - Apple & Blackcurrant",
+   "category": "Kids menu",
+   "serving": "1 portion (230 g average)",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.07
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chocolate-brownie",
+   "name": "Kids Chocolate Brownie",
+   "category": "Kids menu",
+   "serving": "1 portion (145 g average)",
+   "nutrients": {
+    "calories": 404,
+    "protein": 5.4,
+    "carbs": 50,
+    "fat": 20,
+    "saturatedFat": 9.3,
+    "sugar": 43,
+    "salt": 0.11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mini-donuts-with-chocolate-sauce",
+   "name": "Kids Mini Donuts with Chocolate Sauce",
+   "category": "Kids menu",
+   "serving": "1 portion (91 g average)",
+   "nutrients": {
+    "calories": 310,
+    "protein": 2.7,
+    "carbs": 52,
+    "fat": 10,
+    "saturatedFat": 4.4,
+    "sugar": 31.9,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mini-donuts-with-raspberry-sauce",
+   "name": "Kids Mini Donuts with Raspberry Sauce",
+   "category": "Kids menu",
+   "serving": "1 portion (91 g average)",
+   "nutrients": {
+    "calories": 294,
+    "protein": 2.3,
+    "carbs": 51,
+    "fat": 9,
+    "saturatedFat": 4,
+    "sugar": 30.5,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-salad",
+   "name": "Potato Salad",
+   "category": "Salad station",
+   "serving": "1 portion (63 g)",
+   "nutrients": {
+    "calories": 102,
+    "protein": 0.8,
+    "carbs": 9.1,
+    "fat": 6.7,
+    "saturatedFat": 0.5,
+    "sugar": 1.7,
+    "salt": 0.38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coleslaw",
+   "name": "Coleslaw",
+   "category": "Salad station",
+   "serving": "1 portion (50 g)",
+   "nutrients": {
+    "calories": 68,
+    "protein": 0.4,
+    "carbs": 3.1,
+    "fat": 5.9,
+    "saturatedFat": 0.4,
+    "sugar": 2.4,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweetcorn",
+   "name": "Sweetcorn",
+   "category": "Salad station",
+   "serving": "1 portion (26 g)",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0.7,
+    "carbs": 3.5,
+    "fat": 0.4,
+    "saturatedFat": 0.2,
+    "sugar": 0.9,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diced-beetroot",
+   "name": "Diced Beetroot",
+   "category": "Salad station",
+   "serving": "1 portion (24 g)",
+   "nutrients": {
+    "calories": 12,
+    "protein": 1,
+    "carbs": 1.6,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 1.1,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jalapenos",
+   "name": "Jalapenos",
+   "category": "Salad station",
+   "serving": "1 portion (16 g)",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0.1,
+    "carbs": 0.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roquito-chilli-peppers",
+   "name": "Roquito® Chilli Peppers",
+   "category": "Salad station",
+   "serving": "1 portion (16 g)",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0.1,
+    "carbs": 3.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-olives",
+   "name": "Black Olives",
+   "category": "Salad station",
+   "serving": "1 portion (15 g)",
+   "nutrients": {
+    "calories": 21,
+    "protein": 0.1,
+    "carbs": 0.1,
+    "fat": 2.1,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "salt": 0.14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lettuce-mix",
+   "name": "Lettuce Mix",
+   "category": "Salad station",
+   "serving": "1 portion (17 g)",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-tomatoes",
+   "name": "Cherry Tomatoes",
+   "category": "Salad station",
+   "serving": "1 portion (33 g)",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.2,
+    "carbs": 1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber",
+   "name": "Cucumber",
+   "category": "Salad station",
+   "serving": "1 portion (35 g)",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.2,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-peppers",
+   "name": "Mixed Peppers",
+   "category": "Salad station",
+   "serving": "1 portion (26 g)",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.6,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-onion",
+   "name": "Red Onion",
+   "category": "Salad station",
+   "serving": "1 portion (21 g)",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.3,
+    "carbs": 1.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shredded-carrot",
+   "name": "Shredded Carrot",
+   "category": "Salad station",
+   "serving": "1 portion (18 g)",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.1,
+    "carbs": 2.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach",
+   "name": "Spinach",
+   "category": "Salad station",
+   "serving": "1 portion (20 g)",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.5,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocket",
+   "name": "Rocket",
+   "category": "Salad station",
+   "serving": "1 portion (20 g)",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.7,
+    "carbs": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-bits",
+   "name": "Bacon Bits",
+   "category": "Salad station",
+   "serving": "1 portion (13 g)",
+   "nutrients": {
+    "calories": 70,
+    "protein": 1.2,
+    "carbs": 7.7,
+    "fat": 3.8,
+    "saturatedFat": 1.7,
+    "sugar": 0.3,
+    "salt": 0.33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croutons",
+   "name": "Croutons",
+   "category": "Salad station",
+   "serving": "1 portion (7 g)",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0.8,
+    "carbs": 5,
+    "fat": 1.1,
+    "saturatedFat": 0.5,
+    "sugar": 0.1,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tortilla-chips",
+   "name": "Tortilla Chips",
+   "category": "Salad station",
+   "serving": "1 portion (13 g)",
+   "nutrients": {
+    "calories": 64,
+    "protein": 0.8,
+    "carbs": 8.2,
+    "fat": 2.7,
+    "saturatedFat": 0.3,
+    "sugar": 0.2,
+    "salt": 0.09
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-onions",
+   "name": "Crispy Onions",
+   "category": "Salad station",
+   "serving": "1 portion (6 g)",
+   "nutrients": {
+    "calories": 35,
+    "protein": 0.4,
+    "carbs": 2.4,
+    "fat": 2.6,
+    "saturatedFat": 1.3,
+    "sugar": 0.5,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sultanas",
+   "name": "Sultanas",
+   "category": "Salad station",
+   "serving": "1 portion (16 g)",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.4,
+    "carbs": 11,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thousand-island-dressing",
+   "name": "Thousand Island Dressing",
+   "category": "Salad station",
+   "serving": "1 portion (30 g)",
+   "nutrients": {
+    "calories": 80,
+    "protein": 0.2,
+    "carbs": 3.4,
+    "fat": 7.2,
+    "saturatedFat": 0.9,
+    "sugar": 1.5,
+    "salt": 0.37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-dressing",
+   "name": "Blue Cheese Dressing",
+   "category": "Salad station",
+   "serving": "1 portion (27 g)",
+   "nutrients": {
+    "calories": 125,
+    "protein": 0.4,
+    "carbs": 5.2,
+    "fat": 11,
+    "saturatedFat": 4.2,
+    "sugar": 2.1,
+    "salt": 0.36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-mayonnaise",
+   "name": "Garlic Mayonnaise",
+   "category": "Salad station",
+   "serving": "1 portion (29 g)",
+   "nutrients": {
+    "calories": 127,
+    "protein": 0.6,
+    "carbs": 1.2,
+    "fat": 13,
+    "saturatedFat": 1.8,
+    "sugar": 0.5,
+    "salt": 0.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-mayonnaise",
+   "name": "Light Mayonnaise",
+   "category": "Salad station",
+   "serving": "1 portion (34 g)",
+   "nutrients": {
+    "calories": 138,
+    "protein": 0.2,
+    "carbs": 4.3,
+    "fat": 13,
+    "saturatedFat": 1.8,
+    "sugar": 2,
+    "salt": 0.44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ranch-dressing",
+   "name": "Ranch Dressing",
+   "category": "Salad station",
+   "serving": "1 portion (31 g)",
+   "nutrients": {
+    "calories": 145,
+    "protein": 0.7,
+    "carbs": 2,
+    "fat": 15,
+    "saturatedFat": 1.6,
+    "sugar": 1.3,
+    "salt": 0.33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "low-fat-french-dressing",
+   "name": "Low Fat French Dressing",
+   "category": "Salad station",
+   "serving": "1 portion (22 g)",
+   "nutrients": {
+    "calories": 18,
+    "protein": 0.2,
+    "carbs": 3.1,
+    "fat": 0.6,
+    "saturatedFat": 0.4,
+    "sugar": 1.9,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salsa",
+   "name": "Salsa",
+   "category": "Salad station",
+   "serving": "1 portion (33 g)",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0.4,
+    "carbs": 4.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.6,
+    "salt": 0.53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sour-cream-salad-station-dressing",
+   "name": "Sour Cream (salad station dressing)",
+   "category": "Salad station",
+   "serving": "1 portion (30 g)",
+   "nutrients": {
+    "calories": 177,
+    "protein": 0.4,
+    "carbs": 2.4,
+    "fat": 18,
+    "saturatedFat": 1,
+    "sugar": 1.8,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-bbq-sauce",
+   "name": "Heinz BBQ Sauce",
+   "category": "Sauces & dips",
+   "serving": "1 portion (100 g average)",
+   "nutrients": {
+    "calories": 138,
+    "protein": 1,
+    "carbs": 34,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 29,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-tomato-ketchup",
+   "name": "Heinz Tomato Ketchup",
+   "category": "Sauces & dips",
+   "serving": "1 portion (100 g average)",
+   "nutrients": {
+    "calories": 102,
+    "protein": 1,
+    "carbs": 23,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 23,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-flakes-tabletop",
+   "name": "Chilli Flakes (tabletop)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (1 g average)",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.1,
+    "carbs": 0.3,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sour-cream-dip-dine-in",
+   "name": "Sour Cream Dip (dine-in)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (45 g average)",
+   "nutrients": {
+    "calories": 266,
+    "protein": 0.6,
+    "carbs": 3.6,
+    "fat": 27.7,
+    "saturatedFat": 2,
+    "sugar": 2.8,
+    "salt": 0.41
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-60ml",
+   "name": "Hot Honey (60ml)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (86 g average)",
+   "nutrients": {
+    "calories": 283,
+    "protein": 0.4,
+    "carbs": 70.5,
+    "fat": 0.4,
+    "saturatedFat": 0.2,
+    "sugar": 69.7,
+    "salt": 0.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-dip-50ml",
+   "name": "Sweet Chilli Dip (50ml)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (60 g average)",
+   "nutrients": {
+    "calories": 104,
+    "protein": 0.2,
+    "carbs": 25.2,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 21.8,
+    "salt": 1.68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-dip-30ml-pp-oval",
+   "name": "Sweet Chilli Dip (30ml PP) (Oval)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (35 g average)",
+   "nutrients": {
+    "calories": 64,
+    "protein": 0.1,
+    "carbs": 15,
+    "fat": 0.4,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "salt": 0.37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-buttermilk-mayo-30ml-pp-oval",
+   "name": "Garlic Buttermilk Mayo (30ml PP) (Oval)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (35 g average)",
+   "nutrients": {
+    "calories": 128,
+    "protein": 0.3,
+    "carbs": 4.8,
+    "fat": 12,
+    "saturatedFat": 0.8,
+    "sugar": 2.7,
+    "salt": 0.34
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-dip-30ml-pp-oval",
+   "name": "BBQ Dip (30ml PP) (Oval)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (35 g average)",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.4,
+    "carbs": 12,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ketchup-30ml-pp-oval",
+   "name": "Ketchup (30ml PP) (Oval)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (35 g average)",
+   "nutrients": {
+    "calories": 39,
+    "protein": 0.5,
+    "carbs": 8.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.5,
+    "salt": 0.47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-spread",
+   "name": "Garlic Spread",
+   "category": "Sauces & dips",
+   "serving": "1 portion (10 g average)",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 5.5,
+    "saturatedFat": 1.9,
+    "sugar": 0,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dried-parsley",
+   "name": "Dried Parsley",
+   "category": "Sauces & dips",
+   "serving": "1 portion (1 g average)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-drizzle-gluten-free",
+   "name": "BBQ Drizzle (Gluten Free)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (10 g average)",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.2,
+    "carbs": 2.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "salt": 0.12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sour-cream-drizzle",
+   "name": "Sour Cream Drizzle",
+   "category": "Sauces & dips",
+   "serving": "1 portion (10 g average)",
+   "nutrients": {
+    "calories": 59,
+    "protein": 0.1,
+    "carbs": 0.8,
+    "fat": 6.2,
+    "saturatedFat": 0.5,
+    "sugar": 0.6,
+    "salt": 0.09
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "balsamic-drizzle",
+   "name": "Balsamic Drizzle",
+   "category": "Sauces & dips",
+   "serving": "1 portion (10 g average)",
+   "nutrients": {
+    "calories": 22,
+    "protein": 0.1,
+    "carbs": 5.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-flakes-pizza-finisher",
+   "name": "Chilli Flakes (pizza finisher)",
+   "category": "Sauces & dips",
+   "serving": "1 portion (1 g average)",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.1,
+    "carbs": 0.3,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-drizzle",
+   "name": "Hot Honey Drizzle",
+   "category": "Sauces & dips",
+   "serving": "1 portion (10 g average)",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0.1,
+    "carbs": 8.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 8.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sriracha-chili-flakes",
+   "name": "Sriracha Chili Flakes",
+   "category": "Sauces & dips",
+   "serving": "1 portion (1 g average)",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.3,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fajita-seasoning",
+   "name": "Fajita Seasoning",
+   "category": "Sauces & dips",
+   "serving": "1 portion (1 g average)",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-caramel-cookie-dough",
+   "name": "White Chocolate & Caramel Cookie Dough",
+   "category": "Desserts",
+   "serving": "1 portion (196 g average)",
+   "nutrients": {
+    "calories": 609,
+    "protein": 6.7,
+    "carbs": 89,
+    "fat": 25,
+    "saturatedFat": 14,
+    "sugar": 60,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-chip-cookie-dough",
+   "name": "Chocolate Chip Cookie Dough",
+   "category": "Desserts",
+   "serving": "1 portion (196 g average)",
+   "nutrients": {
+    "calories": 628,
+    "protein": 7.9,
+    "carbs": 88,
+    "fat": 27,
+    "saturatedFat": 15,
+    "sugar": 55,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "takeaway-white-chocolate-caramel-cookie-dough",
+   "name": "Takeaway White Chocolate & Caramel Cookie Dough",
+   "category": "Desserts",
+   "serving": "1 portion (175 g average)",
+   "nutrients": {
+    "calories": 586,
+    "protein": 6.8,
+    "carbs": 83,
+    "fat": 25,
+    "saturatedFat": 14,
+    "sugar": 53,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "takeaway-chocolate-chip-cookie-dough",
+   "name": "Takeaway Chocolate Chip Cookie Dough",
+   "category": "Desserts",
+   "serving": "1 portion (175 g average)",
+   "nutrients": {
+    "calories": 604,
+    "protein": 7.9,
+    "carbs": 82,
+    "fat": 27,
+    "saturatedFat": 15,
+    "sugar": 48,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "i-cant-believe-its-not-cheesecake",
+   "name": "I Can't Believe It's Not Cheesecake",
+   "category": "Desserts",
+   "serving": "1 portion (107 g average)",
+   "nutrients": {
+    "calories": 468,
+    "protein": 2.9,
+    "carbs": 48,
+    "fat": 30,
+    "saturatedFat": 12,
+    "sugar": 25,
+    "salt": 0.57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-brownie-served-with-ice-cream-sauce",
+   "name": "Hot Chocolate Brownie (served with ice cream & sauce)",
+   "category": "Desserts",
+   "serving": "1 portion (189 g average)",
+   "nutrients": {
+    "calories": 618,
+    "protein": 7.9,
+    "carbs": 72,
+    "fat": 32,
+    "saturatedFat": 15,
+    "sugar": 62,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-hot-chocolate-brownie-served-with-ice-cream-sauce",
+   "name": "Take Away Hot Chocolate Brownie (served with ice cream & sauce)",
+   "category": "Desserts",
+   "serving": "1 portion (168 g average)",
+   "nutrients": {
+    "calories": 595,
+    "protein": 7.9,
+    "carbs": 66,
+    "fat": 33,
+    "saturatedFat": 15,
+    "sugar": 56,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-donuts-with-chocolate-sauce",
+   "name": "Mini Donuts with Chocolate Sauce",
+   "category": "Desserts",
+   "serving": "1 portion (131 g average)",
+   "nutrients": {
+    "calories": 479,
+    "protein": 5,
+    "carbs": 72,
+    "fat": 19,
+    "saturatedFat": 8.3,
+    "sugar": 40.8,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-mini-donuts-with-chocolate-sauce",
+   "name": "Take Away Mini Donuts with Chocolate Sauce",
+   "category": "Desserts",
+   "serving": "1 portion (128 g average)",
+   "nutrients": {
+    "calories": 507,
+    "protein": 6.1,
+    "carbs": 66,
+    "fat": 24,
+    "saturatedFat": 10.7,
+    "sugar": 33,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-vanilla-ice-cream-tub-100ml",
+   "name": "Take Away Vanilla Ice Cream Tub (100ml)",
+   "category": "Desserts",
+   "serving": "1 portion (45 g average)",
+   "nutrients": {
+    "calories": 76,
+    "protein": 1.3,
+    "carbs": 9.8,
+    "fat": 3.5,
+    "saturatedFat": 1.8,
+    "sugar": 9.8,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "additional-scoop-vanilla-ice-cream",
+   "name": "Additional Scoop Vanilla Ice cream",
+   "category": "Desserts",
+   "serving": "1 portion (86 g average)",
+   "nutrients": {
+    "calories": 141,
+    "protein": 2.5,
+    "carbs": 19,
+    "fat": 6.5,
+    "saturatedFat": 3.2,
+    "sugar": 19,
+    "salt": 0.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "additional-chocolate-sauce",
+   "name": "Additional Chocolate Sauce",
+   "category": "Desserts",
+   "serving": "1 portion (15 g average)",
+   "nutrients": {
+    "calories": 48,
+    "protein": 0.4,
+    "carbs": 9.2,
+    "fat": 1.1,
+    "saturatedFat": 0.7,
+    "sugar": 6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "additional-salted-caramel-sauce",
+   "name": "Additional Salted Caramel Sauce",
+   "category": "Desserts",
+   "serving": "1 portion (15 g average)",
+   "nutrients": {
+    "calories": 37,
+    "protein": 0,
+    "carbs": 7.7,
+    "fat": 0.5,
+    "saturatedFat": 0.2,
+    "sugar": 7.5,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "additional-o-t-t-salted-caramel-sauce",
+   "name": "Additional o.t.t. Salted Caramel Sauce",
+   "category": "Desserts",
+   "serving": "1 portion (15 g average)",
+   "nutrients": {
+    "calories": 38,
+    "protein": 0.1,
+    "carbs": 8.9,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 8.6,
+    "salt": 0.23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-margherita-individual-pan-9",
+   "name": "Buffet Margherita - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 169,
+    "protein": 7,
+    "carbs": 18,
+    "fat": 7.4,
+    "saturatedFat": 2.7,
+    "sugar": 0.9,
+    "salt": 0.64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-margherita-sharing-pan-13",
+   "name": "Buffet Margherita - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 250,
+    "protein": 10,
+    "carbs": 29,
+    "fat": 10,
+    "saturatedFat": 3.5,
+    "sugar": 1.3,
+    "salt": 0.96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-margherita-individual-handcrafted-11",
+   "name": "Buffet Margherita - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 149,
+    "protein": 6.8,
+    "carbs": 18,
+    "fat": 5.1,
+    "saturatedFat": 2.3,
+    "sugar": 1.6,
+    "salt": 0.71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-pepperoni-individual-pan-9",
+   "name": "Buffet Pepperoni - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 178,
+    "protein": 7,
+    "carbs": 18,
+    "fat": 8.8,
+    "saturatedFat": 2.9,
+    "sugar": 0.9,
+    "salt": 0.75
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-pepperoni-sharing-pan-13",
+   "name": "Buffet Pepperoni - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 263,
+    "protein": 10,
+    "carbs": 28,
+    "fat": 12,
+    "saturatedFat": 3.8,
+    "sugar": 1.4,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-pepperoni-individual-handcrafted-11",
+   "name": "Buffet Pepperoni - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 157,
+    "protein": 6.8,
+    "carbs": 18,
+    "fat": 6.5,
+    "saturatedFat": 2.7,
+    "sugar": 1.4,
+    "salt": 0.76
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-bbq-americano-individual-pan-9",
+   "name": "Buffet BBQ Americano - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 191,
+    "protein": 9.4,
+    "carbs": 21,
+    "fat": 7.5,
+    "saturatedFat": 2.7,
+    "sugar": 2.4,
+    "salt": 0.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-bbq-americano-sharing-pan-13",
+   "name": "Buffet BBQ Americano - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 289,
+    "protein": 14.6,
+    "carbs": 33,
+    "fat": 10.5,
+    "saturatedFat": 3.6,
+    "sugar": 3.7,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-bbq-americano-individual-handcrafted-11",
+   "name": "Buffet BBQ Americano - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 168,
+    "protein": 9.6,
+    "carbs": 21,
+    "fat": 4.8,
+    "saturatedFat": 2,
+    "sugar": 2.1,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-veggie-individual-pan-9",
+   "name": "Buffet Veggie - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 162,
+    "protein": 6.4,
+    "carbs": 19,
+    "fat": 6.3,
+    "saturatedFat": 2,
+    "sugar": 1.5,
+    "salt": 0.58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-veggie-sharing-pan-13",
+   "name": "Buffet Veggie - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 275,
+    "protein": 10.7,
+    "carbs": 35,
+    "fat": 10,
+    "saturatedFat": 3.5,
+    "sugar": 2.7,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-veggie-individual-handcrafted-11",
+   "name": "Buffet Veggie - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 141,
+    "protein": 6.1,
+    "carbs": 19,
+    "fat": 4,
+    "saturatedFat": 1.7,
+    "sugar": 2.1,
+    "salt": 0.64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-hawaiian-individual-pan-9",
+   "name": "Buffet Hawaiian - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 166,
+    "protein": 7.6,
+    "carbs": 19,
+    "fat": 6.4,
+    "saturatedFat": 2,
+    "sugar": 1.7,
+    "salt": 0.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-hawaiian-sharing-pan-13",
+   "name": "Buffet Hawaiian - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 249,
+    "protein": 11,
+    "carbs": 30,
+    "fat": 9,
+    "saturatedFat": 2.7,
+    "sugar": 2.8,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-hawaiian-individual-handcrafted-11",
+   "name": "Buffet Hawaiian - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 158,
+    "protein": 7.6,
+    "carbs": 21,
+    "fat": 4.6,
+    "saturatedFat": 1.8,
+    "sugar": 2.6,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-spicy-chicken-individual-pan-9",
+   "name": "Buffet Spicy Chicken - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 161,
+    "protein": 7.2,
+    "carbs": 19,
+    "fat": 6.3,
+    "saturatedFat": 2,
+    "sugar": 1.2,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-spicy-chicken-sharing-pan-13",
+   "name": "Buffet Spicy Chicken - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 242,
+    "protein": 10.8,
+    "carbs": 29,
+    "fat": 8.8,
+    "saturatedFat": 2.7,
+    "sugar": 1.8,
+    "salt": 1.06
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-spicy-chicken-individual-handcrafted-11",
+   "name": "Buffet Spicy Chicken - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 142,
+    "protein": 7.2,
+    "carbs": 20,
+    "fat": 3.6,
+    "saturatedFat": 1.7,
+    "sugar": 1.3,
+    "salt": 0.82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-bbq-beef-onion-individual-pan-9",
+   "name": "Buffet BBQ Beef & Onion - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 172,
+    "protein": 6.7,
+    "carbs": 20,
+    "fat": 7.1,
+    "saturatedFat": 2.2,
+    "sugar": 2.5,
+    "salt": 0.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-bbq-beef-onion-sharing-pan-13",
+   "name": "Buffet BBQ Beef & Onion - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 258,
+    "protein": 10,
+    "carbs": 31,
+    "fat": 10,
+    "saturatedFat": 3,
+    "sugar": 3.4,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-bbq-beef-onion-individual-handcrafted-11",
+   "name": "Buffet BBQ Beef & Onion - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 147,
+    "protein": 6.6,
+    "carbs": 19,
+    "fat": 4.8,
+    "saturatedFat": 2,
+    "sugar": 2.2,
+    "salt": 0.66
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-chicken-fajita-individual-pan-9",
+   "name": "Buffet Chicken Fajita - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 216,
+    "protein": 8.6,
+    "carbs": 20,
+    "fat": 11.1,
+    "saturatedFat": 3,
+    "sugar": 2.4,
+    "salt": 0.81
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-chicken-fajita-sharing-pan-13",
+   "name": "Buffet Chicken Fajita - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 316,
+    "protein": 13,
+    "carbs": 32,
+    "fat": 15,
+    "saturatedFat": 4,
+    "sugar": 3.6,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-chicken-fajita-individual-handcrafted-11",
+   "name": "Buffet Chicken Fajita - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 196,
+    "protein": 8.4,
+    "carbs": 20,
+    "fat": 8.8,
+    "saturatedFat": 2.7,
+    "sugar": 3,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-creamy-garlic-individual-pan-9",
+   "name": "Buffet Creamy Garlic - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 208,
+    "protein": 9,
+    "carbs": 19,
+    "fat": 10.6,
+    "saturatedFat": 3.9,
+    "sugar": 0.5,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-creamy-garlic-sharing-pan-13",
+   "name": "Buffet Creamy Garlic - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 301,
+    "protein": 12,
+    "carbs": 30,
+    "fat": 14,
+    "saturatedFat": 5.3,
+    "sugar": 1,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-creamy-garlic-individual-handcrafted-11",
+   "name": "Buffet Creamy Garlic - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 186,
+    "protein": 8,
+    "carbs": 19,
+    "fat": 8.2,
+    "saturatedFat": 3.8,
+    "sugar": 1,
+    "salt": 0.81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-garlic-chicken-mushrooms-individual-pan-9",
+   "name": "Buffet Garlic Chicken & Mushrooms - Individual Pan (9\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 194,
+    "protein": 8,
+    "carbs": 19,
+    "fat": 9.2,
+    "saturatedFat": 3.2,
+    "sugar": 0.5,
+    "salt": 0.75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-garlic-chicken-mushrooms-sharing-pan-13",
+   "name": "Buffet Garlic Chicken & Mushrooms - Sharing Pan (13\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 8)",
+   "nutrients": {
+    "calories": 288,
+    "protein": 13,
+    "carbs": 30,
+    "fat": 13,
+    "saturatedFat": 4.3,
+    "sugar": 1,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-garlic-chicken-mushrooms-individual-handcrafted-11",
+   "name": "Buffet Garlic Chicken & Mushrooms - Individual Handcrafted (11\")",
+   "category": "Buffet pizzas",
+   "serving": "1 slice (of 6)",
+   "nutrients": {
+    "calories": 173,
+    "protein": 8,
+    "carbs": 19,
+    "fat": 6.8,
+    "saturatedFat": 3,
+    "sugar": 1,
+    "salt": 0.75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-tomato-sauce-pasta",
+   "name": "Buffet Tomato Sauce Pasta",
+   "category": "Buffet sides",
+   "serving": "1 portion (100 g average)",
+   "nutrients": {
+    "calories": 94,
+    "protein": 3.8,
+    "carbs": 18,
+    "fat": 0.8,
+    "saturatedFat": 0.2,
+    "sugar": 4.2,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-garlic-breadsticks-large",
+   "name": "Buffet Garlic Breadsticks - Large",
+   "category": "Buffet sides",
+   "serving": "1 portion (20.1 g average)",
+   "nutrients": {
+    "calories": 57,
+    "protein": 1.7,
+    "carbs": 7.6,
+    "fat": 2.1,
+    "saturatedFat": 0.4,
+    "sugar": 0,
+    "salt": 0.17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-garlic-breadsticks-small",
+   "name": "Buffet Garlic Breadsticks - Small",
+   "category": "Buffet sides",
+   "serving": "1 portion (18.6 g average)",
+   "nutrients": {
+    "calories": 51,
+    "protein": 1.7,
+    "carbs": 7.3,
+    "fat": 1.6,
+    "saturatedFat": 0.3,
+    "sugar": 0,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-cheesy-garlic-breadsticks-large",
+   "name": "Buffet Cheesy Garlic Breadsticks - Large",
+   "category": "Buffet sides",
+   "serving": "1 portion (30.6 g average)",
+   "nutrients": {
+    "calories": 93,
+    "protein": 3.7,
+    "carbs": 8,
+    "fat": 5.1,
+    "saturatedFat": 1.9,
+    "sugar": 0.1,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffet-cheesy-garlic-breadsticks-small",
+   "name": "Buffet Cheesy Garlic Breadsticks - Small",
+   "category": "Buffet sides",
+   "serving": "1 portion (27.5 g average)",
+   "nutrients": {
+    "calories": 81,
+    "protein": 3.2,
+    "carbs": 7.6,
+    "fat": 4.2,
+    "saturatedFat": 1.6,
+    "sugar": 0.1,
+    "salt": 0.29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

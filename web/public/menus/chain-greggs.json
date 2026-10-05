@@ -1,0 +1,5648 @@
+{
+ "schemaVersion": 1,
+ "id": "greggs",
+ "name": "Greggs",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "greggs",
+  "greggs bakery"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Greggs Nutritional Information guide (information correct at time of print, September 2026)",
+  "url": "https://a.storyblok.com/f/94904/x/7dd8489dab/nutritional-information.pdf",
+  "checkedOn": "2026-10-05"
+ },
+ "categories": [
+  "Breakfast",
+  "Savouries & bakes",
+  "Pizzas",
+  "Pizza boxes",
+  "Hot food",
+  "Sandwiches, rolls & baguettes",
+  "Salads & pasta",
+  "Snacks & sides",
+  "Sweet treats & pastries",
+  "Hot drinks",
+  "Cold drinks",
+  "Add-ons & extras",
+  "Sauces & dips",
+  "Bread & rolls"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "bacon-lorne-breakfast-baguette",
+   "name": "Bacon & Lorne Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "221.5 g",
+   "nutrients": {
+    "calories": 607,
+    "protein": 33,
+    "carbs": 66,
+    "fat": 22,
+    "saturatedFat": 8.9,
+    "sugar": 3.1,
+    "fiber": 4,
+    "salt": 3.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-omelette-breakfast-roll",
+   "name": "Bacon & Omelette Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "155 g",
+   "nutrients": {
+    "calories": 363,
+    "protein": 22,
+    "carbs": 34,
+    "fat": 15,
+    "saturatedFat": 4.7,
+    "sugar": 6,
+    "fiber": 1.7,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-sausage-breakfast-baguette",
+   "name": "Bacon & Sausage Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "208.5 g",
+   "nutrients": {
+    "calories": 550,
+    "protein": 29,
+    "carbs": 63,
+    "fat": 20,
+    "saturatedFat": 7.3,
+    "sugar": 3.3,
+    "fiber": 3.3,
+    "salt": 3.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-lorne-breakfast-roll",
+   "name": "Bacon and Lorne Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "170 g",
+   "nutrients": {
+    "calories": 461,
+    "protein": 26,
+    "carbs": 43,
+    "fat": 20,
+    "saturatedFat": 7.7,
+    "sugar": 5.4,
+    "fiber": 2.9,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-omelette-breakfast-baguette",
+   "name": "Bacon and Omelette Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "206.5 g",
+   "nutrients": {
+    "calories": 504,
+    "protein": 29,
+    "carbs": 58,
+    "fat": 17,
+    "saturatedFat": 6,
+    "sugar": 3.7,
+    "fiber": 2.9,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-sausage-breakfast-roll",
+   "name": "Bacon and Sausage Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "157 g",
+   "nutrients": {
+    "calories": 405,
+    "protein": 22,
+    "carbs": 39,
+    "fat": 17,
+    "saturatedFat": 6,
+    "sugar": 5.7,
+    "fiber": 2.2,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-breakfast-baguette",
+   "name": "Bacon Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "171 g",
+   "nutrients": {
+    "calories": 462,
+    "protein": 26,
+    "carbs": 56,
+    "fat": 14,
+    "saturatedFat": 5.6,
+    "sugar": 2.9,
+    "fiber": 2.7,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-breakfast-roll",
+   "name": "Bacon Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "119.5 g",
+   "nutrients": {
+    "calories": 321,
+    "protein": 19,
+    "carbs": 33,
+    "fat": 12,
+    "saturatedFat": 4.3,
+    "sugar": 5.3,
+    "fiber": 1.7,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-box",
+   "name": "Breakfast Box",
+   "category": "Breakfast",
+   "serving": "131 g",
+   "nutrients": {
+    "calories": 287,
+    "protein": 21,
+    "carbs": 6.3,
+    "fat": 20,
+    "saturatedFat": 7.1,
+    "sugar": 1.2,
+    "fiber": 0.6,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lorne-omelette-breakfast-baguette",
+   "name": "Lorne & Omelette Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "260.5 g",
+   "nutrients": {
+    "calories": 630,
+    "protein": 31,
+    "carbs": 70,
+    "fat": 24,
+    "saturatedFat": 9.1,
+    "sugar": 3.9,
+    "fiber": 4.7,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lorne-omelette-breakfast-roll",
+   "name": "Lorne & Omelette Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "191 g",
+   "nutrients": {
+    "calories": 445,
+    "protein": 23,
+    "carbs": 44,
+    "fat": 19,
+    "saturatedFat": 6.7,
+    "sugar": 6.1,
+    "fiber": 2.9,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lorne-breakfast-baguette",
+   "name": "Lorne Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "243 g",
+   "nutrients": {
+    "calories": 651,
+    "protein": 32,
+    "carbs": 75,
+    "fat": 24,
+    "saturatedFat": 9.7,
+    "sugar": 3.2,
+    "fiber": 5.1,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lorne-breakfast-roll",
+   "name": "Lorne Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "141 g",
+   "nutrients": {
+    "calories": 369,
+    "protein": 17,
+    "carbs": 42,
+    "fat": 14,
+    "saturatedFat": 5.1,
+    "sugar": 5.4,
+    "fiber": 2.8,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "omelette-breakfast-baguette",
+   "name": "Omelette Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "213 g",
+   "nutrients": {
+    "calories": 441,
+    "protein": 21,
+    "carbs": 58,
+    "fat": 13,
+    "saturatedFat": 4,
+    "sugar": 4.5,
+    "fiber": 3,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "omelette-breakfast-roll",
+   "name": "Omelette Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "176 g",
+   "nutrients": {
+    "calories": 352,
+    "protein": 19,
+    "carbs": 35,
+    "fat": 14,
+    "saturatedFat": 3.9,
+    "sugar": 6.9,
+    "fiber": 1.8,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-omelette-breakfast-baguette",
+   "name": "Sausage and Omelette Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "241 g",
+   "nutrients": {
+    "calories": 557,
+    "protein": 27,
+    "carbs": 65,
+    "fat": 20,
+    "saturatedFat": 6.7,
+    "sugar": 4.3,
+    "fiber": 3.6,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-omelette-breakfast-roll",
+   "name": "Sausage and Omelette Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "178 g",
+   "nutrients": {
+    "calories": 395,
+    "protein": 20,
+    "carbs": 39,
+    "fat": 17,
+    "saturatedFat": 5.2,
+    "sugar": 6.4,
+    "fiber": 2.3,
+    "salt": 1.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-breakfast-baguette",
+   "name": "Sausage Breakfast Baguette",
+   "category": "Breakfast",
+   "serving": "217 g",
+   "nutrients": {
+    "calories": 543,
+    "protein": 24,
+    "carbs": 67,
+    "fat": 19,
+    "saturatedFat": 6.5,
+    "sugar": 3.7,
+    "fiber": 3.9,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-breakfast-roll",
+   "name": "Sausage Breakfast Roll",
+   "category": "Breakfast",
+   "serving": "154 g",
+   "nutrients": {
+    "calories": 377,
+    "protein": 17,
+    "carbs": 42,
+    "fat": 15,
+    "saturatedFat": 5.1,
+    "sugar": 5.9,
+    "fiber": 2.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-cinnamon-flavour-porridge",
+   "name": "Apple & Cinnamon Flavour Porridge",
+   "category": "Breakfast",
+   "serving": "234 g",
+   "nutrients": {
+    "calories": 232,
+    "protein": 8,
+    "carbs": 37,
+    "fat": 4.4,
+    "saturatedFat": 1.4,
+    "sugar": 11,
+    "fiber": 4.4,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golden-syrup-flavour-porridge",
+   "name": "Golden Syrup Flavour Porridge",
+   "category": "Breakfast",
+   "serving": "237 g",
+   "nutrients": {
+    "calories": 249,
+    "protein": 7.6,
+    "carbs": 43,
+    "fat": 4.3,
+    "saturatedFat": 1.4,
+    "sugar": 14,
+    "fiber": 4.3,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "simply-creamy-porridge",
+   "name": "Simply Creamy Porridge",
+   "category": "Breakfast",
+   "serving": "228 g",
+   "nutrients": {
+    "calories": 249,
+    "protein": 7.5,
+    "carbs": 43,
+    "fat": 4.1,
+    "saturatedFat": 1.8,
+    "sugar": 6.6,
+    "fiber": 4.1,
+    "salt": 0.11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-mini-sausage-rolls",
+   "name": "6 Mini Sausage Rolls",
+   "category": "Savouries & bakes",
+   "serving": "146.1 g",
+   "nutrients": {
+    "calories": 469,
+    "protein": 13,
+    "carbs": 41,
+    "fat": 28,
+    "saturatedFat": 11,
+    "sugar": 1,
+    "fiber": 2,
+    "salt": 2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-roll",
+   "name": "Sausage Roll",
+   "category": "Savouries & bakes",
+   "serving": "103 g",
+   "nutrients": {
+    "calories": 347,
+    "protein": 9.1,
+    "carbs": 24,
+    "fat": 24,
+    "saturatedFat": 11,
+    "sugar": 0,
+    "fiber": 1.5,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bake",
+   "name": "Chicken Bake",
+   "category": "Savouries & bakes",
+   "serving": "150.4 g",
+   "nutrients": {
+    "calories": 420,
+    "protein": 13,
+    "carbs": 30,
+    "fat": 27,
+    "saturatedFat": 14,
+    "sugar": 1.2,
+    "fiber": 1.5,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-bake",
+   "name": "Steak Bake",
+   "category": "Savouries & bakes",
+   "serving": "136.4 g",
+   "nutrients": {
+    "calories": 411,
+    "protein": 15,
+    "carbs": 29,
+    "fat": 26,
+    "saturatedFat": 13,
+    "sugar": 0,
+    "fiber": 1.5,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-stilton-bake",
+   "name": "Steak & Stilton® Bake",
+   "category": "Savouries & bakes",
+   "serving": "152 g",
+   "nutrients": {
+    "calories": 465,
+    "protein": 17,
+    "carbs": 30,
+    "fat": 30,
+    "saturatedFat": 15,
+    "sugar": 0.7,
+    "fiber": 1.7,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-onion-bake",
+   "name": "Cheese & Onion Bake",
+   "category": "Savouries & bakes",
+   "serving": "141.4 g",
+   "nutrients": {
+    "calories": 436,
+    "protein": 8.6,
+    "carbs": 33,
+    "fat": 30,
+    "saturatedFat": 16,
+    "sugar": 1.4,
+    "fiber": 2,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corned-beef-bake",
+   "name": "Corned Beef Bake",
+   "category": "Savouries & bakes",
+   "serving": "143.37 g",
+   "nutrients": {
+    "calories": 417,
+    "protein": 11,
+    "carbs": 32,
+    "fat": 27,
+    "saturatedFat": 13,
+    "sugar": 1.1,
+    "fiber": 1.7,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-bake",
+   "name": "Vegetable Bake",
+   "category": "Savouries & bakes",
+   "serving": "150.4 g",
+   "nutrients": {
+    "calories": 430,
+    "protein": 8.9,
+    "carbs": 33,
+    "fat": 29,
+    "saturatedFat": 15,
+    "sugar": 2.6,
+    "fiber": 2.4,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-roll-pork-free",
+   "name": "Vegan Roll Pork-Free",
+   "category": "Savouries & bakes",
+   "serving": "101 g",
+   "nutrients": {
+    "calories": 308,
+    "protein": 11,
+    "carbs": 21,
+    "fat": 19,
+    "saturatedFat": 9.3,
+    "sugar": 0.7,
+    "fiber": 2.9,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-rolls",
+   "name": "Chicken Rolls",
+   "category": "Savouries & bakes",
+   "serving": "99 g",
+   "nutrients": {
+    "calories": 305,
+    "protein": 8.5,
+    "carbs": 25,
+    "fat": 19,
+    "saturatedFat": 9,
+    "sugar": 0,
+    "fiber": 1.3,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scotch-pie",
+   "name": "Scotch Pie",
+   "category": "Savouries & bakes",
+   "serving": "139 g",
+   "nutrients": {
+    "calories": 335,
+    "protein": 17,
+    "carbs": 35,
+    "fat": 14,
+    "saturatedFat": 5.6,
+    "sugar": 1,
+    "fiber": 2.2,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "savoury-mince-pie",
+   "name": "Savoury Mince Pie",
+   "category": "Savouries & bakes",
+   "serving": "253 g",
+   "nutrients": {
+    "calories": 860,
+    "protein": 28,
+    "carbs": 61,
+    "fat": 56,
+    "saturatedFat": 23,
+    "sugar": 1.3,
+    "fiber": 3,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-bean-cheese-melt",
+   "name": "Sausage, Bean & Cheese Melt",
+   "category": "Savouries & bakes",
+   "serving": "149.4 g",
+   "nutrients": {
+    "calories": 456,
+    "protein": 11,
+    "carbs": 37,
+    "fat": 28,
+    "saturatedFat": 14,
+    "sugar": 3,
+    "fiber": 3.9,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-scones",
+   "name": "Cheese Scones",
+   "category": "Savouries & bakes",
+   "serving": "97 g",
+   "nutrients": {
+    "calories": 340,
+    "protein": 13,
+    "carbs": 28,
+    "fat": 19,
+    "saturatedFat": 8.9,
+    "sugar": 0.7,
+    "fiber": 1.6,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-cheese-wrap",
+   "name": "Bacon and Cheese Wrap",
+   "category": "Savouries & bakes",
+   "serving": "98 g",
+   "nutrients": {
+    "calories": 358,
+    "protein": 14,
+    "carbs": 25,
+    "fat": 23,
+    "saturatedFat": 12,
+    "sugar": 0,
+    "fiber": 1,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-roll-4-pack",
+   "name": "Sausage Roll 4 Pack",
+   "category": "Savouries & bakes",
+   "serving": "412 g",
+   "nutrients": {
+    "calories": 1388,
+    "protein": 36,
+    "carbs": 95,
+    "fat": 95,
+    "saturatedFat": 45,
+    "sugar": 1.7,
+    "fiber": 6.2,
+    "salt": 6.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-bacon-pizza",
+   "name": "BBQ Chicken & Bacon Pizza",
+   "category": "Pizzas",
+   "serving": "206.76 g",
+   "nutrients": {
+    "calories": 666,
+    "protein": 27,
+    "carbs": 72,
+    "fat": 29,
+    "saturatedFat": 11,
+    "sugar": 12,
+    "fiber": 4.1,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-pizza",
+   "name": "Buffalo Chicken Pizza",
+   "category": "Pizzas",
+   "serving": "211 g",
+   "nutrients": {
+    "calories": 673,
+    "protein": 27,
+    "carbs": 68,
+    "fat": 32,
+    "saturatedFat": 11,
+    "sugar": 6.5,
+    "fiber": 4.2,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita Pizza",
+   "category": "Pizzas",
+   "serving": "160 g",
+   "nutrients": {
+    "calories": 586,
+    "protein": 19,
+    "carbs": 64,
+    "fat": 27,
+    "saturatedFat": 10,
+    "sugar": 4.5,
+    "fiber": 3.5,
+    "salt": 0.88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza",
+   "name": "Pepperoni Pizza",
+   "category": "Pizzas",
+   "serving": "172 g",
+   "nutrients": {
+    "calories": 640,
+    "protein": 21,
+    "carbs": 64,
+    "fat": 33,
+    "saturatedFat": 13,
+    "sugar": 4.5,
+    "fiber": 3.6,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-pizza",
+   "name": "Spicy Chicken Pizza",
+   "category": "Pizzas",
+   "serving": "195 g",
+   "nutrients": {
+    "calories": 606,
+    "protein": 23,
+    "carbs": 64,
+    "fat": 27,
+    "saturatedFat": 10,
+    "sugar": 5.7,
+    "fiber": 4.1,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-feast-pizza",
+   "name": "Veggie Feast Pizza",
+   "category": "Pizzas",
+   "serving": "230 g",
+   "nutrients": {
+    "calories": 614,
+    "protein": 20,
+    "carbs": 69,
+    "fat": 28,
+    "saturatedFat": 10,
+    "sugar": 7.8,
+    "fiber": 4.8,
+    "salt": 0.87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-bacon-pizza-box-2-pack",
+   "name": "BBQ Chicken & Bacon Pizza Box 2 Pack",
+   "category": "Pizza boxes",
+   "serving": "413.5 g",
+   "nutrients": {
+    "calories": 1331,
+    "protein": 54,
+    "carbs": 145,
+    "fat": 58,
+    "saturatedFat": 22,
+    "sugar": 24,
+    "fiber": 8.3,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-bacon-pizza-box-4-pack",
+   "name": "BBQ Chicken & Bacon Pizza Box 4 Pack",
+   "category": "Pizza boxes",
+   "serving": "827 g",
+   "nutrients": {
+    "calories": 2663,
+    "protein": 108,
+    "carbs": 289,
+    "fat": 116,
+    "saturatedFat": 44,
+    "sugar": 47,
+    "fiber": 17,
+    "salt": 5.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-bacon-pizza-box-6-pack",
+   "name": "BBQ Chicken & Bacon Pizza Box 6 Pack",
+   "category": "Pizza boxes",
+   "serving": "1240.6 g",
+   "nutrients": {
+    "calories": 3995,
+    "protein": 161,
+    "carbs": 434,
+    "fat": 174,
+    "saturatedFat": 66,
+    "sugar": 71,
+    "fiber": 25,
+    "salt": 8.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-pizza-box-2-pack",
+   "name": "Buffalo Chicken Pizza Box 2 Pack",
+   "category": "Pizza boxes",
+   "serving": "422 g",
+   "nutrients": {
+    "calories": 1346,
+    "protein": 55,
+    "carbs": 135,
+    "fat": 63,
+    "saturatedFat": 22,
+    "sugar": 13,
+    "fiber": 8.4,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-pizza-box-4-pack",
+   "name": "Buffalo Chicken Pizza Box 4 Pack",
+   "category": "Pizza boxes",
+   "serving": "844 g",
+   "nutrients": {
+    "calories": 2692,
+    "protein": 110,
+    "carbs": 270,
+    "fat": 127,
+    "saturatedFat": 43,
+    "sugar": 26,
+    "fiber": 17,
+    "salt": 5.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-pizza-box-6-pack",
+   "name": "Buffalo Chicken Pizza Box 6 Pack",
+   "category": "Pizza boxes",
+   "serving": "1266 g",
+   "nutrients": {
+    "calories": 4039,
+    "protein": 165,
+    "carbs": 405,
+    "fat": 190,
+    "saturatedFat": 65,
+    "sugar": 39,
+    "fiber": 25,
+    "salt": 8.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-box-2-pack",
+   "name": "Margherita Pizza Box 2 Pack",
+   "category": "Pizza boxes",
+   "serving": "320 g",
+   "nutrients": {
+    "calories": 1171,
+    "protein": 38,
+    "carbs": 128,
+    "fat": 54,
+    "saturatedFat": 20,
+    "sugar": 9,
+    "fiber": 7,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-box-4-pack",
+   "name": "Margherita Pizza Box 4 Pack",
+   "category": "Pizza boxes",
+   "serving": "640 g",
+   "nutrients": {
+    "calories": 2342,
+    "protein": 77,
+    "carbs": 256,
+    "fat": 109,
+    "saturatedFat": 41,
+    "sugar": 18,
+    "fiber": 14,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-box-6-pack",
+   "name": "Margherita Pizza Box 6 Pack",
+   "category": "Pizza boxes",
+   "serving": "960 g",
+   "nutrients": {
+    "calories": 3514,
+    "protein": 115,
+    "carbs": 384,
+    "fat": 163,
+    "saturatedFat": 61,
+    "sugar": 27,
+    "fiber": 21,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-box-2-pack",
+   "name": "Pepperoni Pizza Box 2 Pack",
+   "category": "Pizza boxes",
+   "serving": "344 g",
+   "nutrients": {
+    "calories": 1280,
+    "protein": 41,
+    "carbs": 127,
+    "fat": 65,
+    "saturatedFat": 25,
+    "sugar": 8.9,
+    "fiber": 7.2,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-box-4-pack",
+   "name": "Pepperoni Pizza Box 4 Pack",
+   "category": "Pizza boxes",
+   "serving": "688 g",
+   "nutrients": {
+    "calories": 2559,
+    "protein": 83,
+    "carbs": 255,
+    "fat": 131,
+    "saturatedFat": 51,
+    "sugar": 18,
+    "fiber": 14,
+    "salt": 5.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-box-6-pack",
+   "name": "Pepperoni Pizza Box 6 Pack",
+   "category": "Pizza boxes",
+   "serving": "1032 g",
+   "nutrients": {
+    "calories": 3839,
+    "protein": 124,
+    "carbs": 382,
+    "fat": 196,
+    "saturatedFat": 76,
+    "sugar": 27,
+    "fiber": 22,
+    "salt": 8.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-pizza-box-2-pack",
+   "name": "Spicy Chicken Pizza Box 2 Pack",
+   "category": "Pizza boxes",
+   "serving": "390 g",
+   "nutrients": {
+    "calories": 1213,
+    "protein": 47,
+    "carbs": 129,
+    "fat": 55,
+    "saturatedFat": 21,
+    "sugar": 11,
+    "fiber": 8.2,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-pizza-box-4-pack",
+   "name": "Spicy Chicken Pizza Box 4 Pack",
+   "category": "Pizza boxes",
+   "serving": "780 g",
+   "nutrients": {
+    "calories": 2426,
+    "protein": 94,
+    "carbs": 257,
+    "fat": 109,
+    "saturatedFat": 41,
+    "sugar": 23,
+    "fiber": 16,
+    "salt": 4.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-pizza-box-6-pack",
+   "name": "Spicy Chicken Pizza Box 6 Pack",
+   "category": "Pizza boxes",
+   "serving": "1170 g",
+   "nutrients": {
+    "calories": 3639,
+    "protein": 140,
+    "carbs": 386,
+    "fat": 164,
+    "saturatedFat": 62,
+    "sugar": 34,
+    "fiber": 25,
+    "salt": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-feast-pizza-box-2-pack",
+   "name": "Veggie Feast Pizza Box 2 Pack",
+   "category": "Pizza boxes",
+   "serving": "460 g",
+   "nutrients": {
+    "calories": 1228,
+    "protein": 39,
+    "carbs": 138,
+    "fat": 55,
+    "saturatedFat": 21,
+    "sugar": 16,
+    "fiber": 9.7,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-feast-pizza-box-4-pack",
+   "name": "Veggie Feast Pizza Box 4 Pack",
+   "category": "Pizza boxes",
+   "serving": "920 g",
+   "nutrients": {
+    "calories": 2456,
+    "protein": 78,
+    "carbs": 276,
+    "fat": 110,
+    "saturatedFat": 41,
+    "sugar": 31,
+    "fiber": 19,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-feast-pizza-box-6-pack",
+   "name": "Veggie Feast Pizza Box 6 Pack",
+   "category": "Pizza boxes",
+   "serving": "1380 g",
+   "nutrients": {
+    "calories": 3685,
+    "protein": 117,
+    "carbs": 414,
+    "fat": 166,
+    "saturatedFat": 62,
+    "sugar": 47,
+    "fiber": 29,
+    "salt": 5.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-cheese",
+   "name": "Mac & Cheese",
+   "category": "Hot food",
+   "serving": "324.46 g",
+   "nutrients": {
+    "calories": 616,
+    "protein": 27,
+    "carbs": 45,
+    "fat": 36,
+    "saturatedFat": 18,
+    "sugar": 5.2,
+    "fiber": 2.3,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-soup",
+   "name": "Tomato Soup",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 4.8,
+    "carbs": 25,
+    "fat": 8.1,
+    "saturatedFat": 1.5,
+    "sugar": 22,
+    "fiber": 1.8,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-chicken-goujons",
+   "name": "Southern Fried Chicken Goujons",
+   "category": "Hot food",
+   "serving": "160 g",
+   "nutrients": {
+    "calories": 400,
+    "protein": 27,
+    "carbs": 32,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 0,
+    "fiber": 2.1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-bbq-chicken-bites",
+   "name": "Spicy BBQ Chicken Bites",
+   "category": "Hot food",
+   "serving": "104 g",
+   "nutrients": {
+    "calories": 286,
+    "protein": 19,
+    "carbs": 22,
+    "fat": 14,
+    "saturatedFat": 5.7,
+    "sugar": 2.4,
+    "fiber": 1,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-cheddar-bites",
+   "name": "Mozzarella & Cheddar Bites",
+   "category": "Hot food",
+   "serving": "96.834 g",
+   "nutrients": {
+    "calories": 322,
+    "protein": 13,
+    "carbs": 22,
+    "fat": 20,
+    "saturatedFat": 9.5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-bites-meal-box",
+   "name": "BBQ Bites Meal Box",
+   "category": "Hot food",
+   "serving": "254 g",
+   "nutrients": {
+    "calories": 526,
+    "protein": 21,
+    "carbs": 61,
+    "fat": 21,
+    "saturatedFat": 6.4,
+    "sugar": 2.8,
+    "fiber": 4.6,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-caramelised-onion-toastie",
+   "name": "Cheese and Caramelised Onion Toastie",
+   "category": "Hot food",
+   "serving": "208.32 g",
+   "nutrients": {
+    "calories": 548,
+    "protein": 25,
+    "carbs": 69,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 15,
+    "fiber": 3.7,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-pepperoni-pizza-toastie",
+   "name": "Chicken & Pepperoni Pizza Toastie",
+   "category": "Hot food",
+   "serving": "208 g",
+   "nutrients": {
+    "calories": 572,
+    "protein": 27,
+    "carbs": 62,
+    "fat": 23,
+    "saturatedFat": 9.6,
+    "sugar": 9.6,
+    "fiber": 4,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-toastie",
+   "name": "Ham and Cheese Toastie",
+   "category": "Hot food",
+   "serving": "207.36 g",
+   "nutrients": {
+    "calories": 543,
+    "protein": 31,
+    "carbs": 58,
+    "fat": 20,
+    "saturatedFat": 11,
+    "sugar": 6.2,
+    "fiber": 3.3,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-and-bacon-melt-baguette",
+   "name": "BBQ Chicken and Bacon Melt Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "267.3 g",
+   "nutrients": {
+    "calories": 658,
+    "protein": 35,
+    "carbs": 91,
+    "fat": 16,
+    "saturatedFat": 8,
+    "sugar": 13,
+    "fiber": 4.3,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt",
+   "name": "BLT",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "187 g",
+   "nutrients": {
+    "calories": 406,
+    "protein": 19,
+    "carbs": 45,
+    "fat": 16,
+    "saturatedFat": 4.1,
+    "sugar": 8.2,
+    "fiber": 4.3,
+    "salt": 1.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-onion-stottie",
+   "name": "Cheese & Onion Stottie",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "235.6 g",
+   "nutrients": {
+    "calories": 575,
+    "protein": 23,
+    "carbs": 71,
+    "fat": 21,
+    "saturatedFat": 9,
+    "sugar": 11,
+    "fiber": 4.9,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-pickle",
+   "name": "Cheese & Pickle",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "144 g",
+   "nutrients": {
+    "calories": 397,
+    "protein": 16,
+    "carbs": 46,
+    "fat": 16,
+    "saturatedFat": 7.5,
+    "sugar": 8.9,
+    "fiber": 3.7,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-tomato",
+   "name": "Cheese & Tomato",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "177 g",
+   "nutrients": {
+    "calories": 384,
+    "protein": 16,
+    "carbs": 42,
+    "fat": 16,
+    "saturatedFat": 7.4,
+    "sugar": 6.4,
+    "fiber": 4.1,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-sandwich",
+   "name": "Cheese Sandwich",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "114 g",
+   "nutrients": {
+    "calories": 308,
+    "protein": 14,
+    "carbs": 36,
+    "fat": 11,
+    "saturatedFat": 5.2,
+    "sugar": 4.6,
+    "fiber": 3.6,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-tomato",
+   "name": "Egg Mayonnaise & Tomato",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "185.3 g",
+   "nutrients": {
+    "calories": 347,
+    "protein": 14,
+    "carbs": 44,
+    "fat": 11,
+    "saturatedFat": 1.9,
+    "sugar": 7,
+    "fiber": 4.4,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-sandwich",
+   "name": "Egg Mayonnaise Sandwich",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "149.3 g",
+   "nutrients": {
+    "calories": 317,
+    "protein": 15,
+    "carbs": 39,
+    "fat": 10,
+    "saturatedFat": 1.8,
+    "sugar": 5.4,
+    "fiber": 4.2,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "free-range-egg-mayonnaise-baguette",
+   "name": "Free Range Egg Mayonnaise Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "241 g",
+   "nutrients": {
+    "calories": 509,
+    "protein": 19,
+    "carbs": 63,
+    "fat": 19,
+    "saturatedFat": 2.9,
+    "sugar": 5.3,
+    "fiber": 3.9,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "free-range-egg-mayonnaise-half-baguette",
+   "name": "Free Range Egg Mayonnaise Half Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "120.5 g",
+   "nutrients": {
+    "calories": 254,
+    "protein": 9.5,
+    "carbs": 31,
+    "fat": 9.6,
+    "saturatedFat": 1.4,
+    "sugar": 2.7,
+    "fiber": 1.9,
+    "salt": 0.94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "free-range-egg-mayonnaise",
+   "name": "Free Range Egg Mayonnaise",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "161.3 g",
+   "nutrients": {
+    "calories": 358,
+    "protein": 16,
+    "carbs": 44,
+    "fat": 12,
+    "saturatedFat": 2.1,
+    "sugar": 6,
+    "fiber": 4,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-cheese-baguette",
+   "name": "Ham & Cheese Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "196 g",
+   "nutrients": {
+    "calories": 482,
+    "protein": 27,
+    "carbs": 57,
+    "fat": 15,
+    "saturatedFat": 8,
+    "sugar": 2.9,
+    "fiber": 2.7,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-sandwich",
+   "name": "Ham Sandwich",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "126 g",
+   "nutrients": {
+    "calories": 258,
+    "protein": 15,
+    "carbs": 37,
+    "fat": 4.9,
+    "saturatedFat": 1.1,
+    "sugar": 4.5,
+    "fiber": 3.7,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-roast-ham-egg-salad",
+   "name": "Honey Roast Ham & Egg Salad",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "191 g",
+   "nutrients": {
+    "calories": 329,
+    "protein": 17,
+    "carbs": 44,
+    "fat": 8.6,
+    "saturatedFat": 1.1,
+    "sugar": 6.9,
+    "fiber": 4,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-roast-ham-and-egg-salad-roll",
+   "name": "Honey Roast Ham and Egg Salad Roll",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "196 g",
+   "nutrients": {
+    "calories": 333,
+    "protein": 18,
+    "carbs": 41,
+    "fat": 9.6,
+    "saturatedFat": 1.4,
+    "sugar": 7.4,
+    "fiber": 4.9,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-buffalo-chicken-baguette",
+   "name": "Hot Buffalo Chicken Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "220 g",
+   "nutrients": {
+    "calories": 506,
+    "protein": 29,
+    "carbs": 64,
+    "fat": 14,
+    "saturatedFat": 3.7,
+    "sugar": 6.8,
+    "fiber": 3.7,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-ham-cheese-baguette",
+   "name": "Hot Ham & Cheese Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "188.16 g",
+   "nutrients": {
+    "calories": 484,
+    "protein": 28,
+    "carbs": 56,
+    "fat": 15,
+    "saturatedFat": 7.9,
+    "sugar": 3,
+    "fiber": 2.8,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-mexican-chicken-baguette",
+   "name": "Hot Mexican Chicken Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "226.08 g",
+   "nutrients": {
+    "calories": 495,
+    "protein": 27,
+    "carbs": 75,
+    "fat": 8.8,
+    "saturatedFat": 4.1,
+    "sugar": 18,
+    "fiber": 4.1,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mature-cheddar-cheese-ploughmans-oval-bite",
+   "name": "Mature Cheddar Cheese Ploughman's Oval Bite",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "227 g",
+   "nutrients": {
+    "calories": 456,
+    "protein": 20,
+    "carbs": 52,
+    "fat": 17,
+    "saturatedFat": 7.9,
+    "sugar": 13,
+    "fiber": 5.9,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mature-cheddar-cheese-salad-baguette",
+   "name": "Mature Cheddar Cheese Salad Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "210 g",
+   "nutrients": {
+    "calories": 441,
+    "protein": 18,
+    "carbs": 59,
+    "fat": 14,
+    "saturatedFat": 7.6,
+    "sugar": 4.2,
+    "fiber": 3.4,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-chicken-baguette",
+   "name": "Mexican Chicken Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "235.5 g",
+   "nutrients": {
+    "calories": 492,
+    "protein": 28,
+    "carbs": 73,
+    "fat": 8.7,
+    "saturatedFat": 4,
+    "sugar": 17,
+    "fiber": 4,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-chicken-flatbread",
+   "name": "Mexican Chicken Flatbread",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "197 g",
+   "nutrients": {
+    "calories": 374,
+    "protein": 24,
+    "carbs": 49,
+    "fat": 8.1,
+    "saturatedFat": 1,
+    "sugar": 16,
+    "fiber": 5.1,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-chicken-oval-bite",
+   "name": "Mexican Chicken Oval Bite",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "217 g",
+   "nutrients": {
+    "calories": 462,
+    "protein": 26,
+    "carbs": 63,
+    "fat": 10,
+    "saturatedFat": 1.3,
+    "sugar": 21,
+    "fiber": 5.9,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-chicken-sandwich",
+   "name": "Mexican Chicken Sandwich",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "176 g",
+   "nutrients": {
+    "calories": 350,
+    "protein": 23,
+    "carbs": 49,
+    "fat": 6,
+    "saturatedFat": 0.9,
+    "sugar": 12,
+    "fiber": 4.2,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-chicken-and-bacon-club-baguette",
+   "name": "Roast Chicken and Bacon Club Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "239.1 g",
+   "nutrients": {
+    "calories": 457,
+    "protein": 24,
+    "carbs": 62,
+    "fat": 12,
+    "saturatedFat": 2.4,
+    "sugar": 5.5,
+    "fiber": 3.6,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-chicken-and-bacon-club-half-baguette",
+   "name": "Roast Chicken and Bacon Club Half Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "119.55 g",
+   "nutrients": {
+    "calories": 228,
+    "protein": 12,
+    "carbs": 31,
+    "fat": 5.9,
+    "saturatedFat": 1.2,
+    "sugar": 2.7,
+    "fiber": 1.8,
+    "salt": 0.84
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-chicken-mayonnaise-baguette",
+   "name": "Roast Chicken Mayonnaise Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "222.4 g",
+   "nutrients": {
+    "calories": 458,
+    "protein": 24,
+    "carbs": 62,
+    "fat": 12,
+    "saturatedFat": 1.3,
+    "sugar": 4.4,
+    "fiber": 3.3,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-chicken-salad",
+   "name": "Roast Chicken Salad",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "197.1 g",
+   "nutrients": {
+    "calories": 349,
+    "protein": 19,
+    "carbs": 45,
+    "fat": 9.5,
+    "saturatedFat": 1,
+    "sugar": 6.9,
+    "fiber": 4.1,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-chicken-salad-roll",
+   "name": "Roast Chicken Salad Roll",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "198.1 g",
+   "nutrients": {
+    "calories": 357,
+    "protein": 22,
+    "carbs": 44,
+    "fat": 9.5,
+    "saturatedFat": 1,
+    "sugar": 7.7,
+    "fiber": 5,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-chicken-with-honey-mustard-mayonnaise-oval-bite",
+   "name": "Roast Chicken with Honey Mustard Mayonnaise Oval Bite",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "227 g",
+   "nutrients": {
+    "calories": 411,
+    "protein": 27,
+    "carbs": 50,
+    "fat": 10,
+    "saturatedFat": 1.4,
+    "sugar": 11,
+    "fiber": 6.4,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-chicken-baguette",
+   "name": "Southern Fried Chicken Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "223.68 g",
+   "nutrients": {
+    "calories": 557,
+    "protein": 25,
+    "carbs": 83,
+    "fat": 13,
+    "saturatedFat": 6.5,
+    "sugar": 16,
+    "fiber": 4.2,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tandoori-chicken",
+   "name": "Tandoori Chicken",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "167.5 g",
+   "nutrients": {
+    "calories": 350,
+    "protein": 18,
+    "carbs": 47,
+    "fat": 8.9,
+    "saturatedFat": 1,
+    "sugar": 8,
+    "fiber": 4.2,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tandoori-chicken-baguette",
+   "name": "Tandoori Chicken Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "223 g",
+   "nutrients": {
+    "calories": 459,
+    "protein": 25,
+    "carbs": 65,
+    "fat": 11,
+    "saturatedFat": 1.3,
+    "sugar": 7.1,
+    "fiber": 3.6,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tandoori-chicken-half-baguette",
+   "name": "Tandoori Chicken Half Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "111.5 g",
+   "nutrients": {
+    "calories": 230,
+    "protein": 12,
+    "carbs": 32,
+    "fat": 5.4,
+    "saturatedFat": 0.7,
+    "sugar": 3.6,
+    "fiber": 1.8,
+    "salt": 0.78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tandoori-chicken-roll",
+   "name": "Tandoori Chicken Roll",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "196 g",
+   "nutrients": {
+    "calories": 349,
+    "protein": 20,
+    "carbs": 43,
+    "fat": 9.8,
+    "saturatedFat": 1,
+    "sugar": 9.2,
+    "fiber": 5.1,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-crunch-baguette",
+   "name": "Tuna Crunch Baguette",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "236 g",
+   "nutrients": {
+    "calories": 413,
+    "protein": 26,
+    "carbs": 64,
+    "fat": 5.2,
+    "saturatedFat": 0.7,
+    "sugar": 7.6,
+    "fiber": 3.8,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-crunch-roll",
+   "name": "Tuna Crunch Roll",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "187 g",
+   "nutrients": {
+    "calories": 318,
+    "protein": 21,
+    "carbs": 43,
+    "fat": 6,
+    "saturatedFat": 0.7,
+    "sugar": 9.4,
+    "fiber": 5.2,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-cucumber",
+   "name": "Tuna Mayonnaise & Cucumber",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "189.2 g",
+   "nutrients": {
+    "calories": 329,
+    "protein": 21,
+    "carbs": 44,
+    "fat": 7.2,
+    "saturatedFat": 0.8,
+    "sugar": 6.2,
+    "fiber": 3.8,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-stottie",
+   "name": "Tuna Mayonnaise Stottie",
+   "category": "Sandwiches, rolls & baguettes",
+   "serving": "252.6 g",
+   "nutrients": {
+    "calories": 482,
+    "protein": 30,
+    "carbs": 68,
+    "fat": 8.8,
+    "saturatedFat": 1,
+    "sugar": 9.3,
+    "fiber": 4.5,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad-with-egg",
+   "name": "Chicken Caesar Salad with Egg",
+   "category": "Salads & pasta",
+   "serving": "235 g",
+   "nutrients": {
+    "calories": 454,
+    "protein": 28,
+    "carbs": 15,
+    "fat": 31,
+    "saturatedFat": 5.4,
+    "sugar": 2.8,
+    "fiber": 1.9,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-layered-pasta-salad",
+   "name": "Prawn Layered Pasta Salad",
+   "category": "Salads & pasta",
+   "serving": "290 g",
+   "nutrients": {
+    "calories": 339,
+    "protein": 12,
+    "carbs": 44,
+    "fat": 12,
+    "saturatedFat": 1.5,
+    "sugar": 7.8,
+    "fiber": 3.2,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-and-bacon-pasta",
+   "name": "BBQ Chicken and Bacon Pasta",
+   "category": "Salads & pasta",
+   "serving": "285 g",
+   "nutrients": {
+    "calories": 487,
+    "protein": 26,
+    "carbs": 51,
+    "fat": 19,
+    "saturatedFat": 2.9,
+    "sugar": 8.8,
+    "fiber": 3.4,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-and-mozzarella-pasta",
+   "name": "Tomato and Mozzarella Pasta",
+   "category": "Salads & pasta",
+   "serving": "285 g",
+   "nutrients": {
+    "calories": 522,
+    "protein": 15,
+    "carbs": 51,
+    "fat": 28,
+    "saturatedFat": 6,
+    "sugar": 7.1,
+    "fiber": 4.3,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-browns",
+   "name": "Hash Browns",
+   "category": "Snacks & sides",
+   "serving": "76.4 g",
+   "nutrients": {
+    "calories": 154,
+    "protein": 1.1,
+    "carbs": 22,
+    "fat": 6.3,
+    "saturatedFat": 0.7,
+    "sugar": 0,
+    "fiber": 1.6,
+    "salt": 0.53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-potato-wedges",
+   "name": "Southern Fried Potato Wedges",
+   "category": "Snacks & sides",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 240,
+    "protein": 3.6,
+    "carbs": 38,
+    "fat": 7.7,
+    "saturatedFat": 0.8,
+    "sugar": 1.2,
+    "fiber": 3.6,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "side-salad",
+   "name": "Side Salad",
+   "category": "Snacks & sides",
+   "serving": "96 g",
+   "nutrients": {
+    "calories": 14,
+    "protein": 1.1,
+    "carbs": 1.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.6,
+    "fiber": 1.1,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "free-range-egg-pot",
+   "name": "Free Range Egg Pot",
+   "category": "Snacks & sides",
+   "serving": "90 g",
+   "nutrients": {
+    "calories": 127,
+    "protein": 12,
+    "carbs": 1.3,
+    "fat": 8.2,
+    "saturatedFat": 2.6,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-strawberry-fruit-pot",
+   "name": "Apple and Strawberry Fruit Pot",
+   "category": "Snacks & sides",
+   "serving": "90 g",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.5,
+    "carbs": 8.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.7,
+    "fiber": 1.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-fruit-pot",
+   "name": "Pineapple Fruit Pot",
+   "category": "Snacks & sides",
+   "serving": "110 g",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0.6,
+    "carbs": 12,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 1.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fat-free-greek-style-yoghurt-with-strawberry-compote",
+   "name": "Fat Free Greek Style Yoghurt with Strawberry Compote",
+   "category": "Snacks & sides",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 114,
+    "protein": 7.1,
+    "carbs": 20,
+    "fat": 0.7,
+    "saturatedFat": 0.1,
+    "sugar": 17,
+    "fiber": 0.7,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "greggs-mature-cheddar-onion-hand-cooked-crisps-40g",
+   "name": "Greggs Mature Cheddar & Onion Hand Cooked Crisps 40g",
+   "category": "Snacks & sides",
+   "serving": "40 g",
+   "nutrients": {
+    "calories": 200,
+    "protein": 3,
+    "carbs": 23,
+    "fat": 10,
+    "saturatedFat": 1,
+    "sugar": 0.9,
+    "fiber": 1.6,
+    "salt": 0.52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "greggs-sea-salt-cider-vinegar-hand-cooked-crisps-40g",
+   "name": "Greggs Sea Salt & Cider Vinegar Hand Cooked Crisps 40g",
+   "category": "Snacks & sides",
+   "serving": "40 g",
+   "nutrients": {
+    "calories": 200,
+    "protein": 2.7,
+    "carbs": 23,
+    "fat": 10,
+    "saturatedFat": 0.9,
+    "sugar": 0.7,
+    "fiber": 1.4,
+    "salt": 0.68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "greggs-thai-sweet-chilli-flavour-hand-cooked-crisps-40g",
+   "name": "Greggs Thai Sweet Chilli Flavour Hand Cooked Crisps 40g",
+   "category": "Snacks & sides",
+   "serving": "40 g",
+   "nutrients": {
+    "calories": 201,
+    "protein": 2.8,
+    "carbs": 23,
+    "fat": 10,
+    "saturatedFat": 0.9,
+    "sugar": 1.7,
+    "fiber": 1.5,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "all-butter-croissant",
+   "name": "All Butter Croissant",
+   "category": "Sweet treats & pastries",
+   "serving": "79 g",
+   "nutrients": {
+    "calories": 292,
+    "protein": 7.1,
+    "carbs": 35,
+    "fat": 13,
+    "saturatedFat": 8.7,
+    "sugar": 4.4,
+    "fiber": 2.1,
+    "salt": 0.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-danish",
+   "name": "Apple Danish",
+   "category": "Sweet treats & pastries",
+   "serving": "116.7 g",
+   "nutrients": {
+    "calories": 324,
+    "protein": 4.7,
+    "carbs": 55,
+    "fat": 9.2,
+    "saturatedFat": 4,
+    "sugar": 28,
+    "fiber": 1.9,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bavarian-slice",
+   "name": "Bavarian Slice",
+   "category": "Sweet treats & pastries",
+   "serving": "127 g",
+   "nutrients": {
+    "calories": 376,
+    "protein": 4.3,
+    "carbs": 52,
+    "fat": 17,
+    "saturatedFat": 9.7,
+    "sugar": 29,
+    "fiber": 1,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belgian-buns",
+   "name": "Belgian Buns",
+   "category": "Sweet treats & pastries",
+   "serving": "122.5 g",
+   "nutrients": {
+    "calories": 371,
+    "protein": 6.1,
+    "carbs": 78,
+    "fat": 3.2,
+    "saturatedFat": 1.1,
+    "sugar": 47,
+    "fiber": 2.2,
+    "salt": 0.53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bonfire-toffee-muffin",
+   "name": "Bonfire Toffee Muffin",
+   "category": "Sweet treats & pastries",
+   "serving": "103 g",
+   "nutrients": {
+    "calories": 363,
+    "protein": 4.7,
+    "carbs": 52,
+    "fat": 14,
+    "saturatedFat": 4.3,
+    "sugar": 31,
+    "fiber": 4.1,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-crispy",
+   "name": "Caramel Crispy",
+   "category": "Sweet treats & pastries",
+   "serving": "50 g",
+   "nutrients": {
+    "calories": 242,
+    "protein": 2.2,
+    "carbs": 35,
+    "fat": 11,
+    "saturatedFat": 6.5,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-custard-doughnut",
+   "name": "Caramel Custard Doughnut",
+   "category": "Sweet treats & pastries",
+   "serving": "97 g",
+   "nutrients": {
+    "calories": 274,
+    "protein": 4.1,
+    "carbs": 40,
+    "fat": 11,
+    "saturatedFat": 4.8,
+    "sugar": 16,
+    "fiber": 1.1,
+    "salt": 0.68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-brownie-bar",
+   "name": "Chocolate Brownie Bar",
+   "category": "Sweet treats & pastries",
+   "serving": "50 g",
+   "nutrients": {
+    "calories": 215,
+    "protein": 2.6,
+    "carbs": 26,
+    "fat": 11,
+    "saturatedFat": 2.7,
+    "sugar": 19,
+    "fiber": 0.7,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cake-bar",
+   "name": "Chocolate Cake Bar",
+   "category": "Sweet treats & pastries",
+   "serving": "74 g",
+   "nutrients": {
+    "calories": 298,
+    "protein": 5.2,
+    "carbs": 32,
+    "fat": 16,
+    "saturatedFat": 7,
+    "sugar": 23,
+    "fiber": 5,
+    "salt": 0.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-eclair",
+   "name": "Cream Éclair",
+   "category": "Sweet treats & pastries",
+   "serving": "81 g",
+   "nutrients": {
+    "calories": 323,
+    "protein": 4.2,
+    "carbs": 25,
+    "fat": 23,
+    "saturatedFat": 12,
+    "sugar": 16,
+    "fiber": 0.9,
+    "salt": 0.19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-iced-finger",
+   "name": "Cream Iced Finger",
+   "category": "Sweet treats & pastries",
+   "serving": "111 g",
+   "nutrients": {
+    "calories": 372,
+    "protein": 5.7,
+    "carbs": 47,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 21,
+    "fiber": 1.3,
+    "salt": 0.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "empire-biscuit",
+   "name": "Empire Biscuit",
+   "category": "Sweet treats & pastries",
+   "serving": "68.5 g",
+   "nutrients": {
+    "calories": 284,
+    "protein": 2.3,
+    "carbs": 45,
+    "fat": 9.6,
+    "saturatedFat": 3.4,
+    "sugar": 26,
+    "fiber": 4.9,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-scones",
+   "name": "Fruit Scones",
+   "category": "Sweet treats & pastries",
+   "serving": "96 g",
+   "nutrients": {
+    "calories": 299,
+    "protein": 6.3,
+    "carbs": 48,
+    "fat": 8.6,
+    "saturatedFat": 3,
+    "sugar": 19,
+    "fiber": 1.8,
+    "salt": 0.96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruity-flapjack",
+   "name": "Fruity Flapjack",
+   "category": "Sweet treats & pastries",
+   "serving": "60 g",
+   "nutrients": {
+    "calories": 253,
+    "protein": 3.9,
+    "carbs": 34,
+    "fat": 11,
+    "saturatedFat": 3.5,
+    "sugar": 25,
+    "fiber": 1.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gingerbread-men",
+   "name": "Gingerbread Men",
+   "category": "Sweet treats & pastries",
+   "serving": "42 g",
+   "nutrients": {
+    "calories": 176,
+    "protein": 2.4,
+    "carbs": 30,
+    "fat": 4.6,
+    "saturatedFat": 1.6,
+    "sugar": 13,
+    "fiber": 2.9,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "glazed-ring-doughnuts",
+   "name": "Glazed Ring Doughnuts",
+   "category": "Sweet treats & pastries",
+   "serving": "58 g",
+   "nutrients": {
+    "calories": 201,
+    "protein": 1.9,
+    "carbs": 35,
+    "fat": 5.8,
+    "saturatedFat": 2.3,
+    "sugar": 21,
+    "fiber": 0.8,
+    "salt": 0.16
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "glazed-ring-doughnuts-2-pack",
+   "name": "Glazed Ring Doughnuts (2 pack)",
+   "category": "Sweet treats & pastries",
+   "serving": "116 g",
+   "nutrients": {
+    "calories": 401,
+    "protein": 3.8,
+    "carbs": 70,
+    "fat": 12,
+    "saturatedFat": 4.5,
+    "sugar": 42,
+    "fiber": 1.5,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-brownies",
+   "name": "Hot Chocolate Brownies",
+   "category": "Sweet treats & pastries",
+   "serving": "168 g",
+   "nutrients": {
+    "calories": 758,
+    "protein": 11,
+    "carbs": 91,
+    "fat": 39,
+    "saturatedFat": 11,
+    "sugar": 59,
+    "fiber": 2,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-milk-chocolate-cookies",
+   "name": "Hot Milk Chocolate Cookies",
+   "category": "Sweet treats & pastries",
+   "serving": "140 g",
+   "nutrients": {
+    "calories": 686,
+    "protein": 8.3,
+    "carbs": 76,
+    "fat": 36,
+    "saturatedFat": 14,
+    "sugar": 41,
+    "fiber": 11,
+    "salt": 0.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-yum-yums",
+   "name": "Hot Yum Yums",
+   "category": "Sweet treats & pastries",
+   "serving": "156.4 g",
+   "nutrients": {
+    "calories": 619,
+    "protein": 7.4,
+    "carbs": 69,
+    "fat": 34,
+    "saturatedFat": 17,
+    "sugar": 33,
+    "fiber": 2.2,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jam-doughnut",
+   "name": "Jam Doughnut",
+   "category": "Sweet treats & pastries",
+   "serving": "76 g",
+   "nutrients": {
+    "calories": 236,
+    "protein": 4,
+    "carbs": 37,
+    "fat": 7.6,
+    "saturatedFat": 3.5,
+    "sugar": 15,
+    "fiber": 1.6,
+    "salt": 0.57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jammy-heart-biscuit",
+   "name": "Jammy Heart Biscuit",
+   "category": "Sweet treats & pastries",
+   "serving": "59 g",
+   "nutrients": {
+    "calories": 271,
+    "protein": 3.1,
+    "carbs": 35,
+    "fat": 13,
+    "saturatedFat": 7.7,
+    "sugar": 13,
+    "fiber": 1.1,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-caramel-shortbread-offcuts",
+   "name": "Milk Chocolate Caramel Shortbread Offcuts",
+   "category": "Sweet treats & pastries",
+   "serving": "265 g",
+   "nutrients": {
+    "calories": 1253,
+    "protein": 15,
+    "carbs": 154,
+    "fat": 64,
+    "saturatedFat": 32,
+    "sugar": 114,
+    "fiber": 3.2,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-caramel-shortbreads",
+   "name": "Milk Chocolate Caramel Shortbreads",
+   "category": "Sweet treats & pastries",
+   "serving": "62 g",
+   "nutrients": {
+    "calories": 288,
+    "protein": 3.5,
+    "carbs": 36,
+    "fat": 14,
+    "saturatedFat": 7.4,
+    "sugar": 27,
+    "fiber": 0.7,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-cookies",
+   "name": "Milk Chocolate Cookies",
+   "category": "Sweet treats & pastries",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 343,
+    "protein": 4.1,
+    "carbs": 38,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 20,
+    "fiber": 5.6,
+    "salt": 0.37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "novelty-bun-pink",
+   "name": "Novelty Bun (pink)",
+   "category": "Sweet treats & pastries",
+   "serving": "49.4 g",
+   "nutrients": {
+    "calories": 196,
+    "protein": 1.6,
+    "carbs": 26,
+    "fat": 8.9,
+    "saturatedFat": 2,
+    "sugar": 18,
+    "fiber": 2.1,
+    "salt": 0.37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "novelty-bun-white",
+   "name": "Novelty Bun (white)",
+   "category": "Sweet treats & pastries",
+   "serving": "49.5 g",
+   "nutrients": {
+    "calories": 196,
+    "protein": 1.6,
+    "carbs": 26,
+    "fat": 8.9,
+    "saturatedFat": 2,
+    "sugar": 19,
+    "fiber": 2.1,
+    "salt": 0.37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain au Chocolat",
+   "category": "Sweet treats & pastries",
+   "serving": "79 g",
+   "nutrients": {
+    "calories": 299,
+    "protein": 6.6,
+    "carbs": 35,
+    "fat": 14,
+    "saturatedFat": 9.5,
+    "sugar": 7.9,
+    "fiber": 2.4,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-melba",
+   "name": "Peach Melba",
+   "category": "Sweet treats & pastries",
+   "serving": "99 g",
+   "nutrients": {
+    "calories": 369,
+    "protein": 2.6,
+    "carbs": 43,
+    "fat": 21,
+    "saturatedFat": 11,
+    "sugar": 27,
+    "fiber": 0.9,
+    "salt": 0.13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-cake",
+   "name": "Pineapple Cake",
+   "category": "Sweet treats & pastries",
+   "serving": "69 g",
+   "nutrients": {
+    "calories": 248,
+    "protein": 1.6,
+    "carbs": 41,
+    "fat": 8.3,
+    "saturatedFat": 4.1,
+    "sugar": 28,
+    "fiber": 0.6,
+    "salt": 0.19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-jammie-doughnut",
+   "name": "Pink Jammie Doughnut",
+   "category": "Sweet treats & pastries",
+   "serving": "90 g",
+   "nutrients": {
+    "calories": 309,
+    "protein": 4.1,
+    "carbs": 46,
+    "fat": 12,
+    "saturatedFat": 5.6,
+    "sugar": 23,
+    "fiber": 1.5,
+    "salt": 0.59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-doughnut",
+   "name": "Pumpkin Spice Doughnut",
+   "category": "Sweet treats & pastries",
+   "serving": "92 g",
+   "nutrients": {
+    "calories": 310,
+    "protein": 4.3,
+    "carbs": 46,
+    "fat": 12,
+    "saturatedFat": 5.9,
+    "sugar": 22,
+    "fiber": 1.1,
+    "salt": 0.63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "star-biscuit",
+   "name": "Star Biscuit",
+   "category": "Sweet treats & pastries",
+   "serving": "38.4 g",
+   "nutrients": {
+    "calories": 185,
+    "protein": 2.4,
+    "carbs": 22,
+    "fat": 8.8,
+    "saturatedFat": 5.4,
+    "sugar": 10,
+    "fiber": 3.2,
+    "salt": 0.13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sugar-strand-doughnut",
+   "name": "Sugar Strand Doughnut",
+   "category": "Sweet treats & pastries",
+   "serving": "59 g",
+   "nutrients": {
+    "calories": 224,
+    "protein": 3.4,
+    "carbs": 30,
+    "fat": 10,
+    "saturatedFat": 4.5,
+    "sugar": 13,
+    "fiber": 0.9,
+    "salt": 0.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tottenham-cake",
+   "name": "Tottenham Cake",
+   "category": "Sweet treats & pastries",
+   "serving": "88 g",
+   "nutrients": {
+    "calories": 363,
+    "protein": 4.1,
+    "carbs": 55,
+    "fat": 14,
+    "saturatedFat": 3,
+    "sugar": 38,
+    "fiber": 0.7,
+    "salt": 0.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-chocolate-cookies",
+   "name": "Triple Chocolate Cookies",
+   "category": "Sweet treats & pastries",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 333,
+    "protein": 4.1,
+    "carbs": 36,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 21,
+    "fiber": 6.9,
+    "salt": 0.39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-chocolate-doughnut",
+   "name": "Triple Chocolate Doughnut",
+   "category": "Sweet treats & pastries",
+   "serving": "85 g",
+   "nutrients": {
+    "calories": 325,
+    "protein": 4.3,
+    "carbs": 40,
+    "fat": 16,
+    "saturatedFat": 6.9,
+    "sugar": 20,
+    "fiber": 1.3,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-chocolate-muffin",
+   "name": "Triple Chocolate Muffin",
+   "category": "Sweet treats & pastries",
+   "serving": "129.4 g",
+   "nutrients": {
+    "calories": 467,
+    "protein": 7.2,
+    "carbs": 58,
+    "fat": 21,
+    "saturatedFat": 5.2,
+    "sugar": 39,
+    "fiber": 4.4,
+    "salt": 0.49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-custard-cream-doughnut",
+   "name": "Vanilla Custard Cream Doughnut",
+   "category": "Sweet treats & pastries",
+   "serving": "73 g",
+   "nutrients": {
+    "calories": 243,
+    "protein": 3.5,
+    "carbs": 32,
+    "fat": 11,
+    "saturatedFat": 5.2,
+    "sugar": 14,
+    "fiber": 0.9,
+    "salt": 0.58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-custard-slice",
+   "name": "Vanilla Custard Slice",
+   "category": "Sweet treats & pastries",
+   "serving": "129 g",
+   "nutrients": {
+    "calories": 328,
+    "protein": 4.1,
+    "carbs": 50,
+    "fat": 12,
+    "saturatedFat": 7.1,
+    "sugar": 31,
+    "fiber": 0.6,
+    "salt": 0.52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-cookies",
+   "name": "White Chocolate Cookies",
+   "category": "Sweet treats & pastries",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 343,
+    "protein": 4.2,
+    "carbs": 39,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 21,
+    "fiber": 4.2,
+    "salt": 0.37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yum-yum",
+   "name": "Yum Yum",
+   "category": "Sweet treats & pastries",
+   "serving": "78.2 g",
+   "nutrients": {
+    "calories": 310,
+    "protein": 3.7,
+    "carbs": 34,
+    "fat": 17,
+    "saturatedFat": 8.6,
+    "sugar": 16,
+    "fiber": 1.1,
+    "salt": 0.77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yum-yums-2-pack",
+   "name": "Yum Yums (2 pack)",
+   "category": "Sweet treats & pastries",
+   "serving": "156.4 g",
+   "nutrients": {
+    "calories": 619,
+    "protein": 7.4,
+    "carbs": 69,
+    "fat": 34,
+    "saturatedFat": 17,
+    "sugar": 33,
+    "fiber": 2.2,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-decaf-large",
+   "name": "Americano Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0.6,
+    "carbs": 2.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-decaf-regular",
+   "name": "Americano Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0,
+    "carbs": 1.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-large",
+   "name": "Americano (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0.6,
+    "carbs": 2.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-regular",
+   "name": "Americano (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0,
+    "carbs": 1.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 114,
+    "protein": 8.2,
+    "carbs": 13,
+    "fat": 3.3,
+    "saturatedFat": 2,
+    "sugar": 10,
+    "fiber": 0,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-decaf-large",
+   "name": "Cappuccino Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 114,
+    "protein": 8.2,
+    "carbs": 13,
+    "fat": 3.3,
+    "saturatedFat": 2,
+    "sugar": 10,
+    "fiber": 0,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 94,
+    "protein": 6.6,
+    "carbs": 12,
+    "fat": 2.2,
+    "saturatedFat": 1.4,
+    "sugar": 8.5,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-decaf-regular",
+   "name": "Cappuccino Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 94,
+    "protein": 6.6,
+    "carbs": 12,
+    "fat": 2.2,
+    "saturatedFat": 1.4,
+    "sugar": 8.5,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-latte-large",
+   "name": "Caramel Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 221,
+    "protein": 10,
+    "carbs": 27,
+    "fat": 7.9,
+    "saturatedFat": 5.4,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-latte-decaf-large",
+   "name": "Caramel Latte Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 221,
+    "protein": 10,
+    "carbs": 27,
+    "fat": 7.9,
+    "saturatedFat": 5.4,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-latte-regular",
+   "name": "Caramel Latte (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 204,
+    "protein": 8,
+    "carbs": 26,
+    "fat": 7.3,
+    "saturatedFat": 4.7,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-latte-decaf-regular",
+   "name": "Caramel Latte Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 204,
+    "protein": 8,
+    "carbs": 26,
+    "fat": 7.3,
+    "saturatedFat": 4.7,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-decaf",
+   "name": "Flat White Decaf",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 5.3,
+    "carbs": 8.7,
+    "fat": 1.8,
+    "saturatedFat": 1.1,
+    "sugar": 6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-regular",
+   "name": "Flat White (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 71,
+    "protein": 5.3,
+    "carbs": 8.7,
+    "fat": 1.8,
+    "saturatedFat": 1.1,
+    "sugar": 6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea-regular",
+   "name": "Green Tea (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-large",
+   "name": "Hot Chocolate (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 290,
+    "protein": 8.8,
+    "carbs": 48,
+    "fat": 6.6,
+    "saturatedFat": 5.3,
+    "sugar": 42,
+    "fiber": 0,
+    "salt": 0.57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-regular",
+   "name": "Hot Chocolate (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 219,
+    "protein": 6.7,
+    "carbs": 36,
+    "fat": 5.2,
+    "saturatedFat": 4.1,
+    "sugar": 30,
+    "fiber": 0,
+    "salt": 0.48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-decaf-large",
+   "name": "Latte Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 133,
+    "protein": 9.9,
+    "carbs": 14,
+    "fat": 3.8,
+    "saturatedFat": 2.3,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-decaf-regular",
+   "name": "Latte Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 114,
+    "protein": 7.8,
+    "carbs": 13,
+    "fat": 3.3,
+    "saturatedFat": 2,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 133,
+    "protein": 9.9,
+    "carbs": 14,
+    "fat": 3.8,
+    "saturatedFat": 2.3,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 114,
+    "protein": 7.8,
+    "carbs": 13,
+    "fat": 3.3,
+    "saturatedFat": 2,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-decaf-large",
+   "name": "Mocha Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 304,
+    "protein": 9.8,
+    "carbs": 51,
+    "fat": 7,
+    "saturatedFat": 5.5,
+    "sugar": 34,
+    "fiber": 0,
+    "salt": 0.78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-decaf-regular",
+   "name": "Mocha Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 233,
+    "protein": 7.1,
+    "carbs": 39,
+    "fat": 5.3,
+    "saturatedFat": 4.2,
+    "sugar": 30,
+    "fiber": 0,
+    "salt": 0.64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-large",
+   "name": "Mocha (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 304,
+    "protein": 9.8,
+    "carbs": 51,
+    "fat": 7,
+    "saturatedFat": 5.5,
+    "sugar": 34,
+    "fiber": 0,
+    "salt": 0.78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-regular",
+   "name": "Mocha (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 233,
+    "protein": 7.1,
+    "carbs": 39,
+    "fat": 5.3,
+    "saturatedFat": 4.2,
+    "sugar": 30,
+    "fiber": 0,
+    "salt": 0.64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tea-regular",
+   "name": "Peppermint Tea (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-with-salted-caramel-drizzle-decaf-large",
+   "name": "Pumpkin Spice Latte with Salted Caramel Drizzle Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 232,
+    "protein": 10,
+    "carbs": 30,
+    "fat": 8,
+    "saturatedFat": 5.1,
+    "sugar": 27,
+    "fiber": 0,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-with-salted-caramel-drizzle-decaf-regular",
+   "name": "Pumpkin Spice Latte with Salted Caramel Drizzle Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 214,
+    "protein": 8.1,
+    "carbs": 29,
+    "fat": 7.4,
+    "saturatedFat": 4.8,
+    "sugar": 27,
+    "fiber": 0,
+    "salt": 0.11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-with-salted-caramel-drizzle-large",
+   "name": "Pumpkin Spice Latte with Salted Caramel Drizzle (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 232,
+    "protein": 10,
+    "carbs": 30,
+    "fat": 8,
+    "saturatedFat": 5.1,
+    "sugar": 27,
+    "fiber": 0,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-with-salted-caramel-drizzle-regular",
+   "name": "Pumpkin Spice Latte with Salted Caramel Drizzle (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 214,
+    "protein": 8.1,
+    "carbs": 29,
+    "fat": 7.4,
+    "saturatedFat": 4.8,
+    "sugar": 27,
+    "fiber": 0,
+    "salt": 0.11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-latte-large",
+   "name": "Vanilla Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 225,
+    "protein": 10,
+    "carbs": 28,
+    "fat": 7.9,
+    "saturatedFat": 5.4,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-latte-decaf-large",
+   "name": "Vanilla Latte Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 225,
+    "protein": 10,
+    "carbs": 28,
+    "fat": 7.9,
+    "saturatedFat": 5.4,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-latte-regular",
+   "name": "Vanilla Latte (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 204,
+    "protein": 8,
+    "carbs": 26,
+    "fat": 7.3,
+    "saturatedFat": 4.7,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-latte-decaf-regular",
+   "name": "Vanilla Latte Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 204,
+    "protein": 8,
+    "carbs": 26,
+    "fat": 7.3,
+    "saturatedFat": 4.7,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-coffee-decaf-large",
+   "name": "White Coffee Decaf (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 45,
+    "protein": 3.8,
+    "carbs": 5.7,
+    "fat": 0.8,
+    "saturatedFat": 0.8,
+    "sugar": 3.4,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-coffee-decaf-regular",
+   "name": "White Coffee Decaf (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 34,
+    "protein": 2.6,
+    "carbs": 5.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.9,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-coffee-large",
+   "name": "White Coffee (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 45,
+    "protein": 3.8,
+    "carbs": 5.7,
+    "fat": 0.8,
+    "saturatedFat": 0.8,
+    "sugar": 3.4,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-coffee-regular",
+   "name": "White Coffee (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 34,
+    "protein": 2.6,
+    "carbs": 5.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.9,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-tea-large",
+   "name": "White Tea (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.8,
+    "carbs": 1.2,
+    "fat": 0,
+    "saturatedFat": 0.4,
+    "sugar": 1.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-tea-regular",
+   "name": "White Tea (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.9,
+    "carbs": 0.9,
+    "fat": 0,
+    "saturatedFat": 0.3,
+    "sugar": 0.9,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-shot",
+   "name": "Espresso Shot",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.8,
+    "carbs": 1.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-decaf-shot",
+   "name": "Espresso Decaf Shot",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.8,
+    "carbs": 1.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano",
+   "name": "Iced Americano",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 13,
+    "protein": 0.8,
+    "carbs": 1.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano-decaf",
+   "name": "Iced Americano Decaf",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 13,
+    "protein": 0.8,
+    "carbs": 1.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-chocolate",
+   "name": "Iced Caramel Chocolate",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 220,
+    "protein": 4.7,
+    "carbs": 41,
+    "fat": 3.8,
+    "saturatedFat": 3,
+    "sugar": 39,
+    "fiber": 1.4,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-latte-regular",
+   "name": "Iced Caramel Latte (regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 170,
+    "protein": 8.7,
+    "carbs": 24,
+    "fat": 4.4,
+    "saturatedFat": 2.4,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-latte-decaf-regular",
+   "name": "Iced Caramel Latte Decaf (regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 170,
+    "protein": 8.7,
+    "carbs": 24,
+    "fat": 4.4,
+    "saturatedFat": 2.4,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chocolate",
+   "name": "Iced Chocolate",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 161,
+    "protein": 4.7,
+    "carbs": 26,
+    "fat": 3.9,
+    "saturatedFat": 3.1,
+    "sugar": 24,
+    "fiber": 1.4,
+    "salt": 0.39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-regular",
+   "name": "Iced Latte (regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 124,
+    "protein": 8.8,
+    "carbs": 13,
+    "fat": 4.1,
+    "saturatedFat": 2.3,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-decaf-regular",
+   "name": "Iced Latte Decaf (regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 124,
+    "protein": 8.8,
+    "carbs": 13,
+    "fat": 4.1,
+    "saturatedFat": 2.3,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-matcha-latte",
+   "name": "Iced Matcha Latte",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 7.6,
+    "carbs": 10,
+    "fat": 3.3,
+    "saturatedFat": 1.9,
+    "sugar": 9.1,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-mocha",
+   "name": "Iced Mocha",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 4.8,
+    "carbs": 27,
+    "fat": 3.5,
+    "saturatedFat": 3.1,
+    "sugar": 23,
+    "fiber": 1.4,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-mocha-decaf",
+   "name": "Iced Mocha Decaf",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 161,
+    "protein": 4.8,
+    "carbs": 27,
+    "fat": 3.5,
+    "saturatedFat": 3.1,
+    "sugar": 24,
+    "fiber": 1.4,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pumpkin-spice-latte-with-salted-caramel-drizzle",
+   "name": "Iced Pumpkin Spice Latte with Salted Caramel Drizzle",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 7,
+    "carbs": 31,
+    "fat": 3.5,
+    "saturatedFat": 2,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-pumpkin-spice-latte-with-salted-caramel-drizzle-decaf",
+   "name": "Iced Pumpkin Spice Latte with Salted Caramel Drizzle Decaf",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 184,
+    "protein": 7,
+    "carbs": 31,
+    "fat": 3.5,
+    "saturatedFat": 2,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-latte-regular",
+   "name": "Iced Vanilla Latte (regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 170,
+    "protein": 8.7,
+    "carbs": 24,
+    "fat": 4.4,
+    "saturatedFat": 2.4,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-latte-decaf-regular",
+   "name": "Iced Vanilla Latte Decaf (regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 170,
+    "protein": 8.7,
+    "carbs": 24,
+    "fat": 4.4,
+    "saturatedFat": 2.4,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-iced-matcha-latte",
+   "name": "Blueberry Iced Matcha Latte",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 134,
+    "protein": 6.7,
+    "carbs": 20,
+    "fat": 3.3,
+    "saturatedFat": 1.9,
+    "sugar": 18,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-iced-matcha-latte",
+   "name": "Strawberry Iced Matcha Latte",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 149,
+    "protein": 6.7,
+    "carbs": 23,
+    "fat": 3.4,
+    "saturatedFat": 1.9,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-iced-matcha-latte",
+   "name": "Vanilla Iced Matcha Latte",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 6.7,
+    "carbs": 21,
+    "fat": 3.4,
+    "saturatedFat": 1.9,
+    "sugar": 20,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-iced-matcha-latte-with-salted-caramel-drizzle",
+   "name": "Pumpkin Spice Iced Matcha Latte with Salted Caramel Drizzle",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 156,
+    "protein": 6.8,
+    "carbs": 24,
+    "fat": 3.4,
+    "saturatedFat": 2,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-mango-cooler",
+   "name": "Cherry & Mango Cooler",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 18,
+    "fiber": 0,
+    "salt": 0.13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-and-strawberry-cooler",
+   "name": "Mango and Strawberry Cooler",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 104,
+    "protein": 0,
+    "carbs": 26,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 18,
+    "fiber": 0,
+    "salt": 0.13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-lemonade",
+   "name": "Cherry Lemonade",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cloudy-lemonade",
+   "name": "Cloudy Lemonade",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-lemonade",
+   "name": "Mango Lemonade",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 76,
+    "protein": 0,
+    "carbs": 19,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-lemonade",
+   "name": "Strawberry Lemonade",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 0,
+    "carbs": 17,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-raspberry-lemonade",
+   "name": "Sparkling Raspberry Lemonade",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "fiber": 0,
+    "salt": 0.25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "greggs-natural-mineral-water-500ml",
+   "name": "Greggs Natural Mineral Water 500ml",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "greggs-natural-mineral-water-750ml",
+   "name": "Greggs Natural Mineral Water 750ml",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-bacon",
+   "name": "Extra Bacon",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 4.2,
+    "carbs": 0,
+    "fat": 3,
+    "saturatedFat": 1.2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.44
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-breakfast-sausage",
+   "name": "Extra Breakfast Sausage",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 62,
+    "protein": 3.4,
+    "carbs": 2.6,
+    "fat": 4.2,
+    "saturatedFat": 1.5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.42
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-caramel-syrup",
+   "name": "Extra Caramel Syrup",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 11,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-cream",
+   "name": "Extra Cream",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 0,
+    "carbs": 0.9,
+    "fat": 4.1,
+    "saturatedFat": 2.9,
+    "sugar": 0.9,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-hot-chocolate-powder",
+   "name": "Extra Hot Chocolate Powder",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-lorne-sausage",
+   "name": "Extra Lorne Sausage",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 11,
+    "carbs": 9.8,
+    "fat": 11,
+    "saturatedFat": 4.5,
+    "sugar": 0,
+    "fiber": 1.2,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-omelette-with-cheese",
+   "name": "Extra Omelette with Cheese",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 6,
+    "carbs": 0.9,
+    "fat": 5.5,
+    "saturatedFat": 1.7,
+    "sugar": 0.8,
+    "fiber": 0,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-pumpkin-spice-syrup",
+   "name": "Extra Pumpkin Spice Syrup",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 11,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-vanilla-syrup",
+   "name": "Extra Vanilla Syrup",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-extra-shot",
+   "name": "Espresso Extra Shot",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.6,
+    "carbs": 1.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-decaf-extra-shot",
+   "name": "Espresso Decaf Extra Shot",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.5,
+    "carbs": 1.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spread",
+   "name": "Spread",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 3,
+    "saturatedFat": 0.7,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-sauce",
+   "name": "Buffalo Sauce",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 64,
+    "protein": 0,
+    "carbs": 3.9,
+    "fat": 5.2,
+    "saturatedFat": 1.9,
+    "sugar": 2.7,
+    "fiber": 0,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-herb-dip",
+   "name": "Garlic & Herb Dip",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 128,
+    "protein": 0,
+    "carbs": 2.9,
+    "fat": 13,
+    "saturatedFat": 0.9,
+    "sugar": 1.2,
+    "fiber": 0,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey",
+   "name": "Hot Honey",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 62,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoky-bbq-dip",
+   "name": "Smoky BBQ Dip",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 75,
+    "protein": 0.6,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-dipping-sauce",
+   "name": "Milk Chocolate Dipping Sauce",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 1.1,
+    "carbs": 34,
+    "fat": 6.6,
+    "saturatedFat": 3.1,
+    "sugar": 26,
+    "fiber": 1.3,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-dipping-sauce",
+   "name": "Salted Caramel Dipping Sauce",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 1.3,
+    "carbs": 34,
+    "fat": 8.4,
+    "saturatedFat": 4.1,
+    "sugar": 28,
+    "fiber": 0,
+    "salt": 0.11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baguettes",
+   "name": "Baguettes",
+   "category": "Bread & rolls",
+   "serving": "108 g",
+   "nutrients": {
+    "calories": 275,
+    "protein": 9.5,
+    "carbs": 56,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 2.9,
+    "fiber": 2.8,
+    "salt": 0.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-topped-rolls",
+   "name": "Corn Topped Rolls",
+   "category": "Bread & rolls",
+   "serving": "71 g",
+   "nutrients": {
+    "calories": 181,
+    "protein": 6.6,
+    "carbs": 33,
+    "fat": 2,
+    "saturatedFat": 0.3,
+    "sugar": 5.3,
+    "fiber": 1.7,
+    "salt": 0.53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "malted-brown-loaf",
+   "name": "Malted Brown Loaf",
+   "category": "Bread & rolls",
+   "serving": "42 g",
+   "nutrients": {
+    "calories": 111,
+    "protein": 4,
+    "carbs": 21,
+    "fat": 1.1,
+    "saturatedFat": 0.1,
+    "sugar": 2.5,
+    "fiber": 1.8,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oval-bites",
+   "name": "Oval Bites",
+   "category": "Bread & rolls",
+   "serving": "105 g",
+   "nutrients": {
+    "calories": 276,
+    "protein": 12,
+    "carbs": 46,
+    "fat": 3.9,
+    "saturatedFat": 0.6,
+    "sugar": 7.1,
+    "fiber": 4.8,
+    "salt": 0.87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stotties",
+   "name": "Stotties",
+   "category": "Bread & rolls",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 171,
+    "protein": 6.1,
+    "carbs": 33,
+    "fat": 1.2,
+    "saturatedFat": 0.2,
+    "sugar": 4,
+    "fiber": 2.2,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-wholemeal-loaf",
+   "name": "White & Wholemeal Loaf",
+   "category": "Bread & rolls",
+   "serving": "42 g",
+   "nutrients": {
+    "calories": 98,
+    "protein": 4.2,
+    "carbs": 18,
+    "fat": 0.5,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "fiber": 1.8,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-wholemeal-rolls",
+   "name": "White & Wholemeal Rolls",
+   "category": "Bread & rolls",
+   "serving": "85 g",
+   "nutrients": {
+    "calories": 220,
+    "protein": 9.4,
+    "carbs": 37,
+    "fat": 2.7,
+    "saturatedFat": 0.3,
+    "sugar": 5.8,
+    "fiber": 4.3,
+    "salt": 0.66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-bread-made-with-sourdough",
+   "name": "White Bread made with Sourdough",
+   "category": "Bread & rolls",
+   "serving": "62 g",
+   "nutrients": {
+    "calories": 146,
+    "protein": 5.6,
+    "carbs": 28,
+    "fat": 0.9,
+    "saturatedFat": 0.1,
+    "sugar": 2.9,
+    "fiber": 1.6,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

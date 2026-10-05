@@ -1,0 +1,2338 @@
+{
+ "schemaVersion": 1,
+ "id": "kfc",
+ "name": "KFC",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "kfc",
+  "kentucky fried chicken"
+ ],
+ "sample": false,
+ "source": {
+  "title": "KFC UK & Ireland Allergen & Nutrition Information (September 2026)",
+  "url": "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf",
+  "checkedOn": "2026-10-05"
+ },
+ "categories": [
+  "Burgers",
+  "Twisters & Wraps",
+  "Rice bowls",
+  "Chicken",
+  "Sides",
+  "Add-ons",
+  "Desserts & treats",
+  "Drinks",
+  "Sauces"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "fillet-burger",
+   "name": "Fillet Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 463,
+    "protein": 28.8,
+    "carbs": 43,
+    "fat": 18.7,
+    "saturatedFat": 2.2,
+    "sugar": 6.5,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zinger-burger",
+   "name": "Zinger Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 468,
+    "protein": 23,
+    "carbs": 43,
+    "fat": 22,
+    "saturatedFat": 2.2,
+    "sugar": 6.5,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fillet-tower-burger",
+   "name": "Fillet Tower Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 604,
+    "protein": 32.1,
+    "carbs": 55.5,
+    "fat": 27,
+    "saturatedFat": 4.3,
+    "sugar": 11,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-fillet-tower-burger",
+   "name": "BBQ Fillet Tower Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 612,
+    "protein": 32.1,
+    "carbs": 57,
+    "fat": 27.2,
+    "saturatedFat": 4.3,
+    "sugar": 11,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zinger-supercharger-tower-burger",
+   "name": "Zinger Supercharger Tower Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 652,
+    "protein": 26.2,
+    "carbs": 53.5,
+    "fat": 35.9,
+    "saturatedFat": 5,
+    "sugar": 8.7,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zinger-stacker-burger",
+   "name": "Zinger Stacker Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 813,
+    "protein": 45.1,
+    "carbs": 60.9,
+    "fat": 42.3,
+    "saturatedFat": 7.7,
+    "sugar": 13,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-burger",
+   "name": "Mini Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 277,
+    "protein": 18,
+    "carbs": 28,
+    "fat": 10,
+    "saturatedFat": 1.1,
+    "sugar": 2.6,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-burger",
+   "name": "Kids Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 258,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 7,
+    "saturatedFat": 0.9,
+    "sugar": 4.8,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-burger",
+   "name": "Vegan Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 396,
+    "protein": 15,
+    "carbs": 41,
+    "fat": 17,
+    "saturatedFat": 1.4,
+    "sugar": 7.7,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-fillet-stacker-burger",
+   "name": "BBQ Fillet Stacker Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 814,
+    "protein": 56.6,
+    "carbs": 59.2,
+    "fat": 37.9,
+    "saturatedFat": 7.8,
+    "sugar": 10,
+    "salt": 4.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzamelt-fillet-burger",
+   "name": "Mozzamelt Fillet Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 742,
+    "protein": 41.8,
+    "carbs": 64.6,
+    "fat": 34,
+    "saturatedFat": 8.1,
+    "sugar": 10,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzamelt-zinger-burger",
+   "name": "Mozzamelt Zinger Burger",
+   "category": "Burgers",
+   "serving": "1 burger",
+   "nutrients": {
+    "calories": 718,
+    "protein": 34.8,
+    "carbs": 63,
+    "fat": 35.3,
+    "saturatedFat": 7.6,
+    "sugar": 9.8,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kentucky-mayo-twister",
+   "name": "Kentucky Mayo Twister",
+   "category": "Twisters & Wraps",
+   "serving": "1 twister",
+   "nutrients": {
+    "calories": 520,
+    "protein": 28.4,
+    "carbs": 46.1,
+    "fat": 24,
+    "saturatedFat": 4,
+    "sugar": 5.1,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-twister",
+   "name": "Sweet Chilli Twister",
+   "category": "Twisters & Wraps",
+   "serving": "1 twister",
+   "nutrients": {
+    "calories": 492,
+    "protein": 28.7,
+    "carbs": 53.1,
+    "fat": 17.6,
+    "saturatedFat": 3.3,
+    "sugar": 11,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smokey-bbq-twister",
+   "name": "Smokey BBQ Twister",
+   "category": "Twisters & Wraps",
+   "serving": "1 twister",
+   "nutrients": {
+    "calories": 482,
+    "protein": 28.7,
+    "carbs": 51.2,
+    "fat": 17.4,
+    "saturatedFat": 3.3,
+    "sugar": 9,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "supercharger-twister",
+   "name": "Supercharger Twister",
+   "category": "Twisters & Wraps",
+   "serving": "1 twister",
+   "nutrients": {
+    "calories": 548,
+    "protein": 29.1,
+    "carbs": 47.8,
+    "fat": 26,
+    "saturatedFat": 4.2,
+    "sugar": 6.2,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flamin-mini-wrap",
+   "name": "Flamin' Mini Wrap",
+   "category": "Twisters & Wraps",
+   "serving": "1 wrap",
+   "nutrients": {
+    "calories": 325,
+    "protein": 17.6,
+    "carbs": 28.5,
+    "fat": 15.3,
+    "saturatedFat": 2.5,
+    "sugar": 2.9,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-mini-wrap",
+   "name": "BBQ Mini Wrap",
+   "category": "Twisters & Wraps",
+   "serving": "1 wrap",
+   "nutrients": {
+    "calories": 294,
+    "protein": 17.6,
+    "carbs": 30.9,
+    "fat": 10.8,
+    "saturatedFat": 2.2,
+    "sugar": 4.5,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kentucky-original-wrap",
+   "name": "Kentucky Original Wrap",
+   "category": "Twisters & Wraps",
+   "serving": "1 wrap",
+   "nutrients": {
+    "calories": 516,
+    "protein": 31.2,
+    "carbs": 44.3,
+    "fat": 23.3,
+    "saturatedFat": 3.5,
+    "sugar": 3.1,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-ranch-rice-bowl",
+   "name": "Original Ranch Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 558,
+    "protein": 28.8,
+    "carbs": 62.8,
+    "fat": 19.7,
+    "saturatedFat": 2.5,
+    "sugar": 7.4,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zinger-ranch-rice-bowl",
+   "name": "Zinger Ranch Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 543,
+    "protein": 23,
+    "carbs": 61.6,
+    "fat": 21.3,
+    "saturatedFat": 2.4,
+    "sugar": 6.5,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-ranch-rice-bowl",
+   "name": "Veggie Ranch Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "1 bowl",
+   "nutrients": {
+    "calories": 371,
+    "protein": 7.5,
+    "carbs": 59.7,
+    "fat": 9.5,
+    "saturatedFat": 1.3,
+    "sugar": 8.8,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-recipe-chicken-per-piece",
+   "name": "Original Recipe Chicken (per piece)",
+   "category": "Chicken",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 241,
+    "protein": 22,
+    "carbs": 8.6,
+    "fat": 13,
+    "saturatedFat": 2.3,
+    "sugar": 0.5,
+    "salt": 0.94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-chicken-small",
+   "name": "Popcorn Chicken (small)",
+   "category": "Chicken",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 142,
+    "protein": 8.3,
+    "carbs": 8.3,
+    "fat": 8.3,
+    "saturatedFat": 0.8,
+    "sugar": 0,
+    "salt": 0.64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-chicken-regular",
+   "name": "Popcorn Chicken (regular)",
+   "category": "Chicken",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 307,
+    "protein": 18,
+    "carbs": 18,
+    "fat": 18,
+    "saturatedFat": 1.8,
+    "sugar": 0.5,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-chicken-large",
+   "name": "Popcorn Chicken (large)",
+   "category": "Chicken",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 478,
+    "protein": 28,
+    "carbs": 28,
+    "fat": 28,
+    "saturatedFat": 2.8,
+    "sugar": 0.6,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-wing-per-piece",
+   "name": "Hot Wing (per piece)",
+   "category": "Chicken",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 91,
+    "protein": 4.9,
+    "carbs": 3.8,
+    "fat": 6.2,
+    "saturatedFat": 0.9,
+    "sugar": 0,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tender-per-piece",
+   "name": "Tender (per piece)",
+   "category": "Chicken",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 125,
+    "protein": 13.1,
+    "carbs": 5.8,
+    "fat": 5.4,
+    "saturatedFat": 0.6,
+    "sugar": 0.5,
+    "salt": 0.87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-dripd-bites",
+   "name": "Sweet Chilli Drip'd Bites",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 19.1,
+    "carbs": 36.8,
+    "fat": 13.5,
+    "saturatedFat": 1.5,
+    "sugar": 21,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kansas-bbq-dripd-bites",
+   "name": "Kansas BBQ Drip'd Bites",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 301,
+    "protein": 15.8,
+    "carbs": 34.7,
+    "fat": 10.8,
+    "saturatedFat": 1.2,
+    "sugar": 18,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-fries-regular",
+   "name": "Signature Fries (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 261,
+    "protein": 3.1,
+    "carbs": 38,
+    "fat": 9.8,
+    "saturatedFat": 0.8,
+    "sugar": 0.5,
+    "salt": 0.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-fries-large",
+   "name": "Signature Fries (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 372,
+    "protein": 4.4,
+    "carbs": 54,
+    "fat": 14,
+    "saturatedFat": 1.1,
+    "sugar": 0.5,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-beans-regular",
+   "name": "BBQ Beans (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 93,
+    "protein": 4.7,
+    "carbs": 15.1,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 5.9,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-beans-large",
+   "name": "BBQ Beans (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 199,
+    "protein": 10,
+    "carbs": 32,
+    "fat": 1.4,
+    "saturatedFat": 0.2,
+    "sugar": 13,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coleslaw-regular",
+   "name": "Coleslaw (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 150,
+    "protein": 1.1,
+    "carbs": 6.1,
+    "fat": 13,
+    "saturatedFat": 1,
+    "sugar": 5.3,
+    "salt": 0.57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coleslaw-large",
+   "name": "Coleslaw (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 299,
+    "protein": 2.2,
+    "carbs": 12,
+    "fat": 26,
+    "saturatedFat": 2,
+    "sugar": 11,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-cobette",
+   "name": "Corn Cobette",
+   "category": "Sides",
+   "serving": "1 cobette",
+   "nutrients": {
+    "calories": 57,
+    "protein": 2.2,
+    "carbs": 8.1,
+    "fat": 1.3,
+    "saturatedFat": 0.2,
+    "sugar": 1.9,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-corn-cobettes-large",
+   "name": "2 Corn Cobettes (large)",
+   "category": "Sides",
+   "serving": "2 cobettes",
+   "nutrients": {
+    "calories": 115,
+    "protein": 4.4,
+    "carbs": 16,
+    "fat": 2.7,
+    "saturatedFat": 0.4,
+    "sugar": 3.8,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gravy-regular",
+   "name": "Gravy (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 73,
+    "protein": 1.7,
+    "carbs": 8.4,
+    "fat": 3.5,
+    "saturatedFat": 0.3,
+    "sugar": 0.5,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gravy-large",
+   "name": "Gravy (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 166,
+    "protein": 3.9,
+    "carbs": 19,
+    "fat": 8,
+    "saturatedFat": 0.8,
+    "sugar": 0.8,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamy-mash-regular",
+   "name": "Creamy Mash (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 124,
+    "protein": 2.4,
+    "carbs": 20,
+    "fat": 3.4,
+    "saturatedFat": 2.1,
+    "sugar": 1,
+    "salt": 0.88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamy-mash-large",
+   "name": "Creamy Mash (large)",
+   "category": "Sides",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 248,
+    "protein": 4.8,
+    "carbs": 40,
+    "fat": 6.8,
+    "saturatedFat": 4.3,
+    "sugar": 2,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cajun-dirty-rice",
+   "name": "Cajun Dirty Rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 217,
+    "protein": 3.8,
+    "carbs": 43,
+    "fat": 2.6,
+    "saturatedFat": 0.5,
+    "sugar": 2.4,
+    "salt": 0.66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "side-salad",
+   "name": "Side Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0.8,
+    "carbs": 4.7,
+    "fat": 3.6,
+    "saturatedFat": 0.3,
+    "sugar": 2.1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-loaded-fries",
+   "name": "Dirty Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 473,
+    "protein": 11.8,
+    "carbs": 53.1,
+    "fat": 22.7,
+    "saturatedFat": 2,
+    "sugar": 5.5,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-mega-mozza-sticks",
+   "name": "3 Mega Mozza Sticks",
+   "category": "Sides",
+   "serving": "3 sticks",
+   "nutrients": {
+    "calories": 333,
+    "protein": 14.9,
+    "carbs": 27.6,
+    "fat": 17.7,
+    "saturatedFat": 5.6,
+    "sugar": 2.1,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-slice-per-slice",
+   "name": "Cheese Slice (per slice)",
+   "category": "Add-ons",
+   "serving": "1 slice (average)",
+   "nutrients": {
+    "calories": 38,
+    "protein": 2.2,
+    "carbs": 0,
+    "fat": 3.1,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown-per-piece",
+   "name": "Hash Brown (per piece)",
+   "category": "Add-ons",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 92,
+    "protein": 0.9,
+    "carbs": 8.8,
+    "fat": 5.5,
+    "saturatedFat": 0.2,
+    "sugar": 0.7,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-krushems-shake",
+   "name": "Oreo Krushems Shake",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 272,
+    "protein": 4.1,
+    "carbs": 41,
+    "fat": 10,
+    "saturatedFat": 5.4,
+    "sugar": 31,
+    "salt": 0.44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkybar-krushems-shake",
+   "name": "MilkyBar Krushems Shake",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 315,
+    "protein": 6.4,
+    "carbs": 43,
+    "fat": 13,
+    "saturatedFat": 8.3,
+    "sugar": 40,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aero-peppermint-krushem-shake",
+   "name": "Aero Peppermint Krushem Shake",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 280,
+    "protein": 3.9,
+    "carbs": 41,
+    "fat": 11,
+    "saturatedFat": 6.7,
+    "sugar": 34,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-ripple-krushem-shake",
+   "name": "Raspberry Ripple Krushem Shake",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 262,
+    "protein": 4.6,
+    "carbs": 36,
+    "fat": 11,
+    "saturatedFat": 7.2,
+    "sugar": 31,
+    "salt": 0.26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-chocolate-sundae",
+   "name": "Mini Chocolate Sundae",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 2.5,
+    "carbs": 20,
+    "fat": 5.3,
+    "saturatedFat": 3.4,
+    "sugar": 16,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-sundae",
+   "name": "Oreo Sundae",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 4.1,
+    "carbs": 38,
+    "fat": 9.6,
+    "saturatedFat": 5.6,
+    "sugar": 29,
+    "salt": 0.38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkybar-sundae",
+   "name": "Milkybar Sundae",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 296,
+    "protein": 5.7,
+    "carbs": 39,
+    "fat": 13,
+    "saturatedFat": 8.4,
+    "sugar": 34,
+    "salt": 0.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-ripple-sundae",
+   "name": "Raspberry Ripple Sundae",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 276,
+    "protein": 5,
+    "carbs": 37,
+    "fat": 12,
+    "saturatedFat": 7.8,
+    "sugar": 33,
+    "salt": 0.29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-cookie",
+   "name": "Milk Chocolate Cookie",
+   "category": "Desserts & treats",
+   "serving": "1 cookie",
+   "nutrients": {
+    "calories": 284,
+    "protein": 2.9,
+    "carbs": 36.3,
+    "fat": 13.8,
+    "saturatedFat": 7.8,
+    "sugar": 22,
+    "salt": 0.37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-cookie",
+   "name": "White Chocolate Cookie",
+   "category": "Desserts & treats",
+   "serving": "1 cookie",
+   "nutrients": {
+    "calories": 283,
+    "protein": 2.7,
+    "carbs": 36,
+    "fat": 14,
+    "saturatedFat": 5.9,
+    "sugar": 21,
+    "salt": 0.36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yoyo-bear-strawberry",
+   "name": "Yoyo Bear Strawberry",
+   "category": "Desserts & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.5,
+    "carbs": 13,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-boba-refresher",
+   "name": "Cherry Boba Refresher",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 0.5,
+    "carbs": 27.3,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 27,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-boba-refresher",
+   "name": "Strawberry Boba Refresher",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 0.5,
+    "carbs": 35.3,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 34,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-raspberry-lemonade",
+   "name": "Sparkling Raspberry Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 99,
+    "protein": 0.5,
+    "carbs": 21.9,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 22,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-cloudy-lemonade",
+   "name": "Sparkling Cloudy Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0.5,
+    "carbs": 4.3,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 3.8,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 6.6,
+    "carbs": 11.8,
+    "fat": 3.1,
+    "saturatedFat": 1.7,
+    "sugar": 11,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-tiramisu-latte",
+   "name": "Iced Tiramisu Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 7.1,
+    "carbs": 39.2,
+    "fat": 3.3,
+    "saturatedFat": 1.9,
+    "sugar": 38,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-latte",
+   "name": "Iced Caramel Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 6.4,
+    "carbs": 27.9,
+    "fat": 3.2,
+    "saturatedFat": 1.8,
+    "sugar": 27,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-latte",
+   "name": "Iced Vanilla Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 111,
+    "protein": 6.4,
+    "carbs": 14.2,
+    "fat": 3.2,
+    "saturatedFat": 1.8,
+    "sugar": 11,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-iced-matcha",
+   "name": "Vanilla Iced Matcha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 87,
+    "protein": 6.3,
+    "carbs": 9.4,
+    "fat": 2.7,
+    "saturatedFat": 1.8,
+    "sugar": 7.6,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shortcake-iced-matcha",
+   "name": "Strawberry Shortcake Iced Matcha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 264,
+    "protein": 0.5,
+    "carbs": 44,
+    "fat": 6.4,
+    "saturatedFat": 3.5,
+    "sugar": 35,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oatly-iced-latte",
+   "name": "Oatly Iced Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 2.8,
+    "carbs": 15.3,
+    "fat": 5.5,
+    "saturatedFat": 0.5,
+    "sugar": 5.1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oatly-iced-caramel-latte",
+   "name": "Oatly Iced Caramel Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 244,
+    "protein": 2.4,
+    "carbs": 43.8,
+    "fat": 6.3,
+    "saturatedFat": 1,
+    "sugar": 35,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oatly-iced-tiramisu-latte",
+   "name": "Oatly Iced Tiramisu Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 175,
+    "protein": 2.8,
+    "carbs": 27.4,
+    "fat": 5.7,
+    "saturatedFat": 0.9,
+    "sugar": 19,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oatly-iced-vanilla-latte",
+   "name": "Oatly Iced Vanilla Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 134,
+    "protein": 2.1,
+    "carbs": 18.3,
+    "fat": 5.5,
+    "saturatedFat": 0.5,
+    "sugar": 8.2,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oatly-vanilla-iced-matcha",
+   "name": "Oatly Vanilla Iced Matcha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 2.7,
+    "carbs": 13.5,
+    "fat": 4.9,
+    "saturatedFat": 0.4,
+    "sugar": 5.4,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oatly-strawberry-shortcake-iced-matcha",
+   "name": "Oatly Strawberry Shortcake Iced Matcha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 283,
+    "protein": 3.5,
+    "carbs": 47.5,
+    "fat": 8.4,
+    "saturatedFat": 2.5,
+    "sugar": 33,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-krunch-shake",
+   "name": "Caramel Krunch Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 490,
+    "protein": 6.9,
+    "carbs": 82.9,
+    "fat": 14.3,
+    "saturatedFat": 9.1,
+    "sugar": 69,
+    "salt": 0.86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-krunch-shake",
+   "name": "Chocolate Krunch Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 484,
+    "protein": 6.9,
+    "carbs": 82.4,
+    "fat": 13.8,
+    "saturatedFat": 8.9,
+    "sugar": 71,
+    "salt": 0.84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shortcake-krunch-shake",
+   "name": "Strawberry Shortcake Krunch Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 481,
+    "protein": 6.6,
+    "carbs": 83.1,
+    "fat": 13.3,
+    "saturatedFat": 8.9,
+    "sugar": 69,
+    "salt": 0.79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottle-of-still-water",
+   "name": "Bottle of Still Water",
+   "category": "Drinks",
+   "serving": "1 bottle",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0.5,
+    "carbs": 0.5,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 0.5,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-shoot-robinsons-blackcurrant-apple",
+   "name": "Fruit Shoot Robinsons Blackcurrant & Apple",
+   "category": "Drinks",
+   "serving": "1 bottle",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.5,
+    "carbs": 1.6,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 1.4,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-shoot-robinsons-orange",
+   "name": "Fruit Shoot Robinsons Orange",
+   "category": "Drinks",
+   "serving": "1 bottle",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.5,
+    "carbs": 2.4,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 2.4,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-regular",
+   "name": "Pepsi Max (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-large",
+   "name": "Pepsi Max (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-cherry-regular",
+   "name": "Pepsi Max Cherry (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0.5,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.09
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-cherry-large",
+   "name": "Pepsi Max Cherry (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.5,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7up-free-regular",
+   "name": "7Up Free (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7up-free-large",
+   "name": "7Up Free (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "robinsons-apple-blackcurrant-regular",
+   "name": "Robinsons Apple & Blackcurrant (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.5,
+    "carbs": 0.5,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 0.5,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "robinsons-apple-blackcurrant-large",
+   "name": "Robinsons Apple & Blackcurrant (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.5,
+    "carbs": 0.5,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 0.5,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tango-orange-sugar-free-regular",
+   "name": "Tango Orange Sugar Free (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tango-orange-sugar-free-large",
+   "name": "Tango Orange Sugar Free (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-regular",
+   "name": "Diet Pepsi (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-large",
+   "name": "Diet Pepsi (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-tango-regular",
+   "name": "Apple Tango (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0,
+    "carbs": 1.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-tango-large",
+   "name": "Apple Tango (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 18,
+    "protein": 0,
+    "carbs": 2.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lipton-ice-tea-regular",
+   "name": "Lipton Ice Tea (regular)",
+   "category": "Drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lipton-ice-tea-large",
+   "name": "Lipton Ice Tea (large)",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0,
+    "carbs": 19,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 19,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-parm-dip-pot",
+   "name": "Garlic Parm Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 193,
+    "protein": 0.5,
+    "carbs": 3.2,
+    "fat": 19.7,
+    "saturatedFat": 1.6,
+    "sugar": 2,
+    "salt": 0.36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-mustard-dip-pot",
+   "name": "Honey Mustard Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 194,
+    "protein": 0.7,
+    "carbs": 9.3,
+    "fat": 17.1,
+    "saturatedFat": 1.2,
+    "sugar": 8.4,
+    "salt": 0.38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-habanero-dip-pot",
+   "name": "Hot Honey Habanero Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 92,
+    "protein": 0.5,
+    "carbs": 22.4,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 19,
+    "salt": 0.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jalapeno-ranch-dip-pot",
+   "name": "Jalapeno Ranch Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 155,
+    "protein": 0.6,
+    "carbs": 3.4,
+    "fat": 15.4,
+    "saturatedFat": 1.1,
+    "sugar": 1.8,
+    "salt": 0.48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-masala-dip-pot",
+   "name": "Mango Masala Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0.5,
+    "carbs": 15,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 14,
+    "salt": 0.48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-sauce-dip-pot",
+   "name": "Original Sauce Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 158,
+    "protein": 0.7,
+    "carbs": 3.3,
+    "fat": 15.6,
+    "saturatedFat": 1.1,
+    "sugar": 3,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "supercharger-dip-pot",
+   "name": "Supercharger Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 189,
+    "protein": 0.6,
+    "carbs": 3.9,
+    "fat": 19,
+    "saturatedFat": 1.4,
+    "sugar": 2.9,
+    "salt": 0.72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-teriyaki-dip-pot",
+   "name": "Sweet Teriyaki Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.6,
+    "carbs": 11.4,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 9.2,
+    "salt": 0.52
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "texas-bbq-dip-pot",
+   "name": "Texas BBQ Dip Pot",
+   "category": "Sauces",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 70,
+    "protein": 0.5,
+    "carbs": 16.6,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 15,
+    "salt": 0.52
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-tomato-ketchup-sachet",
+   "name": "Heinz Tomato Ketchup sachet",
+   "category": "Sauces",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.5,
+    "carbs": 2.3,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 2.3,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-light-mayonnaise-sachet",
+   "name": "Heinz Light Mayonnaise sachet",
+   "category": "Sauces",
+   "serving": "1 sachet",
+   "nutrients": {
+    "calories": 28,
+    "protein": 0.5,
+    "carbs": 0.8,
+    "fat": 2.7,
+    "saturatedFat": 0.2,
+    "sugar": 0.5,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}
