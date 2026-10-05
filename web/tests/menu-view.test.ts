@@ -31,6 +31,10 @@ describe("sorting (SPEC §7.4)", () => {
       expect(sortItems(chain.items, kind).map((i) => i.name)).toEqual(["Alpha", "Beta", "Charlie"]);
     }
   });
+  it("orders names case-insensitively in lists (a lower-case name isn't pushed after every capital)", () => {
+    const chain = tinyChain([["z", "zebra wrap", 300, 30], ["a", "Apple bowl", 300, 30], ["m", "mango bowl", 300, 30]]);
+    expect(sortItems(chain.items, "protein").map((i) => i.name)).toEqual(["Apple bowl", "mango bowl", "zebra wrap"]);
+  });
   it("does not mutate its input", () => {
     const copy = [...items];
     sortItems(items, "protein");

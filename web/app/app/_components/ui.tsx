@@ -106,18 +106,30 @@ export function Chip({ selected, children, onClick, ...rest }: ButtonHTMLAttribu
   );
 }
 
+/** Arrow-key navigation for a radio group (WAI-ARIA): moves the selection and focus to the neighbouring option. */
+export function radioKeyNav(e: React.KeyboardEvent<HTMLElement>, index: number, count: number, select: (i: number) => void) {
+  const delta = ({ ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 } as Record<string, number>)[e.key];
+  if (!delta) return;
+  e.preventDefault();
+  const next = (index + delta + count) % count;
+  select(next);
+  (e.currentTarget.parentElement?.children[next] as HTMLElement | undefined)?.focus();
+}
+
 export function Segmented<T extends string>({ value, options, onChange, label }: { value: T; options: ReadonlyArray<{ value: T; label: string }>; onChange: (v: T) => void; label: string }) {
   return (
     <div role="radiogroup" aria-label={label} className="grid grid-cols-[repeat(auto-fit,minmax(6.5rem,1fr))] gap-1 rounded-xl border border-line bg-soft p-1">
-      {options.map((o) => (
+      {options.map((o, i) => (
         <button
           key={o.value}
           type="button"
           role="radio"
           aria-checked={o.value === value}
+          tabIndex={o.value === value ? 0 : -1}
           onClick={() => onChange(o.value)}
+          onKeyDown={(e) => radioKeyNav(e, i, options.length, (n) => onChange(options[n]!.value))}
           className={cx(
-            "min-h-10 rounded-lg px-2 text-sm font-medium focus-visible:outline-2 focus-visible:outline-accent",
+            "min-h-11 rounded-lg px-2 text-sm font-medium focus-visible:outline-2 focus-visible:outline-accent",
             o.value === value ? "bg-background shadow-sm text-foreground" : "text-muted",
           )}
         >

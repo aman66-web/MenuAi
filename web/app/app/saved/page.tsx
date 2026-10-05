@@ -4,9 +4,9 @@ import Link from "next/link";
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { useEffect, useRef, useState } from "react";
 import { FREE_SAVED_ORDER_LIMIT } from "@/lib/mm/config";
-import { macroLine } from "@/lib/mm/format";
+import { macroLine, nutrientAriaLabel } from "@/lib/mm/format";
 import { describeOrder, isOrderAvailable } from "@/lib/mm/order";
-import { addSavedOrder, deleteSavedOrder, savedStore } from "@/lib/mm/stores";
+import { deleteSavedOrder, restoreSavedOrder, savedStore } from "@/lib/mm/stores";
 import type { SavedOrder } from "@/lib/mm/user-data";
 import { TrashIcon } from "../_components/icons";
 import { MacroSummary } from "../_components/Nutrition";
@@ -57,7 +57,7 @@ export default function SavedPage() {
                   <div className="min-w-0">
                     <h2 className="text-base font-semibold leading-snug">{o.name}</h2>
                     <p className="text-sm text-muted">{o.chainName}</p>
-                    <p className="app-numbers mt-1 text-sm text-muted">{macroLine(o.nutrients)}</p>
+                    <p className="app-numbers mt-1 text-sm text-muted" aria-label={nutrientAriaLabel(o.name, o.nutrients)}>{macroLine(o.nutrients)}</p>
                     {gone && <p className="mt-2"><Badge>No longer on the menu</Badge></p>}
                   </div>
                   <button type="button" aria-label={`Delete ${o.name}`} onClick={() => remove(o)} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-background">
@@ -87,7 +87,7 @@ export default function SavedPage() {
       {undo && (
         <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-xl border border-line bg-background px-4 py-2 shadow-lg">
           <span className="text-sm">Deleted “{undo.name}”.</span>
-          <button type="button" className="min-h-11 px-2 font-semibold text-accent" onClick={() => { addSavedOrder({ ...undo }); setUndo(null); }}>Undo</button>
+          <button type="button" className="min-h-11 px-2 font-semibold text-accent" onClick={() => { restoreSavedOrder(undo); setUndo(null); }}>Undo</button>
         </div>
       )}
     </div>

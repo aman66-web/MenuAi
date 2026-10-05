@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
-import { formatDate } from "@/lib/mm/format";
+import { formatDate, nutrientAriaLabel } from "@/lib/mm/format";
 import { filterItems, groupByCategory, isNewItem, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
 import { itemHref } from "@/lib/mm/routes";
 import { settingsStore, favoritesStore, toggleFavorite } from "@/lib/mm/stores";
@@ -116,6 +116,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                   <Link
                     href={itemHref(chain.id, item.id)}
                     prefetch={false}
+                    aria-label={`${nutrientAriaLabel(item.name, item.nutrients)}${isNewItem(item, now) ? ", new" : ""}${item.limitedTime ? ", limited time" : ""}`}
                     onClick={() => analytics.track({ name: "itemOpened", chainId: chain.id })}
                     className="flex min-h-16 items-center justify-between gap-3 border-b border-line px-1 py-2 hover:bg-soft"
                   >

@@ -82,7 +82,7 @@ function matchRank(norm: string, q: string): 0 | 1 | null {
   return null;
 }
 
-const byName = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
+const byName = (a: string, b: string) => a.localeCompare(b, "en-US");
 
 export function search(index: SearchIndex, rawQuery: string, maxItems = 40): SearchResults {
   const q = normalizeForSearch(rawQuery);

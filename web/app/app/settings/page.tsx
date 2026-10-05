@@ -140,7 +140,7 @@ export default function SettingsPage() {
           <LinkRow href="/terms" external>Terms of use</LinkRow>
         </div>
         <p className="mt-3 text-sm text-muted">
-          {menu.dataVersion ? <>Menus updated {formatDate(dataVersionDate(menu.dataVersion))}. </> : <>No menus published yet. </>}
+          {menu.dataVersion ? <>Menus updated {formatDate(dataVersionDate(menu.dataVersion))}. </> : menu.status === "error" ? <>Couldn&apos;t reach the menus. </> : <>No menus published yet. </>}
           <button type="button" className="min-h-11 font-medium text-accent underline" onClick={() => { menuClient.invalidate(); void menuClient.ensureManifest(true); }}>Refresh menus</button>
         </p>
         <p className="text-sm text-muted">{site.name} · {APP_VERSION}</p>
@@ -166,6 +166,7 @@ export default function SettingsPage() {
 
       <Section title="Your data">
         <p className="text-sm text-muted">Your settings, saved orders and log stay on this device. We never receive them.</p>
+        <p className="mt-2 text-sm text-muted">Browsers can clear site data they haven&apos;t seen in a while (iPhone Safari can after about a week). Adding {site.name} to your Home Screen, and opening it now and then, keeps your data safe.</p>
         <Button variant="secondary" className="mt-3" onClick={() => setClearOpen(true)}>Clear data on this device</Button>
       </Section>
 
@@ -189,9 +190,9 @@ export default function SettingsPage() {
       </Sheet>
 
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title="Clear data on this device">
-        <p className="text-base">This removes your goal, targets, saved orders, log and favourites from this browser. It can&apos;t be undone.</p>
+        <p className="text-base">This removes your goal, targets, saved orders, log, favourites and any messages not sent yet from this browser. It can&apos;t be undone.</p>
         <div className="mt-4 space-y-2 pb-2">
-          <Button full onClick={() => { settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); setClearOpen(false); }}>Clear everything</Button>
+          <Button full onClick={() => { settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); outbox().clear(); setClearOpen(false); }}>Clear everything</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>Cancel</Button>
         </div>
       </Sheet>

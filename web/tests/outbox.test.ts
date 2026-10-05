@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  chainRequestPayload, mailtoFor, OUTBOX_MAX_ATTEMPTS, OUTBOX_RETRY_MS, OutboxSender, reportPayload, supportPayload,
+  chainRequestPayload, mailtoFor, OUTBOX_MAX_ATTEMPTS, OUTBOX_RECONNECT_MIN_MS, OUTBOX_RETRY_MS, OUTBOX_SENT_KEEP_MS, OutboxSender, reportPayload, supportPayload,
   type OutboxItem, type PhotoStore,
 } from "../lib/mm/outbox";
 import { createStore } from "../lib/mm/persist";
@@ -110,8 +110,49 @@ describe("outbox sending (SPEC §12)", () => {
     online = true;
     await s.sender.flush(); // app became active: still within the 10-minute window
     expect(s.calls).toHaveLength(1);
+    s.advance(OUTBOX_RECONNECT_MIN_MS); // reconnect retries are spaced at least a minute apart
     await s.sender.flush({ afterReconnect: true });
     expect(status(s)).toBe("sent");
+  });
+  it("a flapping connection can't burn attempts: reconnect retries are at least a minute apart", async () => {
+    const s = setup(() => { throw new TypeError("offline"); });
+    await s.sender.enqueue("support", supportPayload("hello there"));
+    await settle();
+    for (let i = 0; i < 6; i++) await s.sender.flush({ afterReconnect: true }); // six "online" events in a row
+    expect(s.calls).toHaveLength(1);
+    s.advance(OUTBOX_RECONNECT_MIN_MS - 1);
+    await s.sender.flush({ afterReconnect: true });
+    expect(s.calls).toHaveLength(1);
+    s.advance(1);
+    await s.sender.flush({ afterReconnect: true });
+    expect(s.calls).toHaveLength(2);
+  });
+  it("408 (request timeout) is retried like a network error, not failed", async () => {
+    const s = setup(() => json(408));
+    await s.sender.enqueue("support", supportPayload("hello there"));
+    await settle();
+    expect(status(s)).toBe("pending");
+  });
+  it("a sent item keeps no content (message, email, notes) in this browser, and is dropped after a day", async () => {
+    const s = setup(() => json(201, { id: "abc" }));
+    await s.sender.enqueue("support", supportPayload("a private message", "me@example.com"));
+    await settle();
+    expect(status(s)).toBe("sent");
+    expect(s.store.get()[0]!.payload).toEqual({});
+    expect(JSON.stringify(s.store.get())).not.toContain("private message");
+    expect(JSON.stringify(s.store.get())).not.toContain("me@example.com");
+    s.advance(OUTBOX_SENT_KEEP_MS + 1000);
+    await s.sender.flush();
+    expect(s.store.get()).toHaveLength(0);
+  });
+  it("clear() forgets everything, photos included", async () => {
+    const s = setup(() => json(500));
+    await s.sender.enqueue("report", reportPayload({ chainId: "a", itemId: "b", field: "fat", hasPhoto: true }), new Blob(["x"]));
+    await settle();
+    s.sender.clear();
+    await settle();
+    expect(s.store.get()).toHaveLength(0);
+    expect(s.photos.blobs.size).toBe(0);
   });
   it("reconnecting does not hammer the server: a 429/5xx item still waits out the 10 minutes", async () => {
     const s = setup(() => json(503));
@@ -186,5 +227,7 @@ describe("request bodies match docs/BACKEND.md and pass the server's own validat
     const link = mailtoFor(item, "support@example.com");
     expect(link.startsWith("mailto:support@example.com?subject=Support&body=")).toBe(true);
     expect(decodeURIComponent(link)).toContain("Hello there");
+    // mailto can't carry a photo: the link says what it contains and nothing about an attachment
+    expect(decodeURIComponent(link)).not.toContain("photo");
   });
 });

@@ -241,3 +241,15 @@ describe("order description for the share card", () => {
     expect(describeOrder(ix, [lineFromItem(ix, "agua-fresca")!])).toBe("Agua fresca");
   });
 });
+
+describe("a default recipe that already has a double", () => {
+  it("names a reduction back to one portion 'single X' (an extension of the pipeline wording, which has no such case)", () => {
+    const chain = JSON.parse(JSON.stringify(loadChain("bowl-and-co"))) as Chain;
+    chain.items.find((i) => i.id === "chicken-bowl")!.components.find((c) => c.id === "chicken")!.qty = 2;
+    const ix2 = indexChain(chain);
+    const line = comp(lineFromItem(ix2, "chicken-bowl"));
+    expect(orderName(ix2, [line])).toBe("Chicken bowl");
+    const single = unwrap(setComponentQty(ix2, line, "chicken", 1));
+    expect(orderName(ix2, [single])).toBe("Chicken bowl · single chicken");
+  });
+});

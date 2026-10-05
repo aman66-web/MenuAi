@@ -55,6 +55,23 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   #C0360F so text and white-on-accent buttons pass WCAG AA (4.3:1 → 5.6:1); dark mode unchanged; (4) chain, item and
   builder are static shells that read ids from the query string (`/app/chain?id=…`), so one cached shell opens any
   restaurant offline; (5) the 4th Save shows the paywall at 3 free saved orders exactly as in the spec.
+- 2026-10-05 — Web decisions from the independent spec review (all beyond the spec, so logged here):
+  copy added that the spec doesn't give: nothingFits heading "Nothing here fits your meal budget. Closest options:",
+  onboarding validation message, "Search restaurants and items" placeholder, the offline strip and /app/offline page;
+  while payments are off the Best for you overlay reads "See your 5 best orders · Pro" and Today's button "See Pro"
+  ("Try Pro free" returns with payments, there is no trial to promise).
+  Outbox: a network-failed item is retried when the network returns, at most once a minute (counts toward the 5
+  attempts, so a flapping connection can't burn them in a burst); 408 is retried like a network error; a sent item keeps
+  no content (message/email/notes) and is dropped after a day; "Email instead" is a plain mailto (can't attach the photo,
+  which is deleted when an item fails). The web Contact form sends `source: "web"`, `appVersion: "web 1.0"` (BACKEND.md).
+  Behaviour: editing a saved order ("Save changes") updates it in place; undo restores the original id and date; naming
+  adds "single X" when a default recipe's double is reduced; onboarding runs first on every route and returns to the
+  shared link; the browser is asked to keep our data when the user first saves or logs (iPhone Safari can evict site
+  data after about a week; privacy/terms say so); web Pro waitlist rows (`source = 'web-app-pro'`) are kept until
+  Pro is ready (BACKEND.md routine); lists sort case-insensitively (ranking tie-breaks stay code-unit as specified).
+  Known and accepted: dev tools (Pro preview toggle) are tied to NEXT_PUBLIC_SHOW_SAMPLE_DATA, so that variable must
+  never be set on a public production site; Pro is client-side only until payments exist (real payments need a
+  server-verified entitlement).
 - 2026-10-05 — Vercel project `menumacros` has env vars IP_HASH_SALT and CRON_SECRET (sensitive) and
   NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 on Preview only. Still to set: SUPABASE_URL, SUPABASE_SECRET_KEY,
   NEXT_PUBLIC_SUPPORT_EMAIL, NEXT_PUBLIC_SITE_URL.

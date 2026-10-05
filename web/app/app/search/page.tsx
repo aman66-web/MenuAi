@@ -5,7 +5,7 @@ import { chainHref, itemHref } from "@/lib/mm/routes";
 import { useDeferredValue, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { formatCalories } from "@/lib/mm/format";
-import { MIN_QUERY_LENGTH, search } from "@/lib/mm/search";
+import { MIN_QUERY_LENGTH, normalizeForSearch, search } from "@/lib/mm/search";
 import { ChevronLeftIcon, ChevronRightIcon, SearchIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, EmptyState, SampleBadge, SectionTitle } from "../_components/ui";
@@ -18,7 +18,7 @@ export default function SearchPage() {
   const { searchIndex, loadedCount, totalCount } = useSearchIndex();
   const [requesting, setRequesting] = useState(false);
   const results = useMemo(() => search(searchIndex, deferred), [searchIndex, deferred]);
-  const active = deferred.trim().length >= MIN_QUERY_LENGTH;
+  const active = normalizeForSearch(deferred).length >= MIN_QUERY_LENGTH;
   const empty = results.chains.length === 0 && results.items.length === 0;
   const stillLoading = loadedCount < totalCount;
 
@@ -78,10 +78,14 @@ export default function SearchPage() {
           <ul>
             {results.items.map((i) => (
               <li key={`${i.chainId}/${i.itemId}`}>
-                <Link href={itemHref(i.chainId, i.itemId)} className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft">
+                <Link
+                  href={itemHref(i.chainId, i.itemId)}
+                  aria-label={`${i.name}, ${i.chainName}, ${Math.round(i.calories)} calories`}
+                  className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft"
+                >
                   <span className="app-numbers">
-                    <span className="block font-semibold">{i.name}</span>
-                    <span className="block text-sm text-muted">{i.chainName} · {formatCalories(i.calories)}</span>
+                    {/* SPEC §7.3: "Chicken wrap · Cluck House · 440 cal" */}
+                    <span aria-hidden><span className="font-semibold">{i.name}</span> <span className="text-muted">· {i.chainName} · {formatCalories(i.calories)}</span></span>
                   </span>
                   <ChevronRightIcon className="h-5 w-5 text-muted" />
                 </Link>

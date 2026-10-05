@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { loggedToday, isSameLocalDay } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
-import { addLogEntry, deleteLogEntry, logStore } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { useGate } from "../_components/Paywall";
 import { TrashIcon } from "../_components/icons";
@@ -84,7 +84,7 @@ export default function TodayPage() {
               <div className="min-w-0">
                 <p className="text-sm text-muted">{timeFormat.format(new Date(e.loggedAt))} · {e.chainName}</p>
                 <p className="font-semibold leading-snug">{e.name}</p>
-                <p className="app-numbers text-sm text-muted">{formatCalories(e.nutrients.calories)} · {formatGrams(e.nutrients.protein)} protein</p>
+                <p className="app-numbers text-sm text-muted" aria-label={`${Math.round(e.nutrients.calories)} calories, ${Math.round(e.nutrients.protein)} grams protein`}>{formatCalories(e.nutrients.calories)} · {formatGrams(e.nutrients.protein)} protein</p>
               </div>
               <button type="button" aria-label={`Delete ${e.name}`} onClick={() => remove(e)} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft">
                 <TrashIcon className="h-5 w-5" />
@@ -97,7 +97,7 @@ export default function TodayPage() {
       {undo && (
         <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-xl border border-line bg-background px-4 py-2 shadow-lg">
           <span className="text-sm">Deleted “{undo.name}”.</span>
-          <button type="button" className="min-h-11 px-2 font-semibold text-accent" onClick={() => { addLogEntry({ chainId: undo.chainId, chainName: undo.chainName, name: undo.name, nutrients: undo.nutrients, source: undo.source }); setUndo(null); }}>Undo</button>
+          <button type="button" className="min-h-11 px-2 font-semibold text-accent" onClick={() => { restoreLogEntry(undo); setUndo(null); }}>Undo</button>
         </div>
       )}
     </div>

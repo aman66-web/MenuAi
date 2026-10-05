@@ -1,16 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { outbox } from "@/lib/mm/stores";
-import { useMenu } from "../_lib/hooks";
+import { useHydrated, useMenu, useSettings } from "../_lib/hooks";
+import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { BookmarkIcon, GearIcon, HomeIcon, TodayIcon } from "./icons";
 import { PaywallProvider } from "./Paywall";
 
 const TABS = [
-  { href: "/app", label: "Home", Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/chain") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
+  { href: "/app", label: "Home", Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
   { href: "/app/saved", label: "Saved", Icon: BookmarkIcon, match: (p: string) => p.startsWith("/app/saved") },
   { href: "/app/today", label: "Today", Icon: TodayIcon, match: (p: string) => p.startsWith("/app/today") },
   { href: "/app/settings", label: "Settings", Icon: GearIcon, match: (p: string) => p.startsWith("/app/settings") },
@@ -18,6 +19,9 @@ const TABS = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const hydrated = useHydrated();
+  const onboarded = useSettings().hasCompletedOnboarding;
   const fullScreen = pathname.startsWith("/app/welcome");
   const online = useOnline();
   const menu = useMenu();
@@ -27,6 +31,13 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (process.env.NODE_ENV !== "production" || menu.status !== "ready" || menu.chains.length === 0) return;
     void warmOffline(menu.chains);
   }, [menu.status, menu.chains]);
+
+  // First visit (SPEC §7.1): onboarding comes first, wherever the link pointed. It returns there when done.
+  useEffect(() => {
+    if (!hydrated || onboarded || pathname.startsWith("/app/welcome") || pathname.startsWith("/app/offline")) return;
+    const next = window.location.pathname + window.location.search;
+    router.replace(`/app/welcome?next=${encodeURIComponent(next)}`);
+  }, [hydrated, onboarded, pathname, router]);
 
   // Offline support (public/sw.js). Production only, so development never serves stale files.
   useEffect(() => {
@@ -38,7 +49,10 @@ export function AppShell({ children }: { children: ReactNode }) {
   // Retry queued submissions whenever the app becomes active or the network returns (SPEC §12).
   useEffect(() => {
     const flush = () => void outbox().flush();
-    const reconnected = () => void outbox().flush({ afterReconnect: true });
+    const reconnected = () => {
+      void outbox().flush({ afterReconnect: true });
+      if (menuClient.getSnapshot().status === "error") void menuClient.ensureManifest(true); // menus couldn't load: try again
+    };
     const visible = () => document.visibilityState === "visible" && flush();
     flush();
     window.addEventListener("online", reconnected);

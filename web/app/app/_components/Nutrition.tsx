@@ -58,7 +58,8 @@ export function NutrientTable({ nutrients, name }: { nutrients: Nutrients; name:
     ["Fibre", formatOptionalGrams(nutrients.fiber), nutrients.fiber !== undefined],
   ];
   return (
-    <dl className="app-numbers divide-y divide-line rounded-xl border border-line" aria-label={`${nutrientAriaLabel(name, nutrients)}`}>
+    <div role="group" aria-label={nutrientAriaLabel(name, nutrients)}>
+    <dl className="app-numbers divide-y divide-line rounded-xl border border-line">
       {rows.map(([label, value, published]) => (
         <div key={label} className="flex min-h-11 items-center justify-between px-4 py-2">
           <dt className="text-base">{label}</dt>
@@ -66,5 +67,6 @@ export function NutrientTable({ nutrients, name }: { nutrients: Nutrients; name:
         </div>
       ))}
     </dl>
+    </div>
   );
 }

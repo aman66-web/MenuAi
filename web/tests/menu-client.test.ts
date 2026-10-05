@@ -77,15 +77,52 @@ describe("MenuClient", () => {
     const ix = await c.loadChain("cluck-house");
     expect(ix.chain.id).toBe("cluck-house");
   });
-  it("is ready-but-empty when offline with nothing cached, and refuses unknown chains", async () => {
+  it("offline with nothing cached is an ERROR with a retry, never shown as 'no menus exist'", async () => {
+    const offline = new MenuClient({ sources, includeSamples: true, fetch: (async () => { throw new TypeError("offline"); }) as unknown as typeof fetch, sha256: webCryptoSha256 });
+    await offline.ensureManifest();
+    expect(offline.getSnapshot().status).toBe("error");
+    expect(offline.getSnapshot().error).toMatch(/Couldn't reach the menus/);
+    await expect(offline.loadChain("bowl-and-co")).rejects.toThrow(/Couldn't reach the menus/);
+  });
+  it("recovers when the network comes back (ensureManifest retries after an error)", async () => {
+    let online = false;
+    const { fetchFn } = cdn();
+    const flaky = (async (input: string, init?: RequestInit) => { if (!online) throw new TypeError("offline"); return fetchFn(input, init); }) as unknown as typeof fetch;
+    const c = client(flaky);
+    await c.ensureManifest();
+    expect(c.getSnapshot().status).toBe("error");
+    online = true;
+    await c.ensureManifest();
+    expect(c.getSnapshot().status).toBe("ready");
+    expect(c.getSnapshot().chains.map((x) => x.id)).toEqual(["bowl-and-co", "cluck-house"]);
+    expect(c.getSnapshot().error).toBeUndefined();
+  });
+  it("a 5xx from the host counts as unreachable; a 404 means nothing is published (empty, not an error)", async () => {
+    const down = cdn({ "/menus-sample/menus-manifest.json": null });
+    const notPublished = client(down.fetchFn, true, [{ id: "sample", baseUrl: "/menus-sample/" }]);
+    await notPublished.ensureManifest();
+    expect(notPublished.getSnapshot().status).toBe("ready");
+    expect(notPublished.getSnapshot().chains).toEqual([]);
+    const broken = (async () => new Response("oops", { status: 503 })) as unknown as typeof fetch;
+    const c = client(broken);
+    await c.ensureManifest();
+    expect(c.getSnapshot().status).toBe("error");
+  });
+  it("an empty placeholder manifest is not a publish: no 'Menus updated' date until chains exist", async () => {
+    const empty = JSON.stringify({ schemaVersion: 1, dataVersion: 20000101000000, generatedAt: "2000-01-01T00:00:00Z", chains: [] });
+    const c = client(cdn({ "/menus/menus-manifest.json": empty, "/menus-sample/menus-manifest.json": null }).fetchFn);
+    await c.ensureManifest();
+    expect(c.getSnapshot().status).toBe("ready");
+    expect(c.getSnapshot().chains).toEqual([]);
+    expect(c.getSnapshot().dataVersion).toBeNull();
+  });
+  it("refuses chains that are not in the catalogue", async () => {
     const online = cdn();
     const c = client(online.fetchFn);
     await c.ensureManifest();
     const offline = new MenuClient({ sources, includeSamples: true, fetch: (async () => { throw new TypeError("offline"); }) as unknown as typeof fetch, sha256: webCryptoSha256 });
-    await offline.ensureManifest();
-    expect(offline.getSnapshot().status).toBe("ready");
-    expect(offline.getSnapshot().chains).toEqual([]);
     await expect(c.loadChain("nope")).rejects.toThrow(/isn't available/);
+    void offline;
   });
   it("builds a search index from loaded chains and ignores unsupported schema versions", async () => {
     const c = client(cdn().fetchFn);

@@ -8,7 +8,7 @@ import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal } from "@/lib/mm/types";
 import { BoltIcon, ForkIcon, ListIcon } from "../_components/icons";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
-import { Button, Field, inputClass, Toggle } from "../_components/ui";
+import { Button, Field, inputClass, radioKeyNav, Toggle } from "../_components/ui";
 
 // SPEC §7.1 and §8. Skip on steps 1–3 skips that step only (defaults stay) and moves on; step 4 has only Start.
 // Step 3 differs from the spec: the spec asks for location, but the web app has no nearby feature, so this
@@ -54,13 +54,15 @@ export default function WelcomePage() {
           <h1 className="text-3xl font-bold tracking-tight">What&apos;s your goal?</h1>
           <p className="mt-2 text-muted">We&apos;ll use this to rank orders for you. Change it any time.</p>
           <div role="radiogroup" aria-label="Your goal" className="mt-6 space-y-3">
-            {GOALS.map((g) => (
+            {GOALS.map((g, i) => (
               <button
                 key={g.value}
                 type="button"
                 role="radio"
                 aria-checked={goal === g.value}
+                tabIndex={goal === g.value ? 0 : -1}
                 onClick={() => setGoal(g.value)}
+                onKeyDown={(e) => radioKeyNav(e, i, GOALS.length, (n) => setGoal(GOALS[n]!.value))}
                 className={`flex min-h-14 w-full items-center rounded-xl border px-4 text-left text-lg font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${goal === g.value ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft"}`}
               >
                 {g.label}
@@ -86,9 +88,12 @@ export default function WelcomePage() {
           </div>
           {goal === "glp1" && (
             <div className="mt-4">
-              <Field label="Comfortable meal size (calories)" hint="Orders are capped at this size. The default is 450.">
-                <input className={inputClass} inputMode="numeric" value={mealCap} onChange={(e) => setMealCap(e.target.value)} />
-              </Field>
+              <label className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base">
+                <span>Comfortable meal size:</span>
+                <input className={`${inputClass} w-24`} inputMode="numeric" aria-label="Comfortable meal size in calories" value={mealCap} onChange={(e) => setMealCap(e.target.value)} />
+                <span>calories</span>
+              </label>
+              <p className="mt-1 text-xs text-muted">Orders are capped at this size. The default is 450.</p>
             </div>
           )}
           <button type="button" className="mt-4 min-h-11 text-left font-medium text-accent underline" onClick={() => setShowSuggest((v) => !v)} aria-expanded={showSuggest}>
@@ -159,7 +164,9 @@ export default function WelcomePage() {
               onClick={() => {
                 updateSettings({ hasCompletedOnboarding: true });
                 analytics.track({ name: "onboardingCompleted", goal: settingsStore.get().goal });
-                router.replace("/app");
+                // Back to the page the visitor first opened (a shared link), if it's inside the app.
+                const next = new URLSearchParams(window.location.search).get("next");
+                router.replace(next && /^\/app(?![\w-])/.test(next) && !next.startsWith("//") && !next.startsWith("/app/welcome") ? next : "/app");
               }}
             >
               Start

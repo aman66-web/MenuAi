@@ -14,7 +14,7 @@ export const SORT_OPTIONS: ReadonlyArray<{ value: SortKind; label: string }> = [
   { value: "density", label: "Most protein per 100 cal" },
 ];
 
-const byName = (a: MenuItem, b: MenuItem) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+const byName = (a: MenuItem, b: MenuItem) => a.name.localeCompare(b.name, "en-US");
 
 /** Sorting flattens categories. Ties always break by name so the order is stable. "menu" keeps data order. */
 export function sortItems(items: readonly MenuItem[], kind: SortKind): MenuItem[] {

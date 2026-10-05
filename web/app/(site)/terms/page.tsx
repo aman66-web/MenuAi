@@ -19,7 +19,7 @@ export default function Terms() {
       <p>
         The {site.name} web app (at /app on this website) is free to use. Paid features aren&apos;t available in it yet.
         Your goal, targets, saved orders and log are kept only in your browser; if you clear your browser&apos;s site
-        data they are deleted and we can&apos;t restore them.
+        data, or the browser removes it, they are deleted and we can&apos;t restore them.
       </p>
 
       <h2>Nutrition information</h2>

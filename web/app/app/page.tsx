@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import { formatCalories, formatGrams, macroLine } from "@/lib/mm/format";
@@ -11,13 +10,13 @@ import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { ChainRow } from "./_components/ChainRow";
 import { SearchIcon } from "./_components/icons";
 import { RequestChainSheet } from "./_components/Submit";
-import { Button, Card, EmptyState, SectionTitle, Spinner } from "./_components/ui";
+import { Button, Card, EmptyState, ErrorBox, SectionTitle, Spinner } from "./_components/ui";
+import { menuClient } from "./_lib/menu";
 import { useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 
 // SPEC §7.2. "Near you" is not available on the web (docs/WEB_BUILD_PLAN.md), so the chain list is always "Popular".
 
 export default function HomePage() {
-  const router = useRouter();
   const hydrated = useHydrated();
   const settings = useSettings();
   const pro = useIsPro();
@@ -27,10 +26,6 @@ export default function HomePage() {
   const log = useStore(logStore);
   const now = useNow();
   const [requesting, setRequesting] = useState(false);
-
-  useEffect(() => {
-    if (hydrated && !settings.hasCompletedOnboarding) router.replace("/app/welcome");
-  }, [hydrated, settings.hasCompletedOnboarding, router]);
 
   const popular = useMemo(() => menu.chains.slice(0, 10), [menu.chains]);
   const favoriteChains = useMemo(() => {
@@ -90,6 +85,10 @@ export default function HomePage() {
 
       {menu.status === "loading" || menu.status === "idle" ? (
         <Spinner label="Loading restaurants" />
+      ) : menu.status === "error" ? (
+        <div className="mt-6">
+          <ErrorBox message={menu.error ?? "Couldn't load the restaurants."} onRetry={() => void menuClient.ensureManifest(true)} />
+        </div>
       ) : menu.chains.length === 0 ? (
         <div className="mt-6">
           <EmptyState

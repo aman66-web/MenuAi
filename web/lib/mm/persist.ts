@@ -108,3 +108,14 @@ export function createStore<T>(key: string, fallback: T, options: StoreOptions<T
   };
   return store;
 }
+
+let askedForPersistence = false;
+/**
+ * Ask the browser not to evict our data (iPhone Safari can clear site data for sites it hasn't seen in about a week).
+ * Called when the user first saves or logs something worth keeping; best effort and silent where unsupported.
+ */
+export function requestPersistentStorage(): void {
+  if (askedForPersistence || typeof navigator === "undefined" || !navigator.storage?.persist) return;
+  askedForPersistence = true;
+  void navigator.storage.persist().catch(() => undefined);
+}

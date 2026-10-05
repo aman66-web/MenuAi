@@ -1,4 +1,4 @@
-import { createStore } from "./persist";
+import { createStore, requestPersistentStorage } from "./persist";
 import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
 import { indexedDbPhotos } from "./photo-store";
 import {
@@ -44,7 +44,18 @@ export function updateSettings(patch: Partial<UserSettings>) {
 export function addSavedOrder(order: Omit<SavedOrder, "id" | "createdAt">): SavedOrder {
   const saved: SavedOrder = { ...order, id: newId(), createdAt: new Date().toISOString() };
   savedStore.update((list) => [saved, ...list]);
+  requestPersistentStorage();
   return saved;
+}
+
+/** Edit a saved order in place (the builder's "Save changes"): same id, same date, new lines/name/numbers. */
+export function updateSavedOrder(id: string, patch: Partial<Pick<SavedOrder, "name" | "lines" | "nutrients" | "dataVersionAtSave">>) {
+  savedStore.update((list) => list.map((o) => (o.id === id ? { ...o, ...patch } : o)));
+}
+
+/** Undo a delete exactly: same id and original date, back at its place by date. */
+export function restoreSavedOrder(order: SavedOrder) {
+  savedStore.update((list) => (list.some((o) => o.id === order.id) ? list : [...list, order].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))));
 }
 
 export function deleteSavedOrder(id: string) {
@@ -54,7 +65,13 @@ export function deleteSavedOrder(id: string) {
 export function addLogEntry(entry: Omit<LogEntry, "id" | "loggedAt">): LogEntry {
   const logged: LogEntry = { ...entry, id: newId(), loggedAt: new Date().toISOString() };
   logStore.update((list) => [...list, logged]);
+  requestPersistentStorage();
   return logged;
+}
+
+/** Undo a delete exactly: same id and the time it was originally logged. */
+export function restoreLogEntry(entry: LogEntry) {
+  logStore.update((list) => (list.some((e) => e.id === entry.id) ? list : [...list, entry]));
 }
 
 export function deleteLogEntry(id: string) {

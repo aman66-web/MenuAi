@@ -42,7 +42,8 @@ export async function webCryptoSha256(bytes: ArrayBuffer): Promise<string> {
 }
 
 const EMPTY_SEARCH = buildSearchIndex([]);
-const byName = (a: { name: string }, b: { name: string }) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+// Lists sort case-insensitively ("sweetgreen" sits with the S's). Ranking tie-breaks stay code-unit, as the spec requires.
+const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name, "en-US");
 
 export class MenuClient {
   private state: MenuState = { status: "idle", chains: [], dataVersion: null, indexes: new Map(), searchIndex: EMPTY_SEARCH };
@@ -71,15 +72,21 @@ export class MenuClient {
     return this.manifestPromise;
   }
 
-  private async fetchManifest(source: MenuSource): Promise<Manifest | null> {
+  /** A manifest, "absent" (not published, or a version we can't read: not an error), or "unreachable" (no network). */
+  private async fetchManifest(source: MenuSource): Promise<Manifest | "absent" | "unreachable"> {
+    let res: Response;
     try {
-      const res = await this.opts.fetch(`${source.baseUrl}menus-manifest.json`, { cache: "no-cache" });
-      if (!res.ok) return null; // 404 before the first publish: not an error
+      res = await this.opts.fetch(`${source.baseUrl}menus-manifest.json`, { cache: "no-cache" });
+    } catch {
+      return "unreachable";
+    }
+    if (!res.ok) return res.status >= 500 ? "unreachable" : "absent"; // 404 before the first publish is normal
+    try {
       const manifest = (await res.json()) as Manifest;
-      if (manifest.schemaVersion !== SUPPORTED_SCHEMA_VERSION || !Array.isArray(manifest.chains)) return null;
+      if (manifest.schemaVersion !== SUPPORTED_SCHEMA_VERSION || !Array.isArray(manifest.chains)) return "absent";
       return manifest;
     } catch {
-      return null;
+      return "unreachable";
     }
   }
 
@@ -88,22 +95,31 @@ export class MenuClient {
     const results = await Promise.all(this.opts.sources.map(async (s) => [s, await this.fetchManifest(s)] as const));
     const merged = new Map<string, CatalogChain>();
     let dataVersion: number | null = null;
-    let anyManifest = false;
+    let unreachable = false;
     for (const [source, manifest] of results) {
-      if (!manifest) continue;
-      anyManifest = true;
-      dataVersion = Math.max(dataVersion ?? 0, manifest.dataVersion);
+      if (manifest === "unreachable") unreachable = true;
+      if (typeof manifest === "string") continue;
+      let contributed = false;
       for (const c of manifest.chains) {
         if (c.sample && !this.opts.includeSamples) continue; // samples never show unless explicitly enabled
         if (!merged.has(c.id)) merged.set(c.id, { ...c, baseUrl: source.baseUrl }); // earlier sources win
+        contributed = true;
       }
+      // An empty placeholder manifest is not a publish: "Menus updated" only reflects manifests that list chains.
+      if (contributed) dataVersion = Math.max(dataVersion ?? 0, manifest.dataVersion);
     }
-    if (!anyManifest && this.opts.sources.length > 0 && this.state.chains.length === 0) {
-      // Nothing published AND nothing reachable. If offline with no cache we land here; show an empty-but-honest state.
-      this.set({ status: "ready", chains: [], dataVersion: null });
+    if (merged.size === 0 && unreachable && this.state.chains.length === 0) {
+      // We couldn't reach the menus and have nothing earlier: say so, never present it as "no menus exist".
+      this.manifestPromise = null; // let the next ensureManifest() try again
+      this.set({ status: "error", chains: [], dataVersion: null, error: "Couldn't reach the menus. Check your connection and try again." });
       return;
     }
-    this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion });
+    if (merged.size === 0 && unreachable) {
+      this.manifestPromise = null;
+      this.set({ status: "ready", error: undefined }); // keep what we already had
+      return;
+    }
+    this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion, error: undefined });
   }
 
   // ---- chains
@@ -119,7 +135,9 @@ export class MenuClient {
   }
 
   private async fetchChain(id: string): Promise<ChainIndex> {
+    if (this.state.status === "error") this.manifestPromise = null; // a retry should look for the menus again
     await this.ensureManifest();
+    if (this.state.status === "error") throw new MenuLoadError(this.state.error ?? "Couldn't load this menu.");
     for (let attempt = 0; attempt < 2; attempt++) {
       const entry = this.state.chains.find((c) => c.id === id);
       if (!entry) throw new MenuLoadError("That restaurant isn't available.");

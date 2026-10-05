@@ -24,7 +24,12 @@ export default function Privacy() {
           In the iPhone app these are stored only on your device. In the web app they are stored only in this browser
           on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). We never
           receive them. Clearing your browser&apos;s site data, or using &ldquo;Clear data on this device&rdquo; in
-          Settings, removes them.
+          Settings, removes them. Browsers can also remove site data on their own if you haven&apos;t visited for a
+          while (iPhone Safari can do this after about a week); adding the web app to your Home Screen helps prevent it.
+        </li>
+        <li>
+          A message, report or request you&apos;ve written but that hasn&apos;t been sent yet (for example because you
+          were offline) waits in the same place until it is sent. Once it&apos;s sent, the web app deletes its local copy.
         </li>
       </ul>
 
@@ -87,8 +92,8 @@ export default function Privacy() {
       <h2>How long we keep it</h2>
       <p>
         Reports, requests and support messages are kept while they help us maintain accurate menus and support you.
-        Waitlist emails are used only to send one email when we launch, and are deleted after that (or sooner if you
-        ask). You can ask us to delete anything you&apos;ve sent at any time.
+        Waitlist emails are used only to send you one email when what you signed up for is ready (the iPhone app
+        launch, or Pro in the web app), and are deleted after that (or sooner if you ask). You can ask us to delete anything you&apos;ve sent at any time.
       </p>
 
       <h2>Children</h2>

@@ -7,13 +7,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
-import { formatCalories } from "@/lib/mm/format";
+import { formatCalories, lowerFirst } from "@/lib/mm/format";
 import {
   addComponent, addableComponents, afterThis, afterThisText, describeOrder, GROUP_LABEL, isOrderAvailable, lineFromItem, lineNutrients,
   linesFromCombination, lineName, orderName, orderNutrients, removeComponent, setComponentQty, setItemQty, sortedComponents, swapComponent,
   swapOptions, toggleModifier, validateOrder, type ComponentLine, type ItemLine, type OrderLine, type Result,
 } from "@/lib/mm/order";
-import { addLogEntry, addSavedOrder, countProAction, logStore, savedStore } from "@/lib/mm/stores";
+import { addLogEntry, addSavedOrder, countProAction, logStore, savedStore, updateSavedOrder } from "@/lib/mm/stores";
 import type { LogSource, SavedOrder } from "@/lib/mm/user-data";
 import type { MenuComponent } from "@/lib/mm/types";
 import { useGate } from "../_components/Paywall";
@@ -25,14 +25,14 @@ import { useChain, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore
 
 // SPEC §6.5 and §7.6: customise any order with live totals (Pro).
 
-type Start = { kind: "item" | "pick" | "saved"; lines: OrderLine[]; savedName?: string; source: LogSource } | { kind: "error"; message: string } | { kind: "unavailable"; saved: SavedOrder };
+type Start = { kind: "item" | "pick" | "saved"; lines: OrderLine[]; savedName?: string; savedId?: string; source: LogSource } | { kind: "error"; message: string } | { kind: "unavailable"; saved: SavedOrder };
 
 function resolveStart(ix: ChainIndex, props: { itemId?: string; pickId?: string; savedId?: string }, saved: SavedOrder[]): Start {
   if (props.savedId) {
     const s = saved.find((o) => o.id === props.savedId);
     if (!s) return { kind: "error", message: "That saved order no longer exists." };
     if (!isOrderAvailable(ix, s.lines)) return { kind: "unavailable", saved: s };
-    return { kind: "saved", lines: s.lines.map((l) => structuredClone(l)), savedName: s.name, source: "savedOrder" };
+    return { kind: "saved", lines: s.lines.map((l) => structuredClone(l)), savedName: s.name, savedId: s.id, source: "savedOrder" };
   }
   if (props.pickId) {
     const combo = ix.combinations.get(props.pickId);
@@ -208,17 +208,24 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
             <div className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(5.5rem,1fr))] gap-2">
               <Button
                 full
-                onClick={() =>
+                onClick={() => {
+                  const entry = { chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 };
+                  if (start.savedId) {
+                    // Editing a saved order: update it in place (no duplicate, and it never counts against the free limit).
+                    updateSavedOrder(start.savedId, { name: entry.name, lines, nutrients: total, dataVersionAtSave: entry.dataVersionAtSave });
+                    router.push("/app/saved");
+                    return;
+                  }
                   gate("saveLimit", () => {
-                    addSavedOrder({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
+                    addSavedOrder(entry);
                     analytics.track({ name: "orderSaved" });
                     countProAction();
                     setNotice(null);
                     router.push("/app/saved");
-                  })
-                }
+                  });
+                }}
               >
-                Save
+                {start.savedId ? "Save changes" : "Save"}
               </Button>
               <Button
                 variant="secondary"
@@ -272,12 +279,12 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
             {rows.filter((r) => r.comp.group === group).map(({ ref, comp }) => (
               <li key={comp.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-2">
                 <div className="min-w-0 flex-1 basis-32">
-                  <div className="font-medium">{ref.qty === 2 ? `Double ${comp.name.toLowerCase()}` : comp.name}</div>
+                  <div className="font-medium">{ref.qty === 2 ? `Double ${lowerFirst(comp.name)}` : comp.name}</div>
                   <div className="app-numbers text-sm text-muted">{[comp.portion && (ref.qty === 2 ? `2 × ${comp.portion}` : comp.portion), formatCalories(comp.nutrients.calories * ref.qty)].filter(Boolean).join(" · ")}</div>
                 </div>
                 <div className="flex flex-wrap items-center">
                   {comp.allowDouble && (
-                    <button type="button" aria-pressed={ref.qty === 2} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`min-h-11 rounded-lg px-3 text-sm font-semibold ${ref.qty === 2 ? "bg-accent-soft text-accent" : "text-muted hover:bg-soft"}`}>Double</button>
+                    <button type="button" aria-pressed={ref.qty === 2} aria-label={`Double ${lowerFirst(comp.name)}`} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`min-h-11 rounded-lg px-3 text-sm font-semibold ${ref.qty === 2 ? "bg-accent-soft text-accent" : "text-muted hover:bg-soft"}`}>Double</button>
                   )}
                   {swapOptions(ix, line, comp.id).length > 0 && (
                     <button type="button" aria-label={`Swap ${comp.name}`} onClick={() => onSwap(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-muted hover:bg-soft"><SwapIcon className="h-5 w-5" /></button>

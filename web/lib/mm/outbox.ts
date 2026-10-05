@@ -27,6 +27,10 @@ export interface OutboxItem {
 export const OUTBOX_MAX_ATTEMPTS = 5;
 export const OUTBOX_RETRY_MS = 10 * 60 * 1000;
 export const OUTBOX_TIMEOUT_MS = 20_000;
+/** After the network returns, a network-failed item is retried at once, but never more often than this. */
+export const OUTBOX_RECONNECT_MIN_MS = 60_000;
+/** Sent items are only bookkeeping; they are dropped after a day. */
+export const OUTBOX_SENT_KEEP_MS = 24 * 60 * 60 * 1000;
 
 const PATH: Record<OutboxKind, string> = { report: "reports", chainRequest: "chain-requests", support: "support" };
 
@@ -144,6 +148,10 @@ export class OutboxSender {
    */
   async flush(options: { force?: boolean; afterReconnect?: boolean } = {}): Promise<void> {
     const now = this.deps.now();
+    this.deps.store.update((items) => {
+      const kept = items.filter((i) => !(i.status === "sent" && now - Date.parse(i.createdAt) > OUTBOX_SENT_KEEP_MS));
+      return kept.length === items.length ? items : kept;
+    });
     const due = this.deps.store
       .get()
       .filter(
@@ -152,7 +160,7 @@ export class OutboxSender {
           (options.force ||
             !i.lastAttemptAt ||
             now - Date.parse(i.lastAttemptAt) >= OUTBOX_RETRY_MS ||
-            (options.afterReconnect && i.failureReason === "network")),
+            (options.afterReconnect && i.failureReason === "network" && now - Date.parse(i.lastAttemptAt) >= OUTBOX_RECONNECT_MIN_MS)),
       );
     await Promise.all(due.map((i) => this.attempt(i.id)));
   }
@@ -194,7 +202,7 @@ export class OutboxSender {
       clearTimeout(timer);
     }
 
-    if (response.status === 429 || response.status >= 500) return retryLater(`http_${response.status}`);
+    if (response.status === 429 || response.status === 408 || response.status >= 500) return retryLater(`http_${response.status}`);
     if (response.status >= 400) {
       // 400/413: an app bug, never retried. Other 4xx are treated the same way.
       this.patch(item.id, { attempts, lastAttemptAt, status: "failed", failureReason: `http_${response.status}` });
@@ -208,7 +216,8 @@ export class OutboxSender {
     } catch {
       // a 2xx without JSON still counts as sent
     }
-    this.patch(item.id, { attempts, lastAttemptAt, status: "sent", ...(body.id ? { serverId: body.id } : {}), failureReason: undefined });
+    // A sent item keeps no content: the message, email and notes are not left behind in this browser.
+    this.patch(item.id, { attempts, lastAttemptAt, status: "sent", payload: {}, ...(body.id ? { serverId: body.id } : {}), failureReason: undefined });
     await this.uploadPhoto(item, body.photoUpload);
     return "sent";
   }
@@ -226,6 +235,12 @@ export class OutboxSender {
     } finally {
       await this.deps.photos.delete(item.id).catch(() => undefined);
     }
+  }
+
+  /** Forget everything (Settings › Clear data on this device), photos included. */
+  clear() {
+    for (const i of this.deps.store.get()) void this.deps.photos.delete(i.id).catch(() => undefined);
+    this.deps.store.reset();
   }
 
   remove(id: string) {

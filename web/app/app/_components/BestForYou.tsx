@@ -7,7 +7,7 @@ import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, MEAL_LABEL } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
-import { formatCalories } from "@/lib/mm/format";
+import { formatCalories, nutrientAriaLabel } from "@/lib/mm/format";
 import { NO_MATCHES_COPY, OUT_OF_BUDGET_BANNER, OUT_OF_BUDGET_EMPTY, rank, type Pick } from "@/lib/mm/ranking";
 import { logStore } from "@/lib/mm/stores";
 import type { Meal, Preferences } from "@/lib/mm/types";
@@ -68,6 +68,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
             type="button"
             onClick={() => open(pick, i + 1)}
             disabled={!pro}
+            aria-label={`${nutrientAriaLabel(pick.name, pick.nutrients)}${pick.overBy !== undefined ? `, over by ${Math.round(pick.overBy)} calories` : ""}`}
             className="app-numbers flex min-h-16 w-full flex-col items-start rounded-xl border border-line bg-background p-3 text-left enabled:hover:border-muted focus-visible:outline-2 focus-visible:outline-accent"
           >
             <span className="text-base font-semibold">{pick.name}</span>

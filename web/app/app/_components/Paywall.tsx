@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { DEV_TOOLS_ENABLED, PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { needsPaywall, PAYWALL_BULLETS, PAYWALL_TITLE, type PaywallTrigger } from "@/lib/mm/entitlements";
@@ -32,9 +32,11 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
   const pro = useIsPro();
   const saved = useStore(savedStore);
   const [trigger, setTrigger] = useState<PaywallTrigger | null>(null);
+  const triggerRef = useRef<PaywallTrigger | null>(null);
 
   const showPaywall = useCallback((t: PaywallTrigger) => {
     analytics.track({ name: "paywallShown", trigger: t });
+    triggerRef.current = t;
     setTrigger(t);
   }, []);
 
@@ -47,13 +49,12 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
   );
 
   const close = useCallback(() => {
-    setTrigger((current) => {
-      if (current) {
-        analytics.track({ name: "paywallDismissed", trigger: current });
-        updateSettings({ paywallDismissCount: settingsStore.get().paywallDismissCount + 1 });
-      }
-      return null;
-    });
+    const current = triggerRef.current;
+    if (!current) return; // already closed (the dialog also fires onClose after we close it ourselves)
+    triggerRef.current = null;
+    analytics.track({ name: "paywallDismissed", trigger: current });
+    updateSettings({ paywallDismissCount: settingsStore.get().paywallDismissCount + 1 });
+    setTrigger(null);
   }, []);
 
   const value = useMemo(() => ({ gate, showPaywall }), [gate, showPaywall]);
@@ -61,7 +62,7 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
     <PaywallContext.Provider value={value}>
       {children}
       <Sheet open={trigger !== null} onClose={close} title={`${site.name} Pro`}>
-        <PaywallBody onDone={() => setTrigger(null)} />
+        <PaywallBody onDone={() => { triggerRef.current = null; setTrigger(null); }} />
       </Sheet>
     </PaywallContext.Provider>
   );

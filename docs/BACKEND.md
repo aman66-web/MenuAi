@@ -70,6 +70,7 @@ Send `Content-Type: application/json`. Bodies over 16 KB (UTF-8 bytes) are rejec
 `{ "name": "Raising Cane's", "appVersion": "1.0 (12)" }` → 201. Name 2–80 chars.
 
 ### POST /api/v1/support — in-app "Contact us"
+(The web app sends `source: "web"` and `appVersion: "web 1.0"`; the iPhone app sends `source: "app"`.)
 `{ "message": "…", "email": "optional@example.com", "source": "app", "appVersion": "1.0 (12)" }` → 201.
 Message 5–4,000 chars; email optional (needed only if the user wants a reply).
 
@@ -102,6 +103,8 @@ never by clicking in the dashboard, so the repo stays the source of truth. Apply
 - **Support**: `support_messages` where `status = 'open'`; reply by email, mark `answered`.
 - **Waitlist**: on launch day, Table Editor › `waitlist` › Export to CSV, send the one launch email
   (that's all the site promises), then delete the rows. Delete any address sooner if someone asks.
+  **Rows with `source = 'web-app-pro'`** signed up from the web app's Pro screen: keep them until Pro is ready on the web,
+  send them one email then, and delete them. Don't delete them with the iPhone launch batch.
 
 ## Plans and costs
 
