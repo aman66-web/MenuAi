@@ -85,7 +85,7 @@ def half_up(x: float, places: int = 0) -> float:
 
 def reason(n: dict) -> str:
     """Display rule (SPEC §6.1): grams half-up to integers, calories with a thousands separator."""
-    return f"{int(half_up(n['protein']))}g protein · {n['calories']:,} cal · {half_up(density(n), 1):.1f}g per 100 cal"
+    return f"{int(half_up(n['protein']))}g protein · {n['calories']:,} kcal · {half_up(density(n), 1):.1f}g per 100 kcal"
 
 
 def rank(chain: dict, profile: dict, logged_calories: int, meal: str, prefs: dict) -> dict:

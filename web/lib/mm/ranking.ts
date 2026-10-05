@@ -33,7 +33,7 @@ export interface Candidate {
 
 export interface Pick extends Candidate {
   reason: string;
-  /** nothingFits only: calories over the meal budget ("Over by N cal"). */
+  /** nothingFits only: calories over the meal budget ("Over by N kcal"). */
   overBy?: number;
 }
 

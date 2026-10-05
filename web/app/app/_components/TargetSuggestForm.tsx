@@ -48,7 +48,7 @@ export function TargetSuggestForm({ goal, onApply }: { goal: Goal; onApply: (cal
       {result?.kind === "invalid" && <p role="alert" className="text-sm text-muted">Enter an age from 18 to 100, your weight and your height.</p>}
       {result?.kind === "ok" && (
         <div role="status" className="space-y-2 rounded-lg bg-background p-3">
-          <p className="app-numbers text-base"><span className="font-bold">{result.calories.toLocaleString("en-US")}</span> cal · <span className="font-bold">{result.protein}g</span> protein</p>
+          <p className="app-numbers text-base"><span className="font-bold">{result.calories.toLocaleString("en-US")}</span> kcal · <span className="font-bold">{result.protein}g</span> protein</p>
           <p className="text-xs text-muted">{SUGGESTION_NOTE}</p>
           <Button full onClick={() => onApply(result.calories, result.protein)}>Use these</Button>
         </div>

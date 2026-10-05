@@ -46,7 +46,7 @@ await step("OFFLINE: reload an opened chain page → menu still shows", async ()
   serverDown(); await sleep(800); await ctx.setOffline(true);
   await page.goto(BASE + "/app/chain?id=bowl-and-co");
   await vis(page.getByRole("heading", { name: "Bowl & Co." }));
-  await vis(page.getByText("655 cal · 50g protein · 67g carbs · 21g fat").first());
+  await vis(page.getByText("655 kcal · 50g protein · 67g carbs · 21g fat").first());
   await vis(page.getByText("You're offline.").first());
 });
 await step("OFFLINE: reload the opened item page", async () => {
@@ -78,9 +78,9 @@ await step("OFFLINE: an item never opened before still opens (static shell + war
 });
 await step("OFFLINE: the order builder opens from a brand-new URL and totals live", async () => {
   await page.goto(BASE + "/app/builder?chain=bowl-and-co&item=chicken-bowl");
-  await vis(page.getByRole("group", { name: /Order total: 655 cal/ }));
+  await vis(page.getByRole("group", { name: /Order total: 655 kcal/ }));
   await page.getByRole("button", { name: "Double chicken" }).click();
-  await vis(page.getByRole("group", { name: /Order total: 835 cal/ }));
+  await vis(page.getByRole("group", { name: /Order total: 835 kcal/ }));
 });
 await step("OFFLINE: Saved, Today and Settings tabs open on a hard load", async () => {
   for (const [path, name] of [["/app/saved", "Saved"], ["/app/today", "Today"], ["/app/settings", "Settings"]]) {

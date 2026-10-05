@@ -1,7 +1,7 @@
 import { halfUp, proteinPer100Cal } from "./nutrients";
 import type { Nutrients } from "./types";
 
-// Fixed en-US grouping so "1,050 cal" is stable regardless of the visitor's locale (SPEC §6.1 pins en_US in tests).
+// Fixed en-US grouping so "1,050 kcal" is stable regardless of the visitor's locale (SPEC §6.1 pins en_US in tests).
 const groupFmt = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
 
 export const NOT_PUBLISHED = "not published";
@@ -11,7 +11,7 @@ export function formatInt(n: number): string {
 }
 
 export function formatCalories(n: number): string {
-  return `${formatInt(n)} cal`;
+  return `${formatInt(n)} kcal`;
 }
 
 /** Grams display as whole numbers, half away from zero: 20.5 → "21g". */
@@ -20,7 +20,7 @@ export function formatGrams(n: number): string {
 }
 
 export function formatDensity(n: Pick<Nutrients, "calories" | "protein">): string {
-  return `${halfUp(proteinPer100Cal(n), 1).toFixed(1)}g per 100 cal`;
+  return `${halfUp(proteinPer100Cal(n), 1).toFixed(1)}g per 100 kcal`;
 }
 
 export function formatOptionalGrams(value: number | undefined): string {
@@ -38,12 +38,12 @@ export function formatSalt(value: number | undefined): string {
   return value === undefined ? NOT_PUBLISHED : `${saltFmt.format(halfUp(value, 2))}g`;
 }
 
-/** "520 cal · 32g protein · 55g carbs · 18g fat" — same order everywhere (SPEC §15). */
+/** "520 kcal · 32g protein · 55g carbs · 18g fat" — same order everywhere (SPEC §15). */
 export function macroLine(n: Nutrients): string {
   return `${formatCalories(n.calories)} · ${formatGrams(n.protein)} protein · ${formatGrams(n.carbs)} carbs · ${formatGrams(n.fat)} fat`;
 }
 
-/** "58g protein · 610 cal · 9.5g per 100 cal" — the "Best for you" reason line (SPEC §6.4). */
+/** "58g protein · 610 kcal · 9.5g per 100 kcal" — the "Best for you" reason line (SPEC §6.4). */
 export function reasonLine(n: Nutrients): string {
   return `${formatGrams(n.protein)} protein · ${formatCalories(n.calories)} · ${formatDensity(n)}`;
 }

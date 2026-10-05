@@ -53,7 +53,7 @@ await step("onboarding: goal → targets → preferences → how it works → St
 await step("home shows targets, search, popular chains and the sample banner", async () => {
   await visible(page.getByRole("heading", { name: "Where are you eating?" }));
   await visible(text("Your targets:"));
-  await visible(text("2,400 cal"));
+  await visible(text("2,400 kcal"));
   await visible(page.getByRole("link", { name: /Bowl & Co\./ }));
   await visible(page.getByRole("link", { name: /Cluck House/ }));
   await visible(text("fictional sample data"));
@@ -86,7 +86,7 @@ await step("chain page: free user sees blurred Best for you, menu rows with macr
   await page.goto(`${BASE}/app/chain?id=bowl-and-co`);
   await visible(page.getByRole("heading", { name: "Bowl & Co." }));
   await visible(page.getByRole("button", { name: /See your 5 best orders/ }));
-  await visible(text("655 cal · 50g protein · 67g carbs · 21g fat"));
+  await visible(text("655 kcal · 50g protein · 67g carbs · 21g fat"));
   await visible(text("Not affiliated with Bowl & Co."));
   await visible(text("checked 1 Oct 2026"));
   await visible(text("New"));
@@ -125,30 +125,30 @@ await step("Best for you (Pro): build muscle, lunch → golden #1 with reason li
   await visible(page.getByRole("heading", { name: "Bowl & Co." }));
   await page.getByRole("button", { name: "Lunch" }).click();
   await visible(text("Chicken salad · double chicken · no cheese, no honey lime vinaigrette"));
-  await visible(text("65g protein · 410 cal · 15.9g per 100 cal"));
-  await visible(text("Lunch · up to 840 cal"));
+  await visible(text("65g protein · 410 kcal · 15.9g per 100 kcal"));
+  await visible(text("Lunch · up to 840 kcal"));
   await shot("09-best-for-you");
 });
 await step("tapping a pick opens the builder prefilled with live totals", async () => {
   await page.getByRole("button", { name: /Chicken salad · double chicken · no cheese, no honey lime vinaigrette/ }).click();
   await page.waitForURL("**/app/builder?**");
   await visible(page.getByRole("heading", { name: "Build your order" }));
-  await visible(page.getByRole("group", { name: /Order total: 410 cal/ }));
-  await visible(text("After this: 1,990 cal"));
+  await visible(page.getByRole("group", { name: /Order total: 410 kcal/ }));
+  await visible(text("After this: 1,990 kcal"));
   await shot("10-builder");
 });
 await step("builder from an item: double, remove and swap update the total AND the name (pipeline wording)", async () => {
   await page.goto(`${BASE}/app/builder?chain=bowl-and-co&item=chicken-bowl`);
-  await visible(page.getByRole("group", { name: /Order total: 655 cal/ }));
+  await visible(page.getByRole("group", { name: /Order total: 655 kcal/ }));
   const name = page.getByLabel("Order name");
   if ((await name.inputValue()) !== "Chicken bowl") throw new Error("name: " + (await name.inputValue()));
   await page.getByRole("button", { name: "Double chicken" }).click();
-  await visible(page.getByRole("group", { name: /Order total: 835 cal, 82 grams protein/ }));
+  await visible(page.getByRole("group", { name: /Order total: 835 kcal, 82 grams protein/ }));
   await page.getByRole("button", { name: "Remove Cheese" }).click();
-  await visible(page.getByRole("group", { name: /Order total: 725 cal/ }));
+  await visible(page.getByRole("group", { name: /Order total: 725 kcal/ }));
   await page.getByRole("button", { name: "Swap White rice" }).click();
   await page.getByRole("button", { name: /Romaine lettuce/ }).click();
-  await visible(page.getByRole("group", { name: /Order total: 520 cal, 72 grams protein/ }));
+  await visible(page.getByRole("group", { name: /Order total: 520 kcal, 72 grams protein/ }));
   const final = await name.inputValue();
   if (final !== "Chicken bowl · double chicken · no cheese · romaine lettuce instead of white rice") throw new Error("name: " + final);
   await shot("10-builder");
@@ -156,36 +156,36 @@ await step("builder from an item: double, remove and swap update the total AND t
 await step("builder: Add ingredient, Add item and quantity", async () => {
   await page.getByRole("button", { name: "Add ingredient" }).click();
   await page.getByRole("button", { name: /Tortilla chips/ }).click();
-  await visible(page.getByRole("group", { name: /Order total: 1,060 cal/ }));
+  await visible(page.getByRole("group", { name: /Order total: 1,060 kcal/ }));
   if (!(await page.getByLabel("Order name").inputValue()).endsWith("add tortilla chips")) throw new Error("name should end with add tortilla chips: " + (await page.getByLabel("Order name").inputValue()));
   await page.getByRole("button", { name: "Remove Tortilla chips" }).click();
-  await visible(page.getByRole("group", { name: /Order total: 520 cal/ }));
+  await visible(page.getByRole("group", { name: /Order total: 520 kcal/ }));
   await page.getByRole("button", { name: "Add item" }).click();
   await page.getByRole("button", { name: /Agua fresca/ }).click();
-  await visible(page.getByRole("group", { name: /Order total: 640 cal/ }));
+  await visible(page.getByRole("group", { name: /Order total: 640 kcal/ }));
   await page.getByRole("button", { name: "Increase quantity" }).click();
-  await visible(page.getByRole("group", { name: /Order total: 760 cal/ }));
+  await visible(page.getByRole("group", { name: /Order total: 760 kcal/ }));
   await shot("11-builder-two-lines");
 });
 await step("Save → Saved tab lists it; Log → Today shows it", async () => {
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await page.waitForURL("**/app/saved");
   await visible(text("2 × Agua fresca"));
-  await visible(text("760 cal"));
+  await visible(text("760 kcal"));
   await shot("12-saved");
   await page.getByRole("link", { name: "Open in builder" }).click();
   await page.waitForURL("**/app/builder?**");
-  await visible(page.getByRole("group", { name: /Order total: 760 cal/ }));
+  await visible(page.getByRole("group", { name: /Order total: 760 kcal/ }));
   await page.getByRole("button", { name: "Log", exact: true }).click();
   await page.waitForURL("**/app/today");
   await visible(text("760"));
-  await visible(text("/ 2,400 cal"));
+  await visible(text("/ 2,400 kcal"));
   await shot("13-today");
 });
 await step("home shows left today after logging", async () => {
   await page.goto(`${BASE}/app`);
   await visible(text("Left today:"));
-  await visible(text("1,640 cal"));
+  await visible(text("1,640 kcal"));
   await shot("14-home-pro");
 });
 await step("delete a log entry and undo it", async () => {
@@ -219,7 +219,7 @@ await step("settings: goal, targets, GLP-1 meal size, data version, numbers page
 await step("GLP-1 Best for you stays within the comfortable meal size", async () => {
   await page.goto(`${BASE}/app/chain?id=cluck-house`);
   await visible(page.getByRole("heading", { name: "Cluck House" }));
-  await visible(text("up to 450 cal"));
+  await visible(text("up to 450 kcal"));
 });
 await step("dark mode renders", async () => {
   await page.emulateMedia({ colorScheme: "dark" });

@@ -37,11 +37,11 @@ describe("RankingEngine matches the Python oracle (data/fixtures/ranking-golden.
       if (c.expected.names) expect(result.picks.map((p) => p.name)).toEqual(c.expected.names);
     });
   }
-  it("worked example A: #1 is the chicken salad, double chicken, no cheese, no vinaigrette (65 g, 410 cal, 15.9 g per 100 cal)", () => {
+  it("worked example A: #1 is the chicken salad, double chicken, no cheese, no vinaigrette (65 g, 410 kcal, 15.9 g per 100 kcal)", () => {
     const a = golden.cases[0]!;
     const result = rank({ chain: loadChain(a.chain), profile: a.profile, loggedCalories: a.loggedCalories, meal: a.meal, preferences: NO_PREFERENCES });
     expect(result.picks[0]!.name).toBe("Chicken salad · double chicken · no cheese, no honey lime vinaigrette");
-    expect(result.picks[0]!.reason).toBe("65g protein · 410 cal · 15.9g per 100 cal");
+    expect(result.picks[0]!.reason).toBe("65g protein · 410 kcal · 15.9g per 100 kcal");
   });
 });
 

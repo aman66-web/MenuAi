@@ -7,7 +7,7 @@ export function MacroSummary({ nutrients, label, compact }: { nutrients: Nutrien
     return (
       <div className="app-numbers flex flex-wrap items-end justify-between gap-x-4 gap-y-2" role="group" aria-label={label ?? nutrientAriaLabel("Totals", nutrients)}>
         <div className="flex flex-wrap items-end gap-x-4 gap-y-1">
-          <div><span className="text-3xl font-bold leading-none">{formatInt(nutrients.calories)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">cal</span></div>
+          <div><span className="text-3xl font-bold leading-none">{formatInt(nutrients.calories)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">kcal</span></div>
           <div><span className="text-3xl font-bold leading-none text-accent">{formatGrams(nutrients.protein)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">protein</span></div>
         </div>
         <div className="text-sm text-muted sm:text-right">
@@ -37,7 +37,7 @@ export function MacroSummary({ nutrients, label, compact }: { nutrients: Nutrien
   );
 }
 
-/** One-line numbers under an item name: "520 cal · 32g protein · 55g carbs · 18g fat". */
+/** One-line numbers under an item name: "520 kcal · 32g protein · 55g carbs · 18g fat". */
 export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
   return (
     <p className="app-numbers text-sm text-muted">

@@ -10,7 +10,7 @@ spec differ, this spec wins** (it is newer and more precise). Decisions logged i
 
 ## 1. What we're building
 
-An iPhone app for people in the US who count calories or protein and eat at chain
+An iPhone app for people in the UK (the US comes later) who count calories or protein and eat at chain
 restaurants. Open it, pick the restaurant you're at (or one nearby), and see full calories,
 protein, carbs and fat for every item. Pro users also get the five best orders for their goal
 that fit what they have left today, and an order builder that totals a customised meal live.
@@ -31,8 +31,12 @@ my goal, and let me tweak it."
 copy means that constant. Never hard-code the name in user-facing text (privacy strings in build
 settings are the one exception: write the final name there, and set the Display Name to match).
 
-**Market:** United States only at launch; English; US units (kcal, g, mg; lb and ft/in for body
-measurements). iPhone only (no iPad layout work in v1; it runs in compatibility mode).
+**Market:** United Kingdom first, US later (founder's decision, 2026-10-05); English (UK spelling in new copy:
+"fibre", "kcal"); energy shown as **kcal**, nutrients in g, **salt in g** (UK guides publish salt, not sodium; never
+convert between them: see docs/DATA.md). Body measurements for the optional target helper: UK users expect kg or
+stone + lb, and cm or ft + in; until the founder confirms the unit options the helper stays in lb and ft/in. Prices in
+§9 are US placeholders: the £ price points are a founder decision and must not be guessed. iPhone only (no iPad
+layout work in v1; it runs in compatibility mode). The fictional sample chains stay for tests and previews.
 
 ---
 
@@ -73,7 +77,7 @@ restaurant logos, brand colours or food photos; ads; selling data.
 | Source + "checked on" date per chain | ✓ | ✓ | |
 | Goals, targets, GLP-1 meal cap | ✓ | ✓ | |
 | Nearby chains, search, favourites | ✓ | ✓ | |
-| Sort (protein, calories, protein per 100 cal) and filters (vegetarian, no pork, no beef) | ✓ | ✓ | |
+| Sort (protein, calories, protein per 100 kcal) and filters (vegetarian, no pork, no beef) | ✓ | ✓ | |
 | Share card | ✓ | ✓ | |
 | Report a number, request a chain | ✓ | ✓ | |
 | Saved orders | 3 | Unlimited | `saveLimit` |
@@ -160,18 +164,20 @@ the main actor and in tests without hopping.
 ### 6.1 Nutrients
 
 `struct Nutrients: Codable, Equatable, Sendable` with `calories: Int`, `protein, carbs, fat: Double`
-and optionals `saturatedFat, sugar, fiber: Double?`, `sodium: Int?`.
+and optionals `saturatedFat, sugar, fiber: Double?`, `sodium: Int?` (mg, US guides) and `salt: Double?` (g, kept to 2
+decimals, UK guides). A chain publishes one or the other; the item screen shows whichever exists, both if both,
+and one "Salt: not published" row if neither.
 - Addition / scaling follow docs/DATA.md: an optional appears in a total only if every part has it.
   Subtraction (remove modifiers) never goes below 0.
 - `proteinPer100Cal = calories > 0 ? protein / calories * 100 : 0`.
-- Display: calories as integer with grouping ("1,050 cal"); grams as integers; density with 1
-  decimal ("9.5g per 100 cal"); missing optionals as "not published".
+- Display: calories as integer with grouping ("1,050 kcal"); grams as integers; density with 1
+  decimal ("9.5g per 100 kcal"); missing optionals as "not published".
 - Rounding everywhere: half away from zero — `value.rounded(.toNearestOrAwayFromZero)`, or
   `.number.rounded(rule: .toNearestOrAwayFromZero, increment: 1)` in `FormatStyle`. Don't rely on
   default number formatting (it rounds half to even: 20.5 → "20"). Test: Bowl & Co. chicken bowl fat
   20.5 → "21g".
 - Formatting uses the device locale; unit tests pin `Locale(identifier: "en_US")` so golden strings
-  such as "1,050 cal" are stable.
+  such as "1,050 kcal" are stable.
 
 ### 6.2 Targets and suggestions
 
@@ -228,7 +234,7 @@ Constants live in `RankingConfig` (tunable later). **The Python reference
    "You've used today's calories. Lowest-calorie options:". If none qualify (fixture case H):
    "You've used today's calories, and nothing here has 10g+ protein." with no cards.
 4. **Fit:** keep candidates with calories ≤ mealBudget. If none → mode `nothingFits`: the 3
-   lowest-calorie candidates (calories ↑, name ↑), each labelled "Over by N cal".
+   lowest-calorie candidates (calories ↑, name ↑), each labelled "Over by N kcal".
 5. **Score:** d = protein ÷ calories × 100.
    - lose, GLP-1: `d + 2.0 × (1 − calories ÷ mealBudget)`
    - build muscle: `d + 0.05 × protein`
@@ -237,12 +243,12 @@ Constants live in `RankingConfig` (tunable later). **The Python reference
    half-up to 6 decimals), then (mealBudget − calories) ↑, then itemCount ↑, then name ↑ (plain
    Swift `String <`, not a localized compare).
 7. **Diversity:** walking the ordered list, skip a candidate if 2 already-picked candidates share its baseKey.
-8. **Return** the first 5, each with reason "58g protein · 610 cal · 9.5g per 100 cal"
-   (calories grouped: "1,050 cal").
+8. **Return** the first 5, each with reason "58g protein · 610 kcal · 9.5g per 100 kcal"
+   (calories grouped: "1,050 kcal").
 
 Worked example (fixture case A, fictional Bowl & Co.): build muscle, 2,400 kcal/day, 1,350 logged,
 lunch → remaining 1,050, budget min(1,050, 840) = 840 → #1 "Chicken salad · double chicken · no
-cheese, no honey lime vinaigrette" (65 g, 410 cal, 15.9 g per 100 cal).
+cheese, no honey lime vinaigrette" (65 g, 410 kcal, 15.9 g per 100 kcal).
 
 ### 6.5 Order calculator (builder maths)
 
@@ -264,8 +270,8 @@ An **order** is a list of lines; total = Σ line totals (DATA.md rules for optio
   letter lower-cased unless the second letter is upper-case ("no mayo", "no BBQ sauce"). Multi-line orders join line names with " + ".
   Test: every `variation` in the fixture chains reproduces its `name` and `nutrients` exactly.
 - Output also: `afterThis = remaining − total` (calories and protein), shown as
-  "After this: 440 cal · 34g protein left today" (Pro) and in red-free neutral text if negative:
-  "After this: 120 cal over today's target".
+  "After this: 440 kcal · 34g protein left today" (Pro) and in red-free neutral text if negative:
+  "After this: 120 kcal over today's target".
 
 ---
 
@@ -282,8 +288,8 @@ paywall, no review prompt.
 
 ### 7.2 Home
 Top: "Where are you eating?" title. Below it:
-- Pro: "Left today: **1,050 cal · 92g protein**" + progress bar of calories used.
-  Free: "Your targets: 2,000 cal · 120g protein". When `hasSetTargets` is false: dismissible card
+- Pro: "Left today: **1,050 kcal · 92g protein**" + progress bar of calories used.
+  Free: "Your targets: 2,000 kcal · 120g protein". When `hasSetTargets` is false: dismissible card
   "Set your targets to see what's left today" → Settings › Targets.
 - Search field (opens Search).
 - **Near you** (up to 10 chains with distance "0.3 mi"), when location is authorised.
@@ -294,7 +300,7 @@ Top: "Where are you eating?" title. Below it:
 
 ### 7.3 Search
 Type-ahead over chain names and item names (min 2 chars, diacritic- and case-insensitive,
-prefix-of-word match). Results grouped: Chains, then Items ("Chicken wrap · Cluck House · 440 cal").
+prefix-of-word match). Results grouped: Chains, then Items ("Chicken wrap · Cluck House · 440 kcal").
 No results: "We don't cover this yet." + **Request it** (→ §12.2).
 
 ### 7.4 Chain page
@@ -304,9 +310,9 @@ Header: chain name (plain text), cuisine, ★ favourite toggle. Meal slot chip
    Free: the block renders with real cards blurred + overlay "See your 5 best orders · Try Pro free"
    → paywall `bestForYou`. Modes `outOfBudget`/`nothingFits`/`noMatches` show their copy (§6.4).
    The block uses the page's current filters and meal chip.
-2. **Full menu** grouped by category (data order). Row: name, then "520 cal · 32g protein · 55g carbs · 18g fat".
+2. **Full menu** grouped by category (data order). Row: name, then "520 kcal · 32g protein · 55g carbs · 18g fat".
    Tags: "New" (addedOn within 30 days), "Limited time". Sort menu: Menu order (default),
-   Most protein, Fewest calories, Most protein per 100 cal (sorting flattens categories).
+   Most protein, Fewest calories, Most protein per 100 kcal (sorting flattens categories).
    Filter menu: Vegetarian, No pork, No beef (defaults from Settings preferences).
 3. Footer: "Source: {source.title}, checked {d MMM yyyy}" with link; "Not affiliated with {chain}.";
    "Something look wrong? Report a number".
@@ -334,7 +340,7 @@ no longer exists: row label "No longer on the menu", nutrients from the snapshot
 
 ### 7.8 Today (tab, Pro)
 Free: explainer + "Try Pro free". Pro: totals vs targets (calories, protein; carbs and fat as
-plain numbers), list of today's entries (time, name, chain, cal, protein), swipe to delete
+plain numbers), list of today's entries (time, name, chain, kcal, protein), swipe to delete
 (also deletes Health samples if written). "Plan dinner" placeholder hidden until v1.1.
 
 ### 7.9 Settings

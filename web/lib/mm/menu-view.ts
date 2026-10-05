@@ -11,7 +11,7 @@ export const SORT_OPTIONS: ReadonlyArray<{ value: SortKind; label: string }> = [
   { value: "menu", label: "Menu order" },
   { value: "protein", label: "Most protein" },
   { value: "calories", label: "Fewest calories" },
-  { value: "density", label: "Most protein per 100 cal" },
+  { value: "density", label: "Most protein per 100 kcal" },
 ];
 
 const byName = (a: MenuItem, b: MenuItem) => a.name.localeCompare(b.name, "en-US");

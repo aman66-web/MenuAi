@@ -361,7 +361,7 @@ export function afterThis(remaining: Remaining, total: Nutrients): AfterThis {
   };
 }
 
-/** "After this: 440 cal · 34g protein left today" or, over target, neutral "After this: 120 cal over today's target". */
+/** "After this: 440 kcal · 34g protein left today" or, over target, neutral "After this: 120 kcal over today's target". */
 export function afterThisText(a: AfterThis): string {
   if (a.calories < 0) return `After this: ${formatCalories(-a.calories)} over today's target`;
   const protein = a.protein !== undefined ? ` · ${formatGrams(Math.max(0, a.protein))} protein` : "";

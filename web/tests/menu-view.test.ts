@@ -23,7 +23,7 @@ describe("sorting (SPEC §7.4)", () => {
   });
   it("most protein per 100 calories first", () => {
     const sorted = sortItems(items, "density");
-    expect(sorted[0]!.id).toBe("grilled-nuggets-8"); // 25 g / 130 cal = 19.2
+    expect(sorted[0]!.id).toBe("grilled-nuggets-8"); // 25 g / 130 kcal = 19.2
   });
   it("breaks ties by name so the order is stable", () => {
     const chain = tinyChain([["b", "Beta", 300, 30], ["a", "Alpha", 300, 30], ["c", "Charlie", 300, 30]]);

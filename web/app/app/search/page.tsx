@@ -84,7 +84,7 @@ export default function SearchPage() {
                   className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft"
                 >
                   <span className="app-numbers">
-                    {/* SPEC §7.3: "Chicken wrap · Cluck House · 440 cal" */}
+                    {/* SPEC §7.3: "Chicken wrap · Cluck House · 440 kcal" */}
                     <span aria-hidden><span className="font-semibold">{i.name}</span> <span className="text-muted">· {i.chainName} · {formatCalories(i.calories)}</span></span>
                   </span>
                   <ChevronRightIcon className="h-5 w-5 text-muted" />

@@ -56,7 +56,7 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
   ctx.fillText("g protein", PAD + proteinWidth + 24, 560);
 
   ctx.fillStyle = "#1d2433";
-  const sub = `${formatCalories(input.nutrients.calories).replace(" cal", " calories")} · ${formatGrams(input.nutrients.carbs)} carbs · ${formatGrams(input.nutrients.fat)} fat`;
+  const sub = `${formatCalories(input.nutrients.calories).replace(" kcal", " calories")} · ${formatGrams(input.nutrients.carbs)} carbs · ${formatGrams(input.nutrients.fat)} fat`;
   let subSize = 54;
   ctx.font = font(subSize, 700);
   while (subSize > 34 && ctx.measureText(sub).width > W - PAD * 2) ctx.font = font(--subSize, 700); // keep it on one line

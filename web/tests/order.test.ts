@@ -215,14 +215,14 @@ describe("orders that no longer match the menu", () => {
 describe("After this (SPEC §6.5)", () => {
   const total = { calories: 610, protein: 58, carbs: 0, fat: 0 };
   it("shows what is left today", () => {
-    expect(afterThisText(afterThis({ calories: 1050, protein: 92 }, total))).toBe("After this: 440 cal · 34g protein left today");
-    expect(afterThisText(afterThis({ calories: 1050 }, total))).toBe("After this: 440 cal left today");
+    expect(afterThisText(afterThis({ calories: 1050, protein: 92 }, total))).toBe("After this: 440 kcal · 34g protein left today");
+    expect(afterThisText(afterThis({ calories: 1050 }, total))).toBe("After this: 440 kcal left today");
   });
   it("is neutral, not alarming, when over", () => {
-    expect(afterThisText(afterThis({ calories: 490 }, total))).toBe("After this: 120 cal over today's target");
+    expect(afterThisText(afterThis({ calories: 490 }, total))).toBe("After this: 120 kcal over today's target");
   });
   it("never shows negative protein left", () => {
-    expect(afterThisText(afterThis({ calories: 1050, protein: 20 }, total))).toBe("After this: 440 cal · 0g protein left today");
+    expect(afterThisText(afterThis({ calories: 1050, protein: 20 }, total))).toBe("After this: 440 kcal · 0g protein left today");
   });
 });
 

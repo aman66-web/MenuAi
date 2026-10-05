@@ -6,10 +6,10 @@ const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, se
 await ctx.addInitScript(() => localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { goal: "buildMuscle", dailyCalories: 2400, hasSetTargets: true, glp1MealCap: 450, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, devProOverride: true } })));
 const page = await ctx.newPage();
 await page.goto(BASE + "/app/builder?chain=bowl-and-co&item=chicken-bowl");
-await page.getByRole("group", { name: /Order total: 655 cal/ }).waitFor();
+await page.getByRole("group", { name: /Order total: 655 kcal/ }).waitFor();
 await page.getByRole("button", { name: "Double chicken" }).click();
 await page.getByRole("button", { name: "Remove Cheese" }).click();
-await page.getByRole("group", { name: /Order total: 725 cal/ }).waitFor();
+await page.getByRole("group", { name: /Order total: 725 kcal/ }).waitFor();
 const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Share" }).click()]);
 const path = new URL("./shots/share-card.png", import.meta.url).pathname;
 await download.saveAs(path);

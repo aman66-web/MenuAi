@@ -75,12 +75,12 @@ await step("builder opened from a saved order updates it in place ('Save changes
   });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/builder?chain=bowl-and-co&saved=s1");
-  await vis(page.getByRole("group", { name: /Order total: 655 cal/ }));
+  await vis(page.getByRole("group", { name: /Order total: 655 kcal/ }));
   await page.getByRole("button", { name: "Double chicken" }).click();
-  await vis(page.getByRole("group", { name: /Order total: 835 cal/ }));
+  await vis(page.getByRole("group", { name: /Order total: 835 kcal/ }));
   await page.getByRole("button", { name: "Save changes" }).click();
   await page.waitForURL("**/app/saved");
-  await vis(page.getByText("835 cal"));
+  await vis(page.getByText("835 kcal"));
   const count = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.saved")).data.length);
   if (count !== 1) throw new Error("saved orders: " + count);
   await ctx.close();
@@ -109,7 +109,7 @@ await step("search: '--' does not show 'We don't cover this yet.'; item rows rea
   await page.getByLabel("Search restaurants and items").fill("nugg");
   await vis(page.getByText("Nuggets (12 ct)"));
   const row = await page.getByRole("link", { name: /Nuggets \(12 ct\), Cluck House, 380 calories/ }).innerText();
-  if (!/Nuggets \(12 ct\)\s*·\s*Cluck House\s*·\s*380 cal/.test(row)) throw new Error(row);
+  if (!/Nuggets \(12 ct\)\s*·\s*Cluck House\s*·\s*380 kcal/.test(row)) throw new Error(row);
   await ctx.close();
 });
 await step("settings: 'Menus updated' shows a real date, Segmented controls are ≥44px", async () => {

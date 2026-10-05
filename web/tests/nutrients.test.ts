@@ -19,12 +19,12 @@ describe("rounding and formatting (SPEC §6.1)", () => {
     expect(formatGrams(20.5)).toBe("21g");
   });
   it("groups calories with a thousands separator regardless of locale", () => {
-    expect(formatCalories(1050)).toBe("1,050 cal");
-    expect(formatCalories(655)).toBe("655 cal");
+    expect(formatCalories(1050)).toBe("1,050 kcal");
+    expect(formatCalories(655)).toBe("655 kcal");
   });
   it("formats density with one decimal", () => {
-    expect(formatDensity({ calories: 610, protein: 58 })).toBe("9.5g per 100 cal");
-    expect(formatDensity({ calories: 0, protein: 0 })).toBe("0.0g per 100 cal");
+    expect(formatDensity({ calories: 610, protein: 58 })).toBe("9.5g per 100 kcal");
+    expect(formatDensity({ calories: 0, protein: 0 })).toBe("0.0g per 100 kcal");
   });
   it("shows missing optionals as 'not published'", () => {
     expect(formatOptionalGrams(undefined)).toBe("not published");
@@ -43,10 +43,10 @@ describe("rounding and formatting (SPEC §6.1)", () => {
   });
   it("builds the macro, reason and VoiceOver strings with the same rounding", () => {
     const n: Nutrients = { calories: 655, protein: 50, carbs: 67, fat: 20.5 };
-    expect(macroLine(n)).toBe("655 cal · 50g protein · 67g carbs · 21g fat");
+    expect(macroLine(n)).toBe("655 kcal · 50g protein · 67g carbs · 21g fat");
     expect(nutrientAriaLabel("Chicken bowl", n)).toBe("Chicken bowl, 655 calories, 50 grams protein, 67 grams carbs, 21 grams fat");
-    expect(reasonLine({ calories: 610, protein: 58, carbs: 0, fat: 0 })).toBe("58g protein · 610 cal · 9.5g per 100 cal");
-    expect(reasonLine({ calories: 1050, protein: 100, carbs: 0, fat: 0 })).toBe("100g protein · 1,050 cal · 9.5g per 100 cal");
+    expect(reasonLine({ calories: 610, protein: 58, carbs: 0, fat: 0 })).toBe("58g protein · 610 kcal · 9.5g per 100 kcal");
+    expect(reasonLine({ calories: 1050, protein: 100, carbs: 0, fat: 0 })).toBe("100g protein · 1,050 kcal · 9.5g per 100 kcal");
   });
   it("formats dates in a fixed d MMM yyyy style", () => {
     expect(formatDate("2026-10-01")).toBe("1 Oct 2026");
