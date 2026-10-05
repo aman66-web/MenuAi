@@ -5,14 +5,17 @@ import { site } from "@/site.config";
 export default function SiteLayout({ children }: LayoutProps<"/">) {
   return (
     <div className="min-h-full flex flex-col">
-      <header className="mx-auto w-full max-w-5xl px-5 py-5 flex items-center justify-between">
-        <Link href="/" className="text-lg font-bold tracking-tight">
-          {site.name}
-        </Link>
-        <nav className="flex gap-5 text-sm text-muted">
-          <Link href="/support" className="hover:text-foreground">Support</Link>
-          <Link href="/privacy" className="hover:text-foreground">Privacy</Link>
-        </nav>
+      <header className="sticky top-0 z-30 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl">
+        <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-5">
+          <Link href="/" className="inline-flex min-h-11 items-center whitespace-nowrap text-lg font-extrabold tracking-tight">
+            {site.name}
+          </Link>
+          <nav aria-label="Site" className="flex items-center gap-1 text-sm font-semibold text-muted">
+            <Link href="/support" className="inline-flex min-h-11 items-center rounded-full px-3 hover:text-foreground">Support</Link>
+            <Link href="/privacy" className="hidden min-h-11 items-center rounded-full px-3 hover:text-foreground sm:inline-flex">Privacy</Link>
+            <Link href="/app" className="btn-sun ml-2 inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-4 font-bold text-on-accent">Open app</Link>
+          </nav>
+        </div>
       </header>
       <main className="flex-1">{children}</main>
       <footer className="mx-auto w-full max-w-5xl px-5 py-10 text-sm text-muted border-t border-line mt-16">

@@ -70,20 +70,21 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
 
 function PaywallBody({ onDone }: { onDone: () => void }) {
   const settings = useStore(settingsStore);
+  const [titleBefore = "", titleAfter = ""] = PAYWALL_TITLE.split("perfect order"); // the exact title copy, with one phrase set in the accent face
   return (
     <div>
-      <h3 className="mt-2 text-2xl font-bold leading-tight tracking-tight">{PAYWALL_TITLE}</h3>
-      <ul className="mt-4 space-y-2">
+      <h3 className="mt-3 text-3xl font-extrabold leading-[1.08] tracking-tight">{titleBefore}<span className="serif-em sun-text">perfect order</span>{titleAfter}</h3>
+      <ul className="mt-5 space-y-3">
         {PAYWALL_BULLETS.map((b) => (
-          <li key={b} className="flex items-start gap-2">
-            <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-            <span>{b}</span>
+          <li key={b} className="flex items-start gap-3">
+            <span aria-hidden className="bg-sun mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-on-accent"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} /></span>
+            <span className="font-medium">{b}</span>
           </li>
         ))}
       </ul>
 
       {PAYMENTS_ENABLED ? null : (
-        <div className="mt-5 rounded-xl border border-line bg-soft p-4">
+        <div className="mt-5 glass rounded-3xl p-4">
           <p className="font-semibold">Pro isn&apos;t on the web yet.</p>
           <p className="mt-1 text-sm text-muted">Everything free stays free: every chain&apos;s full menu with calories and macros. Leave your email and we&apos;ll tell you once, when Pro is ready.</p>
           <WaitlistInline />
@@ -91,7 +92,7 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
       )}
 
       {DEV_TOOLS_ENABLED && (
-        <div className="mt-4 rounded-xl border border-dashed border-line p-3">
+        <div className="mt-4 rounded-3xl border border-dashed border-line p-3">
           <p className="text-xs text-muted">Testing build: unlock Pro features on this device without paying.</p>
           <Button
             variant="secondary"

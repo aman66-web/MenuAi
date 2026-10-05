@@ -6,6 +6,7 @@ import { useDeferredValue, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { formatCalories } from "@/lib/mm/format";
 import { MIN_QUERY_LENGTH, normalizeForSearch, search } from "@/lib/mm/search";
+import { ChainMark } from "../_components/ChainMark";
 import { ChevronLeftIcon, ChevronRightIcon, SearchIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, EmptyState, SampleBadge, SectionTitle } from "../_components/ui";
@@ -26,9 +27,9 @@ export default function SearchPage() {
     <div>
       <h1 className="sr-only">Search</h1>
       <div className="flex items-center gap-2">
-        <Link href="/app" aria-label="Back" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></Link>
+        <Link href="/app" aria-label="Back" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
         <div className="relative flex-1">
-          <SearchIcon className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" />
+          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" />
           <input
             type="search"
             autoFocus
@@ -36,12 +37,12 @@ export default function SearchPage() {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search restaurants and items"
             aria-label="Search restaurants and items"
-            className="min-h-12 w-full rounded-xl border border-line bg-soft pl-10 pr-3 text-base focus-visible:outline-2 focus-visible:outline-accent"
+            className="glass min-h-12 w-full rounded-full pl-11 pr-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent"
           />
         </div>
       </div>
 
-      {!active && <p className="mt-6 text-center text-sm text-muted">Type at least {MIN_QUERY_LENGTH} letters.</p>}
+      {!active && <p className="mt-10 text-center text-sm text-muted">Type at least {MIN_QUERY_LENGTH} letters.</p>}
 
       {active && empty && (
         <div className="mt-6">
@@ -56,13 +57,14 @@ export default function SearchPage() {
       {results.chains.length > 0 && (
         <>
           <SectionTitle>Chains</SectionTitle>
-          <ul>
+          <ul className="space-y-2">
             {results.chains.map((c) => (
               <li key={c.chainId}>
-                <Link href={chainHref(c.chainId)} onClick={() => analytics.track({ name: "chainOpened", chainId: c.chainId, source: "search" })} className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft">
-                  <span>
-                    <span className="block font-semibold">{c.name}</span>
-                    <span className="flex items-center gap-2 text-sm text-muted">{c.cuisine} {c.sample && <SampleBadge />}</span>
+                <Link href={chainHref(c.chainId)} onClick={() => analytics.track({ name: "chainOpened", chainId: c.chainId, source: "search" })} className="glass flex min-h-16 items-center gap-3 rounded-3xl px-4 py-2 transition active:scale-[0.99] hover:bg-soft-strong">
+                  <ChainMark chainId={c.chainId} cuisine={c.cuisine} size="sm" />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate font-bold tracking-tight">{c.name}</span>
+                    <span className="flex flex-wrap items-center gap-x-2 text-sm text-muted">{c.cuisine} {c.sample && <SampleBadge />}</span>
                   </span>
                   <ChevronRightIcon className="h-5 w-5 text-muted" />
                 </Link>
@@ -75,17 +77,17 @@ export default function SearchPage() {
       {results.items.length > 0 && (
         <>
           <SectionTitle>Items</SectionTitle>
-          <ul>
+          <ul className="space-y-2">
             {results.items.map((i) => (
               <li key={`${i.chainId}/${i.itemId}`}>
                 <Link
                   href={itemHref(i.chainId, i.itemId)}
                   aria-label={`${i.name}, ${i.chainName}, ${Math.round(i.calories)} calories`}
-                  className="flex min-h-14 items-center justify-between border-b border-line px-1 py-2 hover:bg-soft"
+                  className="glass flex min-h-14 items-center justify-between gap-3 rounded-2xl px-4 py-2.5 transition active:scale-[0.99] hover:bg-soft-strong"
                 >
-                  <span className="app-numbers">
+                  <span className="app-numbers min-w-0">
                     {/* SPEC §7.3: "Chicken wrap · Cluck House · 440 kcal" */}
-                    <span aria-hidden><span className="font-semibold">{i.name}</span> <span className="text-muted">· {i.chainName} · {formatCalories(i.calories)}</span></span>
+                    <span aria-hidden><span className="font-bold tracking-tight">{i.name}</span> <span className="text-muted">· {i.chainName} · <span className="whitespace-nowrap">{formatCalories(i.calories)}</span></span></span>
                   </span>
                   <ChevronRightIcon className="h-5 w-5 text-muted" />
                 </Link>

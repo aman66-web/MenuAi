@@ -10,13 +10,13 @@ const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean)
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-on-accent font-semibold hover:opacity-90",
-  secondary: "bg-soft text-foreground border border-line font-medium hover:border-muted",
-  ghost: "text-accent font-medium hover:bg-accent-soft",
-  danger: "bg-soft text-foreground border border-line font-medium hover:border-muted",
+  primary: "btn-sun glow-shadow text-on-accent font-bold active:scale-[0.97] hover:brightness-105",
+  secondary: "glass text-foreground font-semibold active:scale-[0.97] hover:bg-soft-strong",
+  ghost: "text-accent font-semibold hover:bg-accent-soft",
+  danger: "glass text-foreground font-semibold active:scale-[0.97] hover:bg-soft-strong",
 };
 const buttonBase =
-  "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 text-base transition-opacity disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+  "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-[15px] transition duration-150 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 export function Button({ variant = "primary", full, className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant; full?: boolean }) {
   return <button type="button" className={cx(buttonBase, variants[variant], full && "w-full", className)} {...rest} />;
@@ -32,13 +32,13 @@ export function LinkButton({ href, variant = "primary", full, className, childre
 
 // ---- small pieces ----
 
-export function Card({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cx("rounded-xl border border-line bg-soft", className)}>{children}</div>;
+export function Card({ children, className, hero }: { children: ReactNode; className?: string; hero?: boolean }) {
+  return <div className={cx("rounded-3xl", hero ? "hero-card" : "glass", className)}>{children}</div>;
 }
 
 export function Badge({ children, tone = "neutral" }: { children: ReactNode; tone?: "neutral" | "accent" }) {
   return (
-    <span className={cx("inline-flex items-center rounded-md px-1.5 py-0.5 text-xs font-semibold", tone === "accent" ? "bg-accent-soft text-accent" : "bg-line text-muted")}>
+    <span className={cx("inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold", tone === "accent" ? "bg-accent-soft text-accent" : "bg-soft-strong text-muted")}>
       {children}
     </span>
   );
@@ -50,8 +50,8 @@ export function SampleBadge() {
 
 export function SectionTitle({ children, action }: { children: ReactNode; action?: ReactNode }) {
   return (
-    <div className="mb-2 mt-6 flex items-baseline justify-between">
-      <h2 className="text-lg font-bold tracking-tight">{children}</h2>
+    <div className="mb-3 mt-9 flex items-baseline justify-between">
+      <h2 className="text-xl font-bold tracking-tight">{children}</h2>
       {action}
     </div>
   );
@@ -59,8 +59,8 @@ export function SectionTitle({ children, action }: { children: ReactNode; action
 
 export function EmptyState({ title, body, action }: { title: string; body?: ReactNode; action?: ReactNode }) {
   return (
-    <div className="rounded-xl border border-dashed border-line px-5 py-8 text-center">
-      <p className="text-base font-semibold">{title}</p>
+    <div className="rounded-3xl border border-dashed border-line px-5 py-10 text-center">
+      <p className="text-lg font-bold tracking-tight">{title}</p>
       {body && <p className="mx-auto mt-1 max-w-xs text-sm text-muted">{body}</p>}
       {action && <div className="mt-4 flex justify-center">{action}</div>}
     </div>
@@ -78,7 +78,7 @@ export function Spinner({ label = "Loading" }: { label?: string }) {
 
 export function ErrorBox({ message, onRetry }: { message: string; onRetry?: () => void }) {
   return (
-    <div role="alert" className="rounded-xl border border-line bg-soft px-4 py-5 text-center">
+    <div role="alert" className="glass rounded-3xl px-4 py-6 text-center">
       <p className="text-sm">{message}</p>
       {onRetry && (
         <div className="mt-3 flex justify-center">
@@ -96,8 +96,8 @@ export function Chip({ selected, children, onClick, ...rest }: ButtonHTMLAttribu
       aria-pressed={selected}
       onClick={onClick}
       className={cx(
-        "inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
-        selected ? "border-accent bg-accent-soft text-accent" : "border-line bg-background text-foreground hover:border-muted",
+        "inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+        selected ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft text-foreground hover:bg-soft-strong",
       )}
       {...rest}
     >
@@ -118,7 +118,7 @@ export function radioKeyNav(e: React.KeyboardEvent<HTMLElement>, index: number, 
 
 export function Segmented<T extends string>({ value, options, onChange, label }: { value: T; options: ReadonlyArray<{ value: T; label: string }>; onChange: (v: T) => void; label: string }) {
   return (
-    <div role="radiogroup" aria-label={label} className="grid grid-cols-[repeat(auto-fit,minmax(6.5rem,1fr))] gap-1 rounded-xl border border-line bg-soft p-1">
+    <div role="radiogroup" aria-label={label} className={cx("glass grid gap-1 rounded-3xl p-1", options.length === 4 ? "grid-cols-2" : "grid-cols-[repeat(auto-fit,minmax(6rem,1fr))]")}>
       {options.map((o, i) => (
         <button
           key={o.value}
@@ -129,8 +129,8 @@ export function Segmented<T extends string>({ value, options, onChange, label }:
           onClick={() => onChange(o.value)}
           onKeyDown={(e) => radioKeyNav(e, i, options.length, (n) => onChange(options[n]!.value))}
           className={cx(
-            "min-h-11 rounded-lg px-2 text-sm font-medium focus-visible:outline-2 focus-visible:outline-accent",
-            o.value === value ? "bg-background shadow-sm text-foreground" : "text-muted",
+            "min-h-11 rounded-full px-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-accent",
+            o.value === value ? "bg-foreground text-background shadow-sm" : "text-muted hover:text-foreground",
           )}
         >
           {o.label}
@@ -148,7 +148,7 @@ export function Toggle({ checked, onChange, label, description }: { checked: boo
         {description && <span className="block text-sm text-muted">{description}</span>}
       </span>
       <input type="checkbox" role="switch" checked={checked} onChange={(e) => onChange(e.target.checked)} className="peer sr-only" />
-      <span aria-hidden className="relative h-7 w-12 shrink-0 rounded-full bg-line transition-colors peer-checked:bg-accent peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent after:absolute after:left-1 after:top-1 after:h-5 after:w-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-5" />
+      <span aria-hidden className="relative h-8 w-14 shrink-0 rounded-full border border-line bg-soft-strong transition-colors peer-checked:border-transparent peer-checked:bg-sun peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent after:absolute after:left-1 after:top-1 after:h-5.5 after:w-5.5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-6" />
     </label>
   );
 }
@@ -156,7 +156,7 @@ export function Toggle({ checked, onChange, label, description }: { checked: boo
 export function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-1 block text-sm font-medium">{label}</span>
+      <span className="mb-1.5 block text-sm font-semibold">{label}</span>
       {children}
       {hint && <span className="mt-1 block text-xs text-muted">{hint}</span>}
     </label>
@@ -164,7 +164,7 @@ export function Field({ label, hint, children }: { label: string; hint?: string;
 }
 
 export const inputClass =
-  "min-h-11 w-full rounded-xl border border-line bg-background px-3 text-base focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent";
+  "min-h-12 w-full rounded-2xl border border-line bg-soft px-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent";
 
 // ---- bottom sheet on the native <dialog> element: focus trap, Escape and backdrop come for free ----
 
@@ -185,15 +185,16 @@ export function Sheet({ open, onClose, title, children }: { open: boolean; onClo
       onClick={(e) => {
         if (e.target === ref.current) onClose();
       }}
-      className="fixed inset-x-0 bottom-0 top-auto m-0 mx-auto max-h-[92dvh] w-full max-w-md overflow-visible rounded-t-2xl bg-transparent p-0 text-foreground backdrop:bg-black/50"
+      className="fixed inset-x-0 bottom-0 top-auto m-0 mx-auto max-h-[92dvh] w-full max-w-md overflow-visible rounded-t-[2rem] bg-transparent p-0 text-foreground backdrop:bg-black/60 backdrop:backdrop-blur-sm"
     >
       {open && (
-        <div className="max-h-[92dvh] overflow-y-auto rounded-t-2xl border border-line bg-background px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-3">
+        <div className="sheet-in max-h-[92dvh] overflow-y-auto rounded-t-[2rem] border border-b-0 border-line bg-background px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-20px_60px_-20px_rgba(238,90,42,0.35)]">
+          <div aria-hidden className="mx-auto mb-1 mt-1 h-1 w-10 rounded-full bg-line" />
           <div className="mb-2 flex items-center">
-            <button type="button" onClick={onClose} aria-label="Close" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft">
+            <button type="button" onClick={onClose} aria-label="Close" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
               <CloseIcon />
             </button>
-            <h2 className="flex-1 pr-9 text-center text-base font-semibold">{title}</h2>
+            <h2 className="flex-1 pr-9 text-center text-base font-bold tracking-tight">{title}</h2>
           </div>
           {children}
         </div>

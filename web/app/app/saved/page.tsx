@@ -36,7 +36,7 @@ export default function SavedPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold tracking-tight">Saved</h1>
+      <h1 className="text-4xl font-extrabold tracking-tight">Saved</h1>
       {!pro && saved.length > 0 && (
         <p className="mt-1 text-sm text-muted">{Math.min(saved.length, FREE_SAVED_ORDER_LIMIT)} of {FREE_SAVED_ORDER_LIMIT} free saved orders used.</p>
       )}
@@ -52,15 +52,15 @@ export default function SavedPage() {
             const gone = ix === "missing" || (ix !== undefined && !isOrderAvailable(ix, o.lines));
             const expanded = open === o.id;
             return (
-              <li key={o.id} className="rounded-xl border border-line bg-soft p-4">
+              <li key={o.id} className="glass rounded-3xl p-4">
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
-                    <h2 className="text-base font-semibold leading-snug">{o.name}</h2>
+                    <h2 className="text-base font-bold leading-snug tracking-tight">{o.name}</h2>
                     <p className="text-sm text-muted">{o.chainName}</p>
                     <p className="app-numbers mt-1 text-sm text-muted" aria-label={nutrientAriaLabel(o.name, o.nutrients)}>{macroLine(o.nutrients)}</p>
                     {gone && <p className="mt-2"><Badge>No longer on the menu</Badge></p>}
                   </div>
-                  <button type="button" aria-label={`Delete ${o.name}`} onClick={() => remove(o)} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-background">
+                  <button type="button" aria-label={`Delete ${o.name}`} onClick={() => remove(o)} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft-strong">
                     <TrashIcon className="h-5 w-5" />
                   </button>
                 </div>
@@ -70,10 +70,10 @@ export default function SavedPage() {
                   ) : (
                     <Button variant="secondary" className="flex-1" aria-expanded={expanded} onClick={() => setOpen(expanded ? null : o.id)}>{expanded ? "Hide details" : "Details"}</Button>
                   )}
-                  {!gone && <Link href={chainHref(o.chainId)} className="inline-flex min-h-11 items-center justify-center rounded-xl px-4 font-medium text-accent hover:bg-accent-soft">Menu</Link>}
+                  {!gone && <Link href={chainHref(o.chainId)} className="inline-flex min-h-11 items-center justify-center rounded-full px-5 font-semibold text-accent hover:bg-accent-soft">Menu</Link>}
                 </div>
                 {expanded && (
-                  <div className="mt-3 rounded-lg bg-background p-3">
+                  <div className="mt-3 rounded-2xl bg-soft-strong p-3">
                     <MacroSummary nutrients={o.nutrients} />
                     {ix && ix !== "missing" && !gone && <p className="mt-3 text-sm text-muted">{describeOrder(ix, o.lines)}</p>}
                   </div>
@@ -85,7 +85,7 @@ export default function SavedPage() {
       )}
 
       {undo && (
-        <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-xl border border-line bg-background px-4 py-2 shadow-lg">
+        <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 glass rounded-full bg-[var(--nav-bg)] px-5 py-2 shadow-lg">
           <span className="text-sm">Deleted “{undo.name}”.</span>
           <button type="button" className="min-h-11 px-2 font-semibold text-accent" onClick={() => { restoreSavedOrder(undo); setUndo(null); }}>Undo</button>
         </div>

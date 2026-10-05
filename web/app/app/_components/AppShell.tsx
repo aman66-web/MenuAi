@@ -65,16 +65,21 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <PaywallProvider>
-      <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col bg-background">
+      <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
         {!online && (
-          <p role="status" className="bg-soft px-4 py-2 text-center text-xs text-muted">
+          <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-xs text-muted">
             You&apos;re offline. Menus you&apos;ve opened still work.
           </p>
         )}
-        <main className={`flex-1 px-4 ${fullScreen ? "pb-8" : "pb-28"} pt-[max(1rem,env(safe-area-inset-top))]`}>{children}</main>
+        <main className={`flex-1 px-5 ${fullScreen ? "pb-8" : "pb-32"} pt-[max(1.25rem,env(safe-area-inset-top))]`}>
+          <div key={pathname} className="rise">{children}</div>
+        </main>
         {!fullScreen && (
-          <nav aria-label="Main" className="fixed inset-x-0 bottom-0 z-20 border-t border-line bg-background/95 backdrop-blur">
-            <ul className="mx-auto flex max-w-md pb-[env(safe-area-inset-bottom)]">
+          <nav
+            aria-label="Main"
+            className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-full border border-line bg-[var(--nav-bg)] p-1.5 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)] backdrop-blur-xl"
+          >
+            <ul className="flex">
               {TABS.map(({ href, label, Icon, match }) => {
                 const active = match(pathname);
                 return (
@@ -82,9 +87,9 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <Link
                       href={href}
                       aria-current={active ? "page" : undefined}
-                      className={`flex min-h-14 flex-col items-center justify-center gap-0.5 text-xs font-medium ${active ? "text-accent" : "text-muted"}`}
+                      className={`flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-full text-[11px] font-semibold tracking-wide transition-colors ${active ? "bg-accent-soft text-accent" : "text-muted hover:text-foreground"}`}
                     >
-                      <Icon className="h-6 w-6" />
+                      <Icon className="h-[22px] w-[22px]" />
                       {label}
                     </Link>
                   </li>

@@ -1,7 +1,22 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans"; // bundled font files: no network needed at build time
+import localFont from "next/font/local"; // font files live in app/fonts: nothing is fetched from Google by visitors
 import { site } from "@/site.config";
 import "./globals.css";
+
+// Plus Jakarta Sans (UI, variable weight) and Playfair Display italic (small editorial accents). Both SIL OFL.
+const sans = localFont({
+  src: "./fonts/PlusJakartaSans-latin.woff2",
+  variable: "--font-sans-loaded",
+  weight: "200 800",
+  display: "swap",
+});
+const serif = localFont({
+  src: "./fonts/PlayfairDisplay-Italic-latin.woff2",
+  variable: "--font-serif-loaded",
+  weight: "400 700",
+  style: "italic",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -13,7 +28,7 @@ export const metadata: Metadata = {
 // Page chrome lives in the route-group layouts: app/(site) for the marketing site, app/app for the web app.
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${GeistSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable} h-full antialiased`}>
       <body className="min-h-full">{children}</body>
     </html>
   );

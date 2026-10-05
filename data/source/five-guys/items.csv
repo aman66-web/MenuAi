@@ -1,0 +1,73 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+hamburger,Hamburger,Burgers,,666,42,35,39,16,,1.14,6.8,3.4,contains_beef,false,true,,,
+little-hamburger,Little Hamburger,Burgers,,457,24,35,24,9.4,,0.99,6.2,2.0,contains_beef,false,true,,,
+cheeseburger,Cheeseburger,Burgers,,801,50,39,49,22,,3.01,8.6,2.8,contains_beef,false,true,,,
+little-cheeseburger,Little Cheeseburger,Burgers,,506,27,39,27,12,,1.72,7.0,2.7,contains_beef,false,true,,,
+bacon-burger,Bacon Burger,Burgers,,734,49,36,43,17,,2.23,7.2,3.2,contains_beef|contains_pork,false,true,,,
+little-bacon-burger,Little Bacon Burger,Burgers,,510,28,367,27,11,,1.73,6.5,1.7,contains_beef|contains_pork,false,true,,,"Carbohydrate printed as 367 g (per 100 g: 23 g; the other burgers are 35-39 g): clearly a typo, probably 36.7; entered as printed"
+bacon-cheeseburger,Bacon Cheeseburger,Burgers,,870,56,37,55,24,,4.07,8.8,3.5,contains_beef|contains_pork,false,true,,,
+little-bacon-cheeseburger,Little Bacon Cheeseburger,Burgers,,566,32,36,32,13,,2.44,7.3,2.4,contains_beef|contains_pork,false,true,,,
+hot-dog,Hot Dog,Hot dogs,,477,18,35,29,12,,2.78,6.6,2.3,contains_beef,false,true,,,
+cheese-dog,Cheese Dog,Hot dogs,,549,22,39,34,15,,3.54,7.6,1.8,contains_beef,false,true,,,
+bacon-dog,Bacon Dog,Hot dogs,,559,23,38,35,14,,3.68,7.1,2.1,contains_beef|contains_pork,false,true,,,
+bacon-cheese-dog,Bacon Cheese Dog,Hot dogs,,603,28,36,38,16,,4.36,7.6,3.1,contains_beef|contains_pork,false,true,,,
+veggie-sandwich,Veggie Sandwich,Sandwiches,,330,10,52,7.4,2.4,,1.2,13,5.4,,false,true,,,"The guide has no vegetarian marking, so no vegetarian tag"
+cheese-veggie-sandwich,Cheese Veggie Sandwich,Sandwiches,,428,14,57,14,5.9,,2.5,15,5.9,,false,true,,,"The guide has no vegetarian marking, so no vegetarian tag"
+grilled-cheese,Grilled Cheese,Sandwiches,,434,12,42,24,7.6,,2.2,7.3,2.2,,false,true,,,
+blt-bacon-lettuce-and-tomato,"BLT (Bacon, Lettuce and Tomato)",Sandwiches,,652,22,45,41,9.9,,2.67,8.8,3.6,contains_pork,false,true,,,Marked ** (non-halal stores only)
+lettuce-wrap,Lettuce Wrap,Sandwiches,,246,24,5,14,6,,0.76,3.7,1.8,contains_beef,false,true,,,"Printed with: Patty, Tomatoes, Pickles, Grilled Onions, Green Peppers, Grilled Mushrooms (ingredient list: Ground Beef, Lettuce, ...)"
+mini-fries,Mini Fries,Fries,Mini,350,5.0,37,21,2.84,,0.56,0.5,3.4,,false,true,,,Saturates printed to 2 decimals (2.84); the pipeline stores 1 decimal
+little-fries,Little Fries,Fries,Little,659,10,70,39,5.4,,1.1,1.0,6.3,,false,true,,,
+regular-fries,Regular Fries,Fries,Regular,1073,16,115,63,8.7,,1.7,1.6,10,,false,true,,,Printed as 'Reg Fries'
+large-fries,Large Fries,Fries,Large,1509,23,162,89,12,,2.4,2.2,14,,false,true,,,
+five-guys-milkshake-base,Five Guys Milkshake Base,Milkshakes,,625,7.8,75,33,22,,0.71,69,0,,false,false,,,Table heading: 'Milkshakes (including Big Kids Shake)'; no size named
+five-guys-milkshake-base-little,Five Guys Milkshake Base (little),Milkshakes,Little,313,3.9,37,17,11,,0.36,35,0,,false,false,,,
+whipped-cream-milkshake,Whipped Cream (milkshake),Milkshake mix-ins,,68,0,0.6,7.0,5.2,,0.02,0.6,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+flake-milkshake,Flake (milkshake),Milkshake mix-ins,,43,0.6,4.8,18,1.4,,1.0,4.7,0.2,,false,false,,,"Fat printed as 18 g but 43 kcal (per 100 g: 28 g fat, 522 kcal): fat looks like a typo for 1.8; entered as printed. Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake"
+banana-mix-in,Banana mix-in,Milkshake mix-ins,,194,0,36,0,0,,0.14,36,0,,false,false,,,Calories (194) are higher than 4P+4C+9F (144) allows; kJ and kcal agree with each other. Fat 0 here but 2.5 in the little shake. Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+chocolate-mix-in,Chocolate mix-in,Milkshake mix-ins,,217,1.3,48,2.0,1.2,,0,30,1.9,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+lotus-biscoff-mix-in,Lotus Biscoff mix-in,Milkshake mix-ins,,111,1.1,17,4.4,1.8,,0.05,9.0,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+oreo-cookie-pieces-mix-in,Oreo Cookie Pieces mix-in,Milkshake mix-ins,,115,1.2,17,4.8,1.4,,0.55,9.1,0.6,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+jimmys-iced-coffee-mix-in,Jimmy’s Iced Coffee mix-in,Milkshake mix-ins,,8,0.4,1.6,0,0,,0.0,0.2,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+pistachio-mix-in,Pistachio mix-in,Milkshake mix-ins,,194,7.8,2.1,17,2.1,,0,1.5,2.1,,false,false,,,Marked *** (not at Heathrow Airport). Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+reeses-peanut-butter-cups-mix-in,Reese's Peanut Butter Cups mix-in,Milkshake mix-ins,,173,3.1,20,8.9,3.2,,0.24,19,1.1,,false,false,,,Marked *** (not at Heathrow Airport). Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+peanut-butter-mix-in,Peanut Butter mix-in,Milkshake mix-ins,,286,12,6.4,23,3.5,,0.74,3.0,1.7,,false,false,,,Marked *** (not at Heathrow Airport). Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+salted-caramel-mix-in,Salted Caramel mix-in,Milkshake mix-ins,,181,0,42,1.1,0.6,,0.53,33,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+strawberry-mix-in,Strawberry mix-in,Milkshake mix-ins,,115,0,28,0,0,,0.02,27,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+myprotein-mix-in-12-g,Myprotein mix-in (12 g),Milkshake mix-ins,12 g,54,12,0.7,0.1,0.1,,0.10,0.3,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+whipped-cream-little-shake,Whipped Cream (little shake),Milkshake mix-ins,,34,0,0,3.5,2.6,,0,0,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+flake-little-shake,Flake (little shake),Milkshake mix-ins,,43,0.6,4.8,18,1.4,,1.0,4.7,0.2,,false,false,,,"Identical to the regular-shake row, although every other little-shake mix-in is smaller. Fat printed as 18 g but 43 kcal: looks like a typo for 1.8; entered as printed. Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake"
+banana-mix-in-little-shake,Banana mix-in (little shake),Milkshake mix-ins,,97,0,18,2.5,1.0,,0.07,18,0,,false,false,,,Fat 2.5 here but 0 in the regular shake. Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+chocolate-mix-in-little-shake,Chocolate mix-in (little shake),Milkshake mix-ins,,109,0.7,24,1.0,0.6,,0,15,1.0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+lotus-biscoff-mix-in-little-shake,Lotus Biscoff mix-in (little shake),Milkshake mix-ins,,56,0.6,8.0,2.2,0.9,,0.02,4.4,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+oreo-cookie-pieces-mix-in-little-shake,Oreo Cookie Pieces mix-in (little shake),Milkshake mix-ins,,58,0.6,8.0,2.4,1.2,,0.28,4.6,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+jimmys-iced-coffee-mix-in-little-shake,Jimmy’s Iced Coffee mix-in (little shake),Milkshake mix-ins,,4,0.2,0.8,0,0,,0.0,0.1,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+pistachio-mix-in-little-shake,Pistachio mix-in (little shake),Milkshake mix-ins,,97,3.9,1.1,8.3,1.1,,0.0,0.8,1.1,,false,false,,,Marked *** (not at Heathrow Airport). Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+reeses-peanut-butter-cups-mix-in-little-shake,Reese's Peanut Butter Cups mix-in (little shake),Milkshake mix-ins,,86,1.6,10,4.5,1.6,,0.12,9.4,0.6,,false,false,,,Marked *** (not at Heathrow Airport). Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+peanut-butter-mix-in-little-shake,Peanut Butter mix-in (little shake),Milkshake mix-ins,,143,6.0,3.2,12,1.8,,0.37,1.5,0.8,,false,false,,,Marked *** (not at Heathrow Airport). Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+salted-caramel-mix-in-little-shake,Salted Caramel mix-in (little shake),Milkshake mix-ins,,91,0,21,0.6,0.3,,0.27,17,0.0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+strawberry-mix-in-little-shake,Strawberry mix-in (little shake),Milkshake mix-ins,,58,0,14,0,0,,0,14,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+myprotein-mix-in-6-g-little-shake,"Myprotein mix-in (6 g, little shake)",Milkshake mix-ins,6 g,27,6.2,0.4,0.1,0,,0.05,0.1,0,,false,false,,,Per serving as printed; the guide says the amount of each mix-in varies with the number of mix-ins in the shake
+bbq-sauce,BBQ Sauce,Toppings & sauces,,16,0,3.3,0,0,,0.28,3.2,0,,false,false,,,
+cheese-pasteurised,Cheese (pasteurised),Toppings & sauces,,64,3.6,1.1,4.9,3.2,,0.76,0.8,0.0,,false,false,,,
+green-peppers,Green Peppers,Toppings & sauces,,2,0,0,0,0,,0,0,0,,false,false,,,
+grilled-mushrooms,Grilled Mushrooms,Toppings & sauces,,12,1.0,2.0,0,0,,0.23,0,0.7,,false,false,,,
+hot-sauce,Hot Sauce,Toppings & sauces,,2,0,0,0,0,,0.67,0,0,,false,false,,,
+hp-brown-sauce,HP Brown Sauce,Toppings & sauces,,7,0,2.0,0,0,,0.09,1.6,0,,false,false,,,
+jalapeno-peppers,Jalapeño Peppers,Toppings & sauces,,1,0,0,0,0,,0.02,0,0,,false,false,,,
+tomato-ketchup,Tomato Ketchup,Toppings & sauces,,14,0,3.2,0,0,,0.25,3.2,0,,false,false,,,
+lettuce,Lettuce,Toppings & sauces,,4,0,0,0,0,,0,0,0,,false,false,,,
+mayonnaise,Mayonnaise,Toppings & sauces,,113,0,0,12,2.0,,0.20,0,0,,false,false,,,
+mustard,Mustard,Toppings & sauces,,5,0,0,0,0,,0.17,0,0,,false,false,,,
+fresh-onions,Fresh Onions,Toppings & sauces,,8,0,1.8,0,0,,0,1.0,0,,false,false,,,
+grilled-onions,Grilled Onions,Toppings & sauces,,12,0,2.8,0,0,,0,1.8,0,,false,false,,,
+pickles,Pickles,Toppings & sauces,,3,0,0,0,0,,0.46,0,0,,false,false,,,
+relish,Relish,Toppings & sauces,,20,0,4.6,0,0,,0.18,3.8,0,,false,false,,,
+tomatoes,Tomatoes,Toppings & sauces,,6,0,1.3,0,0,,0,1.3,0,,false,false,,,
+crispy-fried-onions,Crispy Fried Onions,Toppings & sauces,,47,0.5,3.2,3.5,1.7,,0.1,0.7,0.4,,false,false,,,
+cajun-seasoning,Cajun seasoning,Toppings & sauces,,20,0.8,2.9,0,0,,1.2,1.1,0,,false,false,,,Salt printed as 1.2 g per serving
+bacon,Bacon,Burger & hot dog parts,,78,6.4,0.7,5.5,2.2,,0.92,0,0,contains_pork,false,false,,,Marked ** (non-halal stores only). A burger/hot dog add-on
+beef-burger-patty,Beef Burger Patty,Burger & hot dog parts,,195,18,0,14,5.6,,0.13,0,0,contains_beef,false,false,,,
+hot-dog-sausage-only,Hot Dog (sausage only),Burger & hot dog parts,,192,11,2.1,15,6.4,,1.9,0,0,contains_beef,false,false,,,"Printed as 'Hot Dog' in the MEAT section: the sausage on its own, not the finished hot dog"
+burger-bun,Burger Bun,Burger & hot dog parts,,238,6.0,38,7.5,2.6,,0.49,6.2,1.4,,false,false,,,
+hot-dog-bun,Hot Dog Bun,Burger & hot dog parts,,215,5.3,34,6.7,2.3,,0.47,5.9,1.2,,false,false,,,

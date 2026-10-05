@@ -6,7 +6,7 @@ import { analytics } from "@/lib/mm/analytics";
 import { SUGGESTION_NOTE } from "@/lib/mm/targets";
 import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal } from "@/lib/mm/types";
-import { BoltIcon, ForkIcon, ListIcon } from "../_components/icons";
+import { BoltIcon, CheckIcon, ForkIcon, ListIcon } from "../_components/icons";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Field, inputClass, radioKeyNav, Toggle } from "../_components/ui";
 
@@ -47,13 +47,20 @@ export default function WelcomePage() {
 
   return (
     <div className="flex min-h-[calc(100dvh-3rem)] flex-col">
-      <p className="text-sm font-medium text-muted" aria-live="polite">Step {step} of 4</p>
+      <div className="flex items-center gap-3">
+        <p className="text-sm font-semibold text-muted" aria-live="polite">Step {step} of 4</p>
+        <div aria-hidden className="flex flex-1 gap-1.5">
+          {[1, 2, 3, 4].map((n) => (
+            <span key={n} className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${n <= step ? "bg-sun" : "bg-soft-strong"}`} />
+          ))}
+        </div>
+      </div>
 
       {step === 1 && (
         <section className="mt-3 flex flex-1 flex-col">
-          <h1 className="text-3xl font-bold tracking-tight">What&apos;s your goal?</h1>
+          <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">What&apos;s your <span className="serif-em sun-text pr-0.5">goal</span>?</h1>
           <p className="mt-2 text-muted">We&apos;ll use this to rank orders for you. Change it any time.</p>
-          <div role="radiogroup" aria-label="Your goal" className="mt-6 space-y-3">
+          <div role="radiogroup" aria-label="Your goal" className="mt-8 space-y-3">
             {GOALS.map((g, i) => (
               <button
                 key={g.value}
@@ -63,9 +70,12 @@ export default function WelcomePage() {
                 tabIndex={goal === g.value ? 0 : -1}
                 onClick={() => setGoal(g.value)}
                 onKeyDown={(e) => radioKeyNav(e, i, GOALS.length, (n) => setGoal(GOALS[n]!.value))}
-                className={`flex min-h-14 w-full items-center rounded-xl border px-4 text-left text-lg font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${goal === g.value ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft"}`}
+                className={`flex min-h-16 w-full items-center justify-between gap-3 rounded-3xl border px-5 text-left text-lg font-semibold transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${goal === g.value ? "hero-card" : "glass hover:bg-soft-strong"}`}
               >
                 {g.label}
+                <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border ${goal === g.value ? "bg-sun border-transparent text-on-accent" : "border-line"}`}>
+                  {goal === g.value && <CheckIcon className="h-4 w-4" strokeWidth={3} />}
+                </span>
               </button>
             ))}
           </div>
@@ -81,8 +91,8 @@ export default function WelcomePage() {
 
       {step === 2 && (
         <section className="mt-3 flex flex-1 flex-col">
-          <h1 className="text-3xl font-bold tracking-tight">Your daily targets</h1>
-          <div className="mt-6 grid grid-cols-2 gap-3">
+          <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">Your daily <span className="serif-em sun-text pr-0.5">targets</span></h1>
+          <div className="mt-8 grid grid-cols-2 gap-3">
             <Field label="Calories"><input className={inputClass} inputMode="numeric" value={calories} onChange={(e) => setCalories(e.target.value)} /></Field>
             <Field label="Protein (g)"><input className={inputClass} inputMode="numeric" value={protein} onChange={(e) => setProtein(e.target.value)} placeholder="Optional" /></Field>
           </div>
@@ -126,9 +136,9 @@ export default function WelcomePage() {
 
       {step === 3 && (
         <section className="mt-3 flex flex-1 flex-col">
-          <h1 className="text-3xl font-bold tracking-tight">Anything you avoid?</h1>
+          <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">Anything you <span className="serif-em sun-text pr-0.5">avoid</span>?</h1>
           <p className="mt-2 text-muted">We&apos;ll leave matching items out of your top picks. Change it any time.</p>
-          <div className="mt-4 divide-y divide-line">
+          <div className="glass mt-6 divide-y divide-line rounded-3xl px-5">
             <Toggle label="Vegetarian only" checked={prefs.vegetarianOnly} onChange={(v) => setPrefs({ ...prefs, vegetarianOnly: v })} />
             <Toggle label="No pork" checked={prefs.noPork} onChange={(v) => setPrefs({ ...prefs, noPork: v })} />
             <Toggle label="No beef" checked={prefs.noBeef} onChange={(v) => setPrefs({ ...prefs, noBeef: v })} />
@@ -145,15 +155,15 @@ export default function WelcomePage() {
 
       {step === 4 && (
         <section className="mt-3 flex flex-1 flex-col">
-          <h1 className="text-3xl font-bold tracking-tight">Here&apos;s how it works</h1>
-          <ul className="mt-6 space-y-5">
+          <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">Here&apos;s how it <span className="serif-em sun-text pr-0.5">works</span></h1>
+          <ul className="mt-8 space-y-4">
             {[
               { Icon: ForkIcon, text: "Pick a restaurant" },
               { Icon: ListIcon, text: "See every item's calories and protein" },
               { Icon: BoltIcon, text: "Build the order that fits your day" },
             ].map(({ Icon, text }) => (
-              <li key={text} className="flex items-center gap-4 text-lg">
-                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent"><Icon /></span>
+              <li key={text} className="flex items-center gap-4 text-lg font-semibold">
+                <span className="glass inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl text-accent"><Icon /></span>
                 {text}
               </li>
             ))}

@@ -101,6 +101,20 @@ Folder name = chain id (lowercase, hyphens: `chick-fil-a`). Copy `data/source/_t
 is an error (one of the two rows is wrong). `tags` applies to `add` modifiers only (bacon →
 `contains_pork`; the result is no longer vegetarian). Items built from components can't have modifiers.
 
+### note.txt (optional)
+
+One or two plain sentences (under 400 characters) about a limit of the chain's published data that users should know,
+shown under the source on the chain page, e.g. "Sub values cover the bread, filling and basic salad only, not
+sauces." It is its own file because extraction scripts rewrite `chain.csv` on every refresh.
+
+### holdback.csv (optional)
+
+`item_id, reason` — items listed here are **not published**: use it when the chain's own guide prints impossible
+numbers (e.g. 367 g of carbohydrate in a burger, 43 kcal with 18 g of fat). Nothing is corrected or guessed; the item is
+left out of the menu and shown in the check report under "Held back" until the chain fixes its guide. It lives beside
+the extraction script's output, so a monthly re-extraction never brings the item back by accident. A line whose item no
+longer exists gives a warning.
+
 ### combos.csv (optional, hand-made meals of whole items)
 
 `id, name, item_ids` — e.g. `nuggets-fruit, Nuggets (12 ct) + fruit cup, nuggets-12|fruit-cup`.

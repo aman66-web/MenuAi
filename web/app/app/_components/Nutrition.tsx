@@ -7,8 +7,8 @@ export function MacroSummary({ nutrients, label, compact }: { nutrients: Nutrien
     return (
       <div className="app-numbers flex flex-wrap items-end justify-between gap-x-4 gap-y-2" role="group" aria-label={label ?? nutrientAriaLabel("Totals", nutrients)}>
         <div className="flex flex-wrap items-end gap-x-4 gap-y-1">
-          <div><span className="text-3xl font-bold leading-none">{formatInt(nutrients.calories)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">kcal</span></div>
-          <div><span className="text-3xl font-bold leading-none text-accent">{formatGrams(nutrients.protein)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">protein</span></div>
+          <div><span className="sun-text text-3xl font-extrabold leading-none">{formatInt(nutrients.calories)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">kcal</span></div>
+          <div><span className="text-3xl font-extrabold leading-none text-accent">{formatGrams(nutrients.protein)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">protein</span></div>
         </div>
         <div className="text-sm text-muted sm:text-right">
           <div><span className="font-semibold text-foreground">{formatGrams(nutrients.carbs)}</span> carbs</div>
@@ -21,11 +21,11 @@ export function MacroSummary({ nutrients, label, compact }: { nutrients: Nutrien
     <div className="app-numbers" role="group" aria-label={label ?? nutrientAriaLabel("Totals", nutrients)}>
       <div className="flex items-end gap-6">
         <div>
-          <div className="text-4xl font-bold leading-none tracking-tight">{formatInt(nutrients.calories)}</div>
+          <div className="sun-text text-5xl font-extrabold leading-none tracking-tighter">{formatInt(nutrients.calories)}</div>
           <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">calories</div>
         </div>
         <div>
-          <div className="text-4xl font-bold leading-none tracking-tight text-accent">{formatGrams(nutrients.protein)}</div>
+          <div className="text-5xl font-extrabold leading-none tracking-tighter text-accent">{formatGrams(nutrients.protein)}</div>
           <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">protein</div>
         </div>
       </div>
@@ -46,30 +46,46 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
   );
 }
 
+/** Item detail hero: big calories, then protein, carbs and fat (SPEC §7.5). One group so a screen reader hears it as one line. */
+export function ItemHero({ nutrients, name }: { nutrients: Nutrients; name: string }) {
+  const macros: Array<[string, number, boolean]> = [["Protein", nutrients.protein, true], ["Carbs", nutrients.carbs, false], ["Fat", nutrients.fat, false]];
+  return (
+    <div role="group" aria-label={nutrientAriaLabel(name, nutrients)} className="hero-card app-numbers rounded-3xl p-6">
+      <div className="sun-text text-7xl font-extrabold leading-none tracking-tighter">{formatInt(nutrients.calories)}</div>
+      <div className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-muted">calories</div>
+      <dl className="mt-6 grid grid-cols-3 divide-x divide-line border-t border-line pt-4 text-center">
+        {macros.map(([label, grams, lead]) => (
+          <div key={label} className="flex flex-col-reverse gap-0.5 px-1">
+            <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{label}</dt>
+            <dd className={`text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{formatGrams(grams)}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
 /**
- * Full nutrient list for the item detail screen; missing optionals read "not published".
+ * The other nutrients for the item detail screen (protein, carbs and fat sit in ItemHero); missing optionals read "not published".
  * Salt and sodium are different published figures (UK vs US guides) and are never converted: show whichever
  * the chain publishes, both if both, and a single "Salt: not published" row if neither.
  */
-export function NutrientTable({ nutrients, name }: { nutrients: Nutrients; name: string }) {
+export function NutrientTable({ nutrients }: { nutrients: Nutrients }) {
   const saltOrSodium: Array<[string, string, boolean]> = [];
   if (nutrients.salt !== undefined) saltOrSodium.push(["Salt", formatSalt(nutrients.salt), true]);
   if (nutrients.sodium !== undefined) saltOrSodium.push(["Sodium", formatSodium(nutrients.sodium), true]);
   if (saltOrSodium.length === 0) saltOrSodium.push(["Salt", formatSalt(undefined), false]);
   const rows: Array<[string, string, boolean]> = [
-    ["Protein", formatGrams(nutrients.protein), true],
-    ["Carbs", formatGrams(nutrients.carbs), true],
-    ["Fat", formatGrams(nutrients.fat), true],
     ["Saturated fat", formatOptionalGrams(nutrients.saturatedFat), nutrients.saturatedFat !== undefined],
     ...saltOrSodium,
     ["Sugar", formatOptionalGrams(nutrients.sugar), nutrients.sugar !== undefined],
     ["Fibre", formatOptionalGrams(nutrients.fiber), nutrients.fiber !== undefined],
   ];
   return (
-    <div role="group" aria-label={nutrientAriaLabel(name, nutrients)}>
-    <dl className="app-numbers divide-y divide-line rounded-xl border border-line">
+    <div>
+    <dl className="app-numbers glass divide-y divide-line overflow-hidden rounded-3xl">
       {rows.map(([label, value, published]) => (
-        <div key={label} className="flex min-h-11 items-center justify-between px-4 py-2">
+        <div key={label} className="flex min-h-12 items-center justify-between px-5 py-2">
           <dt className="text-base">{label}</dt>
           <dd className={published ? "text-base font-semibold" : "text-sm italic text-muted"}>{value}</dd>
         </div>

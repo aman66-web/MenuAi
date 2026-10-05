@@ -1,0 +1,146 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+bacon-sub,Bacon Sub,Subs,6-inch,306,16,37,11,4.2,,1.5,5.1,2.3,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included; Printed serving size is 100 g and the per-100 g block is identical to the per-serving block (looks like a copy slip); per-serving numbers entered as printed and pass the energy check"
+poached-egg-and-cheese-sub,Poached Egg and Cheese Sub,Subs,6-inch,294,16,37,9.1,3.4,,1,4.7,2.5,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+lincolnshire-sausage-sub,Lincolnshire Sausage Sub,Subs,6-inch,353,16,39,15,5.6,,1.6,4.8,2.6,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+lincolnshire-sausage-and-bacon-sub,Lincolnshire Sausage and Bacon Sub,Subs,6-inch,446,22,43,21,8.7,,2.4,8.7,2.7,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+big-breakwich-sub,Big Breakwich Sub,Subs,6-inch,599,30,55,30,10,,3,9.4,4.2,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+chicken-breast-sub,Chicken Breast Sub,Subs,6-inch,340,26,42,6.8,3.1,,1.8,7,2.4,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+chicken-and-bacon-sub,Chicken and Bacon Sub,Subs,6-inch,305,23,37,7,1.3,,1.4,6,2.6,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+chicken-tikka-sub,Chicken Tikka Sub,Subs,6-inch,345,28,43,7.1,2.9,,1.5,6.4,3.5,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+beef-chilli-sub,Beef Chilli Sub,Subs,6-inch,352,22,48,8,3.0,,2.2,8,4.5,contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+rotisserie-style-chicken-sub,Rotisserie Style Chicken Sub,Subs,6-inch,310,22,38,7.6,2.5,,1.4,5.6,2.5,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+tex-mexan-sub,Tex Mexan Sub,Subs,6-inch,498,31,49,19,5.7,,2.4,9.2,4.1,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+meatball-marinara-sub-pork-beef-meatballs,Meatball Marinara Sub (Pork & Beef Meatballs),Subs,6-inch,447,23,51,16,5.7,,1.9,12,5.2,contains_pork|contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+philly-steak-sub,Philly Steak Sub,Subs,6-inch,297,18,48,3.6,0.8,,1.3,8.9,3,contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+garlic-cheesesteak-sub,Garlic Cheesesteak Sub,Subs,6-inch,539,24,51,27,6.7,,2.2,12,4.1,contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+ham-sub,Ham Sub,Subs,6-inch,324,21,42,7.9,3.2,,1.8,6.4,3,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+turkey-sub,Turkey Sub,Subs,6-inch,312,22,41,6.6,2.8,,1.8,6.1,2.7,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+ham-and-turkey-sub,Ham and Turkey Sub,Subs,6-inch,327,23,42,7.4,3,,2.0,6.3,2.9,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+spicy-italian-sub,Spicy Italian Sub,Subs,6-inch,498,22,43,27,10,,3.2,5.7,2.7,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+italian-b-m-t-sub,Italian B.M.T Sub,Subs,6-inch,386,20,41,16,5.2,,2.5,4.8,2.5,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+veggie-delite-sub,Veggie Delite Sub,Subs,6-inch,227,8.3,42,2.4,0.5,,0.64,6.6,3.2,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+tuna-mayo-sub,Tuna Mayo Sub,Subs,6-inch,400,22,43,16,3.4,,1.8,6.6,2.4,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+spiced-plant-patty-sub,Spiced Plant Patty Sub,Subs,6-inch,424,21,51,14,3.4,,2,7.2,5.1,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+5-bean-chilli-sub,5 Bean Chilli Sub,Subs,6-inch,328,14,52,7,2.3,,2.2,10,6.3,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+bacon-and-cheese-toastie,Bacon and Cheese Toastie,Toasties,165 g,487,27,43,24,10,,3,11,2.6,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+big-cheesesteak-toastie,Big Cheesesteak Toastie,Toasties,218 g,458,26,48,18,6.6,,2,11,3.3,contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+triple-cheese-toastie,Triple Cheese Toastie,Toasties,140 g,345,14,44,13,6.5,,1.5,11,2.5,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+nacho-chicken-saver-sub,Nacho Chicken Saver Sub,Saver Subs,201 g,423,18,49,17,3.4,,1.9,7,3.5,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+ham-and-cheese-saver-sub,Ham and Cheese Saver Sub,Saver Subs,151 g,380,20,39,16,5.2,,2.1,6.3,2.7,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+blt-saver-sub,BLT Saver Sub,Saver Subs,146 g,317,14,38,13,2.4,,1.5,6.3,2.9,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+big-breakwich-wrap,Big Breakwich Wrap,Wraps,297 g,685,29,67,33,11.0,,3.6,7.8,6,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+chicken-breast-wrap,Chicken Breast Wrap,Wraps,217 g,410,25,51,10,3.4,,2.3,5.3,4.3,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+chicken-and-bacon-wrap,Chicken and Bacon Wrap,Wraps,199 g,390,22,49,11,2.1,,2.0,4,4.4,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+chicken-tikka-wrap,Chicken Tikka Wrap,Wraps,217 g,414,27,51,11,3.3,,2.1,4.7,5.4,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+beef-chilli-wrap,Beef Chilli Wrap,Wraps,266 g,439,21,60,12,3.7,,2.8,7,6.4,contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+rotisserie-style-chicken-wrap,Rotisserie Style Chicken Wrap,Wraps,190 g,354,19,49,7.7,1.1,,1.7,3.6,4.3,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+tex-mexan-wrap,Tex Mexan Wrap,Wraps,272 g,584,31,61,23,6.5,,3,7.6,5.8,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+meatball-marinara-wrap-pork-beef-meatballs,Meatball Marinara Wrap (Pork & Beef Meatballs),Wraps,251 g,474,20,59,16,3.9,,2.2,9.6,7.1,contains_pork|contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+philly-steak-wrap,Philly Steak Wrap,Wraps,185 g,367,17,57,7.1,1.1,,1.9,7.1,4.9,contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+garlic-cheesesteak-wrap,Garlic Cheesesteak Wrap,Wraps,297 g,624,23,63,30,7.5,,2.8,11,5.9,contains_beef,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+ham-wrap,Ham Wrap,Wraps,202 g,393,20,51,11,3.6,,2.4,4.6,4.9,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+turkey-wrap,Turkey Wrap,Wraps,203 g,381,21,50,10,3.1,,2.4,4.4,4.6,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+ham-and-turkey-wrap,Ham and Turkey Wrap,Wraps,231 g,415,26,50,11,3.5,,2.9,4.8,4.9,contains_pork,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+spicy-italian-wrap,Spicy Italian Wrap,Wraps,206 g,568,21,51,30,10,,3.8,4,4.6,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+italian-b-m-t-wrap,Italian B.M.T Wrap,Wraps,171 g,498,22,50,23,7.7,,3.3,3.4,4.4,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+veggie-delite-wrap,Veggie Delite Wrap,Wraps,195 g,339,9.9,51,9.4,3,,1.5,5.3,5.1,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+tuna-mayo-wrap,Tuna Mayo Wrap,Wraps,208 g,427,19,51,16,1.6,,2.1,4.5,4.3,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+spiced-plant-patty-wrap,Spiced Plant Patty Wrap,Wraps,231 g,494,20,60,18,3.7,,2.6,5.5,7,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+5-bean-chilli-wrap,5 Bean Chilli Wrap,Wraps,266 g,414,14,64,10,3.1,,2.8,9,8.1,,false,true,,,"Guide header: calculated as bread, protein and vegetables (onions, cucumbers, lettuce); sauces and extras not included"
+chicken-breast-salad,Chicken Breast Salad,Salads,218 g,148,20,5.3,4.7,2.7,,1.2,4.4,1.7,,false,true,,,
+chicken-and-bacon-salad,Chicken and Bacon Salad,Salads,249 g,175,16,14,6,3.0,,1.6,6,3.6,contains_pork,false,true,,,Every printed number is identical to the Beef Chilli salad row (possible copy slip in the guide)
+chicken-tikka-salad,Chicken Tikka Salad,Salads,218 g,152,22,5.6,5.1,2.6,,1.0,3.8,2.7,,false,true,,,
+rotisserie-style-chicken-salad,Rotisserie Style Chicken Salad,Salads,191 g,92,14,3.5,2.1,0.4,,0.5,2.7,1.7,,false,true,,,
+tex-mexan-salad,Tex Mexan Salad,Salads,295 g,387,26,17,23,6.3,,2.1,7.5,3.8,,false,true,,,
+meatball-marinara-salad-pork-beef-meatballs,Meatball Marinara Salad (Pork & Beef Meatballs),Salads,260 g,215,14,14,11,3.2,,1.0,8.9,4.8,contains_pork|contains_beef,false,true,,,
+philly-steak-salad,Philly Steak Salad,Salads,194 g,107,12,11,1.5,0.4,,0.7,6.4,2.6,contains_beef,false,true,,,
+beef-chilli-salad,Beef Chilli Salad,Salads,249 g,175,16,14,6,3.0,,1.6,6,3.6,contains_beef,false,true,,,Every printed number is identical to the Chicken and Bacon salad row (possible copy slip in the guide)
+garlic-cheesesteak-salad,Garlic Cheesesteak Salad,Salads,359 g,493,18,20,38,7.8,,1.8,12,3.9,contains_beef,false,true,,,
+ham-salad,Ham Salad,Salads,191 g,89,12,4.8,2.3,0.7,,0.9,3.4,2.2,contains_pork,false,true,,,
+turkey-salad,Turkey Salad,Salads,204 g,119,15,4.4,4.5,2.5,,1.3,3.5,1.9,,false,true,,,
+ham-and-turkey-salad,Ham and Turkey Salad,Salads,213 g,135,17,4.9,5.3,2.7,,1.4,3.7,2.1,contains_pork,false,true,,,
+spicy-italian-salad,Spicy Italian Salad,Salads,207 g,306,16,5.9,25,9.7,,2.6,3.1,2,,false,true,,,
+italian-b-m-t-salad,Italian B.M.T Salad,Salads,176 g,234,16,3.8,17,7.1,,2.2,2.2,2,,false,true,,,
+veggie-delite-salad,Veggie Delite Salad,Salads,431 g,240,10,28,7.6,3.3,,1.1,15,10,,false,true,,,"Printed serving 431 g, far heavier than the other salads (176 to 359 g); both printed blocks agree with it"
+5-bean-chilli-salad,5 Bean Chilli Salad,Salads,267 g,152,8,19,5,2.4,,1.6,8,5.4,,false,true,,,
+tuna-mayo-salad,Tuna Mayo Salad,Salads,209 g,166,13,5.9,10,1,,0.9,3.6,1.7,,false,true,,,
+spiced-plant-patty-salad,Spiced Plant Patty Salad,Salads,232 g,232,15,14,12,3.1,,1.4,4.6,4.4,,false,true,,,
+butter-cheese-spud,Butter & Cheese Spud,Spuds,324 g,413,14,51,17,9.9,,0.7,2,7.4,,false,true,,,
+cheese-beans-spud,Cheese & Beans Spud,Spuds,464 g,522,21,69,17,9.9,,1.6,8.6,13,,false,true,,,
+philly-cheese-steak-cheese-spud,Philly Cheese Steak & Cheese Spud,Spuds,395 g,499,25,59,18,10,,1.4,5.9,8.1,contains_beef,false,true,,,
+tuna-mayo-cheese-spud,Tuna Mayo & Cheese Spud,Spuds,398 g,558,26,54,27,11,,1.6,3,7.4,,false,true,,,
+b-m-t-cheese-spud,B.M.T & Cheese Spud,Spuds,390 g,561,27,53,27,13,,2.3,2.6,8,,false,true,,,
+big-breakwich-spud,Big Breakwich Spud,Spuds,502 g,738,32,69,37,16,,2.5,6.4,9.6,,false,true,,,
+chicken-breast-cheese-spud,Chicken Breast & Cheese Spud,Spuds,395 g,498,30,53,18,10,,1.6,3.4,7.4,,false,true,,,
+chicken-and-bacon-spud,Chicken and Bacon Spud,Spuds,428 g,528,30,53,21,11.0,,1.6,3,7.9,contains_pork,false,true,,,
+rotisserie-style-chicken-cheese-spud,Rotisserie-Style Chicken & Cheese Spud,Spuds,380 g,484,27,51,19,10,,1.2,2.1,7.4,,false,true,,,
+beef-chilli-spud,Beef Chilli Spud,Spuds,485 g,535,27,64,19,10.0,,3.0,6,10,contains_beef,false,true,,,
+garlic-cheese-steak-spud,Garlic Cheese Steak Spud,Spuds,440 g,667,26,64,34,12,,1.7,8.2,8.8,contains_beef,false,true,,,
+ham-cheese-spud,Ham & Cheese Spud,Spuds,380 g,481,25,53,19,10,,1.6,2.8,8,contains_pork,false,true,,,
+ham-turkey-cheese-spud,"Ham, Turkey & Cheese Spud",Spuds,390 g,485,27,52,18,10,,1.8,2.8,7.9,contains_pork,false,true,,,
+meatball-marinara-cheese-spud,Meatball Marinara & Cheese Spud,Spuds,461 g,606,27,61,27,13,,1.3,8.4,10,contains_pork|contains_beef,false,true,,,Meat type from the guide's ingredient list: Pork & Beef Meatballs (in marinara sauce)
+spicy-italian-cheese-spud,Spicy Italian & Cheese Spud,Spuds,384 g,656,26,53,37,17,,3.0,2.1,7.7,,false,true,,,
+chicken-tikka-cheese-spud,Chicken Tikka & Cheese Spud,Spuds,395 g,502,32,53,18,10,,1.4,2.9,8.5,,false,true,,,
+tex-mexan-spud,Tex Mexan Spud,Spuds,452 g,620,32,62,26,11,,2.1,5.7,8.9,,false,true,,,
+turkey-cheese-spud,Turkey & Cheese Spud,Spuds,381 g,469,26,52,18,10,,1.7,2.6,7.7,,false,true,,,
+spiced-plant-patty-cheese-spud,Spiced Plant Patty & Cheese Spud,Spuds,391 g,474,19,64,15,5,,1.5,3.3,10,,false,true,,,
+5-bean-chilli-spud,5 Bean Chilli Spud,Spuds,485 g,509,19,68,17,9.8,,3.0,8,12,,false,true,,,
+veggie-delite-spud,Veggie Delite Spud,Spuds,405 g,428,15,54,17,9.9,,0.7,4,8.4,,false,true,,,
+waffle-fries-regular,Waffle Fries (Regular),Sides,100 g,184,2.8,23,8.2,1.1,,0.85,0.3,4,,false,true,,,
+waffle-fries-large,Waffle Fries (Large),Sides,150 g,276,4.2,34,12,1.7,,1.3,0.5,6,,false,true,,,
+hash-browns-6-pieces,Hash Browns (6 pieces),Sides,111 g,184,2.4,22,11,0.8,,0.78,1.1,2.3,,false,true,,,
+mozzarella-cheddar-bites-x-5,Mozzarella & Cheddar Bites x 5,Sides,75 g,255,11,19,15,6.1,,1.3,1,1.6,,false,true,,,
+mozzarella-cheddar-bites-x-12,Mozzarella & Cheddar Bites x 12,Sides,180 g,612,26,45,36,15.0,,3.1,3,3.8,,false,true,,,
+nacho-chicken-bites-6-pieces,Nacho Chicken Bites (6 Pieces),Sides,108 g,270,16,21,13,1.8,,1.5,1,1.5,,false,true,,,
+nacho-chicken-bites-9-pieces,Nacho Chicken Bites (9 Pieces),Sides,162 g,405,24,32,19,2.7,,2.2,1.4,2.3,,false,true,,,
+doritos-lightly-salted-nachos,Doritos Lightly Salted Nachos,Sides,207 g,590,19,60,30,10,,1.7,5.1,6.8,,false,true,,,
+doritos-tangy-cheese-nachos,Doritos Tangy Cheese Nachos,Sides,207 g,615,19,55,34,11,,2.1,6.4,6,,false,true,,,
+doritos-chilli-heat-wave-nachos,Doritos Chilli Heat Wave Nachos,Sides,206 g,611,19,57,34,10,,2.2,8.8,5.8,,false,true,,,
+chilli-beef-brisket-loaded-nachos,Chilli Beef Brisket Loaded Nachos,Sides,243 g,584,24,63,25,6.6,,2.8,4,7.7,contains_beef,false,true,,,
+chilli-beef-brisket-loaded-waffle-fries,Chilli Beef Brisket Loaded Waffle Fries,Sides,262 g,390,21,35,18,6.3,,3.2,4,6.3,contains_beef,false,true,,,
+5-bean-chilli-loaded-waffle-fries,5 Bean Chilli Loaded Waffle Fries,Sides,228 g,348,13,36,16,5.6,,2.3,5,7.1,,false,true,,,
+5-bean-chilli-loaded-nachos,5 Bean Chilli Loaded Nachos,Sides,243 g,558,16,67,24,6.0,,2.8,6,9.4,,false,true,,,
+footlong-cheesy-garlic-slice,Footlong Cheesy Garlic Slice,Sides,95 g,308,16,20,18,9.1,,1.1,2.5,1.1,,false,true,,,
+meatballs-snack-bowl,Meatballs Snack Bowl,Sides,164 g,230,15,19,14,5,,1.3,7.6,2.6,,false,true,,,
+baked-beans-snack-pot,Baked Beans Snack Pot,Sides,140 g,109,6.6,18,0.3,0,,0.84,6.6,5.2,,false,true,,,
+chicken-breast-strips-protein-pot,Chicken Breast Strips Protein Pot,Protein Pots,71 g,85,16,1.5,1.1,0.5,,0.85,1.4,0,,false,true,,,
+rotisserie-style-chicken-protein-pot,Rotisserie-Style Chicken Protein Pot,Protein Pots,56 g,71,12,0.1,2,0.3,,0.5,0.1,0,,false,true,,,
+chicken-tikka-protein-pot,Chicken Tikka Protein Pot,Protein Pots,71 g,89,18,1.8,1.4,0.4,,0.64,0.9,1.1,,false,true,,,
+beef-chilli-protein-pot,Beef Chilli Protein Pot,Protein Pots,121 g,115,12,11,2,0.8,,1.3,3,2.1,contains_beef,false,true,,,
+5-bean-chilli-protein-pot,5 Bean Chilli Protein Pot,Protein Pots,121 g,89,5,15,1,0.2,,1.3,5,3.8,,false,true,,,
+philly-steak-protein-pot,Philly Steak Protein Pot,Protein Pots,71 g,86,11,8.1,1.4,0.4,,0.71,3.9,0.7,contains_beef,false,true,,,
+meatballs-protein-pot,Meatballs Protein Pot,Protein Pots,164 g,230,15,19,14,5,,1.3,7.6,2.6,,false,true,,,
+chocolate-chunk-cookie,Chocolate Chunk Cookie,Cookies,45 g,214,2.3,28,10,5.1,,0.3,16,1.2,,false,false,,,
+rainbow-cookie,Rainbow Cookie,Cookies,45 g,214,2,28,9.8,5.0,,0.1,18,2,,false,false,,,
+vegan-double-chocolate-cookie,Vegan Double Chocolate Cookie,Cookies,46 g,220,2,27,11,6,,0.3,17,2,vegetarian,false,false,,,
+white-macadamia-nut-cookie,White Macadamia Nut Cookie,Cookies,45 g,215,2.3,27,10,5,,0.4,16,1,,false,false,,,
+oat-and-raisin-cookie,Oat and Raisin Cookie,Cookies,45 g,140,2.6,28,0.6,0.1,,0.15,14,5.9,,false,false,,,
+mini-cookies-and-caramel-dip,Mini Cookies and Caramel Dip,Cookies,126 g,532,5,79,21,11,,1,48,3,,false,false,,,
+pumpkin-spiced-cookie,Pumpkin Spiced Cookie,Cookies,45 g,194,2.3,27,8,4.0,,0.2,17,1.1,,false,false,,,
+matcha-white-chip-cookie,Matcha & White Chip Cookie,Cookies,45 g,193,2.4,27,8,4.2,,0.3,16,0.85,,false,false,,,
+brownie-cookie-cup,Brownie Cookie Cup,Cookies,56 g,266,2.7,28,13,6.2,,0.4,20,1.4,,false,false,,,Printed kJ (896) does not agree with kcal (266; per-100 g kcal agrees with 266); kJ is not used
+american-style-cheese,American-style Cheese,Extras,12 g,42,2.3,0.4,3.5,2.2,,0.3,0.4,0,,false,false,,,
+grated-mozzarella-cheddar-cheese,Grated Mozzarella & Cheddar Cheese,Extras,14 g,45,3.2,0.6,3.4,2.2,,0.2,0.1,0,,false,false,,,
+vegan-cheeze,Vegan CheeZe,Extras,10 g,30,0,1.9,2.4,2.1,,0.1,0,0,vegetarian,false,false,,,
+chilli-flakes,Chilli Flakes,Extras,1 g,4,0.1,0.4,0.1,0,,0,0,0.2,,false,false,,,
+crispy-onions,Crispy Onions,Extras,7 g,41,0.4,2.9,3.0,1.0,,0,0.6,0.3,,false,false,,,
+chipotle-southwest-sauce-dip,Chipotle Southwest Sauce Dip,Sauces,14 g,58,0.1,1.2,5.8,0.4,,0.2,0.6,0.1,,false,false,,,
+extra-spicy-chipotle-sauce-dip,Extra Spicy Chipotle Sauce Dip,Sauces,14 g,60,0.2,1.1,6.1,0.5,,0.3,0.7,0.1,,false,false,,,
+garlic-herb-sauce-dip,Garlic & Herb Sauce Dip,Sauces,14 g,80,0,0.9,8.4,0.6,,0.1,0.4,0,,false,false,,,
+hickory-smoked-bbq-sauce-dip,Hickory Smoked BBQ Sauce Dip,Sauces,14 g,24,0.1,5.8,0.1,0,,0.2,5.2,0.1,,false,false,,,
+honey-mustard-dip,Honey Mustard Dip,Sauces,14 g,29,0.3,2.7,1.9,0.1,,0.2,2.3,0.2,,false,false,,,
+lite-mayo-dip,Lite Mayo Dip,Sauces,14 g,46,0,0.6,4.9,0.3,,0.2,0.6,0,,false,false,,,
+sweet-onion-sauce-dip,Sweet Onion Sauce Dip,Sauces,14 g,23,0.1,5.6,0.1,0,,0.1,4.8,0.1,,false,false,,,
+sweet-chilli-sauce-dip,Sweet Chilli Sauce Dip,Sauces,14 g,30,0.0,7.5,0.0,0,,0.2,6.5,0.0,,false,false,,,
+teriyaki-sauce-dip,Teriyaki Sauce Dip,Sauces,14 g,24,0.4,5.6,0,0,,0.5,4.1,0,,false,false,,,
+tomato-ketchup-dip,Tomato Ketchup Dip,Sauces,14 g,14,0.2,3.2,0,0,,0.3,3.2,0,,false,false,,,
+bbq-dunk-pot,BBQ Dunk Pot,Dunk pots,150 g,231,1.4,53.0,0.8,0,,4.0,45.0,3.2,,false,false,,,
+chipotle-southwest-dunk-pot,Chipotle Southwest Dunk Pot,Dunk pots,150 g,585,0.9,12.1,58.5,5,,2.6,8.1,1.5,,false,false,,,
+garlic-herb-dunk-pot,Garlic & Herb Dunk Pot,Dunk pots,150 g,855,0.3,9.3,90.7,6,,1.3,4.5,0.7,,false,false,,,
+honey-mustard-dunk-pot,Honey Mustard Dunk Pot,Dunk pots,150 g,312,2.7,28.5,20.2,1,,2.0,24.7,2.6,,false,false,,,
+ketchup-dunk-pot,Ketchup Dunk Pot,Dunk pots,150 g,153,1.8,34.8,0.2,0,,2.7,34.2,0.0,,false,false,,,
+lite-mayo-dunk-pot,Lite Mayo Dunk Pot,Dunk pots,150 g,510,0.6,14.1,50.1,4,,2.8,5.4,7.5,,false,false,,,
+sweet-onion-dunk-pot,Sweet Onion Dunk Pot,Dunk pots,150 g,248,0.9,60.0,0.8,0,,1.0,51.0,0.8,,false,false,,,
+teriyaki-dunk-pot,Teriyaki Dunk Pot,Dunk pots,150 g,258,4.0,60.0,0.0,0,,5.5,44.2,0.3,,false,false,,,
+x-spicy-chipotle-southwest-dunk-pot,X-Spicy Chipotle Southwest Dunk Pot,Dunk pots,150 g,643,1.8,12.0,65.5,5,,2.7,7.5,1.0,,false,false,,,
+sweet-chilli-dunk-pot,Sweet Chilli Dunk Pot,Dunk pots,150 g,326,0.6,80.7,0.8,0,,2.6,69.9,0.8,,false,false,,,

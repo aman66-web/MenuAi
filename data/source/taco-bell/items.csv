@@ -1,0 +1,147 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+crispy-chicken-soft-taco,Crispy Chicken Soft Taco,Tacos,,312,13,25,17,2.9,,1.3,1.7,1.1,,false,true,,,
+crunchy-taco-beef,Crunchy Taco - Beef,Tacos,,174,8.7,12,9.8,3.7,,0.64,0.7,2.4,contains_beef,false,true,,,
+crunchy-taco-black-beans,Crunchy Taco - Black Beans,Tacos,,132,4.7,13,5.7,1.7,,0.42,<0.5,4.8,,false,true,,,
+crunchy-taco-grilled-chicken,Crunchy Taco - Grilled Chicken,Tacos,,150,11,12,5.9,1.8,,0.72,0.8,1.5,,false,true,,,
+crunchy-taco-supreme-beef,Crunchy Taco Supreme - Beef,Tacos,,193,9.2,13,11,4.5,,0.65,1.7,2.5,contains_beef,false,true,,,
+crunchy-taco-supreme-black-beans,Crunchy Taco Supreme - Black Beans,Tacos,,151,5.2,15,6.9,2.4,,0.44,1.5,4.9,,false,true,,,
+crunchy-taco-supreme-grilled-chicken,Crunchy Taco Supreme - Grilled Chicken,Tacos,,168,12,14,7.1,2.6,,0.74,1.8,1.7,,false,true,,,
+soft-taco-beef,Soft Taco - Beef,Tacos,,189,10,17,8.5,3.8,,0.99,1,2.1,contains_beef,false,true,,,
+soft-taco-black-beans,Soft Taco - Black Beans,Tacos,,147,6.1,19,4.4,1.7,,0.77,0.7,4.5,,false,true,,,
+soft-taco-grilled-chicken,Soft Taco - Grilled Chicken,Tacos,,165,13,18,4.6,1.8,,1.1,1,1.2,,false,true,,,
+soft-taco-supreme-beef,Soft Taco Supreme - Beef,Tacos,,208,11,18,9.7,4.5,,1,2,2.2,contains_beef,false,true,,,
+soft-taco-supreme-black-beans,Soft Taco Supreme - Black Beans,Tacos,,166,6.6,20,5.6,2.5,,0.79,1.7,4.6,,false,true,,,
+soft-taco-supreme-grilled-chicken,Soft Taco Supreme - Grilled Chicken,Tacos,,183,13,19,5.8,2.6,,1.1,2,1.4,,false,true,,,
+beefy-melt-burrito,Beefy Melt Burrito,Burritos,,587,21,67,26,10,,2.8,3.4,4.6,contains_beef,false,true,,,"'Beefy' in the name, tagged contains_beef"
+grilled-cheese-volcano-burrito-beef,Grilled Cheese Volcano Burrito - Beef,Burritos,,736,23,68,41,11,,3.3,4.1,4.5,contains_beef,false,true,,,
+grilled-cheese-volcano-burrito-black-beans,Grilled Cheese Volcano Burrito - Black Beans,Burritos,,694,19,70,37,8.9,,3.1,3.8,6.9,,false,true,,,
+grilled-cheese-volcano-burrito-chicken,Grilled Cheese Volcano Burrito - Chicken,Burritos,,712,25,69,37,9,,3.4,4.1,3.7,,false,true,,,
+loaded-xl-burrito-beef,Loaded XL Burrito - Beef,Burritos,,885,30,90,45,12,,3.4,7.7,8.8,contains_beef,false,true,,,
+loaded-xl-burrito-black-beans,Loaded XL Burrito - Black Beans,Burritos,,801,22,93,37,8.3,,2.9,7.1,14,,false,true,,,
+loaded-xl-burrito-grilled-chicken,Loaded XL Burrito - Grilled Chicken,Burritos,,836,35,91,37,8.6,,3.5,7.8,7.1,,false,true,,,
+7-layer-burrito,7-Layer Burrito,Burritos,,452,15,61,15,4.8,,2.5,2.9,11,,false,true,,,
+beefy-nacho-cravings-burrito,Beefy Nacho Cravings Burrito,Burritos,,392,13,49,16,5,,1.6,2.3,3.5,contains_beef,false,true,,,"'Beefy' in the name, tagged contains_beef"
+crispy-chicken-burrito,Crispy Chicken Burrito,Burritos,,578,25,58,27,4.3,,2.3,6.1,2.5,,false,true,,,
+double-cheesy-black-bean-cravings-burrito,Double Cheesy Black Bean Cravings Burrito,Burritos,,389,11,57,12,4.2,,2.2,2.2,6.2,,false,true,,,
+spicy-chicken-cravings-burrito,Spicy Chicken Cravings Burrito,Burritos,,277,15,40,6.1,1.7,,1.8,2,1.9,,false,true,,,
+volcano-burrito-beef,Volcano Burrito - Beef,Burritos,,638,17,67,34,6.6,,2.9,3.9,4.5,contains_beef,false,true,,,
+volcano-burrito-black-beans,Volcano Burrito - Black Beans,Burritos,,596,13,68,30,4.5,,2.7,3.7,6.9,,false,true,,,
+volcano-burrito-grilled-chicken,Volcano Burrito - Grilled Chicken,Burritos,,614,19,67,30,4.6,,3,4,3.7,,false,true,,,
+grilled-cheese-crunchwrap-beef,Grilled Cheese Crunchwrap - Beef,Specialties,,614,21,64,30,12,,2.3,4.7,4.2,contains_beef,false,true,,,
+grilled-cheese-crunchwrap-black-beans,Grilled Cheese Crunchwrap - Black Beans,Specialties,,572,17,66,25,10,,2.1,4.4,6.6,,false,true,,,
+grilled-cheese-crunchwrap-chicken,Grilled Cheese Crunchwrap - Chicken,Specialties,,590,24,65,26,10,,2.4,4.7,3.3,,false,true,,,
+grilled-cheese-quesadilla-beef,Grilled Cheese Quesadilla - Beef,Specialties,,2708,153,86,194,109,,11.2,6.6,2.7,contains_beef,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+grilled-cheese-quesadilla-black-beans,Grilled Cheese Quesadilla - Black Beans,Specialties,,2666,149,87,190,107,,10.9,6.3,5.1,,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+grilled-cheese-quesadilla-chicken,Grilled Cheese Quesadilla - Chicken,Specialties,,2683,155,86,190,107,,11.2,6.6,1.9,,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+loaded-protein-bowl,Loaded Protein Bowl,Specialties,,234,21,22,6.1,1.3,,2.4,1.7,6.8,,false,true,,,
+baby-quesadilla,Baby Quesadilla,Specialties,,185,9.7,19,7.8,2.7,,0.88,1.4,0.8,,false,true,,,
+chalupa-supreme-beef,Chalupa Supreme - Beef,Specialties,,371,14,32,21,5.1,,1.4,3.6,2.9,contains_beef,false,true,,,
+chalupa-supreme-black-bean,Chalupa Supreme - Black Bean,Specialties,,329,9.6,34,17,3.1,,1.1,3.4,5.3,,false,true,,,
+chalupa-supreme-grilled-chicken,Chalupa Supreme - Grilled Chicken,Specialties,,346,16,33,17,3.2,,1.4,3.7,2,,false,true,,,
+cheesy-gordita-crunch,Cheesy Gordita Crunch,Specialties,,527,20,44,30,9,,1.9,3.7,3.9,,false,true,,,
+cheesy-gordita-crunch-black-beans,Cheesy Gordita Crunch - Black Beans,Specialties,,485,16,46,26,7,,1.7,3.5,6.3,,false,true,,,
+cheesy-gordita-crunch-grilled-chicken,Cheesy Gordita Crunch - Grilled Chicken,Specialties,,502,23,45,26,7.1,,2,3.8,3,,false,true,,,
+crunchwrap-supreme-beef,Crunchwrap Supreme - Beef,Specialties,,516,16,62,22,7.9,,1.9,4.5,4.2,contains_beef,false,true,,,
+crunchwrap-supreme-black-beans,Crunchwrap Supreme - Black Beans,Specialties,,474,12,64,18,5.8,,1.7,4.3,6.6,,false,true,,,
+crunchwrap-supreme-grilled-chicken,Crunchwrap Supreme - Grilled Chicken,Specialties,,491,18,63,18,6,,2,4.6,3.3,,false,true,,,
+quesadilla-beef,Quesadilla - Beef,Specialties,,1919,106,71,134,74,,7.9,5.4,2.7,contains_beef,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+quesadilla-black-beans,Quesadilla - Black Beans,Specialties,,1877,102,72,130,71,,7.7,5.2,5.1,,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+quesadilla-cheese,Quesadilla - Cheese,Specialties,,1849,100,70,130,71,,7.4,5.1,1.4,,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+quesadilla-double-beef,Quesadilla - Double Beef,Specialties,,1989,112,71,139,76,,8.4,5.7,4,contains_beef,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+quesadilla-double-black-beans,Quesadilla - Double Black Beans,Specialties,,1905,104,74,130,72,,8,5.2,8.8,,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+quesadilla-double-grilled-chicken,Quesadilla - Double Grilled Chicken,Specialties,,1940,117,73,131,72,,8.6,5.9,2.3,,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+quesadilla-grilled-chicken,Quesadilla - Grilled Chicken,Specialties,,1895,108,71,130,72,,8,5.5,1.9,,false,true,,,"Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply about 540 kcal). Entered exactly as printed; looks like an error in the source"
+cheesy-roll-up,Cheesy Roll Up,Specialties,,191,8.3,18,9.3,4.7,,0.76,0.6,0.6,,false,true,,,
+chicken-bite-1,Chicken Bite (1),Chicken,1 bite,52,2,3,3.7,0.7,,0.18,0.7,<0.5,,false,false,,,"Per piece, so not suggested as a meal on its own"
+chicken-bites-3,Chicken Bites (3),Chicken,3 bites,156,6,9,11,2,,0.54,2,1,,false,true,,,
+chicken-bites-3-with-nacho-cheese-sauce,Chicken Bites (3) with Nacho Cheese Sauce,Chicken,3 bites + sauce,324,7.8,15,26,9.4,,1.2,4.9,1.4,,false,true,,,
+chicken-bites-5,Chicken Bites (5),Chicken,5 bites,260,10,15,18,3.3,,0.89,3.3,1.7,,false,true,,,
+chicken-bites-5-with-nacho-cheese-sauce,Chicken Bites (5) with Nacho Cheese Sauce,Chicken,5 bites + sauce,428,12,21,33,11,,1.6,6.3,2.1,,false,true,,,
+chicken-bites-20,Chicken Bites (20),Chicken,20 bites,1040,40,60,73,13,,3.6,13,6.7,,false,true,,,
+chicken-bites-20-with-nacho-cheese-sauce-2,Chicken Bites (20) with Nacho Cheese Sauce (2),Chicken,20 bites + 2 sauces,1376,44,72,103,28,,4.9,19,7.5,,false,true,,,
+large-crispy-chicken-sharer,Large Crispy Chicken Sharer,Chicken,Large,1272,75,80,74,13,,5.5,9.6,5.4,,false,false,,,"Called a 'Sharer'; how many people it feeds is not stated, so it is not suggested as one person's order"
+regular-crispy-chicken-sharer,Regular Crispy Chicken Sharer,Chicken,Regular,532,33,34,30,5,,2.4,3.5,2,,false,false,,,"Called a 'Sharer'; how many people it feeds is not stated, so it is not suggested as one person's order"
+crispy-chicken-tenders-2,Crispy Chicken Tenders (2),Chicken,2 tenders,216,17,15,9.9,1.5,,1.1,0.5,<0.5,,false,true,,,
+crispy-chicken-tenders-3,Crispy Chicken Tenders (3),Chicken,3 tenders,324,25,22,15,2.3,,1.7,0.8,0.7,,false,true,,,
+crispy-chicken-tenders-3-with-cali-ranch-sauce,Crispy Chicken Tenders (3) with Cali Ranch Sauce,Chicken,3 tenders + sauce,475,26,24,30,3.2,,2.1,2.3,0.8,,false,true,,,
+crispy-chicken-tenders-3-with-creamy-jalapeno-sauce,Crispy Chicken Tenders (3) with Creamy Jalapeno Sauce,Chicken,3 tenders + sauce,429,26,26,24,2.8,,1.9,4.1,0.8,,false,true,,,
+crispy-chicken-tenders-3-with-lava-sauce,Crispy Chicken Tenders (3) with Lava Sauce,Chicken,3 tenders + sauce,472,26,24,30,3.3,,2.2,2.1,0.7,,false,true,,,
+crispy-chicken-tenders-3-with-nacho-cheese-sauce,Crispy Chicken Tenders (3) with Nacho Cheese Sauce,Chicken,3 tenders + sauce,408,26,25,22,6,,2,2.3,0.9,,false,true,,,
+crispy-chicken-tenders-5,Crispy Chicken Tenders (5),Chicken,5 tenders,540,42,37,25,3.8,,2.8,1.4,1.1,,false,true,,,
+crispy-chicken-tenders-5-with-cali-ranch-sauce,Crispy Chicken Tenders (5) with Cali Ranch Sauce,Chicken,5 tenders + sauce,691,43,39,40,4.7,,3.2,2.8,1.3,,false,true,,,
+crispy-chicken-tenders-5-with-creamy-jalapeno-sauce,Crispy Chicken Tenders (5) with Creamy Jalapeno Sauce,Chicken,5 tenders + sauce,645,43,41,34,4.4,,3,4.7,1.3,,false,true,,,
+crispy-chicken-tenders-5-with-lava-sauce,Crispy Chicken Tenders (5) with Lava Sauce,Chicken,5 tenders + sauce,688,43,39,40,4.8,,3.3,2.6,1.2,,false,true,,,
+crispy-chicken-tenders-5-with-nacho-cheese-sauce,Crispy Chicken Tenders (5) with Nacho Cheese Sauce,Chicken,5 tenders + sauce,624,43,40,32,7.5,,3.1,2.8,1.3,,false,true,,,
+black-beans,Black Beans,Sides,,83,5.8,6.5,1.3,0.2,,0.86,<0.5,11,,false,true,,,Printed fibre is more than the printed total carbohydrate
+fries-bell-grande,Fries Bell Grande,Sides,,1055,21,121,56,17,,3.5,6.8,14,,false,true,,,
+fries-supreme,Fries Supreme,Sides,,614,14,63,35,12,,2.2,4.8,7.6,,false,true,,,
+nacho-chips-large,Nacho Chips (Large),Sides,Large,333,4.3,46,16,1.5,,0.72,0.9,3.6,,false,true,,,
+nacho-chips-regular,Nacho Chips (Regular),Sides,Regular,200,2.6,28,9.5,0.9,,0.43,0.5,2.2,,false,true,,,
+nacho-chips-with-cheese-sauce-large,Nacho Chips with Cheese Sauce (Large),Sides,Large,417,5.2,49,23,5.2,,1.1,2.4,3.9,,false,true,,,
+nacho-chips-with-cheese-sauce-regular,Nacho Chips with Cheese Sauce (Regular),Sides,Regular,284,3.5,31,17,4.6,,0.77,2,2.4,,false,true,,,
+nachos-bell-grande,Nachos Bell Grande,Sides,,768,16,69,48,16,,2.7,6.8,10,,false,true,,,
+seasoned-fries-large,Seasoned Fries (Large),Sides,Large,358,5.9,55,14,1.4,,0.99,0.5,5.8,,false,true,,,
+seasoned-fries-regular,Seasoned Fries (Regular),Sides,Regular,261,4.3,40,10,1,,0.73,<0.5,4.2,,false,true,,,
+seasoned-fries-xl,Seasoned Fries (XL),Sides,XL,522,8.6,81,20,2,,1.5,0.8,8.4,,false,true,,,
+seasoned-fries-with-cheese-sauce-large,Seasoned Fries with Cheese Sauce (Large),Sides,Large,442,6.8,58,21,5.1,,1.3,2,6,,false,true,,,
+seasoned-fries-with-cheese-sauce-regular,Seasoned Fries with Cheese Sauce (Regular),Sides,Regular,345,5.2,43,18,4.7,,1.1,1.9,4.4,,false,true,,,
+seasoned-rice,Seasoned Rice,Sides,,160,3,31,3.1,0.4,,1.6,0.8,2.2,,false,true,,,
+3x-salted-caramel-churro-bites,3x Salted Caramel Churro Bites,Desserts,3 bites,150,1.9,28,3,0.4,,0.68,11,2.2,,false,false,,,
+6x-salted-caramel-churro-bites,6x Salted Caramel Churro Bites,Desserts,6 bites,300,3.9,56,6.1,0.9,,1.4,22,4.4,,false,false,,,
+9x-salted-caramel-churro-bites,9x Salted Caramel Churro Bites,Desserts,9 bites,450,5.8,83,9.1,1.3,,2.1,32,6.6,,false,false,,,
+caramel-apple-empanada,Caramel Apple Empanada,Desserts,,255,3.2,34,12,3.8,,0.46,14,0.8,,false,false,,,
+churros,Churros,Desserts,,151,1.9,23,6.1,0.6,,0.64,4,2.5,,false,false,,,
+churros-2-with-caramel-sauce,Churros (2) with Caramel Sauce,Desserts,2 churros,244,2.3,42,8.2,2,,0.91,16,2.5,,false,false,,,
+churros-6-with-caramel-sauce,Churros (6) with Caramel Sauce,Desserts,6 churros,639,6.6,107,22,4.6,,2.5,36,7.6,,false,false,,,
+cinnamon-twists,Cinnamon Twists,Desserts,,172,1.7,24,7.9,0.7,,0.78,6.3,<0.5,,false,false,,,
+grande-cinnamon-twists,Grande Cinnamon Twists,Desserts,,687,6.7,95,32,2.8,,3.1,25,2,,false,false,,,
+baja-blast-large,Baja Blast (Large),Drinks,Large,25,<0.5,<0.5,<0.5,<0.1,,1.3,<0.5,<0.5,,false,false,,,
+baja-blast-regular,Baja Blast (Regular),Drinks,Regular,13,<0.5,<0.5,<0.5,<0.1,,0.67,<0.5,<0.5,,false,false,,,
+7up-free-500ml-bottle,7Up Free (500ml Bottle),Drinks,500ml bottle,10,<0.5,<0.5,<0.5,<0.1,,0.2,<0.5,<0.5,,false,false,,,
+7up-free-can,7Up Free (Can),Drinks,1 can,22,<0.5,<0.5,<0.5,<0.1,,0.43,<0.5,<0.5,,false,false,,,Container size is not stated; values are per can/bottle as sold
+7up-free-large,7Up Free (Large),Drinks,Large,85,<0.5,<0.5,<0.5,<0.1,,3.7,<0.5,<0.5,,false,false,,,Printed 85 kcal with every macro '<0.5'; the Regular is 45 kcal. Entered as printed
+7up-free-regular,7Up Free (Regular),Drinks,Regular,45,<0.5,<0.5,<0.5,<0.1,,2,<0.5,<0.5,,false,false,,,
+bottled-water,Bottled Water,Drinks,,0,<0.5,2.5,<0.5,<0.1,,<0.01,<0.5,<0.5,,false,false,,,Bottle size not stated. 0 kcal printed but carbohydrate printed as 2.5 g
+diet-pepsi-500ml-bottle,Diet Pepsi (500ml Bottle),Drinks,500ml bottle,4,<0.5,<0.5,<0.5,<0.1,,0.26,<0.5,<0.5,,false,false,,,
+diet-pepsi-can,Diet Pepsi (Can),Drinks,1 can,7,<0.5,<0.5,<0.5,<0.1,,0.54,<0.5,<0.5,,false,false,,,Container size is not stated; values are per can/bottle as sold
+diet-pepsi-large,Diet Pepsi (Large),Drinks,Large,25,<0.5,<0.5,<0.5,<0.1,,2.8,<0.5,<0.5,,false,false,,,
+diet-pepsi-regular,Diet Pepsi (Regular),Drinks,Regular,13,<0.5,<0.5,<0.5,<0.1,,1.5,<0.5,<0.5,,false,false,,,
+lipton-ice-tea-peach-large,Lipton Ice Tea Peach (Large),Drinks,Large,803,11,194,<0.5,<0.1,,1.2,190,<0.5,,false,false,,,"Very high for an iced tea (803 kcal, 190 g sugars); entered as printed"
+lipton-ice-tea-peach-regular,Lipton Ice Tea Peach (Regular),Drinks,Regular,425,5.6,103,<0.5,<0.1,,0.66,101,<0.5,,false,false,,,"Very high for an iced tea (425 kcal, 101 g sugars); entered as printed"
+mountain-dew-citrus-sugar-free-bottle,Mountain Dew Citrus Sugar Free (Bottle),Drinks,1 bottle,5,<0.5,<0.5,<0.5,<0.1,,0.05,<0.5,<0.5,,false,false,,,Bottle size not stated; values are per bottle as sold
+pepsi-500ml-bottle,Pepsi (500ml Bottle),Drinks,500ml bottle,450,<0.5,115,<0.5,<0.1,,<0.01,113,<0.5,,false,false,,,450 kcal is over twice the Pepsi can (196 kcal); entered as printed
+pepsi-can,Pepsi (Can),Drinks,1 can,196,<0.5,50,<0.5,<0.1,,<0.01,49,<0.5,,false,false,,,Container size is not stated; values are per can/bottle as sold
+pepsi-max-500ml-bottle,Pepsi Max (500ml Bottle),Drinks,500ml bottle,2,<0.5,<0.5,<0.5,<0.1,,<0.01,<0.5,<0.5,,false,false,,,
+pepsi-max-can,Pepsi Max (Can),Drinks,1 can,4,<0.5,<0.5,<0.5,<0.1,,<0.01,<0.5,<0.5,,false,false,,,Container size is not stated; values are per can/bottle as sold
+pepsi-max-large,Pepsi Max (Large),Drinks,Large,21,<0.5,<0.5,<0.5,<0.1,,2.1,<0.5,<0.5,,false,false,,,
+pepsi-max-regular,Pepsi Max (Regular),Drinks,Regular,11,<0.5,<0.5,<0.5,<0.1,,1.1,<0.5,<0.5,,false,false,,,
+pepsi-max-cherry-large,Pepsi Max Cherry (Large),Drinks,Large,30,<0.5,<0.5,<0.5,<0.1,,2.1,<0.5,<0.5,,false,false,,,
+pepsi-max-cherry-regular,Pepsi Max Cherry (Regular),Drinks,Regular,16,<0.5,<0.5,<0.5,<0.1,,1.1,<0.5,<0.5,,false,false,,,
+red-bull-energy-drink-250ml,Red Bull Energy Drink (250ml),Drinks,250ml,115,<0.5,28,<0.5,<0.1,,0.25,28,<0.5,,false,false,,,
+red-bull-sugar-free-250ml,Red Bull Sugar Free (250ml),Drinks,250ml,8,<0.5,<0.5,<0.5,<0.1,,0.25,<0.5,<0.5,,false,false,,,
+red-bull-the-winter-edition-250ml,Red Bull The Winter Edition (250ml),Drinks,250ml,113,<0.5,28,<0.5,<0.1,,0.25,28,<0.5,,false,false,,,Name says Winter Edition; the table does not label it limited time
+robinsons-apple-and-blackcurrant-large,Robinsons Apple and Blackcurrant (Large),Drinks,Large,13,<0.5,<0.5,<0.5,<0.1,,0.13,<0.5,<0.5,,false,false,,,Printed 'Blackcurrent'; name spelled Blackcurrant here
+robinsons-apple-and-blackcurrant-regular,Robinsons Apple and Blackcurrant (Regular),Drinks,Regular,9,<0.5,<0.5,<0.5,<0.1,,0.09,<0.5,<0.5,,false,false,,,Printed 'Blackcurrent'; name spelled Blackcurrant here
+robinsons-fruit-shoot-apple-and-blackcurrant-200ml,Robinsons Fruit Shoot Apple and Blackcurrant (200ml),Drinks,200ml,40,<0.5,8,<0.5,<0.1,,0.3,8,<0.5,,false,false,,,
+tango-apple-sugar-free-large,Tango Apple Sugar Free (Large),Drinks,Large,169,<0.5,21,<0.5,<0.1,,4.6,21,<0.5,,false,false,,,"'Sugar Free' in the name but 21 g sugars printed, and kcal (169) is about double what the macros give"
+tango-apple-sugar-free-regular,Tango Apple Sugar Free (Regular),Drinks,Regular,89,<0.5,11,<0.5,<0.1,,2.4,11,<0.5,,false,false,,,"'Sugar Free' in the name but 11 g sugars printed, and kcal (89) is about double what the macros give"
+tango-orange-500ml-bottle,Tango Orange (500ml Bottle),Drinks,500ml bottle,95,<0.5,21,<0.5,<0.1,,0.3,21,<0.5,,false,false,,,
+tango-orange-can,Tango Orange (Can),Drinks,1 can,207,<0.5,47,<0.5,<0.1,,0.65,47,<0.5,,false,false,,,"Container size is not stated; values are per can/bottle as sold; 207 kcal is over twice the 500ml bottle (95 kcal), entered as printed"
+tango-orange-sugar-free-large,Tango Orange Sugar Free (Large),Drinks,Large,42,<0.5,<0.5,<0.5,<0.1,,4.6,<0.5,<0.5,,false,false,,,
+tango-orange-sugar-free-regular,Tango Orange Sugar Free (Regular),Drinks,Regular,22,<0.5,<0.5,<0.5,<0.1,,2.4,<0.5,<0.5,,false,false,,,
+dip-pot-cali-ranch-sauce,Dip Pot - Cali Ranch Sauce,Sauces & add-ons,1 pot,151,1,2.3,15,0.9,,0.42,1.5,<0.5,,false,false,,,
+dip-pot-creamy-jalapeno-sauce,Dip Pot - Creamy Jalapeno Sauce,Sauces & add-ons,1 pot,105,0.6,4.3,9.5,0.5,,0.17,3.3,<0.5,,false,false,,,
+dip-pot-lava-sauce,Dip Pot - Lava Sauce,Sauces & add-ons,1 pot,148,0.8,2.3,15,1,,0.49,1.3,<0.5,,false,false,,,
+dip-pot-nacho-cheese,Dip Pot - Nacho Cheese,Sauces & add-ons,1 pot,252,2.7,9.2,23,11,,1,4.4,0.6,,false,false,,,
+guacamole,Guacamole,Sauces & add-ons,,34,<0.5,1,2.9,0.7,,0.14,<0.5,0.7,,false,false,,,
+jalape-os,Jalapeños,Sauces & add-ons,,2,<0.5,<0.5,<0.5,<0.1,,0.74,<0.5,<0.5,,false,false,,,
+nacho-cheese-sauce,Nacho Cheese Sauce,Sauces & add-ons,,84,0.9,3.1,7.5,3.7,,0.33,1.5,<0.5,,false,false,,,
+sour-cream,Sour Cream,Sauces & add-ons,,49,1.5,2.7,3.6,2.3,,0.04,1.8,<0.5,,false,false,,,
+extra-black-beans,Extra Black Beans,Sauces & add-ons,,28,1.9,2.2,<0.5,<0.1,,0.29,<0.5,3.7,,false,false,,,Printed fibre is more than the printed total carbohydrate
+extra-grilled-chicken,Extra Grilled Chicken,Sauces & add-ons,,45,8.4,1.3,0.6,0.2,,0.58,<0.5,<0.5,,false,false,,,
+extra-seasoned-beef,Extra Seasoned Beef,Sauces & add-ons,,70,5.9,0.5,4.5,2.1,,0.5,<0.5,1.3,contains_beef,false,false,,,Printed fibre is more than the printed total carbohydrate
+fire-sauce,Fire Sauce,Sauces & add-ons,,2,<0.5,<0.5,0.6,<0.1,,0.17,<0.5,<0.5,,false,false,,,
+heinz-light-mayonnaise-sachet,Heinz Light Mayonnaise Sachet,Sauces & add-ons,1 sachet,30,<0.5,0.7,2.5,0.2,,0.2,<0.5,<0.5,,false,false,,,
+heinz-mayonnaise-sachet,Heinz Mayonnaise Sachet,Sauces & add-ons,1 sachet,60,<0.5,<0.5,6.5,0.5,,0.1,<0.5,<0.5,,false,false,,,
+heinz-tomato-ketchup-sachet,Heinz Tomato Ketchup Sachet,Sauces & add-ons,1 sachet,10,1,2.2,<0.5,<0.1,,0.2,1.9,<0.5,,false,false,,,
+mild-sauce,Mild Sauce,Sauces & add-ons,,12,<0.5,2.6,<0.5,<0.1,,0.1,0.5,<0.5,,false,false,,,

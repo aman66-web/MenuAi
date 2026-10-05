@@ -1,0 +1,139 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+sol-bowl,Sol Bowl,The Lunch Fix,,583,7.2,63,31.5,2.3,,3.4,15.2,8.1,,false,true,,,
+hearty-bowl,Hearty Bowl,The Lunch Fix,,432,9.3,44.3,22.9,2.2,,2.6,14.1,11.4,,false,true,,,
+hallooooooomi-sticks,HalloOoOoOomi Sticks,Starters,Serves 2,466,26.8,8.3,36.8,17.1,,3.3,6.1,1.3,vegetarian,true,false,,,
+chicken-chorizo,Chicken Chorizo,Starters,Serves 2,340,21.4,19,21.6,5.4,,3.1,16.2,1.8,,false,false,,,"Name says chorizo but the menu text says 'No pork', so no pork tag"
+halloumi-sticks-chilli-jam,Halloumi Sticks & Chilli Jam,Starters,Serves 2,458,26.7,15.9,32,16.6,,2.3,12.6,0.4,vegetarian,false,false,,,
+halloumi-sticks-peri-honey,Halloumi Sticks & PERi-Honey,Starters,Serves 2,526,26.2,35.6,32,16.6,,2.2,33.6,0,vegetarian,false,false,,,
+houmous-with-peri-peri-drizzle,Houmous with PERi-PERi Drizzle,Starters,Serves 2-3,792,25,98.7,32.6,4.3,,2.9,4.2,14.3,vegetarian,false,false,,,
+sweet-potato-wedges,Sweet Potato Wedges,Starters,Serves 2,398,7.6,43.6,22.8,10,,1.5,24.4,6,vegetarian,false,false,,,
+cheesy-garlic-pitta,Cheesy Garlic Pitta,Starters,Serves 2,597,17.7,61.7,31.6,12.2,,1.8,15.4,3.5,vegetarian,false,false,,,
+spicy-mixed-olives,Spicy Mixed Olives,Starters,Serves 2,138,1.2,4.7,13.5,1.4,,4.6,0,3.9,vegetarian,false,false,,,
+peri-peri-nuts,PERi-PERi Nuts,Starters,Serves 2-3,793,27.3,14.8,67.4,8.8,,1.2,5.9,9,vegetarian,false,false,,,
+4-boneless-chicken-thighs,4 Boneless Chicken Thighs,PERi-PERi Chicken,,706,85.5,0.3,37.2,9.6,,2.1,0.3,1.4,,false,true,,,Printed kJ (2831) and kcal (706) do not agree (kJ is not used)
+chicken-butterfly,Chicken Butterfly,PERi-PERi Chicken,,332,59.4,0.2,10.1,2.3,,1.3,0.2,1.5,,false,true,,,
+1-2-chicken,1/2 Chicken,PERi-PERi Chicken,,579,78.7,0.6,29.1,8,,1.7,0,1.4,,false,true,,,
+1-4-chicken,1/4 Chicken,PERi-PERi Chicken,,289,39.3,0.3,14.5,4,,0.9,0,0.7,,false,true,,,
+whole-chicken,Whole Chicken,PERi-PERi Chicken,Serves 2-3,1159,157.6,1.1,58,16.3,,3.5,0.6,3,,false,false,,,
+5-phantom-wings,5 Phantom Wings,PERi-PERi Chicken,,497,55.1,9.7,26.3,5.3,,5.9,6.4,2.9,,false,true,,,
+10-phantom-wings,10 Phantom Wings,PERi-PERi Chicken,Serves 2-3,959,109.1,13.1,52,10.6,,10.2,8,5.2,,false,false,,,
+3-phantom-wings,3 Phantom Wings,PERi-PERi Chicken,,295,33,5.1,15.7,3.2,,3.6,3.3,1.7,,false,true,,,
+5-chicken-wings,5 Chicken Wings,PERi-PERi Chicken,,393,53.2,0.4,19.7,4.7,,2.2,0.2,1.2,,false,true,,,
+10-chicken-wings,10 Chicken Wings,PERi-PERi Chicken,Serves 2-3,786,106.4,0.9,39.4,9.4,,4.4,0.4,2.5,,false,false,,,
+3-chicken-wings,3 Chicken Wings,PERi-PERi Chicken,,236,31.9,0.3,11.8,2.8,,1.3,0.1,0.7,,false,true,,,
+wing-roulette,Wing Roulette,PERi-PERi Chicken,Serves 2-3,893,107.1,7.5,48.1,10.2,,6.5,5.2,3.7,,false,false,,,Meat type not stated ('10 Wings'); no pork/beef tag
+5-extra-saucy-wings,5 Extra Saucy Wings,PERi-PERi Chicken,,513,53.9,11.4,27.8,5.5,,2.8,9.8,1.6,,false,true,,,
+10-extra-saucy-wings,10 Extra Saucy Wings,PERi-PERi Chicken,Serves 2-3,958,107.4,19.8,49.5,10.4,,5.3,17.4,3.1,,false,false,,,
+3-extra-saucy-wings,3 Extra Saucy Wings,PERi-PERi Chicken,,299,32.3,6.4,15.9,3.2,,1.6,5.6,0.9,,false,true,,,
+chicken-livers-rustic-portuguese-roll,Chicken Livers & Rustic Portuguese Roll,PERi-PERi Chicken,,653,38.2,54.1,32.6,12.6,,2.9,2.9,3.4,,false,true,,,
+butterfly-burger,Butterfly Burger,"Burgers, Pittas, Wraps",,651,65.2,55.3,19.5,3.5,,3,6.8,4.4,,false,true,,,
+sunset-burger,Sunset Burger,"Burgers, Pittas, Wraps",,723,53.1,56.5,31.2,10.8,,2.5,8.4,3.2,,false,true,,,"The calories are based on the dish containing two chicken thighs, without customisations, sides or extras. Check the individual nutritional information for things like sides and spice levels."
+garlic-churrasco-burger,Garlic Churrasco Burger,"Burgers, Pittas, Wraps",,787,49,55.3,39.9,12,,2.4,5,3.9,,false,true,,,"The calories are based on the dish containing two chicken thighs, without customisations, sides or extras. Check the individual nutritional information for things like sides and spice levels."
+grilled-chicken-burger,Grilled Chicken Burger,"Burgers, Pittas, Wraps",,448,34.8,58.5,9.6,1.6,,2.3,7.2,3.5,,false,true,,,
+double-chicken-burger,Double Chicken Burger,"Burgers, Pittas, Wraps",,586,63.4,58.6,12.2,2.1,,3,7.2,4,,false,true,,,
+grilled-chicken-wrap,Grilled Chicken Wrap,"Burgers, Pittas, Wraps",,514,36.2,54.1,16.3,4.2,,1.7,9.7,4.9,,false,true,,,
+double-chicken-wrap,Double Chicken Wrap,"Burgers, Pittas, Wraps",,742,65.3,54.9,29,5.4,,2.4,10.1,5.9,,false,true,,,
+fino-pitta,Fino Pitta,"Burgers, Pittas, Wraps",,838,61.8,57.9,40,15.2,,3.3,14.4,3.5,,false,true,,,"The calories are based on the dish containing two chicken thighs, without customisations, sides or extras. Check the individual nutritional information for things like sides and spice levels."
+grilled-chicken-pitta,Grilled Chicken Pitta,"Burgers, Pittas, Wraps",,508,36.4,50.2,19.1,3.7,,1.9,5.9,1.9,,false,true,,,
+double-chicken-pitta,Double Chicken Pitta,"Burgers, Pittas, Wraps",,691,65,50.3,26.7,4.5,,2.6,6,2.6,,false,true,,,
+spicy-rice-bowl,Spicy Rice Bowl,Salads & Bowls,,600,15.1,21.5,31.7,3.5,,3.6,8.3,3.6,vegetarian,false,true,,,"Printed 600 kcal is not close to what the printed protein, carbohydrate and fat give (432 kcal); entered as printed"
+mediterranean-salad,Mediterranean Salad,Salads & Bowls,,350,7,15.8,28.3,5.6,,3.9,12,4.9,vegetarian,false,true,,,
+caesar-salad,Caesar Salad,Salads & Bowls,,477,12.8,16.5,39.6,7.4,,1.5,3.5,2.9,vegetarian,false,true,,,
+the-big-cheese,The Big Cheese,Veggie,,748,27.6,60.6,45.4,20.4,,3.5,8.6,3.4,vegetarian,false,true,,,
+the-great-imitator-wrap,The Great Imitator Wrap,Veggie,,486,16.8,57,19.4,8,,1.8,9.9,9.8,vegetarian,false,true,,,
+beanie-wrap,Beanie Wrap,Veggie,,644,21.5,37,26.5,7.2,,2.4,10.7,11.3,vegetarian,false,true,,,"Printed 644 kcal is not close to what the printed protein, carbohydrate and fat give (472 kcal); entered as printed"
+beanie-burger,Beanie Burger,Veggie,,562,19.5,83.5,19.2,5,,2.6,6.9,9.3,vegetarian,false,true,,,
+beanie-pitta,Beanie Pitta,Veggie,,632,21.2,76.5,29.2,6.7,,2.6,6.6,2.6,vegetarian,false,true,,,
+nandino-burger,Nandino Burger,Nandinos (Kids),,285,31.4,27.5,6,1.6,,1.4,3,1.6,,false,false,,,
+mac-cheese,Mac & Cheese,Nandinos (Kids),,435,20.5,40.5,21.9,13.1,,1.5,2.5,0,vegetarian,false,false,,,
+chicken-breast,Chicken Breast,Nandinos (Kids),,138,28.6,0.1,2.6,0.6,,0.7,0.1,0.5,,false,false,,,
+3-chicken-wings-nandinos,3 Chicken Wings (Nandinos),Nandinos (Kids),,235,31.9,0.2,11.8,2.8,,1.4,0,0.7,,false,false,,,
+little-pitta,Little Pitta,Nandinos (Kids),,302,32.5,24.7,7.8,1.8,,1.4,4.5,1.6,,false,false,,,
+bottomless-soft-swirl-tub-nandinos,Bottomless Soft Swirl Tub (Nandinos),Nandinos (Kids),Filled tub,189,5.3,21.3,8.9,2.3,,0,21.2,0,vegetarian,false,false,,,The nutritional info is per filled tub.
+pip-organic-cloudy-apple-juice,Pip Organic Cloudy Apple Juice,Nandinos (Kids),180ml,77,0,18.5,0,0,,0,17.6,0,vegetarian,false,false,,,
+pip-organic-pineapple-mango-smoothie,Pip Organic Pineapple & Mango Smoothie,Nandinos (Kids),180ml,95,0,22.5,0,0,,0,21.4,0,vegetarian,false,false,,,
+chips-nandinos-side,Chips (Nandinos side),Nandinos (Kids),,248,2.3,35.7,11.5,1.1,,1.1,0.1,3.9,vegetarian,false,false,,,Nandino-size side offered with the Nandinos set menu
+corn-on-the-cob-nandinos-side,Corn on the Cob (Nandinos side),Nandinos (Kids),,46,1.8,7.9,1,0.3,,0,3.5,0.9,vegetarian,false,false,,,Nandino-size side offered with the Nandinos set menu
+cucumber-sticks-nandinos-side,Cucumber Sticks (Nandinos side),Nandinos (Kids),,3,1.7,0.1,0.1,0,,0,0,2.7,vegetarian,false,false,,,Nandino-size side offered with the Nandinos set menu
+spicy-rice-nandinos-side,Spicy Rice (Nandinos side),Nandinos (Kids),,123,1.9,21.1,3,0.2,,0.8,0.6,2,vegetarian,false,false,,,Nandino-size side offered with the Nandinos set menu
+fully-loaded-chips,Fully Loaded Chips,Sides,Serves 2-3,1174,34.5,118.8,62.5,12.1,,5.8,6.4,12.6,,false,false,,,
+loaded-peri-mac,Loaded PERi-Mac,Sides,,621,39.9,52.1,26.1,14.4,,2.3,6,3,,false,true,,,Available in regular size only.
+peri-mac-cheese,PERi-Mac & Cheese,Sides,,494,21,46,25.5,14,,1.7,2.7,0.2,vegetarian,false,true,,,Available in regular size only.
+charred-corn,Charred Corn,Sides,,255,4.9,27.4,12.6,0.9,,0.8,11.7,0.8,vegetarian,false,true,,,Available in regular size only.
+portuguese-tomato-salad,Portuguese Tomato Salad,Sides,,136,3.4,13.4,7.7,0.8,,0.9,9.8,5,vegetarian,false,true,,,Available in regular size only.
+tombstone-chips,Tombstone Chips,Sides,,498,4.8,71.6,23.1,2.2,,3,0.3,7.9,vegetarian,false,false,,,"Printed 'Large serves 2' but only one set of values; size not stated | Printed 'Large serves 2' next to a single set of values, so it is unclear whether they are for a shared portion"
+peri-salted-chips-regular,PERi-Salted Chips (regular),Sides,Regular,498,4.7,71.7,23,2.2,,2.7,0.7,7.9,vegetarian,false,true,,,
+peri-salted-chips-large,PERi-Salted Chips (large),Sides,Large (serves 2),1243,11.6,179.2,57.6,5.5,,6.6,0.8,19.6,vegetarian,false,false,,,
+chips-regular,Chips (regular),Sides,Regular,496,4.6,71.4,23,2.2,,2.2,0.2,7.8,vegetarian,false,true,,,
+chips-large,Chips (large),Sides,Large (serves 2),1240,11.5,178.5,57.5,5.5,,5.5,0.5,19.5,vegetarian,false,false,,,
+garlic-bread-regular,Garlic Bread (regular),Sides,Regular,372,5.9,51.9,16.1,4.1,,1,0.6,2.3,vegetarian,false,true,,,
+garlic-bread-large,Garlic Bread (large),Sides,Large (serves 2),743,11.8,103.9,32.2,8.2,,2,1.2,4.7,vegetarian,false,false,,,
+spicy-rice-regular,Spicy Rice (regular),Sides,Regular,246,3.8,42.2,6,0.5,,1.7,1.2,3.9,vegetarian,false,true,,,
+spicy-rice-large,Spicy Rice (large),Sides,Large (serves 2),492,7.5,84.3,12,0.9,,3.3,2.4,7.8,vegetarian,false,false,,,
+coleslaw-regular,Coleslaw (regular),Sides,Regular,233,1.2,8.1,21.2,1.5,,0.8,6.9,2,vegetarian,false,true,,,
+coleslaw-large,Coleslaw (large),Sides,Large (serves 2),465,2.4,16.2,42.3,3,,1.5,13.8,3.9,vegetarian,false,false,,,
+creamy-mash-regular,Creamy Mash (regular),Sides,Regular,308,2.8,25.4,22,13.4,,1.2,0.6,1.8,vegetarian,false,true,,,
+creamy-mash-large,Creamy Mash (large),Sides,Large (serves 2),616,5.6,50.8,44,26.8,,2.4,1.2,3.6,vegetarian,false,false,,,
+corn-on-the-cob-regular,Corn on the Cob (regular),Sides,Regular,142,3.5,15.8,7.5,4.3,,0.2,6.9,1.7,vegetarian,false,true,,,
+corn-on-the-cob-large,Corn on the Cob (large),Sides,Large (serves 2),283,7.1,31.6,15,8.5,,0.4,13.8,3.4,vegetarian,false,false,,,
+tenderstem-broccoli-regular,Tenderstem® Broccoli (regular),Sides,Regular,32,2.1,3.7,1.5,0.1,,0.6,0.3,2.2,vegetarian,false,true,,,
+tenderstem-broccoli-large,Tenderstem® Broccoli (large),Sides,Large (serves 2),65,4.3,7.3,3.1,0.2,,1.2,0.5,4.4,vegetarian,false,false,,,
+macho-peas-regular,Macho Peas (regular),Sides,Regular,155,7.1,17.9,8.3,1.2,,1.2,3.4,10,vegetarian,false,true,,,
+macho-peas-large,Macho Peas (large),Sides,Large (serves 2),310,14.1,35.8,16.5,2.4,,2.5,6.9,20,vegetarian,false,false,,,
+rainbow-slaw-regular,Rainbow Slaw (regular),Sides,Regular,132,1.8,7.4,11.6,1.4,,0.5,4.2,0.5,vegetarian,false,true,,,
+rainbow-slaw-large,Rainbow Slaw (large),Sides,Large (serves 2),263,3.6,14.8,23.1,2.8,,0.9,8.3,0.9,vegetarian,false,false,,,
+hearty-grains-regular,Hearty Grains (regular),Sides,Regular,245,5.3,25.4,12.1,1.1,,1.3,3.2,6.3,vegetarian,false,true,,,
+hearty-grains-large,Hearty Grains (large),Sides,Large (serves 2),441,10.5,50,19.1,1.6,,2.5,6,12.6,vegetarian,false,false,,,
+grilled-halloumi-cheese,Grilled Halloumi Cheese,Dips & Extras,,267,11.9,1.3,23.8,9.1,,1.1,1.3,0,vegetarian,false,false,,,
+2-boneless-chicken-thighs,2 Boneless Chicken Thighs,Dips & Extras,,353,42.8,0.1,18.6,4.8,,1.1,0.1,0.7,,false,false,,,Printed kJ (1416) and kcal (353) do not agree (kJ is not used)
+cheddar-cheese,Cheddar Cheese,Dips & Extras,,79,4.8,0.7,6.3,3.7,,0.3,0,0,vegetarian,false,false,,,
+grilled-chicken-breast,Grilled Chicken Breast,Dips & Extras,,138,28.6,0.1,2.6,0.6,,0.7,0.1,0.5,,false,false,,,
+grilled-pineapple,Grilled Pineapple,Dips & Extras,,39,0.2,8.9,0.1,0,,0,7.6,0.6,vegetarian,false,false,,,
+herby-pickle-bowl,Herby Pickle Bowl,Dips & Extras,,33,1.4,7,0.3,0.1,,1.3,5.5,1.4,vegetarian,false,false,,,
+1-2-avocado,1/2 Avocado,Dips & Extras,,149,1.6,1.6,15,3.6,,0,0.4,1.8,vegetarian,false,false,,,
+peri-peri-drizzle,PERi-PERi Drizzle,Dips & Extras,20ml,97,0.3,0.9,10.3,1.5,,0.8,0.3,0.4,vegetarian,false,false,,,
+beanie-patty,Beanie Patty,Dips & Extras,,261,13.3,19.6,12.7,3.6,,1.5,1.2,7.9,vegetarian,false,false,,,
+peri-plant-fillet,PERi-Plant Fillet,Dips & Extras,,100,7.8,3.5,4.9,1,,0.6,0.1,5.3,vegetarian,false,false,,,
+perinaise,PERinaise,Dips & Extras,,159,0.3,7,14.3,1.1,,1.3,5.1,0.1,vegetarian,false,false,,,
+garlic-perinaise,Garlic PERinaise,Dips & Extras,,176,4.2,4.4,15.8,9.1,,1.1,4.1,0.3,vegetarian,false,false,,,
+peri-chicken-gravy,PERi-Chicken Gravy,Dips & Extras,Filled jug/pot,39,2,5.5,1,0.2,,1.2,1.2,0.5,,false,false,,,The nutritional info is per filled jug/pot.
+chilli-jam,Chilli Jam,Dips & Extras,,61,0.2,16.3,0,0,,0.2,13.4,0.3,vegetarian,false,false,,,Printed kJ (278) and kcal (61) do not agree (kJ is not used)
+peri-honey,PERi-Honey,Dips & Extras,,132,0,35.5,0,0,,0,33.3,0,vegetarian,false,false,,,
+toasted-pitta,Toasted Pitta,Dips & Extras,,246,7.1,40.8,5.6,3.4,,0.7,1.9,1.9,vegetarian,false,false,,,
+portuguese-roll,Portuguese Roll,Dips & Extras,,278,5.7,49.2,6.3,3.5,,1,0.4,2.2,vegetarian,false,false,,,
+tortilla-wrap,Tortilla Wrap,Dips & Extras,,275,6.8,43.7,7.2,3,,0.6,2.4,4.1,vegetarian,false,false,,,
+vusa-xx-hot-spice-level,VUSA XX Hot (spice level),Spice levels,,33,0.4,5.9,0.8,0.3,,0.9,5,0.5,,true,false,,,Shown when choosing a spice; the dish values on the menu exclude the spice
+extra-hot-spice-level,Extra Hot (spice level),Spice levels,,82,0.5,1.9,8,0.6,,1.7,0.4,1,,false,false,,,Shown when choosing a spice; the dish values on the menu exclude the spice
+hot-spice-level,Hot (spice level),Spice levels,,41,0.2,1,4,0.3,,0.9,0.2,0.5,,false,false,,,Shown when choosing a spice; the dish values on the menu exclude the spice
+medium-spice-level,Medium (spice level),Spice levels,,21,0.2,0.3,2.2,0.3,,0.4,0.1,0.2,,false,false,,,Printed kJ (85) and kcal (21) do not agree (kJ is not used) | Shown when choosing a spice; the dish values on the menu exclude the spice
+lemon-herb-spice-level,Lemon & Herb (spice level),Spice levels,,10,0.1,0.4,0.8,0.1,,0.4,0.1,0.2,,false,false,,,Shown when choosing a spice; the dish values on the menu exclude the spice
+peri-tamer-spice-level,PERi-Tamer (spice level),Spice levels,,40,0.2,8.5,0.6,0.1,,0.3,8.2,0.3,,false,false,,,Shown when choosing a spice; the dish values on the menu exclude the spice
+coca-cola-classic,Coca-Cola Classic,Drinks,300ml glass,126,0,31.8,0,0,,0,31.8,0,vegetarian,false,false,,,The nutritional info is per 300ml glass.
+bottomless-diet-coke,Bottomless Diet Coke,Drinks,300ml glass,1,0,0,0,0,,0,0,0,vegetarian,false,false,,,The nutritional info is per 300ml glass.
+bottomless-coke-zero,Bottomless Coke Zero,Drinks,300ml glass,1,0,0,0,0,,0,0,0,vegetarian,false,false,,,The nutritional info is per 300ml glass.
+bottomless-dr-pepper-zero,Bottomless Dr Pepper Zero,Drinks,300ml glass,2,0,0,0,0,,0,0,0,,false,false,,,The nutritional info is per 300ml glass.
+bottomless-sprite-zero,Bottomless Sprite Zero,Drinks,300ml glass,3,0,0,0,0,,0,0,0,vegetarian,false,false,,,The nutritional info is per 300ml glass.
+bottomless-fanta-zero,Bottomless Fanta Zero,Drinks,300ml glass,9,0,1.5,0,0,,0,1.5,0,vegetarian,false,false,,,The nutritional info is per 300ml glass.
+cloudy-lemonade,Cloudy Lemonade,Drinks,300ml glass,51,0.3,12.9,0,0,,0,12.9,0,vegetarian,false,false,,,The nutritional info is per 300ml glass. | Printed kJ (222) and kcal (51) do not agree (kJ is not used)
+still-water,Still Water,Drinks,500ml,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
+sparkling-water,Sparkling Water,Drinks,500ml,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
+karma-drinks-gingerella,Karma Drinks Gingerella,Drinks,300ml,60,0,14.4,0,0,,0,14.4,0,vegetarian,false,false,,,
+rubro-peach-iced-tea,RUBRO Peach Iced Tea,Drinks,300ml,51,0,13.5,0,0,,0,13.5,0,vegetarian,false,false,,,Printed kJ (231) and kcal (51) do not agree (kJ is not used)
+rubro-berry-iced-tea,RUBRO Berry Iced Tea,Drinks,300ml,51,0,13.5,0,0,,0,13.5,0,vegetarian,false,false,,,Printed kJ (231) and kcal (51) do not agree (kJ is not used)
+rubro-lemon-iced-tea,RUBRO Lemon Iced Tea,Drinks,300ml,51,0,13.5,0,0,,0,13.5,0,vegetarian,false,false,,,Printed kJ (231) and kcal (51) do not agree (kJ is not used)
+tiny-rebel-session-ipa,Tiny Rebel Session IPA,Drinks,330ml,129,1.3,9.2,0,0,,0,3.3,0,,false,false,,,"Printed 129 kcal is not close to what the printed protein, carbohydrate and fat give (42 kcal); entered as printed | Contains alcohol (ABV 4.3%), which is not in the fat, carbohydrate or protein figures"
+sagres,Sagres,Drinks,330ml,129,0.7,10.2,0.3,0.3,,0,0.7,1,vegetarian,false,false,,,"Printed 129 kcal is not close to what the printed protein, carbohydrate and fat give (46 kcal); entered as printed | Contains alcohol (ABV 5%), which is not in the fat, carbohydrate or protein figures"
+sxollie-cider,Sxollie Cider,Drinks,500ml,290,0.5,30,1,0,,0,23.5,0,vegetarian,false,false,,,"Printed 290 kcal is not close to what the printed protein, carbohydrate and fat give (131 kcal); entered as printed | Contains alcohol (ABV 4.5%), which is not in the fat, carbohydrate or protein figures"
+bero-kingston-golden-pils,BERO Kingston Golden Pils,Drinks,330ml,83,1,16.5,0,0,,0,5.6,0,vegetarian,false,false,,,"Printed 83 kcal is not close to what the printed protein, carbohydrate and fat give (70 kcal); entered as printed | Contains alcohol (ABV 0.5%), which is not in the fat, carbohydrate or protein figures"
+freedom-pils,Freedom Pils,Drinks,330ml,119,1.3,8.6,0.3,0.3,,0,0.3,1.7,vegetarian,false,false,,,"Printed 119 kcal is not close to what the printed protein, carbohydrate and fat give (42 kcal); entered as printed | Contains alcohol (ABV 4.4%), which is not in the fat, carbohydrate or protein figures"
+beavertown-lazer-crush-alcohol-free-ipa,Beavertown Lazer Crush Alcohol Free IPA,Drinks,330ml,89,1,19.5,0.3,0.3,,0,9.9,0,vegetarian,false,false,,,"Contains alcohol (ABV 0.3%), which is not in the fat, carbohydrate or protein figures"
+spier-sauvignon-blanc-south-africa,Spier Sauvignon Blanc (South Africa),Drinks,250ml,190,0,0.8,0,0,,0,0.8,0,,false,false,,,"Printed 190 kcal is not close to what the printed protein, carbohydrate and fat give (3 kcal); entered as printed | Contains alcohol (ABV 13%), which is not in the fat, carbohydrate or protein figures"
+spier-merlot-south-africa,Spier Merlot (South Africa),Drinks,250ml,203,0,2,0,0,,0,2,0,,false,false,,,"Printed 203 kcal is not close to what the printed protein, carbohydrate and fat give (8 kcal); entered as printed | Contains alcohol (ABV 13.5%), which is not in the fat, carbohydrate or protein figures"
+spier-rose-south-africa,Spier Rose (South Africa),Drinks,250ml,188,0,0.5,0,0,,0,0,0,,false,false,,,"Printed 188 kcal is not close to what the printed protein, carbohydrate and fat give (2 kcal); entered as printed | Contains alcohol (ABV 12.5%), which is not in the fat, carbohydrate or protein figures"
+toffee-apple-pastel-de-nata,Toffee Apple Pastel de Nata,Desserts,,228,2.6,30.1,10.6,7,,0.3,16,0.9,vegetarian,false,false,,,
+four-toffee-apple-pastel-de-natas,Four Toffee Apple Pastel de Natas,Desserts,,912,10.2,120.3,42.6,29,,1.3,63,3.5,vegetarian,false,false,,,
+ultimate-chocolate-brownie,Ultimate Chocolate Brownie,Desserts,,635,8.3,78,32.1,20,,0.3,63,1.8,vegetarian,false,false,,,"The vanilla gelado is 182 kcal and isn’t included in the nutritional information listed. If you’re ordering for Collect or Delivery, the brownie comes without gelado."
+bottomless-soft-swirl-tub,Bottomless Soft Swirl Tub,Desserts,Filled tub,189,5.3,21.3,8.9,2.3,,0,21.2,0,vegetarian,false,false,,,The nutritional info is per filled tub.
+choc-a-lot-cake,Choc-A-Lot Cake,Desserts,,425,4.6,59.8,24.8,10.2,,1.1,50,0.5,vegetarian,false,false,,,The cream that comes with it is single (47 kcal) and isn’t included in the nutritional information listed. | Printed kJ (2016) and kcal (425) do not agree (kJ is not used)
+gooey-caramel-cheesecake,Gooey Caramel Cheesecake,Desserts,,464,13.7,36.3,29.2,18.5,,4,28.1,1,vegetarian,false,false,,,The cream that comes with it is single (47 kcal) and isn’t included in the nutritional information listed.
+mango-gelado,Mango Gelado,Desserts,,93,0,23.3,0,0,,0.2,18,1.7,vegetarian,false,false,,,

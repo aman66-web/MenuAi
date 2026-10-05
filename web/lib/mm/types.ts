@@ -85,6 +85,7 @@ export interface Chain {
   aliases: string[];
   sample: boolean;
   source: { title: string; url: string; checkedOn: string };
+  note?: string; // a limit of the published data (docs/DATA.md note.txt), shown under the source
   categories: string[];
   components: MenuComponent[];
   items: MenuItem[];
@@ -97,6 +98,7 @@ export interface ManifestChain {
   file: string;
   sha256: string;
   contentHash: string;
+  cuisine?: string; // older manifests don't have it
   sample: boolean;
   itemCount: number;
   checkedOn: string;

@@ -2,7 +2,7 @@
  *
  * Goal: after you've opened something once, it keeps working with a poor or no connection.
  *  - /_next/static/* and /icons/*: cache-first (file names contain a content hash, so they never go stale)
- *  - /menus/* and /menus-sample/*: network-first, falling back to the last copy
+ *  - /menus/*, /menus-sample/* and /logos/*: network-first, falling back to the last copy
  *  - /app/* pages (and their data requests): network-first, falling back to the last copy
  *  - /app/chain, /app/item and /app/builder are static shells that read their ids from the query string, so ONE cached
  *    copy (keyed without the query) opens every restaurant, item and order offline
@@ -139,7 +139,7 @@ self.addEventListener("fetch", (event) => {
 
   if (path.startsWith("/_next/static/") || path.startsWith("/icons/")) {
     event.respondWith(cacheFirst(request));
-  } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/")) {
+  } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/") || path.startsWith("/logos/")) {
     event.respondWith(networkFirst(request, DATA));
   } else if (path === "/app" || path.startsWith("/app/")) {
     event.respondWith(networkFirst(request, PAGES));

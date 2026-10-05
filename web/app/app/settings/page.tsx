@@ -31,14 +31,14 @@ const GOAL_OPTIONS: ReadonlyArray<{ value: Goal; label: string }> = [
 function Section({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
   return (
     <section id={id} className="mt-8 scroll-mt-4">
-      <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted">{title}</h2>
+      <h2 className="mb-2.5 text-xs font-bold uppercase tracking-[0.14em] text-muted">{title}</h2>
       {children}
     </section>
   );
 }
 
 function LinkRow({ href, children, external }: { href: string; children: React.ReactNode; external?: boolean }) {
-  const cls = "flex min-h-12 items-center justify-between px-4 py-2 hover:bg-background";
+  const cls = "flex min-h-12 items-center justify-between px-4 py-2 hover:bg-soft-strong";
   return external ? (
     <a href={href} className={cls}>{children}<ChevronRightIcon className="h-5 w-5 text-muted" /></a>
   ) : (
@@ -85,7 +85,7 @@ export default function SettingsPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
+      <h1 className="text-4xl font-extrabold tracking-tight">Settings</h1>
 
       <Section title="Goal">
         <Segmented label="Goal" value={settings.goal} options={GOAL_OPTIONS} onChange={(goal) => updateSettings({ goal })} />
@@ -133,9 +133,9 @@ export default function SettingsPage() {
       </Section>
 
       <Section title="About">
-        <div className="divide-y divide-line rounded-xl border border-line bg-soft">
+        <div className="glass divide-y divide-line overflow-hidden rounded-3xl">
           <LinkRow href="/app/settings/numbers">How we get our numbers</LinkRow>
-          <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-12 w-full items-center justify-between px-4 py-2 text-left hover:bg-background">Contact us<ChevronRightIcon className="h-5 w-5 text-muted" /></button>
+          <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-12 w-full items-center justify-between px-4 py-2 text-left hover:bg-soft-strong">Contact us<ChevronRightIcon className="h-5 w-5 text-muted" /></button>
           <LinkRow href="/privacy" external>Privacy policy</LinkRow>
           <LinkRow href="/terms" external>Terms of use</LinkRow>
         </div>
@@ -150,11 +150,11 @@ export default function SettingsPage() {
         <Section title="Unsent messages">
           <ul className="space-y-2">
             {outboxItems.filter((i) => i.status !== "sent").map((i) => (
-              <li key={i.id} className="rounded-xl border border-line bg-soft p-3">
+              <li key={i.id} className="glass rounded-3xl p-4">
                 <p className="text-sm font-medium">{i.kind === "report" ? "Number report" : i.kind === "chainRequest" ? "Chain request" : "Message"} · {i.status === "failed" ? "couldn't be sent" : "will send when you're online"}</p>
                 {i.status === "failed" && (
                   <div className="mt-2 flex gap-2">
-                    <a className="inline-flex min-h-11 items-center rounded-xl border border-line px-4 font-medium" href={mailtoFor(i, site.supportEmail)}>Email instead</a>
+                    <a className="glass inline-flex min-h-11 items-center rounded-full px-5 font-semibold" href={mailtoFor(i, site.supportEmail)}>Email instead</a>
                     <Button variant="secondary" onClick={() => outbox().remove(i.id)}>Delete</Button>
                   </div>
                 )}
@@ -172,7 +172,7 @@ export default function SettingsPage() {
 
       {DEV_TOOLS_ENABLED && (
         <Section title="Testing tools">
-          <div className="space-y-2 rounded-xl border border-dashed border-line p-3">
+          <div className="space-y-2 rounded-3xl border border-dashed border-line p-3">
             <Toggle label="Pro preview" description="Unlock Pro features without paying (testing builds only)" checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />
             <Button variant="secondary" full onClick={() => updateSettings({ hasCompletedOnboarding: false })}>Reset onboarding</Button>
             <Button variant="secondary" full onClick={() => logStore.reset()}>Clear logs</Button>

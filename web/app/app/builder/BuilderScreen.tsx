@@ -58,14 +58,14 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   const saved = useStore(savedStore);
 
   const back = (
-    <Link href={props.chainId ? chainHref(props.chainId) : "/app"} aria-label="Back" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></Link>
+    <Link href={props.chainId ? chainHref(props.chainId) : "/app"} aria-label="Back" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
   );
   if (!hydrated || status === "loading") return (<div>{back}<Spinner label="Loading" /></div>);
   if (!pro) {
     return (
       <div>
         {back}
-        <h1 className="text-3xl font-bold tracking-tight">Order builder</h1>
+        <h1 className="text-4xl font-extrabold tracking-tight">Order builder</h1>
         <Card className="mt-6 flex flex-col items-center gap-3 p-6 text-center">
           <LockIcon className="h-8 w-8 text-muted" />
           <p className="font-semibold">Customise any order with live totals</p>
@@ -83,7 +83,7 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
     return (
       <div>
         {back}
-        <h1 className="text-2xl font-bold tracking-tight">{start.saved.name}</h1>
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{start.saved.name}</h1>
         <p className="mt-2 text-sm font-medium">No longer on the menu</p>
         <p className="mt-1 text-sm text-muted">Something in this order was removed from the menu, so it can&apos;t be edited. Your saved numbers are kept.</p>
         <div className="mt-4"><MacroSummary nutrients={start.saved.nutrients} /></div>
@@ -150,18 +150,18 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   return (
     <div>
       <div className="flex items-center justify-between">
-        <button type="button" onClick={() => router.back()} aria-label="Back" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></button>
+        <button type="button" onClick={() => router.back()} aria-label="Back" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></button>
       </div>
-      <p className="text-sm text-muted">{chain.name}</p>
-      <h1 className="text-3xl font-bold tracking-tight">Build your order</h1>
+      <p className="kicker mt-5">{chain.name}</p>
+      <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">Build your order</h1>
 
       <div className="mt-4 space-y-4">
         {lines.map((line, i) => (
           <Card key={i} className="p-4">
             <div className="flex items-start justify-between gap-2">
-              <h2 className="text-lg font-semibold leading-snug">{lineName(ix, line)}</h2>
+              <h2 className="text-lg font-bold leading-snug tracking-tight">{lineName(ix, line)}</h2>
               {lines.length > 1 && (
-                <button type="button" aria-label={`Remove ${ix.items.get(line.itemId)?.name ?? "item"} from the order`} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-background">
+                <button type="button" aria-label={`Remove ${ix.items.get(line.itemId)?.name ?? "item"} from the order`} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft-strong">
                   <TrashIcon className="h-5 w-5" />
                 </button>
               )}
@@ -200,7 +200,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       </div>
 
       {/* Sticky summary (SPEC §7.6): totals and actions stay in reach while the lines scroll. Pinned only while it takes under 40% of the screen, so large text or zoom never leaves no room for the order itself. */}
-      <div ref={summaryRef} className={`z-10 -mx-4 mt-4 border-t border-line bg-background/95 px-4 pb-3 pt-3 backdrop-blur ${pinned ? "sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom))]" : ""}`}>
+      <div ref={summaryRef} className={`z-10 -mx-5 mt-4 rounded-t-3xl border-t border-line bg-background/92 px-5 pb-3 pt-4 shadow-[0_-12px_30px_-18px_rgba(0,0,0,0.5)] backdrop-blur-xl ${pinned ? "sticky bottom-[calc(5.25rem+env(safe-area-inset-bottom))]" : ""}`}>
         {total && valid.ok ? (
           <>
             <div aria-live="polite"><MacroSummary compact nutrients={total} label={`Order total: ${formatCalories(total.calories)}, ${Math.round(total.protein)} grams protein`} /></div>
@@ -274,8 +274,8 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
     <div className="mt-3">
       {groups.map((group) => (
         <section key={group} aria-label={GROUP_LABEL[group]} className="mt-3 first:mt-0">
-          <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">{GROUP_LABEL[group]}</h3>
-          <ul className="divide-y divide-line rounded-lg border border-line bg-background">
+          <h3 className="mb-1.5 text-xs font-bold uppercase tracking-[0.14em] text-muted">{GROUP_LABEL[group]}</h3>
+          <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
             {rows.filter((r) => r.comp.group === group).map(({ ref, comp }) => (
               <li key={comp.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-2">
                 <div className="min-w-0 flex-1 basis-32">
@@ -284,12 +284,12 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
                 </div>
                 <div className="flex flex-wrap items-center">
                   {comp.allowDouble && (
-                    <button type="button" aria-pressed={ref.qty === 2} aria-label={`Double ${lowerFirst(comp.name)}`} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`min-h-11 rounded-lg px-3 text-sm font-semibold ${ref.qty === 2 ? "bg-accent-soft text-accent" : "text-muted hover:bg-soft"}`}>Double</button>
+                    <button type="button" aria-pressed={ref.qty === 2} aria-label={`Double ${lowerFirst(comp.name)}`} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`min-h-11 rounded-full px-3.5 text-sm font-bold ${ref.qty === 2 ? "bg-accent-soft text-accent" : "text-muted hover:bg-soft-strong"}`}>Double</button>
                   )}
                   {swapOptions(ix, line, comp.id).length > 0 && (
-                    <button type="button" aria-label={`Swap ${comp.name}`} onClick={() => onSwap(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-muted hover:bg-soft"><SwapIcon className="h-5 w-5" /></button>
+                    <button type="button" aria-label={`Swap ${comp.name}`} onClick={() => onSwap(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:bg-soft-strong"><SwapIcon className="h-5 w-5" /></button>
                   )}
-                  <button type="button" aria-label={`Remove ${comp.name}`} disabled={line.components.length === 1} onClick={() => onRemove(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-muted hover:bg-soft disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
+                  <button type="button" aria-label={`Remove ${comp.name}`} disabled={line.components.length === 1} onClick={() => onRemove(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:bg-soft-strong disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
                 </div>
               </li>
             ))}
@@ -312,13 +312,13 @@ function ItemLineEditor({ ix, line, onQty, onToggle }: { ix: ChainIndex; line: I
       <div className="flex items-center justify-between gap-3">
         <span className="app-numbers text-sm text-muted">{total ? formatCalories(total.calories) : ""}</span>
         <div className="flex items-center gap-1" role="group" aria-label="Quantity">
-          <button type="button" aria-label="Decrease quantity" disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line bg-background disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label="Decrease quantity" disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
           <span className="app-numbers w-8 text-center text-lg font-semibold" aria-live="polite">{line.qty}</span>
-          <button type="button" aria-label="Increase quantity" onClick={() => onQty(line.qty + 1)} className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line bg-background"><PlusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label="Increase quantity" onClick={() => onQty(line.qty + 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full"><PlusIcon className="h-5 w-5" /></button>
         </div>
       </div>
       {item.modifiers.length > 0 && (
-        <ul className="mt-3 divide-y divide-line rounded-lg border border-line bg-background">
+        <ul className="mt-3 inset-card divide-y divide-line overflow-hidden rounded-2xl">
           {item.modifiers.map((m) => {
             const on = line.modifierIds.includes(m.id);
             return (
@@ -358,10 +358,10 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
         {optionGroups.map((g) => (
           <section key={g.title} className="mb-3">
             <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">{g.title}</h3>
-            <ul className="divide-y divide-line rounded-lg border border-line">
+            <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
               {g.items.map((c) => (
                 <li key={c.id}>
-                  <button type="button" onClick={() => onPickComponent(c.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-left hover:bg-soft">
+                  <button type="button" onClick={() => onPickComponent(c.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-left hover:bg-soft-strong">
                     <span><span className="block font-medium">{c.name}</span>{c.portion && <span className="block text-sm text-muted">{c.portion}</span>}</span>
                     <span className="text-sm text-muted">{formatCalories(c.nutrients.calories)}</span>
                   </button>
@@ -377,10 +377,10 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
           return items.length === 0 ? null : (
             <section key={cat} className="mb-3">
               <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">{cat}</h3>
-              <ul className="divide-y divide-line rounded-lg border border-line">
+              <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
                 {items.map((i) => (
                   <li key={i.id}>
-                    <button type="button" onClick={() => onPickItem(i.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-left hover:bg-soft">
+                    <button type="button" onClick={() => onPickItem(i.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-left hover:bg-soft-strong">
                       <span className="font-medium">{i.name}</span>
                       <span className="text-sm text-muted">{formatCalories(i.nutrients.calories)}</span>
                     </button>

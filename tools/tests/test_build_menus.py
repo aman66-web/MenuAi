@@ -68,7 +68,11 @@ class PipelineTests(unittest.TestCase):
 
     # --- the shipped samples -------------------------------------------------
     def test_shipped_samples_build_without_errors_or_warnings(self):
-        self.assertEqual(self.build(source=ROOT / "data" / "source"), 0)
+        # Only the two fictional sample chains: real chains sit beside them in data/source and have their own checks.
+        samples = self.tmp / "samples"
+        for name in ("bowl-and-co", "cluck-house"):
+            shutil.copytree(ROOT / "data" / "source" / name, samples / name)
+        self.assertEqual(self.build(source=samples), 0)
         manifest = json.loads((self.out / "menus-manifest.json").read_text())
         self.assertEqual({c["id"] for c in manifest["chains"]}, {"bowl-and-co", "cluck-house"})
         for c in manifest["chains"]:
@@ -327,3 +331,65 @@ class SaltTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class NoteAndHoldbackTests(unittest.TestCase):
+    """Optional chain `note` (a published-data limit) and holdback.csv (impossible printed numbers are not published)."""
+    NUT = "calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,sugar_g,fiber_g"
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.src = self.tmp / "source"
+        self.out = self.tmp / "out"
+        (self.src / "uk-chain").mkdir(parents=True)
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def write(self, chain_header="id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample",
+              chain_row="uk-chain,UK Chain,Test,standard,Guide,https://example.com,2026-10-01,uk chain,true", holdback=None):
+        f = self.src / "uk-chain"
+        (f / "chain.csv").write_text(chain_header + "\n" + chain_row + "\n")
+        (f / "components.csv").write_text(f"id,group,name,portion,{self.NUT},tags,removable,allow_double\n")
+        rows = "".join(",".join([i, n, "Mains", "1", str(cal), str(p), str(c), str(fa), "1", "100", "1", "1", "", "false", "true", "", "2026-10-01", ""]) + "\n"
+                       for i, n, cal, p, c, fa in [("burger", "Burger", 463, 28, 43, 19), ("odd", "Odd burger", 510, 28, 367, 19)])
+        (f / "items.csv").write_text(f"id,name,category,serving,{self.NUT},tags,limited_time,rankable,components,added_on,notes\n" + rows)
+        (f / "modifiers.csv").write_text(f"item_id,id,label,kind,{self.NUT},tags\n")
+        (f / "combos.csv").write_text("id,name,item_ids\n")
+        if holdback is not None:
+            (f / "holdback.csv").write_text("item_id,reason\n" + holdback)
+
+    def build(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            return bm.main(["--source", str(self.src), "--out", str(self.out), "--quiet"])
+
+    def doc(self):
+        return json.loads((self.out / "chain-uk-chain.json").read_text())
+
+    def test_note_is_optional_and_only_exported_when_present(self):
+        self.write()
+        self.assertEqual(self.build(), 0)
+        self.assertNotIn("note", self.doc())
+        (self.src / "uk-chain" / "note.txt").write_text("Sauces are\nnot included.\n")
+        self.assertEqual(self.build(), 0)
+        self.assertEqual(self.doc()["note"], "Sauces are not included.")
+        (self.src / "uk-chain" / "note.txt").write_text("x" * 401)
+        self.assertEqual(self.build(), 1)
+
+    def test_holdback_leaves_the_item_out_and_reports_it(self):
+        self.write(holdback="odd,Guide prints 367 g of carbohydrate\n")
+        self.assertEqual(self.build(), 0)
+        self.assertEqual([i["id"] for i in self.doc()["items"]], ["burger"])
+        report = (self.out / "check-report.md").read_text()
+        self.assertIn("Held back", report)
+        self.assertIn("Odd burger (odd): Guide prints 367 g of carbohydrate", report)
+
+    def test_holdback_is_not_a_correction_and_a_stale_line_only_warns(self):
+        self.write(holdback="gone,No longer on the menu\n")
+        self.assertEqual(self.build(), 0)
+        self.assertEqual(len(self.doc()["items"]), 2)  # nothing held, nothing changed
+        self.assertIn("'gone' is not in items.csv any more", (self.out / "check-report.md").read_text())
+
+    def test_holdback_needs_a_reason(self):
+        self.write(holdback="odd,\n")
+        self.assertEqual(self.build(), 1)

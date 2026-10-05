@@ -1,24 +1,26 @@
 import Link from "next/link";
 import { chainHref } from "@/lib/mm/routes";
 import type { CatalogChain } from "@/lib/mm/menu-client";
+import { ChainMark } from "./ChainMark";
 import { ChevronRightIcon } from "./icons";
 import { SampleBadge } from "./ui";
 
-/** A chain in a list. Plain-text name only: no logos, brand colours or imagery (CLAUDE.md rule 2). */
-export function ChainRow({ chain, onOpen }: { chain: Pick<CatalogChain, "id" | "name" | "sample" | "itemCount">; onOpen?: () => void }) {
+/** A chain in a list: our own cuisine glyph and the name in plain text. No logos, brand colours or imagery (CLAUDE.md rule 2). */
+export function ChainRow({ chain, onOpen }: { chain: Pick<CatalogChain, "id" | "name" | "sample" | "itemCount" | "cuisine">; onOpen?: () => void }) {
   return (
     <Link
       href={chainHref(chain.id)}
       onClick={onOpen}
-      className="flex min-h-14 items-center justify-between gap-3 border-b border-line px-1 py-2 last:border-b-0 hover:bg-soft"
+      className="glass group flex min-h-[4.5rem] items-center gap-4 rounded-3xl px-4 py-3 transition active:scale-[0.99] hover:bg-soft-strong"
     >
-      <span className="min-w-0">
-        <span className="block truncate text-base font-semibold">{chain.name}</span>
-        <span className="flex items-center gap-2 text-sm text-muted">
+      <ChainMark chainId={chain.id} cuisine={chain.cuisine} />
+      <span className="min-w-0 flex-1">
+        <span className="block truncate text-base font-bold tracking-tight">{chain.name}</span>
+        <span className="flex flex-wrap items-center gap-x-2 text-sm text-muted">
           {chain.itemCount} items {chain.sample && <SampleBadge />}
         </span>
       </span>
-      <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
+      <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
     </Link>
   );
 }

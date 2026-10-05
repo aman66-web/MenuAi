@@ -4,13 +4,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
-import { formatInt } from "@/lib/mm/format";
 import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm/order";
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
 import { ChevronLeftIcon } from "../_components/icons";
-import { NutrientTable } from "../_components/Nutrition";
+import { ItemHero, NutrientTable } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, ErrorBox, Spinner } from "../_components/ui";
@@ -26,7 +25,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const [reporting, setReporting] = useState(false);
 
   const back = (
-    <Link href={chainHref(chainId)} aria-label="Back to menu" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></Link>
+    <Link href={chainHref(chainId)} aria-label="Back to menu" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
   );
   if (status === "loading") return (<div>{back}<Spinner label="Loading item" /></div>);
   if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ?? "Couldn't load this menu."} onRetry={retry} /></div>);
@@ -41,19 +40,16 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   return (
     <div>
       {back}
-      <p className="text-sm text-muted">{chain.name}</p>
-      <h1 className="text-3xl font-bold leading-tight tracking-tight">{item.name}</h1>
+      <p className="kicker mt-5">{chain.name}</p>
+      <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{item.name}</h1>
       <div className="mt-2 flex flex-wrap items-center gap-2 text-muted">
         {item.serving && <span>{item.serving}</span>}
         {item.limitedTime && <Badge>Limited time</Badge>}
         {chain.sample && <Badge>Sample data</Badge>}
       </div>
 
-      <div className="app-numbers mt-5">
-        <div className="text-6xl font-bold leading-none tracking-tight">{formatInt(item.nutrients.calories)}</div>
-        <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">calories</div>
-      </div>
-      <div className="mt-5"><NutrientTable nutrients={item.nutrients} name={item.name} /></div>
+      <div className="mt-5"><ItemHero nutrients={item.nutrients} name={item.name} /></div>
+      <div className="mt-3"><NutrientTable nutrients={item.nutrients} /></div>
 
       <div className="mt-6 grid grid-cols-2 gap-3">
         <Button

@@ -61,7 +61,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
           : null;
 
   const cards = result.picks.length > 0 && (
-    <ol className="space-y-2">
+    <ol className="space-y-2.5">
       {result.picks.map((pick, i) => (
         <li key={pick.id}>
           <button
@@ -69,12 +69,15 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
             onClick={() => open(pick, i + 1)}
             disabled={!pro}
             aria-label={`${nutrientAriaLabel(pick.name, pick.nutrients)}${pick.overBy !== undefined ? `, over by ${Math.round(pick.overBy)} calories` : ""}`}
-            className="app-numbers flex min-h-16 w-full flex-col items-start rounded-xl border border-line bg-background p-3 text-left enabled:hover:border-muted focus-visible:outline-2 focus-visible:outline-accent"
+            className={`app-numbers flex min-h-[4.5rem] w-full items-center gap-4 rounded-3xl p-4 text-left transition enabled:active:scale-[0.99] enabled:hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-accent ${i === 0 ? "hero-card" : "glass"}`}
           >
-            <span className="text-base font-semibold">{pick.name}</span>
-            <span className="text-sm text-muted">
-              {pick.reason}
-              {pick.overBy !== undefined && <> · Over by {formatCalories(pick.overBy)}</>}
+            <span aria-hidden className="bg-sun inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-on-accent">{i + 1}</span>
+            <span className="min-w-0">
+              <span className="block text-base font-bold leading-snug tracking-tight">{pick.name}</span>
+              <span className="mt-0.5 block text-sm text-muted">
+                {pick.reason}
+                {pick.overBy !== undefined && <> · Over by {formatCalories(pick.overBy)}</>}
+              </span>
             </span>
           </button>
         </li>
@@ -88,7 +91,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
         <span id="best-heading">Best for you</span>
       </SectionTitle>
       {result.mode === "ranked" && (
-        <p className="-mt-1 mb-2 text-sm text-muted">{MEAL_LABEL[meal]} · up to {formatCalories(result.budget)}</p>
+        <p className="-mt-1 mb-3 text-sm text-muted">{MEAL_LABEL[meal]} · up to {formatCalories(result.budget)}</p>
       )}
       {copy && <p role="status" className="mb-2 text-sm font-medium">{copy}</p>}
       {result.mode === "noMatches" && <Button variant="secondary" onClick={onClearFilters}>Clear filters</Button>}
@@ -100,7 +103,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
           ) : (
             <>
               <div aria-hidden inert className="pointer-events-none select-none blur-sm">{cards}</div>
-              <div className="absolute inset-0 flex items-start justify-center rounded-xl bg-background/40 px-3 pt-10">
+              <div className="absolute inset-0 flex items-start justify-center rounded-3xl bg-gradient-to-b from-transparent via-background/55 to-background/85 px-3 pt-10">
                 <Button onClick={() => showPaywall("bestForYou")} className="shadow-lg">
                   <LockIcon className="h-5 w-5" />
                   {PAYMENTS_ENABLED ? "See your 5 best orders · Try Pro free" : "See your 5 best orders · Pro"}

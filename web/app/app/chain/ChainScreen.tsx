@@ -10,6 +10,7 @@ import { itemHref } from "@/lib/mm/routes";
 import { settingsStore, favoritesStore, toggleFavorite } from "@/lib/mm/stores";
 import type { Meal, MenuItem, Preferences } from "@/lib/mm/types";
 import { BestForYou } from "../_components/BestForYou";
+import { ChainMark } from "../_components/ChainMark";
 import { ChevronLeftIcon, ChevronRightIcon, StarIcon } from "../_components/icons";
 import { MacroLine } from "../_components/Nutrition";
 import { ReportSheet } from "../_components/Submit";
@@ -28,7 +29,7 @@ export function ChainScreen({ chainId }: { chainId: string }) {
 function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <Link href="/app" aria-label="Back to home" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></Link>
+      <Link href="/app" aria-label="Back to home" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
       {children}
     </div>
   );
@@ -59,22 +60,27 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   return (
     <div>
       <div className="flex items-center justify-between">
-        <Link href="/app" aria-label="Back to home" className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft"><ChevronLeftIcon /></Link>
+        <Link href="/app" aria-label="Back to home" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
         <button
           type="button"
           onClick={() => toggleFavorite(chain.id)}
           aria-pressed={isFavorite}
           aria-label={isFavorite ? `Remove ${chain.name} from favourites` : `Add ${chain.name} to favourites`}
-          className={`inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-soft ${isFavorite ? "text-accent" : "text-muted"}`}
+          className={`glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong ${isFavorite ? "text-accent" : "text-muted"}`}
         >
           <StarIcon filled={isFavorite} />
         </button>
       </div>
 
-      <h1 className="text-3xl font-bold tracking-tight">{chain.name}</h1>
-      <p className="mt-1 flex items-center gap-2 text-muted">{chain.cuisine} {chain.sample && <SampleBadge />}</p>
+      <div className="mt-5 flex items-center gap-4">
+        <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="lg" />
+        <div className="min-w-0">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{chain.name}</h1>
+          <p className="kicker flex flex-wrap items-center gap-x-2">{chain.cuisine} {chain.sample && <SampleBadge />}</p>
+        </div>
+      </div>
 
-      <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Meal">
+      <div className="mt-6 flex flex-wrap gap-2" role="group" aria-label="Meal">
         {MEALS.map((m) => (
           <Chip key={m} selected={meal === m} onClick={() => setMeal(m)}>{MEAL_LABEL[m]}</Chip>
         ))}
@@ -87,8 +93,8 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 
       <BestForYou index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} />
 
-      <div className="mb-2 mt-8 flex items-center justify-between gap-3">
-        <h2 className="text-lg font-bold tracking-tight">Full menu</h2>
+      <div className="mb-3 mt-10 flex items-center justify-between gap-3">
+        <h2 className="text-xl font-bold tracking-tight">Full menu</h2>
         <label className="flex items-center gap-2 text-sm">
           <span className="sr-only">Sort by</span>
           <select
@@ -109,8 +115,8 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       ) : (
         sections.map((s) => (
           <section key={s.category || "all"} aria-label={s.category || "All items"}>
-            {s.category && <h3 className="mb-1 mt-5 text-sm font-semibold uppercase tracking-wide text-muted">{s.category}</h3>}
-            <ul>
+            {s.category && <h3 className="mb-2 mt-7 text-xs font-bold uppercase tracking-[0.14em] text-muted">{s.category}</h3>}
+            <ul className="space-y-2">
               {s.items.map((item) => (
                 <li key={item.id}>
                   <Link
@@ -118,11 +124,11 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                     prefetch={false}
                     aria-label={`${nutrientAriaLabel(item.name, item.nutrients)}${isNewItem(item, now) ? ", new" : ""}${item.limitedTime ? ", limited time" : ""}`}
                     onClick={() => analytics.track({ name: "itemOpened", chainId: chain.id })}
-                    className="flex min-h-16 items-center justify-between gap-3 border-b border-line px-1 py-2 hover:bg-soft"
+                    className="glass flex min-h-16 items-center justify-between gap-3 rounded-2xl px-4 py-3 transition active:scale-[0.99] hover:bg-soft-strong"
                   >
                     <span className="min-w-0">
                       <span className="flex flex-wrap items-center gap-2">
-                        <span className="text-base font-semibold">{item.name}</span>
+                        <span className="text-base font-bold tracking-tight">{item.name}</span>
                         {isNewItem(item, now) && <Badge tone="accent">New</Badge>}
                         {item.limitedTime && <Badge>Limited time</Badge>}
                       </span>
@@ -137,11 +143,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         ))
       )}
 
-      <footer className="mt-8 space-y-2 border-t border-line pt-4 text-sm text-muted">
+      <footer className="mt-10 space-y-2 border-t border-line pt-5 text-sm text-muted">
         <p>
           Source:{" "}
           <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline">{chain.source.title}</a>, checked {formatDate(chain.source.checkedOn)}
         </p>
+        {chain.note && <p>{chain.note}</p>}
         <p>Not affiliated with {chain.name}.</p>
         <p>
           Something look wrong?{" "}

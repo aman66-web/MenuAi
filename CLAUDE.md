@@ -39,8 +39,13 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
 1. **Never invent or estimate nutrition numbers.** Menu data comes only from the pipeline JSON.
    Missing optional nutrients display "not published". Don't hand-edit files in `Resources/Menus/`;
    change `data/source/` and rerun the pipeline.
-2. **No restaurant logos, brand colours, mascots or food photos.** Chain names in plain text only;
-   show "Not affiliated with {chain}" where the spec says.
+2. **No restaurant brand colours, mascots, food photos, or logos we make ourselves.** The chain's name is always plain
+   text. Founder's decision (2026-10-05, nominative use): a chain's **official logo file, unmodified**, may appear small next
+   to its name in lists and headers purely to identify the restaurant (`web/lib/mm/logos.ts`, `web/public/logos/`). Never
+   recreate or redraw a logo; never recolour, crop or distort one; never use one as the app's own icon or branding or on
+   marketing as if the chain were a partner; files come only from the chain's own brand/press page, with source and terms
+   noted in `web/public/logos/SOURCES.md`; take one down the day its owner asks. Show "Not affiliated with {chain}" where
+   the spec says.
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
 4. **Privacy:** no accounts, no personal data off the device (except what the user chooses to send
    through the API: reports, chain requests, support messages). **Never put a Supabase key in the

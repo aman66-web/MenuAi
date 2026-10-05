@@ -26,3 +26,12 @@ export const SwapIcon = (p: P) => (<svg {...base(p)}><path d="M7 4L3 8l4 4M3 8h1
 export const ListIcon = (p: P) => (<svg {...base(p)}><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" /></svg>);
 export const ForkIcon = (p: P) => (<svg {...base(p)}><path d="M7 3v8a3 3 0 006 0V3M10 3v18M17 3c-2 2-2 6 0 8v10" /></svg>);
 export const BoltIcon = (p: P) => (<svg {...base(p)}><path d="M13 3L5 14h6l-1 7 8-11h-6z" /></svg>);
+
+// ---- cuisine glyphs for ChainMark: drawn for this app (simple shapes, no brand artwork) ----
+export const BurgerGlyph = (p: P) => (<svg {...base(p)}><path d="M4 10.5C4 7 7.6 4.5 12 4.5s8 2.5 8 6z" /><path d="M3.5 13.5h17" /><path d="M5 16.5c1.2 1 2.3-1 3.5 0s2.3 1 3.5 0 2.3 1 3.5 0 2.3-1 3.5 0" /><path d="M5 19h14a1 1 0 011 1 1 1 0 01-1 1H5a1 1 0 01-1-1 1 1 0 011-1z" /></svg>);
+export const ChickenGlyph = (p: P) => (<svg {...base(p)}><ellipse cx="14.5" cy="9.5" rx="6.2" ry="4.7" transform="rotate(-45 14.5 9.5)" /><path d="M10.6 13.4L6.3 17.7" /><circle cx="5.3" cy="18.2" r="1.5" /><circle cx="6.8" cy="19.8" r="1.5" /></svg>);
+export const PizzaGlyph = (p: P) => (<svg {...base(p)}><path d="M12 21.5L3.8 6.2a14.5 14.5 0 0116.4 0z" /><path d="M5 8.4a13 13 0 0114 0" /><circle cx="10" cy="10.6" r="1.1" /><circle cx="14.2" cy="12.4" r="1.1" /><circle cx="11.6" cy="16" r="1.1" /></svg>);
+export const CoffeeGlyph = (p: P) => (<svg {...base(p)}><path d="M4 8.5h12.5V14a5 5 0 01-5 5H9a5 5 0 01-5-5z" /><path d="M16.5 10.5h1.2a2.4 2.4 0 010 4.8h-1.2" /><path d="M8 3.5v2M12 3.5v2" /></svg>);
+export const SandwichGlyph = (p: P) => (<svg {...base(p)}><path d="M3.5 11.5a8.5 5 0 0117 0z" /><path d="M4.5 14.5c1.6 1.2 2.6-1.2 4.2 0s2.6 1.2 4.2 0 2.6 1.2 4.2 0 2.2-.6 2.4 0" /><path d="M4 17.5h16a0 0 0 010 0 2.5 2.5 0 01-2.5 2.5h-11A2.5 2.5 0 014 17.5z" /></svg>);
+export const BakeryGlyph = (p: P) => (<svg {...base(p)}><path d="M5 20.5V11a7 7 0 0114 0v9.5z" /><path d="M9 12.5l1.6-2.4M13.4 12.5L15 10.1" /></svg>);
+export const TacoGlyph = (p: P) => (<svg {...base(p)}><path d="M3 19a9 9 0 0118 0z" /><path d="M6.2 12.6c1-1.7 2.1-1.7 3 0 1-1.8 2.2-1.8 3.1 0 1-1.7 2.1-1.7 3 0 .5-.8 1.2-1.2 2.2-1.1" /><path d="M8 16.5a4.5 4.5 0 018 0" /></svg>);

@@ -31,24 +31,24 @@ export function SupportForm() {
   }
 
   if (state === "done") {
-    return <p role="status" className="rounded-xl bg-accent-soft px-4 py-3 font-medium">Thanks! If you left an email, we&apos;ll reply soon.</p>;
+    return <p role="status" className="rounded-3xl bg-accent-soft px-5 py-4 font-semibold">Thanks! If you left an email, we&apos;ll reply soon.</p>;
   }
 
   return (
     <form onSubmit={submit} className="space-y-3">
       <div>
-        <label htmlFor="email" className="block text-sm font-medium">Email (optional, so we can reply)</label>
+        <label htmlFor="email" className="block text-sm font-semibold">Email (optional, so we can reply)</label>
         <input id="email" name="email" type="email" autoComplete="email"
-          className="mt-1 w-full rounded-xl border border-line bg-background px-3 py-2 outline-none focus:border-accent" />
+          className="mt-1 w-full rounded-2xl border border-line bg-soft px-4 py-3 outline-none placeholder:text-muted focus:border-accent" />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium">Message</label>
+        <label htmlFor="message" className="block text-sm font-semibold">Message</label>
         <textarea id="message" name="message" required minLength={5} maxLength={4000} rows={6}
-          className="mt-1 w-full rounded-xl border border-line bg-background px-3 py-2 outline-none focus:border-accent" />
+          className="mt-1 w-full rounded-2xl border border-line bg-soft px-4 py-3 outline-none placeholder:text-muted focus:border-accent" />
       </div>
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <button type="submit" disabled={state === "sending"}
-        className="rounded-xl bg-accent px-5 py-2.5 font-semibold text-white disabled:opacity-60">
+        className="btn-sun glow-shadow min-h-11 rounded-full px-6 font-bold text-on-accent transition active:scale-[0.97] disabled:opacity-60">
         {state === "sending" ? "Sending…" : "Send"}
       </button>
       {state === "error" && <p className="text-sm text-muted" aria-live="polite">{error}</p>}

@@ -1,0 +1,1 @@
+Dine-in restaurant menu values, per slice. The delivery and takeaway menu isn't included.

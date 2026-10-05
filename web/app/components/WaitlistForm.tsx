@@ -37,7 +37,7 @@ export function WaitlistForm() {
 
   if (state === "done") {
     return (
-      <p role="status" className="rounded-xl bg-accent-soft px-4 py-3 font-medium">
+      <p role="status" className="rounded-3xl bg-accent-soft px-5 py-4 font-semibold">
         You&apos;re on the list. We&apos;ll email you once, on launch day.
       </p>
     );
@@ -54,14 +54,14 @@ export function WaitlistForm() {
           required
           autoComplete="email"
           placeholder="you@example.com"
-          className="flex-1 rounded-xl border border-line bg-background px-4 py-3 text-base outline-none focus:border-accent"
+          className="min-h-12 flex-1 rounded-full border border-line bg-background px-5 text-base outline-none placeholder:text-muted focus:border-accent"
         />
         {/* Honeypot: hidden from people, tempting to bots. */}
         <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <button
           type="submit"
           disabled={state === "sending"}
-          className="rounded-xl bg-accent px-5 py-3 font-semibold text-white disabled:opacity-60"
+          className="btn-sun glow-shadow min-h-12 rounded-full px-6 font-bold text-on-accent transition active:scale-[0.97] disabled:opacity-60"
         >
           {state === "sending" ? "Joining…" : "Get early access"}
         </button>

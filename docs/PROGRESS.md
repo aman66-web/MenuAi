@@ -83,6 +83,32 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   swap for a domain address later (one Vercel env var + redeploy). Still to set: NEXT_PUBLIC_SITE_URL.
 - 2026-10-05 — User-facing name comes from `AppConfig.appName` (currently "Menu Math") — name not final.
 
+- 2026-10-05 — **UK first, US later** (founder's call). Energy shows as "kcal", salt in g (UK guides print salt, not
+  sodium: stored in `salt`, never converted from or to sodium), British spelling in new copy. The two fictional sample
+  chains stay for tests. Still open: £ price points (the spec's $ prices are US placeholders; not guessed) and kg/stone/cm
+  options in the target helper (still lb and ft/in).
+- 2026-10-05 — **UK menu data** is extracted by script from each chain's official file, never retyped (playbook:
+  docs/UK_DATA_PLAYBOOK.md; scripts: `tools/uk_extract/`; status per chain: docs/UK_DATA_STATUS.md). New pipeline
+  features: `holdback.csv` (items whose numbers the chain's own guide makes impossible are not published and are listed in
+  the check report; nothing is ever corrected), `note.txt` (a limit of the data, shown under the source on the chain page)
+  and `cuisine` in the manifest (the lists pick an icon from it). McDonald's, Domino's and Papa Johns block this build
+  environment's IP (HTTP 403) and Costa's site errored: they need the official files from the founder.
+- 2026-10-05 — **New look** inspired by the founder's Mental Stint site: black base lit by a warm glow, glass cards, one
+  sun-coloured pill per screen, Plus Jakarta Sans + Playfair italic accents (OFL, bundled in `web/app/fonts`, so visitors
+  make no request to Google), dark and light themes, a floating tab bar, a progress ring for "left today", own cuisine
+  glyphs on each chain tile. Copy is unchanged except where noted. Verified: axe 0 violations in light and dark on every
+  screen, no overflow at 200% text, 22 smoke steps, build clean.
+- 2026-10-05 — **Official logos** (founder's decision, nominative use; CLAUDE.md rule 2 amended): the mechanism is in
+  (`web/lib/mm/logos.ts`, `web/public/logos/`; unmodified file on a plain tile, our glyph if the file is missing), but no
+  logo files are installed yet: they must be the chains' own files from their own brand/press pages, and we never redraw
+  them. This is a legal risk the founder has accepted (a chain or App Review can still object); each logo can be removed by
+  deleting one line.
+- 2026-10-05 — Flagged for the founder, not changed (rule 8): SPEC §12.3 says "We type it in, check it". UK numbers are now
+  copied by script and then checked, so the copy should become "We copy it in and check it". The App Store copy in
+  docs/STORE.md still says "50 popular US chains". The no pork / no beef filters only know what a chain's guide states: most
+  UK guides don't say the meat type for every item, so the filter can't promise a dish is pork-free (matters for halal): the
+  per-chain lists of "meat type not stated" are in docs/UK_DATA_STATUS.md.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -100,7 +126,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Payments for the web app (Stripe or RevenueCat Web Billing: both add a dependency/account; needs your decision)
 - [ ] Domain + support email; Vercel Pro before the site is public
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
-- [ ] Real chain data in `data/source/` (keep the two sample folders; release builds use `--no-samples`)
+- [x] Real chain data in `data/source/`: 11 UK chains extracted from official sources (see docs/UK_DATA_STATUS.md); more to come (keep the two sample folders; release builds use `--no-samples`)
 - [ ] App icon and screenshots (the web app and PWA use a placeholder `M` icon in `web/public/icons/` and `web/app/icon.png`)
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
+- [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md
+- [ ] **Logos:** send the official logo files you are comfortable using (each chain's own brand/press page), or tell me to fetch them from those pages and I'll record the source and terms for each
+- [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
+- [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
+- [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
+- [ ] Decide whether to promote the newest build to Production (it is only on Previews, behind Vercel login)

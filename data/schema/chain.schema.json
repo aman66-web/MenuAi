@@ -50,6 +50,10 @@
       "type": "boolean",
       "description": "true = fictional sample data. The app must hide sample chains in Release builds."
     },
+    "note": {
+      "type": "string",
+      "description": "Optional. A limit of the chain's published data that users should know (shown under the source on the chain page), e.g. which parts of an order the numbers cover."
+    },
     "source": {
       "type": "object",
       "required": [

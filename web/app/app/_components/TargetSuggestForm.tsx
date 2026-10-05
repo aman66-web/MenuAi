@@ -24,7 +24,7 @@ export function TargetSuggestForm({ goal, onApply }: { goal: Goal; onApply: (cal
 
   return (
     <form
-      className="space-y-3 rounded-xl border border-line bg-soft p-4"
+      className="space-y-3 glass rounded-3xl p-4"
       onSubmit={(e) => {
         e.preventDefault();
         setResult(suggestTargets({ sex, age: Number(age), weightLb: Number(weight), heightFt: Number(ft), heightIn: Number(inch || 0), activity, goal }));
@@ -47,7 +47,7 @@ export function TargetSuggestForm({ goal, onApply }: { goal: Goal; onApply: (cal
       {result?.kind === "under18" && <p role="status" className="text-sm font-medium">{UNDER_18_COPY}</p>}
       {result?.kind === "invalid" && <p role="alert" className="text-sm text-muted">Enter an age from 18 to 100, your weight and your height.</p>}
       {result?.kind === "ok" && (
-        <div role="status" className="space-y-2 rounded-lg bg-background p-3">
+        <div role="status" className="space-y-2 rounded-2xl bg-soft-strong p-3">
           <p className="app-numbers text-base"><span className="font-bold">{result.calories.toLocaleString("en-US")}</span> kcal · <span className="font-bold">{result.protein}g</span> protein</p>
           <p className="text-xs text-muted">{SUGGESTION_NOTE}</p>
           <Button full onClick={() => onApply(result.calories, result.protein)}>Use these</Button>

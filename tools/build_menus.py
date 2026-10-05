@@ -62,6 +62,7 @@ HEADERS = {
     "items.csv": ["id", "name", "category", "serving", *_N, "tags", "limited_time", "rankable", "components", "added_on", "notes"],
     "modifiers.csv": ["item_id", "id", "label", "kind", *_N, "tags"],
     "combos.csv": ["id", "name", "item_ids"],
+    "holdback.csv": ["item_id", "reason"],
 }
 
 ALLOWED_TAGS = {"vegetarian", "contains_pork", "contains_beef"}
@@ -271,6 +272,7 @@ class ChainBuild:
     components: dict = field(default_factory=dict)   # id -> component dict
     items: dict = field(default_factory=dict)        # id -> item dict (insertion-ordered)
     combinations: list = field(default_factory=list)
+    held: list = field(default_factory=list)         # (item id, name, reason): rows left out of the published menu
 
 
 def load_chain(folder: Path) -> ChainBuild:
@@ -307,6 +309,15 @@ def load_chain(folder: Path) -> ChainBuild:
         "sample": parse_bool(r["sample"], False, w, E),
         "source": {"title": r["source_title"], "url": r["source_url"], "checkedOn": r["checked_on"]},
     }
+    # note.txt (optional): a limit of the published data that users should know. Its own file, not a chain.csv column,
+    # because the extraction scripts rewrite chain.csv on every refresh and would drop it.
+    note_path = folder / "note.txt"
+    if note_path.exists():
+        note = " ".join(note_path.read_text(encoding="utf-8-sig").split())
+        if len(note) > 400:
+            E.append(f"{cid}/note.txt: {len(note)} characters; keep it under 400 (one or two sentences)")
+        elif note:
+            b.chain["note"] = note
 
     # components.csv ----------------------------------------------------
     for line, r in read_csv(folder / "components.csv", E, f"{cid}/components.csv"):
@@ -335,6 +346,20 @@ def load_chain(folder: Path) -> ChainBuild:
 
     # items.csv ---------------------------------------------------------
     item_rows = read_csv(folder / "items.csv", E, f"{cid}/items.csv")
+    # holdback.csv: items the chain's own guide prints impossible numbers for (e.g. 367 g of carbs in a burger). They are
+    # not published, not corrected, and listed in the check report until the chain fixes its guide. Survives re-extraction.
+    holdback = {}
+    for line, hr in read_csv(folder / "holdback.csv", E, f"{cid}/holdback.csv"):
+        if not hr["item_id"] or not hr["reason"]:
+            E.append(f"{cid}/holdback.csv line {line}: both item_id and reason are required")
+            continue
+        holdback[hr["item_id"]] = hr["reason"]
+    names = {r["id"]: r["name"] for _, r in item_rows}
+    for hid in holdback:
+        if hid not in names:
+            W.append(f"{cid}/holdback.csv: {hid!r} is not in items.csv any more (the guide may have changed): remove or update this line")
+    b.held = [(hid, names[hid], reason) for hid, reason in holdback.items() if hid in names]
+    item_rows = [(line, r) for line, r in item_rows if r["id"] not in holdback]
     if not item_rows and not E:
         E.append(f"{cid}/items.csv: no items found")
     for line, r in item_rows:
@@ -628,6 +653,10 @@ def main(argv=None) -> int:
         report += ["## Errors (nothing was written)", ""] + [f"- {e}" for e in errors] + [""]
     if warnings:
         report += ["## Warnings (check these against the source)", ""] + [f"- {w}" for w in warnings] + [""]
+    held = [(b.chain.get("name", b.folder.name), *h) for b in builds for h in b.held]
+    if held:
+        report += ["## Held back (not published: the chain's own guide prints impossible numbers)", ""]
+        report += [f"- {chain}: {name} ({iid}): {reason}" for chain, iid, name, reason in held] + [""]
 
     out.mkdir(parents=True, exist_ok=True)
     if errors:
@@ -645,7 +674,7 @@ def main(argv=None) -> int:
         fname = f"chain-{b.chain['id']}.json"
         (out / fname).write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
         manifest_chains.append({
-            "id": b.chain["id"], "name": b.chain["name"], "file": fname,
+            "id": b.chain["id"], "name": b.chain["name"], "cuisine": b.chain["cuisine"], "file": fname,
             "sha256": file_sha256(out / fname), "contentHash": content_hash(doc), "sample": b.chain["sample"],
             "itemCount": len(doc["items"]), "checkedOn": b.chain["source"]["checkedOn"],
         })

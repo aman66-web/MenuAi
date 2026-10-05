@@ -8,6 +8,7 @@ import { formatCalories, formatGrams, macroLine } from "@/lib/mm/format";
 import { favoritesStore, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { ChainRow } from "./_components/ChainRow";
+import { Ring } from "./_components/Ring";
 import { SearchIcon } from "./_components/icons";
 import { RequestChainSheet } from "./_components/Submit";
 import { Button, Card, EmptyState, ErrorBox, SectionTitle, Spinner } from "./_components/ui";
@@ -42,31 +43,32 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold tracking-tight">Where are you eating?</h1>
+      <h1 className="text-[2.6rem] font-extrabold leading-[1.02] tracking-tight">Where are you <span className="serif-em sun-text pr-0.5">eating</span>?</h1>
 
       {SAMPLES_ENABLED && menu.chains.some((c) => c.sample) && (
-        <p className="mt-3 rounded-lg bg-soft px-3 py-2 text-xs text-muted">Showing fictional sample data for testing. Numbers are not real.</p>
+        <p className="glass mt-4 rounded-2xl px-4 py-2.5 text-xs text-muted">Showing fictional sample data for testing. Numbers are not real.</p>
       )}
 
       {/* Targets / left today */}
-      <Card className="mt-4 p-4">
+      <Card hero className="mt-6 p-5">
         {pro ? (
-          <>
-            <p className="app-numbers text-base">
+          <div className="flex items-center gap-5">
+            <Ring id="home" label="Calories used today" fraction={usedFraction} size={92} stroke={10}>
+              <span aria-hidden className="app-numbers text-base font-extrabold">{Math.round(usedFraction * 100)}%</span>
+            </Ring>
+            <p className="app-numbers min-w-0 flex-1 text-base leading-snug">
               {remaining.calories >= 0 ? (
-                <>Left today: <span className="font-bold">{formatCalories(remaining.calories)}</span>{remaining.protein !== undefined && <> · <span className="font-bold">{formatGrams(Math.max(0, remaining.protein))} protein</span></>}</>
+                <><span className="block text-sm text-muted">Left today:</span><span><span className="sun-text text-xl font-extrabold">{formatCalories(remaining.calories)}</span>{remaining.protein !== undefined && <> <span className="text-muted">·</span></>}</span>{remaining.protein !== undefined && <span className="block font-extrabold text-accent">{formatGrams(Math.max(0, remaining.protein))} protein</span>}</>
               ) : (
-                <>Over today&apos;s target by <span className="font-bold">{formatCalories(-remaining.calories)}</span></>
+                <>Over today&apos;s target by <span className="text-xl font-extrabold">{formatCalories(-remaining.calories)}</span></>
               )}
             </p>
-            <div className="mt-3 h-2 overflow-hidden rounded-full bg-line" role="progressbar" aria-label="Calories used today" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(usedFraction * 100)}>
-              <div className="h-full rounded-full bg-accent" style={{ width: `${usedFraction * 100}%` }} />
-            </div>
-          </>
+          </div>
         ) : (
-          <p className="app-numbers text-base">
-            Your targets: <span className="font-bold">{formatCalories(settings.dailyCalories)}</span>
-            {settings.dailyProtein ? <> · <span className="font-bold">{formatGrams(settings.dailyProtein)} protein</span></> : null}
+          <p className="app-numbers text-xl">
+            <span className="block text-sm text-muted">Your targets:</span>{" "}
+            <span className="sun-text font-extrabold">{formatCalories(settings.dailyCalories)}</span>
+            {settings.dailyProtein ? <> · <span className="font-extrabold text-accent">{formatGrams(settings.dailyProtein)} protein</span></> : null}
           </p>
         )}
       </Card>
@@ -78,7 +80,7 @@ export default function HomePage() {
         </Card>
       )}
 
-      <Link href="/app/search" className="mt-4 flex min-h-12 items-center gap-3 rounded-xl border border-line bg-soft px-4 text-muted">
+      <Link href="/app/search" className="glass mt-4 flex min-h-14 items-center gap-3 rounded-full px-5 text-muted transition active:scale-[0.99] hover:bg-soft-strong">
         <SearchIcon className="h-5 w-5" />
         Search restaurants and items
       </Link>
@@ -100,12 +102,12 @@ export default function HomePage() {
       ) : (
         <>
           <SectionTitle>Popular</SectionTitle>
-          <div>{popular.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
+          <div className="space-y-2.5">{popular.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
 
           {favoriteChains.length > 0 && (
             <>
               <SectionTitle>Favourites</SectionTitle>
-              <div>{favoriteChains.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "favorite" })} />))}</div>
+              <div className="space-y-2.5">{favoriteChains.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "favorite" })} />))}</div>
             </>
           )}
         </>
@@ -117,8 +119,8 @@ export default function HomePage() {
           <ul className="space-y-2">
             {saved.slice(0, 3).map((o) => (
               <li key={o.id}>
-                <Link href="/app/saved" className="block rounded-xl border border-line bg-soft p-3">
-                  <span className="block font-semibold">{o.name}</span>
+                <Link href="/app/saved" className="glass block rounded-3xl p-4 transition active:scale-[0.99] hover:bg-soft-strong">
+                  <span className="block font-bold tracking-tight">{o.name}</span>
                   <span className="block text-sm text-muted">{o.chainName}</span>
                   <span className="app-numbers block text-sm text-muted">{macroLine(o.nutrients)}</span>
                 </Link>
