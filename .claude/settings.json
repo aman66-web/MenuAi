@@ -18,11 +18,11 @@
       "Bash(npx vitest *)"
     ],
     "deny": [
-      "Bash(git push *)",
       "Read(./web/.env.local)",
       "Read(./web/.env)"
     ],
     "ask": [
+      "Bash(git push *)",
       "Bash(npx supabase db push *)",
       "Bash(supabase db push *)",
       "Bash(npx supabase link *)"
