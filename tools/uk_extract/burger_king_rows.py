@@ -18,6 +18,13 @@ SHARE = "Guide note: 20 piece serves approximately 4 adults"
 SHARER = "Guide note: Sharer box serves approximately 4 adults"
 BOX9 = "Nine-burger box (printed serving 1,128 g); not a single-person order, so not suggested"
 
+# Printed products we leave out although they are on the page. Their cells are column-shifted in the PDF (a saturates
+# figure larger than the fat figure, a kJ cell holding a fat figure), so no number in the row can be trusted.
+EXCLUDED = {
+    "Vanilla Milkshake 22oz": "row is column-shifted in the PDF: kJ cell reads 13, saturates 461 g (more than its 9.3 g fat), fat 13/9.3 misplaced",
+    "Vanilla Milkshake 12oz": "row is column-shifted in the PDF: kJ cell reads 10, saturates 330 g (more than its 6.9 g fat), sodium printed twice",
+}
+
 # (name, category, rankable, note) -- page by page, top to bottom.
 ROWS: list[tuple | None] = [
     # ---- page 1: BEEF

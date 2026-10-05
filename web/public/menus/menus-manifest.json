@@ -1,8 +1,19 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261005183130,
- "generatedAt": "2026-10-05T18:31:30Z",
+ "dataVersion": 20261005200840,
+ "generatedAt": "2026-10-05T20:08:40Z",
  "chains": [
+  {
+   "id": "burger-king",
+   "name": "Burger King",
+   "cuisine": "Burgers",
+   "file": "chain-burger-king.json",
+   "sha256": "3a6c9d65359f61a3a7e56081553da85a7fdd74f47b9d08ebd16e441427f9ddba",
+   "contentHash": "d77c922922e9f076b64458d8dd2ec6b0b82c3e612348f8d2ce25867cfe784a43",
+   "sample": false,
+   "itemCount": 193,
+   "checkedOn": "2026-10-05"
+  },
   {
    "id": "five-guys",
    "name": "Five Guys",

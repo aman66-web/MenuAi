@@ -10,6 +10,7 @@ usually published monthly: download it, run the script, and it stops if the menu
 | Chain | Published | Source and date | Things to know |
 |---|---|---|---|
 | KFC | 108 | Official PDF, September 2026 | Ireland-only and Northern-Ireland-only rows left out. Popcorn chicken prints the same number for fat, carbs and protein (calories agree with it). |
+| Burger King | 193 of 197 | The site's own /nutritional-info page, which links its nutrition PDF (Kit 6 National, 18 June 2026) | **The PDF is image-only, so it was read by OCR** (nine readings per cell, a vote, arithmetic alarms) and then all 200 rows were checked by eye against enlarged crops; an independent 20-item check found 0 mismatches. 14 cells were corrected by eye after OCR (listed as `OVERRIDES` in the script). **4 held back** (Big King at 1,402 kcal, Chilli Cheese Bites 20pc at 106 kcal, Big King Sauce with kcal/kJ swapped, Caesar Style Sauce with 161 g fat). Both vanilla milkshakes left out (columns shifted in print). The table is older than the newer allergen poster, so some newer items (wraps, tenders, drinks) aren't in it. The extractor needs `pip install rapidocr-onnxruntime pillow numpy` and takes about 18 minutes (`--cache` skips the OCR). |
 | Greggs | 263 | Official guide PDF, September 2026 | Hospital-shop rows and three Fairtrade juices left out. "Bread & rolls" (8 rows) may not be sold on their own: easy to drop. |
 | Subway | 145 | Official PDF, September 2026 | **Sub, toastie and wrap values cover the bread, filling and basic salad only, not sauces** (shown as a note on the chain page). 6-inch only; the guide says a footlong is double. |
 | Pizza Hut | 237 | Official dine-in booklet, July 2026 | **Dine-in menu only**; the delivery/takeaway guide could not be read (JavaScript page). Per slice by size and base. Ice-cream rows (per 100 g only) and two superseded tenders rows left out. |
@@ -28,7 +29,6 @@ usually published monthly: download it, run the script, and it stops if the menu
 | Domino's | "Not available in your location" | Open dominos.co.uk/nutritional-information, download the nutrition or allergen guide (per slice by size and base) |
 | Papa Johns | Every page returns 403 | Open papajohns.co.uk, find the footer's nutrition/allergen guide, download it |
 | Costa | The site errors on every request (looks like an outage) | Try again later, or download the allergen and nutrition guide from costa.co.uk |
-| Burger King | Still being researched when this was written | See the final summary |
 
 ## Meat type not stated (the "no pork" / "no beef" filters can only use what a guide says)
 
@@ -36,6 +36,7 @@ Tags come only from the chain's own wording (bacon, pepperoni, "beef patty", ing
 say, the item has no pork/beef tag, so the filters can't promise it is meat-free of that kind (this matters for halal).
 Items to look at:
 
+- **Burger King:** 34 items: 26 burgers in the Beef category, 4 breakfast sandwiches, 2 kids burgers and 2 patties (6 items are tagged beef from "Angus"/"Wagyu" in the name).
 - **Subway:** Big Breakwich, Tex Mexan, Spicy Italian, Italian B.M.T, B.M.T & Cheese spud, BLT Saver Sub, Meatballs Snack Bowl and Protein Pot.
 - **Greggs:** Lorne breakfast rolls/baguettes, Lorne & omelette items, Breakfast Box, Scotch Pie, Savoury Mince Pie, BBQ Bites Meal Box (and BLT / Lorne sausage are tagged from the name).
 - **Pizza Hut:** Hawaiian, Chicken Supreme, Meat Feast, BBQ Americano, Farmhouse, Lasagne, Chicken Delight Flatbread and the buffet versions.
@@ -45,8 +46,8 @@ Items to look at:
 ## Vegetarian tags
 
 Only chains whose guide marks vegetarian/vegan items have `vegetarian` tags: KFC, Nando's, Popeyes, Pizza Hut, Pret
-(from its ingredients). Subway, Greggs, Five Guys and Taco Bell have none (Greggs and Subway only where the name says
-"vegan"); the vegetarian filter will therefore hide almost everything there.
+(from its ingredients). Subway, Greggs, Burger King, Five Guys and Taco Bell have none except where an item's name says
+"vegan"/"plant-based"; the vegetarian filter will therefore hide almost everything there.
 
 ## Source quirks worth knowing
 

@@ -1,0 +1,198 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+bacon-caesar-angus,Bacon Caesar Angus,Beef,253 g,869,40,41,59,21,2700,6.8,8,3.1,contains_pork|contains_beef,false,true,,,
+bacon-cheeseburger,Bacon Cheeseburger,Beef,124 g,319,19,27,15,6.4,790,2,6.1,1.9,contains_pork,false,true,,,Meat type not stated in the item name
+bacon-double-cheese,Bacon Double Cheese,Beef,149 g,440,30,26,24,11,830,2.1,4.5,2.0,contains_pork,false,true,,,Meat type not stated in the item name
+bacon-double-cheese-xl,Bacon Double Cheese XL,Beef,316 g,910,63,45,52,24,1500,3.8,8.2,4.2,contains_pork,false,true,,,Meat type not stated in the item name
+bbq-bacon-stacker,BBQ Bacon Stacker,Beef,183 g,515,27,39,28,8.8,640,1.6,8.2,2.6,contains_pork,false,true,,,Meat type not stated in the item name
+bbq-double-melt,BBQ Double Melt,Beef,133 g,354,23,27,17,7,410,1,5.9,1.7,,false,true,,,Meat type not stated in the item name
+bbq-steakhouse-angus,BBQ Steakhouse Angus,Beef,278 g,792,41,45,49,20,1100,2.8,12,3.3,contains_beef,false,true,,,
+big-king,Big King,Beef,358 g,1402,52,56.3,56,20,1430,3.6,17,2.5,,false,true,,,Printed kcal 1402 disagrees with its kJ (3416) and with fat/carbs/protein (about 940 kcal); per 100g kcal 391 also disagrees with per 100g kJ 954; Meat type not stated in the item name
+burger-buddies-bbq-steakhouse,Burger Buddies - BBQ Steakhouse,Beef,128 g,269,13,25,12,4,375,0.9,6,2.5,,false,true,,,Meat type not stated in the item name
+burger-buddies-big-king,Burger Buddies - Big King,Beef,119 g,293,14,24,15,5,416,1.4,5,2.3,,false,true,,,Printed salt 1.4 g does not match sodium 416 mg; Meat type not stated in the item name
+burger-buddies-box-3,Burger Buddies - Box 3,Beef,375 g,827,39,76,40,13,1138,3.2,17,7.5,,false,true,,,Meat type not stated in the item name
+burger-buddies-box-9,Burger Buddies - Box 9,Beef,1128 g,2492,118,227,119,39,3461,9.7,52,22.5,,false,false,,,"Nine-burger box (printed serving 1,128 g); not a single-person order, so not suggested; Meat type not stated in the item name"
+burger-buddies-whopper,Burger Buddies - Whopper,Beef,123 g,242,12,23,11,3,329,0.8,5,2.5,,false,true,,,Meat type not stated in the item name
+cheeseburger,Cheeseburger,Beef,115 g,285,16,27,12,5.6,650,1.6,5.8,1.9,,false,true,,,Meat type not stated in the item name
+classic-double-melts-burger,Classic Double Melts Burger,Beef,135 g,352,23,25,17,7.4,380,1.0,3.7,1.8,,false,true,,,Meat type not stated in the item name
+double-cheeseburger,Double Cheeseburger,Beef,159 g,418,27,28,22,10,880,2.2,6.3,2.2,,false,true,,,Meat type not stated in the item name
+double-whopper,Double Whopper,Beef,372 g,840,52,48,48,16,930,2.3,12,5.0,,false,true,,,Meat type not stated in the item name
+double-whopper-bacon,Double Whopper Bacon,Beef,384 g,885,56,48,51,17,1100,2.8,12,4.8,contains_pork,false,true,,,Meat type not stated in the item name
+double-whopper-bacon-cheese,Double Whopper Bacon & Cheese,Beef,407 g,960,60,50,57,21,1500,3.8,13,4.8,contains_pork,false,true,,,Meat type not stated in the item name
+double-whopper-cheese,Double Whopper Cheese,Beef,395 g,914,56,50,54,20,1300,3.4,13,4.8,,false,true,,,Meat type not stated in the item name
+hamburger,Hamburger,Beef,103 g,247,14,26,9.4,3.7,440,1.1,5.3,1.8,,false,true,,,Meat type not stated in the item name
+texan-bbq-king,Texan BBQ King,Beef,369 g,996,53,63,59,22,1200,3.1,21,2.9,,false,true,,,Meat type not stated in the item name
+wellington-wagyu,Wellington Wagyu,Beef,283 g,820.8,42.1,45.2,52.1,16.9,588.5,2.0,13.1,3.6,contains_beef,false,true,,,Printed salt 2.0 g does not match sodium 588.5 mg (the PDF prints decimals in this row)
+the-wagyu,The Wagyu,Beef,290 g,766,37.9,47,47,14.4,741,1.8,13,4.0,contains_beef,false,true,,,
+whopper,Whopper,Beef,287 g,595,29,53,30,8.2,920,2.3,11,3.4,,false,true,,,Fibre 3.4 g per serving but 1.5 g per 100g (287 g); Meat type not stated in the item name
+whopper-bacon,Whopper Bacon,Beef,299 g,646,35,48,34,9.8,1100,2.6,12,4.3,contains_pork,false,true,,,Meat type not stated in the item name
+whopper-bacon-cheese,Whopper Bacon & Cheese,Beef,322 g,721,39,50,40,14,1500,3.7,13,4.5,contains_pork,false,true,,,Meat type not stated in the item name
+whopper-cheese,Whopper Cheese,Beef,310 g,676,35,49,37,12,1300,3.2,12,4.4,,false,true,,,Meat type not stated in the item name
+whopper-jr,Whopper Jr.,Beef,143 g,300,14,28,15,4.1,460,1.2,6.2,2.1,,false,true,,,Meat type not stated in the item name
+whopper-jr-cheese,Whopper Jr. Cheese,Beef,155 g,338,16,28,17,5.9,670,1.7,6.6,2.2,,false,true,,,Meat type not stated in the item name
+bacon-caesar-crispy-chicken,Bacon Caesar Crispy Chicken,Chicken,246 g,762,31,57,45,12,3100,7.7,8,3.3,contains_pork,false,true,,,
+bbq-chicken-melts-burger,BBQ Chicken Melts Burger,Chicken,155 g,412,18,42,19,6.0,843,2.1,6.4,2.4,,false,true,,,
+bbq-stacker-chicken-melts-burger-double,BBQ Stacker Chicken Melts Burger Double,Chicken,273 g,774,34,61,43,12.9,1517,3.8,8.2,3.4,,false,true,,,
+bbq-stacker-chicken-melts-burger-single,BBQ Stacker Chicken Melts Burger Single,Chicken,185 g,523,21,47,27,8.0,1032,2.6,7.7,2.5,,false,true,,,
+bbq-steakhouse-crispy-chicken,BBQ Steakhouse Crispy Chicken,Chicken,240 g,637,32,63,28,10,1500,3.7,15,3.2,,false,true,,,
+chicken-royale,Chicken Royale,Chicken,217 g,568,23,52,29,3,990,2.5,6,2.6,,false,true,,,
+chicken-royale-double,Chicken Royale Double,Chicken,312 g,792,38,65,41,3.9,1500,3.7,6.3,3.5,,false,true,,,
+chicken-royale-bacon-cheese,Chicken Royale Bacon & Cheese,Chicken,251 g,690,31,54,38,7.8,1500,3.9,7.8,2.9,contains_pork,false,true,,,
+chicken-royale-double-with-cheese-bacon,Chicken Royale Double with Cheese & Bacon,Chicken,346 g,846,42.1,62.3,47,9.1,2454,6.2,8.2,3.3,contains_pork,false,true,,,
+chicken-royale-with-cheese,Chicken Royale with Cheese,Chicken,239 g,645,27,54,35,6.7,1300,3.4,7.4,2.8,,false,true,,,
+chicken-royale-double-with-cheese,Chicken Royale Double with Cheese,Chicken,334 g,801,38,62,44,8,2262,5.7,8,3.2,,false,true,,,
+classic-chicken-melts-burger,Classic Chicken Melts Burger,Chicken,157 g,411,19,40,19,6.3,813,2.0,4.2,2.4,,false,true,,,
+classic-double-chicken-melts-burger,Classic Double Chicken Melts Burger,Chicken,245 g,662,32,55,34,12,1315,3.3,5.6,2.9,,false,true,,,
+steakhouse-crispy-chicken,Steakhouse Crispy Chicken,Chicken,240 g,637,32,63,28,10,1500,3.7,15,3.2,,false,true,,,
+texan-bbq-double-royale,Texan BBQ Double Royale,Chicken,375 g,922,43,79,47,9.9,2000,5,16,4.5,,false,true,,,
+texan-bbq-royale,Texan BBQ Royale,Chicken,279 g,691,28,66,34,8.6,1600,3.9,16,3.9,,false,true,,,
+plant-based-double-whopper,Plant-based Double Whopper,Veggie & More,382 g,722,44,52,35,7.7,1400,3.4,13,17,vegetarian,false,true,,,Per 100g sugars printed as 34 (a typo); per-serving 13 g is what is entered
+plant-based-whopper,Plant-based Whopper,Veggie & More,278 g,528,27,47,24,4.5,980,2.5,8.9,9.9,vegetarian,false,true,,,
+vegan-royale,Vegan Royale,Veggie & More,217 g,557,17,53,29,2.7,1100,2.9,6.9,7.8,vegetarian,false,true,,,
+bacon-egg-sandwich-hp-sauce,Bacon & Egg Sandwich (HP Sauce),Breakfast,174 g,366,21,40,13,5.2,790,2,10,2,contains_pork,false,true,,,
+bacon-egg-sandwich-ketchup,Bacon & Egg Sandwich (Ketchup),Breakfast,174 g,362,21,39,13,5.1,840,2.1,10,2.4,contains_pork,false,true,,,
+bacon-butty-hp-sauce,Bacon Butty (HP Sauce),Breakfast,117 g,284,15,38,7.6,2.8,600,1.5,9.9,1.8,contains_pork,false,true,,,
+bacon-butty-ketchup,Bacon Butty (Ketchup),Breakfast,117 g,280,15,37,7.5,2.8,640,1.6,9.9,2.1,contains_pork,false,true,,,
+breakfast-king-hp-sauce,Breakfast King (HP Sauce),Breakfast,270 g,642,44,41,33,15,1100,2.7,11,2.7,,false,true,,,Meat type not stated in the item name
+breakfast-king-ketchup,Breakfast King (Ketchup),Breakfast,270 g,638,44,40,33,14,1100,2.8,11,3,,false,true,,,Meat type not stated in the item name
+egg-cheese-breakfast-sandwich,Egg & Cheese Breakfast Sandwich,Breakfast,172 g,374,16,49,12,5.4,754,1.9,9.7,2.7,,false,true,,,
+sausage-egg-sandwich-hp-sauce,Sausage & Egg Sandwich (HP Sauce),Breakfast,195 g,415,22,40,18,6.7,540,1.3,10,2.1,contains_pork,false,true,,,
+sausage-egg-sandwich-ketchup,Sausage & Egg Sandwich (Ketchup),Breakfast,195 g,411,22,39,18,6.6,590,1.5,10,2.5,contains_pork,false,true,,,
+sausage-butty-hp-sauce,Sausage Butty (HP Sauce),Breakfast,138 g,333,16,39,12,4.3,350,0.9,9.7,1.9,contains_pork,false,true,,,
+sausage-butty-ketchup,Sausage Butty (Ketchup),Breakfast,138 g,329,16,38,12,4.3,390,0.98,9.7,2.2,contains_pork,false,true,,,
+ultimate-breakfast-sandwich-hp-sauce,Ultimate Breakfast Sandwich (HP Sauce),Breakfast,222 g,495,31,40,23,8.5,820,2,10,2.3,,false,true,,,Meat type not stated in the item name
+ultimate-breakfast-sandwich-ketchup,Ultimate Breakfast Sandwich (Ketchup),Breakfast,222 g,491,31,39,23,8.4,870,2.2,10,2.6,,false,true,,,Meat type not stated in the item name
+apple-slices,Apple Slices,Kids,80 g,46,<0.5,9.9,<0.5,<0.1,0,<0.1,9.9,2.2,,false,true,,,
+kids-cheeseburger,Kids Cheeseburger,Kids,104 g,281,16,27,12,5.5,520,1.3,5.7,1.8,,false,true,,,Meat type not stated in the item name
+kids-hamburger,Kids Hamburger,Kids,93 g,244,14,26,9.2,3.7,310,0.78,5.3,1.7,,false,true,,,Meat type not stated in the item name
+kids-nuggets-4pc,Kids Nuggets 4pc,Kids,66 g,169,9,12,9.2,1.4,360,0.91,0.7,<0.5,,false,true,,,
+bk-dip-pot-smoky-bbq,BK Dip Pot - Smoky BBQ,Sides,25 g,40,0.3,8.8,0.05,0.03,90,0.22,6.5,0.31,,false,false,,,
+bk-dip-pot-spicy-mayo,BK Dip Pot - Spicy Mayo,Sides,21 g,76,<0.5,3.1,6.9,0.6,130,0.31,2.1,0,,false,false,,,
+bk-dip-pot-sweet-chilli,BK Dip Pot - Sweet Chilli,Sides,25 g,50,<0.5,12,0.03,0,110,0.27,11,0.13,,false,false,,,
+bk-dip-pot-bbq-mayo,BK Dip Pot - BBQ Mayo,Sides,40 g,185,<0.5,6.1,18,1.5,250,0.62,4.2,0.36,,false,false,,,
+bk-dip-pot-flame-grilled-mayo,BK Dip Pot - Flame Grilled Mayo,Sides,40 g,176,<0.5,2.9,18,1.4,280,0.7,0.7,0.2,,false,false,,,
+bk-dip-pot-garlic-mayo,BK Dip Pot - Garlic Mayo,Sides,20 g,92,<0.5,1.3,9.6,0.7,130,0.32,<0.5,0.16,,false,false,,,
+bk-dip-pot-spicy-smokehouse-ketchup,BK Dip Pot - Spicy Smokehouse Ketchup,Sides,40 g,46,<0.5,11,0.5,0.04,440,1.1,7.9,0.29,,false,false,,,
+texan-bbq-loaded-fries-delivery-exclusive,Texan BBQ Loaded Fries (Delivery exclusive),Sides,199 g,502,6,71,21,5,340,0.84,13,3.1,,false,true,,,Delivery exclusive as printed in the guide
+bbq-cheese-loaded-king-nuggets,BBQ Cheese Loaded King Nuggets,Sides,189 g,483,22,37,27,6.2,1000,2.5,6.8,1.3,,false,true,,,
+bbq-chicken-fries-20pc,BBQ Chicken Fries 20pc,Sides,330 g,884,46,56,53,6,1016,2.6,8.3,1.7,,false,false,,,Guide note: 20 piece serves approximately 4 adults
+bbq-chicken-fries-4pc,BBQ Chicken Fries 4pc,Sides,66 g,177,9,11,11,1,203,0.5,1.7,0.3,,false,true,,,
+bbq-chicken-fries-5pc,BBQ Chicken Fries 5pc,Sides,82 g,221,12,14,13,2,254,0.7,2.1,0.4,,false,true,,,
+bbq-chicken-fries-6pc,BBQ Chicken Fries 6pc,Sides,99 g,265,14,17,16,2,305,0.8,2.5,0.5,,false,true,,,
+bbq-chicken-fries-9pc,BBQ Chicken Fries 9pc,Sides,148 g,398,21,25,24,3,457,1.2,3.7,0.7,,false,true,,,
+chicken-nuggets-20pc,Chicken Nuggets 20pc,Sides,334 g,848,45,59,46,7.2,1800,4.6,3.7,1.5,,false,false,,,Guide note: 20 piece serves approximately 4 adults; Sugars 3.7 g and fibre 1.5 g per serving do not match the per 100g row (1.4 g and <0.5 g)
+chicken-nuggets-9pc,Chicken Nuggets 9pc,Sides,150 g,382,20,27,21,3.2,830,2.1,1.8,0.7,,false,true,,,
+chicken-nuggets-6pc,Chicken Nuggets 6pc,Sides,100 g,255,14,18,14,2.1,560,1.4,1.4,<0.5,,false,true,,,
+chilli-cheese-bites-20pc,Chilli Cheese Bites 20pc,Sides,372 g,106,34,104,56,24,2600,6.8,4.6,5.4,,false,false,,,"Guide note: 20 piece serves approximately 4 adults; Printed kcal 106 disagrees with its kJ (4438), the macros and the per 100g row (about 1060 expected); entered as printed"
+chilli-cheese-bites-9pc,Chilli Cheese Bites 9pc,Sides,167 g,477,15,47,25,11,1200,3.1,2.1,2.4,,false,true,,,
+chilli-cheese-bites-6pc,Chilli Cheese Bites 6pc,Sides,111 g,318,10,31,17,7.3,820,2.0,1.4,1.6,,false,true,,,
+fries-regular,Fries (regular),Sides,116 g,275,3.6,36,12,4.0,210,0.52,<0.5,6.2,,false,true,,,
+fries-small,Fries (small),Sides,90 g,213,2.8,28,9.1,3.1,160,0.4,<0.5,4.8,,false,true,,,
+garlic-jalapeno-chicken-fries-4pc,Garlic & Jalapeno Chicken Fries 4pc,Sides,66 g,169,9,12.1,9,1.1,279,0.7,0.6,1.0,,false,true,,,
+garlic-jalapeno-chicken-fries-5pc,Garlic & Jalapeno Chicken Fries 5pc,Sides,83 g,212,12,15.3,11,1.4,350,0.9,0.7,1.2,,false,true,,,
+garlic-jalapeno-chicken-fries-6pc,Garlic & Jalapeno Chicken Fries 6pc,Sides,99 g,253,14,18.2,14,1.6,418,1.0,0.9,1.5,,false,true,,,
+garlic-jalapeno-chicken-fries-9pc,Garlic & Jalapeno Chicken Fries 9pc,Sides,148 g,379,21,27.2,20,2.4,625,1.6,1.3,2.2,,false,true,,,
+garlic-jalapeno-chicken-fries-20pc,Garlic & Jalapeno Chicken Fries 20pc,Sides,330 g,845,47,60.7,45,5.4,1393,3.5,3.0,5.0,,false,false,,,Guide note: 20 piece serves approximately 4 adults
+force-loaded-fries,Force Loaded Fries,Sides,199 g,478,5.1,65,20,6.8,580,1.4,11,7.5,,false,true,,,
+halloumi-fries-5pc,Halloumi Fries 5pc,Sides,90 g,287,16,13,19,12,860,2.1,11,<0.5,,false,true,,,Carbs 13 g and sugars 11 g per serving do not match the per 100g row (11 g and 8.9 g)
+halloumi-fries-8pc,Halloumi Fries 8pc,Sides,129 g,431,26,14,30,19,1300,3.2,12,<0.5,,false,true,,,"Per-serving fat, saturates, carbs, sugars and protein do not match the per 100g row (carbs per 100g is printed as 2)"
+hash-browns-15pc,Hash Browns 15pc,Sides,124 g,237,2.7,31,10,2.9,400,1,1.3,5.1,,false,true,,,
+hash-browns-28pc,Hash Browns 28pc,Sides,232 g,442,5.1,59,19,5.5,740,1.9,2.3,9.5,,false,true,,,
+loaded-cheesy-king-fries,Loaded Cheesy King Fries,Sides,189 g,415,6.6,50,19,7.1,470,1.2,1.2,8.6,,false,true,,,
+loaded-cheesy-king-fries-with-bacon,Loaded Cheesy King Fries with Bacon,Sides,199 g,454,9.2,51,22,8.2,620,1.6,1.6,8.6,contains_pork,false,true,,,
+onion-rings-20pc,Onion Rings 20pc,Sides,300 g,749,15,93,33,7.2,510,1.3,14,11,,false,false,,,Guide note: 20 piece serves approximately 4 adults
+onion-rings-9pc,Onion Rings 9pc,Sides,135 g,337,6.9,42,15,3.3,230,0.57,6.4,5,,false,true,,,
+onion-rings-6pc,Onion Rings 6pc,Sides,90 g,225,4.6,28,9.8,2.2,150,0.38,4.3,3.3,,false,true,,,
+salad-balsamic-dressing,Salad - Balsamic dressing,Sides,112 g,105,2.5,9,7,2.5,137,0.31,3.8,1.7,,false,true,,,
+salad-caesar-dressing,Salad - Caesar dressing,Sides,112 g,157,2.8,7,13,3.1,212,0.50,2.6,1.7,,false,true,,,
+salad-plain,Salad - Plain,Sides,92 g,76,2.5,6,5,2.4,57,0.11,1.2,1.6,,false,true,,,
+sharer-box-5x-garlic-and-jalapeno-chicken-fries-chicken-nuggets-chilli-cheese-bites-and-onion-rings,"Sharer Box (5x Garlic and Jalapeno Chicken Fries, Chicken Nuggets, Chilli Cheese Bites and Onion Rings)",Sides,293 g,779,34.3,64.8,42,10,1622,4.0,4.0,4.4,,false,false,,,Guide note: Sharer box serves approximately 4 adults
+sharer-box-5x-sour-cream-onion-chicken-fries-chicken-nuggets-chilli-cheese-bites-and-onion-rings,"Sharer Box (5x Sour Cream & Onion Chicken Fries, Chicken Nuggets, Chilli Cheese Bites and Onion Rings)",Sides,295 g,769,34.6,66,41,10.2,1614,4.0,4.2,4.4,,false,false,,,Guide note: Sharer box serves approximately 4 adults; Several per-serving values do not match the per 100g row (e.g. sodium 1614 mg vs 375 mg per 100g x 295 g)
+sour-cream-onion-chicken-fries-20pc,Sour Cream & Onion Chicken Fries 20pc,Sides,340 g,809,48.1,64,40,5.2,1366,3.41,4.0,5.3,,false,false,,,Guide note: 20 piece serves approximately 4 adults
+sour-cream-onion-chicken-fries-9pc,Sour Cream & Onion Chicken Fries 9pc,Sides,152 g,360,21.6,28,18,2.3,570,1.42,1.6,2.3,,false,true,,,
+sour-cream-onion-chicken-fries-6pc,Sour Cream & Onion Chicken Fries 6pc,Sides,102 g,241,14.4,19,12,1.6,391,0.98,1.1,1.6,,false,true,,,
+sour-cream-onion-chicken-fries-5pc,Sour Cream & Onion Chicken Fries 5pc,Sides,85 g,202,12.0,16,10,1.3,342,0.85,1.0,1.3,,false,true,,,
+sour-cream-onion-chicken-fries-4pc,Sour Cream & Onion Chicken Fries 4pc,Sides,68 g,160,9.6,13,8,1.0,258,0.65,0.7,1.0,,false,true,,,
+truffle-loaded-fries,Truffle Loaded Fries,Sides,209 g,666,8.9,61,42,7.7,650,1.6,0.7,3.1,,false,true,,,Sugars 0.7 g per serving but 1.5 g per 100g (209 g)
+truffle-loaded-nuggets-delivery-exclusive,Truffle Loaded Nuggets (Delivery exclusive),Sides,187 g,506,23.3,31.8,31.75,6.104,1009,2.4,2.8,1.873,,false,true,,,Delivery exclusive as printed in the guide
+xl-cheese-dip-pot-65g,XL Cheese Dip Pot 65g,Sides,65 g,155,6.2,5.8,12,8.4,730,1.8,4.2,0,,false,false,,,
+ben-jerrys-caramel-chew-chew-465ml,Ben & Jerry's Caramel Chew Chew 465ml,Sweets,420 g,1117,15,120,64,44,290,0.73,107,0.9,,false,false,,,
+ben-jerrys-fudge-brownie-465ml,Ben & Jerry's Fudge Brownie 465ml,Sweets,408 g,1017,18,120,51,32,380,0.96,111,8.2,,false,false,,,
+ben-jerrys-vanilla-cookie-dough-465ml,Ben & Jerry's Vanilla Cookie Dough 465ml,Sweets,406 g,1096,16,130,61,37,240,0.59,102,<0.5,,false,false,,,
+bk-ice-cream-tubs-chocolate-fudge-100ml,BK Ice Cream Tubs Chocolate Fudge 100ml,Sweets,65 g,150,2.5,21,5.85,3.8,63,0.1,16,1.3,,false,false,,,
+bk-ice-cream-tubs-chocolate-fudge-465ml,BK Ice Cream Tubs Chocolate Fudge 465ml,Sweets,295 g,678,11.5,95.09,26,17,286,0.6,70.8,6.2,,false,false,,,
+cheesecake-bar-chocolate-brownie,Cheesecake Bar - Chocolate Brownie,Sweets,82 g,294,4.5,35.2,15,7.5,57,0.1,20.7,1.6,,false,false,,,
+cheesecake-bar-gooey-salted-caramel,Cheesecake Bar - Gooey Salted Caramel,Sweets,82 g,285,4.8,34.2,8.7,7.1,140,0.4,17,1.1,,false,false,,,kcal 285 does not match its macros (about 234 kcal); fat 8.7 g per serving but 17.9 g per 100g (82 g)
+cheesecake-bar-strawberry-milkshake,Cheesecake Bar - Strawberry Milkshake,Sweets,82 g,284,4,31.7,16,7.8,98,0.2,16.6,0.7,,false,false,,,
+cheesecake-bar-mango-passionfruit,Cheesecake Bar - Mango & Passionfruit,Sweets,74 g,264,3.29,32.3,13.6,6.5,90,0.2,18.4,0.8,,false,false,,,
+chocolate-milkshake-22oz,Chocolate Milkshake 22oz,Sweets,783 g,968,23,174,19,13,680,1.7,124,4.8,,false,false,,,
+chocolate-milkshake-16oz,Chocolate Milkshake 16oz,Sweets,551 g,652,16,115,14,9.4,480,1.2,81,3.2,,false,false,,,
+chocolate-milkshake-12oz,Chocolate Milkshake 12oz,Sweets,403 g,459,12,79,10,7,350,0.87,56,2.3,,false,false,,,
+king-fusion-plain,King Fusion - Plain,Sweets,120 g,143,3.2,22,4.4,3.4,60,0.16,18,0.6,,false,false,,,
+salted-caramel-milkshake-22oz,Salted Caramel Milkshake 22oz,Sweets,711 g,838,21,143,20,14,1131,3,102,3,,false,false,,,Salt 3 g and fibre 3 g per serving but 0 per 100g
+salted-caramel-milkshake-16oz,Salted Caramel Milkshake 16oz,Sweets,416 g,457.2,12.7,75.9,11.2,7.7,490.0,1.2,54.4,2.0,,false,false,,,
+salted-caramel-milkshake-12oz,Salted Caramel Milkshake 12oz,Sweets,291 g,327,8.81,54.76,7.93,5.45,381.27,1,39.25,1.38,,false,false,,,
+sundae-chocolate,Sundae Chocolate,Sweets,135 g,184,3.5,31,5,3.7,60,0.16,25,1,,false,false,,,
+sundae-plain,Sundae Plain,Sweets,120 g,143,3.2,22,4.4,3.4,60,0.16,18,0.6,,false,false,,,
+sundae-salted-caramel,Sundae Salted Caramel,Sweets,135 g,183,3.5,30,5.2,3.8,200,0.51,24,0.6,,false,false,,,Sodium 200 mg per serving but 50 mg per 100g (135 g)
+sundae-mint-chocolate,Sundae Mint Chocolate,Sweets,135 g,184,3.4,30.5,5,3.7,67,0.20,24.8,0.6,,false,false,,,
+sundae-strawberry,Sundae Strawberry,Sweets,135 g,179,3.4,30,4.5,3.4,70,0.17,26,0.9,,false,false,,,
+smarties-king-fusion,Smarties King Fusion,Sweets,132 g,199,3.9,31,6.7,4.7,70,0.18,25,0.8,,false,false,,,
+smarties-mini-king-fusion,Smarties Mini King Fusion,Sweets,92 g,152,2.8,23,5.2,3.6,50,0.12,19,0.6,,false,false,,,
+salted-caramel-churros,Salted Caramel Churros,Sweets,34 g,96,1.5,13.5,4,0.5,168,0.40,3.2,0.6,,false,false,,,
+sticky-toffee-churros,Sticky Toffee Churros,Sweets,101 g,298,4.5,41,12,2,460,1.1,9.2,2,,false,false,,,
+strawberry-milkshake-22oz,Strawberry Milkshake 22oz,Sweets,776 g,884,22,157,18,13,630,1.6,114,3.5,,false,false,,,
+strawberry-milkshake-16oz,Strawberry Milkshake 16oz,Sweets,548 g,609,16,106,13,9.2,460,1.1,77,2.5,,false,false,,,
+strawberry-milkshake-12oz,Strawberry Milkshake 12oz,Sweets,402 g,438,12,74,10,6.9,340,0.84,54,1.9,,false,false,,,
+twix-milkshake-16oz,Twix Milkshake 16oz,Sweets,509 g,627,15,109,14,9.2,525,1.3,79,2.6,,false,false,,,
+twix-king-fusion,Twix King Fusion,Sweets,138 g,210,4,37,5,3.7,119,0.3,29,0.7,,false,false,,,
+twix-mini-king-fusion,Twix Mini King Fusion,Sweets,98 g,163,3,29,4,2.6,98,0.2,23,0.5,,false,false,,,
+vanilla-milkshake-16oz,Vanilla Milkshake 16oz,Sweets,510 g,531,16,86,13,9.2,440,1.10,0.7,2.5,,false,false,,,Sugars 0.7 g with 86 g carbs (per 100g sugars 12 g)
+american-cheese-slice,American Cheese Slice,Extras,11 g,37,2.1,0.8,2.9,1.9,210,0.52,<0.5,<0.5,,false,false,,,
+angus-beef-patty,Angus Beef Patty,Extras,102 g,326,24,0.6,24,10,340,0.84,<0.5,0.7,contains_beef,false,false,,,
+back-bacon,Back Bacon,Extras,18 g,46,5.9,<0.5,2.5,1,140,0.34,<0.5,<0.5,contains_pork,false,false,,,
+balsamic-dressing,Balsamic Dressing,Extras,20 g,29,0.04,3.08,1.84,0.12,80,0.2,2.6,0.0,,false,false,,,
+bbq-mayo-style-sauce,BBQ Mayo Style Sauce,Extras,21 g,123,<0.5,2.5,13,1.1,130,0.34,1.9,0.13,,false,false,,,
+biscuit-blonde-crumb,Biscuit Blonde Crumb,Extras,5 g,26,0.21,3.72,1.2,0.73,10,0.0,2,0.0,,false,false,,,
+big-king-sauce,Big King Sauce,Extras,28 g,497,0.6,4.7,11.1,1,300,0.8,3.3,0.2,,false,false,,,Printed kcal 497 and kJ 120 look swapped (the per 100g row is swapped too: 1776 / 430); entered as printed
+caesar-dressing,Caesar Dressing,Extras,20 g,81,0.34,1.74,8.08,0.68,155,0.4,1.36,0.0,,false,false,,,
+caesar-style-sauce,Caesar Style Sauce,Extras,28 g,156,0.7,2.3,161,1.6,180,4.5,1.4,0.1,,false,false,,,"Fat printed as 161 g for a 28 g sauce (per 100g 57.5 g, so probably 16.1) and kcal 156 disagrees with it; salt 4.5 g does not match sodium 180 mg; entered as printed"
+caramelised-onion-mayo,Caramelised Onion Mayo,Extras,28 g,133,<0.5,1.5,14,0.9,190,0.5,0.7,<0.5,,false,false,,,
+caramelised-onions,Caramelised Onions,Extras,25 g,20,0.3,3.8,0.3,0,65,0.2,3.7,0.4,,false,false,,,
+cheddar-cheese-sauce,Cheddar Cheese Sauce,Extras,15 g,18,0.9,1.3,1,0.6,90,0.23,<0.5,<0.5,,false,false,,,
+chicken-royale-patty,Chicken Royale Patty,Extras,96 g,203,14,10,12,1.6,670,1.7,0.6,0.7,,false,false,,,
+chocolate-fudge-biscuit-topping,Chocolate Fudge Biscuit Topping,Extras,5 g,23,0.3,3.9,0.7,0.4,18,0.0,3.8,0.1,,false,false,,,
+churros,Churros,Extras,81 g,232,4.1,29.2,10.5,0.8,308,0.8,1.3,1.9,,false,false,,,
+cornflake-chicken-patty,Cornflake Chicken Patty,Extras,88 g,251,13,14.6,15,5,485,1.2,0.6,1.0,,false,false,,,
+crispy-chicken-patty,Crispy Chicken Patty,Extras,95 g,219,16,16,10,1,690,1.7,<0.5,0.9,,false,false,,,
+crispy-onions,Crispy Onions,Extras,10 g,61,0.6,4.2,4.6,2.3,45,0.1,2,<0.5,,false,false,,,
+diced-bacon,Diced Bacon,Extras,10 g,39,2.6,0.9,2.8,1.1,150,0.37,<0.5,<0.5,contains_pork,false,false,,,
+egg-patty,Egg Patty,Extras,57 g,82,6,1.3,5.8,2.3,190,0.48,<0.5,<0.5,,false,false,,,
+hamburger-patty,Hamburger Patty,Extras,33 g,96,8.7,<0.5,6.8,3,30,0.1,<0.5,<0.5,,false,false,,,Meat type not stated in the item name
+hp-sauce,HP Sauce,Extras,1 g,1,<0.5,<0.5,<0.5,<0.1,10,<0.01,<0.5,<0.5,,false,false,,,"Sodium 10 mg for a 1 g serving but 500 mg per 100g (small serving, rounded)"
+ketchup,Ketchup,Extras,14 g,14,<0.5,3.2,<0.5,<0.1,101,0.3,3.2,<0.5,,false,false,,,
+lettuce,Lettuce,Extras,21 g,2,0.2,0.2,<0.5,<0.1,2.1,0,0.2,0.4,,false,false,,,
+mayonnaise-egg-free-vegan,Mayonnaise (Egg-Free / Vegan),Extras,21 g,96,<0.5,1.3,10,0.7,130,0.32,<0.5,<0.5,vegetarian,false,false,,,
+mint-chocolate-sauce,Mint Chocolate Sauce,Extras,15 g,41,0.2,8.2,0.6,0.4,5,0.0,6.7,0.0,,false,false,,,
+mustard,Mustard,Extras,3 g,3,0.1,0.1,0.2,0,36,0.1,0,0.1,,false,false,,,
+oak-smoked-cheddar-cheese-slice,Oak Smoked Cheddar Cheese Slice,Extras,21 g,82,5.5,<0.5,6.7,4.2,140,0.34,<0.5,<0.5,,false,false,,,
+onion-slices,Onion Slices,Extras,14 g,6,0.1,1.1,<0.5,<0.1,0.0,0.0,0.8,0.1,,false,false,,,
+pickles,Pickles,Extras,3 g,0,<0.5,<0.5,<0.5,<0.1,50,0.12,<0.5,<0.5,,false,false,,,"Sodium 50 mg for a 3 g serving but 1300 mg per 100g (small serving, rounded)"
+pink-pickled-onions,Pink Pickled Onions,Extras,21 g,19,0.2,4.5,0.105,0,1,0.0,3.3,0.3,,false,false,,,
+plant-based-whopper-patty,Plant-based Whopper Patty,Extras,90 g,180,17,2.3,10,3.2,280,0.7,0.8,6.6,vegetarian,false,false,,,
+porcini-mushroom-sauce,Porcini Mushroom Sauce,Extras,28 g,158,0.58,4.17,15,1.98,221,0.6,3.28,0.4,,false,false,,,
+rocket-leaves,Rocket Leaves,Extras,11 g,2,0.4,<0.5,<0.5,<0.1,3.3,0.0,<0.5,0.2,,false,false,,,
+salted-caramel-sauce,Salted Caramel Sauce,Extras,15 g,40,0.2,8.11,0.7,0.47,141.0,0.4,5.9,0.0,,false,false,,,
+salt-pepper,Salt & Pepper,Extras,0.5 g,0,0.0,0,0,0,126.0,0.3,0.0,0.0,,false,false,,,
+sausage-patty,Sausage Patty,Extras,48 g,129,10,0.7,9.4,3.3,30,0.1,<0.5,<0.5,contains_pork,false,false,,,
+smarties,Smarties,Extras,12 g,56,0.7,8.3,2.2,1.4,6,0,7.2,0.2,,false,false,,,
+smoky-bbq-sauce,Smoky BBQ Sauce,Extras,11 g,19,0.1,4.3,<0.5,<0.1,132,0.3,3.9,<0.5,,false,false,,,
+sour-and-cream-seasoning,Sour and Cream Seasoning,Extras,10 g,37,0.62,5.96,0.96,0.15,376,0.9,1.38,0.4,,false,false,,,
+streaky-bacon,Streaky Bacon,Extras,3 g,11,1,<0.5,0.8,<0.1,50,0.12,<0.5,<0.5,contains_pork,false,false,,,
+texan-style-bbq-sauce,Texan Style BBQ Sauce,Extras,14 g,25,<0.5,6.2,<0.5,0.01,0,0,5.5,0.06,,false,false,,,
+tomato-slices,Tomato Slices,Extras,14 g,2,<0.5,<0.5,<0.5,<0.1,0,<0.01,<0.5,<0.5,,false,false,,,"Sodium 0 mg per serving but 10 mg per 100g (small serving, rounded)"
+truffle-mayo,Truffle Mayo,Extras,30 g,180,0.44,2,19,1.6,163,0.4,1.3,0.1,,false,false,,,
+twix-syrup,Twix Syrup,Extras,13 g,44,0.0,11,0.14,0.1,46,0.1,9.0,0.0,,false,false,,,
+twix-topping,Twix Topping,Extras,5 g,23,0.3,3.66,1,0.3,11,0.0,1.8,0.1,,false,false,,,
+vegan-royale-patty,Vegan Royale Patty,Extras,96 g,220,9.7,15,12,1.1,600,1.5,1.1,6,vegetarian,false,false,,,
+wagyu-patty,Wagyu Patty,Extras,125 g,340,24,0.1,24,9.9,95,0.2,0.1,0.5,contains_beef,false,false,,,Protein 24 g per 125 g serving but 24 g per 100g (would be about 30 g)
+whopper-patty,Whopper Patty,Extras,85 g,239,21,<0.5,17,7.5,70,0.2,<0.5,0.6,,false,false,,,Per 100g saturates printed as 208.8 (a typo); the per-serving 7.5 is what is entered; Meat type not stated in the item name
