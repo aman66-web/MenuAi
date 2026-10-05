@@ -78,8 +78,9 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   never be set on a public production site; Pro is client-side only until payments exist (real payments need a
   server-verified entitlement).
 - 2026-10-05 — Vercel project `menumacros` has env vars IP_HASH_SALT and CRON_SECRET (sensitive) and
-  NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 on Preview only, SUPABASE_URL on both. Still to set:
-  NEXT_PUBLIC_SUPPORT_EMAIL, NEXT_PUBLIC_SITE_URL.
+  NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 on Preview only, SUPABASE_URL on both. NEXT_PUBLIC_SUPPORT_EMAIL is set (Production + Preview) to
+  the founder's personal address for now — public on the site, privacy page, terms, support page and "Email instead";
+  swap for a domain address later (one Vercel env var + redeploy). Still to set: NEXT_PUBLIC_SITE_URL.
 - 2026-10-05 — User-facing name comes from `AppConfig.appName` (currently "Menu Math") — name not final.
 
 ## Known issues
@@ -101,5 +102,5 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
 - [ ] Real chain data in `data/source/` (keep the two sample folders; release builds use `--no-samples`)
 - [ ] App icon and screenshots (the web app and PWA use a placeholder `M` icon in `web/public/icons/` and `web/app/icon.png`)
-- [ ] Support email: set `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel (the site defaults to support@example.com)
+- [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
