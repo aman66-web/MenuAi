@@ -68,3 +68,65 @@ Conventions (match `data/source/kfc/items.csv`):
 One download of each guide, not a crawl. At most one request per second, a normal browser user-agent, no proxies
 or tricks. If a page needs a browser to render, use the Playwright install in the scratchpad
 (`<scratchpad>/pw/node_modules/playwright-core`, Chromium at `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`).
+
+---
+
+# Scaling up: triage, extraction and logos (the overnight run)
+
+## Shared tools
+
+- `tools/uk_extract/common.py`: `write_chain_folder(...)` writes a whole `data/source/<id>/` from a list of item dicts (numbers
+  exactly as printed), `slug()`, `sha256_file()`. Look at `tools/uk_extract/kfc.py` for the pattern; use these instead of
+  re-implementing CSV writing.
+- `python3 tools/uk_extract/check_chain.py <chain-id>`: builds just that chain in isolation and prints errors and
+  warnings. Use this, never a full-repo build, while other agents are writing their chains.
+- `holdback.csv` (`item_id,reason`) and `note.txt` sit beside `items.csv`; see `docs/DATA.md`. A chain with a few rows the
+  guide prints impossibly gets those rows held back (never corrected). A chain whose numbers have a known limit gets a
+  one-or-two-sentence `note.txt` (e.g. "values exclude sauces").
+
+## Phase 1: triage (`data/candidates/uk-candidates.csv`, results in `data/candidates/triage/<batch>.csv`)
+
+For each chain in your batch decide, with the least work that is still certain:
+
+| verdict | meaning |
+|---|---|
+| `GO` | An official, reachable, per-serving table with calories **and protein, carbs and fat**, which a script can read (PDF with a text layer, HTML table, or the JSON the site loads). You opened the real file/page and saw those columns. |
+| `GO-OCR` | As GO but the file is image-only (needs OCR: slow and error-prone; extra checking). |
+| `NO-MACROS` | Official calories (or calories and a few nutrients) only: protein, carbs or fat missing. Not usable. |
+| `NO-DATA` | No official nutrition information found. |
+| `BLOCKED` | An official source exists but this environment can't read it (403, location block, login, JavaScript-only with no data feed). Say exactly which URL the founder should download. |
+| `CLOSED` | Not a UK chain any more / no UK presence / not found. |
+
+Rules: official sources only (the chain's own site, PDF or data feed); at most ~12 requests per chain, 1 request/second, a
+normal browser user-agent; never evade a block; per-100g-only guides are `NO-MACROS` (we never convert). Note when one
+file covers several brands (put `parent group publishes one guide: also covers X, Y` in `notes`). Write one CSV row per
+chain: `id,verdict,format,source_url,serving_basis,date_or_version,notes` (quote cells that contain commas). The URL must
+be the page or file that proves the verdict. Work in your own scratch folder; touch nothing else in the repo.
+
+## Phase 2: extraction (chains triaged `GO` / `GO-OCR`)
+
+Everything above applies (copy don't type; script in `tools/uk_extract/<chain-id>.py`; `check_chain.py` shows 0 errors;
+every warning explained; independent spot check of at least 15 items or all rows for a small chain; hold back impossible
+rows; `note.txt` for known limits). **Budget:** be economical. Aim for roughly 60-100 tool calls per chain; if a chain
+turns out to need far more (OCR, a site that fights you), stop and report what blocks it instead of grinding. Never
+commit or push. Final report under 250 words: items published/held back, source URL + file date + SHA-256, exclusions,
+"meat type not stated" count, anything unverified.
+
+## Phase 3: logos (`web/public/logos/`)
+
+The founder authorised sourcing official logos (CLAUDE.md rule 2). For each chain you are given:
+
+1. Find the chain's **own** brand/press/media page (or the press kit its site links). Not Wikipedia, search engines'
+   image results, logo aggregators or any third party.
+2. Read its terms/usage guidelines. **Install the logo only if** the page offers the file for download without a login or
+   request form **and** the terms don't forbid this use (identifying the restaurant by name, unmodified, small, with
+   "Not affiliated with" shown). If the terms require permission, are "press/media only", or forbid third-party apps,
+   do **not** install: record `skipped-terms` instead. Never work around a form, login, or block.
+3. Prefer SVG, else PNG. Use the file as published: no recolouring, cropping, outlining or redrawing. A PNG wider than
+   600 px may be scaled down proportionally (nothing else). Look at the result (PNGs with the Read tool; SVGs by
+   rendering in Chromium): it must be the chain's actual mark, legible on a white tile, not a white-only version.
+   Reject any SVG containing `<script`, `javascript:`, `onload=`, `<foreignObject`, or external `href`s.
+4. Save to `web/public/logos/<chain-id>.svg|png` (keep it under ~80 KB) and write the sidecar
+   `web/public/logos/<chain-id>.source.txt` (one `key: value` per line: `status` = installed | skipped-terms |
+   skipped-unavailable, `file`, `source_url`, `terms_url`, `terms_summary` (one sentence), `retrieved` (date)).
+   Do **not** edit `logos.ts`, `SOURCES.md` or any other file: the orchestrator assembles them from the sidecars.

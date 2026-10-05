@@ -1,0 +1,211 @@
+batch,id,name,cuisine,parent_hint
+01,wagamama,Wagamama,Asian,Wagamama Ltd
+01,pizza-express,Pizza Express,Pizza,
+01,jd-wetherspoon,JD Wetherspoon,Pub,
+01,caffe-nero,Caffè Nero,Coffee,
+01,krispy-kreme,Krispy Kreme,Doughnuts,
+01,leon,Leon,Healthy fast food,
+01,itsu,Itsu,Asian,
+01,wasabi,Wasabi,Sushi,
+01,yo-sushi,YO! Sushi,Sushi,
+01,tortilla,Tortilla,Mexican,
+01,zizzi,Zizzi,Italian,Azzurri
+01,prezzo,Prezzo,Italian,
+01,bella-italia,Bella Italia,Italian,Big Table Group
+01,ask-italian,ASK Italian,Italian,Azzurri
+01,frankie-and-bennys,Frankie & Benny's,American,Big Table Group
+02,harvester,Harvester,Grill,Mitchells & Butlers
+02,toby-carvery,Toby Carvery,Carvery,Mitchells & Butlers
+02,beefeater,Beefeater,Grill,Whitbread
+02,brewers-fayre,Brewers Fayre,Pub,Whitbread
+02,table-table,Table Table,Pub,Whitbread
+02,hungry-horse,Hungry Horse,Pub,Greene King
+02,miller-and-carter,Miller & Carter,Steakhouse,Mitchells & Butlers
+02,cafe-rouge,Café Rouge,French,Big Table Group
+02,cote-brasserie,Côte Brasserie,French,
+02,bills,Bill's,Brasserie,
+02,tgi-fridays,TGI Fridays,American,
+02,hard-rock-cafe,Hard Rock Cafe,American,
+02,giraffe,Giraffe,World food,
+02,las-iguanas,Las Iguanas,Latin American,Big Table Group
+02,wahaca,Wahaca,Mexican,
+03,chiquito,Chiquito,Tex-Mex,Big Table Group
+03,pho,Pho,Vietnamese,
+03,rosas-thai,Rosa's Thai,Thai,
+03,giggling-squid,Giggling Squid,Thai,
+03,tonkotsu,Tonkotsu,Japanese,
+03,busaba,Busaba,Thai,
+03,banana-tree,Banana Tree,Asian,
+03,loch-fyne,Loch Fyne,Seafood,Loch Fyne Restaurants
+03,strada,Strada,Italian,
+03,gaucho,Gaucho,Steakhouse,
+03,hawksmoor,Hawksmoor,Steakhouse,
+03,flat-iron,Flat Iron,Steakhouse,
+03,burger-and-lobster,Burger & Lobster,Burgers,
+03,honest-burgers,Honest Burgers,Burgers,
+03,gourmet-burger-kitchen,Gourmet Burger Kitchen,Burgers,
+04,byron,Byron,Burgers,
+04,shake-shack,Shake Shack,Burgers,
+04,wimpy,Wimpy,Burgers,
+04,patty-and-bun,Patty & Bun,Burgers,
+04,meatliquor,MeatLiquor,Burgers,
+04,pizza-pilgrims,Pizza Pilgrims,Pizza,
+04,franco-manca,Franco Manca,Pizza,
+04,gusto,Gusto,Italian,
+04,turtle-bay,Turtle Bay,Caribbean,
+04,cosy-club,Cosy Club,Café bar,Loungers
+04,slug-and-lettuce,Slug and Lettuce,Bar,Stonegate
+04,all-bar-one,All Bar One,Bar,Mitchells & Butlers
+04,browns,Browns,Brasserie,Mitchells & Butlers
+04,greene-king,Greene King,Pub,Greene King
+04,chef-and-brewer,Chef & Brewer,Pub,Greene King
+05,vintage-inns,Vintage Inns,Pub,Mitchells & Butlers
+05,ember-inns,Ember Inns,Pub,Mitchells & Butlers
+05,nicholsons,Nicholson's,Pub,Mitchells & Butlers
+05,oneills,O'Neill's,Pub,Mitchells & Butlers
+05,premier-inn,Premier Inn,Hotel restaurant,Whitbread
+05,tim-hortons,Tim Hortons,Coffee,
+05,dunkin,Dunkin',Coffee,
+05,gails,GAIL's,Bakery,
+05,paul,PAUL,Bakery,
+05,black-sheep-coffee,Black Sheep Coffee,Coffee,
+05,joe-and-the-juice,Joe & The Juice,Juice and sandwiches,
+05,coffee-1,Coffee #1,Coffee,
+05,esquires,Esquires,Coffee,
+05,harris-and-hoole,Harris + Hoole,Coffee,
+05,muffin-break,Muffin Break,Bakery,
+06,cinnabon,Cinnabon,Bakery,
+06,baskin-robbins,Baskin-Robbins,Ice cream,
+06,ben-and-jerrys,Ben & Jerry's,Ice cream,
+06,haagen-dazs,Häagen-Dazs,Ice cream,
+06,millies-cookies,Millie's Cookies,Bakery,
+06,aunties-anne,Auntie Anne's,Pretzels,
+06,upper-crust,Upper Crust,Sandwiches,SSP
+06,delice-de-france,Délice de France,Bakery,
+06,cooplands,Cooplands,Bakery,
+06,west-cornwall-pasty-co,West Cornwall Pasty Co.,Bakery,
+06,birds-bakery,Birds Bakery,Bakery,
+06,warrens-bakery,Warrens Bakery,Bakery,
+06,pasty-presto,Pasty Presto,Bakery,
+06,bagel-factory,Bagel Factory,Bagels,
+06,ole-and-steen,Ole & Steen,Bakery,
+07,benugo,Benugo,Café,
+07,puccinos,Puccino's,Coffee,
+07,gloria-jeans,Gloria Jean's,Coffee,
+07,taylor-st-baristas,Taylor St Baristas,Coffee,
+07,eat,EAT.,Sandwiches,
+07,crussh,Crussh,Healthy fast food,
+07,pod,Pod,Healthy fast food,
+07,tossed,Tossed,Salads,
+07,chopstix,Chopstix,Asian,
+07,wok-to-walk,Wok to Walk,Asian,
+07,noodle-box,Noodle Box,Asian,
+07,eat-tokyo,Eat Tokyo,Japanese,
+07,kokoro,Kokoro,Japanese,
+07,freshii,Freshii,Healthy fast food,
+07,farmer-j,Farmer J,Healthy fast food,
+08,cojean,Cojean,Healthy fast food,
+08,abokado,Abokado,Healthy fast food,
+08,chipotle,Chipotle,Mexican,
+08,barburrito,Barburrito,Mexican,
+08,benitos-hat,Benito's Hat,Mexican,
+08,wingstop,Wingstop,Chicken,
+08,bonchon,Bonchon,Chicken,
+08,chicken-cottage,Chicken Cottage,Chicken,
+08,dixy-chicken,Dixy Chicken,Chicken,
+08,morleys,Morley's,Chicken,
+08,perfect-fried-chicken,Perfect Fried Chicken,Chicken,
+08,sams-chicken,Sam's Chicken,Chicken,
+08,wendys,Wendy's,Burgers,
+08,little-caesars,Little Caesars,Pizza,
+08,tops-pizza,Tops Pizza,Pizza,
+09,pizza-gogo,Pizza GoGo,Pizza,
+09,sbarro,Sbarro,Pizza,
+09,pepes-piri-piri,Pepe's Piri Piri,Chicken,
+09,fat-hippo,Fat Hippo,Burgers,
+09,eds-easy-diner,Ed's Easy Diner,American,
+09,shakeaway,Shakeaway,Milkshakes,
+09,creams-cafe,Creams Cafe,Desserts,
+09,bubbleology,Bubbleology,Bubble tea,
+09,chatime,Chatime,Bubble tea,
+09,gong-cha,Gong cha,Bubble tea,
+09,mowgli,Mowgli Street Food,Indian,
+09,dishoom,Dishoom,Indian,
+09,bundobust,Bundobust,Indian,
+09,comptoir-libanais,Comptoir Libanais,Lebanese,
+09,cabana,Cabana,Brazilian,
+10,harry-ramsdens,Harry Ramsden's,Fish and chips,
+10,m-and-s-cafe,M&S Café,Café,Marks & Spencer
+10,ikea,IKEA,Restaurant,
+10,morrisons-cafe,Morrisons Café,Café,Morrisons
+10,asda-cafe,Asda Café,Café,Asda
+10,sainsburys-cafe,Sainsbury's Café,Café,Sainsbury's
+10,tesco-cafe,Tesco Café,Café,Tesco
+10,john-lewis-cafe,John Lewis Café,Café,John Lewis
+10,waitrose-cafe,Waitrose Café,Café,John Lewis
+10,welcome-break,Welcome Break,Service stations,
+10,moto,Moto,Service stations,
+10,roadchef,Roadchef,Service stations,
+10,loungers,Loungers,Café bar,Loungers
+10,revolution-bars,Revolution,Bar,
+10,be-at-one,Be At One,Bar,
+11,yates,Yates,Pub,Stonegate
+11,walkabout,Walkabout,Bar,Stonegate
+11,fullers,Fuller's,Pub,
+11,youngs,Young's,Pub,
+11,marstons,Marston's,Pub,
+11,sizzling-pubs,Sizzling Pubs,Pub,Mitchells & Butlers
+11,stonehouse,Stonehouse Pizza & Carvery,Pub,Mitchells & Butlers
+11,wacky-warehouse,Wacky Warehouse,Family pub,Whitbread
+11,flaming-grill,Flaming Grill,Grill,Mitchells & Butlers
+11,hickorys,Hickory's Smokehouse,Grill,
+11,aberdeen-steakhouse,Aberdeen Steakhouse,Steakhouse,
+11,angus-steakhouse,Angus Steakhouse,Steakhouse,
+11,garfunkels,Garfunkel's,Restaurant,Big Table Group
+11,ping-pong,Ping Pong,Dim sum,
+11,dim-t,Dim T,Asian,
+12,coco-di-mama,Coco di Mama,Sandwiches,
+12,caffe-ritazza,Caffè Ritazza,Coffee,SSP
+12,pumpkin-cafe,Pumpkin Café,Café,SSP
+12,camden-food-co,Camden Food Co,Café,SSP
+12,pure,Pure,Healthy fast food,
+12,sushi-daily,Sushi Daily,Sushi,
+12,sushi-shop,Sushi Shop,Sushi,
+12,sticks-n-sushi,Sticks'n'Sushi,Sushi,
+12,smashburger,Smashburger,Burgers,
+12,fatburger,Fatburger,Burgers,
+12,burger-shack,Burger Shack,Burgers,
+12,bird-street-chicken,Bird Street Chicken,Chicken,
+12,dirty-fried-chicken,Dirty Fried Chicken,Chicken,
+12,wingers,Wingers,Chicken,
+12,crispy-chicken-and-burger,Crispy Chicken & Burger,Chicken,
+13,cold-stone-creamery,Cold Stone Creamery,Ice cream,
+13,snog,Snog,Frozen yoghurt,
+13,yogurtland,Yogurtland,Frozen yoghurt,
+13,coffee-island,Coffee Island,Coffee,
+13,coffee-republic,Coffee Republic,Coffee,
+13,patisserie-valerie,Patisserie Valerie,Bakery,
+13,carluccios,Carluccio's,Italian,
+13,cafe-concerto,Café Concerto,Café,
+13,rick-steins,Rick Stein,Seafood,
+13,jamies-italian,Jamie's Italian,Italian,
+13,hooters,Hooters,American,
+13,cheesecake-factory,The Cheesecake Factory,American,
+13,tiger-sugar,Tiger Sugar,Bubble tea,
+13,the-alley,The Alley,Bubble tea,
+13,coco-fresh-tea,CoCo Fresh Tea,Bubble tea,
+14,kaspas,Kaspa's,Desserts,
+14,ministry-of-cake,Ministry of Cake,Desserts,
+14,rolls-and-bowls,Rolls & Bowls,Healthy fast food,
+14,pizza-union,Pizza Union,Pizza,
+14,bleecker-burger,Bleecker Burger,Burgers,
+14,bar-burrito,Bar Burrito,Mexican,
+14,chilango,Chilango,Mexican,
+14,poncho-8,Poncho 8,Mexican,
+14,mission-burrito,Mission Burrito,Mexican,
+14,chopt,Chopt,Salads,
+14,daily-bread,Daily Bread,Bakery,
+14,vital-ingredient,Vital Ingredient,Healthy fast food,
+14,grabbagreen,Grabbagreen,Healthy fast food,
+14,nu-ya,Nu Ya,Healthy fast food,
+14,natural-kitchen,Natural Kitchen,Healthy fast food,
