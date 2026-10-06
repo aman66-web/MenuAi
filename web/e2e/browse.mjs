@@ -13,7 +13,7 @@ await ctx.addInitScript(() => {
 const page = await ctx.newPage();
 const problems = [];
 page.on("pageerror", (e) => problems.push(`pageerror: ${e.message}`));
-page.on("console", (m) => { if (["error", "warning"].includes(m.type())) problems.push(`console.${m.type()}: ${m.text().slice(0, 300)}`); });
+page.on("console", (m) => { if (["error", "warning"].includes(m.type()) && !m.text().includes("blocked by Playwright")) problems.push(`console.${m.type()}: ${m.text().slice(0, 300)}`); });
 
 let passed = 0, failed = 0;
 async function step(name, fn) {

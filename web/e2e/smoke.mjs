@@ -96,7 +96,7 @@ await step("sorting flattens categories; filter chips narrow the menu", async ()
   await page.getByLabel("Sort by").selectOption("protein");
   const firstRow = page.locator("section[aria-label='All items'] li").first();
   await visible(firstRow);
-  if (!(await firstRow.innerText()).includes("Chicken")) throw new Error("expected a chicken item first when sorting by protein");
+  if (!(await firstRow.textContent()).includes("Chicken")) throw new Error("expected a chicken item first when sorting by protein");
   await page.getByLabel("Sort by").selectOption("menu");
   await page.getByRole("button", { name: "Vegetarian" }).click();
   await visible(text("Agua fresca"));

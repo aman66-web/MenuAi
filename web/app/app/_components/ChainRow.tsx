@@ -16,8 +16,8 @@ export function ChainRow({ chain, onOpen, compact }: { chain: Pick<CatalogChain,
       <ChainMark chainId={chain.id} cuisine={chain.cuisine} size={compact ? "sm" : "md"} />
       <span className="min-w-0 flex-1">
         <span className={`block truncate font-bold tracking-tight ${compact ? "text-[15px]" : "text-base"}`}>{chain.name}</span>
-        <span className="flex flex-wrap items-center gap-x-2 text-sm text-muted">
-          <span className="app-numbers">{chain.cuisine ? `${chain.cuisine} · ` : ""}{chain.itemCount} items</span> {chain.sample && <SampleBadge />}
+        <span className="app-numbers block text-sm text-muted [overflow-wrap:anywhere]">
+          {chain.cuisine ? `${chain.cuisine} · ` : ""}{chain.itemCount} items{chain.sample && <> <SampleBadge /></>}
         </span>
       </span>
       <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />

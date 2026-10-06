@@ -4,7 +4,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 const settings = JSON.stringify({ v: 1, data: { goal: "glp1", dailyCalories: 2400, dailyProtein: 150, hasSetTargets: true, glp1MealCap: 450, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, dismissedTargetsCard: false, paywallDismissCount: 0, proActionCount: 0, devProOverride: true } });
 const ctx = await browser.newContext({ viewport: { width: 360, height: 740 }, serviceWorkers: "block" });
 await ctx.addInitScript((s) => localStorage.setItem("mm.v1.settings", s), settings);
-const pages = ["/app", "/app/welcome", "/app/search", "/app/chain?id=bowl-and-co", "/app/item?chain=bowl-and-co&item=chicken-bowl", "/app/builder?chain=bowl-and-co&item=chicken-bowl", "/app/saved", "/app/today", "/app/settings"];
+const pages = ["/app", "/app/welcome", "/app/search", "/app/chain?id=bowl-and-co", "/app/item?chain=bowl-and-co&item=chicken-bowl", "/app/builder?chain=bowl-and-co&item=chicken-bowl", "/app/saved", "/app/today", "/app/settings", "/app/settings/numbers", "/app/offline", "/app/chain?id=puccinos", "/app/item?chain=nandos&item=chicken-chorizo", "/"];
 let bad = 0;
 for (const scale of [1, 1.5, 2]) {
   for (const path of pages) {

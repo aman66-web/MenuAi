@@ -111,7 +111,7 @@ export default function HomePage() {
         </div>
       ) : (
         <>
-          <div className="mb-1 mt-9 flex items-baseline justify-between gap-3">
+          <div className="mb-1 mt-9 flex flex-wrap items-baseline justify-between gap-x-3">
             <h2 className="text-xl font-bold tracking-tight">Restaurants</h2>
             {realCount > 0 && <p className="app-numbers text-sm text-muted">{realCount} UK restaurants</p>}
           </div>

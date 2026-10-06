@@ -22,6 +22,12 @@ const pages = [
   ["settings", "/app/settings", true, async () => {}],
   ["numbers", "/app/settings/numbers", true, async () => {}],
   ["offline", "/app/offline", true, async () => {}],
+  ["home by type", "/app", false, async (p) => { await p.getByRole("group", { name: "Browse by type" }).getByRole("button", { name: /^Coffee/ }).click(); await p.waitForTimeout(300); }],
+  ["search recent", "/app/search", false, async (p) => { await p.evaluate(() => localStorage.setItem("mm.v1.recentSearches", '["latte"]')); await p.reload(); await p.waitForTimeout(600); }],
+  ["long menu", "/app/chain?id=puccinos", false, async (p) => { await p.getByRole("button", { name: "No pork" }).click(); await p.getByRole("button", { name: "Tea", exact: true }).click(); await p.waitForTimeout(1500); }],
+  ["menu search", "/app/chain?id=puccinos", false, async (p) => { await p.getByRole("searchbox").fill("latte oat"); await p.waitForTimeout(400); }],
+  ["real item", "/app/item?chain=nandos&item=chicken-chorizo", false, async () => {}],
+  ["site", "/", false, async () => {}],
 ];
 
 let total = 0;
