@@ -130,7 +130,7 @@ export function Segmented<T extends string>({ value, options, onChange, label }:
           onClick={() => onChange(o.value)}
           onKeyDown={(e) => radioKeyNav(e, i, options.length, (n) => onChange(options[n]!.value))}
           className={cx(
-            "min-h-11 rounded-full px-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-accent",
+            "min-h-12 rounded-full px-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-accent",
             o.value === value ? "bg-foreground text-background shadow-sm" : "text-muted hover:text-foreground",
           )}
         >

@@ -1,7 +1,7 @@
 /* Menu Math web app service worker.
  *
  * Goal: after you've opened something once, it keeps working with a poor or no connection.
- *  - /_next/static/* and /icons/*: cache-first (file names contain a content hash, so they never go stale)
+ *  - /_next/static/* and /icons/*: cache-first (Next.js names contain a content hash; icons do not, so bump VERSION when they change)
  *  - /menu-images/*: cache-first in their own capped cache (item photos are named by content hash, so they never go stale)
  *  - /menus/*, /menus-sample/* and /logos/*: network-first, falling back to the last copy
  *  - /app/* pages (and their data requests): network-first, falling back to the last copy
@@ -10,7 +10,7 @@
  * Nothing under /api/ is ever cached, and only same-origin GET requests are handled.
  * Bump VERSION to drop all old caches.
  */
-const VERSION = "mm-v1";
+const VERSION = "mm-v2"; // v2: new app icon (icon files keep their names, so changing them needs a bump)
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const DATA = `${VERSION}-data`;

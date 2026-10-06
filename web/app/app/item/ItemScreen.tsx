@@ -8,7 +8,7 @@ import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
-import { ChevronLeftIcon } from "../_components/icons";
+import { ChevronLeftIcon, InfoIcon } from "../_components/icons";
 import { ItemPhotoHero } from "../_components/ItemPhoto";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
@@ -41,17 +41,26 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   return (
     <div>
       {back}
-      <p className="kicker mt-5">{chain.name}</p>
-      <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{item.name}</h1>
-      <div className="mt-2 flex flex-wrap items-center gap-2 text-muted">
-        {item.serving && <span>{item.serving}</span>}
-        {item.limitedTime && <Badge>Limited time</Badge>}
-        {chain.sample && <Badge>Sample data</Badge>}
+      <div className="mt-5">
+        <ItemHero nutrients={item.nutrients} name={item.name}>
+          <Link href={chainHref(chain.id)} className="kicker inline-flex min-h-11 items-center hover:underline">{chain.name}</Link>
+          <h1 className="text-[1.9rem] font-extrabold leading-[1.1] tracking-tight">{item.name}</h1>
+          <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-muted">
+            {item.serving && <span>{item.serving}</span>}
+            {item.category && <Badge>{item.category}</Badge>}
+            {item.limitedTime && <Badge>Limited time</Badge>}
+            {chain.sample && <Badge>Sample data</Badge>}
+          </div>
+        </ItemHero>
       </div>
-
       <ItemPhotoHero image={item.image} chainName={chain.name} />
-      <div className="mt-5"><ItemHero nutrients={item.nutrients} name={item.name} /></div>
       <div className="mt-3"><NutrientTable nutrients={item.nutrients} /></div>
+      {chain.note && (
+        <p className="mt-3 flex gap-2.5 px-1 text-sm text-muted">
+          <InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+          <span>{chain.note}</span>
+        </p>
+      )}
 
       <div className="mt-6 grid grid-cols-2 gap-3">
         <Button

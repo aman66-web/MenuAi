@@ -3,6 +3,7 @@ import { readFileSync, statSync } from "node:fs";
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block", acceptDownloads: true });
+await ctx.addInitScript(() => { delete Navigator.prototype.share; delete Navigator.prototype.canShare; }); // test the download fallback, not the OS share sheet
 await ctx.addInitScript(() => localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { goal: "buildMuscle", dailyCalories: 2400, hasSetTargets: true, glp1MealCap: 450, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, devProOverride: true } })));
 const page = await ctx.newPage();
 await page.goto(BASE + "/app/builder?chain=bowl-and-co&item=chicken-bowl");

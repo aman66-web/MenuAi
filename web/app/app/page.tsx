@@ -15,6 +15,7 @@ import { SearchIcon } from "./_components/icons";
 import { RequestChainSheet } from "./_components/Submit";
 import { Button, Card, Chip, EmptyState, ErrorBox, SectionTitle, Spinner } from "./_components/ui";
 import { menuClient } from "./_lib/menu";
+import { scrollToElement } from "./_lib/scroll";
 import { useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 
 // SPEC §7.2. "Near you" is not available on the web (docs/WEB_BUILD_PLAN.md), so the chain list is always "Popular".
@@ -211,7 +212,6 @@ function jumpTo(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
   const el = document.getElementById(id);
   if (!el) return;
   e.preventDefault();
-  const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  el.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+  scrollToElement(el);
   (el.querySelector("a") as HTMLElement | null)?.focus({ preventScroll: true });
 }

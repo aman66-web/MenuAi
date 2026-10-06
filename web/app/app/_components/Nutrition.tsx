@@ -47,21 +47,29 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
   );
 }
 
-/** Item detail hero: big calories, then protein, carbs and fat (SPEC §7.5). One group so a screen reader hears it as one line. */
-export function ItemHero({ nutrients, name }: { nutrients: Nutrients; name: string }) {
+/**
+ * Item detail hero (SPEC §7.5): the item itself (passed as children: chain, name, serving) on the one lit card, then big
+ * calories, then protein, carbs and fat. The numbers are one group so a screen reader hears them as one line.
+ */
+export function ItemHero({ nutrients, name, children }: { nutrients: Nutrients; name: string; children?: React.ReactNode }) {
   const macros: Array<[string, number, boolean]> = [["Protein", nutrients.protein, true], ["Carbs", nutrients.carbs, false], ["Fat", nutrients.fat, false]];
   return (
-    <div role="group" aria-label={nutrientAriaLabel(name, nutrients)} className="hero-card app-numbers rounded-3xl p-6">
-      <div className="sun-text text-7xl font-extrabold leading-none tracking-tighter">{formatInt(nutrients.calories)}</div>
-      <div className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-muted">calories</div>
-      <dl className="mt-6 grid grid-cols-3 divide-x divide-line border-t border-line pt-4 text-center">
-        {macros.map(([label, grams, lead]) => (
-          <div key={label} className="flex flex-col-reverse gap-0.5 px-1">
-            <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{label}</dt>
-            <dd className={`text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{formatGrams(grams)}</dd>
-          </div>
-        ))}
-      </dl>
+    <div className="hero-card overflow-hidden rounded-[2rem] p-6">
+      {children}
+      <div role="group" aria-label={nutrientAriaLabel(name, nutrients)} className={`app-numbers ${children ? "mt-6" : ""}`}>
+        <div className="flex items-end gap-2">
+          <span className="sun-text text-7xl font-extrabold leading-[0.9] tracking-tighter">{formatInt(nutrients.calories)}</span>
+          <span className="pb-1 text-sm font-bold uppercase tracking-[0.14em] text-muted">kcal</span>
+        </div>
+        <dl className="mt-6 grid grid-cols-3 gap-2">
+          {macros.map(([label, grams, lead]) => (
+            <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft" : "inset-card"}`}>
+              <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{label}</dt>
+              <dd className={`text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{formatGrams(grams)}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     </div>
   );
 }

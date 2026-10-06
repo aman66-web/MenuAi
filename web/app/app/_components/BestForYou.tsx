@@ -7,7 +7,7 @@ import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, MEAL_LABEL } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
-import { formatCalories, nutrientAriaLabel } from "@/lib/mm/format";
+import { formatCalories, nutrientsSpoken } from "@/lib/mm/format";
 import { NO_MATCHES_COPY, OUT_OF_BUDGET_BANNER, OUT_OF_BUDGET_EMPTY, rank, type Pick } from "@/lib/mm/ranking";
 import { logStore } from "@/lib/mm/stores";
 import type { Meal, Preferences } from "@/lib/mm/types";
@@ -68,7 +68,6 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
             type="button"
             onClick={() => open(pick, i + 1)}
             disabled={!pro}
-            aria-label={`${nutrientAriaLabel(pick.name, pick.nutrients)}${pick.overBy !== undefined ? `, over by ${Math.round(pick.overBy)} calories` : ""}`}
             className={`app-numbers flex min-h-[4.5rem] w-full items-center gap-4 rounded-3xl p-4 text-left transition enabled:active:scale-[0.99] enabled:hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-accent ${i === 0 ? "hero-card" : "glass"}`}
           >
             <span aria-hidden className="bg-sun inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-on-accent">{i + 1}</span>
@@ -78,6 +77,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
                 {pick.reason}
                 {pick.overBy !== undefined && <> · Over by {formatCalories(pick.overBy)}</>}
               </span>
+              <span className="sr-only">, {nutrientsSpoken(pick.nutrients)}</span>
             </span>
           </button>
         </li>

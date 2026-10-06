@@ -108,7 +108,8 @@ await step("search: '--' does not show 'We don't cover this yet.'; item rows rea
   if (await page.getByText("We don't cover this yet.").count()) throw new Error("shown for punctuation-only query");
   await page.getByLabel("Search restaurants and items").fill("nugg");
   await vis(page.getByText("Nuggets (12 ct)"));
-  const row = await page.getByRole("link", { name: /Nuggets \(12 ct\), Cluck House, 380 calories/ }).innerText();
+  // spoken name = the visible text, with "calories" for "kcal"
+  const row = await page.getByRole("link", { name: /Nuggets \(12 ct\) · Cluck House · 380 calories/ }).innerText();
   if (!/Nuggets \(12 ct\)\s*·\s*Cluck House\s*·\s*380 kcal/.test(row)) throw new Error(row);
   await ctx.close();
 });

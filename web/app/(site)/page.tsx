@@ -1,5 +1,12 @@
 import Link from "next/link";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { catalogueStats } from "@/lib/mm/catalogue";
+import type { Manifest } from "@/lib/mm/types";
 import { site } from "@/site.config";
+
+// Read once at build time from the published data, so the headline numbers are never typed in by hand.
+const stats = catalogueStats((JSON.parse(readFileSync(join(process.cwd(), "public/menus/menus-manifest.json"), "utf8")) as Manifest).chains);
 import { WaitlistForm } from "@/app/components/WaitlistForm";
 
 const steps = [
@@ -18,7 +25,7 @@ const goals = [
 const faqs = [
   { q: "Is it free?", a: "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." },
   { q: "Where do the numbers come from?", a: "From each restaurant's own published nutrition information. We show the source and the date we last checked on every chain, never estimate missing values, and fix reported mistakes within 48 hours." },
-  { q: "Which restaurants?", a: "Popular UK chains first, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later." },
+  { q: "Which restaurants?", a: `${stats.chains > 0 ? `${stats.chains} popular UK chains so far` : "Popular UK chains first"}, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later.` },
   { q: "Is it an app?", a: "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later." },
   { q: "Is this medical advice?", a: "No. It shows published nutrition information and helps you choose. Talk to your doctor or a dietitian about your own needs." },
 ];
@@ -44,6 +51,25 @@ export default function Home() {
         </div>
         <p className="mt-4 text-sm text-muted">Free. No account. Your targets and saved orders stay on your device.</p>
       </section>
+
+      {stats.chains > 0 && (
+        <section aria-label="What's in it" className="mx-auto max-w-5xl px-5 pb-4">
+          <dl className="glass grid grid-cols-1 divide-y divide-line rounded-3xl sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            <div className="flex flex-col-reverse gap-1 p-6">
+              <dt className="text-sm text-muted">UK restaurants</dt>
+              <dd className="app-numbers sun-text text-4xl font-extrabold tracking-tight">{stats.chains}</dd>
+            </div>
+            <div className="flex flex-col-reverse gap-1 p-6">
+              <dt className="text-sm text-muted">menu items, each with calories, protein, carbs and fat</dt>
+              <dd className="app-numbers text-4xl font-extrabold tracking-tight">{stats.itemsLabel}</dd>
+            </div>
+            <div className="flex flex-col-reverse gap-1 p-6">
+              <dt className="text-sm text-muted">from each restaurant&apos;s own published nutrition information</dt>
+              <dd className="text-4xl font-extrabold tracking-tight">Every number</dd>
+            </div>
+          </dl>
+        </section>
+      )}
 
       <section className="mx-auto max-w-5xl px-5 py-12">
         <p className="kicker">How it works</p>

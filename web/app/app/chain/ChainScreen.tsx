@@ -17,6 +17,7 @@ import { MacroLine } from "../_components/Nutrition";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, Chip, EmptyState, ErrorBox, inputClass, SampleBadge, Spinner } from "../_components/ui";
 import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
+import { scrollToElement } from "../_lib/scroll";
 
 // SPEC §7.4: header, meal chip, Best for you, full menu (sort, filter, tags), source footer.
 // Real menus run to 650 rows, so the full menu has a sticky search + category bar, long menus open with each section
@@ -75,7 +76,10 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 
   const jumpToCategory = (category: string) => {
     setExpanded((e) => new Set(e).add(category));
-    requestAnimationFrame(() => document.getElementById(sectionId(category))?.scrollIntoView({ behavior: smoothScroll(), block: "start" }));
+    requestAnimationFrame(() => {
+      const el = document.getElementById(sectionId(category));
+      if (el) scrollToElement(el);
+    });
   };
 
   return (
@@ -207,14 +211,14 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           );
         })
       ) : (
-        <>
+        <section aria-label="All items">
           <ItemList items={visible.slice(0, flatLimit)} chainId={chain.id} now={now} />
           {visible.length > flatLimit && (
             <button type="button" onClick={() => setFlatLimit((n) => n + FLAT_PAGE)} className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-line text-sm font-semibold text-accent transition hover:bg-accent-soft">
               Show {Math.min(FLAT_PAGE, visible.length - flatLimit)} more
             </button>
           )}
-        </>
+        </section>
       )}
 
       <footer className="mt-10 space-y-2 border-t border-line pt-5 text-sm text-muted">

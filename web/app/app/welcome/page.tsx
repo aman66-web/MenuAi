@@ -1,5 +1,6 @@
 "use client";
 
+import { filterCaution } from "@/lib/mm/menu-view";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
@@ -143,6 +144,7 @@ export default function WelcomePage() {
             <Toggle label="No pork" checked={prefs.noPork} onChange={(v) => setPrefs({ ...prefs, noPork: v })} />
             <Toggle label="No beef" checked={prefs.noBeef} onChange={(v) => setPrefs({ ...prefs, noBeef: v })} />
           </div>
+          {filterCaution(prefs) && <p className="mt-3 px-1 text-sm text-muted">{filterCaution(prefs)}</p>}
           <Actions
             onContinue={() => {
               updateSettings({ preferences: prefs });

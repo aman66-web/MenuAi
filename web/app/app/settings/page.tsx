@@ -1,5 +1,6 @@
 "use client";
 
+import { filterCaution } from "@/lib/mm/menu-view";
 import Link from "next/link";
 import { useState } from "react";
 import { DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
@@ -123,6 +124,7 @@ export default function SettingsPage() {
           <Toggle label="No pork" checked={settings.preferences.noPork} onChange={(v) => updateSettings({ preferences: { ...settings.preferences, noPork: v } })} />
           <Toggle label="No beef" checked={settings.preferences.noBeef} onChange={(v) => updateSettings({ preferences: { ...settings.preferences, noBeef: v } })} />
         </div>
+        {filterCaution(settings.preferences) && <p className="mt-2 text-xs text-muted">{filterCaution(settings.preferences)}</p>}
       </Section>
 
       <Section title="Subscription">
@@ -190,9 +192,9 @@ export default function SettingsPage() {
       </Sheet>
 
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title="Clear data on this device">
-        <p className="text-base">This removes your goal, targets, saved orders, log, favourites and any messages not sent yet from this browser. It can&apos;t be undone.</p>
+        <p className="text-base">This removes your goal, targets, saved orders, log, favourites, recent searches and any messages not sent yet from this browser. It can&apos;t be undone.</p>
         <div className="mt-4 space-y-2 pb-2">
-          <Button full onClick={() => { settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); outbox().clear(); setClearOpen(false); }}>Clear everything</Button>
+          <Button full onClick={() => { settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); } catch { /* storage blocked */ } setClearOpen(false); }}>Clear everything</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>Cancel</Button>
         </div>
       </Sheet>

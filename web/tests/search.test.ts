@@ -41,3 +41,20 @@ describe("search (SPEC §7.3)", () => {
     expect(normalizeForSearch("Bowl & Co.")).toBe("bowl and co");
   });
 });
+
+describe("search highlight and recent searches", () => {
+  it("highlights the typed text where it starts the name or a word", async () => {
+    const { highlightRange } = await import("../lib/mm/search");
+    expect(highlightRange("Chicken Wrap", "wra")).toEqual([8, 11]);
+    expect(highlightRange("Caffè Latte", "caffe")).toEqual([0, 5]);
+    expect(highlightRange("Iced Latte", "atte")).toBeNull();
+    expect(highlightRange("Fish & Chips", "fish and")).toBeNull();
+    expect(highlightRange("Wrap", "w")).toBeNull();
+  });
+  it("keeps recent searches newest first, without repeats, capped", async () => {
+    const { addRecentSearch } = await import("../lib/mm/search");
+    let list: string[] = [];
+    for (const q of ["latte", "wrap", "LATTE ", "x", "a1", "b2", "c3", "d4", "e5"]) list = addRecentSearch(list, q);
+    expect(list).toEqual(["e5", "d4", "c3", "b2", "a1", "LATTE"]);
+  });
+});

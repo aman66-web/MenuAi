@@ -138,3 +138,29 @@ export function search(index: SearchIndex, rawQuery: string, maxItems = 40): Sea
 
   return { chains, items };
 }
+
+/** One character folded for matching (lower case, accents dropped) without changing the string's length. */
+const foldChar = (ch: string) => ch.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().charAt(0) || ch;
+
+/**
+ * Where to highlight a query in a displayed name: the first place it starts the name or a word, ignoring case and accents.
+ * [start, end) in the original string, or null when the typed text doesn't appear as-is (e.g. "&" typed as "and").
+ */
+export function highlightRange(name: string, rawQuery: string): [number, number] | null {
+  const q = [...rawQuery.trim().replace(/\s+/g, " ")].map(foldChar).join("");
+  if (q.length < MIN_QUERY_LENGTH) return null;
+  const chars = [...name];
+  const folded = chars.map(foldChar).join("");
+  for (let i = folded.indexOf(q); i !== -1; i = folded.indexOf(q, i + 1)) {
+    if (i === 0 || !/[\p{L}\p{N}]/u.test(folded.charAt(i - 1))) return [i, i + q.length];
+  }
+  return null;
+}
+
+/** Recent searches, newest first, without repeats (compared as search compares), at most `max`. */
+export function addRecentSearch(list: readonly string[], query: string, max = 6): string[] {
+  const q = query.trim().replace(/\s+/g, " ");
+  if (normalizeForSearch(q).length < MIN_QUERY_LENGTH) return [...list];
+  const key = normalizeForSearch(q);
+  return [q, ...list.filter((r) => normalizeForSearch(r) !== key)].slice(0, max);
+}
