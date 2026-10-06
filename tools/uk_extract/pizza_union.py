@@ -11,6 +11,7 @@ reorders a row the script stops so a human re-checks ROWS against the guide.
 Source: https://www.pizzaunion.com/wp-content/pizza-union-nutrition-allergen-information.pdf
 The page footers say "Renewed 17.03.26" (PDF created 10 March 2026). Values are "Typical Nutrition Values Per Average Portion".
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import sys

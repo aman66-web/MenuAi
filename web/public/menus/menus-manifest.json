@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261006095626,
- "generatedAt": "2026-10-06T09:56:26Z",
+ "dataVersion": 20261006152955,
+ "generatedAt": "2026-10-06T15:29:55Z",
  "chains": [
   {
    "id": "abokado",
@@ -272,8 +272,8 @@
    "name": "Farmer J",
    "cuisine": "Bowls",
    "file": "chain-farmer-j.json",
-   "sha256": "23a2052dc8289de055a77e21640f361baa89041857333f556f2ee3ad955cf40f",
-   "contentHash": "f291fb7726804a0d5bbd99273dca3660eb6022a6caf4a9648b5009b84d126858",
+   "sha256": "ba465994bf3b9fe26665994024d52297a5ac924d4f9b2fb2cd6ddf3dc2f5c525",
+   "contentHash": "0bd5cd1a82b11871604cb43a4ae18f400d459843f8356ac06adc79a84d8942cd",
    "sample": false,
    "itemCount": 74,
    "checkedOn": "2026-10-06"

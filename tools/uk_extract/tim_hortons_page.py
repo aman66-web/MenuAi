@@ -9,6 +9,7 @@ sidebar of every page. Drinks with sizes link to /information/<id>/small and /in
 suffix is the Medium one. Numbers are returned exactly as printed (strings such as "<0.5", "0.00", "2.1"); nothing is
 converted, rounded or estimated here.
 """
+from __future__ import annotations
 import hashlib
 import html
 import re

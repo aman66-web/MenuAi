@@ -8,6 +8,7 @@ sugars, fibre, protein, salt). A few cells are blank in the PDF, so a row is NOT
 assigned to the column whose x position is nearest, and the header words of every table are checked against those columns.
 Only the per-portion values are returned.
 """
+from __future__ import annotations
 import html
 import re
 import statistics

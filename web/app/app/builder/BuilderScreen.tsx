@@ -5,6 +5,7 @@ import { chainHref } from "@/lib/mm/routes";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
+import { orderAllergens } from "@/lib/mm/allergens";
 import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { formatCalories, lowerFirst } from "@/lib/mm/format";
@@ -16,6 +17,7 @@ import {
 import { addLogEntry, addSavedOrder, countProAction, logStore, savedStore, updateSavedOrder } from "@/lib/mm/stores";
 import type { LogSource, SavedOrder } from "@/lib/mm/user-data";
 import type { MenuComponent } from "@/lib/mm/types";
+import { AllergenSection } from "../_components/Allergens";
 import { useGate } from "../_components/Paywall";
 import { ChevronLeftIcon, LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from "../_components/icons";
 import { MacroSummary } from "../_components/Nutrition";
@@ -128,6 +130,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   }, []);
 
   const total = useMemo(() => orderNutrients(ix, lines), [ix, lines]);
+  const allergens = useMemo(() => orderAllergens(ix, lines), [ix, lines]);
   const valid = validateOrder(lines);
   const defaultName = orderName(ix, lines);
   const name = customName ?? defaultName;
@@ -192,6 +195,8 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       </Button>
 
       <p role="alert" className="mt-3 min-h-5 text-sm font-medium text-accent">{notice}</p>
+
+      <div className="mt-2"><AllergenSection chain={ix.chain} allergens={allergens?.allergens} changesNotCovered={allergens?.changesNotCovered} title="Allergens in this order" /></div>
 
       <div className="mt-2">
         <Field label="Order name">

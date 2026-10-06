@@ -19,6 +19,7 @@ pipeline can read it. Layouts:
 
 `fetch()` saves a page politely (browser user-agent, one request at a time). Run python with -I when reading saved pages.
 """
+from __future__ import annotations
 import html
 import re
 import subprocess
@@ -191,11 +192,65 @@ def read_table_layout(text: str) -> list[dict]:
                       if c.attrs.get("data-label-name")}
             card = node.parent if node.parent is not None else node
             ing, desc = card.find("k10-recipe__ingredients-wrapper"), card.find("k10-recipe__desc")
+            names = card.find("k10-recipe__label-names-wrapper")
             rows.append({"section": section, "name": name, "nutrients": vals, "per": "serving", "labels": labels,
                          "vegetarian": _diet(labels), "recipe_id": node.attrs.get("data-recipe-id", ""),
                          "page_kcal": node.attrs.get("data-calories", ""),
-                         "ingredients": ing.text() if ing is not None else "", "desc": desc.text() if desc is not None else ""})
+                         "ingredients": ing.text() if ing is not None else "", "desc": desc.text() if desc is not None else "",
+                         "label_names": names.text() if names is not None else ""})
     return rows
+
+
+# ---------------------------------------------------------------- allergens (docs/DATA.md "Allergens")
+
+# The 14 allergen columns as Ten Kites prints them.
+ALLERGEN_LABELS = ["Cereals with Gluten", "Tree Nuts", "Peanuts", "Eggs", "Milk", "Fish", "Crustaceans", "Molluscs", "Celery",
+                   "Mustard", "Sesame Seeds", "Soya", "Sulphites", "Lupin"]
+
+
+def _split_top(text: str) -> list[str]:
+    """'Cereals with Gluten (Barley, Rye, Wheat), Sesame Seeds' -> ['Cereals with Gluten (Barley, Rye, Wheat)', 'Sesame Seeds']."""
+    parts, depth, cur = [], 0, ""
+    for ch in text:
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth -= 1
+        if ch == "," and depth == 0:
+            parts.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    return [p.strip() for p in parts + [cur] if p.strip()]
+
+
+def allergens_from_row(row: dict, where: str) -> dict | None:
+    """Allergens for one dish from the table layout: the 14 yes/no columns, cross-checked against the printed
+    "Contains: ..." line (which also names the cereals and nuts), and the "May contain traces of ..." sentence.
+    Returns None if the dish doesn't carry all 14 columns. Stops (SystemExit) if the two printed forms disagree."""
+    import re
+    from common import allergen_words
+    labels = row.get("labels", {})
+    if any(lbl not in labels or labels[lbl] is None for lbl in ALLERGEN_LABELS):
+        return None
+    from_cols, _, _ = allergen_words([lbl for lbl in ALLERGEN_LABELS if labels[lbl]], where)
+    m = re.search(r"Contains:\s*(.*)$", row.get("label_names", ""), re.S)
+    words, cereals, nuts = [], set(), set()
+    for part in _split_top(m.group(1)) if m else []:
+        head, _, inner = part.partition("(")
+        words.append(head)
+        if inner:
+            k, c, n = allergen_words([x for x in inner.rstrip(")").split(",")], where)
+            cereals |= c
+            nuts |= n
+    from_text, c2, n2 = allergen_words(words, where)
+    if from_text != from_cols:
+        raise SystemExit(f"{where}: allergen columns {sorted(from_cols)} disagree with the printed 'Contains:' line {sorted(from_text)}")
+    may = set()
+    mm = re.search(r"May contain(?: traces of)?\s*(.*?)(?:ALLERGY ADVICE|$)", row.get("ingredients", ""), re.S | re.I)
+    if mm:
+        may, _, _ = allergen_words(re.split(r",|\band\b", mm.group(1)), where)
+    return {"contains": from_cols, "may_contain": may - from_cols, "cereals": cereals | c2, "nuts": nuts | n2}
 
 
 def _diet(labels: dict) -> bool | None:

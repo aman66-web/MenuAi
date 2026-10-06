@@ -15,6 +15,7 @@ section, a "&" add-on row or changes the row count, this script stops so a perso
 
 Source: https://www.askitalian.co.uk/menus -> "Allergen guide" (a new PDF is published for each menu change).
 """
+from __future__ import annotations
 import argparse
 import re
 import sys

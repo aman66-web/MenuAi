@@ -7,6 +7,7 @@ only the per-serving row is used). `None` = a printed product we deliberately le
 If Burger King adds, removes or reorders rows, burger_king.py stops because the product count no longer matches:
 re-check this list against the PDF before running again.
 """
+from __future__ import annotations
 
 BEEF, CHICKEN, VEG, BREAKFAST, KIDS, SIDES, SWEETS, EXTRAS = (
     "Beef", "Chicken", "Veggie & More", "Breakfast", "Kids", "Sides", "Sweets", "Extras")

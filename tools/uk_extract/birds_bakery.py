@@ -19,6 +19,7 @@ the script. Only names, categories, rankable and the groupings below are typed b
 The script STOPS (listing the differences) if the site's item list, an item's name or an item's basis no longer matches the
 tables below, so a human re-checks before anything is published. Politeness: one request per second.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import html

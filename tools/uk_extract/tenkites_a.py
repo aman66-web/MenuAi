@@ -15,6 +15,7 @@ and caches them on disk; the extraction scripts then read the cached files.
 Numbers are returned exactly as printed (strings). Nothing here converts, rounds or fills a gap; if a table is missing
 a row or has an unexpected one, parsing stops with an error.
 """
+from __future__ import annotations
 import html as _html
 import re
 import sys

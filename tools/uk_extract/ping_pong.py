@@ -12,6 +12,7 @@ Every row is matched on its printed code and name, so if Ping Pong adds, removes
 section or an unexplained impossible number appears, the run stops and a human re-checks ROWS / HELD / ACCEPTED.
 Needs `pdftotext` (poppler). Output files: items.csv, chain.csv, holdback.csv, note.txt (and the empty optional CSVs).
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import re

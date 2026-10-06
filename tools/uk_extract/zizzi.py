@@ -16,6 +16,7 @@ printed twice with different marks, gets no tag), or when the item's own name sa
 
 Source: https://www.zizzi.co.uk/menus -> "UK nutrition guide" and "UK allergen guide" (new PDFs for each menu change).
 """
+from __future__ import annotations
 import argparse
 import re
 import sys

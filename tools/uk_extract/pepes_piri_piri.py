@@ -11,6 +11,7 @@ Numbers are copied from the cards exactly as printed. Only the NAMES, categories
 typed by hand, one entry per card in the page's own order (it lists items alphabetically). If Pepe's adds, removes,
 renames or re-categorises a card, or changes the columns, this script stops so a human re-checks ROWS.
 """
+from __future__ import annotations
 import argparse
 import re
 import sys

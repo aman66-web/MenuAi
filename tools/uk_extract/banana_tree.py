@@ -14,6 +14,7 @@ becomes "<dish> - <option>"; side options offered on top of a dish (rice, sauces
 in "Options & add-ons". The other price-band pages (bananatree03/05/07/19 = Band A, other bands and Cardiff) were compared
 with this one on 2026-10-06: every row is identical or a regrouping of rows already here, so they are not read.
 """
+from __future__ import annotations
 import argparse
 import re
 import sys

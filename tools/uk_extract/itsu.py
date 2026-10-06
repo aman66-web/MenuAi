@@ -15,6 +15,7 @@ The script stops, so a human re-checks, if the menu's set of dishes changes (EXP
 label changes, a dish lacks a required number, or a page failed to load. The menu has no date, so source_title carries the
 retrieval date.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import html

@@ -19,6 +19,7 @@ Nothing here converts, rounds or estimates: values are the page's own text ("-" 
 
 Run `python3 tools/uk_extract/tenkites_b.py page.html` to print a one-line summary per record.
 """
+from __future__ import annotations
 import html
 import re
 import sys

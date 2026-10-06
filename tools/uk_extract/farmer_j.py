@@ -34,6 +34,8 @@ SECTIONS = {
     "Set Fieldtrays": ("Set fieldtrays", True), "Set Fieldbowls": ("Set fieldbowls", True),
     "Snacks": ("Snacks", False), "SEASONAL DRINKS": ("Seasonal drinks", False),
 }
+# The same pages print each dish's 14 allergen columns, a "Contains:" line naming cereals and nuts, and "May contain traces of".
+ALLERGEN_TITLE = "Farmer J Allergen & Nutrition pages (Ten Kites)"
 SOURCE_TITLE = "Farmer J Allergen & Nutrition pages: Breakfast, Lunch & Dinner and All Day menus (September 2026)"
 NOTE = ("Figures are per serving from Farmer J's own nutrition pages, which say values and weights are averages and "
         "salad figures include the dressing. Mains, bases and sides are the parts of a tray, so they are not suggested on their own.")
@@ -60,7 +62,8 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
             if unspecified:
                 report.append(f"meat type not stated: {r['name']}")
             items.append({"id": slug(r["name"]), "name": r["name"], "category": category, "serving": "", **nums,
-                          "tags": "|".join(tags + meat), "rankable": rankable, "notes": ""})
+                          "tags": "|".join(tags + meat), "rankable": rankable, "notes": "",
+                          "allergens": tk.allergens_from_row(r, f"{fname} {r['name']}")})
     kept, dropped = tk.dedupe_items(items)
     report += [f"dropped exact duplicate: {n}" for n in dropped]
     for it in kept:
@@ -81,9 +84,10 @@ def main() -> int:
         for fname, (url, _) in PAGES.items():
             tk.fetch(url, args.pages / fname)
     items, holdback, report = build(args.pages)
-    out = write_chain_folder(chain_id=CHAIN_ID, name="Farmer J", cuisine="Healthy", source_title=SOURCE_TITLE, source_url=BASE,
+    out = write_chain_folder(chain_id=CHAIN_ID, name="Farmer J", cuisine="Bowls", source_title=SOURCE_TITLE, source_url=BASE,
                              checked_on=args.checked_on, aliases=["farmer j", "farmer j's", "farmer js"], items=items,
-                             out=args.out, note=NOTE, holdback=holdback)
+                             out=args.out, note=NOTE, holdback=holdback,
+                             allergen_guide={"title": ALLERGEN_TITLE, "url": BASE, "checked_on": args.checked_on, "may_contain_published": True})
     for fname in PAGES:
         print(f"{fname} sha256 {tk.sha256_text_file(args.pages / fname)}")
     print("\n".join(report))

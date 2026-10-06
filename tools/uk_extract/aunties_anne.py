@@ -25,6 +25,7 @@ one.
 
 Page dates: the pages carry none. The menu sitemap's lastmod (2026-10-05T10:50, the same for every page) is quoted in source_title.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import html

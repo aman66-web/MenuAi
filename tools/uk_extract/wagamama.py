@@ -16,6 +16,7 @@ What is left out, and why (every rule is counted, so a change in any of them sto
     identical to the standard dish (GF_SAME_AS): listing them twice would only duplicate rows. A gluten free recipe whose numbers
     DIFFER from the standard dish is published as its own item, named "... (gluten free menu)".
 """
+from __future__ import annotations
 import argparse
 import re
 import sys

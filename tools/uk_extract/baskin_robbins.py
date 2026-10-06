@@ -23,6 +23,7 @@ What is published, and why:
 * Vegetarian tag = the sheet's own "SUITABLE VEGETARIANS" column. Only names, category, serving and the include/exclude
   choices are typed by hand. If the PDF's row names change, the script stops.
 """
+from __future__ import annotations
 import argparse
 import html
 import re

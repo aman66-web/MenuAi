@@ -21,6 +21,7 @@ items for Northern Ireland only (the page says "Belfast only" or every Great Bri
 items sold in fewer than MIN_GB_STORES Great Britain stores ("selected stores only"); items whose page hides nutrition.
 Items whose printed numbers are impossible stay in items.csv but are listed in holdback.csv (see impossible_energy).
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import json

@@ -10,6 +10,7 @@ import { addLogEntry, addSavedOrder, countProAction } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
 import { ChevronLeftIcon, InfoIcon } from "../_components/icons";
 import { ItemPhotoHero } from "../_components/ItemPhoto";
+import { AllergenSection } from "../_components/Allergens";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
 import { ReportSheet } from "../_components/Submit";
@@ -54,6 +55,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
         </ItemHero>
       </div>
       <ItemPhotoHero image={item.image} chainName={chain.name} />
+      <div className="mt-3"><AllergenSection chain={chain} allergens={item.allergens} /></div>
       <div className="mt-3"><NutrientTable nutrients={item.nutrients} /></div>
       {chain.note && (
         <p className="mt-3 flex gap-2.5 px-1 text-sm text-muted">

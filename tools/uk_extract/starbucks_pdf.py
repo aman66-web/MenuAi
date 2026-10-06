@@ -14,6 +14,7 @@ How the tables are read
 * Food: one block per product with 9 numbers: kJ, kcal, fat, saturates, carbs, sugars, fibre, protein, salt.
 Any block that does not look exactly like that stops the run with a message naming the page.
 """
+from __future__ import annotations
 import html
 import re
 import subprocess

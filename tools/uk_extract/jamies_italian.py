@@ -25,6 +25,7 @@ Sources (the nutrition PDF is "June V1", created 2026-06-17; the allergen menu i
   file   https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf               (vegetarian marks only)
 Requires `pdftotext` (poppler). Nothing is converted, rounded or estimated here.
 """
+from __future__ import annotations
 import argparse
 import difflib
 import html

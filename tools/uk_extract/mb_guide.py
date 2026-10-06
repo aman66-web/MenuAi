@@ -13,6 +13,7 @@ Drinks and a few dishes have an EMPTY nutrition div: they have no published numb
 This module only READS the page and returns the cells exactly as printed (units stripped, nothing rounded,
 converted or filled). Naming, categories and exclusions are decided by the per-chain scripts. Standard library only.
 """
+from __future__ import annotations
 import argparse
 import collections
 import hashlib

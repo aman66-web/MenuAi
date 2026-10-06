@@ -9,6 +9,7 @@ rows the row count no longer matches and this script stops, so a human re-checks
 
 Source: https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf (a new PDF is published about monthly).
 """
+from __future__ import annotations
 import argparse
 import csv
 import hashlib

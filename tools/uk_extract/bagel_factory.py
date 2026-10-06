@@ -19,6 +19,7 @@ members differ from the table; or the pork/beef tags no longer match the ingredi
 --cache DIR keeps the downloaded pages (menu.html, items/<slug>.html, filters/<filter>.html) so a re-run does not download
 again; files already there are read instead of fetched. Downloads are one request per second.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import html

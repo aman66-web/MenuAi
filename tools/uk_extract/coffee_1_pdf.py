@@ -11,6 +11,7 @@ Both kinds of PDF are Excel-generated tables with a text layer, so the words are
 * Beverage guides: one table per drink ("Per 100ml" and "Per product" blocks of nine columns: KJ, Kcal, Fat, Sat, Carb,
   Sugar, Fibre, Protein, Salt), one row per size, several milk variants per drink.
 """
+from __future__ import annotations
 import html
 import re
 import subprocess

@@ -29,6 +29,7 @@ work out a milk alternative or an add-on. The recipe is:
 Monthly refresh: download both PDFs from the source page (one request each), run this script with today's date. If it stops
 with "differ from the checked baseline", compare the listed rows with the PDFs, then paste `--print-baseline` output below.
 """
+from __future__ import annotations
 import argparse
 import csv
 import hashlib

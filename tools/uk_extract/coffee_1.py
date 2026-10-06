@@ -21,6 +21,7 @@ Left out on purpose (each is listed again in the final report):
     sauces" (per 15 ml / per 22.5 ml measures, not a product serving).
   * The guides carry no Ireland / Northern Ireland / trial / selected-store markings, so nothing is dropped for region.
 """
+from __future__ import annotations
 import argparse
 import re
 import sys

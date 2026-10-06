@@ -9,6 +9,7 @@ refresh) at one request per second and read by tenkites_b.py; numbers are copied
 the choice of menus are typed here. The script stops if a page changes layout, a nutrient column or section appears that is not
 mapped, the kcal in a dish's header disagrees with its table, or the row count no longer matches EXPECTED_ROWS.
 """
+from __future__ import annotations
 import argparse
 import re
 import sys

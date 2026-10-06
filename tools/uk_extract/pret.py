@@ -13,6 +13,7 @@ flag disagreements). The `perServing` column is used, never `per100g`. Only the 
 flags and the tag word lists below are typed by hand. If the site adds categories/subcategories, changes nutrient
 labels, or the item count changes, this script stops so a human re-checks (see EXPECTED_ITEMS, `--expect`).
 """
+from __future__ import annotations
 import argparse
 import csv
 import hashlib

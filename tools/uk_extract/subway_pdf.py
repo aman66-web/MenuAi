@@ -6,6 +6,7 @@ Used by tools/uk_extract/subway.py. Requires `pdftotext` (poppler). Numbers are 
 Every row of the PDF has two blocks of numbers: "Per Serving size" (the first ten columns, which we use) and
 "Per 100g" (the last ten, which we only use to cross-check the first block; per-100 g values are never entered).
 """
+from __future__ import annotations
 import re
 import subprocess
 from pathlib import Path

@@ -17,6 +17,7 @@ evaluated on every run, so a corrected page brings the row back automatically.
 Pages: https://fathippo.co.uk/menus/food/ (the source_url), /menus/kids/, /menus/drinks/, /menus/special-menu/.
 The pages show no issue date: chain.csv says "accessed <date>, no date shown".
 """
+from __future__ import annotations
 import argparse
 import html
 import re

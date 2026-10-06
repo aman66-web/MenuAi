@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Figures are per serving from Farmer J's own nutrition pages, which say values and weights are averages and salad figures include the dressing. Mains, bases and sides are the parts of a tray, so they are not suggested on their own.",
+ "allergenGuide": {
+  "title": "Farmer J Allergen & Nutrition pages (Ten Kites)",
+  "url": "https://menus.tenkites.com/farmerjuk/farmerjallergypages",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Toasts",
   "Rolls",
@@ -58,7 +65,27 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "smoked-salmon-egg-salad-toast",
@@ -79,7 +106,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sesame"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "avo-confit-tomatoes-whipped-feta-toast",
@@ -102,7 +148,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "farmers-egg-bacon-roll",
@@ -125,7 +189,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
   },
   {
    "id": "wild-greens-egg-roll",
@@ -148,7 +229,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
   },
   {
    "id": "shak-bowl",
@@ -171,7 +270,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "egg-salmon-and-avo-pot",
@@ -192,7 +310,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "green-eggs-and-labneh-pot",
@@ -215,7 +344,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "butter-beans-avo-feta-pot",
@@ -238,7 +375,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "plain-porridge",
@@ -261,7 +417,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "berry-compote-blueberry-maple-porridge",
@@ -284,7 +449,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "apple-cinnamon-crumble-porridge",
@@ -307,7 +483,35 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "pecan"
+    ]
+   }
   },
   {
    "id": "pb-and-j-overnight-oats",
@@ -330,7 +534,30 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "cacao-berry-granola",
@@ -353,7 +580,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "chia-mango-coconut-yoghurt",
@@ -376,7 +617,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "pain-au-chocolat",
@@ -399,7 +648,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "croissant",
@@ -422,7 +688,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "seeded-sourdough-salted-butter",
@@ -445,7 +728,25 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "extra-smoked-salmon",
@@ -466,7 +767,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "extra-bacon",
@@ -489,7 +796,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "harissa-chicken",
@@ -510,7 +821,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "gochujang-salmon",
@@ -531,7 +856,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "lime-leaf-tofu-roasted-hispi",
@@ -554,7 +887,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "lime-leaf-chicken-breast-skewer",
@@ -575,7 +915,30 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "amba-chicken-green-tahini",
@@ -596,7 +959,26 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "charred-flank-steak",
@@ -619,7 +1001,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "baby-spinach-and-rocket-mix",
@@ -642,7 +1031,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "farmers-grains",
@@ -665,7 +1058,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "sesame-cabbage",
@@ -688,7 +1094,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "brown-rice",
@@ -711,7 +1125,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "chilli-ginger-aubergine",
@@ -734,7 +1152,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "molluscs",
+     "peanuts"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "ponzu-sesame-broccoli",
@@ -757,7 +1189,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "roasted-cauliflower",
@@ -780,7 +1219,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seasonal-mac-n-cheese",
@@ -803,7 +1248,30 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spiced-date-sweet-potatoes",
@@ -826,7 +1294,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "kale-miso-slaw",
@@ -849,7 +1323,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "chickpea-pickle",
@@ -872,7 +1356,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "feta-radicchio-caesar",
@@ -895,7 +1385,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "js-greek-salad",
@@ -918,7 +1420,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "green-tahini",
@@ -941,7 +1452,25 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chimichurri",
@@ -964,7 +1493,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "the-everything-sauce",
@@ -985,7 +1518,30 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "js-habanero-hot-sauce",
@@ -1008,7 +1564,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "pickled-cucumber",
@@ -1031,7 +1595,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pickled-red-onion",
@@ -1054,7 +1622,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pickled-ginger-cucumber",
@@ -1077,7 +1649,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "spicy-aubergine-baba-ghanoush",
@@ -1100,7 +1679,25 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chunky-butter-bean-hummus",
@@ -1123,7 +1720,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "free-range-egg",
@@ -1146,7 +1760,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "avo",
@@ -1169,7 +1789,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "js-classic",
@@ -1190,7 +1814,30 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "the-med",
@@ -1211,7 +1858,32 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "butchers-cut",
@@ -1234,7 +1906,30 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "farmers-catch",
@@ -1255,7 +1950,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "molluscs",
+     "peanuts"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "where-my-vegans-at",
@@ -1278,7 +1990,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "molluscs",
+     "mustard",
+     "peanuts"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "the-lime-leaf-thai",
@@ -1299,7 +2027,30 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "peanuts",
+     "sulphites"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "med-hummus-bowl",
@@ -1320,7 +2071,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "harissa-bowl",
@@ -1341,7 +2111,32 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "salmon-bowl",
@@ -1362,7 +2157,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "molluscs",
+     "peanuts"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "tofu-bowl",
@@ -1385,7 +2197,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "molluscs",
+     "peanuts"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "steak-bowl",
@@ -1408,7 +2234,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "amba-harissa-bowl",
@@ -1429,7 +2264,32 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "chocolate-chip-cookie",
@@ -1452,7 +2312,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-white-choc-cookie",
@@ -1475,7 +2343,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dark-double-choc-cookie",
@@ -1498,7 +2374,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banana-bread",
@@ -1521,7 +2403,23 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tahini-brownie",
@@ -1544,7 +2442,23 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "reemies-date-and-walnut",
@@ -1567,7 +2481,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
   },
   {
    "id": "reemies-mini-banana-maple-dark-chocolate",
@@ -1590,7 +2518,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "olive-oil-cardamom-pistachio-cake",
@@ -1613,7 +2554,26 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "iced-miso-banana-matcha-latte",
@@ -1636,7 +2596,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "iced-tahini-pistachio-matcha-cloud",
@@ -1659,7 +2639,33 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "pistachio-honey-latte",
@@ -1682,7 +2688,30 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "yew-pickle-yuzu-spritz",
@@ -1705,7 +2734,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   }
  ],
  "combinations": []

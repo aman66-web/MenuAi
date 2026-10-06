@@ -20,6 +20,7 @@ What is left out, and why (all reported on every run):
     all four, and a dash is never read as zero.
 Held back (holdback.csv): rows whose own printed numbers contradict each other; they stay in items.csv as printed.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import re

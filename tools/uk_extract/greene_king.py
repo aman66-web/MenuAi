@@ -29,6 +29,7 @@ dish, please add the nutrition for the choice to the total dish." So a row follo
 In the PDF the choices (options) are printed in red text and everything else in black; the entries below agree with that for
 every row (checked by rendering the pages and testing the colour of each row's name on 2026-10-06).
 """
+from __future__ import annotations
 import argparse
 import csv
 import hashlib
