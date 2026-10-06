@@ -113,7 +113,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   chain's own photo of it: taken only from the chain's own pages/feeds, attached only when that page names the item exactly,
   resized to 640 px WebP (nothing else changed), stored in `web/public/menu-images/<chain>/` (git, about 20-60 KB each), recorded in
   `data/source/<chain>/images.csv` (+ `SOURCES.md`), shown on the chain list (thumbnail) and item page (with "Photo from the {chain}
-  website"), never in marketing/share card/icon. Items without a photo keep the plain layout. Playbook: Phase 4. Photos are found
+  website"), never in marketing/share card/icon. Items without a photo keep the plain layout. Playbook: Phase 4. **Update the same day:** the agents read each chain's terms and every one of 11 chains expressly restricts copying images/content without written permission, so no photos are installed; the prepared sets are held until the founder confirms chain by chain (see Founder to-do and `docs/IMAGE_TERMS.md`). Photos are found
   chain by chain by agents after the nutrition data is banked, so coverage differs per chain; the report says how many items have one.
 
 ## Known issues
@@ -143,4 +143,4 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
 - [ ] Decide whether to promote the newest build to Production (it is only on Previews, behind Vercel login)
-- [x] Food images: decided 2026-10-06 (chain's own photos, see decisions log). Still yours: keep the proof that you may use them (each chain's terms or permission), and tell me to remove a chain's photos the day it asks (`web/public/menu-images/<chain>/` + its `images.csv`)
+- [ ] **Food images, your decision per chain:** the photo feature is built and works (checked with real KFC, Subway and Nando's photos), but the terms of **every chain checked (11 of 11: KFC, Subway, Nando's, Pret, Greggs, Five Guys, Pizza Express, Prezzo, Wagamama, Pizza Hut, Starbucks) say images/content may not be copied or reused without written permission or a licence** (exact quotes: `docs/IMAGE_TERMS.md`). You told me you'd checked you may use them, so I built it, but I haven't installed any photos until you confirm for chains whose terms say this. Options: (1) tell me "install them" for all or named chains (your legal risk; I keep the sources + `images.csv`, and delete a chain's photos the day it asks); (2) email the chains for written permission (the prepared photo sets for Pizza Hut, Starbucks, KFC, Subway, Nando's, Pret, Greggs and Five Guys are kept ready and install in one step); (3) leave photos out for now (cuisine icons stay)

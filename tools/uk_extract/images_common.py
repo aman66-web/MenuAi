@@ -81,8 +81,9 @@ def _robots_allow(url: str) -> bool:
                 rp.parse(r.read().decode("utf-8", "replace").splitlines())
             _robots[key] = rp
         except urllib.error.HTTPError as e:
-            # robots.txt missing (404/410) = no rules; anything else (401/403/5xx) = treat as "do not fetch" only for 401/403
-            _robots[key] = None if e.code in (404, 410) or e.code >= 500 else _deny_all()
+            # RFC 9309: a 4xx for robots.txt (404, 410, a CDN's odd 400...) means "no rules"; 401/403/429 and 5xx we treat
+            # conservatively as "do not fetch".
+            _robots[key] = _deny_all() if e.code in (401, 403, 429) or e.code >= 500 else None
         except Exception:
             _robots[key] = None
     rp = _robots[key]
