@@ -7,6 +7,7 @@ import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import { formatCalories, formatGrams, macroLine } from "@/lib/mm/format";
 import { favoritesStore, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
+import { groupByInitial, splitChains } from "@/lib/mm/popular";
 import { ChainRow } from "./_components/ChainRow";
 import { Ring } from "./_components/Ring";
 import { SearchIcon } from "./_components/icons";
@@ -28,7 +29,8 @@ export default function HomePage() {
   const now = useNow();
   const [requesting, setRequesting] = useState(false);
 
-  const popular = useMemo(() => menu.chains.slice(0, 10), [menu.chains]);
+  const { popular, rest } = useMemo(() => splitChains(menu.chains), [menu.chains]);
+  const restGroups = useMemo(() => groupByInitial(rest), [rest]);
   const favoriteChains = useMemo(() => {
     const ids = new Set(favorites.map((f) => f.chainId));
     return menu.chains.filter((c) => ids.has(c.id));
@@ -108,6 +110,18 @@ export default function HomePage() {
             <>
               <SectionTitle>Favourites</SectionTitle>
               <div className="space-y-2.5">{favoriteChains.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "favorite" })} />))}</div>
+            </>
+          )}
+
+          {rest.length > 0 && (
+            <>
+              <SectionTitle>More restaurants</SectionTitle>
+              {restGroups.map((g) => (
+                <section key={g.letter} aria-label={`Restaurants starting with ${g.letter}`} className="mb-4">
+                  <h3 className="mb-1.5 mt-3 text-xs font-bold uppercase tracking-[0.14em] text-muted">{g.letter}</h3>
+                  <div className="space-y-2">{g.chains.map((c) => (<ChainRow key={c.id} compact chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
+                </section>
+              ))}
             </>
           )}
         </>

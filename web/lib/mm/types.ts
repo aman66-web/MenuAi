@@ -109,6 +109,8 @@ export interface Manifest {
   dataVersion: number;
   generatedAt: string;
   chains: ManifestChain[];
+  /** The compact search index (docs/DATA.md); absent in older manifests. */
+  search?: { file: string; sha256: string };
 }
 
 // ---- user-facing settings types (SPEC §5, §6)

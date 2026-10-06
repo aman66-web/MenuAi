@@ -1,5 +1,5 @@
 import { indexChain, type ChainIndex } from "./chain-index";
-import { buildSearchIndex, type SearchIndex } from "./search";
+import { buildSearchIndex, buildSearchIndexFromCompact, type CompactSearchChain, type SearchIndex } from "./search";
 import type { Chain, Manifest, ManifestChain } from "./types";
 
 // Loads menu data (docs/DATA.md): a manifest per source, then chain files on demand. On the web the CDN
@@ -23,6 +23,8 @@ export interface MenuState {
   dataVersion: number | null;
   indexes: ReadonlyMap<string, ChainIndex>; // loaded chains
   searchIndex: SearchIndex;
+  /** True once the compact search file has been loaded: search then covers every chain without loading their menus. */
+  searchReady: boolean;
   error?: string;
 }
 
@@ -46,11 +48,13 @@ const EMPTY_SEARCH = buildSearchIndex([]);
 const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name, "en-US");
 
 export class MenuClient {
-  private state: MenuState = { status: "idle", chains: [], dataVersion: null, indexes: new Map(), searchIndex: EMPTY_SEARCH };
+  private state: MenuState = { status: "idle", chains: [], dataVersion: null, indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false };
   private listeners = new Set<() => void>();
   private manifestPromise: Promise<void> | null = null;
   private chainPromises = new Map<string, Promise<ChainIndex>>();
   private allPromise: Promise<void> | null = null;
+  private searchPromise: Promise<void> | null = null;
+  private searchEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
 
   constructor(private opts: MenuClientOptions) {}
 
@@ -94,11 +98,13 @@ export class MenuClient {
     this.set({ status: "loading", error: undefined });
     const results = await Promise.all(this.opts.sources.map(async (s) => [s, await this.fetchManifest(s)] as const));
     const merged = new Map<string, CatalogChain>();
+    const searchEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
     let dataVersion: number | null = null;
     let unreachable = false;
     for (const [source, manifest] of results) {
       if (manifest === "unreachable") unreachable = true;
       if (typeof manifest === "string") continue;
+      if (manifest.search) searchEntries.push({ baseUrl: source.baseUrl, ...manifest.search });
       let contributed = false;
       for (const c of manifest.chains) {
         if (c.sample && !this.opts.includeSamples) continue; // samples never show unless explicitly enabled
@@ -119,7 +125,15 @@ export class MenuClient {
       this.set({ status: "ready", error: undefined }); // keep what we already had
       return;
     }
-    this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion, error: undefined });
+    // A new manifest may mean new search files: forget a search index built from the old ones.
+    if (JSON.stringify(searchEntries) !== JSON.stringify(this.searchEntries)) {
+      if (this.searchEntries.length > 0) {
+        this.searchPromise = null; // (not on the first load: a search request already waiting on this manifest must stand)
+        this.compactIndex = null;
+      }
+      this.searchEntries = searchEntries;
+    }
+    this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion, error: undefined, searchReady: this.compactIndex !== null, ...(this.compactIndex ? { searchIndex: this.compactIndex } : {}) });
   }
 
   // ---- chains
@@ -163,10 +177,57 @@ export class MenuClient {
       const index = indexChain(chain);
       const indexes = new Map(this.state.indexes);
       indexes.set(id, index);
-      this.set({ indexes, searchIndex: buildSearchIndex([...indexes.values()].map((i) => i.chain)) });
+      // With the compact search index loaded it already covers every chain; otherwise search what has been loaded.
+      this.set({ indexes, ...(this.compactIndex ? {} : { searchIndex: buildSearchIndex([...indexes.values()].map((i) => i.chain)) }) });
       return index;
     }
     throw new MenuLoadError("Menus are updating. Please try again in a moment.");
+  }
+
+  /**
+   * Load the compact search file (one small download listing every chain and item name) so search covers the whole
+   * catalogue. If a source has no search file, or it can't be fetched or verified, fall back to loading each chain's
+   * menu in the background (the old behaviour), so search still works, just with more data.
+   */
+  ensureSearch(): Promise<void> {
+    this.searchPromise ??= this.loadSearch();
+    return this.searchPromise;
+  }
+
+  private compactIndex: SearchIndex | null = null;
+
+  private async loadSearch(): Promise<void> {
+    await this.ensureManifest();
+    const catalog = new Map(this.state.chains.map((c) => [c.id, c]));
+    const sourcesWithChains = new Set(this.state.chains.map((c) => c.baseUrl));
+    const taken = new Set<string>();
+    const chains: CompactSearchChain[] = [];
+    let complete = this.searchEntries.length > 0 && [...sourcesWithChains].every((b) => this.searchEntries.some((e) => e.baseUrl === b));
+    for (const entry of this.searchEntries) {
+      try {
+        const res = await this.opts.fetch(entry.baseUrl + entry.file);
+        if (!res.ok) throw new MenuLoadError("search unavailable");
+        const bytes = await res.arrayBuffer();
+        const digest = this.opts.sha256 === undefined ? await safeDigest(bytes) : this.opts.sha256 ? await this.opts.sha256(bytes) : null;
+        if (digest !== null && digest !== entry.sha256) throw new MenuLoadError("search file does not match the manifest");
+        const doc = JSON.parse(new TextDecoder().decode(bytes)) as { schemaVersion: number; chains: CompactSearchChain[] };
+        if (doc.schemaVersion !== SUPPORTED_SCHEMA_VERSION) throw new MenuLoadError("search file needs a newer version of the app");
+        for (const c of doc.chains) {
+          const listed = catalog.get(c.id);
+          if (!listed || listed.baseUrl !== entry.baseUrl || taken.has(c.id)) continue; // only what the catalogue lists; earlier sources win
+          taken.add(c.id);
+          chains.push(c);
+        }
+      } catch {
+        complete = false;
+      }
+    }
+    if (!complete || chains.length === 0 || catalog.size === 0) {
+      this.searchPromise = null; // a later visit may succeed
+      return this.loadAll();
+    }
+    this.compactIndex = buildSearchIndexFromCompact(chains);
+    this.set({ searchIndex: this.compactIndex, searchReady: true });
   }
 
   /** Background-load every chain so item search covers the whole menu set. Failures are ignored (works offline). */
@@ -188,8 +249,10 @@ export class MenuClient {
   invalidate() {
     this.manifestPromise = null;
     this.allPromise = null;
+    this.searchPromise = null;
+    this.compactIndex = null;
     this.chainPromises.clear();
-    this.set({ indexes: new Map(), searchIndex: EMPTY_SEARCH });
+    this.set({ indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false });
   }
 }
 

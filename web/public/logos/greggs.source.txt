@@ -1,0 +1,6 @@
+status: skipped-terms
+file: none
+source_url: none (no brand or press page found: corporate.greggs.co.uk/media returns 404 and its About, news and footer pages link to no press kit or brand assets)
+terms_url: https://www.greggs.com/legals/terms-and-conditions
+terms_summary: Greggs' terms (consumer site and corporate site) allow content to be accessed for personal non-commercial use only and say none of it may be downloaded, copied or reproduced without Greggs plc's consent.
+retrieved: 2026-10-05

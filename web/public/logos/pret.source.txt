@@ -1,0 +1,6 @@
+status: skipped-terms
+file: none
+source_url: https://www.pret.co.uk/en-GB/mediacentre (press releases only, with a Press Office contact; no logo or brand-asset download offered)
+terms_url: https://www.pret.co.uk/en-GB/legal
+terms_summary: Pret's terms (clauses 7.1-7.2) reserve all trade marks and say none of the site content may be downloaded, copied or reproduced without prior written consent, and no brand kit is offered.
+retrieved: 2026-10-05

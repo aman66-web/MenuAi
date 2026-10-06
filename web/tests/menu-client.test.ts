@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { dataVersionDate, MenuClient, webCryptoSha256, type MenuSource } from "../lib/mm/menu-client";
+import { search } from "../lib/mm/search";
 import type { Manifest } from "../lib/mm/types";
 
 const samples = fileURLToPath(new URL("../public/menus-sample/", import.meta.url));
@@ -145,5 +146,49 @@ describe("MenuClient", () => {
   it("formats the data version as a date", () => {
     expect(dataVersionDate(20261005150948)).toBe("2026-10-05");
     expect(dataVersionDate(5)).toBe("");
+  });
+
+  describe("compact search index", () => {
+    it("searches every chain from one small file, without downloading any menu", async () => {
+      const { fetchFn, hits } = cdn();
+      const c = client(fetchFn);
+      await c.ensureSearch();
+      await c.ensureSearch();
+      const s = c.getSnapshot();
+      expect(s.searchReady).toBe(true);
+      expect(hits.filter((h) => h.endsWith("menus-search.json"))).toHaveLength(1);
+      expect(hits.filter((h) => /chain-.*\.json$/.test(h))).toHaveLength(0);
+      const found = search(s.searchIndex, "chicken bowl");
+      expect(found.items.map((i) => `${i.chainId}/${i.itemId}`)).toContain("bowl-and-co/chicken-bowl");
+      expect(search(s.searchIndex, "cluck").chains.map((x) => x.chainId)).toEqual(["cluck-house"]);
+    });
+    it("keeps the compact index when a single menu is opened later", async () => {
+      const c = client(cdn().fetchFn);
+      await c.ensureSearch();
+      await c.loadChain("cluck-house");
+      expect(c.getSnapshot().searchReady).toBe(true);
+      expect(search(c.getSnapshot().searchIndex, "chicken bowl").items.length).toBeGreaterThan(0); // still covers the chain NOT opened
+    });
+    it("falls back to loading each menu when the search file is missing", async () => {
+      const { fetchFn, hits } = cdn({ "/menus-sample/menus-search.json": null });
+      const c = client(fetchFn);
+      await c.ensureSearch();
+      expect(c.getSnapshot().searchReady).toBe(false);
+      expect(c.getSnapshot().indexes.size).toBe(2);
+      expect(hits.filter((h) => /chain-.*\.json$/.test(h))).toHaveLength(2);
+      expect(search(c.getSnapshot().searchIndex, "nuggets").items.length).toBeGreaterThan(0);
+    });
+    it("falls back when the search file doesn't match the manifest's SHA-256 (never trusts a stale mix)", async () => {
+      const real = readFileSync(samples + "menus-search.json", "utf8");
+      const c = client(cdn({ "/menus-sample/menus-search.json": real.replace("Chicken bowl", "Chicken bowl!") }).fetchFn);
+      await c.ensureSearch();
+      expect(c.getSnapshot().searchReady).toBe(false);
+      expect(c.getSnapshot().indexes.size).toBe(2);
+    });
+    it("ignores sample chains in the search file unless samples are enabled", async () => {
+      const c = client(cdn().fetchFn, false);
+      await c.ensureSearch();
+      expect(search(c.getSnapshot().searchIndex, "chicken").items).toEqual([]);
+    });
   });
 });

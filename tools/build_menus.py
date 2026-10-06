@@ -51,6 +51,7 @@ NUTRIENT_COLUMNS = {  # CSV column -> JSON key
 }
 # Columns a CSV may leave out entirely (older files); when present they are read like any other nutrient column.
 OPTIONAL_COLUMNS = {"salt_g"}
+SEARCH_FILE = "menus-search.json"
 INTEGER_NUTRIENTS = {"calories", "sodium"}
 TWO_DECIMAL_NUTRIENTS = {"salt"}  # salt is published to 2 decimals (e.g. 0.16 g); rounding it to 1 would change the published figure
 _N = list(NUTRIENT_COLUMNS)
@@ -608,6 +609,19 @@ def chain_document(b: ChainBuild) -> dict:
             "combinations": b.combinations}
 
 
+def search_document(out: Path, manifest_chains: list) -> dict:
+    """Compact index for the app's search: chain names plus [item id, name, calories] per item, so search never has to
+    download every full menu. Built from the chain files just written, so it can never disagree with them."""
+    chains = []
+    for c in manifest_chains:
+        doc = json.loads((out / c["file"]).read_text())
+        chains.append({
+            "id": doc["id"], "name": doc["name"], "cuisine": doc["cuisine"], "aliases": doc["aliases"], "sample": doc["sample"],
+            "items": [[i["id"], i["name"], i["nutrients"]["calories"]] for i in doc["items"]],
+        })
+    return {"schemaVersion": SCHEMA_VERSION, "chains": chains}
+
+
 def content_hash(doc: dict) -> str:
     return hashlib.sha256(json.dumps(doc, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
@@ -686,7 +700,9 @@ def main(argv=None) -> int:
         manifest_chains = [c for c in old if c["id"] not in built] + manifest_chains
     manifest_chains.sort(key=lambda c: c["id"])
 
-    manifest = {"schemaVersion": SCHEMA_VERSION, "dataVersion": data_version, "generatedAt": now, "chains": manifest_chains}
+    (out / SEARCH_FILE).write_text(json.dumps(search_document(out, manifest_chains), ensure_ascii=False, separators=(",", ":")) + "\n")
+    manifest = {"schemaVersion": SCHEMA_VERSION, "dataVersion": data_version, "generatedAt": now, "chains": manifest_chains,
+                "search": {"file": SEARCH_FILE, "sha256": file_sha256(out / SEARCH_FILE)}}
     (out / "menus-manifest.json").write_text(json.dumps(manifest, indent=1, ensure_ascii=False) + "\n")
 
     keep = {c["file"] for c in manifest_chains}
@@ -700,7 +716,7 @@ def main(argv=None) -> int:
         dest.mkdir(parents=True, exist_ok=True)
         for f in dest.glob("*.json"):
             f.unlink()
-        for f in [out / "menus-manifest.json"] + [out / c["file"] for c in manifest_chains]:
+        for f in [out / "menus-manifest.json", out / SEARCH_FILE] + [out / c["file"] for c in manifest_chains]:
             shutil.copy2(f, dest / f.name)
 
     if not args.quiet:

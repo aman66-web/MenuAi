@@ -19,7 +19,7 @@ fi
 copy_to() {
   mkdir -p "$1"
   rm -f "$1"/*.json
-  cp dist/release/menus-manifest.json dist/release/chain-*.json "$1"/
+  cp dist/release/menus-manifest.json dist/release/menus-search.json dist/release/chain-*.json "$1"/
 }
 
 copy_to web/public/menus

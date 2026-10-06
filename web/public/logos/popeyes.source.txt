@@ -1,0 +1,6 @@
+status: skipped-unavailable
+file: none
+source_url: https://www.popeyes.co.uk/ (no press/brand page reachable: /, /media and /robots.txt all returned HTTP 403 with a Cloudflare "Just a moment..." challenge; popeyes.com is the US chain, not the UK operator, and rbi.com is behind the same challenge)
+terms_url: none reachable (blocked by the same challenge)
+terms_summary: Not read: the Popeyes UK site is behind a bot challenge, which was not worked around, so no brand page or terms could be checked and nothing was downloaded.
+retrieved: 2026-10-05

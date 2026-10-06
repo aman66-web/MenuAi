@@ -59,13 +59,14 @@ export function useChain(id: string): { status: ChainStatus; index?: ChainIndex;
   return { status: "loading", retry };
 }
 
-/** Search index over every chain; loads the remaining chains in the background so item search is complete. */
+/** Search index over every chain: one small compact file (or, as a fallback, each menu loaded in the background). */
 export function useSearchIndex() {
   const state = useMenu();
   useEffect(() => {
-    void menuClient.loadAll();
+    void menuClient.ensureSearch();
   }, []);
-  return { searchIndex: state.searchIndex, loadedCount: state.indexes.size, totalCount: state.chains.length };
+  const totalCount = state.chains.length;
+  return { searchIndex: state.searchIndex, loadedCount: state.searchReady ? totalCount : state.indexes.size, totalCount };
 }
 
 /** Re-renders every minute (meal slot, "New" tags and "today" can change while the app is open). */

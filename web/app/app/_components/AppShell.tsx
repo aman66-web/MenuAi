@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
-import { outbox } from "@/lib/mm/stores";
-import { useHydrated, useMenu, useSettings } from "../_lib/hooks";
+import { chooseWarmChains } from "@/lib/mm/popular";
+import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
+import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { BookmarkIcon, GearIcon, HomeIcon, TodayIcon } from "./icons";
@@ -25,12 +26,16 @@ export function AppShell({ children }: { children: ReactNode }) {
   const fullScreen = pathname.startsWith("/app/welcome");
   const online = useOnline();
   const menu = useMenu();
+  const favorites = useStore(favoritesStore);
+  const saved = useStore(savedStore);
+  const ownChains = [...new Set([...favorites.map((f) => f.chainId), ...saved.map((o) => o.chainId)])].sort().join("|");
 
-  // Warm the offline cache once the catalogue is known (production only; see _lib/warm.ts).
+  // Warm the offline cache once the catalogue is known (production only; see _lib/warm.ts): the user's own chains first,
+  // then the popular ones, capped so a catalogue of 150+ chains isn't downloaded on a first visit.
   useEffect(() => {
     if (process.env.NODE_ENV !== "production" || menu.status !== "ready" || menu.chains.length === 0) return;
-    void warmOffline(menu.chains);
-  }, [menu.status, menu.chains]);
+    void warmOffline(chooseWarmChains(menu.chains, ownChains ? ownChains.split("|") : []));
+  }, [menu.status, menu.chains, ownChains]);
 
   // First visit (SPEC §7.1): onboarding comes first, wherever the link pointed. It returns there when done.
   useEffect(() => {

@@ -245,7 +245,7 @@ class PipelineTests(unittest.TestCase):
         write_chain(self.src, components=BASIC_COMPONENTS, items=BASIC_ITEMS)
         dest = self.tmp / "bundle"
         self.build("--bundle-into", str(dest))
-        self.assertEqual(sorted(p.name for p in dest.iterdir()), ["chain-test-chain.json", "menus-manifest.json"])
+        self.assertEqual(sorted(p.name for p in dest.iterdir()), ["chain-test-chain.json", "menus-manifest.json", "menus-search.json"])
 
     def test_no_samples_flag_skips_sample_chains(self):
         write_chain(self.src, components=BASIC_COMPONENTS, items=BASIC_ITEMS)
@@ -393,3 +393,15 @@ class NoteAndHoldbackTests(unittest.TestCase):
     def test_holdback_needs_a_reason(self):
         self.write(holdback="odd,\n")
         self.assertEqual(self.build(), 1)
+
+
+    def test_search_index_lists_published_items_only_and_matches_the_manifest(self):
+        self.write(holdback="odd,Guide prints 367 g of carbohydrate\n")
+        self.assertEqual(self.build(), 0)
+        manifest = json.loads((self.out / "menus-manifest.json").read_text())
+        self.assertEqual(manifest["search"]["file"], "menus-search.json")
+        self.assertEqual(bm.file_sha256(self.out / "menus-search.json"), manifest["search"]["sha256"])
+        search = json.loads((self.out / "menus-search.json").read_text())
+        (chain,) = search["chains"]
+        self.assertEqual((chain["id"], chain["sample"]), ("uk-chain", True))
+        self.assertEqual(chain["items"], [["burger", "Burger", 463]])  # the held-back item is not searchable either

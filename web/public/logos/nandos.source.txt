@@ -1,0 +1,6 @@
+status: skipped-terms
+file: none
+source_url: none (no brand or press page found: nandos.co.uk/press returns 404 and the homepage footer links to no press kit or brand assets)
+terms_url: https://www.nandos.co.uk/nandos-terms-and-conditions
+terms_summary: Nando's terms reserve the Nando's name and mark and its images, grant no right to use its intellectual property, and allow downloads only for personal non-commercial use.
+retrieved: 2026-10-05

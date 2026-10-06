@@ -1,0 +1,6 @@
+status: skipped-unavailable
+file: none
+source_url: https://www.burgerking.co.uk/ (a JavaScript-only app: its sitemap lists only menu, offer and promotion-terms pages and no press, media or brand page; the parent company site rbi.com returned HTTP 403 with a Cloudflare challenge, which was not worked around)
+terms_url: none read (the site's /terms and /terms-of-use routes are rendered by JavaScript and could not be read without a browser)
+terms_summary: No official brand or press page offering a logo download could be found or read, so nothing was downloaded; the founder can ask Burger King UK's press office directly.
+retrieved: 2026-10-05

@@ -1,0 +1,6 @@
+status: skipped-terms
+file: none
+source_url: none (no brand or press page found: fiveguys.co.uk/press returns 404, and the "Hot off the press" page is a news and media-mentions blog with no press kit or logo download)
+terms_url: https://www.fiveguys.co.uk/legal/
+terms_summary: Five Guys UK's website terms allow downloading extracts for personal use only, forbid using graphics separately from accompanying text or for commercial purposes without a licence, and need prior written permission for any other reproduction.
+retrieved: 2026-10-05

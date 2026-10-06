@@ -1,0 +1,6 @@
+status: skipped-terms
+file: none
+source_url: none (the UK site links to https://media.subway.com, which serves only the single word "media" and no press kit or logo downloads; /en-gb/aboutus/press returns 404)
+terms_url: https://www.subway.com/en-gb/legal/terms-of-use
+terms_summary: Subway's terms say the Subway name and logo are registered trademarks of Subway IP LLC, grant no licence to any of its trademarks or service marks, and prohibit unauthorised use.
+retrieved: 2026-10-05

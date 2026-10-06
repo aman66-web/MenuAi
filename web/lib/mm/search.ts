@@ -75,6 +75,34 @@ export function buildSearchIndex(chains: readonly Chain[]): SearchIndex {
   return index;
 }
 
+/** One chain in the pipeline's compact search file (menus-search.json): items are [item id, name, calories]. */
+export interface CompactSearchChain {
+  id: string;
+  name: string;
+  cuisine: string;
+  aliases: string[];
+  sample: boolean;
+  items: Array<[string, string, number]>;
+}
+
+/** The same index as buildSearchIndex, built from the compact file so no full menu has to be downloaded to search. */
+export function buildSearchIndexFromCompact(chains: readonly CompactSearchChain[]): SearchIndex {
+  const index: SearchIndex = { chains: [], items: [] };
+  for (const chain of chains) {
+    index.chains.push({
+      chainId: chain.id,
+      name: chain.name,
+      cuisine: chain.cuisine,
+      sample: chain.sample,
+      norms: [chain.name, ...chain.aliases].map(normalizeForSearch).filter(Boolean),
+    });
+    for (const [itemId, name, calories] of chain.items) {
+      index.items.push({ chainId: chain.id, chainName: chain.name, itemId, name, calories, sample: chain.sample, norm: normalizeForSearch(name) });
+    }
+  }
+  return index;
+}
+
 /** 0 = the name starts with the query, 1 = a later word starts with it, null = no match. */
 function matchRank(norm: string, q: string): 0 | 1 | null {
   if (norm.startsWith(q)) return 0;

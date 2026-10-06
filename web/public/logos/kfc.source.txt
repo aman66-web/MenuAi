@@ -1,0 +1,6 @@
+status: skipped-terms
+file: none
+source_url: none (no brand or press page found on kfc.co.uk: /press, /media, /press-office and /about return errors, the footer and About page link to none, and info.kfc.co.uk could not be reached from this environment)
+terms_url: https://www.kfc.co.uk/terms-conditions
+terms_summary: KFC's site terms say its trademarks may not be reproduced or copied without the express written permission of KFC, and offer no logo download.
+retrieved: 2026-10-05
