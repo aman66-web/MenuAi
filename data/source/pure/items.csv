@@ -1,0 +1,160 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+banana-and-honey-organic-dairy-milk,Banana & Honey (organic dairy milk),Porridge,With organic dairy milk,345,9.3,60.6,6.4,3.5,,0.61,35.8,4.1,vegetarian,false,true,,,
+banana-and-honey-oat-milk,Banana & Honey (oat milk),Porridge,With oat milk,336,6.7,66.9,4.1,0.7,,0.61,34.8,4.7,vegetarian,false,true,,,
+pure-and-pip-organic-dairy-milk,Pure & Pip (organic dairy milk),Porridge,With organic dairy milk,397,16.0,35.9,18.7,5.0,,073,10.1,8.3,vegetarian,false,true,,,
+pure-and-pip-oat-milk,Pure & Pip (oat milk),Porridge,With oat milk,388,13.4,42.1,16.4,2.2,,0.73,9.2,8.9,vegetarian,false,true,,,
+berry-strong-organic-dairy-milk,Berry Strong (organic dairy milk),Porridge,With organic dairy milk,473,19,58,18.3,5.0,,0.61,31.3,10.2,vegetarian,false,true,,,
+berry-strong-oat-milk,Berry Strong (oat milk),Porridge,With oat milk,465,19,64.3,16,2.1,,0.61,30.4,10.8,vegetarian,false,true,,,
+banana-and-maple-syrup-organic-dairy-milk,Banana & Maple Syrup (organic dairy milk),Porridge,With organic dairy milk,319,9.2,54.0,6.3,3.5,,0.60,27.4,3.9,vegetarian,false,true,,,
+banana-and-maple-syrup-oat-milk,Banana & Maple Syrup (oat milk),Porridge,With oat milk,310,6.5,60.3,4.0,0.6,,0.60,26.4,4.5,vegetarian,false,true,,,
+mixed-berries-and-peanut-butter-organic-dairy-milk,Mixed Berries & Peanut Butter (organic dairy milk),Porridge,With organic dairy milk,394,15.9,35.4,18.6,5.0,,0.73,9.3,6.7,vegetarian,false,true,,,
+mixed-berries-and-peanut-butter-oat-milk,Mixed Berries & Peanut Butter (oat milk),Porridge,With oat milk,385,13.3,41.6,16.3,2.2,,0.73,8.4,7.3,vegetarian,false,true,,,
+start-strong-organic-dairy-milk,Start Strong (organic dairy milk),Porridge,With organic dairy milk,477,17.9,42.4,23.7,5.8,,0.61,15.3,10.7,vegetarian,false,true,,,
+start-strong-oat-milk,Start Strong (oat milk),Porridge,With oat milk,469,15.3,48.6,21.5,2.9,,0.61,14.3,11.3,vegetarian,false,true,,,
+organic-dairy-milk-pure-porridge,Organic Dairy Milk Pure Porridge,Porridge,,221,9.0,30.0,6.0,3.0,,1.0,6.0,4.0,vegetarian,false,true,,,
+oat-milk-pure-porridge,Oat Milk Pure Porridge,Porridge,,189,5.3,30.7,3.4,0.6,,0.64,2.5,4.3,vegetarian,false,true,,,
+super-eggs,Super Eggs,Super Eggs,,252,21.0,2.0,18.0,6.0,,1.00,1.0,0.0,vegetarian,false,true,,,
+super-eggs-with-avocado,Super Eggs with Avocado,Super Eggs,,331,21.8,1.9,25.9,8.4,,0.95,0.7,1.6,vegetarian,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+super-eggs-with-bacon,Super Eggs with Bacon,Super Eggs,,356,29.4,4,24.6,9.1,,1.93,2,0.5,contains_pork,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+super-eggs-with-sauteed-mushrooms,Super Eggs with Sautéed Mushrooms,Super Eggs,,273,21.6,1.3,20,7.1,,1.09,0.5,1.3,vegetarian,false,true,,,
+super-eggs-with-smoked-salmon,Super Eggs with Smoked Salmon,Super Eggs,,301,26.5,1.2,20.9,7.3,,1.51,0.5,0.9,,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+cheese-tomato-and-spinach,"Cheese, Tomato & Spinach",Protein egg muffins,,366,20.1,7.1,28.2,11.2,,1.67,3.6,0.6,vegetarian,false,true,,,
+ham-and-cheese,Ham & Cheese,Protein egg muffins,,499,25.0,50.1,22.5,10.2,,2.68,5.6,2.9,contains_pork,false,true,,,
+bacon-and-egg,Bacon & Egg,Wrap toasties,,519,20.9,55.5,23.5,7.0,,2.64,11.5,2.6,contains_pork,false,true,,,
+british-sausage-and-egg,British Sausage & Egg,Wrap toasties,,564,19.4,51.5,29.9,9.2,,2.57,7.7,2.4,contains_pork,false,true,,,
+full-of-beans,Full of Beans,Wrap toasties,,485,16.1,66.6,18.9,3.5,,2.24,9.8,7.0,vegetarian,false,true,,,
+smoked-salmon-and-spinach,Smoked Salmon & Spinach,Wrap toasties,,564,19.4,51.5,29.9,9.2,,2.57,7.7,2.4,,false,true,,,
+super-start,Super Start,Wrap toasties,,431,16.0,49.8,18.8,6.5,,2.00,5.7,3.0,vegetarian,false,true,,,
+bacon-egg-and-ketchup,"Bacon, Egg & Ketchup",Wrap toasties,,506,20.7,52.6,23.5,7.1,,2.72,9.3,2.3,contains_pork,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+full-english,Full English,Wrap toasties,,569,21.7,50.0,30.4,9.9,,2.79,6.1,2.9,contains_pork,false,true,,,
+smoked-salmon,Smoked Salmon,Wrap toasties,,452,21.5,47.8,19.3,5.0,,2.60,4.6,2.5,,false,true,,,
+super-veg,Super Veg,Wrap toasties,,412,15.6,49.0,17.2,6.4,,1.79,4.8,2.8,vegetarian,false,true,,,
+the-very-vegan,The Very Vegan,Wrap toasties,,429,9.8,52.2,21.5,4.2,,1.33,4.8,6.1,vegetarian,false,true,,,
+chicken-new-yorker,Chicken New Yorker,Wrap toasties,,519,26.9,48.7,24.1,7.9,,2.46,5.4,2.6,,false,true,,,
+chicken-picante,Chicken Picante,Wrap toasties,,576,30.3,60.8,25.4,8.1,,2.1,8.2,6.3,,false,true,,,
+halloumi,Halloumi,Wrap toasties,,647,12.1,60.2,33.0,13.6,,4.23,13.2,6.6,vegetarian,false,true,,,
+korean-barbecue-beef,Korean Barbecue Beef,Wrap toasties,,523,25.1,62.6,19.8,9.5,,3.77,17.4,3.3,contains_beef,false,true,,,
+berry-delightful,Berry Delightful,Birchers & yoghurts,,287,7.4,35.6,15.8,7.3,,0.15,21.2,4.3,vegetarian,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+berry-overnight-oats,Berry Overnight Oats,Birchers & yoghurts,,316,10.4,37.8,11.4,4,,0.06,10.7,8.6,vegetarian,false,true,,,
+blossom-honey-yoghurt-and-granola,"Blossom Honey, Yoghurt & Granola",Birchers & yoghurts,,326,9.4,29.0,20.6,8.5,,0.23,14.5,4.3,vegetarian,false,true,,,
+fibre-starter,Fibre Starter,Birchers & yoghurts,,674,23.2,33.8,50.3,13.7,,0.39,24.4,14.2,vegetarian,false,true,,,
+go-nuts-bircher,Go Nuts Bircher,Birchers & yoghurts,,413,13,51.3,17.0,4.3,,0.10,16.3,6.5,vegetarian,false,true,,,
+raspberry-and-peanut-butter,Raspberry & Peanut Butter,Birchers & yoghurts,,361,14.8,18.0,24.7,9.4,,0.36,14.2,4.9,vegetarian,false,true,,,
+rise-and-shine-bircher,Rise & Shine Bircher,Birchers & yoghurts,,298,8.6,45.8,7.9,3.2,,0.10,12.5,5.1,vegetarian,false,true,,,
+super-nut-overnight-oats,Super Nut Overnight Oats,Birchers & yoghurts,,438,13.9,52.6,18.9,4.5,,0.10,17.3,6.8,vegetarian,false,true,,,
+super-protein,Super Protein,Birchers & yoghurts,,702,26.5,30.9,53.9,14.3,,0.52,20,9.7,vegetarian,false,true,,,
+top-banana,Top Banana,Birchers & yoghurts,,338,10.4,36.0,15.9,6.8,,0.2,20.3,5.4,vegetarian,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+peanut-butter-protein-pot,Peanut Butter Protein Pot,Birchers & yoghurts,,404,15.0,25.9,25.1,8.4,,0.18,8.8,9.6,vegetarian,false,true,,,
+forest-berries-overnight-oats,Forest Berries Overnight Oats,Birchers & yoghurts,,316,10.4,37.8,11.4,4.0,,0.06,10.7,8.6,vegetarian,false,true,,,
+mixed-berry-yoghurt-and-granola,Mixed Berry Yoghurt & Granola,Birchers & yoghurts,,298,9.1,23.2,19.0,7.6,,0.21,8.9,6.8,vegetarian,false,true,,,
+blueberry-overnight-oats,Blueberry Overnight Oats,Birchers & yoghurts,,298,8.6,45.8,7.9,3.2,,0.10,12.5,5.1,vegetarian,false,true,,,
+protein-boost,Protein Boost,Birchers & yoghurts,,449,16.3,21.5,33.7,8.4,,0.24,14.4,6.2,vegetarian,false,true,,,
+apple-bran-and-cinnamon-muffin,"Apple, Bran & Cinnamon Muffin",Bakery,,308,6.1,31.0,7.7,1.5,,0.2,21.8,3.9,vegetarian,false,false,,,kcal 308 differs from its macros (4P+4C+9F = 218) by 29%; printed as is
+blueberry-muffin,Blueberry Muffin,Bakery,,405,5.0,44.0,23.0,4.0,,0.01,24.0,0.0,vegetarian,false,false,,,
+cinnamon-bun,Cinnamon Bun,Bakery,,320,5.4,44,13,5.6,,0.8,17,2.1,vegetarian,false,false,,,
+croissant,Croissant,Bakery,,348,6.7,32.8,21.1,13.3,,0.78,5.6,1.8,vegetarian,false,false,,,
+pain-au-raisin,Pain au Raisin,Bakery,,322,5.5,44.0,13.2,8.7,,0.8,18.7,2.2,vegetarian,false,false,,,
+vegan-almond-croissant,Vegan Almond Croissant,Bakery,,486,7.5,48.3,28.8,8.5,,0.54,11.5,2.9,vegetarian,false,false,,,
+chocolate-croissant,Chocolate Croissant,Bakery,,409,6.6,43.1,22.7,8.4,,0.80,18.1,2.9,vegetarian,false,false,,,
+seoul-good-seoul-good,"Seoul Good, Seoul Good",Wraps,,441,21.1,53.2,15.9,4.7,,3.25,8.9,3.5,contains_beef,false,true,,,
+so-cluckin-good,So Cluckin’ Good,Wraps,,503,9.7,55.7,20.8,5.8,,0.7,8.4,6.8,,false,true,,,kcal 503 differs from its macros (4P+4C+9F = 449) by 11%; printed as is; The Per 100g column does not fit the Per portion column here; per portion is used
+fajita-chicken-and-smashed-avo,Fajita Chicken & Smashed Avo,Wraps,,576,26.7,54.7,28.7,9.3,,2.17,8,5.3,,false,true,,,
+hail-caesar,Hail Caesar,Wraps,,576,29.8,56.5,25.6,8.8,,2.43,6.1,3,,false,true,,,
+lock-stock-and-hot-smoked-salmon,"Lock, Stock & Hot Smoked Salmon",Wraps,,427,21.3,49.9,15.6,3.8,,2.27,6.4,3.8,,false,true,,,
+falafalo-soldier,Falafalo Soldier,Wraps,,702,17.2,72.5,38.0,5.9,,2.51,15.4,11.8,vegetarian,false,true,,,
+roasted-veg-and-sriracha-mayo,Roasted Veg & Sriracha Mayo,Pretzel subs,,336,7.7,46.9,13.9,1.4,,2.03,6.2,6.0,vegetarian,true,true,,,Listed under 'New this Season' on the menus page
+salmon-and-cream-cheese,Salmon & Cream Cheese,Pretzel subs,,339,19.8,41.5,9.8,2.9,,2.9,4.4,3.4,,false,true,,,
+salt-beef-mustard-and-pickles,"Salt Beef, Mustard & Pickles",Pretzel subs,,351,16.3,42.7,11.7,2.0,,4.12,5.1,3.2,contains_beef,false,true,,,
+british-chargrilled-chicken,British Chargrilled Chicken,Pretzel subs,,360,17.1,43.1,12.4,1.3,,2.06,5.9,3.3,,false,true,,,
+autumn-minestrone-regular,Autumn Minestrone (regular),Soups,Regular,275,12.5,29.3,24.6,0.7,,2.57,4.6,5.4,vegetarian,true,true,,,kcal 275 differs from its macros (4P+4C+9F = 389) by 41%; printed as is; Listed under 'New this Season' on the menus page
+autumn-minestrone-large,Autumn Minestrone (large),Soups,Large,372,16.9,39.6,33.3,1.0,,3.48,6.3,7.2,vegetarian,true,true,,,kcal 372 differs from its macros (4P+4C+9F = 526) by 41%; printed as is; Listed under 'New this Season' on the menus page
+british-chicken-regular,British Chicken (regular),Soups,Regular,145,17.5,10.1,3.6,0.5,,2.96,3.7,1.1,,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+british-chicken-large,British Chicken (large),Soups,Large,226,27.3,15.8,5.6,0.7,,4.62,5.8,1.8,,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+chicken-laksa-soup-regular,Chicken Laksa Soup (regular),Soups,Regular,329,20.7,20,19.2,7.2,,1.75,8.6,3.6,,true,true,,,Listed under 'New this Season' on the menus page
+chicken-laksa-soup-large,Chicken Laksa Soup (large),Soups,Large,444,27.9,26.9,25.9,9.6,,2.36,11.5,4.9,,true,true,,,Listed under 'New this Season' on the menus page
+thai-green-lentil-regular,Thai Green Lentil (regular),Soups,Regular,207,6.0,13.0,13.0,11.0,,2.00,4.0,5.0,vegetarian,false,true,,,
+thai-green-lentil-large,Thai Green Lentil (large),Soups,Large,326,9.0,20.0,21.0,17.0,,3.00,6.0,7.0,vegetarian,false,true,,,
+chicken-shawarma,Chicken Shawarma,Pure bowls,,651,39.8,67.3,26.6,3.3,,4.24,11.6,8.3,,false,true,,,
+high-protein-chilli-and-cheese,High Protein Chilli & Cheese,Pure bowls,,874,34.9,100.5,39.1,12.5,,1.75,7.5,14.3,contains_beef,true,true,,,Listed under 'New this Season' on the menus page
+protein-chicken-and-mushroom,Protein Chicken & Mushroom,Pure bowls,,597,34.1,65.7,23.1,8.1,,4.10,6.6,3.5,,false,true,,,
+protein-power,Protein Power,Pure bowls,,615,36.2,75.9,19.9,3.3,,2.64,16.0,4.9,,false,true,,,
+sweet-potato-and-coconut-curry,Sweet Potato & Coconut Curry,Pure bowls,,556,14.3,85.5,19.9,2.9,,2.50,19.1,2.1,vegetarian,false,true,,,
+feel-good-chicken,Feel Good Chicken,Pure bowls,,573,30.0,93.8,8.3,1.6,,4.11,13.2,7.7,contains_beef,true,true,,,Listed under 'New this Season' on the menus page
+pure-bibimbap-dressed,Pure Bibimbap (dressed),Salads,Dressed,426,27.1,24.9,23.0,4.9,,4.15,16.1,6.2,contains_beef,false,true,,,
+pure-bibimbap-undressed,Pure Bibimbap (undressed),Salads,Undressed,264,25.6,6.9,14.0,4.2,,2.65,4.7,6.1,contains_beef,false,true,,,fat printed as '`14.0': the page prints a stray backtick before the number; the digits are used as printed
+chicken-caesar-dressed,Chicken Caesar (dressed),Salads,Dressed,475,37.6,13.2,29.8,10.4,,1.69,6.1,1.6,,false,true,,,
+chicken-caesar-undressed,Chicken Caesar (undressed),Salads,Undressed,369,37.2,12.5,18.4,6.6,,1.27,3.1,1.9,,false,true,,,
+naked-chicken-burrito-dressed,Naked Chicken Burrito (dressed),Salads,Dressed,503,26.5,25.2,34.1,4.5,,2.03,7.9,10.8,,false,true,,,
+naked-chicken-burrito-undressed,Naked Chicken Burrito (undressed),Salads,Undressed,329,27.4,24.1,21.2,2.8,,2.02,7.0,11.4,,false,true,,,kcal 329 differs from its macros (4P+4C+9F = 397) by 21%; printed as is
+celebrity-skin-dressed,Celebrity Skin (dressed),Salads,Dressed,653,30.2,14.1,52.8,6.7,,2.26,5.3,6.8,,false,true,,,
+celebrity-skin-undressed,Celebrity Skin (undressed),Salads,Undressed,357,30.1,9.8,22.3,3.9,,1.96,3.1,6.5,,false,true,,,
+rainbow-veg-dressed,Rainbow Veg (dressed),Salads,Dressed,430,13.3,26.0,29.7,4.4,,1.96,19.5,12.9,vegetarian,false,true,,,
+rainbow-veg-undressed,Rainbow Veg (undressed),Salads,Undressed,240,8.8,21.5,13.2,2.0,,1.42,16.6,11.1,vegetarian,false,true,,,
+the-king-caesar-dressed,The King Caesar (dressed),Salads,Dressed,465,36.1,14.6,29.6,6.8,,1.99,10.1,5.1,,false,true,,,
+the-king-caesar-undressed,The King Caesar (undressed),Salads,Undressed,381,35.2,11.3,22.2,5.7,,1.82,6.8,4.9,,false,true,,,
+prime-protein,Prime Protein,Grain bowls,,534,26.5,31.5,33.3,4.8,,2.61,10.2,7.8,,false,true,,,The Per 100g column does not fit the Per portion column here; per portion is used
+salmon-lovin,Salmon Lovin’,Grain bowls,,412,19.4,26.6,25.9,4.3,,1.41,5.9,6.0,,false,true,,,
+24-carrot,24 Carrot,Sides,,238,4.9,17.6,14.6,1.2,,0.80,10.5,7.4,vegetarian,false,true,,,
+25g-protein-chicken-and-hummus,25g Protein Chicken & Hummus,Sides,,324,25,5.2,21.3,2.1,,1.23,1.1,5.7,,false,true,,,
+super-fast-fibre,Super Fast Fibre,Sides,,333,13.1,18.8,22.5,2.1,,2.01,4.8,9.4,vegetarian,false,true,,,
+20g-protein-chicken-and-harissa,20g Protein Chicken & Harissa,Sides,,276,20.3,7.3,18.1,1.9,,1.02,5.1,1.2,,false,true,,,
+10g-protein-eggs-and-spicy-greens,10g Protein Eggs & Spicy Greens,Sides,,124,10.4,2.5,8.3,2.5,,0.92,1.9,0.8,vegetarian,false,true,,,
+peanut-butter-choc-pot,Peanut Butter Choc Pot,Desserts,,216,1.8,19.7,13.8,10.5,,0.04,15.7,1.8,vegetarian,false,false,,,
+super-rice-pudding,Super Rice Pudding,Desserts,,206,2.2,27.1,10.0,8.2,,0.40,6.2,0.9,vegetarian,false,false,,,
+sourdough-roll-and-butter,Sourdough Roll and Butter,Bread,,230,6.0,37.0,6.0,3.0,,1.00,1.0,0.0,vegetarian,false,false,,,
+classic-fruit-pot,Classic Fruit Pot,Fruit pots,,118,1.5,30.5,0.5,0.1,,0.70,24.2,0.0,vegetarian,false,false,,,kcal 118 differs from its macros (4P+4C+9F = 132) by 12%; printed as is
+mango-and-pineapple,Mango & Pineapple,Fruit pots,,83,1.3,15.8,0.3,,,,15.5,,vegetarian,false,false,,,kcal 83 differs from its macros (4P+4C+9F = 71) by 14%; printed as is
+melon-and-blueberries,Melon & Blueberries,Fruit pots,,54,1.2,12.9,0.3,0.1,,0.21,11.9,1.5,vegetarian,false,false,,,
+super-fruit-salad,Super Fruit Salad,Fruit pots,,118,1.3,29.8,0.4,0.1,,,25.6,0.0,vegetarian,false,false,,,
+dark-chocolate-and-hazelnut-cookie,Dark Chocolate & Hazelnut Cookie,Sweet treats,,272,5.1,37.8,10.5,1.5,,0.27,36.4,2.2,vegetarian,false,false,,,
+double-chocolate-and-vanilla-cookie,Double Chocolate & Vanilla Cookie,Sweet treats,,468,5.5,57.7,23.9,12.1,,0.36,38.4,3.0,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
+oat-and-cranberry-cookie,Oat & Cranberry Cookie,Sweet treats,,246,3.2,37.1,9.1,5.0,,0.48,23.1,1.6,vegetarian,false,false,,,
+salted-caramel-brownie,Salted Caramel Brownie,Sweet treats,,270,1.9,30.5,15.2,9.1,,0.32,26.5,1.1,vegetarian,false,false,,,
+maple-flapjack,Maple Flapjack,Sweet treats,,239,6.0,62.2,18.7,9.5,,0.36,34.2,4.7,vegetarian,false,false,,,kcal 239 differs from its macros (4P+4C+9F = 441) by 85%; printed as is; The Per 100g column does not fit the Per portion column here; per portion is used
+brave-paprika-and-chilli-peas,Brave Paprika and Chilli Peas,Snacks,,132,7,14,3.9,0.4,,0.53,0.9,7,vegetarian,false,false,,,
+brave-sea-salt-and-vinegar-peas,Brave Sea Salt and Vinegar Peas,Snacks,,134,6.7,14.4,3.9,0.4,,0.77,0.7,6.7,vegetarian,false,false,,,kcal 134 differs from its macros (4P+4C+9F = 120) by 11%; printed as is
+brown-bag-crisps-cheddar-and-onion,Brown Bag Crisps – Cheddar & Onion,Snacks,,200,2.2,23.4,10.8,0.9,,0.68,0.7,1.0,vegetarian,false,false,,,
+brown-bag-crisps-lightly-salted,Brown Bag Crisps – Lightly Salted,Snacks,,206,2.0,23.4,11.5,0.9,,0.48,0.1,1.0,vegetarian,false,false,,,
+brown-bag-crisps-sea-salt-and-malt-vinegar,Brown Bag Crisps – Sea Salt & Malt Vinegar,Snacks,,196,1.9,23.3,10.6,0.9,,1.20,1.2,0.9,vegetarian,false,false,,,
+brown-crisps-smoked-chilli,Brown Crisps – Smoked Chilli,Snacks,,199,2.1,23.6,10.7,0.9,,0.76,1.4,1.0,vegetarian,false,false,,,
+deliciously-ella-apple-raisin-and-cinnamon-oat-bar,"Deliciously Ella Apple, Raisin and Cinnamon Oat Bar",Snacks,,213,2.8,29.7,8.7,4.8,,0.15,14.5,2.5,vegetarian,false,false,,,
+deliciously-ella-cacao-and-almond-energy-ball,Deliciously Ella Cacao & Almond Energy Ball,Snacks,,162,3.9,17.9,7.8,1.6,,0.02,16.7,3.8,,false,false,,,
+deliciously-ella-chocolate-orange-dipped-almonds,Deliciously Ella Chocolate Orange Dipped Almonds,Snacks,,179,3.7,7.7,12.8,4.0,,0.04,4.8,3.2,,false,false,,,kcal 179 differs from its macros (4P+4C+9F = 161) by 10%; printed as is
+deliciously-ella-peanut-butter-oat-bar,Deliciously Ella Peanut Butter Oat Bar,Snacks,,230,5.1,25,11.8,5.1,,0.24,10.6,2.5,vegetarian,false,false,,,
+eat-real-hummus-chips-tomato-and-basil,Eat Real – Hummus Chips Tomato & Basil,Snacks,,100,2.0,15,3.6,0.3,,0.23,0.6,0.8,vegetarian,false,false,,,
+eat-real-quinoa-chips-sour-cream-and-chive,Eat Real – Quinoa Chips Sour Cream & Chive,Snacks,,90,1.8,14,3.6,0.3,,0.42,0.7,0.8,vegetarian,false,false,,,
+pip-and-nut-dark-chocolate-almond-butter-cups,Pip & Nut Dark Chocolate Almond Butter Cups,Snacks,,204,3.8,10.3,15.8,6.6,,0.07,8.9,2.3,vegetarian,false,false,,,
+pip-and-nut-milk-chocolate-peanut-butter-cups,Pip & Nut Milk Chocolate Peanut Butter Cups,Snacks,,202,3.9,12.8,14.7,6.5,,0.1,11.9,1.4,vegetarian,false,false,,,
+tonys-chocolonely-dark-almond-sea-salt,Tony’s Chocolonely Dark Almond Sea Salt,Snacks,,253,3.5,20.7,16.5,8.6,,0.24,19.5,0.0,vegetarian,false,false,,,
+tonys-chocolonely-milk-caramel-sea-salt,Tony’s Chocolonely Milk Caramel Sea Salt,Snacks,,252,3.2,25.5,15.0,9.1,,0.32,24.0,0.0,vegetarian,false,false,,,
+tonys-chocolonely-milk-chocolate,Tony’s Chocolonely Milk Chocolate,Snacks,,256,3.6,24.4,15.5,9.4,,0.10,23.8,0.0,vegetarian,false,false,,,
+deliciously-ella-salted-caramel-almonds,Deliciously Ella Salted Caramel Almonds,Snacks,,176,4.2,8.5,14.2,4.4,,0.07,5.3,3.6,vegetarian,false,false,,,
+cappuccino,Cappuccino,Coffee,,137,7.8,9.4,7.8,4.8,,0.22,9.4,,vegetarian,false,false,,,
+cortado,Cortado,Coffee,,63,3.3,4.5,3.5,2.3,,0.1,4.5,,vegetarian,false,false,,,
+flat-white,Flat White,Coffee,,107,5.9,7.4,5.9,3.7,,0.18,7.4,,vegetarian,false,false,,,
+latte,Latte,Coffee,,169,9.6,11.8,9.6,6.1,,0.29,11.8,,vegetarian,false,false,,,
+macchiato,Macchiato,Coffee,,33,1.8,2.3,1.8,1.2,,0.05,2.3,,vegetarian,false,false,,,
+mocha,Mocha,Coffee,,256,11,16.6,15.9,10,,0.27,16.3,1.7,vegetarian,false,false,,,
+chai-latte,Chai Latte,Speciality drinks,,266,11,32.2,10.6,6.6,,0.4,22.9,,vegetarian,false,false,,,
+hot-chocolate,Hot Chocolate,Speciality drinks,,273,10,19.1,20.3,12.3,,0.23,18.3,3.5,vegetarian,false,false,,,The Per 100g column does not fit the Per portion column here; per portion is used
+matcha,Matcha,Speciality drinks,,147,3.0,16.0,7.1,0.7,,0.23,9.3,2.7,vegetarian,false,false,,,
+pure-matcha,Pure Matcha,Iced drinks,,192,3.7,20.8,9.3,0.9,,0.4,12.3,2.7,vegetarian,false,false,,,
+iced-latte,Iced Latte,Iced drinks,,228,9.8,13.1,9.8,6.3,,0.27,13.1,,vegetarian,false,false,,,kcal 228 differs from its macros (4P+4C+9F = 180) by 21%; printed as is
+berry-berry-good-large,Berry Berry Good (large),Smoothies,Large,374,10.8,34.0,17.1,6.2,,0.15,28.7,12.8,vegetarian,true,false,,,kcal 374 differs from its macros (4P+4C+9F = 333) by 11%; printed as is; Listed under 'New this Season' on the menus page
+berry-berry-good-regular,Berry Berry Good (regular),Smoothies,Regular,187,5.4,17.0,8.5,3.1,,0.07,14.3,6.4,vegetarian,true,false,,,kcal 187 differs from its macros (4P+4C+9F = 166) by 11%; printed as is; Listed under 'New this Season' on the menus page
+brain-boost-large,Brain Boost (large),Smoothies,Large,535,11.5,72.0,20.5,5.0,,0.65,55.5,6.0,vegetarian,false,false,,,
+brain-boost-regular,Brain Boost (regular),Smoothies,Regular,268,5.8,36.0,10.3,2.5,,0.33,27.8,3.0,vegetarian,false,false,,,
+get-vit-large,Get Vit (large),Smoothies,Large,266,3.5,40.2,9.5,8.7,,0.20,35.8,1.0,vegetarian,false,false,,,
+get-vit-regular,Get Vit (regular),Smoothies,Regular,133,1.8,20.1,4.7,4.4,,0.10,17.9,0.5,vegetarian,false,false,,,
+matcha-the-day-large,Matcha the Day (large),Smoothies,Large,447,12.7,53.4,20.7,2.5,,0.35,40.2,6.6,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
+matcha-the-day-regular,Matcha the Day (regular),Smoothies,Regular,223,6.4,26.7,10.3,1.3,,0.17,20.1,3.3,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
+pure-protein-large,Pure Protein (large),Smoothies,Large,417,34.4,31.0,18.1,1.9,,1.07,15.9,5.3,vegetarian,false,false,,,
+pure-protein-regular,Pure Protein (regular),Smoothies,Regular,222,17.2,15.5,9.0,0.9,,0.54,7.9,2.7,vegetarian,false,false,,,
+apple-juice-250ml,Apple Juice 250ml,Juices & shots,250 ml,120,0.3,29.5,0.0,0.0,,0.00,27.8,0.0,vegetarian,false,false,,,
+orange-juice-250ml,Orange Juice 250ml,Juices & shots,250 ml,120,1.5,27.3,0.3,,,,23.3,0.8,vegetarian,false,false,,,
+the-immunity-shot,The Immunity Shot,Juices & shots,,34,0.3,7.9,0.1,,,0.07,4.3,,vegetarian,false,false,,,
+ginger-lemon-kombucha,Ginger Lemon Kombucha,Branded drinks,,5,1.3,3.8,1.3,0.3,,0.03,0,1.3,vegetarian,false,false,,,
+tenzing-pineapple-and-passion-fruit,Tenzing Pineapple & Passion Fruit,Branded drinks,,48,0,11.3,0,0,,0.25,11.3,0,vegetarian,false,false,,,
+tenzing-raspberry-and-yuzu,Tenzing Raspberry & Yuzu,Branded drinks,,48,0,11.3,0,0,,0.25,11.3,0,vegetarian,false,false,,,
+trip-elderflower-and-mint,Trip Elderflower & Mint,Branded drinks,,19,0.0,4.8,0.0,0.0,,0.00,3.8,0.0,,false,false,,,
+trip-peach-and-ginger,Trip Peach & Ginger,Branded drinks,,21,0.0,5.3,0.0,50.0,,0.00,4.5,0.0,,false,false,,,The Per 100g column does not fit the Per portion column here; per portion is used
