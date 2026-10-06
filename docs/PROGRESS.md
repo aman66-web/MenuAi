@@ -112,7 +112,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - 2026-10-06 — **Food images** (founder's call, "I checked I'm able to do that"; CLAUDE.md rule 2 amended). An item may show the
   chain's own photo of it: taken only from the chain's own pages/feeds, attached only when that page names the item exactly,
   resized to 640 px WebP (nothing else changed), stored in `web/public/menu-images/<chain>/` (git, about 20-60 KB each), recorded in
-  `data/source/<chain>/images.csv` (+ `SOURCES.md`), shown on the chain list (thumbnail) and item page (with "Photo from {chain}'s
+  `data/source/<chain>/images.csv` (+ `SOURCES.md`), shown on the chain list (thumbnail) and item page (with "Photo from the {chain}
   website"), never in marketing/share card/icon. Items without a photo keep the plain layout. Playbook: Phase 4. Photos are found
   chain by chain by agents after the nutrition data is banked, so coverage differs per chain; the report says how many items have one.
 

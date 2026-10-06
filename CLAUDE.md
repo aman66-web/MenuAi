@@ -49,7 +49,7 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    resized only (never cropped in the file, recoloured, retouched or generated), taken only from the chain's own official
    menu/nutrition pages or feeds (never third parties, aggregators or stock), attached only when that page names the item
    exactly, stored in `web/public/menu-images/` with `images.csv` + `web/public/menu-images/SOURCES.md` recording the page;
-   fetched politely (robots.txt honoured, never round a block); captioned "Photo from {chain}'s website"; never in marketing,
+   fetched politely (robots.txt honoured, never round a block); captioned "Photo from the {chain} website"; never in marketing,
    the share card, the app icon or store screenshots; a chain's photos come down the day it asks (delete its folder + `images.csv`).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
 4. **Privacy:** no accounts, no personal data off the device (except what the user chooses to send
