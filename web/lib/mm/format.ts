@@ -33,6 +33,13 @@ export function formatSodium(value: number | undefined): string {
 
 const saltFmt = new Intl.NumberFormat("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 2 });
 
+const fineFmt = new Intl.NumberFormat("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 1 });
+
+/** Small fat figures keep their published decimal (0.1g of trans fat must not read "0g"). */
+export function formatFineGrams(value: number): string {
+  return `${fineFmt.format(halfUp(value, 1))}g`;
+}
+
 /** Salt in grams, up to 2 decimals as the UK guides publish it: 0.9 → "0.9g", 1.25 → "1.25g". */
 export function formatSalt(value: number | undefined): string {
   return value === undefined ? NOT_PUBLISHED : `${saltFmt.format(halfUp(value, 2))}g`;

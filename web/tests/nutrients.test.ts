@@ -102,3 +102,16 @@ describe("nutrient maths (docs/DATA.md)", () => {
     expect(proteinPer100Cal({ calories: 0, protein: 5 })).toBe(0);
   });
 });
+
+describe("extra published figures (kJ, weight, fats, caffeine)", () => {
+  it("add up only when every part publishes them, kJ and caffeine as whole numbers", async () => {
+    const { sumNutrients } = await import("../lib/mm/nutrients");
+    const a = { calories: 100, protein: 1, carbs: 1, fat: 1, energyKj: 418.4, weight: 120, transFat: 0.1, caffeine: 75 };
+    const b = { calories: 50, protein: 1, carbs: 1, fat: 1, energyKj: 209.2, weight: 30, transFat: 0.04 };
+    const t = sumNutrients([[a, 1], [b, 1]]);
+    expect(t.energyKj).toBe(628);
+    expect(t.weight).toBe(150);
+    expect(t.transFat).toBe(0.1);
+    expect(t.caffeine).toBeUndefined(); // b doesn't publish caffeine
+  });
+});

@@ -37,7 +37,9 @@ SCHEMA_VERSION = 1
 ROOT = Path(__file__).resolve().parent.parent
 
 REQUIRED_NUTRIENTS = ["calories", "protein", "carbs", "fat"]
-OPTIONAL_NUTRIENTS = ["saturatedFat", "sodium", "sugar", "fiber", "salt"]  # salt last: charts without it stay byte-identical
+OPTIONAL_NUTRIENTS = ["saturatedFat", "sodium", "sugar", "fiber", "salt",  # salt after the US set: charts without it stay byte-identical
+                      # extra figures some UK guides print (docs/DATA.md "Extra nutrients"); appended so older files are unchanged
+                      "energyKj", "weight", "monounsaturatedFat", "polyunsaturatedFat", "transFat", "caffeine"]
 NUTRIENT_COLUMNS = {  # CSV column -> JSON key
     "calories": "calories",
     "protein_g": "protein",
@@ -48,16 +50,22 @@ NUTRIENT_COLUMNS = {  # CSV column -> JSON key
     "sugar_g": "sugar",
     "fiber_g": "fiber",
     "salt_g": "salt",  # UK guides publish salt in grams, not sodium (docs/DATA.md)
+    "energy_kj": "energyKj",  # printed kJ per serving (never converted from kcal)
+    "weight_g": "weight",  # printed serving weight in grams
+    "mono_fat_g": "monounsaturatedFat",
+    "poly_fat_g": "polyunsaturatedFat",
+    "trans_fat_g": "transFat",
+    "caffeine_mg": "caffeine",
 }
 # Columns a CSV may leave out entirely (older files); when present they are read like any other nutrient column.
-OPTIONAL_COLUMNS = {"salt_g"}
+OPTIONAL_COLUMNS = {"salt_g", "energy_kj", "weight_g", "mono_fat_g", "poly_fat_g", "trans_fat_g", "caffeine_mg"}
 SEARCH_FILE = "menus-search.json"
 # Item photos (docs/DATA.md "images.csv"): the chain's own photo, resized and stored here by tools/uk_extract/images_common.py.
 DEFAULT_IMAGES_DIR = ROOT / "web" / "public" / "menu-images"
 IMAGES_DIR = DEFAULT_IMAGES_DIR
 IMAGE_FILE_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*\.webp$")
 MAX_IMAGE_BYTES = 150_000
-INTEGER_NUTRIENTS = {"calories", "sodium"}
+INTEGER_NUTRIENTS = {"calories", "sodium", "energyKj", "caffeine"}
 TWO_DECIMAL_NUTRIENTS = {"salt"}  # salt is published to 2 decimals (e.g. 0.16 g); rounding it to 1 would change the published figure
 _N = list(NUTRIENT_COLUMNS)
 

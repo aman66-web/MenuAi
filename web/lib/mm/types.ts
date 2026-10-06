@@ -17,10 +17,17 @@ export interface Nutrients {
   sugar?: number;
   fiber?: number;
   salt?: number;
+  // Extra figures some UK guides print per serving (docs/DATA.md "Extra nutrients"); shown only when published.
+  energyKj?: number;
+  weight?: number; // grams
+  monounsaturatedFat?: number;
+  polyunsaturatedFat?: number;
+  transFat?: number;
+  caffeine?: number; // mg
 }
 
 export const REQUIRED_NUTRIENTS = ["calories", "protein", "carbs", "fat"] as const;
-export const OPTIONAL_NUTRIENTS = ["saturatedFat", "sodium", "sugar", "fiber", "salt"] as const;
+export const OPTIONAL_NUTRIENTS = ["saturatedFat", "sodium", "sugar", "fiber", "salt", "energyKj", "weight", "monounsaturatedFat", "polyunsaturatedFat", "transFat", "caffeine"] as const;
 export type NutrientKey = (typeof REQUIRED_NUTRIENTS)[number] | (typeof OPTIONAL_NUTRIENTS)[number];
 
 export const COMPONENT_GROUPS = ["base", "wrap", "protein", "topping", "sauce", "side", "drink", "extra"] as const;

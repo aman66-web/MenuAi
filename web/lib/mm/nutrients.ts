@@ -1,6 +1,6 @@
 import { OPTIONAL_NUTRIENTS, REQUIRED_NUTRIENTS, type Nutrients, type NutrientKey } from "./types";
 
-const INTEGER_NUTRIENTS: ReadonlySet<NutrientKey> = new Set<NutrientKey>(["calories", "sodium"]);
+const INTEGER_NUTRIENTS: ReadonlySet<NutrientKey> = new Set<NutrientKey>(["calories", "sodium", "energyKj", "caffeine"]);
 
 /** Round half away from zero (SPEC §6.1). Math.round and Intl default rounding differ for negatives/ties. */
 export function halfUp(x: number, places = 0): number {

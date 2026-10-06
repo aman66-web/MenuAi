@@ -52,10 +52,9 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    menu/nutrition pages or feeds (never third parties, aggregators or stock), attached only when that page names the item
    exactly, stored in `web/public/menu-images/` with `images.csv` + `web/public/menu-images/SOURCES.md` recording the page;
    fetched politely (robots.txt honoured, never round a block); captioned "Photo from the {chain} website"; never in marketing,
-   the share card, the app icon or store screenshots; a chain's photos come down the day it asks (delete its folder + `images.csv`). **If a chain's terms expressly forbid copying or
-   reusing its images/content without written permission or a licence, its photos are NOT installed until the founder says so for
-   that chain** (the agent reads the terms first and quotes the clause; as of 2026-10-06 all 11 chains checked have one: see
-   docs/PROGRESS.md).
+   the share card, the app icon or store screenshots; a chain's photos come down the day it asks (delete its folder + `images.csv`). Founder's decision (2026-10-06, "make sure to add
+   them"): photos are installed for every chain even where its terms restrict reuse (the founder's accepted risk); the agent still
+   reads the terms and quotes the clause in its report and `docs/IMAGE_TERMS.md`.
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
 4. **Privacy:** no accounts, no personal data off the device (except what the user chooses to send
    through the API: reports, chain requests, support messages). **Never put a Supabase key in the

@@ -1,4 +1,4 @@
-import { formatCalories, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel, nutrientsSpoken } from "@/lib/mm/format";
+import { formatCalories, formatFineGrams, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel, nutrientsSpoken } from "@/lib/mm/format";
 import type { Nutrients } from "@/lib/mm/types";
 
 /** Big calories + protein, then carbs and fat (SPEC §15: same order everywhere). */
@@ -60,6 +60,7 @@ export function ItemHero({ nutrients, name, children }: { nutrients: Nutrients; 
         <div className="flex items-end gap-2">
           <span className="sun-text text-7xl font-extrabold leading-[0.9] tracking-tighter">{formatInt(nutrients.calories)}</span>
           <span className="pb-1 text-sm font-bold uppercase tracking-[0.14em] text-muted">kcal</span>
+          {nutrients.energyKj !== undefined && <span className="pb-1 text-sm font-semibold text-muted">· {formatInt(nutrients.energyKj)} kJ</span>}
         </div>
         <dl className="mt-6 grid grid-cols-3 gap-2">
           {macros.map(([label, grams, lead]) => (
@@ -84,22 +85,29 @@ export function NutrientTable({ nutrients }: { nutrients: Nutrients }) {
   if (nutrients.salt !== undefined) saltOrSodium.push(["Salt", formatSalt(nutrients.salt), true]);
   if (nutrients.sodium !== undefined) saltOrSodium.push(["Sodium", formatSodium(nutrients.sodium), true]);
   if (saltOrSodium.length === 0) saltOrSodium.push(["Salt", formatSalt(undefined), false]);
+  // Extra figures (docs/DATA.md "Extra nutrients") appear only when the chain prints them: no "not published" clutter.
+  const extra = (label: string, value: number | undefined, fmt: (v: number) => string): Array<[string, string, boolean]> =>
+    value === undefined ? [] : [[label, fmt(value), true]];
   const rows: Array<[string, string, boolean]> = [
+    ...extra("Energy", nutrients.energyKj, (v) => `${formatInt(v)} kJ`),
+    ...extra("Serving weight", nutrients.weight, (v) => `${formatInt(v)}g`),
     ["Saturated fat", formatOptionalGrams(nutrients.saturatedFat), nutrients.saturatedFat !== undefined],
+    ...extra("Monounsaturated fat", nutrients.monounsaturatedFat, formatFineGrams),
+    ...extra("Polyunsaturated fat", nutrients.polyunsaturatedFat, formatFineGrams),
+    ...extra("Trans fat", nutrients.transFat, formatFineGrams),
     ...saltOrSodium,
     ["Sugar", formatOptionalGrams(nutrients.sugar), nutrients.sugar !== undefined],
     ["Fibre", formatOptionalGrams(nutrients.fiber), nutrients.fiber !== undefined],
+    ...extra("Caffeine", nutrients.caffeine, (v) => `${formatInt(v)}mg`),
   ];
   return (
-    <div>
     <dl className="app-numbers glass divide-y divide-line overflow-hidden rounded-3xl">
       {rows.map(([label, value, published]) => (
-        <div key={label} className="flex min-h-12 items-center justify-between px-5 py-2">
+        <div key={label} className="flex min-h-12 items-center justify-between gap-4 px-5 py-2">
           <dt className="text-base">{label}</dt>
           <dd className={published ? "text-base font-semibold" : "text-sm italic text-muted"}>{value}</dd>
         </div>
       ))}
     </dl>
-    </div>
   );
 }

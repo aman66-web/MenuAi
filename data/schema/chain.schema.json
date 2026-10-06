@@ -198,6 +198,36 @@
         "salt": {
           "type": "number",
           "minimum": 0
+        },
+        "energyKj": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Energy in kJ per serving as printed (never converted from kcal)."
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Serving weight in grams as printed."
+        },
+        "monounsaturatedFat": {
+          "type": "number",
+          "minimum": 0,
+          "description": "g"
+        },
+        "polyunsaturatedFat": {
+          "type": "number",
+          "minimum": 0,
+          "description": "g"
+        },
+        "transFat": {
+          "type": "number",
+          "minimum": 0,
+          "description": "g"
+        },
+        "caffeine": {
+          "type": "number",
+          "minimum": 0,
+          "description": "mg as printed"
         }
       }
     },

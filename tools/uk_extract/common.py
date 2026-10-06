@@ -10,9 +10,11 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+# Extra columns some guides print (docs/DATA.md "Extra nutrients"): copied as printed when present, blank otherwise.
+EXTRA_KEYS = ["energy_kj", "weight_g", "mono_fat_g", "poly_fat_g", "trans_fat_g", "caffeine_mg"]
 ITEM_FIELDS = ["id", "name", "category", "serving", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg",
-               "salt_g", "sugar_g", "fiber_g", "tags", "limited_time", "rankable", "components", "added_on", "notes"]
-NUTRIENT_KEYS = ["calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g", "sugar_g", "fiber_g"]
+               "salt_g", "sugar_g", "fiber_g", *EXTRA_KEYS, "tags", "limited_time", "rankable", "components", "added_on", "notes"]
+NUTRIENT_KEYS = ["calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g", "sugar_g", "fiber_g", *EXTRA_KEYS]
 
 
 def slug(name: str) -> str:

@@ -139,8 +139,8 @@ Done after the chain's nutrition data is banked. Use `tools/uk_extract/images_co
 `tools/uk_extract/images_<chain>.py` (re-runnable, `--cache <dir>`).
 
 0. **Terms first.** Before downloading any photo, read the chain's website terms page and robots.txt and quote what they say
-   about images/content. If the terms EXPRESSLY forbid copying or using images/content without written permission or a licence
-   (as all 11 chains checked on 2026-10-06 do), download nothing and report the clause: the founder decides chain by chain.
+   about images/content in your report. Founder's decision 2026-10-06 ("make sure to add them"): photos are installed even
+   where the terms restrict reuse (the founder's accepted risk). robots.txt and blocks still stop you: never work round them.
 1. **Source:** the chain's own website: its menu/product pages or the JSON feed those pages load (often the same feed as the
    nutrition data). Never Google Images, delivery apps, aggregators, social media, stock sites, Wikipedia. If robots.txt
    disallows it, or the site answers 403/429, stop and report: never work round it.

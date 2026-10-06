@@ -569,3 +569,22 @@ class AllergenTests(unittest.TestCase):
         self.chain(self.FULL)
         self.assertEqual(self.build(), 0)
         jsonschema.validate(self.doc(), json.loads((ROOT / "data/schema/chain.schema.json").read_text()))
+
+
+class ExtraNutrientTests(unittest.TestCase):
+    """Optional extra columns (energy_kj, weight_g, mono/poly/trans fat, caffeine_mg): copied when printed, optional in old files."""
+
+    def test_extra_columns_are_read_and_old_files_still_build(self):
+        tmp = Path(tempfile.mkdtemp())
+        try:
+            src, out = tmp / "s", tmp / "o"
+            f = write_chain(src, builder="standard", items=item_row("a", "A", "B", nutrients="100,5,10,4,,,,"))
+            (f / "items.csv").write_text(
+                f"id,name,category,serving,{NUT},salt_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes\n"
+                "a,A,B,1,100,5,10,4,,,,,0.5,418,120,1.2,0.8,<0.1,75,,,,,,\n")
+            with contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(bm.main(["--source", str(src), "--out", str(out), "--quiet"]), 0, (out / "check-report.md").read_text())
+            n = json.loads((out / "chain-test-chain.json").read_text())["items"][0]["nutrients"]
+            self.assertEqual((n["energyKj"], n["weight"], n["monounsaturatedFat"], n["polyunsaturatedFat"], n["transFat"], n["caffeine"]), (418, 120, 1.2, 0.8, 0, 75))
+        finally:
+            shutil.rmtree(tmp)

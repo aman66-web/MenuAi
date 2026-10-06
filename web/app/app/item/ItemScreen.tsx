@@ -55,7 +55,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
         </ItemHero>
       </div>
       <ItemPhotoHero image={item.image} chainName={chain.name} />
-      <div className="mt-3"><AllergenSection chain={chain} allergens={item.allergens} /></div>
+      <div className="mt-3"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>
       <div className="mt-3"><NutrientTable nutrients={item.nutrients} /></div>
       {chain.note && (
         <p className="mt-3 flex gap-2.5 px-1 text-sm text-muted">
