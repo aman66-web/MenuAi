@@ -1,0 +1,2 @@
+id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample
+harvester,Harvester,Grill,standard,"Harvester online main menu with nutrition (live menu feed): menu '211. Harvester DN26 Main Menu *LIVE*', last modified 2026-10-05",https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=8d410232-9d61-500c-8e48-40e3e6d449c7&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus,2026-10-06,harvester|harvester restaurant|the harvester,

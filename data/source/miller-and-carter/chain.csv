@@ -1,0 +1,2 @@
+id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample
+miller-and-carter,Miller & Carter,Steakhouse,standard,"Miller & Carter online a la carte menu with nutrition (live menu feed): menu '101. Miller & Carter DN26 Main *LIVE*', last modified 2026-10-05",https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=34879ecd-629a-5b27-8072-c2097a9fa610&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus,2026-10-06,miller & carter|miller and carter|miller & carter steakhouse|miller and carter steakhouse,

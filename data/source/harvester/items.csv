@@ -1,0 +1,112 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+crispy-tempura-king-prawns,Crispy Tempura King Prawns,Starters & small plates,,308.028,8.6938,35.2445,14.4734,2.5251,,1.6772,9.537,,,false,true,,,
+crispy-chicken-fries,Crispy Chicken Fries,Starters & small plates,,389.9975,21.3473,19.858,24.6535,3.592,,1.515,2.9622,,,false,true,,,
+halloumi-fries,Halloumi Fries,Starters & small plates,,686.5,30.17,29.71,49.21,26.88,,4.25,15.04,,vegetarian,false,true,,,
+crispy-calamari,Crispy Calamari,Starters & small plates,,354.2368,5.5574,26.5753,11.9833,3.4907,,1.9371,2.996,,,false,true,,,Feed kJ (1091.9178) does not match its kcal (354.2368); kJ is not used
+mushrooms-on-toast,Mushrooms on Toast,Starters & small plates,,279.78,12.586,26.856,12.814,7.124,,1.3484,1.848,,vegetarian,false,true,,,
+chicken-wings,Chicken Wings,Starters & small plates,,340.461,34.39,3.439,20.634,5.6744,,1.3068,0.8598,,,false,true,,,Menu choices not added in: Choose your sauce
+garlic-bread-vegetarian,Garlic Bread (vegetarian),Starters & small plates,,395.53,7.886,46.081,19.439,6.194,,0.9232,2.538,,vegetarian,false,true,,,
+garlic-bread-and-cheese,Garlic Bread & Cheese,Starters & small plates,,532.38,16.986,46.781,30.289,12.844,,1.6232,2.538,,vegetarian,false,true,,,
+garlic-bread-vegan,Garlic Bread (vegan),Starters & small plates,,399.28,7.366,38.086,23.724,7.464,,1.0693,2.628,,vegetarian,false,true,,,
+nachos,Nachos,Starters & small plates,,589.15,8.765,69.375,29.15,6.4,,2.6258,10.355,,vegetarian,false,true,,,
+loaded-hummus-and-sweet-potato-bites,Loaded Hummus & Sweet Potato Bites,Starters & small plates,,838.63,20.311,88.246,42.559,6.929,,3.1102,9.113,,vegetarian,false,true,,,
+chargrilled-pork-riblets,Chargrilled Pork Riblets,Starters & small plates,,730.85,58.55,25.55,44.75,16.05,,0.66,21.6,,contains_pork,false,true,,,
+our-favourites,Our Favourites,Sharing platters,Platter for 2-3 people,1973.6757,68.9759,154.1875,117.4869,39.3971,,10.0682,37.894,,,false,false,,,
+the-classics,The Classics,Sharing platters,Platter for 2-3 people,1741.0884,126.8733,75.7031,102.8515,32.4405,,4.8303,27.2699,,contains_pork,false,false,,,
+half-rotisserie-chicken,Half Rotisserie Chicken,"Rotisserie, skewers & ribs",,593.5473,66.2387,20.2774,26.9689,8.4813,,1.5122,10.6293,,,false,true,,,Menu choices not added in: Add a tasty extra?
+whole-rotisserie-chicken,Whole Rotisserie Chicken,"Rotisserie, skewers & ribs",,987.7598,128.7132,20.5079,42.4149,12.4005,,2.4921,10.8598,,,false,true,,,Menu choices not added in: Add a tasty extra?
+chargrilled-chicken-skewers,Chargrilled Chicken Skewers,"Rotisserie, skewers & ribs",,625.588,63.0286,41.353,22.3926,3.6994,,2.3207,5.0216,,,false,true,,,Menu choices not added in: Add an extra skewer?; Add a tasty extra?
+chicken-and-chorizo-skewers,Chicken & Chorizo Skewers,"Rotisserie, skewers & ribs",,691.0003,60.8793,45.2649,27.8333,6.4013,,4.1631,6.9466,,contains_pork,false,true,,,Menu choices not added in: Add an extra skewer?; Add a tasty extra?
+halloumi-and-padr-n-pepper-skewers,Halloumi & Padrón Pepper Skewers,"Rotisserie, skewers & ribs",,776.3079,46.8885,45.3011,44.3226,24.8095,,4.1293,9.8496,,vegetarian,false,true,,,Menu choices not added in: Add an extra skewer?; Add a tasty extra?
+harvesters-best-ever-full-rack-of-ribs,Harvester's Best Ever Full Rack Of Ribs,"Rotisserie, skewers & ribs",,1017.0986,77.8367,22.324,68.0752,23.2679,,1.886,12.3524,,,false,true,,,Menu choices not added in: Add a tasty extra?
+hot-honey,Hot Honey,Sauces & dips,,54.5,0.25,12.75,0.25,0,,0.25,12,,vegetarian,false,false,,,
+bbq,BBQ,Sauces & dips,,39.5,0.25,9.75,0,0,,0.25,8.75,,vegetarian,false,false,,,
+sweet-and-sticky-soy,Sweet & Sticky Soy,Sauces & dips,,36.25,0.25,8.75,0,0,,0.5,7.5,,vegetarian,false,false,,,
+peri-peri,Peri-Peri,Sauces & dips,,68.5,0.25,3.75,5.75,0.5,,0.5,2.75,,vegetarian,false,false,,,
+peri-mayo,Peri-Mayo,Sauces & dips,,88.25,0.25,3,8.25,0.75,,0.25,2,,vegetarian,false,false,,,
+rotisserie-flavour-mayo,Rotisserie Flavour Mayo,Sauces & dips,,64.75,0.475,2.55,5.85,0.45,,0.382,0.925,,,false,false,,,
+harvester-chicken-gravy,Harvester Chicken Gravy,Sauces & dips,,29.16,0.765,5.949,0.234,0.018,,0.819,0.756,,,false,false,,,
+harvester-hot-sauce,Harvester Hot Sauce,Sauces & dips,,62,0.2,6.4,3.85,1.4,,0.5125,4.3,,vegetarian,false,false,,,
+peppercorn,Peppercorn,Sauces & dips,,85,2,5,6,4,,1,2,,,false,false,,,
+beef-dripping-gravy,Beef Dripping Gravy,Sauces & dips,,157,2,8,13,7,,2,5,,contains_beef,false,false,,,
+blue-cheese,Blue Cheese,Sauces & dips,,127.2,2.4,3.2,12,7.2,,0.8,0.8,,,false,false,,,
+garlic-and-herb-new-potatoes,Garlic & Herb New Potatoes,Sides,,204.18,4.586,40.196,1.814,0.364,,1.102,2.528,,vegetarian,false,true,,,
+peri-peri-spiced-grains,Peri-Peri Spiced Grains,Sides,,283.58,6.936,36.806,11.114,1.054,,1.4504,4.708,,vegetarian,false,true,,,
+cheesy-garlic-corn,Cheesy Garlic Corn,Sides,,266.18,8.286,23.016,14.974,5.844,,1.1264,3.488,,vegetarian,false,true,,,
+super-green-medley,Super Green Medley,Sides,,78,4.56,8.28,1.8,0.24,,0.834,4.8,,vegetarian,false,true,,,
+sweet-potato-fries,Sweet Potato Fries,Sides,,469.9038,1.7638,57.8853,24.4096,1.8495,,0.8813,15.525,,vegetarian,false,true,,,Feed kJ (1446.76) does not match its kcal (469.9038); kJ is not used
+golden-rice-and-beans,Golden Rice & Beans,Sides,,229.5,4.5,42,4.5,0,,1.5,3,,vegetarian,false,true,,,
+chips,Chips,Sides,,440.215,2.8643,61.9782,14.6373,1.0275,,1.1063,0.25,,vegetarian,false,true,,,Feed kJ (1360.01) does not match its kcal (440.215); kJ is not used
+sage-and-onion-chips,Sage & Onion Chips,Sides,,441.9425,2.9043,62.2582,14.667,1.0375,,1.46,0.38,,vegetarian,false,true,,,Feed kJ (1367.28) does not match its kcal (441.9425); kJ is not used
+large-chips,Large Chips,Sides,,880.43,5.7285,123.9564,29.2745,2.055,,2.2125,0.5,,vegetarian,false,true,,,Feed kJ (2720.02) does not match its kcal (880.43); kJ is not used
+large-sage-and-onion-chips,Large Sage & Onion Chips,Sides,,883.885,5.8085,124.5164,29.334,2.075,,2.92,0.76,,vegetarian,false,true,,,Feed kJ (2734.56) does not match its kcal (883.885); kJ is not used
+mac-n-cheese,Mac 'N' Cheese,Sides,,296.5,15.74,28.64,12.82,8.02,,1.64,1.8,,vegetarian,false,true,,,
+hot-honey-drizzled-corn-bread,Hot Honey Drizzled Corn Bread,Sides,,397.0938,7.3776,39.9419,22.9944,9.1234,,1.0647,20.6468,,vegetarian,false,true,,,
+half-rack-of-bbq-ribs,Half Rack Of BBQ Ribs,Sides,,310.021,26.2013,7.8,19.3284,6.5579,,0.6372,7,,,false,true,,,
+onion-rings,Onion Rings,Sides,,510.4123,6.3599,51.7997,29.5434,4.56,,1.6987,5.7896,,vegetarian,false,true,,,Feed kJ (1385.6) does not match its kcal (510.4123); kJ is not used
+double-sweet-potato-fries,Double Sweet Potato Fries,Sides,,939.8075,3.5276,115.7706,48.8192,3.699,,1.7625,31.05,,vegetarian,false,true,,,Feed kJ (2893.52) does not match its kcal (939.8075); kJ is not used
+half-a-harvester-rotisserie-chicken,Half a Harvester Rotisserie Chicken,Add-ons,,394.2125,62.4746,0.2305,15.4458,3.9191,,0.9798,0.2305,,,false,false,,,
+minted-lamb-chops,Minted Lamb Chops,Add-ons,,143.9856,10.1323,2.4664,10.399,4.7995,,0.4333,1.9331,,,false,false,,,
+chargrilled-chicken-breast,Chargrilled Chicken Breast,Add-ons,,154.5172,32.876,0.8219,1.9726,0.4931,,0.9863,0.8219,,,false,false,,,
+beef-burger,Beef Burger,Add-ons,,246.33,28.1058,9.8802,6.5763,0.104,,1.7,0,,contains_beef,false,false,,,Feed kJ (1774.8) does not match its kcal (246.33); kJ is not used
+crispy-cornflake-chicken-breast,Crispy Cornflake Chicken Breast,Add-ons,,184.3733,7.9182,17.0174,9.1546,1.7224,,0.9117,0.7735,,,false,false,,,
+10oz-ribeye,10oz Ribeye,Chargrilled steaks,,1009.0085,68.8337,42.5248,49.8084,18.5896,,1.5603,9.6935,,contains_beef,false,true,,,Menu choices not added in: Add a tasty extra?
+8oz-rump,8oz Rump,Chargrilled steaks,,809.6915,50.0722,42.5248,47.6396,15.5666,,3.0111,9.6935,,contains_beef,false,true,,,Menu choices not added in: Add a tasty extra?
+the-harvester-trilogy,The Harvester Trilogy,Grills & combos,,2049.3104,121.5754,143.0305,103.0839,26.4123,,6.7416,34.5628,,contains_beef,false,true,,,Menu choices not added in: Swap or Upgrade your side; Add a tasty extra?
+the-original-combo,The Original Combo,Grills & combos,,1193.3645,64.972,100.0695,53.4753,14.1349,,4.0386,22.1501,,,false,true,,,Menu choices not added in: Swap or Upgrade your side; Add a tasty extra?
+the-triple-combo,The Triple Combo,Grills & combos,,1206.434,79.465,106.2088,45.2741,9.7926,,5.1994,13.2455,,,false,true,,,Menu choices not added in: Swap or Upgrade your side; Add a tasty extra?
+the-1983-harvester-combo,The 1983 Harvester Combo,Grills & combos,,1390.4708,96.2093,100.1847,61.1983,16.0945,,4.5285,22.2653,,,false,true,,,Menu choices not added in: Swap or Upgrade your side; Add a tasty extra?
+mixed-grill,Mixed Grill,Grills & combos,,1522.6477,100.7548,108.875,69.3008,17.427,,5.4778,9.784,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap or Upgrade your side; Add a tasty extra?
+pork-tomahawk,Pork Tomahawk,Grills & combos,,1196.9882,71.6356,101.2365,50.012,9.4018,,8.0507,14.1766,,contains_pork,false,true,,,Menu choices not added in: Swap or Upgrade your side; Add a tasty extra?
+smoke-house-pork-belly-and-corn,Smoke House Pork Belly & Corn,Grills & combos,,1477.0151,80.5443,91.5582,81.9024,26.3225,,5.4039,20.1251,,contains_pork,false,true,,,Menu choices not added in: Swap or Upgrade your side; Add a tasty extra?
+7oz-gammon,7oz Gammon,Grills & combos,,1030.721,59.9569,98.1005,35.358,4.768,,4.2057,14.8786,,contains_pork,false,true,,,Menu choices not added in: Egg or pineapple?; Swap or Upgrade your side; Add a tasty extra?
+14oz-gammon,14oz Gammon,Grills & combos,,1234.6768,103.097,98.1005,35.9778,4.9549,,6.4463,14.8786,,contains_pork,false,true,,,Menu choices not added in: Egg or pineapple?; Swap or Upgrade your side; Add a tasty extra?
+wing-n-wave-combo,Wing ‘N’ Wave Combo,Grills & combos,,1630.9909,115.0542,99.8593,80.204,23.6759,,5.3627,13.4851,,contains_beef,false,true,,,Menu choices not added in: Swap or Upgrade your side; Add a tasty extra?
+smoky-bacon-stack,Smoky Bacon Stack,Burgers,,1276.3939,51.5243,122.6054,53.2662,8.6983,,6.3177,16.7306,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Add an extra Burger Patty?; Swap or Upgrade your side
+beef-classic,Beef Classic,Burgers,,1120.3541,51.7823,114.8154,39.3046,7.1471,,5.8192,12.7636,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Add an extra Burger Patty?; Swap or Upgrade your side
+southern-bbq-crunch,Southern BBQ Crunch,Burgers,,1329.9719,30.2964,157.0837,57.5217,10.6979,,4.9338,18.4789,,,false,true,,,Menu choices not added in: Swap your crunchy chicken; Add an extra Burger Patty?; Swap or Upgrade your side
+chicken-classic,Chicken Classic,Burgers,,994.2912,56.1976,101.5021,33.1108,7.4012,,4.719,9.1255,,contains_pork,false,true,,,Menu choices not added in: Add an extra Burger Patty?; Swap or Upgrade your side
+chicken-stacker,Chicken Stacker,Burgers,,1442.9453,35.5179,165.6507,63.739,14.6734,,5.0399,13.7326,,,false,true,,,Menu choices not added in: Swap your crunchy chicken; Add an extra Burger Patty?; Swap or Upgrade your side
+halloumi-and-peri-mayo,Halloumi & Peri-Mayo,Burgers,,1275.9231,38.2669,115.1152,67.0861,21.6729,,5.1691,21.4236,,vegetarian,false,true,,,Menu choices not added in: Swap or Upgrade your side
+smashed-beyond-burger,Smashed Beyond Burger,Burgers,,1378.8784,38.6323,141.7577,65.6749,16.3584,,4.6729,12.7704,,vegetarian,false,true,,,Menu choices not added in: Swap or Upgrade your side
+bbq-chicken-stack,BBQ Chicken Stack,The classics,,1311.3602,75.0387,117.1551,53.2995,15.9441,,6.1904,31.5334,,contains_pork,false,true,,,Menu choices not added in: Swap or Upgrade your side
+bbq-chicken-schnitzel,BBQ Chicken Schnitzel,The classics,,1284.6303,61.6315,112.1668,59.2399,15.7106,,6.9674,14.13,,contains_pork,false,true,,,Feed kJ (4527.5968) does not match its kcal (1284.6303); kJ is not used. Menu choices not added in: Swap or Upgrade your side
+chicken-bacon-and-waffle,"Chicken, Bacon & Waffle",The classics,,1455.466,45.5316,180.163,53.2165,16.2473,,6.7172,58.947,,contains_pork,false,true,,,Menu choices not added in: Swap or Upgrade your side
+fish-and-chips,Fish & Chips,The classics,,1020.767,50.2144,115.7182,33.5726,2.5475,,2.6701,2.88,,,false,true,,,Menu choices not added in: Choose your peas; Swap or Upgrade your side
+herb-battered-halloumi-and-chips,Herb-Battered Halloumi & Chips,The classics,,1230.435,36.9604,125.7442,58.2844,18.5245,,4.3158,5.656,,vegetarian,false,true,,,Menu choices not added in: Choose your peas; Swap or Upgrade your side
+camembert-and-cherry-tomato-tart,Camembert & Cherry Tomato Tart,The classics,,923.058,18.0876,102.457,47.0936,22.0604,,1.8942,11.3086,,vegetarian,false,true,,,Menu choices not added in: Swap or Upgrade your side
+cheese-and-spinach-filled-pasta-shells,Cheese & Spinach Filled Pasta Shells,The classics,,849.765,27.543,73.4405,48.1195,16.697,,4.2616,16.069,,vegetarian,false,true,,,Menu choices not added in: Add Chicken Breast?
+wholetail-whitby-scampi,Wholetail Whitby Scampi,The classics,,1052.13,34.7597,101.2646,34.4248,2.1625,,4.8124,2.2741,,,false,true,,,Feed kJ (3184.6599) does not match its kcal (1052.13); kJ is not used. Menu choices not added in: Choose your peas; Swap or Upgrade your side
+chargrilled-chicken-simply-classics,Chargrilled Chicken (Simply Classics),The classics,,245.4272,37.251,13.3259,3.6316,0.7011,,2.4655,5.3779,,,false,true,,,Menu choices not added in: Would you like jacket potato or mash? Or upgrade your side choice?; Would you like to add a 1/2 rotisserie chicken?
+grilled-salmon-simply-classics,Grilled Salmon (Simply Classics),The classics,,624.464,46.692,13.745,41.053,9.571,,1.5924,8.37,,,false,true,,,Menu choices not added in: Would you like jacket potato or mash? Or upgrade your side choice?
+chargrilled-chicken-flatbread,Chargrilled Chicken (Flatbread),Flatbreads,,1123.8024,51.4217,148.487,29.049,3.8457,,3.9024,14.0687,,,false,true,,,Menu choices not added in: Swap or Upgrade your side
+chicken-tikka,Chicken Tikka,Flatbreads,,1383.2852,49.4457,167.7651,48.9764,14.1525,,5.1361,28.5468,,,false,true,,,Menu choices not added in: Swap or Upgrade your side
+grilled-halloumi,Grilled Halloumi,Flatbreads,,1326.7652,44.4657,150.2571,54.0764,19.5525,,5.0761,15.8388,,vegetarian,false,true,,,Menu choices not added in: Swap or Upgrade your side
+grilled-salmon-rice-bowl,Grilled Salmon (Rice bowl),Rice bowls,,919.014,49.072,80.19,43.298,6.631,,1.9026,14.715,,,false,true,,,
+crispy-sweet-potato-vegetarian,Crispy Sweet Potato (vegetarian),Rice bowls,,775.1,10.59,119.54,27.005,3.745,,2.2757,14.965,,vegetarian,false,true,,,
+chargrilled-chicken-rice-bowl,Chargrilled Chicken (Rice bowl),Rice bowls,,719.6172,39.716,76.4119,27.3276,3.9381,,2.38,11.1369,,,false,true,,,
+crispy-sweet-potato-vegan,Crispy Sweet Potato (vegan),Rice bowls,,727.5,10.49,116.84,23.105,3.445,,2.1757,12.365,,vegetarian,false,true,,,
+chargrilled-steak,Chargrilled Steak,Sandwiches,,612.7919,29.8411,58.88,28.36,8.4408,,2.8056,9.05,,contains_beef,false,true,,,
+chargrilled-chicken-sandwich,Chargrilled Chicken (Sandwich),Sandwiches,,583.3194,53.0364,54.4519,15.2675,3.4906,,3.6405,6.9819,,contains_pork,false,true,,,
+sticky-toffee-pudding-dessert,Sticky Toffee Pudding (Dessert),Desserts,,599.4,5.4,84.78,26.28,9.18,,0.666,64.08,,vegetarian,false,false,,,Menu choices not added in: Dessert Choice
+chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,702.4466,7.2856,93.2344,33.1666,8.3656,,0.4574,72.049,,vegetarian,false,false,,,
+sliced-bramley-apple-pie,Sliced Bramley Apple Pie,Desserts,,445.0906,4.0834,62.6802,18.9878,6.9418,,0.0204,23.6837,,vegetarian,false,false,,,Menu choices not added in: Dessert Choice
+new-york-inspired-cheesecake,New York Inspired Cheesecake,Desserts,,463.6854,5.4584,46.8144,27.7906,15.9346,,0.3413,35.7713,,vegetarian,false,false,,,
+belgian-chocolate-brownie-dessert,Belgian Chocolate Brownie (Dessert),Desserts,,671.011,9.3355,90.2942,29.927,15.601,,0.2906,62.4593,,vegetarian,false,false,,,
+treacle-sponge,Treacle Sponge,Desserts,,492.8,3.36,78.4,18.2,1.54,,0.6468,58.8,,vegetarian,false,false,,,Menu choices not added in: Dessert Choice
+apple-and-blackberry-crumble-dessert,Apple & Blackberry Crumble (Dessert),Desserts,,481.8,1.82,82.74,15.05,5.95,,0.0105,44.34,,vegetarian,false,false,,,Menu choices not added in: Dessert Choice
+ice-cream-tub-with-cone,Ice Cream Tub with Cone,Desserts,,351.576,9.5153,46.5095,14.0668,8.9278,,0.3152,40.2875,,vegetarian,false,false,,,Menu choices not added in: Add a sauce
+sticky-toffee-pudding-mini-dessert,Sticky Toffee Pudding (Mini dessert),Desserts,,334.1,3.62,48.71,13.74,4.91,,0.377,36.6,,vegetarian,false,false,,,
+belgian-chocolate-brownie-mini-dessert,Belgian Chocolate Brownie (Mini dessert),Desserts,,286.026,3.243,39.1872,12.752,6.376,,0.0984,25.3438,,vegetarian,false,false,,,
+sundae-best-mini-dessert,Sundae Best (Mini dessert),Desserts,,99,2.85,11.925,4.425,2.85,,0.0938,11.775,,vegetarian,false,false,,,Menu choices not added in: Choose your sauce
+vegan-sundae-best-mini-dessert,Vegan Sundae Best (Mini dessert),Desserts,,281.6,1.32,39.6,13.2,11.44,,0.242,28.6,,vegetarian,false,false,,,Menu choices not added in: Choose your sauce
+ice-cream-eton-mess,Ice Cream Eton Mess,Desserts,,103.9681,1.4256,20.2792,1.6439,0.9563,,0.0708,17.3792,,vegetarian,false,false,,,
+crispy-chocolate-pie,Crispy Chocolate Pie,Desserts,,212.16,2.55,20.4,13.26,3.57,,0,8.16,,vegetarian,false,false,,,
+apple-and-blackberry-crumble-mini-dessert,Apple & Blackberry Crumble (Mini dessert),Desserts,,291.5,1.17,48.84,9.675,3.825,,0.0068,25.19,,vegetarian,false,false,,,Menu choices not added in: Dessert Choice
+rocky-horror,Rocky Horror,Sundaes,,658.1516,11.9989,76.6822,33.4596,20.3157,,0.2685,56.6884,,vegetarian,false,false,,,
+lemon-blizzard,Lemon Blizzard,Sundaes,,408.8773,7.4828,51.6603,19.1037,12.9246,,0.3134,49.3523,,vegetarian,false,false,,,
+sundae-best-sundae,Sundae Best (Sundae),Sundaes,,249.936,6.5893,34.2665,9.5238,6.0018,,0.219,28.1985,,vegetarian,false,false,,,Menu choices not added in: Choose your sauce
+berry-best,Berry Best,Sundaes,,228.58,6.172,29.216,9.296,5.852,,0.1935,28.008,,vegetarian,false,false,,,
+apple-pie-sundae,Apple Pie Sundae,Sundaes,,551.0889,9.7421,68.2403,26.3978,15.8175,,0.8323,46.7297,,vegetarian,false,false,,,
+warm-banana-bread-waffle-sundae,Warm Banana Bread Waffle Sundae,Sundaes,,695.88,10.862,82.371,35.486,21.082,,1.3915,62.613,,vegetarian,false,false,,,
+vegan-sundae-best-sundae,Vegan Sundae Best (Sundae),Sundaes,,422.4,1.98,59.4,19.8,17.16,,0.363,42.9,,vegetarian,false,false,,,Menu choices not added in: Choose your sauce
