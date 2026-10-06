@@ -1,0 +1,147 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+salt-and-pepper-chili-chicken,Salt & Pepper Chili Chicken,Small plates,,457,23.6,39.3,23.4,3.3,,4.96,7.1,,,false,true,,,
+pulled-pork-tacos,Pulled Pork Tacos,Small plates,,389,16.6,40.0,15.5,4.8,,1.42,14.0,,contains_pork,false,true,,,
+chicken-shawarma-tacos,Chicken Shawarma Tacos,Small plates,,311,23.6,29.7,10.5,4.4,,1.81,3.5,,,false,true,,,
+chicken-wings-x8,Chicken Wings x8,Small plates,8 pieces,569,79.1,8.6,24.2,7.8,,3.40,0.3,,,false,false,,,Printed without the choice listed under it (Texan BBQ Sauce / Eastcoast IPA Hotsauce / Hot Honey / Garlic and Rosemary Mayo); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+halloumi-fries,Halloumi Fries,Small plates,,506,32.9,23.0,31.8,22.4,,4.55,17.9,,,false,true,,,
+corn-ribs,Corn Ribs,Small plates,,329,9.1,29.4,18.9,1.5,,1.74,12.2,,,false,true,,,
+chicken-strips-x8,Chicken Strips x8,Small plates,8 pieces,430,29.9,28.5,22.7,3.7,,2.14,0.3,,,false,false,,,Printed without the choice listed under it (Texan BBQ Sauce / Eastcoast IPA Hotsauce / Hot Honey / Garlic and Rosemary Mayo); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+kilo-chicken-wings,Kilo Chicken Wings,Get sharing,,2263,278.4,54.2,101.6,33.9,,14.80,19.6,,,false,false,,,Sharing dish: the values are for the whole dish
+nachos-sharer,Nachos Sharer,Get sharing,,1177,44.8,88.1,70.3,35.8,,5.99,19.0,,,false,false,,,Sharing dish: the values are for the whole dish. Meat type not stated
+tex-mex-sharer,Tex Mex Sharer,Get sharing,,1870,65.4,175.0,98.2,22.8,,6.35,45.9,,,false,false,,,Sharing dish: the values are for the whole dish. Meat type not stated
+ultimate-sharer,Ultimate Sharer,Get sharing,,1789,89.5,176.5,79.8,18.1,,10.66,37.9,,,false,false,,,"Printed ""Ulitmate Sharer"" (spelling tidied in the name only). Sharing dish: the values are for the whole dish. Meat type not stated"
+katsu-chicken-fries,Katsu Chicken Fries,Loaded fries,,942,26.3,84.4,56.4,8.7,,5.35,4.2,,,false,true,,,
+bbq-cheese-fries,BBQ Cheese Fries,Loaded fries,,542,9.2,67.6,24.4,8.0,,1.16,12.6,,,false,true,,,
+cheese-burger-fries,Cheese Burger Fries,Loaded fries,,710,22.4,63.7,40.1,13.0,,2.90,6.7,,,false,true,,,Meat type not stated
+buffalo-fries,Buffalo Fries,Loaded fries,,844,27.8,73.3,48.9,15.1,,4.44,3.3,,,false,true,,,
+trio-of-fries,Trio of Fries,Loaded fries,,0,0.0,0.0,0.0,0.0,,0.00,0.0,,,false,false,,,
+fish-and-chips,Fish & Chips,Mains,,907,40.4,93.8,39.4,6.3,,1.05,4.9,,,false,false,,,Printed without the choice listed under it (Garden Peas / Mushy Peas); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+grilled-gammon,Grilled Gammon,Mains,,948,53.8,92.1,38.3,6.8,,4.15,19.4,,contains_pork,false,true,,,"Tagged by the cut name (gammon is pork); the guide does not say ""pork"""
+hunters-chicken,Hunter's Chicken,Mains,,967,55.4,109.5,30.0,5.9,,2.46,25.7,,,false,true,,,Meat type not stated
+lasagne,Lasagne,Mains,,774,30.3,58.5,34.1,13.5,,4.32,11.3,,,false,true,,,Meat type not stated
+lasagne-with-large-salad,Lasagne with Large Salad,Mains,,607,27.0,36.3,26.9,10.6,,3.81,13.8,,,false,true,,,"Printed calories are about 18% above what its printed protein, carbohydrate and fat add up to (kJ and kcal agree with each other); entered as printed. Meat type not stated"
+scampi-and-chips,Scampi & Chips,Mains,,1000,24.4,117.2,46.0,8.3,,1.28,4.4,,,false,false,,,Printed without the choice listed under it (Garden Peas / Mushy Peas); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+pulled-mushroom-chili,Pulled Mushroom Chili,Mains,,676,15.8,74.2,32.9,2.6,,3.42,10.7,,,false,true,,,
+katsu-chicken,Katsu Chicken,Mains,,1314,50.3,134.3,64.8,7.1,,7.29,4.4,,,false,true,,,
+crispy-salt-n-pepper-chili-chicken,Crispy Salt N Pepper Chili Chicken,Mains,,1274,39.7,132.0,65.3,6.0,,9.36,11.0,,,false,true,,,
+mac-and-cheese,Mac & Cheese,Mains,,745,25.7,95.6,30.0,11.6,,4.23,8.8,,,false,true,,,
+mac-and-cheese-with-large-salad,Mac & Cheese with Large Salad,Mains,,578,22.3,73.3,22.8,8.7,,3.72,11.4,,,false,true,,,
+hot-honey-halloumi-flatbread,Hot Honey Halloumi Flatbread,Mains,,826,40.2,77.6,38.9,20.6,,3.33,29.0,,,false,true,,,
+chicken-shawarma-flatbread,Chicken Shawarma Flatbread,Mains,,603,30.5,59.7,26.5,5.3,,1.46,9.2,,,false,true,,,
+classic-beef-burger,Classic Beef Burger,Burgers,,1230,44.7,123.2,59.9,16.1,,4.99,24.6,,contains_beef,false,true,,,
+cheese-and-bacon-smash-burger,Cheese & Bacon Smash Burger,Burgers,,1313,49.5,123.6,66.9,19.7,,5.61,25.0,,contains_pork,false,true,,,Meat type not stated
+bacon-and-blue-smash-burger,Bacon & Blue Smash Burger,Burgers,,1483,53.9,145.9,73.8,23.4,,5.76,45.4,,contains_pork,false,true,,,Meat type not stated
+beyond-meat-burger,Beyond Meat Burger,Burgers,,1201,36.9,122.8,60.2,16.9,,4.90,20.0,,,false,true,,,
+vegan-beyond-meat-burger,Vegan Beyond Meat Burger,Burgers,,1075,32.6,114.6,53.0,14.1,,5.43,13.9,,vegetarian,false,true,,,Marked vegan in its name
+buttermilk-chicken-burger,Buttermilk Chicken Burger,Burgers,,1096,36.6,130.9,45.9,8.6,,3.67,19.2,,,false,true,,,
+hot-honey-chicken-burger,Hot Honey Chicken Burger,Burgers,,1392,42.0,177.7,56.0,12.4,,4.38,65.5,,,false,true,,,
+8oz-rump,8oz Rump,From the grill,8 oz,878,45.9,83.9,38.6,7.7,,1.78,3.7,,contains_beef,false,true,,,"Tagged by the cut name (rump); the guide does not say ""beef"" or ""steak"""
+8oz-sirloin,8oz Sirloin,From the grill,8 oz,922,47.4,83.9,42.8,9.9,,1.80,3.7,,contains_beef,false,true,,,"Tagged by the cut name (sirloin); the guide does not say ""beef"" or ""steak"""
+mixed-grill,Mixed Grill,From the grill,,1446,102.3,107.4,65.8,15.4,,5.76,20.4,,,false,true,,,Meat type not stated
+beef-and-ale-pie,Beef & Ale Pie,Pies,,1003,31.9,99.1,51.6,24.2,,4.99,9.6,,contains_beef,false,false,,,Printed without the choice listed under it (Chips / Mash); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+chicken-and-ham-pie,Chicken & Ham Pie,Pies,,873,57.4,50.9,47.3,22.8,,4.56,4.2,,contains_pork,false,false,,,Printed without the choice listed under it (Chips / Mash); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+chips,Chips,Sides,,428,6.3,69.3,12.6,0.0,,0.21,0.0,,,false,true,,,
+rosemary-salted-skin-on-fries,Rosemary Salted Skin on Fries,Sides,,381,4.5,49.5,18.0,4.5,,1.15,0.0,,,false,true,,,
+buttered-mashed-potato,Buttered Mashed Potato,Sides,,323,4.6,38.6,15.5,8.8,,1.39,2.3,,,false,true,,,
+buttered-baby-potatoes,Buttered Baby Potatoes,Sides,,321,5.0,42.5,12.5,7.5,,0.25,2.5,,,false,true,,,
+jacket-potato-and-butter,Jacket Potato & Butter,Sides,,252,4.2,39.0,7.4,4.4,,0.18,4.0,,,false,true,,,
+onion-rings,Onion Rings,Sides,,356,14.8,32.5,19.4,1.4,,0.05,4.5,,,false,true,,,
+garlic-bread,Garlic Bread,Sides,,450,9.1,54.2,21.1,6.5,,1.19,2.4,,,false,true,,,
+cheesy-garlic-bread,Cheesy Garlic Bread,Sides,,581,19.5,54.6,31.1,12.9,,1.83,2.4,,,false,true,,,
+dressed-mixed-salad,Dressed Mixed Salad,Sides,,55,1.0,4.4,3.4,0.3,,0.10,3.6,,,false,true,,,
+cauliflower-cheese,Cauliflower Cheese,Sides,,443,21.5,13.3,33.3,18.0,,1.68,7.8,,,false,true,,,
+seasonal-vegetables,Seasonal Vegetables,Sides,,136,4.3,9.4,8.5,5.0,,0.23,7.0,,,false,true,,,
+vegan-chips,Vegan Chips,Sides,,424,6.3,75.6,12.6,2.1,,1.05,0.0,,vegetarian,false,true,,,Marked vegan in its name
+lunch-chips,Lunch Chips,Extras,,428,6.3,69.3,12.6,0.0,,0.21,0.0,,,false,false,,,
+bloomer-bread-and-butter,Bloomer Bread & Butter,Extras,,58,0.0,0.0,6.4,4.2,,0.16,0.0,,,false,false,,,Printed without the choice listed under it (White Bloomer / Malted Bloomer); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+extra-custard,Extra Custard,Extras,,156,4.5,24.0,4.5,3.0,,0.15,16.5,,,false,false,,,
+steak-double-up-8oz-rump,Steak Double Up (8oz Rump),Extras,,319,34.1,2.1,19.3,7.2,,1.54,0.8,,,false,false,,,
+steak-double-up-8oz-sirloin,Steak Double Up (8oz Sirloin),Extras,,363,35.6,2.1,23.5,9.3,,1.56,0.8,,contains_beef,false,false,,,Tagged because the name says steak
+extra-grated-cheese,Extra Grated Cheese,Extras,,164,13.0,0.5,12.5,8.0,,0.80,0.0,,contains_beef,false,false,,,Tagged because the name says steak
+extra-burger-cheese-slice,Extra Burger Cheese Slice,Extras,,39,2.4,0.4,3.1,2.0,,0.40,0.4,,,false,false,,,
+extra-vegan-cheese-slice,Extra Vegan Cheese Slice,Extras,,57,0.0,4.0,4.6,4.2,,0.46,0.0,,vegetarian,false,false,,,Marked vegan in its name
+extra-yorkshire-pudding,Extra Yorkshire Pudding,Extras,,115,5.5,16.8,2.5,0.5,,0.30,1.0,,,false,false,,,
+extra-sausage,Extra Sausage,Extras,,111,6.0,4.0,7.8,3.0,,0.51,1.4,,contains_pork,false,false,,,
+extra-bbq-sauce,Extra BBQ Sauce,Extras,,90,1.0,17.0,0.0,0.0,,0.45,15.0,,,false,false,,,"Printed calories are about 20% above what its printed protein, carbohydrate and fat add up to (kJ and kcal agree; grams are printed in whole or half units); entered as printed"
+extra-east-coast-ipa,Extra East Coast IPA,Extras,,62,0.0,3.5,5.0,3.0,,2.45,2.5,,,false,false,,,
+extra-garlic-mayo,Extra Garlic Mayo,Extras,,121,0.5,3.5,12.0,3.5,,0.00,1.0,,,false,false,,,
+extra-napolitana-sauce,Extra Napolitana Sauce,Extras,,35,1.4,3.6,1.3,0.2,,0.48,3.0,,,false,false,,,
+extra-smoked-streaky-bacon,Extra Smoked Streaky Bacon,Extras,,44,2.4,0.0,3.8,1.5,,0.22,0.0,,contains_pork,false,false,,,
+extra-baked-beans,Extra Baked Beans,Extras,,86,4.0,15.0,0.0,0.0,,0.80,6.0,,,false,false,,,
+extra-gravy,Extra Gravy,Extras,,24,0.0,4.0,1.0,0.0,,1.20,0.0,,,false,false,,,
+extra-pineapple,Extra Pineapple,Extras,,63,0.5,13.4,0.5,0.0,,0.01,13.4,,,false,false,,,
+extra-clotted-cream-ice-cream,Extra Clotted Cream Ice Cream,Extras,,126,2.9,12.4,7.1,4.3,,0.11,12.4,,,false,false,,,
+extra-sunday-roast-potatoes,Extra Sunday Roast Potatoes,Extras,,418,6.0,33.0,31.5,9.0,,1.50,1.5,,,false,false,,,
+extra-pig-in-blanket,Extra Pig In Blanket,Extras,,110,3.5,0.9,10.2,3.7,,0.47,0.1,,contains_pork,false,false,,,Tagged because the name says pig (pig in blanket)
+extra-scampi,Extra Scampi,Extras,,266,9.7,23.9,14.4,4.3,,0.60,0.9,,,false,false,,,"Printed ""Extra Scampi †""; the guide does not explain the dagger"
+extra-chicken-breast,Extra Chicken Breast,Extras,,164,34.7,2.1,1.8,0.6,,0.95,0.6,,,false,false,,,
+extra-tortillas,Extra Tortillas,Extras,,166,4.1,26.5,4.3,1.8,,0.42,1.5,,,false,false,,,
+extra-buttered-seasonal-vegetables,Extra Buttered Seasonal Vegetables,Extras,,136,4.3,9.4,8.5,5.0,,0.23,7.0,,,false,false,,,
+extra-peas,Extra Peas,Extras,,71,5.1,9.4,0.9,0.0,,0.00,6.0,,,false,false,,,
+extra-curry-sauce,Extra Curry Sauce,Extras,,141,1.2,8.2,11.8,0.9,,1.83,2.0,,,false,false,,,
+extra-rich-gravy,Extra Rich Gravy,Extras,,29,1.0,4.0,1.0,1.0,,1.50,0.0,,,false,false,,,
+burger-topper-extra-buttermilk-chicken-burger,Burger Topper - Extra Buttermilk Chicken Burger,Toppers & sauces,,276,19.2,18.2,14.6,2.4,,1.39,0.0,,,false,false,,,
+burger-topper-extra-3oz-smash-beef-burger,Burger Topper - Extra 3oz Smash Beef Burger,Toppers & sauces,,188,13.5,4.2,12.9,4.9,,0.70,2.3,,contains_beef,false,false,,,
+burger-topper-extra-beyond-burger,Burger Topper - Extra Beyond Burger,Toppers & sauces,,289,19.2,4.0,21.5,6.3,,0.85,0.0,,,false,false,,,
+nachos-sharer-topper-bbq-pulled-pork,Nachos Sharer Topper - BBQ Pulled Pork,Toppers & sauces,,325,18.0,19.5,16.5,4.5,,1.50,18.0,,contains_pork,false,false,,,
+burger-topper-smoked-streaky-bacon,Burger Topper - Smoked Streaky Bacon,Toppers & sauces,,44,2.4,0.0,3.8,1.5,,0.22,0.0,,contains_pork,false,false,,,
+burger-topper-bbq-pulled-pork,Burger Topper - BBQ Pulled Pork,Toppers & sauces,,163,9.0,9.8,8.3,2.3,,0.75,9.0,,contains_pork,false,false,,,
+burger-topper-cheese-slice,Burger Topper - Cheese Slice,Toppers & sauces,,39,2.4,0.4,3.1,2.0,,0.40,0.4,,,false,false,,,
+burger-topper-vegan-cheese-slice,Burger Topper - Vegan Cheese Slice,Toppers & sauces,,57,0.0,4.0,4.6,4.2,,0.46,0.0,,vegetarian,false,false,,,Marked vegan in its name
+burger-topper-free-range-fried-egg,Burger Topper - Free Range Fried Egg,Toppers & sauces,,146,10.7,0.0,11.5,2.5,,0.31,0.0,,,false,false,,,
+steak-sauce-creamy-peppercorn-and-brandy,Steak Sauce - Creamy Peppercorn & Brandy,Toppers & sauces,,104,0.9,5.7,6.5,4.4,,0.88,2.8,,,false,false,,,"Printed calories are about 18% above what its printed protein, carbohydrate and fat add up to (kJ and kcal agree; the guide does not say why); entered as printed"
+extra-sauce-merlot-and-beef-dripping-gravy,Extra Sauce - Merlot & Beef Dripping Gravy,Toppers & sauces,,53,1.1,4.1,2.1,1.1,,0.83,1.8,,contains_beef,false,false,,,"Tagged because the name says beef dripping. Printed calories are about 25% above what its printed protein, carbohydrate and fat add up to (kJ and kcal agree; the guide does not say why); entered as printed"
+steak-sauce-garlic-and-mushroom,Steak Sauce - Garlic & Mushroom,Toppers & sauces,,126,1.4,4.7,10.6,4.1,,0.86,2.0,,,false,false,,,
+steak-topper-free-range-fried-egg,Steak Topper - Free Range Fried Egg,Toppers & sauces,,146,10.7,0.0,11.5,2.5,,0.31,0.0,,,false,false,,,
+steak-topper-whitby-scampi,Steak Topper - Whitby Scampi,Toppers & sauces,,266,9.7,23.9,14.4,4.3,,0.60,0.9,,,false,false,,,
+sunday-roast-roasted-turkey-breast,Sunday Roast - Roasted Turkey Breast,Sunday roasts,,1188,78.7,80.4,63.8,22.3,,4.38,13.1,,,false,true,,,
+sunday-roast-sirloin-of-roast-beef,Sunday Roast - Sirloin Of Roast Beef,Sunday roasts,,1238,46.4,80.4,82.5,32.5,,4.21,13.1,,contains_beef,false,true,,,
+sunday-roast-turkey-and-beef-duo,Sunday Roast - Turkey & Beef Duo,Sunday roasts,,1213,62.6,80.4,73.1,27.4,,4.29,13.1,,contains_beef,false,true,,,
+sunday-roast-beetroot-sweet-potato-and-butternut-squash-tart,"Sunday Roast - Beetroot, Sweet Potato & Butternut Squash Tart",Sunday roasts,,1272,29.8,123.9,73.9,25.6,,5.95,19.4,,,false,true,,,
+sunday-roast-kids-sirloin-of-roast-beef,Sunday Roast Kids - Sirloin of Roast Beef,Sunday roasts,,686,26.2,50.4,42.6,16.8,,2.99,6.9,,contains_beef,false,true,,,Every printed number is identical to the Seniors version
+sunday-roast-kids-turkey,Sunday Roast Kids - Turkey,Sunday roasts,,661,42.4,50.4,33.3,11.7,,3.07,6.9,,,false,true,,,Every printed number is identical to the Seniors version
+sunday-roast-kids-mac-cheese,Sunday Roast Kids - Mac Cheese,Sunday roasts,,747,25.0,82.4,37.0,13.9,,4.37,8.9,,,false,true,,,
+sunday-roast-seniors-roast-turkey,Sunday Roast Seniors - Roast Turkey,Sunday roasts,,661,42.4,50.4,33.3,11.7,,3.07,6.9,,,false,true,,,Every printed number is identical to the Kids version
+sunday-roast-seniors-sirloin-of-roast-beef,Sunday Roast Seniors - Sirloin of Roast Beef,Sunday roasts,,686,26.2,50.4,42.6,16.8,,2.99,6.9,,contains_beef,false,true,,,Every printed number is identical to the Kids version
+sunday-roast-seniors-beetroot-sweet-potato-and-butternut-squash-tart,"Sunday Roast Seniors - Beetroot, Sweet Potato & Butternut Squash Tart",Sunday roasts,,886,19.8,93.9,47.6,15.9,,4.82,13.2,,,false,true,,,
+sweet-chili-chicken,Sweet Chili Chicken,"Ciabattas, wraps & lunch burger",,300,20.1,19.8,16.1,2.9,,1.45,13.9,,,false,false,,,Printed without the choice listed under it (Ciabatta / Tortilla); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+steak-and-cheese,Steak & Cheese,"Ciabattas, wraps & lunch burger",,311,22.7,5.8,22.0,8.2,,1.61,4.2,,contains_beef,false,false,,,Printed without the choice listed under it (Ciabatta / Tortilla); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+buttermilk-chicken-bacon-and-mayo,"Buttermilk Chicken, Bacon & Mayo","Ciabattas, wraps & lunch burger",,387,22.3,20.6,24.6,5.7,,1.61,0.9,,contains_pork,false,false,,,Printed without the choice listed under it (Ciabatta / Tortilla); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+plant-based-meatball-marinara,Plant Based Meatball Marinara,"Ciabattas, wraps & lunch burger",,441,20.9,12.3,33.5,11.1,,1.90,3.4,,,false,false,,,Printed without the choice listed under it (Ciabatta / Tortilla); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+3oz-cheese-smash-burger-lunch,3oz Cheese Smash Burger (Lunch),"Ciabattas, wraps & lunch burger",,496,23.6,47.1,23.0,8.1,,1.94,11.6,,,false,true,,,Meat type not stated
+sunday-beef,Sunday Beef,"Ciabattas, wraps & lunch burger",,504,29.6,2.0,42.6,17.2,,0.39,1.2,,contains_beef,false,false,,,Printed without the choice listed under it (Ciabatta / Tortilla); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+sunday-turkey,Sunday Turkey,"Ciabattas, wraps & lunch burger",,338,53.0,2.0,13.6,2.1,,0.54,0.8,,,false,false,,,Printed without the choice listed under it (Ciabatta / Tortilla); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+fish-finger,Fish Finger,"Ciabattas, wraps & lunch burger",,436,16.6,30.6,27.8,2.6,,1.07,5.1,,,false,false,,,Printed without the choice listed under it (Ciabatta / Tortilla); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+hot-honey-halloumi,Hot Honey Halloumi,"Ciabattas, wraps & lunch burger",,550,29.8,26.2,36.4,18.6,,3.30,25.2,,,false,false,,,Printed without the choice listed under it (Ciabatta / Tortilla); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+lentil-soup,Lentil Soup,Scottish dishes,,507,16.2,75.6,12.7,5.3,,2.56,14.8,,,false,true,,,
+haggis-fritters-scotland,Haggis Fritters (Scotland),Scottish dishes,,403,10.6,34.1,23.5,7.3,,1.69,17.7,,,false,true,,,Meat type not stated
+fish-and-chips-scotland,Fish & Chips (Scotland),Scottish dishes,,955,42.7,89.3,45.6,7.6,,0.99,2.9,,,false,false,,,Printed without the choice listed under it (Garden Peas / Mushy Peas); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+peppered-mushroom-pie-scotland,Peppered Mushroom Pie (Scotland),Scottish dishes,,573,11.4,31.7,41.9,14.5,,2.40,7.8,,,false,false,,,Printed without the choice listed under it (Chips / Mash); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+belhaven-steak-and-ale-pie-scotland,Belhaven Steak & Ale Pie (Scotland),Scottish dishes,,698,48.1,28.5,43.4,19.4,,3.32,7.5,,contains_beef,false,false,,,Printed without the choice listed under it (Chips / Mash); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+chicken-bacon-and-leek-pie-scotland,"Chicken, Bacon & Leek Pie (Scotland)",Scottish dishes,,664,34.0,38.1,40.8,20.6,,4.07,9.9,,contains_pork,false,false,,,Printed without the choice listed under it (Chips / Mash); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
+balmoral-smash-burger-scotland,Balmoral Smash Burger (Scotland),Scottish dishes,,1555,56.9,137.6,81.9,29.2,,6.00,27.8,,,false,true,,,Meat type not stated
+mac-and-cheese-scotland,Mac & Cheese (Scotland),Scottish dishes,,912,25.7,83.6,50.0,23.6,,3.49,12.8,,,false,true,,,
+mac-and-cheese-with-large-salad-scotland,Mac & Cheese with Large Salad (Scotland),Scottish dishes,,746,22.3,61.3,42.8,20.7,,2.98,15.4,,,false,true,,,"Printed without ""(Scotland)""; it is in the guide's Scottish Dishes section and its numbers differ from the Mains version"
+sunday-roast-kids-mac-cheese-scotland,Sunday Roast Kids - Mac Cheese (Scotland),Scottish dishes,,831,25.0,76.4,47.0,19.9,,4.00,10.9,,,false,true,,,
+steak-topper-haggis-scotland,Steak Topper - Haggis (Scotland),Scottish dishes,,173,6.8,10.5,11.3,5.3,,0.83,0.8,,,false,false,,,Meat type not stated
+haggis-neeps-and-tatties-small,"Haggis, Neeps & Tatties (small)",Scottish dishes,Small,451,13.5,36.7,25.6,13.3,,2.67,8.6,,,false,true,,,Meat type not stated
+haggis-neeps-and-tatties,"Haggis, Neeps & Tatties",Scottish dishes,,852,25.5,67.7,50.6,26.3,,4.57,14.6,,,false,true,,,Meat type not stated
+balmoral-chicken,Balmoral Chicken,Scottish dishes,,952,57.1,74.3,43.9,22.4,,4.96,20.1,,,false,true,,,Meat type not stated
+8oz-balmoral-rump-steak,8oz Balmoral Rump Steak,Scottish dishes,8 oz,1151,73.5,100.1,47.4,11.9,,3.68,7.1,,contains_beef,false,true,,,Tagged because the name says steak
+jam-roly-poly-pudding,Jam Roly Poly Pudding,Desserts,,636,7.9,100.2,22.2,12.5,,0.33,58.2,,,false,false,,,
+chocolate-lava-cookie,Chocolate Lava Cookie,Desserts,,653,7.5,80.3,32.7,16.8,,0.21,56.2,,,false,false,,,
+caramelised-biscuit-cheesecake,Caramelised Biscuit Cheesecake,Desserts,,576,4.8,59.2,35.5,19.0,,0.57,41.0,,,false,false,,,"Printed ""Caramalised"" (spelling tidied in the name only)"
+white-chocolate-and-raspberry-blondie,White Chocolate and Raspberry Blondie,Desserts,,582,6.9,74.2,28.4,16.6,,0.42,52.7,,,false,false,,,
+triple-chocolate-brownie,Triple Chocolate Brownie,Desserts,,730,11.4,92.8,33.4,17.7,,0.46,67.8,,,false,false,,,
+ice-cream-choice,Ice Cream Choice,Desserts,,0,0.0,0.0,0.0,0.0,,0.00,0.0,,,false,false,,,
+chocolate-ice-cream,Chocolate Ice Cream,Desserts,,113,2.2,14.5,5.1,2.5,,0.08,14.3,,,false,false,,,"A choice under Ice Cream Choice (printed 0 kcal), which is the whole item"
+classic-jersey-clotted-cream-ice-cream,Classic Jersey Clotted Cream Ice Cream,Desserts,,126,2.9,12.4,7.1,4.3,,0.11,12.4,,,false,false,,,"A choice under Ice Cream Choice (printed 0 kcal), which is the whole item"
+lemon-sorbet,Lemon Sorbet,Desserts,,85,0.1,20.8,0.1,0.0,,0.00,16.8,,,false,false,,,"A choice under Ice Cream Choice (printed 0 kcal), which is the whole item"
+yoghurt-strawberry,Yoghurt Strawberry,Desserts,,88,1.7,17.3,1.3,0.8,,0.05,15.2,,,false,false,,,"A choice under Ice Cream Choice (printed 0 kcal), which is the whole item"
+vegan-ice-cream,Vegan Ice Cream,Desserts,,113,0.6,13.5,5.5,4.8,,0.02,9.1,,vegetarian,false,false,,,"A choice under Ice Cream Choice (printed 0 kcal); printed ""Ice Cream - Vegan"""
+chocolate-sauce,Chocolate Sauce,Desserts,,28,0.3,6.3,0.1,0.1,,0.00,4.7,,,false,false,,,"A choice under Ice Cream Choice (printed 0 kcal), which is the whole item"
+strawberry-sauce,Strawberry Sauce,Desserts,,32,0.0,7.9,0.0,0.0,,0.00,7.5,,,false,false,,,"A choice under Ice Cream Choice (printed 0 kcal), which is the whole item"
+raspberry-coulis,Raspberry Coulis,Desserts,,16,0.0,3.9,0.1,0.0,,0.00,3.4,,,false,false,,,"A choice under Ice Cream Choice (printed 0 kcal), which is the whole item"
+mini-pudding,Mini Pudding,Desserts,,0,0.0,0.0,0.0,0.0,,0.00,0.0,,,false,false,,,
+mini-triple-chocolate-brownie,Mini Triple Chocolate Brownie,Desserts,,279,4.0,38.0,11.7,6.4,,0.12,27.0,,,false,false,,,"A choice under Mini Pudding (printed 0 kcal), which is the whole mini pudding"
+mini-blondie,Mini Blondie,Desserts,,253,3.3,32.4,12.2,7.5,,0.20,23.5,,,false,false,,,"A choice under Mini Pudding (printed 0 kcal), which is the whole mini pudding"
