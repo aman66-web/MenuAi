@@ -27,6 +27,7 @@ const pages = [
   ["long menu", "/app/chain?id=puccinos", false, async (p) => { await p.getByRole("button", { name: "No pork" }).click(); await p.getByRole("button", { name: "Tea", exact: true }).click(); await p.waitForTimeout(1500); }],
   ["menu search", "/app/chain?id=puccinos", false, async (p) => { await p.getByRole("searchbox").fill("latte oat"); await p.waitForTimeout(400); }],
   ["real item", "/app/item?chain=nandos&item=chicken-chorizo", false, async () => {}],
+  ["allergens", "/app/item?chain=farmer-j&item=smashed-avo-preserved-lemon-toast", false, async () => {}],
   ["site", "/", false, async () => {}],
 ];
 

@@ -102,6 +102,31 @@ await step("Search: highlight, recent searches", async () => {
   expect((await page.getByRole("searchbox").inputValue()) === "halloumi", "recent search didn't refill the box");
 });
 
+await step("Item: allergens as the chain's guide prints them, with the guide and 'check with staff'", async () => {
+  await page.goto(BASE + "/app/item?chain=farmer-j&item=smashed-avo-preserved-lemon-toast");
+  const section = page.getByRole("region", { name: "Allergens" });
+  await section.waitFor();
+  await section.getByText("Cereals containing gluten (wheat, rye, barley)").waitFor();
+  await section.getByText("May contain", { exact: true }).waitFor();
+  await section.getByRole("link", { name: /Farmer J Allergen/ }).waitFor();
+  await section.getByText(/always check with staff/).waitFor();
+});
+
+await step("Item: a chain whose allergens we haven't read only links to its own information", async () => {
+  // a chain is link-only until its allergens.csv exists; find one from the data rather than hard-coding it
+  const m = await (await fetch(BASE + "/menus/menus-manifest.json")).json();
+  let target = null;
+  for (const c of m.chains) {
+    const doc = await (await fetch(BASE + "/menus/" + c.file)).json();
+    if (!doc.allergenGuide?.complete && doc.items.length) { target = [c.id, doc.items[0].id, doc.name]; break; }
+  }
+  if (!target) return; // every chain complete: nothing to check here
+  await page.goto(`${BASE}/app/item?chain=${target[0]}&item=${target[1]}`);
+  const section = page.getByRole("region", { name: "Allergens" });
+  await section.getByText(`We don't show allergens for ${target[2]} yet.`).waitFor();
+  expect((await section.getByText("Contains", { exact: true }).count()) === 0, "a link-only chain shows a list");
+});
+
 await page.screenshot({ path: `${SHOTS}browse-end.png` });
 await browser.close();
 console.log(`\n${passed} passed, ${failed} failed`);
