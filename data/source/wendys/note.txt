@@ -1,0 +1,1 @@
+The guide prints no ingredients, so the pork and beef filters only know what an item's name says (bacon, sausage, beef); its burgers and chili don't state their meat. The five dip pots are not listed because the guide prints them only as 100 g each.

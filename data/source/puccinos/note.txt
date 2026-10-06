@@ -1,0 +1,1 @@
+Puccino's gives drink values per cup by milk and size (Small, Regular, Large; no cup volume is stated); iced drinks and food show one serving with no stated size. Extra syrups, sauces and cream are listed separately as extras.

@@ -1,0 +1,141 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+olives,Olives,Starters,,237,1.7,1.0,4.1,0.0,,4.3,0.0,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+garlic-flatbread,Garlic Flatbread,Starters,,997,18.5,108.2,49.0,33.1,,2.6,7.3,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+french-onion-soup,French Onion Soup,Starters,,598,20.3,65.6,26.6,10.0,,5.4,20.1,,,false,true,,,Source: Main Menu > STARTERS
+french-onion-soup-gluten-free,French Onion Soup (Gluten Free),Starters,,328,3.7,41.7,14.9,3.3,,3.9,18.3,,,false,true,,,Source: Main Menu > STARTERS
+chicken-liver-pork-and-wild-mushroom-p-t,"Chicken Liver, Pork & Wild Mushroom Pâté",Starters,,496,18.7,68.4,15.8,6.4,,2.1,13.5,,contains_pork,false,true,,,Source: Main Menu > STARTERS
+garlic-mushrooms,Garlic Mushrooms,Starters,,340,8.1,30.5,21.0,10.1,,0.8,1.8,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+garlic-mushrooms-gluten-free,Garlic Mushrooms (Gluten Free),Starters,,442,7.4,36.7,28.3,10.7,,0.9,2.0,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+garlic-mushrooms-vegan,Garlic Mushrooms (Vegan),Starters,,169,5.9,25.6,5.0,0.5,,0.8,0.8,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+king-prawns,King Prawns,Starters,,541,20.6,56.3,24.8,9.2,,2.2,4.2,,,false,true,,,Source: Main Menu > STARTERS
+calamari,Calamari,Starters,,282,10.6,18.5,18.2,2.0,,1.7,1.2,,,false,true,,,Source: Main Menu > STARTERS
+whole-baked-camembert,Whole Baked Camembert,Starters,,1265,68.3,96.1,66.7,42.8,,2.1,16.3,,,false,true,,,Source: Main Menu > STARTERS
+whole-baked-camembert-gluten-free,Whole Baked Camembert (Gluten Free),Starters,,1065,56.0,43.8,72.7,43.1,,1.2,11.0,,,false,true,,,Source: Main Menu > STARTERS
+tomato-and-basil-soup,Tomato & Basil Soup,Starters,,280,8.0,39.6,9.9,3.7,,3.8,11.1,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+leek-and-potato-soup,Leek & Potato Soup,Starters,,217,8.6,41.4,2.1,0.4,,3.2,9.2,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+pea-and-mint-soup,Pea & Mint Soup,Starters,,343,14.3,48.3,10.2,5.5,,2.6,12.8,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+sweet-potato-coconut-and-chilli-soup,"Sweet Potato, Coconut & Chilli Soup",Starters,,232,6.8,46.2,2.1,0.4,,2.6,12.8,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+carrot-lentil-and-coriander-soup,"Carrot, Lentil & Coriander Soup",Starters,,217,8.6,41.4,2.1,0.4,,3.2,9.2,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+mushroom-and-chestnut-soup,Mushroom & Chestnut Soup,Starters,,430,10.1,47.4,22.2,1.6,,3.8,3.8,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+caesar-salad,Caesar Salad,Mains,,453,47.4,7.4,24.9,3.2,,3.6,1.1,,,false,true,,,Source: Main Menu > MAINS
+rouge-salad,Rouge Salad,Mains,,222,4.6,38.1,6.1,0.7,,0.8,8.8,,vegetarian,false,true,,,Source: Main Menu > MAINS
+waldorf-salad,Waldorf Salad,Mains,,523,17.3,11.7,32.9,18.0,,1.7,7.9,,vegetarian,false,true,,,Source: Main Menu > MAINS
+goats-cheese-tomato-and-basil-tart,"Goat's Cheese, Tomato & Basil Tart",Mains,,555,15.6,61.6,27.1,8.1,,1.5,8.8,,vegetarian,false,true,,,Source: Main Menu > MAINS
+beef-bourguignon,Beef Bourguignon,Mains,,837,53.8,41.8,57.2,23.0,,4.9,13.6,,contains_pork|contains_beef,false,true,,,Source: Main Menu > MAINS
+mussels,Mussels,Mains,,531,32.3,21.1,34.9,20.1,,4.4,3.5,,,false,true,,,Source: Main Menu > MAINS
+mussels-gluten-free,Mussels (Gluten free),Mains,,844,36.7,65.3,47.0,21.3,,5.8,3.5,,,false,true,,,Source: Main Menu > MAINS
+seabass,Seabass,Mains,,586,38.9,40.1,29.4,10.4,,0.7,4.9,,,false,true,,,Source: Main Menu > MAINS
+poulet-breton,Poulet Breton,Mains,,825,45.3,32.4,56.4,27.9,,2.5,6.6,,,false,true,,,Source: Main Menu > MAINS
+demi-poulet,Demi Poulet,Mains,,793,107.1,4.5,38.4,10.6,,3.5,1.7,,,false,true,,,Source: Main Menu > MAINS
+chicken-leek-and-ham-hock-pie,"Chicken, Leek & Ham Hock Pie",Mains,,999,27.6,88.4,58.5,27.9,,3.6,10.3,,contains_pork,false,true,,,Source: Main Menu > MAINS
+duck-confit,Duck Confit,Mains,,673,51.3,46.7,33.3,8.3,,2.7,10.3,,,false,true,,,Source: Main Menu > MAINS
+butternut-squash-and-lentil-wellington,Butternut Squash & Lentil Wellington,Mains,,408,12.1,61.3,12.6,4.2,,1.9,8.8,,vegetarian,false,true,,,Source: Main Menu > MAINS
+leffe-beer-battered-fish,Leffe Beer Battered Fish,Mains,,1554,57.1,140.4,72.1,8.9,,2.0,7.7,,,false,true,,,Source: Main Menu > MAINS
+5oz-minute-steak,5oz Minute Steak,From the grill,,444,27.0,0.4,37.0,11.9,,1.0,0.2,,contains_beef,false,true,,,Source: Main Menu > FROM THE GRILL
+fillet-steak,Fillet Steak,From the grill,,308,32.8,0.2,19.5,5.1,,1.0,0.2,,contains_beef,false,true,,,Source: Main Menu > FROM THE GRILL
+8oz-sirloin-steak,8oz Sirloin Steak,From the grill,,710,37.8,0.2,61.9,22.8,,1.1,0.2,,contains_beef,false,true,,,Source: Main Menu > FROM THE GRILL
+truffle-and-camembert-burger,Truffle & Camembert Burger,From the grill,,1263,45.2,42.2,104.0,,,7.5,7.8,,contains_pork|contains_beef,false,true,,,Source: Main Menu > FROM THE GRILL
+grilled-chicken-burger,Grilled Chicken Burger,From the grill,,591,43.1,38.5,29.9,4.2,,3.3,9.7,,,false,true,,,Source: Main Menu > FROM THE GRILL
+plant-based-burger,Plant-based Burger,From the grill,,939,23.4,49.8,70.2,18.1,,2.7,9.2,,vegetarian,false,true,,,Source: Main Menu > FROM THE GRILL
+fries,Fries,Sides,,517,3.6,39.6,37.0,5.8,,0.2,1.8,,vegetarian,false,true,,,Source: Main Menu > FROM THE GRILL
+house-salad,House Salad,Sides,,67,1.1,6.3,4.1,0.4,,0.5,5.6,,vegetarian,false,true,,,Source: Main Menu > FROM THE GRILL
+bearnaise-sauce,Bearnaise Sauce,Sides,,144,0.7,1.6,15.0,6.1,,0.5,0.0,,vegetarian,false,false,,,Source: Main Menu > FROM THE GRILL
+peppercorn-sauce,Peppercorn Sauce,Sides,,86,1.1,4.9,6.9,4.6,,0.6,2.7,,,false,false,,,Source: Main Menu > FROM THE GRILL
+sweet-potato-fries,Sweet Potato Fries,Sides,,398,3.0,44.7,21.7,2.6,,1.2,17.0,,,false,true,,,Source: Main Menu > SIDES
+onion-rings,Onion Rings,Sides,,292,2.4,20.1,21.7,2.1,,0.7,2.2,,,false,true,,,Source: Main Menu > SIDES
+french-beans,French Beans,Sides,,99,1.7,2.5,8.2,5.5,,0.0,1.8,,vegetarian,false,true,,,Source: Main Menu > SIDES
+thyme-jus,Thyme Jus,Sides,,18,0.6,3.6,0.2,0.0,,0.6,0.8,,vegetarian,false,false,,,Source: Main Menu > SIDES
+raclette-sauce,Raclette Sauce,Sides,,180,7.3,3.0,15.3,10.2,,0.6,1.0,,,false,false,,,Source: Main Menu > SIDES
+fries-gluten-free,Fries (Gluten free),Sides,,314,4.4,44.3,12.1,1.2,,1.4,0.0,,vegetarian,false,true,,,Source: Lunch > LUNCH
+upgrade-to-sweet-potato-fries,Upgrade to sweet potato fries,Sides,,332,2.7,39.8,16.3,2.2,,0.7,12.9,,,false,true,,,Source: Lunch > LUNCH
+croque-monsieur,Croque Monsieur,Lunch,,663,27.3,56.0,38.0,15.4,,3.3,3.7,,contains_pork,false,true,,,Source: Lunch > LUNCH
+croque-mushroom,Croque Mushroom,Lunch,,698,19.7,61.0,42.3,19.9,,2.8,6.4,,vegetarian,false,true,,,Source: Lunch > LUNCH
+french-rolled-omelette,French Rolled Omelette,Lunch,,363,20.9,3.4,29.6,6.9,,0.8,3.1,,vegetarian,false,true,,,Source: Lunch > LUNCH
+steak-baguette,Steak Baguette,Lunch,,1178,49.4,137.9,48.0,,,4.1,29.1,,contains_beef,false,true,,,Source: Lunch > LUNCH
+chicken-baguette,Chicken Baguette,Lunch,,1098,59.1,116.1,45.2,,,5.0,11.6,,,false,true,,,Source: Lunch > LUNCH
+camembert-baguette,Camembert Baguette,Lunch,,925,35.6,139.2,24.6,,,2.8,31.2,,,false,true,,,Source: Lunch > LUNCH
+grand-breakfast,Grand Breakfast,Breakfast,,1250,44.7,107.1,71.8,31.2,,8.5,11.6,,contains_pork,false,true,,,Source: Breakfast > BREAKFAST
+vegetarian-breakfast,Vegetarian Breakfast,Breakfast,,611,13.4,55.8,37.2,12.3,,2.2,9.2,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+vegetarian-breakfast-gluten-free,Vegetarian Breakfast (Gluten-free),Breakfast,,579,10.7,32.4,44.8,13.8,,1.2,8.7,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+vegan-breakfast,Vegan Breakfast,Breakfast,,559,14.3,56.0,31.1,6.0,,2.3,9.3,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+eggs-benedict,Eggs Benedict,Breakfast,,467,28.1,34.7,23.1,10.4,,2.4,4.4,,contains_pork,false,true,,,Source: Breakfast > BREAKFAST
+eggs-florentine,Eggs Florentine,Breakfast,,591,22.4,35.8,38.8,20.7,,1.9,5.6,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+scrambled-eggs-on-toast,Scrambled Eggs on Toast,Breakfast,,880,28.5,50.8,63.1,35.4,,2.4,1.7,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+scrambled-eggs-on-toast-gluten-free,Scrambled Eggs on Toast (Gluten free),Breakfast,,792,23.9,32.0,61.9,30.5,,1.8,1.4,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+granola-pot,Granola Pot,Breakfast,,471,11.2,52.2,23.1,14.2,,0.7,27.6,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+avocado-on-toast,Avocado on Toast,Breakfast,,336,6.2,27.9,22.6,4.7,,3.0,1.5,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+avocado-on-toast-gluten-free,Avocado on Toast (Gluten-free),Breakfast,,438,5.5,34.1,29.9,5.3,,3.1,1.7,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+french-toast,French Toast,Breakfast,,445,9.4,66.3,15.6,8.9,,0.5,42.9,,vegetarian,false,true,,,Source: Breakfast > BREAKFAST
+pastry-selection,Pastry Selection,Breakfast pastries,,1408,18.8,136.2,87.4,35.8,,1.2,45.4,,vegetarian,false,false,,,Source: Breakfast > SWEET
+pain-au-chocolat,Pain Au Chocolat,Breakfast pastries,,358,7.2,36.1,20.0,10.5,,0.7,14.3,,vegetarian,false,false,,,Source: Breakfast > SWEET
+all-butter-croissant,All-butter Croissant,Breakfast pastries,,472,6.0,47.1,28.4,19.3,,0.6,21.9,,vegetarian,false,false,,,Source: Breakfast > SWEET
+chocolate-fondant,Chocolate Fondant,Desserts,,724,8.2,72.9,44.0,39.1,,0.5,55.3,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+baked-vanilla-cheesecake,Baked Vanilla Cheesecake,Desserts,,412,6.0,38.0,26.2,8.9,,0.7,25.6,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+lemon-tart,Lemon Tart,Desserts,,427,3.5,53.2,21.3,15.7,,0.2,38.0,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,713,4.3,115.3,25.9,17.2,,0.6,97.3,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+apple-tart,Apple Tart,Desserts,,340,5.9,53.3,11.0,7.0,,0.7,33.3,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+ice-cream-vanilla,Ice Cream: Vanilla,Desserts,,130,2.6,13.3,7.4,5.3,,0.2,13.3,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+ice-cream-double-chocolate,Ice Cream: Double Chocolate,Desserts,,128,2.8,13.7,6.7,4.7,,0.2,13.4,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+ice-cream-strawberry,Ice Cream: Strawberry,Desserts,,113,2.0,14.0,5.4,3.8,,0.1,13.6,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+ice-cream-salted-caramel,Ice Cream: Salted Caramel,Desserts,,107,2.6,13.5,4.7,2.1,,0.1,7.1,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+mango-sorbet,Mango Sorbet,Desserts,,64,0.1,15.6,0.1,0.1,,0.0,13.9,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+lemon-sorbet,Lemon Sorbet,Desserts,,63,0.0,15.8,0.1,0.1,,0.0,13.7,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+ice-cream-vegan-vanilla,Ice Cream: Vegan Vanilla,Desserts,,123,0.8,17.6,5.4,4.7,,0.1,10.0,,vegetarian,false,false,,,Source: Main Menu > DESSERTS
+carrot-cake,Carrot Cake,Coffee & cake,,231,2.6,26.2,12.4,3.0,,0.3,16.6,,vegetarian,false,false,,,Source: Breakfast > COFFEE & CAKE - £6.45
+chocolate-cake,Chocolate Cake,Coffee & cake,,274,3.0,31.0,15.0,6.7,,0.6,23.4,,vegetarian,false,false,,,Source: Breakfast > COFFEE & CAKE - £6.45
+cheese-add-on,Cheese (add-on),Add-ons & extras,,117,8.3,0.8,9.0,5.5,,0.6,0.2,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+camembert-and-caramelised-onion-add-on,Camembert & caramelised onion (add-on),Add-ons & extras,,241,13.6,15.1,13.9,10.3,,0.2,12.3,,,false,false,,,Source: Main Menu > STARTERS
+grilled-chicken-breast-add-on,Grilled chicken breast (add-on),Add-ons & extras,,277,37.0,1.0,13.9,1.9,,2.0,0.9,,,false,false,,,Source: Main Menu > MAINS
+sliced-baguette-add-on,Sliced baguette (add-on),Add-ons & extras,,565,15.6,83.5,18.1,11.1,,1.6,6.0,,vegetarian,false,false,,,Source: Main Menu > MAINS
+ham-add-on,Ham (add-on),Add-ons & extras,,47,8.2,0.3,1.4,0.5,,0.8,0.2,,contains_pork,false,false,,,Source: Lunch > LUNCH
+tomatoes-add-on,Tomatoes (add-on),Add-ons & extras,,9,0.4,1.5,0.2,0.0,,0.0,1.5,,vegetarian,false,false,,,Source: Lunch > LUNCH
+spinach-add-on,Spinach (add-on),Add-ons & extras,,87,1.4,0.8,8.6,5.4,,0.2,0.8,,vegetarian,false,false,,,Source: Lunch > LUNCH
+mushrooms-add-on,Mushrooms (add-on),Add-ons & extras,,50,1.8,0.4,4.6,0.4,,0.2,0.2,,vegetarian,false,false,,,Source: Lunch > LUNCH
+streaky-bacon-add-on,Streaky Bacon (add-on),Add-ons & extras,,109,9.7,0.3,7.9,3.0,,1.8,0.0,,contains_pork,false,false,,,Source: Breakfast > BREAKFAST
+fresh-blueberries-and-strawberries-add-on,Fresh Blueberries & Strawberries (add-on),Add-ons & extras,,15,0.3,3.2,0.1,0.0,,0.0,2.7,,vegetarian,false,false,,,Source: Breakfast > BREAKFAST
+fried-egg-add-on,Fried egg (add-on),Add-ons & extras,,215,6.8,0.0,20.9,3.1,,0.5,0.0,,vegetarian,false,false,,,Source: Breakfast > EXTRAS
+scrambled-eggs-add-on,Scrambled Eggs (add-on),Add-ons & extras,,155,7.0,0.3,13.9,7.2,,0.8,0.3,,vegetarian,false,false,,,Source: Breakfast > EXTRAS
+poached-egg-add-on,Poached Egg (add-on),Add-ons & extras,,80,6.8,0.0,5.8,2.0,,0.2,0.0,,vegetarian,false,false,,,Source: Breakfast > EXTRAS
+cumberland-sausage-add-on,Cumberland Sausage (add-on),Add-ons & extras,,121,5.1,6.0,8.4,3.0,,1.1,0.6,,contains_pork,false,false,,,Source: Breakfast > EXTRAS
+cured-bacon-add-on,Cured Bacon (add-on),Add-ons & extras,,170,15.1,0.5,12.3,4.7,,2.7,0.0,,contains_pork,false,false,,,Source: Breakfast > EXTRAS
+beans-add-on,Beans (add-on),Add-ons & extras,,61,4.1,10.7,0.2,0.0,,0.7,4.2,,vegetarian,false,false,,,Source: Breakfast > EXTRAS
+hash-brown-add-on,Hash Brown (add-on),Add-ons & extras,,109,1.3,14.9,4.6,0.5,,0.7,0.7,,vegetarian,false,false,,,Source: Breakfast > EXTRAS
+toast-and-butter-add-on,Toast and Butter (add-on),Add-ons & extras,,454,7.8,50.1,25.3,16.3,,1.2,1.0,,vegetarian,false,false,,,Source: Breakfast > EXTRAS
+maple-syrup-add-on,Maple Syrup (add-on),Add-ons & extras,,98,0.0,24.4,0.0,0.0,,0.0,23.8,,vegetarian,false,false,,,Source: Breakfast > EXTRAS
+avocado-add-on,Avocado (add-on),Add-ons & extras,,144,1.4,1.4,14.7,3.1,,0.0,0.4,,vegetarian,false,false,,,Source: Breakfast > EXTRAS
+breakfast-black-pudding-add-on,Breakfast Black Pudding (add-on),Add-ons & extras,,276,9.2,15.9,19.7,6.7,,1.3,2.0,,,false,false,,,Source: Breakfast > EXTRAS
+fresh-blueberries-and-strawberries-kids-add-on,Fresh Blueberries & Strawberries (kids add-on),Add-ons & extras,,8,0.2,1.7,0.0,0.0,,0.0,1.5,,vegetarian,false,false,,,"Source: Breakfast > KIDS - All dishes £7.95 served with a choice of orange or apple juice, or a glass of milk"
+streaky-bacon-kids-add-on,Streaky Bacon (kids add-on),Add-ons & extras,,54,4.8,0.2,3.9,1.5,,0.9,0.0,,contains_pork,false,false,,,"Source: Breakfast > KIDS - All dishes £7.95 served with a choice of orange or apple juice, or a glass of milk"
+little-english,Little English,Kids: Breakfast,,457,20.6,42.0,23.3,10.8,,3.7,5.2,,contains_pork,false,false,,,"Source: Breakfast > KIDS - All dishes £7.95 served with a choice of orange or apple juice, or a glass of milk"
+veggie-breakfast,Veggie Breakfast,Kids: Breakfast,,414,9.4,43.9,22.5,9.9,,1.6,5.2,,vegetarian,false,false,,,"Source: Breakfast > KIDS - All dishes £7.95 served with a choice of orange or apple juice, or a glass of milk"
+kids-french-toast,Kid's French Toast,Kids: Breakfast,,225,4.7,33.7,7.8,4.4,,0.2,22.0,,vegetarian,false,false,,,"Source: Breakfast > KIDS - All dishes £7.95 served with a choice of orange or apple juice, or a glass of milk"
+garlic-baguette,Garlic Baguette,Kids: Starters,,168,3.3,19.6,8.0,3.0,,0.6,0.3,,vegetarian,false,false,,,Source: Kids > STARTERS
+chicken-breast,Chicken Breast,Kids: Mains,,578,45.2,45.7,24.9,11.2,,1.7,5.7,,,false,false,,,Source: Kids > MAINS
+chicken-crunchies,Chicken Crunchies,Kids: Mains,,507,24.5,39.0,27.4,10.6,,0.2,3.0,,,false,false,,,Source: Kids > MAINS
+crispy-fish-goujons,Crispy Fish Goujons,Kids: Mains,,427,14.3,44.6,21.2,6.4,,0.6,3.8,,,false,false,,,Source: Kids > MAINS
+sausage-and-mash,Sausage and Mash,Kids: Mains,,415,16.9,34.6,22.7,12.2,,3.0,4.8,,contains_pork,false,false,,,Source: Kids > MAINS
+macaroni-cheese,Macaroni Cheese,Kids: Mains,,367,11.0,40.3,17.5,9.2,,1.0,3.6,,vegetarian,false,false,,,Source: Kids > MAINS
+chocolate-brownie,Chocolate Brownie,Kids: Desserts,,362,5.0,41.5,19.5,11.4,,0.3,37.4,,vegetarian,false,false,,,Source: Kids > DESSERTS
+fresh-fruit-salad,Fresh Fruit Salad,Kids: Desserts,,106,1.5,24.7,0.5,0.0,,0.0,23.8,,vegetarian,false,false,,,Source: Kids > DESSERTS
+pressed-apple-juice,Pressed Apple Juice,Kids: Drinks,,145,1.3,34.0,0.3,0.0,,0.0,32.3,,vegetarian,false,false,,,Source: Kids > DRINKS
+glass-of-semi-skimmed-milk,Glass of Semi-skimmed Milk,Kids: Drinks,,116,8.1,11.9,4.0,2.4,,0.5,11.9,,vegetarian,false,false,,,Source: Kids > DRINKS
+cawston-press-fruit-water-apple-and-pear,Cawston Press Fruit Water - Apple & Pear,Kids: Drinks,,54,0.2,12.8,0.2,0.0,,0.0,12.8,,vegetarian,false,false,,,Source: Kids > DRINKS
+cawston-press-fruit-water-apple-and-mango,Cawston Press Fruit Water - Apple & Mango,Kids: Drinks,,54,0.2,12.4,0.2,0.0,,0.0,12.4,,vegetarian,false,false,,,Source: Kids > DRINKS
+cawston-press-fruit-water-summer-berries,Cawston Press Fruit Water - Summer Berries,Kids: Drinks,,50,0.6,11.6,0.2,0.0,,0.0,11.0,,vegetarian,false,false,,,Source: Kids > DRINKS
+flat-white,Flat White,Drinks: Hot drinks,,66,4.6,6.8,2.3,1.4,,0.3,6.8,,vegetarian,false,false,,,Source: Breakfast > HOT DRINKS - Add your choice of Vanilla or Hazelnut syrup for 50P
+cappuccino,Cappuccino,Drinks: Hot drinks,,70,4.7,7.5,2.4,1.4,,0.3,7.5,,vegetarian,false,false,,,Source: Breakfast > HOT DRINKS - Add your choice of Vanilla or Hazelnut syrup for 50P
+hot-chocolate,Hot Chocolate,Drinks: Hot drinks,,111,1.9,22.0,1.8,1.3,,0.2,21.2,,vegetarian,false,false,,,Source: Breakfast > HOT DRINKS - Add your choice of Vanilla or Hazelnut syrup for 50P
+green-tea,Green Tea,Drinks: Hot drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,Source: Breakfast > HOT DRINKS - Add your choice of Vanilla or Hazelnut syrup for 50P
+fresh-mint-tea,Fresh Mint Tea,Drinks: Hot drinks,,5,0.4,0.3,0.2,0.0,,0.0,0.3,,vegetarian,false,false,,,Source: Breakfast > HOT DRINKS - Add your choice of Vanilla or Hazelnut syrup for 50P
+passion-fruitini,Passion Fruitini,Drinks: Non-alcoholic cocktails,,108,0.2,26.4,0.0,0.0,,0.0,,,,false,false,,,Source: Drinks > Non-Alcoholic Cocktails
+french-garden-fizz,French Garden Fizz,Drinks: Non-alcoholic cocktails,,16,0.1,3.4,0.0,0.0,,0.0,2.9,,vegetarian,false,false,,,Source: Drinks > Non-Alcoholic Cocktails
+tanqueary-0-gin,Tanqueary 0% Gin,Drinks: Gin,,2,0.1,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Drinks > Gin Collection
+stella-artois-0,Stella Artois 0%,Drinks: Beer & cider,,59,1.0,13.9,0.0,0.0,,0.3,2.6,,vegetarian,false,false,,,Source: Drinks > Beer
+kopparberg-strawberry-and-lime-0-500ml,Kopparberg Strawberry & Lime 0% 500ml,Drinks: Beer & cider,500ml,205,2.5,50.5,2.5,2.5,,0.1,50.5,,vegetarian,false,false,,,Source: Drinks > Cider
+coca-cola,Coca-Cola,Drinks: Soft drinks,,172,0.0,43.4,0.0,0.0,,0.0,43.4,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+coke-zero,Coke Zero,Drinks: Soft drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+diet-coke,Diet Coke,Drinks: Soft drinks,,2,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+orangina,Orangina,Drinks: Soft drinks,,105,0.3,25.5,0.0,0.0,,0.0,25.5,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+cawston-press-sparkling-water-sparkling-apple,Cawston Press Sparkling Water: Sparkling Apple,Drinks: Soft drinks,,60,0.3,14.5,0.0,0.0,,0.0,14.5,,,false,false,,,Source: Drinks > Soft Drinks
+cawston-press-sparkling-water-sparkling-elderflower,Cawston Press Sparkling Water: Sparkling Elderflower,Drinks: Soft drinks,,55,0.3,12.5,0.3,0.0,,0.0,12.0,,,false,false,,,Source: Drinks > Soft Drinks
+cawston-press-sparkling-water-sparkling-rhubarb,Cawston Press Sparkling Water: Sparkling Rhubarb,Drinks: Soft drinks,,58,0.3,13.3,0.0,0.0,,0.0,13.3,,,false,false,,,Source: Drinks > Soft Drinks

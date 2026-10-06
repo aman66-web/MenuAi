@@ -1,0 +1,143 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+prawn-cracker-basket,Prawn Cracker Basket,For the table,,361,7.6,70.4,5.2,0.6,,2.1,20.0,,,false,false,,,"On: all day menu, bottomless bowls menu"
+spiced-crackers,Spiced Crackers,For the table,,216,1.5,31.0,9.8,0.8,,0.8,17.1,,vegetarian,false,false,,,On: all day menu
+edamame,Edamame,For the table,,177,17.8,18.3,5.1,0.8,,0.1,1.5,,vegetarian,false,false,,,"On: all day menu, bottomless bowls menu"
+edamame-gluten-free,Edamame (Gluten-Free),For the table,,174,17.7,18.0,5.0,0.8,,0.0,1.4,,vegetarian,false,false,,,"On: all day menu, bottomless bowls menu"
+duck-pancakes,Duck Pancakes,To share,,981,64.3,69.1,49.4,11.7,,4.3,35.6,,,false,false,,,On: all day menu
+sweetcorn-fritter-balls-with-spicy-mayo,Sweetcorn Fritter Balls - With Spicy Mayo,Small plates,,634,4.9,32.9,53.4,4.1,,0.7,6.7,,vegetarian,false,true,,,On: all day menu
+sweetcorn-fritter-balls-with-sweet-chilli-sauce,Sweetcorn Fritter Balls - With Sweet Chilli Sauce,Small plates,,589,5.3,55.9,38.3,3.0,,0.2,28.0,,vegetarian,false,true,,,"On: all day menu, bottomless bowls menu"
+thai-calamari,Thai Calamari,Small plates,,703,19.4,46.5,49.6,6.4,,2.7,27.9,,,false,true,,,On: all day menu
+wings-korean-bbq,Wings - Korean BBQ,Small plates,,911,54.3,34.5,62.1,11.5,,4.1,30.0,,,false,true,,,"On: all day menu, bottomless bowls menu"
+wings-firecracker,Wings - Firecracker,Small plates,,977,54.7,45.0,65.7,11.8,,4.1,38.2,,,false,true,,,"On: all day menu, bottomless bowls menu"
+malaysian-satay-skewers-grilled-chicken,Malaysian Satay Skewers - Grilled Chicken,Small plates,,359,35.2,23.3,15.5,2.7,,0.7,16.0,,,false,true,,,On: all day menu
+malaysian-satay-skewers-vegan-satay,Malaysian Satay Skewers - Vegan Satay,Small plates,,403,21.4,30.0,20.1,5.9,,3.1,22.8,,vegetarian,false,true,,,On: all day menu
+mekong-prawns,Mekong Prawns,Small plates,,477,11.6,34.0,32.8,2.7,,1.3,15.2,,,false,true,,,On: all day menu
+bang-bang-broccoli,Bang Bang Broccoli,Small plates,,592,9.5,64.4,32.7,2.9,,0.7,36.2,,vegetarian,false,true,,,"On: all day menu, bottomless bowls menu"
+vietnamese-spring-rolls,Vietnamese Spring Rolls,Small plates,,595,6.6,63.3,33.7,3.4,,1.7,27.7,,vegetarian,false,true,,,On: all day menu
+spring-rolls-shredded-duck,Spring Rolls - Shredded Duck,Small plates,,560,11.0,42.6,38.5,4.6,,2.5,18.5,,,false,true,,,On: all day menu
+steamed-chicken-dumplings,Steamed Chicken Dumplings,Small plates,,606,13.7,50.0,39.0,4.5,,1.3,17.0,,,false,true,,,"On: all day menu, bottomless bowls menu"
+singapore-laksa,Singapore Laksa,Laksa,,609,15.4,66.5,30.6,17.6,,2.4,14.3,,vegetarian,false,true,,,"On: all day menu, express lunch deal"
+grilled-chicken,Grilled Chicken,Options & add-ons,,170,20.2,3.5,8.4,1.0,,0.3,0.9,,,false,false,,,"On: all day menu, express lunch deal"
+prawns,Prawns,Options & add-ons,,103,21.7,1.8,1.0,0.4,,1.3,0.3,,,false,false,,,On: all day menu
+tofu,Tofu,Options & add-ons,,66,4.7,0.9,4.7,0.7,,0.0,0.0,,vegetarian,false,false,,,"On: all day menu, express lunch deal"
+stir-fried-broccoli,Stir Fried Broccoli,Options & add-ons,,162,7.3,16.6,6.7,1.0,,2.7,13.3,,vegetarian,false,false,,,On: all day menu
+korean-drug-egg,Korean Drug Egg,Options & add-ons,,188,9.1,12.8,11.4,2.3,,5.8,11.2,,vegetarian,false,false,,,On: all day menu
+steamed-jasmine-rice,Steamed Jasmine Rice,Options & add-ons,,273,5.0,64.7,0.4,0.1,,0.0,0.0,,vegetarian,false,false,,,"On: all day menu, express lunch deal, bottomless bowls menu, bottomless brunch menu"
+extra-katsu-sauce,Extra Katsu Sauce,Options & add-ons,,70,1.0,6.8,4.1,2.4,,1.7,1.1,,vegetarian,false,false,,,On: all day menu
+extra-chicken-fillet,Extra Chicken Fillet,Options & add-ons,,456,13.4,14.3,37.5,3.2,,0.6,1.0,,,false,false,,,On: all day menu
+extra-veggie-fillet,Extra Veggie Fillet,Options & add-ons,,483,8.2,14.6,42.8,3.3,,1.3,0.8,,vegetarian,false,false,,,On: all day menu
+soy-noodles,Soy Noodles,Options & add-ons,,276,10.2,49.5,1.9,0.3,,4.2,8.4,,vegetarian,false,false,,,On: kids menu
+egg-fried-rice-kids-menu,Egg Fried Rice (kids menu),Options & add-ons,,188,4.4,27.9,5.4,0.8,,0.6,2.0,,vegetarian,false,false,,,On: kids menu
+fries-kids-menu,Fries (kids menu),Options & add-ons,,504,3.7,37.5,36.7,3.0,,1.0,1.4,,vegetarian,false,false,,,On: kids menu
+ketchup,Ketchup,Options & add-ons,,31,0.0,7.2,0.0,0.0,,0.5,7.1,,vegetarian,false,false,,,On: kids menu
+sweet-and-sour,Sweet & Sour,Options & add-ons,,66,0.7,14.9,0.4,0.0,,0.2,12.0,,vegetarian,false,false,,,On: kids menu
+sweet-lime-sauce,Sweet Lime Sauce,Options & add-ons,,48,1.0,10.7,0.3,0.0,,0.3,8.3,,,false,false,,,On: kids menu
+jasmine-rice,Jasmine Rice,Options & add-ons,,179,3.2,37.8,0.5,0.1,,0.0,2.0,,vegetarian,false,false,,,On: kids menu
+ramen-chicken-gyozas,Ramen - Chicken Gyozas,Ramen,,475,24.1,63.5,11.9,2.8,,8.7,7.3,,,false,true,,,On: all day menu
+ramen-spiced-chicken,Ramen - Spiced Chicken,Ramen,,541,42.7,49.6,17.1,2.8,,8.3,7.2,,,false,true,,,On: all day menu
+ramen-steak,Ramen - Steak,Ramen,,638,53.8,46.4,24.2,8.9,,11.5,6.4,,contains_beef,false,true,,,On: all day menu
+pad-thai-chicken,Pad Thai - Chicken,Wok tossed noodles,,1122,59.2,112.8,48.3,7.0,,2.2,29.1,,,false,true,,,"On: all day menu, express lunch deal, bottomless brunch menu"
+pad-thai-prawns,Pad Thai - Prawns,Wok tossed noodles,,1051,45.0,112.3,47.1,6.8,,2.9,28.3,,,false,true,,,On: all day menu
+phad-thai-with-chicken-and-prawns,Phad Thai with Chicken and Prawns,Wok tossed noodles,,1174,70.1,113.7,48.9,7.2,,2.9,29.3,,,false,true,,,On: all day menu
+phad-thai-with-steak,Phad Thai with Steak,Wok tossed noodles,,1384,60.7,124.6,72.0,14.4,,2.2,40.9,,contains_beef,false,true,,,On: all day menu
+pad-thai-duck,Pad Thai - Duck,Wok tossed noodles,,1338,50.6,111.7,76.5,12.0,,2.4,28.7,,,false,true,,,On: all day menu
+pad-thai-tofu,Pad Thai - Tofu,Wok tossed noodles,,985,25.0,107.0,50.5,6.2,,1.1,30.1,,vegetarian,false,true,,,"On: all day menu, express lunch deal, bottomless brunch menu"
+pad-thai-thistm-isnt-chicken-vegan-bites,Pad Thai - THIS™ ISN’T CHICKEN Vegan Bites,Wok tossed noodles,,995,37.7,107.3,44.6,5.7,,1.8,30.5,,vegetarian,false,true,,,On: all day menu
+pad-thai-chicken-gluten-free,Pad Thai - Chicken (Gluten-Free),Wok tossed noodles,,1059,57.7,101.3,47.2,6.8,,1.8,28.0,,,false,true,,,"On: all day menu, express lunch deal, bottomless brunch menu"
+pad-thai-prawns-gluten-free,Pad Thai - Prawns (Gluten-Free),Wok tossed noodles,,988,43.4,100.8,46.0,6.6,,2.5,27.2,,,false,true,,,On: all day menu
+pad-thai-chicken-and-prawns-gluten-free,Pad Thai - Chicken & Prawns (Gluten-Free),Wok tossed noodles,,1111,68.5,102.2,47.8,7.0,,2.4,28.2,,,false,true,,,On: all day menu
+pad-thai-steak-gluten-free,Pad Thai - Steak (Gluten-Free),Wok tossed noodles,,1321,59.1,113.1,70.9,14.3,,1.8,39.8,,contains_beef,false,true,,,On: all day menu
+pad-thai-tofu-gluten-free,Pad Thai - Tofu (Gluten-Free),Wok tossed noodles,,960,25.0,104.5,48.8,6.1,,1.0,29.9,,vegetarian,false,true,,,"On: all day menu, express lunch deal, bottomless brunch menu"
+pad-thai-thistm-isnt-chicken-vegan-bites-gluten-free,Pad Thai - THIS™ ISN’T CHICKEN Vegan Bites (Gluten-Free),Wok tossed noodles,,960,37.5,103.7,42.4,5.5,,1.8,30.1,,vegetarian,false,true,,,On: all day menu
+teriyaki-soba-noodles-steak,Teriyaki Soba Noodles - Steak,Wok tossed noodles,,952,52.1,101.1,37.1,9.4,,6.1,41.9,,contains_beef,false,true,,,On: all day menu
+teriyaki-soba-noodles-duck,Teriyaki Soba Noodles - Duck,Wok tossed noodles,,1376,72.7,114.0,68.0,13.5,,10.2,54.8,,,false,true,,,On: all day menu
+teriyaki-soba-noodles-salmon,Teriyaki Soba Noodles - Salmon,Wok tossed noodles,,986,45.2,109.5,39.7,6.5,,6.5,43.4,,,false,true,,,On: all day menu
+banana-tree-spiced-noodles,Banana Tree Spiced Noodles,Wok tossed noodles,,1134,68.8,107.9,46.3,6.0,,5.5,43.0,,,false,true,,,On: all day menu
+chicken-singapore-noodles,Chicken Singapore Noodles,Wok tossed noodles,,902,56.9,93.2,32.8,4.5,,2.7,15.4,,,false,true,,,On: all day menu
+drunken-monks-noodles,Drunken Monks Noodles,Wok tossed noodles,,725,34.6,91.4,22.4,2.8,,4.8,14.3,,vegetarian,false,true,,,"On: all day menu, bottomless brunch menu"
+katsu-curry-chicken-fillet,Katsu Curry - Chicken Fillet,Regional curries,,809,33.5,44.9,53.4,8.5,,4.1,4.2,,,false,true,,,On: all day menu
+katsu-curry-vegan-fillet,Katsu Curry - Vegan Fillet,Regional curries,,753,18.8,37.9,57.3,8.1,,4.7,3.4,,vegetarian,false,true,,,On: all day menu
+the-legendary-beef-rendang-beef,The Legendary Beef Rendang - Beef,Regional curries,,681,47.9,35.0,38.4,23.1,,2.7,13.6,,contains_beef,false,true,,,On: all day menu
+the-legendary-beef-rendang-beef-gluten-free,The Legendary Beef Rendang - Beef (Gluten-Free),Regional curries,,595,45.9,19.1,37.1,22.9,,2.2,9.0,,contains_beef,false,true,,,On: all day menu
+thai-massaman-curry-chicken,Thai Massaman Curry - Chicken,Regional curries,,581,53.9,33.9,25.0,15.1,,4.2,15.8,,,false,true,,,"On: all day menu, bottomless bowls menu, bottomless brunch menu"
+thai-massaman-curry-chicken-gluten-free,Thai Massaman Curry - Chicken (Gluten-Free),Regional curries,,629,51.8,19.8,37.6,15.9,,3.9,12.1,,,false,true,,,"On: all day menu, bottomless bowls menu, bottomless brunch menu"
+thai-massaman-curry-beef,Thai Massaman Curry - Beef,Regional curries,,833,49.6,34.7,54.9,22.2,,4.1,16.4,,contains_beef,false,true,,,On: all day menu
+thai-massaman-curry-beef-gluten-free,Thai Massaman Curry - Beef (Gluten-free),Regional curries,,746,47.5,20.6,52.5,21.9,,3.7,12.8,,contains_beef,false,true,,,"On: all day menu, bottomless bowls menu"
+thai-green-curry-chicken,Thai Green Curry - Chicken,Regional curries,,633,44.9,33.2,34.7,21.0,,5.9,11.1,,,false,true,,,"On: all day menu, bottomless brunch menu"
+thai-green-curry-chicken-gluten-free,Thai Green Curry - Chicken (Gluten-free),Regional curries,,681,42.8,19.1,47.3,21.9,,5.5,7.5,,,false,true,,,"On: all day menu, bottomless brunch menu"
+thai-green-curry-prawn,Thai Green Curry - Prawn,Regional curries,,561,30.6,32.7,33.5,20.8,,6.6,10.3,,,false,true,,,On: all day menu
+thai-green-curry-prawn-gluten-free,Thai Green Curry - Prawn (Gluten-free),Regional curries,,609,28.5,18.6,46.1,21.7,,6.2,6.7,,,false,true,,,On: all day menu
+banana-tree-curry-chicken,Banana Tree Curry - Chicken,Regional curries,,654,41.6,26.5,41.8,14.7,,2.5,11.4,,,false,true,,,"On: all day menu, bottomless bowls menu, bottomless brunch menu"
+banana-tree-curry-chicken-gluten-free,Banana Tree Curry - Chicken (Gluten-free),Regional curries,,567,39.5,12.4,39.4,14.4,,2.1,7.8,,,false,true,,,"On: all day menu, bottomless bowls menu, bottomless brunch menu"
+banana-tree-curry-tofu,Banana Tree Curry - Tofu,Regional curries,,438,13.4,17.0,34.6,14.3,,1.6,9.3,,vegetarian,false,true,,,"On: all day menu, bottomless bowls menu, bottomless brunch menu"
+banana-tree-curry-tofu-gluten-free,Banana Tree Curry - Tofu (Gluten-free),Regional curries,,524,12.8,11.9,46.6,15.2,,1.6,6.6,,vegetarian,false,true,,,"On: all day menu, bottomless bowls menu, bottomless brunch menu"
+banana-tree-curry-prawn,Banana Tree Curry - Prawn,Regional curries,,582,27.3,26.0,40.6,14.5,,3.2,10.6,,,false,true,,,On: all day menu
+banana-tree-curry-prawn-gluten-free,Banana Tree Curry - Prawn (Gluten-free),Regional curries,,495,25.2,11.9,38.2,14.2,,2.9,7.0,,,false,true,,,On: all day menu
+rice-your-way-egg-fried-rice,Rice Your Way - Egg Fried Rice,Regional curries,,326,8.2,51.4,10.8,1.6,,1.1,0.0,,vegetarian,false,true,,,On: all day menu
+rice-your-way-coconut-rice,Rice Your Way - Coconut Rice,Regional curries,,328,5.5,65.3,6.1,5.2,,0.0,0.6,,vegetarian,false,true,,,"On: all day menu, bottomless bowls menu"
+katsu-burger-chicken,Katsu Burger - Chicken,More to explore,,1056,23.4,77.1,70.8,10.4,,4.8,14.0,,,false,true,,,"On: all day menu, express lunch deal"
+katsu-burger-veggie,Katsu Burger - Veggie,More to explore,,1081,18.1,77.2,75.9,10.5,,5.4,13.9,,vegetarian,false,true,,,"On: all day menu, express lunch deal"
+chicken-in-mango-and-sweet-lime,Chicken in Mango & Sweet Lime,More to explore,,889,32.7,76.0,48.9,4.7,,3.9,31.4,,,false,true,,,"On: all day menu, bottomless brunch menu"
+grilled-spiced-chicken,Grilled Spiced Chicken,More to explore,,611,56.4,40.6,24.7,3.0,,3.3,20.5,,,false,true,,,On: all day menu
+grilled-spiced-chicken-chicken-gluten-free,Grilled Spiced Chicken - Chicken (Gluten-free),More to explore,,659,54.3,26.5,37.3,3.8,,2.9,16.9,,,false,true,,,On: all day menu
+classic-sweet-and-sour-crispy-chicken,Classic Sweet & Sour - Crispy Chicken,More to explore,,921,25.6,100.9,45.1,7.3,,2.6,58.8,,,false,true,,,On: all day menu
+blistered-dragon-peppers,Blistered Dragon Peppers,Sides and extras,,173,1.2,3.7,16.7,1.3,,1.3,3.3,,vegetarian,false,true,,,On: all day menu
+blistered-dragon-peppers-gluten-free,Blistered Dragon Peppers (Gluten-free),Sides and extras,,148,0.6,1.1,15.4,1.2,,1.4,0.8,,vegetarian,false,true,,,On: all day menu
+salt-n-pepper-chilli-chips,Salt n' Pepper Chilli Chips,Sides and extras,,593,4.9,46.1,42.1,3.7,,3.2,3.0,,vegetarian,false,true,,,"On: all day menu, express lunch deal"
+katsu-fries,Katsu Fries,Sides and extras,,639,5.6,50.6,44.8,5.3,,4.3,3.7,,vegetarian,false,true,,,On: all day menu
+flatbread,Flatbread,Sides and extras,,254,15.1,41.8,3.1,1.2,,1.2,4.2,,vegetarian,false,true,,,On: all day menu
+steamed-jasmine-rice-sides-and-extras,Steamed Jasmine Rice (Sides and extras),Sides and extras,,300,5.5,71.2,0.4,0.1,,0.0,0.0,,vegetarian,false,true,,,On: all day menu
+egg-fried-rice,Egg Fried Rice,Sides and extras,,359,9.0,56.5,11.8,1.8,,1.2,0.0,,vegetarian,false,true,,,On: all day menu
+nasi-goreng-indonesian-fried-rice,Nasi Goreng Indonesian Fried Rice,Sides and extras,,689,16.3,82.2,34.5,5.0,,2.0,10.0,,,false,true,,,On: all day menu
+fries,Fries,Sides and extras,,543,4.4,43.7,37.9,3.1,,1.1,1.6,,vegetarian,false,true,,,On: all day menu
+sweet-and-sour-chicken,Sweet & Sour Chicken,Express lunch mains,,936,26.3,100.3,46.5,7.5,,3.8,58.7,,,false,true,,,"On: express lunch deal, bottomless bowls menu"
+coke,Coke,Drinks,,20,0.0,5.0,0.0,0.0,,0.0,5.0,,vegetarian,false,false,,,"On: express lunch deal, bottomless brunch menu"
+diet-coke,Diet Coke,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,"On: express lunch deal, bottomless brunch menu"
+coke-zero,Coke Zero,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,"On: express lunch deal, bottomless brunch menu, drinks menu"
+lemonade,Lemonade,Drinks,,3,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,"On: express lunch deal, bottomless brunch menu, drinks menu"
+lychee-and-lime-cooler,Lychee & Lime Cooler,Drinks,,35,0.3,7.6,0.3,0.0,,0.0,7.2,,vegetarian,false,false,,,"On: bottomless brunch menu, drinks menu"
+wild-strawberry-sparkler,Wild Strawberry Sparkler,Drinks,,37,0.2,8.6,0.0,0.0,,0.0,8.6,,vegetarian,false,false,,,"On: bottomless brunch menu, drinks menu"
+tokyo-iced-tea,Tokyo Iced Tea,Drinks,,4,0.1,0.4,0.0,0.0,,0.0,0.4,,vegetarian,false,false,,,"On: bottomless brunch menu, drinks menu"
+kids-coca-cola,Kids Coca Cola,Drinks,,20,0.0,5.0,0.0,0.0,,0.0,5.0,,vegetarian,false,false,,,On: kids menu
+kids-diet-coca-cola,Kids Diet Coca Cola,Drinks,,2,0.1,0.2,0.0,0.0,,0.0,0.2,,vegetarian,false,false,,,On: kids menu
+kids-coca-cola-zero,Kids Coca Cola Zero,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,On: kids menu
+kids-lemonade,Kids Lemonade,Drinks,,2,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,On: kids menu
+kids-7up,Kids 7Up,Drinks,,2,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,On: kids menu
+kids-milk,Kids Milk,Drinks,,120,8.5,12.5,4.0,2.5,,0.4,12.5,,vegetarian,false,false,,,On: kids menu
+apple-juice-carton,Apple Juice Carton,Drinks,,54,0.2,12.8,0.2,0.0,,0.0,12.8,,vegetarian,false,false,,,On: kids menu
+kids-fruit-mix,Kids Fruit Mix,Drinks,,160,1.5,34.6,0.6,0.1,,0.1,34.0,,vegetarian,false,false,,,On: kids menu
+kids-fruit-mix-twist,Kids Fruit Mix Twist,Drinks,,164,1.8,34.9,0.7,0.1,,0.1,34.2,,vegetarian,false,false,,,On: kids menu
+kids-fruit-raw-mix,Kids Fruit Raw Mix,Drinks,,180,2.0,38.1,0.8,0.2,,0.1,37.3,,vegetarian,false,false,,,On: kids menu
+kids-fruit-raw-mix-of-2,Kids Fruit Raw Mix of 2,Drinks,,63,1.0,12.8,0.3,0.1,,0.0,12.4,,vegetarian,false,false,,,On: kids menu
+coconut-colada,Coconut Colada,Drinks,,88,0.4,18.2,1.8,1.2,,0.0,17.9,,vegetarian,false,false,,,On: drinks menu
+siam-sundown,Siam Sundown,Drinks,,42,0.2,9.4,0.3,0.2,,0.0,9.0,,vegetarian,false,false,,,On: drinks menu
+heineken-0,Heineken 0%,Drinks,,69,1.3,15.8,0.3,0.0,,0.0,4.3,,vegetarian,false,false,,,On: drinks menu
+berries-and-cherries,Berries & Cherries,Drinks,,235,0.0,30.5,0.0,0.0,,0.1,30.0,,vegetarian,false,false,,,"In the Beer + Cider section; calories (235) are higher than its macros allow (122), which fits alcohol calories. Entered as printed.; On: drinks menu"
+fresh-fruit-mix,Fresh Fruit Mix,Drinks,,160,1.5,34.6,0.6,0.1,,0.1,34.0,,vegetarian,false,false,,,On: drinks menu
+fresh-fruit-mix-of-2,Fresh Fruit Mix Of 2,Drinks,,196,1.8,41.8,0.9,0.2,,0.1,40.7,,vegetarian,false,false,,,On: drinks menu
+elderflower-and-mint,Elderflower & Mint,Drinks,,20,0.0,4.8,0.0,0.0,,0.0,3.8,,vegetarian,false,false,,,On: drinks menu
+peach-and-ginger,Peach & Ginger,Drinks,,20,0.0,5.3,0.0,0.0,,0.0,4.5,,vegetarian,false,false,,,On: drinks menu
+ginger-and-sansho-soda,Ginger & Sansho Soda,Drinks,,35,0.2,7.7,0.0,0.0,,0.0,7.5,,vegetarian,false,false,,,On: drinks menu
+coconut-water,Coconut Water,Drinks,,63,0.0,15.6,0.0,0.0,,0.2,15.0,,vegetarian,false,false,,,On: drinks menu
+lychee-juice,Lychee Juice,Drinks,,50,1.3,11.3,1.3,0.0,,0.0,11.3,,vegetarian,false,false,,,"Calories (50) are lower than 4P+4C+9F (62), possibly fibre counted in carbohydrate. Entered as printed.; On: drinks menu"
+coca-cola,Coca-Cola,Drinks,,148,0.0,34.7,0.0,0.0,,0.0,33.2,,vegetarian,false,false,,,On: drinks menu
+diet-coke-drinks-menu,Diet Coke (drinks menu),Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,On: drinks menu
+spiced-crackers-bottomless-bowls,Spiced Crackers (bottomless bowls),Bottomless bowls: starters,,314,0.6,40.5,16.8,1.3,,0.5,16.8,,vegetarian,false,true,,,On: bottomless bowls menu
+beef-rendang,Beef Rendang,Bottomless bowls: mains,,696,48.6,34.3,39.9,23.2,,4.0,13.5,,contains_beef,false,true,,,On: bottomless bowls menu
+salt-n-pepper-chilli-chips-bottomless-bowls,Salt n' Pepper Chilli Chips (bottomless bowls),Bottomless bowls: mains,,594,5.0,46.2,42.1,3.7,,2.9,3.1,,vegetarian,false,true,,,On: bottomless bowls menu
+korean-drug-egg-bottomless-bowls,Korean Drug Egg (bottomless bowls),Bottomless bowls: extras,,189,9.1,12.8,11.4,2.3,,5.8,11.2,,vegetarian,false,false,,,On: bottomless bowls menu
+classic-sweet-and-sour-chicken,Classic Sweet & Sour - Chicken,Bottomless brunch mains,,953,25.6,99.0,49.5,7.6,,2.7,56.4,,,false,true,,,On: bottomless brunch menu
+mango-rice-pudding,Mango Rice Pudding,Desserts,,1274,14.1,288.1,12.9,7.6,,0.7,165.3,,vegetarian,false,false,,,"On: bottomless brunch menu, desserts menu"
+chocolate-miso-caramel-fondant,Chocolate Miso Caramel Fondant,Desserts,,652,11.2,74.4,34.2,21.8,,0.4,63.2,,vegetarian,false,false,,,"On: bottomless brunch menu, desserts menu"
+yuzu-citrus-tart,Yuzu Citrus Tart,Desserts,,676,12.9,85.7,32.9,18.9,,0.6,70.1,,vegetarian,false,false,,,"On: bottomless brunch menu, desserts menu"
+banana-fudge-cake,Banana Fudge Cake,Desserts,,768,8.5,93.3,39.4,13.2,,0.9,75.5,,vegetarian,false,false,,,On: desserts menu
+kids-nuggets-chicken,Kids' Nuggets - Chicken,Kids mains,,529,19.7,19.4,40.9,6.8,,1.2,1.3,,,false,true,,,On: kids menu
+kids-nuggets-vegan,Kids' Nuggets - Vegan,Kids mains,,483,8.2,14.6,42.8,3.3,,1.3,0.8,,vegetarian,false,true,,,On: kids menu
+crispy-chicken,Crispy Chicken,Kids mains,,472,14.6,15.5,38.2,3.3,,0.7,1.1,,,false,true,,,On: kids menu
+crunchy-sweetcorn-fritters,Crunchy Sweetcorn Fritters,Kids mains,,379,2.3,15.5,34.1,2.6,,0.1,2.9,,vegetarian,false,true,,,On: kids menu
+kids-katsu-chicken,Kids' Katsu - Chicken,Kids mains,,456,13.4,14.3,37.5,3.2,,0.6,1.0,,,false,true,,,On: kids menu
+ice-cream-vanilla,Ice Cream - Vanilla,Kids desserts,,245,4.0,32.0,11.2,7.4,,0.3,30.4,,vegetarian,false,false,,,On: kids menu
+ice-cream-chocolate,Ice Cream - Chocolate,Kids desserts,,261,4.7,34.4,11.2,7.4,,0.3,32.2,,vegetarian,false,false,,,On: kids menu
+ice-cream-coconut,Ice Cream - Coconut,Kids desserts,,256,3.9,34.0,11.2,7.6,,0.3,32.3,,vegetarian,false,false,,,On: kids menu
+sorbet-mango,Sorbet - Mango,Kids desserts,,101,0.2,24.4,0.1,0.1,,0.0,21.8,,vegetarian,false,false,,,On: kids menu
+sorbet-raspberry,Sorbet - Raspberry,Kids desserts,,112,0.3,27.2,0.3,0.2,,0.0,24.1,,vegetarian,false,false,,,On: kids menu

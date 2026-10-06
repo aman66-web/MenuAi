@@ -1,0 +1,1 @@
+Only items with calories, protein, carbs and fat all printed are included: the bar snacks and the non-alcoholic drinks. Be At One prints no macros for its alcoholic cocktails, wine or beer, nor a total for items with a choice (dips, fruit).

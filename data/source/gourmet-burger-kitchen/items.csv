@@ -1,0 +1,194 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+smashed-classic-2-patty,Smashed Classic - 2 Patty,Smashed burgers,,756,34.2,34.6,53.2,20.1,,3.2,5.8,2.4,,false,true,,,On: main menu
+smashed-classic-3-patty,Smashed Classic - 3 Patty,Smashed burgers,,996,47.9,35.8,73.2,29.1,,3.8,6.1,2.7,,false,true,,,On: main menu
+smashed-classic-4-patty,Smashed Classic - 4 Patty,Smashed burgers,,1237,61.7,37.1,93.2,38.1,,4.6,6.4,3.0,,false,true,,,On: main menu
+smashed-blue-2-patty,Smashed Blue - 2 Patty,Smashed burgers,,822,32.9,32.5,61.8,20.1,,3.0,5.8,2.4,,false,true,,,On: main menu
+smashed-blue-3-patty,Smashed Blue - 3 Patty,Smashed burgers,,1050,46.6,32.5,81.1,29.2,,3.4,5.9,2.7,,false,true,,,On: main menu
+smashed-blue-4-patty,Smashed Blue - 4 Patty,Smashed burgers,,1279,60.4,32.6,100.4,38.4,,4.1,5.9,3.0,,false,true,,,On: main menu
+smashed-classic-2-patty-gluten-free,Smashed Classic - 2 Patty (gluten free),Smashed burgers,,788,29.4,41.4,55.4,19.3,,2.7,7.4,5.0,,false,true,,,On: no gluten menu
+smashed-classic-3-patty-gluten-free,Smashed Classic - 3 Patty (gluten free),Smashed burgers,,1028,43.1,42.7,75.5,28.3,,3.5,7.7,5.4,,false,true,,,On: no gluten menu
+smashed-classic-4-patty-gluten-free,Smashed Classic - 4 Patty (gluten free),Smashed burgers,,1269,56.9,44.0,95.5,37.3,,4.4,8.0,5.7,,false,true,,,On: no gluten menu
+smashed-blue-2-patty-gluten-free,Smashed Blue - 2 Patty (gluten free),Smashed burgers,,853,28.1,39.3,64.1,19.3,,2.4,7.3,5.1,,false,true,,,On: no gluten menu
+smashed-blue-3-patty-gluten-free,Smashed Blue - 3 Patty (gluten free),Smashed burgers,,1082,41.8,39.4,83.4,28.4,,3.1,7.4,5.4,,false,true,,,On: no gluten menu
+smashed-blue-4-patty-gluten-free,Smashed Blue - 4 Patty (gluten free),Smashed burgers,,1311,55.6,39.5,102.7,37.6,,3.8,7.5,5.7,,false,true,,,On: no gluten menu
+the-classic-single,The Classic - Single,Gourmet burgers,,703,40.6,39.4,42.5,15.1,,2.8,11.8,3.0,,false,true,,,On: main menu
+the-classic-double,The Classic - Double,Gourmet burgers,,1100,73.9,40.2,71.8,28.2,,4.4,12.5,3.8,,false,true,,,On: main menu
+classic-cheese-single-american-cheese,Classic Cheese - Single - American Cheese,Gourmet burgers,,788,44.8,41.9,49.0,18.6,,3.5,12.3,3.0,contains_pork,false,true,,,On: main menu
+classic-cheese-double-american-cheese,Classic Cheese - Double - American Cheese,Gourmet burgers,,1270,82.4,45.2,84.8,35.2,,5.8,13.4,3.8,contains_pork,false,true,,,On: main menu
+classic-cheese-single-cheddar-cheese,Classic Cheese - Single - Cheddar Cheese,Gourmet burgers,,786,45.7,39.5,49.5,19.5,,3.1,11.8,3.0,contains_pork,false,true,,,On: main menu
+classic-cheese-double-cheddar-cheese,Classic Cheese - Double - Cheddar Cheese,Gourmet burgers,,1266,84.1,40.3,85.7,36.9,,5.1,12.5,3.8,contains_pork,false,true,,,On: main menu
+the-taxidriver-single,The Taxidriver - Single,Gourmet burgers,,857,46.4,51.5,51.5,19.2,,4.1,13.8,4.1,,false,true,,,On: main menu
+the-taxidriver-double,The Taxidriver - Double,Gourmet burgers,,1338,84.0,54.8,87.2,35.8,,6.4,14.9,4.9,,false,true,,,On: main menu
+the-gravy-train-single,The Gravy Train - Single,Gourmet burgers,,892,53.4,46.9,54.6,20.9,,5.0,14.4,2.8,contains_beef,false,true,,,On: main menu
+the-gravy-train-double,The Gravy Train - Double,Gourmet burgers,,1375,91.0,50.3,90.4,37.5,,7.4,15.6,3.5,contains_beef,false,true,,,On: main menu
+texan-single,Texan - Single,Gourmet burgers,,954,52.8,53.9,58.2,23.3,,4.9,28.5,3.9,contains_pork,false,true,,,On: main menu
+texan-double,Texan - Double,Gourmet burgers,,1435,90.3,57.1,93.9,39.9,,6.9,29.7,4.6,contains_pork,false,true,,,On: main menu
+rocketman-single,Rocketman - Single,Gourmet burgers,,855,47.1,45.1,53.7,21.7,,3.8,23.3,3.7,,false,true,,,On: main menu
+rocketman-double,Rocketman - Double,Gourmet burgers,,1335,85.6,45.9,90.0,39.2,,5.7,24.0,4.4,,false,true,,,On: main menu
+blue-cheese-single,Blue Cheese - Single,Gourmet burgers,,874,51.8,41.7,55.6,24.9,,4.0,13.6,3.3,,false,true,,,On: main menu
+blue-cheese-double,Blue Cheese - Double,Gourmet burgers,,1431,96.1,42.5,97.9,47.7,,6.7,14.3,4.0,,false,true,,,On: main menu
+the-roadhouse,The Roadhouse,Gourmet burgers,,834,48.2,39.0,53.9,22.5,,4.1,8.8,3.5,contains_beef,false,true,,,On: main menu
+the-roadhouse-skinny-fries,The Roadhouse - Skinny Fries,Gourmet burgers,,1159,56.5,74.5,69.7,27.8,,6.3,9.5,6.7,contains_beef,false,true,,,On: main menu
+the-roadhouse-chunky,The Roadhouse - Chunky,Gourmet burgers,,1262,58.8,96.9,70.0,27.8,,6.7,9.3,9.1,contains_beef,false,true,,,On: main menu
+the-classic-single-gluten-free,The Classic - Single (gluten free),Gourmet burgers,,735,35.8,46.3,44.8,14.3,,2.5,13.4,5.8,,false,true,,,On: no gluten menu
+the-classic-double-gluten-free,The Classic - Double (gluten free),Gourmet burgers,,1132,69.1,47.1,74.0,27.4,,4.1,14.0,6.5,,false,true,,,On: no gluten menu
+classic-cheese-single-american-cheese-gluten-free,Classic Cheese - Single - American Cheese (gluten free),Gourmet burgers,,820,40.0,48.8,51.3,17.8,,3.3,13.8,5.8,,false,true,,,On: no gluten menu
+classic-cheese-double-american-cheese-gluten-free,Classic Cheese - Double - American Cheese (gluten free),Gourmet burgers,,1302,77.6,52.1,87.0,34.4,,5.6,14.9,6.5,,false,true,,,On: no gluten menu
+classic-cheese-single-cheddar-cheese-gluten-free,Classic Cheese - Single - Cheddar Cheese (gluten free),Gourmet burgers,,818,40.9,46.3,51.8,18.7,,2.9,13.4,5.8,,false,true,,,On: no gluten menu
+classic-cheese-double-cheddar-cheese-gluten-free,Classic Cheese - Double - Cheddar Cheese (gluten free),Gourmet burgers,,1298,79.3,47.1,88.0,36.1,,4.8,14.1,6.5,,false,true,,,On: no gluten menu
+classic-chicken-grilled-chicken,Classic Chicken - Grilled Chicken,Chicken burgers,,607,38.0,42.6,31.3,3.6,,2.3,11.4,2.7,,false,true,,,On: main menu
+classic-chicken-panko-chicken,Classic Chicken - Panko Chicken,Chicken burgers,,721,42.8,55.3,36.0,4.1,,2.5,12.7,2.5,,false,true,,,On: main menu
+satay-bomb-grilled-chicken,Satay Bomb - Grilled Chicken,Chicken burgers,,754,43.7,48.1,42.1,6.8,,4.2,15.5,4.3,,false,true,,,On: main menu
+satay-bomb-panko-chicken,Satay Bomb - Panko Chicken,Chicken burgers,,869,48.5,60.8,46.9,7.3,,4.3,16.8,4.1,,false,true,,,On: main menu
+k-town-panko-chicken,K-Town - Panko Chicken,Chicken burgers,,743,43.9,66.2,32.6,4.0,,3.4,21.3,3.7,,false,true,,,On: main menu
+k-town-grilled-chicken,K-Town - Grilled Chicken,Chicken burgers,,629,39.2,53.5,27.9,3.5,,3.3,20.0,3.9,,false,true,,,On: main menu
+the-smokey-clucker-grilled-chicken,The Smokey Clucker - Grilled Chicken,Chicken burgers,,975,49.7,62.0,58.1,12.8,,4.4,22.4,6.4,,false,true,,,On: main menu
+the-smokey-clucker-panko-chicken,The Smokey Clucker - Panko Chicken,Chicken burgers,,861,44.9,49.3,53.3,12.3,,4.3,21.1,6.6,,false,true,,,On: main menu
+chicken-tender-burger,Chicken Tender Burger,Chicken burgers,,483,19.1,49.8,22.6,6.1,,1.9,11.3,2.7,,false,true,,,On: main menu
+gf-classic-chicken,GF Classic Chicken,Chicken burgers,,639,33.2,49.5,33.6,2.8,,2.1,12.9,5.4,,false,true,,,On: no gluten menu
+the-classic-veggie-bean-patty,The Classic Veggie - Bean Patty,Bean or Beyond burgers,,427,14.6,56.7,13.8,2.0,,1.8,11.7,10.0,vegetarian,false,true,,,On: main menu
+the-classic-veggie-beyond-meat-patty,The Classic Veggie - BEYOND MEAT® patty,Bean or Beyond burgers,,524,25.2,45.1,26.5,5.2,,1.9,11.8,3.7,vegetarian,false,true,,,On: main menu
+californian-bean-patty,Californian - Bean Patty,Bean or Beyond burgers,,645,16.1,67.4,32.5,12.7,,2.9,19.6,13.1,vegetarian,false,true,,,On: main menu
+californian-beyond-meat-patty,Californian - BEYOND MEAT® patty,Bean or Beyond burgers,,742,26.7,55.7,45.2,15.9,,3.1,19.7,6.8,vegetarian,false,true,,,On: main menu
+gf-classic-veggie-beyond-meat-patty,GF Classic Veggie - BEYOND MEAT® patty,Bean or Beyond burgers,,556,20.4,51.9,28.8,4.4,,1.7,13.3,6.4,vegetarian,false,true,,,On: no gluten menu
+the-classic-single-go-naked,The Classic - Single (Go Naked),Go naked (no bun),,773,37.5,22.4,59.7,15.8,,3.2,16.3,4.9,,false,true,,,On: main menu
+the-classic-double-go-naked,The Classic - Double (Go Naked),Go naked (no bun),,1170,70.8,23.2,88.9,28.9,,4.8,17.0,5.6,,false,true,,,On: main menu
+classic-cheese-single,Classic Cheese - Single,Go naked (no bun),,858,41.7,24.9,66.2,19.3,,4.0,16.8,4.9,contains_pork,false,true,,,On: main menu
+classic-cheese-double,Classic Cheese - Double,Go naked (no bun),,1339,79.3,28.1,101.9,35.9,,5.9,17.9,5.6,contains_pork,false,true,,,On: main menu
+the-taxi-driver-single,The Taxi Driver - Single,Go naked (no bun),,927,43.3,34.5,68.6,19.9,,4.5,18.3,6.0,,false,true,,,On: main menu
+the-taxi-driver-double,The Taxi Driver - Double,Go naked (no bun),,1408,80.9,37.8,104.4,36.5,,6.8,19.4,6.7,,false,true,,,On: main menu
+the-gravy-train-single-go-naked,The Gravy Train - Single (Go Naked),Go naked (no bun),,973,50.7,31.8,71.9,21.7,,5.5,20.4,5.1,contains_beef,false,true,,,On: main menu
+the-gravy-train-double-go-naked,The Gravy Train - Double (Go Naked),Go naked (no bun),,1455,88.3,35.2,107.7,38.2,,7.9,21.6,5.9,contains_beef,false,true,,,On: main menu
+texan-single-go-naked,Texan - Single (Go Naked),Go naked (no bun),,983,48.5,34.0,72.7,23.7,,5.3,31.4,4.9,contains_pork,false,true,,,On: main menu
+texan-double-go-naked,Texan - Double (Go Naked),Go naked (no bun),,1464,86.1,37.2,108.4,40.3,,7.3,32.5,5.5,contains_pork,false,true,,,On: main menu
+rocket-man-single,Rocket Man - Single,Go naked (no bun),,935,44.5,30.0,71.0,22.5,,4.3,29.4,6.1,,false,true,,,On: main menu
+rocket-man-burger-double,Rocket Man Burger - Double,Go naked (no bun),,1415,82.9,30.8,107.3,39.9,,6.2,30.1,6.8,,false,true,,,On: main menu
+blue-cheese-single-go-naked,Blue Cheese - Single (Go Naked),Go naked (no bun),,944,48.7,24.6,72.8,25.6,,4.5,18.1,5.1,,false,true,,,On: main menu
+blue-cheese-double-go-naked,Blue Cheese - Double (Go Naked),Go naked (no bun),,1501,93.0,25.5,115.1,48.4,,7.2,18.8,5.8,,false,true,,,On: main menu
+classic-chicken-grilled-chicken-go-naked,Classic Chicken - Grilled Chicken (Go Naked),Go naked (no bun),,677,34.9,25.6,48.5,4.3,,2.8,15.9,4.6,,false,true,,,On: main menu
+classic-chicken-panko-chicken-go-naked,Classic Chicken - Panko Chicken (Go Naked),Go naked (no bun),,791,39.7,38.3,53.2,4.8,,2.9,17.2,4.3,,false,true,,,On: main menu
+satay-bomb-grilled-chicken-go-naked,Satay Bomb - Grilled Chicken (Go Naked),Go naked (no bun),,833,41.0,32.8,59.4,7.5,,4.6,21.4,6.6,,false,true,,,On: main menu
+satay-bomb-panko-chicken-go-naked,Satay Bomb - Panko Chicken (Go Naked),Go naked (no bun),,948,45.8,45.6,64.1,8.0,,4.8,22.7,6.4,,false,true,,,On: main menu
+k-town-grilled-chicken-go-naked,K-Town - Grilled Chicken (Go Naked),Go naked (no bun),,824,41.4,51.2,50.0,4.8,,3.9,27.4,6.1,,false,true,,,On: main menu
+k-town-panko,K Town Panko,Go naked (no bun),,824,41.4,51.2,50.0,4.8,,3.9,27.4,6.1,,false,true,,,Printed with exactly the same numbers as K-Town - Grilled Chicken in the same section (the Panko versions elsewhere are higher). Entered as printed.; On: main menu
+the-smokey-clucker-grilled-chicken-go-naked,The Smokey Clucker - Grilled Chicken (Go Naked),Go naked (no bun),,941,42.3,34.1,70.6,13.0,,4.8,27.1,9.0,,false,true,,,On: main menu
+the-smokey-clucker-panko-chicken-go-naked,The Smokey Clucker - Panko Chicken (Go Naked),Go naked (no bun),,1055,47.0,46.9,75.4,13.5,,4.9,28.5,8.8,,false,true,,,On: main menu
+the-classic-veggie-beyond-meat-patty-go-naked,The Classic Veggie - BEYOND MEAT® patty (Go Naked),Go naked (no bun),,594,22.1,28.0,43.7,5.9,,2.4,16.3,5.5,vegetarian,false,true,,,On: main menu
+the-classic-veggie-bean-patty-go-naked,The Classic Veggie - Bean Patty (Go Naked),Go naked (no bun),,497,11.4,39.6,31.0,2.7,,2.3,16.2,11.8,vegetarian,false,true,,,On: main menu
+californian-beyond-meat-patty-go-naked,Californian - BEYOND MEAT® patty (Go Naked),Go naked (no bun),,812,23.6,38.7,62.4,16.6,,3.5,24.2,8.6,vegetarian,false,true,,,On: main menu
+californian-bean-patty-go-naked,Californian - Bean Patty (Go Naked),Go naked (no bun),,715,13.0,50.3,49.7,13.4,,3.4,24.1,14.9,vegetarian,false,true,,,On: main menu
+smashed-classic-skinny-fries,Smashed Classic - Skinny Fries,"Smashed, fries & drink",,997,37.5,69.9,62.0,21.0,,4.3,6.5,5.5,,false,true,,,On: main menu
+smashed-classic-chunky-fries,Smashed Classic - Chunky Fries,"Smashed, fries & drink",,1101,39.7,92.3,62.3,21.0,,4.8,6.3,7.9,,false,true,,,On: main menu
+the-classic-bean-skinny-fries,The Classic Bean - Skinny Fries,"Smashed, fries & drink",,672,18.0,92.0,23.0,3.1,,3.3,12.4,13.1,vegetarian,false,true,,,On: main menu
+the-classic-bean-chunky-fries,The Classic Bean - Chunky Fries,"Smashed, fries & drink",,776,20.3,114.4,23.3,3.1,,3.8,12.2,15.5,vegetarian,false,true,,,On: main menu
+beef-patty,Beef Patty,GBK your way: extras,,396,33.3,0.8,29.2,13.1,,1.6,0.7,0.7,contains_beef,false,false,,,"On: main menu, no gluten menu"
+extra-smash-patty,Extra Smash Patty,GBK your way: extras,,198,11.6,0.1,16.8,7.3,,0.5,0.1,0.3,,false,false,,,On: main menu
+grilled-chicken-patty,Grilled Chicken Patty,GBK your way: extras,,301,30.9,4.0,18.1,1.6,,1.1,0.2,0.4,,false,false,,,On: main menu
+panko-chicken-patty,Panko Chicken Patty,GBK your way: extras,,415,35.5,16.7,22.8,2.0,,1.3,1.5,0.2,,false,false,,,On: main menu
+classic-bean-patty,Classic Bean Patty,GBK your way: extras,,176,10.6,25.4,1.3,0.1,,1.0,0.8,10.8,vegetarian,false,false,,,On: main menu
+beyond-patty,Beyond® Patty,GBK your way: extras,,221,18.1,6.3,13.6,3.3,,0.8,0.7,1.4,vegetarian,false,false,,,On: main menu
+jalapenos,Jalapenos,GBK your way: extras,,3,0.3,0.3,0.0,0.0,,0.4,0.0,0.2,vegetarian,false,false,,,"On: main menu, no gluten menu"
+gherkin,Gherkin,GBK your way: extras,,8,0.3,1.6,0.1,0.0,,0.8,0.7,0.2,vegetarian,false,false,,,"On: main menu, no gluten menu"
+paprika-onions,Paprika Onions,GBK your way: extras,,170,2.0,11.7,12.5,5.9,,0.5,27.9,2.0,vegetarian,false,false,,,On: main menu
+onion-ring,Onion Ring,GBK your way: extras,,83,1.5,8.0,4.9,0.7,,0.4,0.3,0.9,vegetarian,false,false,,,On: main menu
+crispy-bacon,Crispy Bacon,GBK your way: extras,,91,7.0,0.1,7.0,2.8,,0.7,0.1,0.0,contains_pork,false,false,,,"On: main menu, no gluten menu"
+fried-egg,Fried Egg,GBK your way: extras,,127,7.1,0.4,10.6,2.0,,0.2,0.3,0.0,vegetarian,false,false,,,"On: main menu, no gluten menu"
+smashed-avocado,Smashed Avocado,GBK your way: extras,,80,0.7,1.7,7.9,1.9,,0.4,0.5,2.3,vegetarian,false,false,,,"On: main menu, no gluten menu"
+extra-blue-cheese,Extra Blue Cheese,GBK your way: extras,,80,5.5,0.0,6.5,4.9,,0.6,0.0,0.0,,false,false,,,"On: main menu, no gluten menu"
+american-cheese,American Cheese,GBK your way: extras,,85,4.3,2.5,6.5,3.5,,0.7,0.5,0.0,vegetarian,false,false,,,"On: main menu, no gluten menu"
+cheddar-cheese,Cheddar Cheese,GBK your way: extras,,83,5.1,0.0,7.0,4.3,,0.4,0.0,0.0,vegetarian,false,false,,,"On: main menu, no gluten menu"
+vegan-cheese,Vegan Cheese,GBK your way: extras,,90,0.2,7.4,6.8,5.9,,0.6,0.0,0.2,vegetarian,false,false,,,"On: main menu, no gluten menu"
+gbk-relish,GBK Relish,Sauces,,55,0.5,12.6,0.2,0.0,,0.3,10.8,0.5,vegetarian,false,false,,,"On: main menu, no gluten menu"
+habanero-jam,Habanero Jam,Sauces,,42,0.5,9.0,0.3,0.0,,0.3,8.4,0.6,,false,false,,,"On: main menu, no gluten menu"
+truffle-mayo,Truffle Mayo,Sauces,,292,0.4,1.7,31.5,3.9,,0.5,1.1,0.0,vegetarian,false,false,,,"On: main menu, no gluten menu"
+peanut-satay-sauce,Peanut satay sauce,Sauces,,158,6.5,9.2,10.3,2.3,,2.1,6.8,2.0,vegetarian,false,false,,,On: main menu
+hot-honey-butter,Hot Honey Butter,Sauces,,128,0.5,6.8,10.6,6.7,,2.6,6.3,0.9,vegetarian,false,false,,,On: main menu
+baconnaise,Baconnaise,Sauces,,267,2.5,1.2,27.9,3.1,,0.7,1.0,0.1,,false,false,,,"On: main menu, no gluten menu"
+garlic-mayo,Garlic Mayo,Sauces,,258,0.6,1.8,27.5,2.4,,0.5,1.1,0.1,vegetarian,false,false,,,"On: main menu, no gluten menu"
+chipotle-mayo,Chipotle Mayo,Sauces,,205,0.5,4.0,20.7,1.8,,0.4,3.4,0.3,vegetarian,false,false,,,"On: main menu, no gluten menu"
+blue-cheese-mayo,Blue Cheese Mayo,Sauces,,269,1.9,1.0,28.4,3.7,,0.6,0.9,0.0,,false,false,,,"On: main menu, no gluten menu"
+bbq-sauce,BBQ Sauce,Sauces,,101,0.7,18.5,1.8,0.3,,1.7,16.2,0.2,vegetarian,false,false,,,On: main menu
+firey-red-root-relish,Firey Red Root Relish,Sauces,,33,0.6,7.4,0.1,2.1,,0.2,6.6,0.5,vegetarian,false,false,,,"On: main menu, no gluten menu"
+house-mayo,House Mayo,Sauces,,259,0.5,1.3,28.0,2.2,,0.8,0.9,0.0,vegetarian,false,false,,,On: main menu
+4-crispy-wings,4 Crispy Wings,Sharers & sides,,526,41.2,39.1,22.9,9.4,,2.7,1.3,1.3,,false,true,,,On: main menu
+truffle-mac,Truffle Mac,Sharers & sides,,783,23.6,55.3,51.9,14.8,,3.5,3.8,1.0,contains_pork,false,true,,,On: main menu
+loaded-fries-chunky,Loaded Fries - Chunky,Sharers & sides,,552,15.8,71.6,21.0,6.2,,4.4,12.0,5.8,contains_pork,false,true,,,On: main menu
+loaded-fries-skinny,Loaded Fries - Skinny,Sharers & sides,,449,13.5,49.2,20.7,6.2,,3.9,12.2,3.4,contains_pork,false,true,,,On: main menu
+chunky-fries,Chunky Fries,Sharers & sides,,345,5.5,57.8,9.2,1.0,,1.9,0.5,5.5,vegetarian,false,true,,,On: main menu
+skinny-fries,Skinny Fries,Sharers & sides,,241,3.3,35.4,8.9,1.0,,1.4,0.7,3.1,vegetarian,false,true,,,On: main menu
+onion-rings,Onion Rings,Sharers & sides,,583,10.5,56.0,34.1,4.7,,2.5,2.3,6.3,vegetarian,false,true,,,On: main menu
+mixed-salad,Mixed Salad,Sharers & sides,,80,2.2,5.6,5.4,0.6,,0.2,3.3,1.8,vegetarian,false,true,,,"On: main menu, no gluten menu"
+gbk-homeslaw,GBK Homeslaw,Sharers & sides,,185,1.5,10.0,15.6,1.4,,1.1,7.3,2.2,vegetarian,false,true,,,"On: main menu, no gluten menu"
+blue-cheese-slaw,Blue Cheese Slaw,Sharers & sides,,257,2.7,6.5,24.5,3.2,,1.0,4.1,1.9,,false,true,,,"On: main menu, no gluten menu"
+warm-cheese-sauce,Warm Cheese Sauce,Sharers & sides,,208,11.7,5.4,15.7,9.5,,1.7,2.7,0.3,vegetarian,false,true,,,On: main menu
+beef-jus,Beef Jus,Sharers & sides,,87,4.4,15.3,0.9,0.2,,2.9,7.4,0.8,contains_beef,false,true,,,On: main menu
+8-crispy-wings,8 Crispy Wings,Sharers & sides,,1051,82.4,78.1,45.8,18.8,,5.4,2.6,2.6,,false,true,,,On: main menu
+satay-chicken-salad,Satay Chicken Salad,Sharers & sides,,522,39.3,26.4,28.7,3.9,,4.6,14.8,6.2,,false,true,,,On: main menu
+3-chicken-tenders,3 Chicken Tenders,Sharers & sides,,264,17.8,16.7,14.0,6.1,,1.1,0.2,0.6,,false,true,,,On: main menu
+6-chicken-tenders,6 Chicken Tenders,Sharers & sides,,528,35.5,33.4,28.1,12.2,,2.2,0.5,1.2,,false,true,,,On: main menu
+hot-rub-onion-rings,Hot Rub Onion Rings,Sharers & sides,,339,6.2,33.0,19.6,2.7,,1.7,1.6,3.6,vegetarian,false,true,,,On: main menu
+chipotle-slaw,Chipotle Slaw,Sharers & sides,,203,1.6,9.1,17.9,1.6,,0.8,6.3,2.2,vegetarian,false,true,,,On: main menu
+fiery-mac-and-cheese,Fiery Mac & Cheese,Sharers & sides,,424,16.3,54.5,15.6,8.4,,2.1,3.0,1.0,vegetarian,false,true,,,On: main menu
+2-hot-honey-tenders,2 Hot Honey Tenders,Sharers & sides,,270,12.6,14.8,17.8,4.8,,1.0,3.2,0.8,,false,true,,,On: main menu
+2-bbq-wings-and-garlic-mayo,2 BBQ Wings and Garlic Mayo,Sharers & sides,,565,21.5,32.0,39.0,7.1,,2.5,10.9,0.9,,false,true,,,On: main menu
+2-buffalo-wings-and-blue-cheese,2 Buffalo Wings and Blue cheese,Sharers & sides,,540,22.8,20.8,40.0,8.4,,4.9,1.7,1.4,,false,true,,,On: main menu
+vanilla-ice-cream,Vanilla ice cream,Desserts,,206,3.0,22.2,11.6,5.3,,0.3,22.1,0.2,vegetarian,false,false,,,"On: main menu, kids menu, no gluten menu"
+add-oreo,Add OREO®,Desserts,,238,2.6,34.0,10.0,2.7,,0.4,18.5,1.5,vegetarian,false,false,,,"On: main menu, kids menu, drinks menu"
+add-oreo-dessert,Add OREO® (Dessert),Desserts,,57,0.6,8.2,2.4,0.6,,0.1,4.4,0.4,vegetarian,false,false,,,On: kids menu
+heinz-ketchup-dip-pot,Heinz Ketchup Dip Pot,Condiments,,10,0.1,2.3,0.0,0.0,,0.2,2.3,0.0,vegetarian,false,false,,,On: main menu
+heinz-mayo-dip-pot,Heinz Mayo Dip Pot,Condiments,,66,0.1,0.3,7.2,0.6,,0.1,0.3,0.0,vegetarian,false,false,,,On: main menu
+cheeseburger,Cheeseburger,Kids mains,,436,20.3,34.4,23.8,10.3,,1.6,7.1,2.8,contains_beef,false,true,,,On: kids menu
+kids-hamburger,Kids Hamburger,Kids mains,,405,18.8,34.4,21.0,8.6,,1.3,7.4,3.1,contains_beef,false,true,,,On: kids menu
+chicken-burger,Chicken Burger,Kids mains,,434,25.2,36.0,20.8,2.7,,1.6,7.2,2.9,,false,true,,,On: kids menu
+vegan-burger,Vegan Burger,Kids mains,,388,13.2,49.4,13.6,2.0,,1.6,7.5,9.3,vegetarian,false,true,,,On: kids menu
+chicken-tenders,Chicken Tenders,Kids mains,,274,17.9,19.0,14.1,6.1,,1.1,2.5,1.6,,false,true,,,On: kids menu
+chicken-burger-gluten-free,Chicken Burger (gluten free),Kids mains,,487,18.3,42.4,26.3,2.3,,1.3,8.8,5.4,,false,true,,,On: no gluten menu
+cheeseburger-gluten-free,Cheeseburger (gluten free),Kids mains,,468,15.5,41.3,26.1,9.5,,1.4,8.6,5.5,contains_beef,false,true,,,On: no gluten menu
+vegan-burger-gluten-free,Vegan Burger (gluten free),Kids mains,,420,8.4,56.3,15.9,1.2,,1.4,9.0,12.0,vegetarian,false,true,,,On: no gluten menu
+skinny-fries-kids-menu,Skinny Fries (kids menu),Kids sides,,173,2.3,25.4,6.4,0.7,,0.5,0.5,2.3,vegetarian,false,true,,,On: kids menu
+chunky-fries-kids-menu,Chunky Fries (kids menu),Kids sides,,200,3.2,33.5,5.3,0.6,,0.6,0.3,3.2,vegetarian,false,true,,,On: kids menu
+simple-salad,Simple Salad,Kids sides,,14,0.5,2.8,0.2,0.0,,0.0,2.3,1.1,vegetarian,false,true,,,"On: kids menu, no gluten menu"
+apple-and-blackcurrant-fruit-shoot,Apple & Blackcurrant Fruit Shoot,Drinks,,8,0.0,1.6,0.0,0.0,,0.0,1.4,0.0,vegetarian,false,false,,,"On: kids menu, no gluten menu"
+orange-fruit-shoot,Orange Fruit Shoot,Drinks,,12,0.0,2.4,0.0,0.0,,0.0,2.4,0.0,vegetarian,false,false,,,"On: kids menu, no gluten menu"
+spring-water-330ml,Spring Water 330ml,Drinks,,2,0.1,0.2,0.0,0.0,,0.0,0.2,0.0,vegetarian,false,false,,,"On: kids menu, no gluten menu"
+cruzcampo-sevilla-330ml,Cruzcampo Sevilla 330ml,Drinks,,129,0.0,11.2,0.0,0.0,,0.1,0.0,0.0,vegetarian,false,false,,,"Draught lager (4.4%): calories (129) are higher than its macros allow (45), which fits alcohol calories. Entered as printed.; On: drinks menu"
+britvic-regular-tonic,Britvic Regular Tonic,Drinks,,42,0.1,9.6,0.0,0.0,,0.0,9.6,0.0,vegetarian,false,false,,,On: drinks menu
+britvic-slimline-tonic,Britvic Slimline Tonic,Drinks,,4,0.1,0.2,0.0,0.0,,0.0,0.2,0.0,vegetarian,false,false,,,On: drinks menu
+coca-cola,Coca-Cola,Drinks,,140,0.1,35.2,0.0,0.0,,0.0,35.2,0.0,vegetarian,false,false,,,On: drinks menu
+coke-zero,Coke Zero,Drinks,,3,0.1,0.2,0.0,0.0,,0.1,0.2,0.0,vegetarian,false,false,,,On: drinks menu
+sprite-zero,Sprite Zero,Drinks,,5,0.1,0.2,0.0,0.0,,0.2,0.2,0.0,vegetarian,false,false,,,On: drinks menu
+monster-ultra-zero,Monster Ultra Zero,Drinks,,15,0.0,4.5,0.0,,,1.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+j2o-orange-and-passion-fruit,J2O Orange & Passion Fruit,Drinks,,55,0.0,11.8,0.0,0.0,,0.0,11.8,0.0,vegetarian,false,false,,,On: drinks menu
+j2o-apple-and-raspberry,J2O Apple & Raspberry,Drinks,,50,0.0,11.0,0.0,0.0,,0.2,11.0,0.0,vegetarian,false,false,,,On: drinks menu
+sparkling-water,Sparkling Water,Drinks,,2,0.1,0.2,0.0,0.0,,0.0,0.2,0.0,vegetarian,false,false,,,On: drinks menu
+still-water,Still Water,Drinks,,2,0.1,0.2,0.0,0.0,,0.0,0.2,0.0,vegetarian,false,false,,,On: drinks menu
+passion-fruit-and-vanilla,Passion Fruit & Vanilla,Drinks,,96,0.4,23.2,0.2,0.0,,0.0,22.2,0.4,vegetarian,false,false,,,On: drinks menu
+strawberry-and-elderflower,Strawberry & Elderflower,Drinks,,94,0.4,22.5,0.2,0.0,,0.0,21.7,0.4,vegetarian,false,false,,,On: drinks menu
+lemonade,Lemonade,Drinks,,130,0.4,30.1,0.2,0.1,,0.0,29.3,0.4,vegetarian,false,false,,,On: drinks menu
+espresso,Espresso,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+americano,Americano,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+latte,Latte,Drinks,,112,5.8,8.2,6.1,4.0,,0.2,7.5,0.0,vegetarian,false,false,,,On: drinks menu
+cappuccino,Cappuccino,Drinks,,112,5.8,8.2,6.1,4.0,,0.2,7.5,0.0,vegetarian,false,false,,,On: drinks menu
+flat-white,Flat White,Drinks,,112,5.8,8.2,6.1,4.0,,0.2,7.5,0.0,vegetarian,false,false,,,On: drinks menu
+iced-americano,Iced Americano,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+iced-latte,Iced Latte,Drinks,,112,5.8,8.2,6.1,4.0,,0.2,7.5,0.0,vegetarian,false,false,,,On: drinks menu
+hot-chocolate,Hot Chocolate,Drinks,,298,9.9,44.1,8.0,5.2,,0.2,40.9,5.2,vegetarian,false,false,,,On: drinks menu
+americano-oat-milk,Americano (Oat Milk),Drinks,,438,0.5,5.0,2.3,0.3,,0.0,2.4,0.8,vegetarian,false,false,,,On: drinks menu
+latte-oat-milk,Latte (Oat Milk),Drinks,,1022,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,vegetarian,false,false,,,On: drinks menu
+cappuccino-oat-milk,Cappuccino (Oat Milk),Drinks,,1022,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,vegetarian,false,false,,,On: drinks menu
+flat-white-oat-milk,Flat White (Oat Milk),Drinks,,1022,1.2,11.7,5.3,0.7,,0.0,5.6,1.8,vegetarian,false,false,,,On: drinks menu
+hot-chocolate-oat-milk,Hot Chocolate (Oat Milk),Drinks,,1208,5.3,47.6,7.1,1.9,,0.0,39.0,6.9,vegetarian,false,false,,,On: drinks menu
+english-breakfast-tea,English Breakfast Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+earl-grey-tea,Earl Grey Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+peppermint-tea,Peppermint Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+green-tea,Green Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+decaf-tea,Decaf Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,vegetarian,false,false,,,On: drinks menu
+vanilla-shake,Vanilla Shake,Kids shakes,,360,5.8,50.7,14.6,8.4,,0.5,47.7,0.3,vegetarian,false,false,,,"On: kids menu, no gluten menu"
+strawberry-shake,Strawberry Shake,Kids shakes,,412,5.8,63.5,14.6,8.4,,0.5,60.5,0.3,vegetarian,false,false,,,"On: kids menu, no gluten menu"
+chocolate-shake,Chocolate Shake,Kids shakes,,440,5.8,67.6,14.6,8.4,,0.6,64.3,0.3,vegetarian,false,false,,,"On: kids menu, no gluten menu"
+chocolate-shake-gluten-free-drinks-menu,Chocolate Shake (gluten free / drinks menu),Shakes,,879,11.6,135.3,29.3,16.7,,1.1,128.7,0.7,vegetarian,false,false,,,"On: no gluten menu, drinks menu"
+strawberry-shake-gluten-free-drinks-menu,Strawberry Shake (gluten free / drinks menu),Shakes,,825,11.6,127.1,29.3,16.7,,1.1,121.0,0.7,vegetarian,false,false,,,"On: no gluten menu, drinks menu"
+vanilla-shake-gluten-free-drinks-menu,Vanilla Shake (gluten free / drinks menu),Shakes,,721,11.6,101.4,29.3,16.7,,1.1,95.3,0.7,vegetarian,false,false,,,"On: no gluten menu, drinks menu"
+caramel-shake,Caramel shake,Shakes,,929,13.5,145.0,31.9,18.5,,1.2,134.6,0.7,vegetarian,false,false,,,"On: no gluten menu, drinks menu"
+lotus-biscoff-shake,Lotus Biscoff® shake,Shakes,,1013,13.1,129.9,48.3,20.5,,1.3,113.7,1.1,vegetarian,false,false,,,On: drinks menu
+oreo-shake,Oreo® shake,Shakes,,823,13.6,129.4,37.3,19.7,,1.8,110.1,1.5,vegetarian,false,false,,,On: drinks menu

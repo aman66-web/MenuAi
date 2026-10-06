@@ -1,0 +1,199 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+olives,Olives,Nibbles,,198,0.8,1.2,20.7,2.0,,1.7,0.3,,,false,true,,,Source: Main Menu > NIBBLES
+padron-peppers,Padron Peppers,Nibbles,,291,1.0,1.4,30.7,2.3,,3.0,1.3,,vegetarian,false,true,,,Source: Main Menu > NIBBLES
+nachos,Nachos,Starters,,674,17.8,63.9,38.6,13.2,,5.8,16.3,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+nachos-go-large,Nachos (Go Large),Starters,,1197,31.6,117.9,66.3,21.7,,10.4,25.2,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+crispy-halloumi-fries,Crispy Halloumi Fries,Starters,,455,23.4,32.4,25.3,14.6,,4.2,31.6,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+chicken-wings,Chicken Wings,Starters,,384,42.5,4.0,21.7,4.2,,2.2,0.6,,,false,true,,,Source: Main Menu > STARTERS
+hot-habanero-prawns,Hot Habanero Prawns,Starters,,409,18.9,38.4,19.6,2.3,,3.3,5.2,,,false,true,,,Source: Main Menu > STARTERS
+jalapeno-poppers,Jalapeno Poppers,Starters,,407,5.0,54.9,18.3,7.4,,1.8,25.9,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+lettuce-tacos-chicken-tinga,Lettuce Tacos: Chicken Tinga,Starters,,173,13.6,8.5,8.8,3.9,,1.7,4.1,,,false,true,,,Source: Main Menu > STARTERS
+lettuce-tacos-pulled-jackfruit,Lettuce Tacos: Pulled Jackfruit,Starters,,122,6.6,6.9,6.7,3.4,,1.0,3.5,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+tacos,Tacos,Starters,,364,20.3,32.5,18.3,9.9,,2.2,8.9,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+tacos-pulled-chicken-tinga,Tacos: Pulled Chicken Tinga,Starters,,177,21.1,6.6,6.8,1.7,,2.0,2.7,,,false,true,,,Source: Main Menu > STARTERS
+tacos-pulled-beef,Tacos: Pulled Beef,Starters,,282,13.1,11.6,19.7,5.1,,2.3,8.0,,contains_beef,false,true,,,Source: Main Menu > STARTERS
+tacos-pulled-jackfruit,Tacos: Pulled Jackfruit,Starters,,336,10.9,48.9,11.8,4.7,,3.1,12.9,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+quesadilla-birria-pulled-beef,Quesadilla Birria: Pulled Beef,Starters,,721,25.2,41.9,46.7,19.8,,8.0,13.9,,contains_beef,false,true,,,Source: Main Menu > STARTERS
+quesadilla-birria-pulled-jackfruit,Quesadilla Birria: Pulled Jackfruit,Starters,,566,18.2,34.6,35.6,16.9,,6.4,8.9,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+garlic-tortilla,Garlic Tortilla,Starters,,1105,17.0,89.6,74.2,23.7,,2.5,6.0,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+fiesta-fried-chicken,Fiesta Fried Chicken,Starters,,789,24.4,23.0,67.4,5.1,,1.8,2.5,,,false,true,,,Source: Main Menu > STARTERS
+halloumi-and-roasted-veg-skewer,Halloumi & Roasted Veg Skewer,Starters,,400,21.8,22.7,24.1,12.7,,3.0,17.9,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+calamari,Calamari,Starters,,556,8.6,15.6,51.5,4.3,,1.6,1.3,,,false,true,,,Source: Main Menu > STARTERS
+patatas-bravas,Patatas Bravas,Starters,,559,5.7,42.7,39.6,4.8,,0.8,2.5,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+grilled-chicken,Grilled Chicken,Fajita Fiesta,,290,36.9,3.1,14.2,1.9,,2.3,2.0,,,false,true,,,Source: Main Menu > FAJITA FIESTA
+bbq-chicken-and-pulled-pork,BBQ Chicken & Pulled Pork,Fajita Fiesta,,660,53.8,15.0,42.4,13.0,,3.8,11.4,,contains_pork,false,true,,,Source: Main Menu > FAJITA FIESTA
+tender-steak-fajita-fiesta,Tender Steak (Fajita Fiesta),Fajita Fiesta,,406,32.7,5.1,28.2,10.3,,6.3,3.4,,contains_beef,false,true,,,Source: Main Menu > FAJITA FIESTA
+ultimate-fajita,Ultimate Fajita,Fajita Fiesta,,918,79.0,16.2,59.4,17.8,,5.9,12.3,,contains_pork|contains_beef,false,true,,,Source: Main Menu > FAJITA FIESTA
+halloumi-and-veg-skewers,Halloumi & Veg Skewers,Fajita Fiesta,,661,40.9,16.8,47.6,25.2,,4.8,11.1,,vegetarian,false,true,,,Source: Main Menu > FAJITA FIESTA
+roasted-veg-skewer,Roasted Veg Skewer,Fajita Fiesta,,1071,28.9,108.0,48.5,21.3,,5.3,26.0,,vegetarian,false,true,,,Source: Main Menu > FAJITA FIESTA
+build-your-own-burrito,Build Your Own: Burrito,Build your own,,722,21.5,89.6,29.6,13.2,,2.9,10.5,,vegetarian,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your tortilla
+build-your-own-chimichanga,Build Your Own: Chimichanga,Build your own,,874,26.7,113.8,33.2,14.7,,3.4,11.1,,vegetarian,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your tortilla
+build-your-own-enchilada,Build Your Own: Enchilada,Build your own,,802,24.0,82.0,35.6,16.3,,4.1,13.0,,vegetarian,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your tortilla
+build-your-own-quesadilla,Build Your Own: Quesadilla,Build your own,,964,30.2,97.8,49.2,22.5,,7.2,14.5,,vegetarian,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your tortilla
+ancho-chicken-build-your-own-filling,Ancho Chicken (build your own filling),Build your own,,106,13.0,4.0,4.3,0.4,,0.8,2.1,,,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your filling
+pulled-jackfruit-build-your-own-filling,Pulled Jackfruit (build your own filling),Build your own,,19,0.8,1.2,0.5,0.1,,0.0,0.5,,,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your filling
+beef-chilli-build-your-own-filling,Beef Chilli (build your own filling),Build your own,,114,6.7,10.7,5.2,1.8,,1.1,3.1,,contains_beef,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your filling
+veg-chilli-build-your-own-filling,Veg Chilli (build your own filling),Build your own,,71,3.6,10.6,1.4,0.1,,0.7,3.9,,,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your filling
+bbq-pulled-pork-build-your-own-filling,BBQ Pulled Pork (build your own filling),Build your own,,260,12.6,1.1,22.8,7.5,,0.8,0.0,,contains_pork,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your filling
+pulled-beef-build-your-own-filling,Pulled Beef (build your own filling),Build your own,,166,7.7,6.8,11.6,3.0,,1.4,4.7,,contains_beef,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your filling
+chicken-tinga-build-your-own-filling,Chicken Tinga (build your own filling),Build your own,,104,12.4,3.9,4.0,1.0,,1.2,1.6,,,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your filling
+bbq-sauce-build-your-own-spice,BBQ Sauce (build your own spice),Build your own,,118,0.5,29.0,0.1,0.0,,0.9,26.3,,,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your spice
+mild-sauce-build-your-own-spice,Mild Sauce (build your own spice),Build your own,,72,0.9,4.9,5.2,0.3,,0.7,2.9,,vegetarian,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your spice
+hot-sauce-build-your-own-spice,Hot Sauce (build your own spice),Build your own,,127,1.2,5.8,10.9,0.7,,1.2,2.6,,vegetarian,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your spice
+volcano-sauce-build-your-own-spice,Volcano Sauce (build your own spice),Build your own,,155,1.3,6.2,13.7,0.9,,1.4,2.4,,vegetarian,false,false,,,Source: Main Menu > BUILD YOUR OWN > Choose your spice
+roasted-seabass,Roasted Seabass,Classics,,506,37.4,31.4,24.4,1.3,,5.1,11.7,,,false,true,,,Source: Main Menu > CLASSICS
+beef-chilli,Beef Chilli,Classics,,612,22.0,88.3,19.1,6.1,,4.6,13.4,,contains_beef,false,true,,,Source: Main Menu > CLASSICS
+veg-chilli,Veg Chilli,Classics,,476,13.0,82.2,9.8,2.3,,3.3,13.1,,vegetarian,false,true,,,Source: Main Menu > CLASSICS
+vegan-enchilada,Vegan Enchilada,Classics,,894,20.3,108.9,34.2,15.9,,4.4,14.6,,vegetarian,false,true,,,Source: Main Menu > CLASSICS
+chicken-fajita-salad,Chicken Fajita Salad,Salads,,852,50.3,81.0,34.8,10.1,,4.0,33.5,,,false,true,,,Source: Main Menu > SALADS
+topped-salad-standard,Topped Salad (Standard),Salads,,521,13.7,65.8,19.9,7.4,,1.9,25.4,,vegetarian,false,true,,,Source: Main Menu > SALADS
+topped-salad-gluten-free,Topped Salad (Gluten-Free),Salads,,340,8.3,33.9,17.2,6.8,,1.9,24.7,,vegetarian,false,true,,,Source: Main Menu > SALADS
+crispy-fried-chicken-and-bbq-pulled-pork,Crispy Fried Chicken & BBQ Pulled Pork,On the grill,,1279,42.0,96.4,79.0,18.9,,4.0,25.4,,contains_pork,false,true,,,Source: Main Menu > ON THE GRILL
+mexican-sirloin,Mexican Sirloin,On the grill,,758,39.2,11.5,61.6,22.8,,2.7,6.7,,contains_beef,false,true,,,Source: Main Menu > ON THE GRILL
+whole-rack-of-ribs,Whole Rack of Ribs,On the grill,,1642,89.4,80.6,106.1,27.8,,6.2,20.1,,,false,true,,,Source: Main Menu > ON THE GRILL
+half-rack-of-ribs,Half Rack of Ribs,On the grill,,1035,46.7,59.0,67.5,15.0,,3.6,11.6,,,false,true,,,Source: Main Menu > ON THE GRILL
+half-rack-ribs-and-chicken-wings,Half Rack Ribs & Chicken Wings,On the grill,,1544,90.4,73.1,97.6,20.1,,6.2,13.3,,,false,true,,,Source: Main Menu > ON THE GRILL
+tender-steak-on-the-grill,Tender Steak (On the Grill),On the grill,,474,33.4,24.7,26.0,10.2,,1.9,21.1,,contains_beef,false,true,,,Source: Main Menu > ON THE GRILL
+cheese-n-bacon-burger,Cheese 'N' Bacon Burger,Burgers,,1056,50.8,44.8,76.9,26.5,,6.7,9.5,,contains_pork,false,true,,,Source: Main Menu > BURGERS
+naked-beef-burger-gluten-free,Naked Beef Burger (Gluten-Free),Burgers,,948,48.3,47.4,65.5,24.7,,6.3,14.2,,contains_beef,false,true,,,Source: Main Menu > BURGERS
+texan-stack,Texan Stack,Burgers,,1268,55.2,84.5,80.9,27.6,,6.0,28.2,,,false,true,,,Source: Main Menu > BURGERS
+crispy-fried-chicken,Crispy Fried Chicken,Burgers,,741,32.3,60.5,42.2,10.1,,2.3,10.7,,,false,true,,,Source: Main Menu > BURGERS
+halloumi-crunch,Halloumi Crunch,Burgers,,857,38.4,52.2,56.5,21.1,,5.2,15.9,,vegetarian,false,true,,,Source: Main Menu > BURGERS
+bbq-chicken-wrap,BBQ Chicken Wrap,Lunch,,1170,33.7,130.2,55.6,11.4,,3.4,30.7,,,false,true,,,Source: Lunch > MAINS
+crispy-fried-chicken-burger,Crispy Fried Chicken Burger,Lunch,,741,32.3,60.5,42.2,10.1,,2.3,10.7,,,false,true,,,Source: Lunch > MAINS
+classic-beef-burger,Classic Beef Burger,Lunch,,1239,36.9,91.3,81.8,17.8,,4.0,13.0,,contains_beef,false,true,,,Source: Lunch > MAINS
+halloumi-crunch-burger,Halloumi Crunch Burger,Lunch,,857,38.4,52.2,56.5,21.1,,5.2,15.9,,,false,true,,,Source: Lunch > MAINS
+burrito-ancho-chicken,Burrito: Ancho Chicken,Lunch,,875,37.6,95.4,36.9,15.0,,3.9,13.6,,,false,true,,,Source: Lunch > MAINS
+burrito-beef-chilli,Burrito: Beef Chilli,Lunch,,883,30.5,103.0,37.9,16.5,,4.3,14.7,,contains_beef,false,true,,,Source: Lunch > MAINS
+burrito-veg-chilli,Burrito: Veg Chilli,Lunch,,860,27.9,105.0,33.9,14.7,,3.0,16.4,,vegetarian,false,true,,,Source: Lunch > MAINS
+burrito-pulled-pork,Burrito: Pulled Pork,Lunch,,1136,37.5,113.7,57.8,22.9,,4.6,30.8,,contains_pork,false,true,,,Source: Lunch > MAINS
+skin-on-fries,Skin On Fries,Sides,,401,3.8,38.0,25.0,2.1,,1.0,1.4,,vegetarian,false,true,,,Source: Main Menu > ON THE GRILL
+mexican-rice,Mexican Rice,Sides,,233,5.1,49.7,1.2,0.5,,1.0,2.9,,vegetarian,false,true,,,Source: Main Menu > ON THE GRILL
+sweet-potato-fries,Sweet Potato Fries,Sides,,289,2.6,37.4,12.8,1.9,,0.7,12.1,,vegetarian,false,true,,,Source: Main Menu > ON THE GRILL
+spiced-fries,Spiced Fries,Sides,,416,4.3,39.7,25.5,2.2,,2.5,2.5,,vegetarian,false,true,,,Source: Main Menu > ON THE GRILL
+loaded-skin-on-fries,Loaded Skin On Fries,Sides,,685,16.0,45.1,48.4,14.0,,2.9,4.4,,vegetarian,false,true,,,Source: Main Menu > SIDES
+homemade-slaw,Homemade Slaw,Sides,,138,0.8,4.9,13.7,0.9,,0.3,3.4,,vegetarian,false,true,,,Source: Main Menu > SIDES
+side-salad,Side Salad,Sides,,111,1.1,24.3,0.3,0.1,,0.6,21.1,,,false,true,,,Source: Main Menu > SIDES
+onion-rings-main-menu,Onion Rings (Main Menu),Sides,,446,3.2,26.9,35.2,3.3,,1.0,2.9,,vegetarian,false,true,,,Source: Main Menu > SIDES
+sweet-potato-wedges,Sweet Potato Wedges,Sides,,174,2.1,35.6,3.6,0.4,,0.7,9.5,,vegetarian,false,true,,,Source: Lunch > SIDES
+onion-rings-lunch,Onion Rings (Lunch),Sides,,356,3.2,26.9,25.2,2.5,,1.0,2.9,,vegetarian,false,true,,,Source: Lunch > SIDES
+bbq-sauce-wing-sauce,BBQ Sauce (wing sauce),Dips & sauces,,157,0.6,38.6,0.1,0.0,,1.2,35.1,,,false,false,,,Source: Main Menu > STARTERS
+hot-habanero-sauce-wing-sauce,Hot Habanero Sauce (wing sauce),Dips & sauces,,169,1.6,7.7,14.5,1.0,,1.5,3.4,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+bbq-sauce-grill-sauce,BBQ Sauce (grill sauce),Dips & sauces,,79,0.3,19.3,0.1,0.0,,0.6,17.6,,,false,false,,,Source: Main Menu > ON THE GRILL
+peppercorn-sauce-grill-sauce,Peppercorn sauce (grill sauce),Dips & sauces,,86,1.1,4.9,6.9,4.6,,0.6,2.7,,,false,false,,,Source: Main Menu > ON THE GRILL
+hot-habanero-sauce-ribs-sauce,Hot Habanero Sauce (ribs sauce),Dips & sauces,,339,3.2,15.5,29.0,2.0,,3.1,6.9,,vegetarian,false,false,,,Source: Main Menu > ON THE GRILL
+bbq-sauce-ribs-sauce,BBQ Sauce (ribs sauce),Dips & sauces,,314,1.2,77.2,0.2,0.0,,2.4,70.2,,,false,false,,,Source: Main Menu > ON THE GRILL
+ice-cream,Ice Cream,Desserts,,191,3.3,30.4,3.4,1.4,,0.3,10.7,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+ice-cream-vanilla,Ice Cream: Vanilla,Desserts,,83,1.1,11.3,3.6,2.6,,0.0,7.7,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+ice-cream-strawberry,Ice Cream: Strawberry,Desserts,,84,1.6,12.4,3.1,2.2,,0.0,9.3,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+ice-cream-vegan-vanilla,Ice Cream: Vegan vanilla,Desserts,,123,0.8,17.6,5.4,4.7,,0.1,10.0,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+ice-cream-chocolate,Ice Cream: Chocolate,Desserts,,128,2.8,13.7,6.7,4.7,,0.2,13.4,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+lemon-sorbet,Lemon Sorbet,Desserts,,63,0.0,15.8,0.1,0.1,,0.0,13.7,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+churros,Churros,Desserts,,223,5.7,45.2,1.8,0.2,,0.9,9.7,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+sharing-churros-sharer,Sharing Churros Sharer,Desserts,,1102,24.0,215.3,17.4,8.7,,2.6,123.3,,vegetarian,false,false,,,Source: Dessert > DESSERTS
+hot-chocolate-brownie-fajita,Hot Chocolate Brownie Fajita,Desserts,,1119,16.4,164.8,42.2,22.5,,0.7,130.7,,vegetarian,false,false,,,Source: Dessert > DESSERTS
+golden-nugget-cheesecake,Golden Nugget Cheesecake,Desserts,,573,5.3,66.9,33.4,18.2,,0.7,50.1,,vegetarian,false,false,,,Source: Dessert > DESSERTS
+toffee-popcorn-brownie,Toffee Popcorn Brownie,Desserts,,675,7.9,86.3,33.1,13.6,,0.3,54.2,,vegetarian,false,false,,,Source: Dessert > DESSERTS
+deep-fried-choc-ice-cream,Deep Fried Choc Ice Cream,Desserts,,618,10.1,89.3,22.7,13.3,,0.6,66.5,,vegetarian,false,false,,,Source: Dessert > DESSERTS
+warm-oozy-cheese-add-on,Warm oozy cheese (add-on),Add-ons & extras,,181,8.7,5.2,13.9,8.6,,1.4,1.9,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+beef-chilli-add-on,Beef Chilli (add-on),Add-ons & extras,,137,8.0,12.8,6.2,2.2,,1.3,3.7,,contains_beef,false,false,,,Source: Main Menu > STARTERS
+veggie-chilli-add-on,Veggie Chilli (add-on),Add-ons & extras,,85,4.3,12.7,1.7,0.2,,0.8,4.7,,,false,false,,,Source: Main Menu > STARTERS
+pulled-beef-add-on,Pulled Beef (add-on),Add-ons & extras,,199,9.2,8.2,13.9,3.6,,1.6,5.6,,contains_beef,false,false,,,Source: Main Menu > STARTERS
+ancho-chicken-add-on,Ancho Chicken (add-on),Add-ons & extras,,104,12.4,3.9,4.0,1.0,,1.2,1.6,,,false,false,,,Source: Main Menu > STARTERS
+mozzarella-add-on,Mozzarella (add-on),Add-ons & extras,,280,16.7,4.7,21.6,14.5,,1.4,2.2,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+vegan-cheese-add-on-starters,"Vegan Cheese (add-on, Starters)",Add-ons & extras,,1152,17.2,109.6,70.0,36.5,,4.0,7.8,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+fresh-chilli-on-us-add-on,Fresh chilli on us (add-on),Add-ons & extras,,3,0.2,0.5,0.0,0.0,,0.0,0.5,,,false,false,,,Source: Main Menu > STARTERS
+bbq-sauce-fajita-add-on,BBQ Sauce (fajita add-on),Add-ons & extras,,79,0.3,19.3,0.1,0.0,,0.6,17.6,,,false,false,,,Source: Main Menu > FAJITA FIESTA
+hot-habanero-sauce-fajita-add-on,Hot habanero Sauce (fajita add-on),Add-ons & extras,,85,0.8,3.9,7.2,0.5,,0.8,1.7,,vegetarian,false,false,,,Source: Main Menu > FAJITA FIESTA
+fajita-sauce-fajita-add-on,Fajita Sauce (fajita add-on),Add-ons & extras,,389,18.1,8.8,31.2,17.1,,1.6,5.6,,vegetarian,false,false,,,Source: Main Menu > FAJITA FIESTA
+tortilla-fajita-add-on,Tortilla (fajita add-on),Add-ons & extras,,459,9.7,62.0,10.2,4.2,,0.9,3.4,,vegetarian,false,false,,,Source: Main Menu > FAJITA FIESTA
+gluten-free-tortilla-fajita-add-on,Gluten-free Tortilla (fajita add-on),Add-ons & extras,,199,3.5,42.3,1.4,0.1,,0.4,4.0,,,false,false,,,Source: Main Menu > FAJITA FIESTA
+chicken-and-chorizo-skewer-salad-topping,Chicken & Chorizo Skewer (salad topping),Add-ons & extras,,609,42.4,6.8,45.6,13.8,,4.2,4.5,,contains_pork,false,false,,,Source: Main Menu > SALADS
+halloumi-and-roasted-vegetable-skewer-salad-topping,Halloumi & Roasted Vegetable Skewer (salad topping),Add-ons & extras,,331,20.5,8.4,23.8,12.6,,2.4,5.5,,vegetarian,false,false,,,Source: Main Menu > SALADS
+garlic-chilli-prawn-skewer-add-on,Garlic Chilli Prawn Skewer (add-on),Add-ons & extras,,101,10.1,0.5,6.5,2.0,,1.1,0.2,,,false,false,,,Source: Main Menu > ON THE GRILL
+cheese-burger-add-on,Cheese (burger add-on),Add-ons & extras,,74,4.6,0.0,6.2,3.8,,0.4,0.0,,vegetarian,false,false,,,Source: Main Menu > BURGERS
+bacon-burger-add-on,Bacon (burger add-on),Add-ons & extras,,85,7.6,0.2,6.1,2.4,,1.4,0.0,,contains_pork,false,false,,,Source: Main Menu > BURGERS
+guac-burger-add-on,Guac (burger add-on),Add-ons & extras,,73,1.4,3.0,6.4,1.8,,0.2,1.1,,,false,false,,,Source: Main Menu > BURGERS
+halloumi-burger-add-on,Halloumi (burger add-on),Add-ons & extras,,400,28.8,3.3,30.0,18.1,,3.1,3.3,,vegetarian,false,false,,,Source: Main Menu > BURGERS
+chorizo-burger-add-on,Chorizo (burger add-on),Add-ons & extras,,225,11.7,1.4,19.2,6.4,,1.5,0.5,,contains_pork,false,false,,,Source: Main Menu > BURGERS
+beef-chilli-burger-add-on,Beef Chilli (burger add-on),Add-ons & extras,,65,3.8,6.1,2.9,1.0,,0.6,1.8,,contains_beef,false,false,,,Source: Main Menu > BURGERS
+chorizo-add-on,Chorizo (add-on),Add-ons & extras,,80,3.8,3.5,5.6,1.8,,0.5,1.7,,contains_pork,false,false,,,Source: Main Menu > SIDES
+vegan-cheese-add-on-sides,"Vegan cheese (add-on, Sides)",Add-ons & extras,,308,0.1,19.2,25.3,21.7,,1.7,0.1,,vegetarian,false,false,,,Source: Main Menu > SIDES
+dulce-de-leche-churro-sauce-lunch,"Dulce de Leche (churro sauce, Lunch)",Add-ons & extras,,176,4.1,30.1,4.4,2.6,,0.1,30.1,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+chocolate-churro-sauce,Chocolate (churro sauce),Add-ons & extras,,127,0.7,27.2,2.8,1.6,,0.0,25.3,,vegetarian,false,false,,,Source: Lunch > DESSERTS
+open-quesadilla-pizza-tomato-and-mozzarella-kids,Open Quesadilla Pizza: Tomato & Mozzarella (kids),Kids: Mains,,549,17.8,63.1,17.7,10.1,,1.4,21.3,,vegetarian,false,false,,,Source: Kids > MAINS
+open-quesadilla-pizza-chicken-and-sweetcorn-kids,Open Quesadilla Pizza: Chicken & Sweetcorn (kids),Kids: Mains,,652,33.0,69.9,19.4,10.5,,1.8,23.2,,,false,false,,,Source: Kids > MAINS
+open-quesadilla-pizza-roasted-veg-and-cherry-tomatoes-kids,Open Quesadilla Pizza: Roasted veg & cherry tomatoes (kids),Kids: Mains,,597,18.7,68.5,20.2,10.3,,1.6,24.9,,vegetarian,false,false,,,Source: Kids > MAINS
+tortilla-wrap-kids,Tortilla Wrap (kids),Kids: Mains,,625,33.3,67.4,23.3,9.1,,2.3,24.1,,,false,false,,,Source: Kids > MAINS
+roasted-skewer-chicken-and-chorizo-kids,Roasted Skewer: Chicken & chorizo (kids),Kids: Mains,,667,42.8,19.3,45.7,13.8,,4.2,15.9,,contains_pork,false,false,,,Source: Kids > MAINS
+roasted-skewer-grilled-halloumi-and-veg-kids,Roasted Skewer: Grilled halloumi & veg (kids),Kids: Mains,,389,20.9,20.9,23.9,12.6,,2.4,17.0,,vegetarian,false,false,,,Source: Kids > MAINS
+veg-chilli-kids,Veg Chilli (kids),Kids: Mains,,317,7.3,57.2,5.5,0.7,,1.3,17.7,,vegetarian,false,false,,,Source: Kids > MAINS
+mini-fajita-kids,Mini Fajita (kids),Kids: Mains,,511,26.4,56.0,19.2,4.0,,2.6,22.7,,,false,false,,,Source: Kids > MAINS
+southern-fried-chicken-strips-kids,Southern Fried Chicken Strips (kids),Kids: Mains,,550,22.9,39.4,33.2,3.9,,1.0,11.4,,,false,false,,,Source: Kids > MAINS
+veggie-nuggets-kids,Veggie Nuggets (kids),Kids: Mains,,579,14.7,32.4,41.9,3.6,,0.9,11.7,,vegetarian,false,false,,,Source: Kids > MAINS
+skin-on-fries-kids-side,Skin On Fries (kids side),Kids: Sides,,267,2.5,25.3,16.7,1.4,,0.7,0.9,,vegetarian,false,false,,,Source: Kids > SIDES
+sweet-potato-fries-kids-side,Sweet Potato Fries (kids side),Kids: Sides,,170,1.5,22.0,7.5,1.1,,0.4,7.1,,vegetarian,false,false,,,Source: Kids > SIDES
+heinz-baked-beans-kids-side,Heinz Baked Beans (kids side),Kids: Sides,,73,4.9,12.9,0.2,0.0,,0.8,5.0,,,false,false,,,Source: Kids > SIDES
+rice-kids-side,Rice (kids side),Kids: Sides,,155,3.4,33.1,0.8,0.3,,0.7,1.9,,vegetarian,false,false,,,Source: Kids > SIDES
+guac-and-chips-kids-side,Guac & Chips (kids side),Kids: Sides,,204,3.0,18.1,13.4,2.7,,0.4,2.8,,vegetarian,false,false,,,Source: Kids > SIDES
+lettuce-and-tomato-salad-kids-side,Lettuce & Tomato Salad (kids side),Kids: Sides,,14,3.7,1.8,0.3,0.1,,0.0,1.7,,,false,false,,,Source: Kids > SIDES
+veggie-sticks-kids-side,Veggie Sticks (kids side),Kids: Sides,,16,0.4,2.8,0.1,0.0,,0.0,1.8,,,false,false,,,Source: Kids > SIDES
+corn-on-the-cob-kids-side,Corn on the Cob (kids side),Kids: Sides,,71,2.5,12.2,1.2,0.1,,0.0,1.5,,,false,false,,,Source: Kids > SIDES
+brownie,Brownie,Kids: Desserts,,564,6.2,69.2,29.2,15.5,,0.2,56.6,,vegetarian,false,false,,,Source: Kids > DESSERTS
+pip-organic-raimbow-lolly,Pip® Organic Raimbow Lolly,Kids: Desserts,,22,0.0,5.2,0.0,0.0,,0.0,5.0,,,false,false,,,Source: Kids > DESSERTS
+dulce-de-leche-churro-sauce-kids,"Dulce de Leche (churro sauce, Kids)",Kids: Desserts,,174,4.1,29.7,4.4,2.5,,0.1,29.7,,vegetarian,false,false,,,Source: Kids > DESSERTS
+chocolate-sauce-churro-sauce,Chocolate Sauce (churro sauce),Kids: Desserts,,125,0.7,26.9,2.8,1.6,,0.0,25.0,,vegetarian,false,false,,,Source: Kids > DESSERTS
+apple-juice-kids,Apple Juice (kids),Kids: Drinks,,66,0.8,15.6,0.8,0.2,,0.0,15.6,,,false,false,,,Source: Kids > DRINKS
+orange-juice-kids,Orange Juice (kids),Kids: Drinks,,86,1.0,18.3,1.0,0.2,,0.0,18.3,,,false,false,,,Source: Kids > DRINKS
+pineapple-juice-kids,Pineapple Juice (kids),Kids: Drinks,,95,0.0,21.9,1.0,0.2,,0.0,21.9,,,false,false,,,Source: Kids > DRINKS
+coca-cola-kids,Coca Cola (kids),Kids: Drinks,,80,0.0,20.2,0.0,0.0,,0.0,20.2,,,false,false,,,Source: Kids > DRINKS
+coke-zero-kids,Coke Zero (kids),Kids: Drinks,,1,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Kids > DRINKS
+diet-coke-kids,Diet Coke (kids),Kids: Drinks,,1,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Kids > DRINKS
+lemonade-sl-kids,Lemonade SL (kids),Kids: Drinks,,3,0.0,0.0,0.0,0.0,,0.1,0.0,,,false,false,,,Source: Kids > DRINKS
+fanta-zero-kids,Fanta Zero (kids),Kids: Drinks,,6,0.0,0.8,0.0,0.0,,0.0,0.8,,,false,false,,,Source: Kids > DRINKS
+milk-kids,Milk (kids),Kids: Drinks,,86,6.0,8.8,3.0,1.8,,0.4,8.8,,vegetarian,false,false,,,Source: Kids > DRINKS
+oat-milk-kids,Oat Milk (kids),Kids: Drinks,,98,1.6,11.7,4.7,0.5,,0.1,5.1,,vegetarian,false,false,,,Source: Kids > DRINKS
+squash-blackcurrant-kids,Squash Blackcurrant (kids),Kids: Drinks,,5,0.0,1.1,0.0,0.0,,0.0,1.1,,vegetarian,false,false,,,Source: Kids > DRINKS
+squash-orange-kids,Squash Orange (kids),Kids: Drinks,,3,0.0,0.7,0.0,0.0,,0.0,0.7,,vegetarian,false,false,,,Source: Kids > DRINKS
+cappuccino,Cappuccino,Drinks: Hot drinks,,66,4.3,7.0,2.2,1.3,,0.3,7.0,,vegetarian,false,false,,,Source: Drinks > HOT DRINKS
+caffe-latte,Caffe Latte,Drinks: Hot drinks,,74,5.1,7.5,2.5,1.5,,0.3,7.5,,vegetarian,false,false,,,Source: Drinks > HOT DRINKS
+flat-white,Flat White,Drinks: Hot drinks,,74,5.1,7.5,2.5,1.5,,0.3,7.5,,vegetarian,false,false,,,Source: Drinks > HOT DRINKS
+americano,Americano,Drinks: Hot drinks,,50,3.4,5.0,1.7,1.0,,0.2,5.0,,vegetarian,false,false,,,Source: Drinks > HOT DRINKS
+espresso,Espresso,Drinks: Hot drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > HOT DRINKS
+extra-espresso-shot-add-on,Extra espresso shot (add-on),Drinks: Hot drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > HOT DRINKS
+hot-chocolate-and-cream,Hot Chocolate & Cream,Drinks: Hot drinks,,240,7.1,25.7,11.6,8.0,,0.4,25.1,,vegetarian,false,false,,,Source: Drinks > HOT DRINKS
+yorkshire-breakfast-tea,Yorkshire Breakfast Tea,Drinks: Hot drinks,,25,1.7,2.5,0.9,0.5,,0.1,2.5,,vegetarian,false,false,,,Source: Drinks > HOT DRINKS
+virgin-colada,Virgin Colada,Drinks: Mocktails,,307,2.0,35.7,17.5,15.7,,0.0,35.1,,,false,false,,,Source: Drinks > MOCKTAILS
+mock-jito,Mock-jito,Drinks: Mocktails,,68,0.5,14.6,0.2,0.0,,0.1,14.3,,vegetarian,false,false,,,Source: Drinks > MOCKTAILS
+berry-agua-fresca,Berry Agua Fresca,Drinks: Mocktails,,98,0.6,22.7,0.4,0.0,,0.0,22.5,,,false,false,,,Source: Drinks > MOCKTAILS
+classic-mojito,Classic Mojito,Drinks: Cocktails,,172,0.4,22.9,0.2,0.0,,0.0,22.6,,vegetarian,false,false,,,"Source: Drinks > CLASSIC COCKTAILS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+passion-fruit-mojito,Passion Fruit Mojito,Drinks: Cocktails,,236,1.5,37.3,0.3,0.0,,0.2,37.0,,vegetarian,false,false,,,"Source: Drinks > CLASSIC COCKTAILS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+miami-vice,Miami Vice,Drinks: Cocktails,,340,0.8,48.5,2.5,2.0,,0.0,48.4,,,false,false,,,"Source: Drinks > CLASSIC COCKTAILS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+frozen-strawberry-daiquiri,Frozen Strawberry Daiquiri,Drinks: Cocktails,,295,0.5,54.7,0.0,0.0,,0.0,54.5,,,false,false,,,"Source: Drinks > CLASSIC COCKTAILS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+pina-colada,Pina Colada,Drinks: Cocktails,,338,0.9,42.9,4.7,4.0,,0.0,42.8,,,false,false,,,"Source: Drinks > CLASSIC COCKTAILS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+mex-on-the-beach,Mex on The Beach,Drinks: Cocktails,,229,0.4,33.7,0.1,0.0,,0.0,30.3,,,false,false,,,"Source: Drinks > CLASSIC COCKTAILS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+beefeater-london,Beefeater London,Drinks: Gin,,111,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > GIN; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+1800-blanco,1800 Blanco,Drinks: Tequila,,6,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > TEQUILA
+aqua-riva,Aqua Riva,Drinks: Tequila,,55,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > TEQUILA; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+jose-cuervo-reserva-de-la-familia,Jose Cuervo Reserva De La Familia,Drinks: Tequila,,6,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > TEQUILA
+jose-cuervo-traditional-reposado,Jose Cuervo Traditional Reposado,Drinks: Tequila,,58,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > TEQUILA; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+ocho-blanco,Ocho Blanco,Drinks: Tequila,,69,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > TEQUILA; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+corona-cero,Corona Cero,Drinks: Beer,,56,1.3,12.9,0.0,0.0,,0.0,2.3,,vegetarian,false,false,,,Source: Drinks > BEER
+pacifico,Pacifico,Drinks: Beer,,178,3.2,12.4,0.0,0.0,,0.0,12.4,,,false,false,,,"Source: Drinks > BEER; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+bottled-water-still,Bottled Water: Still,Drinks: Soft drinks,,1,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Drinks > SOFTS
+bottled-water-still-large,Bottled Water: Still Large,Drinks: Soft drinks,,1,0.1,0.2,0.0,0.0,,0.0,0.2,,,false,false,,,Source: Drinks > SOFTS
+bottled-water-sparkling-regular,Bottled Water: Sparkling Regular,Drinks: Soft drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFTS
+bottled-water-sparkling-large,Bottled Water: Sparkling Large,Drinks: Soft drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFTS
+j2o-apple-and-mango,J2O: Apple and Mango,Drinks: Soft drinks,,50,0.0,11.0,0.0,0.0,,0.0,11.0,,,false,false,,,Source: Drinks > SOFTS
+j2o-orange-and-passion-fruit,J2O: Orange & Passion Fruit,Drinks: Soft drinks,,55,0.1,11.8,0.0,0.0,,0.0,11.5,,,false,false,,,Source: Drinks > SOFTS
+arizona-peach-iced-tea,Arizona Peach Iced Tea,Drinks: Soft drinks,,140,0.0,41.5,0.0,0.0,,0.0,40.0,,,false,false,,,Source: Drinks > SOFTS
+bottlegreen-elderflower-presse,Bottlegreen Elderflower Presse,Drinks: Soft drinks,,83,0.0,19.3,0.0,0.0,,0.0,19.3,,,false,false,,,Source: Drinks > SOFTS
+red-bull,Red Bull,Drinks: Soft drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,,false,false,,,Source: Drinks > SOFTS
+irn-bru,Irn-Bru,Drinks: Soft drinks,,66,1.7,15.8,0.0,0.0,,0.0,15.5,,,false,false,,,Source: Drinks > SOFTS
+diet-irn-bru,Diet Irn-Bru,Drinks: Soft drinks,,3,1.7,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFTS
+coca-cola,Coca-Cola,Drinks: Soft drinks,,141,0.0,35.5,0.0,0.0,,0.0,35.5,,,false,false,,,Source: Drinks > SOFTS > SODA
+diet-coke,Diet Coke,Drinks: Soft drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFTS > SODA
+coca-cola-zero,Coca-Cola Zero,Drinks: Soft drinks,,2,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Drinks > SOFTS > SODA
+fanta-orange-zero,Fanta Orange Zero,Drinks: Soft drinks,,6,0.0,0.9,0.0,0.0,,0.0,0.9,,,false,false,,,Source: Drinks > SOFTS > SODA
+schweppes-slimline-lemonade,Schweppes Slimline Lemonade,Drinks: Soft drinks,,4,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Drinks > SOFTS > SODA
+appletiser,Appletiser,Drinks: Soft drinks,,129,0.0,28.6,0.0,0.0,,0.0,28.6,,vegetarian,false,false,,,Source: Drinks > SOFTS > SODA

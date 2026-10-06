@@ -1,0 +1,133 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+little-spicy-chicken-teriyaki,Little Spicy Chicken Teriyaki,Rice bowls,,430,22.5,65,11.7,1,,3.31,12.7,2.8,,false,true,,,
+veggie-balls-teriyaki,Veggie Balls Teriyaki,Rice bowls,,623,20.3,80.4,16.2,1.7,,5,19.4,8.8,vegetarian,false,true,,,
+little-veggie-balls-teriyaki,Little Veggie Balls Teriyaki,Rice bowls,,397,12.9,67.7,7.8,0.7,,3.9,13.4,6,,false,true,,,
+thai-chicken-curry,Thai Chicken Curry,Rice bowls,,710,35.3,66.5,31.8,17.4,,1.88,9,7.8,,false,true,,,
+little-thai-chicken-curry,Little Thai Chicken Curry,Rice bowls,,468,22.5,53.4,17.7,9.1,,2.29,3.6,2.6,,false,true,,,
+thai-king-prawn-curry,Thai King Prawn Curry,Rice bowls,,635,28.3,64.3,28.3,17.2,,2.23,5.1,3.2,,false,true,,,
+double-chicken-teriyaki,Double Chicken Teriyaki,Rice bowls,,667,51,82,14.7,2.3,,5.34,17.9,2.9,,false,true,,,
+little-chicken-teriyaki,Little Chicken Teriyaki,Rice bowls,,401,21.1,60.1,8.3,1,,2.65,9.5,2.1,,false,true,,,
+chicken-teriyaki,Chicken Teriyaki,Rice bowls,,569,32.7,81.2,12.3,1.6,,4.64,17.1,2.9,,false,true,,,
+spicy-chicken-teriyaki,Spicy Chicken Teriyaki,Rice bowls,,609,34.4,88.2,17.4,1.7,,5.15,21.2,3.7,,false,true,,,
+thai-veggie-balls-curry,Thai Veggie Balls Curry,Rice bowls,,790,23.8,71.4,36,18.3,,6.63,11.3,10.1,,false,true,,,
+little-thai-veggie-balls-curry,Little Thai Veggie Balls Curry,Rice bowls,,350,10.4,35.9,14.2,6.2,,0.5,4.6,6.1,,false,true,,,
+grilled-katsu-chicken-curry,Grilled Katsu Chicken Curry,Rice bowls,,630,33.4,75.6,21.3,6.8,,6.38,5.9,3.2,,false,true,,,
+little-grilled-katsu-chicken-curry,Little Grilled Katsu Chicken Curry,Rice bowls,,428,21.6,56.3,12.7,3.6,,3.74,3.2,2.4,,false,true,,,
+thai-salmon-curry,Thai Salmon Curry,Rice bowls,,780,30.2,72.8,39.5,19.4,,5.46,8,4.4,,false,true,,,
+little-rice-and-greens,Little Rice & Greens,Rice bowls,,225,7.4,37.5,4.4,0.7,,0.2,0.2,3.2,,false,true,,,
+chicken-gyoza-noodle-bowl,Chicken Gyoza Noodle Bowl,Noodles,,553,21.9,75.7,13.7,2.8,,5.17,8.5,8.4,,false,true,,,
+chilli-chicken-gyoza-noodle-bowl,Chilli Chicken Gyoza Noodle Bowl,Noodles,,593,23.6,82.7,18.9,2.8,,5.68,12.6,9.2,,false,true,,,
+veggie-gyoza-noodle-bowl,Veggie Gyoza Noodle Bowl,Noodles,,592,19.3,82.2,15.9,2,,6.43,8.7,9.5,,false,true,,,
+katsu-curry-noodles,Katsu Curry Noodles,Noodles,,542,15.7,77,19,8,,5.63,6.2,4.9,,false,true,,,
+korean-spicy-noodles,Korean Spicy Noodles,Noodles,,628,20,83.7,32.2,12.7,,5.27,14.4,6.9,,false,true,,,printed 628 kcal but its protein/carbs/fat/fibre add up to about 718 kcal
+thai-noodles,Thai Noodles,Noodles,,648,18.5,73.6,30,19.4,,5.52,9.2,5.9,,false,true,,,
+miso-soup,Miso Soup,Soups,,32,2.8,3.7,1.2,0.2,,1.8,1.1,1.2,,false,true,,,
+loaded-chicken-miso-soup,Loaded Chicken Miso Soup,Soups,,137,22.9,3.7,3.9,1,,2.98,1.1,1.2,,false,true,,,
+king-prawn-miso-soup,King Prawn Miso Soup,Soups,,101,18,4.7,1.8,0.3,,3.63,1.4,1.8,,false,true,,,
+spicy-miso-soup,Spicy Miso Soup,Soups,,72,4.4,9.3,2,0.5,,3.15,3.5,1,,false,true,,,
+famous-coconut-chicken-soup,Famous Coconut Chicken Soup,Soups,,469,20.1,37.1,23.6,17.1,,4.1,9,3.3,,false,true,,,
+veggie-balls-and-coconut-soup,Veggie Balls & Coconut Soup,Soups,,515,12.8,37.1,27.2,17.3,,4.32,10.4,7,vegetarian,false,true,,,
+chicken-noodle-soup,Chicken Noodle Soup,Soups,,313,18.3,36.9,9.6,1.7,,3.22,4.3,2.5,,false,true,,,
+detox-miso-noodle-soup,Detox Miso Noodle Soup,Soups,,190,6.9,31.5,3.1,0.4,,3.23,3.5,4.3,,false,true,,,
+the-salmon-dragon,The Salmon Dragon,Sushi & salads,,514,13.5,54.6,24.1,5.7,,2.88,14.5,5.5,,false,true,,,
+the-spicy-tuna-dragon,The Spicy Tuna Dragon,Sushi & salads,,401,13.3,46.9,13.1,4.4,,2.77,15.5,5,,false,true,,,
+the-salmon-baby-rolls,The Salmon Baby Rolls,Sushi & salads,,395,17.6,53.1,10.8,1.9,,2.01,8.1,3.9,,false,true,,,
+the-avo-baby-rolls,The Avo Baby Rolls,Sushi & salads,,335,5.1,53.3,9.2,2.3,,1.84,8.2,5.1,,false,true,,,
+the-sushi-festival,The Sushi Festival,Sushi & salads,,564,21.3,77.6,16.1,3,,2.88,12,5.8,,false,true,,,
+the-super-salmon-light,The Super Salmon Light,Sushi & salads,,421,17.4,54.3,17.4,2.3,,2.91,8.5,4.6,,false,true,,,
+the-tuna-and-salmon-sushi,The Tuna & Salmon Sushi,Sushi & salads,,269,14.9,38.7,4.7,0.9,,2.14,5.9,2.7,,false,true,,,
+the-california-rolls,The California Rolls,Sushi & salads,,317,5.6,37,14.2,2.1,,3.23,6.9,4,,false,true,,,
+the-tuna-and-salmon-sashimi,The Tuna & Salmon Sashimi,Sushi & salads,,212,23.6,3.7,10.4,1.6,,1.55,1.7,5.4,,false,true,,,
+the-salmon-and-avo-rolls,The Salmon & Avo Rolls,Sushi & salads,,303,10.4,38.2,11,1.9,,2.41,6.1,4.3,,false,true,,,
+the-salmon-full-house,The Salmon Full House,Sushi & salads,,549,22.4,68.4,17.8,3.1,,2.86,11.1,5.8,,false,true,,,
+the-best-of-itsu,The Best of Itsu,Sushi & salads,,575,22.3,75.8,16.9,2.8,,4.39,12.6,6.5,,false,true,,,
+the-veggie-selection,The Veggie Selection,Sushi & salads,,655,12.1,98,20.4,5.3,,7.15,34.9,8.1,,false,true,,,
+the-chicken-bento-salad,The Chicken Bento Salad,Sushi & salads,,640,26.6,97.2,14.8,3.2,,5.63,19.1,4.3,,false,true,,,
+the-salmon-bento-salad,The Salmon Bento Salad,Sushi & salads,,649,24.3,83.1,23.1,4.2,,4.01,6,4.6,,false,true,,,
+tuna-salmon-bento-salad,Tuna Salmon Bento Salad,Sushi & salads,,604,25,83.2,17.7,3.4,,3.92,6,4.7,,false,true,,,
+edamame,Edamame,Sushi & salads,,132,10,3.4,4.9,0.6,,2.35,0.2,17.4,vegetarian,false,true,,,"carbohydrate excludes the 17.4 g of fibre, so kcal is more than 4P+4C+9F (fibre carries about 2 kcal/g)"
+king-prawn-gyoza,King Prawn Gyoza,Gyoza,,340,15,49,8,3,,2,1.5,1.5,,false,true,,,
+chicken-and-spring-onion-gyoza,Chicken & Spring Onion Gyoza,Gyoza,,251,13.2,32.6,7,1.9,,1.3,4,2.1,,false,true,,,
+vegetable-fusion-gyoza,Vegetable Fusion Gyoza,Gyoza,,234,7.7,39.5,4.1,0.6,,2.42,5.1,4.4,,false,true,,,
+pineapple-and-coconut-twist,Pineapple & Coconut Twist,Breakfast,,314,5.6,37,16,11,,0.68,14,2.1,,false,false,,,
+wild-berry-knot,Wild Berry Knot,Breakfast,,330,5.8,45.6,13.3,6.2,,0.65,16.2,0,,false,false,,,
+the-egg-bun,The Egg Bun,Breakfast,,286,10.1,27.4,14.9,3.6,,0.83,4.7,1.2,,false,true,,,
+the-bacon-and-egg-bun,The Bacon & Egg Bun,Breakfast,,318,12.6,27.3,17.3,4.5,,1.22,4.7,1.2,contains_pork,false,true,,,
+smoked-salmon-and-egg-bun,Smoked Salmon & Egg Bun,Breakfast,,332,15.9,27.4,17.3,4,,0.84,4.8,1.3,,false,true,,,
+smoked-salmon-and-avo-egg-pot,Smoked Salmon & Avo Egg Pot,Breakfast,,215,15.9,6.4,15.5,3.7,,0.37,0.8,2.8,,false,true,,,
+roasted-bacon-egg-pot,Roasted Bacon Egg Pot,Breakfast,,217,12.3,22.5,8.8,2.4,,1,3.5,2,contains_pork,false,true,,,
+little-sausages-egg-pot,Little Sausages Egg Pot,Breakfast,,318,15.3,27.3,16.6,5.1,,1.59,4.9,2.9,contains_pork,false,true,,,
+spinach-and-seeds-egg-pot,Spinach & Seeds Egg Pot,Breakfast,,207,11.4,25.9,8.4,1.8,,1.25,5.1,2.9,,false,true,,,
+spinach-and-avo-egg-pot,Spinach & Avo Egg Pot,Breakfast,,204,11,9.6,16.9,3.7,,0.57,2.3,3.4,,false,true,,,printed 204 kcal but its protein/carbs/fat/fibre add up to about 241 kcal
+soy-roasted-seeds-egg-pot,Soy Roasted Seeds Egg Pot,Breakfast,,88,7.6,2.8,5.9,1.4,,0.28,0.5,0.8,,false,true,,,
+porridge-with-fresh-blueberries,Porridge with Fresh Blueberries,Breakfast,,215,8.1,29.4,6.3,3.4,,0.13,11.4,3.1,,false,true,,,
+porridge-with-fresh-blueberries-and-superseeds,Porridge with Fresh Blueberries & Superseeds,Breakfast,,323,11.4,36.1,14.1,5.1,,0.14,14.7,4.9,,false,true,,,
+porridge-with-agave,Porridge with Agave,Breakfast,,185,7.8,22.7,6.2,3.4,,0.13,6.1,2.5,,false,true,,,
+raspberry-yoghurt-pot,Raspberry Yoghurt Pot,Breakfast,,323,10.4,30.4,17.3,12.2,,0.35,21.1,3.6,,false,true,,,
+mango-yoghurt-pot,Mango Yoghurt Pot,Breakfast,,327,10.5,30.8,17.6,12.1,,0.35,20.6,3.4,,false,true,,,
+original-prawn-crackers,Original Prawn Crackers,Desserts & snacks,,96,0.2,12,5,0.4,,0.47,1.3,0.1,,false,false,,,
+chinese-prawn-crackers,Chinese Prawn Crackers,Desserts & snacks,,97,0.2,12,5.3,0.4,,0.46,1.8,0.2,,false,false,,,
+thai-prawn-crackers,Thai Prawn Crackers,Desserts & snacks,,97,0.2,12,5.2,0.4,,0.4,1.7,0.1,,false,false,,,
+japanese-prawn-crackers,Japanese Prawn Crackers,Desserts & snacks,,97,0.5,12,5.3,0.4,,0.58,1.9,0.5,,false,false,,,
+salted-caramel-protein-balls,Salted Caramel Protein Balls,Desserts & snacks,,182,10.4,19,7.8,1.2,,0.1,13.3,2.8,,false,false,,,
+about-half-a-mango,About Half a Mango,Desserts & snacks,,140,1.2,31,0.4,0.2,,0,24,3.9,,false,false,,,
+sweet-chilli-toasted-cashews,Sweet Chilli Toasted Cashews,Desserts & snacks,,236,7.2,12,17,3.4,,0.71,2.9,1.2,,false,false,,,
+chocolate-edamame,Chocolate Edamame,Desserts & snacks,,167,7.4,14,8.4,4.2,,0.18,9.8,3.5,,false,false,,,
+60-dark-chocolate-moons,60% Dark Chocolate Moons,Desserts & snacks,,214,3,17,14,8.8,,0,15,3.9,,false,false,,,
+angelic-almonds,Angelic Almonds,Desserts & snacks,,261,5.4,15,19,6.8,,0.13,15,2.1,,false,false,,,
+umami-roasted-almonds,Umami Roasted Almonds,Desserts & snacks,,247,11,3,20,1.6,,0.82,1.9,4.4,,false,false,,,
+sushi-style-nori-crunch,Sushi Style Nori Crunch,Desserts & snacks,,80,1.4,18,0.1,0.1,,0.38,0.9,0.2,,false,false,,,
+lemon-baked-pistachios,Lemon Baked Pistachios,Desserts & snacks,,233,10,2.2,19,2.4,,1.35,2.2,6.8,,false,false,,,
+crispy-seaweed-thins-sea-salt,Crispy Seaweed Thins Sea Salt,Desserts & snacks,,23,1.4,0.4,1.5,0.2,,0.24,0.1,1.2,vegetarian,false,false,,,
+crispy-seaweed-thins-sweet-soy,Crispy Seaweed Thins Sweet Soy,Desserts & snacks,,24,1.3,0.5,1.6,0.3,,0.14,0.1,1.1,vegetarian,false,false,,,
+crispy-seaweed-thins-wasabi,Crispy Seaweed Thins Wasabi,Desserts & snacks,,22,1.6,0.6,1.4,0.2,,0.33,0,0.7,vegetarian,false,false,,,
+dark-chocolate-corn-cakes,Dark Chocolate Corn Cakes,Desserts & snacks,,168,2.2,22,7.9,4.8,,0.04,10.6,1.4,,false,false,,,
+milk-chocolate-corn-cakes,Milk Chocolate Corn Cakes,Desserts & snacks,,166,2.4,22,7.2,4.4,,0.06,10.4,0.6,,false,false,,,
+salted-caramel-corn-cakes,Salted Caramel Corn Cakes,Desserts & snacks,,166,2.2,22,7.4,4.4,,0.36,10.4,0.6,,false,false,,,
+yuzu-cheesecake-mochi,Yuzu Cheesecake Mochi,Desserts & snacks,,194,1.6,32,6.2,4,,0.18,18.4,0.8,,false,false,,,
+iced-matcha-latte,Iced Matcha Latte,Hot & iced drinks,milk not included,10,0.9,1.2,0.2,0,,0,0,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+iced-vanilla-matcha-latte,Iced Vanilla Matcha Latte,Hot & iced drinks,milk not included,66,1.2,15.4,0.1,0,,0.01,14.4,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+iced-blueberry-matcha-latte,Iced Blueberry Matcha Latte,Hot & iced drinks,milk not included,62,0.7,14.1,0.1,0,,0.01,13.1,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+iced-salted-caramel-matcha-latte,Iced Salted Caramel Matcha Latte,Hot & iced drinks,milk not included,65,0.8,15.1,0.1,0,,0.33,14.1,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+matcha-latte,Matcha Latte,Hot & iced drinks,milk not included,10,0.9,1.2,0.2,0,,0,0,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+vanilla-matcha-latte,Vanilla Matcha Latte,Hot & iced drinks,milk not included,66,0.8,15.4,0.1,0,,0.01,14.4,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+salted-caramel-matcha-latte,Salted Caramel Matcha Latte,Hot & iced drinks,milk not included,62,0.7,14.1,0.1,0,,0.01,13.1,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+blueberry-matcha-latte,Blueberry Matcha Latte,Hot & iced drinks,milk not included,65,0.8,14.7,0.1,0,,0.01,13.7,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+iced-latte,Iced Latte,Hot & iced drinks,milk not included,1,0.1,0.2,0,0,,0,0.2,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+iced-vanilla-latte,Iced Vanilla Latte,Hot & iced drinks,milk not included,87,0.1,21.6,0,0,,0.01,21.7,0,,false,false,,,sugars (21.7) printed higher than carbohydrate (21.6); itsu's own description says the milk's kcals are not included in these values
+iced-salted-caramel-latte,Iced Salted Caramel Latte,Hot & iced drinks,milk not included,86,0.1,21.3,0,0,,0.49,21.3,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+iced-blueberry-latte,Iced Blueberry Latte,Hot & iced drinks,milk not included,83,0.1,20.1,0,0,,0.01,20.1,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+iced-americano,Iced Americano,Hot & iced drinks,,1,0.1,0.2,0,0,,0,0.2,0,,false,false,,,
+latte,Latte,Hot & iced drinks,milk not included,1,0.1,0,0,0,,0,0.2,0,,false,false,,,sugars (0.2) printed higher than carbohydrate (0); itsu's own description says the milk's kcals are not included in these values
+vanilla-latte,Vanilla Latte,Hot & iced drinks,milk not included,85,0.1,21.2,0,0,,0,21.1,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+salted-caramel-latte,Salted Caramel Latte,Hot & iced drinks,milk not included,86,0.1,21.3,0,0,,0.49,21.3,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+flat-white,Flat White,Hot & iced drinks,milk not included,1,0.1,0,0,0,,0,0.2,0,,false,false,,,sugars (0.2) printed higher than carbohydrate (0); itsu's own description says the milk's kcals are not included in these values
+cappuccino,Cappuccino,Hot & iced drinks,milk not included,1,0.1,0,0,0,,0,0.2,0,,false,false,,,sugars (0.2) printed higher than carbohydrate (0); itsu's own description says the milk's kcals are not included in these values
+vanilla-cappuccino,Vanilla Cappuccino,Hot & iced drinks,milk not included,85,0.1,21.2,0,0,,0,21.1,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+salted-caramel-cappuccino,Salted Caramel Cappuccino,Hot & iced drinks,milk not included,86,0.1,21.3,0,0,,0.49,21.3,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+americano,Americano,Hot & iced drinks,,2,0.2,0.6,0.1,0.1,,0,0.6,0,,false,false,,,
+espresso,Espresso,Hot & iced drinks,,2,0.2,0.6,0.1,0.1,,0,0.6,0,,false,false,,,
+english-breakfast-tea,English Breakfast Tea,Hot & iced drinks,milk not included,3,0,0.5,0,0,,0,0,0,,false,false,,,itsu's own description says the milk's kcals are not included in these values
+green-tea,Green Tea,Hot & iced drinks,,2,0.1,0.5,0,0,,0,0.2,0,,false,false,,,
+jasmine-green-tea,Jasmine Green Tea,Hot & iced drinks,,2,0.1,0.5,0,0,,0,0.1,0,,false,false,,,
+peppermint-tea,Peppermint Tea,Hot & iced drinks,,3,0.08,0.72,0,0,,0.06,0.06,0,,false,false,,,
+mango-passionfruit-bubble-tea,Mango Passionfruit Bubble Tea,Cold drinks,,22.3,0,5.3,0,0,,0,4.8,0.18,,false,false,,,
+lychee-rose-bubble-tea,Lychee Rose Bubble Tea,Cold drinks,,17,0,7,0,0,,0,5,0.15,,false,false,,,printed 17 kcal but its own protein/carbs/fat/fibre add up to about 28 kcal
+lemon-bubble-tea,Lemon Bubble Tea,Cold drinks,,16,0,4.5,0,0,,0,3,0.15,,false,false,,,
+itsu-still-water,Itsu Still Water,Cold drinks,,0,0,0,0,0,,0,0,0,,false,false,,,
+itsu-sparkling-water,Itsu Sparkling Water,Cold drinks,,0,0,0,0,0,,0,0,0,,false,false,,,
+still-water-refill-flask,Still Water - Refill Flask,Cold drinks,,0,0,0,0,0,,0,0,0,,false,false,,,
+sparkling-refill-flask,Sparkling Refill Flask,Cold drinks,,0,0,0,0,0,,0,0,0,,false,false,,,
+raspberry-and-dragon-fruit-zen-water-can,Raspberry & Dragon Fruit Zen Water Can,Cold drinks,,10,0.5,0.5,0.5,0.1,,0.01,0.5,0.5,,false,false,,,"protein, carbs, fat, fibre and sugars are all printed as 0.5 (itsu may mean ""<0.5"")"
+cucumber-and-mint-zen-water-can,Cucumber & Mint Zen Water Can,Cold drinks,,3,0.5,0.5,0.5,0.1,,0.01,0.5,0.5,,false,false,,,"protein, carbs, fat, fibre and sugars are all printed as 0.5 (itsu may mean ""<0.5"")"
+peach-and-lychee-zen-water-can,Peach & Lychee Zen Water Can,Cold drinks,,9,0.5,0.5,0.5,0.1,,0.01,0.5,0.5,,false,false,,,"protein, carbs, fat, fibre and sugars are all printed as 0.5 (itsu may mean ""<0.5"")"
+ginger-and-lime-zen-water-can,Ginger & Lime Zen Water Can,Cold drinks,,7,0.5,0.5,0.5,0.1,,0.01,0.5,0.5,,false,false,,,"protein, carbs, fat, fibre and sugars are all printed as 0.5 (itsu may mean ""<0.5"")"
+lemon-and-yuzu-zen-water-can,Lemon & Yuzu Zen Water Can,Cold drinks,,6,0.5,0.5,0.5,0.1,,0.01,0.5,0.5,,false,false,,,"protein, carbs, fat, fibre and sugars are all printed as 0.5 (itsu may mean ""<0.5"")"
+hot-mango-shot,Hot Mango Shot,Cold drinks,,29,0,6,0,0,,0.01,6,1,,false,false,,,
+ginger-shot,Ginger Shot,Cold drinks,,28,0.5,5.9,0,0,,0.01,5.2,0.8,,false,false,,,
+raspberry-and-elderflower-kombucha,Raspberry & Elderflower Kombucha,Cold drinks,,18,0,3.5,0,0,,0,3.4,0,,false,false,,,
+fiery-ginger-kombucha,Fiery Ginger Kombucha,Cold drinks,,17,0,3.3,0,0,,0,3.3,0,,false,false,,,
+coca-cola-zero-sugar,Coca Cola Zero Sugar,Cold drinks,,1,0,0,0,0,,0.66,0,0,,false,false,,,"salt is printed as 0.66 g although the other canned colas print 0: probably a typo on itsu's page, not corrected"
+diet-coke,Diet Coke,Cold drinks,,1,0,0,0,0,,0,0,0,,false,false,,,
+coca-cola,Coca Cola,Cold drinks,,139,0,35,0,0,,0,35,0,,false,false,,,
+asahi,Asahi,Cold drinks,,135,1,9.2,0,0,,0,0,0,,false,false,,,"kcal includes the alcohol, which the macros do not"

@@ -1,0 +1,14 @@
+item_id,reason
+chocolate-milkshake-regular,"The page prints 31,043 kcal and 1,120 g of fat for one milkshake: not a real value (the other milkshakes print 273-529 kcal)."
+chocolate-milkshake-large,"The page prints 41,379 kcal and 1,493 g of fat for one milkshake: not a real value (the other milkshakes print 273-529 kcal)."
+cheese-and-jalapeno-pretzel-dog-halal-chicken,The page prints 80.8 g carbohydrate and 42.4 g protein; the same dough prints 26.7 g carbohydrate and 19.0 g protein in the other two versions of this dog.
+cheese-pretzel-dog-halal-chicken,The page prints 80.6 g carbohydrate and 42.4 g protein; the same dough prints 26.6 g carbohydrate and 18.9 g protein in the other two versions of this dog.
+cheese-and-pepperoni-pretzel-dog-halal-chicken,"The page prints 3,094 kcal, 200.8 g fat and 134.3 g protein for one pretzel dog, with 3.7 g saturates: not possible (the same dog prints 413 kcal with halal beef)."
+honey-and-mustard-dip-pot-harrisons,The page prints 43 kcal with 8.7 g of fat (8.7 g of fat alone is about 78 kcal).
+rum-and-raisin-milkshake-regular,"The page prints 83 kcal and 5.9 g sugar for a regular milkshake, about a fifth of every other milkshake (273-529 kcal, 47-60 g sugar): the ice-cream part looks missing."
+rum-and-raisin-milkshake-large,"The page prints 99 kcal and 7.1 g sugar for a large milkshake, about a fifth of every other milkshake (350-640 kcal, 62-83 g sugar): the ice-cream part looks missing."
+sausage-bun,"The page prints 238 kcal, 3.7 g fat, 5.8 g protein: exactly the bun on its own (the Bacon Bun 362 + Egg and Cheese Bun 325 - Bacon, Egg and Cheese Bun 449 = 238 kcal, same fat and protein), so the sausage adds nothing."
+sausage-egg-and-cheese-bun,"The page prints the same values as the Egg and Cheese Bun (325 kcal, 10.6 g fat, 10.9 g protein) although the name adds sausage."
+mini-pretzel-dogs-original,"The page prints 545 kcal but its own protein, carbs, fat and fibre add up to about 644 kcal, and 43.2 g protein / 31.1 g fat against 19.2 g / 22.7 g for the halal beef version."
+mini-pretzel-dogs-halal-chicken,"The page prints 5.7 g protein and 4.7 g fat (same protein-to-carbohydrate ratio as the plain nuggets, so dough only) against 19.2 g and 22.7 g with halal beef: the chicken sausage adds nothing."
+original-pretzel-dog-halal-chicken,The page prints 80.6 g carbohydrate and 40.4 g protein; the same dough prints 26.6 g carbohydrate and 16.9 g protein in the other two versions of this dog.

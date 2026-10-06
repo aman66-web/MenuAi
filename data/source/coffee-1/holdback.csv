@@ -1,0 +1,8 @@
+item_id,reason
+hot-chocolate-deluxe-coconut-milk-large,"Per-product values (505 kcal, 17 g protein) and per-100 ml values (77 kcal) imply a cup of about 650 ml, against about 370 ml for the other milks and 375 kcal for the Regular row."
+hot-chocolate-deluxe-soya-milk-large,"Per-product values (529 kcal, 22 g protein) and per-100 ml values (82 kcal) imply a cup of about 640 ml, against about 370 ml for the other milks and 396 kcal for the Regular row."
+iced-white-chocolate-matcha-soya-milk-regular,"The per-product block is a copy of the per-100 ml block (251 kJ, 59 kcal), so it is not the values for a regular cup (the Large row is 156 kcal)."
+macchiato-whole-milk-double,"Double values are identical to Single in every column, while the other milks' Double is about twice Single; the row's per-100 ml would make it a 26 ml drink."
+marmite,"Portion weight is printed as 8 g but the per-portion values (78 kcal, 9 g carbs, 10.2 g protein) are what about 30 g would give; the macros alone (19.2 g) exceed 8 g."
+sticky-toffee-pudding-with-whipped-cream,Per-portion 550 kcal cannot come from the printed 120 g portion at 333 kcal per 100 g (400 kcal at most); carbs and protein disagree the same way.
+teacake,"Printed per-portion fat (26.7 g) does not fit the same row: calories 433 vs 615 from the macros, and 5.09 g fat per 100 g in 160 g is 8.1 g."

@@ -1,0 +1,129 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+vegetable-chow-mein-taster-base,Vegetable Chow Mein (taster base),Noodle and rice bases,Taster,123,3.7,21.7,2.8,0.3,,1.08,0.1,1.8,,false,false,,,"Part of a pot, not a complete order on its own"
+vegetable-chow-mein-small,Vegetable Chow Mein (small),Noodle and rice bases,Small,246,7.4,43.4,5.6,0.6,,2.16,0.2,3.6,,false,false,,,"Part of a pot, not a complete order on its own"
+vegetable-chow-mein-regular,Vegetable Chow Mein (regular),Noodle and rice bases,Regular,308,9.3,54.3,7.0,0.7,,2.70,0.3,4.5,,false,false,,,"Part of a pot, not a complete order on its own"
+vegetable-chow-mein-large,Vegetable Chow Mein (large),Noodle and rice bases,Large,369,11.1,65.1,8.4,0.8,,3.24,0.3,5.4,,false,false,,,"Part of a pot, not a complete order on its own"
+egg-fried-rice-taster-base,Egg Fried Rice (taster base),Noodle and rice bases,Taster,186,3.2,37.5,2.9,0.4,,0.53,0.2,1.5,,false,false,,,"Part of a pot, not a complete order on its own"
+egg-fried-rice-small,Egg Fried Rice (small),Noodle and rice bases,Small,372,6.4,75.0,5.8,0.8,,1.06,0.4,3.0,,false,false,,,"Part of a pot, not a complete order on its own"
+egg-fried-rice-regular,Egg Fried Rice (regular),Noodle and rice bases,Regular,465,8.0,93.8,7.3,1.0,,1.33,0.5,3.8,,false,false,,,"Part of a pot, not a complete order on its own"
+egg-fried-rice-large,Egg Fried Rice (large),Noodle and rice bases,Large,558,9.6,112.5,8.7,1.1,,1.59,0.6,4.5,,false,false,,,"Part of a pot, not a complete order on its own"
+cauli-rice-taster-base,Cauli Rice (taster base),Noodle and rice bases,Taster,23,1.4,3.4,0.1,0.1,,0.85,2.0,1.5,,false,false,,,"Part of a pot, not a complete order on its own"
+cauli-rice-small,Cauli Rice (small),Noodle and rice bases,Small,46,2.8,6.8,0.2,0.1,,1.70,4.0,3.0,,false,false,,,"Part of a pot, not a complete order on its own"
+cauli-rice-regular,Cauli Rice (regular),Noodle and rice bases,Regular,58,3.5,8.5,0.3,0.1,,2.13,5.0,3.8,,false,false,,,"Part of a pot, not a complete order on its own"
+cauli-rice-large,Cauli Rice (large),Noodle and rice bases,Large,69,4.2,10.2,0.3,0.2,,2.55,6.0,4.5,,false,false,,,"Part of a pot, not a complete order on its own"
+savoury-one,Savoury One,Flavour boosts,,9,0.4,1.4,0.1,0.0,,1.86,1.0,0.0,,false,false,,,"Part of a pot, not a complete order on its own"
+sweet-one,Sweet One,Flavour boosts,,21,0.1,5.1,0.0,0.0,,0.55,4.4,0.0,,false,false,,,"Part of a pot, not a complete order on its own"
+spicy-one,Spicy One,Flavour boosts,,21,0.1,4.6,0.2,0.0,,0.37,4.1,0.2,,false,false,,,"Part of a pot, not a complete order on its own"
+k-pop-bbq-chicken-taster-topping,K-Pop BBQ Chicken (taster topping),Toppings,Taster,125,7.5,10.6,5.0,0.6,,0.64,5.1,3.6,,false,false,,,"Part of a pot, not a complete order on its own"
+k-pop-bbq-chicken-small,K-Pop BBQ Chicken (small),Toppings,Small,250,15.0,21.1,10.1,1.2,,1.28,10.2,7.2,,false,false,,,"Part of a pot, not a complete order on its own"
+k-pop-bbq-chicken-regular-large,K-Pop BBQ Chicken (regular / large),Toppings,Regular / Large,187,11.3,15.8,7.6,0.9,,0.96,7.7,5.4,,false,false,,,"Part of a pot, not a complete order on its own"
+k-pop-bbq-chicken-topper-pot,K-Pop BBQ Chicken (topper pot),Toppings,Topper pot,304,18.3,25.7,12.3,1.4,,1.56,12.5,8.8,,false,false,,,"Part of a pot, not a complete order on its own"
+orange-chicken-taster-topping,Orange Chicken (taster topping),Toppings,Taster,136,7.2,13.5,5.3,0.5,,0.86,6.4,2.8,,false,false,,,"Part of a pot, not a complete order on its own"
+orange-chicken-small,Orange Chicken (small),Toppings,Small,272,14.4,27.0,10.5,1.1,,1.72,12.9,5.6,,false,false,,,"Part of a pot, not a complete order on its own"
+orange-chicken-regular-large,Orange Chicken (regular / large),Toppings,Regular / Large,194,10.3,19.3,7.5,0.8,,1.23,9.2,4.0,,false,false,,,"Part of a pot, not a complete order on its own"
+orange-chicken-topper-pot,Orange Chicken (topper pot),Toppings,Topper pot,326,17.3,32.4,12.6,1.3,,2.07,15.5,6.7,,false,false,,,"Part of a pot, not a complete order on its own"
+hot-honey-hustler-chicken-taster-topping,Hot Honey Hustler Chicken (taster topping),Toppings,Taster,178,6.5,14.2,10.5,1.3,,0.67,6.5,0.5,,false,false,,,"Part of a pot, not a complete order on its own"
+hot-honey-hustler-chicken-small,Hot Honey Hustler Chicken (small),Toppings,Small,356,12.9,28.3,21.0,2.7,,1.33,13.0,1.0,,false,false,,,"Part of a pot, not a complete order on its own"
+hot-honey-hustler-chicken-regular-large,Hot Honey Hustler Chicken (regular / large),Toppings,Regular / Large,247,8.9,19.6,14.6,1.8,,0.92,9.0,0.7,,false,false,,,"Part of a pot, not a complete order on its own"
+hot-honey-hustler-chicken-topper-pot,Hot Honey Hustler Chicken (topper pot),Toppings,Topper pot,425,15.4,33.8,25.1,3.2,,1.59,15.5,1.2,,false,false,,,"Part of a pot, not a complete order on its own"
+no-chickn-sweet-and-sour-taster-topping,No Chick'n Sweet & Sour (taster topping),Toppings,Taster,178,1.4,11.0,13.0,1.3,,0.88,9.6,5.8,,false,false,,,"Part of a pot, not a complete order on its own"
+no-chickn-sweet-and-sour-small,No Chick'n Sweet & Sour (small),Toppings,Small,357,2.7,21.9,26.1,2.6,,1.76,19.2,11.7,,false,false,,,"Part of a pot, not a complete order on its own"
+no-chickn-sweet-and-sour-regular-large,No Chick'n Sweet & Sour (regular / large),Toppings,Regular / Large,268,2.0,16.4,19.6,1.9,,1.32,14.4,8.8,,false,false,,,"Part of a pot, not a complete order on its own"
+no-chickn-sweet-and-sour-topper-pot,No Chick'n Sweet & Sour (topper pot),Toppings,Topper pot,428,3.3,26.3,31.3,3.1,,2.11,23.0,14.0,,false,false,,,"Part of a pot, not a complete order on its own"
+no-beef-teriyaki-taster-topping,No Beef Teriyaki (taster topping),Toppings,Taster,50,3.7,7.3,1.1,0.2,,0.47,1.8,1.7,,false,false,,,"Part of a pot, not a complete order on its own. Meat-free despite the name"
+no-beef-teriyaki-small,No Beef Teriyaki (small),Toppings,Small,101,7.3,14.6,2.3,0.3,,0.94,3.6,3.5,,false,false,,,"Part of a pot, not a complete order on its own. Meat-free despite the name"
+no-beef-teriyaki-regular-large,No Beef Teriyaki (regular / large),Toppings,Regular / Large,67,4.9,9.8,1.5,0.2,,0.62,2.4,2.3,,false,false,,,"Part of a pot, not a complete order on its own. Meat-free despite the name"
+no-beef-teriyaki-topper-pot,No Beef Teriyaki (topper pot),Toppings,Topper pot,168,12.2,24.4,3.8,0.5,,1.56,6.0,5.8,,false,false,,,"Part of a pot, not a complete order on its own. Meat-free despite the name"
+caramel-drizzle-chicken-taster-topping,Caramel Drizzle Chicken (taster topping),Toppings,Taster,127,7.9,11.8,5.4,0.9,,0.89,4.6,0.4,,false,false,,,"Part of a pot, not a complete order on its own"
+caramel-drizzle-chicken-small,Caramel Drizzle Chicken (small),Toppings,Small,253,15.7,23.6,10.8,1.7,,1.78,9.2,0.7,,false,false,,,"Part of a pot, not a complete order on its own"
+caramel-drizzle-chicken-regular-large,Caramel Drizzle Chicken (regular / large),Toppings,Regular / Large,169,10.5,15.8,7.2,1.2,,1.18,6.2,0.5,,false,false,,,"Part of a pot, not a complete order on its own"
+caramel-drizzle-chicken-topper-pot,Caramel Drizzle Chicken (topper pot),Toppings,Topper pot,327,20.3,30.5,14.0,2.2,,2.29,11.9,0.9,,false,false,,,"Part of a pot, not a complete order on its own"
+chinese-chicken-curry-taster-topping,Chinese Chicken Curry (taster topping),Toppings,Taster,92,5.6,4.4,4.5,1.7,,0.95,1.1,1.4,,false,false,,,"Part of a pot, not a complete order on its own"
+chinese-chicken-curry-small,Chinese Chicken Curry (small),Toppings,Small,184,11.3,8.8,9.0,3.4,,1.89,2.2,2.7,,false,false,,,"Part of a pot, not a complete order on its own"
+chinese-chicken-curry-regular-large,Chinese Chicken Curry (regular / large),Toppings,Regular / Large,133,8.1,6.4,6.5,2.5,,1.37,1.6,2.0,,false,false,,,"Part of a pot, not a complete order on its own"
+chinese-chicken-curry-topper-pot,Chinese Chicken Curry (topper pot),Toppings,Topper pot,240,14.7,11.5,11.8,4.5,,2.47,2.8,3.5,,false,false,,,"Part of a pot, not a complete order on its own"
+salt-and-pepper-chicken-taster-topping,Salt & Pepper Chicken (taster topping),Toppings,Taster,104,7.7,7.4,5.0,0.5,,1.19,1.0,0.6,,false,false,,,"Part of a pot, not a complete order on its own"
+salt-and-pepper-chicken-small,Salt & Pepper Chicken (small),Toppings,Small,208,15.4,14.8,10.0,1.0,,2.38,1.9,1.2,,false,false,,,"Part of a pot, not a complete order on its own"
+salt-and-pepper-chicken-regular-large,Salt & Pepper Chicken (regular / large),Toppings,Regular / Large,138,10.2,9.8,6.6,0.7,,1.58,1.3,0.8,,false,false,,,"Part of a pot, not a complete order on its own"
+salt-and-pepper-chicken-topper-pot,Salt & Pepper Chicken (topper pot),Toppings,Topper pot,268,19.8,19.1,12.9,1.3,,3.07,2.5,1.6,,false,false,,,"Part of a pot, not a complete order on its own"
+salt-and-pepper-chips-small,Salt & Pepper Chips (small),Toppings,Small,190,1.7,20.2,10.9,0.8,,0.86,0.7,1.9,,false,false,,,"Part of a pot, not a complete order on its own. Same numbers are printed for Small, Regular / Large and Small Side"
+salt-and-pepper-chips-regular-large,Salt & Pepper Chips (regular / large),Toppings,Regular / Large,190,1.7,20.2,10.9,0.8,,0.86,0.7,1.9,,false,false,,,"Part of a pot, not a complete order on its own. Same numbers are printed for Small, Regular / Large and Small Side"
+sweet-and-sour-chicken-taster-topping,Sweet & Sour Chicken (taster topping),Toppings,Taster,108,6.5,11.9,4.2,0.5,,0.80,6.9,1.3,,false,false,,,"Part of a pot, not a complete order on its own"
+sweet-and-sour-chicken-small,Sweet & Sour Chicken (small),Toppings,Small,216,13.0,23.8,8.3,1.0,,1.60,13.8,2.6,,false,false,,,"Part of a pot, not a complete order on its own"
+sweet-and-sour-chicken-regular-large,Sweet & Sour Chicken (regular / large),Toppings,Regular / Large,162,9.7,17.9,6.2,0.8,,1.20,10.3,1.9,,false,false,,,"Part of a pot, not a complete order on its own"
+sweet-and-sour-chicken-topper-pot,Sweet & Sour Chicken (topper pot),Toppings,Topper pot,263,15.8,29.1,10.1,1.2,,1.95,16.8,3.1,,false,false,,,"Part of a pot, not a complete order on its own"
+soy-mazing-chicken-taster-topping,Soy-Mazing Chicken (taster topping),Toppings,Taster,116,7.7,9.8,5.3,0.6,,1.80,2.5,0.6,,false,false,,,"Part of a pot, not a complete order on its own"
+soy-mazing-chicken-small,Soy-Mazing Chicken (small),Toppings,Small,232,15.4,19.6,10.6,1.2,,3.60,4.9,1.2,,false,false,,,"Part of a pot, not a complete order on its own"
+soy-mazing-chicken-regular-large,Soy-Mazing Chicken (regular / large),Toppings,Regular / Large,154,10.2,13.0,7.0,0.8,,2.40,3.3,0.8,,false,false,,,"Part of a pot, not a complete order on its own"
+soy-mazing-chicken-topper-pot,Soy-Mazing Chicken (topper pot),Toppings,Topper pot,299,19.8,25.3,13.6,1.5,,4.65,6.4,1.6,,false,false,,,"Part of a pot, not a complete order on its own"
+firecracker-chicken-taster-topping,Firecracker Chicken (taster topping),Toppings,Taster,186,10.2,16.1,9.4,1.0,,1.78,7.4,1.3,,false,false,,,"Part of a pot, not a complete order on its own"
+firecracker-chicken-small,Firecracker Chicken (small),Toppings,Small,373,20.3,32.2,18.7,2.1,,3.57,14.9,2.6,,false,false,,,"Part of a pot, not a complete order on its own"
+firecracker-chicken-regular-large,Firecracker Chicken (regular / large),Toppings,Regular / Large,280,15.2,24.1,14.0,1.5,,2.68,11.2,1.9,,false,false,,,"Part of a pot, not a complete order on its own"
+firecracker-chicken-topper-pot,Firecracker Chicken (topper pot),Toppings,Topper pot,350,19.1,30.2,17.6,1.9,,3.35,14.0,2.4,,false,false,,,"Part of a pot, not a complete order on its own"
+battered-chicken-katsu-curry-small-4-pieces,"Battered Chicken Katsu Curry (small, 4 pieces)",Toppings,Small (4 pieces),438,23.5,20.8,23.6,6.0,,2.04,1.2,0.7,,false,false,,,"Part of a pot, not a complete order on its own"
+battered-chicken-katsu-curry-regular-large-3-pieces,"Battered Chicken Katsu Curry (regular / large, 3 pieces)",Toppings,Regular / Large (3 pieces),349,17.9,16.9,17.9,5.2,,1.73,1.0,0.7,,false,false,,,"Part of a pot, not a complete order on its own"
+panko-chicken-katsu-curry-small-2-pieces,"Panko Chicken Katsu Curry (small, 2 pieces)",Toppings,Small (2 pieces),219,12.4,16.2,15.1,4.6,,1.44,1.1,1.5,,false,false,,,"Part of a pot, not a complete order on its own. Printed kJ (1243) and kcal (219) do not agree. Identical numbers to the Regular / Large row"
+panko-chicken-katsu-curry-regular-large-2-pieces,"Panko Chicken Katsu Curry (regular / large, 2 pieces)",Toppings,Regular / Large (2 pieces),219,12.4,16.2,15.1,4.6,,1.44,1.1,1.5,,false,false,,,"Part of a pot, not a complete order on its own. Printed kJ (1243) and kcal (219) do not agree. Identical numbers to the Small row"
+pumpkin-katsu-curry,Pumpkin Katsu Curry,Toppings,,215,3.2,22.9,7.3,3.4,,1.13,2.9,1.7,,false,false,,,"Part of a pot, not a complete order on its own. Printed kJ and kcal agree with each other, but the printed fat, carbohydrate and protein add up to about 170 kcal, not 215"
+spice-bag-meal-with-katsu-sauce,Spice Bag Meal with Katsu Sauce,Meals and deals,,926,26.8,85.7,46.8,6.6,,6.54,5.2,7.9,,false,true,,,Meat type not stated
+mini-stix-deal-noodles-and-vegetable-spring-rolls,Mini Stix Deal - Noodles and Vegetable Spring Rolls,Meals and deals,,263,6.0,37.7,10.5,1.0,,1.69,1.4,3.1,,false,true,,,
+mini-stix-deal-noodles-and-chicken-balls,Mini Stix Deal - Noodles and Chicken Balls,Meals and deals,,271,12.6,33.3,10.4,1.1,,1.76,0.5,2.7,,false,true,,,
+mini-stix-deal-egg-fried-rice-and-vegetable-spring-rolls,Mini Stix Deal - Egg Fried Rice and Vegetable Spring Rolls,Meals and deals,,299,5.1,47.9,10.2,1.1,,1.06,1.5,2.6,,false,true,,,
+mini-stix-deal-egg-fried-rice-and-chicken-balls,Mini Stix Deal - Egg Fried Rice and Chicken Balls,Meals and deals,,306,11.6,43.5,10.0,1.1,,1.13,0.6,2.2,,false,true,,,
+salt-and-pepper-chips-small-side,Salt & Pepper Chips (small side),Sides and snacks,Small side,190,1.7,20.2,10.9,0.8,,0.86,0.7,1.9,,false,true,,,"Same numbers are printed for Small, Regular / Large and Small Side"
+salt-and-pepper-chips-large-side,Salt & Pepper Chips (large side),Sides and snacks,Large side,379,3.5,40.4,21.8,1.6,,1.73,1.5,3.7,,false,true,,,
+flavour-savour-mini-crispy-chicken-balls-5-dip,Flavour Savour Mini Crispy Chicken Balls (5) + dip,Sides and snacks,5 balls + dip,183,8.4,21.1,7.1,0.7,,1.33,10.1,1.0,,false,true,,,Printed as '+ DIP'; which dip is not stated
+mini-crispy-chicken-balls-10,Mini Crispy Chicken Balls (10),Sides and snacks,10 balls,247,14.8,19.3,12.6,1.3,,1.13,0.7,1.5,,false,true,,,
+mini-crispy-chicken-balls-15,Mini Crispy Chicken Balls (15),Sides and snacks,15 balls,408,24.4,31.8,20.8,2.1,,1.86,1.2,2.5,,false,true,,,
+mini-crispy-chicken-balls-sharer,Mini Crispy Chicken Balls Sharer,Sides and snacks,,667,40.0,52.1,34.0,3.5,,3.05,1.9,4.1,,false,true,,,Number of balls not stated
+flavour-savour-battered-katsu-chicken-strips-2-dip,Flavour Savour Battered Katsu Chicken Strips (2) + dip,Sides and snacks,2 strips + dip,226,11.4,18.2,11.6,1.6,,1.34,10.1,0.2,,false,true,,,Printed as '+ DIP'; which dip is not stated
+battered-katsu-chicken-strips-3,Battered Katsu Chicken Strips (3),Sides and snacks,3 strips,269,16.8,11.6,17.1,2.4,,0.95,0.5,0.0,,false,true,,,
+battered-katsu-chicken-strips-10,Battered Katsu Chicken Strips (10),Sides and snacks,10 strips,896,56.0,38.5,57.1,8.1,,3.15,1.8,0.0,,false,true,,,
+flavour-savour-chicken-katsu-panko-pieces-2-dip,Flavour Savour Chicken Katsu Panko Pieces (2) + dip,Sides and snacks,2 pieces + dip,266,11.5,21.3,14.5,1.8,,1.36,10.3,1.0,,false,true,,,Printed as '+ DIP'; which dip is not stated
+chicken-katsu-panko-pieces-3,Chicken Katsu Panko Pieces (3),Sides and snacks,3 pieces,329,16.9,16.3,21.5,2.7,,0.98,0.9,1.2,,false,true,,,
+chicken-katsu-panko-pieces-10,Chicken Katsu Panko Pieces (10),Sides and snacks,10 pieces,1097,56.4,54.2,71.6,9.1,,3.27,2.9,4.0,,false,true,,,
+prawn-cracker-bag-60-g,Prawn Cracker Bag (60 g),Sides and snacks,60 g,289,1.0,41.3,13.2,1.0,,1.31,3.7,0.8,,false,true,,,
+flavour-savour-vegetable-spring-rolls-3-dip,Flavour Savour Vegetable Spring Rolls (3) + dip,Sides and snacks,3 rolls + dip,187,2.6,26.5,7.9,0.8,,1.32,11.1,1.5,,false,true,,,Printed as '+ DIP'; which dip is not stated
+vegetable-spring-rolls-3,Vegetable Spring Rolls (3),Sides and snacks,3 rolls,140,2.3,16.0,7.7,0.7,,0.61,1.3,1.3,,false,true,,,
+vegetable-spring-rolls-5,Vegetable Spring Rolls (5),Sides and snacks,5 rolls,234,3.9,26.6,12.9,1.2,,1.01,2.2,2.2,,false,true,,,
+vegetable-spring-rolls-10,Vegetable Spring Rolls (10),Sides and snacks,10 rolls,468,7.8,53.3,25.8,2.5,,2.03,4.4,4.4,,false,true,,,
+vegetable-spring-rolls-15,Vegetable Spring Rolls (15),Sides and snacks,15 rolls,702,11.7,79.9,38.7,3.7,,3.04,6.5,6.5,,false,true,,,
+flavour-savour-crispy-vegetable-gyoza-2-dip,Flavour Savour Crispy Vegetable Gyoza (2) + dip,Sides and snacks,2 gyoza + dip,128,2.4,22.4,3.3,0.4,,1.20,11.5,1.6,,false,true,,,Printed as '& Dip'; which dip is not stated
+crispy-vegetable-gyoza-3,Crispy Vegetable Gyoza (3),Sides and snacks,3 gyoza,122,3.3,17.9,4.7,0.5,,0.74,2.6,2.1,,false,true,,,
+crispy-vegetable-gyoza-5,Crispy Vegetable Gyoza (5),Sides and snacks,5 gyoza,204,5.5,29.8,7.8,0.8,,1.23,4.4,3.5,,false,true,,,
+crispy-vegetable-gyoza-10,Crispy Vegetable Gyoza (10),Sides and snacks,10 gyoza,408,11.0,59.6,15.6,1.6,,2.46,8.8,7.0,,false,true,,,
+katsu-curry-sauce-portion-small,Katsu Curry Sauce Portion (small),Dips and sauces,Small,80,1.1,5.4,0.8,2.8,,0.78,0.5,0.7,,false,false,,,
+katsu-curry-sauce-portion-large,Katsu Curry Sauce Portion (large),Dips and sauces,Large,160,2.2,10.7,1.6,5.6,,1.57,1.0,1.4,,false,false,,,
+sweet-chilli-sauce-dip-pot,Sweet Chilli Sauce Dip Pot,Dips and sauces,1 pot,49,0.2,11.7,0.1,0.0,,0.63,11.1,0.2,,false,false,,,
+firecracker-sauce-dip-pot,Firecracker Sauce Dip Pot,Dips and sauces,1 pot,51,0.3,11.0,0.2,0.0,,1.02,10.0,0.3,,false,false,,,
+chinese-bbq-sauce-dip-pot,Chinese BBQ Sauce Dip Pot,Dips and sauces,1 pot,40,0.2,8.9,0.2,0.0,,0.48,8.2,0.1,,false,false,,,
+caramel-sauce-dip-pot,Caramel Sauce Dip Pot,Dips and sauces,1 pot,101,0.1,20.1,2.2,1.4,,0.24,16.7,0.0,,false,false,,,
+fortune-cookie-6-g,Fortune Cookie (6 g),Desserts and treats,6 g,24,0.4,5.0,0.3,0.0,,0.02,2.6,0.0,,false,false,,,
+sugared-baonut-each,Sugared Baonut (each),Desserts and treats,1 baonut,192,3.3,24.0,8.2,0.7,,0.09,7.9,4.5,,false,false,,,
+sugared-baonut-x2,Sugared Baonut (x2),Desserts and treats,2 baonuts,383,6.6,48.0,16.3,1.4,,0.17,15.7,9.0,,false,false,,,
+pepsi-12-fl-oz-355-ml,Pepsi (12 fl oz / 355 ml),Drinks,12 fl oz (355 ml),149,0,39,0.0,0.0,,0.00,39.1,0,,false,false,,,
+pepsi-16-fl-oz-473-ml,Pepsi (16 fl oz / 473 ml),Drinks,16 fl oz (473 ml),199,0,52,0.0,0.0,,0.00,52.0,0,,false,false,,,
+pepsi-22-fl-oz-651-ml,Pepsi (22 fl oz / 651 ml),Drinks,22 fl oz (651 ml),273,0,72,0.0,0.0,,0.00,71.6,0,,false,false,,,
+pepsi-max-12-fl-oz-355-ml,Pepsi Max (12 fl oz / 355 ml),Drinks,12 fl oz (355 ml),1,0.0,0.0,0.0,0.0,,0.07,0.0,0.0,,false,false,,,
+pepsi-max-16-fl-oz-473-ml,Pepsi Max (16 fl oz / 473 ml),Drinks,16 fl oz (473 ml),1,0.0,0.0,0.0,0.0,,0.09,0.0,0.0,,false,false,,,
+pepsi-max-22-fl-oz-651-ml,Pepsi Max (22 fl oz / 651 ml),Drinks,22 fl oz (651 ml),2,0.0,0.0,0.0,0.0,,0.13,0.0,0.0,,false,false,,,
+diet-pepsi-12-fl-oz-355-ml,Diet Pepsi (12 fl oz / 355 ml),Drinks,12 fl oz (355 ml),1,0.0,0.0,0.0,0.0,,0.18,0.0,0.0,,false,false,,,
+diet-pepsi-16-fl-oz-473-ml,Diet Pepsi (16 fl oz / 473 ml),Drinks,16 fl oz (473 ml),2,0.0,0.0,0.0,0.0,,0.84,0.0,0.0,,false,false,,,Salt is printed as 0.84 g for 16 fl oz but 0.18 g for 12 fl oz and 0.33 g for 22 fl oz
+diet-pepsi-22-fl-oz-651-ml,Diet Pepsi (22 fl oz / 651 ml),Drinks,22 fl oz (651 ml),3,0.0,0.0,0.0,0.0,,0.33,0.0,0.0,,false,false,,,
+pepsi-max-cherry-12-fl-oz-355-ml,Pepsi Max Cherry (12 fl oz / 355 ml),Drinks,12 fl oz (355 ml),2,0.0,0.0,0.0,0.0,,0.18,0.0,0.0,,false,false,,,
+pepsi-max-cherry-16-fl-oz-473-ml,Pepsi Max Cherry (16 fl oz / 473 ml),Drinks,16 fl oz (473 ml),3,0.0,0.0,0.0,0.0,,0.24,0.0,0.0,,false,false,,,
+pepsi-max-cherry-22-fl-oz-651-ml,Pepsi Max Cherry (22 fl oz / 651 ml),Drinks,22 fl oz (651 ml),5,0.0,0.0,0.0,0.0,,0.33,0.0,0.0,,false,false,,,
+tango-orange-sugar-free-12-fl-oz-355-ml,Tango Orange Sugar Free (12 fl oz / 355 ml),Drinks,12 fl oz (355 ml),4,0.0,0.0,0.0,0.0,,0.43,0.0,0.0,,false,false,,,
+tango-orange-sugar-free-16-fl-oz-473-ml,Tango Orange Sugar Free (16 fl oz / 473 ml),Drinks,16 fl oz (473 ml),5,0.0,0.0,0.0,0.0,,0.57,0.0,0.0,,false,false,,,
+tango-orange-sugar-free-22-fl-oz-651-ml,Tango Orange Sugar Free (22 fl oz / 651 ml),Drinks,22 fl oz (651 ml),7,0.0,0.0,0.0,0.0,,0.78,0.0,0.0,,false,false,,,
+7up-zero-12-fl-oz-355-ml,7Up Zero (12 fl oz / 355 ml),Drinks,12 fl oz (355 ml),7,0.00,0.00,0.00,0.00,,0.00,0.00,0.00,,false,false,,,
+7up-zero-16-fl-oz-473-ml,7Up Zero (16 fl oz / 473 ml),Drinks,16 fl oz (473 ml),9,0.00,0.00,0.00,0.00,,0.00,0.00,0.00,,false,false,,,
+7up-zero-22-fl-oz-651-ml,7Up Zero (22 fl oz / 651 ml),Drinks,22 fl oz (651 ml),13,0.00,0.00,0.00,0.00,,0.00,0.00,0.00,,false,false,,,
+cherry-16-oz-bottomless,Cherry (16 oz bottomless),Drinks,16 oz,0,0.00,0.00,0.00,0.00,,0.00,0.00,0.00,,false,false,,,The guide does not say what the drink is beyond the flavour
+lime-16-oz-bottomless,Lime (16 oz bottomless),Drinks,16 oz,0,0.00,0.00,0.00,0.00,,0.00,0.00,0.00,,false,false,,,The guide does not say what the drink is beyond the flavour
+strawberry-16-oz-bottomless,Strawberry (16 oz bottomless),Drinks,16 oz,0,0.00,0.00,0.00,0.00,,0.00,0.00,0.00,,false,false,,,The guide does not say what the drink is beyond the flavour
+vanilla-16-oz-bottomless,Vanilla (16 oz bottomless),Drinks,16 oz,0,0.00,0.00,0.00,0.00,,0.00,0.00,0.00,,false,false,,,The guide does not say what the drink is beyond the flavour
+robinsons-juice-drink-apple-orange-and-mango-500-ml,"Robinsons Juice Drink - Apple, Orange and Mango (500 ml)",Drinks,500 ml,9,0.0,1.9,0.0,0.0,,0.03,1.9,0.0,,false,false,,,
+fruit-shoot-blackcurrant-275-ml-bottle,Fruit Shoot Blackcurrant (275 ml bottle),Drinks,275 ml bottle,17,0.0,2.2,0.0,0.0,,0.08,2.2,0.0,,false,false,,,Printed kJ (55) and kcal (17) do not agree
+fruit-shoot-orange-275-ml-bottle,Fruit Shoot Orange (275 ml bottle),Drinks,275 ml bottle,17,0.0,2.2,0.0,0.0,,0.08,2.2,0.0,,false,false,,,Printed kJ (55) and kcal (17) do not agree
+liptons-ice-tea-lemon-500-ml-bottle,Liptons Ice Tea Lemon (500 ml bottle),Drinks,500 ml bottle,19,0.5,4.6,0.5,0.1,,0.03,4.5,0.0,,false,false,,,

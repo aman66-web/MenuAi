@@ -1,0 +1,113 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+coronation-chicken-sub,Coronation Chicken Sub,Sandwiches,215 g,614,17,42,39,4.3,,1.7,6.8,,,true,true,,,
+loaded-chicken-fillet-sandwich,Loaded Chicken Fillet Sandwich,Sandwiches,255 g,542,30,48,26,9.5,,3.7,3.1,,,true,true,,,
+blt-sub,BLT Sub,Sandwiches,205 g,372,16,38,18,5.4,,2.6,3.5,,contains_pork,false,true,,,Tagged contains_pork from the name (BLT = bacon); the guide lists no ingredients
+blt-white-sub,BLT White Sub,Sandwiches,200 g,361,15,38,17,5.1,,2.4,3,,contains_pork,false,true,,,Tagged contains_pork from the name (BLT = bacon); the guide lists no ingredients
+cheese-and-ham-baguette,Cheese & Ham Baguette,Sandwiches,215 g,547,31.5,59.2,19.2,8.9,,2.9,5.2,,contains_pork,false,true,,,Printed numbers are identical to Cheese & Ham
+cheese-savoury-sub,Cheese Savoury Sub,Sandwiches,170 g,396,16,40,21,9.1,,1.6,3.4,,vegetarian,false,true,,,
+chicken-mayonnaise-and-bacon-sub,Chicken Mayonnaise & Bacon Sub,Sandwiches,275 g,658,23.4,38,44.1,6.2,,2.4,3.8,,contains_pork,false,true,,,
+corned-beef-sub,Corned Beef Sub,Sandwiches,180 g,314,18,35.3,12,4.8,,1.8,3,,contains_beef,false,true,,,
+egg-mayonnaise-sub,Egg Mayonnaise Sub,Sandwiches,160 g,340,17,42,12,2.9,,1.4,3.1,,vegetarian,false,true,,,
+egg-mayonnaise-white-sub,Egg Mayonnaise White Sub,Sandwiches,150 g,309,15,38,11,2.5,,1.1,2,,vegetarian,false,true,,,
+ham-and-pease-pudding-sub,Ham & Pease Pudding Sub,Sandwiches,140 g,284,16,39,7.6,2.3,,1.4,0.9,,contains_pork,false,true,,,
+ham-salad-sub,Ham Salad Sub,Sandwiches,195 g,269,15,35,8.3,2.6,,1.7,2.6,,contains_pork,false,true,,,
+just-ham-sub,Just Ham Sub,Sandwiches,150 g,315,23,34,11,3.6,,2.8,1,,contains_pork,false,true,,,
+ploughmans-sub,Ploughman's Sub,Sandwiches,215 g,367,14.9,43,15,7.9,,1.9,7.9,,vegetarian,false,true,,,
+roast-chicken-salad-sub,Roast Chicken Salad Sub,Sandwiches,225 g,308,19,39,8.4,1.9,,1.4,4.3,,,false,true,,,
+seafood-cocktail-sub,Seafood Cocktail Sub,Sandwiches,235 g,463,15.7,44.5,24.7,2.6,,2.8,5.6,,,false,true,,,
+tuna-mayonnaise-sub,Tuna Mayonnaise Sub,Sandwiches,215 g,386,20,37,18,2.1,,1.4,2.4,,,false,true,,,
+bbq-chicken-and-cheese,BBQ Chicken & Cheese,Sandwiches,225 g,529,30,69.5,12.8,7,,2.3,13.6,,,false,true,,,Weight printed 225 g; per-product values are for about 235 g
+bacon-brie-and-red-onion-chutney,"Bacon, Brie & Red Onion Chutney",Sandwiches,205 g,519,21.7,62.8,18.7,8.4,,2.6,8.9,,contains_pork,false,true,,,
+cheese-and-ham,Cheese & Ham,Sandwiches,215 g,547,31.5,59.2,19.2,8.9,,2.9,5.2,,contains_pork,false,true,,,Printed numbers are identical to Cheese & Ham Baguette
+meatball-and-cheese,Meatball & Cheese,Sandwiches,265 g,650,28,81,24,8.3,,3.3,17,,,false,true,,,Meat type not stated
+southern-fried-chicken-fillet-sandwich,Southern Fried Chicken Fillet Sandwich,Sandwiches,219 g,405,23,47,14,5.1,,2.1,2,,,false,true,,,
+tuna-melt,Tuna Melt,Sandwiches,255 g,728,37,76,30,10,,2.9,6.1,,,false,true,,,
+lamb-and-mint-pasty,Lamb & Mint Pasty,Savouries,145 g,349,8.7,37,19,9.3,,1.6,2.4,,,true,true,,,
+pork-and-cider-pie,Pork & Cider Pie,Savouries,65 g,197,4.6,20,12,4.2,,0.54,0.7,,contains_pork,true,true,,,
+steak-and-stilton-pie,Steak & Stilton Pie,Savouries,65 g,213,6.1,19,13,5,,0.43,0.6,,contains_beef,true,true,,,"The guide marks this vegetarian but its own name/ingredients list meat, so it is not tagged vegetarian"
+wild-mushroom-and-garlic-pie,Wild Mushroom & Garlic Pie,Savouries,65 g,194,2.8,20,12,4.3,,0.5,1.8,,vegetarian,true,true,,,
+bacon-and-cheese-wrap,Bacon & Cheese Wrap,Savouries,80 g,314,11,24,19,9.9,,1,1,,contains_pork,false,true,,,
+bacon-and-tomato-quiche,Bacon and Tomato Quiche,Savouries,124 g,437,14,24,33,15,,1.2,2.3,,contains_pork,false,true,,,
+cheese-and-onion-pasty,Cheese & Onion Pasty,Savouries,145 g,419,12.3,36,23,8.4,,0.64,0.29,,vegetarian,false,true,,,
+cheese-and-onion-quiche,Cheese and Onion Quiche,Savouries,140 g,375,8.3,40,20,9.9,,1.3,3.8,,vegetarian,false,true,,,
+cheese-straws,Cheese Straws,Savouries,21 g,98,2.9,7.8,6.1,3.6,,0.32,0.2,,vegetarian,false,false,,,One straw (the 5 pack row prints the same values per straw)
+chicken-bake,Chicken Bake,Savouries,145 g,351,13,35,17,8,,1.6,1.9,,,false,true,,,
+corned-beef-and-potato-pasty,Corned Beef & Potato Pasty,Savouries,145 g,381,12.3,33,21,10.2,,1.6,2,,contains_beef,false,true,,,
+mince-and-onion-pie,Mince and Onion Pie,Savouries,170 g,584,14,50,35,12,,1.5,0.7,,contains_beef,false,true,,,
+mushroom-and-cheese-wrap,Mushroom & Cheese Wrap,Savouries,115 g,334,15.6,20,21,11,,1.3,1,,vegetarian,false,true,,,
+sausage-roll,Sausage Roll,Savouries,58 g,165,4.4,17,8.3,3.8,,0.82,0.8,,contains_pork,false,true,,,
+sausage-cheese-and-beans-pasty,"Sausage, Cheese & Beans Pasty",Savouries,145 g,414,13,41,22,11,,1.4,5,,contains_pork,false,true,,,
+steak-and-ale-pie,Steak & Ale Pie,Savouries,170 g,530,12,45,27,9.7,,1.4,0.7,,contains_beef,false,true,,,Held back: see holdback.csv
+steak-bake,Steak Bake,Savouries,145 g,343,14,35,17,8.3,,1.4,1.7,,contains_beef,false,true,,,
+super-sausage-roll,Super Sausage Roll,Savouries,145 g,491,14,39,26,11.3,,0.8,3.6,,contains_pork,false,true,,,Held back: see holdback.csv
+traditional-pasty,Traditional Pasty,Savouries,155 g,401,9.8,42,20,8.8,,1.2,1.2,,contains_beef,false,true,,,
+vegan-sausage-roll,Vegan Sausage Roll,Savouries,90 g,235,13,40,16,8.1,,2.3,15,,vegetarian,false,true,,,Held back: see holdback.csv
+cheese-scone-from-4-pack,Cheese Scone (from 4 pack),Savouries,1 scone,268,8.7,33,12,2.7,,1.1,1.9,,vegetarian,false,true,,,Printed 'CHEESE SCONES - 4 PACK' (320 g); the guide says the values are per scone
+chicken-and-jalapeno-pizza,Chicken & Jalapeno Pizza,Pizzas,240 g,529,31,63,18,7.9,,3.4,6.9,,,true,true,,,
+margherita-pizza,Margherita Pizza,Pizzas,175 g,485,24,59,18,8.2,,1.7,6.6,,vegetarian,false,true,,,
+pepperoni-pizza,Pepperoni Pizza,Pizzas,190 g,544,27,59,24,11,,2.3,6.6,,contains_pork,false,true,,,
+bbq-chicken-pizza,BBQ Chicken Pizza,Pizzas,235 g,560,35,65,19,8.4,,2.3,12,,,false,true,,,
+ham-salad,Ham Salad,Salads,235 g,192,11,8.7,13,1.7,,1.3,6.4,,contains_pork,false,true,,,
+ham-and-egg-salad,Ham & Egg Salad,Salads,275 g,249,17,8.7,16,2.8,,1.4,6.4,,contains_pork,false,true,,,
+chicken-salad,Chicken Salad,Salads,,203,15,10,11,1,,0.55,7.6,,,false,true,,,"Fat per 100 g is printed 43 (kcal per 100 g is 77), looks like 4.3; the per-product values agree with each other. Weight printed 250 g but the per-product values are for about 264 g, so no serving is shown"
+plain-salad,Plain Salad,Salads,170 g,44,1.9,7.1,0.85,0.17,,0.02,5.3,,vegetarian,false,true,,,
+almond-tart,Almond Tart,Cakes & sweet treats,55 g,234,1.7,34,9.4,2.1,,0.25,23,,vegetarian,true,false,,,
+cornflake-nest-with-chocolate-eggs,Cornflake Nest with Chocolate Eggs,Cakes & sweet treats,60 g,276,1.5,42,11,9,,0.18,22,,vegetarian,true,false,,,
+easter-brownie,Easter Brownie,Cakes & sweet treats,80 g,345,3.9,44,17,10,,0.11,38,,vegetarian,true,false,,,
+easter-bun-from-4-pack,Easter Bun (from 4 pack),Cakes & sweet treats,1 cake,259,2.1,49,6,2.4,,0.35,38,,vegetarian,true,false,,,Printed 'EASTER BUN - 4 PACK' (280 g); the guide says the values are per cake
+easter-bun-chocolate,Easter Bun (Chocolate),Cakes & sweet treats,75 g,328,2.3,45,15,4.7,,0.48,38,,vegetarian,true,false,,,Printed numbers are identical to Easter Bun (Vanilla). Saturates per product (4.7 g) is lower than per 100 g x 75 g (about 5.8 g)
+easter-bun-vanilla,Easter Bun (Vanilla),Cakes & sweet treats,75 g,328,2.3,45,15,4.7,,0.48,38,,vegetarian,true,false,,,Printed numbers are identical to Easter Bun (Chocolate). Saturates per product (4.7 g) is lower than per 100 g x 75 g (about 5.8 g)
+easter-bunny-biscuit,Easter Bunny Biscuit,Cakes & sweet treats,75 g,348,4.7,48,16,7.7,,0.3,20,,vegetarian,true,false,,,
+easter-chick-biscuit,Easter Chick Biscuit,Cakes & sweet treats,60 g,288,3.2,39,14,7.8,,0.28,20,,vegetarian,true,false,,,
+easter-cornflake-nest,Easter Cornflake Nest,Cakes & sweet treats,55 g,251,1.2,38,10,8.8,,0.15,19,,vegetarian,true,false,,,"kJ per product is printed 14049 (impossible next to 1908 kJ per 100 g); kcal and macros agree with each other, so published as printed"
+fun-gingerbread-biscuit,Fun Gingerbread Biscuit,Cakes & sweet treats,45 g,230,2.4,40,6.3,3,,0.13,24,,vegetarian,true,false,,,Printed numbers are identical to Gingerbread
+lemon-muffin,Lemon Muffin,Cakes & sweet treats,110 g,535,6.5,6.9,26,3.6,,1.2,45,,vegetarian,true,false,,,Held back: see holdback.csv. Weight printed 110 g but per-product values are for about 120 g
+lemon-pie,Lemon Pie,Cakes & sweet treats,90 g,348,2.4,53,14,5.9,,0.45,27,,vegetarian,true,false,,,
+rainbow-cookie,Rainbow Cookie,Cakes & sweet treats,100 g,500,5.2,73,21,8.4,,1,44,,vegetarian,true,false,,,
+raspberry-topped-doughnut,Raspberry Topped Doughnut,Cakes & sweet treats,95 g,284,4.7,48,7.9,1.9,,0.62,26,,vegetarian,true,false,,,
+russian-slice,Russian Slice,Cakes & sweet treats,120 g,411,6.9,69,12,4.8,,0.83,48,,vegetarian,true,false,,,
+summer-fruit-flan,Summer Fruit Flan,Cakes & sweet treats,175 g,439,4.6,51,24,11,,0.65,28,,vegetarian,true,false,,,
+vanilla-sundae,Vanilla Sundae,Cakes & sweet treats,70 g,321,2.6,42,16,7,,0.63,34,,vegetarian,true,false,,,
+victoria-sponge-muffin,Victoria Sponge Muffin,Cakes & sweet treats,120 g,489,4.8,64,24,4.8,,0.92,46,,vegetarian,true,false,,,
+bakewell-slice,Bakewell Slice,Cakes & sweet treats,110 g,510,8.1,47,32,9,,0.7,25,,vegetarian,false,false,,,
+brownie,Brownie,Cakes & sweet treats,85 g,393,5.2,45,21.3,12.8,,0.4,38.3,,vegetarian,false,false,,,
+caramel-crispie,Caramel Crispie,Cakes & sweet treats,48 g,216,2.3,29.8,9.6,6.2,,0.2,18.2,,vegetarian,false,false,,,
+caramel-shortbread,Caramel Shortbread,Cakes & sweet treats,54 g,262,2.2,30.2,15.1,9.7,,0.16,17.8,,vegetarian,false,false,,,
+chocolate-flapjack,Chocolate Flapjack,Cakes & sweet treats,75 g,374,3.6,42,21,12,,0.4,28,,vegetarian,false,false,,,
+chocolate-toffee-danish,Chocolate Toffee Danish,Cakes & sweet treats,139 g,581,8.2,70.9,29.2,13.6,,1.1,33.4,,vegetarian,false,false,,,
+cookie-monster,Cookie Monster,Cakes & sweet treats,95 g,436,4,64,18,7,,0.53,49,,vegetarian,false,false,,,
+cornflake-treacle-tart,Cornflake Treacle Tart,Cakes & sweet treats,140 g,611,3.8,95,24,10,,0.79,58,,vegetarian,false,false,,,
+danish-pastry,Danish Pastry,Cakes & sweet treats,139 g,512,6.8,72.3,20.9,9.6,,0.8,44.5,,vegetarian,false,false,,,
+double-chocolate-chip-cookie,Double Chocolate Chip Cookie,Cakes & sweet treats,100 g,500,8.5,66,23,10,,0.74,43,,vegetarian,false,false,,,
+gingerbread,Gingerbread,Cakes & sweet treats,45 g,230,2.4,40,6.3,3,,0.13,24,,vegetarian,false,false,,,Printed numbers are identical to Fun Gingerbread Biscuit
+iced-finger,Iced Finger,Cakes & sweet treats,80 g,227,4.4,45,3.6,1.7,,0.55,18,,vegetarian,false,false,,,
+jam-doughnut,Jam Doughnut,Cakes & sweet treats,70 g,194,5.7,33,4.3,1.8,,0.83,9.2,,vegetarian,false,false,,,
+jam-tart,Jam Tart,Cakes & sweet treats,51 g,227,1.9,36,8.9,2.8,,0.36,18,,vegetarian,false,false,,,
+jumbo-jammy-biscuit,Jumbo Jammy Biscuit,Cakes & sweet treats,85 g,383,4.1,56,17,6.9,,0.51,29,,vegetarian,false,false,,,
+large-curd-tart,Large Curd Tart,Cakes & sweet treats,1/4 slice of tart,305,8.7,32,16,6.1,,0.6,18.7,,vegetarian,false,false,,,
+large-custard-tart,Large Custard Tart,Cakes & sweet treats,1/4 slice of tart,188,3.8,24,9,2.6,,0.3,4.2,,vegetarian,false,false,,,
+lemon-tart,Lemon Tart,Cakes & sweet treats,51 g,239,2,36,10,3.3,,0.33,18,,vegetarian,false,false,,,
+maid-of-honour,Maid of Honour,Cakes & sweet treats,85 g,255,9.2,29,11,3.3,,0.55,11,,vegetarian,false,false,,,
+small-curd-tart,Small Curd Tart,Cakes & sweet treats,93 g,324,8.8,34.4,17.7,6.4,,0.6,18.6,,vegetarian,false,false,,,
+small-custard-tart,Small Custard Tart,Cakes & sweet treats,80 g,213,4,27,10.4,3.2,,0.3,5,,vegetarian,false,false,,,
+toffee-doughnut,Toffee Doughnut,Cakes & sweet treats,95 g,276,5.6,46,7.3,3.5,,0.76,23,,vegetarian,false,false,,,
+triple-chocolate-muffin,Triple Chocolate Muffin,Cakes & sweet treats,110 g,497,6.8,55,27,6.5,,1.1,38,,vegetarian,false,false,,,
+yum-yum,Yum Yum,Cakes & sweet treats,55 g,252,1.5,32,8.9,2.6,,0.32,22,,vegetarian,false,false,,,Held back: see holdback.csv
+flapjack-from-4-pack,Flapjack (from 4 pack),Cakes & sweet treats,1 flapjack,238,2.8,28,12.5,4.5,,0.27,15,,vegetarian,false,false,,,Printed 'FLAPJACK - 4 PACK' (200 g); the guide says the values are per flapjack
+ginger-square-from-4-pack,Ginger Square (from 4 pack),Cakes & sweet treats,1 cake,202,2.6,42,2.4,0.9,,0.5,24,,vegetarian,false,false,,,Printed 'GINGER SQUARES - 4 PACK' (280 g); the guide says the values are per cake
+bright-iced-bun-from-4-pack,Bright Iced Bun (from 4 pack),Cakes & sweet treats,1 cake,249,2.2,45,6.5,2.7,,0.34,35,,,false,false,,,Printed 'BRIGHT ICED BUNS - 4 PACK' (260 g); the guide says the values are per cake
+melting-moments-biscuit-from-6-pack,Melting Moments Biscuit (from 6 pack),Cakes & sweet treats,1 biscuit,223,1.8,22,14,8.9,,0.47,6.7,,vegetarian,false,false,,,Printed 'MELTING MOMENTS BISCUITS - 6 PACK' (240 g); the guide says the values are per biscuit
+parkin-biscuit-from-6-pack,Parkin Biscuit (from 6 pack),Cakes & sweet treats,1 biscuit,152,1.7,27,4.1,1.6,,0.43,14,,vegetarian,false,false,,,Printed 'PARKIN BISCUITS - 6 PACK' (210 g); the guide says the values are per biscuit
+school-cake-from-4-pack,School Cake (from 4 pack),Cakes & sweet treats,1 cake,343,4.6,58,10,4.2,,0.73,42,,vegetarian,false,false,,,Printed 'SCHOOL CAKE - 4 PACK' (380 g); the guide says the values are per cake
+sultana-scone-from-4-pack,Sultana Scone (from 4 pack),Cakes & sweet treats,1 scone,272,6.2,46,8.1,0.8,,0.74,17,,vegetarian,false,false,,,Printed 'SULTANA SCONES - 4 PACK' (320 g); the guide says the values are per scone
+large-chocolate-cream-sponge,Large Chocolate Cream Sponge,Cream cakes,1/6 slice,189,3.1,19,11,6.8,,0.3,14,,vegetarian,true,false,,,
+large-cream-sponge,Large Cream Sponge,Cream cakes,1/6 slice,168,1.9,17,11,6.9,,0.37,11,,vegetarian,true,false,,,
+cream-doughnut,Cream Doughnut,Cream cakes,95 g,304,6.1,33,16,9.3,,0.82,9.9,,vegetarian,false,false,,,
+cream-slice,Cream Slice,Cream cakes,105 g,397,3.2,39,25,16,,0.4,19,,vegetarian,false,false,,,
+eclair,Eclair,Cream cakes,95 g,348,2.9,32,23,13,,0.22,27,,vegetarian,false,false,,,
+mini-chocolate-cream-sponge,Mini Chocolate Cream Sponge,Cream cakes,95 g,326,5.4,33,19,11,,0.5,24,,vegetarian,false,false,,,
+mini-cream-sponge,Mini Cream Sponge,Cream cakes,95 g,296,3.3,28.4,19,12.4,,0.7,18.1,,vegetarian,false,false,,,
+peach-melba,Peach Melba,Cream cakes,83 g,276,2.3,34.9,14.1,6.6,,0.3,19.1,,vegetarian,false,false,,,
+strawberry-tart,Strawberry Tart,Cream cakes,75 g,221,1.7,31,11,4.5,,0.28,15,,vegetarian,false,false,,,
+vanilla-slice,Vanilla Slice,Cream cakes,,332,2.9,56,10.2,6.4,,0.6,33.6,,vegetarian,false,false,,,"Weight printed 105 g but the per-product values are for about 140 g, so no serving is shown"
+devonshire-split,Devonshire Split,Cream cakes,145 g,448,6.4,66,18,11,,0.7,28,,vegetarian,false,false,,,

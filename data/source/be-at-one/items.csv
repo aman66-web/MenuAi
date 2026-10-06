@@ -1,0 +1,24 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+mixed-rice-crackers-and-coated-nuts,Mixed Rice Crackers & Coated Nuts,Bar snacks,,509,18.0,41.0,29.0,3.7,,0.9,3.6,,,false,false,,,"Marked (VG-M) by the chain; the mark is not explained on the page, so no vegetarian tag"
+basil-and-garlic-green-olives,Basil & Garlic Green Olives,Bar snacks,,235,1.0,1.0,25.0,3.0,,4.2,0.0,,vegetarian,false,false,,,
+salted-caramel-popcorn,Salted Caramel Popcorn,Bar snacks,,132,1.8,15.4,6.3,0.5,,0.2,3.7,,,false,false,,,"Marked (VG-M) by the chain; the mark is not explained on the page, so no vegetarian tag"
+lightly-sea-salted-popcorn,Lightly Sea Salted Popcorn,Bar snacks,,88,1.7,11.3,3.5,0.3,,0.8,0.1,,,false,false,,,"Marked (VG-M) by the chain; the mark is not explained on the page, so no vegetarian tag"
+double-chocolate-brownie-and-marshmallows,Double Chocolate Brownie & Marshmallows,Sweet treats,,320,3.7,44.1,13.5,2.2,,0.5,25.7,,,false,false,,,
+sweet-treats,Sweet Treats,Sweet treats,,786,7.4,182.1,2.8,1.4,,0.1,143.6,,,false,false,,,Described as 'The perfect pick-and-mix combo'; the number of sweets is not stated
+cucumber-caipirinha-0,Cucumber Caipirinha 0%,Alcohol-free cocktails,,83,0.9,17.9,0.2,0.1,,0.0,14.6,,,false,false,,,
+bit-of-me-0,Bit Of Me 0%,Alcohol-free cocktails,,98,0.5,21.7,0.0,0.0,,0.0,21.7,,,false,false,,,
+verdita-margarita-0,Verdita Margarita 0%,Alcohol-free cocktails,,90,0.6,20.5,0.3,0.1,,2.5,20.4,,,false,false,,,
+cucumber-tom-collins-0,Cucumber Tom Collins 0%,Alcohol-free cocktails,,140,0.8,27.8,0.3,0.1,,0.1,27.8,,,false,false,,,"Printed kJ (584) agrees with the 140 kcal; the gap is with the energy of the printed macros; Printed calories (140) differ from the energy of the printed protein, carbs and fat (about 117 kcal) by 16%"
+raspberry-tom-collins-0,Raspberry Tom Collins 0%,Alcohol-free cocktails,,95,0.5,19.4,0.4,0.0,,0.1,19.4,,,false,false,,,"Printed calories (95) differ from the energy of the printed protein, carbs and fat (about 83 kcal) by 12%"
+peach-tom-collins-0,Peach Tom Collins 0%,Alcohol-free cocktails,,121,0.5,25.3,0.2,0.1,,0.1,27.4,,,false,false,,,"Sugars are printed higher than carbohydrate; Printed calories (121) differ from the energy of the printed protein, carbs and fat (about 105 kcal) by 13%"
+margarita-0,Margarita 0%,Alcohol-free cocktails,,28,0.0,6.2,0.0,0.0,,3.0,6.2,,,false,false,,,
+peroni-nastro-azzurro-0-0,Peroni Nastro Azzurro 0.0%,Alcohol-free beer,330ml,76,0.7,18.5,0.0,0.0,,0.0,2.6,,,false,false,,,
+heineken-0-0,Heineken 0.0%,Alcohol-free beer,330ml,69,1.3,15.8,0.0,0.0,,0.0,4.3,,,false,false,,,
+guinness-0-0,Guinness 0.0%,Alcohol-free beer,538ml,91,1.6,20.4,0.0,0.0,,0.0,3.8,,,false,false,,,
+corona-cero-0,Corona Cero 0%,Alcohol-free beer,330ml,56,1.3,12.9,0.0,0.0,,0.0,2.3,,,false,false,,,
+garden-margarita-0,Garden Margarita 0%,Non-alcoholic cocktails,,43,0.1,10.0,0.0,0.0,,0.0,10.0,,,true,false,,,
+english-garden-midori-sour-0,English Garden Midori Sour 0%,Non-alcoholic cocktails,,55,0.4,11.2,0.1,0.0,,0.0,10.8,,,true,false,,,"Printed calories (55) differ from the energy of the printed protein, carbs and fat (about 47 kcal) by 14%"
+lemon-drop-martini-0,Lemon Drop Martini 0%,Non-alcoholic cocktails,,72,0.0,17.3,0.0,0.0,,0.0,17.0,,,true,false,,,
+rhubarb-and-strawberry-cosmo-0,Rhubarb & Strawberry Cosmo 0%,Non-alcoholic cocktails,,31,0.1,6.9,0.0,0.0,,0.0,6.9,,,true,false,,,
+rhubarb-hugo-0,Rhubarb Hugo 0%,Non-alcoholic cocktails,,59,0.3,13.5,0.0,0.0,,0.0,13.3,,,true,false,,,
+rhubarb-hugo-0-pm,Rhubarb Hugo 0% - PM,Non-alcoholic cocktails,,59,0.3,13.5,0.0,0.0,,0.0,13.3,,,true,false,,,Printed with the same numbers as Rhubarb Hugo 0%; the '- PM' is not explained on the page

@@ -1,0 +1,1 @@
+Values are per item as the bakery's website prints them (per roll, product, portion or stated weight). Items it lists only per 100 g are left out, because we never convert. The website carries no date.

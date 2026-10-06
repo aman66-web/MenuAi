@@ -1,0 +1,269 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+hot-honey-fried-chicken-burger,Hot Honey Fried Chicken Burger,Autumn specials,,1004,36.1,86.2,48.0,15.1,,5.3,34.6,,,true,true,,,Source: Main Menu > AUTUMN SPECIALS
+pumpkin-and-ginger-sponge,Pumpkin & Ginger Sponge,Autumn specials,,434,4.4,55.0,21.4,6.8,,0.5,41.4,,vegetarian,true,false,,,Source: Main Menu > AUTUMN SPECIALS
+spiced-pumpkin-latte,Spiced Pumpkin Latte,Autumn specials,,254,10.6,35.1,7.8,4.4,,0.7,32.6,,vegetarian,true,false,,,Source: Main Menu > AUTUMN SPECIALS
+garlic-bread,Garlic Bread,Starters,,430,9.4,47.5,21.2,7.6,,1.9,3.7,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+garlic-bread-to-share,Garlic Bread To Share,Starters,,860,18.9,95.0,42.3,15.2,,3.7,7.4,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+garlic-bread-to-share-gluten-free,Garlic Bread To Share Gluten-Free,Starters,,783,6.2,80.9,45.5,16.9,,2.6,8.5,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+cheesy-garlic-bread,Cheesy Garlic Bread,Starters,,514,14.5,48.9,27.6,11.9,,2.3,4.4,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+cheesy-garlic-bread-sharer,Cheesy Garlic Bread Sharer,Starters,,1028,28.9,97.8,55.3,23.9,,4.6,8.8,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+cheesy-garlic-bread-sharer-gluten-free,Cheesy Garlic Bread Sharer Gluten-Free,Starters,,951,16.2,83.7,58.5,25.6,,3.4,9.8,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+giant-mozzarella-stick,Giant Mozzarella Stick,Starters,,446,15.7,27.4,29.6,10.2,,2.1,4.7,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+crispy-calamari,Crispy Calamari,Starters,,402,10.1,20.2,30.2,2.7,,3.1,3.6,,,false,true,,,Source: Main Menu > STARTERS
+classic-meatballs,Classic Meatballs,Starters,,425,26.7,16.9,27.5,12.2,,3.3,10.3,,contains_pork|contains_beef,false,true,,,Source: Main Menu > STARTERS
+southern-fried-chicken-tenders,Southern Fried Chicken tenders,Starters,,425,30.0,36.0,18.4,3.3,,1.3,0.0,,,false,true,,,Source: Main Menu > STARTERS
+frankies-wings-5-piece,Frankie's Wings (5 Piece),Starters,5 Piece,412,43.0,7.3,23.1,5.3,,2.7,1.7,,,false,true,,,Source: Main Menu > STARTERS
+frankies-wings-8-piece,Frankie's Wings (8 Piece),Starters,8 Piece,637,68.5,9.7,35.5,7.8,,4.1,2.1,,,false,true,,,Source: Main Menu > STARTERS
+frankies-wings-11-piece,Frankie's Wings (11 Piece),Starters,11 Piece,862,94.0,12.1,47.9,10.3,,5.4,2.4,,,false,true,,,Source: Main Menu > STARTERS
+crispy-cauli-bites-starters,Crispy Cauli Bites (Starters),Starters,,654,11.4,45.3,46.3,3.8,,4.3,5.1,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+tomato-bruschetta,Tomato Bruschetta,Starters,,547,13.6,82.2,16.7,5.3,,2.7,12.4,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+tomato-bruschetta-vegan,Tomato Bruschetta Vegan,Starters,,438,13.5,81.9,5.1,0.9,,2.5,12.4,,vegetarian,false,true,,,Source: Main Menu > STARTERS
+frankies-faves-combo,Frankie's Faves Combo,Starters,,1542,78.5,86.2,97.2,20.7,,8.0,38.2,,,false,false,,,Source: Main Menu > STARTERS
+southern-fried-chicken-bbq-sauce,Southern Fried Chicken (BBQ Sauce),Starters,,384,22.7,42.4,14.1,2.5,,1.5,14.0,,,false,true,,,Source: Lunch > STARTERS
+southern-fried-chicken-hot-sauce,Southern Fried Chicken (Hot Sauce),Starters,,333,22.7,27.8,14.5,2.5,,3.6,0.6,,,false,true,,,Source: Lunch > STARTERS
+garlic-pizza-bread,Garlic Pizza Bread,Starters,,430,9.4,47.5,21.2,7.6,,1.9,3.7,,vegetarian,false,true,,,Source: Lunch > STARTERS
+garlic-pizza-bread-with-mozzarella,Garlic Pizza Bread with Mozzarella,Starters,,500,13.6,48.7,26.6,11.2,,2.2,4.3,,vegetarian,false,true,,,Source: Lunch > STARTERS; printed as 'Add: Mozzarella' under Garlic Pizza Bread; the numbers are for the starter with it added
+hickory-smoked-bbq,Hickory Smoked BBQ,Starters,,63,0.2,15.4,0.0,0.0,,0.5,14.0,,,false,true,,,Source: Evening > STARTERS
+franks-red-hot-buffalo,Frank's Red Hot Buffalo,Starters,,12,0.2,0.8,0.4,0.0,,2.6,0.6,,,false,true,,,Source: Evening > STARTERS
+frankies-secret-sauce,Frankie's Secret Sauce,Starters,,213,0.4,2.5,23.6,1.6,,0.7,1.7,,vegetarian,false,true,,,Source: Evening > STARTERS
+garlic-and-herb-ranch,Garlic & Herb Ranch,Starters,,192,0.0,2.3,20.4,1.3,,0.6,1.9,,vegetarian,false,true,,,Source: Evening > STARTERS
+classic-crispy-chicken-burger,Classic Crispy Chicken Burger,Burgers,,664,29.2,55.8,35.9,9.6,,2.2,7.2,,,false,true,,,Source: Main Menu > BURGERS > Classic Burgers
+classic-beef-burger,Classic Beef Burger,Burgers,,756,27.9,39.4,54.8,17.7,,2.5,6.2,,contains_beef,false,true,,,Source: Main Menu > BURGERS > Classic Burgers
+classic-beef-burger-gluten-free,Classic Beef Burger (Gluten-Free),Burgers,,796,24.9,47.2,57.0,17.1,,2.5,4.1,,contains_beef,false,true,,,Source: Main Menu > BURGERS > Classic Burgers
+central-park,Central Park,Burgers,,1040,29.4,65.8,67.1,14.3,,3.8,11.7,,vegetarian,false,true,,,Source: Main Menu > BURGERS > Signature Burgers
+crispy-bbq-chicken,Crispy BBQ Chicken,Burgers,,1092,44.7,65.0,72.9,18.7,,5.2,14.9,,contains_pork,false,true,,,Source: Main Menu > BURGERS > Signature Burgers
+mac-daddy-burger,Mac Daddy Burger,Burgers,,1123,45.3,72.6,73.3,27.9,,4.5,22.6,,contains_pork|contains_beef,false,true,,,Source: Main Menu > BURGERS > Signature Burgers
+steakhouse-burger,Steakhouse Burger,Burgers,,1174,47.1,56.2,85.1,31.3,,4.5,13.4,,contains_pork|contains_beef,false,true,,,Source: Main Menu > BURGERS > Signature Burgers
+double-stack,Double Stack,Burgers,,1528,71.8,61.7,110.9,45.2,,6.5,21.3,,contains_pork|contains_beef,false,true,,,Source: Main Menu > BURGERS > Signature Burgers
+the-double-stack-gluten-free,The Double Stack (Gluten-Free),Burgers,,1552,68.4,69.1,111.7,44.5,,5.8,19.0,,contains_pork|contains_beef,false,true,,,Source: Main Menu > BURGERS > Signature Burgers
+margherita-pizza,Margherita Pizza,Pizza,,853,39.1,103.4,29.9,17.9,,5.2,11.9,,vegetarian,false,true,,,Source: Main Menu > PIZZA
+margherita-pizza-vegan,Margherita Pizza (Vegan),Pizza,,700,19.2,111.1,18.4,13.1,,4.8,9.2,,vegetarian,false,true,,,Source: Main Menu > PIZZA
+margherita-pizza-gluten-free,Margherita Pizza (Gluten-Free),Pizza,,776,26.5,89.3,33.1,19.7,,4.0,13.0,,vegetarian,false,true,,,Source: Main Menu > PIZZA
+pepperoni-pizza,Pepperoni Pizza,Pizza,,1038,42.1,104.4,48.8,21.5,,7.3,11.0,,contains_pork,false,true,,,Source: Main Menu > PIZZA
+pepperoni-pizza-gluten-free,Pepperoni Pizza (Gluten-Free),Pizza,,943,28.7,86.8,51.9,23.2,,6.1,12.0,,contains_pork,false,true,,,Source: Main Menu > PIZZA
+bbq-chicken-pizza,BBQ Chicken Pizza,Pizza,,900,53.7,127.3,18.5,9.6,,5.3,35.3,,,false,true,,,Source: Main Menu > PIZZA
+bbq-chicken-pizza-gluten-free,BBQ Chicken Pizza (Gluten-Free),Pizza,,823,41.1,113.2,21.7,11.3,,4.1,36.4,,,false,true,,,Source: Main Menu > PIZZA
+meat-medley,Meat Medley,Pizza,,1196,61.3,112.3,54.3,23.5,,7.5,16.7,,contains_pork|contains_beef,false,true,,,Source: Main Menu > PIZZA
+the-blanco-pizza,The Blanco Pizza,Pizza,,999,35.2,102.5,47.4,21.9,,4.9,11.6,,vegetarian,false,true,,,Source: Main Menu > PIZZA
+blanco-mushroom-and-spinach-gluten-free,Blanco Mushroom & Spinach (Gluten-Free),Pizza,,922,22.6,88.4,50.6,23.6,,3.8,12.7,,vegetarian,false,true,,,Source: Main Menu > PIZZA
+calizza,Calizza,Calzones,,1670,63.3,185.6,72.7,31.3,,10.0,23.8,,contains_pork|contains_beef,false,true,,,Source: Main Menu > CALZONES
+manhattan-calzone,Manhattan Calzone,Calzones,,1431,61.6,114.4,79.4,30.0,,7.9,17.4,,contains_pork|contains_beef,false,true,,,Source: Main Menu > CALZONES
+cajun-chicken-alfredo-calzone,Cajun Chicken Alfredo Calzone,Calzones,,1476,56.5,107.5,87.9,36.4,,6.8,14.1,,,false,true,,,Source: Main Menu > CALZONES
+roasted-vegetable-calzone,Roasted Vegetable Calzone,Calzones,,1209,33.7,111.4,66.9,25.8,,7.1,18.4,,vegetarian,false,true,,,Source: Main Menu > CALZONES
+roasted-vegetable-calzone-vegan,Roasted Vegetable Calzone (Vegan),Calzones,,1032,21.7,123.1,48.6,15.3,,7.2,18.8,,vegetarian,false,true,,,Source: Main Menu > CALZONES
+house-mac-n-cheese,House Mac 'n' Cheese,Pasta,,737,28.8,75.9,35.4,18.7,,2.2,8.8,,vegetarian,false,true,,,Source: Main Menu > PASTA
+frankies-spaghetti-and-meatballs,Frankie’s Spaghetti & Meatballs,Pasta,,1203,62.4,121.0,51.1,18.4,,5.1,23.8,,contains_pork|contains_beef,false,true,,,Source: Main Menu > PASTA
+classic-beef-lasagne,Classic Beef Lasagne,Pasta,,607,29.5,57.0,28.2,11.8,,3.0,18.5,,contains_beef,false,true,,,Source: Main Menu > PASTA
+chicken-piccante,Chicken Piccante,Pasta,,1105,42.7,73.9,69.9,27.3,,4.4,9.4,,contains_pork,false,true,,,Source: Main Menu > PASTA
+chicken-piccante-gluten-free,Chicken Piccante (Gluten-Free),Pasta,,1129,40.3,95.0,65.3,25.2,,4.2,7.0,,contains_pork,false,true,,,Source: Main Menu > PASTA
+bolognese,Bolognese,Pasta,,702,30.7,99.1,19.4,6.1,,1.9,10.0,,,false,true,,,Source: Main Menu > PASTA
+bolognese-gluten-free,Bolognese (Gluten-Free),Pasta,,604,21.2,89.3,16.9,5.8,,0.1,5.5,,,false,true,,,Source: Main Menu > PASTA
+carbonara,Carbonara,Pasta,,920,39.2,102.3,39.4,19.7,,5.4,13.7,,contains_pork,false,true,,,Source: Main Menu > PASTA
+arrabiatta,Arrabiatta,Pasta,,483,12.8,70.6,15.1,1.4,,2.0,12.4,,vegetarian,false,true,,,Source: Main Menu > PASTA
+arrabbiata-gluten-free,Arrabbiata (Gluten-Free),Pasta,,550,10.2,91.4,15.0,2.1,,1.4,9.9,,,false,true,,,Source: Main Menu > PASTA
+the-chicken-parm,The Chicken Parm,Pasta,,1026,54.7,114.3,37.5,16.0,,5.2,15.2,,,false,true,,,Source: Main Menu > PASTA
+bbq-chicken-stack,BBQ Chicken Stack,Signature grills & classics,,1015,49.8,60.5,64.1,19.7,,6.9,20.3,,contains_pork,false,true,,,Source: Main Menu > SIGNATURE GRILLS & CLASSICS
+slow-cooked-hickory-smoked-bbq-ribs-whole-rack,Slow-Cooked Hickory Smoked BBQ Ribs (Whole Rack),Signature grills & classics,,1223,84.6,51.3,76.5,24.9,,6.6,41.2,,,false,true,,,Source: Main Menu > SIGNATURE GRILLS & CLASSICS
+slow-cooked-hickory-smoked-bbq-ribs-half-rack,Slow-Cooked Hickory Smoked BBQ Ribs (Half Rack),Signature grills & classics,,710,43.0,30.1,47.3,13.0,,4.0,25.0,,,false,true,,,Source: Main Menu > SIGNATURE GRILLS & CLASSICS
+sirloin-steak,Sirloin Steak,Signature grills & classics,,803,39.8,8.5,67.1,23.4,,2.1,2.1,,contains_beef,false,true,,,Source: Main Menu > SIGNATURE GRILLS & CLASSICS
+grilled-prawn-and-red-pepper-skewer,Grilled Prawn & Red Pepper Skewer,Signature grills & classics,,140,18.4,3.4,5.7,0.7,,2.1,3.1,,,false,true,,,Source: Main Menu > SIGNATURE GRILLS & CLASSICS
+bbq-platter,BBQ Platter,Signature grills & classics,,1787,133.9,86.1,101.8,29.8,,10.4,54.0,,,false,false,,,Source: Main Menu > SIGNATURE GRILLS & CLASSICS
+cobb-salad,Cobb Salad,Salads,,440,10.1,9.7,39.8,7.6,,1.9,6.6,,vegetarian,false,true,,,Source: Main Menu > SALADS
+classic-caesar,Classic Caesar,Salads,,562,11.5,33.9,41.5,5.9,,2.7,7.4,,vegetarian,false,true,,,Source: Main Menu > SALADS
+tenderstem-broccoli,Tenderstem Broccoli,Sides,,36,4.6,2.3,0.9,0.4,,1.1,1.8,,,false,true,,,Source: Main Menu > SIDES
+sweet-potato-fries,Sweet Potato Fries,Sides,,298,2.6,37.4,13.8,1.9,,0.7,12.1,,vegetarian,false,true,,,Source: Main Menu > SIDES
+skin-on-fries,Skin-on Fries,Sides,,339,5.3,52.8,10.5,1.1,,1.4,1.9,,,false,true,,,Source: Main Menu > SIDES
+onion-rings,Onion Rings,Sides,,365,3.2,26.9,26.2,2.6,,1.0,2.9,,vegetarian,false,true,,,Source: Main Menu > SIDES
+cheese-sauce,Cheese Sauce,Sides,,101,4.9,2.9,7.8,4.8,,0.8,1.1,,vegetarian,false,true,,,Source: Main Menu > SIDES
+slaw,'Slaw,Sides,,197,1.4,9.0,18.0,1.2,,1.5,8.9,,vegetarian,false,true,,,Source: Main Menu > SIDES
+crispy-cauli-bites-sides,Crispy Cauli Bites (Sides),Sides,,230,6.7,25.0,10.7,1.2,,1.4,1.2,,vegetarian,false,true,,,Source: Main Menu > SIDES
+house-mac-and-cheese,House Mac & Cheese,Sides,,291,11.0,29.5,14.3,7.4,,0.9,3.3,,vegetarian,false,true,,,Source: Main Menu > SIDES
+cajun-haloumi-fries,Cajun Haloumi Fries,Sides,,309,17.2,1.4,25.9,14.8,,2.5,1.0,,vegetarian,false,true,,,Source: Main Menu > SIDES
+hickory-smoked-bbq-beans,Hickory Smoked BBQ Beans,Sides,,166,9.4,27.2,0.5,0.2,,1.3,11.0,,,false,true,,,Source: Main Menu > SIDES
+padron-peppers,Padron Peppers,Sides,,33,1.2,1.7,1.8,0.1,,1.0,1.4,,vegetarian,false,true,,,Source: Main Menu > SIDES
+bbq-beef-brisket-fries,BBQ Beef Brisket Fries,Sides,,723,27.7,62.0,39.3,18.2,,3.8,14.6,,contains_beef,false,true,,,Source: Main Menu > SIDES > Loaded Fries
+buffalo-chicken-fries,Buffalo Chicken Fries,Sides,,745,28.2,59.8,42.5,17.1,,5.3,4.9,,,false,true,,,Source: Main Menu > SIDES > Loaded Fries
+bacon-and-cheese-loaded-fries,Bacon & Cheese Loaded Fries,Sides,,649,25.3,49.8,37.7,17.5,,4.4,4.0,,contains_pork,false,true,,,Source: Main Menu > SIDES > Loaded Fries
+beef-brisket-wrap,Beef Brisket Wrap,Lunch mains,,632,29.0,64.8,27.7,12.6,,1.3,20.6,,contains_beef,false,true,,,Source: Lunch > MAINS
+cajun-chicken-wrap,Cajun Chicken Wrap,Lunch mains,,729,29.5,64.7,39.4,10.7,,2.6,4.3,,,false,true,,,Source: Lunch > MAINS
+halloumi-wrap,Halloumi Wrap,Lunch mains,,612,20.0,50.2,35.9,14.3,,3.4,7.5,,vegetarian,false,true,,,Source: Lunch > MAINS
+nduja-add-on-main-menu-starters,"'Nduja (add-on, Main Menu, Starters)",Add-ons & extras,,123,2.5,0.4,12.3,2.9,,0.7,0.0,,contains_pork,false,false,,,Source: Main Menu > STARTERS
+hickory-smoked-bbq-sauce,Hickory Smoked BBQ (sauce),Add-ons & extras,,63,0.2,15.4,0.0,0.0,,0.5,14.0,,,false,false,,,Source: Main Menu > STARTERS
+franks-red-hot-buffalo-sauce,Frank's Red Hot Buffalo (sauce),Add-ons & extras,,12,0.2,0.8,0.4,0.0,,2.6,0.6,,,false,false,,,Source: Main Menu > STARTERS
+frankies-secret-sauce-sauce,Frankie's Secret Sauce (sauce),Add-ons & extras,,213,0.4,2.5,23.6,1.6,,0.7,1.7,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+garlic-and-herb-ranch-sauce,Garlic & Herb Ranch (sauce),Add-ons & extras,,192,0.0,2.3,20.4,1.3,,0.6,1.9,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+garlic-parm-sauce,Garlic Parm (sauce),Add-ons & extras,,311,2.0,0.8,32.4,12.8,,0.8,0.2,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+maple-mustard-sauce,Maple Mustard (sauce),Add-ons & extras,,92,0.7,19.9,0.8,0.1,,0.6,19.8,,vegetarian,false,false,,,Source: Main Menu > STARTERS
+cheese-add-on,Cheese (add-on),Add-ons & extras,,62,3.8,0.3,5.1,3.2,,0.3,0.0,,vegetarian,false,false,,,Source: Main Menu > BURGERS > Classic Burgers
+monterey-jack-cheese-add-on,Monterey Jack Cheese (add-on),Add-ons & extras,,74,4.6,0.0,6.2,3.8,,0.4,0.0,,vegetarian,false,false,,,Source: Main Menu > BURGERS > Go on... add a little extra!
+cajun-spiced-fried-halloumi-add-on,Cajun Spiced Fried Halloumi (add-on),Add-ons & extras,,132,6.9,1.1,11.1,6.0,,1.5,0.5,,vegetarian,false,false,,,Source: Main Menu > BURGERS > Go on... add a little extra!
+smoked-streaky-bacon-add-on,Smoked Streaky Bacon (add-on),Add-ons & extras,,109,9.7,0.3,7.9,3.0,,1.8,0.0,,contains_pork|contains_beef,false,false,,,Source: Main Menu > BURGERS > Go on... add a little extra!
+onion-rings-add-on,Onion Rings (add-on),Add-ons & extras,,107,0.8,6.7,8.3,0.8,,0.2,0.7,,vegetarian,false,false,,,Source: Main Menu > BURGERS > Go on... add a little extra!
+pulled-beef-brisket-add-on,Pulled Beef Brisket (add-on),Add-ons & extras,,96,7.1,4.5,5.5,2.2,,0.0,3.5,,contains_beef,false,false,,,Source: Main Menu > BURGERS > Go on... add a little extra!
+beef-patty-add-on,Beef Patty (add-on),Add-ons & extras,,429,22.6,4.9,35.4,15.2,,1.3,0.0,,contains_beef,false,false,,,Source: Main Menu > BURGERS > Go on... add a little extra!
+crispy-chicken-add-on,Crispy Chicken (add-on),Add-ons & extras,,345,24.0,21.3,17.4,7.2,,1.0,1.1,,,false,false,,,Source: Main Menu > BURGERS > Go on... add a little extra!
+plant-patty-add-on,Plant Patty (add-on),Add-ons & extras,,237,19.2,4.0,14.7,8.0,,1.1,0.0,,vegetarian,false,false,,,Source: Main Menu > BURGERS > Go on... add a little extra!
+chillis-add-on,Chillis (add-on),Add-ons & extras,,2,0.3,0.1,0.1,0.0,,0.0,0.1,,,false,false,,,Source: Main Menu > PIZZA
+pepperoni-add-on,Pepperoni (add-on),Add-ons & extras,,336,12.3,0.3,31.7,12.3,,2.9,0.3,,contains_pork,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+chicken-add-on,Chicken (add-on),Add-ons & extras,,59,12.4,0.8,0.9,0.2,,0.3,0.2,,,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+nduja-add-on,N'duja (add-on),Add-ons & extras,,167,3.4,0.6,16.8,3.9,,1.0,0.0,,,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+ham-add-on,Ham (add-on),Add-ons & extras,,41,6.6,0.5,1.3,0.4,,0.6,0.0,,contains_pork,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+mushrooms-add-on,Mushrooms (add-on),Add-ons & extras,,14,0.9,0.2,0.9,0.1,,0.1,0.1,,,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+mozzarella-add-on,Mozzarella (add-on),Add-ons & extras,,168,10.0,2.8,13.0,8.7,,0.8,1.3,,vegetarian,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+sweetcorn-add-on,Sweetcorn (add-on),Add-ons & extras,,39,2.0,4.9,2.0,4.9,,0.0,1.2,,,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+blue-cheese-sauce,Blue Cheese (sauce),Add-ons & extras,,243,0.8,11.3,21.5,1.7,,1.1,7.4,,vegetarian,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+bbq-sauce-sauce,BBQ Sauce (sauce),Add-ons & extras,,88,0.3,21.6,0.1,0.0,,0.7,19.7,,,false,false,,,Source: Main Menu > PIZZA > Go on... add a little extra!
+bacon-add-on,Bacon (add-on),Add-ons & extras,,109,9.7,0.3,7.9,3.0,,1.8,0.0,,contains_pork,false,false,,,Source: Main Menu > PASTA
+nduja-add-on-main-menu-pasta,"'Nduja (add-on, Main Menu, Pasta)",Add-ons & extras,,251,5.1,0.9,25.2,5.9,,1.4,0.0,,contains_pork,false,false,,,Source: Main Menu > PASTA
+buffalo-chicken-add-on,Buffalo Chicken (add-on),Add-ons & extras,,119,7.6,9.4,5.6,0.9,,1.6,0.3,,,false,false,,,Source: Main Menu > PASTA
+bbq-brisket-add-on,BBQ Brisket (add-on),Add-ons & extras,,112,7.1,8.4,5.5,2.2,,0.2,7.0,,contains_beef,false,false,,,Source: Main Menu > PASTA
+pulled-chicken-add-on,Pulled Chicken (add-on),Add-ons & extras,,117,24.8,1.5,1.7,0.4,,0.7,0.4,,,false,false,,,Source: Main Menu > PASTA
+garlic-and-herb-sauce,Garlic & Herb (sauce),Add-ons & extras,,545,0.7,1.5,57.8,22.1,,1.3,0.3,,vegetarian,false,false,,,Source: Main Menu > SIGNATURE GRILLS & CLASSICS
+spicy-peppercorn-sauce,Spicy Peppercorn (sauce),Add-ons & extras,,86,1.1,4.9,6.9,4.6,,0.6,2.7,,,false,false,,,Source: Main Menu > SIGNATURE GRILLS & CLASSICS
+grilled-prawn-and-red-pepper-skewer-add-on,Grilled Prawn & Red Pepper Skewer (add-on),Add-ons & extras,,140,18.4,3.4,5.7,0.7,,2.1,3.1,,,false,false,,,Source: Main Menu > SALADS
+halloumi-add-on,Halloumi (add-on),Add-ons & extras,,308,17.1,1.3,25.9,14.8,,2.5,1.0,,vegetarian,false,false,,,Source: Main Menu > SALADS
+nduja-add-on-lunch-starters,"'Nduja (add-on, Lunch, Starters)",Add-ons & extras,,84,1.7,0.3,8.4,2.0,,0.5,0.0,,contains_pork,false,false,,,Source: Lunch > STARTERS
+ice-cream-vanilla,Ice Cream: Vanilla,Desserts,,83,1.1,11.3,3.6,2.6,,0.0,7.7,,vegetarian,false,false,,,Source: Lunch > DESSERT
+ice-cream-strawberry,Ice Cream: Strawberry,Desserts,,84,1.6,12.4,3.1,2.2,,0.0,9.3,,vegetarian,false,false,,,Source: Lunch > DESSERT
+ice-cream-chocolate,Ice Cream: Chocolate,Desserts,,128,2.8,13.7,6.7,4.7,,0.2,13.4,,vegetarian,false,false,,,Source: Lunch > DESSERT
+ice-cream-mint-choc-chip,Ice Cream: Mint Choc-Chip,Desserts,,109,2.1,11.4,6.0,4.1,,0.1,11.3,,vegetarian,false,false,,,Source: Lunch > DESSERT
+ice-cream-vegan-ice-cream-ask-your-server-for-options,Ice Cream: Vegan Ice Cream - ask your server for options,Desserts,,108,0.5,15.5,5.0,4.4,,0.2,10.9,,vegetarian,false,false,,,Source: Lunch > DESSERT
+new-york-cheesecake,New York Cheesecake,Desserts,,650,7.9,65.4,39.5,22.0,,0.6,47.1,,vegetarian,false,false,,,Source: Lunch > DESSERT
+strawberry-pavlova,Strawberry Pavlova,Desserts,,372,5.1,58.0,13.3,9.3,,0.2,50.0,,vegetarian,false,false,,,Source: Lunch > DESSERT
+fruit-pie-of-the-day,Fruit Pie of the day,Desserts,,529,6.6,85.3,19.4,10.4,,0.2,49.5,,vegetarian,false,false,,,Source: Desserts > Desserts
+hot-cookie-dough,Hot Cookie Dough,Desserts,,298,3.5,43.1,12.0,7.2,,0.2,34.6,,vegetarian,false,false,,,Source: Desserts > Desserts
+chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,861,8.5,97.7,48.0,18.1,,0.9,82.8,,vegetarian,false,false,,,Source: Desserts > Desserts
+rocky-road,Rocky Road,Desserts,,922,14.1,108.2,46.8,27.5,,0.9,90.0,,,false,false,,,Source: Desserts > Desserts > Sundaes
+hot-chocolate-fudge-brownie,Hot Chocolate Fudge Brownie,Desserts,,713,7.6,87.6,35.9,22.5,,0.5,67.7,,vegetarian,false,false,,,Source: Desserts > Desserts > Sundaes
+hot-chocolate-brownie-go-gluten-free,Hot Chocolate Brownie (go gluten-free),Desserts,,704,7.4,85.6,35.9,22.5,,0.5,67.2,,vegetarian,false,false,,,Source: Desserts > Desserts > Sundaes
+strawberry-pavlova-go-gluten-free,Strawberry Pavlova (go gluten-free),Desserts,,362,4.9,55.9,13.2,9.3,,0.1,49.4,,vegetarian,false,false,,,Source: Desserts > Desserts > Sundaes
+caramelised-biscuit-doughnut,Caramelised Biscuit Doughnut,Desserts,,907,9.5,89.5,56.6,24.4,,1.2,48.4,,vegetarian,false,false,,,Source: Desserts > Desserts > Sundaes
+the-cookie-jar,The Cookie Jar,Desserts,,1124,15.8,148.3,51.0,32.5,,1.0,114.9,,,false,false,,,Source: Desserts > Desserts > Sundaes
+freakshake-sundae,Freakshake Sundae,Desserts,,1234,22.8,155.7,55.0,34.7,,1.9,116.1,,,false,false,,,Source: Desserts > Desserts > Sundaes
+shake-strawberry-ice-cream,Shake: Strawberry Ice Cream,Shakes,,557,10.9,80.7,21.0,14.6,,0.4,67.0,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+shake-strawberry-ice-cream-go-gluten-free,Shake: Strawberry Ice Cream (go-gluten-free),Shakes,,547,10.7,78.7,20.9,14.6,,0.4,66.4,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+shake-chocolate-ice-cream,Shake: Chocolate Ice Cream,Shakes,,747,16.9,83.4,36.7,25.5,,1.0,77.3,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+shake-chocolate-ice-cream-go-gluten-free,Shake: Chocolate Ice Cream (go gluten-free),Shakes,,737,16.7,81.3,36.6,25.5,,1.0,76.7,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+cafe-latte-shake,Cafe Latte Shake,Shakes,,649,8.7,88.7,28.2,19.5,,0.5,71.3,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+cafe-latte-shake-go-gluten-free,Cafe Latte Shake (go gluten-free),Shakes,,639,8.5,86.6,28.2,19.5,,0.5,70.8,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+shake-vegan-salted-caramel,Shake: Vegan Salted Caramel,Shakes,,476,2.3,65.7,22.6,16.5,,0.9,47.2,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+vegan-salted-caramel-shake-go-gluten-free,Vegan Salted Caramel Shake (go gluten-free),Shakes,,476,2.3,65.7,22.6,16.5,,0.9,47.2,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+shake-caramelised-biscuit,Shake: Caramelised Biscuit,Shakes,,1045,11.2,95.3,68.5,24.1,,0.9,60.8,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+shake-oreo,Shake: Oreo,Shakes,,1042,20.1,125.4,49.1,28.9,,1.5,101.4,,vegetarian,false,false,,,Source: Desserts > Desserts > Shakes
+kids-classic-breakfast,Kids Classic Breakfast,Kids: Brunch,,354,23.6,20.4,18.5,6.6,,2.7,3.4,,contains_pork,false,false,,,Source: Kids > BRUNCH
+kids-pancakes-banana-and-chocolate,Kids Pancakes (Banana and Chocolate),Kids: Brunch,,255,4.9,52.5,3.0,0.7,,0.8,36.0,,vegetarian,false,false,,,Source: Kids > BRUNCH
+kids-pancakes-bacon-and-maple-flavour-syrup,Kids Pancakes (Bacon & Maple Flavour Syrup),Kids: Brunch,,292,12.7,38.7,10.1,3.2,,2.6,25.6,,contains_pork,false,false,,,Source: Kids > BRUNCH
+crispy-omega-3-fish-fingers-small-eater,Crispy Omega 3 Fish Fingers (Small Eater),Kids: Mains,,230,10.8,17.6,13.0,1.0,,0.7,0.9,,,false,false,,,Source: Kids > MAINS
+crispy-omega-3-fish-fingers-large-eater,Crispy Omega 3 Fish Fingers (Large Eater),Kids: Mains,,377,18.1,29.4,21.0,1.7,,1.2,1.5,,,false,false,,,Source: Kids > MAINS
+crispy-chicken-nuggets-small-eater,Crispy Chicken Nuggets (Small Eater),Kids: Mains,,189,14.5,11.6,9.1,3.6,,0.1,0.4,,,false,false,,,Source: Kids > MAINS
+crispy-chicken-nuggets-large-eater,Crispy Chicken Nuggets (Large Eater),Kids: Mains,,278,21.6,17.3,13.1,5.3,,0.1,0.5,,,false,false,,,Source: Kids > MAINS
+veggie-nuggets-small-eater,Veggie Nuggets (Small Eater),Kids: Mains,,156,9.3,7.9,8.7,0.9,,0.6,0.1,,vegetarian,false,false,,,Source: Kids > MAINS
+veggie-nuggets-large-eater,Veggie Nuggets (Large Eater),Kids: Mains,,230,13.9,11.9,12.5,1.3,,0.9,0.1,,vegetarian,false,false,,,Source: Kids > MAINS
+pasta-bolognese-small-eater,Pasta Bolognese (Small Eater),Kids: Mains,,290,13.2,35.6,9.7,2.6,,0.0,4.8,,,false,false,,,Source: Kids > MAINS
+pasta-bolognese-large-eater,Pasta Bolognese (Large Eater),Kids: Mains,,462,20.5,58.4,14.8,3.9,,0.0,7.5,,,false,false,,,Source: Kids > MAINS
+pasta-bolognese-go-gluten-free,Pasta Bolognese (Go Gluten-Free),Kids: Mains,,517,15.3,86.3,11.5,3.6,,0.0,3.8,,,false,false,,,Source: Kids > MAINS
+pasta-napolitana-small-eater,Pasta Napolitana (Small Eater),Kids: Mains,,198,6.3,35.3,2.8,0.3,,0.9,6.4,,vegetarian,false,false,,,Source: Kids > MAINS
+pasta-napolitana-large-eater,Pasta Napolitana (Large Eater),Kids: Mains,,324,10.3,57.9,4.5,0.5,,1.3,9.8,,vegetarian,false,false,,,Source: Kids > MAINS
+pasta-napolitana-go-gluten-free,Pasta Napolitana (Go Gluten-Free),Kids: Mains,,425,8.5,86.0,4.6,1.3,,0.9,5.4,,,false,false,,,Source: Kids > MAINS
+cheesy-tomato-pizza,Cheesy Tomato Pizza,Kids: Mains,,342,14.6,50.3,8.5,4.6,,2.2,5.3,,vegetarian,false,false,,,Source: Kids > MAINS
+cheesy-tomato-pizza-go-gluten-free,Cheesy Tomato Pizza (Go Gluten-Free),Kids: Mains,,304,8.2,43.3,10.1,5.5,,1.6,5.8,,vegetarian,false,false,,,Source: Kids > MAINS
+pasta-and-meatballs-small-eater,Pasta & Meatballs (Small Eater),Kids: Mains,,499,24.7,51.9,20.6,6.9,,1.2,9.3,,,false,false,,,Source: Kids > MAINS
+pasta-and-meatballs-large-eater,Pasta & Meatballs (Large Eater),Kids: Mains,,621,32.2,58.0,27.9,9.6,,2.0,13.4,,,false,false,,,Source: Kids > MAINS
+mac-n-cheese,Mac 'N' Cheese,Kids: Mains,,470,20.6,51.1,20.6,11.8,,1.5,6.3,,vegetarian,false,false,,,Source: Kids > MAINS
+beef-burger,Beef Burger,Kids: Mains,,362,16.0,28.5,20.0,8.3,,1.0,5.6,,contains_beef,false,false,,,Source: Kids > MAINS
+chicken-wrap,Chicken Wrap,Kids: Mains,,445,20.9,47.4,19.3,3.8,,0.9,5.9,,,false,false,,,Source: Kids > MAINS
+fries-kids-side,Fries (kids side),Kids: Sides,,136,2.1,21.2,4.2,0.5,,0.6,0.8,,,false,false,,,Source: Kids > SIDES
+garlic-bread-kids-side,Garlic Bread (kids side),Kids: Sides,,499,12.5,73.0,16.3,5.3,,1.5,4.5,,vegetarian,false,false,,,Source: Kids > SIDES
+baked-beans-kids-side,Baked Beans (kids side),Kids: Sides,,50,3.5,7.1,0.2,0.1,,0.3,1.4,,,false,false,,,Source: Kids > SIDES
+broccoli-kids-side,Broccoli (kids side),Kids: Sides,,13,1.7,0.8,0.3,0.1,,0.0,0.7,,,false,false,,,Source: Kids > SIDES
+peas-kids-side,Peas (kids side),Kids: Sides,,58,4.1,6.8,0.9,0.4,,0.0,1.4,,,false,false,,,Source: Kids > SIDES
+side-salad-kids-side,Side Salad (kids side),Kids: Sides,,60,0.5,2.0,5.3,0.4,,0.1,1.7,,vegetarian,false,false,,,Source: Kids > SIDES
+sweetcorn-kids-side,Sweetcorn (kids side),Kids: Sides,,20,1.0,2.4,1.0,2.4,,0.0,0.6,,,false,false,,,Source: Kids > SIDES
+pot-of-veg-sticks-kids-side,Pot of Veg Sticks (kids side),Kids: Sides,,23,0.8,3.8,0.3,0.1,,0.0,3.6,,,false,false,,,Source: Kids > SIDES
+pepperoni-kids-pizza-topping,Pepperoni (kids pizza topping),Kids: Add-ons & extras,,157,5.7,0.2,14.8,5.7,,1.4,0.2,,contains_pork,false,false,,,Source: Kids > MAINS
+chicken-kids-pizza-topping,Chicken (kids pizza topping),Kids: Add-ons & extras,,35,7.4,0.5,0.5,0.1,,0.2,0.1,,,false,false,,,Source: Kids > MAINS
+ham-kids-pizza-topping,Ham (kids pizza topping),Kids: Add-ons & extras,,20,3.3,0.2,0.6,0.2,,0.3,0.0,,contains_pork,false,false,,,Source: Kids > MAINS
+mushroom-kids-pizza-topping,Mushroom (kids pizza topping),Kids: Add-ons & extras,,7,0.4,0.1,0.5,0.0,,0.0,0.0,,,false,false,,,Source: Kids > MAINS
+red-pepper-kids-pizza-topping,Red Pepper (kids pizza topping),Kids: Add-ons & extras,,13,0.2,1.3,0.7,0.1,,0.1,1.2,,,false,false,,,Source: Kids > MAINS
+courgette-kids-pizza-topping,Courgette (kids pizza topping),Kids: Add-ons & extras,,8,0.7,0.7,0.2,0.0,,0.0,0.7,,,false,false,,,Source: Kids > MAINS
+broccolini-kids-pizza-topping,Broccolini (kids pizza topping),Kids: Add-ons & extras,,17,2.3,1.1,0.4,0.2,,0.1,0.9,,,false,false,,,Source: Kids > MAINS
+cherry-tomato-kids-pizza-topping,Cherry Tomato (kids pizza topping),Kids: Add-ons & extras,,11,0.4,1.6,0.2,0.1,,0.0,1.6,,,false,false,,,Source: Kids > MAINS
+sweetcorn-kids-pizza-topping,Sweetcorn (kids pizza topping),Kids: Add-ons & extras,,13,0.7,1.6,0.7,1.6,,0.0,0.4,,,false,false,,,Source: Kids > MAINS
+kids-brownie-and-ice-cream,Kids Brownie & Ice Cream,Kids: Desserts,,321,3.9,43.6,14.4,7.7,,0.1,35.8,,vegetarian,false,false,,,Source: Kids > DESSERTS
+fresh-fruit-with-choice-of-dip-chocolate-dip,Fresh fruit with choice of dip (Chocolate dip),Kids: Desserts,,138,2.0,29.7,1.1,0.5,,0.1,26.5,,vegetarian,false,false,,,Source: Kids > DESSERTS
+fresh-fruit-with-choice-of-dip-strawberry-dip,Fresh fruit with choice of dip (Strawberry dip),Kids: Desserts,,132,1.1,32.2,0.3,0.0,,0.0,31.2,,,false,false,,,Source: Kids > DESSERTS
+ice-cream-vegan-ask-server-for-options,Ice Cream: Vegan - ask server for options,Kids: Desserts,,230,1.1,34.3,10.1,8.7,,0.5,25.2,,vegetarian,false,false,,,Source: Kids > DESSERTS
+rocky-road-sundae,Rocky Road Sundae,Kids: Desserts,,361,5.2,40.4,19.3,12.1,,0.3,36.1,,,false,false,,,Source: Kids > DESSERTS
+strawberry-pavlova-sundae,Strawberry Pavlova Sundae,Kids: Desserts,,268,4.2,39.6,10.4,7.3,,0.1,33.3,,vegetarian,false,false,,,Source: Kids > DESSERTS
+fruit-juice-orange-juice,Fruit Juice (Orange Juice),Kids: Drinks,,86,1.0,18.3,1.0,0.2,,0.0,18.3,,,false,false,,,Source: Kids > DRINKS
+fruit-juice-apple-juice,Fruit Juice (Apple Juice),Kids: Drinks,,123,1.4,29.1,1.4,0.3,,0.1,29.1,,,false,false,,,Source: Kids > DRINKS
+squash-blackcurrant,Squash (Blackcurrant),Kids: Drinks,,5,0.0,1.1,0.0,0.0,,0.0,1.1,,vegetarian,false,false,,,Source: Kids > DRINKS
+squash-orange,Squash (Orange),Kids: Drinks,,4,0.0,0.9,0.0,0.0,,0.0,0.9,,vegetarian,false,false,,,Source: Kids > DRINKS
+water-still,Water (Still),Kids: Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Kids > DRINKS
+water-soda-water,Water (Soda Water),Kids: Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Kids > DRINKS
+orange-kids-drink,Orange (kids drink),Kids: Drinks,,52,0.0,2.4,0.0,0.0,,0.0,2.4,,,false,false,,,Source: Kids > DRINKS
+apple-and-blackcurrant-kids-drink,Apple & Blackcurrant (kids drink),Kids: Drinks,,8,0.0,1.6,0.0,0.0,,0.0,1.4,,,false,false,,,Source: Kids > DRINKS
+tutti-sunset-kids-drink,Tutti Sunset (kids drink),Kids: Drinks,,101,0.9,18.9,0.8,0.2,,0.1,18.9,,,false,false,,,Source: Kids > DRINKS
+fruity-sunrise-kids-drink,Fruity Sunrise (kids drink),Kids: Drinks,,92,1.1,20.6,1.0,0.2,,0.1,20.6,,,false,false,,,Source: Kids > DRINKS
+apple-twilight-kids-drink,Apple Twilight (kids drink),Kids: Drinks,,76,0.9,17.5,0.8,0.2,,0.0,17.5,,vegetarian,false,false,,,Source: Kids > DRINKS
+new-york-sunset,New York Sunset,Drinks: Mocktails,,180,0.9,42.3,0.7,0.1,,0.0,42.3,,vegetarian,false,false,,,Source: Drinks > MOCKTAILS
+brooklyn-boba,Brooklyn Boba,Drinks: Mocktails,,70,0.2,22.7,0.0,0.0,,,,,vegetarian,false,false,,,Source: Drinks > MOCKTAILS
+virgin-hugo-spritz,Virgin Hugo Spritz,Drinks: Mocktails,,83,0.1,19.4,0.0,,,0.1,19.4,,vegetarian,false,false,,,Source: Drinks > MOCKTAILS
+strawberry-lemonade,Strawberry Lemonade,Drinks: Mocktails,,31,0.3,5.7,0.0,0.0,,0.1,5.7,,,false,false,,,Source: Drinks > MOCKTAILS
+passionfruit-spritz,Passionfruit Spritz,Drinks: Mocktails,,139,0.7,33.1,0.2,0.0,,0.1,33.1,,,false,false,,,Source: Drinks > MOCKTAILS
+peroni-nastro-azzurro-gluten-free,Peroni Nastro Azzurro Gluten Free,Drinks: Beers & ciders,,139,1.3,9.9,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,"Source: Drinks > BOTTLED BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+doom-bar-4-3-500ml,Doom Bar 4.3% 500ml,Drinks: Beers & ciders,500ml,179,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > BOTTLED BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+peroni-0-0-330ml,Peroni 0.0% 330ml,Drinks: Beers & ciders,330ml,139,0.0,10.6,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,"Source: Drinks > BOTTLED BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+corona-0-0-330ml,Corona 0.0% 330ml,Drinks: Beers & ciders,330ml,56,1.3,12.9,0.0,0.0,,0.0,2.3,,vegetarian,false,false,,,Source: Drinks > BOTTLED BEERS & CIDERS
+kopparberg-strawberry-and-lime-0-500ml,Kopparberg Strawberry & Lime 0% 500ml,Drinks: Beers & ciders,500ml,205,2.5,50.5,2.5,2.5,,0.1,50.5,,vegetarian,false,false,,,Source: Drinks > BOTTLED BEERS & CIDERS
+budweiser-half,Budweiser (Half),Drinks: Beers & ciders,Half,1034,1.0,72.7,1.4,,,,,,vegetarian,false,false,,,"Source: Drinks > DRAUGHT BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+budweiser-pint,Budweiser (Pint),Drinks: Beers & ciders,Pint,2068,2.0,145.4,2.8,,,,,,vegetarian,false,false,,,"Source: Drinks > DRAUGHT BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+budweiser-shandy-half,Budweiser (Shandy Half),Drinks: Beers & ciders,,701,0.7,49.2,1.0,,,,,,vegetarian,false,false,,,"Source: Drinks > DRAUGHT BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+budweiser-shandy-pint,Budweiser (Shandy Pint),Drinks: Beers & ciders,,1402,1.4,98.3,1.9,,,,,,vegetarian,false,false,,,"Source: Drinks > DRAUGHT BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+budweiser-top-half,Budweiser (Top Half),Drinks: Beers & ciders,,853,0.8,59.9,1.2,,,,,,vegetarian,false,false,,,"Source: Drinks > DRAUGHT BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+budweiser-top-pint,Budweiser (Top Pint),Drinks: Beers & ciders,,1706,1.7,119.8,2.3,,,,,,vegetarian,false,false,,,"Source: Drinks > DRAUGHT BEERS & CIDERS; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+scavi-and-ray-sparkling-bottle,Scavi & Ray Sparkling Bottle,Drinks: Wine,,165,0.0,40.5,0.0,0.0,,0.0,36.0,,vegetarian,false,false,,,Source: Drinks > WINES > Fizz
+scavi-and-ray-sparkling-125ml,Scavi & Ray Sparkling 125ml,Drinks: Wine,125ml,28,0.0,6.8,0.0,0.0,,0.0,6.0,,vegetarian,false,false,,,Source: Drinks > WINES > Fizz
+coca-cola,Coca-Cola,Drinks: Soft drinks,,141,0.0,35.5,0.0,0.0,,0.0,35.5,,,false,false,,,Source: Drinks > SOFT DRINKS
+coca-cola-large,Coca-Cola (Large),Drinks: Soft drinks,Large,213,0.0,53.6,0.0,0.0,,0.0,53.6,,,false,false,,,Source: Drinks > SOFT DRINKS
+coca-cola-bottle,Coca-Cola (Bottle),Drinks: Soft drinks,Bottle,139,0.0,35.1,0.0,0.0,,0.0,35.1,,,false,false,,,Source: Drinks > SOFT DRINKS
+diet-coke,Diet Coke,Drinks: Soft drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFT DRINKS
+diet-coke-large,Diet Coke (Large),Drinks: Soft drinks,Large,3,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Drinks > SOFT DRINKS
+coca-cola-zero,Coca-Cola Zero,Drinks: Soft drinks,,2,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Drinks > SOFT DRINKS
+coca-cola-zero-sugar-large,Coca-Cola Zero Sugar (Large),Drinks: Soft drinks,Large,2,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Drinks > SOFT DRINKS
+coca-cola-zero-sugar-bottle,Coca-Cola Zero Sugar (Bottle),Drinks: Soft drinks,Bottle,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFT DRINKS
+fanta-orange-zero,Fanta Orange Zero,Drinks: Soft drinks,,6,0.0,0.9,0.0,0.0,,0.0,0.9,,,false,false,,,Source: Drinks > SOFT DRINKS
+fanta-orange-large,Fanta Orange (Large),Drinks: Soft drinks,Large,19,0.1,2.7,0.0,0.0,,0.0,2.7,,,false,false,,,Source: Drinks > SOFT DRINKS
+strathmore-water-still,Strathmore Water (Still),Drinks: Soft drinks,,1,0.0,0.1,0.0,0.0,,0.0,0.1,,,false,false,,,Source: Drinks > SOFT DRINKS
+strathmore-water-sparkling-regular,Strathmore Water (Sparkling Regular),Drinks: Soft drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFT DRINKS
+strathmore-water-sparkling-large,Strathmore Water (Sparkling Large),Drinks: Soft drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFT DRINKS
+strathmore-water-still-large,Strathmore Water (Still Large),Drinks: Soft drinks,,1,0.1,0.2,0.0,0.0,,0.0,0.2,,,false,false,,,Source: Drinks > SOFT DRINKS
+j2o-orange-and-passion-fruit,J2O Orange & Passion Fruit,Drinks: Soft drinks,,55,0.1,11.8,0.0,0.0,,0.0,11.5,,,false,false,,,Source: Drinks > SOFT DRINKS
+j20-apple-and-raspberry,J20 - Apple & Raspberry,Drinks: Soft drinks,,52,0.0,11.0,0.0,0.0,,0.0,11.0,,,false,false,,,Source: Drinks > SOFT DRINKS
+sprite-zero-can,Sprite Zero Can,Drinks: Soft drinks,,4,0.0,0.1,0.0,0.0,,0.1,0.1,,,false,false,,,Source: Drinks > SOFT DRINKS
+appletiser-275ml-glass-bottle,Appletiser 275ml Glass Bottle,Drinks: Soft drinks,,129,0.0,28.6,0.0,0.0,,0.0,28.6,,vegetarian,false,false,,,Source: Drinks > SOFT DRINKS
+irn-bru-bottle,Irn Bru Bottle,Drinks: Soft drinks,,66,1.7,15.8,0.0,0.0,,0.0,15.5,,,false,false,,,Source: Drinks > SOFT DRINKS
+diet-irn-bru,Diet Irn-Bru,Drinks: Soft drinks,,3,1.7,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SOFT DRINKS
+orange-juice,Orange Juice,Drinks: Soft drinks,,122,1.4,26.1,1.4,0.3,,0.1,26.1,,,false,false,,,Source: Drinks > SOFT DRINKS
+apple-juice,Apple Juice,Drinks: Soft drinks,,125,1.4,29.5,1.4,0.3,,0.1,29.5,,,false,false,,,Source: Drinks > SOFT DRINKS
+cranberry-juice,Cranberry Juice,Drinks: Soft drinks,,173,0.0,40.9,0.0,0.0,,,,,,false,false,,,Source: Drinks > SOFT DRINKS
+pineapple-juice,Pineapple Juice,Drinks: Soft drinks,,136,0.1,31.2,1.4,0.3,,0.0,31.2,,,false,false,,,Source: Drinks > SOFT DRINKS
+tomato-juice,Tomato Juice,Drinks: Soft drinks,,169,3.1,12.2,2.0,0.4,,2.3,12.2,,,false,false,,,Source: Drinks > SOFT DRINKS
+absolut-25ml,Absolut (25ml),Drinks: Spirits,25ml,56,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > SPIRITS > Vodka; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+absolut-50ml,Absolut (50ml),Drinks: Spirits,50ml,111,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > SPIRITS > Vodka; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+beefeater-25ml,Beefeater (25ml),Drinks: Spirits,25ml,56,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > SPIRITS > Gin; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+beefeater-50ml,Beefeater (50ml),Drinks: Spirits,50ml,111,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > SPIRITS > Gin; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+jack-daniels-25ml,Jack Daniels (25ml),Drinks: Spirits,25ml,605,0.0,0.0,0.0,,,0.0,,,,false,false,,,"Source: Drinks > SPIRITS > Whiskey; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+jack-daniels-50ml,Jack Daniels (50ml),Drinks: Spirits,50ml,1211,0.0,0.0,0.0,,,0.0,,,,false,false,,,"Source: Drinks > SPIRITS > Whiskey; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+jameson-25ml,Jameson (25ml),Drinks: Spirits,25ml,52,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > SPIRITS > Whiskey; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+jameson-50ml,Jameson (50ml),Drinks: Spirits,50ml,104,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > SPIRITS > Whiskey; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+malibu-50ml,Malibu (50ml),Drinks: Spirits,50ml,138,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"Source: Drinks > SPIRITS > Rum; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+jose-cuervo-25ml,Jose Cuervo (25ml),Drinks: Spirits,25ml,6,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Source: Drinks > SPIRITS > Tequila
+amaretto-25ml,Amaretto (25ml),Drinks: Spirits,25ml,77,0.0,8.0,0.1,0.0,,,8.0,,,false,false,,,"Source: Drinks > SPIRITS > Liqueurs; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+amaretto-50ml,Amaretto (50ml),Drinks: Spirits,50ml,154,0.1,16.0,0.2,0.1,,,16.0,,,false,false,,,"Source: Drinks > SPIRITS > Liqueurs; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+aperol-apertivo-50ml,Aperol Apertivo (50ml),Drinks: Spirits,50ml,104,0.0,0.0,0.0,0.0,,0.0,0.0,,vegetarian,false,false,,,"Source: Drinks > SPIRITS > Liqueurs; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+baileys-50ml,Baileys (50ml),Drinks: Spirits,50ml,162,1.5,12.0,7.0,,,,,,vegetarian,false,false,,,"Source: Drinks > SPIRITS > Liqueurs; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+chambord-25ml,Chambord (25ml),Drinks: Spirits,25ml,52,0.0,3.2,0.0,,,0.0,3.2,,,false,false,,,"Source: Drinks > SPIRITS > Liqueurs; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+chambord-50ml,Chambord (50ml),Drinks: Spirits,50ml,104,0.0,6.5,0.0,,,0.0,6.5,,,false,false,,,"Source: Drinks > SPIRITS > Liqueurs; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+teich-peach-schn-25ml,Teich Peach Schn (25ml),Drinks: Spirits,25ml,120,0.0,14.0,0.0,0.0,,0.0,14.0,,,false,false,,,"Source: Drinks > SPIRITS > Liqueurs; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
+teich-peach-schn-50ml,Teich Peach Schn (50ml),Drinks: Spirits,50ml,239,0.0,28.0,0.0,0.0,,0.0,28.0,,,false,false,,,"Source: Drinks > SPIRITS > Liqueurs; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"

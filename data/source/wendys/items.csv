@@ -1,0 +1,139 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+wendys-single,Wendy's Single,Burgers,213 g,524,28,37,29,10,,2.2,8.2,1.7,,false,true,,,Meat type not stated in the guide
+wendys-double,Wendy's Double,Burgers,324 g,879,54,39,56,22,,4.4,9.7,1.7,,false,true,,,Meat type not stated in the guide
+wendys-triple,Wendy's Triple,Burgers,422 g,1195,77,41,80,33,,6.1,10,1.7,,false,true,,,Meat type not stated in the guide
+baconator,Baconator,Burgers,298 g,1001,63,38,66,26,,5.8,8.5,1.7,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
+jr-cheeseburger-deluxe,Jr. Cheeseburger Deluxe,Burgers,151 g,366,17,31,19,6.3,,1.9,7.3,1.4,,false,true,,,Meat type not stated in the guide
+jr-bacon-cheeseburger,Jr. Bacon Cheeseburger,Burgers,143 g,410,20,30,23,7.4,,2.3,5.9,1.4,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
+bbq-bacon-melt-single-cheeseburger,BBQ Bacon Melt Single Cheeseburger,Burgers,266 g,827,46,56,46,19,,3.9,15,2.3,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
+bbq-bacon-melt-double-cheeseburger,BBQ Bacon Melt Double Cheeseburger,Burgers,393 g,1243,76,58,78,32,,5.7,15,2.3,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
+bbq-bacon-melt-triple-cheeseburger,BBQ Bacon Melt Triple Cheeseburger,Burgers,520 g,1646,106,59,109,46,,7.4,16,2.3,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
+spicy-chicken,Spicy Chicken,Chicken,177 g,400,20,45,15,2.4,,2.2,6.3,2.4,,false,true,,,
+classic-chicken,Classic Chicken,Chicken,189 g,404,20,46,15,2.5,,2.5,6.4,2.5,,false,true,,,
+avocado-chicken-club,Avocado Chicken Club,Chicken,240 g,583,30,47,30,8.7,,3.4,6.5,2.4,,false,true,,,
+jr-crispy-chicken-sandwich,Jr. Crispy Chicken Sandwich,Chicken,112 g,321,13,35,14,1.7,,1.3,4.5,1.4,,false,true,,,"Listed again, with identical numbers, under Kid's Meal"
+bbq-bacon-melt-classic-chicken,BBQ Bacon Melt Classic Chicken,Chicken,227 g,627,31,68,25,7.9,,4.1,15,3,contains_pork,false,true,,,Name says bacon (pork)
+bbq-bacon-melt-spicy-chicken,BBQ Bacon Melt Spicy Chicken,Chicken,227 g,619,30,67,25,7.9,,4.1,15,3,contains_pork,false,true,,,Name says bacon (pork)
+4-pc-boneless-bites,4 Pc Boneless Bites,Chicken,72 g,164,16,7.0,8,2.0,,1.3,0,0,,false,true,,,
+8-pc-boneless-bites,8 Pc Boneless Bites,Chicken,144 g,324,31,14,16,3.9,,2.6,0,0,,false,true,,,
+11-pc-boneless-bites,11 Pc Boneless Bites,Chicken,198 g,437,43,19,21,5.3,,3.6,0,0,,false,true,,,
+12-pc-boneless-bites,12 Pc Boneless Bites,Chicken,216 g,479,47,21,23,5.8,,3.9,0,0,,false,true,,,
+20-pc-boneless-bites,20 Pc Boneless Bites,Chicken,360 g,803,78,34.9,39,9.8,,6.5,0,0,,false,true,,,
+4-pc-spicy-boneless-bites,4 Pc Spicy Boneless Bites,Chicken,72 g,139,17,9,3.9,0.7,,0.51,0,0,,false,true,,,
+8-pc-spicy-boneless-bites,8 Pc Spicy Boneless Bites,Chicken,144 g,282,35,18,7.6,1.5,,1,0,0,,false,true,,,
+11-pc-spicy-boneless-bites,11 Pc Spicy Boneless Bites,Chicken,198 g,384,48,25,10,2,,1.4,0,1,,false,true,,,Fibre printed as 1 here and for 12 Pc but 0 for 8 Pc and 20 Pc
+12-pc-spicy-boneless-bites,12 Pc Spicy Boneless Bites,Chicken,216 g,421,52,28,11,2.2,,1.6,0,1,,false,true,,,Fibre printed as 1 here and for 11 Pc but 0 for 8 Pc and 20 Pc
+20-pc-spicy-boneless-bites,20 Pc Spicy Boneless Bites,Chicken,360 g,702,87,46,18.9,3.7,,2.54,0,0,,false,true,,,
+8-pc-buffalo-saucy-boneless-bites,8 Pc Buffalo Saucy Boneless Bites,Chicken,182 g,337,31,15,17,4,,5,0.5,0,,false,true,,,
+12-pc-buffalo-saucy-classic-boneless-bites,12 Pc Buffalo Saucy Classic Boneless Bites,Chicken,272 g,510,47,22,26,6,,7.5,0.8,0,,false,true,,,
+8-pc-buffalo-saucy-spicy-boneless-bites,8 Pc Buffalo Saucy Spicy Boneless Bites,Chicken,182 g,299,35,19,9.1,1.6,,3.4,0.6,0.7,,false,true,,,
+12-pc-buffalo-saucy-spicy-boneless-bites,12 Pc Buffalo Saucy Spicy Boneless Bites,Chicken,272 g,456,53,29,14,2.4,,5.1,1,1,,false,true,,,
+8-pc-bbq-saucy-classic-boneless-bites,8 Pc BBQ Saucy Classic Boneless Bites,Chicken,205 g,429,32,37,17,4,,3.4,21,0,,false,true,,,
+12-pc-bbq-saucy-classic-boneless-bites,12 Pc BBQ Saucy Classic Boneless Bites,Chicken,294 g,617,47,51,25,5.9,,4.9,26,0,,false,true,,,
+8-pc-bbq-saucy-spicy-boneless-bites,8 Pc BBQ Saucy Spicy Boneless Bites,Chicken,205 g,392,36,42,8.7,1.6,,1.8,21,0.7,,false,true,,,
+12-pc-bbq-saucy-spicy-boneless-bites,12 Pc BBQ Saucy Spicy Boneless Bites,Chicken,294 g,559,53,57,13,2.3,,2.5,26,1,,false,true,,,
+3-pc-chicken-tenders,3 Pc Chicken Tenders,Chicken,134 g,257,21,20,10,1.2,,4,0.7,1.3,,false,true,,,Salt is 3.0% of the weight in all four tender sizes (4 to 8 g); entered as printed
+4-pc-chicken-tenders,4 Pc Chicken Tenders,Chicken,178 g,350,28,27,14,1.6,,5.3,0.9,1.8,,false,true,,,Salt is 3.0% of the weight in all four tender sizes (4 to 8 g); entered as printed
+5-pc-chicken-tenders,5 Pc Chicken Tenders,Chicken,223 g,433,36,33,17,2,,6.7,1.1,2.2,,false,true,,,Salt is 3.0% of the weight in all four tender sizes (4 to 8 g); entered as printed
+6-pc-chicken-tenders,6 Pc Chicken Tenders,Chicken,267 g,514,42,40,20,2.4,,8,1.4,2.6,,false,true,,,Salt is 3.0% of the weight in all four tender sizes (4 to 8 g); entered as printed
+avocado-wrap-w-chicken-tender,Avocado Wrap w/ Chicken Tender,Wraps,146 g,264,11,29,11,2.5,,1.7,2.3,2.4,,false,true,,,
+avocado-wrap-w-halloumi-fries,Avocado Wrap w/ Halloumi Fries,Wraps,152 g,359,12,29,21,7.2,,1.5,4.2,2.8,,false,true,,,
+avocado-wrap-w-halloumi-fries-duo-wrap,Avocado Wrap w/ Halloumi Fries (Duo Wrap),Wraps,304 g,704,24,57,41,14,,3,8.4,5.6,,false,true,,,
+signature-wrap-w-chicken-tender,Signature Wrap w/ Chicken Tender,Wraps,116 g,349,13,28,20,4.5,,2,1.8,2.4,,false,true,,,
+signature-wrap-w-halloumi-fries,Signature Wrap w/ Halloumi Fries,Wraps,122 g,435,14,28,29,9.2,,1.8,3.6,2.8,,false,true,,,
+signature-wrap-w-halloumi-fries-duo-wrap,Signature Wrap w/ Halloumi Fries (Duo Wrap),Wraps,244 g,869,28,56,58,18,,3.5,7.3,5.6,,false,true,,,
+bbq-wrap-w-chicken-tender,BBQ Wrap w/ Chicken Tender,Wraps,117 g,282,13,34,9.9,3.7,,2,6.9,2.4,,false,true,,,
+bbq-wrap-w-halloumi-fries,BBQ Wrap w/ Halloumi Fries,Wraps,124 g,365,14,33,19,8.4,,1.8,7.9,2.8,,false,true,,,
+bbq-wrap-w-halloumi-fries-duo-wrap,BBQ Wrap w/ Halloumi Fries (Duo Wrap),Wraps,248 g,729,28,66,38,17,,3.6,16,5.6,,false,true,,,
+buffalo-wrap-w-chicken-tender,Buffalo Wrap w/ Chicken Tender,Wraps,126 g,349,13,28,20,4.5,,2.6,1.9,2.4,,false,true,,,
+buffalo-wrap-w-halloumi-fries,Buffalo Wrap w/ Halloumi Fries,Wraps,132 g,435,14,28,29,9.2,,2.4,3.8,2.8,,false,true,,,
+caesar-salad,Caesar Salad,Salads,165 g,311,9,3.1,29,6.2,,1.4,2.7,1,,false,true,,,
+caesar-salad-w-classic-chicken,Caesar Salad w/ Classic Chicken,Salads,242 g,493,22,15,38,8,,2.8,2.7,1.7,,false,true,,,
+caesar-salad-w-spicy-chicken,Caesar Salad w/ Spicy Chicken,Salads,242 g,480,22,14,37,7.9,,2.8,2.7,1.7,,false,true,,,
+caesar-salad-w-halloumi-fries,Caesar Salad w/ Halloumi Fries,Salads,216 g,499,18,11,42,12,,2.3,5.6,2.3,,false,true,,,
+avocado-salad,Avocado Salad,Salads,284 g,388,13,6.9,34,9.1,,1.4,5,1,,false,true,,,
+avocado-salad-w-classic-chicken,Avocado Salad w/ Classic Chicken,Salads,362 g,574,27,19,43,11,,2.8,5,1.7,,false,true,,,
+avocado-salad-w-spicy-chicken,Avocado Salad w/ Spicy Chicken,Salads,362 g,567,26,18,43,11,,2.8,5,1.8,,false,true,,,
+avocado-salad-w-halloumi-fries,Avocado Salad w/ Halloumi Fries,Salads,336 g,567,21,14,47,14,,2.5,7.1,2.2,,false,true,,,
+small-fries,Small Fries,Sides,81 g,142,1.6,18,6.7,0.5,,2.1,3.5,1.5,,false,true,,,Salt 2.1 g is 2.6% of the 81 g weight and the same number as Medium Fries (98 g)
+medium-fries,Medium Fries,Sides,98 g,176,2,22,8.5,0.6,,2.1,3.7,1.9,,false,true,,,Salt 2.1 g is the same number as Small Fries (81 g)
+large-fries,Large Fries,Sides,138 g,239,2.7,31,11,0.8,,2.4,6.8,2.6,,false,true,,,
+baconator-fries,Baconator Fries,Sides,169 g,459,12,25,34,9.3,,1.7,2.6,2.3,contains_pork,false,true,,,Name says bacon (pork)
+cheesy-topped-fries,Cheesy Topped Fries,Sides,153 g,351,7.5,25,24,7.1,,2.6,2.5,2.3,,false,true,,,
+bbq-topped-fries,BBQ Topped Fries,Sides,226 g,495,13,42,30,8.9,,19.3,16,2.4,,false,true,,,"Salt printed as 19.3 g for 226 g (8.5% of the weight; the other fries rows print 1.7 to 2.6 g): looks like a typo for 1.93, held back and not corrected"
+plain-potato,Plain Potato,Sides,175 g,232,4.4,39,5.4,3.4,,1.9,2.4,4.7,,false,true,,,
+bacon-and-cheese-potato,Bacon & Cheese Potato,Sides,230 g,405,14,40,20,8.4,,1.6,3.8,4.3,contains_pork,false,true,,,Name says bacon (pork)
+sour-cream-and-chives-potato,Sour Cream and Chives Potato,Sides,193 g,233,4.9,39,5.4,3.3,,0.04,3.4,4.4,,false,true,,,Salt printed as 0.04 g although Plain Potato prints 1.9 g; entered as printed
+chili,Chili,Sides,245 g,253,19,14,13,5.5,,1.5,3.5,1.9,,false,true,,,Meat type not stated in the guide
+chili-cheese-fries,Chili Cheese Fries,Sides,271 g,481,17,32,31,9.8,,1.7,4.2,3.2,,false,true,,,Meat type not stated in the guide
+chili-cheese-baked-potato,Chili Cheese Baked Potato,Sides,324 g,428,19,47,17,9,,1.6,5.5,5.3,,false,true,,,Meat type not stated in the guide
+halloumi-fries,Halloumi Fries,Sides,51 g,178,8.2,6.6,13,5.1,,1.1,2.1,0.9,,false,true,,,
+beef-chili-cheese-fries,Beef Chili Cheese Fries,Sides,291 g,499,18,33,32,10,,3.4,4.5,3.4,contains_beef,false,true,,,Name says beef
+small-hashbrown,Small Hashbrown,Sides,87 g,194,1.4,19,12,1.3,,0.73,0,2,,false,true,,,"Printed under Breakfast; sold in three sizes, so listed with the sides"
+regular-hashbrown,Regular Hashbrown,Sides,129 g,271,2.1,28,16,1.8,,1.1,0,3.1,,false,true,,,"Printed under Breakfast; sold in three sizes, so listed with the sides"
+large-hashbrown,Large Hashbrown,Sides,170 g,356,2.7,37,21,2.4,,1.5,0,4,,false,true,,,"Printed under Breakfast; sold in three sizes, so listed with the sides"
+apple-slices,Apple Slices,Sides,80 g,42,0,9.3,0,0,,0,9.3,2.2,,false,true,,,Printed under Breakfast; listed with the sides
+kids-cheeseburger,Kid's Cheeseburger,Kids,106 g,317,17,30,14,5.8,,1.8,6.3,1.4,,false,true,,,Meat type not stated in the guide
+kids-hamburger,Kid's Hamburger,Kids,93 g,278,15,29,11,4.3,,1.3,5.5,1.4,,false,true,,,Meat type not stated in the guide
+4-pc-chicken-nuggets,4 Pc Chicken Nuggets,Kids,51 g,114,11,4.9,5.6,1.4,,0.93,0,0,,false,true,,,
+classic-egg-and-cheese-muffin,Classic Egg & Cheese Muffin,Breakfast,130 g,319,14,27,16,4.5,,1,2.5,5.5,,false,true,,,
+classic-sausage-and-cheese-muffin,Classic Sausage & Cheese Muffin,Breakfast,177 g,477,23,28,29,9.1,,1.4,3.2,6,contains_pork,false,true,,,Name says sausage (pork)
+classic-bacon-and-cheese-muffin,Classic Bacon & Cheese Muffin,Breakfast,143 g,384,19,27,21,6.3,,1.7,2.6,5.5,contains_pork,false,true,,,Name says bacon (pork)
+breakfast-baconator-w-brown-sauce,Breakfast Baconator w/ Brown Sauce,Breakfast,216 g,632,36,40,36,13,,3.7,9.2,2.1,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
+breakfast-baconator-w-red-sauce,Breakfast Baconator w/ Red Sauce,Breakfast,215 g,628,36,39,36,13,,3.8,9,2.1,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
+egg-double-stack,Egg Double Stack,Breakfast,173 g,419,21,29,24,6.2,,3,5,1.4,,false,true,,,
+sausage-breakfast-butty-w-brown-sauce,Sausage Breakfast Butty w/ Brown Sauce,Breakfast,104 g,319,14,31,15,4.8,,1.1,6.7,1.8,contains_pork,false,true,,,Name says sausage (pork)
+bacon-breakfast-butty-w-brown-sauce,Bacon Breakfast Butty w/ Brown Sauce,Breakfast,74 g,246,12,30,8.4,2.6,,1.7,6.1,1.4,contains_pork,false,true,,,Name says bacon (pork)
+sausage-breakfast-butty-w-red-sauce,Sausage Breakfast Butty w/ Red Sauce,Breakfast,102 g,315,14,30,15,4.8,,1.1,6.2,1.8,contains_pork,false,true,,,Name says sausage (pork)
+bacon-breakfast-butty-w-red-sauce,Bacon Breakfast Butty w/ Red Sauce,Breakfast,72 g,242,12,29,8.4,2.6,,1.7,5.5,1.4,contains_pork,false,true,,,Name says bacon (pork)
+breakfast-wrap-bacon-w-red-sauce,Breakfast Wrap Bacon w/ Red Sauce,Breakfast,150 g,355,18,29,18,6.1,,2,4.3,2.4,contains_pork,false,true,,,Name says bacon (pork)
+breakfast-wrap-sausage-w-red-sauce,Breakfast Wrap Sausage w/ Red Sauce,Breakfast,184 g,448,22,30,26,9,,1.6,4.9,2.9,contains_pork,false,true,,,Name says sausage (pork)
+breakfast-wrap-egg-and-cheese-w-red-sauce,Breakfast Wrap Egg & Cheese w/ Red Sauce,Breakfast,137 g,290,13,29,13,4.4,,1.3,4.3,2.4,,false,true,,,
+breakfast-wrap-bacon-w-brown-sauce,Breakfast Wrap Bacon w/ Brown Sauce,Breakfast,149 g,355,18,29,18,6.1,,1.9,4.3,2.4,contains_pork,false,true,,,Name says bacon (pork)
+breakfast-wrap-sausage-w-brown-sauce,Breakfast Wrap Sausage w/ Brown Sauce,Breakfast,183 g,452,22,31,26,9,,1.6,4.9,2.9,contains_pork,false,true,,,Name says sausage (pork)
+breakfast-wrap-egg-and-cheese-w-brown-sauce,Breakfast Wrap Egg & Cheese w/ Brown Sauce,Breakfast,137 g,290,13,29,13,4.4,,1.2,4.2,2.4,,false,true,,,
+chocolate-pop-dots,Chocolate Pop Dots,Frosty & desserts,78 g,384,5.9,35,24,12,,0.74,20,2.3,,false,false,,,"Printed under Sides; a dessert, so grouped with Frosty and not suggested as a meal"
+jr-vanilla-frosty,Jr. Vanilla Frosty,Frosty & desserts,140 g,179,3.5,27,6.3,5.5,,0.34,19,0,,false,false,,,
+regular-vanilla-frosty,Regular Vanilla Frosty,Frosty & desserts,168 g,217,4.2,33,7.6,6.6,,0.41,23,0,,false,false,,,
+large-vanilla-frosty,Large Vanilla Frosty,Frosty & desserts,244 g,311,6.1,47,11,9.6,,0.6,34,0,,false,false,,,
+x-large-vanilla-frosty,X-Large Vanilla Frosty,Frosty & desserts,328 g,424,8.2,64,15,13,,0.8,45,0,,false,false,,,
+jr-chocolate-frosty,Jr. Chocolate Frosty,Frosty & desserts,143 g,168,5,28,4,3.6,,0.29,23,0,,false,false,,,
+regular-chocolate-frosty,Regular Chocolate Frosty,Frosty & desserts,168 g,199,5.8,33,4.7,4.2,,0.34,26,0.6,,false,false,,,
+large-chocolate-frosty,Large Chocolate Frosty,Frosty & desserts,247 g,290,8.6,48,6.9,6.2,,0.5,39,0.8,,false,false,,,
+x-large-chocolate-frosty,X-Large Chocolate Frosty,Frosty & desserts,338 g,399,12,66,9.4,8.5,,0.69,53,1.1,,false,false,,,
+regular-vanilla-strawberries-and-cream-frosty,Regular Vanilla Strawberries & Cream Frosty,Frosty & desserts,182 g,301,4.5,46,11,8.6,,0.42,35,0,,false,false,,,
+large-vanilla-strawberries-and-cream-frosty,Large Vanilla Strawberries & Cream Frosty,Frosty & desserts,243 g,386,6,59,14,11,,0.56,44,0,,false,false,,,
+regular-chocolate-strawberries-and-cream-frosty,Regular Chocolate Strawberries & Cream Frosty,Frosty & desserts,182 g,284,6,46,8.3,6.3,,0.36,38,0.5,,false,false,,,
+large-chocolate-strawberries-and-cream-frosty,Large Chocolate Strawberries & Cream Frosty,Frosty & desserts,243 g,359,8.1,59,9.9,7.8,,0.47,48,0.7,,false,false,,,
+regular-vanilla-frostyccino,Regular Vanilla Frostyccino,Frosty & desserts,355 g,186,3.7,28,6.6,5.8,,0.36,20,0,,false,false,,,
+large-vanilla-frostyccino,Large Vanilla Frostyccino,Frosty & desserts,421 g,192,3.8,29,6.8,5.9,,0.37,21,0,,false,false,,,Weight 421 g is 66 g more than the regular but only 6 kcal more; entered as printed
+regular-chocolate-frostyccino,Regular Chocolate Frostyccino,Frosty & desserts,355 g,169,5.1,28,4.1,3.7,,0.3,23,0,,false,false,,,
+large-chocolate-frostyccino,Large Chocolate Frostyccino,Frosty & desserts,421 g,176,5.3,29,4.2,3.8,,0.31,24,0.5,,false,false,,,Weight 421 g is 66 g more than the regular but only 7 kcal more; entered as printed
+6-pc-mini-donuts,6 Pc Mini Donuts,Frosty & desserts,81 g,321,4.4,39,16,7.2,,1.1,17,1.7,,false,false,,,"Printed under Breakfast; a dessert, so grouped with Frosty and not suggested as a meal"
+can-coke,Can Coke,Drinks,330 g,140,0,35,0,0,,0,35,0,,false,false,,,
+can-diet-coke,Can Diet Coke,Drinks,330 g,0,0,0,0,0,,0,0,0,,false,false,,,
+can-coke-zero,Can Coke Zero,Drinks,330 g,0,0,0,0,0,,0.07,0,0,,false,false,,,
+can-sprite,Can Sprite,Drinks,330 g,44,0,11,0,0,,0.03,11,0,,false,false,,,
+coke-small-12-oz,"Coke (small, 12 oz)",Drinks,355 g,152,0,38,0,0,,0,38,0,,false,false,,,
+diet-coke-small-12-oz,"Diet Coke (small, 12 oz)",Drinks,355 g,0,0,0,0,0,,0,0,0,,false,false,,,
+coke-zero-small-12-oz,"Coke Zero (small, 12 oz)",Drinks,355 g,0,0,0,0,0,,0.07,0,0,,false,false,,,
+orange-fanta-small-12-oz,"Orange Fanta (small, 12 oz)",Drinks,355 g,64,0,16,0,0,,0.07,16,0,,false,false,,,
+sprite-zero-small-12-oz,"Sprite Zero (small, 12 oz)",Drinks,355 g,0,0,0,0,0,,0.25,0,0,,false,false,,,
+coke-regular-16-oz,"Coke (regular, 16 oz)",Drinks,473 g,200,0,50,0,0,,0,50,0,,false,false,,,
+diet-coke-regular-16-oz,"Diet Coke (regular, 16 oz)",Drinks,473 g,0,0,0,0,0,,0,0,0,,false,false,,,
+coke-zero-regular-16-oz,"Coke Zero (regular, 16 oz)",Drinks,473 g,0,0,0,0,0,,0.09,0,0,,false,false,,,
+orange-fanta-regular-16-oz,"Orange Fanta (regular, 16 oz)",Drinks,473 g,84,0,21,0,0,,0.09,21,0,,false,false,,,
+sprite-zero-regular-16-oz,"Sprite Zero (regular, 16 oz)",Drinks,473 g,0,0,0,0,0,,0.33,0,0,,false,false,,,
+coke-large-20-oz,"Coke (large, 20 oz)",Drinks,591 g,252,0,63,0,0,,0,63,0,,false,false,,,
+diet-coke-large-20-oz,"Diet Coke (large, 20 oz)",Drinks,591 g,0,0,0,0,0,,0,0,0,,false,false,,,
+coke-zero-large-20-oz,"Coke Zero (large, 20 oz)",Drinks,591 g,0,0,0,0,0,,0.12,0,0,,false,false,,,
+orange-fanta-large-20-oz,"Orange Fanta (large, 20 oz)",Drinks,591 g,108,0,27,0,0,,0.12,27,0,,false,false,,,
+sprite-zero-large-20-oz,"Sprite Zero (large, 20 oz)",Drinks,591 g,0,0,0,0,0,,0.41,0,0,,false,false,,,
+espresso,Espresso,Drinks,48 g,0,0,0,0,0,,0,0,0,,false,false,,,
+americano,Americano,Drinks,338 g,0,0,0,0,0,,0.02,0,0,,false,false,,,
+flat-white,Flat White,Drinks,390 g,153,11,16,5,3.1,,0.47,16,0,,false,false,,,Every printed number is identical to the Latte row
+cappuccino,Cappuccino,Drinks,276 g,95,6.7,9.9,3.2,2,,0.3,9.9,0,,false,false,,,
+latte,Latte,Drinks,390 g,153,11,16,5,3.1,,0.47,16,0,,false,false,,,Every printed number is identical to the Flat White row
+mocha,Mocha,Drinks,335 g,190,7.3,31,3.5,2.2,,0.41,30,2.4,,false,false,,,
+tea,Tea,Drinks,31 g,0,0,0,0,0,,0,0,0,,false,false,,,Printed weight is 31 g; every nutrient printed as 0
+hot-chocolate,Hot Chocolate,Drinks,318 g,245,8.9,41,4.3,2.7,,0.51,39,3.2,,false,false,,,
