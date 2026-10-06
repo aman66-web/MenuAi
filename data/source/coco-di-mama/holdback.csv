@@ -1,0 +1,4 @@
+item_id,reason
+add-1-sausage,"Printed as 3 kcal, 0 g protein and 0 g fat for one sausage, which the guide's own per-100g line (290 kcal) makes a 1 g sausage; 'Add 2 sausages' on the same page is 232 kcal."
+extra-sausage,"Printed as 3 kcal, 0 g protein and 0 g fat for one sausage (a 1 g sausage on the guide's own per-100g line, 290 kcal); 'Add 2 sausages' is 232 kcal."
+large-pistachio-latte-whole-milk,"Printed numbers (265 kcal, 12 g fat, 1.6 g saturates) are identical to the skimmed-milk row above it; a large whole-milk latte can't have 1.6 g saturates when the plain Large Latte Whole Milk already has 6.3 g."
