@@ -1,4 +1,4 @@
-import { formatCalories, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel } from "@/lib/mm/format";
+import { formatCalories, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel, nutrientsSpoken } from "@/lib/mm/format";
 import type { Nutrients } from "@/lib/mm/types";
 
 /** Big calories + protein, then carbs and fat (SPEC §15: same order everywhere). */
@@ -37,12 +37,13 @@ export function MacroSummary({ nutrients, label, compact }: { nutrients: Nutrien
   );
 }
 
-/** One-line numbers under an item name: "520 kcal · 32g protein · 55g carbs · 18g fat". */
+/** One-line numbers under an item name: "520 kcal · 32g protein · 55g carbs · 18g fat" (spoken in full words). Inline-safe inside links. */
 export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
   return (
-    <p className="app-numbers text-sm text-muted">
-      {formatCalories(nutrients.calories)} · {formatGrams(nutrients.protein)} protein · {formatGrams(nutrients.carbs)} carbs · {formatGrams(nutrients.fat)} fat
-    </p>
+    <span className="app-numbers block text-sm text-muted">
+      <span aria-hidden>{formatCalories(nutrients.calories)} · {formatGrams(nutrients.protein)} protein · {formatGrams(nutrients.carbs)} carbs · {formatGrams(nutrients.fat)} fat</span>
+      <span className="sr-only">, {nutrientsSpoken(nutrients)}</span>
+    </span>
   );
 }
 

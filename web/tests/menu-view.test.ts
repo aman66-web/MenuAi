@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { filterItems, groupByCategory, isNewItem, sortItems } from "../lib/mm/menu-view";
+import { filterItems, groupByCategory, isNewItem, searchItems, sortItems, filterCaution } from "../lib/mm/menu-view";
 import { NO_PREFERENCES } from "../lib/mm/types";
 import { cluck, tinyChain } from "./fixtures";
 
@@ -83,5 +83,30 @@ describe("grouping", () => {
     const { chain } = cluck();
     const veg = filterItems(chain.items, { ...NO_PREFERENCES, vegetarianOnly: true });
     expect(groupByCategory(chain, veg).map((s) => s.category)).toEqual(["Sides", "Treats", "Drinks", "Sauces"]);
+  });
+});
+
+describe("search within a menu", () => {
+  const mk = (id: string, name: string, category = "Mains") => ({ ...items[0]!, id, name, category });
+  const menu = [mk("a", "Chicken Wrap"), mk("b", "Iced Latte", "Iced drinks"), mk("c", "Caffè Latte", "Hot coffee"), mk("d", "Wrap of the day")];
+  it("matches the start of any word, every query word, ignoring case and accents", () => {
+    expect(searchItems(menu, "chick wrap").map((i) => i.id)).toEqual(["a"]);
+    expect(searchItems(menu, "LATTE").map((i) => i.id)).toEqual(["b", "c"]);
+    expect(searchItems(menu, "caffe").map((i) => i.id)).toEqual(["c"]);
+  });
+  it("matches the category too, and not the middle of a word", () => {
+    expect(searchItems(menu, "iced").map((i) => i.id)).toEqual(["b"]);
+    expect(searchItems(menu, "atte")).toEqual([]);
+  });
+  it("returns everything, in order, for an empty query", () => {
+    expect(searchItems(menu, "  ").map((i) => i.id)).toEqual(["a", "b", "c", "d"]);
+  });
+});
+
+describe("filter caution line", () => {
+  it("is absent with no filter, and names exactly what the filters can't promise", () => {
+    expect(filterCaution(NO_PREFERENCES)).toBeNull();
+    expect(filterCaution({ ...NO_PREFERENCES, noPork: true })).toBe("We only know what each restaurant publishes, so this can't promise a dish is pork-free.");
+    expect(filterCaution({ vegetarianOnly: true, noPork: true, noBeef: true })).toBe("We only know what each restaurant publishes, so this can't promise a dish is vegetarian or pork-free or beef-free.");
   });
 });

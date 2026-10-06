@@ -133,3 +133,10 @@ p { text-wrap: pretty; }
 
 /* A quieter surface for lists nested inside a card (no second blur, no second shadow). */
 .inset-card { background: var(--soft-strong); border: 1px solid var(--line); }
+
+/* Horizontal chip rows scroll by touch; the scrollbar would only add noise. */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Long menus (600+ rows): the browser skips layout and paint for rows far off screen. */
+.cv-row { content-visibility: auto; contain-intrinsic-size: auto 76px; }

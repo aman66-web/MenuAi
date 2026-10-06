@@ -1,6 +1,7 @@
 import { NEW_ITEM_DAYS } from "./config";
 import { proteinPer100Cal } from "./nutrients";
 import { passesPreferences } from "./ranking";
+import { normalizeForSearch } from "./search";
 import type { Chain, MenuItem, Preferences } from "./types";
 
 // SPEC §7.4: sort, filter and tags on the chain page.
@@ -55,4 +56,31 @@ export function groupByCategory(chain: Pick<Chain, "categories">, items: readonl
   return chain.categories
     .map((category) => ({ category, items: items.filter((i) => i.category === category) }))
     .filter((s) => s.items.length > 0);
+}
+
+/**
+ * Search within one menu: every word of the query must start a word of the item's name or category ("chick wrap" finds
+ * "Chicken Wrap"; "latte" finds "Iced Latte"). Same normalising as the app-wide search. Keeps the given order.
+ */
+export function searchItems(items: readonly MenuItem[], query: string): MenuItem[] {
+  const words = normalizeForSearch(query).split(" ").filter(Boolean);
+  if (words.length === 0) return [...items];
+  return items.filter((item) => {
+    const hay = ` ${normalizeForSearch(`${item.name} ${item.category}`)}`;
+    return words.every((w) => hay.includes(` ${w}`));
+  });
+}
+
+/** Menus longer than this open with each section trimmed to its first few items (tap to show the rest). */
+export const LARGE_MENU_ITEMS = 120;
+export const SECTION_PREVIEW_ITEMS = 6;
+
+/**
+ * The one calm line shown wherever a diet filter is on: the filters only know what each restaurant's guide states, so
+ * they can't promise anything (matters for halal and vegetarian users). Null when no filter is on.
+ */
+export function filterCaution(prefs: Preferences): string | null {
+  const promises = [prefs.vegetarianOnly && "vegetarian", prefs.noPork && "pork-free", prefs.noBeef && "beef-free"].filter((p): p is string => Boolean(p));
+  if (promises.length === 0) return null;
+  return `We only know what each restaurant publishes, so this can't promise a dish is ${promises.join(" or ")}.`;
 }

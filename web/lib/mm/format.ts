@@ -50,7 +50,12 @@ export function reasonLine(n: Nutrients): string {
 
 /** Screen-reader label with the same rounding as the display (SPEC §7). */
 export function nutrientAriaLabel(name: string, n: Nutrients): string {
-  return `${name}, ${formatInt(n.calories)} calories, ${halfUp(n.protein)} grams protein, ${halfUp(n.carbs)} grams carbs, ${halfUp(n.fat)} grams fat`;
+  return `${name}, ${nutrientsSpoken(n)}`;
+}
+
+/** The four main numbers as a screen reader should say them: "520 calories, 32 grams protein, 55 grams carbs, 18 grams fat". */
+export function nutrientsSpoken(n: Nutrients): string {
+  return `${formatInt(n.calories)} calories, ${halfUp(n.protein)} grams protein, ${halfUp(n.carbs)} grams carbs, ${halfUp(n.fat)} grams fat`;
 }
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];

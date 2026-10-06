@@ -89,15 +89,16 @@ export function ErrorBox({ message, onRetry }: { message: string; onRetry?: () =
   );
 }
 
-export function Chip({ selected, children, onClick, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean }) {
+export function Chip({ selected, children, onClick, className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean }) {
   return (
     <button
       type="button"
       aria-pressed={selected}
       onClick={onClick}
       className={cx(
-        "inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+        "inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border px-4 text-sm font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
         selected ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft text-foreground hover:bg-soft-strong",
+        className,
       )}
       {...rest}
     >

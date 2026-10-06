@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261006094809,
- "generatedAt": "2026-10-06T09:48:09Z",
+ "dataVersion": 20261006095626,
+ "generatedAt": "2026-10-06T09:56:26Z",
  "chains": [
   {
    "id": "abokado",
@@ -270,10 +270,10 @@
   {
    "id": "farmer-j",
    "name": "Farmer J",
-   "cuisine": "Healthy",
+   "cuisine": "Bowls",
    "file": "chain-farmer-j.json",
-   "sha256": "a35bb9def86bc38db8985e569c609a357c60e70de4d268a6f7bf0e301ff7b293",
-   "contentHash": "ee58386440e012f7f72ec830177255514a2795282cda2eaed3f2bc29111a9011",
+   "sha256": "23a2052dc8289de055a77e21640f361baa89041857333f556f2ee3ad955cf40f",
+   "contentHash": "f291fb7726804a0d5bbd99273dca3660eb6022a6caf4a9648b5009b84d126858",
    "sample": false,
    "itemCount": 74,
    "checkedOn": "2026-10-06"
@@ -798,6 +798,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "d8bb13c42d02c22973b072a608623009df001a410b06ab3bbda73c35d4b4763c"
+  "sha256": "84358a10dca86257462fd626b690edb0acbad1a623f52c38652cbf9f9f17c279"
  }
 }
