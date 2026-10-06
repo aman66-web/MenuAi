@@ -1,0 +1,600 @@
+{
+ "schemaVersion": 1,
+ "id": "bagel-factory",
+ "name": "Bagel Factory",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "bagel factory",
+  "the bagel factory",
+  "bagelfactory"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Bagel Factory website menu: Nutrition Facts per portion on each bagel's page (/menu/ page updated 2026-08-24; bagel pages updated 2025-09-16 to 2026-08-19)",
+  "url": "https://bagelfactory.co.uk/menu/",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are for each bagel as made with a plain bagel bun; Bagel Factory lets you choose another bun, which changes the numbers. Minis and gluten-free boxes are as listed with their own bun. Drinks have no published nutrition.",
+ "categories": [
+  "Breakfast",
+  "Cream Cheese",
+  "Deli",
+  "Gluten Free",
+  "Seafood",
+  "Spreads",
+  "Veggie & Vegan"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "sausage-bagel",
+   "name": "Sausage Bagel",
+   "category": "Breakfast",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 455,
+    "protein": 20,
+    "carbs": 61,
+    "fat": 13.6,
+    "saturatedFat": 4.6,
+    "sugar": 7.3,
+    "fiber": 4.7,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-breakfast",
+   "name": "Veggie Breakfast",
+   "category": "Breakfast",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 542,
+    "protein": 23,
+    "carbs": 62.1,
+    "fat": 21.3,
+    "saturatedFat": 7.8,
+    "sugar": 8.8,
+    "fiber": 4.9,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-mini",
+   "name": "Bacon Mini",
+   "category": "Breakfast",
+   "serving": "1 mini bagel",
+   "nutrients": {
+    "calories": 185,
+    "protein": 5.9,
+    "carbs": 18.6,
+    "fat": 8.4,
+    "saturatedFat": 2.9,
+    "sugar": 2,
+    "fiber": 1.2,
+    "salt": 0.77
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-egg",
+   "name": "Sausage and Egg",
+   "category": "Breakfast",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 537,
+    "protein": 26.6,
+    "carbs": 62.5,
+    "fat": 19,
+    "saturatedFat": 6.2,
+    "sugar": 7.9,
+    "fiber": 4.7,
+    "salt": 2.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon",
+   "name": "Bacon",
+   "category": "Breakfast",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 470,
+    "protein": 21.4,
+    "carbs": 59.5,
+    "fat": 15.4,
+    "saturatedFat": 5.2,
+    "sugar": 6.9,
+    "fiber": 3.8,
+    "salt": 1.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-cheese",
+   "name": "Cream Cheese",
+   "category": "Cream Cheese",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 435,
+    "protein": 14.5,
+    "carbs": 60,
+    "fat": 14.4,
+    "saturatedFat": 8.1,
+    "sugar": 7.8,
+    "fiber": 3.6,
+    "salt": 1.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-herbs-cream-cheese",
+   "name": "Garlic & Herbs Cream Cheese",
+   "category": "Cream Cheese",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 435,
+    "protein": 14.5,
+    "carbs": 60,
+    "fat": 14.4,
+    "saturatedFat": 8.1,
+    "sugar": 7.8,
+    "fiber": 3.6,
+    "salt": 1.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-cream-cheese",
+   "name": "Vegan Cream Cheese",
+   "category": "Cream Cheese",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 422,
+    "protein": 13.4,
+    "carbs": 58.6,
+    "fat": 13.9,
+    "saturatedFat": 10.4,
+    "sugar": 6.2,
+    "fiber": 4.7,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoky-pulled-pork",
+   "name": "Smoky Pulled Pork",
+   "category": "Deli",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 720,
+    "protein": 43,
+    "carbs": 68.3,
+    "fat": 29.1,
+    "saturatedFat": 12.8,
+    "sugar": 10.2,
+    "fiber": 5.3,
+    "salt": 3.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-avocado",
+   "name": "Chicken & Avocado",
+   "category": "Deli",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 565,
+    "protein": 26.6,
+    "carbs": 59,
+    "fat": 23.6,
+    "saturatedFat": 3.4,
+    "sugar": 6.6,
+    "fiber": 4.9,
+    "salt": 1.39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-beef-melt",
+   "name": "Salt Beef Melt",
+   "category": "Deli",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 562,
+    "protein": 36.8,
+    "carbs": 59.3,
+    "fat": 18.5,
+    "saturatedFat": 10.2,
+    "sugar": 7.4,
+    "fiber": 4.2,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-club",
+   "name": "Chicken Club",
+   "category": "Deli",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 637,
+    "protein": 36.6,
+    "carbs": 60.6,
+    "fat": 26.6,
+    "saturatedFat": 8.4,
+    "sugar": 8.4,
+    "fiber": 4.2,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-bagel-box-with-avocado-and-vegan-cream-cheese",
+   "name": "Gluten Free Bagel Box with Avocado & Vegan Cream Cheese",
+   "category": "Gluten Free",
+   "serving": "1 bagel box",
+   "nutrients": {
+    "calories": 407,
+    "protein": 7.1,
+    "carbs": 36.2,
+    "fat": 24.7,
+    "saturatedFat": 13.9,
+    "sugar": 4.2,
+    "fiber": 5.8,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-bagel-box-with-salmon-and-cream-cheese",
+   "name": "Gluten Free Bagel Box with Salmon & Cream Cheese",
+   "category": "Gluten Free",
+   "serving": "1 bagel box",
+   "nutrients": {
+    "calories": 425,
+    "protein": 16.3,
+    "carbs": 37.1,
+    "fat": 22.3,
+    "saturatedFat": 10.5,
+    "sugar": 4.7,
+    "fiber": 5,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-new-yorker",
+   "name": "The New Yorker",
+   "category": "Seafood",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 540,
+    "protein": 24,
+    "carbs": 63.8,
+    "fat": 19.9,
+    "saturatedFat": 9,
+    "sugar": 10.9,
+    "fiber": 4.9,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-melt-bagel",
+   "name": "Tuna Melt Bagel",
+   "category": "Seafood",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 667,
+    "protein": 33.2,
+    "carbs": 60.8,
+    "fat": 31.4,
+    "saturatedFat": 10.2,
+    "sugar": 7.9,
+    "fiber": 4.1,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic",
+   "name": "The Classic",
+   "category": "Seafood",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 519,
+    "protein": 33.2,
+    "carbs": 60.3,
+    "fat": 19.7,
+    "saturatedFat": 9,
+    "sugar": 8,
+    "fiber": 4.1,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-avocado",
+   "name": "Salmon & Avocado",
+   "category": "Seafood",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 506,
+    "protein": 19.3,
+    "carbs": 60.4,
+    "fat": 20.2,
+    "saturatedFat": 3.4,
+    "sugar": 6.3,
+    "fiber": 5.8,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-mini",
+   "name": "The Classic Mini",
+   "category": "Seafood",
+   "serving": "1 mini bagel",
+   "nutrients": {
+    "calories": 154,
+    "protein": 5,
+    "carbs": 17.8,
+    "fat": 7.2,
+    "saturatedFat": 4.1,
+    "sugar": 2.4,
+    "fiber": 0.8,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutella-bagel",
+   "name": "Nutella Bagel",
+   "category": "Spreads",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 511,
+    "protein": 10.5,
+    "carbs": 80.5,
+    "fat": 14.2,
+    "saturatedFat": 4.5,
+    "sugar": 28.3,
+    "fiber": 6.1,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-jam",
+   "name": "Strawberry Jam",
+   "category": "Spreads",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 388,
+    "protein": 10.7,
+    "carbs": 92.9,
+    "fat": 2,
+    "saturatedFat": 0.3,
+    "sugar": 7.2,
+    "fiber": 3.6,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanut-butter",
+   "name": "Peanut Butter",
+   "category": "Spreads",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 548,
+    "protein": 20.5,
+    "carbs": 63.1,
+    "fat": 22.2,
+    "saturatedFat": 3,
+    "sugar": 8.1,
+    "fiber": 6.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-heat-halloumi",
+   "name": "Honey Heat Halloumi",
+   "category": "Veggie & Vegan",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 682,
+    "protein": 31.6,
+    "carbs": 73.5,
+    "fat": 28.7,
+    "saturatedFat": 13.9,
+    "sugar": 16.5,
+    "fiber": 6.6,
+    "salt": 3.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-melt",
+   "name": "Halloumi Melt",
+   "category": "Veggie & Vegan",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 612,
+    "protein": 29.6,
+    "carbs": 61.3,
+    "fat": 26.6,
+    "saturatedFat": 13.5,
+    "sugar": 9.5,
+    "fiber": 4.3,
+    "salt": 3.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-cream-cheese-stack-mini",
+   "name": "Vegan Cream Cheese Stack Mini",
+   "category": "Veggie & Vegan",
+   "serving": "1 mini bagel",
+   "nutrients": {
+    "calories": 224,
+    "protein": 2.9,
+    "carbs": 18.5,
+    "fat": 14,
+    "saturatedFat": 6.7,
+    "sugar": 2,
+    "fiber": 1.8,
+    "salt": 0.68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-cream-cheese-stack",
+   "name": "Vegan Cream Cheese Stack",
+   "category": "Veggie & Vegan",
+   "serving": "1 bagel (plain bun)",
+   "nutrients": {
+    "calories": 550,
+    "protein": 14.3,
+    "carbs": 59.9,
+    "fat": 26.9,
+    "saturatedFat": 12.5,
+    "sugar": 6.7,
+    "fiber": 6,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

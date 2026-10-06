@@ -1,0 +1,4218 @@
+{
+ "schemaVersion": 1,
+ "id": "gourmet-burger-kitchen",
+ "name": "Gourmet Burger Kitchen",
+ "cuisine": "Burgers",
+ "builderType": "standard",
+ "aliases": [
+  "gbk",
+  "gourmet burger kitchen",
+  "gbk burgers"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Gourmet Burger Kitchen allergen and nutrition menus (menus.tenkites.com/brg/gourmetburgerkitchen: main, kids, drinks and no gluten menus, files dated 6 October 2026)",
+  "url": "https://menus.tenkites.com/brg/gourmetburgerkitchen",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "GBK calculates these values using typical weights and measures. Dishes that differ on the no gluten, kids or drinks menus appear once per version.",
+ "categories": [
+  "Smashed burgers",
+  "Gourmet burgers",
+  "Chicken burgers",
+  "Bean or Beyond burgers",
+  "Go naked (no bun)",
+  "Smashed, fries & drink",
+  "GBK your way: extras",
+  "Sauces",
+  "Sharers & sides",
+  "Desserts",
+  "Condiments",
+  "Kids mains",
+  "Kids sides",
+  "Drinks",
+  "Kids shakes",
+  "Shakes"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "smashed-classic-2-patty",
+   "name": "Smashed Classic - 2 Patty",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 756,
+    "protein": 34.2,
+    "carbs": 34.6,
+    "fat": 53.2,
+    "saturatedFat": 20.1,
+    "sugar": 5.8,
+    "fiber": 2.4,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-classic-3-patty",
+   "name": "Smashed Classic - 3 Patty",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 996,
+    "protein": 47.9,
+    "carbs": 35.8,
+    "fat": 73.2,
+    "saturatedFat": 29.1,
+    "sugar": 6.1,
+    "fiber": 2.7,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-classic-4-patty",
+   "name": "Smashed Classic - 4 Patty",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1237,
+    "protein": 61.7,
+    "carbs": 37.1,
+    "fat": 93.2,
+    "saturatedFat": 38.1,
+    "sugar": 6.4,
+    "fiber": 3,
+    "salt": 4.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-blue-2-patty",
+   "name": "Smashed Blue - 2 Patty",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 822,
+    "protein": 32.9,
+    "carbs": 32.5,
+    "fat": 61.8,
+    "saturatedFat": 20.1,
+    "sugar": 5.8,
+    "fiber": 2.4,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-blue-3-patty",
+   "name": "Smashed Blue - 3 Patty",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1050,
+    "protein": 46.6,
+    "carbs": 32.5,
+    "fat": 81.1,
+    "saturatedFat": 29.2,
+    "sugar": 5.9,
+    "fiber": 2.7,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-blue-4-patty",
+   "name": "Smashed Blue - 4 Patty",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1279,
+    "protein": 60.4,
+    "carbs": 32.6,
+    "fat": 100.4,
+    "saturatedFat": 38.4,
+    "sugar": 5.9,
+    "fiber": 3,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-classic-2-patty-gluten-free",
+   "name": "Smashed Classic - 2 Patty (gluten free)",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 788,
+    "protein": 29.4,
+    "carbs": 41.4,
+    "fat": 55.4,
+    "saturatedFat": 19.3,
+    "sugar": 7.4,
+    "fiber": 5,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-classic-3-patty-gluten-free",
+   "name": "Smashed Classic - 3 Patty (gluten free)",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1028,
+    "protein": 43.1,
+    "carbs": 42.7,
+    "fat": 75.5,
+    "saturatedFat": 28.3,
+    "sugar": 7.7,
+    "fiber": 5.4,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-classic-4-patty-gluten-free",
+   "name": "Smashed Classic - 4 Patty (gluten free)",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1269,
+    "protein": 56.9,
+    "carbs": 44,
+    "fat": 95.5,
+    "saturatedFat": 37.3,
+    "sugar": 8,
+    "fiber": 5.7,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-blue-2-patty-gluten-free",
+   "name": "Smashed Blue - 2 Patty (gluten free)",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 853,
+    "protein": 28.1,
+    "carbs": 39.3,
+    "fat": 64.1,
+    "saturatedFat": 19.3,
+    "sugar": 7.3,
+    "fiber": 5.1,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-blue-3-patty-gluten-free",
+   "name": "Smashed Blue - 3 Patty (gluten free)",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1082,
+    "protein": 41.8,
+    "carbs": 39.4,
+    "fat": 83.4,
+    "saturatedFat": 28.4,
+    "sugar": 7.4,
+    "fiber": 5.4,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-blue-4-patty-gluten-free",
+   "name": "Smashed Blue - 4 Patty (gluten free)",
+   "category": "Smashed burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1311,
+    "protein": 55.6,
+    "carbs": 39.5,
+    "fat": 102.7,
+    "saturatedFat": 37.6,
+    "sugar": 7.5,
+    "fiber": 5.7,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-single",
+   "name": "The Classic - Single",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 703,
+    "protein": 40.6,
+    "carbs": 39.4,
+    "fat": 42.5,
+    "saturatedFat": 15.1,
+    "sugar": 11.8,
+    "fiber": 3,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-double",
+   "name": "The Classic - Double",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1100,
+    "protein": 73.9,
+    "carbs": 40.2,
+    "fat": 71.8,
+    "saturatedFat": 28.2,
+    "sugar": 12.5,
+    "fiber": 3.8,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-single-american-cheese",
+   "name": "Classic Cheese - Single - American Cheese",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 788,
+    "protein": 44.8,
+    "carbs": 41.9,
+    "fat": 49,
+    "saturatedFat": 18.6,
+    "sugar": 12.3,
+    "fiber": 3,
+    "salt": 3.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-double-american-cheese",
+   "name": "Classic Cheese - Double - American Cheese",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1270,
+    "protein": 82.4,
+    "carbs": 45.2,
+    "fat": 84.8,
+    "saturatedFat": 35.2,
+    "sugar": 13.4,
+    "fiber": 3.8,
+    "salt": 5.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-single-cheddar-cheese",
+   "name": "Classic Cheese - Single - Cheddar Cheese",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 786,
+    "protein": 45.7,
+    "carbs": 39.5,
+    "fat": 49.5,
+    "saturatedFat": 19.5,
+    "sugar": 11.8,
+    "fiber": 3,
+    "salt": 3.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-double-cheddar-cheese",
+   "name": "Classic Cheese - Double - Cheddar Cheese",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1266,
+    "protein": 84.1,
+    "carbs": 40.3,
+    "fat": 85.7,
+    "saturatedFat": 36.9,
+    "sugar": 12.5,
+    "fiber": 3.8,
+    "salt": 5.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-taxidriver-single",
+   "name": "The Taxidriver - Single",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 857,
+    "protein": 46.4,
+    "carbs": 51.5,
+    "fat": 51.5,
+    "saturatedFat": 19.2,
+    "sugar": 13.8,
+    "fiber": 4.1,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-taxidriver-double",
+   "name": "The Taxidriver - Double",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1338,
+    "protein": 84,
+    "carbs": 54.8,
+    "fat": 87.2,
+    "saturatedFat": 35.8,
+    "sugar": 14.9,
+    "fiber": 4.9,
+    "salt": 6.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-gravy-train-single",
+   "name": "The Gravy Train - Single",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 892,
+    "protein": 53.4,
+    "carbs": 46.9,
+    "fat": 54.6,
+    "saturatedFat": 20.9,
+    "sugar": 14.4,
+    "fiber": 2.8,
+    "salt": 5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-gravy-train-double",
+   "name": "The Gravy Train - Double",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1375,
+    "protein": 91,
+    "carbs": 50.3,
+    "fat": 90.4,
+    "saturatedFat": 37.5,
+    "sugar": 15.6,
+    "fiber": 3.5,
+    "salt": 7.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "texan-single",
+   "name": "Texan - Single",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 954,
+    "protein": 52.8,
+    "carbs": 53.9,
+    "fat": 58.2,
+    "saturatedFat": 23.3,
+    "sugar": 28.5,
+    "fiber": 3.9,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "texan-double",
+   "name": "Texan - Double",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1435,
+    "protein": 90.3,
+    "carbs": 57.1,
+    "fat": 93.9,
+    "saturatedFat": 39.9,
+    "sugar": 29.7,
+    "fiber": 4.6,
+    "salt": 6.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocketman-single",
+   "name": "Rocketman - Single",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 855,
+    "protein": 47.1,
+    "carbs": 45.1,
+    "fat": 53.7,
+    "saturatedFat": 21.7,
+    "sugar": 23.3,
+    "fiber": 3.7,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocketman-double",
+   "name": "Rocketman - Double",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1335,
+    "protein": 85.6,
+    "carbs": 45.9,
+    "fat": 90,
+    "saturatedFat": 39.2,
+    "sugar": 24,
+    "fiber": 4.4,
+    "salt": 5.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-single",
+   "name": "Blue Cheese - Single",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 874,
+    "protein": 51.8,
+    "carbs": 41.7,
+    "fat": 55.6,
+    "saturatedFat": 24.9,
+    "sugar": 13.6,
+    "fiber": 3.3,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-double",
+   "name": "Blue Cheese - Double",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1431,
+    "protein": 96.1,
+    "carbs": 42.5,
+    "fat": 97.9,
+    "saturatedFat": 47.7,
+    "sugar": 14.3,
+    "fiber": 4,
+    "salt": 6.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-roadhouse",
+   "name": "The Roadhouse",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 834,
+    "protein": 48.2,
+    "carbs": 39,
+    "fat": 53.9,
+    "saturatedFat": 22.5,
+    "sugar": 8.8,
+    "fiber": 3.5,
+    "salt": 4.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-roadhouse-skinny-fries",
+   "name": "The Roadhouse - Skinny Fries",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1159,
+    "protein": 56.5,
+    "carbs": 74.5,
+    "fat": 69.7,
+    "saturatedFat": 27.8,
+    "sugar": 9.5,
+    "fiber": 6.7,
+    "salt": 6.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-roadhouse-chunky",
+   "name": "The Roadhouse - Chunky",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1262,
+    "protein": 58.8,
+    "carbs": 96.9,
+    "fat": 70,
+    "saturatedFat": 27.8,
+    "sugar": 9.3,
+    "fiber": 9.1,
+    "salt": 6.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-single-gluten-free",
+   "name": "The Classic - Single (gluten free)",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 735,
+    "protein": 35.8,
+    "carbs": 46.3,
+    "fat": 44.8,
+    "saturatedFat": 14.3,
+    "sugar": 13.4,
+    "fiber": 5.8,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-double-gluten-free",
+   "name": "The Classic - Double (gluten free)",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1132,
+    "protein": 69.1,
+    "carbs": 47.1,
+    "fat": 74,
+    "saturatedFat": 27.4,
+    "sugar": 14,
+    "fiber": 6.5,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-single-american-cheese-gluten-free",
+   "name": "Classic Cheese - Single - American Cheese (gluten free)",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 820,
+    "protein": 40,
+    "carbs": 48.8,
+    "fat": 51.3,
+    "saturatedFat": 17.8,
+    "sugar": 13.8,
+    "fiber": 5.8,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-double-american-cheese-gluten-free",
+   "name": "Classic Cheese - Double - American Cheese (gluten free)",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1302,
+    "protein": 77.6,
+    "carbs": 52.1,
+    "fat": 87,
+    "saturatedFat": 34.4,
+    "sugar": 14.9,
+    "fiber": 6.5,
+    "salt": 5.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-single-cheddar-cheese-gluten-free",
+   "name": "Classic Cheese - Single - Cheddar Cheese (gluten free)",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 818,
+    "protein": 40.9,
+    "carbs": 46.3,
+    "fat": 51.8,
+    "saturatedFat": 18.7,
+    "sugar": 13.4,
+    "fiber": 5.8,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-double-cheddar-cheese-gluten-free",
+   "name": "Classic Cheese - Double - Cheddar Cheese (gluten free)",
+   "category": "Gourmet burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1298,
+    "protein": 79.3,
+    "carbs": 47.1,
+    "fat": 88,
+    "saturatedFat": 36.1,
+    "sugar": 14.1,
+    "fiber": 6.5,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-chicken-grilled-chicken",
+   "name": "Classic Chicken - Grilled Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 607,
+    "protein": 38,
+    "carbs": 42.6,
+    "fat": 31.3,
+    "saturatedFat": 3.6,
+    "sugar": 11.4,
+    "fiber": 2.7,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-chicken-panko-chicken",
+   "name": "Classic Chicken - Panko Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 721,
+    "protein": 42.8,
+    "carbs": 55.3,
+    "fat": 36,
+    "saturatedFat": 4.1,
+    "sugar": 12.7,
+    "fiber": 2.5,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "satay-bomb-grilled-chicken",
+   "name": "Satay Bomb - Grilled Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 754,
+    "protein": 43.7,
+    "carbs": 48.1,
+    "fat": 42.1,
+    "saturatedFat": 6.8,
+    "sugar": 15.5,
+    "fiber": 4.3,
+    "salt": 4.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "satay-bomb-panko-chicken",
+   "name": "Satay Bomb - Panko Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 869,
+    "protein": 48.5,
+    "carbs": 60.8,
+    "fat": 46.9,
+    "saturatedFat": 7.3,
+    "sugar": 16.8,
+    "fiber": 4.1,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "k-town-panko-chicken",
+   "name": "K-Town - Panko Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 743,
+    "protein": 43.9,
+    "carbs": 66.2,
+    "fat": 32.6,
+    "saturatedFat": 4,
+    "sugar": 21.3,
+    "fiber": 3.7,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "k-town-grilled-chicken",
+   "name": "K-Town - Grilled Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 629,
+    "protein": 39.2,
+    "carbs": 53.5,
+    "fat": 27.9,
+    "saturatedFat": 3.5,
+    "sugar": 20,
+    "fiber": 3.9,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-smokey-clucker-grilled-chicken",
+   "name": "The Smokey Clucker - Grilled Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 975,
+    "protein": 49.7,
+    "carbs": 62,
+    "fat": 58.1,
+    "saturatedFat": 12.8,
+    "sugar": 22.4,
+    "fiber": 6.4,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-smokey-clucker-panko-chicken",
+   "name": "The Smokey Clucker - Panko Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 861,
+    "protein": 44.9,
+    "carbs": 49.3,
+    "fat": 53.3,
+    "saturatedFat": 12.3,
+    "sugar": 21.1,
+    "fiber": 6.6,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tender-burger",
+   "name": "Chicken Tender Burger",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 483,
+    "protein": 19.1,
+    "carbs": 49.8,
+    "fat": 22.6,
+    "saturatedFat": 6.1,
+    "sugar": 11.3,
+    "fiber": 2.7,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gf-classic-chicken",
+   "name": "GF Classic Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 639,
+    "protein": 33.2,
+    "carbs": 49.5,
+    "fat": 33.6,
+    "saturatedFat": 2.8,
+    "sugar": 12.9,
+    "fiber": 5.4,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-veggie-bean-patty",
+   "name": "The Classic Veggie - Bean Patty",
+   "category": "Bean or Beyond burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 427,
+    "protein": 14.6,
+    "carbs": 56.7,
+    "fat": 13.8,
+    "saturatedFat": 2,
+    "sugar": 11.7,
+    "fiber": 10,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-veggie-beyond-meat-patty",
+   "name": "The Classic Veggie - BEYOND MEAT® patty",
+   "category": "Bean or Beyond burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 524,
+    "protein": 25.2,
+    "carbs": 45.1,
+    "fat": 26.5,
+    "saturatedFat": 5.2,
+    "sugar": 11.8,
+    "fiber": 3.7,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "californian-bean-patty",
+   "name": "Californian - Bean Patty",
+   "category": "Bean or Beyond burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 645,
+    "protein": 16.1,
+    "carbs": 67.4,
+    "fat": 32.5,
+    "saturatedFat": 12.7,
+    "sugar": 19.6,
+    "fiber": 13.1,
+    "salt": 2.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "californian-beyond-meat-patty",
+   "name": "Californian - BEYOND MEAT® patty",
+   "category": "Bean or Beyond burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 742,
+    "protein": 26.7,
+    "carbs": 55.7,
+    "fat": 45.2,
+    "saturatedFat": 15.9,
+    "sugar": 19.7,
+    "fiber": 6.8,
+    "salt": 3.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gf-classic-veggie-beyond-meat-patty",
+   "name": "GF Classic Veggie - BEYOND MEAT® patty",
+   "category": "Bean or Beyond burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 556,
+    "protein": 20.4,
+    "carbs": 51.9,
+    "fat": 28.8,
+    "saturatedFat": 4.4,
+    "sugar": 13.3,
+    "fiber": 6.4,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-single-go-naked",
+   "name": "The Classic - Single (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 773,
+    "protein": 37.5,
+    "carbs": 22.4,
+    "fat": 59.7,
+    "saturatedFat": 15.8,
+    "sugar": 16.3,
+    "fiber": 4.9,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-double-go-naked",
+   "name": "The Classic - Double (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1170,
+    "protein": 70.8,
+    "carbs": 23.2,
+    "fat": 88.9,
+    "saturatedFat": 28.9,
+    "sugar": 17,
+    "fiber": 5.6,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-single",
+   "name": "Classic Cheese - Single",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 858,
+    "protein": 41.7,
+    "carbs": 24.9,
+    "fat": 66.2,
+    "saturatedFat": 19.3,
+    "sugar": 16.8,
+    "fiber": 4.9,
+    "salt": 4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-double",
+   "name": "Classic Cheese - Double",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1339,
+    "protein": 79.3,
+    "carbs": 28.1,
+    "fat": 101.9,
+    "saturatedFat": 35.9,
+    "sugar": 17.9,
+    "fiber": 5.6,
+    "salt": 5.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-taxi-driver-single",
+   "name": "The Taxi Driver - Single",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 927,
+    "protein": 43.3,
+    "carbs": 34.5,
+    "fat": 68.6,
+    "saturatedFat": 19.9,
+    "sugar": 18.3,
+    "fiber": 6,
+    "salt": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-taxi-driver-double",
+   "name": "The Taxi Driver - Double",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1408,
+    "protein": 80.9,
+    "carbs": 37.8,
+    "fat": 104.4,
+    "saturatedFat": 36.5,
+    "sugar": 19.4,
+    "fiber": 6.7,
+    "salt": 6.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-gravy-train-single-go-naked",
+   "name": "The Gravy Train - Single (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 973,
+    "protein": 50.7,
+    "carbs": 31.8,
+    "fat": 71.9,
+    "saturatedFat": 21.7,
+    "sugar": 20.4,
+    "fiber": 5.1,
+    "salt": 5.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-gravy-train-double-go-naked",
+   "name": "The Gravy Train - Double (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1455,
+    "protein": 88.3,
+    "carbs": 35.2,
+    "fat": 107.7,
+    "saturatedFat": 38.2,
+    "sugar": 21.6,
+    "fiber": 5.9,
+    "salt": 7.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "texan-single-go-naked",
+   "name": "Texan - Single (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 983,
+    "protein": 48.5,
+    "carbs": 34,
+    "fat": 72.7,
+    "saturatedFat": 23.7,
+    "sugar": 31.4,
+    "fiber": 4.9,
+    "salt": 5.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "texan-double-go-naked",
+   "name": "Texan - Double (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1464,
+    "protein": 86.1,
+    "carbs": 37.2,
+    "fat": 108.4,
+    "saturatedFat": 40.3,
+    "sugar": 32.5,
+    "fiber": 5.5,
+    "salt": 7.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocket-man-single",
+   "name": "Rocket Man - Single",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 935,
+    "protein": 44.5,
+    "carbs": 30,
+    "fat": 71,
+    "saturatedFat": 22.5,
+    "sugar": 29.4,
+    "fiber": 6.1,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocket-man-burger-double",
+   "name": "Rocket Man Burger - Double",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1415,
+    "protein": 82.9,
+    "carbs": 30.8,
+    "fat": 107.3,
+    "saturatedFat": 39.9,
+    "sugar": 30.1,
+    "fiber": 6.8,
+    "salt": 6.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-single-go-naked",
+   "name": "Blue Cheese - Single (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 944,
+    "protein": 48.7,
+    "carbs": 24.6,
+    "fat": 72.8,
+    "saturatedFat": 25.6,
+    "sugar": 18.1,
+    "fiber": 5.1,
+    "salt": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-double-go-naked",
+   "name": "Blue Cheese - Double (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1501,
+    "protein": 93,
+    "carbs": 25.5,
+    "fat": 115.1,
+    "saturatedFat": 48.4,
+    "sugar": 18.8,
+    "fiber": 5.8,
+    "salt": 7.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-chicken-grilled-chicken-go-naked",
+   "name": "Classic Chicken - Grilled Chicken (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 677,
+    "protein": 34.9,
+    "carbs": 25.6,
+    "fat": 48.5,
+    "saturatedFat": 4.3,
+    "sugar": 15.9,
+    "fiber": 4.6,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-chicken-panko-chicken-go-naked",
+   "name": "Classic Chicken - Panko Chicken (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 791,
+    "protein": 39.7,
+    "carbs": 38.3,
+    "fat": 53.2,
+    "saturatedFat": 4.8,
+    "sugar": 17.2,
+    "fiber": 4.3,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "satay-bomb-grilled-chicken-go-naked",
+   "name": "Satay Bomb - Grilled Chicken (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 833,
+    "protein": 41,
+    "carbs": 32.8,
+    "fat": 59.4,
+    "saturatedFat": 7.5,
+    "sugar": 21.4,
+    "fiber": 6.6,
+    "salt": 4.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "satay-bomb-panko-chicken-go-naked",
+   "name": "Satay Bomb - Panko Chicken (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 948,
+    "protein": 45.8,
+    "carbs": 45.6,
+    "fat": 64.1,
+    "saturatedFat": 8,
+    "sugar": 22.7,
+    "fiber": 6.4,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "k-town-grilled-chicken-go-naked",
+   "name": "K-Town - Grilled Chicken (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 824,
+    "protein": 41.4,
+    "carbs": 51.2,
+    "fat": 50,
+    "saturatedFat": 4.8,
+    "sugar": 27.4,
+    "fiber": 6.1,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "k-town-panko",
+   "name": "K Town Panko",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 824,
+    "protein": 41.4,
+    "carbs": 51.2,
+    "fat": 50,
+    "saturatedFat": 4.8,
+    "sugar": 27.4,
+    "fiber": 6.1,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-smokey-clucker-grilled-chicken-go-naked",
+   "name": "The Smokey Clucker - Grilled Chicken (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 941,
+    "protein": 42.3,
+    "carbs": 34.1,
+    "fat": 70.6,
+    "saturatedFat": 13,
+    "sugar": 27.1,
+    "fiber": 9,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-smokey-clucker-panko-chicken-go-naked",
+   "name": "The Smokey Clucker - Panko Chicken (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1055,
+    "protein": 47,
+    "carbs": 46.9,
+    "fat": 75.4,
+    "saturatedFat": 13.5,
+    "sugar": 28.5,
+    "fiber": 8.8,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-veggie-beyond-meat-patty-go-naked",
+   "name": "The Classic Veggie - BEYOND MEAT® patty (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 594,
+    "protein": 22.1,
+    "carbs": 28,
+    "fat": 43.7,
+    "saturatedFat": 5.9,
+    "sugar": 16.3,
+    "fiber": 5.5,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-veggie-bean-patty-go-naked",
+   "name": "The Classic Veggie - Bean Patty (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 497,
+    "protein": 11.4,
+    "carbs": 39.6,
+    "fat": 31,
+    "saturatedFat": 2.7,
+    "sugar": 16.2,
+    "fiber": 11.8,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "californian-beyond-meat-patty-go-naked",
+   "name": "Californian - BEYOND MEAT® patty (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 812,
+    "protein": 23.6,
+    "carbs": 38.7,
+    "fat": 62.4,
+    "saturatedFat": 16.6,
+    "sugar": 24.2,
+    "fiber": 8.6,
+    "salt": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "californian-bean-patty-go-naked",
+   "name": "Californian - Bean Patty (Go Naked)",
+   "category": "Go naked (no bun)",
+   "serving": "",
+   "nutrients": {
+    "calories": 715,
+    "protein": 13,
+    "carbs": 50.3,
+    "fat": 49.7,
+    "saturatedFat": 13.4,
+    "sugar": 24.1,
+    "fiber": 14.9,
+    "salt": 3.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-classic-skinny-fries",
+   "name": "Smashed Classic - Skinny Fries",
+   "category": "Smashed, fries & drink",
+   "serving": "",
+   "nutrients": {
+    "calories": 997,
+    "protein": 37.5,
+    "carbs": 69.9,
+    "fat": 62,
+    "saturatedFat": 21,
+    "sugar": 6.5,
+    "fiber": 5.5,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-classic-chunky-fries",
+   "name": "Smashed Classic - Chunky Fries",
+   "category": "Smashed, fries & drink",
+   "serving": "",
+   "nutrients": {
+    "calories": 1101,
+    "protein": 39.7,
+    "carbs": 92.3,
+    "fat": 62.3,
+    "saturatedFat": 21,
+    "sugar": 6.3,
+    "fiber": 7.9,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-bean-skinny-fries",
+   "name": "The Classic Bean - Skinny Fries",
+   "category": "Smashed, fries & drink",
+   "serving": "",
+   "nutrients": {
+    "calories": 672,
+    "protein": 18,
+    "carbs": 92,
+    "fat": 23,
+    "saturatedFat": 3.1,
+    "sugar": 12.4,
+    "fiber": 13.1,
+    "salt": 3.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-bean-chunky-fries",
+   "name": "The Classic Bean - Chunky Fries",
+   "category": "Smashed, fries & drink",
+   "serving": "",
+   "nutrients": {
+    "calories": 776,
+    "protein": 20.3,
+    "carbs": 114.4,
+    "fat": 23.3,
+    "saturatedFat": 3.1,
+    "sugar": 12.2,
+    "fiber": 15.5,
+    "salt": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-patty",
+   "name": "Beef Patty",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 396,
+    "protein": 33.3,
+    "carbs": 0.8,
+    "fat": 29.2,
+    "saturatedFat": 13.1,
+    "sugar": 0.7,
+    "fiber": 0.7,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-smash-patty",
+   "name": "Extra Smash Patty",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 198,
+    "protein": 11.6,
+    "carbs": 0.1,
+    "fat": 16.8,
+    "saturatedFat": 7.3,
+    "sugar": 0.1,
+    "fiber": 0.3,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-patty",
+   "name": "Grilled Chicken Patty",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 301,
+    "protein": 30.9,
+    "carbs": 4,
+    "fat": 18.1,
+    "saturatedFat": 1.6,
+    "sugar": 0.2,
+    "fiber": 0.4,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "panko-chicken-patty",
+   "name": "Panko Chicken Patty",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 415,
+    "protein": 35.5,
+    "carbs": 16.7,
+    "fat": 22.8,
+    "saturatedFat": 2,
+    "sugar": 1.5,
+    "fiber": 0.2,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-bean-patty",
+   "name": "Classic Bean Patty",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 176,
+    "protein": 10.6,
+    "carbs": 25.4,
+    "fat": 1.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.8,
+    "fiber": 10.8,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beyond-patty",
+   "name": "Beyond® Patty",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 221,
+    "protein": 18.1,
+    "carbs": 6.3,
+    "fat": 13.6,
+    "saturatedFat": 3.3,
+    "sugar": 0.7,
+    "fiber": 1.4,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jalapenos",
+   "name": "Jalapenos",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.3,
+    "carbs": 0.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.2,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gherkin",
+   "name": "Gherkin",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.3,
+    "carbs": 1.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.7,
+    "fiber": 0.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "paprika-onions",
+   "name": "Paprika Onions",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 170,
+    "protein": 2,
+    "carbs": 11.7,
+    "fat": 12.5,
+    "saturatedFat": 5.9,
+    "sugar": 27.9,
+    "fiber": 2,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-ring",
+   "name": "Onion Ring",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 83,
+    "protein": 1.5,
+    "carbs": 8,
+    "fat": 4.9,
+    "saturatedFat": 0.7,
+    "sugar": 0.3,
+    "fiber": 0.9,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-bacon",
+   "name": "Crispy Bacon",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 91,
+    "protein": 7,
+    "carbs": 0.1,
+    "fat": 7,
+    "saturatedFat": 2.8,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-egg",
+   "name": "Fried Egg",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 127,
+    "protein": 7.1,
+    "carbs": 0.4,
+    "fat": 10.6,
+    "saturatedFat": 2,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-avocado",
+   "name": "Smashed Avocado",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 80,
+    "protein": 0.7,
+    "carbs": 1.7,
+    "fat": 7.9,
+    "saturatedFat": 1.9,
+    "sugar": 0.5,
+    "fiber": 2.3,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-blue-cheese",
+   "name": "Extra Blue Cheese",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 80,
+    "protein": 5.5,
+    "carbs": 0,
+    "fat": 6.5,
+    "saturatedFat": 4.9,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-cheese",
+   "name": "American Cheese",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 85,
+    "protein": 4.3,
+    "carbs": 2.5,
+    "fat": 6.5,
+    "saturatedFat": 3.5,
+    "sugar": 0.5,
+    "fiber": 0,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheddar-cheese",
+   "name": "Cheddar Cheese",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 83,
+    "protein": 5.1,
+    "carbs": 0,
+    "fat": 7,
+    "saturatedFat": 4.3,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-cheese",
+   "name": "Vegan Cheese",
+   "category": "GBK your way: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 90,
+    "protein": 0.2,
+    "carbs": 7.4,
+    "fat": 6.8,
+    "saturatedFat": 5.9,
+    "sugar": 0,
+    "fiber": 0.2,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gbk-relish",
+   "name": "GBK Relish",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0.5,
+    "carbs": 12.6,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 10.8,
+    "fiber": 0.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "habanero-jam",
+   "name": "Habanero Jam",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 0.5,
+    "carbs": 9,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 8.4,
+    "fiber": 0.6,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-mayo",
+   "name": "Truffle Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 292,
+    "protein": 0.4,
+    "carbs": 1.7,
+    "fat": 31.5,
+    "saturatedFat": 3.9,
+    "sugar": 1.1,
+    "fiber": 0,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanut-satay-sauce",
+   "name": "Peanut satay sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 158,
+    "protein": 6.5,
+    "carbs": 9.2,
+    "fat": 10.3,
+    "saturatedFat": 2.3,
+    "sugar": 6.8,
+    "fiber": 2,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-butter",
+   "name": "Hot Honey Butter",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 128,
+    "protein": 0.5,
+    "carbs": 6.8,
+    "fat": 10.6,
+    "saturatedFat": 6.7,
+    "sugar": 6.3,
+    "fiber": 0.9,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baconnaise",
+   "name": "Baconnaise",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 267,
+    "protein": 2.5,
+    "carbs": 1.2,
+    "fat": 27.9,
+    "saturatedFat": 3.1,
+    "sugar": 1,
+    "fiber": 0.1,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-mayo",
+   "name": "Garlic Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 258,
+    "protein": 0.6,
+    "carbs": 1.8,
+    "fat": 27.5,
+    "saturatedFat": 2.4,
+    "sugar": 1.1,
+    "fiber": 0.1,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chipotle-mayo",
+   "name": "Chipotle Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 205,
+    "protein": 0.5,
+    "carbs": 4,
+    "fat": 20.7,
+    "saturatedFat": 1.8,
+    "sugar": 3.4,
+    "fiber": 0.3,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-mayo",
+   "name": "Blue Cheese Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 269,
+    "protein": 1.9,
+    "carbs": 1,
+    "fat": 28.4,
+    "saturatedFat": 3.7,
+    "sugar": 0.9,
+    "fiber": 0,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 101,
+    "protein": 0.7,
+    "carbs": 18.5,
+    "fat": 1.8,
+    "saturatedFat": 0.3,
+    "sugar": 16.2,
+    "fiber": 0.2,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "firey-red-root-relish",
+   "name": "Firey Red Root Relish",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0.6,
+    "carbs": 7.4,
+    "fat": 0.1,
+    "saturatedFat": 2.1,
+    "sugar": 6.6,
+    "fiber": 0.5,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-mayo",
+   "name": "House Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 259,
+    "protein": 0.5,
+    "carbs": 1.3,
+    "fat": 28,
+    "saturatedFat": 2.2,
+    "sugar": 0.9,
+    "fiber": 0,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-crispy-wings",
+   "name": "4 Crispy Wings",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 526,
+    "protein": 41.2,
+    "carbs": 39.1,
+    "fat": 22.9,
+    "saturatedFat": 9.4,
+    "sugar": 1.3,
+    "fiber": 1.3,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-mac",
+   "name": "Truffle Mac",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 783,
+    "protein": 23.6,
+    "carbs": 55.3,
+    "fat": 51.9,
+    "saturatedFat": 14.8,
+    "sugar": 3.8,
+    "fiber": 1,
+    "salt": 3.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries-chunky",
+   "name": "Loaded Fries - Chunky",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 552,
+    "protein": 15.8,
+    "carbs": 71.6,
+    "fat": 21,
+    "saturatedFat": 6.2,
+    "sugar": 12,
+    "fiber": 5.8,
+    "salt": 4.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries-skinny",
+   "name": "Loaded Fries - Skinny",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 449,
+    "protein": 13.5,
+    "carbs": 49.2,
+    "fat": 20.7,
+    "saturatedFat": 6.2,
+    "sugar": 12.2,
+    "fiber": 3.4,
+    "salt": 3.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chunky-fries",
+   "name": "Chunky Fries",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 345,
+    "protein": 5.5,
+    "carbs": 57.8,
+    "fat": 9.2,
+    "saturatedFat": 1,
+    "sugar": 0.5,
+    "fiber": 5.5,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skinny-fries",
+   "name": "Skinny Fries",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 241,
+    "protein": 3.3,
+    "carbs": 35.4,
+    "fat": 8.9,
+    "saturatedFat": 1,
+    "sugar": 0.7,
+    "fiber": 3.1,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 583,
+    "protein": 10.5,
+    "carbs": 56,
+    "fat": 34.1,
+    "saturatedFat": 4.7,
+    "sugar": 2.3,
+    "fiber": 6.3,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-salad",
+   "name": "Mixed Salad",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 80,
+    "protein": 2.2,
+    "carbs": 5.6,
+    "fat": 5.4,
+    "saturatedFat": 0.6,
+    "sugar": 3.3,
+    "fiber": 1.8,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gbk-homeslaw",
+   "name": "GBK Homeslaw",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 1.5,
+    "carbs": 10,
+    "fat": 15.6,
+    "saturatedFat": 1.4,
+    "sugar": 7.3,
+    "fiber": 2.2,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-slaw",
+   "name": "Blue Cheese Slaw",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 257,
+    "protein": 2.7,
+    "carbs": 6.5,
+    "fat": 24.5,
+    "saturatedFat": 3.2,
+    "sugar": 4.1,
+    "fiber": 1.9,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-cheese-sauce",
+   "name": "Warm Cheese Sauce",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 208,
+    "protein": 11.7,
+    "carbs": 5.4,
+    "fat": 15.7,
+    "saturatedFat": 9.5,
+    "sugar": 2.7,
+    "fiber": 0.3,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-jus",
+   "name": "Beef Jus",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 87,
+    "protein": 4.4,
+    "carbs": 15.3,
+    "fat": 0.9,
+    "saturatedFat": 0.2,
+    "sugar": 7.4,
+    "fiber": 0.8,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-crispy-wings",
+   "name": "8 Crispy Wings",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1051,
+    "protein": 82.4,
+    "carbs": 78.1,
+    "fat": 45.8,
+    "saturatedFat": 18.8,
+    "sugar": 2.6,
+    "fiber": 2.6,
+    "salt": 5.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "satay-chicken-salad",
+   "name": "Satay Chicken Salad",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 522,
+    "protein": 39.3,
+    "carbs": 26.4,
+    "fat": 28.7,
+    "saturatedFat": 3.9,
+    "sugar": 14.8,
+    "fiber": 6.2,
+    "salt": 4.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-chicken-tenders",
+   "name": "3 Chicken Tenders",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 264,
+    "protein": 17.8,
+    "carbs": 16.7,
+    "fat": 14,
+    "saturatedFat": 6.1,
+    "sugar": 0.2,
+    "fiber": 0.6,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-chicken-tenders",
+   "name": "6 Chicken Tenders",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 528,
+    "protein": 35.5,
+    "carbs": 33.4,
+    "fat": 28.1,
+    "saturatedFat": 12.2,
+    "sugar": 0.5,
+    "fiber": 1.2,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-rub-onion-rings",
+   "name": "Hot Rub Onion Rings",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 339,
+    "protein": 6.2,
+    "carbs": 33,
+    "fat": 19.6,
+    "saturatedFat": 2.7,
+    "sugar": 1.6,
+    "fiber": 3.6,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chipotle-slaw",
+   "name": "Chipotle Slaw",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 203,
+    "protein": 1.6,
+    "carbs": 9.1,
+    "fat": 17.9,
+    "saturatedFat": 1.6,
+    "sugar": 6.3,
+    "fiber": 2.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fiery-mac-and-cheese",
+   "name": "Fiery Mac & Cheese",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 424,
+    "protein": 16.3,
+    "carbs": 54.5,
+    "fat": 15.6,
+    "saturatedFat": 8.4,
+    "sugar": 3,
+    "fiber": 1,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-hot-honey-tenders",
+   "name": "2 Hot Honey Tenders",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 270,
+    "protein": 12.6,
+    "carbs": 14.8,
+    "fat": 17.8,
+    "saturatedFat": 4.8,
+    "sugar": 3.2,
+    "fiber": 0.8,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-bbq-wings-and-garlic-mayo",
+   "name": "2 BBQ Wings and Garlic Mayo",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 565,
+    "protein": 21.5,
+    "carbs": 32,
+    "fat": 39,
+    "saturatedFat": 7.1,
+    "sugar": 10.9,
+    "fiber": 0.9,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-buffalo-wings-and-blue-cheese",
+   "name": "2 Buffalo Wings and Blue cheese",
+   "category": "Sharers & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 540,
+    "protein": 22.8,
+    "carbs": 20.8,
+    "fat": 40,
+    "saturatedFat": 8.4,
+    "sugar": 1.7,
+    "fiber": 1.4,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-ice-cream",
+   "name": "Vanilla ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 206,
+    "protein": 3,
+    "carbs": 22.2,
+    "fat": 11.6,
+    "saturatedFat": 5.3,
+    "sugar": 22.1,
+    "fiber": 0.2,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-oreo",
+   "name": "Add OREO®",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 238,
+    "protein": 2.6,
+    "carbs": 34,
+    "fat": 10,
+    "saturatedFat": 2.7,
+    "sugar": 18.5,
+    "fiber": 1.5,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-oreo-dessert",
+   "name": "Add OREO® (Dessert)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.6,
+    "carbs": 8.2,
+    "fat": 2.4,
+    "saturatedFat": 0.6,
+    "sugar": 4.4,
+    "fiber": 0.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-ketchup-dip-pot",
+   "name": "Heinz Ketchup Dip Pot",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.1,
+    "carbs": 2.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-mayo-dip-pot",
+   "name": "Heinz Mayo Dip Pot",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0.1,
+    "carbs": 0.3,
+    "fat": 7.2,
+    "saturatedFat": 0.6,
+    "sugar": 0.3,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseburger",
+   "name": "Cheeseburger",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 436,
+    "protein": 20.3,
+    "carbs": 34.4,
+    "fat": 23.8,
+    "saturatedFat": 10.3,
+    "sugar": 7.1,
+    "fiber": 2.8,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hamburger",
+   "name": "Kids Hamburger",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 405,
+    "protein": 18.8,
+    "carbs": 34.4,
+    "fat": 21,
+    "saturatedFat": 8.6,
+    "sugar": 7.4,
+    "fiber": 3.1,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-burger",
+   "name": "Chicken Burger",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 434,
+    "protein": 25.2,
+    "carbs": 36,
+    "fat": 20.8,
+    "saturatedFat": 2.7,
+    "sugar": 7.2,
+    "fiber": 2.9,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-burger",
+   "name": "Vegan Burger",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 388,
+    "protein": 13.2,
+    "carbs": 49.4,
+    "fat": 13.6,
+    "saturatedFat": 2,
+    "sugar": 7.5,
+    "fiber": 9.3,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tenders",
+   "name": "Chicken Tenders",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 17.9,
+    "carbs": 19,
+    "fat": 14.1,
+    "saturatedFat": 6.1,
+    "sugar": 2.5,
+    "fiber": 1.6,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-burger-gluten-free",
+   "name": "Chicken Burger (gluten free)",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 487,
+    "protein": 18.3,
+    "carbs": 42.4,
+    "fat": 26.3,
+    "saturatedFat": 2.3,
+    "sugar": 8.8,
+    "fiber": 5.4,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseburger-gluten-free",
+   "name": "Cheeseburger (gluten free)",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 468,
+    "protein": 15.5,
+    "carbs": 41.3,
+    "fat": 26.1,
+    "saturatedFat": 9.5,
+    "sugar": 8.6,
+    "fiber": 5.5,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-burger-gluten-free",
+   "name": "Vegan Burger (gluten free)",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 420,
+    "protein": 8.4,
+    "carbs": 56.3,
+    "fat": 15.9,
+    "saturatedFat": 1.2,
+    "sugar": 9,
+    "fiber": 12,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skinny-fries-kids-menu",
+   "name": "Skinny Fries (kids menu)",
+   "category": "Kids sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 173,
+    "protein": 2.3,
+    "carbs": 25.4,
+    "fat": 6.4,
+    "saturatedFat": 0.7,
+    "sugar": 0.5,
+    "fiber": 2.3,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chunky-fries-kids-menu",
+   "name": "Chunky Fries (kids menu)",
+   "category": "Kids sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 3.2,
+    "carbs": 33.5,
+    "fat": 5.3,
+    "saturatedFat": 0.6,
+    "sugar": 0.3,
+    "fiber": 3.2,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "simple-salad",
+   "name": "Simple Salad",
+   "category": "Kids sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0.5,
+    "carbs": 2.8,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "fiber": 1.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-blackcurrant-fruit-shoot",
+   "name": "Apple & Blackcurrant Fruit Shoot",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0,
+    "carbs": 1.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.4,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-fruit-shoot",
+   "name": "Orange Fruit Shoot",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0,
+    "carbs": 2.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.4,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spring-water-330ml",
+   "name": "Spring Water 330ml",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cruzcampo-sevilla-330ml",
+   "name": "Cruzcampo Sevilla 330ml",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 129,
+    "protein": 0,
+    "carbs": 11.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "britvic-regular-tonic",
+   "name": "Britvic Regular Tonic",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 0.1,
+    "carbs": 9.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "britvic-slimline-tonic",
+   "name": "Britvic Slimline Tonic",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola",
+   "name": "Coca-Cola",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 0.1,
+    "carbs": 35.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 35.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero",
+   "name": "Coke Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero",
+   "name": "Sprite Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monster-ultra-zero",
+   "name": "Monster Ultra Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0,
+    "carbs": 4.5,
+    "fat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "j2o-orange-and-passion-fruit",
+   "name": "J2O Orange & Passion Fruit",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 11.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "j2o-apple-and-raspberry",
+   "name": "J2O Apple & Raspberry",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50,
+    "protein": 0,
+    "carbs": 11,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-water",
+   "name": "Sparkling Water",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "still-water",
+   "name": "Still Water",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "passion-fruit-and-vanilla",
+   "name": "Passion Fruit & Vanilla",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 96,
+    "protein": 0.4,
+    "carbs": 23.2,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 22.2,
+    "fiber": 0.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-and-elderflower",
+   "name": "Strawberry & Elderflower",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "protein": 0.4,
+    "carbs": 22.5,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 21.7,
+    "fiber": 0.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade",
+   "name": "Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130,
+    "protein": 0.4,
+    "carbs": 30.1,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 29.3,
+    "fiber": 0.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 5.8,
+    "carbs": 8.2,
+    "fat": 6.1,
+    "saturatedFat": 4,
+    "sugar": 7.5,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 5.8,
+    "carbs": 8.2,
+    "fat": 6.1,
+    "saturatedFat": 4,
+    "sugar": 7.5,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 5.8,
+    "carbs": 8.2,
+    "fat": 6.1,
+    "saturatedFat": 4,
+    "sugar": 7.5,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano",
+   "name": "Iced Americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 5.8,
+    "carbs": 8.2,
+    "fat": 6.1,
+    "saturatedFat": 4,
+    "sugar": 7.5,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 298,
+    "protein": 9.9,
+    "carbs": 44.1,
+    "fat": 8,
+    "saturatedFat": 5.2,
+    "sugar": 40.9,
+    "fiber": 5.2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea",
+   "name": "English Breakfast Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey-tea",
+   "name": "Earl Grey Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tea",
+   "name": "Peppermint Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-tea",
+   "name": "Decaf Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-shake",
+   "name": "Vanilla Shake",
+   "category": "Kids shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 360,
+    "protein": 5.8,
+    "carbs": 50.7,
+    "fat": 14.6,
+    "saturatedFat": 8.4,
+    "sugar": 47.7,
+    "fiber": 0.3,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shake",
+   "name": "Strawberry Shake",
+   "category": "Kids shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 5.8,
+    "carbs": 63.5,
+    "fat": 14.6,
+    "saturatedFat": 8.4,
+    "sugar": 60.5,
+    "fiber": 0.3,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-shake",
+   "name": "Chocolate Shake",
+   "category": "Kids shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 440,
+    "protein": 5.8,
+    "carbs": 67.6,
+    "fat": 14.6,
+    "saturatedFat": 8.4,
+    "sugar": 64.3,
+    "fiber": 0.3,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-shake-gluten-free-drinks-menu",
+   "name": "Chocolate Shake (gluten free / drinks menu)",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 879,
+    "protein": 11.6,
+    "carbs": 135.3,
+    "fat": 29.3,
+    "saturatedFat": 16.7,
+    "sugar": 128.7,
+    "fiber": 0.7,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shake-gluten-free-drinks-menu",
+   "name": "Strawberry Shake (gluten free / drinks menu)",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 825,
+    "protein": 11.6,
+    "carbs": 127.1,
+    "fat": 29.3,
+    "saturatedFat": 16.7,
+    "sugar": 121,
+    "fiber": 0.7,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-shake-gluten-free-drinks-menu",
+   "name": "Vanilla Shake (gluten free / drinks menu)",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 721,
+    "protein": 11.6,
+    "carbs": 101.4,
+    "fat": 29.3,
+    "saturatedFat": 16.7,
+    "sugar": 95.3,
+    "fiber": 0.7,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-shake",
+   "name": "Caramel shake",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 929,
+    "protein": 13.5,
+    "carbs": 145,
+    "fat": 31.9,
+    "saturatedFat": 18.5,
+    "sugar": 134.6,
+    "fiber": 0.7,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lotus-biscoff-shake",
+   "name": "Lotus Biscoff® shake",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1013,
+    "protein": 13.1,
+    "carbs": 129.9,
+    "fat": 48.3,
+    "saturatedFat": 20.5,
+    "sugar": 113.7,
+    "fiber": 1.1,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-shake",
+   "name": "Oreo® shake",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 823,
+    "protein": 13.6,
+    "carbs": 129.4,
+    "fat": 37.3,
+    "saturatedFat": 19.7,
+    "sugar": 110.1,
+    "fiber": 1.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,4077 @@
+{
+ "schemaVersion": 1,
+ "id": "hickorys",
+ "name": "Hickory's Smokehouse",
+ "cuisine": "Barbecue",
+ "builderType": "standard",
+ "aliases": [
+  "hickorys",
+  "hickory's",
+  "hickorys smokehouse",
+  "hickory's smokehouse"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Hickory's Smokehouse menu with nutrition: Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (live page, no date printed; read 2026-10-06)",
+  "url": "https://menus.tenkites.com/hickorys/hickorys03",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Figures are per portion from Hickory's own menu page (hosted by Ten Kites), which prints no date. Alcoholic drinks and the Smokin' Deals bundles are not included; the Non-Gluten menu only adds dishes whose numbers differ.",
+ "categories": [
+  "Appetisers",
+  "The Smokehouse",
+  "Steaks",
+  "Burgers",
+  "Mains",
+  "Lighter & loaded",
+  "On the side",
+  "Brunch",
+  "Drinks",
+  "Desserts",
+  "Kids"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "the-southern-sharer",
+   "name": "The Southern Sharer",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 3488,
+    "protein": 76.4,
+    "carbs": 187.2,
+    "fat": 269.9,
+    "saturatedFat": 70.3,
+    "sugar": 77.4,
+    "salt": 20.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-corn-dogs",
+   "name": "Classic Corn Dogs",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 564,
+    "protein": 11.4,
+    "carbs": 37.4,
+    "fat": 40.2,
+    "saturatedFat": 7.8,
+    "sugar": 8.8,
+    "salt": 4.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frickles",
+   "name": "Frickles",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 684,
+    "protein": 5.4,
+    "carbs": 59.5,
+    "fat": 47.3,
+    "saturatedFat": 3.7,
+    "sugar": 8,
+    "salt": 6.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giant-garlic-buttered-pretzel-bites",
+   "name": "Giant Garlic Buttered Pretzel Bites",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 895,
+    "protein": 25.8,
+    "carbs": 87.8,
+    "fat": 47.2,
+    "saturatedFat": 24.3,
+    "sugar": 12.2,
+    "salt": 4.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-pulled-pork-tostadas",
+   "name": "Spiced Pulled Pork Tostadas",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 985,
+    "protein": 51.6,
+    "carbs": 33,
+    "fat": 71.7,
+    "saturatedFat": 23.2,
+    "sugar": 15.7,
+    "salt": 5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brisket-popcorn-bites",
+   "name": "Brisket Popcorn Bites",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 647,
+    "protein": 25.1,
+    "carbs": 45.6,
+    "fat": 40.2,
+    "saturatedFat": 12.4,
+    "sugar": 7.2,
+    "salt": 6.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-chicken-in-a-basket",
+   "name": "Southern Fried Chicken 'In a Basket'",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 813,
+    "protein": 36.7,
+    "carbs": 79.1,
+    "fat": 38.5,
+    "saturatedFat": 3.4,
+    "sugar": 8.1,
+    "salt": 8.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-wings-kansas-bbq",
+   "name": "Smoked Wings (Kansas BBQ)",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1396,
+    "protein": 56.8,
+    "carbs": 21.9,
+    "fat": 119.6,
+    "saturatedFat": 25.7,
+    "sugar": 7.9,
+    "salt": 10.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-wings-louisiana-hot",
+   "name": "Smoked Wings (Louisiana Hot)",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1511,
+    "protein": 56.7,
+    "carbs": 11.6,
+    "fat": 137.4,
+    "saturatedFat": 26.9,
+    "sugar": 7.6,
+    "salt": 9.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-wings-tennessee-bourbon-glaze",
+   "name": "Smoked Wings (Tennessee Bourbon Glaze)",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1605,
+    "protein": 56.5,
+    "carbs": 77.6,
+    "fat": 119.8,
+    "saturatedFat": 25.9,
+    "sugar": 69.3,
+    "salt": 9.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "texas-style-brisket-with-fries",
+   "name": "Texas Style Brisket with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1256,
+    "protein": 45.9,
+    "carbs": 67.2,
+    "fat": 89,
+    "saturatedFat": 25.3,
+    "sugar": 17.6,
+    "salt": 7.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "texas-style-brisket-with-salad",
+   "name": "Texas Style Brisket with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 924,
+    "protein": 45.5,
+    "carbs": 35.3,
+    "fat": 67.5,
+    "saturatedFat": 23.6,
+    "sugar": 22,
+    "salt": 5.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-bbq-half-rack-with-fries",
+   "name": "Memphis Style Baby Back Ribs (BBQ Half Rack) with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1329,
+    "protein": 53,
+    "carbs": 78.4,
+    "fat": 92.9,
+    "saturatedFat": 19,
+    "sugar": 25,
+    "salt": 8.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-bbq-half-rack-with-salad",
+   "name": "Memphis Style Baby Back Ribs (BBQ Half Rack) with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 997,
+    "protein": 52.7,
+    "carbs": 46.6,
+    "fat": 71.4,
+    "saturatedFat": 17.3,
+    "sugar": 29.4,
+    "salt": 9.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-bourbon-half-rack-with-fries",
+   "name": "Memphis Style Baby Back Ribs (Bourbon Half Rack) with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1393,
+    "protein": 52.9,
+    "carbs": 96.3,
+    "fat": 92.9,
+    "saturatedFat": 19,
+    "sugar": 46.6,
+    "salt": 8.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-bourbon-half-rack-with-salad",
+   "name": "Memphis Style Baby Back Ribs (Bourbon Half Rack) with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1062,
+    "protein": 52.5,
+    "carbs": 64.5,
+    "fat": 71.4,
+    "saturatedFat": 17.4,
+    "sugar": 51,
+    "salt": 8.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-maple-half-rack-with-fries",
+   "name": "Memphis Style Baby Back Ribs (Maple Half Rack) with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1471,
+    "protein": 52.9,
+    "carbs": 115.8,
+    "fat": 92.7,
+    "saturatedFat": 19,
+    "sugar": 52.7,
+    "salt": 7.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-maple-half-rack-with-salad",
+   "name": "Memphis Style Baby Back Ribs (Maple Half Rack) with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1139,
+    "protein": 52.5,
+    "carbs": 84,
+    "fat": 71.3,
+    "saturatedFat": 17.3,
+    "sugar": 57.1,
+    "salt": 7.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-bbq-full-rack-with-fries",
+   "name": "Memphis Style Baby Back Ribs (BBQ Full Rack) with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2072,
+    "protein": 100.1,
+    "carbs": 95.4,
+    "fat": 152.1,
+    "saturatedFat": 35.3,
+    "sugar": 35,
+    "salt": 10.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-bbq-full-rack-with-salad",
+   "name": "Memphis Style Baby Back Ribs (BBQ Full Rack) with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1644,
+    "protein": 99.7,
+    "carbs": 63.6,
+    "fat": 120,
+    "saturatedFat": 32.8,
+    "sugar": 39.4,
+    "salt": 11.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-bourbon-full-rack-with-fries",
+   "name": "Memphis Style Baby Back Ribs (Bourbon Full Rack) with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2183,
+    "protein": 99.7,
+    "carbs": 126.7,
+    "fat": 152.1,
+    "saturatedFat": 35.4,
+    "sugar": 74,
+    "salt": 9.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-bourbon-full-rack-with-salad",
+   "name": "Memphis Style Baby Back Ribs (Bourbon Full Rack) with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1755,
+    "protein": 99.4,
+    "carbs": 94.8,
+    "fat": 120,
+    "saturatedFat": 32.9,
+    "sugar": 78.4,
+    "salt": 9.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-maple-full-rack-with-fries",
+   "name": "Memphis Style Baby Back Ribs (Maple Full Rack) with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2264,
+    "protein": 99.7,
+    "carbs": 147.1,
+    "fat": 151.8,
+    "saturatedFat": 35.2,
+    "sugar": 75,
+    "salt": 7.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "memphis-style-baby-back-ribs-maple-full-rack-with-salad",
+   "name": "Memphis Style Baby Back Ribs (Maple Full Rack) with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1837,
+    "protein": 99.4,
+    "carbs": 115.3,
+    "fat": 119.7,
+    "saturatedFat": 32.8,
+    "sugar": 79.4,
+    "salt": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eight-hour-smoked-beef-rib-with-fries",
+   "name": "Eight-Hour Smoked Beef Rib with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1974,
+    "protein": 90.1,
+    "carbs": 71.5,
+    "fat": 147.2,
+    "saturatedFat": 46.2,
+    "sugar": 19.9,
+    "salt": 8.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eight-hour-smoked-beef-rib-with-salad",
+   "name": "Eight-Hour Smoked Beef Rib with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1643,
+    "protein": 89.8,
+    "carbs": 39.7,
+    "fat": 125.7,
+    "saturatedFat": 44.5,
+    "sugar": 24.3,
+    "salt": 8.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-bird-in-the-herd-with-fries",
+   "name": "The Bird in the Herd with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2630,
+    "protein": 123.4,
+    "carbs": 93.1,
+    "fat": 195.7,
+    "saturatedFat": 53.8,
+    "sugar": 27.8,
+    "salt": 13
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-bird-in-the-herd-with-salad",
+   "name": "The Bird in the Herd with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2379,
+    "protein": 123.1,
+    "carbs": 61.2,
+    "fat": 183.1,
+    "saturatedFat": 52.7,
+    "sugar": 32.1,
+    "salt": 13.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hog-heaven-with-fries",
+   "name": "Hog Heaven with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2301,
+    "protein": 99.2,
+    "carbs": 120.1,
+    "fat": 162.5,
+    "saturatedFat": 41.4,
+    "sugar": 52.4,
+    "salt": 10.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hog-heaven-with-salad",
+   "name": "Hog Heaven with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2043,
+    "protein": 98.8,
+    "carbs": 87,
+    "fat": 149.9,
+    "saturatedFat": 40.3,
+    "sugar": 55.5,
+    "salt": 11
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-carnivore-with-fries",
+   "name": "The Carnivore with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2768,
+    "protein": 109.2,
+    "carbs": 85.4,
+    "fat": 221.5,
+    "saturatedFat": 48.8,
+    "sugar": 26.9,
+    "salt": 15.7
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-carnivore-with-salad",
+   "name": "The Carnivore with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2318,
+    "protein": 106.7,
+    "carbs": 60.1,
+    "fat": 184.7,
+    "saturatedFat": 45.2,
+    "sugar": 30.8,
+    "salt": 15.9
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-smokehouse-platter-with-fries",
+   "name": "The Smokehouse Platter with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 6113,
+    "protein": 318.3,
+    "carbs": 248.4,
+    "fat": 433.5,
+    "saturatedFat": 129.2,
+    "sugar": 99.4,
+    "salt": 30.6
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-smokehouse-platter-with-salad",
+   "name": "The Smokehouse Platter with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 5580,
+    "protein": 313.5,
+    "carbs": 171.5,
+    "fat": 412.8,
+    "saturatedFat": 127.2,
+    "sugar": 102.2,
+    "salt": 30.5
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-buttered-corn-bread",
+   "name": "Maple Buttered Corn Bread",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 370,
+    "protein": 4.1,
+    "carbs": 29,
+    "fat": 27.3,
+    "saturatedFat": 12.5,
+    "sugar": 10.8,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "barbecue-hand-pulled-pork-and-pit-beans",
+   "name": "Barbecue Hand-Pulled Pork & Pit Beans",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 334,
+    "protein": 21.2,
+    "carbs": 14.6,
+    "fat": 20.8,
+    "saturatedFat": 5.6,
+    "sugar": 7.3,
+    "salt": 2.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chopped-smoked-pork-jalape-o-and-cheese-sausage",
+   "name": "Chopped Smoked Pork, Jalapeño & Cheese Sausage",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 673,
+    "protein": 20.8,
+    "carbs": 10.4,
+    "fat": 61.4,
+    "saturatedFat": 17.1,
+    "sugar": 0.6,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-tennessee-bourbon-gravy",
+   "name": "Pot of Tennessee Bourbon Gravy",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 5.4,
+    "carbs": 14.3,
+    "fat": 4.7,
+    "saturatedFat": 1,
+    "sugar": 11,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-oz-aged-rump-steak-with-fries",
+   "name": "6 oz Aged Rump Steak with Fries",
+   "category": "Steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1066,
+    "protein": 38.7,
+    "carbs": 50,
+    "fat": 78,
+    "saturatedFat": 24.8,
+    "sugar": 3.5,
+    "salt": 4.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-oz-aged-rump-steak-with-salad",
+   "name": "6 oz Aged Rump Steak with Salad",
+   "category": "Steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 894,
+    "protein": 38.4,
+    "carbs": 18.2,
+    "fat": 74.3,
+    "saturatedFat": 24.3,
+    "sugar": 7.9,
+    "salt": 4.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-oz-new-york-strip-with-fries",
+   "name": "10 oz New York Strip with Fries",
+   "category": "Steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1293,
+    "protein": 67,
+    "carbs": 49.8,
+    "fat": 90.6,
+    "saturatedFat": 30.6,
+    "sugar": 3.5,
+    "salt": 4.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10-oz-new-york-strip-with-salad",
+   "name": "10 oz New York Strip with Salad",
+   "category": "Steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1121,
+    "protein": 66.7,
+    "carbs": 17.9,
+    "fat": 86.9,
+    "saturatedFat": 30.1,
+    "sugar": 7.8,
+    "salt": 4.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-oz-aged-rump-steak-with-fries",
+   "name": "12 oz Aged Rump Steak with Fries",
+   "category": "Steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1401,
+    "protein": 70.9,
+    "carbs": 50,
+    "fat": 101,
+    "saturatedFat": 34.6,
+    "sugar": 3.5,
+    "salt": 4.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-oz-aged-rump-steak-with-salad",
+   "name": "12 oz Aged Rump Steak with Salad",
+   "category": "Steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1230,
+    "protein": 70.6,
+    "carbs": 18.2,
+    "fat": 97.3,
+    "saturatedFat": 34.2,
+    "sugar": 7.9,
+    "salt": 4.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "go-big-or-go-home-with-fries",
+   "name": "Go Big Or Go Home with Fries",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 2667,
+    "protein": 103.8,
+    "carbs": 204,
+    "fat": 156.8,
+    "saturatedFat": 44.7,
+    "sugar": 28,
+    "salt": 20.7
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "go-big-or-go-home-with-salad",
+   "name": "Go Big Or Go Home with Salad",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 2496,
+    "protein": 103.5,
+    "carbs": 172.2,
+    "fat": 153.1,
+    "saturatedFat": 44.3,
+    "sugar": 32.3,
+    "salt": 21.3
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "our-oklahoma-smash-burger-with-fries",
+   "name": "Our Oklahoma Smash Burger with Fries",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1671,
+    "protein": 47.5,
+    "carbs": 94.4,
+    "fat": 121.2,
+    "saturatedFat": 30.3,
+    "sugar": 15.8,
+    "salt": 8.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "our-oklahoma-smash-burger-with-salad",
+   "name": "Our Oklahoma Smash Burger with Salad",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1340,
+    "protein": 47.2,
+    "carbs": 62.6,
+    "fat": 99.7,
+    "saturatedFat": 28.7,
+    "sugar": 20.2,
+    "salt": 9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-chicken-burger-with-fries",
+   "name": "Southern Fried Chicken Burger with Fries",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1695,
+    "protein": 64.7,
+    "carbs": 191.2,
+    "fat": 73,
+    "saturatedFat": 10.1,
+    "sugar": 17.9,
+    "salt": 19.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-chicken-burger-with-salad",
+   "name": "Southern Fried Chicken Burger with Salad",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1524,
+    "protein": 64.4,
+    "carbs": 159.4,
+    "fat": 69.3,
+    "saturatedFat": 9.7,
+    "sugar": 22.3,
+    "salt": 19.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-bird-and-beast-with-fries",
+   "name": "The Bird & Beast with Fries",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1783,
+    "protein": 58.7,
+    "carbs": 164,
+    "fat": 97.3,
+    "saturatedFat": 21.7,
+    "sugar": 17.8,
+    "salt": 15.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-bird-and-beast-with-salad",
+   "name": "The Bird & Beast with Salad",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1611,
+    "protein": 58.4,
+    "carbs": 132.1,
+    "fat": 93.5,
+    "saturatedFat": 21.3,
+    "sugar": 22.2,
+    "salt": 16.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-hickorys-veggie-burger-with-fries",
+   "name": "The Hickory's Veggie Burger with Fries",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1724,
+    "protein": 49.7,
+    "carbs": 128.7,
+    "fat": 109,
+    "saturatedFat": 15.6,
+    "sugar": 23.5,
+    "salt": 11.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-hickorys-veggie-burger-with-salad",
+   "name": "The Hickory's Veggie Burger with Salad",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1393,
+    "protein": 49.4,
+    "carbs": 96.9,
+    "fat": 87.5,
+    "saturatedFat": 13.9,
+    "sugar": 27.9,
+    "salt": 11.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese-classic-mac-with-fries",
+   "name": "Mac 'n' Cheese (Classic Mac) with Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1727,
+    "protein": 41.8,
+    "carbs": 129.4,
+    "fat": 113.9,
+    "saturatedFat": 41.7,
+    "sugar": 24.1,
+    "salt": 7.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese-classic-mac-with-salad",
+   "name": "Mac 'n' Cheese (Classic Mac) with Salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1397,
+    "protein": 41.6,
+    "carbs": 97.7,
+    "fat": 92.4,
+    "saturatedFat": 40,
+    "sugar": 28.5,
+    "salt": 8.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese-3am-mac-n-cheese-with-fries",
+   "name": "Mac 'n' Cheese (3am Mac 'n' Cheese) with Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 2398,
+    "protein": 76.8,
+    "carbs": 253.2,
+    "fat": 118.1,
+    "saturatedFat": 42.7,
+    "sugar": 55.9,
+    "salt": 16.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese-3am-mac-n-cheese-with-salad",
+   "name": "Mac 'n' Cheese (3am Mac 'n' Cheese) with Salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 2228,
+    "protein": 76.6,
+    "carbs": 221.6,
+    "fat": 114.4,
+    "saturatedFat": 42.2,
+    "sugar": 60.3,
+    "salt": 17.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese-tennessee-brisket-mac-with-fries",
+   "name": "Mac 'n' Cheese (Tennessee Brisket Mac) with Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 2016,
+    "protein": 58.4,
+    "carbs": 145.9,
+    "fat": 131.5,
+    "saturatedFat": 49.1,
+    "sugar": 36.2,
+    "salt": 10
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese-tennessee-brisket-mac-with-salad",
+   "name": "Mac 'n' Cheese (Tennessee Brisket Mac) with Salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1684,
+    "protein": 58.1,
+    "carbs": 114,
+    "fat": 110,
+    "saturatedFat": 47.4,
+    "sugar": 40.5,
+    "salt": 10.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sizzling-fajitas-chargrilled-cajun-chicken",
+   "name": "Sizzling Fajitas (Chargrilled Cajun Chicken)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1364,
+    "protein": 64.1,
+    "carbs": 93.5,
+    "fat": 79.6,
+    "saturatedFat": 23.8,
+    "sugar": 23.1,
+    "salt": 11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sizzling-fajitas-blackened-butt-steak",
+   "name": "Sizzling Fajitas (Blackened Butt Steak)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1444,
+    "protein": 59.5,
+    "carbs": 94.2,
+    "fat": 90.2,
+    "saturatedFat": 34.7,
+    "sugar": 23.3,
+    "salt": 11.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sizzling-fajitas-southern-fried-vegan-strips",
+   "name": "Sizzling Fajitas (Southern Fried Vegan Strips)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1543,
+    "protein": 31.6,
+    "carbs": 143.1,
+    "fat": 91.4,
+    "saturatedFat": 12.5,
+    "sugar": 36.8,
+    "salt": 14.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cedar-plank-roasted-salmon",
+   "name": "Cedar Plank Roasted Salmon",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 796,
+    "protein": 49.9,
+    "carbs": 26.4,
+    "fat": 54.5,
+    "saturatedFat": 16.6,
+    "sugar": 11,
+    "salt": 5.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "south-coast-watermelon-salad-plain",
+   "name": "South Coast Watermelon Salad (Plain)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 393,
+    "protein": 12.9,
+    "carbs": 48.2,
+    "fat": 15.7,
+    "saturatedFat": 7.2,
+    "sugar": 21.1,
+    "salt": 4.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "south-coast-watermelon-salad-cajun-spiced-grilled-chicken",
+   "name": "South Coast Watermelon Salad (Cajun Spiced Grilled Chicken)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 892,
+    "protein": 50.5,
+    "carbs": 49.8,
+    "fat": 53.5,
+    "saturatedFat": 11.2,
+    "sugar": 21.3,
+    "salt": 6.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "south-coast-watermelon-salad-cedar-plank-roasted-salmon",
+   "name": "South Coast Watermelon Salad (Cedar Plank Roasted Salmon)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 959,
+    "protein": 53,
+    "carbs": 51.3,
+    "fat": 61,
+    "saturatedFat": 12.2,
+    "sugar": 22.4,
+    "salt": 5.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-cobb-salad-as-it-comes",
+   "name": "Hickory's Cobb Salad (As It Comes)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1207,
+    "protein": 26.8,
+    "carbs": 28.2,
+    "fat": 108.2,
+    "saturatedFat": 23.1,
+    "sugar": 14.6,
+    "salt": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-cobb-salad-with-chargrilled-chicken-and-bourbon-bacon",
+   "name": "Hickory's Cobb Salad with Chargrilled Chicken & Bourbon Bacon",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1699,
+    "protein": 68,
+    "carbs": 41.9,
+    "fat": 138.6,
+    "saturatedFat": 28.8,
+    "sugar": 26.9,
+    "salt": 10.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-hickorys-hot-dog",
+   "name": "The Hickory's Hot Dog",
+   "category": "Lighter & loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 966,
+    "protein": 30.6,
+    "carbs": 60,
+    "fat": 68.5,
+    "saturatedFat": 19.6,
+    "sugar": 10.4,
+    "salt": 6.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-potatoes-the-texi-can",
+   "name": "Loaded Potatoes (The Texi-Can)",
+   "category": "Lighter & loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 1005,
+    "protein": 24.2,
+    "carbs": 87.1,
+    "fat": 61.7,
+    "saturatedFat": 21.7,
+    "sugar": 17.6,
+    "salt": 5.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-potatoes-pulled-pork",
+   "name": "Loaded Potatoes (Pulled Pork)",
+   "category": "Lighter & loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 1225,
+    "protein": 44.6,
+    "carbs": 89.5,
+    "fat": 76.3,
+    "saturatedFat": 23.2,
+    "sugar": 17.2,
+    "salt": 8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-tennessee-brisket-sub",
+   "name": "Smoked Tennessee Brisket Sub",
+   "category": "Lighter & loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 1195,
+    "protein": 40.8,
+    "carbs": 67.5,
+    "fat": 86.7,
+    "saturatedFat": 30.8,
+    "sugar": 22.8,
+    "salt": 7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-pig-bap",
+   "name": "Big Pig Bap",
+   "category": "Lighter & loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 1004,
+    "protein": 34.8,
+    "carbs": 59.2,
+    "fat": 69.3,
+    "saturatedFat": 12.1,
+    "sugar": 19.3,
+    "salt": 6.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "barbecue-pit-beans",
+   "name": "Barbecue Pit Beans",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 107,
+    "protein": 5.6,
+    "carbs": 13.6,
+    "fat": 2.6,
+    "saturatedFat": 1,
+    "sugar": 5.4,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-salad",
+   "name": "House Salad",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 110,
+    "protein": 4.2,
+    "carbs": 13.2,
+    "fat": 4.4,
+    "saturatedFat": 0.5,
+    "sugar": 6,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-cucumber",
+   "name": "Smashed Cucumber",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 74,
+    "protein": 2,
+    "carbs": 9.4,
+    "fat": 2.3,
+    "saturatedFat": 0.1,
+    "sugar": 3.1,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-onion-blossom",
+   "name": "Southern Fried Onion Blossom",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 1123,
+    "protein": 16.5,
+    "carbs": 118.6,
+    "fat": 64,
+    "saturatedFat": 6.2,
+    "sugar": 36.6,
+    "salt": 8.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-garlic-buttered-mushrooms",
+   "name": "Roast Garlic Buttered Mushrooms",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 271,
+    "protein": 1.7,
+    "carbs": 4.2,
+    "fat": 27.6,
+    "saturatedFat": 5.5,
+    "sugar": 1.5,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-corn-ribs",
+   "name": "Dirty Corn Ribs",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 544,
+    "protein": 12.6,
+    "carbs": 28.5,
+    "fat": 40.7,
+    "saturatedFat": 20.8,
+    "sugar": 11.8,
+    "salt": 4.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese",
+   "name": "Mac 'n' Cheese",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 551,
+    "protein": 18.2,
+    "carbs": 39.5,
+    "fat": 35,
+    "saturatedFat": 19.1,
+    "sugar": 9.7,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brisket-mac-n-cheese",
+   "name": "Brisket Mac 'n' Cheese",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 719,
+    "protein": 27.6,
+    "carbs": 50.6,
+    "fat": 44.6,
+    "saturatedFat": 22.9,
+    "sugar": 18.1,
+    "salt": 4.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skin-on-fries",
+   "name": "Skin-on Fries",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 4.5,
+    "carbs": 45,
+    "fat": 25.9,
+    "saturatedFat": 2.1,
+    "sugar": 1.6,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "magic-dusted-fries",
+   "name": "Magic-Dusted Fries",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 4.8,
+    "carbs": 47.1,
+    "fat": 26,
+    "saturatedFat": 2.3,
+    "sugar": 2.7,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-chilli-fries",
+   "name": "Cheesy Chilli Fries",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 786,
+    "protein": 19,
+    "carbs": 62.8,
+    "fat": 49.9,
+    "saturatedFat": 13.4,
+    "sugar": 9.1,
+    "salt": 6.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttered-baked-potato",
+   "name": "Buttered Baked Potato",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 455,
+    "protein": 7.7,
+    "carbs": 67.9,
+    "fat": 16.8,
+    "saturatedFat": 7.3,
+    "sugar": 5.3,
+    "salt": 4.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-tater-tots-magic-dusted-tater-tots",
+   "name": "Dirty Tater Tots (Magic-Dusted Tater Tots)",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 434,
+    "protein": 3.5,
+    "carbs": 36.1,
+    "fat": 30,
+    "saturatedFat": 2.6,
+    "sugar": 2,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-tater-tots-poutine-tater-tots",
+   "name": "Dirty Tater Tots (Poutine Tater Tots)",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 694,
+    "protein": 19,
+    "carbs": 43.2,
+    "fat": 48.9,
+    "saturatedFat": 13.7,
+    "sugar": 6,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-muffins-streaky-bacon",
+   "name": "Hickory's Muffins (Streaky Bacon)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1148,
+    "protein": 34.7,
+    "carbs": 69.7,
+    "fat": 80.4,
+    "saturatedFat": 17.3,
+    "sugar": 6.7,
+    "salt": 6.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-muffins-sausage-patty",
+   "name": "Hickory's Muffins (Sausage Patty)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1242,
+    "protein": 33.7,
+    "carbs": 75.9,
+    "fat": 88.4,
+    "saturatedFat": 19.3,
+    "sugar": 7.5,
+    "salt": 5.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-muffins-magic-dusted-mushrooms",
+   "name": "Hickory's Muffins (Magic-Dusted Mushrooms)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 975,
+    "protein": 23.1,
+    "carbs": 70.4,
+    "fat": 66.1,
+    "saturatedFat": 9.9,
+    "sugar": 7.2,
+    "salt": 4.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-muffins-the-ultimate-xxl-muffin",
+   "name": "Hickory's Muffins (The Ultimate XXL Muffin)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1755,
+    "protein": 55,
+    "carbs": 88.5,
+    "fat": 129.6,
+    "saturatedFat": 34.4,
+    "sugar": 13.5,
+    "salt": 10.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-chicken-coop-pan-cake",
+   "name": "The Chicken Coop (Pan Cake)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1680,
+    "protein": 72.9,
+    "carbs": 179.2,
+    "fat": 75.1,
+    "saturatedFat": 20.3,
+    "sugar": 23.7,
+    "salt": 20.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-chicken-coop-waffle",
+   "name": "The Chicken Coop (Waffle)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1622,
+    "protein": 69.2,
+    "carbs": 178.4,
+    "fat": 70.1,
+    "saturatedFat": 19.4,
+    "sugar": 19.8,
+    "salt": 18.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-meringue-cheesecake-pan-cake",
+   "name": "Lemon Meringue Cheesecake (Pan Cake)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 964,
+    "protein": 12.9,
+    "carbs": 140.2,
+    "fat": 38.8,
+    "saturatedFat": 16.3,
+    "sugar": 99.2,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-meringue-cheesecake-waffle",
+   "name": "Lemon Meringue Cheesecake (Waffle)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 908,
+    "protein": 9.3,
+    "carbs": 139.7,
+    "fat": 33.9,
+    "saturatedFat": 15.4,
+    "sugar": 95.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-smoky-bacon-and-egg-pan-cake",
+   "name": "Maple Smoky Bacon & Egg (Pan Cake)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1734,
+    "protein": 39.6,
+    "carbs": 194.2,
+    "fat": 90.1,
+    "saturatedFat": 27.5,
+    "sugar": 75.3,
+    "salt": 12.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-smoky-bacon-and-egg-waffle",
+   "name": "Maple Smoky Bacon & Egg (Waffle)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1679,
+    "protein": 36,
+    "carbs": 193.7,
+    "fat": 85.1,
+    "saturatedFat": 26.6,
+    "sugar": 71.3,
+    "salt": 12.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeybird-cinna-bun",
+   "name": "HoneyBird Cinna-Bun",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1918,
+    "protein": 54.1,
+    "carbs": 194.2,
+    "fat": 101.2,
+    "saturatedFat": 19.2,
+    "sugar": 80.6,
+    "salt": 11.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-fried-waffle",
+   "name": "Chicken Fried Waffle",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1727,
+    "protein": 61.7,
+    "carbs": 249.4,
+    "fat": 53.7,
+    "saturatedFat": 9.9,
+    "sugar": 75.9,
+    "salt": 12.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-avocado-and-poached-eggs",
+   "name": "Smashed Avocado & Poached Eggs",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1033,
+    "protein": 25.6,
+    "carbs": 49.3,
+    "fat": 79.4,
+    "saturatedFat": 15,
+    "sugar": 15.7,
+    "salt": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-eggs",
+   "name": "Steak & Eggs",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1084,
+    "protein": 53,
+    "carbs": 38.7,
+    "fat": 79.3,
+    "saturatedFat": 23.2,
+    "sugar": 4.2,
+    "salt": 4.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-great-american-breakfast",
+   "name": "The Great American Breakfast",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 2680,
+    "protein": 75,
+    "carbs": 192.1,
+    "fat": 177.2,
+    "saturatedFat": 41.4,
+    "sugar": 57.6,
+    "salt": 11.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-hickorys-breakfast",
+   "name": "The Hickory's Breakfast",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1343,
+    "protein": 40.6,
+    "carbs": 85.3,
+    "fat": 91.1,
+    "saturatedFat": 20.9,
+    "sugar": 16.6,
+    "salt": 6.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-muffins-streaky-bacon-gluten-free",
+   "name": "Hickory's Muffins (Streaky Bacon, gluten free)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1062,
+    "protein": 30,
+    "carbs": 74.9,
+    "fat": 69.6,
+    "saturatedFat": 15.9,
+    "sugar": 5.3,
+    "salt": 6.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-muffins-sausage-patty-gluten-free",
+   "name": "Hickory's Muffins (Sausage Patty, gluten free)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1156,
+    "protein": 29.1,
+    "carbs": 81.1,
+    "fat": 77.7,
+    "saturatedFat": 17.9,
+    "sugar": 6,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-muffins-magic-dusted-mushrooms-gluten-free",
+   "name": "Hickory's Muffins (Magic-Dusted Mushrooms, gluten free)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 889,
+    "protein": 18.4,
+    "carbs": 75.7,
+    "fat": 55.3,
+    "saturatedFat": 8.5,
+    "sugar": 5.7,
+    "salt": 3.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-muffins-the-ultimate-xxl-muffin-gluten-free",
+   "name": "Hickory's Muffins (The Ultimate XXL Muffin, gluten free)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1668,
+    "protein": 50.3,
+    "carbs": 93.8,
+    "fat": 118.8,
+    "saturatedFat": 33,
+    "sugar": 12,
+    "salt": 10.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-maple-iced-coffee",
+   "name": "Salted Maple Iced Coffee",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 2.2,
+    "carbs": 32,
+    "fat": 1.9,
+    "saturatedFat": 1,
+    "sugar": 26.1,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-blizzard",
+   "name": "Cherry Blizzard",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 133,
+    "protein": 0.4,
+    "carbs": 31.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 30.7,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lifes-a-peach",
+   "name": "Life's A Peach",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 0.5,
+    "carbs": 34,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 31.6,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "one-in-a-melon",
+   "name": "One In A Melon",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 0.7,
+    "carbs": 27.9,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 26.3,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubble-blue-cooler",
+   "name": "Bubble Blue Cooler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 191,
+    "protein": 0.3,
+    "carbs": 46.4,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 37.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-orange-soda",
+   "name": "American Orange Soda",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 1.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-hickorys-grape-soda",
+   "name": "The Hickory's Grape Soda",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 81,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 19.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-cloudy-lemonade",
+   "name": "Hickory's Cloudy Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 19,
+    "protein": 0.2,
+    "carbs": 3.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-lemonade",
+   "name": "Blueberry Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32,
+    "protein": 0.2,
+    "carbs": 7.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-mint-lemonade",
+   "name": "Raspberry & Mint Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 192,
+    "protein": 0.9,
+    "carbs": 44.3,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 43.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-cream-soda",
+   "name": "Cherry Cream Soda",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 191,
+    "protein": 0.3,
+    "carbs": 46.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 46.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "root-beer-float",
+   "name": "Root Beer Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 320,
+    "protein": 0.9,
+    "carbs": 29,
+    "fat": 22.2,
+    "saturatedFat": 14.8,
+    "sugar": 26.3,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "root-beer",
+   "name": "Root Beer",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 0,
+    "carbs": 5.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grape-soda-float",
+   "name": "Grape Soda Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 395,
+    "protein": 0.9,
+    "carbs": 47.6,
+    "fat": 22.3,
+    "saturatedFat": 14.8,
+    "sugar": 44.8,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-classic-shake",
+   "name": "Vanilla (classic shake)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1128,
+    "protein": 14.8,
+    "carbs": 128.5,
+    "fat": 61.9,
+    "saturatedFat": 33.2,
+    "sugar": 123.7,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-classic-shake",
+   "name": "Strawberry (classic shake)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1169,
+    "protein": 15,
+    "carbs": 137.7,
+    "fat": 62.1,
+    "saturatedFat": 33.3,
+    "sugar": 132.9,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-classic-shake",
+   "name": "Chocolate (classic shake)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1151,
+    "protein": 15.5,
+    "carbs": 131.6,
+    "fat": 62.4,
+    "saturatedFat": 33.5,
+    "sugar": 125.6,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-monster-freakshake",
+   "name": "Cookie Monster (freakshake)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1757,
+    "protein": 20.2,
+    "carbs": 241,
+    "fat": 78.2,
+    "saturatedFat": 38.2,
+    "sugar": 201.6,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bigger-badder-biscoff-freakshake",
+   "name": "Bigger, Badder Biscoff (freakshake)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1885,
+    "protein": 20.7,
+    "carbs": 222.2,
+    "fat": 100.4,
+    "saturatedFat": 45.3,
+    "sugar": 174.5,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crazy-carnival-freakshake",
+   "name": "Crazy Carnival (freakshake)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1670,
+    "protein": 16.2,
+    "carbs": 251.1,
+    "fat": 66.6,
+    "saturatedFat": 35.8,
+    "sugar": 221.6,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-cup-of-joe",
+   "name": "Bottomless Cup Of Joe",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 66,
+    "protein": 3.5,
+    "carbs": 4.7,
+    "fat": 3.7,
+    "saturatedFat": 2.4,
+    "sugar": 4.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 16,
+    "protein": 0,
+    "carbs": 3.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 214,
+    "protein": 10.5,
+    "carbs": 18,
+    "fat": 11.1,
+    "saturatedFat": 7.2,
+    "sugar": 18,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 216,
+    "protein": 10.5,
+    "carbs": 18.4,
+    "fat": 11.1,
+    "saturatedFat": 7.2,
+    "sugar": 18.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 214,
+    "protein": 10.5,
+    "carbs": 18,
+    "fat": 11.1,
+    "saturatedFat": 7.2,
+    "sugar": 18,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 526,
+    "protein": 13.4,
+    "carbs": 64.3,
+    "fat": 23.9,
+    "saturatedFat": 15.6,
+    "sugar": 60.6,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 350,
+    "protein": 11.5,
+    "carbs": 49.3,
+    "fat": 11.6,
+    "saturatedFat": 7.5,
+    "sugar": 47.7,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-cookie-creation",
+   "name": "The Cookie Creation",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1293,
+    "protein": 13.1,
+    "carbs": 210.2,
+    "fat": 41,
+    "saturatedFat": 17.4,
+    "sugar": 121.5,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "just-peachy-jam-jar-cheesecake",
+   "name": "Just Peachy Jam Jar Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 833,
+    "protein": 9.8,
+    "carbs": 99.5,
+    "fat": 42.9,
+    "saturatedFat": 23.2,
+    "sugar": 66.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "campfire-smores",
+   "name": "Campfire S'mores",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1299,
+    "protein": 15.8,
+    "carbs": 157.9,
+    "fat": 66.3,
+    "saturatedFat": 43.1,
+    "sugar": 90.1,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "alabama-chocolate-fudge-cake",
+   "name": "Alabama Chocolate Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1008,
+    "protein": 7,
+    "carbs": 149.7,
+    "fat": 39.7,
+    "saturatedFat": 13.3,
+    "sugar": 116.7,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-fro-co-straight-up",
+   "name": "Hickory's Fro-Co (Straight Up)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 306,
+    "protein": 1,
+    "carbs": 44.8,
+    "fat": 13.8,
+    "saturatedFat": 12.4,
+    "sugar": 33.1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-fro-co-american-screwball",
+   "name": "Hickory's Fro-Co (American Screwball)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "protein": 1.9,
+    "carbs": 95.3,
+    "fat": 13.9,
+    "saturatedFat": 12.5,
+    "sugar": 77.3,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-fro-co-honeycomb-toffee-fudge-and-butterscotch",
+   "name": "Hickory's Fro-Co (Honeycomb, Toffee Fudge & Butterscotch)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 639,
+    "protein": 2.3,
+    "carbs": 105.6,
+    "fat": 21.7,
+    "saturatedFat": 15.6,
+    "sugar": 79.6,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-sugar-coated-churros",
+   "name": "Cinnamon Sugar-Coated Churros",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1065,
+    "protein": 11.4,
+    "carbs": 97.2,
+    "fat": 69.3,
+    "saturatedFat": 32.5,
+    "sugar": 42.4,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-ice-cream",
+   "name": "Vegan Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 137,
+    "protein": 0.5,
+    "carbs": 21.1,
+    "fat": 5.3,
+    "saturatedFat": 4.6,
+    "sugar": 13,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-fro-co-straight-up-gluten-free",
+   "name": "Hickory's Fro-Co (Straight Up, gluten free)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 250,
+    "protein": 6.6,
+    "carbs": 29.5,
+    "fat": 11.2,
+    "saturatedFat": 2.9,
+    "sugar": 28.8,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-fro-co-american-screwball-gluten-free",
+   "name": "Hickory's Fro-Co (American Screwball, gluten free)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 481,
+    "protein": 2,
+    "carbs": 96.3,
+    "fat": 14.1,
+    "saturatedFat": 12.5,
+    "sugar": 79.2,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-fro-co-honeycomb-toffee-fudge-pieces-and-butterscotch-sauce-gluten-free",
+   "name": "Hickory's Fro-Co (Honeycomb, Toffee Fudge Pieces & Butterscotch Sauce, gluten free)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 583,
+    "protein": 7.9,
+    "carbs": 90.3,
+    "fat": 19.1,
+    "saturatedFat": 6.1,
+    "sugar": 75.3,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "alabama-chocolate-fudge-cake-gluten-free",
+   "name": "Alabama Chocolate Fudge Cake (gluten free)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 991,
+    "protein": 8.7,
+    "carbs": 145.1,
+    "fat": 38.9,
+    "saturatedFat": 10.4,
+    "sugar": 115.4,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pan-cakes-chocolate-and-fro-co",
+   "name": "Pan Cakes (Chocolate & Fro-Co)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 521,
+    "protein": 8.4,
+    "carbs": 78.4,
+    "fat": 19.1,
+    "saturatedFat": 5.6,
+    "sugar": 39.8,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pan-cakes-bacon-and-maple",
+   "name": "Pan Cakes (Bacon & Maple)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 598,
+    "protein": 19.7,
+    "carbs": 51.5,
+    "fat": 35.5,
+    "saturatedFat": 10.1,
+    "sugar": 17.9,
+    "salt": 3.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pan-cakes-maple",
+   "name": "Pan Cakes (Maple)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "protein": 7.6,
+    "carbs": 50.7,
+    "fat": 14.4,
+    "saturatedFat": 2.1,
+    "sugar": 17.1,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vik-cooked-breakfast",
+   "name": "VIK Cooked Breakfast",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 915,
+    "protein": 32.3,
+    "carbs": 47.2,
+    "fat": 64.9,
+    "saturatedFat": 16.2,
+    "sugar": 13.2,
+    "salt": 3.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-pretzel-bites",
+   "name": "Cheesy Pretzel Bites",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 13.4,
+    "carbs": 40.5,
+    "fat": 24.3,
+    "saturatedFat": 12.6,
+    "sugar": 4.1,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-corn-dog",
+   "name": "Classic Corn Dog",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 316,
+    "protein": 4.6,
+    "carbs": 11.5,
+    "fat": 27.8,
+    "saturatedFat": 4.1,
+    "sugar": 1.9,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-southern-fried-vegan-fillets",
+   "name": "Hickory’s Southern Fried Vegan Fillets",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 6,
+    "carbs": 19.2,
+    "fat": 29.7,
+    "saturatedFat": 2.4,
+    "sugar": 1.2,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-chicken",
+   "name": "Popcorn Chicken",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 360,
+    "protein": 13,
+    "carbs": 16.8,
+    "fat": 26.5,
+    "saturatedFat": 2.8,
+    "sugar": 1,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese-with-corn-ribs",
+   "name": "Mac 'n' Cheese with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 576,
+    "protein": 15.9,
+    "carbs": 53.2,
+    "fat": 31.9,
+    "saturatedFat": 16.2,
+    "sugar": 16,
+    "salt": 3.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-n-cheese-with-fries",
+   "name": "Mac 'n' Cheese with Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 911,
+    "protein": 16.3,
+    "carbs": 83.7,
+    "fat": 55.2,
+    "saturatedFat": 17.8,
+    "sugar": 11,
+    "salt": 3.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hickorys-burger-with-corn-ribs",
+   "name": "Kid's Hickory's Burger with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 676,
+    "protein": 24.7,
+    "carbs": 40.5,
+    "fat": 45,
+    "saturatedFat": 13.6,
+    "sugar": 8.7,
+    "salt": 2.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hickorys-burger-with-fries",
+   "name": "Kid's Hickory's Burger with Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1011,
+    "protein": 25.1,
+    "carbs": 71,
+    "fat": 68.3,
+    "saturatedFat": 15.2,
+    "sugar": 3.7,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-chicken-burger-with-corn-ribs",
+   "name": "Southern Fried Chicken Burger with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 952,
+    "protein": 40.8,
+    "carbs": 100.8,
+    "fat": 41.7,
+    "saturatedFat": 4.9,
+    "sugar": 9.8,
+    "salt": 9.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-chicken-burger-with-fries-kids",
+   "name": "Southern Fried Chicken Burger with Fries (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1127,
+    "protein": 41.2,
+    "carbs": 131.3,
+    "fat": 47.1,
+    "saturatedFat": 5.2,
+    "sugar": 4.8,
+    "salt": 8.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cod-bites-with-corn-ribs",
+   "name": "Cod Bites with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 478,
+    "protein": 14,
+    "carbs": 31.2,
+    "fat": 31.8,
+    "saturatedFat": 7.5,
+    "sugar": 12.5,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cod-bites-with-fries",
+   "name": "Cod Bites with Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 653,
+    "protein": 14.4,
+    "carbs": 61.7,
+    "fat": 37.3,
+    "saturatedFat": 7.9,
+    "sugar": 7.6,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-southern-fried-vegan-fillet-with-corn-ribs",
+   "name": "Hickory's Southern Fried Vegan Fillet with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 566,
+    "protein": 12.8,
+    "carbs": 37.7,
+    "fat": 38.3,
+    "saturatedFat": 3.5,
+    "sugar": 7.8,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hickorys-southern-fried-vegan-fillet-with-fries",
+   "name": "Hickory's Southern Fried Vegan Fillet with Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 740,
+    "protein": 13.2,
+    "carbs": 68.2,
+    "fat": 43.8,
+    "saturatedFat": 3.8,
+    "sugar": 2.9,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-hot-dog-with-corn-ribs",
+   "name": "Classic Hot Dog with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 603,
+    "protein": 20.9,
+    "carbs": 59.5,
+    "fat": 31,
+    "saturatedFat": 10.9,
+    "sugar": 11.9,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-hot-dog-with-fries",
+   "name": "Classic Hot Dog with Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 937,
+    "protein": 21.3,
+    "carbs": 90,
+    "fat": 54.3,
+    "saturatedFat": 12.5,
+    "sugar": 6.9,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-chicken-with-corn-ribs",
+   "name": "Popcorn Chicken with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 591,
+    "protein": 25.2,
+    "carbs": 41.7,
+    "fat": 34.5,
+    "saturatedFat": 4.4,
+    "sugar": 8.1,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-chicken-with-fries",
+   "name": "Popcorn Chicken with Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 765,
+    "protein": 25.6,
+    "carbs": 72.2,
+    "fat": 40,
+    "saturatedFat": 4.7,
+    "sugar": 3.2,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 4.5,
+    "carbs": 45,
+    "fat": 25.9,
+    "saturatedFat": 2.1,
+    "sugar": 1.6,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans",
+   "name": "Baked Beans",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 141,
+    "protein": 6.9,
+    "carbs": 23.3,
+    "fat": 0.8,
+    "saturatedFat": 0.2,
+    "sugar": 9.3,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-salad",
+   "name": "Mixed Salad",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 32,
+    "protein": 0.6,
+    "carbs": 1.1,
+    "fat": 2.7,
+    "saturatedFat": 0.2,
+    "sugar": 0.9,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-ribs",
+   "name": "Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 158,
+    "protein": 4.2,
+    "carbs": 14.6,
+    "fat": 8.3,
+    "saturatedFat": 4.2,
+    "sugar": 6.6,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fro-co-creation-station",
+   "name": "Fro-Co Creation Station",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 607,
+    "protein": 1.5,
+    "carbs": 112.9,
+    "fat": 16,
+    "saturatedFat": 13.5,
+    "sugar": 86.6,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-sugar-coated-churros-kids",
+   "name": "Cinnamon Sugar-Coated Churros (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 686,
+    "protein": 5.1,
+    "carbs": 43.9,
+    "fat": 54.1,
+    "saturatedFat": 17.6,
+    "sugar": 21.1,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-cookie-creation-kids",
+   "name": "The Cookie Creation (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 895,
+    "protein": 9.4,
+    "carbs": 147.9,
+    "fat": 27.7,
+    "saturatedFat": 11.2,
+    "sugar": 93.3,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-classic-shake-kids",
+   "name": "Vanilla (classic shake, kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 800,
+    "protein": 10.5,
+    "carbs": 86.1,
+    "fat": 46.1,
+    "saturatedFat": 25.5,
+    "sugar": 82.4,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-classic-shake-kids",
+   "name": "Strawberry (classic shake, kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 880,
+    "protein": 10.7,
+    "carbs": 105.6,
+    "fat": 46.1,
+    "saturatedFat": 25.5,
+    "sugar": 101.9,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-classic-shake-kids",
+   "name": "Chocolate (classic shake, kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 862,
+    "protein": 11.3,
+    "carbs": 99.5,
+    "fat": 46.5,
+    "saturatedFat": 25.7,
+    "sugar": 94.7,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-monster-freakshake-kids",
+   "name": "Cookie Monster (freakshake, kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1195,
+    "protein": 15.7,
+    "carbs": 151.2,
+    "fat": 57.8,
+    "saturatedFat": 27.9,
+    "sugar": 116.6,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crazy-carnival-freakshake-kids",
+   "name": "Crazy Carnival (freakshake, kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1078,
+    "protein": 11.9,
+    "carbs": 151.7,
+    "fat": 47.2,
+    "saturatedFat": 25.8,
+    "sugar": 130.9,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bigger-badder-biscoff-freakshake-kids",
+   "name": "Bigger, Badder Biscoff (freakshake, kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1209,
+    "protein": 14,
+    "carbs": 129.8,
+    "fat": 70.1,
+    "saturatedFat": 31.8,
+    "sugar": 101.9,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frozen-grape-slushie",
+   "name": "Frozen Grape (slushie)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 287,
+    "protein": 0,
+    "carbs": 70.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 70.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-blackcurrant-raspberry-and-apple",
+   "name": "PIp Blackcurrant, Raspberry & Apple",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 67,
+    "protein": 0.4,
+    "carbs": 15.1,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 14.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-cloudy-apple",
+   "name": "PIP Cloudy Apple",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0,
+    "carbs": 18.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 17.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frobishers-apple-and-mango",
+   "name": "Frobishers Apple & Mango",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frobishers-passionfruit-and-orange",
+   "name": "Frobishers Passionfruit & Orange",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.1,
+    "carbs": 2.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

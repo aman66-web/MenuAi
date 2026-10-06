@@ -1,0 +1,4301 @@
+{
+ "schemaVersion": 1,
+ "id": "giggling-squid",
+ "name": "Giggling Squid",
+ "cuisine": "Thai",
+ "builderType": "standard",
+ "aliases": [
+  "giggling squid",
+  "the giggling squid"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Giggling Squid allergens and nutrition guide (viewthe.menu/kawv; all day, kids, Big Squids, drinks, non gluten, click & collect and Deliveroo menus, files dated 6 October 2026)",
+  "url": "https://viewthe.menu/kawv",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are per dish as served. Dishes that differ on the non gluten, kids, click & collect or Deliveroo menus appear once per version; bundles for several people are not included.",
+ "categories": [
+  "Lunch sets",
+  "Kids set picks",
+  "Drinks",
+  "Nibbles & bar snacks",
+  "Sharing platters",
+  "Sides & sharers",
+  "Noodles",
+  "Stir fries",
+  "Big appetites",
+  "Seafood specials",
+  "Curries",
+  "Rice & roti",
+  "Desserts",
+  "Big Squids sides",
+  "Big Squids mains",
+  "Lunch boxes",
+  "Showstoppers"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "forager-set",
+   "name": "Forager Set",
+   "category": "Lunch sets",
+   "serving": "",
+   "nutrients": {
+    "calories": 736,
+    "protein": 17,
+    "carbs": 106,
+    "fat": 25,
+    "saturatedFat": 15,
+    "sugar": 25,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amber-honey-set",
+   "name": "Amber Honey Set",
+   "category": "Lunch sets",
+   "serving": "",
+   "nutrients": {
+    "calories": 835,
+    "protein": 37,
+    "carbs": 93,
+    "fat": 34,
+    "saturatedFat": 5,
+    "sugar": 20,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrummy-set",
+   "name": "Scrummy Set",
+   "category": "Lunch sets",
+   "serving": "",
+   "nutrients": {
+    "calories": 951,
+    "protein": 44,
+    "carbs": 112,
+    "fat": 34,
+    "saturatedFat": 19,
+    "sugar": 31,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bangkok-chinatown-set",
+   "name": "Bangkok Chinatown Set",
+   "category": "Lunch sets",
+   "serving": "",
+   "nutrients": {
+    "calories": 658,
+    "protein": 40,
+    "carbs": 86,
+    "fat": 16,
+    "saturatedFat": 3,
+    "sugar": 11,
+    "salt": 7.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "melt-in-mouth-set",
+   "name": "Melt in Mouth Set",
+   "category": "Lunch sets",
+   "serving": "",
+   "nutrients": {
+    "calories": 792,
+    "protein": 32,
+    "carbs": 97,
+    "fat": 28,
+    "saturatedFat": 19,
+    "sugar": 32,
+    "salt": 3.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sea-breeze-set",
+   "name": "Sea Breeze Set",
+   "category": "Lunch sets",
+   "serving": "",
+   "nutrients": {
+    "calories": 479,
+    "protein": 42,
+    "carbs": 44,
+    "fat": 13,
+    "saturatedFat": 2.4,
+    "sugar": 22,
+    "salt": 6.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-wallet-set",
+   "name": "Big Wallet Set",
+   "category": "Lunch sets",
+   "serving": "",
+   "nutrients": {
+    "calories": 888,
+    "protein": 43,
+    "carbs": 98,
+    "fat": 34,
+    "saturatedFat": 17,
+    "sugar": 28,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-boiled-broccoli-and-carrots",
+   "name": "Kids Boiled Broccoli & Carrots",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 113,
+    "protein": 1.4,
+    "carbs": 2.9,
+    "fat": 10,
+    "saturatedFat": 0.7,
+    "sugar": 2.1,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spring-rolls-kids-set",
+   "name": "Spring Rolls (kids set)",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 1.7,
+    "carbs": 20,
+    "fat": 1.5,
+    "saturatedFat": 0.3,
+    "sugar": 8.7,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "moo-ping-pork-skewers",
+   "name": "Moo Ping Pork Skewers",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 222,
+    "protein": 13,
+    "carbs": 19,
+    "fat": 10,
+    "saturatedFat": 3.1,
+    "sugar": 18,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-and-pepper-squid-bites",
+   "name": "Salt & Pepper Squid Bites",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 251,
+    "protein": 18,
+    "carbs": 35,
+    "fat": 4.3,
+    "saturatedFat": 0.8,
+    "sugar": 9.1,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-chicken-kids-set",
+   "name": "Sticky Chicken (kids set)",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 14,
+    "carbs": 21,
+    "fat": 25,
+    "saturatedFat": 1.9,
+    "sugar": 9.6,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-satay-skewers",
+   "name": "Chicken Satay Skewers",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 187,
+    "protein": 13,
+    "carbs": 14,
+    "fat": 8.5,
+    "saturatedFat": 2.9,
+    "sugar": 12,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mild-chicken-massaman-curry",
+   "name": "Mild Chicken Massaman Curry",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 314,
+    "protein": 12,
+    "carbs": 21,
+    "fat": 19,
+    "saturatedFat": 15,
+    "sugar": 12,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mild-massaman-veg-curry",
+   "name": "Kids Mild Massaman Veg Curry",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 556,
+    "protein": 10,
+    "carbs": 80,
+    "fat": 20,
+    "saturatedFat": 15,
+    "sugar": 14,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-rice-kids-set",
+   "name": "Jasmine rice (kids set)",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 259,
+    "protein": 5.2,
+    "carbs": 57,
+    "fat": 0.6,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-fried-rice-kids-set",
+   "name": "Egg Fried Rice (kids set)",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 281,
+    "protein": 4.5,
+    "carbs": 47,
+    "fat": 7.8,
+    "saturatedFat": 0.7,
+    "sugar": 1.4,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stir-fry-yellow-noodles",
+   "name": "Stir Fry Yellow Noodles",
+   "category": "Kids set picks",
+   "serving": "",
+   "nutrients": {
+    "calories": 144,
+    "protein": 5.4,
+    "carbs": 25,
+    "fat": 2.2,
+    "saturatedFat": 0.1,
+    "sugar": 1.2,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cobra-zero-330ml",
+   "name": "Cobra Zero (330ml)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 79,
+    "protein": 1,
+    "carbs": 17,
+    "fat": 1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-passion-smoothie",
+   "name": "Mango Passion Smoothie",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130,
+    "protein": 1.8,
+    "carbs": 27,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 26,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-banana-coconut-smoothie",
+   "name": "Pineapple Banana Coconut Smoothie",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 1.6,
+    "carbs": 34,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 31,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi",
+   "name": "Pepsi",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 61,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max",
+   "name": "Pepsi Max",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi",
+   "name": "Diet Pepsi",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7up-zero",
+   "name": "7up Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-iced-coffee",
+   "name": "Thai Iced Coffee",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 309,
+    "protein": 7.1,
+    "carbs": 53,
+    "fat": 7.7,
+    "saturatedFat": 4.8,
+    "sugar": 52,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caffe-latte",
+   "name": "Caffe Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 81,
+    "protein": 3.9,
+    "carbs": 5.8,
+    "fat": 4.7,
+    "saturatedFat": 2.9,
+    "sugar": 4.7,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double Espresso",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.1,
+    "carbs": 1,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "single-espresso",
+   "name": "Single Espresso",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0.5,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 5.6,
+    "carbs": 7.8,
+    "fat": 0.5,
+    "saturatedFat": 0.2,
+    "sugar": 7.4,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea",
+   "name": "English Breakfast Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "organic-sencha-green",
+   "name": "Organic Sencha Green",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-tea",
+   "name": "Jasmine Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemongrass-tea",
+   "name": "Lemongrass Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0.5,
+    "carbs": 3.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-mint",
+   "name": "Fresh Mint",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0.2,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 76,
+    "protein": 1.2,
+    "carbs": 16,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-juice",
+   "name": "Cranberry Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0,
+    "carbs": 8.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 90,
+    "protein": 0.2,
+    "carbs": 22,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 22,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-juice",
+   "name": "Pineapple Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 0.5,
+    "carbs": 25,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 25,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-kids",
+   "name": "Milk - kids",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 127,
+    "protein": 6.8,
+    "carbs": 8.8,
+    "fat": 7.2,
+    "saturatedFat": 4.6,
+    "sugar": 8.8,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-orange-juice",
+   "name": "Fresh Orange Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 1.6,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cloudy-lemonade",
+   "name": "Cloudy Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0.5,
+    "carbs": 18,
+    "fat": 0.5,
+    "saturatedFat": 0.3,
+    "sugar": 16,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "applestina",
+   "name": "Applestina",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 193,
+    "protein": 0.5,
+    "carbs": 47,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 42,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lychee-angel",
+   "name": "Lychee Angel",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 205,
+    "protein": 0.2,
+    "carbs": 51,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 49,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "feeling-fruity-cooler-strawberry",
+   "name": "Feeling Fruity Cooler - Strawberry",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 111,
+    "protein": 0.2,
+    "carbs": 27,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 25,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "feeling-fruity-cooler-mixed-berry",
+   "name": "Feeling Fruity Cooler - Mixed Berry",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 131,
+    "protein": 0.2,
+    "carbs": 32,
+    "fat": 0.1,
+    "saturatedFat": 26,
+    "sugar": 7,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "virtue-mango-and-chilli-mocktail",
+   "name": "Virtue Mango and Chilli Mocktail",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "protein": 0.7,
+    "carbs": 22,
+    "fat": 0.5,
+    "saturatedFat": 0,
+    "sugar": 19,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-jungle-colada",
+   "name": "Sweet Jungle Colada",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 0.5,
+    "carbs": 23,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 21,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "virgin-mojito",
+   "name": "Virgin Mojito",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 1.8,
+    "carbs": 34,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 29,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-peach-and-lemongrass-spritz",
+   "name": "White Peach & Lemongrass Spritz",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135,
+    "protein": 0,
+    "carbs": 34,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 31,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-and-lemongrass-cooler",
+   "name": "Ginger & Lemongrass Cooler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 0,
+    "carbs": 30,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 27,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-low-low-spritz",
+   "name": "The Low Low Spritz",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0.6,
+    "carbs": 5,
+    "fat": 0.5,
+    "saturatedFat": 0.4,
+    "sugar": 3.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wildlife-botanical-sparkling-nude",
+   "name": "Wildlife Botanical Sparkling Nude",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 1.2,
+    "carbs": 7.2,
+    "fat": 1,
+    "saturatedFat": 0.8,
+    "sugar": 4,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "franklin-and-sons-lemonade",
+   "name": "Franklin & Sons lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "britvic-soda-water",
+   "name": "Britvic Soda Water",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "london-essence-original-tonic-water",
+   "name": "London Essence Original Tonic Water",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 37,
+    "protein": 0.2,
+    "carbs": 8.6,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 8.6,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "london-essence-pink-grapefruit-soda",
+   "name": "London Essence Pink Grapefruit Soda",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 38,
+    "protein": 0.2,
+    "carbs": 8.8,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "london-essence-white-peach-and-jasmine-tonic",
+   "name": "London Essence White Peach & Jasmine Tonic",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32,
+    "protein": 0,
+    "carbs": 8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "london-essence-raspberry-and-rose-tonic",
+   "name": "London Essence Raspberry & Rose Tonic",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35,
+    "protein": 0,
+    "carbs": 8.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "london-essence-roasted-pineapple-crafted-soda",
+   "name": "London Essence Roasted Pineapple Crafted Soda",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "london-essence-ginger-ale",
+   "name": "London Essence Ginger Ale",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0,
+    "carbs": 8.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-mindful-blend-wild-strawberry",
+   "name": "TRIP Mindful Blend - Wild Strawberry",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 0,
+    "carbs": 5.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-mindful-blend-apple-blossom",
+   "name": "TRIP Mindful Blend - Apple Blossom",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0,
+    "carbs": 6.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-passion-smoothie-drinks-menu",
+   "name": "Mango Passion Smoothie (drinks menu)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 125,
+    "protein": 0.9,
+    "carbs": 29,
+    "fat": 0.5,
+    "saturatedFat": 0.3,
+    "sugar": 26,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-banana-coconut-smoothie-drinks-menu",
+   "name": "Pineapple Banana Coconut Smoothie (drinks menu)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 1.3,
+    "carbs": 34,
+    "fat": 2.8,
+    "saturatedFat": 2.5,
+    "sugar": 26,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-juice-drinks-menu",
+   "name": "Cranberry Juice (drinks menu)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0,
+    "carbs": 11,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "organic-coconut-water",
+   "name": "Organic Coconut Water",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-beer",
+   "name": "Ginger Beer",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "singha-ume-lemonade",
+   "name": "Singha Ume Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-tea-served-chilled",
+   "name": "Thai Tea (Served Chilled)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 62,
+    "protein": 2.1,
+    "carbs": 8,
+    "fat": 2.3,
+    "saturatedFat": 1.5,
+    "sugar": 8,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harmony-tea",
+   "name": "Harmony Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.2,
+    "carbs": 2.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato",
+   "name": "Macchiato",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 49,
+    "protein": 2.6,
+    "carbs": 3.6,
+    "fat": 2.7,
+    "saturatedFat": 1.7,
+    "sugar": 3.3,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 3.8,
+    "carbs": 5.7,
+    "fat": 1.5,
+    "saturatedFat": 1,
+    "sugar": 4.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-crackers",
+   "name": "Prawn Crackers",
+   "category": "Nibbles & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 203,
+    "protein": 2.9,
+    "carbs": 47,
+    "fat": 0.5,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golden-money-bags",
+   "name": "Golden Money Bags",
+   "category": "Nibbles & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 10,
+    "carbs": 37,
+    "fat": 2.6,
+    "saturatedFat": 1.2,
+    "sugar": 12,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-noodle-nests",
+   "name": "Crunchy Noodle Nests",
+   "category": "Nibbles & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 266,
+    "protein": 4.4,
+    "carbs": 48,
+    "fat": 5.7,
+    "saturatedFat": 2.4,
+    "sugar": 10,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-popcorn-chicken",
+   "name": "Spicy Popcorn Chicken",
+   "category": "Nibbles & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 219,
+    "protein": 29,
+    "carbs": 17,
+    "fat": 3.3,
+    "saturatedFat": 0.7,
+    "sugar": 3.3,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golden-flying-prawns",
+   "name": "Golden Flying Prawns",
+   "category": "Nibbles & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 15,
+    "carbs": 11,
+    "fat": 3.8,
+    "saturatedFat": 1.1,
+    "sugar": 0.6,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-crispy-chicken-wings",
+   "name": "Thai Crispy Chicken Wings",
+   "category": "Nibbles & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 522,
+    "protein": 30,
+    "carbs": 40,
+    "fat": 26,
+    "saturatedFat": 6.3,
+    "sugar": 15,
+    "salt": 6.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-chickpeas",
+   "name": "Chilli Chickpeas",
+   "category": "Nibbles & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 436,
+    "protein": 21,
+    "carbs": 61,
+    "fat": 7.6,
+    "saturatedFat": 1.3,
+    "sugar": 2.4,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "street-food-sharer",
+   "name": "Street Food Sharer",
+   "category": "Sharing platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 434,
+    "protein": 24,
+    "carbs": 46,
+    "fat": 17,
+    "saturatedFat": 4.5,
+    "sugar": 22,
+    "salt": 4.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bangkok-bites",
+   "name": "Bangkok Bites",
+   "category": "Sharing platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 379,
+    "protein": 30,
+    "carbs": 28,
+    "fat": 16,
+    "saturatedFat": 4.6,
+    "sugar": 16,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "satay-four-ways",
+   "name": "Satay Four Ways",
+   "category": "Sharing platters",
+   "serving": "",
+   "nutrients": {
+    "calories": 259,
+    "protein": 23,
+    "carbs": 17,
+    "fat": 11,
+    "saturatedFat": 3.3,
+    "sugar": 15,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-and-pepper-squid",
+   "name": "Salt & Pepper Squid",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 390,
+    "protein": 30,
+    "carbs": 48,
+    "fat": 8.1,
+    "saturatedFat": 1.3,
+    "sugar": 17,
+    "salt": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tall-husbands-favourite",
+   "name": "Tall Husband's Favourite",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 508,
+    "protein": 17,
+    "carbs": 75,
+    "fat": 15,
+    "saturatedFat": 5,
+    "sugar": 57,
+    "salt": 6.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-and-squid-herb-lettuce-cups",
+   "name": "Prawn & Squid Herb Lettuce Cups",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 19,
+    "carbs": 12,
+    "fat": 4.3,
+    "saturatedFat": 2.5,
+    "sugar": 5.6,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramelised-pork-belly",
+   "name": "Caramelised Pork Belly",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 769,
+    "protein": 58,
+    "carbs": 43,
+    "fat": 40,
+    "saturatedFat": 16,
+    "sugar": 23,
+    "salt": 3.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-papaya-salad",
+   "name": "Classic Papaya Salad",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 232,
+    "protein": 9.5,
+    "carbs": 32,
+    "fat": 5.8,
+    "saturatedFat": 1,
+    "sugar": 24,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tamarind-mushrooms-and-greens",
+   "name": "Tamarind Mushrooms & Greens",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 397,
+    "protein": 15,
+    "carbs": 59,
+    "fat": 9.6,
+    "saturatedFat": 1.5,
+    "sugar": 28,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veg-spring-rolls",
+   "name": "Veg Spring Rolls",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 285,
+    "protein": 5.3,
+    "carbs": 55,
+    "fat": 4.7,
+    "saturatedFat": 0.8,
+    "sugar": 21,
+    "salt": 3.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yummy-duck-spring-rolls",
+   "name": "Yummy Duck Spring Rolls",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 382,
+    "protein": 17,
+    "carbs": 25,
+    "fat": 23,
+    "saturatedFat": 6.3,
+    "sugar": 23,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "moo-ping",
+   "name": "Moo Ping",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 402,
+    "protein": 19,
+    "carbs": 38,
+    "fat": 19,
+    "saturatedFat": 4.7,
+    "sugar": 34,
+    "salt": 3.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-and-pepper-chilli-mushrooms",
+   "name": "Salt & Pepper Chilli Mushrooms",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 341,
+    "protein": 8.2,
+    "carbs": 49,
+    "fat": 12,
+    "saturatedFat": 1.3,
+    "sugar": 8.3,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "samui-zingy-prawns",
+   "name": "Samui Zingy Prawns",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 17,
+    "carbs": 11,
+    "fat": 2.6,
+    "saturatedFat": 0.5,
+    "sugar": 8.6,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "khao-mok-pla",
+   "name": "Khao Mok Pla",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1036,
+    "protein": 59,
+    "carbs": 102,
+    "fat": 42,
+    "saturatedFat": 7.8,
+    "sugar": 3.9,
+    "salt": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "khao-mok-moo",
+   "name": "Khao Mok Moo",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 766,
+    "protein": 23,
+    "carbs": 100,
+    "fat": 29,
+    "saturatedFat": 4.7,
+    "sugar": 11,
+    "salt": 5.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-satay",
+   "name": "Chicken Satay",
+   "category": "Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 423,
+    "protein": 25,
+    "carbs": 32,
+    "fat": 21,
+    "saturatedFat": 5.8,
+    "sugar": 22,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellow-noodle-tamarind-duck",
+   "name": "Yellow Noodle Tamarind Duck",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 520,
+    "protein": 34,
+    "carbs": 59,
+    "fat": 16,
+    "saturatedFat": 3.2,
+    "sugar": 12,
+    "salt": 8.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-prawn-glass-noodles",
+   "name": "Chicken & Prawn Glass Noodles",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 228,
+    "protein": 21,
+    "carbs": 13,
+    "fat": 9.9,
+    "saturatedFat": 2.8,
+    "sugar": 4.5,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "live-long-noodles",
+   "name": "Live Long Noodles",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 489,
+    "protein": 14,
+    "carbs": 58,
+    "fat": 21,
+    "saturatedFat": 1.4,
+    "sugar": 17,
+    "salt": 6.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-steamed-noodles",
+   "name": "Garlic Steamed Noodles",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 425,
+    "protein": 9.7,
+    "carbs": 81,
+    "fat": 6.4,
+    "saturatedFat": 0.8,
+    "sugar": 2.4,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giant-butterfly-king-prawn-pad-thai",
+   "name": "Giant Butterfly King Prawn Pad Thai",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 984,
+    "protein": 47,
+    "carbs": 96,
+    "fat": 45,
+    "saturatedFat": 5.2,
+    "sugar": 27,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-chicken",
+   "name": "Pad Thai - Chicken",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1076,
+    "protein": 34,
+    "carbs": 89,
+    "fat": 64,
+    "saturatedFat": 6.3,
+    "sugar": 30,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-prawn",
+   "name": "Pad Thai - Prawn",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1085,
+    "protein": 36,
+    "carbs": 89,
+    "fat": 64,
+    "saturatedFat": 6.3,
+    "sugar": 30,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-chicken-and-prawn",
+   "name": "Pad Thai - Chicken & Prawn",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1122,
+    "protein": 44,
+    "carbs": 89,
+    "fat": 64,
+    "saturatedFat": 6.4,
+    "sugar": 30,
+    "salt": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-vegetable",
+   "name": "Pad Thai - Vegetable",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1042,
+    "protein": 23,
+    "carbs": 92,
+    "fat": 64,
+    "saturatedFat": 6.3,
+    "sugar": 32,
+    "salt": 4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-vegan",
+   "name": "Pad Thai - Vegan",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 970,
+    "protein": 16,
+    "carbs": 92,
+    "fat": 59,
+    "saturatedFat": 4.9,
+    "sugar": 32,
+    "salt": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "drunken-noodles-chicken",
+   "name": "Drunken Noodles - Chicken",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 948,
+    "protein": 25,
+    "carbs": 138,
+    "fat": 32,
+    "saturatedFat": 2.9,
+    "sugar": 13,
+    "salt": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "drunken-noodles-prawn",
+   "name": "Drunken Noodles - Prawn",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 957,
+    "protein": 28,
+    "carbs": 138,
+    "fat": 32,
+    "saturatedFat": 2.9,
+    "sugar": 13,
+    "salt": 9.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "drunken-noodles-chicken-and-prawns",
+   "name": "Drunken Noodles - Chicken & Prawns",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 994,
+    "protein": 36,
+    "carbs": 138,
+    "fat": 32,
+    "saturatedFat": 3,
+    "sugar": 13,
+    "salt": 9.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "drunken-noodles-vegetable",
+   "name": "Drunken Noodles - Vegetable",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 908,
+    "protein": 15,
+    "carbs": 139,
+    "fat": 31,
+    "saturatedFat": 2.8,
+    "sugar": 14,
+    "salt": 8.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-chicken",
+   "name": "Sticky Chicken",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 567,
+    "protein": 35,
+    "carbs": 71,
+    "fat": 14,
+    "saturatedFat": 1.9,
+    "sugar": 18,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wholesome-cashew-stir-fry-duck",
+   "name": "Wholesome Cashew Stir Fry - Duck",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 480,
+    "protein": 32,
+    "carbs": 21,
+    "fat": 29,
+    "saturatedFat": 5.3,
+    "sugar": 12,
+    "salt": 5.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wholesome-cashew-stir-fry-chicken",
+   "name": "Wholesome Cashew Stir Fry - Chicken",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 424,
+    "protein": 28,
+    "carbs": 20,
+    "fat": 24,
+    "saturatedFat": 3.9,
+    "sugar": 12,
+    "salt": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wholesome-cashew-stir-fry-prawn",
+   "name": "Wholesome Cashew Stir Fry - Prawn",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 422,
+    "protein": 27,
+    "carbs": 20,
+    "fat": 25,
+    "saturatedFat": 3.8,
+    "sugar": 12,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wholesome-cashew-stir-fry-vegetable",
+   "name": "Wholesome Cashew Stir Fry - Vegetable",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 396,
+    "protein": 14,
+    "carbs": 23,
+    "fat": 26,
+    "saturatedFat": 3.9,
+    "sugar": 14,
+    "salt": 4.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-and-basil-gra-pao-chicken",
+   "name": "Chilli & Basil Gra Pao - Chicken",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 300,
+    "protein": 23,
+    "carbs": 12,
+    "fat": 17,
+    "saturatedFat": 1.4,
+    "sugar": 5.5,
+    "salt": 5.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-and-basil-gra-pao-prawn",
+   "name": "Chilli & Basil Gra Pao - Prawn",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 295,
+    "protein": 22,
+    "carbs": 12,
+    "fat": 17,
+    "saturatedFat": 1.4,
+    "sugar": 5.5,
+    "salt": 5.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-and-basil-gra-pao-slow-cooked-beef",
+   "name": "Chilli & Basil Gra Pao - Slow-cooked Beef",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 352,
+    "protein": 28,
+    "carbs": 14,
+    "fat": 19,
+    "saturatedFat": 2.4,
+    "sugar": 7.4,
+    "salt": 5.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-and-basil-gra-pao-vegetable",
+   "name": "Chilli & Basil Gra Pao - Vegetable",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 246,
+    "protein": 6.9,
+    "carbs": 15,
+    "fat": 16,
+    "saturatedFat": 1.2,
+    "sugar": 8.2,
+    "salt": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "feisty-chicken-khua-kling",
+   "name": "Feisty Chicken Khua Kling",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 442,
+    "protein": 33,
+    "carbs": 23,
+    "fat": 23,
+    "saturatedFat": 1.8,
+    "sugar": 11,
+    "salt": 6.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-crispy-pork-belly",
+   "name": "Spicy Crispy Pork Belly",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 505,
+    "protein": 36,
+    "carbs": 20,
+    "fat": 30,
+    "saturatedFat": 9,
+    "sugar": 7.3,
+    "salt": 6.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "morning-glory",
+   "name": "Morning Glory",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 219,
+    "protein": 7.9,
+    "carbs": 7.6,
+    "fat": 16,
+    "saturatedFat": 1,
+    "sugar": 3,
+    "salt": 5.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pak-choi-and-tenderstems",
+   "name": "Pak Choi & Tenderstems",
+   "category": "Stir fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 228,
+    "protein": 7.1,
+    "carbs": 7.5,
+    "fat": 18,
+    "saturatedFat": 1.1,
+    "sugar": 4.9,
+    "salt": 4.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lamb-shank-massaman",
+   "name": "Lamb Shank Massaman",
+   "category": "Big appetites",
+   "serving": "",
+   "nutrients": {
+    "calories": 1088,
+    "protein": 45,
+    "carbs": 55,
+    "fat": 73,
+    "saturatedFat": 44,
+    "sugar": 31,
+    "salt": 7.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-duck-rising-star",
+   "name": "Red Duck Rising Star",
+   "category": "Big appetites",
+   "serving": "",
+   "nutrients": {
+    "calories": 706,
+    "protein": 46,
+    "carbs": 29,
+    "fat": 43,
+    "saturatedFat": 25,
+    "sugar": 23,
+    "salt": 7.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tamarind-duck-confit",
+   "name": "Tamarind Duck Confit",
+   "category": "Big appetites",
+   "serving": "",
+   "nutrients": {
+    "calories": 1011,
+    "protein": 44,
+    "carbs": 78,
+    "fat": 58,
+    "saturatedFat": 17,
+    "sugar": 67,
+    "salt": 6.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-melting-beef",
+   "name": "Thai Melting Beef",
+   "category": "Big appetites",
+   "serving": "",
+   "nutrients": {
+    "calories": 541,
+    "protein": 46,
+    "carbs": 29,
+    "fat": 25,
+    "saturatedFat": 15,
+    "sugar": 19,
+    "salt": 5.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sea-bass-samun-prai",
+   "name": "Sea Bass Samun Prai",
+   "category": "Seafood specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1431,
+    "protein": 129,
+    "carbs": 79,
+    "fat": 64,
+    "saturatedFat": 14,
+    "sugar": 53,
+    "salt": 5.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-and-soft-shell-crab",
+   "name": "Prawn & Soft Shell Crab",
+   "category": "Seafood specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 619,
+    "protein": 24,
+    "carbs": 47,
+    "fat": 35,
+    "saturatedFat": 14,
+    "sugar": 12,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whole-sea-bass-green-curry",
+   "name": "Whole Sea Bass Green Curry",
+   "category": "Seafood specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1279,
+    "protein": 124,
+    "carbs": 33,
+    "fat": 70,
+    "saturatedFat": 27,
+    "sugar": 21,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-lime-sea-bass",
+   "name": "Chilli Lime Sea Bass",
+   "category": "Seafood specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 34,
+    "carbs": 40,
+    "fat": 9.8,
+    "saturatedFat": 2.1,
+    "sugar": 28,
+    "salt": 10.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-seafood-feast",
+   "name": "Steamed Seafood Feast",
+   "category": "Seafood specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 651,
+    "protein": 81,
+    "carbs": 33,
+    "fat": 20,
+    "saturatedFat": 4.4,
+    "sugar": 22,
+    "salt": 10.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-prawn-hot-pot",
+   "name": "Red Prawn Hot Pot",
+   "category": "Seafood specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 575,
+    "protein": 26,
+    "carbs": 28,
+    "fat": 38,
+    "saturatedFat": 26,
+    "sugar": 21,
+    "salt": 6.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-paneang",
+   "name": "Salmon Paneang",
+   "category": "Seafood specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1028,
+    "protein": 45,
+    "carbs": 49,
+    "fat": 70,
+    "saturatedFat": 36,
+    "sugar": 25,
+    "salt": 7.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-chicken",
+   "name": "Thai Green Curry - Chicken",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 597,
+    "protein": 24,
+    "carbs": 31,
+    "fat": 40,
+    "saturatedFat": 32,
+    "sugar": 24,
+    "salt": 6.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-slow-cooked-beef",
+   "name": "Thai Green Curry - Slow Cooked Beef",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 645,
+    "protein": 29,
+    "carbs": 33,
+    "fat": 42,
+    "saturatedFat": 33,
+    "sugar": 26,
+    "salt": 6.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-prawn",
+   "name": "Thai Green Curry - Prawn",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 589,
+    "protein": 23,
+    "carbs": 31,
+    "fat": 39,
+    "saturatedFat": 32,
+    "sugar": 24,
+    "salt": 6.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-vegetable",
+   "name": "Thai Green Curry - Vegetable",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 614,
+    "protein": 16,
+    "carbs": 35,
+    "fat": 42,
+    "saturatedFat": 32,
+    "sugar": 28,
+    "salt": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-red-curry-chicken",
+   "name": "Thai Red Curry - Chicken",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 608,
+    "protein": 24,
+    "carbs": 31,
+    "fat": 40,
+    "saturatedFat": 32,
+    "sugar": 26,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-red-curry-slow-cooked-beef",
+   "name": "Thai Red Curry - Slow-cooked Beef",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 656,
+    "protein": 29,
+    "carbs": 34,
+    "fat": 42,
+    "saturatedFat": 33,
+    "sugar": 28,
+    "salt": 6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-red-curry-prawn",
+   "name": "Thai Red Curry - Prawn",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 600,
+    "protein": 23,
+    "carbs": 31,
+    "fat": 40,
+    "saturatedFat": 32,
+    "sugar": 26,
+    "salt": 6.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-red-curry-vegetable",
+   "name": "Thai Red Curry - Vegetable",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 625,
+    "protein": 16,
+    "carbs": 36,
+    "fat": 43,
+    "saturatedFat": 33,
+    "sugar": 30,
+    "salt": 5.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "paneang-curry-chicken",
+   "name": "Paneang Curry - Chicken",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 608,
+    "protein": 30,
+    "carbs": 30,
+    "fat": 39,
+    "saturatedFat": 30,
+    "sugar": 24,
+    "salt": 4.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "paneang-curry-slow-cooked-beef",
+   "name": "Paneang Curry - Slow-cooked Beef",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 650,
+    "protein": 33,
+    "carbs": 33,
+    "fat": 41,
+    "saturatedFat": 31,
+    "sugar": 26,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "paneang-curry-prawn",
+   "name": "Paneang Curry - Prawn",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 568,
+    "protein": 22,
+    "carbs": 30,
+    "fat": 38,
+    "saturatedFat": 30,
+    "sugar": 24,
+    "salt": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "paneang-curry-vegetable",
+   "name": "Paneang Curry - Vegetable",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 594,
+    "protein": 15,
+    "carbs": 35,
+    "fat": 41,
+    "saturatedFat": 31,
+    "sugar": 27,
+    "salt": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "massaman-curry-chicken",
+   "name": "Massaman Curry - Chicken",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 770,
+    "protein": 28,
+    "carbs": 48,
+    "fat": 49,
+    "saturatedFat": 34,
+    "sugar": 27,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "massaman-curry-slow-cooked-beef",
+   "name": "Massaman Curry - Slow-cooked Beef",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 818,
+    "protein": 33,
+    "carbs": 51,
+    "fat": 51,
+    "saturatedFat": 34,
+    "sugar": 29,
+    "salt": 6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "massaman-curry-prawn",
+   "name": "Massaman Curry - Prawn",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 761,
+    "protein": 27,
+    "carbs": 48,
+    "fat": 48,
+    "saturatedFat": 33,
+    "sugar": 27,
+    "salt": 6.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "massaman-curry-vegetable",
+   "name": "Massaman Curry - Vegetable",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 776,
+    "protein": 20,
+    "carbs": 51,
+    "fat": 51,
+    "saturatedFat": 34,
+    "sugar": 29,
+    "salt": 5.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jungle-firepot",
+   "name": "Jungle Firepot",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 318,
+    "protein": 23,
+    "carbs": 31,
+    "fat": 9.5,
+    "saturatedFat": 3.9,
+    "sugar": 18,
+    "salt": 4.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-rice",
+   "name": "Jasmine rice",
+   "category": "Rice & roti",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 7.6,
+    "carbs": 84,
+    "fat": 0.9,
+    "saturatedFat": 0.4,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-rice",
+   "name": "Sticky Rice",
+   "category": "Rice & roti",
+   "serving": "",
+   "nutrients": {
+    "calories": 510,
+    "protein": 9.8,
+    "carbs": 108,
+    "fat": 4.2,
+    "saturatedFat": 3.7,
+    "sugar": 0.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-fried-rice",
+   "name": "Egg Fried Rice",
+   "category": "Rice & roti",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 6.5,
+    "carbs": 69,
+    "fat": 11,
+    "saturatedFat": 1,
+    "sugar": 2,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-rice",
+   "name": "Coconut Rice",
+   "category": "Rice & roti",
+   "serving": "",
+   "nutrients": {
+    "calories": 401,
+    "protein": 7.5,
+    "carbs": 78,
+    "fat": 6.1,
+    "saturatedFat": 4.6,
+    "sugar": 2,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roti",
+   "name": "Roti",
+   "category": "Rice & roti",
+   "serving": "",
+   "nutrients": {
+    "calories": 528,
+    "protein": 6.2,
+    "carbs": 70,
+    "fat": 22,
+    "saturatedFat": 9.3,
+    "sugar": 5.1,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-apple-pie-spring-rolls",
+   "name": "Thai Apple Pie Spring Rolls",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 424,
+    "protein": 4,
+    "carbs": 52,
+    "fat": 22,
+    "saturatedFat": 9.1,
+    "sugar": 38,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-pudding-with-mango-lime-sauce",
+   "name": "Coconut Pudding with Mango Lime Sauce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 378,
+    "protein": 2.2,
+    "carbs": 42,
+    "fat": 22,
+    "saturatedFat": 20,
+    "sugar": 34,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mother-in-laws-chocolate-mousse",
+   "name": "Mother in Law's Chocolate Mousse",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 292,
+    "protein": 3.1,
+    "carbs": 23,
+    "fat": 20,
+    "saturatedFat": 12,
+    "sugar": 22,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lychee-yoghurt-ice-cream",
+   "name": "Lychee Yoghurt Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 184,
+    "protein": 4,
+    "carbs": 26,
+    "fat": 7,
+    "saturatedFat": 4.1,
+    "sugar": 25,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-salted-caramel-ice-cream",
+   "name": "Thai Salted Caramel Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 208,
+    "protein": 4,
+    "carbs": 30,
+    "fat": 7.8,
+    "saturatedFat": 4.8,
+    "sugar": 29,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-and-coconut-sorbet",
+   "name": "Pineapple & Coconut Sorbet",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 0.6,
+    "carbs": 24,
+    "fat": 2.6,
+    "saturatedFat": 1.9,
+    "sugar": 24,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-ice-cream",
+   "name": "Cookies & Cream Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 222,
+    "protein": 4.1,
+    "carbs": 31,
+    "fat": 9.1,
+    "saturatedFat": 5.3,
+    "sugar": 27,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-ice-cream",
+   "name": "Vanilla Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 206,
+    "protein": 3.8,
+    "carbs": 25,
+    "fat": 9.8,
+    "saturatedFat": 6.2,
+    "sugar": 25,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jelly-beans",
+   "name": "Jelly Beans",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0,
+    "carbs": 8.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roti-with-condensed-milk-and-a-sprinkle-of-sugar",
+   "name": "Roti with Condensed Milk and a Sprinkle of Sugar",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 321,
+    "protein": 5.4,
+    "carbs": 41,
+    "fat": 14,
+    "saturatedFat": 6.4,
+    "sugar": 8.4,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla",
+   "name": "Vanilla",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 124,
+    "protein": 2.3,
+    "carbs": 16,
+    "fat": 5.1,
+    "saturatedFat": 3.1,
+    "sugar": 16,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-ice-cream-kids-menu-big-squids-menu",
+   "name": "Cookies & Cream Ice Cream (kids menu / Big Squids menu)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 2.4,
+    "carbs": 19,
+    "fat": 4.7,
+    "saturatedFat": 2.7,
+    "sugar": 17,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lychee-ice-cream",
+   "name": "Lychee Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 113,
+    "protein": 2.4,
+    "carbs": 17,
+    "fat": 3.7,
+    "saturatedFat": 2.1,
+    "sugar": 16,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-salted-caramel-ice-cream-kids-menu-big-squids-menu",
+   "name": "Thai Salted Caramel Ice Cream (kids menu / Big Squids menu)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 125,
+    "protein": 2.3,
+    "carbs": 19,
+    "fat": 4.1,
+    "saturatedFat": 2.4,
+    "sugar": 18,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-and-chocolate-lollipop",
+   "name": "Caramel and Chocolate Lollipop",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0.8,
+    "carbs": 5.8,
+    "fat": 4,
+    "saturatedFat": 2.6,
+    "sugar": 4.8,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-sesame-ice-cream",
+   "name": "Black Sesame Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 219,
+    "protein": 4.8,
+    "carbs": 28,
+    "fat": 9.1,
+    "saturatedFat": 4.9,
+    "sugar": 28,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-and-toasted-rice-ice-cream",
+   "name": "Jasmine & Toasted Rice Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 4.4,
+    "carbs": 23,
+    "fat": 7.6,
+    "saturatedFat": 4.4,
+    "sugar": 22,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spring-rolls",
+   "name": "Spring Rolls",
+   "category": "Big Squids sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 176,
+    "protein": 3.2,
+    "carbs": 34,
+    "fat": 3,
+    "saturatedFat": 0.5,
+    "sugar": 12,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-satay-big-squids-menu",
+   "name": "Chicken Satay (Big Squids menu)",
+   "category": "Big Squids sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 218,
+    "protein": 14,
+    "carbs": 16,
+    "fat": 10,
+    "saturatedFat": 4.1,
+    "sugar": 14,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-thai-green-curry",
+   "name": "Chicken Thai Green Curry",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 651,
+    "protein": 22,
+    "carbs": 77,
+    "fat": 26,
+    "saturatedFat": 21,
+    "sugar": 16,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-vegetable-big-squids-menu",
+   "name": "Thai Green Curry - Vegetable (Big Squids menu)",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 667,
+    "protein": 17,
+    "carbs": 81,
+    "fat": 28,
+    "saturatedFat": 21,
+    "sugar": 20,
+    "salt": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-red-curry-chicken-big-squids-menu",
+   "name": "Thai Red Curry - Chicken (Big Squids menu)",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 657,
+    "protein": 22,
+    "carbs": 77,
+    "fat": 27,
+    "saturatedFat": 21,
+    "sugar": 18,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-red-curry-vegetable-big-squids-menu",
+   "name": "Thai Red Curry - Vegetable (Big Squids menu)",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 716,
+    "protein": 18,
+    "carbs": 82,
+    "fat": 32,
+    "saturatedFat": 22,
+    "sugar": 21,
+    "salt": 3.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "massaman-curry-chicken-with-jasmine-rice",
+   "name": "Massaman Curry Chicken with Jasmine Rice",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1150,
+    "protein": 36,
+    "carbs": 132,
+    "fat": 50,
+    "saturatedFat": 34,
+    "sugar": 27,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "massaman-curry-vegetable-with-jasmine-rice",
+   "name": "Massaman Curry Vegetable with Jasmine Rice",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1156,
+    "protein": 28,
+    "carbs": 135,
+    "fat": 52,
+    "saturatedFat": 34,
+    "sugar": 29,
+    "salt": 5.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giggling-pad-thai-chicken",
+   "name": "Giggling Pad Thai - Chicken",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 769,
+    "protein": 32,
+    "carbs": 60,
+    "fat": 44,
+    "saturatedFat": 4.9,
+    "sugar": 22,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giggling-pad-thai-prawn",
+   "name": "Giggling Pad Thai - Prawn",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 775,
+    "protein": 33,
+    "carbs": 60,
+    "fat": 44,
+    "saturatedFat": 4.9,
+    "sugar": 22,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giggling-pad-thai-vegan",
+   "name": "Giggling Pad Thai - Vegan",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 664,
+    "protein": 14,
+    "carbs": 62,
+    "fat": 39,
+    "saturatedFat": 3.4,
+    "sugar": 24,
+    "salt": 2.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sizzle-and-tang-stir-fry-noodles",
+   "name": "Sizzle & Tang Stir Fry Noodles",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 490,
+    "protein": 15,
+    "carbs": 86,
+    "fat": 8.3,
+    "saturatedFat": 0.6,
+    "sugar": 38,
+    "salt": 9.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "feisty-chicken-stir-fry",
+   "name": "Feisty Chicken Stir Fry",
+   "category": "Big Squids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 511,
+    "protein": 33,
+    "carbs": 66,
+    "fat": 12,
+    "saturatedFat": 2.3,
+    "sugar": 4,
+    "salt": 5.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-curry-lunch-box-chicken",
+   "name": "Red Curry Lunch Box - Chicken",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 801,
+    "protein": 29,
+    "carbs": 105,
+    "fat": 27,
+    "saturatedFat": 21,
+    "sugar": 17,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-curry-lunch-box-prawns",
+   "name": "Red Curry Lunch Box - Prawns",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 800,
+    "protein": 30,
+    "carbs": 105,
+    "fat": 27,
+    "saturatedFat": 21,
+    "sugar": 17,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-curry-lunch-box-vegetable",
+   "name": "Red Curry Lunch Box - Vegetable",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 861,
+    "protein": 26,
+    "carbs": 109,
+    "fat": 32,
+    "saturatedFat": 22,
+    "sugar": 20,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-curry-lunch-box-chicken",
+   "name": "Green Curry Lunch Box - Chicken",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 794,
+    "protein": 29,
+    "carbs": 104,
+    "fat": 27,
+    "saturatedFat": 21,
+    "sugar": 16,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-curry-lunch-box-prawns",
+   "name": "Green Curry Lunch Box - Prawns",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 793,
+    "protein": 30,
+    "carbs": 104,
+    "fat": 26,
+    "saturatedFat": 21,
+    "sugar": 16,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-curry-lunch-box-vegetable",
+   "name": "Green Curry Lunch Box - Vegetable",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 854,
+    "protein": 26,
+    "carbs": 108,
+    "fat": 32,
+    "saturatedFat": 22,
+    "sugar": 19,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giggling-pad-thai-lunch-box-chicken",
+   "name": "Giggling PAd Thai Lunch Box - Chicken",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1044,
+    "protein": 34,
+    "carbs": 81,
+    "fat": 64,
+    "saturatedFat": 6.4,
+    "sugar": 22,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giggling-pad-thai-lunch-box-prawns",
+   "name": "Giggling PAd Thai Lunch Box - Prawns",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1068,
+    "protein": 40,
+    "carbs": 81,
+    "fat": 64,
+    "saturatedFat": 6.4,
+    "sugar": 22,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giggling-pad-thai-lunch-box-vegetable",
+   "name": "Giggling PAd Thai Lunch Box - Vegetable",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1010,
+    "protein": 23,
+    "carbs": 83,
+    "fat": 64,
+    "saturatedFat": 6.3,
+    "sugar": 24,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giggling-pad-thai-lunch-box-vegan",
+   "name": "Giggling PAd Thai Lunch Box - Vegan",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 939,
+    "protein": 16,
+    "carbs": 83,
+    "fat": 59,
+    "saturatedFat": 4.9,
+    "sugar": 24,
+    "salt": 2.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lamb-massaman-and-jasmine-rice",
+   "name": "Lamb Massaman & Jasmine rice",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 800,
+    "protein": 30,
+    "carbs": 113,
+    "fat": 24,
+    "saturatedFat": 13,
+    "sugar": 15,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-chicken-and-yellow-noodles",
+   "name": "Sticky Chicken and Yellow Noodles",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 593,
+    "protein": 25,
+    "carbs": 60,
+    "fat": 27,
+    "saturatedFat": 2,
+    "sugar": 7.1,
+    "salt": 5.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-and-pepper-squid-nuggets",
+   "name": "Salt & Pepper Squid Nuggets",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 361,
+    "protein": 30,
+    "carbs": 41,
+    "fat": 8.1,
+    "saturatedFat": 1.3,
+    "sugar": 11,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seabass-gra-pao-and-egg-with-jasmine-rice",
+   "name": "Seabass Gra Pao & Egg with Jasmine Rice",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1055,
+    "protein": 68,
+    "carbs": 103,
+    "fat": 39,
+    "saturatedFat": 6.8,
+    "sugar": 5.5,
+    "salt": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "feisty-chicken-stir-fry-and-jasmine-rice",
+   "name": "Feisty Chicken Stir Fry & Jasmine rice",
+   "category": "Lunch boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 769,
+    "protein": 35,
+    "carbs": 93,
+    "fat": 27,
+    "saturatedFat": 3.4,
+    "sugar": 4,
+    "salt": 5.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-melting-beef-showstoppers",
+   "name": "Thai Melting Beef (Showstoppers)",
+   "category": "Showstoppers",
+   "serving": "",
+   "nutrients": {
+    "calories": 683,
+    "protein": 51,
+    "carbs": 35,
+    "fat": 35,
+    "saturatedFat": 22,
+    "sugar": 27,
+    "salt": 5.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rising-star-red-duck-curry",
+   "name": "Rising Star Red Duck Curry",
+   "category": "Showstoppers",
+   "serving": "",
+   "nutrients": {
+    "calories": 730,
+    "protein": 47,
+    "carbs": 33,
+    "fat": 43,
+    "saturatedFat": 25,
+    "sugar": 26,
+    "salt": 8.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

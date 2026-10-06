@@ -1,0 +1,2956 @@
+{
+ "schemaVersion": 1,
+ "id": "wendys",
+ "name": "Wendy's",
+ "cuisine": "Burgers",
+ "builderType": "standard",
+ "aliases": [
+  "wendys",
+  "wendy's",
+  "wendys uk",
+  "wendys burgers"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Wendy's UK National Nutrition Information (September 2026)",
+  "url": "https://www.wendys.com/sites/default/files/2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "The guide prints no ingredients, so the pork and beef filters only know what an item's name says (bacon, sausage, beef); its burgers and chili don't state their meat. The five dip pots are not listed because the guide prints them only as 100 g each.",
+ "categories": [
+  "Burgers",
+  "Chicken",
+  "Wraps",
+  "Salads",
+  "Sides",
+  "Kids",
+  "Breakfast",
+  "Frosty & desserts",
+  "Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "wendys-single",
+   "name": "Wendy's Single",
+   "category": "Burgers",
+   "serving": "213 g",
+   "nutrients": {
+    "calories": 524,
+    "protein": 28,
+    "carbs": 37,
+    "fat": 29,
+    "saturatedFat": 10,
+    "sugar": 8.2,
+    "fiber": 1.7,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wendys-double",
+   "name": "Wendy's Double",
+   "category": "Burgers",
+   "serving": "324 g",
+   "nutrients": {
+    "calories": 879,
+    "protein": 54,
+    "carbs": 39,
+    "fat": 56,
+    "saturatedFat": 22,
+    "sugar": 9.7,
+    "fiber": 1.7,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wendys-triple",
+   "name": "Wendy's Triple",
+   "category": "Burgers",
+   "serving": "422 g",
+   "nutrients": {
+    "calories": 1195,
+    "protein": 77,
+    "carbs": 41,
+    "fat": 80,
+    "saturatedFat": 33,
+    "sugar": 10,
+    "fiber": 1.7,
+    "salt": 6.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baconator",
+   "name": "Baconator",
+   "category": "Burgers",
+   "serving": "298 g",
+   "nutrients": {
+    "calories": 1001,
+    "protein": 63,
+    "carbs": 38,
+    "fat": 66,
+    "saturatedFat": 26,
+    "sugar": 8.5,
+    "fiber": 1.7,
+    "salt": 5.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jr-cheeseburger-deluxe",
+   "name": "Jr. Cheeseburger Deluxe",
+   "category": "Burgers",
+   "serving": "151 g",
+   "nutrients": {
+    "calories": 366,
+    "protein": 17,
+    "carbs": 31,
+    "fat": 19,
+    "saturatedFat": 6.3,
+    "sugar": 7.3,
+    "fiber": 1.4,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jr-bacon-cheeseburger",
+   "name": "Jr. Bacon Cheeseburger",
+   "category": "Burgers",
+   "serving": "143 g",
+   "nutrients": {
+    "calories": 410,
+    "protein": 20,
+    "carbs": 30,
+    "fat": 23,
+    "saturatedFat": 7.4,
+    "sugar": 5.9,
+    "fiber": 1.4,
+    "salt": 2.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-bacon-melt-single-cheeseburger",
+   "name": "BBQ Bacon Melt Single Cheeseburger",
+   "category": "Burgers",
+   "serving": "266 g",
+   "nutrients": {
+    "calories": 827,
+    "protein": 46,
+    "carbs": 56,
+    "fat": 46,
+    "saturatedFat": 19,
+    "sugar": 15,
+    "fiber": 2.3,
+    "salt": 3.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-bacon-melt-double-cheeseburger",
+   "name": "BBQ Bacon Melt Double Cheeseburger",
+   "category": "Burgers",
+   "serving": "393 g",
+   "nutrients": {
+    "calories": 1243,
+    "protein": 76,
+    "carbs": 58,
+    "fat": 78,
+    "saturatedFat": 32,
+    "sugar": 15,
+    "fiber": 2.3,
+    "salt": 5.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-bacon-melt-triple-cheeseburger",
+   "name": "BBQ Bacon Melt Triple Cheeseburger",
+   "category": "Burgers",
+   "serving": "520 g",
+   "nutrients": {
+    "calories": 1646,
+    "protein": 106,
+    "carbs": 59,
+    "fat": 109,
+    "saturatedFat": 46,
+    "sugar": 16,
+    "fiber": 2.3,
+    "salt": 7.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken",
+   "name": "Spicy Chicken",
+   "category": "Chicken",
+   "serving": "177 g",
+   "nutrients": {
+    "calories": 400,
+    "protein": 20,
+    "carbs": 45,
+    "fat": 15,
+    "saturatedFat": 2.4,
+    "sugar": 6.3,
+    "fiber": 2.4,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-chicken",
+   "name": "Classic Chicken",
+   "category": "Chicken",
+   "serving": "189 g",
+   "nutrients": {
+    "calories": 404,
+    "protein": 20,
+    "carbs": 46,
+    "fat": 15,
+    "saturatedFat": 2.5,
+    "sugar": 6.4,
+    "fiber": 2.5,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-chicken-club",
+   "name": "Avocado Chicken Club",
+   "category": "Chicken",
+   "serving": "240 g",
+   "nutrients": {
+    "calories": 583,
+    "protein": 30,
+    "carbs": 47,
+    "fat": 30,
+    "saturatedFat": 8.7,
+    "sugar": 6.5,
+    "fiber": 2.4,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jr-crispy-chicken-sandwich",
+   "name": "Jr. Crispy Chicken Sandwich",
+   "category": "Chicken",
+   "serving": "112 g",
+   "nutrients": {
+    "calories": 321,
+    "protein": 13,
+    "carbs": 35,
+    "fat": 14,
+    "saturatedFat": 1.7,
+    "sugar": 4.5,
+    "fiber": 1.4,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-bacon-melt-classic-chicken",
+   "name": "BBQ Bacon Melt Classic Chicken",
+   "category": "Chicken",
+   "serving": "227 g",
+   "nutrients": {
+    "calories": 627,
+    "protein": 31,
+    "carbs": 68,
+    "fat": 25,
+    "saturatedFat": 7.9,
+    "sugar": 15,
+    "fiber": 3,
+    "salt": 4.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-bacon-melt-spicy-chicken",
+   "name": "BBQ Bacon Melt Spicy Chicken",
+   "category": "Chicken",
+   "serving": "227 g",
+   "nutrients": {
+    "calories": 619,
+    "protein": 30,
+    "carbs": 67,
+    "fat": 25,
+    "saturatedFat": 7.9,
+    "sugar": 15,
+    "fiber": 3,
+    "salt": 4.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-pc-boneless-bites",
+   "name": "4 Pc Boneless Bites",
+   "category": "Chicken",
+   "serving": "72 g",
+   "nutrients": {
+    "calories": 164,
+    "protein": 16,
+    "carbs": 7,
+    "fat": 8,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-pc-boneless-bites",
+   "name": "8 Pc Boneless Bites",
+   "category": "Chicken",
+   "serving": "144 g",
+   "nutrients": {
+    "calories": 324,
+    "protein": 31,
+    "carbs": 14,
+    "fat": 16,
+    "saturatedFat": 3.9,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "11-pc-boneless-bites",
+   "name": "11 Pc Boneless Bites",
+   "category": "Chicken",
+   "serving": "198 g",
+   "nutrients": {
+    "calories": 437,
+    "protein": 43,
+    "carbs": 19,
+    "fat": 21,
+    "saturatedFat": 5.3,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 3.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-pc-boneless-bites",
+   "name": "12 Pc Boneless Bites",
+   "category": "Chicken",
+   "serving": "216 g",
+   "nutrients": {
+    "calories": 479,
+    "protein": 47,
+    "carbs": 21,
+    "fat": 23,
+    "saturatedFat": 5.8,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "20-pc-boneless-bites",
+   "name": "20 Pc Boneless Bites",
+   "category": "Chicken",
+   "serving": "360 g",
+   "nutrients": {
+    "calories": 803,
+    "protein": 78,
+    "carbs": 34.9,
+    "fat": 39,
+    "saturatedFat": 9.8,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 6.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-pc-spicy-boneless-bites",
+   "name": "4 Pc Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "72 g",
+   "nutrients": {
+    "calories": 139,
+    "protein": 17,
+    "carbs": 9,
+    "fat": 3.9,
+    "saturatedFat": 0.7,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.51
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-pc-spicy-boneless-bites",
+   "name": "8 Pc Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "144 g",
+   "nutrients": {
+    "calories": 282,
+    "protein": 35,
+    "carbs": 18,
+    "fat": 7.6,
+    "saturatedFat": 1.5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "11-pc-spicy-boneless-bites",
+   "name": "11 Pc Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "198 g",
+   "nutrients": {
+    "calories": 384,
+    "protein": 48,
+    "carbs": 25,
+    "fat": 10,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "fiber": 1,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-pc-spicy-boneless-bites",
+   "name": "12 Pc Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "216 g",
+   "nutrients": {
+    "calories": 421,
+    "protein": 52,
+    "carbs": 28,
+    "fat": 11,
+    "saturatedFat": 2.2,
+    "sugar": 0,
+    "fiber": 1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "20-pc-spicy-boneless-bites",
+   "name": "20 Pc Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "360 g",
+   "nutrients": {
+    "calories": 702,
+    "protein": 87,
+    "carbs": 46,
+    "fat": 18.9,
+    "saturatedFat": 3.7,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 2.54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-pc-buffalo-saucy-boneless-bites",
+   "name": "8 Pc Buffalo Saucy Boneless Bites",
+   "category": "Chicken",
+   "serving": "182 g",
+   "nutrients": {
+    "calories": 337,
+    "protein": 31,
+    "carbs": 15,
+    "fat": 17,
+    "saturatedFat": 4,
+    "sugar": 0.5,
+    "fiber": 0,
+    "salt": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-pc-buffalo-saucy-classic-boneless-bites",
+   "name": "12 Pc Buffalo Saucy Classic Boneless Bites",
+   "category": "Chicken",
+   "serving": "272 g",
+   "nutrients": {
+    "calories": 510,
+    "protein": 47,
+    "carbs": 22,
+    "fat": 26,
+    "saturatedFat": 6,
+    "sugar": 0.8,
+    "fiber": 0,
+    "salt": 7.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-pc-buffalo-saucy-spicy-boneless-bites",
+   "name": "8 Pc Buffalo Saucy Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "182 g",
+   "nutrients": {
+    "calories": 299,
+    "protein": 35,
+    "carbs": 19,
+    "fat": 9.1,
+    "saturatedFat": 1.6,
+    "sugar": 0.6,
+    "fiber": 0.7,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-pc-buffalo-saucy-spicy-boneless-bites",
+   "name": "12 Pc Buffalo Saucy Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "272 g",
+   "nutrients": {
+    "calories": 456,
+    "protein": 53,
+    "carbs": 29,
+    "fat": 14,
+    "saturatedFat": 2.4,
+    "sugar": 1,
+    "fiber": 1,
+    "salt": 5.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-pc-bbq-saucy-classic-boneless-bites",
+   "name": "8 Pc BBQ Saucy Classic Boneless Bites",
+   "category": "Chicken",
+   "serving": "205 g",
+   "nutrients": {
+    "calories": 429,
+    "protein": 32,
+    "carbs": 37,
+    "fat": 17,
+    "saturatedFat": 4,
+    "sugar": 21,
+    "fiber": 0,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-pc-bbq-saucy-classic-boneless-bites",
+   "name": "12 Pc BBQ Saucy Classic Boneless Bites",
+   "category": "Chicken",
+   "serving": "294 g",
+   "nutrients": {
+    "calories": 617,
+    "protein": 47,
+    "carbs": 51,
+    "fat": 25,
+    "saturatedFat": 5.9,
+    "sugar": 26,
+    "fiber": 0,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-pc-bbq-saucy-spicy-boneless-bites",
+   "name": "8 Pc BBQ Saucy Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "205 g",
+   "nutrients": {
+    "calories": 392,
+    "protein": 36,
+    "carbs": 42,
+    "fat": 8.7,
+    "saturatedFat": 1.6,
+    "sugar": 21,
+    "fiber": 0.7,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-pc-bbq-saucy-spicy-boneless-bites",
+   "name": "12 Pc BBQ Saucy Spicy Boneless Bites",
+   "category": "Chicken",
+   "serving": "294 g",
+   "nutrients": {
+    "calories": 559,
+    "protein": 53,
+    "carbs": 57,
+    "fat": 13,
+    "saturatedFat": 2.3,
+    "sugar": 26,
+    "fiber": 1,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-pc-chicken-tenders",
+   "name": "3 Pc Chicken Tenders",
+   "category": "Chicken",
+   "serving": "134 g",
+   "nutrients": {
+    "calories": 257,
+    "protein": 21,
+    "carbs": 20,
+    "fat": 10,
+    "saturatedFat": 1.2,
+    "sugar": 0.7,
+    "fiber": 1.3,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-pc-chicken-tenders",
+   "name": "4 Pc Chicken Tenders",
+   "category": "Chicken",
+   "serving": "178 g",
+   "nutrients": {
+    "calories": 350,
+    "protein": 28,
+    "carbs": 27,
+    "fat": 14,
+    "saturatedFat": 1.6,
+    "sugar": 0.9,
+    "fiber": 1.8,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-pc-chicken-tenders",
+   "name": "5 Pc Chicken Tenders",
+   "category": "Chicken",
+   "serving": "223 g",
+   "nutrients": {
+    "calories": 433,
+    "protein": 36,
+    "carbs": 33,
+    "fat": 17,
+    "saturatedFat": 2,
+    "sugar": 1.1,
+    "fiber": 2.2,
+    "salt": 6.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-pc-chicken-tenders",
+   "name": "6 Pc Chicken Tenders",
+   "category": "Chicken",
+   "serving": "267 g",
+   "nutrients": {
+    "calories": 514,
+    "protein": 42,
+    "carbs": 40,
+    "fat": 20,
+    "saturatedFat": 2.4,
+    "sugar": 1.4,
+    "fiber": 2.6,
+    "salt": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-wrap-w-chicken-tender",
+   "name": "Avocado Wrap w/ Chicken Tender",
+   "category": "Wraps",
+   "serving": "146 g",
+   "nutrients": {
+    "calories": 264,
+    "protein": 11,
+    "carbs": 29,
+    "fat": 11,
+    "saturatedFat": 2.5,
+    "sugar": 2.3,
+    "fiber": 2.4,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-wrap-w-halloumi-fries",
+   "name": "Avocado Wrap w/ Halloumi Fries",
+   "category": "Wraps",
+   "serving": "152 g",
+   "nutrients": {
+    "calories": 359,
+    "protein": 12,
+    "carbs": 29,
+    "fat": 21,
+    "saturatedFat": 7.2,
+    "sugar": 4.2,
+    "fiber": 2.8,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-wrap-w-halloumi-fries-duo-wrap",
+   "name": "Avocado Wrap w/ Halloumi Fries (Duo Wrap)",
+   "category": "Wraps",
+   "serving": "304 g",
+   "nutrients": {
+    "calories": 704,
+    "protein": 24,
+    "carbs": 57,
+    "fat": 41,
+    "saturatedFat": 14,
+    "sugar": 8.4,
+    "fiber": 5.6,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-wrap-w-chicken-tender",
+   "name": "Signature Wrap w/ Chicken Tender",
+   "category": "Wraps",
+   "serving": "116 g",
+   "nutrients": {
+    "calories": 349,
+    "protein": 13,
+    "carbs": 28,
+    "fat": 20,
+    "saturatedFat": 4.5,
+    "sugar": 1.8,
+    "fiber": 2.4,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-wrap-w-halloumi-fries",
+   "name": "Signature Wrap w/ Halloumi Fries",
+   "category": "Wraps",
+   "serving": "122 g",
+   "nutrients": {
+    "calories": 435,
+    "protein": 14,
+    "carbs": 28,
+    "fat": 29,
+    "saturatedFat": 9.2,
+    "sugar": 3.6,
+    "fiber": 2.8,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-wrap-w-halloumi-fries-duo-wrap",
+   "name": "Signature Wrap w/ Halloumi Fries (Duo Wrap)",
+   "category": "Wraps",
+   "serving": "244 g",
+   "nutrients": {
+    "calories": 869,
+    "protein": 28,
+    "carbs": 56,
+    "fat": 58,
+    "saturatedFat": 18,
+    "sugar": 7.3,
+    "fiber": 5.6,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-wrap-w-chicken-tender",
+   "name": "BBQ Wrap w/ Chicken Tender",
+   "category": "Wraps",
+   "serving": "117 g",
+   "nutrients": {
+    "calories": 282,
+    "protein": 13,
+    "carbs": 34,
+    "fat": 9.9,
+    "saturatedFat": 3.7,
+    "sugar": 6.9,
+    "fiber": 2.4,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-wrap-w-halloumi-fries",
+   "name": "BBQ Wrap w/ Halloumi Fries",
+   "category": "Wraps",
+   "serving": "124 g",
+   "nutrients": {
+    "calories": 365,
+    "protein": 14,
+    "carbs": 33,
+    "fat": 19,
+    "saturatedFat": 8.4,
+    "sugar": 7.9,
+    "fiber": 2.8,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-wrap-w-halloumi-fries-duo-wrap",
+   "name": "BBQ Wrap w/ Halloumi Fries (Duo Wrap)",
+   "category": "Wraps",
+   "serving": "248 g",
+   "nutrients": {
+    "calories": 729,
+    "protein": 28,
+    "carbs": 66,
+    "fat": 38,
+    "saturatedFat": 17,
+    "sugar": 16,
+    "fiber": 5.6,
+    "salt": 3.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-wrap-w-chicken-tender",
+   "name": "Buffalo Wrap w/ Chicken Tender",
+   "category": "Wraps",
+   "serving": "126 g",
+   "nutrients": {
+    "calories": 349,
+    "protein": 13,
+    "carbs": 28,
+    "fat": 20,
+    "saturatedFat": 4.5,
+    "sugar": 1.9,
+    "fiber": 2.4,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-wrap-w-halloumi-fries",
+   "name": "Buffalo Wrap w/ Halloumi Fries",
+   "category": "Wraps",
+   "serving": "132 g",
+   "nutrients": {
+    "calories": 435,
+    "protein": 14,
+    "carbs": 28,
+    "fat": 29,
+    "saturatedFat": 9.2,
+    "sugar": 3.8,
+    "fiber": 2.8,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad",
+   "name": "Caesar Salad",
+   "category": "Salads",
+   "serving": "165 g",
+   "nutrients": {
+    "calories": 311,
+    "protein": 9,
+    "carbs": 3.1,
+    "fat": 29,
+    "saturatedFat": 6.2,
+    "sugar": 2.7,
+    "fiber": 1,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad-w-classic-chicken",
+   "name": "Caesar Salad w/ Classic Chicken",
+   "category": "Salads",
+   "serving": "242 g",
+   "nutrients": {
+    "calories": 493,
+    "protein": 22,
+    "carbs": 15,
+    "fat": 38,
+    "saturatedFat": 8,
+    "sugar": 2.7,
+    "fiber": 1.7,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad-w-spicy-chicken",
+   "name": "Caesar Salad w/ Spicy Chicken",
+   "category": "Salads",
+   "serving": "242 g",
+   "nutrients": {
+    "calories": 480,
+    "protein": 22,
+    "carbs": 14,
+    "fat": 37,
+    "saturatedFat": 7.9,
+    "sugar": 2.7,
+    "fiber": 1.7,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad-w-halloumi-fries",
+   "name": "Caesar Salad w/ Halloumi Fries",
+   "category": "Salads",
+   "serving": "216 g",
+   "nutrients": {
+    "calories": 499,
+    "protein": 18,
+    "carbs": 11,
+    "fat": 42,
+    "saturatedFat": 12,
+    "sugar": 5.6,
+    "fiber": 2.3,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-salad",
+   "name": "Avocado Salad",
+   "category": "Salads",
+   "serving": "284 g",
+   "nutrients": {
+    "calories": 388,
+    "protein": 13,
+    "carbs": 6.9,
+    "fat": 34,
+    "saturatedFat": 9.1,
+    "sugar": 5,
+    "fiber": 1,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-salad-w-classic-chicken",
+   "name": "Avocado Salad w/ Classic Chicken",
+   "category": "Salads",
+   "serving": "362 g",
+   "nutrients": {
+    "calories": 574,
+    "protein": 27,
+    "carbs": 19,
+    "fat": 43,
+    "saturatedFat": 11,
+    "sugar": 5,
+    "fiber": 1.7,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-salad-w-spicy-chicken",
+   "name": "Avocado Salad w/ Spicy Chicken",
+   "category": "Salads",
+   "serving": "362 g",
+   "nutrients": {
+    "calories": 567,
+    "protein": 26,
+    "carbs": 18,
+    "fat": 43,
+    "saturatedFat": 11,
+    "sugar": 5,
+    "fiber": 1.8,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-salad-w-halloumi-fries",
+   "name": "Avocado Salad w/ Halloumi Fries",
+   "category": "Salads",
+   "serving": "336 g",
+   "nutrients": {
+    "calories": 567,
+    "protein": 21,
+    "carbs": 14,
+    "fat": 47,
+    "saturatedFat": 14,
+    "sugar": 7.1,
+    "fiber": 2.2,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-fries",
+   "name": "Small Fries",
+   "category": "Sides",
+   "serving": "81 g",
+   "nutrients": {
+    "calories": 142,
+    "protein": 1.6,
+    "carbs": 18,
+    "fat": 6.7,
+    "saturatedFat": 0.5,
+    "sugar": 3.5,
+    "fiber": 1.5,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "medium-fries",
+   "name": "Medium Fries",
+   "category": "Sides",
+   "serving": "98 g",
+   "nutrients": {
+    "calories": 176,
+    "protein": 2,
+    "carbs": 22,
+    "fat": 8.5,
+    "saturatedFat": 0.6,
+    "sugar": 3.7,
+    "fiber": 1.9,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-fries",
+   "name": "Large Fries",
+   "category": "Sides",
+   "serving": "138 g",
+   "nutrients": {
+    "calories": 239,
+    "protein": 2.7,
+    "carbs": 31,
+    "fat": 11,
+    "saturatedFat": 0.8,
+    "sugar": 6.8,
+    "fiber": 2.6,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baconator-fries",
+   "name": "Baconator Fries",
+   "category": "Sides",
+   "serving": "169 g",
+   "nutrients": {
+    "calories": 459,
+    "protein": 12,
+    "carbs": 25,
+    "fat": 34,
+    "saturatedFat": 9.3,
+    "sugar": 2.6,
+    "fiber": 2.3,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-topped-fries",
+   "name": "Cheesy Topped Fries",
+   "category": "Sides",
+   "serving": "153 g",
+   "nutrients": {
+    "calories": 351,
+    "protein": 7.5,
+    "carbs": 25,
+    "fat": 24,
+    "saturatedFat": 7.1,
+    "sugar": 2.5,
+    "fiber": 2.3,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-potato",
+   "name": "Plain Potato",
+   "category": "Sides",
+   "serving": "175 g",
+   "nutrients": {
+    "calories": 232,
+    "protein": 4.4,
+    "carbs": 39,
+    "fat": 5.4,
+    "saturatedFat": 3.4,
+    "sugar": 2.4,
+    "fiber": 4.7,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-cheese-potato",
+   "name": "Bacon & Cheese Potato",
+   "category": "Sides",
+   "serving": "230 g",
+   "nutrients": {
+    "calories": 405,
+    "protein": 14,
+    "carbs": 40,
+    "fat": 20,
+    "saturatedFat": 8.4,
+    "sugar": 3.8,
+    "fiber": 4.3,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sour-cream-and-chives-potato",
+   "name": "Sour Cream and Chives Potato",
+   "category": "Sides",
+   "serving": "193 g",
+   "nutrients": {
+    "calories": 233,
+    "protein": 4.9,
+    "carbs": 39,
+    "fat": 5.4,
+    "saturatedFat": 3.3,
+    "sugar": 3.4,
+    "fiber": 4.4,
+    "salt": 0.04
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chili",
+   "name": "Chili",
+   "category": "Sides",
+   "serving": "245 g",
+   "nutrients": {
+    "calories": 253,
+    "protein": 19,
+    "carbs": 14,
+    "fat": 13,
+    "saturatedFat": 5.5,
+    "sugar": 3.5,
+    "fiber": 1.9,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chili-cheese-fries",
+   "name": "Chili Cheese Fries",
+   "category": "Sides",
+   "serving": "271 g",
+   "nutrients": {
+    "calories": 481,
+    "protein": 17,
+    "carbs": 32,
+    "fat": 31,
+    "saturatedFat": 9.8,
+    "sugar": 4.2,
+    "fiber": 3.2,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chili-cheese-baked-potato",
+   "name": "Chili Cheese Baked Potato",
+   "category": "Sides",
+   "serving": "324 g",
+   "nutrients": {
+    "calories": 428,
+    "protein": 19,
+    "carbs": 47,
+    "fat": 17,
+    "saturatedFat": 9,
+    "sugar": 5.5,
+    "fiber": 5.3,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-fries",
+   "name": "Halloumi Fries",
+   "category": "Sides",
+   "serving": "51 g",
+   "nutrients": {
+    "calories": 178,
+    "protein": 8.2,
+    "carbs": 6.6,
+    "fat": 13,
+    "saturatedFat": 5.1,
+    "sugar": 2.1,
+    "fiber": 0.9,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-chili-cheese-fries",
+   "name": "Beef Chili Cheese Fries",
+   "category": "Sides",
+   "serving": "291 g",
+   "nutrients": {
+    "calories": 499,
+    "protein": 18,
+    "carbs": 33,
+    "fat": 32,
+    "saturatedFat": 10,
+    "sugar": 4.5,
+    "fiber": 3.4,
+    "salt": 3.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-hashbrown",
+   "name": "Small Hashbrown",
+   "category": "Sides",
+   "serving": "87 g",
+   "nutrients": {
+    "calories": 194,
+    "protein": 1.4,
+    "carbs": 19,
+    "fat": 12,
+    "saturatedFat": 1.3,
+    "sugar": 0,
+    "fiber": 2,
+    "salt": 0.73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-hashbrown",
+   "name": "Regular Hashbrown",
+   "category": "Sides",
+   "serving": "129 g",
+   "nutrients": {
+    "calories": 271,
+    "protein": 2.1,
+    "carbs": 28,
+    "fat": 16,
+    "saturatedFat": 1.8,
+    "sugar": 0,
+    "fiber": 3.1,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-hashbrown",
+   "name": "Large Hashbrown",
+   "category": "Sides",
+   "serving": "170 g",
+   "nutrients": {
+    "calories": 356,
+    "protein": 2.7,
+    "carbs": 37,
+    "fat": 21,
+    "saturatedFat": 2.4,
+    "sugar": 0,
+    "fiber": 4,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-slices",
+   "name": "Apple Slices",
+   "category": "Sides",
+   "serving": "80 g",
+   "nutrients": {
+    "calories": 42,
+    "protein": 0,
+    "carbs": 9.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.3,
+    "fiber": 2.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cheeseburger",
+   "name": "Kid's Cheeseburger",
+   "category": "Kids",
+   "serving": "106 g",
+   "nutrients": {
+    "calories": 317,
+    "protein": 17,
+    "carbs": 30,
+    "fat": 14,
+    "saturatedFat": 5.8,
+    "sugar": 6.3,
+    "fiber": 1.4,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hamburger",
+   "name": "Kid's Hamburger",
+   "category": "Kids",
+   "serving": "93 g",
+   "nutrients": {
+    "calories": 278,
+    "protein": 15,
+    "carbs": 29,
+    "fat": 11,
+    "saturatedFat": 4.3,
+    "sugar": 5.5,
+    "fiber": 1.4,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-pc-chicken-nuggets",
+   "name": "4 Pc Chicken Nuggets",
+   "category": "Kids",
+   "serving": "51 g",
+   "nutrients": {
+    "calories": 114,
+    "protein": 11,
+    "carbs": 4.9,
+    "fat": 5.6,
+    "saturatedFat": 1.4,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-egg-and-cheese-muffin",
+   "name": "Classic Egg & Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "130 g",
+   "nutrients": {
+    "calories": 319,
+    "protein": 14,
+    "carbs": 27,
+    "fat": 16,
+    "saturatedFat": 4.5,
+    "sugar": 2.5,
+    "fiber": 5.5,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-sausage-and-cheese-muffin",
+   "name": "Classic Sausage & Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "177 g",
+   "nutrients": {
+    "calories": 477,
+    "protein": 23,
+    "carbs": 28,
+    "fat": 29,
+    "saturatedFat": 9.1,
+    "sugar": 3.2,
+    "fiber": 6,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-bacon-and-cheese-muffin",
+   "name": "Classic Bacon & Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "143 g",
+   "nutrients": {
+    "calories": 384,
+    "protein": 19,
+    "carbs": 27,
+    "fat": 21,
+    "saturatedFat": 6.3,
+    "sugar": 2.6,
+    "fiber": 5.5,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-baconator-w-brown-sauce",
+   "name": "Breakfast Baconator w/ Brown Sauce",
+   "category": "Breakfast",
+   "serving": "216 g",
+   "nutrients": {
+    "calories": 632,
+    "protein": 36,
+    "carbs": 40,
+    "fat": 36,
+    "saturatedFat": 13,
+    "sugar": 9.2,
+    "fiber": 2.1,
+    "salt": 3.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-baconator-w-red-sauce",
+   "name": "Breakfast Baconator w/ Red Sauce",
+   "category": "Breakfast",
+   "serving": "215 g",
+   "nutrients": {
+    "calories": 628,
+    "protein": 36,
+    "carbs": 39,
+    "fat": 36,
+    "saturatedFat": 13,
+    "sugar": 9,
+    "fiber": 2.1,
+    "salt": 3.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-double-stack",
+   "name": "Egg Double Stack",
+   "category": "Breakfast",
+   "serving": "173 g",
+   "nutrients": {
+    "calories": 419,
+    "protein": 21,
+    "carbs": 29,
+    "fat": 24,
+    "saturatedFat": 6.2,
+    "sugar": 5,
+    "fiber": 1.4,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-breakfast-butty-w-brown-sauce",
+   "name": "Sausage Breakfast Butty w/ Brown Sauce",
+   "category": "Breakfast",
+   "serving": "104 g",
+   "nutrients": {
+    "calories": 319,
+    "protein": 14,
+    "carbs": 31,
+    "fat": 15,
+    "saturatedFat": 4.8,
+    "sugar": 6.7,
+    "fiber": 1.8,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-breakfast-butty-w-brown-sauce",
+   "name": "Bacon Breakfast Butty w/ Brown Sauce",
+   "category": "Breakfast",
+   "serving": "74 g",
+   "nutrients": {
+    "calories": 246,
+    "protein": 12,
+    "carbs": 30,
+    "fat": 8.4,
+    "saturatedFat": 2.6,
+    "sugar": 6.1,
+    "fiber": 1.4,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-breakfast-butty-w-red-sauce",
+   "name": "Sausage Breakfast Butty w/ Red Sauce",
+   "category": "Breakfast",
+   "serving": "102 g",
+   "nutrients": {
+    "calories": 315,
+    "protein": 14,
+    "carbs": 30,
+    "fat": 15,
+    "saturatedFat": 4.8,
+    "sugar": 6.2,
+    "fiber": 1.8,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-breakfast-butty-w-red-sauce",
+   "name": "Bacon Breakfast Butty w/ Red Sauce",
+   "category": "Breakfast",
+   "serving": "72 g",
+   "nutrients": {
+    "calories": 242,
+    "protein": 12,
+    "carbs": 29,
+    "fat": 8.4,
+    "saturatedFat": 2.6,
+    "sugar": 5.5,
+    "fiber": 1.4,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-wrap-bacon-w-red-sauce",
+   "name": "Breakfast Wrap Bacon w/ Red Sauce",
+   "category": "Breakfast",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 355,
+    "protein": 18,
+    "carbs": 29,
+    "fat": 18,
+    "saturatedFat": 6.1,
+    "sugar": 4.3,
+    "fiber": 2.4,
+    "salt": 2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-wrap-sausage-w-red-sauce",
+   "name": "Breakfast Wrap Sausage w/ Red Sauce",
+   "category": "Breakfast",
+   "serving": "184 g",
+   "nutrients": {
+    "calories": 448,
+    "protein": 22,
+    "carbs": 30,
+    "fat": 26,
+    "saturatedFat": 9,
+    "sugar": 4.9,
+    "fiber": 2.9,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-wrap-egg-and-cheese-w-red-sauce",
+   "name": "Breakfast Wrap Egg & Cheese w/ Red Sauce",
+   "category": "Breakfast",
+   "serving": "137 g",
+   "nutrients": {
+    "calories": 290,
+    "protein": 13,
+    "carbs": 29,
+    "fat": 13,
+    "saturatedFat": 4.4,
+    "sugar": 4.3,
+    "fiber": 2.4,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-wrap-bacon-w-brown-sauce",
+   "name": "Breakfast Wrap Bacon w/ Brown Sauce",
+   "category": "Breakfast",
+   "serving": "149 g",
+   "nutrients": {
+    "calories": 355,
+    "protein": 18,
+    "carbs": 29,
+    "fat": 18,
+    "saturatedFat": 6.1,
+    "sugar": 4.3,
+    "fiber": 2.4,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-wrap-sausage-w-brown-sauce",
+   "name": "Breakfast Wrap Sausage w/ Brown Sauce",
+   "category": "Breakfast",
+   "serving": "183 g",
+   "nutrients": {
+    "calories": 452,
+    "protein": 22,
+    "carbs": 31,
+    "fat": 26,
+    "saturatedFat": 9,
+    "sugar": 4.9,
+    "fiber": 2.9,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-wrap-egg-and-cheese-w-brown-sauce",
+   "name": "Breakfast Wrap Egg & Cheese w/ Brown Sauce",
+   "category": "Breakfast",
+   "serving": "137 g",
+   "nutrients": {
+    "calories": 290,
+    "protein": 13,
+    "carbs": 29,
+    "fat": 13,
+    "saturatedFat": 4.4,
+    "sugar": 4.2,
+    "fiber": 2.4,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-pop-dots",
+   "name": "Chocolate Pop Dots",
+   "category": "Frosty & desserts",
+   "serving": "78 g",
+   "nutrients": {
+    "calories": 384,
+    "protein": 5.9,
+    "carbs": 35,
+    "fat": 24,
+    "saturatedFat": 12,
+    "sugar": 20,
+    "fiber": 2.3,
+    "salt": 0.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jr-vanilla-frosty",
+   "name": "Jr. Vanilla Frosty",
+   "category": "Frosty & desserts",
+   "serving": "140 g",
+   "nutrients": {
+    "calories": 179,
+    "protein": 3.5,
+    "carbs": 27,
+    "fat": 6.3,
+    "saturatedFat": 5.5,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-vanilla-frosty",
+   "name": "Regular Vanilla Frosty",
+   "category": "Frosty & desserts",
+   "serving": "168 g",
+   "nutrients": {
+    "calories": 217,
+    "protein": 4.2,
+    "carbs": 33,
+    "fat": 7.6,
+    "saturatedFat": 6.6,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-vanilla-frosty",
+   "name": "Large Vanilla Frosty",
+   "category": "Frosty & desserts",
+   "serving": "244 g",
+   "nutrients": {
+    "calories": 311,
+    "protein": 6.1,
+    "carbs": 47,
+    "fat": 11,
+    "saturatedFat": 9.6,
+    "sugar": 34,
+    "fiber": 0,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "x-large-vanilla-frosty",
+   "name": "X-Large Vanilla Frosty",
+   "category": "Frosty & desserts",
+   "serving": "328 g",
+   "nutrients": {
+    "calories": 424,
+    "protein": 8.2,
+    "carbs": 64,
+    "fat": 15,
+    "saturatedFat": 13,
+    "sugar": 45,
+    "fiber": 0,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jr-chocolate-frosty",
+   "name": "Jr. Chocolate Frosty",
+   "category": "Frosty & desserts",
+   "serving": "143 g",
+   "nutrients": {
+    "calories": 168,
+    "protein": 5,
+    "carbs": 28,
+    "fat": 4,
+    "saturatedFat": 3.6,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-chocolate-frosty",
+   "name": "Regular Chocolate Frosty",
+   "category": "Frosty & desserts",
+   "serving": "168 g",
+   "nutrients": {
+    "calories": 199,
+    "protein": 5.8,
+    "carbs": 33,
+    "fat": 4.7,
+    "saturatedFat": 4.2,
+    "sugar": 26,
+    "fiber": 0.6,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-chocolate-frosty",
+   "name": "Large Chocolate Frosty",
+   "category": "Frosty & desserts",
+   "serving": "247 g",
+   "nutrients": {
+    "calories": 290,
+    "protein": 8.6,
+    "carbs": 48,
+    "fat": 6.9,
+    "saturatedFat": 6.2,
+    "sugar": 39,
+    "fiber": 0.8,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "x-large-chocolate-frosty",
+   "name": "X-Large Chocolate Frosty",
+   "category": "Frosty & desserts",
+   "serving": "338 g",
+   "nutrients": {
+    "calories": 399,
+    "protein": 12,
+    "carbs": 66,
+    "fat": 9.4,
+    "saturatedFat": 8.5,
+    "sugar": 53,
+    "fiber": 1.1,
+    "salt": 0.69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-vanilla-strawberries-and-cream-frosty",
+   "name": "Regular Vanilla Strawberries & Cream Frosty",
+   "category": "Frosty & desserts",
+   "serving": "182 g",
+   "nutrients": {
+    "calories": 301,
+    "protein": 4.5,
+    "carbs": 46,
+    "fat": 11,
+    "saturatedFat": 8.6,
+    "sugar": 35,
+    "fiber": 0,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-vanilla-strawberries-and-cream-frosty",
+   "name": "Large Vanilla Strawberries & Cream Frosty",
+   "category": "Frosty & desserts",
+   "serving": "243 g",
+   "nutrients": {
+    "calories": 386,
+    "protein": 6,
+    "carbs": 59,
+    "fat": 14,
+    "saturatedFat": 11,
+    "sugar": 44,
+    "fiber": 0,
+    "salt": 0.56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-chocolate-strawberries-and-cream-frosty",
+   "name": "Regular Chocolate Strawberries & Cream Frosty",
+   "category": "Frosty & desserts",
+   "serving": "182 g",
+   "nutrients": {
+    "calories": 284,
+    "protein": 6,
+    "carbs": 46,
+    "fat": 8.3,
+    "saturatedFat": 6.3,
+    "sugar": 38,
+    "fiber": 0.5,
+    "salt": 0.36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-chocolate-strawberries-and-cream-frosty",
+   "name": "Large Chocolate Strawberries & Cream Frosty",
+   "category": "Frosty & desserts",
+   "serving": "243 g",
+   "nutrients": {
+    "calories": 359,
+    "protein": 8.1,
+    "carbs": 59,
+    "fat": 9.9,
+    "saturatedFat": 7.8,
+    "sugar": 48,
+    "fiber": 0.7,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-vanilla-frostyccino",
+   "name": "Regular Vanilla Frostyccino",
+   "category": "Frosty & desserts",
+   "serving": "355 g",
+   "nutrients": {
+    "calories": 186,
+    "protein": 3.7,
+    "carbs": 28,
+    "fat": 6.6,
+    "saturatedFat": 5.8,
+    "sugar": 20,
+    "fiber": 0,
+    "salt": 0.36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-vanilla-frostyccino",
+   "name": "Large Vanilla Frostyccino",
+   "category": "Frosty & desserts",
+   "serving": "421 g",
+   "nutrients": {
+    "calories": 192,
+    "protein": 3.8,
+    "carbs": 29,
+    "fat": 6.8,
+    "saturatedFat": 5.9,
+    "sugar": 21,
+    "fiber": 0,
+    "salt": 0.37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-chocolate-frostyccino",
+   "name": "Regular Chocolate Frostyccino",
+   "category": "Frosty & desserts",
+   "serving": "355 g",
+   "nutrients": {
+    "calories": 169,
+    "protein": 5.1,
+    "carbs": 28,
+    "fat": 4.1,
+    "saturatedFat": 3.7,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-chocolate-frostyccino",
+   "name": "Large Chocolate Frostyccino",
+   "category": "Frosty & desserts",
+   "serving": "421 g",
+   "nutrients": {
+    "calories": 176,
+    "protein": 5.3,
+    "carbs": 29,
+    "fat": 4.2,
+    "saturatedFat": 3.8,
+    "sugar": 24,
+    "fiber": 0.5,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-pc-mini-donuts",
+   "name": "6 Pc Mini Donuts",
+   "category": "Frosty & desserts",
+   "serving": "81 g",
+   "nutrients": {
+    "calories": 321,
+    "protein": 4.4,
+    "carbs": 39,
+    "fat": 16,
+    "saturatedFat": 7.2,
+    "sugar": 17,
+    "fiber": 1.7,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "can-coke",
+   "name": "Can Coke",
+   "category": "Drinks",
+   "serving": "330 g",
+   "nutrients": {
+    "calories": 140,
+    "protein": 0,
+    "carbs": 35,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 35,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "can-diet-coke",
+   "name": "Can Diet Coke",
+   "category": "Drinks",
+   "serving": "330 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "can-coke-zero",
+   "name": "Can Coke Zero",
+   "category": "Drinks",
+   "serving": "330 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.07
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "can-sprite",
+   "name": "Can Sprite",
+   "category": "Drinks",
+   "serving": "330 g",
+   "nutrients": {
+    "calories": 44,
+    "protein": 0,
+    "carbs": 11,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-small-12-oz",
+   "name": "Coke (small, 12 oz)",
+   "category": "Drinks",
+   "serving": "355 g",
+   "nutrients": {
+    "calories": 152,
+    "protein": 0,
+    "carbs": 38,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 38,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-small-12-oz",
+   "name": "Diet Coke (small, 12 oz)",
+   "category": "Drinks",
+   "serving": "355 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero-small-12-oz",
+   "name": "Coke Zero (small, 12 oz)",
+   "category": "Drinks",
+   "serving": "355 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.07
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-fanta-small-12-oz",
+   "name": "Orange Fanta (small, 12 oz)",
+   "category": "Drinks",
+   "serving": "355 g",
+   "nutrients": {
+    "calories": 64,
+    "protein": 0,
+    "carbs": 16,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.07
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-small-12-oz",
+   "name": "Sprite Zero (small, 12 oz)",
+   "category": "Drinks",
+   "serving": "355 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-regular-16-oz",
+   "name": "Coke (regular, 16 oz)",
+   "category": "Drinks",
+   "serving": "473 g",
+   "nutrients": {
+    "calories": 200,
+    "protein": 0,
+    "carbs": 50,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 50,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-regular-16-oz",
+   "name": "Diet Coke (regular, 16 oz)",
+   "category": "Drinks",
+   "serving": "473 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero-regular-16-oz",
+   "name": "Coke Zero (regular, 16 oz)",
+   "category": "Drinks",
+   "serving": "473 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.09
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-fanta-regular-16-oz",
+   "name": "Orange Fanta (regular, 16 oz)",
+   "category": "Drinks",
+   "serving": "473 g",
+   "nutrients": {
+    "calories": 84,
+    "protein": 0,
+    "carbs": 21,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 21,
+    "fiber": 0,
+    "salt": 0.09
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-regular-16-oz",
+   "name": "Sprite Zero (regular, 16 oz)",
+   "category": "Drinks",
+   "serving": "473 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-large-20-oz",
+   "name": "Coke (large, 20 oz)",
+   "category": "Drinks",
+   "serving": "591 g",
+   "nutrients": {
+    "calories": 252,
+    "protein": 0,
+    "carbs": 63,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 63,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-large-20-oz",
+   "name": "Diet Coke (large, 20 oz)",
+   "category": "Drinks",
+   "serving": "591 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero-large-20-oz",
+   "name": "Coke Zero (large, 20 oz)",
+   "category": "Drinks",
+   "serving": "591 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-fanta-large-20-oz",
+   "name": "Orange Fanta (large, 20 oz)",
+   "category": "Drinks",
+   "serving": "591 g",
+   "nutrients": {
+    "calories": 108,
+    "protein": 0,
+    "carbs": 27,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 27,
+    "fiber": 0,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-large-20-oz",
+   "name": "Sprite Zero (large, 20 oz)",
+   "category": "Drinks",
+   "serving": "591 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Drinks",
+   "serving": "48 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Drinks",
+   "serving": "338 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Drinks",
+   "serving": "390 g",
+   "nutrients": {
+    "calories": 153,
+    "protein": 11,
+    "carbs": 16,
+    "fat": 5,
+    "saturatedFat": 3.1,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Drinks",
+   "serving": "276 g",
+   "nutrients": {
+    "calories": 95,
+    "protein": 6.7,
+    "carbs": 9.9,
+    "fat": 3.2,
+    "saturatedFat": 2,
+    "sugar": 9.9,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Drinks",
+   "serving": "390 g",
+   "nutrients": {
+    "calories": 153,
+    "protein": 11,
+    "carbs": 16,
+    "fat": 5,
+    "saturatedFat": 3.1,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Drinks",
+   "serving": "335 g",
+   "nutrients": {
+    "calories": 190,
+    "protein": 7.3,
+    "carbs": 31,
+    "fat": 3.5,
+    "saturatedFat": 2.2,
+    "sugar": 30,
+    "fiber": 2.4,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea",
+   "name": "Tea",
+   "category": "Drinks",
+   "serving": "31 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Drinks",
+   "serving": "318 g",
+   "nutrients": {
+    "calories": 245,
+    "protein": 8.9,
+    "carbs": 41,
+    "fat": 4.3,
+    "saturatedFat": 2.7,
+    "sugar": 39,
+    "fiber": 3.2,
+    "salt": 0.51
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

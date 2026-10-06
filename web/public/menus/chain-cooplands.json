@@ -1,0 +1,2354 @@
+{
+ "schemaVersion": 1,
+ "id": "cooplands",
+ "name": "Cooplands",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "cooplands",
+  "cooplands bakery"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Cooplands 2026 March Allergen and Nutrition Information (PDF created 19 March 2026)",
+  "url": "https://cooplands-bakery.co.uk/wp-content/uploads/2026/03/Cooplands-Allergen-Nutrition-March-2026.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Per product from Cooplands' March 2026 guide, the latest on its website: its seasonal (Easter) lines may no longer be sold. Bread, rolls and a few multipack rows aren't listed, and five items whose printed numbers contradict each other are held back.",
+ "categories": [
+  "Sandwiches",
+  "Savouries",
+  "Pizzas",
+  "Salads",
+  "Cakes & sweet treats",
+  "Cream cakes"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "coronation-chicken-sub",
+   "name": "Coronation Chicken Sub",
+   "category": "Sandwiches",
+   "serving": "215 g",
+   "nutrients": {
+    "calories": 614,
+    "protein": 17,
+    "carbs": 42,
+    "fat": 39,
+    "saturatedFat": 4.3,
+    "sugar": 6.8,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-chicken-fillet-sandwich",
+   "name": "Loaded Chicken Fillet Sandwich",
+   "category": "Sandwiches",
+   "serving": "255 g",
+   "nutrients": {
+    "calories": 542,
+    "protein": 30,
+    "carbs": 48,
+    "fat": 26,
+    "saturatedFat": 9.5,
+    "sugar": 3.1,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt-sub",
+   "name": "BLT Sub",
+   "category": "Sandwiches",
+   "serving": "205 g",
+   "nutrients": {
+    "calories": 372,
+    "protein": 16,
+    "carbs": 38,
+    "fat": 18,
+    "saturatedFat": 5.4,
+    "sugar": 3.5,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt-white-sub",
+   "name": "BLT White Sub",
+   "category": "Sandwiches",
+   "serving": "200 g",
+   "nutrients": {
+    "calories": 361,
+    "protein": 15,
+    "carbs": 38,
+    "fat": 17,
+    "saturatedFat": 5.1,
+    "sugar": 3,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-ham-baguette",
+   "name": "Cheese & Ham Baguette",
+   "category": "Sandwiches",
+   "serving": "215 g",
+   "nutrients": {
+    "calories": 547,
+    "protein": 31.5,
+    "carbs": 59.2,
+    "fat": 19.2,
+    "saturatedFat": 8.9,
+    "sugar": 5.2,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-savoury-sub",
+   "name": "Cheese Savoury Sub",
+   "category": "Sandwiches",
+   "serving": "170 g",
+   "nutrients": {
+    "calories": 396,
+    "protein": 16,
+    "carbs": 40,
+    "fat": 21,
+    "saturatedFat": 9.1,
+    "sugar": 3.4,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-mayonnaise-and-bacon-sub",
+   "name": "Chicken Mayonnaise & Bacon Sub",
+   "category": "Sandwiches",
+   "serving": "275 g",
+   "nutrients": {
+    "calories": 658,
+    "protein": 23.4,
+    "carbs": 38,
+    "fat": 44.1,
+    "saturatedFat": 6.2,
+    "sugar": 3.8,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corned-beef-sub",
+   "name": "Corned Beef Sub",
+   "category": "Sandwiches",
+   "serving": "180 g",
+   "nutrients": {
+    "calories": 314,
+    "protein": 18,
+    "carbs": 35.3,
+    "fat": 12,
+    "saturatedFat": 4.8,
+    "sugar": 3,
+    "salt": 1.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-sub",
+   "name": "Egg Mayonnaise Sub",
+   "category": "Sandwiches",
+   "serving": "160 g",
+   "nutrients": {
+    "calories": 340,
+    "protein": 17,
+    "carbs": 42,
+    "fat": 12,
+    "saturatedFat": 2.9,
+    "sugar": 3.1,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-white-sub",
+   "name": "Egg Mayonnaise White Sub",
+   "category": "Sandwiches",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 309,
+    "protein": 15,
+    "carbs": 38,
+    "fat": 11,
+    "saturatedFat": 2.5,
+    "sugar": 2,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-pease-pudding-sub",
+   "name": "Ham & Pease Pudding Sub",
+   "category": "Sandwiches",
+   "serving": "140 g",
+   "nutrients": {
+    "calories": 284,
+    "protein": 16,
+    "carbs": 39,
+    "fat": 7.6,
+    "saturatedFat": 2.3,
+    "sugar": 0.9,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-salad-sub",
+   "name": "Ham Salad Sub",
+   "category": "Sandwiches",
+   "serving": "195 g",
+   "nutrients": {
+    "calories": 269,
+    "protein": 15,
+    "carbs": 35,
+    "fat": 8.3,
+    "saturatedFat": 2.6,
+    "sugar": 2.6,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "just-ham-sub",
+   "name": "Just Ham Sub",
+   "category": "Sandwiches",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 315,
+    "protein": 23,
+    "carbs": 34,
+    "fat": 11,
+    "saturatedFat": 3.6,
+    "sugar": 1,
+    "salt": 2.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ploughmans-sub",
+   "name": "Ploughman's Sub",
+   "category": "Sandwiches",
+   "serving": "215 g",
+   "nutrients": {
+    "calories": 367,
+    "protein": 14.9,
+    "carbs": 43,
+    "fat": 15,
+    "saturatedFat": 7.9,
+    "sugar": 7.9,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-chicken-salad-sub",
+   "name": "Roast Chicken Salad Sub",
+   "category": "Sandwiches",
+   "serving": "225 g",
+   "nutrients": {
+    "calories": 308,
+    "protein": 19,
+    "carbs": 39,
+    "fat": 8.4,
+    "saturatedFat": 1.9,
+    "sugar": 4.3,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-cocktail-sub",
+   "name": "Seafood Cocktail Sub",
+   "category": "Sandwiches",
+   "serving": "235 g",
+   "nutrients": {
+    "calories": 463,
+    "protein": 15.7,
+    "carbs": 44.5,
+    "fat": 24.7,
+    "saturatedFat": 2.6,
+    "sugar": 5.6,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-sub",
+   "name": "Tuna Mayonnaise Sub",
+   "category": "Sandwiches",
+   "serving": "215 g",
+   "nutrients": {
+    "calories": 386,
+    "protein": 20,
+    "carbs": 37,
+    "fat": 18,
+    "saturatedFat": 2.1,
+    "sugar": 2.4,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-and-cheese",
+   "name": "BBQ Chicken & Cheese",
+   "category": "Sandwiches",
+   "serving": "225 g",
+   "nutrients": {
+    "calories": 529,
+    "protein": 30,
+    "carbs": 69.5,
+    "fat": 12.8,
+    "saturatedFat": 7,
+    "sugar": 13.6,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-brie-and-red-onion-chutney",
+   "name": "Bacon, Brie & Red Onion Chutney",
+   "category": "Sandwiches",
+   "serving": "205 g",
+   "nutrients": {
+    "calories": 519,
+    "protein": 21.7,
+    "carbs": 62.8,
+    "fat": 18.7,
+    "saturatedFat": 8.4,
+    "sugar": 8.9,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-ham",
+   "name": "Cheese & Ham",
+   "category": "Sandwiches",
+   "serving": "215 g",
+   "nutrients": {
+    "calories": 547,
+    "protein": 31.5,
+    "carbs": 59.2,
+    "fat": 19.2,
+    "saturatedFat": 8.9,
+    "sugar": 5.2,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meatball-and-cheese",
+   "name": "Meatball & Cheese",
+   "category": "Sandwiches",
+   "serving": "265 g",
+   "nutrients": {
+    "calories": 650,
+    "protein": 28,
+    "carbs": 81,
+    "fat": 24,
+    "saturatedFat": 8.3,
+    "sugar": 17,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southern-fried-chicken-fillet-sandwich",
+   "name": "Southern Fried Chicken Fillet Sandwich",
+   "category": "Sandwiches",
+   "serving": "219 g",
+   "nutrients": {
+    "calories": 405,
+    "protein": 23,
+    "carbs": 47,
+    "fat": 14,
+    "saturatedFat": 5.1,
+    "sugar": 2,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-melt",
+   "name": "Tuna Melt",
+   "category": "Sandwiches",
+   "serving": "255 g",
+   "nutrients": {
+    "calories": 728,
+    "protein": 37,
+    "carbs": 76,
+    "fat": 30,
+    "saturatedFat": 10,
+    "sugar": 6.1,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lamb-and-mint-pasty",
+   "name": "Lamb & Mint Pasty",
+   "category": "Savouries",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 349,
+    "protein": 8.7,
+    "carbs": 37,
+    "fat": 19,
+    "saturatedFat": 9.3,
+    "sugar": 2.4,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-and-cider-pie",
+   "name": "Pork & Cider Pie",
+   "category": "Savouries",
+   "serving": "65 g",
+   "nutrients": {
+    "calories": 197,
+    "protein": 4.6,
+    "carbs": 20,
+    "fat": 12,
+    "saturatedFat": 4.2,
+    "sugar": 0.7,
+    "salt": 0.54
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-stilton-pie",
+   "name": "Steak & Stilton Pie",
+   "category": "Savouries",
+   "serving": "65 g",
+   "nutrients": {
+    "calories": 213,
+    "protein": 6.1,
+    "carbs": 19,
+    "fat": 13,
+    "saturatedFat": 5,
+    "sugar": 0.6,
+    "salt": 0.43
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wild-mushroom-and-garlic-pie",
+   "name": "Wild Mushroom & Garlic Pie",
+   "category": "Savouries",
+   "serving": "65 g",
+   "nutrients": {
+    "calories": 194,
+    "protein": 2.8,
+    "carbs": 20,
+    "fat": 12,
+    "saturatedFat": 4.3,
+    "sugar": 1.8,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-cheese-wrap",
+   "name": "Bacon & Cheese Wrap",
+   "category": "Savouries",
+   "serving": "80 g",
+   "nutrients": {
+    "calories": 314,
+    "protein": 11,
+    "carbs": 24,
+    "fat": 19,
+    "saturatedFat": 9.9,
+    "sugar": 1,
+    "salt": 1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-tomato-quiche",
+   "name": "Bacon and Tomato Quiche",
+   "category": "Savouries",
+   "serving": "124 g",
+   "nutrients": {
+    "calories": 437,
+    "protein": 14,
+    "carbs": 24,
+    "fat": 33,
+    "saturatedFat": 15,
+    "sugar": 2.3,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-onion-pasty",
+   "name": "Cheese & Onion Pasty",
+   "category": "Savouries",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 419,
+    "protein": 12.3,
+    "carbs": 36,
+    "fat": 23,
+    "saturatedFat": 8.4,
+    "sugar": 0.3,
+    "salt": 0.64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-onion-quiche",
+   "name": "Cheese and Onion Quiche",
+   "category": "Savouries",
+   "serving": "140 g",
+   "nutrients": {
+    "calories": 375,
+    "protein": 8.3,
+    "carbs": 40,
+    "fat": 20,
+    "saturatedFat": 9.9,
+    "sugar": 3.8,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-straws",
+   "name": "Cheese Straws",
+   "category": "Savouries",
+   "serving": "21 g",
+   "nutrients": {
+    "calories": 98,
+    "protein": 2.9,
+    "carbs": 7.8,
+    "fat": 6.1,
+    "saturatedFat": 3.6,
+    "sugar": 0.2,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bake",
+   "name": "Chicken Bake",
+   "category": "Savouries",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 351,
+    "protein": 13,
+    "carbs": 35,
+    "fat": 17,
+    "saturatedFat": 8,
+    "sugar": 1.9,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corned-beef-and-potato-pasty",
+   "name": "Corned Beef & Potato Pasty",
+   "category": "Savouries",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 381,
+    "protein": 12.3,
+    "carbs": 33,
+    "fat": 21,
+    "saturatedFat": 10.2,
+    "sugar": 2,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mince-and-onion-pie",
+   "name": "Mince and Onion Pie",
+   "category": "Savouries",
+   "serving": "170 g",
+   "nutrients": {
+    "calories": 584,
+    "protein": 14,
+    "carbs": 50,
+    "fat": 35,
+    "saturatedFat": 12,
+    "sugar": 0.7,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-and-cheese-wrap",
+   "name": "Mushroom & Cheese Wrap",
+   "category": "Savouries",
+   "serving": "115 g",
+   "nutrients": {
+    "calories": 334,
+    "protein": 15.6,
+    "carbs": 20,
+    "fat": 21,
+    "saturatedFat": 11,
+    "sugar": 1,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-roll",
+   "name": "Sausage Roll",
+   "category": "Savouries",
+   "serving": "58 g",
+   "nutrients": {
+    "calories": 165,
+    "protein": 4.4,
+    "carbs": 17,
+    "fat": 8.3,
+    "saturatedFat": 3.8,
+    "sugar": 0.8,
+    "salt": 0.82
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-cheese-and-beans-pasty",
+   "name": "Sausage, Cheese & Beans Pasty",
+   "category": "Savouries",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 414,
+    "protein": 13,
+    "carbs": 41,
+    "fat": 22,
+    "saturatedFat": 11,
+    "sugar": 5,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-bake",
+   "name": "Steak Bake",
+   "category": "Savouries",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 343,
+    "protein": 14,
+    "carbs": 35,
+    "fat": 17,
+    "saturatedFat": 8.3,
+    "sugar": 1.7,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-pasty",
+   "name": "Traditional Pasty",
+   "category": "Savouries",
+   "serving": "155 g",
+   "nutrients": {
+    "calories": 401,
+    "protein": 9.8,
+    "carbs": 42,
+    "fat": 20,
+    "saturatedFat": 8.8,
+    "sugar": 1.2,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-scone-from-4-pack",
+   "name": "Cheese Scone (from 4 pack)",
+   "category": "Savouries",
+   "serving": "1 scone",
+   "nutrients": {
+    "calories": 268,
+    "protein": 8.7,
+    "carbs": 33,
+    "fat": 12,
+    "saturatedFat": 2.7,
+    "sugar": 1.9,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-jalapeno-pizza",
+   "name": "Chicken & Jalapeno Pizza",
+   "category": "Pizzas",
+   "serving": "240 g",
+   "nutrients": {
+    "calories": 529,
+    "protein": 31,
+    "carbs": 63,
+    "fat": 18,
+    "saturatedFat": 7.9,
+    "sugar": 6.9,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita Pizza",
+   "category": "Pizzas",
+   "serving": "175 g",
+   "nutrients": {
+    "calories": 485,
+    "protein": 24,
+    "carbs": 59,
+    "fat": 18,
+    "saturatedFat": 8.2,
+    "sugar": 6.6,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza",
+   "name": "Pepperoni Pizza",
+   "category": "Pizzas",
+   "serving": "190 g",
+   "nutrients": {
+    "calories": 544,
+    "protein": 27,
+    "carbs": 59,
+    "fat": 24,
+    "saturatedFat": 11,
+    "sugar": 6.6,
+    "salt": 2.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-pizza",
+   "name": "BBQ Chicken Pizza",
+   "category": "Pizzas",
+   "serving": "235 g",
+   "nutrients": {
+    "calories": 560,
+    "protein": 35,
+    "carbs": 65,
+    "fat": 19,
+    "saturatedFat": 8.4,
+    "sugar": 12,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-salad",
+   "name": "Ham Salad",
+   "category": "Salads",
+   "serving": "235 g",
+   "nutrients": {
+    "calories": 192,
+    "protein": 11,
+    "carbs": 8.7,
+    "fat": 13,
+    "saturatedFat": 1.7,
+    "sugar": 6.4,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-egg-salad",
+   "name": "Ham & Egg Salad",
+   "category": "Salads",
+   "serving": "275 g",
+   "nutrients": {
+    "calories": 249,
+    "protein": 17,
+    "carbs": 8.7,
+    "fat": 16,
+    "saturatedFat": 2.8,
+    "sugar": 6.4,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-salad",
+   "name": "Chicken Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 203,
+    "protein": 15,
+    "carbs": 10,
+    "fat": 11,
+    "saturatedFat": 1,
+    "sugar": 7.6,
+    "salt": 0.55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-salad",
+   "name": "Plain Salad",
+   "category": "Salads",
+   "serving": "170 g",
+   "nutrients": {
+    "calories": 44,
+    "protein": 1.9,
+    "carbs": 7.1,
+    "fat": 0.9,
+    "saturatedFat": 0.2,
+    "sugar": 5.3,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "almond-tart",
+   "name": "Almond Tart",
+   "category": "Cakes & sweet treats",
+   "serving": "55 g",
+   "nutrients": {
+    "calories": 234,
+    "protein": 1.7,
+    "carbs": 34,
+    "fat": 9.4,
+    "saturatedFat": 2.1,
+    "sugar": 23,
+    "salt": 0.25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornflake-nest-with-chocolate-eggs",
+   "name": "Cornflake Nest with Chocolate Eggs",
+   "category": "Cakes & sweet treats",
+   "serving": "60 g",
+   "nutrients": {
+    "calories": 276,
+    "protein": 1.5,
+    "carbs": 42,
+    "fat": 11,
+    "saturatedFat": 9,
+    "sugar": 22,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "easter-brownie",
+   "name": "Easter Brownie",
+   "category": "Cakes & sweet treats",
+   "serving": "80 g",
+   "nutrients": {
+    "calories": 345,
+    "protein": 3.9,
+    "carbs": 44,
+    "fat": 17,
+    "saturatedFat": 10,
+    "sugar": 38,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "easter-bun-from-4-pack",
+   "name": "Easter Bun (from 4 pack)",
+   "category": "Cakes & sweet treats",
+   "serving": "1 cake",
+   "nutrients": {
+    "calories": 259,
+    "protein": 2.1,
+    "carbs": 49,
+    "fat": 6,
+    "saturatedFat": 2.4,
+    "sugar": 38,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "easter-bun-chocolate",
+   "name": "Easter Bun (Chocolate)",
+   "category": "Cakes & sweet treats",
+   "serving": "75 g",
+   "nutrients": {
+    "calories": 328,
+    "protein": 2.3,
+    "carbs": 45,
+    "fat": 15,
+    "saturatedFat": 4.7,
+    "sugar": 38,
+    "salt": 0.48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "easter-bun-vanilla",
+   "name": "Easter Bun (Vanilla)",
+   "category": "Cakes & sweet treats",
+   "serving": "75 g",
+   "nutrients": {
+    "calories": 328,
+    "protein": 2.3,
+    "carbs": 45,
+    "fat": 15,
+    "saturatedFat": 4.7,
+    "sugar": 38,
+    "salt": 0.48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "easter-bunny-biscuit",
+   "name": "Easter Bunny Biscuit",
+   "category": "Cakes & sweet treats",
+   "serving": "75 g",
+   "nutrients": {
+    "calories": 348,
+    "protein": 4.7,
+    "carbs": 48,
+    "fat": 16,
+    "saturatedFat": 7.7,
+    "sugar": 20,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "easter-chick-biscuit",
+   "name": "Easter Chick Biscuit",
+   "category": "Cakes & sweet treats",
+   "serving": "60 g",
+   "nutrients": {
+    "calories": 288,
+    "protein": 3.2,
+    "carbs": 39,
+    "fat": 14,
+    "saturatedFat": 7.8,
+    "sugar": 20,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "easter-cornflake-nest",
+   "name": "Easter Cornflake Nest",
+   "category": "Cakes & sweet treats",
+   "serving": "55 g",
+   "nutrients": {
+    "calories": 251,
+    "protein": 1.2,
+    "carbs": 38,
+    "fat": 10,
+    "saturatedFat": 8.8,
+    "sugar": 19,
+    "salt": 0.15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fun-gingerbread-biscuit",
+   "name": "Fun Gingerbread Biscuit",
+   "category": "Cakes & sweet treats",
+   "serving": "45 g",
+   "nutrients": {
+    "calories": 230,
+    "protein": 2.4,
+    "carbs": 40,
+    "fat": 6.3,
+    "saturatedFat": 3,
+    "sugar": 24,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-pie",
+   "name": "Lemon Pie",
+   "category": "Cakes & sweet treats",
+   "serving": "90 g",
+   "nutrients": {
+    "calories": 348,
+    "protein": 2.4,
+    "carbs": 53,
+    "fat": 14,
+    "saturatedFat": 5.9,
+    "sugar": 27,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-cookie",
+   "name": "Rainbow Cookie",
+   "category": "Cakes & sweet treats",
+   "serving": "100 g",
+   "nutrients": {
+    "calories": 500,
+    "protein": 5.2,
+    "carbs": 73,
+    "fat": 21,
+    "saturatedFat": 8.4,
+    "sugar": 44,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-topped-doughnut",
+   "name": "Raspberry Topped Doughnut",
+   "category": "Cakes & sweet treats",
+   "serving": "95 g",
+   "nutrients": {
+    "calories": 284,
+    "protein": 4.7,
+    "carbs": 48,
+    "fat": 7.9,
+    "saturatedFat": 1.9,
+    "sugar": 26,
+    "salt": 0.62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "russian-slice",
+   "name": "Russian Slice",
+   "category": "Cakes & sweet treats",
+   "serving": "120 g",
+   "nutrients": {
+    "calories": 411,
+    "protein": 6.9,
+    "carbs": 69,
+    "fat": 12,
+    "saturatedFat": 4.8,
+    "sugar": 48,
+    "salt": 0.83
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "summer-fruit-flan",
+   "name": "Summer Fruit Flan",
+   "category": "Cakes & sweet treats",
+   "serving": "175 g",
+   "nutrients": {
+    "calories": 439,
+    "protein": 4.6,
+    "carbs": 51,
+    "fat": 24,
+    "saturatedFat": 11,
+    "sugar": 28,
+    "salt": 0.65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-sundae",
+   "name": "Vanilla Sundae",
+   "category": "Cakes & sweet treats",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 321,
+    "protein": 2.6,
+    "carbs": 42,
+    "fat": 16,
+    "saturatedFat": 7,
+    "sugar": 34,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "victoria-sponge-muffin",
+   "name": "Victoria Sponge Muffin",
+   "category": "Cakes & sweet treats",
+   "serving": "120 g",
+   "nutrients": {
+    "calories": 489,
+    "protein": 4.8,
+    "carbs": 64,
+    "fat": 24,
+    "saturatedFat": 4.8,
+    "sugar": 46,
+    "salt": 0.92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bakewell-slice",
+   "name": "Bakewell Slice",
+   "category": "Cakes & sweet treats",
+   "serving": "110 g",
+   "nutrients": {
+    "calories": 510,
+    "protein": 8.1,
+    "carbs": 47,
+    "fat": 32,
+    "saturatedFat": 9,
+    "sugar": 25,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brownie",
+   "name": "Brownie",
+   "category": "Cakes & sweet treats",
+   "serving": "85 g",
+   "nutrients": {
+    "calories": 393,
+    "protein": 5.2,
+    "carbs": 45,
+    "fat": 21.3,
+    "saturatedFat": 12.8,
+    "sugar": 38.3,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-crispie",
+   "name": "Caramel Crispie",
+   "category": "Cakes & sweet treats",
+   "serving": "48 g",
+   "nutrients": {
+    "calories": 216,
+    "protein": 2.3,
+    "carbs": 29.8,
+    "fat": 9.6,
+    "saturatedFat": 6.2,
+    "sugar": 18.2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-shortbread",
+   "name": "Caramel Shortbread",
+   "category": "Cakes & sweet treats",
+   "serving": "54 g",
+   "nutrients": {
+    "calories": 262,
+    "protein": 2.2,
+    "carbs": 30.2,
+    "fat": 15.1,
+    "saturatedFat": 9.7,
+    "sugar": 17.8,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-flapjack",
+   "name": "Chocolate Flapjack",
+   "category": "Cakes & sweet treats",
+   "serving": "75 g",
+   "nutrients": {
+    "calories": 374,
+    "protein": 3.6,
+    "carbs": 42,
+    "fat": 21,
+    "saturatedFat": 12,
+    "sugar": 28,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-toffee-danish",
+   "name": "Chocolate Toffee Danish",
+   "category": "Cakes & sweet treats",
+   "serving": "139 g",
+   "nutrients": {
+    "calories": 581,
+    "protein": 8.2,
+    "carbs": 70.9,
+    "fat": 29.2,
+    "saturatedFat": 13.6,
+    "sugar": 33.4,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-monster",
+   "name": "Cookie Monster",
+   "category": "Cakes & sweet treats",
+   "serving": "95 g",
+   "nutrients": {
+    "calories": 436,
+    "protein": 4,
+    "carbs": 64,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 49,
+    "salt": 0.53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornflake-treacle-tart",
+   "name": "Cornflake Treacle Tart",
+   "category": "Cakes & sweet treats",
+   "serving": "140 g",
+   "nutrients": {
+    "calories": 611,
+    "protein": 3.8,
+    "carbs": 95,
+    "fat": 24,
+    "saturatedFat": 10,
+    "sugar": 58,
+    "salt": 0.79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "danish-pastry",
+   "name": "Danish Pastry",
+   "category": "Cakes & sweet treats",
+   "serving": "139 g",
+   "nutrients": {
+    "calories": 512,
+    "protein": 6.8,
+    "carbs": 72.3,
+    "fat": 20.9,
+    "saturatedFat": 9.6,
+    "sugar": 44.5,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolate-chip-cookie",
+   "name": "Double Chocolate Chip Cookie",
+   "category": "Cakes & sweet treats",
+   "serving": "100 g",
+   "nutrients": {
+    "calories": 500,
+    "protein": 8.5,
+    "carbs": 66,
+    "fat": 23,
+    "saturatedFat": 10,
+    "sugar": 43,
+    "salt": 0.74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gingerbread",
+   "name": "Gingerbread",
+   "category": "Cakes & sweet treats",
+   "serving": "45 g",
+   "nutrients": {
+    "calories": 230,
+    "protein": 2.4,
+    "carbs": 40,
+    "fat": 6.3,
+    "saturatedFat": 3,
+    "sugar": 24,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-finger",
+   "name": "Iced Finger",
+   "category": "Cakes & sweet treats",
+   "serving": "80 g",
+   "nutrients": {
+    "calories": 227,
+    "protein": 4.4,
+    "carbs": 45,
+    "fat": 3.6,
+    "saturatedFat": 1.7,
+    "sugar": 18,
+    "salt": 0.55
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jam-doughnut",
+   "name": "Jam Doughnut",
+   "category": "Cakes & sweet treats",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 194,
+    "protein": 5.7,
+    "carbs": 33,
+    "fat": 4.3,
+    "saturatedFat": 1.8,
+    "sugar": 9.2,
+    "salt": 0.83
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jam-tart",
+   "name": "Jam Tart",
+   "category": "Cakes & sweet treats",
+   "serving": "51 g",
+   "nutrients": {
+    "calories": 227,
+    "protein": 1.9,
+    "carbs": 36,
+    "fat": 8.9,
+    "saturatedFat": 2.8,
+    "sugar": 18,
+    "salt": 0.36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jumbo-jammy-biscuit",
+   "name": "Jumbo Jammy Biscuit",
+   "category": "Cakes & sweet treats",
+   "serving": "85 g",
+   "nutrients": {
+    "calories": 383,
+    "protein": 4.1,
+    "carbs": 56,
+    "fat": 17,
+    "saturatedFat": 6.9,
+    "sugar": 29,
+    "salt": 0.51
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-curd-tart",
+   "name": "Large Curd Tart",
+   "category": "Cakes & sweet treats",
+   "serving": "1/4 slice of tart",
+   "nutrients": {
+    "calories": 305,
+    "protein": 8.7,
+    "carbs": 32,
+    "fat": 16,
+    "saturatedFat": 6.1,
+    "sugar": 18.7,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-custard-tart",
+   "name": "Large Custard Tart",
+   "category": "Cakes & sweet treats",
+   "serving": "1/4 slice of tart",
+   "nutrients": {
+    "calories": 188,
+    "protein": 3.8,
+    "carbs": 24,
+    "fat": 9,
+    "saturatedFat": 2.6,
+    "sugar": 4.2,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-tart",
+   "name": "Lemon Tart",
+   "category": "Cakes & sweet treats",
+   "serving": "51 g",
+   "nutrients": {
+    "calories": 239,
+    "protein": 2,
+    "carbs": 36,
+    "fat": 10,
+    "saturatedFat": 3.3,
+    "sugar": 18,
+    "salt": 0.33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maid-of-honour",
+   "name": "Maid of Honour",
+   "category": "Cakes & sweet treats",
+   "serving": "85 g",
+   "nutrients": {
+    "calories": 255,
+    "protein": 9.2,
+    "carbs": 29,
+    "fat": 11,
+    "saturatedFat": 3.3,
+    "sugar": 11,
+    "salt": 0.55
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-curd-tart",
+   "name": "Small Curd Tart",
+   "category": "Cakes & sweet treats",
+   "serving": "93 g",
+   "nutrients": {
+    "calories": 324,
+    "protein": 8.8,
+    "carbs": 34.4,
+    "fat": 17.7,
+    "saturatedFat": 6.4,
+    "sugar": 18.6,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-custard-tart",
+   "name": "Small Custard Tart",
+   "category": "Cakes & sweet treats",
+   "serving": "80 g",
+   "nutrients": {
+    "calories": 213,
+    "protein": 4,
+    "carbs": 27,
+    "fat": 10.4,
+    "saturatedFat": 3.2,
+    "sugar": 5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toffee-doughnut",
+   "name": "Toffee Doughnut",
+   "category": "Cakes & sweet treats",
+   "serving": "95 g",
+   "nutrients": {
+    "calories": 276,
+    "protein": 5.6,
+    "carbs": 46,
+    "fat": 7.3,
+    "saturatedFat": 3.5,
+    "sugar": 23,
+    "salt": 0.76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-chocolate-muffin",
+   "name": "Triple Chocolate Muffin",
+   "category": "Cakes & sweet treats",
+   "serving": "110 g",
+   "nutrients": {
+    "calories": 497,
+    "protein": 6.8,
+    "carbs": 55,
+    "fat": 27,
+    "saturatedFat": 6.5,
+    "sugar": 38,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flapjack-from-4-pack",
+   "name": "Flapjack (from 4 pack)",
+   "category": "Cakes & sweet treats",
+   "serving": "1 flapjack",
+   "nutrients": {
+    "calories": 238,
+    "protein": 2.8,
+    "carbs": 28,
+    "fat": 12.5,
+    "saturatedFat": 4.5,
+    "sugar": 15,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-square-from-4-pack",
+   "name": "Ginger Square (from 4 pack)",
+   "category": "Cakes & sweet treats",
+   "serving": "1 cake",
+   "nutrients": {
+    "calories": 202,
+    "protein": 2.6,
+    "carbs": 42,
+    "fat": 2.4,
+    "saturatedFat": 0.9,
+    "sugar": 24,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bright-iced-bun-from-4-pack",
+   "name": "Bright Iced Bun (from 4 pack)",
+   "category": "Cakes & sweet treats",
+   "serving": "1 cake",
+   "nutrients": {
+    "calories": 249,
+    "protein": 2.2,
+    "carbs": 45,
+    "fat": 6.5,
+    "saturatedFat": 2.7,
+    "sugar": 35,
+    "salt": 0.34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "melting-moments-biscuit-from-6-pack",
+   "name": "Melting Moments Biscuit (from 6 pack)",
+   "category": "Cakes & sweet treats",
+   "serving": "1 biscuit",
+   "nutrients": {
+    "calories": 223,
+    "protein": 1.8,
+    "carbs": 22,
+    "fat": 14,
+    "saturatedFat": 8.9,
+    "sugar": 6.7,
+    "salt": 0.47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "parkin-biscuit-from-6-pack",
+   "name": "Parkin Biscuit (from 6 pack)",
+   "category": "Cakes & sweet treats",
+   "serving": "1 biscuit",
+   "nutrients": {
+    "calories": 152,
+    "protein": 1.7,
+    "carbs": 27,
+    "fat": 4.1,
+    "saturatedFat": 1.6,
+    "sugar": 14,
+    "salt": 0.43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "school-cake-from-4-pack",
+   "name": "School Cake (from 4 pack)",
+   "category": "Cakes & sweet treats",
+   "serving": "1 cake",
+   "nutrients": {
+    "calories": 343,
+    "protein": 4.6,
+    "carbs": 58,
+    "fat": 10,
+    "saturatedFat": 4.2,
+    "sugar": 42,
+    "salt": 0.73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sultana-scone-from-4-pack",
+   "name": "Sultana Scone (from 4 pack)",
+   "category": "Cakes & sweet treats",
+   "serving": "1 scone",
+   "nutrients": {
+    "calories": 272,
+    "protein": 6.2,
+    "carbs": 46,
+    "fat": 8.1,
+    "saturatedFat": 0.8,
+    "sugar": 17,
+    "salt": 0.74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-chocolate-cream-sponge",
+   "name": "Large Chocolate Cream Sponge",
+   "category": "Cream cakes",
+   "serving": "1/6 slice",
+   "nutrients": {
+    "calories": 189,
+    "protein": 3.1,
+    "carbs": 19,
+    "fat": 11,
+    "saturatedFat": 6.8,
+    "sugar": 14,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-cream-sponge",
+   "name": "Large Cream Sponge",
+   "category": "Cream cakes",
+   "serving": "1/6 slice",
+   "nutrients": {
+    "calories": 168,
+    "protein": 1.9,
+    "carbs": 17,
+    "fat": 11,
+    "saturatedFat": 6.9,
+    "sugar": 11,
+    "salt": 0.37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-doughnut",
+   "name": "Cream Doughnut",
+   "category": "Cream cakes",
+   "serving": "95 g",
+   "nutrients": {
+    "calories": 304,
+    "protein": 6.1,
+    "carbs": 33,
+    "fat": 16,
+    "saturatedFat": 9.3,
+    "sugar": 9.9,
+    "salt": 0.82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-slice",
+   "name": "Cream Slice",
+   "category": "Cream cakes",
+   "serving": "105 g",
+   "nutrients": {
+    "calories": 397,
+    "protein": 3.2,
+    "carbs": 39,
+    "fat": 25,
+    "saturatedFat": 16,
+    "sugar": 19,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eclair",
+   "name": "Eclair",
+   "category": "Cream cakes",
+   "serving": "95 g",
+   "nutrients": {
+    "calories": 348,
+    "protein": 2.9,
+    "carbs": 32,
+    "fat": 23,
+    "saturatedFat": 13,
+    "sugar": 27,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-chocolate-cream-sponge",
+   "name": "Mini Chocolate Cream Sponge",
+   "category": "Cream cakes",
+   "serving": "95 g",
+   "nutrients": {
+    "calories": 326,
+    "protein": 5.4,
+    "carbs": 33,
+    "fat": 19,
+    "saturatedFat": 11,
+    "sugar": 24,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-cream-sponge",
+   "name": "Mini Cream Sponge",
+   "category": "Cream cakes",
+   "serving": "95 g",
+   "nutrients": {
+    "calories": 296,
+    "protein": 3.3,
+    "carbs": 28.4,
+    "fat": 19,
+    "saturatedFat": 12.4,
+    "sugar": 18.1,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-melba",
+   "name": "Peach Melba",
+   "category": "Cream cakes",
+   "serving": "83 g",
+   "nutrients": {
+    "calories": 276,
+    "protein": 2.3,
+    "carbs": 34.9,
+    "fat": 14.1,
+    "saturatedFat": 6.6,
+    "sugar": 19.1,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-tart",
+   "name": "Strawberry Tart",
+   "category": "Cream cakes",
+   "serving": "75 g",
+   "nutrients": {
+    "calories": 221,
+    "protein": 1.7,
+    "carbs": 31,
+    "fat": 11,
+    "saturatedFat": 4.5,
+    "sugar": 15,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-slice",
+   "name": "Vanilla Slice",
+   "category": "Cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 332,
+    "protein": 2.9,
+    "carbs": 56,
+    "fat": 10.2,
+    "saturatedFat": 6.4,
+    "sugar": 33.6,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "devonshire-split",
+   "name": "Devonshire Split",
+   "category": "Cream cakes",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 448,
+    "protein": 6.4,
+    "carbs": 66,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 28,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -54,26 +54,27 @@ await step("OFFLINE: reload the opened item page", async () => {
   await vis(page.getByRole("heading", { name: "Chicken bowl" }));
 });
 await step("OFFLINE: a chain that was only warmed in the background also opens", async () => {
-  await page.goto(BASE + "/app/chain?id=cluck-house");
-  await vis(page.getByRole("heading", { name: "Cluck House" }));
-  await vis(page.getByText("Classic chicken sandwich").first());
+  // KFC is one of the "Popular" chains, which the app keeps ready offline (the warm-up is capped at 30 menus).
+  await page.goto(BASE + "/app/chain?id=kfc");
+  await vis(page.getByRole("heading", { name: "KFC" }));
+  await vis(page.getByText("Fillet Burger").first());
 });
 await step("OFFLINE: client navigation Home → chain works", async () => {
   await page.goto(BASE + "/app");
   await vis(page.getByRole("heading", { name: "Where are you eating?" }));
-  await vis(page.getByRole("link", { name: /Cluck House/ }));
-  await page.getByRole("link", { name: /Cluck House/ }).click();
-  await vis(page.getByRole("heading", { name: "Cluck House" }));
+  await vis(page.getByRole("link", { name: /KFC/ }).first());
+  await page.getByRole("link", { name: /KFC/ }).first().click();
+  await vis(page.getByRole("heading", { name: "KFC" }));
 });
 await step("OFFLINE: Save and Log still work (they are local)", async () => {
-  await page.goto(BASE + "/app/item?chain=cluck-house&item=waffle-fries");
-  await vis(page.getByRole("heading", { name: "Waffle fries (medium)" }));
+  await page.goto(BASE + "/app/item?chain=kfc&item=zinger-burger");
+  await vis(page.getByRole("heading", { name: "Zinger Burger" }));
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await vis(page.getByText("Saved.").first());
 });
 await step("OFFLINE: an item never opened before still opens (static shell + warmed menu)", async () => {
-  await page.goto(BASE + "/app/item?chain=cluck-house&item=side-salad");
-  await vis(page.getByRole("heading", { name: "Side salad" }));
+  await page.goto(BASE + "/app/item?chain=kfc&item=fillet-burger");
+  await vis(page.getByRole("heading", { name: "Fillet Burger" }));
   await vis(page.getByText("Saturated fat"));
 });
 await step("OFFLINE: the order builder opens from a brand-new URL and totals live", async () => {

@@ -1,0 +1,1882 @@
+{
+ "schemaVersion": 1,
+ "id": "sbarro",
+ "name": "Sbarro",
+ "cuisine": "Pizza",
+ "builderType": "standard",
+ "aliases": [
+  "sbarro",
+  "sbarro pizza"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Sbarro UK Nutritional & Allergen Guide (August 2026)",
+  "url": "https://www.sbarro.co.uk/_files/ugd/3da10b_04caa1f5c88441d588b76ca40bfaef78.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Sbarro's guide prints the 12in and 14in pizzas whole but most 17in pizzas per slice (each item says which). Rows where the guide's own weight, per-100 g and per-serving columns contradict each other are left out until Sbarro corrects it.",
+ "categories": [
+  "Pizza slices",
+  "Whole pizzas",
+  "Stromboli",
+  "Sides",
+  "Desserts",
+  "Sauces & extras",
+  "Hot drinks",
+  "Cold drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "cheese-pizza-17in-slice",
+   "name": "Cheese Pizza 17in (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice (1/6 pizza)",
+   "nutrients": {
+    "calories": 480,
+    "protein": 21,
+    "carbs": 59.5,
+    "fat": 17,
+    "saturatedFat": 8,
+    "sugar": 4,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-chicken-and-pepperoni-pizza-slice",
+   "name": "Pulled Chicken & Pepperoni Pizza (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 552,
+    "protein": 25.3,
+    "carbs": 64.2,
+    "fat": 21.2,
+    "saturatedFat": 9.1,
+    "sugar": 4.4,
+    "salt": 3.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-17in-slice",
+   "name": "Pepperoni 17in (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice (1/6 pizza)",
+   "nutrients": {
+    "calories": 650,
+    "protein": 26,
+    "carbs": 66.2,
+    "fat": 30,
+    "saturatedFat": 13,
+    "sugar": 5,
+    "salt": 4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-17in-slice",
+   "name": "BBQ Chicken 17in (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice (1/6 pizza)",
+   "nutrients": {
+    "calories": 660,
+    "protein": 27,
+    "carbs": 96,
+    "fat": 17,
+    "saturatedFat": 7,
+    "sugar": 24,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "firecracker-17in-slice",
+   "name": "Firecracker 17in (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice (1/6 pizza)",
+   "nutrients": {
+    "calories": 449,
+    "protein": 21.4,
+    "carbs": 57.9,
+    "fat": 15,
+    "saturatedFat": 6.4,
+    "sugar": 4.3,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseburger-classic-spicy-bbq-17in-slice",
+   "name": "Cheeseburger (Classic, Spicy, BBQ) 17in (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice (1/6 pizza)",
+   "nutrients": {
+    "calories": 615,
+    "protein": 22.1,
+    "carbs": 64.2,
+    "fat": 29.5,
+    "saturatedFat": 9.8,
+    "sugar": 9.8,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "festive-pizza-slice",
+   "name": "Festive Pizza (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 510,
+    "protein": 27,
+    "carbs": 62.3,
+    "fat": 16,
+    "saturatedFat": 7,
+    "sugar": 5,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stuffed-sausage-pepperoni-slice",
+   "name": "Stuffed Sausage Pepperoni (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice (1/8 pizza)",
+   "nutrients": {
+    "calories": 970,
+    "protein": 37,
+    "carbs": 103,
+    "fat": 45,
+    "saturatedFat": 17,
+    "sugar": 5,
+    "salt": 5.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-pizza-slice",
+   "name": "Breakfast Pizza (slice)",
+   "category": "Pizza slices",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 564,
+    "protein": 28.3,
+    "carbs": 61.5,
+    "fat": 22.1,
+    "saturatedFat": 9.3,
+    "sugar": 4.6,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-mushroom-12in",
+   "name": "Ham & Mushroom 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1500,
+    "protein": 66,
+    "carbs": 182,
+    "fat": 54,
+    "saturatedFat": 22,
+    "sugar": 13,
+    "salt": 9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-mushroom-14in",
+   "name": "Ham & Mushroom 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 2040,
+    "protein": 91,
+    "carbs": 241,
+    "fat": 76,
+    "saturatedFat": 31,
+    "sugar": 17,
+    "salt": 12
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-mushroom-17in",
+   "name": "Ham & Mushroom 17in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 3050,
+    "protein": 136,
+    "carbs": 364,
+    "fat": 112,
+    "saturatedFat": 47,
+    "sugar": 26,
+    "salt": 18
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-12in",
+   "name": "Meat Feast 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1630,
+    "protein": 69,
+    "carbs": 188,
+    "fat": 65,
+    "saturatedFat": 29,
+    "sugar": 14,
+    "salt": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-14in",
+   "name": "Meat Feast 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 2240,
+    "protein": 96,
+    "carbs": 249,
+    "fat": 93,
+    "saturatedFat": 42,
+    "sugar": 19,
+    "salt": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-17in",
+   "name": "Meat Feast 17in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 3270,
+    "protein": 139,
+    "carbs": 373,
+    "fat": 132,
+    "saturatedFat": 59,
+    "sugar": 27,
+    "salt": 19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-pizza-12in",
+   "name": "Cheese Pizza 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1400,
+    "protein": 60,
+    "carbs": 172.7,
+    "fat": 50,
+    "saturatedFat": 24,
+    "sugar": 12,
+    "salt": 7.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-pizza-14in",
+   "name": "Cheese Pizza 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1870,
+    "protein": 81,
+    "carbs": 228.8,
+    "fat": 68,
+    "saturatedFat": 32,
+    "sugar": 16,
+    "salt": 10.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-chicken-and-pepperoni-pizza-17in",
+   "name": "Pulled Chicken & Pepperoni Pizza 17in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 3312,
+    "protein": 152,
+    "carbs": 385.2,
+    "fat": 127.4,
+    "saturatedFat": 54.3,
+    "sugar": 26.6,
+    "salt": 21.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-chicken-and-pepperoni-pizza-14in",
+   "name": "Pulled Chicken & Pepperoni Pizza 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 2252,
+    "protein": 106.8,
+    "carbs": 249.4,
+    "fat": 91,
+    "saturatedFat": 40.4,
+    "sugar": 18.2,
+    "salt": 14.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-chicken-and-pepperoni-pizza-12in",
+   "name": "Pulled Chicken & Pepperoni Pizza 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1676,
+    "protein": 78.7,
+    "carbs": 188,
+    "fat": 66.4,
+    "saturatedFat": 29.9,
+    "sugar": 13.6,
+    "salt": 10.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-12in",
+   "name": "Pepperoni 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1730,
+    "protein": 70,
+    "carbs": 177.8,
+    "fat": 80,
+    "saturatedFat": 35,
+    "sugar": 13,
+    "salt": 10.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-14in",
+   "name": "Pepperoni 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 2410,
+    "protein": 98,
+    "carbs": 246.7,
+    "fat": 112,
+    "saturatedFat": 50,
+    "sugar": 18,
+    "salt": 15
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-12in",
+   "name": "BBQ Chicken 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1590,
+    "protein": 67,
+    "carbs": 228,
+    "fat": 42,
+    "saturatedFat": 19,
+    "sugar": 57,
+    "salt": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-14in",
+   "name": "BBQ Chicken 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 2290,
+    "protein": 97,
+    "carbs": 327,
+    "fat": 61,
+    "saturatedFat": 28,
+    "sugar": 83,
+    "salt": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "firecracker-12in",
+   "name": "Firecracker 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1327,
+    "protein": 63.2,
+    "carbs": 171.3,
+    "fat": 44.2,
+    "saturatedFat": 19,
+    "sugar": 12.6,
+    "salt": 8.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "firecracker-14in",
+   "name": "Firecracker 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1808,
+    "protein": 86.1,
+    "carbs": 232,
+    "fat": 60.3,
+    "saturatedFat": 25.8,
+    "sugar": 17.2,
+    "salt": 11.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseburger-classic-spicy-bbq-12in",
+   "name": "Cheeseburger (Classic, Spicy, BBQ) 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 2073,
+    "protein": 74.6,
+    "carbs": 212.2,
+    "fat": 99.5,
+    "saturatedFat": 33.2,
+    "sugar": 33.2,
+    "salt": 11.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseburger-classic-spicy-bbq-14in",
+   "name": "Cheeseburger (Classic, Spicy, BBQ) 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 2538,
+    "protein": 91.4,
+    "carbs": 261.8,
+    "fat": 121.8,
+    "saturatedFat": 40.6,
+    "sugar": 40.6,
+    "salt": 13.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "festive-pizza-12in",
+   "name": "Festive Pizza 12in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 1520,
+    "protein": 80,
+    "carbs": 187,
+    "fat": 47,
+    "saturatedFat": 21,
+    "sugar": 16,
+    "salt": 8.98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "festive-pizza-14in",
+   "name": "Festive Pizza 14in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 2020,
+    "protein": 106,
+    "carbs": 247.6,
+    "fat": 64,
+    "saturatedFat": 28,
+    "sugar": 21,
+    "salt": 11.95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "festive-pizza-17in",
+   "name": "Festive Pizza 17in",
+   "category": "Whole pizzas",
+   "serving": "Whole pizza",
+   "nutrients": {
+    "calories": 3050,
+    "protein": 161,
+    "carbs": 373.6,
+    "fat": 96,
+    "saturatedFat": 42,
+    "sugar": 32,
+    "salt": 17.98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach-and-ricotta-stromboli",
+   "name": "Spinach & Ricotta Stromboli",
+   "category": "Stromboli",
+   "serving": "1 stromboli",
+   "nutrients": {
+    "calories": 727,
+    "protein": 28.4,
+    "carbs": 76.2,
+    "fat": 33.2,
+    "saturatedFat": 13.7,
+    "sugar": 4.9,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-stromboli",
+   "name": "Ham & Cheese Stromboli",
+   "category": "Stromboli",
+   "serving": "1 stromboli",
+   "nutrients": {
+    "calories": 716,
+    "protein": 34.7,
+    "carbs": 74.7,
+    "fat": 30.8,
+    "saturatedFat": 11.4,
+    "sugar": 4,
+    "salt": 4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-cheese-stromboli",
+   "name": "Chicken & Cheese Stromboli",
+   "category": "Stromboli",
+   "serving": "1 stromboli",
+   "nutrients": {
+    "calories": 720,
+    "protein": 37.6,
+    "carbs": 75.7,
+    "fat": 29.9,
+    "saturatedFat": 11.1,
+    "sugar": 3.5,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-and-cheese-stromboli",
+   "name": "Pepperoni & Cheese Stromboli",
+   "category": "Stromboli",
+   "serving": "1 stromboli",
+   "nutrients": {
+    "calories": 895,
+    "protein": 29.3,
+    "carbs": 75.7,
+    "fat": 49.9,
+    "saturatedFat": 19.8,
+    "sugar": 3.4,
+    "salt": 5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nachos",
+   "name": "Nachos",
+   "category": "Sides",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 503,
+    "protein": 10,
+    "carbs": 79,
+    "fat": 23,
+    "saturatedFat": 6,
+    "sugar": 6,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nachos-xl",
+   "name": "Nachos XL",
+   "category": "Sides",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 704,
+    "protein": 19,
+    "carbs": 80,
+    "fat": 32,
+    "saturatedFat": 9,
+    "sugar": 7,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stuffed-breadstick",
+   "name": "Stuffed Breadstick",
+   "category": "Sides",
+   "serving": "1 breadstick",
+   "nutrients": {
+    "calories": 210,
+    "protein": 5,
+    "carbs": 30.2,
+    "fat": 7,
+    "saturatedFat": 3,
+    "sugar": 1,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hashbrown",
+   "name": "Hashbrown",
+   "category": "Sides",
+   "serving": "1 hashbrown",
+   "nutrients": {
+    "calories": 122,
+    "protein": 1.3,
+    "carbs": 14.4,
+    "fat": 4.8,
+    "saturatedFat": 2.6,
+    "sugar": 0.6,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-bread",
+   "name": "Cheesy Bread",
+   "category": "Sides",
+   "serving": "1 order",
+   "nutrients": {
+    "calories": 1810,
+    "protein": 69,
+    "carbs": 211.6,
+    "fat": 74,
+    "saturatedFat": 39,
+    "sugar": 6,
+    "salt": 8.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-garlic-breadsticks",
+   "name": "Cheesy Garlic Breadsticks",
+   "category": "Sides",
+   "serving": "1 each",
+   "nutrients": {
+    "calories": 285,
+    "protein": 8,
+    "carbs": 40,
+    "fat": 10,
+    "saturatedFat": 5,
+    "sugar": 1,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-wedges",
+   "name": "Potato Wedges",
+   "category": "Sides",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 288,
+    "protein": 4.2,
+    "carbs": 44,
+    "fat": 10,
+    "saturatedFat": 1,
+    "sugar": 1.8,
+    "salt": 1.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breaded-mozzarella-sticks",
+   "name": "Breaded Mozzarella Sticks",
+   "category": "Sides",
+   "serving": "4 fingers",
+   "nutrients": {
+    "calories": 293,
+    "protein": 11.2,
+    "carbs": 27.5,
+    "fat": 15.6,
+    "saturatedFat": 5.9,
+    "sugar": 5.9,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halal-chicken-nuggets-4",
+   "name": "Halal Chicken Nuggets (4)",
+   "category": "Sides",
+   "serving": "4 nuggets",
+   "nutrients": {
+    "calories": 203,
+    "protein": 13.2,
+    "carbs": 16.3,
+    "fat": 9.2,
+    "saturatedFat": 1,
+    "sugar": 1.1,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halal-chicken-nuggets-6",
+   "name": "Halal Chicken Nuggets (6)",
+   "category": "Sides",
+   "serving": "6 nuggets",
+   "nutrients": {
+    "calories": 302,
+    "protein": 19.7,
+    "carbs": 24.3,
+    "fat": 13.7,
+    "saturatedFat": 1.5,
+    "sugar": 1.6,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-and-kickin-chicken-wings",
+   "name": "Hot & Kickin' Chicken Wings",
+   "category": "Sides",
+   "serving": "4 wings",
+   "nutrients": {
+    "calories": 494,
+    "protein": 29.4,
+    "carbs": 26.6,
+    "fat": 29.8,
+    "saturatedFat": 6.2,
+    "sugar": 1,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-strips",
+   "name": "Chicken Strips",
+   "category": "Sides",
+   "serving": "4 strips",
+   "nutrients": {
+    "calories": 410,
+    "protein": 33.7,
+    "carbs": 21.8,
+    "fat": 19.8,
+    "saturatedFat": 8.7,
+    "sugar": 0.6,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-breadstick-2",
+   "name": "Cinnamon Breadstick (2)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1420,
+    "protein": 32,
+    "carbs": 245.1,
+    "fat": 33,
+    "saturatedFat": 12,
+    "sugar": 27,
+    "salt": 5.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-dough-milk-chocolate",
+   "name": "Cookie Dough - Milk Chocolate",
+   "category": "Desserts",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 509,
+    "protein": 5.4,
+    "carbs": 69.1,
+    "fat": 23,
+    "saturatedFat": 10.8,
+    "sugar": 36.2,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-dough-white-chocolate",
+   "name": "Cookie Dough - White Chocolate",
+   "category": "Desserts",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 515,
+    "protein": 5.1,
+    "carbs": 68,
+    "fat": 24,
+    "saturatedFat": 11,
+    "sugar": 32,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pre-packaged-milk-chocolate-cookie",
+   "name": "Pre-Packaged Milk Chocolate Cookie",
+   "category": "Desserts",
+   "serving": "1 cookie",
+   "nutrients": {
+    "calories": 219,
+    "protein": 2.9,
+    "carbs": 30.7,
+    "fat": 9.7,
+    "saturatedFat": 4.1,
+    "sugar": 16.2,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-cookie-dough-and-ice-cream",
+   "name": "Salted Caramel Cookie Dough & Ice Cream",
+   "category": "Desserts",
+   "serving": "Whole entrée",
+   "nutrients": {
+    "calories": 800,
+    "protein": 10,
+    "carbs": 104.5,
+    "fat": 39,
+    "saturatedFat": 22,
+    "sugar": 78,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream",
+   "name": "Ice Cream",
+   "category": "Desserts",
+   "serving": "1 each",
+   "nutrients": {
+    "calories": 238,
+    "protein": 3.8,
+    "carbs": 19,
+    "fat": 16.2,
+    "saturatedFat": 9.5,
+    "sugar": 18.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nachos-add-on-chicken",
+   "name": "Nachos add-on - Chicken",
+   "category": "Sauces & extras",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 44,
+    "protein": 8,
+    "carbs": 1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nachos-add-on-sausage",
+   "name": "Nachos add-on - Sausage",
+   "category": "Sauces & extras",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 88,
+    "protein": 4,
+    "carbs": 4,
+    "fat": 6,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nachos-add-on-pepperoni",
+   "name": "Nachos add-on - Pepperoni",
+   "category": "Sauces & extras",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 184,
+    "protein": 7,
+    "carbs": 2,
+    "fat": 16,
+    "saturatedFat": 7,
+    "sugar": 0,
+    "salt": 4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monin-caramel-syrup",
+   "name": "Monin Caramel Syrup",
+   "category": "Sauces & extras",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 49,
+    "protein": 0,
+    "carbs": 11.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monin-hazelnut-syrup",
+   "name": "Monin Hazelnut Syrup",
+   "category": "Sauces & extras",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 47,
+    "protein": 0,
+    "carbs": 11.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monin-vanilla-syrup",
+   "name": "Monin Vanilla Syrup",
+   "category": "Sauces & extras",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0,
+    "carbs": 12.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.6,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-dressing",
+   "name": "Caesar Dressing",
+   "category": "Sauces & extras",
+   "serving": "15 grams",
+   "nutrients": {
+    "calories": 61,
+    "protein": 0.3,
+    "carbs": 0.8,
+    "fat": 6.3,
+    "saturatedFat": 0.5,
+    "sugar": 0.6,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "balsamic-vinegar-glaze",
+   "name": "Balsamic Vinegar Glaze",
+   "category": "Sauces & extras",
+   "serving": "15 grams",
+   "nutrients": {
+    "calories": 30,
+    "protein": 0.1,
+    "carbs": 6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-herb-silbury",
+   "name": "Garlic and Herb - Silbury",
+   "category": "Sauces & extras",
+   "serving": "1 package",
+   "nutrients": {
+    "calories": 110,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 12,
+    "saturatedFat": 1,
+    "sugar": 2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-mayonnaise-dip-pot",
+   "name": "Heinz Mayonnaise Dip Pot",
+   "category": "Sauces & extras",
+   "serving": "1 package",
+   "nutrients": {
+    "calories": 166,
+    "protein": 0.3,
+    "carbs": 0.8,
+    "fat": 18,
+    "saturatedFat": 14.5,
+    "sugar": 0.1,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-tomato-ketchup-dip-pot",
+   "name": "Heinz Tomato Ketchup Dip Pot",
+   "category": "Sauces & extras",
+   "serving": "1 package",
+   "nutrients": {
+    "calories": 26,
+    "protein": 0.3,
+    "carbs": 5.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.7,
+    "salt": 0.45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heinz-bbq-sauce-dip-pot",
+   "name": "Heinz BBQ Sauce Dip Pot",
+   "category": "Sauces & extras",
+   "serving": "1 package",
+   "nutrients": {
+    "calories": 35,
+    "protein": 0.3,
+    "carbs": 7.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.1,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-deluxe-bbq-sauce",
+   "name": "Dip Pot - Deluxe BBQ Sauce",
+   "category": "Sauces & extras",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.3,
+    "carbs": 10.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 9.6,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-ketchup-with-a-kick-of-chilli",
+   "name": "Dip Pot - Ketchup With a Kick of Chilli",
+   "category": "Sauces & extras",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0.3,
+    "carbs": 5.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.5,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-spicy-fried-chicken-sauce",
+   "name": "Dip Pot - Spicy Fried Chicken Sauce",
+   "category": "Sauces & extras",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 108,
+    "protein": 0.3,
+    "carbs": 2.6,
+    "fat": 10.2,
+    "saturatedFat": 0.8,
+    "sugar": 2.6,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-garlic-and-herb",
+   "name": "Dip Pot - Garlic & Herb",
+   "category": "Sauces & extras",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 118,
+    "protein": 0.3,
+    "carbs": 0.7,
+    "fat": 12.6,
+    "saturatedFat": 1,
+    "sugar": 0.6,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-sweet-chilli-sauce",
+   "name": "Dip Pot - Sweet Chilli Sauce",
+   "category": "Sauces & extras",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 30,
+    "protein": 0.1,
+    "carbs": 7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.5,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dip-pot-perinnaise",
+   "name": "Dip Pot - Perinnaise",
+   "category": "Sauces & extras",
+   "serving": "1 pot",
+   "nutrients": {
+    "calories": 89,
+    "protein": 0.1,
+    "carbs": 0.8,
+    "fat": 9.3,
+    "saturatedFat": 0.7,
+    "sugar": 0.3,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (Regular)",
+   "category": "Hot drinks",
+   "serving": "12oz",
+   "nutrients": {
+    "calories": 223,
+    "protein": 23.2,
+    "carbs": 15.7,
+    "fat": 7,
+    "saturatedFat": 3,
+    "sugar": 14.1,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (Large)",
+   "category": "Hot drinks",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 297,
+    "protein": 30.9,
+    "carbs": 20.9,
+    "fat": 9.3,
+    "saturatedFat": 4.1,
+    "sugar": 18.8,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (Regular)",
+   "category": "Hot drinks",
+   "serving": "12oz",
+   "nutrients": {
+    "calories": 223,
+    "protein": 23.2,
+    "carbs": 15.7,
+    "fat": 7,
+    "saturatedFat": 3,
+    "sugar": 14.1,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (Large)",
+   "category": "Hot drinks",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 297,
+    "protein": 30.9,
+    "carbs": 20.9,
+    "fat": 9.3,
+    "saturatedFat": 4.1,
+    "sugar": 18.8,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-americano-regular",
+   "name": "White Americano (Regular)",
+   "category": "Hot drinks",
+   "serving": "12oz",
+   "nutrients": {
+    "calories": 223,
+    "protein": 23.2,
+    "carbs": 15.7,
+    "fat": 7,
+    "saturatedFat": 3,
+    "sugar": 14.1,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-americano-large",
+   "name": "White Americano (Large)",
+   "category": "Hot drinks",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 297,
+    "protein": 30.9,
+    "carbs": 20.9,
+    "fat": 9.3,
+    "saturatedFat": 4.1,
+    "sugar": 18.8,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-americano-regular",
+   "name": "Black Americano (Regular)",
+   "category": "Hot drinks",
+   "serving": "12oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.6,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-americano-large",
+   "name": "Black Americano (Large)",
+   "category": "Hot drinks",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.7,
+    "carbs": 0,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Hot drinks",
+   "serving": "8oz",
+   "nutrients": {
+    "calories": 161,
+    "protein": 16.8,
+    "carbs": 11.4,
+    "fat": 5,
+    "saturatedFat": 2.2,
+    "sugar": 10.2,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-cherry",
+   "name": "Pepsi Max Cherry",
+   "category": "Cold drinks",
+   "serving": "1 bottle (500ml)",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max",
+   "name": "Pepsi Max",
+   "category": "Cold drinks",
+   "serving": "1 bottle (500ml)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-regular",
+   "name": "Pepsi Regular",
+   "category": "Cold drinks",
+   "serving": "1 bottle (500ml)",
+   "nutrients": {
+    "calories": 90,
+    "protein": 0,
+    "carbs": 23,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 23,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tango-orange",
+   "name": "Tango Orange",
+   "category": "Cold drinks",
+   "serving": "1 bottle (500ml)",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7up",
+   "name": "7Up",
+   "category": "Cold drinks",
+   "serving": "1 bottle (500ml)",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "water",
+   "name": "Water",
+   "category": "Cold drinks",
+   "serving": "1 bottle (275ml)",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0,
+    "carbs": 3.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.3,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-shoot-orange",
+   "name": "Fruit Shoot - Orange",
+   "category": "Cold drinks",
+   "serving": "1 bottle (275ml)",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0,
+    "carbs": 2.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.2,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-shoot-apple-and-blackcurrant",
+   "name": "Fruit Shoot - Apple & Blackcurrant",
+   "category": "Cold drinks",
+   "serving": "1 bottle (500ml)",
+   "nutrients": {
+    "calories": 25,
+    "protein": 0,
+    "carbs": 5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "robinsons-peach-and-mango",
+   "name": "Robinsons Peach and Mango",
+   "category": "Cold drinks",
+   "serving": "1 bottle (500ml)",
+   "nutrients": {
+    "calories": 50,
+    "protein": 0,
+    "carbs": 10.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 10,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "robinsons-orange-and-mango",
+   "name": "Robinsons - Orange and Mango",
+   "category": "Cold drinks",
+   "serving": "1 bottle",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 9.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "robinsons-blueberry-and-blackberry",
+   "name": "Robinsons Blueberry & Blackberry",
+   "category": "Cold drinks",
+   "serving": "1 bottle (500ml)",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

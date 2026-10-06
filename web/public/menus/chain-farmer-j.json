@@ -1,0 +1,1712 @@
+{
+ "schemaVersion": 1,
+ "id": "farmer-j",
+ "name": "Farmer J",
+ "cuisine": "Healthy",
+ "builderType": "standard",
+ "aliases": [
+  "farmer j",
+  "farmer j's",
+  "farmer js"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Farmer J Allergen & Nutrition pages: Breakfast, Lunch & Dinner and All Day menus (September 2026)",
+  "url": "https://menus.tenkites.com/farmerjuk/farmerjallergypages",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Figures are per serving from Farmer J's own nutrition pages, which say values and weights are averages and salad figures include the dressing. Mains, bases and sides are the parts of a tray, so they are not suggested on their own.",
+ "categories": [
+  "Toasts",
+  "Rolls",
+  "Egg pots",
+  "Porridge",
+  "Cold pots",
+  "Baked goods",
+  "Breakfast extras",
+  "Mains",
+  "Bases",
+  "Warm sides",
+  "Salads",
+  "Sauces",
+  "Toppings & extras",
+  "Set fieldtrays",
+  "Set fieldbowls",
+  "Snacks",
+  "Seasonal drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "smashed-avo-preserved-lemon-toast",
+   "name": "Smashed Avo + Preserved Lemon Toast",
+   "category": "Toasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 435,
+    "protein": 8.6,
+    "carbs": 44,
+    "fat": 23,
+    "saturatedFat": 4.7,
+    "sugar": 1.4,
+    "fiber": 7.6,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-salmon-egg-salad-toast",
+   "name": "Smoked Salmon + Egg Salad Toast",
+   "category": "Toasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 540,
+    "protein": 28,
+    "carbs": 36,
+    "fat": 31,
+    "saturatedFat": 4.9,
+    "sugar": 1.1,
+    "fiber": 1.9,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avo-confit-tomatoes-whipped-feta-toast",
+   "name": "Avo, Confit Tomatoes + Whipped Feta Toast",
+   "category": "Toasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 570,
+    "protein": 17,
+    "carbs": 48,
+    "fat": 33,
+    "saturatedFat": 14,
+    "sugar": 12,
+    "fiber": 6,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmers-egg-bacon-roll",
+   "name": "Farmer's Egg + Bacon Roll",
+   "category": "Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 503,
+    "protein": 23,
+    "carbs": 45,
+    "fat": 25,
+    "saturatedFat": 7.7,
+    "sugar": 8.1,
+    "fiber": 2,
+    "salt": 3.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wild-greens-egg-roll",
+   "name": "Wild Greens Egg Roll",
+   "category": "Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 485,
+    "protein": 16,
+    "carbs": 43,
+    "fat": 27,
+    "saturatedFat": 7.2,
+    "sugar": 6.6,
+    "fiber": 3.5,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shak-bowl",
+   "name": "Shak Bowl",
+   "category": "Egg pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 311,
+    "protein": 18,
+    "carbs": 7.9,
+    "fat": 22,
+    "saturatedFat": 6.6,
+    "sugar": 5.1,
+    "fiber": 2.1,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-salmon-and-avo-pot",
+   "name": "Egg, Salmon & Avo Pot",
+   "category": "Egg pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 326,
+    "protein": 22,
+    "carbs": 5.2,
+    "fat": 23,
+    "saturatedFat": 6,
+    "sugar": 1.7,
+    "fiber": 4.1,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-eggs-and-labneh-pot",
+   "name": "Green Eggs & Labneh Pot",
+   "category": "Egg pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 22,
+    "carbs": 4.4,
+    "fat": 33,
+    "saturatedFat": 13,
+    "sugar": 2.9,
+    "fiber": 4.5,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-beans-avo-feta-pot",
+   "name": "Butter Beans, Avo + Feta Pot",
+   "category": "Egg pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 455,
+    "protein": 22,
+    "carbs": 13,
+    "fat": 33,
+    "saturatedFat": 8.6,
+    "sugar": 1.1,
+    "fiber": 7.6,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-porridge",
+   "name": "Plain Porridge",
+   "category": "Porridge",
+   "serving": "",
+   "nutrients": {
+    "calories": 242,
+    "protein": 5.4,
+    "carbs": 43,
+    "fat": 4.4,
+    "saturatedFat": 0.6,
+    "sugar": 19,
+    "fiber": 3.6,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-compote-blueberry-maple-porridge",
+   "name": "Berry Compote, Blueberry + Maple Porridge",
+   "category": "Porridge",
+   "serving": "",
+   "nutrients": {
+    "calories": 341,
+    "protein": 6.6,
+    "carbs": 43,
+    "fat": 14,
+    "saturatedFat": 8.6,
+    "sugar": 17,
+    "fiber": 11,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-cinnamon-crumble-porridge",
+   "name": "Apple Cinnamon Crumble Porridge",
+   "category": "Porridge",
+   "serving": "",
+   "nutrients": {
+    "calories": 514,
+    "protein": 8.4,
+    "carbs": 62,
+    "fat": 24,
+    "saturatedFat": 5.3,
+    "sugar": 32,
+    "fiber": 8,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pb-and-j-overnight-oats",
+   "name": "PB&J Overnight oats",
+   "category": "Cold pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 330,
+    "protein": 14,
+    "carbs": 46,
+    "fat": 7.9,
+    "saturatedFat": 3.8,
+    "sugar": 14,
+    "fiber": 11,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cacao-berry-granola",
+   "name": "Cacao Berry Granola",
+   "category": "Cold pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 327,
+    "protein": 4.6,
+    "carbs": 33,
+    "fat": 18,
+    "saturatedFat": 13,
+    "sugar": 21,
+    "fiber": 5.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chia-mango-coconut-yoghurt",
+   "name": "Chia, Mango + Coconut Yoghurt",
+   "category": "Cold pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 319,
+    "protein": 6.5,
+    "carbs": 25,
+    "fat": 19,
+    "saturatedFat": 13,
+    "sugar": 16,
+    "fiber": 10,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain au Chocolat",
+   "category": "Baked goods",
+   "serving": "",
+   "nutrients": {
+    "calories": 371,
+    "protein": 4.9,
+    "carbs": 38,
+    "fat": 22,
+    "saturatedFat": 14,
+    "sugar": 7.9,
+    "fiber": 1.3,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Baked goods",
+   "serving": "",
+   "nutrients": {
+    "calories": 334,
+    "protein": 4.6,
+    "carbs": 34,
+    "fat": 19,
+    "saturatedFat": 13,
+    "sugar": 5,
+    "fiber": 1.4,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seeded-sourdough-salted-butter",
+   "name": "Seeded Sourdough + Salted Butter",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 268,
+    "protein": 5.6,
+    "carbs": 36,
+    "fat": 11,
+    "saturatedFat": 5.9,
+    "sugar": 0.5,
+    "fiber": 1.6,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-smoked-salmon",
+   "name": "Extra Smoked Salmon",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 5.8,
+    "carbs": 0,
+    "fat": 2.3,
+    "saturatedFat": 0.4,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-bacon",
+   "name": "Extra Bacon",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 153,
+    "protein": 8.8,
+    "carbs": 0,
+    "fat": 13,
+    "saturatedFat": 4.5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harissa-chicken",
+   "name": "Harissa Chicken",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 343,
+    "protein": 30,
+    "carbs": 1.1,
+    "fat": 24,
+    "saturatedFat": 6.2,
+    "sugar": 0.5,
+    "fiber": 0.7,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gochujang-salmon",
+   "name": "Gochujang Salmon",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 265,
+    "protein": 25,
+    "carbs": 3.9,
+    "fat": 17,
+    "saturatedFat": 2.9,
+    "sugar": 3.1,
+    "fiber": 0.5,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lime-leaf-tofu-roasted-hispi",
+   "name": "Lime Leaf Tofu + Roasted Hispi",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 403,
+    "protein": 14,
+    "carbs": 12,
+    "fat": 33,
+    "saturatedFat": 15,
+    "sugar": 6.8,
+    "fiber": 3.6,
+    "salt": 2.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lime-leaf-chicken-breast-skewer",
+   "name": "Lime Leaf Chicken Breast Skewer",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 277,
+    "protein": 27,
+    "carbs": 4.4,
+    "fat": 17,
+    "saturatedFat": 3.6,
+    "sugar": 2.4,
+    "fiber": 0.5,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amba-chicken-green-tahini",
+   "name": "Amba Chicken + Green Tahini",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 306,
+    "protein": 30,
+    "carbs": 4.2,
+    "fat": 19,
+    "saturatedFat": 4,
+    "sugar": 2.3,
+    "fiber": 0.5,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "charred-flank-steak",
+   "name": "Charred Flank Steak",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 259,
+    "protein": 33,
+    "carbs": 1,
+    "fat": 14,
+    "saturatedFat": 4.4,
+    "sugar": 0.5,
+    "fiber": 0.1,
+    "salt": 0.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baby-spinach-and-rocket-mix",
+   "name": "Baby Spinach & Rocket Mix",
+   "category": "Bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.8,
+    "carbs": 1.1,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "fiber": 0.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmers-grains",
+   "name": "Farmer's Grains",
+   "category": "Bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 261,
+    "protein": 6.5,
+    "carbs": 34,
+    "fat": 9.5,
+    "saturatedFat": 2,
+    "sugar": 1.7,
+    "fiber": 5.7,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sesame-cabbage",
+   "name": "Sesame Cabbage",
+   "category": "Bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 2.2,
+    "carbs": 5.5,
+    "fat": 11,
+    "saturatedFat": 1.3,
+    "sugar": 4.9,
+    "fiber": 2.1,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-rice",
+   "name": "Brown Rice",
+   "category": "Bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 251,
+    "protein": 4.6,
+    "carbs": 46,
+    "fat": 5.1,
+    "saturatedFat": 0.9,
+    "sugar": 0.8,
+    "fiber": 1.1,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-ginger-aubergine",
+   "name": "Chilli Ginger Aubergine",
+   "category": "Warm sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 237,
+    "protein": 3.8,
+    "carbs": 7.7,
+    "fat": 20,
+    "saturatedFat": 2.9,
+    "sugar": 6,
+    "fiber": 3.7,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ponzu-sesame-broccoli",
+   "name": "Ponzu Sesame Broccoli",
+   "category": "Warm sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 2.7,
+    "carbs": 7.1,
+    "fat": 11,
+    "saturatedFat": 1.5,
+    "sugar": 2.7,
+    "fiber": 3.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-cauliflower",
+   "name": "Roasted Cauliflower",
+   "category": "Warm sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 171,
+    "protein": 3.6,
+    "carbs": 4.9,
+    "fat": 14,
+    "saturatedFat": 2.2,
+    "sugar": 2.9,
+    "fiber": 3.9,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasonal-mac-n-cheese",
+   "name": "Seasonal Mac 'N' Cheese",
+   "category": "Warm sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 11,
+    "carbs": 22,
+    "fat": 15,
+    "saturatedFat": 9.6,
+    "sugar": 3.8,
+    "fiber": 2,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-date-sweet-potatoes",
+   "name": "Spiced Date Sweet Potatoes",
+   "category": "Warm sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 299,
+    "protein": 3.7,
+    "carbs": 49,
+    "fat": 8.1,
+    "saturatedFat": 1.1,
+    "sugar": 14,
+    "fiber": 7.3,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kale-miso-slaw",
+   "name": "Kale Miso Slaw",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 113,
+    "protein": 1.8,
+    "carbs": 3.6,
+    "fat": 9.6,
+    "saturatedFat": 1.5,
+    "sugar": 2.4,
+    "fiber": 2.1,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chickpea-pickle",
+   "name": "Chickpea + Pickle",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 4.5,
+    "carbs": 8.2,
+    "fat": 9.2,
+    "saturatedFat": 1.4,
+    "sugar": 3.1,
+    "fiber": 3.5,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "feta-radicchio-caesar",
+   "name": "Feta Radicchio Caesar",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 3,
+    "carbs": 7.8,
+    "fat": 10,
+    "saturatedFat": 2.1,
+    "sugar": 1.5,
+    "fiber": 1.4,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "js-greek-salad",
+   "name": "J's Greek Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 2.1,
+    "carbs": 3.7,
+    "fat": 8.6,
+    "saturatedFat": 2,
+    "sugar": 3.2,
+    "fiber": 1.4,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tahini",
+   "name": "Green Tahini",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 135,
+    "protein": 4,
+    "carbs": 2.3,
+    "fat": 12,
+    "saturatedFat": 2,
+    "sugar": 0.2,
+    "fiber": 0.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chimichurri",
+   "name": "Chimichurri",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 269,
+    "protein": 0.5,
+    "carbs": 0.5,
+    "fat": 29,
+    "saturatedFat": 3.8,
+    "sugar": 0.2,
+    "fiber": 0.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-everything-sauce",
+   "name": "The Everything Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 124,
+    "protein": 0.8,
+    "carbs": 1.8,
+    "fat": 13,
+    "saturatedFat": 1.9,
+    "sugar": 1,
+    "fiber": 0.5,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "js-habanero-hot-sauce",
+   "name": "J's Habanero Hot Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 25,
+    "protein": 0.5,
+    "carbs": 4,
+    "fat": 0.7,
+    "saturatedFat": 0,
+    "sugar": 0.6,
+    "fiber": 0.5,
+    "salt": 2.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickled-cucumber",
+   "name": "Pickled Cucumber",
+   "category": "Toppings & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.2,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.5,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickled-red-onion",
+   "name": "Pickled Red Onion",
+   "category": "Toppings & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0.2,
+    "carbs": 3.5,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 2.7,
+    "fiber": 0.6,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickled-ginger-cucumber",
+   "name": "Pickled Ginger Cucumber",
+   "category": "Toppings & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 25,
+    "protein": 1.4,
+    "carbs": 1.6,
+    "fat": 1.4,
+    "saturatedFat": 0,
+    "sugar": 1.4,
+    "fiber": 0.5,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-aubergine-baba-ghanoush",
+   "name": "Spicy Aubergine Baba Ghanoush",
+   "category": "Toppings & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 167,
+    "protein": 5.6,
+    "carbs": 7.5,
+    "fat": 12,
+    "saturatedFat": 1.9,
+    "sugar": 2.8,
+    "fiber": 2.7,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chunky-butter-bean-hummus",
+   "name": "Chunky Butter Bean Hummus",
+   "category": "Toppings & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 238,
+    "protein": 9.5,
+    "carbs": 14,
+    "fat": 15,
+    "saturatedFat": 2.2,
+    "sugar": 0,
+    "fiber": 6.4,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "free-range-egg",
+   "name": "Free Range Egg",
+   "category": "Toppings & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 84,
+    "protein": 7.6,
+    "carbs": 0.5,
+    "fat": 5.8,
+    "saturatedFat": 1.9,
+    "sugar": 0.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avo",
+   "name": "Avo",
+   "category": "Toppings & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 1.1,
+    "carbs": 1.4,
+    "fat": 11,
+    "saturatedFat": 2.3,
+    "sugar": 0.5,
+    "fiber": 2.9,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "js-classic",
+   "name": "J's Classic",
+   "category": "Set fieldtrays",
+   "serving": "",
+   "nutrients": {
+    "calories": 1183,
+    "protein": 49,
+    "carbs": 122,
+    "fat": 53,
+    "saturatedFat": 18,
+    "sugar": 21,
+    "fiber": 12,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-med",
+   "name": "The Med",
+   "category": "Set fieldtrays",
+   "serving": "",
+   "nutrients": {
+    "calories": 881,
+    "protein": 45,
+    "carbs": 52,
+    "fat": 52,
+    "saturatedFat": 9.5,
+    "sugar": 10,
+    "fiber": 14,
+    "salt": 6.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butchers-cut",
+   "name": "Butcher's Cut",
+   "category": "Set fieldtrays",
+   "serving": "",
+   "nutrients": {
+    "calories": 817,
+    "protein": 50,
+    "carbs": 54,
+    "fat": 43,
+    "saturatedFat": 16,
+    "sugar": 7.6,
+    "fiber": 6.3,
+    "salt": 3.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmers-catch",
+   "name": "Farmer's Catch",
+   "category": "Set fieldtrays",
+   "serving": "",
+   "nutrients": {
+    "calories": 710,
+    "protein": 34,
+    "carbs": 23,
+    "fat": 52,
+    "saturatedFat": 7.5,
+    "sugar": 15,
+    "fiber": 8.3,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "where-my-vegans-at",
+   "name": "Where My Vegans At?",
+   "category": "Set fieldtrays",
+   "serving": "",
+   "nutrients": {
+    "calories": 968,
+    "protein": 25,
+    "carbs": 72,
+    "fat": 62,
+    "saturatedFat": 20,
+    "sugar": 14,
+    "fiber": 11,
+    "salt": 6.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-lime-leaf-thai",
+   "name": "The Lime Leaf Thai",
+   "category": "Set fieldtrays",
+   "serving": "",
+   "nutrients": {
+    "calories": 865,
+    "protein": 38,
+    "carbs": 44,
+    "fat": 58,
+    "saturatedFat": 9.4,
+    "sugar": 16,
+    "fiber": 8.7,
+    "salt": 7.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "med-hummus-bowl",
+   "name": "Med Hummus Bowl",
+   "category": "Set fieldbowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 763,
+    "protein": 43,
+    "carbs": 29,
+    "fat": 50,
+    "saturatedFat": 8.5,
+    "sugar": 13,
+    "fiber": 10,
+    "salt": 6.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harissa-bowl",
+   "name": "Harissa Bowl",
+   "category": "Set fieldbowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 927,
+    "protein": 40,
+    "carbs": 76,
+    "fat": 49,
+    "saturatedFat": 9.9,
+    "sugar": 21,
+    "fiber": 13,
+    "salt": 3.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-bowl",
+   "name": "Salmon Bowl",
+   "category": "Set fieldbowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 724,
+    "protein": 32,
+    "carbs": 37,
+    "fat": 48,
+    "saturatedFat": 8.2,
+    "sugar": 9.7,
+    "fiber": 7.1,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-bowl",
+   "name": "Tofu Bowl",
+   "category": "Set fieldbowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 855,
+    "protein": 23,
+    "carbs": 68,
+    "fat": 53,
+    "saturatedFat": 18,
+    "sugar": 12,
+    "fiber": 8.4,
+    "salt": 6.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-bowl",
+   "name": "Steak Bowl",
+   "category": "Set fieldbowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 917,
+    "protein": 49,
+    "carbs": 64,
+    "fat": 49,
+    "saturatedFat": 11,
+    "sugar": 18,
+    "fiber": 15,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amba-harissa-bowl",
+   "name": "Amba + Harissa Bowl",
+   "category": "Set fieldbowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 863,
+    "protein": 45,
+    "carbs": 51,
+    "fat": 51,
+    "saturatedFat": 10,
+    "sugar": 9,
+    "fiber": 11,
+    "salt": 5.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-chip-cookie",
+   "name": "Chocolate Chip Cookie",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 395,
+    "protein": 4.1,
+    "carbs": 43,
+    "fat": 23,
+    "saturatedFat": 13,
+    "sugar": 30,
+    "fiber": 2.6,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-white-choc-cookie",
+   "name": "Matcha + White Choc Cookie",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 230,
+    "protein": 2.7,
+    "carbs": 24,
+    "fat": 14,
+    "saturatedFat": 8.1,
+    "sugar": 14,
+    "fiber": 1.2,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dark-double-choc-cookie",
+   "name": "Dark Double Choc Cookie",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 4.2,
+    "carbs": 46,
+    "fat": 18,
+    "saturatedFat": 14,
+    "sugar": 26,
+    "fiber": 3,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-bread",
+   "name": "Banana Bread",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "protein": 4.8,
+    "carbs": 41,
+    "fat": 19,
+    "saturatedFat": 6.9,
+    "sugar": 22,
+    "fiber": 0.5,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tahini-brownie",
+   "name": "Tahini Brownie",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 315,
+    "protein": 4.1,
+    "carbs": 37,
+    "fat": 16,
+    "saturatedFat": 9.5,
+    "sugar": 29,
+    "fiber": 2.1,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "reemies-date-and-walnut",
+   "name": "Reemie's Date and Walnut",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 4.6,
+    "carbs": 46,
+    "fat": 16,
+    "saturatedFat": 1.5,
+    "sugar": 29,
+    "fiber": 2.2,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "reemies-mini-banana-maple-dark-chocolate",
+   "name": "Reemie's Mini Banana Maple Dark Chocolate",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 331,
+    "protein": 3,
+    "carbs": 43,
+    "fat": 17,
+    "saturatedFat": 3.2,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "olive-oil-cardamom-pistachio-cake",
+   "name": "Olive Oil, Cardamom + Pistachio Cake",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 251,
+    "protein": 3.1,
+    "carbs": 28,
+    "fat": 14,
+    "saturatedFat": 2.3,
+    "sugar": 16,
+    "fiber": 0.2,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-miso-banana-matcha-latte",
+   "name": "Iced Miso Banana Matcha Latte",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 1.3,
+    "carbs": 23,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 18,
+    "fiber": 1.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-tahini-pistachio-matcha-cloud",
+   "name": "Iced Tahini Pistachio Matcha Cloud",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 492,
+    "protein": 11,
+    "carbs": 30,
+    "fat": 36,
+    "saturatedFat": 13,
+    "sugar": 21,
+    "fiber": 3.3,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-honey-latte",
+   "name": "Pistachio Honey Latte",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 272,
+    "protein": 6.8,
+    "carbs": 19,
+    "fat": 18,
+    "saturatedFat": 2,
+    "sugar": 16,
+    "fiber": 2,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yew-pickle-yuzu-spritz",
+   "name": "Yew Pickle + Yuzu Spritz",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 64,
+    "protein": 0.5,
+    "carbs": 16,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "fiber": 0.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

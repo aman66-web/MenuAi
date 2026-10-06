@@ -1,0 +1,1042 @@
+{
+ "schemaVersion": 1,
+ "id": "carluccios",
+ "name": "Carluccio's",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "carluccio's",
+  "carluccios"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Carluccio's Allergen & Nutrition Information, All Day Menu (hub page, no date printed; read 2026-10-06)",
+  "url": "https://menus.tenkites.com/brg/carluccios",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Figures are per menu item from Carluccio's All Day Menu, calculated by the chain from typical weights and measures. Its separate Pizza, Kids, Dessert and other menus are not included; dishes marked * are on the set menu.",
+ "categories": [
+  "Olives & bread",
+  "Small plates & sharers",
+  "Pasta & risotto",
+  "Grill & mains",
+  "Sides",
+  "Sauces"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "mixed-olives",
+   "name": "Mixed Olives",
+   "category": "Olives & bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 97,
+    "protein": 0.8,
+    "carbs": 0.8,
+    "fat": 9.5,
+    "saturatedFat": 1.3,
+    "sugar": 0.3,
+    "fiber": 2.8,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "focaccia",
+   "name": "Focaccia",
+   "category": "Olives & bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 505,
+    "protein": 9,
+    "carbs": 53.8,
+    "fat": 28,
+    "saturatedFat": 4.2,
+    "sugar": 0.7,
+    "fiber": 1.7,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-focaccia",
+   "name": "Garlic Focaccia",
+   "category": "Olives & bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 666,
+    "protein": 8.5,
+    "carbs": 47.8,
+    "fat": 48.7,
+    "saturatedFat": 18.8,
+    "sugar": 0.9,
+    "fiber": 1.3,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-focaccia-with-mozzarella",
+   "name": "Garlic Focaccia with Mozzarella",
+   "category": "Olives & bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 840,
+    "protein": 22.8,
+    "carbs": 48.4,
+    "fat": 61.2,
+    "saturatedFat": 26.6,
+    "sugar": 1.3,
+    "fiber": 1.9,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "selection-of-breads",
+   "name": "Selection of Breads",
+   "category": "Olives & bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 758,
+    "protein": 14.1,
+    "carbs": 91.3,
+    "fat": 37.3,
+    "saturatedFat": 6.4,
+    "sugar": 5.2,
+    "fiber": 3.3,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata-e-crudo",
+   "name": "Burrata e Crudo",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 856,
+    "protein": 20.2,
+    "carbs": 31.9,
+    "fat": 71.8,
+    "saturatedFat": 24.2,
+    "sugar": 7.2,
+    "fiber": 1.8,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-bruschetta",
+   "name": "Tomato Bruschetta",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 452,
+    "protein": 4.7,
+    "carbs": 29.1,
+    "fat": 35.8,
+    "saturatedFat": 7,
+    "sugar": 3,
+    "fiber": 2.5,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawns-marinara",
+   "name": "Prawns Marinara",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 625,
+    "protein": 31.1,
+    "carbs": 29.5,
+    "fat": 42.9,
+    "saturatedFat": 6.7,
+    "sugar": 4,
+    "fiber": 2.1,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arancini",
+   "name": "Arancini",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 310,
+    "protein": 7.9,
+    "carbs": 35.3,
+    "fat": 15.5,
+    "saturatedFat": 2.8,
+    "sugar": 1.8,
+    "fiber": 1.5,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zuppa-di-funghi",
+   "name": "Zuppa di Funghi",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 494,
+    "protein": 9.8,
+    "carbs": 37.3,
+    "fat": 34.5,
+    "saturatedFat": 7.9,
+    "sugar": 3.7,
+    "fiber": 3.3,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "antipasti-board-to-share",
+   "name": "Antipasti Board (To Share)",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1432,
+    "protein": 35.2,
+    "carbs": 92.9,
+    "fat": 102.7,
+    "saturatedFat": 25.1,
+    "sugar": 16.2,
+    "fiber": 6.7,
+    "salt": 8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "antipasti-board-for-one",
+   "name": "Antipasti Board (For One)",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 716,
+    "protein": 17.6,
+    "carbs": 46.5,
+    "fat": 51.3,
+    "saturatedFat": 12.5,
+    "sugar": 8.1,
+    "fiber": 3.4,
+    "salt": 4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fritto-misto",
+   "name": "Fritto Misto",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1222,
+    "protein": 67.9,
+    "carbs": 61.3,
+    "fat": 76.5,
+    "saturatedFat": 13.5,
+    "sugar": 14.3,
+    "fiber": 9.1,
+    "salt": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-mozzarella-pizza-bread",
+   "name": "Garlic & Mozzarella Pizza Bread",
+   "category": "Small plates & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1504,
+    "protein": 64.2,
+    "carbs": 143.9,
+    "fat": 73.4,
+    "saturatedFat": 44,
+    "sugar": 5.2,
+    "fiber": 5.1,
+    "salt": 7.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari-fritti-small",
+   "name": "Calamari Fritti (small)",
+   "category": "Small plates & sharers",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 410,
+    "protein": 26.7,
+    "carbs": 20,
+    "fat": 24.3,
+    "saturatedFat": 4.5,
+    "sugar": 1.3,
+    "fiber": 0.3,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari-fritti-large",
+   "name": "Calamari Fritti (large)",
+   "category": "Small plates & sharers",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 720,
+    "protein": 51.6,
+    "carbs": 35.5,
+    "fat": 40.2,
+    "saturatedFat": 7.7,
+    "sugar": 2.9,
+    "fiber": 0.6,
+    "salt": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pappardelle-braised-beef-ragu",
+   "name": "Pappardelle Braised Beef Ragu",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 690,
+    "protein": 38.7,
+    "carbs": 61.7,
+    "fat": 31,
+    "saturatedFat": 12.2,
+    "sugar": 7.2,
+    "fiber": 2.8,
+    "salt": 5.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lasagne",
+   "name": "Lasagne",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 781,
+    "protein": 40.2,
+    "carbs": 43.8,
+    "fat": 45.8,
+    "saturatedFat": 21.5,
+    "sugar": 14.5,
+    "fiber": 0.3,
+    "salt": 3.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-linguine",
+   "name": "Seafood Linguine",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 845,
+    "protein": 46.6,
+    "carbs": 82.2,
+    "fat": 35.9,
+    "saturatedFat": 6.4,
+    "sugar": 6.6,
+    "fiber": 0.8,
+    "salt": 10.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gnocchi-piccante",
+   "name": "Gnocchi Piccante",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 869,
+    "protein": 22.4,
+    "carbs": 71.6,
+    "fat": 53.7,
+    "saturatedFat": 21.7,
+    "sugar": 7.3,
+    "fiber": 0.5,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ricotta-and-spinach-ravioli",
+   "name": "Ricotta & Spinach Ravioli",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 798,
+    "protein": 22.4,
+    "carbs": 56.9,
+    "fat": 53.1,
+    "saturatedFat": 31.6,
+    "sugar": 4.3,
+    "fiber": 3.9,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "risotto-ai-funghi",
+   "name": "Risotto ai Funghi",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 574,
+    "protein": 16.1,
+    "carbs": 65.3,
+    "fat": 27.7,
+    "saturatedFat": 13,
+    "sugar": 3.5,
+    "fiber": 2.9,
+    "salt": 4.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chicken",
+   "name": "Add Chicken",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 297,
+    "protein": 35.7,
+    "carbs": 1.5,
+    "fat": 16.6,
+    "saturatedFat": 2.5,
+    "sugar": 0.5,
+    "fiber": 0.3,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-truffle-oil",
+   "name": "Add Truffle Oil",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 1.3,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carbonara",
+   "name": "Carbonara",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1029,
+    "protein": 42.8,
+    "carbs": 101.1,
+    "fat": 50.1,
+    "saturatedFat": 20,
+    "sugar": 9,
+    "fiber": 1.3,
+    "salt": 6.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "penne-giardiniera",
+   "name": "Penne Giardiniera",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 929,
+    "protein": 28.2,
+    "carbs": 107.1,
+    "fat": 42.8,
+    "saturatedFat": 19.7,
+    "sugar": 6.5,
+    "fiber": 6.3,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "penne-regine-allarrabiatta",
+   "name": "Penne Regine All'Arrabiatta",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 715,
+    "protein": 16.7,
+    "carbs": 103,
+    "fat": 25.8,
+    "saturatedFat": 3.3,
+    "sugar": 7.7,
+    "fiber": 4.1,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-saltimbocca",
+   "name": "Chicken Saltimbocca",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 709,
+    "protein": 44.1,
+    "carbs": 36.6,
+    "fat": 43.2,
+    "saturatedFat": 13.8,
+    "sugar": 2.5,
+    "fiber": 3.4,
+    "salt": 3.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-milanese",
+   "name": "Chicken Milanese",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 560,
+    "protein": 44.3,
+    "carbs": 41.1,
+    "fat": 23.6,
+    "saturatedFat": 5.2,
+    "sugar": 5.9,
+    "fiber": 3.3,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pan-fried-sea-bass-fillets",
+   "name": "Pan-Fried Sea Bass Fillets",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 912,
+    "protein": 37.6,
+    "carbs": 33.7,
+    "fat": 69.7,
+    "saturatedFat": 14,
+    "sugar": 5.9,
+    "fiber": 5.2,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carluccios-burger",
+   "name": "Carluccio's Burger",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1145,
+    "protein": 50.8,
+    "carbs": 80.1,
+    "fat": 67.8,
+    "saturatedFat": 18.6,
+    "sugar": 7.2,
+    "fiber": 7.9,
+    "salt": 5.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-extra-pancetta",
+   "name": "Add Extra Pancetta",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 61,
+    "protein": 3.6,
+    "carbs": 0.2,
+    "fat": 5.2,
+    "saturatedFat": 2.2,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-milanese-burger",
+   "name": "Chicken Milanese Burger",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 998,
+    "protein": 36,
+    "carbs": 96.3,
+    "fat": 50.5,
+    "saturatedFat": 7.8,
+    "sugar": 7.5,
+    "fiber": 7.6,
+    "salt": 4.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "goats-cheese-salad",
+   "name": "Goat's Cheese Salad",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 944,
+    "protein": 8.6,
+    "carbs": 31.8,
+    "fat": 82.8,
+    "saturatedFat": 19.3,
+    "sugar": 13.6,
+    "fiber": 7,
+    "salt": 4.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-caesar-salad",
+   "name": "Grilled Chicken Caesar salad",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1210,
+    "protein": 65.5,
+    "carbs": 24.5,
+    "fat": 94.4,
+    "saturatedFat": 17.4,
+    "sugar": 5.8,
+    "fiber": 4.8,
+    "salt": 7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sirloin-8oz",
+   "name": "Sirloin 8oz",
+   "category": "Grill & mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 539,
+    "protein": 50.2,
+    "carbs": 4.3,
+    "fat": 35.8,
+    "saturatedFat": 13.9,
+    "sugar": 1.6,
+    "fiber": 1.5,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-salad",
+   "name": "Mixed Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 1.9,
+    "carbs": 9.6,
+    "fat": 10.6,
+    "saturatedFat": 4.1,
+    "sugar": 6.3,
+    "fiber": 2.6,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tenderstem-broccoli",
+   "name": "Tenderstem Broccoli",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 296,
+    "protein": 5.1,
+    "carbs": 10.8,
+    "fat": 26.5,
+    "saturatedFat": 3.9,
+    "sugar": 2.7,
+    "fiber": 4.6,
+    "salt": 4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "patatine-fritte",
+   "name": "Patatine Fritte",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 333,
+    "protein": 4,
+    "carbs": 45.2,
+    "fat": 14.2,
+    "saturatedFat": 1.3,
+    "sugar": 0.4,
+    "fiber": 4.5,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosemary-and-garlic-roasted-potatoes",
+   "name": "Rosemary & Garlic Roasted Potatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 3.4,
+    "carbs": 26.4,
+    "fat": 15.8,
+    "saturatedFat": 2.4,
+    "sugar": 0.9,
+    "fiber": 2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "focaccia-with-garlic-butter",
+   "name": "Focaccia with garlic butter",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 666,
+    "protein": 8.5,
+    "carbs": 47.8,
+    "fat": 48.7,
+    "saturatedFat": 18.8,
+    "sugar": 0.9,
+    "fiber": 1.3,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porcini-mushroom-sauce",
+   "name": "Porcini Mushroom Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 117,
+    "protein": 1.7,
+    "carbs": 4.2,
+    "fat": 10.6,
+    "saturatedFat": 5.5,
+    "sugar": 1.1,
+    "fiber": 0.8,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nduja-butter",
+   "name": "Nduja Butter",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 110,
+    "protein": 0.1,
+    "carbs": 0.1,
+    "fat": 12.2,
+    "saturatedFat": 7.6,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-butter",
+   "name": "Truffle Butter",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 259,
+    "protein": 0.2,
+    "carbs": 0.2,
+    "fat": 28.5,
+    "saturatedFat": 17.6,
+    "sugar": 0.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppercorn-sauce",
+   "name": "Peppercorn Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "protein": 2,
+    "carbs": 3.6,
+    "fat": 7.2,
+    "saturatedFat": 4.5,
+    "sugar": 1.4,
+    "fiber": 0,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

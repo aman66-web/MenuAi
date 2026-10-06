@@ -1,0 +1,489 @@
+{
+ "schemaVersion": 1,
+ "id": "chipotle",
+ "name": "Chipotle",
+ "cuisine": "Mexican",
+ "builderType": "standard",
+ "aliases": [
+  "chipotle",
+  "chipotle mexican grill"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Chipotle UK nutrition facts, per serving of each ingredient (AUG 2022)",
+  "url": "https://www.chipotle.co.uk/nutrition-calculator",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Chipotle UK publishes values for single ingredients only, not finished burritos or bowls, and we don't add them together. The sheet is dated August 2022, so some ingredients may have changed since.",
+ "categories": [
+  "Ingredients"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "flour-tortilla-burrito",
+   "name": "Flour Tortilla (burrito)",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 297,
+    "protein": 7.9,
+    "carbs": 49.2,
+    "fat": 8.8,
+    "saturatedFat": 0.7,
+    "sugar": 1.8,
+    "fiber": 4.4,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flour-tortilla-taco",
+   "name": "Flour Tortilla (taco)",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "protein": 2.5,
+    "carbs": 15.5,
+    "fat": 2.8,
+    "saturatedFat": 0.2,
+    "sugar": 0.6,
+    "fiber": 1.4,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coriander-lime-white-rice",
+   "name": "Coriander-Lime White Rice",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 4.1,
+    "carbs": 41.5,
+    "fat": 2,
+    "saturatedFat": 0.5,
+    "sugar": 0.1,
+    "fiber": 1.2,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coriander-lime-brown-rice",
+   "name": "Coriander-Lime Brown Rice",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 3.8,
+    "carbs": 32.8,
+    "fat": 1.7,
+    "saturatedFat": 0.4,
+    "sugar": 0.1,
+    "fiber": 2.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-beans",
+   "name": "Black Beans",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 7.2,
+    "carbs": 4.9,
+    "fat": 2.4,
+    "saturatedFat": 1,
+    "sugar": 0.9,
+    "fiber": 8.6,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pinto-beans",
+   "name": "Pinto Beans",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 6.7,
+    "carbs": 6.2,
+    "fat": 0.6,
+    "saturatedFat": 0.2,
+    "sugar": 0.1,
+    "fiber": 11.2,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fajita-vegetables",
+   "name": "Fajita Vegetables",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 21,
+    "protein": 0.4,
+    "carbs": 2.1,
+    "fat": 1.1,
+    "saturatedFat": 0.1,
+    "sugar": 1.4,
+    "fiber": 0.6,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "barbacoa",
+   "name": "Barbacoa",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 154,
+    "protein": 29.7,
+    "carbs": 1,
+    "fat": 3.8,
+    "saturatedFat": 1.3,
+    "sugar": 0.1,
+    "fiber": 0.8,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 27.3,
+    "carbs": 1,
+    "fat": 8.4,
+    "saturatedFat": 2.4,
+    "sugar": 0.1,
+    "fiber": 1,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carnitas",
+   "name": "Carnitas",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 25.8,
+    "carbs": 1,
+    "fat": 11.9,
+    "saturatedFat": 3.9,
+    "sugar": 0.1,
+    "fiber": 1,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak",
+   "name": "Steak",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 165,
+    "protein": 28.8,
+    "carbs": 1,
+    "fat": 5.5,
+    "saturatedFat": 1.9,
+    "sugar": 0.2,
+    "fiber": 1,
+    "salt": 2.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sofritas-braised-tofu",
+   "name": "Sofritas (braised tofu)",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 84,
+    "protein": 7,
+    "carbs": 3,
+    "fat": 4.6,
+    "saturatedFat": 0.7,
+    "sugar": 2.2,
+    "fiber": 1.2,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-corn-salsa",
+   "name": "Chilli-Corn Salsa",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 38,
+    "protein": 1.3,
+    "carbs": 5.9,
+    "fat": 0.8,
+    "saturatedFat": 0.2,
+    "sugar": 0.9,
+    "fiber": 1.3,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-tomato-green-chilli-salsa",
+   "name": "Roasted Tomato Green-Chilli Salsa",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.3,
+    "carbs": 1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.9,
+    "fiber": 0.4,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-tomato-red-chilli-salsa",
+   "name": "Roasted Tomato Red-Chilli Salsa",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.3,
+    "carbs": 1.4,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 0.7,
+    "fiber": 0.2,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "protein": 5.8,
+    "carbs": 0.1,
+    "fat": 7.8,
+    "saturatedFat": 4.8,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sour-cream",
+   "name": "Sour Cream",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0.9,
+    "carbs": 1.4,
+    "fat": 3.9,
+    "saturatedFat": 2.7,
+    "sugar": 1.1,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole-topping-side",
+   "name": "Guacamole (topping/side)",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 145,
+    "protein": 1.5,
+    "carbs": 2.8,
+    "fat": 13.5,
+    "saturatedFat": 2.8,
+    "sugar": 0.8,
+    "fiber": 3.3,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole-large",
+   "name": "Guacamole (large)",
+   "category": "Ingredients",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 290,
+    "protein": 3,
+    "carbs": 5.6,
+    "fat": 27,
+    "saturatedFat": 5.6,
+    "sugar": 1.6,
+    "fiber": 6.6,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-regular",
+   "name": "Chips (regular)",
+   "category": "Ingredients",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 417,
+    "protein": 4.6,
+    "carbs": 54.1,
+    "fat": 21.6,
+    "saturatedFat": 1.7,
+    "sugar": 1.2,
+    "fiber": 0,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-large",
+   "name": "Chips (large)",
+   "category": "Ingredients",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 834,
+    "protein": 9.2,
+    "carbs": 108.2,
+    "fat": 43.2,
+    "saturatedFat": 3.4,
+    "sugar": 2.4,
+    "fiber": 0,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chipotle-honey-vinaigrette",
+   "name": "Chipotle Honey Vinaigrette",
+   "category": "Ingredients",
+   "serving": "",
+   "nutrients": {
+    "calories": 259,
+    "protein": 0.2,
+    "carbs": 13.1,
+    "fat": 22.9,
+    "saturatedFat": 2.4,
+    "sugar": 6.2,
+    "fiber": 0.5,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

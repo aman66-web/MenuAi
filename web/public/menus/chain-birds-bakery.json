@@ -1,0 +1,1846 @@
+{
+ "schemaVersion": 1,
+ "id": "birds-bakery",
+ "name": "Birds Bakery",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "birds bakery",
+  "birds of derby"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Birds Bakery (Birds (Derby) Ltd) Nutrition and allergen data, birdsbakery.com (website pages, no date printed; read 2026-10-06)",
+  "url": "https://birdsbakery.com/pages/nutrition-and-allergen-data",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are per item as the bakery's website prints them (per roll, product, portion or stated weight). Items it lists only per 100 g are left out, because we never convert. The website carries no date.",
+ "categories": [
+  "Rolls & sandwiches",
+  "Cobs",
+  "Savouries & bakes",
+  "Salad bowls",
+  "Pots & snacks",
+  "Cakes & pastries",
+  "Chocolate"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "cheese-salad-filled-roll-white",
+   "name": "Cheese salad filled roll (white)",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 440,
+    "protein": 18.2,
+    "carbs": 44.1,
+    "fat": 20.6,
+    "saturatedFat": 10.4,
+    "sugar": 1.6,
+    "fiber": 2.3,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayo-filled-roll-white",
+   "name": "Egg mayo filled roll (white)",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 392,
+    "protein": 16.5,
+    "carbs": 45.6,
+    "fat": 15.4,
+    "saturatedFat": 3.3,
+    "sugar": 0.3,
+    "fiber": 1.9,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-filled-roll-white",
+   "name": "Ham & cheese filled roll (white)",
+   "category": "Rolls & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 447,
+    "protein": 25.8,
+    "carbs": 35.2,
+    "fat": 24.9,
+    "saturatedFat": 11.9,
+    "sugar": 0.9,
+    "fiber": 1.3,
+    "salt": 2.63
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-salad-filled-roll-white",
+   "name": "Ham salad filled roll (white)",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 346,
+    "protein": 15.1,
+    "carbs": 44.3,
+    "fat": 11.5,
+    "saturatedFat": 3.7,
+    "sugar": 1.7,
+    "fiber": 2.6,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayo-and-cucumber-filled-roll-white",
+   "name": "Tuna mayo & cucumber filled roll (white)",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 422,
+    "protein": 19.6,
+    "carbs": 44.5,
+    "fat": 17.9,
+    "saturatedFat": 2.2,
+    "sugar": 1.7,
+    "fiber": 1.7,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt-chia-roll",
+   "name": "BLT chia roll",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 347,
+    "protein": 21.8,
+    "carbs": 29.4,
+    "fat": 17.7,
+    "saturatedFat": 6,
+    "sugar": 2.5,
+    "fiber": 2.5,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-chia-roll",
+   "name": "Chicken Caesar chia roll",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 365,
+    "protein": 19.7,
+    "carbs": 16,
+    "fat": 19.5,
+    "saturatedFat": 1.7,
+    "sugar": 2.1,
+    "fiber": 2.1,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-cheese-and-onion-sandwich-with-jalapeno-relish-on-chia-bread",
+   "name": "Mixed cheese & onion sandwich with jalapeno relish on chia bread",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 751,
+    "protein": 25.1,
+    "carbs": 53.8,
+    "fat": 42,
+    "saturatedFat": 10.7,
+    "sugar": 7.8,
+    "fiber": 5.6,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-tomato-chia-sandwich",
+   "name": "Cheese & tomato chia sandwich",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 440,
+    "protein": 20.5,
+    "carbs": 44.5,
+    "fat": 20.7,
+    "saturatedFat": 10.1,
+    "sugar": 4.3,
+    "fiber": 4.3,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-mayo-and-bacon-chia-sandwich",
+   "name": "Chicken mayo & bacon chia sandwich",
+   "category": "Rolls & sandwiches",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 593,
+    "protein": 26.8,
+    "carbs": 56.1,
+    "fat": 29,
+    "saturatedFat": 3,
+    "sugar": 2.5,
+    "fiber": 4.2,
+    "salt": 2.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayo-chia-sandwich",
+   "name": "Egg mayo chia sandwich",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 390,
+    "protein": 19.1,
+    "carbs": 45.1,
+    "fat": 15.6,
+    "saturatedFat": 3,
+    "sugar": 2.1,
+    "fiber": 3.8,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-chia-sandwich",
+   "name": "Ham & cheese chia sandwich",
+   "category": "Rolls & sandwiches",
+   "serving": "186 g",
+   "nutrients": {
+    "calories": 652,
+    "protein": 32.6,
+    "carbs": 68,
+    "fat": 27.8,
+    "saturatedFat": 12.6,
+    "sugar": 2.5,
+    "fiber": 5.6,
+    "salt": 3.69
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-cheese-and-onion-chia-sandwich",
+   "name": "Mixed cheese & onion chia sandwich",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 651,
+    "protein": 19,
+    "carbs": 41.7,
+    "fat": 44.6,
+    "saturatedFat": 10.2,
+    "fiber": 3.8,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-mayo-chia-sandwich",
+   "name": "Prawn mayo chia sandwich",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 390,
+    "protein": 17.4,
+    "carbs": 44.9,
+    "fat": 16.2,
+    "saturatedFat": 1.6,
+    "sugar": 3.8,
+    "fiber": 3.7,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayo-and-cucumber-chia-sandwich",
+   "name": "Tuna mayo & cucumber chia sandwich",
+   "category": "Rolls & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 422,
+    "protein": 22.3,
+    "carbs": 44.2,
+    "fat": 18.1,
+    "saturatedFat": 2,
+    "sugar": 3.8,
+    "fiber": 3.7,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-little-bites",
+   "name": "Cheese little bites",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 161,
+    "protein": 5.8,
+    "carbs": 19.5,
+    "fat": 6.3,
+    "saturatedFat": 2.9,
+    "sugar": 0.1,
+    "fiber": 0.7,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayo-little-bites",
+   "name": "Egg mayo little bites",
+   "category": "Rolls & sandwiches",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 147,
+    "protein": 5.6,
+    "carbs": 20.3,
+    "fat": 4.5,
+    "saturatedFat": 1,
+    "sugar": 0.1,
+    "fiber": 0.8,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-little-bites",
+   "name": "Ham little bites",
+   "category": "Rolls & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 6.9,
+    "carbs": 19.3,
+    "fat": 5.1,
+    "saturatedFat": 1.8,
+    "sugar": 0.1,
+    "fiber": 0.8,
+    "salt": 0.96
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayo-little-bites",
+   "name": "Tuna mayo little bites",
+   "category": "Rolls & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 209,
+    "protein": 9.3,
+    "carbs": 20,
+    "fat": 9.6,
+    "saturatedFat": 1.1,
+    "sugar": 0.8,
+    "fiber": 0.7,
+    "salt": 0.82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-cob-white",
+   "name": "Bacon cob (white)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 299,
+    "protein": 16.4,
+    "carbs": 35.3,
+    "fat": 12.5,
+    "saturatedFat": 3.3,
+    "sugar": 0.9,
+    "fiber": 1,
+    "salt": 2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-cob-white",
+   "name": "Sausage cob (white)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 446,
+    "protein": 28.1,
+    "carbs": 42.1,
+    "fat": 20.6,
+    "saturatedFat": 5.4,
+    "sugar": 0.9,
+    "fiber": 1.3,
+    "salt": 1.86
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-pork-cob-white",
+   "name": "Roast pork cob (white)",
+   "category": "Cobs",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 457,
+    "protein": 54.1,
+    "carbs": 34.9,
+    "fat": 13,
+    "saturatedFat": 2.2,
+    "sugar": 0.7,
+    "fiber": 1,
+    "salt": 0.71
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-bacon-cob-white",
+   "name": "Sausage & bacon cob (white)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 538,
+    "protein": 36,
+    "carbs": 42.5,
+    "fat": 27,
+    "saturatedFat": 8.2,
+    "sugar": 1.1,
+    "fiber": 1.3,
+    "salt": 3.15
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-cob-white",
+   "name": "Egg cob (white)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 14.6,
+    "carbs": 35.2,
+    "fat": 10.6,
+    "saturatedFat": 1.9,
+    "sugar": 0.7,
+    "fiber": 1.3,
+    "salt": 0.79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-egg-cob-white",
+   "name": "Sausage & egg cob (white)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 513,
+    "protein": 34.2,
+    "carbs": 42.4,
+    "fat": 25.2,
+    "saturatedFat": 6.8,
+    "sugar": 0.9,
+    "fiber": 1.6,
+    "salt": 1.94
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown-cob-white",
+   "name": "Hash brown cob (white)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 415,
+    "protein": 11,
+    "carbs": 53.7,
+    "fat": 19.2,
+    "saturatedFat": 3.3,
+    "sugar": 1.7,
+    "fiber": 3.6,
+    "salt": 0.99
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-egg-cob-white",
+   "name": "Bacon & egg cob (white)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 366,
+    "protein": 22.5,
+    "carbs": 35.6,
+    "fat": 17,
+    "saturatedFat": 4.7,
+    "sugar": 1,
+    "fiber": 1.3,
+    "salt": 2.08
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-turkey-cob-white",
+   "name": "Roast turkey cob (white)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 549,
+    "protein": 64.2,
+    "carbs": 34.9,
+    "fat": 19.4,
+    "saturatedFat": 4.6,
+    "sugar": 0.7,
+    "fiber": 1,
+    "salt": 0.71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-cob-chia",
+   "name": "Bacon cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 303,
+    "protein": 18,
+    "carbs": 34.9,
+    "fat": 11.3,
+    "saturatedFat": 4.3,
+    "sugar": 1,
+    "fiber": 0.9,
+    "salt": 2.01
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-cob-chia",
+   "name": "Sausage cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 29.7,
+    "carbs": 41.7,
+    "fat": 19.5,
+    "saturatedFat": 6.3,
+    "sugar": 1,
+    "fiber": 1.2,
+    "salt": 1.97
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-pork-cob-chia",
+   "name": "Roast pork cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 462,
+    "protein": 55.9,
+    "carbs": 34.5,
+    "fat": 11.9,
+    "saturatedFat": 3.2,
+    "sugar": 0.7,
+    "fiber": 0.9,
+    "salt": 0.82
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-bacon-cob-chia",
+   "name": "Sausage & bacon cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 542,
+    "protein": 37.6,
+    "carbs": 42.1,
+    "fat": 25.9,
+    "saturatedFat": 9.2,
+    "sugar": 1.2,
+    "fiber": 1.2,
+    "salt": 3.26
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-cob-chia",
+   "name": "Egg cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 278,
+    "protein": 16.2,
+    "carbs": 34.8,
+    "fat": 9.5,
+    "saturatedFat": 2.8,
+    "sugar": 0.8,
+    "fiber": 1.1,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-egg-cob-chia",
+   "name": "Sausage & egg cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 517,
+    "protein": 35.8,
+    "carbs": 42,
+    "fat": 24,
+    "saturatedFat": 7.7,
+    "sugar": 1,
+    "fiber": 1.4,
+    "salt": 2.05
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown-cob-chia",
+   "name": "Hash brown cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 12.6,
+    "carbs": 53.3,
+    "fat": 18.1,
+    "saturatedFat": 4.2,
+    "sugar": 1.7,
+    "fiber": 3.5,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-egg-cob-chia",
+   "name": "Bacon & egg cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 370,
+    "protein": 24,
+    "carbs": 35.2,
+    "fat": 15.9,
+    "saturatedFat": 5.7,
+    "sugar": 1,
+    "fiber": 1.1,
+    "salt": 2.19
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-turkey-cob-chia",
+   "name": "Roast turkey cob (chia)",
+   "category": "Cobs",
+   "serving": "",
+   "nutrients": {
+    "calories": 490,
+    "protein": 73.2,
+    "carbs": 34.5,
+    "fat": 7,
+    "saturatedFat": 2.5,
+    "sugar": 0.7,
+    "fiber": 0.9,
+    "salt": 1.23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-roll",
+   "name": "Sausage roll",
+   "category": "Savouries & bakes",
+   "serving": "77 g",
+   "nutrients": {
+    "calories": 285,
+    "protein": 8.2,
+    "carbs": 22.8,
+    "fat": 17.8,
+    "saturatedFat": 7.8,
+    "sugar": 0.1,
+    "fiber": 0.8,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-pasty",
+   "name": "Traditional pasty",
+   "category": "Savouries & bakes",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 447,
+    "protein": 11.2,
+    "carbs": 47.3,
+    "fat": 23.4,
+    "saturatedFat": 11.3,
+    "sugar": 0.7,
+    "fiber": 2,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lamb-and-mint-slice",
+   "name": "Lamb & mint slice",
+   "category": "Savouries & bakes",
+   "serving": "1 roll",
+   "nutrients": {
+    "calories": 551,
+    "protein": 18.4,
+    "carbs": 48.7,
+    "fat": 31.1,
+    "saturatedFat": 15.1,
+    "sugar": 1.1,
+    "fiber": 1.9,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-ham-and-leek-slice",
+   "name": "Chicken, ham & leek slice",
+   "category": "Savouries & bakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 655,
+    "protein": 15.9,
+    "carbs": 63.4,
+    "fat": 37.1,
+    "saturatedFat": 18.9,
+    "sugar": 0.6,
+    "fiber": 2.3,
+    "salt": 2.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-onion-roll-xl",
+   "name": "Cheese & onion roll XL",
+   "category": "Savouries & bakes",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 340,
+    "protein": 9.2,
+    "carbs": 32.7,
+    "fat": 18.8,
+    "saturatedFat": 9.8,
+    "sugar": 0.8,
+    "fiber": 1.8,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-pork-pie",
+   "name": "Small pork pie",
+   "category": "Savouries & bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 448,
+    "protein": 11.7,
+    "carbs": 30.6,
+    "fat": 31,
+    "saturatedFat": 11.7,
+    "sugar": 0,
+    "fiber": 1.2,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "quiche-lorraine",
+   "name": "Quiche lorraine",
+   "category": "Savouries & bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 392,
+    "protein": 13.1,
+    "carbs": 62.5,
+    "fat": 9,
+    "saturatedFat": 4.1,
+    "sugar": 0.3,
+    "fiber": 2.2,
+    "salt": 0.19
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-pizza",
+   "name": "Cheese pizza",
+   "category": "Savouries & bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 184,
+    "protein": 9.7,
+    "carbs": 20.8,
+    "fat": 7.2,
+    "saturatedFat": 3.8,
+    "sugar": 2.2,
+    "fiber": 0.5,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-straws",
+   "name": "Cheese straws",
+   "category": "Savouries & bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 2.5,
+    "carbs": 6.4,
+    "fat": 6.6,
+    "saturatedFat": 3.5,
+    "sugar": 0,
+    "fiber": 0.2,
+    "salt": 0.29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad-bowl",
+   "name": "Chicken Caesar salad bowl",
+   "category": "Salad bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 284,
+    "protein": 16.5,
+    "carbs": 10.7,
+    "fat": 19.2,
+    "saturatedFat": 1.7,
+    "sugar": 3.6,
+    "fiber": 2.1,
+    "salt": 0.65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-cheese-and-onion-salad-with-jalapeno-relish",
+   "name": "Mixed cheese & onion salad with jalapeno relish",
+   "category": "Salad bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 432,
+    "protein": 11.3,
+    "carbs": 9.4,
+    "fat": 38.5,
+    "saturatedFat": 10.1,
+    "sugar": 8.5,
+    "fiber": 1.9,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-blackcurrant-overnight-oats",
+   "name": "Apple & blackcurrant overnight oats",
+   "category": "Pots & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 328,
+    "protein": 12.3,
+    "carbs": 40.3,
+    "fat": 9.8,
+    "saturatedFat": 2.9,
+    "sugar": 17.8,
+    "fiber": 5.9,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-pot",
+   "name": "Egg pot",
+   "category": "Pots & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 12.8,
+    "carbs": 1.6,
+    "fat": 9,
+    "saturatedFat": 2.5,
+    "sugar": 0.3,
+    "fiber": 0.6,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-blackcurrant-crumble",
+   "name": "Apple & blackcurrant crumble",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 353,
+    "protein": 3.9,
+    "carbs": 47.9,
+    "fat": 16.4,
+    "saturatedFat": 7.1,
+    "sugar": 22,
+    "fiber": 2.2,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "swiss-tart",
+   "name": "Swiss tart",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 237,
+    "protein": 3.6,
+    "carbs": 32.8,
+    "fat": 9.7,
+    "saturatedFat": 5.6,
+    "sugar": 18.3,
+    "fiber": 1.3,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baby-elephants-foot",
+   "name": "Baby elephants foot",
+   "category": "Cakes & pastries",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 71,
+    "protein": 0.5,
+    "carbs": 6.3,
+    "fat": 4.8,
+    "saturatedFat": 3.1,
+    "sugar": 4.6,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackcurrant-cream",
+   "name": "Blackcurrant cream",
+   "category": "Cakes & pastries",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 232,
+    "protein": 2.4,
+    "carbs": 25.2,
+    "fat": 13.4,
+    "saturatedFat": 7.3,
+    "sugar": 11.7,
+    "fiber": 1.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-doughnut",
+   "name": "Caramel doughnut",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 383,
+    "protein": 5.2,
+    "carbs": 48.6,
+    "fat": 18.4,
+    "saturatedFat": 5.4,
+    "sugar": 18.3,
+    "fiber": 1,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-doughnut",
+   "name": "Salted caramel doughnut",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 385,
+    "protein": 5.2,
+    "carbs": 48.9,
+    "fat": 18.4,
+    "saturatedFat": 5.3,
+    "sugar": 18.1,
+    "fiber": 1,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-crumble-ring-doughnut",
+   "name": "Lemon crumble ring doughnut",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 313,
+    "protein": 5.7,
+    "carbs": 41.4,
+    "fat": 14.7,
+    "saturatedFat": 7.3,
+    "sugar": 26.1,
+    "fiber": 1,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-swiss-bun",
+   "name": "Cream swiss bun",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 4.3,
+    "carbs": 48.2,
+    "fat": 15.1,
+    "saturatedFat": 9.9,
+    "sugar": 22.3,
+    "fiber": 1,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun",
+   "name": "Cinnamon bun",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 393,
+    "protein": 5.2,
+    "carbs": 47.9,
+    "fat": 19.8,
+    "saturatedFat": 12.1,
+    "sugar": 19.8,
+    "fiber": 2.4,
+    "salt": 0.76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-twist",
+   "name": "Chocolate twist",
+   "category": "Cakes & pastries",
+   "serving": "1 twist",
+   "nutrients": {
+    "calories": 282,
+    "protein": 4.5,
+    "carbs": 28.7,
+    "fat": 14.7,
+    "saturatedFat": 9,
+    "sugar": 13.5,
+    "fiber": 1.2,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-crumble-danish",
+   "name": "Apple crumble danish",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 310,
+    "protein": 3.9,
+    "carbs": 46.5,
+    "fat": 12.9,
+    "saturatedFat": 7.8,
+    "sugar": 22.8,
+    "fiber": 1.6,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-elephants-foot",
+   "name": "Pink elephants foot",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 93,
+    "protein": 1,
+    "carbs": 8.1,
+    "fat": 6,
+    "saturatedFat": 3.1,
+    "sugar": 5.6,
+    "fiber": 0.7,
+    "salt": 0.08
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-weekend-special",
+   "name": "Strawberry weekend special",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 310,
+    "protein": 3.5,
+    "carbs": 27.1,
+    "fat": 20.1,
+    "saturatedFat": 10.2,
+    "sugar": 18.7,
+    "fiber": 2.4,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-strawberry-sponge",
+   "name": "Mini strawberry sponge",
+   "category": "Cakes & pastries",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 188,
+    "protein": 2.5,
+    "carbs": 25.1,
+    "fat": 7.9,
+    "saturatedFat": 5.3,
+    "sugar": 13.4,
+    "fiber": 3,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "summer-cupcake",
+   "name": "Summer cupcake",
+   "category": "Cakes & pastries",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 420,
+    "protein": 2.6,
+    "carbs": 52.9,
+    "fat": 21.6,
+    "saturatedFat": 9.3,
+    "sugar": 40.5,
+    "fiber": 0.5,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-nest-cupcake",
+   "name": "Chocolate nest cupcake",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 426,
+    "protein": 2.7,
+    "carbs": 52.6,
+    "fat": 22.2,
+    "saturatedFat": 10.2,
+    "sugar": 44.9,
+    "fiber": 1.1,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "paw-cupcake",
+   "name": "Paw cupcake",
+   "category": "Cakes & pastries",
+   "serving": "1 cupcake",
+   "nutrients": {
+    "calories": 454,
+    "protein": 3,
+    "carbs": 53.6,
+    "fat": 25.1,
+    "saturatedFat": 11.7,
+    "sugar": 46.8,
+    "fiber": 1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-brownie-slice",
+   "name": "Honeycomb brownie slice",
+   "category": "Cakes & pastries",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 376,
+    "protein": 5.6,
+    "carbs": 44.8,
+    "fat": 18.9,
+    "saturatedFat": 11.5,
+    "sugar": 33.9,
+    "fiber": 2.1,
+    "salt": 0.44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-and-cream-brownie",
+   "name": "Cookie & cream brownie",
+   "category": "Cakes & pastries",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 404,
+    "protein": 4.7,
+    "carbs": 43.6,
+    "fat": 23,
+    "saturatedFat": 13.8,
+    "sugar": 35.3,
+    "fiber": 0.6,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apricot-and-pumpkin-seed-flapjack",
+   "name": "Apricot & pumpkin seed flapjack",
+   "category": "Cakes & pastries",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 319,
+    "protein": 4.6,
+    "carbs": 40.9,
+    "fat": 14.5,
+    "saturatedFat": 7.3,
+    "sugar": 28.5,
+    "fiber": 3.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mrs-bs-rocky-road-tray",
+   "name": "Mrs B's rocky road tray",
+   "category": "Cakes & pastries",
+   "serving": "1 slice (75 g)",
+   "nutrients": {
+    "calories": 379,
+    "protein": 3.7,
+    "carbs": 39.8,
+    "fat": 22.3,
+    "saturatedFat": 13.3,
+    "sugar": 27.5,
+    "fiber": 2.3,
+    "salt": 0.41
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mince-pie",
+   "name": "Mince pie",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 216,
+    "protein": 2.3,
+    "carbs": 31.6,
+    "fat": 8.7,
+    "saturatedFat": 3.5,
+    "sugar": 17.9,
+    "fiber": 0.9,
+    "salt": 0.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "summer-gingerbread-person",
+   "name": "Summer gingerbread person",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 266,
+    "protein": 3.6,
+    "carbs": 36.9,
+    "fat": 11.1,
+    "saturatedFat": 4.2,
+    "sugar": 14.9,
+    "fiber": 0.8,
+    "salt": 0.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "birds-gingerbread-person",
+   "name": "Birds gingerbread person",
+   "category": "Cakes & pastries",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 266,
+    "protein": 3.5,
+    "carbs": 36.9,
+    "fat": 11.1,
+    "saturatedFat": 4.2,
+    "sugar": 14.9,
+    "fiber": 0.8,
+    "salt": 0.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-mouse",
+   "name": "Milk chocolate mouse",
+   "category": "Chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 130,
+    "protein": 1.6,
+    "carbs": 13.1,
+    "fat": 8,
+    "saturatedFat": 4.8,
+    "sugar": 12.7,
+    "fiber": 0.5,
+    "salt": 0.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "birds-chocolate-lolly",
+   "name": "Birds chocolate lolly",
+   "category": "Chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 194,
+    "protein": 2.3,
+    "carbs": 18.5,
+    "fat": 12,
+    "saturatedFat": 7.2,
+    "sugar": 16.6,
+    "fiber": 0.7,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boy-girl-football-lolly",
+   "name": "Boy/girl football lolly",
+   "category": "Chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 170,
+    "protein": 2.1,
+    "carbs": 15.3,
+    "fat": 10.9,
+    "saturatedFat": 6.6,
+    "sugar": 15,
+    "fiber": 0.6,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "canine-partners-chunky-lolly",
+   "name": "Canine Partners chunky lolly",
+   "category": "Chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 196,
+    "protein": 2.3,
+    "carbs": 18.5,
+    "fat": 12,
+    "saturatedFat": 7.2,
+    "sugar": 16.6,
+    "fiber": 0.7,
+    "salt": 0.08
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-milk-chocolate-animals",
+   "name": "Small milk chocolate animals",
+   "category": "Chocolate",
+   "serving": "14 g",
+   "nutrients": {
+    "calories": 79,
+    "protein": 1,
+    "carbs": 7.1,
+    "fat": 5.1,
+    "saturatedFat": 3.1,
+    "sugar": 7,
+    "fiber": 0.3,
+    "salt": 0.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-white-chocolate-animals",
+   "name": "Small white chocolate animals",
+   "category": "Chocolate",
+   "serving": "14 g",
+   "nutrients": {
+    "calories": 80,
+    "protein": 0.8,
+    "carbs": 7.7,
+    "fat": 5,
+    "saturatedFat": 3,
+    "sugar": 7.7,
+    "fiber": 0,
+    "salt": 0.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

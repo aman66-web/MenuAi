@@ -1,0 +1,1069 @@
+{
+ "schemaVersion": 1,
+ "id": "ping-pong",
+ "name": "Ping Pong",
+ "cuisine": "Chinese",
+ "builderType": "standard",
+ "aliases": [
+  "ping pong",
+  "ping pong dim sum",
+  "pingpong",
+  "pingpong dim sum"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Ping Pong Nutritional Information, \"Jun Full Menu 2025 - Nutr Info\" (guide dated June 2025, printed 09/06/2025)",
+  "url": "https://www.pingpongdimsum.com/wp-content/uploads/2025/06/Nutr-Info-Jun-2025.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Guide dated June 2025, so some dishes may have changed since. Values are per portion as printed (portion sizes are not stated); there are no drinks, and a few dishes whose numbers the guide prints impossibly are left out.",
+ "categories": [
+  "Kids menus",
+  "Nibbles",
+  "Rice",
+  "Sharing & baos",
+  "Crispy",
+  "Buns",
+  "Steamed dumplings",
+  "Griddled gyoza & dumplings",
+  "Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "little-pandas-crispy-chicken-rice-bowl",
+   "name": "Little Pandas Crispy Chicken Rice Bowl",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 516,
+    "protein": 25,
+    "carbs": 70.9,
+    "fat": 14.8,
+    "saturatedFat": 1.7,
+    "sugar": 12,
+    "fiber": 4,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-pandas-crispy-tofu-rice-bowl",
+   "name": "Little Pandas Crispy Tofu Rice Bowl",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 738,
+    "protein": 29.7,
+    "carbs": 86.3,
+    "fat": 29.5,
+    "saturatedFat": 3.9,
+    "sugar": 14,
+    "fiber": 4,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-pandas-dim-sum-set-menu",
+   "name": "Little Pandas Dim Sum Set Menu",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 698,
+    "protein": 23.5,
+    "carbs": 114,
+    "fat": 17.8,
+    "saturatedFat": 7.9,
+    "sugar": 28.6,
+    "fiber": 1.1,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-pandas-vegetarian-set-menu",
+   "name": "Little Pandas Vegetarian Set Menu",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 933,
+    "protein": 21.5,
+    "carbs": 158.2,
+    "fat": 24.1,
+    "saturatedFat": 5.5,
+    "sugar": 12.9,
+    "fiber": 1.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-crackers",
+   "name": "Prawn Crackers",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 123,
+    "protein": 0.3,
+    "carbs": 21.3,
+    "fat": 4,
+    "saturatedFat": 0.3,
+    "sugar": 5.7,
+    "fiber": 0,
+    "salt": 0.49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame-with-celery-sea-salt",
+   "name": "Edamame with Celery Sea Salt",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 180,
+    "protein": 17.7,
+    "carbs": 13.2,
+    "fat": 7.7,
+    "saturatedFat": 0.9,
+    "sugar": 3.2,
+    "fiber": 7.7,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seaweed-salad",
+   "name": "Seaweed Salad",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 1.3,
+    "carbs": 14.3,
+    "fat": 4.3,
+    "saturatedFat": 0.1,
+    "sugar": 2.9,
+    "fiber": 0,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "long-stem-broccoli",
+   "name": "Long Stem Broccoli",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 4.4,
+    "carbs": 7.8,
+    "fat": 5.8,
+    "saturatedFat": 0.7,
+    "sugar": 6.3,
+    "fiber": 3.1,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-rice",
+   "name": "Chicken Katsu Curry Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 1075,
+    "protein": 52.5,
+    "carbs": 160.9,
+    "fat": 23.7,
+    "saturatedFat": 3.5,
+    "sugar": 9.2,
+    "fiber": 5.7,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-jasmine-rice",
+   "name": "Steamed Jasmine Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 226,
+    "protein": 3.9,
+    "carbs": 52,
+    "fat": 0.7,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-chicken",
+   "name": "Sweet and Sour Chicken",
+   "category": "Sharing & baos",
+   "serving": "",
+   "nutrients": {
+    "calories": 918,
+    "protein": 41.6,
+    "carbs": 105.7,
+    "fat": 36.3,
+    "saturatedFat": 9.8,
+    "sugar": 61.5,
+    "fiber": 3.7,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-aubergine",
+   "name": "Sweet and Sour Aubergine",
+   "category": "Sharing & baos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1280,
+    "protein": 16.6,
+    "carbs": 180.9,
+    "fat": 53.9,
+    "saturatedFat": 4,
+    "sugar": 58.7,
+    "fiber": 5,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-prawn-bao",
+   "name": "Chilli Prawn Bao",
+   "category": "Sharing & baos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1126,
+    "protein": 44.1,
+    "carbs": 146.4,
+    "fat": 50.7,
+    "saturatedFat": 4.8,
+    "sugar": 24.8,
+    "fiber": 1.3,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-katsu-curry-bao",
+   "name": "Crispy Chicken Katsu Curry Bao",
+   "category": "Sharing & baos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1058,
+    "protein": 54.9,
+    "carbs": 111.6,
+    "fat": 42.9,
+    "saturatedFat": 16.3,
+    "sugar": 20,
+    "fiber": 2.1,
+    "salt": 6.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-aubergine-bao",
+   "name": "Crispy Aubergine Bao",
+   "category": "Sharing & baos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1518,
+    "protein": 26.1,
+    "carbs": 211.1,
+    "fat": 61.8,
+    "saturatedFat": 7.2,
+    "sugar": 38.5,
+    "fiber": 5.7,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-8-har-gau",
+   "name": "Lucky 8 Har Gau",
+   "category": "Sharing & baos",
+   "serving": "",
+   "nutrients": {
+    "calories": 320,
+    "protein": 15.2,
+    "carbs": 39.2,
+    "fat": 16,
+    "saturatedFat": 2.4,
+    "sugar": 2.4,
+    "fiber": 0.4,
+    "salt": 1.11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "satay-prawn",
+   "name": "Satay Prawn",
+   "category": "Crispy",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 14,
+    "carbs": 6.2,
+    "fat": 3.3,
+    "saturatedFat": 0.4,
+    "sugar": 1.4,
+    "fiber": 0.1,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-soy-chicken-skewer",
+   "name": "Honey-Soy Chicken Skewer",
+   "category": "Crispy",
+   "serving": "",
+   "nutrients": {
+    "calories": 205,
+    "protein": 17.8,
+    "carbs": 8.8,
+    "fat": 12,
+    "saturatedFat": 3.8,
+    "sugar": 7,
+    "fiber": 0,
+    "salt": 1.08
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "king-crab-surimi-hot-dog-skewers",
+   "name": "King Crab Surimi Hot Dog Skewers",
+   "category": "Crispy",
+   "serving": "",
+   "nutrients": {
+    "calories": 93,
+    "protein": 6.7,
+    "carbs": 11.2,
+    "fat": 3.8,
+    "saturatedFat": 2.1,
+    "sugar": 3.2,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ping-pong-fried-chicken",
+   "name": "Ping Pong Fried Chicken",
+   "category": "Crispy",
+   "serving": "",
+   "nutrients": {
+    "calories": 708,
+    "protein": 41.1,
+    "carbs": 57,
+    "fat": 35.4,
+    "saturatedFat": 9.5,
+    "sugar": 18.4,
+    "fiber": 2.2,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sichuan-crispy-aubergine",
+   "name": "Sichuan Crispy Aubergine",
+   "category": "Crispy",
+   "serving": "",
+   "nutrients": {
+    "calories": 643,
+    "protein": 11.5,
+    "carbs": 98.6,
+    "fat": 22.2,
+    "saturatedFat": 1.8,
+    "sugar": 11.5,
+    "fiber": 2.8,
+    "salt": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-tofu",
+   "name": "Crispy Tofu",
+   "category": "Crispy",
+   "serving": "",
+   "nutrients": {
+    "calories": 320,
+    "protein": 11.4,
+    "carbs": 25.4,
+    "fat": 18.7,
+    "saturatedFat": 2.2,
+    "sugar": 0.7,
+    "fiber": 0.6,
+    "salt": 0.58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-spring-roll",
+   "name": "Vegetable Spring Roll",
+   "category": "Crispy",
+   "serving": "",
+   "nutrients": {
+    "calories": 196,
+    "protein": 3,
+    "carbs": 20.9,
+    "fat": 11.2,
+    "saturatedFat": 1.7,
+    "sugar": 0.4,
+    "fiber": 3,
+    "salt": 1.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "duck-spring-roll",
+   "name": "Duck Spring Roll",
+   "category": "Crispy",
+   "serving": "",
+   "nutrients": {
+    "calories": 234,
+    "protein": 7.5,
+    "carbs": 21,
+    "fat": 13.5,
+    "saturatedFat": 3.5,
+    "sugar": 4.1,
+    "fiber": 1,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "char-sui-bun",
+   "name": "Char Sui Bun",
+   "category": "Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 230,
+    "protein": 6.7,
+    "carbs": 48,
+    "fat": 1.5,
+    "saturatedFat": 0.4,
+    "sugar": 20.8,
+    "fiber": 1.7,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-bun",
+   "name": "Vegetable Bun",
+   "category": "Buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 2,
+    "carbs": 25.2,
+    "fat": 1.6,
+    "saturatedFat": 0.3,
+    "sugar": 9.4,
+    "fiber": 1,
+    "salt": 0.37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shanghai-chilli-spinach-mushroom-wonton",
+   "name": "Shanghai Chilli Spinach Mushroom Wonton",
+   "category": "Steamed dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 291,
+    "protein": 14.3,
+    "carbs": 28.1,
+    "fat": 14.1,
+    "saturatedFat": 1.6,
+    "sugar": 12.2,
+    "fiber": 2,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-prawn-dumpling",
+   "name": "Black Prawn Dumpling",
+   "category": "Steamed dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 7,
+    "carbs": 18,
+    "fat": 3.2,
+    "saturatedFat": 1.4,
+    "sugar": 1.8,
+    "fiber": 3.2,
+    "salt": 0.95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-prawn-shu-mai",
+   "name": "Pork Prawn Shu Mai",
+   "category": "Steamed dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 189,
+    "protein": 10.8,
+    "carbs": 12,
+    "fat": 10.8,
+    "saturatedFat": 3.3,
+    "sugar": 2.1,
+    "fiber": 0.3,
+    "salt": 1.26
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "har-gau",
+   "name": "Har Gau",
+   "category": "Steamed dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 120,
+    "protein": 5.7,
+    "carbs": 14.7,
+    "fat": 6,
+    "saturatedFat": 0.9,
+    "sugar": 0.9,
+    "fiber": 0.3,
+    "salt": 0.54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flaming-phoenix-chicken-dumpling",
+   "name": "Flaming Phoenix - Chicken Dumpling",
+   "category": "Steamed dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 7.3,
+    "carbs": 36.2,
+    "fat": 2.9,
+    "saturatedFat": 0.7,
+    "sugar": 4,
+    "fiber": 0.9,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-chinese-veg-dumpling",
+   "name": "Spicy Chicken Chinese Veg Dumpling",
+   "category": "Steamed dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 110,
+    "protein": 3.9,
+    "carbs": 19.4,
+    "fat": 3.9,
+    "saturatedFat": 1.5,
+    "sugar": 1.6,
+    "fiber": 0.1,
+    "salt": 0.99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chinese-vegetable-dumpling",
+   "name": "Spicy Chinese Vegetable Dumpling",
+   "category": "Steamed dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 109,
+    "protein": 0.5,
+    "carbs": 21,
+    "fat": 4.5,
+    "saturatedFat": 1.7,
+    "sugar": 2,
+    "fiber": 0.2,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-and-leek-dumpling",
+   "name": "Mushroom & Leek Dumpling",
+   "category": "Steamed dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 0.7,
+    "carbs": 17.3,
+    "fat": 3.4,
+    "saturatedFat": 0.5,
+    "sugar": 1.4,
+    "fiber": 0.5,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach-and-mushroom-griddled-dumpling",
+   "name": "Spinach and Mushroom Griddled Dumpling",
+   "category": "Griddled gyoza & dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 3.5,
+    "carbs": 15.6,
+    "fat": 2.4,
+    "saturatedFat": 0.4,
+    "sugar": 3.3,
+    "fiber": 2,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "griddled-spicy-beef-gyoza",
+   "name": "Griddled Spicy Beef Gyoza",
+   "category": "Griddled gyoza & dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 198,
+    "protein": 8.6,
+    "carbs": 21.6,
+    "fat": 8.8,
+    "saturatedFat": 1.1,
+    "sugar": 3,
+    "fiber": 1.2,
+    "salt": 0.79
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-chinese-chive-gyoza",
+   "name": "Chicken & Chinese Chive Gyoza",
+   "category": "Griddled gyoza & dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 147,
+    "protein": 7.6,
+    "carbs": 21.9,
+    "fat": 2.8,
+    "saturatedFat": 0.1,
+    "sugar": 3.1,
+    "fiber": 3,
+    "salt": 1.07
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame-and-vegetable-gyoza",
+   "name": "Edamame & Vegetable Gyoza",
+   "category": "Griddled gyoza & dumplings",
+   "serving": "",
+   "nutrients": {
+    "calories": 186,
+    "protein": 6.1,
+    "carbs": 18.6,
+    "fat": 7.4,
+    "saturatedFat": 1.6,
+    "sugar": 1.8,
+    "fiber": 3.5,
+    "salt": 0.79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-gyoza-6-pieces",
+   "name": "Apple Gyoza (6 pieces)",
+   "category": "Desserts",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 200,
+    "protein": 1.8,
+    "carbs": 43.5,
+    "fat": 0.5,
+    "saturatedFat": 0.3,
+    "sugar": 24,
+    "fiber": 1.8,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-layered-crepe-cake",
+   "name": "Matcha Layered Crepe Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 493,
+    "protein": 6.4,
+    "carbs": 26.3,
+    "fat": 39.6,
+    "saturatedFat": 24.2,
+    "sugar": 19.9,
+    "fiber": 0.5,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey-macaron-1-piece",
+   "name": "Earl Grey Macaron (1 piece)",
+   "category": "Desserts",
+   "serving": "1 piece",
+   "nutrients": {
+    "calories": 54,
+    "protein": 0.8,
+    "carbs": 6.1,
+    "fat": 2.9,
+    "saturatedFat": 1.1,
+    "sugar": 5.8,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yuzu-macaron-1-piece",
+   "name": "Yuzu Macaron (1 piece)",
+   "category": "Desserts",
+   "serving": "1 piece",
+   "nutrients": {
+    "calories": 55,
+    "protein": 1,
+    "carbs": 6.7,
+    "fat": 2.7,
+    "saturatedFat": 0.9,
+    "sugar": 6.6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-sorbet-vanilla",
+   "name": "Ice Cream / Sorbet: Vanilla",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 72,
+    "protein": 1.6,
+    "carbs": 7.2,
+    "fat": 4,
+    "saturatedFat": 2.5,
+    "sugar": 7.2,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-sorbet-chocolate",
+   "name": "Ice Cream / Sorbet: Chocolate",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 2.6,
+    "carbs": 14,
+    "fat": 7.3,
+    "saturatedFat": 4.4,
+    "sugar": 14,
+    "fiber": 0.7,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-sorbet-lemon-sorbet",
+   "name": "Ice Cream / Sorbet: Lemon Sorbet",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.1,
+    "carbs": 12.6,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 10.9,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-sorbet-pear",
+   "name": "Ice Cream / Sorbet: Pear",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 50,
+    "protein": 0.1,
+    "carbs": 13.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 10.2,
+    "fiber": 0,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-sorbet-mango-sorbet",
+   "name": "Ice Cream / Sorbet: Mango Sorbet",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.2,
+    "carbs": 12.6,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 11.4,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

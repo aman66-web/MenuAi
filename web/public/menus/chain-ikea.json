@@ -1,0 +1,2452 @@
+{
+ "schemaVersion": 1,
+ "id": "ikea",
+ "name": "IKEA",
+ "cuisine": "Swedish",
+ "builderType": "standard",
+ "aliases": [
+  "ikea",
+  "ikea restaurant",
+  "ikea swedish restaurant",
+  "ikea bistro",
+  "ikea swedish bistro",
+  "ikea cafe",
+  "ikea swedish cafe"
+ ],
+ "sample": false,
+ "source": {
+  "title": "IKEA UK food pages: Swedish Restaurant, Bistro, Swedish Cafe, Swedish Bite and Swedish Deli, nutrition per portion (live pages, accessed 2026-10-06)",
+  "url": "https://www.ikea.com/gb/en/food/salesareas/restaurant/",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Menus differ by store: IKEA lists the stores that do not sell each item, so check what your store has. Items sold only in Northern Ireland or in just a few stores are left out. Values are per portion, as stated on IKEA's pages.",
+ "categories": [
+  "Main Courses",
+  "Breakfast",
+  "Hot Snacks",
+  "Children's Menu",
+  "Soups",
+  "Salads",
+  "Cold Plates and Starters",
+  "Sandwiches and Wraps",
+  "Side Dishes",
+  "Pastries, Desserts and Cookies",
+  "Add-ons",
+  "Cold Beverages",
+  "Hot Beverages"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "fish-and-chips",
+   "name": "Fish & Chips",
+   "category": "Main Courses",
+   "serving": "430.0 g",
+   "nutrients": {
+    "calories": 615,
+    "protein": 25.2,
+    "carbs": 79.9,
+    "fat": 18.9,
+    "saturatedFat": 1.6,
+    "sugar": 9.2,
+    "salt": 1.57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-schnitzel",
+   "name": "Chicken Schnitzel",
+   "category": "Main Courses",
+   "serving": "362.0 g",
+   "nutrients": {
+    "calories": 539,
+    "protein": 35,
+    "carbs": 61.6,
+    "fat": 15.5,
+    "saturatedFat": 1.9,
+    "sugar": 4.3,
+    "salt": 1.92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-meatballs-with-mashed-potatoes",
+   "name": "8 Meatballs with Mashed Potatoes",
+   "category": "Main Courses",
+   "serving": "398.0 g",
+   "nutrients": {
+    "calories": 557,
+    "protein": 21.6,
+    "carbs": 47.6,
+    "fat": 30.1,
+    "saturatedFat": 11.1,
+    "sugar": 13.9,
+    "salt": 2.95
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-meatballs-with-chips",
+   "name": "8 Meatballs with Chips",
+   "category": "Main Courses",
+   "serving": "398.0 g",
+   "nutrients": {
+    "calories": 625,
+    "protein": 22.8,
+    "carbs": 59,
+    "fat": 31.3,
+    "saturatedFat": 11.3,
+    "sugar": 14,
+    "salt": 2.16
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-meatballs-with-mashed-potatoes",
+   "name": "12 Meatballs with Mashed Potatoes",
+   "category": "Main Courses",
+   "serving": "462.0 g",
+   "nutrients": {
+    "calories": 711,
+    "protein": 30.1,
+    "carbs": 51.2,
+    "fat": 42.1,
+    "saturatedFat": 15.7,
+    "sugar": 14.4,
+    "salt": 3.77
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-meatballs-with-chips",
+   "name": "12 Meatballs with Chips",
+   "category": "Main Courses",
+   "serving": "462.0 g",
+   "nutrients": {
+    "calories": 781,
+    "protein": 31.3,
+    "carbs": 62.6,
+    "fat": 43.3,
+    "saturatedFat": 15.9,
+    "sugar": 14.4,
+    "salt": 2.97
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-chicken-meatballs-with-mashed-potatoes",
+   "name": "8 Chicken Meatballs with Mashed Potatoes",
+   "category": "Main Courses",
+   "serving": "408.0 g",
+   "nutrients": {
+    "calories": 490,
+    "protein": 21.6,
+    "carbs": 47.7,
+    "fat": 22.4,
+    "saturatedFat": 6.1,
+    "sugar": 13.9,
+    "salt": 3.23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-chicken-meatballs-with-chips",
+   "name": "8 Chicken Meatballs with Chips",
+   "category": "Main Courses",
+   "serving": "408.0 g",
+   "nutrients": {
+    "calories": 559,
+    "protein": 22.8,
+    "carbs": 59.1,
+    "fat": 23.6,
+    "saturatedFat": 6.3,
+    "sugar": 14,
+    "salt": 2.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-chicken-meatballs-with-rice-and-peshwari-sauce",
+   "name": "8 Chicken Meatballs with Rice & Peshwari Sauce",
+   "category": "Main Courses",
+   "serving": "278.0 g",
+   "nutrients": {
+    "calories": 445,
+    "protein": 20.1,
+    "carbs": 40.8,
+    "fat": 22.3,
+    "saturatedFat": 7.2,
+    "sugar": 6.6,
+    "salt": 2.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-chicken-meatballs-with-mashed-potatoes",
+   "name": "12 Chicken Meatballs with Mashed Potatoes",
+   "category": "Main Courses",
+   "serving": "472.0 g",
+   "nutrients": {
+    "calories": 609,
+    "protein": 29.9,
+    "carbs": 50.9,
+    "fat": 30.6,
+    "saturatedFat": 8.2,
+    "sugar": 14.3,
+    "salt": 4.19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-chicken-meatballs-with-chips",
+   "name": "12 Chicken Meatballs with Chips",
+   "category": "Main Courses",
+   "serving": "472.0 g",
+   "nutrients": {
+    "calories": 680,
+    "protein": 31.1,
+    "carbs": 62.3,
+    "fat": 31.8,
+    "saturatedFat": 8.4,
+    "sugar": 14.4,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-chicken-meatballs-with-rice-and-peshwari-sauce",
+   "name": "12 Chicken Meatballs with Rice & Peshwari Sauce",
+   "category": "Main Courses",
+   "serving": "342.0 g",
+   "nutrients": {
+    "calories": 564,
+    "protein": 28.5,
+    "carbs": 44,
+    "fat": 30.5,
+    "saturatedFat": 9.2,
+    "sugar": 6.9,
+    "salt": 3.38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-plant-balls-with-chips",
+   "name": "8 Plant Balls with Chips",
+   "category": "Main Courses",
+   "serving": "373.0 g",
+   "nutrients": {
+    "calories": 589,
+    "protein": 15.7,
+    "carbs": 63.4,
+    "fat": 27.5,
+    "saturatedFat": 4.6,
+    "sugar": 15,
+    "salt": 2.39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-plant-balls-with-chips",
+   "name": "12 Plant Balls with Chips",
+   "category": "Main Courses",
+   "serving": "437.0 g",
+   "nutrients": {
+    "calories": 734,
+    "protein": 20.7,
+    "carbs": 69.9,
+    "fat": 38.1,
+    "saturatedFat": 6.2,
+    "sugar": 16,
+    "salt": 3.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falafel-with-couscous",
+   "name": "Falafel with Couscous",
+   "category": "Main Courses",
+   "serving": "320.0 g",
+   "nutrients": {
+    "calories": 720,
+    "protein": 15.1,
+    "carbs": 49.1,
+    "fat": 48.5,
+    "saturatedFat": 4.9,
+    "sugar": 9.5,
+    "salt": 2.44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-fillet",
+   "name": "Salmon Fillet",
+   "category": "Main Courses",
+   "serving": "350.0 g",
+   "nutrients": {
+    "calories": 718,
+    "protein": 30.9,
+    "carbs": 15.6,
+    "fat": 58.2,
+    "saturatedFat": 21.4,
+    "sugar": 3.9,
+    "salt": 2.58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-with-tomato-sauce",
+   "name": "Pasta with Tomato Sauce",
+   "category": "Main Courses",
+   "serving": "200.0 g",
+   "nutrients": {
+    "calories": 228,
+    "protein": 8.2,
+    "carbs": 42.2,
+    "fat": 2.6,
+    "saturatedFat": 0.6,
+    "sugar": 7.7,
+    "salt": 1.16
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-lasagne",
+   "name": "Vegetable Lasagne",
+   "category": "Main Courses",
+   "serving": "330.0 g",
+   "nutrients": {
+    "calories": 383,
+    "protein": 14.9,
+    "carbs": 49.5,
+    "fat": 12.2,
+    "saturatedFat": 6.3,
+    "sugar": 17.2,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-mix-with-vegetables",
+   "name": "Rice Mix with Vegetables",
+   "category": "Main Courses",
+   "serving": "250.0 g",
+   "nutrients": {
+    "calories": 253,
+    "protein": 6,
+    "carbs": 35,
+    "fat": 9,
+    "saturatedFat": 6.3,
+    "sugar": 5,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-cooked-breakfast",
+   "name": "Small Cooked Breakfast",
+   "category": "Breakfast",
+   "serving": "330.0 g",
+   "nutrients": {
+    "calories": 393,
+    "protein": 23.9,
+    "carbs": 31.5,
+    "fat": 14.7,
+    "saturatedFat": 5.3,
+    "sugar": 7.9,
+    "salt": 2.65
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-vegetarian-breakfast",
+   "name": "Small Vegetarian Breakfast",
+   "category": "Breakfast",
+   "serving": "330.0 g",
+   "nutrients": {
+    "calories": 307,
+    "protein": 16.8,
+    "carbs": 29.2,
+    "fat": 12.5,
+    "saturatedFat": 2,
+    "sugar": 6.3,
+    "salt": 1.82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-cooked-breakfast",
+   "name": "Regular Cooked Breakfast",
+   "category": "Breakfast",
+   "serving": "425.0 g",
+   "nutrients": {
+    "calories": 544,
+    "protein": 32.8,
+    "carbs": 43.4,
+    "fat": 18.6,
+    "saturatedFat": 6.7,
+    "sugar": 8,
+    "salt": 3.63
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-vegetarian-breakfast",
+   "name": "Regular Vegetarian Breakfast",
+   "category": "Breakfast",
+   "serving": "425.0 g",
+   "nutrients": {
+    "calories": 463,
+    "protein": 22.9,
+    "carbs": 43.4,
+    "fat": 20.7,
+    "saturatedFat": 2.7,
+    "sugar": 7.3,
+    "salt": 2.67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-breakfast",
+   "name": "Children's Breakfast",
+   "category": "Breakfast",
+   "serving": "180.0 g",
+   "nutrients": {
+    "calories": 212,
+    "protein": 15.2,
+    "carbs": 12.8,
+    "fat": 9.9,
+    "saturatedFat": 2,
+    "sugar": 3.6,
+    "salt": 1.59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-roll-with-sausages",
+   "name": "Breakfast Roll with Sausages",
+   "category": "Breakfast",
+   "serving": "186.0 g",
+   "nutrients": {
+    "calories": 409,
+    "protein": 19,
+    "carbs": 52,
+    "fat": 14.2,
+    "saturatedFat": 5.8,
+    "sugar": 6.9,
+    "salt": 2.15
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-roll-vegetarian",
+   "name": "Breakfast Roll (Vegetarian)",
+   "category": "Breakfast",
+   "serving": "176.0 g",
+   "nutrients": {
+    "calories": 371,
+    "protein": 17.8,
+    "carbs": 45.4,
+    "fat": 11.8,
+    "saturatedFat": 1.1,
+    "sugar": 4.3,
+    "salt": 1.83
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-with-butter",
+   "name": "Toast with Butter",
+   "category": "Breakfast",
+   "serving": "94.0 g",
+   "nutrients": {
+    "calories": 290,
+    "protein": 7.6,
+    "carbs": 33.8,
+    "fat": 12.9,
+    "saturatedFat": 7.8,
+    "sugar": 1.5,
+    "salt": 0.91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash Brown",
+   "category": "Breakfast",
+   "serving": "50.0 g",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0.9,
+    "carbs": 11.5,
+    "fat": 2.9,
+    "saturatedFat": 0.3,
+    "sugar": 0.5,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms",
+   "category": "Breakfast",
+   "serving": "50.0 g",
+   "nutrients": {
+    "calories": 11,
+    "protein": 1.5,
+    "carbs": 1.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans",
+   "name": "Baked Beans",
+   "category": "Breakfast",
+   "serving": "80.00 g",
+   "nutrients": {
+    "calories": 66,
+    "protein": 3.9,
+    "carbs": 10.3,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 2.9,
+    "salt": 0.43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-pudding",
+   "name": "Black Pudding",
+   "category": "Breakfast",
+   "serving": "50.0 g",
+   "nutrients": {
+    "calories": 173,
+    "protein": 5,
+    "carbs": 7.5,
+    "fat": 13.5,
+    "saturatedFat": 4.7,
+    "sugar": 0.9,
+    "salt": 0.8
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-scone",
+   "name": "Potato Scone",
+   "category": "Breakfast",
+   "serving": "50.00 g",
+   "nutrients": {
+    "calories": 106,
+    "protein": 1.9,
+    "carbs": 22.7,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 0.9,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-dog",
+   "name": "Hot Dog",
+   "category": "Hot Snacks",
+   "serving": "95.0 g",
+   "nutrients": {
+    "calories": 282,
+    "protein": 8.7,
+    "carbs": 25.3,
+    "fat": 15.8,
+    "saturatedFat": 5.4,
+    "sugar": 3.3,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-hot-dog",
+   "name": "Double Hot Dog",
+   "category": "Hot Snacks",
+   "serving": "150.0 g",
+   "nutrients": {
+    "calories": 441,
+    "protein": 13.9,
+    "carbs": 30.1,
+    "fat": 29,
+    "saturatedFat": 10.6,
+    "sugar": 3.8,
+    "salt": 2.7
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "swedish-special-hot-dog",
+   "name": "Swedish Special Hot Dog",
+   "category": "Hot Snacks",
+   "serving": "248.0 g",
+   "nutrients": {
+    "calories": 434,
+    "protein": 11.4,
+    "carbs": 47.3,
+    "fat": 21.2,
+    "saturatedFat": 6.6,
+    "sugar": 4.1,
+    "salt": 2.59
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-hot-dog",
+   "name": "Veggie Hot Dog",
+   "category": "Hot Snacks",
+   "serving": "86.0 g",
+   "nutrients": {
+    "calories": 183,
+    "protein": 7.2,
+    "carbs": 26.6,
+    "fat": 4.7,
+    "saturatedFat": 0.5,
+    "sugar": 3.5,
+    "salt": 1.28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-dog",
+   "name": "Fish Dog",
+   "category": "Hot Snacks",
+   "serving": "130.0 g",
+   "nutrients": {
+    "calories": 332,
+    "protein": 11.3,
+    "carbs": 37.6,
+    "fat": 14.6,
+    "saturatedFat": 1.2,
+    "sugar": 6,
+    "salt": 1.48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-meatballs-with-mashed-potatoes",
+   "name": "4 Meatballs with Mashed Potatoes",
+   "category": "Hot Snacks",
+   "serving": "164.0 g",
+   "nutrients": {
+    "calories": 266,
+    "protein": 9.8,
+    "carbs": 24.5,
+    "fat": 14.1,
+    "saturatedFat": 4.8,
+    "sugar": 10.4,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza",
+   "name": "Pizza",
+   "category": "Hot Snacks",
+   "serving": "120.0 g",
+   "nutrients": {
+    "calories": 277,
+    "protein": 11.8,
+    "carbs": 38.4,
+    "fat": 7.8,
+    "saturatedFat": 4.7,
+    "sugar": 10.1,
+    "salt": 2.25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Hot Snacks",
+   "serving": "150.0 g",
+   "nutrients": {
+    "calories": 203,
+    "protein": 3.8,
+    "carbs": 32.3,
+    "fat": 5.3,
+    "saturatedFat": 0.6,
+    "sugar": 0.6,
+    "salt": 0.15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-meatballs",
+   "name": "Children's Meatballs",
+   "category": "Children's Menu",
+   "serving": "204.0 g",
+   "nutrients": {
+    "calories": 282,
+    "protein": 11,
+    "carbs": 24.3,
+    "fat": 15.1,
+    "saturatedFat": 5.6,
+    "sugar": 7,
+    "salt": 1.48
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-chicken-meatballs",
+   "name": "Children's Chicken Meatballs",
+   "category": "Children's Menu",
+   "serving": "211.0 g",
+   "nutrients": {
+    "calories": 255,
+    "protein": 9.8,
+    "carbs": 29.8,
+    "fat": 10.2,
+    "saturatedFat": 2.8,
+    "sugar": 12.8,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-fish-finger",
+   "name": "Children's Fish Finger",
+   "category": "Children's Menu",
+   "serving": "192.0 g",
+   "nutrients": {
+    "calories": 236,
+    "protein": 10.4,
+    "carbs": 28.3,
+    "fat": 8,
+    "saturatedFat": 0.7,
+    "sugar": 1.5,
+    "salt": 0.94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-pasta-and-tomato-sauce",
+   "name": "Children's Pasta & Tomato Sauce",
+   "category": "Children's Menu",
+   "serving": "150.0 g",
+   "nutrients": {
+    "calories": 198,
+    "protein": 7.5,
+    "carbs": 37.5,
+    "fat": 1.7,
+    "saturatedFat": 0.4,
+    "sugar": 4.3,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-soup",
+   "name": "Mushroom Soup",
+   "category": "Soups",
+   "serving": "200.0 g",
+   "nutrients": {
+    "calories": 94,
+    "protein": 2.2,
+    "carbs": 7.2,
+    "fat": 5.8,
+    "saturatedFat": 2.2,
+    "sugar": 1.4,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salad-bowl",
+   "name": "Salad Bowl",
+   "category": "Salads",
+   "serving": "80.0 g",
+   "nutrients": {
+    "calories": 13,
+    "protein": 0.7,
+    "carbs": 1.8,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 1.6,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-salad",
+   "name": "Pasta Salad",
+   "category": "Salads",
+   "serving": "205.0 g",
+   "nutrients": {
+    "calories": 303,
+    "protein": 10.9,
+    "carbs": 24.2,
+    "fat": 17.2,
+    "saturatedFat": 4.8,
+    "sugar": 3.3,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-salad",
+   "name": "Fruit Salad",
+   "category": "Salads",
+   "serving": "250.0 g",
+   "nutrients": {
+    "calories": 130,
+    "protein": 1.5,
+    "carbs": 34.3,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 25.3,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gravadlax-plate",
+   "name": "Gravadlax Plate",
+   "category": "Cold Plates and Starters",
+   "serving": "120.0 g",
+   "nutrients": {
+    "calories": 266,
+    "protein": 15.7,
+    "carbs": 10.7,
+    "fat": 18,
+    "saturatedFat": 1.7,
+    "sugar": 10.3,
+    "salt": 1.96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-and-mozzarella",
+   "name": "Tomato & Mozzarella",
+   "category": "Cold Plates and Starters",
+   "serving": "152.0 g",
+   "nutrients": {
+    "calories": 289,
+    "protein": 8.2,
+    "carbs": 4.5,
+    "fat": 26.5,
+    "saturatedFat": 7.1,
+    "sugar": 1.8,
+    "salt": 0.45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "marinated-salmon-wrap",
+   "name": "Marinated Salmon Wrap",
+   "category": "Sandwiches and Wraps",
+   "serving": "150.1 g",
+   "nutrients": {
+    "calories": 333,
+    "protein": 14.8,
+    "carbs": 36.5,
+    "fat": 13.9,
+    "saturatedFat": 1.4,
+    "sugar": 11,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shrimp-and-egg-sandwich",
+   "name": "Shrimp & Egg Sandwich",
+   "category": "Sandwiches and Wraps",
+   "serving": "285.1 g",
+   "nutrients": {
+    "calories": 493,
+    "protein": 29.7,
+    "carbs": 24.4,
+    "fat": 30.3,
+    "saturatedFat": 4.9,
+    "sugar": 6.6,
+    "salt": 1.74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Side Dishes",
+   "serving": "150.0 g",
+   "nutrients": {
+    "calories": 203,
+    "protein": 3.8,
+    "carbs": 32.3,
+    "fat": 5.3,
+    "saturatedFat": 0.6,
+    "sugar": 0.6,
+    "salt": 0.15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mashed-potatoes-plant-based",
+   "name": "Mashed Potatoes (plant based)",
+   "category": "Side Dishes",
+   "serving": "150.0 g",
+   "nutrients": {
+    "calories": 135,
+    "protein": 2.6,
+    "carbs": 20.9,
+    "fat": 4.1,
+    "saturatedFat": 0.4,
+    "sugar": 0.5,
+    "salt": 0.95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cous-cous-with-vegetables",
+   "name": "Cous Cous with Vegetables",
+   "category": "Side Dishes",
+   "serving": "140.0 g",
+   "nutrients": {
+    "calories": 175,
+    "protein": 5.9,
+    "carbs": 24.4,
+    "fat": 5.2,
+    "saturatedFat": 0.7,
+    "sugar": 5.2,
+    "salt": 0.83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-medallion",
+   "name": "Vegetable Medallion",
+   "category": "Side Dishes",
+   "serving": "80.0 g",
+   "nutrients": {
+    "calories": 136,
+    "protein": 2.5,
+    "carbs": 10.4,
+    "fat": 8.8,
+    "saturatedFat": 5.8,
+    "sugar": 1.1,
+    "salt": 0.54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun",
+   "name": "Cinnamon Bun",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "90.0 g",
+   "nutrients": {
+    "calories": 278,
+    "protein": 5.1,
+    "carbs": 43.9,
+    "fat": 8.6,
+    "saturatedFat": 4.6,
+    "sugar": 14.9,
+    "salt": 0.31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-bun",
+   "name": "Chocolate Bun",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "140.0 g",
+   "nutrients": {
+    "calories": 522,
+    "protein": 11.9,
+    "carbs": 74.2,
+    "fat": 19.6,
+    "saturatedFat": 10.5,
+    "sugar": 32.2,
+    "salt": 1.16
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sugar-ring-doughnut",
+   "name": "Sugar Ring Doughnut",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "50.0 g",
+   "nutrients": {
+    "calories": 202,
+    "protein": 3.1,
+    "carbs": 23,
+    "fat": 10.5,
+    "saturatedFat": 4.5,
+    "sugar": 7.5,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-ring-doughnut",
+   "name": "Chocolate Ring Doughnut",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "56.0 g",
+   "nutrients": {
+    "calories": 250,
+    "protein": 4.3,
+    "carbs": 24.6,
+    "fat": 14.6,
+    "saturatedFat": 7.8,
+    "sugar": 7.8,
+    "salt": 0.73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin",
+   "name": "Blueberry Muffin",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "120.0 g",
+   "nutrients": {
+    "calories": 462,
+    "protein": 5.5,
+    "carbs": 57.6,
+    "fat": 22.8,
+    "saturatedFat": 3.1,
+    "sugar": 33.6,
+    "salt": 0.42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-muffin",
+   "name": "Chocolate Muffin",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "120.0 g",
+   "nutrients": {
+    "calories": 532,
+    "protein": 6.8,
+    "carbs": 61.2,
+    "fat": 28.8,
+    "saturatedFat": 7.2,
+    "sugar": 40.8,
+    "salt": 0.47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-muffin",
+   "name": "Vanilla Muffin",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "120.0 g",
+   "nutrients": {
+    "calories": 515,
+    "protein": 6.4,
+    "carbs": 62.4,
+    "fat": 26.4,
+    "saturatedFat": 3.2,
+    "sugar": 36,
+    "salt": 0.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant-plant-based",
+   "name": "Croissant (plant based)",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "60.0 g",
+   "nutrients": {
+    "calories": 216,
+    "protein": 3.6,
+    "carbs": 23.4,
+    "fat": 12,
+    "saturatedFat": 5.5,
+    "sugar": 3.3,
+    "salt": 0.52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "danish-pastry",
+   "name": "Danish Pastry",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "98.0 g",
+   "nutrients": {
+    "calories": 328,
+    "protein": 4.2,
+    "carbs": 30.4,
+    "fat": 20.5,
+    "saturatedFat": 8.8,
+    "sugar": 10.5,
+    "salt": 0.35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-brownie",
+   "name": "Chocolate Brownie",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "69.0 g",
+   "nutrients": {
+    "calories": 308,
+    "protein": 4,
+    "carbs": 36.6,
+    "fat": 15.9,
+    "saturatedFat": 9,
+    "sugar": 21.4,
+    "salt": 0.36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "daim-cake",
+   "name": "Daim Cake",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "71.40 g",
+   "nutrients": {
+    "calories": 343,
+    "protein": 7.1,
+    "carbs": 25,
+    "fat": 23.6,
+    "saturatedFat": 9.1,
+    "sugar": 24.4,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gooey-chocolate-cake",
+   "name": "Gooey Chocolate Cake",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "57.0 g",
+   "nutrients": {
+    "calories": 217,
+    "protein": 2.3,
+    "carbs": 33.7,
+    "fat": 7.7,
+    "saturatedFat": 1.3,
+    "sugar": 22.5,
+    "salt": 0.19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-almond-cake",
+   "name": "Lemon Almond Cake",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "70.0 g",
+   "nutrients": {
+    "calories": 301,
+    "protein": 6.1,
+    "carbs": 23.7,
+    "fat": 20.2,
+    "saturatedFat": 9.4,
+    "sugar": 22.1,
+    "salt": 0.19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mazarin",
+   "name": "Mazarin",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "55.0 g",
+   "nutrients": {
+    "calories": 237,
+    "protein": 2.9,
+    "carbs": 29.2,
+    "fat": 11.6,
+    "saturatedFat": 4.3,
+    "sugar": 20.4,
+    "salt": 0.25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "princess-cake",
+   "name": "Princess Cake",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "80.0 g",
+   "nutrients": {
+    "calories": 266,
+    "protein": 3.1,
+    "carbs": 34.4,
+    "fat": 12.8,
+    "saturatedFat": 5.6,
+    "sugar": 27.8,
+    "salt": 0.18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "swedish-apple-cake",
+   "name": "Swedish Apple Cake",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "93.0 g",
+   "nutrients": {
+    "calories": 310,
+    "protein": 5.3,
+    "carbs": 33.5,
+    "fat": 16.7,
+    "saturatedFat": 6.9,
+    "sugar": 20.5,
+    "salt": 0.16
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-pie",
+   "name": "Apple Pie",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "220.0 g",
+   "nutrients": {
+    "calories": 438,
+    "protein": 4.8,
+    "carbs": 70.2,
+    "fat": 14.3,
+    "saturatedFat": 7.9,
+    "sugar": 40.7,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "110.0 g",
+   "nutrients": {
+    "calories": 263,
+    "protein": 3.2,
+    "carbs": 38.5,
+    "fat": 10.3,
+    "saturatedFat": 8.1,
+    "sugar": 30.8,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-with-berries-and-meringue-pieces",
+   "name": "Cheesecake with Berries & Meringue Pieces",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "107.0 g",
+   "nutrients": {
+    "calories": 296,
+    "protein": 5.6,
+    "carbs": 40.7,
+    "fat": 12.2,
+    "saturatedFat": 5.8,
+    "sugar": 25,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-with-blueberries-and-raspberries",
+   "name": "Cheesecake with Blueberries & Raspberries",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "125.0 g",
+   "nutrients": {
+    "calories": 386,
+    "protein": 5.5,
+    "carbs": 37.5,
+    "fat": 23.4,
+    "saturatedFat": 12.6,
+    "sugar": 24.1,
+    "salt": 0.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-with-strawberries",
+   "name": "Cheesecake with Strawberries",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "108.0 g",
+   "nutrients": {
+    "calories": 266,
+    "protein": 3.7,
+    "carbs": 29.2,
+    "fat": 14.9,
+    "saturatedFat": 7.7,
+    "sugar": 22.6,
+    "salt": 0.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-ice-cream",
+   "name": "Soft Ice Cream",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "70.0 g",
+   "nutrients": {
+    "calories": 84,
+    "protein": 2.4,
+    "carbs": 10.8,
+    "fat": 3.5,
+    "saturatedFat": 2.3,
+    "sugar": 10.8,
+    "salt": 0.04
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-ice-cream-with-kexchoklad",
+   "name": "Soft Ice Cream with KEXCHOKLAD",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "82.0 g",
+   "nutrients": {
+    "calories": 148,
+    "protein": 3.6,
+    "carbs": 18.6,
+    "fat": 6.6,
+    "saturatedFat": 4.1,
+    "sugar": 16.1,
+    "salt": 0.09
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-soft-ice-plant-based",
+   "name": "Cinnamon Bun Soft Ice (plant based)",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "70.0 g",
+   "nutrients": {
+    "calories": 101,
+    "protein": 0.3,
+    "carbs": 16.4,
+    "fat": 3.7,
+    "saturatedFat": 3.1,
+    "sugar": 9.2,
+    "salt": 0.13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-soft-ice-plant-based",
+   "name": "Strawberry Soft Ice (plant based)",
+   "category": "Pastries, Desserts and Cookies",
+   "serving": "80.00 g",
+   "nutrients": {
+    "calories": 79,
+    "protein": 0.3,
+    "carbs": 19,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 18.2,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-extra-meatballs",
+   "name": "4 Extra Meatballs",
+   "category": "Add-ons",
+   "serving": "64.0 g",
+   "nutrients": {
+    "calories": 156,
+    "protein": 8.5,
+    "carbs": 3.4,
+    "fat": 12,
+    "saturatedFat": 4.6,
+    "sugar": 0.4,
+    "salt": 0.82
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-extra-chicken-meatballs",
+   "name": "4 Extra Chicken Meatballs",
+   "category": "Add-ons",
+   "serving": "56.0 g",
+   "nutrients": {
+    "calories": 105,
+    "protein": 7.3,
+    "carbs": 2.8,
+    "fat": 7.2,
+    "saturatedFat": 1.8,
+    "sugar": 0.3,
+    "salt": 0.84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-extra-plant-balls",
+   "name": "4 Extra Plant Balls",
+   "category": "Add-ons",
+   "serving": "64.0 g",
+   "nutrients": {
+    "calories": 146,
+    "protein": 5.1,
+    "carbs": 6.5,
+    "fat": 10.6,
+    "saturatedFat": 1.6,
+    "sugar": 1,
+    "salt": 1.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4-extra-falafel",
+   "name": "4 Extra Falafel",
+   "category": "Add-ons",
+   "serving": "64.0 g",
+   "nutrients": {
+    "calories": 129,
+    "protein": 4.3,
+    "carbs": 11.5,
+    "fat": 6.5,
+    "saturatedFat": 1,
+    "sugar": 1.5,
+    "salt": 0.64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-coriander-naan-bread",
+   "name": "Garlic & Coriander Naan Bread",
+   "category": "Add-ons",
+   "serving": "100.0 g",
+   "nutrients": {
+    "calories": 251,
+    "protein": 8.1,
+    "carbs": 45.3,
+    "fat": 4.5,
+    "saturatedFat": 0.6,
+    "sugar": 2.8,
+    "salt": 1.08
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bread-roll-with-seeds",
+   "name": "Bread Roll with Seeds",
+   "category": "Add-ons",
+   "serving": "80.0 g",
+   "nutrients": {
+    "calories": 227,
+    "protein": 7.7,
+    "carbs": 34.4,
+    "fat": 5.5,
+    "saturatedFat": 0.7,
+    "sugar": 2.3,
+    "salt": 0.88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kaiser-bread-roll",
+   "name": "Kaiser Bread Roll",
+   "category": "Add-ons",
+   "serving": "65.0 g",
+   "nutrients": {
+    "calories": 156,
+    "protein": 4.5,
+    "carbs": 31.9,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 1.8,
+    "salt": 0.72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Add-ons",
+   "serving": "60.0 g",
+   "nutrients": {
+    "calories": 199,
+    "protein": 4.4,
+    "carbs": 22,
+    "fat": 10.1,
+    "saturatedFat": 5,
+    "sugar": 2,
+    "salt": 0.49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings-3",
+   "name": "Onion Rings (3)",
+   "category": "Add-ons",
+   "serving": "35.0 g",
+   "nutrients": {
+    "calories": 117,
+    "protein": 1.4,
+    "carbs": 11.2,
+    "fat": 7.3,
+    "saturatedFat": 0.6,
+    "sugar": 1,
+    "salt": 0.33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peas",
+   "name": "Peas",
+   "category": "Add-ons",
+   "serving": "50.0 g",
+   "nutrients": {
+    "calories": 33,
+    "protein": 2,
+    "carbs": 5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-portion",
+   "name": "Butter Portion",
+   "category": "Add-ons",
+   "serving": "7.0 g",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 5.7,
+    "saturatedFat": 3.7,
+    "sugar": 0.1,
+    "salt": 0.12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunflower-spread-portion",
+   "name": "Sunflower Spread Portion",
+   "category": "Add-ons",
+   "serving": "10.0 g",
+   "nutrients": {
+    "calories": 62,
+    "protein": 0.1,
+    "carbs": 0.1,
+    "fat": 7,
+    "saturatedFat": 1.7,
+    "sugar": 0.1,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whipped-cream",
+   "name": "Whipped Cream",
+   "category": "Add-ons",
+   "serving": "25.00 g",
+   "nutrients": {
+    "calories": 82,
+    "protein": 0.7,
+    "carbs": 1,
+    "fat": 8.4,
+    "saturatedFat": 7.2,
+    "sugar": 1,
+    "salt": 0.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-flake",
+   "name": "Chocolate Flake",
+   "category": "Add-ons",
+   "serving": "8.00 g",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.7,
+    "carbs": 4.5,
+    "fat": 2.5,
+    "saturatedFat": 1.5,
+    "sugar": 4.4,
+    "salt": 0.06
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-chutney",
+   "name": "Mango Chutney",
+   "category": "Add-ons",
+   "serving": "30.0 g",
+   "nutrients": {
+    "calories": 76,
+    "protein": 0.2,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 18,
+    "salt": 0.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-sauce-portion-and-condiments",
+   "name": "Cream Sauce Portion & Condiments",
+   "category": "Add-ons",
+   "serving": "225.0 g",
+   "nutrients": {
+    "calories": 639,
+    "protein": 11.7,
+    "carbs": 80.1,
+    "fat": 32.2,
+    "saturatedFat": 13.3,
+    "sugar": 29.8,
+    "salt": 11.08
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-topping-for-hot-dog",
+   "name": "Curry Topping for Hot Dog",
+   "category": "Add-ons",
+   "serving": "40.0 g",
+   "nutrients": {
+    "calories": 71,
+    "protein": 1.5,
+    "carbs": 6.3,
+    "fat": 4.3,
+    "saturatedFat": 1.8,
+    "sugar": 4,
+    "salt": 0.52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-onions-hot-dog-topping",
+   "name": "Crispy Onions (hot dog topping)",
+   "category": "Add-ons",
+   "serving": "3.0 g",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0.2,
+    "carbs": 1.1,
+    "fat": 1.3,
+    "saturatedFat": 0.7,
+    "sugar": 0.3,
+    "salt": 0.05
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickled-red-cabbage-hot-dog-topping",
+   "name": "Pickled Red Cabbage (hot dog topping)",
+   "category": "Add-ons",
+   "serving": "8.00 g",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.1,
+    "carbs": 0.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.6,
+    "salt": 0.07
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gherkins-hot-dog-topping",
+   "name": "Gherkins (hot dog topping)",
+   "category": "Add-ons",
+   "serving": "15.0 g",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.1,
+    "carbs": 0.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.7,
+    "salt": 0.26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "laskande-apple-sparkling-drink",
+   "name": "Läskande Apple Sparkling Drink",
+   "category": "Cold Beverages",
+   "serving": "284.5 g",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.1,
+    "carbs": 12.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 11.8,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "laskande-blackcurrant-soft-drink",
+   "name": "Läskande Blackcurrant Soft Drink",
+   "category": "Cold Beverages",
+   "serving": "284.1 g",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.2,
+    "carbs": 13,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.9,
+    "salt": 0.09
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "laskande-cola-sugar-free-sparkling-drink",
+   "name": "Läskande Cola Sugar Free Sparkling Drink",
+   "category": "Cold Beverages",
+   "serving": "250.00 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "laskande-lemonade-sparkling-drink",
+   "name": "Läskande Lemonade Sparkling Drink",
+   "category": "Cold Beverages",
+   "serving": "284.4 g",
+   "nutrients": {
+    "calories": 54,
+    "protein": 0,
+    "carbs": 12.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.6,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "laskande-lingonberry-soft-drink",
+   "name": "Läskande Lingonberry Soft Drink",
+   "category": "Cold Beverages",
+   "serving": "285.1 g",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.1,
+    "carbs": 13.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "laskande-raspberry-sparkling-drink",
+   "name": "Läskande Raspberry Sparkling Drink",
+   "category": "Cold Beverages",
+   "serving": "284.6 g",
+   "nutrients": {
+    "calories": 54,
+    "protein": 0,
+    "carbs": 13,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkshake-with-chocolate-syrup",
+   "name": "Milkshake with Chocolate Syrup",
+   "category": "Cold Beverages",
+   "serving": "175.00 g",
+   "nutrients": {
+    "calories": 205,
+    "protein": 4.8,
+    "carbs": 33.5,
+    "fat": 5.8,
+    "saturatedFat": 3.9,
+    "sugar": 32,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkshake-with-strawberry-syrup",
+   "name": "Milkshake with Strawberry Syrup",
+   "category": "Cold Beverages",
+   "serving": "175.00 g",
+   "nutrients": {
+    "calories": 205,
+    "protein": 4.6,
+    "carbs": 33.7,
+    "fat": 5.8,
+    "saturatedFat": 3.8,
+    "sugar": 32.5,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milkshake-with-banana-syrup",
+   "name": "Milkshake with Banana Syrup",
+   "category": "Cold Beverages",
+   "serving": "175.00 g",
+   "nutrients": {
+    "calories": 205,
+    "protein": 4.6,
+    "carbs": 33.4,
+    "fat": 5.8,
+    "saturatedFat": 3.8,
+    "sugar": 32.3,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-coffee",
+   "name": "Black Coffee",
+   "category": "Hot Beverages",
+   "serving": "200.0 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.01
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-coffee-with-oat-milk",
+   "name": "Black Coffee with Oat Milk",
+   "category": "Hot Beverages",
+   "serving": "220.7 g",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.2,
+    "carbs": 1.5,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 0.9,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Hot Beverages",
+   "serving": "200.0 g",
+   "nutrients": {
+    "calories": 78,
+    "protein": 6.5,
+    "carbs": 8.5,
+    "fat": 2.8,
+    "saturatedFat": 1.7,
+    "sugar": 8.5,
+    "salt": 0.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Hot Beverages",
+   "serving": "200.0 g",
+   "nutrients": {
+    "calories": 78,
+    "protein": 6.5,
+    "carbs": 8.5,
+    "fat": 2.8,
+    "saturatedFat": 1.7,
+    "sugar": 8.5,
+    "salt": 0.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot Beverages",
+   "serving": "55.0 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Hot Beverages",
+   "serving": "221.0 g",
+   "nutrients": {
+    "calories": 137,
+    "protein": 2.4,
+    "carbs": 28.1,
+    "fat": 1.7,
+    "saturatedFat": 1.5,
+    "sugar": 27.1,
+    "salt": 0.52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-with-milk",
+   "name": "Tea with Milk",
+   "category": "Hot Beverages",
+   "serving": "202.5 g",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.7,
+    "carbs": 0.9,
+    "fat": 0.3,
+    "saturatedFat": 0.2,
+    "sugar": 0.9,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-with-oat-milk",
+   "name": "Tea with Oat Milk",
+   "category": "Hot Beverages",
+   "serving": "203.2 g",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.2,
+    "carbs": 1.5,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 0.9,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

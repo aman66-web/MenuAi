@@ -1,0 +1,3072 @@
+{
+ "schemaVersion": 1,
+ "id": "banana-tree",
+ "name": "Banana Tree",
+ "cuisine": "Southeast Asian",
+ "builderType": "standard",
+ "aliases": [
+  "banana tree",
+  "the banana tree",
+  "banana tree restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Banana Tree nutrition information (menus.tenkites.com/thebigtg/bananatree04: all day, express lunch, bottomless bowls, bottomless brunch, kids, desserts and drinks menus, \"Nutrition (per portion)\", pages dated 6 October 2026)",
+  "url": "https://menus.tenkites.com/thebigtg/bananatree04",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are per portion as printed. Options offered on top of a dish (rice, sauces, extra protein) are listed separately under Options & add-ons.",
+ "categories": [
+  "For the table",
+  "To share",
+  "Small plates",
+  "Laksa",
+  "Options & add-ons",
+  "Ramen",
+  "Wok tossed noodles",
+  "Regional curries",
+  "More to explore",
+  "Sides and extras",
+  "Express lunch mains",
+  "Drinks",
+  "Bottomless bowls: starters",
+  "Bottomless bowls: mains",
+  "Bottomless bowls: extras",
+  "Bottomless brunch mains",
+  "Desserts",
+  "Kids mains",
+  "Kids desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "prawn-cracker-basket",
+   "name": "Prawn Cracker Basket",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 361,
+    "protein": 7.6,
+    "carbs": 70.4,
+    "fat": 5.2,
+    "saturatedFat": 0.6,
+    "sugar": 20,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-crackers",
+   "name": "Spiced Crackers",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 216,
+    "protein": 1.5,
+    "carbs": 31,
+    "fat": 9.8,
+    "saturatedFat": 0.8,
+    "sugar": 17.1,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame",
+   "name": "Edamame",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 17.8,
+    "carbs": 18.3,
+    "fat": 5.1,
+    "saturatedFat": 0.8,
+    "sugar": 1.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame-gluten-free",
+   "name": "Edamame (Gluten-Free)",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 174,
+    "protein": 17.7,
+    "carbs": 18,
+    "fat": 5,
+    "saturatedFat": 0.8,
+    "sugar": 1.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "duck-pancakes",
+   "name": "Duck Pancakes",
+   "category": "To share",
+   "serving": "",
+   "nutrients": {
+    "calories": 981,
+    "protein": 64.3,
+    "carbs": 69.1,
+    "fat": 49.4,
+    "saturatedFat": 11.7,
+    "sugar": 35.6,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweetcorn-fritter-balls-with-spicy-mayo",
+   "name": "Sweetcorn Fritter Balls - With Spicy Mayo",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 634,
+    "protein": 4.9,
+    "carbs": 32.9,
+    "fat": 53.4,
+    "saturatedFat": 4.1,
+    "sugar": 6.7,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweetcorn-fritter-balls-with-sweet-chilli-sauce",
+   "name": "Sweetcorn Fritter Balls - With Sweet Chilli Sauce",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 589,
+    "protein": 5.3,
+    "carbs": 55.9,
+    "fat": 38.3,
+    "saturatedFat": 3,
+    "sugar": 28,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-calamari",
+   "name": "Thai Calamari",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 703,
+    "protein": 19.4,
+    "carbs": 46.5,
+    "fat": 49.6,
+    "saturatedFat": 6.4,
+    "sugar": 27.9,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-korean-bbq",
+   "name": "Wings - Korean BBQ",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 911,
+    "protein": 54.3,
+    "carbs": 34.5,
+    "fat": 62.1,
+    "saturatedFat": 11.5,
+    "sugar": 30,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-firecracker",
+   "name": "Wings - Firecracker",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 977,
+    "protein": 54.7,
+    "carbs": 45,
+    "fat": 65.7,
+    "saturatedFat": 11.8,
+    "sugar": 38.2,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "malaysian-satay-skewers-grilled-chicken",
+   "name": "Malaysian Satay Skewers - Grilled Chicken",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 359,
+    "protein": 35.2,
+    "carbs": 23.3,
+    "fat": 15.5,
+    "saturatedFat": 2.7,
+    "sugar": 16,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "malaysian-satay-skewers-vegan-satay",
+   "name": "Malaysian Satay Skewers - Vegan Satay",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 403,
+    "protein": 21.4,
+    "carbs": 30,
+    "fat": 20.1,
+    "saturatedFat": 5.9,
+    "sugar": 22.8,
+    "salt": 3.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mekong-prawns",
+   "name": "Mekong Prawns",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "protein": 11.6,
+    "carbs": 34,
+    "fat": 32.8,
+    "saturatedFat": 2.7,
+    "sugar": 15.2,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bang-bang-broccoli",
+   "name": "Bang Bang Broccoli",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 592,
+    "protein": 9.5,
+    "carbs": 64.4,
+    "fat": 32.7,
+    "saturatedFat": 2.9,
+    "sugar": 36.2,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vietnamese-spring-rolls",
+   "name": "Vietnamese Spring Rolls",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 595,
+    "protein": 6.6,
+    "carbs": 63.3,
+    "fat": 33.7,
+    "saturatedFat": 3.4,
+    "sugar": 27.7,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spring-rolls-shredded-duck",
+   "name": "Spring Rolls - Shredded Duck",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 560,
+    "protein": 11,
+    "carbs": 42.6,
+    "fat": 38.5,
+    "saturatedFat": 4.6,
+    "sugar": 18.5,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-chicken-dumplings",
+   "name": "Steamed Chicken Dumplings",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 606,
+    "protein": 13.7,
+    "carbs": 50,
+    "fat": 39,
+    "saturatedFat": 4.5,
+    "sugar": 17,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "singapore-laksa",
+   "name": "Singapore Laksa",
+   "category": "Laksa",
+   "serving": "",
+   "nutrients": {
+    "calories": 609,
+    "protein": 15.4,
+    "carbs": 66.5,
+    "fat": 30.6,
+    "saturatedFat": 17.6,
+    "sugar": 14.3,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken",
+   "name": "Grilled Chicken",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 170,
+    "protein": 20.2,
+    "carbs": 3.5,
+    "fat": 8.4,
+    "saturatedFat": 1,
+    "sugar": 0.9,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawns",
+   "name": "Prawns",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 21.7,
+    "carbs": 1.8,
+    "fat": 1,
+    "saturatedFat": 0.4,
+    "sugar": 0.3,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu",
+   "name": "Tofu",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 66,
+    "protein": 4.7,
+    "carbs": 0.9,
+    "fat": 4.7,
+    "saturatedFat": 0.7,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stir-fried-broccoli",
+   "name": "Stir Fried Broccoli",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 7.3,
+    "carbs": 16.6,
+    "fat": 6.7,
+    "saturatedFat": 1,
+    "sugar": 13.3,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-drug-egg",
+   "name": "Korean Drug Egg",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 188,
+    "protein": 9.1,
+    "carbs": 12.8,
+    "fat": 11.4,
+    "saturatedFat": 2.3,
+    "sugar": 11.2,
+    "salt": 5.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-jasmine-rice",
+   "name": "Steamed Jasmine Rice",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 273,
+    "protein": 5,
+    "carbs": 64.7,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-katsu-sauce",
+   "name": "Extra Katsu Sauce",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 70,
+    "protein": 1,
+    "carbs": 6.8,
+    "fat": 4.1,
+    "saturatedFat": 2.4,
+    "sugar": 1.1,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-chicken-fillet",
+   "name": "Extra Chicken Fillet",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 456,
+    "protein": 13.4,
+    "carbs": 14.3,
+    "fat": 37.5,
+    "saturatedFat": 3.2,
+    "sugar": 1,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-veggie-fillet",
+   "name": "Extra Veggie Fillet",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 483,
+    "protein": 8.2,
+    "carbs": 14.6,
+    "fat": 42.8,
+    "saturatedFat": 3.3,
+    "sugar": 0.8,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soy-noodles",
+   "name": "Soy Noodles",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 276,
+    "protein": 10.2,
+    "carbs": 49.5,
+    "fat": 1.9,
+    "saturatedFat": 0.3,
+    "sugar": 8.4,
+    "salt": 4.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-fried-rice-kids-menu",
+   "name": "Egg Fried Rice (kids menu)",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 188,
+    "protein": 4.4,
+    "carbs": 27.9,
+    "fat": 5.4,
+    "saturatedFat": 0.8,
+    "sugar": 2,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-kids-menu",
+   "name": "Fries (kids menu)",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 504,
+    "protein": 3.7,
+    "carbs": 37.5,
+    "fat": 36.7,
+    "saturatedFat": 3,
+    "sugar": 1.4,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ketchup",
+   "name": "Ketchup",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 31,
+    "protein": 0,
+    "carbs": 7.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7.1,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour",
+   "name": "Sweet & Sour",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0.7,
+    "carbs": 14.9,
+    "fat": 0.4,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-lime-sauce",
+   "name": "Sweet Lime Sauce",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 1,
+    "carbs": 10.7,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 8.3,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine-rice",
+   "name": "Jasmine Rice",
+   "category": "Options & add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 179,
+    "protein": 3.2,
+    "carbs": 37.8,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ramen-chicken-gyozas",
+   "name": "Ramen - Chicken Gyozas",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 475,
+    "protein": 24.1,
+    "carbs": 63.5,
+    "fat": 11.9,
+    "saturatedFat": 2.8,
+    "sugar": 7.3,
+    "salt": 8.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ramen-spiced-chicken",
+   "name": "Ramen - Spiced Chicken",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 541,
+    "protein": 42.7,
+    "carbs": 49.6,
+    "fat": 17.1,
+    "saturatedFat": 2.8,
+    "sugar": 7.2,
+    "salt": 8.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ramen-steak",
+   "name": "Ramen - Steak",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 638,
+    "protein": 53.8,
+    "carbs": 46.4,
+    "fat": 24.2,
+    "saturatedFat": 8.9,
+    "sugar": 6.4,
+    "salt": 11.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-chicken",
+   "name": "Pad Thai - Chicken",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1122,
+    "protein": 59.2,
+    "carbs": 112.8,
+    "fat": 48.3,
+    "saturatedFat": 7,
+    "sugar": 29.1,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-prawns",
+   "name": "Pad Thai - Prawns",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1051,
+    "protein": 45,
+    "carbs": 112.3,
+    "fat": 47.1,
+    "saturatedFat": 6.8,
+    "sugar": 28.3,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "phad-thai-with-chicken-and-prawns",
+   "name": "Phad Thai with Chicken and Prawns",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1174,
+    "protein": 70.1,
+    "carbs": 113.7,
+    "fat": 48.9,
+    "saturatedFat": 7.2,
+    "sugar": 29.3,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "phad-thai-with-steak",
+   "name": "Phad Thai with Steak",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1384,
+    "protein": 60.7,
+    "carbs": 124.6,
+    "fat": 72,
+    "saturatedFat": 14.4,
+    "sugar": 40.9,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-duck",
+   "name": "Pad Thai - Duck",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1338,
+    "protein": 50.6,
+    "carbs": 111.7,
+    "fat": 76.5,
+    "saturatedFat": 12,
+    "sugar": 28.7,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-tofu",
+   "name": "Pad Thai - Tofu",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 985,
+    "protein": 25,
+    "carbs": 107,
+    "fat": 50.5,
+    "saturatedFat": 6.2,
+    "sugar": 30.1,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-thistm-isnt-chicken-vegan-bites",
+   "name": "Pad Thai - THIS™ ISN’T CHICKEN Vegan Bites",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 995,
+    "protein": 37.7,
+    "carbs": 107.3,
+    "fat": 44.6,
+    "saturatedFat": 5.7,
+    "sugar": 30.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-chicken-gluten-free",
+   "name": "Pad Thai - Chicken (Gluten-Free)",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1059,
+    "protein": 57.7,
+    "carbs": 101.3,
+    "fat": 47.2,
+    "saturatedFat": 6.8,
+    "sugar": 28,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-prawns-gluten-free",
+   "name": "Pad Thai - Prawns (Gluten-Free)",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 988,
+    "protein": 43.4,
+    "carbs": 100.8,
+    "fat": 46,
+    "saturatedFat": 6.6,
+    "sugar": 27.2,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-chicken-and-prawns-gluten-free",
+   "name": "Pad Thai - Chicken & Prawns (Gluten-Free)",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1111,
+    "protein": 68.5,
+    "carbs": 102.2,
+    "fat": 47.8,
+    "saturatedFat": 7,
+    "sugar": 28.2,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-steak-gluten-free",
+   "name": "Pad Thai - Steak (Gluten-Free)",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1321,
+    "protein": 59.1,
+    "carbs": 113.1,
+    "fat": 70.9,
+    "saturatedFat": 14.3,
+    "sugar": 39.8,
+    "salt": 1.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-tofu-gluten-free",
+   "name": "Pad Thai - Tofu (Gluten-Free)",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 960,
+    "protein": 25,
+    "carbs": 104.5,
+    "fat": 48.8,
+    "saturatedFat": 6.1,
+    "sugar": 29.9,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pad-thai-thistm-isnt-chicken-vegan-bites-gluten-free",
+   "name": "Pad Thai - THIS™ ISN’T CHICKEN Vegan Bites (Gluten-Free)",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 960,
+    "protein": 37.5,
+    "carbs": 103.7,
+    "fat": 42.4,
+    "saturatedFat": 5.5,
+    "sugar": 30.1,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-soba-noodles-steak",
+   "name": "Teriyaki Soba Noodles - Steak",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 952,
+    "protein": 52.1,
+    "carbs": 101.1,
+    "fat": 37.1,
+    "saturatedFat": 9.4,
+    "sugar": 41.9,
+    "salt": 6.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-soba-noodles-duck",
+   "name": "Teriyaki Soba Noodles - Duck",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1376,
+    "protein": 72.7,
+    "carbs": 114,
+    "fat": 68,
+    "saturatedFat": 13.5,
+    "sugar": 54.8,
+    "salt": 10.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-soba-noodles-salmon",
+   "name": "Teriyaki Soba Noodles - Salmon",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 986,
+    "protein": 45.2,
+    "carbs": 109.5,
+    "fat": 39.7,
+    "saturatedFat": 6.5,
+    "sugar": 43.4,
+    "salt": 6.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-tree-spiced-noodles",
+   "name": "Banana Tree Spiced Noodles",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1134,
+    "protein": 68.8,
+    "carbs": 107.9,
+    "fat": 46.3,
+    "saturatedFat": 6,
+    "sugar": 43,
+    "salt": 5.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-singapore-noodles",
+   "name": "Chicken Singapore Noodles",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 902,
+    "protein": 56.9,
+    "carbs": 93.2,
+    "fat": 32.8,
+    "saturatedFat": 4.5,
+    "sugar": 15.4,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "drunken-monks-noodles",
+   "name": "Drunken Monks Noodles",
+   "category": "Wok tossed noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 725,
+    "protein": 34.6,
+    "carbs": 91.4,
+    "fat": 22.4,
+    "saturatedFat": 2.8,
+    "sugar": 14.3,
+    "salt": 4.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-curry-chicken-fillet",
+   "name": "Katsu Curry - Chicken Fillet",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 809,
+    "protein": 33.5,
+    "carbs": 44.9,
+    "fat": 53.4,
+    "saturatedFat": 8.5,
+    "sugar": 4.2,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-curry-vegan-fillet",
+   "name": "Katsu Curry - Vegan Fillet",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 753,
+    "protein": 18.8,
+    "carbs": 37.9,
+    "fat": 57.3,
+    "saturatedFat": 8.1,
+    "sugar": 3.4,
+    "salt": 4.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-legendary-beef-rendang-beef",
+   "name": "The Legendary Beef Rendang - Beef",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 681,
+    "protein": 47.9,
+    "carbs": 35,
+    "fat": 38.4,
+    "saturatedFat": 23.1,
+    "sugar": 13.6,
+    "salt": 2.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-legendary-beef-rendang-beef-gluten-free",
+   "name": "The Legendary Beef Rendang - Beef (Gluten-Free)",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 595,
+    "protein": 45.9,
+    "carbs": 19.1,
+    "fat": 37.1,
+    "saturatedFat": 22.9,
+    "sugar": 9,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-massaman-curry-chicken",
+   "name": "Thai Massaman Curry - Chicken",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 581,
+    "protein": 53.9,
+    "carbs": 33.9,
+    "fat": 25,
+    "saturatedFat": 15.1,
+    "sugar": 15.8,
+    "salt": 4.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-massaman-curry-chicken-gluten-free",
+   "name": "Thai Massaman Curry - Chicken (Gluten-Free)",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 629,
+    "protein": 51.8,
+    "carbs": 19.8,
+    "fat": 37.6,
+    "saturatedFat": 15.9,
+    "sugar": 12.1,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-massaman-curry-beef",
+   "name": "Thai Massaman Curry - Beef",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 833,
+    "protein": 49.6,
+    "carbs": 34.7,
+    "fat": 54.9,
+    "saturatedFat": 22.2,
+    "sugar": 16.4,
+    "salt": 4.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-massaman-curry-beef-gluten-free",
+   "name": "Thai Massaman Curry - Beef (Gluten-free)",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 746,
+    "protein": 47.5,
+    "carbs": 20.6,
+    "fat": 52.5,
+    "saturatedFat": 21.9,
+    "sugar": 12.8,
+    "salt": 3.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-chicken",
+   "name": "Thai Green Curry - Chicken",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 633,
+    "protein": 44.9,
+    "carbs": 33.2,
+    "fat": 34.7,
+    "saturatedFat": 21,
+    "sugar": 11.1,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-chicken-gluten-free",
+   "name": "Thai Green Curry - Chicken (Gluten-free)",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 681,
+    "protein": 42.8,
+    "carbs": 19.1,
+    "fat": 47.3,
+    "saturatedFat": 21.9,
+    "sugar": 7.5,
+    "salt": 5.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-prawn",
+   "name": "Thai Green Curry - Prawn",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 561,
+    "protein": 30.6,
+    "carbs": 32.7,
+    "fat": 33.5,
+    "saturatedFat": 20.8,
+    "sugar": 10.3,
+    "salt": 6.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-prawn-gluten-free",
+   "name": "Thai Green Curry - Prawn (Gluten-free)",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 609,
+    "protein": 28.5,
+    "carbs": 18.6,
+    "fat": 46.1,
+    "saturatedFat": 21.7,
+    "sugar": 6.7,
+    "salt": 6.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-tree-curry-chicken",
+   "name": "Banana Tree Curry - Chicken",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 654,
+    "protein": 41.6,
+    "carbs": 26.5,
+    "fat": 41.8,
+    "saturatedFat": 14.7,
+    "sugar": 11.4,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-tree-curry-chicken-gluten-free",
+   "name": "Banana Tree Curry - Chicken (Gluten-free)",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 567,
+    "protein": 39.5,
+    "carbs": 12.4,
+    "fat": 39.4,
+    "saturatedFat": 14.4,
+    "sugar": 7.8,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-tree-curry-tofu",
+   "name": "Banana Tree Curry - Tofu",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 438,
+    "protein": 13.4,
+    "carbs": 17,
+    "fat": 34.6,
+    "saturatedFat": 14.3,
+    "sugar": 9.3,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-tree-curry-tofu-gluten-free",
+   "name": "Banana Tree Curry - Tofu (Gluten-free)",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 524,
+    "protein": 12.8,
+    "carbs": 11.9,
+    "fat": 46.6,
+    "saturatedFat": 15.2,
+    "sugar": 6.6,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-tree-curry-prawn",
+   "name": "Banana Tree Curry - Prawn",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 582,
+    "protein": 27.3,
+    "carbs": 26,
+    "fat": 40.6,
+    "saturatedFat": 14.5,
+    "sugar": 10.6,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-tree-curry-prawn-gluten-free",
+   "name": "Banana Tree Curry - Prawn (Gluten-free)",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 495,
+    "protein": 25.2,
+    "carbs": 11.9,
+    "fat": 38.2,
+    "saturatedFat": 14.2,
+    "sugar": 7,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-your-way-egg-fried-rice",
+   "name": "Rice Your Way - Egg Fried Rice",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 326,
+    "protein": 8.2,
+    "carbs": 51.4,
+    "fat": 10.8,
+    "saturatedFat": 1.6,
+    "sugar": 0,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-your-way-coconut-rice",
+   "name": "Rice Your Way - Coconut Rice",
+   "category": "Regional curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 328,
+    "protein": 5.5,
+    "carbs": 65.3,
+    "fat": 6.1,
+    "saturatedFat": 5.2,
+    "sugar": 0.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-burger-chicken",
+   "name": "Katsu Burger - Chicken",
+   "category": "More to explore",
+   "serving": "",
+   "nutrients": {
+    "calories": 1056,
+    "protein": 23.4,
+    "carbs": 77.1,
+    "fat": 70.8,
+    "saturatedFat": 10.4,
+    "sugar": 14,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-burger-veggie",
+   "name": "Katsu Burger - Veggie",
+   "category": "More to explore",
+   "serving": "",
+   "nutrients": {
+    "calories": 1081,
+    "protein": 18.1,
+    "carbs": 77.2,
+    "fat": 75.9,
+    "saturatedFat": 10.5,
+    "sugar": 13.9,
+    "salt": 5.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-in-mango-and-sweet-lime",
+   "name": "Chicken in Mango & Sweet Lime",
+   "category": "More to explore",
+   "serving": "",
+   "nutrients": {
+    "calories": 889,
+    "protein": 32.7,
+    "carbs": 76,
+    "fat": 48.9,
+    "saturatedFat": 4.7,
+    "sugar": 31.4,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-spiced-chicken",
+   "name": "Grilled Spiced Chicken",
+   "category": "More to explore",
+   "serving": "",
+   "nutrients": {
+    "calories": 611,
+    "protein": 56.4,
+    "carbs": 40.6,
+    "fat": 24.7,
+    "saturatedFat": 3,
+    "sugar": 20.5,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-spiced-chicken-chicken-gluten-free",
+   "name": "Grilled Spiced Chicken - Chicken (Gluten-free)",
+   "category": "More to explore",
+   "serving": "",
+   "nutrients": {
+    "calories": 659,
+    "protein": 54.3,
+    "carbs": 26.5,
+    "fat": 37.3,
+    "saturatedFat": 3.8,
+    "sugar": 16.9,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-sweet-and-sour-crispy-chicken",
+   "name": "Classic Sweet & Sour - Crispy Chicken",
+   "category": "More to explore",
+   "serving": "",
+   "nutrients": {
+    "calories": 921,
+    "protein": 25.6,
+    "carbs": 100.9,
+    "fat": 45.1,
+    "saturatedFat": 7.3,
+    "sugar": 58.8,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blistered-dragon-peppers",
+   "name": "Blistered Dragon Peppers",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 173,
+    "protein": 1.2,
+    "carbs": 3.7,
+    "fat": 16.7,
+    "saturatedFat": 1.3,
+    "sugar": 3.3,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blistered-dragon-peppers-gluten-free",
+   "name": "Blistered Dragon Peppers (Gluten-free)",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 0.6,
+    "carbs": 1.1,
+    "fat": 15.4,
+    "saturatedFat": 1.2,
+    "sugar": 0.8,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-n-pepper-chilli-chips",
+   "name": "Salt n' Pepper Chilli Chips",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 593,
+    "protein": 4.9,
+    "carbs": 46.1,
+    "fat": 42.1,
+    "saturatedFat": 3.7,
+    "sugar": 3,
+    "salt": 3.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-fries",
+   "name": "Katsu Fries",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 639,
+    "protein": 5.6,
+    "carbs": 50.6,
+    "fat": 44.8,
+    "saturatedFat": 5.3,
+    "sugar": 3.7,
+    "salt": 4.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flatbread",
+   "name": "Flatbread",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 254,
+    "protein": 15.1,
+    "carbs": 41.8,
+    "fat": 3.1,
+    "saturatedFat": 1.2,
+    "sugar": 4.2,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-jasmine-rice-sides-and-extras",
+   "name": "Steamed Jasmine Rice (Sides and extras)",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 300,
+    "protein": 5.5,
+    "carbs": 71.2,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-fried-rice",
+   "name": "Egg Fried Rice",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 359,
+    "protein": 9,
+    "carbs": 56.5,
+    "fat": 11.8,
+    "saturatedFat": 1.8,
+    "sugar": 0,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nasi-goreng-indonesian-fried-rice",
+   "name": "Nasi Goreng Indonesian Fried Rice",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 689,
+    "protein": 16.3,
+    "carbs": 82.2,
+    "fat": 34.5,
+    "saturatedFat": 5,
+    "sugar": 10,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Sides and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 543,
+    "protein": 4.4,
+    "carbs": 43.7,
+    "fat": 37.9,
+    "saturatedFat": 3.1,
+    "sugar": 1.6,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-chicken",
+   "name": "Sweet & Sour Chicken",
+   "category": "Express lunch mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 936,
+    "protein": 26.3,
+    "carbs": 100.3,
+    "fat": 46.5,
+    "saturatedFat": 7.5,
+    "sugar": 58.7,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke",
+   "name": "Coke",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero",
+   "name": "Coke Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade",
+   "name": "Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lychee-and-lime-cooler",
+   "name": "Lychee & Lime Cooler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35,
+    "protein": 0.3,
+    "carbs": 7.6,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 7.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wild-strawberry-sparkler",
+   "name": "Wild Strawberry Sparkler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 37,
+    "protein": 0.2,
+    "carbs": 8.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tokyo-iced-tea",
+   "name": "Tokyo Iced Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-coca-cola",
+   "name": "Kids Coca Cola",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-diet-coca-cola",
+   "name": "Kids Diet Coca Cola",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0.1,
+    "carbs": 0.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-coca-cola-zero",
+   "name": "Kids Coca Cola Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-lemonade",
+   "name": "Kids Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-7up",
+   "name": "Kids 7Up",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-milk",
+   "name": "Kids Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 120,
+    "protein": 8.5,
+    "carbs": 12.5,
+    "fat": 4,
+    "saturatedFat": 2.5,
+    "sugar": 12.5,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice-carton",
+   "name": "Apple Juice Carton",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 54,
+    "protein": 0.2,
+    "carbs": 12.8,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 12.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fruit-mix",
+   "name": "Kids Fruit Mix",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 1.5,
+    "carbs": 34.6,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 34,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fruit-mix-twist",
+   "name": "Kids Fruit Mix Twist",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 164,
+    "protein": 1.8,
+    "carbs": 34.9,
+    "fat": 0.7,
+    "saturatedFat": 0.1,
+    "sugar": 34.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fruit-raw-mix",
+   "name": "Kids Fruit Raw Mix",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 180,
+    "protein": 2,
+    "carbs": 38.1,
+    "fat": 0.8,
+    "saturatedFat": 0.2,
+    "sugar": 37.3,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fruit-raw-mix-of-2",
+   "name": "Kids Fruit Raw Mix of 2",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 1,
+    "carbs": 12.8,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 12.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-colada",
+   "name": "Coconut Colada",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "protein": 0.4,
+    "carbs": 18.2,
+    "fat": 1.8,
+    "saturatedFat": 1.2,
+    "sugar": 17.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "siam-sundown",
+   "name": "Siam Sundown",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 0.2,
+    "carbs": 9.4,
+    "fat": 0.3,
+    "saturatedFat": 0.2,
+    "sugar": 9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "heineken-0",
+   "name": "Heineken 0%",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 1.3,
+    "carbs": 15.8,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 4.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berries-and-cherries",
+   "name": "Berries & Cherries",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 235,
+    "protein": 0,
+    "carbs": 30.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 30,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-fruit-mix",
+   "name": "Fresh Fruit Mix",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 1.5,
+    "carbs": 34.6,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 34,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-fruit-mix-of-2",
+   "name": "Fresh Fruit Mix Of 2",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 196,
+    "protein": 1.8,
+    "carbs": 41.8,
+    "fat": 0.9,
+    "saturatedFat": 0.2,
+    "sugar": 40.7,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "elderflower-and-mint",
+   "name": "Elderflower & Mint",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 4.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-and-ginger",
+   "name": "Peach & Ginger",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 5.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-and-sansho-soda",
+   "name": "Ginger & Sansho Soda",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35,
+    "protein": 0.2,
+    "carbs": 7.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-water",
+   "name": "Coconut Water",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0,
+    "carbs": 15.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lychee-juice",
+   "name": "Lychee Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50,
+    "protein": 1.3,
+    "carbs": 11.3,
+    "fat": 1.3,
+    "saturatedFat": 0,
+    "sugar": 11.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola",
+   "name": "Coca-Cola",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 0,
+    "carbs": 34.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 33.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-drinks-menu",
+   "name": "Diet Coke (drinks menu)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-crackers-bottomless-bowls",
+   "name": "Spiced Crackers (bottomless bowls)",
+   "category": "Bottomless bowls: starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 314,
+    "protein": 0.6,
+    "carbs": 40.5,
+    "fat": 16.8,
+    "saturatedFat": 1.3,
+    "sugar": 16.8,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-rendang",
+   "name": "Beef Rendang",
+   "category": "Bottomless bowls: mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 696,
+    "protein": 48.6,
+    "carbs": 34.3,
+    "fat": 39.9,
+    "saturatedFat": 23.2,
+    "sugar": 13.5,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-n-pepper-chilli-chips-bottomless-bowls",
+   "name": "Salt n' Pepper Chilli Chips (bottomless bowls)",
+   "category": "Bottomless bowls: mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 594,
+    "protein": 5,
+    "carbs": 46.2,
+    "fat": 42.1,
+    "saturatedFat": 3.7,
+    "sugar": 3.1,
+    "salt": 2.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-drug-egg-bottomless-bowls",
+   "name": "Korean Drug Egg (bottomless bowls)",
+   "category": "Bottomless bowls: extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 189,
+    "protein": 9.1,
+    "carbs": 12.8,
+    "fat": 11.4,
+    "saturatedFat": 2.3,
+    "sugar": 11.2,
+    "salt": 5.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-sweet-and-sour-chicken",
+   "name": "Classic Sweet & Sour - Chicken",
+   "category": "Bottomless brunch mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 953,
+    "protein": 25.6,
+    "carbs": 99,
+    "fat": 49.5,
+    "saturatedFat": 7.6,
+    "sugar": 56.4,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-rice-pudding",
+   "name": "Mango Rice Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1274,
+    "protein": 14.1,
+    "carbs": 288.1,
+    "fat": 12.9,
+    "saturatedFat": 7.6,
+    "sugar": 165.3,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-miso-caramel-fondant",
+   "name": "Chocolate Miso Caramel Fondant",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 652,
+    "protein": 11.2,
+    "carbs": 74.4,
+    "fat": 34.2,
+    "saturatedFat": 21.8,
+    "sugar": 63.2,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yuzu-citrus-tart",
+   "name": "Yuzu Citrus Tart",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 676,
+    "protein": 12.9,
+    "carbs": 85.7,
+    "fat": 32.9,
+    "saturatedFat": 18.9,
+    "sugar": 70.1,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-fudge-cake",
+   "name": "Banana Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 768,
+    "protein": 8.5,
+    "carbs": 93.3,
+    "fat": 39.4,
+    "saturatedFat": 13.2,
+    "sugar": 75.5,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-nuggets-chicken",
+   "name": "Kids' Nuggets - Chicken",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 529,
+    "protein": 19.7,
+    "carbs": 19.4,
+    "fat": 40.9,
+    "saturatedFat": 6.8,
+    "sugar": 1.3,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-nuggets-vegan",
+   "name": "Kids' Nuggets - Vegan",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 483,
+    "protein": 8.2,
+    "carbs": 14.6,
+    "fat": 42.8,
+    "saturatedFat": 3.3,
+    "sugar": 0.8,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken",
+   "name": "Crispy Chicken",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 472,
+    "protein": 14.6,
+    "carbs": 15.5,
+    "fat": 38.2,
+    "saturatedFat": 3.3,
+    "sugar": 1.1,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-sweetcorn-fritters",
+   "name": "Crunchy Sweetcorn Fritters",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 379,
+    "protein": 2.3,
+    "carbs": 15.5,
+    "fat": 34.1,
+    "saturatedFat": 2.6,
+    "sugar": 2.9,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-katsu-chicken",
+   "name": "Kids' Katsu - Chicken",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 456,
+    "protein": 13.4,
+    "carbs": 14.3,
+    "fat": 37.5,
+    "saturatedFat": 3.2,
+    "sugar": 1,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-vanilla",
+   "name": "Ice Cream - Vanilla",
+   "category": "Kids desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 245,
+    "protein": 4,
+    "carbs": 32,
+    "fat": 11.2,
+    "saturatedFat": 7.4,
+    "sugar": 30.4,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-chocolate",
+   "name": "Ice Cream - Chocolate",
+   "category": "Kids desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 261,
+    "protein": 4.7,
+    "carbs": 34.4,
+    "fat": 11.2,
+    "saturatedFat": 7.4,
+    "sugar": 32.2,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-coconut",
+   "name": "Ice Cream - Coconut",
+   "category": "Kids desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 3.9,
+    "carbs": 34,
+    "fat": 11.2,
+    "saturatedFat": 7.6,
+    "sugar": 32.3,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sorbet-mango",
+   "name": "Sorbet - Mango",
+   "category": "Kids desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 101,
+    "protein": 0.2,
+    "carbs": 24.4,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 21.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sorbet-raspberry",
+   "name": "Sorbet - Raspberry",
+   "category": "Kids desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 0.3,
+    "carbs": 27.2,
+    "fat": 0.3,
+    "saturatedFat": 0.2,
+    "sugar": 24.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

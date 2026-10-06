@@ -1,0 +1,2091 @@
+{
+ "schemaVersion": 1,
+ "id": "pho",
+ "name": "Pho",
+ "cuisine": "Vietnamese",
+ "builderType": "standard",
+ "aliases": [
+  "pho",
+  "phở",
+  "pho cafe"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Pho Nutritional Guidelines 2026 (accurate as of 31/01/2026)",
+  "url": "https://pho-media.sp.works/wp-content/uploads/2026/04/Pho-Nutritional-Guidelines-2026_web.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are per dish as served; the guide says they vary slightly because dishes are cooked to order. Starters exclude dipping sauces. Curries and rice bowls exclude the rice they are served with (rice is listed separately). Vermicelli (bún) dishes exclude the veggie spring roll.",
+ "categories": [
+  "Starters & sides",
+  "Phở",
+  "Hot & spicy soups",
+  "House specials",
+  "Curry noodle soup",
+  "Curry",
+  "Rice bowls",
+  "Wok fried rice",
+  "Wok fried noodles",
+  "Vermicelli noodles (bún)",
+  "Salads",
+  "Crackers",
+  "Sauces",
+  "Add-ons"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "spring-rolls-veggie-cha-gio",
+   "name": "Spring rolls - Veggie (Chả giò)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 318,
+    "protein": 4.5,
+    "carbs": 49.1,
+    "fat": 11.5,
+    "saturatedFat": 1.1,
+    "sugar": 3.1,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spring-rolls-pork-cha-gio",
+   "name": "Spring rolls - Pork (Chả giò)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 377,
+    "protein": 13,
+    "carbs": 39,
+    "fat": 19.6,
+    "saturatedFat": 4.2,
+    "sugar": 5.9,
+    "fiber": 3.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "summer-rolls-veggie-goi-cuon",
+   "name": "Summer rolls - Veggie (Gỏi cuốn)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 1.7,
+    "carbs": 36.6,
+    "fat": 3.8,
+    "saturatedFat": 0,
+    "sugar": 8.1,
+    "fiber": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "summer-rolls-chicken-goi-cuon",
+   "name": "Summer rolls - Chicken (Gỏi cuốn)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 183,
+    "protein": 10.5,
+    "carbs": 33.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.8,
+    "fiber": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "summer-rolls-this-isnt-chicken-goi-cuon",
+   "name": "Summer rolls - THIS isn't chicken (Gỏi cuốn)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 196,
+    "protein": 8.5,
+    "carbs": 33.6,
+    "fat": 3.6,
+    "saturatedFat": 0,
+    "sugar": 2.8,
+    "fiber": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "summer-rolls-prawn-goi-cuon",
+   "name": "Summer rolls - Prawn (Gỏi cuốn)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 145,
+    "protein": 6.8,
+    "carbs": 29.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.2,
+    "fiber": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-wings-canh-ga",
+   "name": "Chicken wings (Cánh gà)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 587,
+    "protein": 67.1,
+    "carbs": 0.2,
+    "fat": 35.5,
+    "saturatedFat": 6.5,
+    "sugar": 0.3,
+    "fiber": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-and-lemongrass-meatballs-nem-nuong",
+   "name": "Pork & lemongrass meatballs (Nem nướng)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 349,
+    "protein": 27.5,
+    "carbs": 7.6,
+    "fat": 22.8,
+    "saturatedFat": 5.4,
+    "sugar": 1,
+    "fiber": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baby-squid-muc-chien-gion",
+   "name": "Baby squid (Mực chiên giòn)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 315,
+    "protein": 13.5,
+    "carbs": 17.8,
+    "fat": 21.8,
+    "saturatedFat": 1.9,
+    "sugar": 0,
+    "fiber": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-spring-roll-nem-hai-san",
+   "name": "Seafood spring roll (Nem hải sản)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 208,
+    "protein": 12.7,
+    "carbs": 20.4,
+    "fat": 9.1,
+    "saturatedFat": 2.2,
+    "sugar": 1.4,
+    "fiber": 3.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-betel-bo-la-lot",
+   "name": "Beef betel (Bò lá lốt)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 365,
+    "protein": 35,
+    "carbs": 22.8,
+    "fat": 14.4,
+    "saturatedFat": 3.5,
+    "sugar": 2,
+    "fiber": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vietnamese-pancake-tofu-banh-xeo",
+   "name": "Vietnamese pancake - Tofu (Bánh xèo)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 289,
+    "protein": 12.5,
+    "carbs": 19.2,
+    "fat": 18.1,
+    "saturatedFat": 4.1,
+    "sugar": 0,
+    "fiber": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vietnamese-pancake-this-isnt-chicken-banh-xeo",
+   "name": "Vietnamese pancake - THIS isn't chicken (Bánh xèo)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 281,
+    "protein": 18.2,
+    "carbs": 24.3,
+    "fat": 13.2,
+    "saturatedFat": 2.7,
+    "sugar": 1.4,
+    "fiber": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vietnamese-pancake-chicken-and-prawn-banh-xeo",
+   "name": "Vietnamese pancake - Chicken & Prawn (Bánh xèo)",
+   "category": "Starters & sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 226,
+    "protein": 20.4,
+    "carbs": 16.1,
+    "fat": 8.7,
+    "saturatedFat": 2.7,
+    "sugar": 0,
+    "fiber": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-brisket-pho-chin",
+   "name": "Beef brisket (Phở chín)",
+   "category": "Phở",
+   "serving": "",
+   "nutrients": {
+    "calories": 397,
+    "protein": 36.7,
+    "carbs": 54.6,
+    "fat": 3.6,
+    "saturatedFat": 1.3,
+    "sugar": 1,
+    "fiber": 3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-pho-tai",
+   "name": "Steak (Phở tái)",
+   "category": "Phở",
+   "serving": "",
+   "nutrients": {
+    "calories": 287,
+    "protein": 21.4,
+    "carbs": 47.5,
+    "fat": 1.3,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 3.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-with-garlic-pho-tai-lan",
+   "name": "Steak with garlic (Phở tái lăn)",
+   "category": "Phở",
+   "serving": "",
+   "nutrients": {
+    "calories": 468,
+    "protein": 32.6,
+    "carbs": 50,
+    "fat": 14.9,
+    "saturatedFat": 2,
+    "sugar": 1,
+    "fiber": 3.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-combo-pho-bo-combo",
+   "name": "Beef combo (Phở bò combo)",
+   "category": "Phở",
+   "serving": "",
+   "nutrients": {
+    "calories": 396,
+    "protein": 39.2,
+    "carbs": 46.1,
+    "fat": 5.8,
+    "saturatedFat": 2,
+    "sugar": 1,
+    "fiber": 3.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-pho-ga",
+   "name": "Chicken (Phở gà)",
+   "category": "Phở",
+   "serving": "",
+   "nutrients": {
+    "calories": 347,
+    "protein": 29.3,
+    "carbs": 53,
+    "fat": 2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "king-prawns-pho-tom",
+   "name": "King prawns (Phở tôm)",
+   "category": "Phở",
+   "serving": "",
+   "nutrients": {
+    "calories": 305,
+    "protein": 20.9,
+    "carbs": 54.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-and-button-mushrooms-pho-chay",
+   "name": "Tofu & button mushrooms (Phở chay)",
+   "category": "Phở",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "protein": 14.9,
+    "carbs": 56.1,
+    "fat": 7.9,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 3.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-mushrooms-pho-nam-rom",
+   "name": "3 Mushrooms (Phở nấm rơm)",
+   "category": "Phở",
+   "serving": "",
+   "nutrients": {
+    "calories": 290,
+    "protein": 11.4,
+    "carbs": 52.8,
+    "fat": 3.9,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 3.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-and-spicy-chicken-bun-ga-hue",
+   "name": "Hot & spicy chicken (Bún gà Huế)",
+   "category": "Hot & spicy soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 353,
+    "protein": 26.9,
+    "carbs": 55,
+    "fat": 3.1,
+    "saturatedFat": 0,
+    "sugar": 1.8,
+    "fiber": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-and-spicy-beef-brisket-bun-bo-hue",
+   "name": "Hot & spicy beef brisket (Bún bò Huế)",
+   "category": "Hot & spicy soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 454,
+    "protein": 36.6,
+    "carbs": 55.4,
+    "fat": 9.4,
+    "saturatedFat": 1.7,
+    "sugar": 0,
+    "fiber": 2.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-and-spicy-king-prawn-bun-tom-hue",
+   "name": "Hot & spicy king prawn (Bún tôm Huế)",
+   "category": "Hot & spicy soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 301,
+    "protein": 17.1,
+    "carbs": 52.7,
+    "fat": 2.6,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "fiber": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-and-spicy-this-isnt-chicken-bun-ga-chay-hue",
+   "name": "Hot & spicy THIS isn't chicken (Bún gà chay Huế)",
+   "category": "Hot & spicy soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 349,
+    "protein": 18.2,
+    "carbs": 58,
+    "fat": 5.6,
+    "saturatedFat": 0,
+    "sugar": 3.5,
+    "fiber": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-and-spicy-tofu-and-mushroom-bun-chay-hue",
+   "name": "Hot & spicy tofu & mushroom (Bún chay Huế)",
+   "category": "Hot & spicy soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 420,
+    "protein": 15.8,
+    "carbs": 59.1,
+    "fat": 13.4,
+    "saturatedFat": 1.6,
+    "sugar": 0,
+    "fiber": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-and-spicy-3-mushrooms-bun-nam-rom-hue",
+   "name": "Hot & spicy 3 mushrooms (Bún nấm rơm Huế)",
+   "category": "Hot & spicy soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 335,
+    "protein": 9,
+    "carbs": 60.1,
+    "fat": 6.1,
+    "saturatedFat": 0,
+    "sugar": 4.8,
+    "fiber": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-green",
+   "name": "Super Green",
+   "category": "House specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 399,
+    "protein": 11.1,
+    "carbs": 85,
+    "fat": 2.6,
+    "saturatedFat": 0.9,
+    "sugar": 11.1,
+    "fiber": 5.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-green-chicken",
+   "name": "Spicy Green - Chicken",
+   "category": "House specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 455,
+    "protein": 25.2,
+    "carbs": 80.1,
+    "fat": 3.4,
+    "saturatedFat": 0.9,
+    "sugar": 8.4,
+    "fiber": 5.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-green-this-isnt-chicken",
+   "name": "Spicy Green - THIS isn't chicken",
+   "category": "House specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 556,
+    "protein": 32,
+    "carbs": 84.3,
+    "fat": 12.5,
+    "saturatedFat": 1.6,
+    "sugar": 8,
+    "fiber": 12.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-green-tofu",
+   "name": "Spicy Green - Tofu",
+   "category": "House specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 448,
+    "protein": 18.9,
+    "carbs": 70.6,
+    "fat": 10,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "fiber": 4.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brisket-and-mushroom-pho-bo-nam-trung",
+   "name": "Brisket & mushroom (Phở bò nấm trúng)",
+   "category": "House specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 374,
+    "protein": 24.4,
+    "carbs": 46.9,
+    "fat": 9.5,
+    "saturatedFat": 2.1,
+    "sugar": 0,
+    "fiber": 3.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crab-noodle-soup-bun-rieu",
+   "name": "Crab noodle soup (Bún riêu)",
+   "category": "House specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 498,
+    "protein": 34.6,
+    "carbs": 55.8,
+    "fat": 19.2,
+    "saturatedFat": 3.6,
+    "sugar": 12.6,
+    "fiber": 3.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pho-house-pho-dac-biet",
+   "name": "Phở house (Phở đặc biệt)",
+   "category": "House specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 351,
+    "protein": 32.4,
+    "carbs": 41.6,
+    "fat": 5.8,
+    "saturatedFat": 1,
+    "sugar": 0,
+    "fiber": 3.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-noodle-soup-beef-brisket",
+   "name": "Curry noodle soup - Beef brisket",
+   "category": "Curry noodle soup",
+   "serving": "",
+   "nutrients": {
+    "calories": 637,
+    "protein": 39.4,
+    "carbs": 71.6,
+    "fat": 23.6,
+    "saturatedFat": 16.4,
+    "sugar": 2.6,
+    "fiber": 7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-noodle-soup-chicken",
+   "name": "Curry noodle soup - Chicken",
+   "category": "Curry noodle soup",
+   "serving": "",
+   "nutrients": {
+    "calories": 582,
+    "protein": 30.3,
+    "carbs": 74.6,
+    "fat": 18,
+    "saturatedFat": 13.9,
+    "sugar": 6.7,
+    "fiber": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-noodle-soup-king-prawn",
+   "name": "Curry noodle soup - King prawn",
+   "category": "Curry noodle soup",
+   "serving": "",
+   "nutrients": {
+    "calories": 308,
+    "protein": 23,
+    "carbs": 36.8,
+    "fat": 9.4,
+    "saturatedFat": 7.4,
+    "sugar": 6,
+    "fiber": 5.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-noodle-soup-this-isnt-chicken",
+   "name": "Curry noodle soup - THIS isn't chicken",
+   "category": "Curry noodle soup",
+   "serving": "",
+   "nutrients": {
+    "calories": 610,
+    "protein": 20.2,
+    "carbs": 75.9,
+    "fat": 25.5,
+    "saturatedFat": 16.7,
+    "sugar": 12,
+    "fiber": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-noodle-soup-tofu-and-mushroom",
+   "name": "Curry noodle soup - Tofu & mushroom",
+   "category": "Curry noodle soup",
+   "serving": "",
+   "nutrients": {
+    "calories": 631,
+    "protein": 15.5,
+    "carbs": 78.2,
+    "fat": 29.4,
+    "saturatedFat": 13.7,
+    "sugar": 12.2,
+    "fiber": 3.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-noodle-soup-3-mushroom",
+   "name": "Curry noodle soup - 3 Mushroom",
+   "category": "Curry noodle soup",
+   "serving": "",
+   "nutrients": {
+    "calories": 559,
+    "protein": 10.8,
+    "carbs": 76,
+    "fat": 22.8,
+    "saturatedFat": 13.3,
+    "sugar": 9.1,
+    "fiber": 3.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-curry-chicken",
+   "name": "Classic curry - Chicken",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 587,
+    "protein": 23.1,
+    "carbs": 19.2,
+    "fat": 39.2,
+    "saturatedFat": 22.1,
+    "sugar": 15.8,
+    "fiber": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-curry-beef-brisket",
+   "name": "Classic curry - Beef brisket",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 682,
+    "protein": 31.4,
+    "carbs": 17.7,
+    "fat": 45.1,
+    "saturatedFat": 25.5,
+    "sugar": 15.5,
+    "fiber": 2.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-curry-king-prawn",
+   "name": "Classic curry - King prawn",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 464,
+    "protein": 19.8,
+    "carbs": 19.7,
+    "fat": 39.7,
+    "saturatedFat": 28.5,
+    "sugar": 16.5,
+    "fiber": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-curry-fish",
+   "name": "Classic curry - Fish",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 618,
+    "protein": 34.8,
+    "carbs": 19.6,
+    "fat": 43.6,
+    "saturatedFat": 27.9,
+    "sugar": 6.3,
+    "fiber": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-curry-tofu",
+   "name": "Classic curry - Tofu",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 769,
+    "protein": 14.3,
+    "carbs": 24.2,
+    "fat": 60.4,
+    "saturatedFat": 31.3,
+    "sugar": 19.1,
+    "fiber": 3.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-curry-this-isnt-chicken",
+   "name": "Classic curry - THIS isn't chicken",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 660,
+    "protein": 17.6,
+    "carbs": 26.2,
+    "fat": 47.1,
+    "saturatedFat": 25.8,
+    "sugar": 17.2,
+    "fiber": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-curry-chicken",
+   "name": "Spicy curry - Chicken",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 623,
+    "protein": 31,
+    "carbs": 21.2,
+    "fat": 50.3,
+    "saturatedFat": 34.7,
+    "sugar": 14.1,
+    "fiber": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-curry-beef-brisket",
+   "name": "Spicy curry - Beef brisket",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 736,
+    "protein": 34.7,
+    "carbs": 18.4,
+    "fat": 58,
+    "saturatedFat": 41.3,
+    "sugar": 13.4,
+    "fiber": 2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-curry-king-prawn",
+   "name": "Spicy curry - King prawn",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 642,
+    "protein": 22.8,
+    "carbs": 21.1,
+    "fat": 60,
+    "saturatedFat": 43.7,
+    "sugar": 16.4,
+    "fiber": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-curry-fish",
+   "name": "Spicy curry - Fish",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 521,
+    "protein": 36.1,
+    "carbs": 13.9,
+    "fat": 35,
+    "saturatedFat": 26.8,
+    "sugar": 8.9,
+    "fiber": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-curry-tofu",
+   "name": "Spicy curry - Tofu",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 789,
+    "protein": 13.6,
+    "carbs": 21.1,
+    "fat": 48.1,
+    "saturatedFat": 29.8,
+    "sugar": 14.3,
+    "fiber": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-curry-this-isnt-chicken",
+   "name": "Spicy curry - THIS isn't chicken",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 674,
+    "protein": 25.8,
+    "carbs": 26.2,
+    "fat": 52.8,
+    "saturatedFat": 35.8,
+    "sugar": 16.6,
+    "fiber": 3.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-bowl-chargrilled-chicken-thigh",
+   "name": "Rice bowl - Chargrilled chicken thigh",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 239,
+    "protein": 31.4,
+    "carbs": 17,
+    "fat": 11.4,
+    "saturatedFat": 3.1,
+    "sugar": 3.8,
+    "fiber": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-bowl-beef-in-betel-leaf",
+   "name": "Rice bowl - Beef in betel leaf",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 290,
+    "protein": 25.6,
+    "carbs": 17,
+    "fat": 14.1,
+    "saturatedFat": 4.2,
+    "sugar": 1.6,
+    "fiber": 2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-bowl-chargrilled-pork",
+   "name": "Rice bowl - Chargrilled pork",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 281,
+    "protein": 25,
+    "carbs": 15.9,
+    "fat": 6,
+    "saturatedFat": 0,
+    "sugar": 2.6,
+    "fiber": 4.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-bowl-3-meat-combo",
+   "name": "Rice bowl - 3 Meat combo",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 34.4,
+    "carbs": 18.7,
+    "fat": 11.7,
+    "saturatedFat": 3.4,
+    "sugar": 2.7,
+    "fiber": 4.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-bowl-tofu-and-veg",
+   "name": "Rice bowl - Tofu & veg",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 268,
+    "protein": 21.2,
+    "carbs": 16.7,
+    "fat": 14.1,
+    "saturatedFat": 1.6,
+    "sugar": 1.2,
+    "fiber": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-bowl-this-isnt-chicken-and-veg",
+   "name": "Rice bowl - THIS isn't chicken & veg",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 205,
+    "protein": 21.8,
+    "carbs": 27,
+    "fat": 8.1,
+    "saturatedFat": 0,
+    "sugar": 2.5,
+    "fiber": 6.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-rice-chicken-and-dried-shrimp-com-chien",
+   "name": "Wok fried rice - Chicken & dried shrimp (Cơm chiên)",
+   "category": "Wok fried rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 794,
+    "protein": 31.4,
+    "carbs": 105,
+    "fat": 27.3,
+    "saturatedFat": 2.6,
+    "sugar": 6.6,
+    "fiber": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-rice-shiitake-and-thai-basil-com-chien",
+   "name": "Wok fried rice - Shiitake & Thai basil (Cơm chiên)",
+   "category": "Wok fried rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 796,
+    "protein": 14.7,
+    "carbs": 126.5,
+    "fat": 27.2,
+    "saturatedFat": 2.4,
+    "sugar": 5.8,
+    "fiber": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-rice-this-isnt-chicken-com-chien",
+   "name": "Wok fried rice - THIS isn't chicken (Cơm chiên)",
+   "category": "Wok fried rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 869,
+    "protein": 24.2,
+    "carbs": 120.1,
+    "fat": 34.9,
+    "saturatedFat": 2.9,
+    "sugar": 1.7,
+    "fiber": 10.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-noodles-chicken-pho-xao",
+   "name": "Wok fried noodles - Chicken (Phở xào)",
+   "category": "Wok fried noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 447,
+    "protein": 33.3,
+    "carbs": 64.8,
+    "fat": 6.6,
+    "saturatedFat": 1,
+    "sugar": 0,
+    "fiber": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-noodles-beef-pho-xao",
+   "name": "Wok fried noodles - Beef (Phở xào)",
+   "category": "Wok fried noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 442,
+    "protein": 26.8,
+    "carbs": 67.3,
+    "fat": 7.9,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 2.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-noodles-chicken-and-prawn-pho-xao",
+   "name": "Wok fried noodles - Chicken & Prawn (Phở xào)",
+   "category": "Wok fried noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 446,
+    "protein": 29.2,
+    "carbs": 55.5,
+    "fat": 11.2,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-noodles-tofu-and-mushroom-pho-xao",
+   "name": "Wok fried noodles - Tofu & Mushroom (Phở xào)",
+   "category": "Wok fried noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 527,
+    "protein": 16,
+    "carbs": 99,
+    "fat": 14,
+    "saturatedFat": 1.5,
+    "sugar": 0,
+    "fiber": 5.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-noodles-this-isnt-chicken-pho-xao",
+   "name": "Wok fried noodles - THIS isn't chicken (Phở xào)",
+   "category": "Wok fried noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 19.5,
+    "carbs": 79.8,
+    "fat": 3.9,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 7.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-bun-chicken",
+   "name": "Wok-fried bún - Chicken",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 310,
+    "protein": 26.2,
+    "carbs": 39.7,
+    "fat": 5.7,
+    "saturatedFat": 1.2,
+    "sugar": 5.4,
+    "fiber": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-bun-beef",
+   "name": "Wok-fried bún - Beef",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 286,
+    "protein": 21.6,
+    "carbs": 37.1,
+    "fat": 6.2,
+    "saturatedFat": 1.4,
+    "sugar": 6.5,
+    "fiber": 2.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-bun-king-prawn",
+   "name": "Wok-fried bún - King Prawn",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 236,
+    "protein": 16.1,
+    "carbs": 35.8,
+    "fat": 3.8,
+    "saturatedFat": 1,
+    "sugar": 3.8,
+    "fiber": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-bun-nem-nuong-pork-balls",
+   "name": "Wok-fried bún - Nem Nướng Pork Balls",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 23.1,
+    "carbs": 43.7,
+    "fat": 19.9,
+    "saturatedFat": 5,
+    "sugar": 5.9,
+    "fiber": 3.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-bun-tofu-and-mushroom",
+   "name": "Wok-fried bún - Tofu & Mushroom",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 303,
+    "protein": 10.5,
+    "carbs": 41.5,
+    "fat": 11.9,
+    "saturatedFat": 1.7,
+    "sugar": 5.9,
+    "fiber": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-bun-veggie-spring-rolls",
+   "name": "Wok-fried bún - Veggie Spring Rolls",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 476,
+    "protein": 10.4,
+    "carbs": 89.6,
+    "fat": 9.2,
+    "saturatedFat": 1.5,
+    "sugar": 8.4,
+    "fiber": 4.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wok-fried-bun-this-isnt-chicken",
+   "name": "Wok-fried bún - THIS isn't chicken",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 28.1,
+    "carbs": 66.5,
+    "fat": 10,
+    "saturatedFat": 1.7,
+    "sugar": 9,
+    "fiber": 8.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-bun-chargrilled-chicken-thigh",
+   "name": "Grilled bún - Chargrilled chicken thigh",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 444,
+    "protein": 34.2,
+    "carbs": 44,
+    "fat": 15.5,
+    "saturatedFat": 4.2,
+    "sugar": 3.8,
+    "fiber": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-bun-chargrilled-pork-loin",
+   "name": "Grilled bún - Chargrilled pork loin",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 474,
+    "protein": 35.2,
+    "carbs": 55.8,
+    "fat": 12.3,
+    "saturatedFat": 3.6,
+    "sugar": 15.2,
+    "fiber": 0
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-bun-beef-in-betel-leaf",
+   "name": "Grilled bún - Beef in betel leaf",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 472,
+    "protein": 19.7,
+    "carbs": 46.8,
+    "fat": 24.2,
+    "saturatedFat": 4.8,
+    "sugar": 3.1,
+    "fiber": 5.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-bun-3-meat-combo",
+   "name": "Grilled bún - 3 meat combo",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 550,
+    "protein": 38.3,
+    "carbs": 48.4,
+    "fat": 23.3,
+    "saturatedFat": 5.8,
+    "sugar": 6.2,
+    "fiber": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cha-ca-la-vong",
+   "name": "Chả cá Lã Vọng",
+   "category": "Vermicelli noodles (bún)",
+   "serving": "",
+   "nutrients": {
+    "calories": 676,
+    "protein": 39.2,
+    "carbs": 69.1,
+    "fat": 26.1,
+    "saturatedFat": 3.5,
+    "sugar": 20.2,
+    "fiber": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-salad-goi-ga",
+   "name": "Chicken salad (Gỏi gà)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 20,
+    "carbs": 17.9,
+    "fat": 6.2,
+    "saturatedFat": 1.3,
+    "sugar": 10.6,
+    "fiber": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "this-isnt-chicken-salad-goi-ga",
+   "name": "THIS isn't chicken salad (Gỏi gà)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "protein": 17.5,
+    "carbs": 26.5,
+    "fat": 7,
+    "saturatedFat": 1.4,
+    "sugar": 13.5,
+    "fiber": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-salad-goi-chay",
+   "name": "Veggie salad (Gỏi chay)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 153,
+    "protein": 4.1,
+    "carbs": 23.1,
+    "fat": 5.4,
+    "saturatedFat": 1.5,
+    "sugar": 11.7,
+    "fiber": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-papaya-salad-chicken-goi-du-du",
+   "name": "Green papaya salad - Chicken (Gỏi đu đủ)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 189,
+    "protein": 28.8,
+    "carbs": 13.2,
+    "fat": 3,
+    "saturatedFat": 0,
+    "sugar": 2.7,
+    "fiber": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-papaya-salad-this-isnt-chicken-goi-du-du",
+   "name": "Green papaya salad - THIS isn't chicken (Gỏi đu đủ)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 203,
+    "protein": 17.6,
+    "carbs": 19.6,
+    "fat": 7.7,
+    "saturatedFat": 0,
+    "sugar": 5.9,
+    "fiber": 7.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-papaya-salad-prawn-goi-du-du",
+   "name": "Green papaya salad - Prawn (Gỏi đu đủ)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 129,
+    "protein": 10.7,
+    "carbs": 14.5,
+    "fat": 3.7,
+    "saturatedFat": 0,
+    "sugar": 8.3,
+    "fiber": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-salad-goi-xoai",
+   "name": "Mango salad (Gỏi xoài)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 8.5,
+    "carbs": 16.2,
+    "fat": 7.4,
+    "saturatedFat": 1.2,
+    "sugar": 6.8,
+    "fiber": 3.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-and-pomelo-salad-goi-buoi",
+   "name": "Prawn & pomelo salad (Gỏi bưởi)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 182,
+    "protein": 10.2,
+    "carbs": 15.6,
+    "fat": 8,
+    "saturatedFat": 5.7,
+    "sugar": 9.2,
+    "fiber": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-crackers-with-sweet-chilli-sauce-banh-phong-tom",
+   "name": "Prawn crackers with sweet chilli sauce (Bánh phồng tôm)",
+   "category": "Crackers",
+   "serving": "",
+   "nutrients": {
+    "calories": 253,
+    "protein": 0,
+    "carbs": 24,
+    "fat": 17.6,
+    "saturatedFat": 1.7,
+    "fiber": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawnless-crackers-with-sweet-chilli-sauce-banh-phong-chay",
+   "name": "Prawnless crackers with sweet chilli sauce (Bánh phồng chay)",
+   "category": "Crackers",
+   "serving": "",
+   "nutrients": {
+    "calories": 320,
+    "protein": 0,
+    "carbs": 24,
+    "fat": 17.6,
+    "saturatedFat": 1.7,
+    "fiber": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nuoc-cham",
+   "name": "Nước chấm",
+   "category": "Sauces",
+   "serving": "standard starter serving",
+   "nutrients": {
+    "calories": 22,
+    "protein": 0.3,
+    "carbs": 5.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.5,
+    "fiber": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nuoc-cham-chay",
+   "name": "Nước chấm chay",
+   "category": "Sauces",
+   "serving": "standard starter serving",
+   "nutrients": {
+    "calories": 18,
+    "protein": 0.2,
+    "carbs": 4.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.5,
+    "fiber": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanut-sauce",
+   "name": "Peanut sauce",
+   "category": "Sauces",
+   "serving": "standard starter serving",
+   "nutrients": {
+    "calories": 158,
+    "protein": 5.5,
+    "carbs": 12.8,
+    "fat": 9.7,
+    "saturatedFat": 1.7,
+    "sugar": 11.5,
+    "fiber": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-soy-sauce",
+   "name": "Ginger soy sauce",
+   "category": "Sauces",
+   "serving": "standard starter serving",
+   "nutrients": {
+    "calories": 51,
+    "protein": 1.8,
+    "carbs": 10.4,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 10,
+    "fiber": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-sauce",
+   "name": "Sweet chilli sauce",
+   "category": "Sauces",
+   "serving": "standard starter serving",
+   "nutrients": {
+    "calories": 69,
+    "protein": 0.2,
+    "carbs": 16.6,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 10.6,
+    "fiber": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "broken-rice-portion",
+   "name": "Broken rice portion",
+   "category": "Add-ons",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 370,
+    "protein": 8.3,
+    "carbs": 101,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "single-vegetarian-spring-roll",
+   "name": "Single vegetarian spring roll",
+   "category": "Add-ons",
+   "serving": "1 spring roll",
+   "nutrients": {
+    "calories": 79,
+    "protein": 1.1,
+    "carbs": 12.2,
+    "fat": 2.8,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-cracker-portion-with-green-papaya-salad",
+   "name": "Prawn cracker portion (with Green papaya salad)",
+   "category": "Add-ons",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 59,
+    "protein": 0,
+    "carbs": 5.6,
+    "fat": 4.1,
+    "saturatedFat": 0.4,
+    "sugar": 0.2,
+    "fiber": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

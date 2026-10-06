@@ -1,0 +1,2333 @@
+{
+ "schemaVersion": 1,
+ "id": "fat-hippo",
+ "name": "Fat Hippo",
+ "cuisine": "Burgers",
+ "builderType": "standard",
+ "aliases": [
+  "fat hippo",
+  "the fat hippo",
+  "fathippo"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Fat Hippo website nutrition panels: Food, Kids, Drinks and Special menu pages (accessed 2026-10-06, no date shown)",
+  "url": "https://fathippo.co.uk/menus/food/",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Per serving from each dish's nutrition panel on fathippo.co.uk (no date shown), in whole grams: salt often reads 0 g. Burgers come with a free side of your choice, listed separately and not added in. Dishes whose printed numbers contradict each other are left out, and so are drinks with no numbers (beers, wines, spirits).",
+ "categories": [
+  "Starters",
+  "Beef burgers",
+  "Chicken burgers",
+  "Veggie & vegan burgers",
+  "Upgrades",
+  "Fast Hippo (weekdays until 4pm)",
+  "Sides",
+  "Sauces",
+  "Desserts",
+  "Specials",
+  "Kids mains",
+  "Kids toppings & sauces",
+  "Kids sides",
+  "Kids drinks",
+  "Kids shakes",
+  "Cocktails & shots",
+  "Hard shakes",
+  "Shakes",
+  "Soft drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "trash-browns",
+   "name": "Trash Browns",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 486,
+    "protein": 5,
+    "carbs": 57,
+    "fat": 25,
+    "saturatedFat": 3,
+    "sugar": 14,
+    "fiber": 5,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseballs",
+   "name": "Cheeseballs",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 789,
+    "protein": 51,
+    "carbs": 8,
+    "fat": 70,
+    "saturatedFat": 29,
+    "sugar": 7,
+    "fiber": 0,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freddies-fingers-buffalo",
+   "name": "Freddies Fingers: Buffalo",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 521,
+    "protein": 66,
+    "carbs": 7,
+    "fat": 35,
+    "saturatedFat": 3,
+    "sugar": 5,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freddies-fingers-crack",
+   "name": "Freddies Fingers: Crack",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 572,
+    "protein": 69,
+    "carbs": 3,
+    "fat": 37,
+    "saturatedFat": 5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freddies-fingers-white-rabbit",
+   "name": "Freddies Fingers: White Rabbit",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 453,
+    "protein": 65,
+    "carbs": 13,
+    "fat": 15,
+    "saturatedFat": 8,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-ayli-beef",
+   "name": "Plain Ayli Beef",
+   "category": "Beef burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 509,
+    "protein": 48,
+    "carbs": 41,
+    "fat": 14,
+    "saturatedFat": 6,
+    "sugar": 4,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-poppa",
+   "name": "Big Poppa",
+   "category": "Beef burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 738,
+    "protein": 51,
+    "carbs": 62,
+    "fat": 28,
+    "saturatedFat": 8,
+    "sugar": 20,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american",
+   "name": "American",
+   "category": "Beef burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 592,
+    "protein": 51,
+    "carbs": 54,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 15,
+    "fiber": 2,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wild-bill",
+   "name": "Wild Bill",
+   "category": "Beef burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 854,
+    "protein": 57,
+    "carbs": 60,
+    "fat": 42,
+    "saturatedFat": 10,
+    "sugar": 11,
+    "fiber": 3,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "uncle-phil",
+   "name": "Uncle Phil",
+   "category": "Beef burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 839,
+    "protein": 56,
+    "carbs": 48,
+    "fat": 40,
+    "saturatedFat": 16,
+    "sugar": 7,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fat-hippo",
+   "name": "Fat Hippo",
+   "category": "Beef burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 906,
+    "protein": 58,
+    "carbs": 68,
+    "fat": 46,
+    "saturatedFat": 10,
+    "sugar": 16,
+    "fiber": 2,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "born-slippy",
+   "name": "Born Slippy",
+   "category": "Beef burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 787,
+    "protein": 54,
+    "carbs": 68,
+    "fat": 36,
+    "saturatedFat": 8,
+    "sugar": 28,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-ayli-chicken",
+   "name": "Plain Ayli - Chicken",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 413,
+    "protein": 43,
+    "carbs": 41,
+    "fat": 7,
+    "saturatedFat": 3,
+    "sugar": 4,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-g",
+   "name": "Triple G",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 790,
+    "protein": 50,
+    "carbs": 49,
+    "fat": 46,
+    "saturatedFat": 9,
+    "sugar": 6,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-rabbit",
+   "name": "White Rabbit",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 730,
+    "protein": 48,
+    "carbs": 57,
+    "fat": 39,
+    "saturatedFat": 14,
+    "sugar": 19,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hangover-iii",
+   "name": "Hangover III",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 679,
+    "protein": 51,
+    "carbs": 50,
+    "fat": 31,
+    "saturatedFat": 7,
+    "sugar": 13,
+    "fiber": 2,
+    "salt": 1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruce-almighty",
+   "name": "Bruce Almighty",
+   "category": "Chicken burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 801,
+    "protein": 45,
+    "carbs": 65,
+    "fat": 39,
+    "saturatedFat": 7,
+    "sugar": 14,
+    "fiber": 3,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harlem-fake",
+   "name": "Harlem Fake",
+   "category": "Veggie & vegan burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 686,
+    "protein": 19,
+    "carbs": 77,
+    "fat": 30,
+    "saturatedFat": 5,
+    "sugar": 36,
+    "fiber": 10,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "notorious-vfc-2-0",
+   "name": "Notorious VFC 2.0",
+   "category": "Veggie & vegan burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 786,
+    "protein": 22,
+    "carbs": 62,
+    "fat": 62,
+    "saturatedFat": 6,
+    "sugar": 10,
+    "fiber": 11,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hand-cut-fries-upgrade",
+   "name": "Hand Cut Fries (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 424,
+    "protein": 7,
+    "carbs": 68,
+    "fat": 14,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tater-tots-upgrade",
+   "name": "Tater Tots (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 374,
+    "protein": 5,
+    "carbs": 50,
+    "fat": 21,
+    "saturatedFat": 2,
+    "sugar": 1,
+    "fiber": 7,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "superfries-me-upgrade",
+   "name": "Superfries Me! (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 832,
+    "protein": 14,
+    "carbs": 105,
+    "fat": 48,
+    "saturatedFat": 2,
+    "sugar": 7,
+    "fiber": 11,
+    "salt": 1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-hand-cut-fries-upgrade",
+   "name": "Dirty Hand Cut Fries (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 545,
+    "protein": 10,
+    "carbs": 73,
+    "fat": 30,
+    "saturatedFat": 0,
+    "sugar": 3,
+    "fiber": 8,
+    "salt": 0
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-dirty-hand-cut-fries-upgrade",
+   "name": "Vegan Dirty Hand Cut Fries (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 564,
+    "protein": 9,
+    "carbs": 74,
+    "fat": 34,
+    "saturatedFat": 1,
+    "sugar": 5,
+    "fiber": 7,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-tater-tots-upgrade",
+   "name": "Dirty Tater Tots (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 495,
+    "protein": 8,
+    "carbs": 55,
+    "fat": 37,
+    "saturatedFat": 2,
+    "sugar": 3,
+    "fiber": 8,
+    "salt": 1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-dirty-tots-upgrade",
+   "name": "Vegan Dirty Tots (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 514,
+    "protein": 7,
+    "carbs": 56,
+    "fat": 41,
+    "saturatedFat": 3,
+    "sugar": 5,
+    "fiber": 7,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5oz-beef-patty-upgrade",
+   "name": "5oz Beef Patty (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 290,
+    "protein": 20,
+    "carbs": 0,
+    "fat": 23,
+    "saturatedFat": 10,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-chicken-breast-upgrade",
+   "name": "Buttermilk Chicken Breast (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 252,
+    "protein": 25,
+    "carbs": 19,
+    "fat": 7,
+    "saturatedFat": 2,
+    "sugar": 2,
+    "fiber": 1,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2x-chicken-tenders-upgrade",
+   "name": "2x Chicken Tenders (upgrade)",
+   "category": "Upgrades",
+   "serving": "",
+   "nutrients": {
+    "calories": 252,
+    "protein": 25,
+    "carbs": 19,
+    "fat": 7,
+    "saturatedFat": 2,
+    "sugar": 2,
+    "fiber": 1,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-american",
+   "name": "Little American",
+   "category": "Fast Hippo (weekdays until 4pm)",
+   "serving": "",
+   "nutrients": {
+    "calories": 592,
+    "protein": 51,
+    "carbs": 54,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 15,
+    "fiber": 2,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-hippo",
+   "name": "Little Hippo",
+   "category": "Fast Hippo (weekdays until 4pm)",
+   "serving": "",
+   "nutrients": {
+    "calories": 716,
+    "protein": 52,
+    "carbs": 58,
+    "fat": 33,
+    "saturatedFat": 7,
+    "sugar": 15,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-lies",
+   "name": "Little Lies",
+   "category": "Fast Hippo (weekdays until 4pm)",
+   "serving": "",
+   "nutrients": {
+    "calories": 570,
+    "protein": 24,
+    "carbs": 59,
+    "fat": 25,
+    "saturatedFat": 13,
+    "sugar": 15,
+    "fiber": 9,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-buffalo",
+   "name": "Little Buffalo",
+   "category": "Fast Hippo (weekdays until 4pm)",
+   "serving": "",
+   "nutrients": {
+    "calories": 634,
+    "protein": 39,
+    "carbs": 50,
+    "fat": 33,
+    "saturatedFat": 4,
+    "sugar": 11,
+    "fiber": 4,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-white-rabbit",
+   "name": "Little White Rabbit",
+   "category": "Fast Hippo (weekdays until 4pm)",
+   "serving": "",
+   "nutrients": {
+    "calories": 636,
+    "protein": 43,
+    "carbs": 54,
+    "fat": 25,
+    "saturatedFat": 14,
+    "sugar": 17,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "handcut-fries",
+   "name": "Handcut Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 113,
+    "protein": 3,
+    "carbs": 26,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tater-tots",
+   "name": "Tater Tots",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 312,
+    "protein": 4,
+    "carbs": 40,
+    "fat": 14,
+    "saturatedFat": 2,
+    "sugar": 1,
+    "fiber": 5,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "purple-slaw-side",
+   "name": "Purple Slaw Side",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 246,
+    "protein": 4,
+    "carbs": 8,
+    "fat": 23,
+    "saturatedFat": 1,
+    "sugar": 7,
+    "fiber": 6,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-handcut-fries",
+   "name": "Dirty Handcut Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 234,
+    "protein": 6,
+    "carbs": 31,
+    "fat": 16,
+    "saturatedFat": 0,
+    "sugar": 3,
+    "fiber": 1,
+    "salt": 0
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-tots",
+   "name": "Dirty Tots",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 433,
+    "protein": 7,
+    "carbs": 45,
+    "fat": 30,
+    "saturatedFat": 2,
+    "sugar": 3,
+    "fiber": 6,
+    "salt": 1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-dirty-tots",
+   "name": "Vegan Dirty Tots",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 452,
+    "protein": 6,
+    "carbs": 46,
+    "fat": 34,
+    "saturatedFat": 3,
+    "sugar": 5,
+    "fiber": 5,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-onion-rings",
+   "name": "3x Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 1,
+    "carbs": 16,
+    "fat": 4,
+    "saturatedFat": 0,
+    "sugar": 2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-onion-rings",
+   "name": "5x Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 190,
+    "protein": 3,
+    "carbs": 27,
+    "fat": 7,
+    "saturatedFat": 0,
+    "sugar": 4,
+    "fiber": 1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq",
+   "name": "BBQ",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 68,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-whiz-mayo",
+   "name": "Cheese Whiz Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 127,
+    "protein": 1,
+    "carbs": 1,
+    "fat": 13,
+    "saturatedFat": 3,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carolina-bbq",
+   "name": "Carolina BBQ",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0,
+    "carbs": 6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey",
+   "name": "Hot Honey",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-cheese-aioli",
+   "name": "Cream Cheese Aioli",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 87,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 9,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mayo",
+   "name": "Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 126,
+    "protein": 0,
+    "carbs": 4,
+    "fat": 11,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mustard",
+   "name": "Mustard",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 9,
+    "protein": 1,
+    "carbs": 1,
+    "fat": 1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lamars-bar",
+   "name": "Lamar's Bar",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 576,
+    "protein": 7,
+    "carbs": 85,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 66,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gimme-smore",
+   "name": "Gimme S'more!",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 2,
+    "carbs": 30,
+    "fat": 6,
+    "saturatedFat": 2,
+    "sugar": 23,
+    "fiber": 1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-poppa-special-menu",
+   "name": "Big Poppa (special menu)",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1020,
+    "protein": 47,
+    "carbs": 64,
+    "fat": 64,
+    "saturatedFat": 25,
+    "sugar": 20,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hypnotize-fries-special-menu",
+   "name": "Hypnotize Fries (special menu)",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 620,
+    "protein": 9,
+    "carbs": 89,
+    "fat": 27,
+    "saturatedFat": 1,
+    "sugar": 15,
+    "fiber": 8,
+    "salt": 0
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-beef-burger",
+   "name": "Kids Beef Burger",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 486,
+    "protein": 23,
+    "carbs": 41,
+    "fat": 25,
+    "saturatedFat": 12,
+    "sugar": 4,
+    "fiber": 1,
+    "salt": 0
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-burger",
+   "name": "Kids Chicken Burger",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 448,
+    "protein": 28,
+    "carbs": 60,
+    "fat": 9,
+    "saturatedFat": 4,
+    "sugar": 6,
+    "fiber": 2,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vfc-burger",
+   "name": "Kids VFC Burger",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 387,
+    "protein": 19,
+    "carbs": 41,
+    "fat": 12,
+    "saturatedFat": 0,
+    "sugar": 4,
+    "fiber": 10,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vegan-burger",
+   "name": "Kids Vegan Burger",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 407,
+    "protein": 19,
+    "carbs": 52,
+    "fat": 8,
+    "saturatedFat": 0,
+    "sugar": 4,
+    "fiber": 6,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-fingers",
+   "name": "Kids Chicken Fingers",
+   "category": "Kids mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 493,
+    "protein": 57,
+    "carbs": 56,
+    "fat": 4,
+    "saturatedFat": 1,
+    "sugar": 3,
+    "fiber": 3,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-kids-burger-topping",
+   "name": "Bacon (kids burger topping)",
+   "category": "Kids toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 5,
+    "carbs": 0,
+    "fat": 10,
+    "saturatedFat": 3,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-kids-burger-topping",
+   "name": "Cheese (kids burger topping)",
+   "category": "Kids toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 41,
+    "protein": 2,
+    "carbs": 0,
+    "fat": 3,
+    "saturatedFat": 1,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-ring-kids-burger-topping",
+   "name": "Onion Ring (kids burger topping)",
+   "category": "Kids toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 76,
+    "protein": 1,
+    "carbs": 10,
+    "fat": 3,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mayo",
+   "name": "Kids Mayo",
+   "category": "Kids toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 126,
+    "protein": 0,
+    "carbs": 4,
+    "fat": 11,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-bbq",
+   "name": "Kids BBQ",
+   "category": "Kids toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 68,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lettuce-kids-burger-garnish",
+   "name": "Lettuce (kids burger garnish)",
+   "category": "Kids toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickles-kids-burger-garnish",
+   "name": "Pickles (kids burger garnish)",
+   "category": "Kids toppings & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hand-cut-fries",
+   "name": "Kids Hand Cut Fries",
+   "category": "Kids sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 424,
+    "protein": 7,
+    "carbs": 68,
+    "fat": 14,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "fiber": 7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-tater-tots",
+   "name": "Kids Tater Tots",
+   "category": "Kids sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 351,
+    "protein": 0,
+    "carbs": 42,
+    "fat": 16,
+    "saturatedFat": 1,
+    "sugar": 0,
+    "fiber": 5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-orange-cordial",
+   "name": "Kids Orange Cordial",
+   "category": "Kids drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 165,
+    "protein": 0,
+    "carbs": 32,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 32,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-milk",
+   "name": "Kids Milk",
+   "category": "Kids drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 189,
+    "protein": 10,
+    "carbs": 13,
+    "fat": 10,
+    "saturatedFat": 6,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hippo-juice",
+   "name": "Kids Hippo Juice",
+   "category": "Kids drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 0,
+    "carbs": 33,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 33,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pop-pepsi",
+   "name": "Kids Pop: Pepsi",
+   "category": "Kids drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 107,
+    "protein": 0,
+    "carbs": 26,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 26,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pop-diet-lemonade",
+   "name": "Kids Pop: Diet Lemonade",
+   "category": "Kids drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-brownie-milkshake-kids-upgrade",
+   "name": "Chocolate Brownie Milkshake (kids upgrade)",
+   "category": "Kids shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 502,
+    "protein": 8,
+    "carbs": 33,
+    "fat": 34,
+    "saturatedFat": 22,
+    "sugar": 31,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-oreo-cookie-crunch-milkshake-kids-upgrade",
+   "name": "Vanilla Oreo Cookie Crunch Milkshake (kids upgrade)",
+   "category": "Kids shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 744,
+    "protein": 6,
+    "carbs": 76,
+    "fat": 40,
+    "saturatedFat": 25,
+    "sugar": 67,
+    "fiber": 7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-shortini",
+   "name": "Espresso Shortini",
+   "category": "Cocktails & shots",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "protein": 0,
+    "carbs": 19,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homer-shot",
+   "name": "Homer (shot)",
+   "category": "Cocktails & shots",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 1,
+    "carbs": 4,
+    "fat": 16,
+    "saturatedFat": 12,
+    "sugar": 4,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baby-shaft-shot",
+   "name": "Baby Shaft (shot)",
+   "category": "Cocktails & shots",
+   "serving": "",
+   "nutrients": {
+    "calories": 381,
+    "protein": 1,
+    "carbs": 22,
+    "fat": 16,
+    "saturatedFat": 12,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hugo-spritz",
+   "name": "Hugo Spritz",
+   "category": "Cocktails & shots",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 0,
+    "carbs": 46,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 46,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pb-jack-hard-shake",
+   "name": "PB+Jack (hard shake)",
+   "category": "Hard shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 722,
+    "protein": 26,
+    "carbs": 42,
+    "fat": 45,
+    "saturatedFat": 17,
+    "sugar": 40,
+    "fiber": 3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milky-bar-hard-shake",
+   "name": "Milky Bar (hard shake)",
+   "category": "Hard shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 721,
+    "protein": 13,
+    "carbs": 46,
+    "fat": 31,
+    "saturatedFat": 17,
+    "sugar": 44,
+    "fiber": 1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-irish-one-hard-shake",
+   "name": "The Irish One (hard shake)",
+   "category": "Hard shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 634,
+    "protein": 13,
+    "carbs": 54,
+    "fat": 24,
+    "saturatedFat": 13,
+    "sugar": 54,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butterbeer-hard-shake",
+   "name": "Butterbeer (hard shake)",
+   "category": "Hard shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 751,
+    "protein": 13,
+    "carbs": 85,
+    "fat": 32,
+    "saturatedFat": 18,
+    "sugar": 70,
+    "fiber": 1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mars-attack",
+   "name": "Mars Attack",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 924,
+    "protein": 11,
+    "carbs": 96,
+    "fat": 45,
+    "saturatedFat": 28,
+    "sugar": 82,
+    "fiber": 7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meet-joe-crack",
+   "name": "Meet Joe Crack",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 857,
+    "protein": 12,
+    "carbs": 82,
+    "fat": 41,
+    "saturatedFat": 27,
+    "sugar": 67,
+    "fiber": 6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "love-me-blender",
+   "name": "Love Me Blender",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1045,
+    "protein": 24,
+    "carbs": 77,
+    "fat": 62,
+    "saturatedFat": 31,
+    "sugar": 72,
+    "fiber": 9,
+    "salt": 0
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wellaye-dubai",
+   "name": "Wellaye Dubai",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 650,
+    "protein": 1,
+    "carbs": 70,
+    "fat": 35,
+    "saturatedFat": 22,
+    "sugar": 61,
+    "fiber": 7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoffy",
+   "name": "Biscoffy",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 651,
+    "protein": 2,
+    "carbs": 71,
+    "fat": 34,
+    "saturatedFat": 22,
+    "sugar": 61,
+    "fiber": 6,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "draught-pint-pepsi",
+   "name": "Draught Pint: Pepsi",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 214,
+    "protein": 0,
+    "carbs": 53,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 53,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "draught-pint-diet-lemonade",
+   "name": "Draught Pint: Diet Lemonade",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "draught-pint-orange",
+   "name": "Draught Pint: Orange",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 0,
+    "carbs": 33,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 33,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-fruit-juice",
+   "name": "Orange Fruit Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 105,
+    "protein": 1,
+    "carbs": 22,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-fruit-juice",
+   "name": "Apple Fruit Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 105,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-fruit-juice",
+   "name": "Cranberry Fruit Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pint-orange-cordial",
+   "name": "Pint: Orange Cordial",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 165,
+    "protein": 0,
+    "carbs": 32,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 32,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pint-lime-cordial",
+   "name": "Pint: Lime Cordial",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 106,
+    "protein": 0,
+    "carbs": 24,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pint-elderflower-cordial",
+   "name": "Pint: Elderflower Cordial",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 0,
+    "carbs": 46,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 46,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola",
+   "name": "Coca Cola",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 0,
+    "carbs": 34,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 34,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero",
+   "name": "Sprite Zero",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-san-pellegrino",
+   "name": "Lemon San Pellegrino",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blood-orange-san-pellegrino",
+   "name": "Blood Orange San Pellegrino",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "protein": 0,
+    "carbs": 16,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-pomegranate-san-pellegrino",
+   "name": "Orange + Pomegranate San Pellegrino",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

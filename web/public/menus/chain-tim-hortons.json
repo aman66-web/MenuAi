@@ -1,0 +1,5594 @@
+{
+ "schemaVersion": 1,
+ "id": "tim-hortons",
+ "name": "Tim Hortons",
+ "cuisine": "Coffee",
+ "builderType": "standard",
+ "aliases": [
+  "tim hortons",
+  "tims",
+  "timmies"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Tim Hortons UK website: product nutritional information, Great Britain menu (timhortons.co.uk/information pages, retrieved 2026-10-06; the pages carry no version date)",
+  "url": "https://timhortons.co.uk/information/56",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are per serving as the chain prints them and do not include dips. Items sold only in Northern Ireland or selected stores, and boxes of donuts and Timbits (no values printed), are left out.",
+ "categories": [
+  "Breakfast",
+  "Burgers & sandwiches",
+  "Wraps",
+  "Tenders & sides",
+  "Timmies Minis",
+  "Bakery & treats",
+  "Hot drinks",
+  "Cold drinks",
+  "Soft drinks",
+  "Sauces",
+  "Add-ons"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "breakfast-burrito",
+   "name": "Breakfast Burrito",
+   "category": "Breakfast",
+   "serving": "286 g",
+   "nutrients": {
+    "calories": 715,
+    "protein": 36,
+    "carbs": 58,
+    "fat": 37,
+    "saturatedFat": 12,
+    "sugar": 5.2,
+    "fiber": 5,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-roll-loin",
+   "name": "Bacon Roll (Loin)",
+   "category": "Breakfast",
+   "serving": "190 g",
+   "nutrients": {
+    "calories": 544,
+    "protein": 36,
+    "carbs": 45,
+    "fat": 25,
+    "saturatedFat": 8.6,
+    "sugar": 3.8,
+    "fiber": 3.2,
+    "salt": 4.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-breakfast-wrap",
+   "name": "Original Breakfast Wrap",
+   "category": "Breakfast",
+   "serving": "202 g",
+   "nutrients": {
+    "calories": 504,
+    "protein": 20,
+    "carbs": 43,
+    "fat": 27,
+    "saturatedFat": 7.6,
+    "sugar": 4.1,
+    "fiber": 4.5,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-wrap",
+   "name": "Big Breakfast Wrap",
+   "category": "Breakfast",
+   "serving": "212 g",
+   "nutrients": {
+    "calories": 556,
+    "protein": 24,
+    "carbs": 44,
+    "fat": 30,
+    "saturatedFat": 8.9,
+    "sugar": 4.1,
+    "fiber": 4.5,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-veggie-wrap",
+   "name": "Loaded Veggie Wrap",
+   "category": "Breakfast",
+   "serving": "209 g",
+   "nutrients": {
+    "calories": 494,
+    "protein": 18,
+    "carbs": 44,
+    "fat": 26,
+    "saturatedFat": 9.1,
+    "sugar": 3.5,
+    "fiber": 5.9,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-and-cheese-muffin",
+   "name": "Egg and Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "117 g",
+   "nutrients": {
+    "calories": 290,
+    "protein": 12,
+    "carbs": 27,
+    "fat": 15,
+    "saturatedFat": 3.6,
+    "sugar": 3.2,
+    "fiber": 0.9,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-egg-and-cheese-muffin-streaky-bacon",
+   "name": "Bacon, Egg and Cheese Muffin (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "131 g",
+   "nutrients": {
+    "calories": 333,
+    "protein": 16,
+    "carbs": 27,
+    "fat": 18,
+    "saturatedFat": 4.6,
+    "sugar": 3.5,
+    "fiber": 1,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-egg-and-cheese-muffin-stack-streaky-bacon",
+   "name": "Bacon, Egg and Cheese Muffin Stack (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "179 g",
+   "nutrients": {
+    "calories": 423,
+    "protein": 17,
+    "carbs": 36,
+    "fat": 23,
+    "saturatedFat": 4.8,
+    "sugar": 3.6,
+    "fiber": 2.2,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-bacon-egg-and-cheese-muffin-streaky-bacon",
+   "name": "Double Bacon, Egg and Cheese Muffin (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 376,
+    "protein": 20,
+    "carbs": 28,
+    "fat": 20,
+    "saturatedFat": 5.7,
+    "sugar": 3.9,
+    "fiber": 1,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-bacon-and-egg-muffin-stack-streaky-bacon",
+   "name": "Double Bacon & Egg Muffin Stack (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "193 g",
+   "nutrients": {
+    "calories": 466,
+    "protein": 21,
+    "carbs": 37,
+    "fat": 26,
+    "saturatedFat": 5.9,
+    "sugar": 4,
+    "fiber": 2.3,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-egg-with-cheese-muffin",
+   "name": "Sausage & Egg with Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "162 g",
+   "nutrients": {
+    "calories": 432,
+    "protein": 21,
+    "carbs": 28,
+    "fat": 26,
+    "saturatedFat": 7.7,
+    "sugar": 4.2,
+    "fiber": 1.8,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-egg-with-cheese-muffin-stack",
+   "name": "Sausage & Egg with Cheese Muffin Stack",
+   "category": "Breakfast",
+   "serving": "210 g",
+   "nutrients": {
+    "calories": 522,
+    "protein": 22,
+    "carbs": 37,
+    "fat": 31,
+    "saturatedFat": 7.9,
+    "sugar": 4.3,
+    "fiber": 3,
+    "salt": 2.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-sausage-and-egg-with-cheese-muffin",
+   "name": "Double Sausage & Egg with Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "207 g",
+   "nutrients": {
+    "calories": 574,
+    "protein": 29,
+    "carbs": 30,
+    "fat": 37,
+    "saturatedFat": 12,
+    "sugar": 5.2,
+    "fiber": 2.7,
+    "salt": 2.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-sausage-and-egg-with-cheese-muffin-stack",
+   "name": "Double Sausage & Egg with Cheese Muffin Stack",
+   "category": "Breakfast",
+   "serving": "255 g",
+   "nutrients": {
+    "calories": 664,
+    "protein": 30,
+    "carbs": 39,
+    "fat": 42,
+    "saturatedFat": 12,
+    "sugar": 5.3,
+    "fiber": 3.9,
+    "salt": 2.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-egg-with-cheese-muffin",
+   "name": "Veggie Egg with Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "170 g",
+   "nutrients": {
+    "calories": 422,
+    "protein": 18,
+    "carbs": 29,
+    "fat": 25,
+    "saturatedFat": 9.3,
+    "sugar": 3.6,
+    "fiber": 3.2,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-egg-with-cheese-muffin-stack",
+   "name": "Veggie Egg with Cheese Muffin Stack",
+   "category": "Breakfast",
+   "serving": "217 g",
+   "nutrients": {
+    "calories": 512,
+    "protein": 19,
+    "carbs": 38,
+    "fat": 30,
+    "saturatedFat": 9.5,
+    "sugar": 3.7,
+    "fiber": 4.5,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-breakfast-bagel-with-sausage",
+   "name": "Grilled Breakfast Bagel with Sausage",
+   "category": "Breakfast",
+   "serving": "210 g",
+   "nutrients": {
+    "calories": 533,
+    "protein": 26,
+    "carbs": 60,
+    "fat": 20,
+    "saturatedFat": 7.2,
+    "sugar": 7.9,
+    "fiber": 4.4,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-breakfast-bagel-with-bacon-streaky-bacon",
+   "name": "Grilled Breakfast Bagel with Bacon (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "179 g",
+   "nutrients": {
+    "calories": 434,
+    "protein": 21,
+    "carbs": 59,
+    "fat": 12,
+    "saturatedFat": 4.1,
+    "sugar": 7.3,
+    "fiber": 3.6,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-breakfast-bagel-with-veggie-sausage",
+   "name": "Grilled Breakfast Bagel with Veggie Sausage",
+   "category": "Breakfast",
+   "serving": "217 g",
+   "nutrients": {
+    "calories": 522,
+    "protein": 24,
+    "carbs": 61,
+    "fat": 19,
+    "saturatedFat": 8.8,
+    "sugar": 7.3,
+    "fiber": 5.9,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-bagel",
+   "name": "Plain Bagel",
+   "category": "Breakfast",
+   "serving": "114 g",
+   "nutrients": {
+    "calories": 292,
+    "protein": 10,
+    "carbs": 57,
+    "fat": 1.8,
+    "saturatedFat": 0.2,
+    "sugar": 5.7,
+    "fiber": 3.5,
+    "salt": 0.74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bagel-with-butter",
+   "name": "Bagel with Butter",
+   "category": "Breakfast",
+   "serving": "121 g",
+   "nutrients": {
+    "calories": 355,
+    "protein": 10,
+    "carbs": 57,
+    "fat": 8.7,
+    "saturatedFat": 0.9,
+    "sugar": 5.7,
+    "fiber": 3.5,
+    "salt": 0.83
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bagel-with-cream-cheese",
+   "name": "Bagel with Cream Cheese",
+   "category": "Breakfast",
+   "serving": "130 g",
+   "nutrients": {
+    "calories": 329,
+    "protein": 11,
+    "carbs": 57,
+    "fat": 5.3,
+    "saturatedFat": 2.6,
+    "sugar": 6.4,
+    "fiber": 3.6,
+    "salt": 0.86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-maple-pancakes",
+   "name": "Bacon & Maple Pancakes",
+   "category": "Breakfast",
+   "serving": "161 g",
+   "nutrients": {
+    "calories": 410,
+    "protein": 11,
+    "carbs": 68,
+    "fat": 10,
+    "saturatedFat": 2.2,
+    "sugar": 30,
+    "fiber": 1.7,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-syrup-pancakes",
+   "name": "Maple Syrup Pancakes",
+   "category": "Breakfast",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 358,
+    "protein": 8,
+    "carbs": 66,
+    "fat": 6.4,
+    "saturatedFat": 0.9,
+    "sugar": 30,
+    "fiber": 1.7,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-hazelnut-and-cookie-pancakes",
+   "name": "Chocolate Hazelnut & Cookie Pancakes",
+   "category": "Breakfast",
+   "serving": "145 g",
+   "nutrients": {
+    "calories": 384,
+    "protein": 9,
+    "carbs": 61,
+    "fat": 11,
+    "saturatedFat": 2.4,
+    "sugar": 26,
+    "fiber": 2,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash Brown",
+   "category": "Breakfast",
+   "serving": "48 g",
+   "nutrients": {
+    "calories": 90,
+    "protein": 1,
+    "carbs": 9.1,
+    "fat": 5.3,
+    "saturatedFat": 0.2,
+    "sugar": 0.1,
+    "fiber": 1.2,
+    "salt": 0.17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-cheese-breakfast-snack-wrap",
+   "name": "Bacon & Cheese Breakfast Snack Wrap",
+   "category": "Breakfast",
+   "serving": "87 g",
+   "nutrients": {
+    "calories": 257,
+    "protein": 14,
+    "carbs": 22,
+    "fat": 12,
+    "saturatedFat": 5.2,
+    "sugar": 4.9,
+    "fiber": 0.8,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-cheese-breakfast-snack-wrap",
+   "name": "Sausage & Cheese Breakfast Snack Wrap",
+   "category": "Breakfast",
+   "serving": "97 g",
+   "nutrients": {
+    "calories": 283,
+    "protein": 13,
+    "carbs": 23,
+    "fat": 15,
+    "saturatedFat": 6.3,
+    "sugar": 5.8,
+    "fiber": 1.5,
+    "salt": 1.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-breakfast-snack-wrap",
+   "name": "Veggie Breakfast Snack Wrap",
+   "category": "Breakfast",
+   "serving": "107 g",
+   "nutrients": {
+    "calories": 298,
+    "protein": 14,
+    "carbs": 24,
+    "fat": 15,
+    "saturatedFat": 7.7,
+    "sugar": 5.3,
+    "fiber": 4,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-and-cheese-breakfast-snack-wrap",
+   "name": "Egg & Cheese Breakfast Snack Wrap",
+   "category": "Breakfast",
+   "serving": "93 g",
+   "nutrients": {
+    "calories": 206,
+    "protein": 9.4,
+    "carbs": 22,
+    "fat": 8.8,
+    "saturatedFat": 3.5,
+    "sugar": 5.5,
+    "fiber": 0.7,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-cheese-muffin-streaky-bacon",
+   "name": "Bacon & Cheese Muffin (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "131 g",
+   "nutrients": {
+    "calories": 623,
+    "protein": 11,
+    "carbs": 27,
+    "fat": 52,
+    "saturatedFat": 7.2,
+    "sugar": 2.9,
+    "fiber": 1,
+    "salt": 1.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-breakfast-wrap-streaky-bacon",
+   "name": "Big Breakfast Wrap (Streaky Bacon)",
+   "category": "Breakfast",
+   "serving": "235 g",
+   "nutrients": {
+    "calories": 573,
+    "protein": 27,
+    "carbs": 44,
+    "fat": 31,
+    "saturatedFat": 9.1,
+    "sugar": 4.7,
+    "fiber": 4.5,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-double-cheeseburger",
+   "name": "Tims® Double Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "237 g",
+   "nutrients": {
+    "calories": 527,
+    "protein": 30,
+    "carbs": 46,
+    "fat": 24,
+    "saturatedFat": 10,
+    "sugar": 15,
+    "fiber": 4.5,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-double-cheeseburger",
+   "name": "Nacho Double Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "201 g",
+   "nutrients": {
+    "calories": 466,
+    "protein": 22,
+    "carbs": 55,
+    "fat": 17,
+    "saturatedFat": 7.4,
+    "sugar": 13,
+    "fiber": 3.7,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-bacon-double-cheeseburger",
+   "name": "Tims® Bacon Double Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "247 g",
+   "nutrients": {
+    "calories": 579,
+    "protein": 33,
+    "carbs": 48,
+    "fat": 28,
+    "saturatedFat": 11,
+    "sugar": 15,
+    "fiber": 4.5,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-triple-cheeseburger",
+   "name": "Tims® Triple Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "300 g",
+   "nutrients": {
+    "calories": 690,
+    "protein": 41,
+    "carbs": 49,
+    "fat": 36,
+    "saturatedFat": 15,
+    "sugar": 16,
+    "fiber": 4.7,
+    "salt": 3.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chicken-sandwich",
+   "name": "Nacho Chicken Sandwich",
+   "category": "Burgers & sandwiches",
+   "serving": "283 g",
+   "nutrients": {
+    "calories": 645,
+    "protein": 32,
+    "carbs": 72,
+    "fat": 24,
+    "saturatedFat": 9,
+    "sugar": 14,
+    "fiber": 4.9,
+    "salt": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-crispy-chicken-sandwich",
+   "name": "Tims® Crispy Chicken Sandwich",
+   "category": "Burgers & sandwiches",
+   "serving": "229 g",
+   "nutrients": {
+    "calories": 553,
+    "protein": 23,
+    "carbs": 57,
+    "fat": 26,
+    "saturatedFat": 3.7,
+    "sugar": 11,
+    "fiber": 4.3,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chicken-stack",
+   "name": "Nacho Chicken Stack",
+   "category": "Burgers & sandwiches",
+   "serving": "331 g",
+   "nutrients": {
+    "calories": 735,
+    "protein": 33,
+    "carbs": 81,
+    "fat": 30,
+    "saturatedFat": 9.2,
+    "sugar": 14,
+    "fiber": 6.1,
+    "salt": 6.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-crispy-chicken-stack",
+   "name": "Tims® Crispy Chicken Stack",
+   "category": "Burgers & sandwiches",
+   "serving": "289 g",
+   "nutrients": {
+    "calories": 686,
+    "protein": 26,
+    "carbs": 67,
+    "fat": 34,
+    "saturatedFat": 5.6,
+    "sugar": 12,
+    "fiber": 5.5,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-meatless-sandwich",
+   "name": "Crispy Meatless Sandwich",
+   "category": "Burgers & sandwiches",
+   "serving": "225 g",
+   "nutrients": {
+    "calories": 475,
+    "protein": 16,
+    "carbs": 50,
+    "fat": 21,
+    "saturatedFat": 2.6,
+    "sugar": 12,
+    "fiber": 9.5,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-cheese-melt",
+   "name": "Nacho Cheese Melt",
+   "category": "Burgers & sandwiches",
+   "serving": "212 g",
+   "nutrients": {
+    "calories": 595,
+    "protein": 32,
+    "carbs": 59,
+    "fat": 25,
+    "saturatedFat": 15,
+    "sugar": 5.3,
+    "fiber": 2.9,
+    "salt": 3.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-herb-melt",
+   "name": "Cheese and Herb Melt",
+   "category": "Burgers & sandwiches",
+   "serving": "171 g",
+   "nutrients": {
+    "calories": 488,
+    "protein": 26,
+    "carbs": 48,
+    "fat": 21,
+    "saturatedFat": 12,
+    "sugar": 4.9,
+    "fiber": 2.6,
+    "salt": 2.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-hock-and-cheese-melt",
+   "name": "Ham Hock and Cheese Melt",
+   "category": "Burgers & sandwiches",
+   "serving": "206 g",
+   "nutrients": {
+    "calories": 491,
+    "protein": 34,
+    "carbs": 47,
+    "fat": 19,
+    "saturatedFat": 11,
+    "sugar": 4.3,
+    "fiber": 2.6,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-bbq-chicken-melt",
+   "name": "Maple BBQ Chicken Melt",
+   "category": "Burgers & sandwiches",
+   "serving": "211 g",
+   "nutrients": {
+    "calories": 523,
+    "protein": 36,
+    "carbs": 54,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 9.3,
+    "fiber": 2.4,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-savers-hamburger",
+   "name": "Tims® Savers - Hamburger",
+   "category": "Burgers & sandwiches",
+   "serving": "138 g",
+   "nutrients": {
+    "calories": 314,
+    "protein": 16,
+    "carbs": 36,
+    "fat": 12,
+    "saturatedFat": 4.6,
+    "sugar": 12,
+    "fiber": 3.2,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-savers-cheeseburger",
+   "name": "Tims® Savers - Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 357,
+    "protein": 18,
+    "carbs": 36,
+    "fat": 15,
+    "saturatedFat": 6.3,
+    "sugar": 13,
+    "fiber": 3.2,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt-chicken-wrap",
+   "name": "BLT Chicken Wrap",
+   "category": "Wraps",
+   "serving": "182 g",
+   "nutrients": {
+    "calories": 394,
+    "protein": 17,
+    "carbs": 44,
+    "fat": 16,
+    "saturatedFat": 2.5,
+    "sugar": 3.3,
+    "fiber": 3.5,
+    "salt": 2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-bbq-chicken-wrap",
+   "name": "Maple BBQ Chicken Wrap",
+   "category": "Wraps",
+   "serving": "160 g",
+   "nutrients": {
+    "calories": 389,
+    "protein": 18,
+    "carbs": 49,
+    "fat": 13,
+    "saturatedFat": 4.2,
+    "sugar": 6.9,
+    "fiber": 3.3,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-mayo-chicken-wrap",
+   "name": "Sweet Chilli Mayo Chicken Wrap",
+   "category": "Wraps",
+   "serving": "174 g",
+   "nutrients": {
+    "calories": 446,
+    "protein": 15,
+    "carbs": 49,
+    "fat": 20,
+    "saturatedFat": 2.1,
+    "sugar": 3.3,
+    "fiber": 3.4,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chicken-wrap",
+   "name": "Nacho Chicken Wrap",
+   "category": "Wraps",
+   "serving": "187 g",
+   "nutrients": {
+    "calories": 412,
+    "protein": 19,
+    "carbs": 55,
+    "fat": 12,
+    "saturatedFat": 3.4,
+    "sugar": 4.3,
+    "fiber": 3.7,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoky-chipotle-chicken-wrap",
+   "name": "Smoky Chipotle Chicken Wrap",
+   "category": "Wraps",
+   "serving": "159 g",
+   "nutrients": {
+    "calories": 402,
+    "protein": 17,
+    "carbs": 43,
+    "fat": 17,
+    "saturatedFat": 3.8,
+    "sugar": 3.4,
+    "fiber": 3.3,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vlt-vegan-wrap",
+   "name": "VLT Vegan Wrap",
+   "category": "Wraps",
+   "serving": "301 g",
+   "nutrients": {
+    "calories": 435,
+    "protein": 14,
+    "carbs": 43,
+    "fat": 21,
+    "saturatedFat": 2,
+    "sugar": 4.2,
+    "fiber": 9.1,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-savers-crispy-chicken-snack-wrap",
+   "name": "Tims® Savers - Crispy Chicken Snack Wrap",
+   "category": "Wraps",
+   "serving": "61 g",
+   "nutrients": {
+    "calories": 145,
+    "protein": 3.5,
+    "carbs": 19,
+    "fat": 6.1,
+    "saturatedFat": 1,
+    "sugar": 1.5,
+    "fiber": 0.8,
+    "salt": 0.32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-piece-tims-chicken-tenders",
+   "name": "5 Piece Tims® Chicken Tenders",
+   "category": "Tenders & sides",
+   "serving": "148 g",
+   "nutrients": {
+    "calories": 292,
+    "protein": 26,
+    "carbs": 24,
+    "fat": 9.8,
+    "saturatedFat": 1.8,
+    "sugar": 0,
+    "fiber": 1.9,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-piece-tims-chicken-tenders",
+   "name": "3 Piece Tims® Chicken Tenders",
+   "category": "Tenders & sides",
+   "serving": "89 g",
+   "nutrients": {
+    "calories": 175,
+    "protein": 15,
+    "carbs": 15,
+    "fat": 5.9,
+    "saturatedFat": 1.1,
+    "sugar": 0,
+    "fiber": 1.2,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-savers-2-chicken-tenders-and-dip",
+   "name": "Tims® Savers - 2 Chicken Tenders & Dip",
+   "category": "Tenders & sides",
+   "serving": "84 g",
+   "nutrients": {
+    "calories": 226,
+    "protein": 10,
+    "carbs": 12,
+    "fat": 15,
+    "saturatedFat": 1.5,
+    "sugar": 1,
+    "fiber": 0.9,
+    "salt": 0.91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chicken-loaded-fries",
+   "name": "Nacho Chicken Loaded Fries",
+   "category": "Tenders & sides",
+   "serving": "212 g",
+   "nutrients": {
+    "calories": 595,
+    "protein": 32,
+    "carbs": 59,
+    "fat": 25,
+    "saturatedFat": 15,
+    "sugar": 5.3,
+    "fiber": 2.9,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-bbq-loaded-lattice-fries",
+   "name": "Maple BBQ Loaded Lattice Fries",
+   "category": "Tenders & sides",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 398,
+    "protein": 11,
+    "carbs": 43,
+    "fat": 19,
+    "saturatedFat": 6,
+    "sugar": 6.9,
+    "fiber": 4.8,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-fajita-spiced-chicken-tenders",
+   "name": "5 Fajita Spiced Chicken Tenders",
+   "category": "Tenders & sides",
+   "serving": "177 g",
+   "nutrients": {
+    "calories": 359,
+    "protein": 26,
+    "carbs": 40,
+    "fat": 10,
+    "saturatedFat": 1.8,
+    "sugar": 0.2,
+    "fiber": 2.7,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3-fajita-spiced-chicken-tenders",
+   "name": "3 Fajita Spiced Chicken Tenders",
+   "category": "Tenders & sides",
+   "serving": "142 g",
+   "nutrients": {
+    "calories": 298,
+    "protein": 16,
+    "carbs": 44,
+    "fat": 6.1,
+    "saturatedFat": 1.1,
+    "sugar": 0.2,
+    "fiber": 1.8,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chilli-cheese-bites-8pc",
+   "name": "Nacho Chilli Cheese Bites 8pc",
+   "category": "Tenders & sides",
+   "serving": "204 g",
+   "nutrients": {
+    "calories": 605,
+    "protein": 13,
+    "carbs": 74,
+    "fat": 28,
+    "saturatedFat": 11,
+    "sugar": 1.3,
+    "fiber": 4.9,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nacho-chilli-cheese-bites-4pc",
+   "name": "Nacho Chilli Cheese Bites 4pc",
+   "category": "Tenders & sides",
+   "serving": "102 g",
+   "nutrients": {
+    "calories": 302,
+    "protein": 6.7,
+    "carbs": 37,
+    "fat": 14,
+    "saturatedFat": 5.3,
+    "sugar": 0.6,
+    "fiber": 2.5,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lattice-fries",
+   "name": "Lattice Fries",
+   "category": "Tenders & sides",
+   "serving": "129 g",
+   "nutrients": {
+    "calories": 323,
+    "protein": 4.8,
+    "carbs": 40,
+    "fat": 14,
+    "saturatedFat": 1.2,
+    "sugar": 0.4,
+    "fiber": 6,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "timmies-minis-chicken-mayo-sandwich",
+   "name": "Timmies Minis Chicken Mayo Sandwich",
+   "category": "Timmies Minis",
+   "serving": "139 g",
+   "nutrients": {
+    "calories": 355,
+    "protein": 16,
+    "carbs": 47,
+    "fat": 11,
+    "saturatedFat": 1.9,
+    "sugar": 9.4,
+    "fiber": 3.5,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "timmies-minis-cheeseburger",
+   "name": "Timmies Minis Cheeseburger",
+   "category": "Timmies Minis",
+   "serving": "148 g",
+   "nutrients": {
+    "calories": 380,
+    "protein": 18,
+    "carbs": 44,
+    "fat": 14,
+    "saturatedFat": 5.9,
+    "sugar": 15,
+    "fiber": 3.1,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "timmies-minis-2-chicken-tenders",
+   "name": "Timmies Minis 2 Chicken Tenders",
+   "category": "Timmies Minis",
+   "serving": "59 g",
+   "nutrients": {
+    "calories": 117,
+    "protein": 10,
+    "carbs": 9.8,
+    "fat": 3.9,
+    "saturatedFat": 0.7,
+    "sugar": 0,
+    "fiber": 0.8,
+    "salt": 0.66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "timmies-minis-cheese-melt",
+   "name": "Timmies Minis Cheese Melt",
+   "category": "Timmies Minis",
+   "serving": "78 g",
+   "nutrients": {
+    "calories": 220,
+    "protein": 12,
+    "carbs": 23,
+    "fat": 8.8,
+    "saturatedFat": 5.4,
+    "sugar": 2,
+    "fiber": 1.2,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "timmies-minis-lattice-fries",
+   "name": "Timmies Minis Lattice Fries",
+   "category": "Timmies Minis",
+   "serving": "64 g",
+   "nutrients": {
+    "calories": 161,
+    "protein": 2.4,
+    "carbs": 20,
+    "fat": 7.2,
+    "saturatedFat": 0.6,
+    "sugar": 0.2,
+    "fiber": 3,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stanley-spider-deluxe-donut",
+   "name": "Stanley Spider Deluxe Donut",
+   "category": "Bakery & treats",
+   "serving": "94 g",
+   "nutrients": {
+    "calories": 342,
+    "protein": 5.1,
+    "carbs": 56,
+    "fat": 11,
+    "saturatedFat": 4.9,
+    "sugar": 30,
+    "fiber": 1.2,
+    "salt": 0.66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-syrup-caramel-and-fudge-pancakes",
+   "name": "Maple Syrup, Caramel and Fudge Pancakes",
+   "category": "Bakery & treats",
+   "serving": "200 g",
+   "nutrients": {
+    "calories": 521,
+    "protein": 8.9,
+    "carbs": 86,
+    "fat": 16,
+    "saturatedFat": 7.5,
+    "sugar": 47,
+    "fiber": 1.8,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-hazelnut-pancakes-made-with-oreo",
+   "name": "Chocolate Hazelnut Pancakes made with Oreo®",
+   "category": "Bakery & treats",
+   "serving": "213 g",
+   "nutrients": {
+    "calories": 631,
+    "protein": 12,
+    "carbs": 94,
+    "fat": 23,
+    "saturatedFat": 8.8,
+    "sugar": 46,
+    "fiber": 3.7,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monty-the-moose-deluxe-donut",
+   "name": "Monty the Moose Deluxe Donut",
+   "category": "Bakery & treats",
+   "serving": "100 g",
+   "nutrients": {
+    "calories": 375,
+    "protein": 5.4,
+    "carbs": 55,
+    "fat": 15,
+    "saturatedFat": 6.9,
+    "sugar": 27,
+    "fiber": 1.2,
+    "salt": 0.72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-deluxe-donut",
+   "name": "Maple Caramel S'mores Deluxe Donut",
+   "category": "Bakery & treats",
+   "serving": "109 g",
+   "nutrients": {
+    "calories": 378,
+    "protein": 4.7,
+    "carbs": 63,
+    "fat": 12,
+    "saturatedFat": 5,
+    "sugar": 34,
+    "fiber": 1.1,
+    "salt": 0.67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-brownie-donut",
+   "name": "Chocolate Brownie Donut",
+   "category": "Bakery & treats",
+   "serving": "113 g",
+   "nutrients": {
+    "calories": 400,
+    "protein": 6,
+    "carbs": 61,
+    "fat": 14,
+    "saturatedFat": 7,
+    "sugar": 34,
+    "fiber": 2.3,
+    "salt": 0.64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-deluxe-donut",
+   "name": "Pumpkin Spice Deluxe Donut",
+   "category": "Bakery & treats",
+   "serving": "79 g",
+   "nutrients": {
+    "calories": 324,
+    "protein": 3.7,
+    "carbs": 44,
+    "fat": 15,
+    "saturatedFat": 7,
+    "sugar": 24,
+    "fiber": 1.1,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-and-caramel-donut",
+   "name": "Maple & Caramel Donut",
+   "category": "Bakery & treats",
+   "serving": "123 g",
+   "nutrients": {
+    "calories": 412,
+    "protein": 4.5,
+    "carbs": 67,
+    "fat": 14,
+    "saturatedFat": 7.4,
+    "sugar": 39,
+    "fiber": 0.9,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-apple-fritter",
+   "name": "Caramel Apple Fritter",
+   "category": "Bakery & treats",
+   "serving": "155 g",
+   "nutrients": {
+    "calories": 490,
+    "protein": 6.1,
+    "carbs": 86,
+    "fat": 13,
+    "saturatedFat": 6,
+    "sugar": 48,
+    "fiber": 1.8,
+    "salt": 0.94
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boston-cream-donut",
+   "name": "Boston Cream Donut",
+   "category": "Bakery & treats",
+   "serving": "91 g",
+   "nutrients": {
+    "calories": 284,
+    "protein": 4.2,
+    "carbs": 40,
+    "fat": 11,
+    "saturatedFat": 5.1,
+    "sugar": 18,
+    "fiber": 1,
+    "salt": 0.59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "canadian-maple-donut",
+   "name": "Canadian Maple Donut",
+   "category": "Bakery & treats",
+   "serving": "91 g",
+   "nutrients": {
+    "calories": 281,
+    "protein": 4,
+    "carbs": 42,
+    "fat": 11,
+    "saturatedFat": 4.8,
+    "sugar": 19,
+    "fiber": 0.7,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-dip-donut",
+   "name": "Maple Dip Donut",
+   "category": "Bakery & treats",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 252,
+    "protein": 4.1,
+    "carbs": 37,
+    "fat": 9.5,
+    "saturatedFat": 4.2,
+    "sugar": 14,
+    "fiber": 0.7,
+    "salt": 0.54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-dip-donut",
+   "name": "Vanilla Dip Donut",
+   "category": "Bakery & treats",
+   "serving": "80 g",
+   "nutrients": {
+    "calories": 290,
+    "protein": 4.1,
+    "carbs": 47,
+    "fat": 9.4,
+    "saturatedFat": 4.2,
+    "sugar": 23,
+    "fiber": 0.8,
+    "salt": 0.51
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-dip-donut",
+   "name": "Chocolate Dip Donut",
+   "category": "Bakery & treats",
+   "serving": "70 g",
+   "nutrients": {
+    "calories": 255,
+    "protein": 4.3,
+    "carbs": 36,
+    "fat": 10,
+    "saturatedFat": 4.5,
+    "sugar": 13,
+    "fiber": 1,
+    "salt": 0.52
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "old-fashioned-glazed-donut",
+   "name": "Old Fashioned Glazed Donut",
+   "category": "Bakery & treats",
+   "serving": "75 g",
+   "nutrients": {
+    "calories": 306,
+    "protein": 3.7,
+    "carbs": 44,
+    "fat": 13,
+    "saturatedFat": 5.9,
+    "sugar": 26,
+    "fiber": 1.1,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-fritter-donut",
+   "name": "Apple Fritter Donut",
+   "category": "Bakery & treats",
+   "serving": "104 g",
+   "nutrients": {
+    "calories": 328,
+    "protein": 5.8,
+    "carbs": 54,
+    "fat": 9.6,
+    "saturatedFat": 4.2,
+    "sugar": 23,
+    "fiber": 1.6,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-cruller",
+   "name": "Honey Cruller",
+   "category": "Bakery & treats",
+   "serving": "67 g",
+   "nutrients": {
+    "calories": 328,
+    "protein": 1.6,
+    "carbs": 30,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 17,
+    "fiber": 0.2,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "old-fashioned-glazed-timbits",
+   "name": "Old Fashioned Glazed Timbits®",
+   "category": "Bakery & treats",
+   "serving": "22 g",
+   "nutrients": {
+    "calories": 81,
+    "protein": 0.9,
+    "carbs": 13,
+    "fat": 3,
+    "saturatedFat": 1.4,
+    "sugar": 8.2,
+    "fiber": 0.3,
+    "salt": 0.15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-glazed-timbits",
+   "name": "Chocolate Glazed Timbits®",
+   "category": "Bakery & treats",
+   "serving": "22 g",
+   "nutrients": {
+    "calories": 80,
+    "protein": 1,
+    "carbs": 12,
+    "fat": 3.1,
+    "saturatedFat": 1.4,
+    "sugar": 8.1,
+    "fiber": 0.4,
+    "salt": 0.17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-dip-timbits",
+   "name": "Honey Dip Timbits®",
+   "category": "Bakery & treats",
+   "serving": "16 g",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.7,
+    "carbs": 10,
+    "fat": 1.4,
+    "saturatedFat": 0.6,
+    "sugar": 6.3,
+    "fiber": 0.2,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-pie-timbits",
+   "name": "Apple Pie Timbits®",
+   "category": "Bakery & treats",
+   "serving": "26 g",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0.9,
+    "carbs": 13,
+    "fat": 2.2,
+    "saturatedFat": 1,
+    "sugar": 8.1,
+    "fiber": 0.2,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-cruller-timbits",
+   "name": "Honey Cruller Timbits®",
+   "category": "Bakery & treats",
+   "serving": "15 g",
+   "nutrients": {
+    "calories": 68,
+    "protein": 0.3,
+    "carbs": 8.7,
+    "fat": 3.5,
+    "saturatedFat": 1.7,
+    "sugar": 6,
+    "fiber": 0.1,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-birthday-cake-timbits",
+   "name": "White Birthday Cake Timbits®",
+   "category": "Bakery & treats",
+   "serving": "24 g",
+   "nutrients": {
+    "calories": 89,
+    "protein": 0.9,
+    "carbs": 15,
+    "fat": 3,
+    "saturatedFat": 1.4,
+    "sugar": 9.8,
+    "fiber": 0.3,
+    "salt": 0.15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-fritter-timbits",
+   "name": "Apple Fritter Timbits®",
+   "category": "Bakery & treats",
+   "serving": "19 g",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0.9,
+    "carbs": 11,
+    "fat": 1.9,
+    "saturatedFat": 0.8,
+    "sugar": 6.5,
+    "fiber": 0.3,
+    "salt": 0.09
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-donut",
+   "name": "Raspberry Donut",
+   "category": "Bakery & treats",
+   "serving": "77 g",
+   "nutrients": {
+    "calories": 247,
+    "protein": 4.2,
+    "carbs": 40,
+    "fat": 7.7,
+    "saturatedFat": 3.5,
+    "sugar": 16,
+    "fiber": 0.7,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-vanilla-donut",
+   "name": "Raspberry Vanilla Donut",
+   "category": "Bakery & treats",
+   "serving": "96 g",
+   "nutrients": {
+    "calories": 323,
+    "protein": 4.2,
+    "carbs": 54,
+    "fat": 9.7,
+    "saturatedFat": 4.4,
+    "sugar": 28,
+    "fiber": 0.8,
+    "salt": 0.53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-small",
+   "name": "Americano (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-medium",
+   "name": "Americano (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-large",
+   "name": "Americano (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-blend-coffee-small",
+   "name": "Original Blend Coffee (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-blend-coffee-medium",
+   "name": "Original Blend Coffee (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0.5,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-blend-coffee-large",
+   "name": "Original Blend Coffee (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.6,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dark-roast-coffee-small",
+   "name": "Dark Roast Coffee (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dark-roast-coffee-medium",
+   "name": "Dark Roast Coffee (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-macchiato-small",
+   "name": "Caramel Macchiato (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 128,
+    "protein": 7.5,
+    "carbs": 17,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-macchiato-medium",
+   "name": "Caramel Macchiato (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 163,
+    "protein": 10,
+    "carbs": 20,
+    "fat": 4.5,
+    "saturatedFat": 3.6,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-macchiato-large",
+   "name": "Caramel Macchiato (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 193,
+    "protein": 12,
+    "carbs": 23,
+    "fat": 5.4,
+    "saturatedFat": 3.9,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-small",
+   "name": "Cappuccino (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 75,
+    "protein": 5.7,
+    "carbs": 7.6,
+    "fat": 2.5,
+    "saturatedFat": 1.6,
+    "sugar": 7.6,
+    "fiber": 0,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-medium",
+   "name": "Cappuccino (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 110,
+    "protein": 8.3,
+    "carbs": 11,
+    "fat": 3.7,
+    "saturatedFat": 2.4,
+    "sugar": 11,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 140,
+    "protein": 11,
+    "carbs": 14,
+    "fat": 4.7,
+    "saturatedFat": 3.1,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Hot drinks",
+   "serving": "12 oz",
+   "nutrients": {
+    "calories": 121,
+    "protein": 9.1,
+    "carbs": 12,
+    "fat": 4,
+    "saturatedFat": 2.7,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-small",
+   "name": "Pumpkin Spice Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 212,
+    "protein": 7.8,
+    "carbs": 21,
+    "fat": 11,
+    "saturatedFat": 7.2,
+    "sugar": 20,
+    "fiber": 0.1,
+    "salt": 0.26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-medium",
+   "name": "Pumpkin Spice Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 246,
+    "protein": 9.4,
+    "carbs": 26,
+    "fat": 11,
+    "saturatedFat": 7.6,
+    "sugar": 25,
+    "fiber": 0.1,
+    "salt": 0.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-latte-large",
+   "name": "Pumpkin Spice Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 295,
+    "protein": 12,
+    "carbs": 33,
+    "fat": 13,
+    "saturatedFat": 8.3,
+    "sugar": 32,
+    "fiber": 0.1,
+    "salt": 0.39
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-latte-small",
+   "name": "Maple Caramel S'mores Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 369,
+    "protein": 9,
+    "carbs": 54,
+    "fat": 13,
+    "saturatedFat": 8.3,
+    "sugar": 46,
+    "fiber": 0.8,
+    "salt": 0.64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-latte-medium",
+   "name": "Maple Caramel S'mores Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 470,
+    "protein": 11,
+    "carbs": 73,
+    "fat": 14,
+    "saturatedFat": 9.1,
+    "sugar": 63,
+    "fiber": 1.2,
+    "salt": 0.84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-latte-large",
+   "name": "Maple Caramel S'mores Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 583,
+    "protein": 14,
+    "carbs": 94,
+    "fat": 16,
+    "saturatedFat": 10,
+    "sugar": 81,
+    "fiber": 1.6,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-latte-small",
+   "name": "Matcha Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 160,
+    "protein": 9.1,
+    "carbs": 22,
+    "fat": 3.9,
+    "saturatedFat": 2.3,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-latte-medium",
+   "name": "Matcha Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 206,
+    "protein": 11,
+    "carbs": 30,
+    "fat": 4.7,
+    "saturatedFat": 2.8,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.34
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-latte-large",
+   "name": "Matcha Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 271,
+    "protein": 14,
+    "carbs": 39,
+    "fat": 6.2,
+    "saturatedFat": 3.7,
+    "sugar": 38,
+    "fiber": 0,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-small",
+   "name": "Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 99,
+    "protein": 7.5,
+    "carbs": 9.9,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 9.9,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-medium",
+   "name": "Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 134,
+    "protein": 10,
+    "carbs": 13,
+    "fat": 4.4,
+    "saturatedFat": 2.9,
+    "sugar": 13,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 164,
+    "protein": 12,
+    "carbs": 16,
+    "fat": 5.4,
+    "saturatedFat": 3.6,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-french-vanilla-small",
+   "name": "Pumpkin Spice French Vanilla (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 396,
+    "protein": 5,
+    "carbs": 52,
+    "fat": 19,
+    "saturatedFat": 15,
+    "sugar": 41,
+    "fiber": 0.8,
+    "salt": 0.89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-french-vanilla-medium",
+   "name": "Pumpkin Spice French Vanilla (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 470,
+    "protein": 6,
+    "carbs": 63,
+    "fat": 21,
+    "saturatedFat": 18,
+    "sugar": 51,
+    "fiber": 0.9,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spice-french-vanilla-large",
+   "name": "Pumpkin Spice French Vanilla (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 581,
+    "protein": 7.6,
+    "carbs": 81,
+    "fat": 25,
+    "saturatedFat": 21,
+    "sugar": 65,
+    "fiber": 1.1,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-vanilla-latte-small",
+   "name": "French Vanilla Latte (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 274,
+    "protein": 5.4,
+    "carbs": 56,
+    "fat": 5.6,
+    "saturatedFat": 4.9,
+    "sugar": 41,
+    "fiber": 2.3,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-vanilla-latte-medium",
+   "name": "French Vanilla Latte (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 329,
+    "protein": 6.4,
+    "carbs": 67,
+    "fat": 6.7,
+    "saturatedFat": 5.9,
+    "sugar": 50,
+    "fiber": 2.9,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-vanilla-latte-large",
+   "name": "French Vanilla Latte (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 384,
+    "protein": 7.9,
+    "carbs": 78,
+    "fat": 7.9,
+    "saturatedFat": 6.9,
+    "sugar": 58,
+    "fiber": 3.3,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-vanilla-small",
+   "name": "French Vanilla (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 273,
+    "protein": 4.9,
+    "carbs": 56,
+    "fat": 5.6,
+    "saturatedFat": 4.9,
+    "sugar": 41,
+    "fiber": 2.3,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-vanilla-medium",
+   "name": "French Vanilla (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 328,
+    "protein": 5.8,
+    "carbs": 67,
+    "fat": 6.7,
+    "saturatedFat": 5.8,
+    "sugar": 50,
+    "fiber": 2.8,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-vanilla-large",
+   "name": "French Vanilla (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 382,
+    "protein": 6.8,
+    "carbs": 78,
+    "fat": 7.8,
+    "saturatedFat": 6.8,
+    "sugar": 58,
+    "fiber": 3.3,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-small",
+   "name": "Mocha (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 270,
+    "protein": 3.5,
+    "carbs": 57,
+    "fat": 5.6,
+    "saturatedFat": 4.9,
+    "sugar": 44,
+    "fiber": 2.4,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-medium",
+   "name": "Mocha (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 324,
+    "protein": 4.2,
+    "carbs": 68,
+    "fat": 6.7,
+    "saturatedFat": 5.9,
+    "sugar": 53,
+    "fiber": 2.9,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-large",
+   "name": "Mocha (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 378,
+    "protein": 4.9,
+    "carbs": 79,
+    "fat": 7.8,
+    "saturatedFat": 6.9,
+    "sugar": 62,
+    "fiber": 3.3,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-small",
+   "name": "Hot Chocolate (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 367,
+    "protein": 5.4,
+    "carbs": 58,
+    "fat": 12,
+    "saturatedFat": 11,
+    "sugar": 56,
+    "fiber": 3.2,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-medium",
+   "name": "Hot Chocolate (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 437,
+    "protein": 6.4,
+    "carbs": 69,
+    "fat": 14,
+    "saturatedFat": 13,
+    "sugar": 67,
+    "fiber": 3.8,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-large",
+   "name": "Hot Chocolate (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 586,
+    "protein": 8.6,
+    "carbs": 92,
+    "fat": 19,
+    "saturatedFat": 17,
+    "sugar": 90,
+    "fiber": 5.1,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot drinks",
+   "serving": "4 oz",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-tea-small",
+   "name": "Breakfast Tea (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-tea-medium",
+   "name": "Breakfast Tea (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-tea-large",
+   "name": "Breakfast Tea (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea-small",
+   "name": "Green Tea (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea-medium",
+   "name": "Green Tea (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea-large",
+   "name": "Green Tea (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tea-small",
+   "name": "Peppermint Tea (small)",
+   "category": "Hot drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tea-medium",
+   "name": "Peppermint Tea (medium)",
+   "category": "Hot drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tea-large",
+   "name": "Peppermint Tea (large)",
+   "category": "Hot drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-iced-latte-small",
+   "name": "Matcha Iced Latte (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 160,
+    "protein": 9.1,
+    "carbs": 22,
+    "fat": 3.9,
+    "saturatedFat": 2.3,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-iced-latte-medium",
+   "name": "Matcha Iced Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 269,
+    "protein": 11,
+    "carbs": 45,
+    "fat": 4.8,
+    "saturatedFat": 2.8,
+    "sugar": 44,
+    "fiber": 0,
+    "salt": 0.34
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-iced-latte-large",
+   "name": "Matcha Iced Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 438,
+    "protein": 15,
+    "carbs": 80,
+    "fat": 6.3,
+    "saturatedFat": 3.7,
+    "sugar": 77,
+    "fiber": 0,
+    "salt": 0.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-medium",
+   "name": "Iced Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 99,
+    "protein": 7.5,
+    "carbs": 16,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte-large",
+   "name": "Iced Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 134,
+    "protein": 10,
+    "carbs": 17,
+    "fat": 4.5,
+    "saturatedFat": 3,
+    "sugar": 17,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-latte-small",
+   "name": "Iced Caramel Latte (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 105,
+    "protein": 5,
+    "carbs": 24,
+    "fat": 2.1,
+    "saturatedFat": 1.5,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-latte-medium",
+   "name": "Iced Caramel Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 159,
+    "protein": 7.5,
+    "carbs": 31,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 31,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-latte-large",
+   "name": "Iced Caramel Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 214,
+    "protein": 10,
+    "carbs": 37,
+    "fat": 4.5,
+    "saturatedFat": 3,
+    "sugar": 37,
+    "fiber": 0,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-latte-medium",
+   "name": "Iced Vanilla Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 99,
+    "protein": 7.5,
+    "carbs": 16,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-latte-large",
+   "name": "Iced Vanilla Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 134,
+    "protein": 10,
+    "carbs": 17,
+    "fat": 4.5,
+    "saturatedFat": 3,
+    "sugar": 17,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-french-vanilla-small",
+   "name": "Iced French Vanilla (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 267,
+    "protein": 2.8,
+    "carbs": 31,
+    "fat": 8.2,
+    "saturatedFat": 8,
+    "sugar": 25,
+    "fiber": 0,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-french-vanilla-medium",
+   "name": "Iced French Vanilla (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 360,
+    "protein": 3.4,
+    "carbs": 38,
+    "fat": 10,
+    "saturatedFat": 10,
+    "sugar": 31,
+    "fiber": 0,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-french-vanilla-large",
+   "name": "Iced French Vanilla (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 404,
+    "protein": 5.6,
+    "carbs": 62,
+    "fat": 16,
+    "saturatedFat": 16,
+    "sugar": 50,
+    "fiber": 0.4,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-french-vanilla-latte-small",
+   "name": "Iced French Vanilla Latte (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 274,
+    "protein": 5.4,
+    "carbs": 56,
+    "fat": 5.6,
+    "saturatedFat": 4.9,
+    "sugar": 41,
+    "fiber": 2.3,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-french-vanilla-latte-medium",
+   "name": "Iced French Vanilla Latte (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 329,
+    "protein": 6.4,
+    "carbs": 67,
+    "fat": 6.7,
+    "saturatedFat": 5.9,
+    "sugar": 50,
+    "fiber": 2.9,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-french-vanilla-latte-large",
+   "name": "Iced French Vanilla Latte (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 384,
+    "protein": 7.9,
+    "carbs": 78,
+    "fat": 7.9,
+    "saturatedFat": 6.9,
+    "sugar": 58,
+    "fiber": 3.3,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-small",
+   "name": "Iced Caramel Macchiato (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 128,
+    "protein": 7.5,
+    "carbs": 17,
+    "fat": 3.3,
+    "saturatedFat": 2.2,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-medium",
+   "name": "Iced Caramel Macchiato (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 163,
+    "protein": 10.1,
+    "carbs": 20,
+    "fat": 4.5,
+    "saturatedFat": 3.9,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-large",
+   "name": "Iced Caramel Macchiato (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 193,
+    "protein": 12.4,
+    "carbs": 23,
+    "fat": 5.4,
+    "saturatedFat": 3.6,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-frapp-small",
+   "name": "Maple Caramel S'mores Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 341,
+    "protein": 3.4,
+    "carbs": 60,
+    "fat": 9.5,
+    "saturatedFat": 6.3,
+    "sugar": 53,
+    "fiber": 0.8,
+    "salt": 0.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-frapp-medium",
+   "name": "Maple Caramel S'mores Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 448,
+    "protein": 4.8,
+    "carbs": 84,
+    "fat": 10,
+    "saturatedFat": 6.7,
+    "sugar": 73,
+    "fiber": 1.3,
+    "salt": 0.43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-frapp-large",
+   "name": "Maple Caramel S'mores Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 584,
+    "protein": 6.2,
+    "carbs": 115,
+    "fat": 11,
+    "saturatedFat": 7,
+    "sugar": 98,
+    "fiber": 2,
+    "salt": 0.58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-frapp-small",
+   "name": "Matcha Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 220,
+    "protein": 2.7,
+    "carbs": 33,
+    "fat": 8.3,
+    "saturatedFat": 5.9,
+    "sugar": 30,
+    "fiber": 0.3,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-frapp-medium",
+   "name": "Matcha Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 386,
+    "protein": 3.9,
+    "carbs": 72,
+    "fat": 8.9,
+    "saturatedFat": 6.1,
+    "sugar": 67,
+    "fiber": 0.4,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-frapp-large",
+   "name": "Matcha Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 563,
+    "protein": 5.1,
+    "carbs": 114,
+    "fat": 9.5,
+    "saturatedFat": 6.4,
+    "sugar": 105,
+    "fiber": 0.6,
+    "salt": 0.25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-cream-frapp-small",
+   "name": "Caramel Cream Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 250,
+    "protein": 2.9,
+    "carbs": 40,
+    "fat": 8.7,
+    "saturatedFat": 6,
+    "sugar": 34,
+    "fiber": 0.2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-cream-frapp-medium",
+   "name": "Caramel Cream Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 343,
+    "protein": 4.2,
+    "carbs": 59,
+    "fat": 9.9,
+    "saturatedFat": 6.6,
+    "sugar": 50,
+    "fiber": 0.3,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-cream-frapp-large",
+   "name": "Caramel Cream Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 438,
+    "protein": 5.6,
+    "carbs": 78,
+    "fat": 11,
+    "saturatedFat": 7.3,
+    "sugar": 66,
+    "fiber": 0.5,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cream-frapp-small",
+   "name": "Chocolate Cream Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 310,
+    "protein": 3.9,
+    "carbs": 45,
+    "fat": 12,
+    "saturatedFat": 9.5,
+    "sugar": 36,
+    "fiber": 1.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cream-frapp-medium",
+   "name": "Chocolate Cream Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 412,
+    "protein": 5.6,
+    "carbs": 63,
+    "fat": 15,
+    "saturatedFat": 12,
+    "sugar": 50,
+    "fiber": 1.6,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cream-frapp-large",
+   "name": "Chocolate Cream Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 515,
+    "protein": 7.2,
+    "carbs": 81,
+    "fat": 17,
+    "saturatedFat": 14,
+    "sugar": 64,
+    "fiber": 2.1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-iced-capp-small",
+   "name": "Maple Caramel S'mores Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 479,
+    "protein": 3.4,
+    "carbs": 79,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 72,
+    "fiber": 1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-iced-capp-medium",
+   "name": "Maple Caramel S'mores Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 607,
+    "protein": 4.2,
+    "carbs": 105,
+    "fat": 19,
+    "saturatedFat": 13,
+    "sugar": 94,
+    "fiber": 1.4,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-caramel-smores-iced-capp-large",
+   "name": "Maple Caramel S'mores Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 807,
+    "protein": 6,
+    "carbs": 137,
+    "fat": 27,
+    "saturatedFat": 17,
+    "sugar": 122,
+    "fiber": 1.9,
+    "salt": 0.46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-and-cream-frapp-small",
+   "name": "Strawberries & Cream Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 238,
+    "protein": 2.8,
+    "carbs": 38,
+    "fat": 8.1,
+    "saturatedFat": 5.6,
+    "sugar": 30,
+    "fiber": 0.3,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-and-cream-frapp-medium",
+   "name": "Strawberries & Cream Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 323,
+    "protein": 4,
+    "carbs": 57,
+    "fat": 8.8,
+    "saturatedFat": 6,
+    "sugar": 43,
+    "fiber": 0.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-and-cream-frapp-large",
+   "name": "Strawberries & Cream Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 409,
+    "protein": 5.2,
+    "carbs": 75,
+    "fat": 9.4,
+    "saturatedFat": 6.5,
+    "sugar": 56,
+    "fiber": 0.8,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-frapp-small",
+   "name": "Cookies & Cream Frappé (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 268,
+    "protein": 3.4,
+    "carbs": 39,
+    "fat": 11,
+    "saturatedFat": 6.4,
+    "sugar": 31,
+    "fiber": 0.6,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-frapp-medium",
+   "name": "Cookies & Cream Frappé (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 370,
+    "protein": 5,
+    "carbs": 56,
+    "fat": 14,
+    "saturatedFat": 7.2,
+    "sugar": 45,
+    "fiber": 1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-frapp-large",
+   "name": "Cookies & Cream Frappé (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 472,
+    "protein": 6.6,
+    "carbs": 74,
+    "fat": 16,
+    "saturatedFat": 8.1,
+    "sugar": 59,
+    "fiber": 1.5,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-iced-capp-small",
+   "name": "Caramel Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 344,
+    "protein": 3.2,
+    "carbs": 38,
+    "fat": 23,
+    "saturatedFat": 14,
+    "sugar": 34,
+    "fiber": 0.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-iced-capp-medium",
+   "name": "Caramel Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 479,
+    "protein": 4.3,
+    "carbs": 58,
+    "fat": 29,
+    "saturatedFat": 17,
+    "sugar": 52,
+    "fiber": 0.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-iced-capp-large",
+   "name": "Caramel Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 616,
+    "protein": 5.5,
+    "carbs": 78,
+    "fat": 34,
+    "saturatedFat": 21,
+    "sugar": 70,
+    "fiber": 0.1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-iced-capp-small",
+   "name": "Cookies & Cream Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 322,
+    "protein": 3.4,
+    "carbs": 30,
+    "fat": 21,
+    "saturatedFat": 14,
+    "sugar": 27,
+    "fiber": 0.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-iced-capp-medium",
+   "name": "Cookies & Cream Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 444,
+    "protein": 4.7,
+    "carbs": 44,
+    "fat": 28,
+    "saturatedFat": 18,
+    "sugar": 39,
+    "fiber": 0.4,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-iced-capp-large",
+   "name": "Cookies & Cream Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 566,
+    "protein": 6.1,
+    "carbs": 58,
+    "fat": 35,
+    "saturatedFat": 22,
+    "sugar": 52,
+    "fiber": 0.6,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-iced-capp-small",
+   "name": "Original Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 211,
+    "protein": 2.3,
+    "carbs": 23,
+    "fat": 12,
+    "saturatedFat": 8,
+    "sugar": 22,
+    "fiber": 0,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-iced-capp-medium",
+   "name": "Original Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 305,
+    "protein": 3.4,
+    "carbs": 34,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 32,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-iced-capp-large",
+   "name": "Original Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 399,
+    "protein": 4.4,
+    "carbs": 44,
+    "fat": 23,
+    "saturatedFat": 15,
+    "sugar": 42,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-iced-capp-small",
+   "name": "Light Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 101,
+    "protein": 1.6,
+    "carbs": 21,
+    "fat": 0.7,
+    "saturatedFat": 0.7,
+    "sugar": 21,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-iced-capp-medium",
+   "name": "Light Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 152,
+    "protein": 2.3,
+    "carbs": 32,
+    "fat": 1,
+    "saturatedFat": 1,
+    "sugar": 32,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-iced-capp-large",
+   "name": "Light Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 202,
+    "protein": 3.2,
+    "carbs": 43,
+    "fat": 1.4,
+    "saturatedFat": 1.4,
+    "sugar": 43,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-iced-capp-small",
+   "name": "Coconut Iced Capp® (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 121,
+    "protein": 1.2,
+    "carbs": 28,
+    "fat": 0.8,
+    "saturatedFat": 0.4,
+    "sugar": 26,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-iced-capp-medium",
+   "name": "Coconut Iced Capp® (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 171,
+    "protein": 1.8,
+    "carbs": 39,
+    "fat": 1.2,
+    "saturatedFat": 0.6,
+    "sugar": 37,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-iced-capp-large",
+   "name": "Coconut Iced Capp® (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 208,
+    "protein": 2.4,
+    "carbs": 46,
+    "fat": 1.6,
+    "saturatedFat": 0.8,
+    "sugar": 44,
+    "fiber": 0.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade-refresher-small",
+   "name": "Lemonade Refresher (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0,
+    "carbs": 10,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.6,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade-refresher-medium",
+   "name": "Lemonade Refresher (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade-refresher-large",
+   "name": "Lemonade Refresher (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 72,
+    "protein": 0,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-lemonade-refresher-small",
+   "name": "Strawberry Lemonade Refresher (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0,
+    "carbs": 16,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-lemonade-refresher-medium",
+   "name": "Strawberry Lemonade Refresher (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 103,
+    "protein": 0,
+    "carbs": 26,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 18,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-crush-cooler-small",
+   "name": "Cherry Crush Cooler (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 136,
+    "protein": 0.3,
+    "carbs": 30,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 29,
+    "fiber": 1.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-crush-cooler-medium",
+   "name": "Cherry Crush Cooler (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 198,
+    "protein": 0.4,
+    "carbs": 43,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 41,
+    "fiber": 1.7,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-crush-cooler-large",
+   "name": "Cherry Crush Cooler (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 263,
+    "protein": 0.5,
+    "carbs": 56,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 54,
+    "fiber": 2.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tropical-cooler-small",
+   "name": "Tropical Cooler (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 136,
+    "protein": 0.3,
+    "carbs": 30,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 29,
+    "fiber": 1.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tropical-cooler-medium",
+   "name": "Tropical Cooler (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 198,
+    "protein": 0.3,
+    "carbs": 43,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 41,
+    "fiber": 1.7,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tropical-cooler-large",
+   "name": "Tropical Cooler (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 263,
+    "protein": 0.5,
+    "carbs": 56,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 54,
+    "fiber": 2.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-brownie-small",
+   "name": "Tims® Shake Brownie (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 304,
+    "protein": 1.6,
+    "carbs": 37,
+    "fat": 16,
+    "saturatedFat": 11,
+    "sugar": 36,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-brownie-medium",
+   "name": "Tims® Shake Brownie (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 441,
+    "protein": 2.5,
+    "carbs": 54,
+    "fat": 24,
+    "saturatedFat": 17,
+    "sugar": 53,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-brownie-large",
+   "name": "Tims® Shake Brownie (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 589,
+    "protein": 4.1,
+    "carbs": 76,
+    "fat": 30,
+    "saturatedFat": 21,
+    "sugar": 71,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-chocolate-small",
+   "name": "Tims® Shake Chocolate (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 248,
+    "protein": 1.6,
+    "carbs": 30,
+    "fat": 14,
+    "saturatedFat": 10,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-chocolate-medium",
+   "name": "Tims® Shake Chocolate (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 379,
+    "protein": 2.5,
+    "carbs": 47,
+    "fat": 22,
+    "saturatedFat": 16,
+    "sugar": 44,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-chocolate-large",
+   "name": "Tims® Shake Chocolate (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 520,
+    "protein": 4.1,
+    "carbs": 69,
+    "fat": 28,
+    "saturatedFat": 20,
+    "sugar": 64,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-strawberry-small",
+   "name": "Tims® Shake Strawberry (small)",
+   "category": "Cold drinks",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 210,
+    "protein": 1.2,
+    "carbs": 30,
+    "fat": 10,
+    "saturatedFat": 8,
+    "sugar": 29,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-strawberry-medium",
+   "name": "Tims® Shake Strawberry (medium)",
+   "category": "Cold drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 347,
+    "protein": 2.1,
+    "carbs": 47,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 44,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tims-shake-strawberry-large",
+   "name": "Tims® Shake Strawberry (large)",
+   "category": "Cold drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 489,
+    "protein": 3.8,
+    "carbs": 69,
+    "fat": 24,
+    "saturatedFat": 15,
+    "sugar": 64,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-medium",
+   "name": "Coca-Cola (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 168,
+    "protein": 0,
+    "carbs": 42,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 42,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-large",
+   "name": "Coca-Cola (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 210,
+    "protein": 0,
+    "carbs": 53,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 53,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-zero-sugar-medium",
+   "name": "Coca-Cola Zero Sugar (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.08
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-zero-sugar-large",
+   "name": "Coca-Cola Zero Sugar (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-medium",
+   "name": "Diet Coke (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-large",
+   "name": "Diet Coke (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta-orange-zero-medium",
+   "name": "Fanta Orange Zero (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta-orange-zero-large",
+   "name": "Fanta Orange Zero (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 16,
+    "protein": 0,
+    "carbs": 3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-medium",
+   "name": "Sprite Zero (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-large",
+   "name": "Sprite Zero (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dr-pepper-zero-medium",
+   "name": "Dr Pepper Zero (medium)",
+   "category": "Soft drinks",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dr-pepper-zero-large",
+   "name": "Dr Pepper Zero (large)",
+   "category": "Soft drinks",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-mayo",
+   "name": "Vegan Mayo",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 109,
+    "protein": 0.2,
+    "carbs": 2.1,
+    "fat": 11,
+    "saturatedFat": 0.8,
+    "sugar": 1,
+    "fiber": 0.1,
+    "salt": 0.25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chipotle-mayonnaise",
+   "name": "Chipotle Mayonnaise",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 139,
+    "protein": 0.3,
+    "carbs": 1.9,
+    "fat": 15,
+    "saturatedFat": 1.1,
+    "sugar": 0.9,
+    "fiber": 0.1,
+    "salt": 0.25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-sauce",
+   "name": "Sweet Chilli Sauce",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 59,
+    "protein": 0.1,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0.1,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-bbq-sauce",
+   "name": "Maple BBQ Sauce",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 46,
+    "protein": 0.4,
+    "carbs": 11,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 9.7,
+    "fiber": 0.2,
+    "salt": 0.34
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-ketchup",
+   "name": "Tomato Ketchup",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 37,
+    "protein": 0.6,
+    "carbs": 8.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.9,
+    "fiber": 0.4,
+    "salt": 0.54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-milk",
+   "name": "Oat Milk",
+   "category": "Add-ons",
+   "serving": "3.5 oz",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-milk",
+   "name": "Coconut Milk",
+   "category": "Add-ons",
+   "serving": "3.5 oz",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0.1,
+    "carbs": 0.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "semi-skimmed-milk-small",
+   "name": "Semi-Skimmed Milk (small)",
+   "category": "Add-ons",
+   "serving": "Small, 12 oz",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.4,
+    "carbs": 0.6,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0.6,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "semi-skimmed-milk-medium",
+   "name": "Semi-Skimmed Milk (medium)",
+   "category": "Add-ons",
+   "serving": "Medium, 16 oz",
+   "nutrients": {
+    "calories": 7,
+    "protein": 0.6,
+    "carbs": 0.7,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0.7,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "semi-skimmed-milk-large",
+   "name": "Semi-Skimmed Milk (large)",
+   "category": "Add-ons",
+   "serving": "Large, 20 oz",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.7,
+    "carbs": 0.9,
+    "fat": 0.3,
+    "saturatedFat": 0.2,
+    "sugar": 0.9,
+    "fiber": 0,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,1543 @@
+{
+ "schemaVersion": 1,
+ "id": "jamies-italian",
+ "name": "Jamie's Italian",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "jamies italian",
+  "jamie's italian"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks from the Allergen Menu (Sept V1, PDF dated 8 September 2026)",
+  "url": "https://www.jamiesitalian.co.uk/media/qmqjxvyt/jamies-italian-nutrition-menu-1506.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Its September 2026 allergen menu lists a different set of dishes, so some dishes here may have changed or gone.",
+ "categories": [
+  "Starters (spuntino and antipasto)",
+  "Pizza",
+  "Pasta",
+  "Mains (secondi)",
+  "Sides (contorni)",
+  "Desserts (dolci)",
+  "Kids"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "pasta-croccante",
+   "name": "Pasta Croccante",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 164,
+    "protein": 5.4,
+    "carbs": 24,
+    "fat": 5.1,
+    "saturatedFat": 1,
+    "sugar": 0.7,
+    "fiber": 1.4,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "antipasto-plank-for-2",
+   "name": "Antipasto Plank for 2",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 934,
+    "protein": 38,
+    "carbs": 71,
+    "fat": 54,
+    "saturatedFat": 18,
+    "sugar": 2.9,
+    "fiber": 5.6,
+    "salt": 9.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-stracciatella-and-oil",
+   "name": "Bruschetta - Stracciatella & Oil",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 387,
+    "protein": 7.5,
+    "carbs": 21,
+    "fat": 30,
+    "saturatedFat": 9.7,
+    "sugar": 1,
+    "fiber": 3.1,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-stracciatella-calabrian-nduja",
+   "name": "Bruschetta - Stracciatella + Calabrian N'Duja",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 9.1,
+    "carbs": 23,
+    "fat": 32,
+    "saturatedFat": 11,
+    "sugar": 3,
+    "fiber": 2.7,
+    "salt": 2.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-stracciatella-pesto",
+   "name": "Bruschetta - Stracciatella + Pesto",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 313,
+    "protein": 8.4,
+    "carbs": 21,
+    "fat": 21,
+    "saturatedFat": 9,
+    "sugar": 0.9,
+    "fiber": 2.4,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-stracciatella-prosciutto",
+   "name": "Bruschetta - Stracciatella + Prosciutto",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 271,
+    "protein": 11,
+    "carbs": 22,
+    "fat": 15,
+    "saturatedFat": 8.5,
+    "sugar": 2.4,
+    "fiber": 1.6,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata",
+   "name": "Burrata",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 546,
+    "protein": 15,
+    "carbs": 12,
+    "fat": 48,
+    "saturatedFat": 22,
+    "sugar": 2.9,
+    "fiber": 1.2,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlicky-prawns",
+   "name": "Garlicky Prawns",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 390,
+    "protein": 14,
+    "carbs": 19,
+    "fat": 28,
+    "saturatedFat": 16,
+    "sugar": 2,
+    "fiber": 1.7,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "focaccia-and-oil",
+   "name": "Focaccia and Oil",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 661,
+    "protein": 11,
+    "carbs": 68,
+    "fat": 37,
+    "saturatedFat": 5.8,
+    "sugar": 3.9,
+    "fiber": 3.4,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "focaccia-and-stracciatella",
+   "name": "Focaccia and Stracciatella",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 783,
+    "protein": 14,
+    "carbs": 70,
+    "fat": 49,
+    "saturatedFat": 11,
+    "sugar": 4.3,
+    "fiber": 3.7,
+    "salt": 5.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 601,
+    "protein": 22,
+    "carbs": 66,
+    "fat": 27,
+    "saturatedFat": 16,
+    "sugar": 1.3,
+    "fiber": 2.9,
+    "salt": 3.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-nduja-hot-honey",
+   "name": "Garlic Bread with Nduja Hot Honey",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 728,
+    "protein": 24,
+    "carbs": 69,
+    "fat": 39,
+    "saturatedFat": 18,
+    "sugar": 4.7,
+    "fiber": 3,
+    "salt": 3.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giardiniera",
+   "name": "Giardiniera",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 109,
+    "protein": 0.9,
+    "carbs": 3.3,
+    "fat": 10,
+    "saturatedFat": 1.5,
+    "sugar": 0,
+    "fiber": 0.6,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-fritti",
+   "name": "Mushroom Fritti",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 421,
+    "protein": 5.5,
+    "carbs": 21,
+    "fat": 34,
+    "saturatedFat": 2.7,
+    "sugar": 2.8,
+    "fiber": 4.2,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nduja-arancini",
+   "name": "Nduja Arancini",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 478,
+    "protein": 17,
+    "carbs": 40,
+    "fat": 27,
+    "saturatedFat": 11,
+    "sugar": 2.1,
+    "fiber": 1.7,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "olives-on-ice",
+   "name": "Olives on Ice",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 406,
+    "protein": 3.2,
+    "carbs": 13,
+    "fat": 37,
+    "saturatedFat": 5.6,
+    "sugar": 1,
+    "fiber": 3.8,
+    "salt": 3.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ravioli-fritti",
+   "name": "Ravioli Fritti",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 405,
+    "protein": 16,
+    "carbs": 38,
+    "fat": 21,
+    "saturatedFat": 8.1,
+    "sugar": 5.2,
+    "fiber": 1.5,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-danielle-salad",
+   "name": "San Danielle Salad",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 367,
+    "protein": 19,
+    "carbs": 5.8,
+    "fat": 30,
+    "saturatedFat": 7.4,
+    "sugar": 4.7,
+    "fiber": 1.1,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-danielle-salad-large",
+   "name": "San Danielle Salad Large",
+   "category": "Starters (spuntino and antipasto)",
+   "serving": "",
+   "nutrients": {
+    "calories": 501,
+    "protein": 28,
+    "carbs": 12,
+    "fat": 38,
+    "saturatedFat": 9.5,
+    "sugar": 10,
+    "fiber": 1.6,
+    "salt": 4.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "funghi-pizza",
+   "name": "Funghi Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1111,
+    "protein": 49,
+    "carbs": 131,
+    "fat": 42,
+    "saturatedFat": 19,
+    "sugar": 4.7,
+    "fiber": 8.9,
+    "salt": 6.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza",
+   "name": "Pepperoni Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1296,
+    "protein": 60,
+    "carbs": 134,
+    "fat": 56,
+    "saturatedFat": 25,
+    "sugar": 6.9,
+    "fiber": 8.6,
+    "salt": 7.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calabrian-pizza",
+   "name": "Calabrian Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1491,
+    "protein": 66,
+    "carbs": 141,
+    "fat": 72,
+    "saturatedFat": 26,
+    "sugar": 17,
+    "fiber": 8.2,
+    "salt": 8.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-daniele-pizza",
+   "name": "San Daniele Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1058,
+    "protein": 54,
+    "carbs": 131,
+    "fat": 34,
+    "saturatedFat": 15,
+    "sugar": 6.3,
+    "fiber": 7.1,
+    "salt": 8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1054,
+    "protein": 47,
+    "carbs": 131,
+    "fat": 37,
+    "saturatedFat": 16,
+    "sugar": 6.1,
+    "fiber": 7.1,
+    "salt": 6.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "marinara-pizza",
+   "name": "Marinara Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 749,
+    "protein": 25,
+    "carbs": 131,
+    "fat": 12,
+    "saturatedFat": 2.7,
+    "sugar": 6.2,
+    "fiber": 6.5,
+    "salt": 4.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crust-dipper-nduja-hot-honey-mayo",
+   "name": "Crust Dipper - 'Nduja Hot Honey Mayo",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 171,
+    "protein": 0.5,
+    "carbs": 1.8,
+    "fat": 18,
+    "saturatedFat": 1.7,
+    "sugar": 1.3,
+    "fiber": 0,
+    "salt": 0.37
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crust-dipper-super-green-aioli",
+   "name": "Crust Dipper - Super Green Aioli",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 0,
+    "carbs": 1,
+    "fat": 17,
+    "saturatedFat": 1.3,
+    "sugar": 0.5,
+    "fiber": 0,
+    "salt": 0.31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-spaghetti-nero",
+   "name": "Seafood Spaghetti Nero",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 790,
+    "protein": 39,
+    "carbs": 91,
+    "fat": 29,
+    "saturatedFat": 4.1,
+    "sugar": 8.5,
+    "fiber": 6.5,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-linguine",
+   "name": "Prawn Linguine",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 691,
+    "protein": 46,
+    "carbs": 73,
+    "fat": 23,
+    "saturatedFat": 4,
+    "sugar": 8.7,
+    "fiber": 6.1,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pappardelle-bolognese",
+   "name": "Pappardelle Bolognese",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 730,
+    "protein": 33,
+    "carbs": 68,
+    "fat": 35,
+    "saturatedFat": 11,
+    "sugar": 6.7,
+    "fiber": 2.5,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bucatini-carbonara",
+   "name": "Bucatini Carbonara",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 861,
+    "protein": 32,
+    "carbs": 63,
+    "fat": 53,
+    "saturatedFat": 20,
+    "sugar": 1.9,
+    "fiber": 2.2,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rigatoni-arrabbiata",
+   "name": "Rigatoni Arrabbiata",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1119,
+    "protein": 24,
+    "carbs": 74,
+    "fat": 80,
+    "saturatedFat": 44,
+    "sugar": 12,
+    "fiber": 3.1,
+    "salt": 0.97
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spaghetti-pomodoro",
+   "name": "Spaghetti Pomodoro",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 683,
+    "protein": 21,
+    "carbs": 72,
+    "fat": 33,
+    "saturatedFat": 11,
+    "sugar": 9.4,
+    "fiber": 5,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mezze-maniche-pesto",
+   "name": "Mezze Maniche Pesto",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 650,
+    "protein": 22,
+    "carbs": 70,
+    "fat": 30,
+    "saturatedFat": 6.5,
+    "sugar": 4.9,
+    "fiber": 5.1,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mezze-maniche-pesto-non-gluten",
+   "name": "Mezze Maniche Pesto Non Gluten",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 527,
+    "protein": 15,
+    "carbs": 55,
+    "fat": 26,
+    "saturatedFat": 5.5,
+    "sugar": 3.8,
+    "fiber": 4.2,
+    "salt": 0.46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pomodoro-non-gluten",
+   "name": "Pomodoro Non Gluten",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 560,
+    "protein": 14,
+    "carbs": 58,
+    "fat": 29,
+    "saturatedFat": 10,
+    "sugar": 8.2,
+    "fiber": 4.1,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arrabbiata-non-gluten",
+   "name": "Arrabbiata Non Gluten",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 996,
+    "protein": 17,
+    "carbs": 60,
+    "fat": 76,
+    "saturatedFat": 43,
+    "sugar": 10,
+    "fiber": 2.2,
+    "salt": 0.94
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-linguine-non-gluten",
+   "name": "Prawn Linguine Non Gluten",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 568,
+    "protein": 38,
+    "carbs": 58,
+    "fat": 19,
+    "saturatedFat": 3,
+    "sugar": 7.5,
+    "fiber": 5.2,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bolognese-non-gluten",
+   "name": "Bolognese Non Gluten",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 607,
+    "protein": 26,
+    "carbs": 54,
+    "fat": 31,
+    "saturatedFat": 10,
+    "sugar": 5.5,
+    "fiber": 1.6,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carbonara-non-gluten",
+   "name": "Carbonara Non Gluten",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 737,
+    "protein": 25,
+    "carbs": 49,
+    "fat": 49,
+    "saturatedFat": 19,
+    "sugar": 0.8,
+    "fiber": 1.3,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-al-mattone-salsa-verde",
+   "name": "Chicken Al Mattone + Salsa Verde",
+   "category": "Mains (secondi)",
+   "serving": "",
+   "nutrients": {
+    "calories": 535,
+    "protein": 46,
+    "carbs": 6.9,
+    "fat": 36,
+    "saturatedFat": 6.7,
+    "sugar": 5.3,
+    "fiber": 2.8,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-al-mattone-nduja",
+   "name": "Chicken Al Mattone + Nduja",
+   "category": "Mains (secondi)",
+   "serving": "",
+   "nutrients": {
+    "calories": 607,
+    "protein": 47,
+    "carbs": 6.7,
+    "fat": 43,
+    "saturatedFat": 8.8,
+    "sugar": 5.2,
+    "fiber": 2.5,
+    "salt": 3.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-al-mattone-garlic-butter",
+   "name": "Chicken Al Mattone + Garlic Butter",
+   "category": "Mains (secondi)",
+   "serving": "",
+   "nutrients": {
+    "calories": 587,
+    "protein": 45,
+    "carbs": 6.8,
+    "fat": 42,
+    "saturatedFat": 15,
+    "sugar": 5.3,
+    "fiber": 2.6,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-milanese",
+   "name": "Pork Milanese",
+   "category": "Mains (secondi)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1166,
+    "protein": 61,
+    "carbs": 72,
+    "fat": 70,
+    "saturatedFat": 22,
+    "sugar": 6.1,
+    "fiber": 3.9,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amalfi-coast-trout",
+   "name": "Amalfi Coast Trout",
+   "category": "Mains (secondi)",
+   "serving": "",
+   "nutrients": {
+    "calories": 608,
+    "protein": 50,
+    "carbs": 26,
+    "fat": 33,
+    "saturatedFat": 7.2,
+    "sugar": 7,
+    "fiber": 3.9,
+    "salt": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-tagliata",
+   "name": "Steak Tagliata",
+   "category": "Mains (secondi)",
+   "serving": "",
+   "nutrients": {
+    "calories": 679,
+    "protein": 48,
+    "carbs": 4,
+    "fat": 52,
+    "saturatedFat": 15,
+    "sugar": 2.4,
+    "fiber": 1,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata-panzanella",
+   "name": "Burrata Panzanella",
+   "category": "Mains (secondi)",
+   "serving": "",
+   "nutrients": {
+    "calories": 669,
+    "protein": 14,
+    "carbs": 28,
+    "fat": 55,
+    "saturatedFat": 22,
+    "sugar": 16,
+    "fiber": 3.8,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lasagne",
+   "name": "Lasagne",
+   "category": "Mains (secondi)",
+   "serving": "",
+   "nutrients": {
+    "calories": 876,
+    "protein": 61,
+    "carbs": 47,
+    "fat": 49,
+    "saturatedFat": 20,
+    "sugar": 11,
+    "fiber": 3.4,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-beans-pomodoro",
+   "name": "Green Beans Pomodoro",
+   "category": "Sides (contorni)",
+   "serving": "",
+   "nutrients": {
+    "calories": 258,
+    "protein": 4.5,
+    "carbs": 7.6,
+    "fat": 22,
+    "saturatedFat": 11,
+    "sugar": 6,
+    "fiber": 4.4,
+    "salt": 0.58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "parmesan-fries",
+   "name": "Parmesan Fries",
+   "category": "Sides (contorni)",
+   "serving": "",
+   "nutrients": {
+    "calories": 478,
+    "protein": 6.9,
+    "carbs": 48,
+    "fat": 27,
+    "saturatedFat": 3.6,
+    "sugar": 1,
+    "fiber": 6.3,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "market-salad",
+   "name": "Market Salad",
+   "category": "Sides (contorni)",
+   "serving": "",
+   "nutrients": {
+    "calories": 109,
+    "protein": 1.8,
+    "carbs": 5.6,
+    "fat": 8.2,
+    "saturatedFat": 1.5,
+    "sugar": 3.4,
+    "fiber": 3.1,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "polenta-chips",
+   "name": "Polenta Chips",
+   "category": "Sides (contorni)",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 7.5,
+    "carbs": 39,
+    "fat": 9.6,
+    "saturatedFat": 2.6,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "affogato",
+   "name": "Affogato",
+   "category": "Desserts (dolci)",
+   "serving": "",
+   "nutrients": {
+    "calories": 171,
+    "protein": 6.2,
+    "carbs": 24,
+    "fat": 5.5,
+    "saturatedFat": 3.5,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0.09
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amalfi-lemon-cheesecake",
+   "name": "Amalfi Lemon Cheesecake",
+   "category": "Desserts (dolci)",
+   "serving": "",
+   "nutrients": {
+    "calories": 780,
+    "protein": 10,
+    "carbs": 72,
+    "fat": 50,
+    "saturatedFat": 31,
+    "sugar": 61,
+    "fiber": 1.1,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-chip-cookie",
+   "name": "Chocolate Chip Cookie",
+   "category": "Desserts (dolci)",
+   "serving": "",
+   "nutrients": {
+    "calories": 830,
+    "protein": 14,
+    "carbs": 87,
+    "fat": 46,
+    "saturatedFat": 28,
+    "sugar": 56,
+    "fiber": 4.5,
+    "salt": 0.89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-soft-serve",
+   "name": "Chocolate Soft Serve",
+   "category": "Desserts (dolci)",
+   "serving": "",
+   "nutrients": {
+    "calories": 221,
+    "protein": 6.6,
+    "carbs": 24,
+    "fat": 11,
+    "saturatedFat": 6.7,
+    "sugar": 15,
+    "fiber": 0.5,
+    "salt": 0.08
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Desserts (dolci)",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 8,
+    "carbs": 25,
+    "fat": 24,
+    "saturatedFat": 15,
+    "sugar": 18,
+    "fiber": 0,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-soft-serve",
+   "name": "Vanilla Soft Serve",
+   "category": "Desserts (dolci)",
+   "serving": "",
+   "nutrients": {
+    "calories": 167,
+    "protein": 5.9,
+    "carbs": 24,
+    "fat": 5.5,
+    "saturatedFat": 3.5,
+    "sugar": 15,
+    "fiber": 0,
+    "salt": 0.08
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chocolate-sauce",
+   "name": "Add Chocolate Sauce",
+   "category": "Desserts (dolci)",
+   "serving": "",
+   "nutrients": {
+    "calories": 50,
+    "protein": 0.6,
+    "carbs": 5.7,
+    "fat": 2.6,
+    "saturatedFat": 1.6,
+    "sugar": 5.3,
+    "fiber": 0.9,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-raspberry-sauce",
+   "name": "Add Raspberry Sauce",
+   "category": "Desserts (dolci)",
+   "serving": "",
+   "nutrients": {
+    "calories": 18,
+    "protein": 0,
+    "carbs": 4.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vanilla-ice-cream",
+   "name": "Kids Vanilla Ice Cream",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 3,
+    "carbs": 16,
+    "fat": 2.4,
+    "saturatedFat": 1.5,
+    "sugar": 12,
+    "fiber": 1.2,
+    "salt": 0.04
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cookies-and-milk",
+   "name": "Kids Cookies and Milk",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 309,
+    "protein": 5.1,
+    "carbs": 37,
+    "fat": 15,
+    "saturatedFat": 9,
+    "sugar": 20,
+    "fiber": 2.3,
+    "salt": 0.29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-prawn-pasta",
+   "name": "Kids Prawn Pasta",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 407,
+    "protein": 16,
+    "carbs": 64,
+    "fat": 8.5,
+    "saturatedFat": 1.6,
+    "sugar": 8.5,
+    "fiber": 4.7,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-lollipops",
+   "name": "Kids Chicken Lollipops",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 470,
+    "protein": 36,
+    "carbs": 25,
+    "fat": 24,
+    "saturatedFat": 6,
+    "sugar": 7.5,
+    "fiber": 4.4,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-tomato-rigatoni",
+   "name": "Kids Tomato Rigatoni",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 431,
+    "protein": 16,
+    "carbs": 62,
+    "fat": 12,
+    "saturatedFat": 4.5,
+    "sugar": 7.8,
+    "fiber": 3.7,
+    "salt": 0.57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-margherita-pizza",
+   "name": "Kids Margherita Pizza",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 446,
+    "protein": 19,
+    "carbs": 67,
+    "fat": 11,
+    "saturatedFat": 4.9,
+    "sugar": 4.7,
+    "fiber": 4,
+    "salt": 2.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-veggie-dippers",
+   "name": "Crunchy Veggie Dippers",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "protein": 2.2,
+    "carbs": 9.4,
+    "fat": 4.4,
+    "saturatedFat": 1,
+    "sugar": 6,
+    "fiber": 3.8,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

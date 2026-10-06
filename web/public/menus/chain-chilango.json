@@ -1,0 +1,1245 @@
+{
+ "schemaVersion": 1,
+ "id": "chilango",
+ "name": "Chilango",
+ "cuisine": "Mexican",
+ "builderType": "build_your_own",
+ "aliases": [
+  "chilango",
+  "chilango burritos",
+  "chilango mexican"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Chilango Nutrition & Allergen Information (updated 19 November 2024)",
+  "url": "https://a.storyblok.com/f/293792/x/c1bd09189b/chilango-nutrition-guide_19-nov-2024.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Chilango publishes its burritos, bowls, salads and tacos only as separate ingredients, so only its four set boxes and its sides are listed. Its guide was last updated in November 2024.",
+ "categories": [
+  "Boxes",
+  "Sides",
+  "Dips & salsas",
+  "Drinks"
+ ],
+ "components": [
+  {
+   "id": "cos-lettuce",
+   "group": "base",
+   "name": "Cos lettuce",
+   "portion": "",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.1,
+    "carbs": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "fiber": 0.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "black-beans",
+   "group": "topping",
+   "name": "Black beans",
+   "portion": "",
+   "nutrients": {
+    "calories": 104,
+    "protein": 7,
+    "carbs": 20.7,
+    "fat": 1.1,
+    "saturatedFat": 0.2,
+    "sugar": 1.3,
+    "fiber": 8,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "fajita-peppers-and-onions",
+   "group": "topping",
+   "name": "Fajita peppers and onions",
+   "portion": "",
+   "nutrients": {
+    "calories": 44,
+    "protein": 1,
+    "carbs": 5.8,
+    "fat": 1.3,
+    "saturatedFat": 0.1,
+    "sugar": 4.7,
+    "fiber": 2.5,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "chicken-protein-box",
+   "group": "protein",
+   "name": "Chicken (Protein Box portion)",
+   "portion": "",
+   "nutrients": {
+    "calories": 422,
+    "protein": 51.3,
+    "carbs": 5.3,
+    "fat": 21.3,
+    "saturatedFat": 6.3,
+    "sugar": 1.3,
+    "fiber": 0,
+    "salt": 1.4
+   },
+   "tags": [],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "pico-de-gallo",
+   "group": "topping",
+   "name": "Pico de gallo",
+   "portion": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0.3,
+    "carbs": 1.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1.6,
+    "fiber": 0.6,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "steak",
+   "group": "protein",
+   "name": "Steak",
+   "portion": "",
+   "nutrients": {
+    "calories": 277,
+    "protein": 19.1,
+    "carbs": 0.5,
+    "fat": 22.1,
+    "saturatedFat": 8.6,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "monterey-jack-cheese",
+   "group": "topping",
+   "name": "Cheese (Monterey Jack)",
+   "portion": "",
+   "nutrients": {
+    "calories": 32,
+    "protein": 2.5,
+    "carbs": 0,
+    "fat": 2.4,
+    "saturatedFat": 1.5,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": true,
+   "allowDouble": false
+  },
+  {
+   "id": "sour-cream",
+   "group": "topping",
+   "name": "Sour cream",
+   "portion": "",
+   "nutrients": {
+    "calories": 30,
+    "protein": 0.6,
+    "carbs": 0.8,
+    "fat": 2.6,
+    "saturatedFat": 1.7,
+    "sugar": 0.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": true,
+   "allowDouble": false
+  },
+  {
+   "id": "guacamole",
+   "group": "topping",
+   "name": "Guacamole",
+   "portion": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 1.5,
+    "carbs": 1.8,
+    "fat": 15.6,
+    "saturatedFat": 3.2,
+    "sugar": 0.7,
+    "fiber": 3.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": true,
+   "allowDouble": false
+  },
+  {
+   "id": "chicken",
+   "group": "protein",
+   "name": "Chicken",
+   "portion": "",
+   "nutrients": {
+    "calories": 211,
+    "protein": 25.7,
+    "carbs": 2.7,
+    "fat": 10.6,
+    "saturatedFat": 3.1,
+    "sugar": 0.7,
+    "fiber": 0,
+    "salt": 0.7
+   },
+   "tags": [],
+   "removable": false,
+   "allowDouble": false
+  },
+  {
+   "id": "coriander-lime-rice",
+   "group": "base",
+   "name": "Coriander lime rice",
+   "portion": "",
+   "nutrients": {
+    "calories": 283,
+    "protein": 6.5,
+    "carbs": 58.8,
+    "fat": 2.2,
+    "saturatedFat": 0.2,
+    "sugar": 0.2,
+    "fiber": 1,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "removable": false,
+   "allowDouble": false
+  }
+ ],
+ "items": [
+  {
+   "id": "protein-box",
+   "name": "Protein Box",
+   "category": "Boxes",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 585,
+    "protein": 59.7,
+    "carbs": 33.6,
+    "fat": 23.8,
+    "saturatedFat": 6.6,
+    "sugar": 9,
+    "fiber": 11.2,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "fajita-peppers-and-onions",
+     "qty": 1
+    },
+    {
+     "id": "chicken-protein-box",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "modifiers": []
+  },
+  {
+   "id": "keto-box",
+   "name": "Keto Box",
+   "category": "Boxes",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 516,
+    "protein": 24.1,
+    "carbs": 4.9,
+    "fat": 42.8,
+    "saturatedFat": 15,
+    "sugar": 3.2,
+    "fiber": 4.4,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "monterey-jack-cheese",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "modifiers": []
+  },
+  {
+   "id": "low-carb-box",
+   "name": "Low Carb Box",
+   "category": "Boxes",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 432,
+    "protein": 28.6,
+    "carbs": 12.1,
+    "fat": 27.6,
+    "saturatedFat": 6.4,
+    "sugar": 7.8,
+    "fiber": 6.9,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "fajita-peppers-and-onions",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-box",
+   "name": "Vegan Box",
+   "category": "Boxes",
+   "serving": "1 box",
+   "nutrients": {
+    "calories": 608,
+    "protein": 16.4,
+    "carbs": 88.9,
+    "fat": 20.3,
+    "saturatedFat": 3.7,
+    "sugar": 8.6,
+    "fiber": 15.9,
+    "salt": 4.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "fajita-peppers-and-onions",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "modifiers": []
+  },
+  {
+   "id": "tortilla-chips",
+   "name": "Tortilla Chips",
+   "category": "Sides",
+   "serving": "1 bag",
+   "nutrients": {
+    "calories": 430,
+    "protein": 5.8,
+    "carbs": 62.3,
+    "fat": 21.1,
+    "saturatedFat": 2.1,
+    "sugar": 0.8,
+    "fiber": 4.9,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-fries-with-bbq-salsa",
+   "name": "Baked Fries with BBQ Salsa",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 298,
+    "protein": 3.7,
+    "carbs": 40.7,
+    "fat": 13.1,
+    "saturatedFat": 1,
+    "sugar": 17,
+    "fiber": 3.7,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-fries-with-chipotle-crema",
+   "name": "Baked Fries with Chipotle Crema",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 626,
+    "protein": 3.3,
+    "carbs": 27.4,
+    "fat": 56.9,
+    "saturatedFat": 4.3,
+    "sugar": 3.3,
+    "fiber": 3.3,
+    "salt": 4.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pico-de-gallo-salsa-pot",
+   "name": "Pico de Gallo Salsa Pot",
+   "category": "Dips & salsas",
+   "serving": "1 pot (70 g)",
+   "nutrients": {
+    "calories": 13,
+    "protein": 0.4,
+    "carbs": 2.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 2.2,
+    "fiber": 0.8,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "asada-salsa-pot",
+   "name": "Asada Salsa Pot",
+   "category": "Dips & salsas",
+   "serving": "1 pot (70 g)",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.4,
+    "carbs": 2.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1.8,
+    "fiber": 0.7,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "verde-salsa-pot",
+   "name": "Verde Salsa Pot",
+   "category": "Dips & salsas",
+   "serving": "1 pot (70 g)",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0.7,
+    "carbs": 3.3,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 2.9,
+    "fiber": 1.3,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-salsa-pot",
+   "name": "BBQ Salsa Pot",
+   "category": "Dips & salsas",
+   "serving": "1 pot (70 g)",
+   "nutrients": {
+    "calories": 72,
+    "protein": 0.7,
+    "carbs": 16.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "fiber": 0.7,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chipotle-crema-pot",
+   "name": "Chipotle Crema Pot",
+   "category": "Dips & salsas",
+   "serving": "1 pot (70 g)",
+   "nutrients": {
+    "calories": 410,
+    "protein": 0.3,
+    "carbs": 3.4,
+    "fat": 43.9,
+    "saturatedFat": 3.3,
+    "sugar": 2.2,
+    "fiber": 0.3,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole-pot-80-g",
+   "name": "Guacamole Pot (80 g)",
+   "category": "Dips & salsas",
+   "serving": "1 pot (80 g)",
+   "nutrients": {
+    "calories": 152,
+    "protein": 1.4,
+    "carbs": 1.7,
+    "fat": 14.7,
+    "saturatedFat": 3,
+    "sugar": 0.6,
+    "fiber": 3.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole-pot-170-g",
+   "name": "Guacamole Pot (170 g)",
+   "category": "Dips & salsas",
+   "serving": "1 pot (170 g)",
+   "nutrients": {
+    "calories": 323,
+    "protein": 3.1,
+    "carbs": 3.6,
+    "fat": 31.3,
+    "saturatedFat": 6.5,
+    "sugar": 1.4,
+    "fiber": 7.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-lemonade",
+   "name": "Homemade Lemonade",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 311,
+    "protein": 0.5,
+    "carbs": 77.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 72.7,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": [
+  {
+   "id": "var-protein-box-0b4774f5",
+   "name": "Protein Box · coriander lime rice instead of cos lettuce",
+   "kind": "variation",
+   "baseItemId": "protein-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken-protein-box",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "fajita-peppers-and-onions",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 863,
+    "protein": 66.1,
+    "carbs": 92.3,
+    "fat": 26,
+    "saturatedFat": 6.8,
+    "sugar": 9.1,
+    "fiber": 12.1,
+    "salt": 5.7
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-563ad34d",
+   "name": "Keto Box · coriander lime rice instead of cos lettuce",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "monterey-jack-cheese",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 794,
+    "protein": 30.5,
+    "carbs": 63.6,
+    "fat": 45,
+    "saturatedFat": 15.2,
+    "sugar": 3.3,
+    "fiber": 5.3,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-fe7ccd39",
+   "name": "Keto Box · no cheese (Monterey Jack)",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 484,
+    "protein": 21.6,
+    "carbs": 4.9,
+    "fat": 40.4,
+    "saturatedFat": 13.5,
+    "sugar": 3.2,
+    "fiber": 4.4,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-05267cc4",
+   "name": "Keto Box · no cheese (Monterey Jack) · coriander lime rice instead of cos lettuce",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 762,
+    "protein": 28,
+    "carbs": 63.6,
+    "fat": 42.6,
+    "saturatedFat": 13.7,
+    "sugar": 3.3,
+    "fiber": 5.3,
+    "salt": 3.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-6d9c1cc5",
+   "name": "Keto Box · no sour cream",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "monterey-jack-cheese",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 486,
+    "protein": 23.5,
+    "carbs": 4.1,
+    "fat": 40.2,
+    "saturatedFat": 13.3,
+    "sugar": 2.4,
+    "fiber": 4.4,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-d4ea23d1",
+   "name": "Keto Box · no sour cream · coriander lime rice instead of cos lettuce",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "monterey-jack-cheese",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 764,
+    "protein": 29.9,
+    "carbs": 62.8,
+    "fat": 42.4,
+    "saturatedFat": 13.5,
+    "sugar": 2.5,
+    "fiber": 5.3,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-db9a333d",
+   "name": "Keto Box · no guacamole",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "monterey-jack-cheese",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 354,
+    "protein": 22.6,
+    "carbs": 3.1,
+    "fat": 27.2,
+    "saturatedFat": 11.8,
+    "sugar": 2.5,
+    "fiber": 0.7,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-a608c875",
+   "name": "Keto Box · no guacamole · coriander lime rice instead of cos lettuce",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "monterey-jack-cheese",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    },
+    {
+     "id": "sour-cream",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 632,
+    "protein": 29,
+    "carbs": 61.8,
+    "fat": 29.4,
+    "saturatedFat": 12,
+    "sugar": 2.6,
+    "fiber": 1.6,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-d965e854",
+   "name": "Keto Box · no cheese (Monterey Jack), no sour cream, no guacamole",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 292,
+    "protein": 19.5,
+    "carbs": 2.3,
+    "fat": 22.2,
+    "saturatedFat": 8.6,
+    "sugar": 1.7,
+    "fiber": 0.7,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-keto-box-2a1ee1d5",
+   "name": "Keto Box · no cheese (Monterey Jack), no sour cream, no guacamole · coriander lime rice instead of cos lettuce",
+   "kind": "variation",
+   "baseItemId": "keto-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "steak",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 570,
+    "protein": 25.9,
+    "carbs": 61,
+    "fat": 24.4,
+    "saturatedFat": 8.8,
+    "sugar": 1.8,
+    "fiber": 1.6,
+    "salt": 3.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "itemCount": 1
+  },
+  {
+   "id": "var-low-carb-box-cc12d811",
+   "name": "Low Carb Box · coriander lime rice instead of cos lettuce",
+   "kind": "variation",
+   "baseItemId": "low-carb-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-peppers-and-onions",
+     "qty": 1
+    },
+    {
+     "id": "guacamole",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 710,
+    "protein": 35,
+    "carbs": 70.8,
+    "fat": 29.8,
+    "saturatedFat": 6.6,
+    "sugar": 7.9,
+    "fiber": 7.8,
+    "salt": 4.5
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-low-carb-box-ecd27843",
+   "name": "Low Carb Box · no guacamole",
+   "kind": "variation",
+   "baseItemId": "low-carb-box",
+   "components": [
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-peppers-and-onions",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 270,
+    "protein": 27.1,
+    "carbs": 10.3,
+    "fat": 12,
+    "saturatedFat": 3.2,
+    "sugar": 7.1,
+    "fiber": 3.2,
+    "salt": 1.9
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-low-carb-box-85a892b8",
+   "name": "Low Carb Box · no guacamole · coriander lime rice instead of cos lettuce",
+   "kind": "variation",
+   "baseItemId": "low-carb-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "chicken",
+     "qty": 1
+    },
+    {
+     "id": "fajita-peppers-and-onions",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 548,
+    "protein": 33.5,
+    "carbs": 69,
+    "fat": 14.2,
+    "saturatedFat": 3.4,
+    "sugar": 7.2,
+    "fiber": 4.1,
+    "salt": 4.5
+   },
+   "tags": [],
+   "itemCount": 1
+  },
+  {
+   "id": "var-vegan-box-17cb63ca",
+   "name": "Vegan Box · no guacamole",
+   "kind": "variation",
+   "baseItemId": "vegan-box",
+   "components": [
+    {
+     "id": "coriander-lime-rice",
+     "qty": 1
+    },
+    {
+     "id": "cos-lettuce",
+     "qty": 1
+    },
+    {
+     "id": "black-beans",
+     "qty": 1
+    },
+    {
+     "id": "fajita-peppers-and-onions",
+     "qty": 1
+    },
+    {
+     "id": "pico-de-gallo",
+     "qty": 1
+    }
+   ],
+   "items": [],
+   "nutrients": {
+    "calories": 446,
+    "protein": 14.9,
+    "carbs": 87.1,
+    "fat": 4.7,
+    "saturatedFat": 0.5,
+    "sugar": 7.9,
+    "fiber": 12.2,
+    "salt": 4.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "itemCount": 1
+  }
+ ]
+}

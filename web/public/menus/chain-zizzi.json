@@ -1,0 +1,9330 @@
+{
+ "schemaVersion": 1,
+ "id": "zizzi",
+ "name": "Zizzi",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "zizzi",
+  "zizzi italian"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Zizzi UK Nutrition Guide, Autumn 2026 V1 (15.09.26); vegetarian marks from the UK Allergen Guide, Autumn 2026 V3",
+  "url": "https://cdn.sanity.io/files/ysupxjc9/production/abb3546d604fabb82945c2b1291c22949e5dc66e.pdf/ZIZZI-UK-NUTRITION-GUIDE_AUTUMN_SEP2026_V1.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Zizzi says its figures are approximate (ingredients measured by hand, a mix of calculation and lab testing) and cover core dishes only, not substitutions or added extras. Portion weights are not published.",
+ "categories": [
+  "Aperitivo",
+  "Starters",
+  "Sharers",
+  "Signature dishes",
+  "Salads",
+  "Rustica pizza",
+  "Pizzanini",
+  "Non-gluten pizza",
+  "Calzone",
+  "Classico pizza",
+  "Sides",
+  "Superiore pasta",
+  "Classico pasta",
+  "Al forno",
+  "Non-gluten pasta",
+  "Desserts",
+  "Gelatos",
+  "Extras",
+  "Kids",
+  "Drinks",
+  "Coffee and tea",
+  "Special guest"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "complimentary-pasta-crisps",
+   "name": "Complimentary Pasta Crisps",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 38,
+    "protein": 0,
+    "carbs": 8.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "complimentary-hot-chocolate",
+   "name": "Complimentary Hot Chocolate",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 28,
+    "protein": 1,
+    "carbs": 3.6,
+    "fat": 1,
+    "saturatedFat": 0.6,
+    "sugar": 3.5,
+    "salt": 0.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-crisps",
+   "name": "Pasta Crisps",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 2.1,
+    "carbs": 35,
+    "fat": 1.5,
+    "saturatedFat": 0.2,
+    "sugar": 3.7,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "olive-bowl",
+   "name": "Olive Bowl",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 1,
+    "carbs": 0.7,
+    "fat": 15,
+    "saturatedFat": 2.1,
+    "sugar": 0,
+    "salt": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dough-crusts",
+   "name": "Dough Crusts",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 642,
+    "protein": 16,
+    "carbs": 94,
+    "fat": 22,
+    "saturatedFat": 2.8,
+    "sugar": 4.4,
+    "salt": 3.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 607,
+    "protein": 17,
+    "carbs": 98,
+    "fat": 16,
+    "saturatedFat": 3.4,
+    "sugar": 3.3,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-mozzarella",
+   "name": "Garlic Bread with Mozzarella",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 688,
+    "protein": 26,
+    "carbs": 104,
+    "fat": 18,
+    "saturatedFat": 7.8,
+    "sugar": 3.7,
+    "salt": 3.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-mozzarella-and-caramelised-onions",
+   "name": "Garlic Bread with Mozzarella & Caramelised Onions",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 750,
+    "protein": 27,
+    "carbs": 116,
+    "fat": 19,
+    "saturatedFat": 7.8,
+    "sugar": 15,
+    "salt": 3.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-chilli-garlic-bread",
+   "name": "Cheesy Chilli Garlic Bread",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 766,
+    "protein": 27,
+    "carbs": 105,
+    "fat": 26,
+    "saturatedFat": 9.5,
+    "sugar": 4.2,
+    "salt": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-mozzarella-bombe",
+   "name": "Garlic & Mozzarella Bombe",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 745,
+    "protein": 26,
+    "carbs": 104,
+    "fat": 24,
+    "saturatedFat": 9.1,
+    "sugar": 9.8,
+    "salt": 3.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-and-mozzarella-bombe",
+   "name": "Chorizo & Mozzarella Bombe",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 899,
+    "protein": 36,
+    "carbs": 109,
+    "fat": 35,
+    "saturatedFat": 13,
+    "sugar": 11,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-fritti",
+   "name": "Pollo Fritti",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 606,
+    "protein": 29,
+    "carbs": 45,
+    "fat": 34,
+    "saturatedFat": 4,
+    "sugar": 4.9,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-fritti-x-8",
+   "name": "Pollo Fritti x 8",
+   "category": "Starters",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 1179,
+    "protein": 56,
+    "carbs": 89,
+    "fat": 67,
+    "saturatedFat": 6.9,
+    "sugar": 8.3,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-classica",
+   "name": "Bruschetta Classica",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 10,
+    "carbs": 62,
+    "fat": 17,
+    "saturatedFat": 2.8,
+    "sugar": 11,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari-small",
+   "name": "Calamari Small",
+   "category": "Starters",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 499,
+    "protein": 6.9,
+    "carbs": 65,
+    "fat": 25,
+    "saturatedFat": 1.9,
+    "sugar": 2.2,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari-large",
+   "name": "Calamari Large",
+   "category": "Starters",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 854,
+    "protein": 13,
+    "carbs": 126,
+    "fat": 35,
+    "saturatedFat": 2.6,
+    "sugar": 3,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-calamari-small",
+   "name": "Chilli Calamari - Small",
+   "category": "Starters",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 636,
+    "protein": 7.2,
+    "carbs": 75,
+    "fat": 35,
+    "saturatedFat": 2.7,
+    "sugar": 9.9,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-calamari-large",
+   "name": "Chilli Calamari - Large",
+   "category": "Starters",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1031,
+    "protein": 12,
+    "carbs": 125,
+    "fat": 55,
+    "saturatedFat": 4.1,
+    "sugar": 18,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "la-bomba-meatballs",
+   "name": "La Bomba Meatballs",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 670,
+    "protein": 39,
+    "carbs": 23,
+    "fat": 46,
+    "saturatedFat": 18,
+    "sugar": 7.3,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aubergine-fritti",
+   "name": "Aubergine Fritti",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 252,
+    "protein": 3,
+    "carbs": 34,
+    "fat": 10,
+    "saturatedFat": 0.7,
+    "sugar": 7.7,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-garlic-aioli",
+   "name": "Chicken Spiedini with Garlic Aioli",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 436,
+    "protein": 28,
+    "carbs": 9.2,
+    "fat": 32,
+    "saturatedFat": 4.2,
+    "sugar": 4,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-calabrese-dip",
+   "name": "Chicken Spiedini with Calabrese Dip",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 321,
+    "protein": 28,
+    "carbs": 9.6,
+    "fat": 19,
+    "saturatedFat": 3.2,
+    "sugar": 4.6,
+    "salt": 0.92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-roquito-hot-honey",
+   "name": "Chicken Spiedini with Roquito Hot Honey",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 399,
+    "protein": 28,
+    "carbs": 33,
+    "fat": 17,
+    "saturatedFat": 3.1,
+    "sugar": 29,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-crispy-chilli-oil",
+   "name": "Chicken Spiedini with Crispy Chilli Oil",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 491,
+    "protein": 28,
+    "carbs": 14,
+    "fat": 35,
+    "saturatedFat": 4.4,
+    "sugar": 5.4,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-genovese-pesto",
+   "name": "Chicken Spiedini with Genovese Pesto",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 29,
+    "carbs": 13,
+    "fat": 30,
+    "saturatedFat": 4.9,
+    "sugar": 3,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-fiery-la-bomba",
+   "name": "Chicken Spiedini with Fiery La Bomba",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 334,
+    "protein": 28,
+    "carbs": 8.2,
+    "fat": 21,
+    "saturatedFat": 3.4,
+    "sugar": 3.5,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-chilli-mayo",
+   "name": "Chicken Spiedini with Chilli Mayo",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 563,
+    "protein": 28,
+    "carbs": 9.5,
+    "fat": 46,
+    "saturatedFat": 5.3,
+    "sugar": 4.2,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-pesto-mayo",
+   "name": "Chicken Spiedini with Pesto Mayo",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 549,
+    "protein": 28,
+    "carbs": 9.4,
+    "fat": 44,
+    "saturatedFat": 5.4,
+    "sugar": 3.5,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-brindisi",
+   "name": "Mushroom Brindisi",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 636,
+    "protein": 22,
+    "carbs": 102,
+    "fat": 15,
+    "saturatedFat": 5.9,
+    "sugar": 7.6,
+    "salt": 4.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "king-prawn-spiedini",
+   "name": "King Prawn Spiedini",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 149,
+    "protein": 21,
+    "carbs": 5.5,
+    "fat": 4.6,
+    "saturatedFat": 0.8,
+    "sugar": 3.8,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fonduta-formaggi",
+   "name": "Fonduta Formaggi",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 859,
+    "protein": 32,
+    "carbs": 93,
+    "fat": 39,
+    "saturatedFat": 21,
+    "sugar": 3.8,
+    "salt": 5.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-arancini",
+   "name": "Mozzarella Arancini",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 343,
+    "protein": 14,
+    "carbs": 29,
+    "fat": 19,
+    "saturatedFat": 10,
+    "sugar": 3.7,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-double-mozzarella-arancini",
+   "name": "Take Away Only: Double Mozzarella Arancini",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 659,
+    "protein": 26,
+    "carbs": 54,
+    "fat": 37,
+    "saturatedFat": 20,
+    "sugar": 5.4,
+    "salt": 4.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata-caprese",
+   "name": "Burrata Caprese",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 392,
+    "protein": 10,
+    "carbs": 10,
+    "fat": 34,
+    "saturatedFat": 16,
+    "sugar": 9.1,
+    "salt": 0.89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fonduta-board",
+   "name": "Fonduta Board",
+   "category": "Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1974,
+    "protein": 66,
+    "carbs": 229,
+    "fat": 86,
+    "saturatedFat": 39,
+    "sugar": 17,
+    "salt": 11.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grande-antipasto",
+   "name": "Grande Antipasto",
+   "category": "Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1434,
+    "protein": 68,
+    "carbs": 122,
+    "fat": 73,
+    "saturatedFat": 33,
+    "sugar": 19,
+    "salt": 8.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "favourites-board",
+   "name": "Favourites Board",
+   "category": "Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 2145,
+    "protein": 75,
+    "carbs": 247,
+    "fat": 93,
+    "saturatedFat": 24,
+    "sugar": 20,
+    "salt": 8.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-glazed-duck",
+   "name": "Hot Honey Glazed Duck",
+   "category": "Signature dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1195,
+    "protein": 63,
+    "carbs": 108,
+    "fat": 58,
+    "saturatedFat": 14,
+    "sugar": 37,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-calabrese",
+   "name": "Pollo Calabrese",
+   "category": "Signature dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1060,
+    "protein": 61,
+    "carbs": 95,
+    "fat": 49,
+    "saturatedFat": 14,
+    "sugar": 16,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "funghi-risotto",
+   "name": "Funghi Risotto",
+   "category": "Signature dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 961,
+    "protein": 28,
+    "carbs": 151,
+    "fat": 26,
+    "saturatedFat": 13,
+    "sugar": 5.5,
+    "salt": 3.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-bean-stufato",
+   "name": "Butter Bean Stufato",
+   "category": "Signature dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 978,
+    "protein": 30,
+    "carbs": 138,
+    "fat": 31,
+    "saturatedFat": 4,
+    "sugar": 9.8,
+    "salt": 6.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-sea-bass",
+   "name": "Mediterranean Sea Bass",
+   "category": "Signature dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 663,
+    "protein": 42,
+    "carbs": 35,
+    "fat": 38,
+    "saturatedFat": 5.2,
+    "sugar": 8.7,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-milanese",
+   "name": "Pollo Milanese",
+   "category": "Signature dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1217,
+    "protein": 54,
+    "carbs": 117,
+    "fat": 61,
+    "saturatedFat": 10,
+    "sugar": 12,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-pesto-risotto",
+   "name": "Salmon & Pesto Risotto",
+   "category": "Signature dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1245,
+    "protein": 36,
+    "carbs": 156,
+    "fat": 52,
+    "saturatedFat": 11,
+    "sugar": 4.2,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-tomato-caesar-salad",
+   "name": "Salmon & Tomato Caesar Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 609,
+    "protein": 22,
+    "carbs": 30,
+    "fat": 43,
+    "saturatedFat": 4.2,
+    "sugar": 7.3,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-bean-salad",
+   "name": "Butter Bean Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 474,
+    "protein": 17,
+    "carbs": 74,
+    "fat": 9.5,
+    "saturatedFat": 1.3,
+    "sugar": 22,
+    "salt": 3.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad",
+   "name": "Chicken Caesar Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 733,
+    "protein": 35,
+    "carbs": 67,
+    "fat": 35,
+    "saturatedFat": 7.2,
+    "sugar": 6.6,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "venison-pepperoni",
+   "name": "Venison Pepperoni",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1190,
+    "protein": 60,
+    "carbs": 125,
+    "fat": 48,
+    "saturatedFat": 29,
+    "sugar": 23,
+    "salt": 6.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-premio",
+   "name": "Pepperoni Premio",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1080,
+    "protein": 55,
+    "carbs": 107,
+    "fat": 47,
+    "saturatedFat": 26,
+    "sugar": 6.6,
+    "salt": 6.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-salami",
+   "name": "Truffle Salami",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1186,
+    "protein": 63,
+    "carbs": 110,
+    "fat": 54,
+    "saturatedFat": 29,
+    "sugar": 6.7,
+    "salt": 6.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carne-sofia",
+   "name": "Carne Sofia",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1117,
+    "protein": 68,
+    "carbs": 114,
+    "fat": 42,
+    "saturatedFat": 23,
+    "sugar": 12,
+    "salt": 6.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-campagna",
+   "name": "Pepperoni Campagna",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 988,
+    "protein": 57,
+    "carbs": 107,
+    "fat": 36,
+    "saturatedFat": 21,
+    "sugar": 6.6,
+    "salt": 6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "piccante",
+   "name": "Piccante",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1594,
+    "protein": 67,
+    "carbs": 114,
+    "fat": 95,
+    "saturatedFat": 49,
+    "sugar": 13,
+    "salt": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-pig",
+   "name": "Sticky Pig",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1792,
+    "protein": 89,
+    "carbs": 126,
+    "fat": 102,
+    "saturatedFat": 45,
+    "sugar": 16,
+    "salt": 7.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-fiery-roquito",
+   "name": "Chicken & Fiery Roquito",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1113,
+    "protein": 62,
+    "carbs": 115,
+    "fat": 43,
+    "saturatedFat": 20,
+    "sugar": 16,
+    "salt": 6.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "primavera",
+   "name": "Primavera",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1388,
+    "protein": 56,
+    "carbs": 122,
+    "fat": 73,
+    "saturatedFat": 28,
+    "sugar": 15,
+    "salt": 8.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aubergine-parmigiana",
+   "name": "Aubergine Parmigiana",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 995,
+    "protein": 22,
+    "carbs": 151,
+    "fat": 31,
+    "saturatedFat": 15,
+    "sugar": 25,
+    "salt": 6.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pinoli",
+   "name": "Pinoli",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 995,
+    "protein": 44,
+    "carbs": 125,
+    "fat": 34,
+    "saturatedFat": 19,
+    "sugar": 23,
+    "salt": 5.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita",
+   "name": "Margherita",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 941,
+    "protein": 47,
+    "carbs": 120,
+    "fat": 29,
+    "saturatedFat": 18,
+    "sugar": 8.4,
+    "salt": 5.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-margherita",
+   "name": "Vegan Margherita",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 888,
+    "protein": 19,
+    "carbs": 122,
+    "fat": 34,
+    "saturatedFat": 28,
+    "sugar": 5.2,
+    "salt": 6.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-double-cheese-rustica-margherita",
+   "name": "Take Away Only: Double Cheese Rustica Margherita",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1235,
+    "protein": 73,
+    "carbs": 108,
+    "fat": 56,
+    "saturatedFat": 36,
+    "sugar": 7.6,
+    "salt": 6.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-rustica-meat-feast",
+   "name": "Take Away Only: Rustica Meat Feast",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1097,
+    "protein": 68,
+    "carbs": 109,
+    "fat": 42,
+    "saturatedFat": 23,
+    "sugar": 7.3,
+    "salt": 6.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-hot-honey-pepperoni",
+   "name": "Take Away Only: Hot Honey Pepperoni",
+   "category": "Rustica pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1382,
+    "protein": 60,
+    "carbs": 113,
+    "fat": 75,
+    "saturatedFat": 35,
+    "sugar": 13,
+    "salt": 7.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-caesar-pizzanini",
+   "name": "Crispy Chicken Caesar Pizzanini",
+   "category": "Pizzanini",
+   "serving": "",
+   "nutrients": {
+    "calories": 1076,
+    "protein": 38,
+    "carbs": 126,
+    "fat": 46,
+    "saturatedFat": 7.1,
+    "sugar": 5.9,
+    "salt": 5.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prosciutto-and-burrata-pizzanini",
+   "name": "Prosciutto & Burrata Pizzanini",
+   "category": "Pizzanini",
+   "serving": "",
+   "nutrients": {
+    "calories": 926,
+    "protein": 30,
+    "carbs": 115,
+    "fat": 37,
+    "saturatedFat": 12,
+    "sugar": 13,
+    "salt": 4.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-pesto-and-burrata-pizzanini",
+   "name": "Tomato, Pesto & Burrata Pizzanini",
+   "category": "Pizzanini",
+   "serving": "",
+   "nutrients": {
+    "calories": 939,
+    "protein": 25,
+    "carbs": 114,
+    "fat": 41,
+    "saturatedFat": 12,
+    "sugar": 9.4,
+    "salt": 3.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-venison-pepperoni",
+   "name": "Non-Gluten Venison Pepperoni",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306,
+    "protein": 51,
+    "carbs": 127,
+    "fat": 62,
+    "saturatedFat": 30,
+    "sugar": 24,
+    "salt": 6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pepperoni-premio",
+   "name": "Non-Gluten Pepperoni Premio",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1104,
+    "protein": 44,
+    "carbs": 100,
+    "fat": 57,
+    "saturatedFat": 27,
+    "sugar": 7.8,
+    "salt": 4.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-truffle-salami",
+   "name": "Non-Gluten Truffle Salami",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1210,
+    "protein": 52,
+    "carbs": 103,
+    "fat": 64,
+    "saturatedFat": 30,
+    "sugar": 7.9,
+    "salt": 5.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-carne-sofia",
+   "name": "Non-Gluten Carne Sofia",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1142,
+    "protein": 57,
+    "carbs": 107,
+    "fat": 52,
+    "saturatedFat": 24,
+    "sugar": 13,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-piccante",
+   "name": "Non-Gluten Piccante",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1621,
+    "protein": 56,
+    "carbs": 107,
+    "fat": 104,
+    "saturatedFat": 49,
+    "sugar": 15,
+    "salt": 7.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-sticky-pig",
+   "name": "Non-Gluten Sticky Pig",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1816,
+    "protein": 78,
+    "carbs": 119,
+    "fat": 112,
+    "saturatedFat": 46,
+    "sugar": 17,
+    "salt": 6.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-chicken-and-fiery-roquito",
+   "name": "Non-Gluten Chicken & Fiery Roquito",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1139,
+    "protein": 51,
+    "carbs": 111,
+    "fat": 52,
+    "saturatedFat": 21,
+    "sugar": 13,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-primavera",
+   "name": "Non-Gluten Primavera",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1390,
+    "protein": 44,
+    "carbs": 113,
+    "fat": 81,
+    "saturatedFat": 29,
+    "sugar": 14,
+    "salt": 6.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-aubergine-parmigiana",
+   "name": "Non-Gluten Aubergine Parmigiana",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1006,
+    "protein": 11,
+    "carbs": 142,
+    "fat": 40,
+    "saturatedFat": 16,
+    "sugar": 24,
+    "salt": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-margherita-pizza",
+   "name": "Non-Gluten Margherita Pizza",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 900,
+    "protein": 34,
+    "carbs": 99,
+    "fat": 38,
+    "saturatedFat": 19,
+    "sugar": 7.5,
+    "salt": 3.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-vegan-margherita-pizza",
+   "name": "Non-Gluten Vegan Margherita Pizza",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 912,
+    "protein": 8.1,
+    "carbs": 115,
+    "fat": 43,
+    "saturatedFat": 29,
+    "sugar": 6.3,
+    "salt": 4.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pinoli",
+   "name": "Non-Gluten Pinoli",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 984,
+    "protein": 32,
+    "carbs": 114,
+    "fat": 42,
+    "saturatedFat": 20,
+    "sugar": 20,
+    "salt": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pepperoni-campagna",
+   "name": "Non-Gluten Pepperoni Campagna",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1015,
+    "protein": 46,
+    "carbs": 100,
+    "fat": 46,
+    "saturatedFat": 22,
+    "sugar": 7.7,
+    "salt": 4.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-roast-pollo-and-pesto",
+   "name": "Non-Gluten Roast Pollo & Pesto",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 783,
+    "protein": 22,
+    "carbs": 108,
+    "fat": 26,
+    "saturatedFat": 3.9,
+    "sugar": 10,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-double-cheese-non-gluten-margherita",
+   "name": "Take Away Only: Double Cheese Non-Gluten Margherita",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1259,
+    "protein": 62,
+    "carbs": 101,
+    "fat": 65,
+    "saturatedFat": 37,
+    "sugar": 8.7,
+    "salt": 4.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-non-gluten-meat-feast",
+   "name": "Take Away Only: Non-Gluten Meat Feast",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1121,
+    "protein": 56,
+    "carbs": 102,
+    "fat": 52,
+    "saturatedFat": 24,
+    "sugar": 8.4,
+    "salt": 4.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-non-gluten-hot-honey-pepperoni",
+   "name": "Take Away Only: Non-Gluten Hot Honey Pepperoni",
+   "category": "Non-gluten pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1498,
+    "protein": 51,
+    "carbs": 115,
+    "fat": 89,
+    "saturatedFat": 36,
+    "sugar": 14,
+    "salt": 6.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calzone-carne-piccante",
+   "name": "Calzone Carne Piccante",
+   "category": "Calzone",
+   "serving": "",
+   "nutrients": {
+    "calories": 1002,
+    "protein": 53,
+    "carbs": 116,
+    "fat": 35,
+    "saturatedFat": 17,
+    "sugar": 11,
+    "salt": 5.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calzone-pollo-spinaci",
+   "name": "Calzone Pollo Spinaci",
+   "category": "Calzone",
+   "serving": "",
+   "nutrients": {
+    "calories": 1030,
+    "protein": 52,
+    "carbs": 114,
+    "fat": 40,
+    "saturatedFat": 20,
+    "sugar": 8.6,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-margherita",
+   "name": "Classic Margherita",
+   "category": "Classico pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 741,
+    "protein": 36,
+    "carbs": 102,
+    "fat": 20,
+    "saturatedFat": 12,
+    "sugar": 7.9,
+    "salt": 4.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-vegan-margherita-pizza",
+   "name": "Classic Vegan Margherita Pizza",
+   "category": "Classico pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 703,
+    "protein": 19,
+    "carbs": 114,
+    "fat": 18,
+    "saturatedFat": 14,
+    "sugar": 5.2,
+    "salt": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-pinoli",
+   "name": "Classic Pinoli",
+   "category": "Classico pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 842,
+    "protein": 34,
+    "carbs": 122,
+    "fat": 23,
+    "saturatedFat": 13,
+    "sugar": 21,
+    "salt": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-pepperoni-campagna",
+   "name": "Classic Pepperoni Campagna",
+   "category": "Classico pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 836,
+    "protein": 43,
+    "carbs": 106,
+    "fat": 26,
+    "saturatedFat": 14,
+    "sugar": 6.1,
+    "salt": 5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-and-pesto",
+   "name": "Pollo & Pesto",
+   "category": "Classico pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 699,
+    "protein": 32,
+    "carbs": 107,
+    "fat": 14,
+    "saturatedFat": 2.3,
+    "sugar": 10,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 729,
+    "protein": 9,
+    "carbs": 83,
+    "fat": 43,
+    "saturatedFat": 3.6,
+    "sugar": 1.2,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-chips",
+   "name": "Take Away Only: Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1457,
+    "protein": 18,
+    "carbs": 165,
+    "fat": 85,
+    "saturatedFat": 7.2,
+    "sugar": 2.4,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-smoked-paprika-fries",
+   "name": "Take Away Only: Smoked Paprika Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1517,
+    "protein": 19,
+    "carbs": 175,
+    "fat": 86,
+    "saturatedFat": 7.4,
+    "sugar": 9.1,
+    "salt": 6.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "courgette-fritti",
+   "name": "Courgette Fritti",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 485,
+    "protein": 6,
+    "carbs": 51,
+    "fat": 28,
+    "saturatedFat": 6.4,
+    "sugar": 3.8,
+    "salt": 2.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-courgetti-fritti",
+   "name": "Take Away Only: Courgetti Fritti",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 971,
+    "protein": 12,
+    "carbs": 102,
+    "fat": 55,
+    "saturatedFat": 13,
+    "sugar": 7.6,
+    "salt": 4.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 478,
+    "protein": 3.2,
+    "carbs": 70,
+    "fat": 19,
+    "saturatedFat": 2.8,
+    "sugar": 22,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-sweet-potato-fries",
+   "name": "Take Away Only: Sweet Potato Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 956,
+    "protein": 6.4,
+    "carbs": 140,
+    "fat": 37,
+    "saturatedFat": 5.6,
+    "sugar": 44,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-bolognese-chips",
+   "name": "Loaded Bolognese Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 899,
+    "protein": 22,
+    "carbs": 85,
+    "fat": 55,
+    "saturatedFat": 11,
+    "sugar": 3.3,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-loaded-bolognese-chips",
+   "name": "Take Away Only: Loaded Bolognese Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1797,
+    "protein": 43,
+    "carbs": 170,
+    "fat": 109,
+    "saturatedFat": 22,
+    "sugar": 6.6,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-leaf-salad",
+   "name": "Mixed Leaf Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 67,
+    "protein": 2.6,
+    "carbs": 2.2,
+    "fat": 4.9,
+    "saturatedFat": 0.8,
+    "sugar": 2,
+    "salt": 0.29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresca-greens",
+   "name": "Fresca Greens",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 106,
+    "protein": 3.1,
+    "carbs": 3.9,
+    "fat": 7.5,
+    "saturatedFat": 0.8,
+    "sugar": 1.2,
+    "salt": 0.12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-pulled-pork-la-bomba-chips",
+   "name": "Take Away Only: Pulled Pork La Bomba Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 2299,
+    "protein": 53,
+    "carbs": 195,
+    "fat": 149,
+    "saturatedFat": 29,
+    "sugar": 21,
+    "salt": 8.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-mac-and-cheese-bites-x5",
+   "name": "Take Away Only: Mac & Cheese Bites x5",
+   "category": "Sides",
+   "serving": "5 pieces",
+   "nutrients": {
+    "calories": 436,
+    "protein": 22,
+    "carbs": 46,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 6.9,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-mac-and-cheese-bites-x10",
+   "name": "Take Away Only: Mac & Cheese Bites x10",
+   "category": "Sides",
+   "serving": "10 pieces",
+   "nutrients": {
+    "calories": 844,
+    "protein": 42,
+    "carbs": 88,
+    "fat": 35,
+    "saturatedFat": 21,
+    "sugar": 12,
+    "salt": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-carbonara",
+   "name": "Truffle Carbonara",
+   "category": "Superiore pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1207,
+    "protein": 51,
+    "carbs": 87,
+    "fat": 72,
+    "saturatedFat": 36,
+    "sugar": 3,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-carbonara-sharepan",
+   "name": "Truffle Carbonara Sharepan",
+   "category": "Superiore pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 2267,
+    "protein": 97,
+    "carbs": 175,
+    "fat": 130,
+    "saturatedFat": 67,
+    "sugar": 5.9,
+    "salt": 10.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chianti-beef-ragu",
+   "name": "Chianti Beef Ragu",
+   "category": "Superiore pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 645,
+    "protein": 29,
+    "carbs": 101,
+    "fat": 13,
+    "saturatedFat": 3.8,
+    "sugar": 13,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-king-prawn",
+   "name": "Chilli King Prawn",
+   "category": "Superiore pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 776,
+    "protein": 41,
+    "carbs": 99,
+    "fat": 23,
+    "saturatedFat": 3.6,
+    "sugar": 13,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meatballs-alla-vodka",
+   "name": "Meatballs Alla Vodka",
+   "category": "Superiore pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1186,
+    "protein": 56,
+    "carbs": 113,
+    "fat": 55,
+    "saturatedFat": 22,
+    "sugar": 11,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-vongole",
+   "name": "Seafood Vongole",
+   "category": "Superiore pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1223,
+    "protein": 53,
+    "carbs": 95,
+    "fat": 69,
+    "saturatedFat": 36,
+    "sugar": 6.6,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-carbonara",
+   "name": "Chorizo Carbonara",
+   "category": "Classico pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1099,
+    "protein": 39,
+    "carbs": 64,
+    "fat": 78,
+    "saturatedFat": 32,
+    "sugar": 2.7,
+    "salt": 5.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-piccante",
+   "name": "Pollo Piccante",
+   "category": "Classico pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1289,
+    "protein": 26,
+    "carbs": 71,
+    "fat": 101,
+    "saturatedFat": 42,
+    "sugar": 7.8,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bolognese-classico",
+   "name": "Bolognese Classico",
+   "category": "Classico pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 553,
+    "protein": 17,
+    "carbs": 69,
+    "fat": 25,
+    "saturatedFat": 4.3,
+    "sugar": 8.2,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pesto-rosso",
+   "name": "Pesto Rosso",
+   "category": "Classico pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1098,
+    "protein": 24,
+    "carbs": 72,
+    "fat": 80,
+    "saturatedFat": 30,
+    "sugar": 11,
+    "salt": 6.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pomodoro",
+   "name": "Pomodoro",
+   "category": "Classico pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 586,
+    "protein": 20,
+    "carbs": 80,
+    "fat": 19,
+    "saturatedFat": 9,
+    "sugar": 11,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-pomodoro",
+   "name": "Vegan Pomodoro",
+   "category": "Classico pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 574,
+    "protein": 12,
+    "carbs": 77,
+    "fat": 25,
+    "saturatedFat": 2.6,
+    "sugar": 17,
+    "salt": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-lentil-ragu",
+   "name": "Vegan Lentil Ragu",
+   "category": "Classico pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 576,
+    "protein": 20,
+    "carbs": 91,
+    "fat": 18,
+    "saturatedFat": 2.7,
+    "sugar": 10,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ravioli-di-capra",
+   "name": "Ravioli Di Capra",
+   "category": "Classico pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 654,
+    "protein": 26,
+    "carbs": 65,
+    "fat": 32,
+    "saturatedFat": 11,
+    "sugar": 12,
+    "salt": 3.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-della-casa",
+   "name": "Pollo Della Casa",
+   "category": "Al forno",
+   "serving": "",
+   "nutrients": {
+    "calories": 863,
+    "protein": 34,
+    "carbs": 73,
+    "fat": 49,
+    "saturatedFat": 15,
+    "sugar": 6.3,
+    "salt": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "six-layer-lasagne",
+   "name": "Six Layer Lasagne",
+   "category": "Al forno",
+   "serving": "",
+   "nutrients": {
+    "calories": 872,
+    "protein": 37,
+    "carbs": 86,
+    "fat": 40,
+    "saturatedFat": 17,
+    "sugar": 21,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "all-out-lasagne",
+   "name": "All Out Lasagne",
+   "category": "Al forno",
+   "serving": "",
+   "nutrients": {
+    "calories": 1123,
+    "protein": 50,
+    "carbs": 92,
+    "fat": 59,
+    "saturatedFat": 29,
+    "sugar": 25,
+    "salt": 6.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-rainbow-lasagne",
+   "name": "Vegan Rainbow Lasagne",
+   "category": "Al forno",
+   "serving": "",
+   "nutrients": {
+    "calories": 769,
+    "protein": 13,
+    "carbs": 83,
+    "fat": 40,
+    "saturatedFat": 9.5,
+    "sugar": 16,
+    "salt": 6.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-truffle-carbonara",
+   "name": "Non-Gluten Truffle Carbonara",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1154,
+    "protein": 42,
+    "carbs": 86,
+    "fat": 70,
+    "saturatedFat": 35,
+    "sugar": 2.5,
+    "salt": 5.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-truffle-carbonara-sharepan",
+   "name": "Non-Gluten Truffle Carbonara Sharepan",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 2161,
+    "protein": 78,
+    "carbs": 172,
+    "fat": 127,
+    "saturatedFat": 66,
+    "sugar": 5,
+    "salt": 11.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-chianti-beef-ragu",
+   "name": "Non-Gluten Chianti Beef Ragu",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 592,
+    "protein": 20,
+    "carbs": 100,
+    "fat": 12,
+    "saturatedFat": 3.2,
+    "sugar": 13,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-chorizo-carbonara",
+   "name": "Non-Gluten Chorizo Carbonara",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1071,
+    "protein": 37,
+    "carbs": 86,
+    "fat": 63,
+    "saturatedFat": 31,
+    "sugar": 2.8,
+    "salt": 5.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-chilli-king-prawn",
+   "name": "Non-Gluten Chilli King Prawn",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 723,
+    "protein": 32,
+    "carbs": 98,
+    "fat": 22,
+    "saturatedFat": 3,
+    "sugar": 12,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pesto-rosso",
+   "name": "Non-Gluten Pesto Rosso",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 975,
+    "protein": 22,
+    "carbs": 94,
+    "fat": 56,
+    "saturatedFat": 23,
+    "sugar": 11,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pollo-piccante",
+   "name": "Non-Gluten Pollo Piccante",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1261,
+    "protein": 23,
+    "carbs": 94,
+    "fat": 87,
+    "saturatedFat": 41,
+    "sugar": 7.9,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-bolognese-classico",
+   "name": "Non-Gluten Bolognese Classico",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 525,
+    "protein": 14,
+    "carbs": 91,
+    "fat": 10,
+    "saturatedFat": 3.6,
+    "sugar": 8.3,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-meatballs-alla-vodka",
+   "name": "Non-Gluten Meatballs Alla Vodka",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1131,
+    "protein": 47,
+    "carbs": 112,
+    "fat": 53,
+    "saturatedFat": 22,
+    "sugar": 10,
+    "salt": 6.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-seafood-vongole",
+   "name": "Non-Gluten Seafood Vongole",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1170,
+    "protein": 44,
+    "carbs": 94,
+    "fat": 68,
+    "saturatedFat": 36,
+    "sugar": 6.2,
+    "salt": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pomodoro",
+   "name": "Non-Gluten Pomodoro",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 685,
+    "protein": 20,
+    "carbs": 100,
+    "fat": 22,
+    "saturatedFat": 9.6,
+    "sugar": 18,
+    "salt": 3.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-vegan-pomodoro",
+   "name": "Non-Gluten Vegan Pomodoro",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 546,
+    "protein": 10,
+    "carbs": 100,
+    "fat": 11,
+    "saturatedFat": 2,
+    "sugar": 17,
+    "salt": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-lentil-ragu",
+   "name": "Non-Gluten Lentil Ragu",
+   "category": "Non-gluten pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 729,
+    "protein": 16,
+    "carbs": 107,
+    "fat": 24,
+    "saturatedFat": 3.3,
+    "sugar": 9.2,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-chocolate-brownie",
+   "name": "Salted Caramel Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 682,
+    "protein": 7.5,
+    "carbs": 77,
+    "fat": 37,
+    "saturatedFat": 15,
+    "sugar": 68,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-salted-caramel-chocolate-brownie",
+   "name": "Take Away Only: Salted Caramel Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 676,
+    "protein": 6.5,
+    "carbs": 77,
+    "fat": 37,
+    "saturatedFat": 14,
+    "sugar": 68,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "limoncello-basque",
+   "name": "Limoncello Basque",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 507,
+    "protein": 8.8,
+    "carbs": 55,
+    "fat": 28,
+    "saturatedFat": 17,
+    "sugar": 49,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-limoncello-basque",
+   "name": "Take Away Only: Limoncello Basque",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 446,
+    "protein": 7.6,
+    "carbs": 47,
+    "fat": 25,
+    "saturatedFat": 15,
+    "sugar": 42,
+    "salt": 0.56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-collins-cheesecake",
+   "name": "Raspberry Collins Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 494,
+    "protein": 1.2,
+    "carbs": 56,
+    "fat": 29,
+    "saturatedFat": 15,
+    "sugar": 39,
+    "salt": 0.17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-raspberry-collins-cheesecake",
+   "name": "Take Away Only: Raspberry Collins Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 541,
+    "protein": 1.3,
+    "carbs": 68,
+    "fat": 29,
+    "saturatedFat": 15,
+    "sugar": 53,
+    "salt": 0.17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 366,
+    "protein": 5.3,
+    "carbs": 34,
+    "fat": 23,
+    "saturatedFat": 15,
+    "sugar": 23,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-tiramisu",
+   "name": "Take Away Only: Tiramisu",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 361,
+    "protein": 5.2,
+    "carbs": 34,
+    "fat": 23,
+    "saturatedFat": 15,
+    "sugar": 23,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-cheesecake",
+   "name": "Honeycomb Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 598,
+    "protein": 6.3,
+    "carbs": 74,
+    "fat": 31,
+    "saturatedFat": 17,
+    "sugar": 52,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-honeycomb-cheesecake",
+   "name": "Take Away Only: Honeycomb Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 575,
+    "protein": 5.9,
+    "carbs": 70,
+    "fat": 30,
+    "saturatedFat": 15,
+    "sugar": 52,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "candy-floss-dolce",
+   "name": "Candy Floss Dolce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 274,
+    "protein": 2.8,
+    "carbs": 48,
+    "fat": 7.7,
+    "saturatedFat": 4.8,
+    "sugar": 46,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gooey-chocolate-chip-cookie-dough",
+   "name": "Gooey Chocolate Chip Cookie Dough",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1009,
+    "protein": 10,
+    "carbs": 124,
+    "fat": 52,
+    "saturatedFat": 26,
+    "sugar": 76,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-gooey-chocolate-chip-cookie-dough",
+   "name": "Take Away Only: Gooey Chocolate Chip Cookie Dough",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 948,
+    "protein": 9,
+    "carbs": 115,
+    "fat": 49,
+    "saturatedFat": 24,
+    "sugar": 69,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fudge-cake",
+   "name": "Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 685,
+    "protein": 5,
+    "carbs": 97,
+    "fat": 30,
+    "saturatedFat": 8.1,
+    "sugar": 67,
+    "salt": 0.71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-fudge-cake",
+   "name": "Take Away Only: Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 680,
+    "protein": 4.9,
+    "carbs": 97,
+    "fat": 29,
+    "saturatedFat": 7.8,
+    "sugar": 66,
+    "salt": 0.71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-caramello-sundae",
+   "name": "Chocolate Caramello Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 632,
+    "protein": 7.3,
+    "carbs": 76,
+    "fat": 32,
+    "saturatedFat": 17,
+    "sugar": 61,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-mini-biscoff-doughnuts-x3",
+   "name": "Take Away Only: Mini Biscoff Doughnuts x3",
+   "category": "Desserts",
+   "serving": "3 pieces",
+   "nutrients": {
+    "calories": 317,
+    "protein": 5,
+    "carbs": 32,
+    "fat": 19,
+    "saturatedFat": 7,
+    "sugar": 11,
+    "salt": 0.59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-mini-biscoff-doughnuts-x9",
+   "name": "Take Away Only: Mini Biscoff Doughnuts x9",
+   "category": "Desserts",
+   "serving": "9 pieces",
+   "nutrients": {
+    "calories": 952,
+    "protein": 15,
+    "carbs": 97,
+    "fat": 56,
+    "saturatedFat": 21,
+    "sugar": 32,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-pistachio-doughnuts-x3",
+   "name": "Take Away Only: Pistachio Doughnuts x3",
+   "category": "Desserts",
+   "serving": "3 pieces",
+   "nutrients": {
+    "calories": 322,
+    "protein": 5.6,
+    "carbs": 35,
+    "fat": 17,
+    "saturatedFat": 6.5,
+    "sugar": 16,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-pistachio-doughnuts-x9",
+   "name": "Take Away Only: Pistachio Doughnuts x9",
+   "category": "Desserts",
+   "serving": "9 pieces",
+   "nutrients": {
+    "calories": 965,
+    "protein": 17,
+    "carbs": 106,
+    "fat": 52,
+    "saturatedFat": 20,
+    "sugar": 47,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-mixed-doughnuts-x9",
+   "name": "Take Away Only: Mixed Doughnuts x9",
+   "category": "Desserts",
+   "serving": "9 pieces",
+   "nutrients": {
+    "calories": 958,
+    "protein": 16,
+    "carbs": 101,
+    "fat": 54,
+    "saturatedFat": 20,
+    "sugar": 39,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "birthday-cake",
+   "name": "Birthday Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 9358,
+    "protein": 68,
+    "carbs": 1319,
+    "fat": 410,
+    "saturatedFat": 110,
+    "sugar": 902,
+    "salt": 9.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-gelato",
+   "name": "Vanilla Gelato",
+   "category": "Gelatos",
+   "serving": "",
+   "nutrients": {
+    "calories": 61,
+    "protein": 1.1,
+    "carbs": 8.1,
+    "fat": 2.7,
+    "saturatedFat": 1.8,
+    "sugar": 6.9,
+    "salt": 0.04
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-gelato",
+   "name": "Chocolate Gelato",
+   "category": "Gelatos",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 1.6,
+    "carbs": 7.9,
+    "fat": 3.2,
+    "saturatedFat": 2.1,
+    "sugar": 6.7,
+    "salt": 0.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-salted-caramel-gelato",
+   "name": "Vegan Salted Caramel Gelato",
+   "category": "Gelatos",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 3.2,
+    "saturatedFat": 2.7,
+    "sugar": 7.1,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-sorbet",
+   "name": "Strawberry Sorbet",
+   "category": "Gelatos",
+   "serving": "",
+   "nutrients": {
+    "calories": 37,
+    "protein": 0,
+    "carbs": 9.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-fruit-sorbet",
+   "name": "Dragon Fruit Sorbet",
+   "category": "Gelatos",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 0,
+    "carbs": 10,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-coconut-and-lime-gelato",
+   "name": "Vegan Coconut & Lime Gelato",
+   "category": "Gelatos",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 0,
+    "carbs": 8.6,
+    "fat": 3.7,
+    "saturatedFat": 3.3,
+    "sugar": 7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wild-strawberry-and-panna-cotta-gelato",
+   "name": "Wild Strawberry & Panna Cotta Gelato",
+   "category": "Gelatos",
+   "serving": "",
+   "nutrients": {
+    "calories": 74,
+    "protein": 1.3,
+    "carbs": 8.8,
+    "fat": 3.6,
+    "saturatedFat": 2.3,
+    "sugar": 8,
+    "salt": 0.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-freshly-baked-bread",
+   "name": "Add Freshly Baked Bread",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 249,
+    "protein": 7.5,
+    "carbs": 45,
+    "fat": 3.9,
+    "saturatedFat": 0.8,
+    "sugar": 1.5,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amarena-cherries",
+   "name": "Amarena Cherries",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0,
+    "carbs": 5.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "artichoke",
+   "name": "Artichoke",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 201,
+    "protein": 2.9,
+    "carbs": 2.7,
+    "fat": 19,
+    "saturatedFat": 2.1,
+    "sugar": 2.1,
+    "salt": 0.62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aubergine-wedges",
+   "name": "Aubergine Wedges",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 1.2,
+    "carbs": 15,
+    "fat": 4.6,
+    "saturatedFat": 0.3,
+    "sugar": 2.8,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "balsamic-onion",
+   "name": "Balsamic Onion",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 62,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 1,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "basil",
+   "name": "Basil",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackcurrant-and-apple-squash-50ml",
+   "name": "Blackcurrant & Apple Squash 50ml",
+   "category": "Extras",
+   "serving": "50 ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bolognese",
+   "name": "Bolognese",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 2.2,
+    "carbs": 1.4,
+    "fat": 1.9,
+    "saturatedFat": 0.9,
+    "sugar": 1.1,
+    "salt": 0.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata",
+   "name": "Burrata",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 8,
+    "carbs": 2,
+    "fat": 24,
+    "saturatedFat": 15,
+    "sugar": 2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-dressing",
+   "name": "Caesar Dressing",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 0,
+    "carbs": 1.8,
+    "fat": 14,
+    "saturatedFat": 1.1,
+    "sugar": 1.3,
+    "salt": 0.64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calabrese-dip",
+   "name": "Calabrese Dip",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 28,
+    "protein": 0.6,
+    "carbs": 3.4,
+    "fat": 1.2,
+    "saturatedFat": 0.1,
+    "sugar": 2.1,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "candied-green-jalapenos",
+   "name": "Candied Green Jalapenos",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 10,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "candy-floss",
+   "name": "Candy Floss",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 40,
+    "protein": 0,
+    "carbs": 10,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 10,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "casareccia",
+   "name": "Casareccia",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 416,
+    "protein": 9.2,
+    "carbs": 61,
+    "fat": 17,
+    "saturatedFat": 1.2,
+    "sugar": 1.1,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-pour",
+   "name": "Cheese Pour",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "protein": 9.6,
+    "carbs": 1.3,
+    "fat": 21,
+    "saturatedFat": 13,
+    "sugar": 0,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-flakes",
+   "name": "Chilli Flakes",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cotto-ham",
+   "name": "Cotto Ham",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 8,
+    "carbs": 0,
+    "fat": 1.5,
+    "saturatedFat": 0.5,
+    "sugar": 0,
+    "salt": 0.92
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cripsy-chilli-mayo",
+   "name": "Cripsy Chilli Mayo",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 270,
+    "protein": 0,
+    "carbs": 3.3,
+    "fat": 28,
+    "saturatedFat": 2.2,
+    "sugar": 1.7,
+    "salt": 0.62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chilli-oil",
+   "name": "Crispy Chilli Oil",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 198,
+    "protein": 0,
+    "carbs": 7.4,
+    "fat": 18,
+    "saturatedFat": 1.4,
+    "sugar": 2.9,
+    "salt": 0.59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "customer-use-only-balsamic-vinegar",
+   "name": "Customer use only: Balsamic Vinegar",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 19,
+    "protein": 0,
+    "carbs": 4.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "customer-use-only-black-pepper",
+   "name": "Customer use only: Black Pepper",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "customer-use-only-chilli-oil",
+   "name": "Customer use only: Chilli Oil",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 7.4,
+    "saturatedFat": 1.1,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "customer-use-only-extra-virgin-olive-oil",
+   "name": "Customer use only: Extra Virgin Olive Oil",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 72,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 8,
+    "saturatedFat": 0.8,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "customer-use-only-salt",
+   "name": "Customer use only: Salt",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.98
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dark-chocolate",
+   "name": "Dark Chocolate",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "datterini-tomato",
+   "name": "Datterini Tomato",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0,
+    "carbs": 1.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.4,
+    "salt": 0.04
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diced-chorizo",
+   "name": "Diced Chorizo",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 68,
+    "protein": 4.8,
+    "carbs": 0.5,
+    "fat": 5.2,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "salt": 0.66
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fiery-la-bomba",
+   "name": "Fiery La Bomba",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 41,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 3.4,
+    "saturatedFat": 0.3,
+    "sugar": 0.9,
+    "salt": 0.41
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fior-di-latte",
+   "name": "Fior di Latte",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 279,
+    "protein": 20,
+    "carbs": 0.7,
+    "fat": 22,
+    "saturatedFat": 15,
+    "sugar": 0.7,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fire-roasted-peppers",
+   "name": "Fire Roasted Peppers",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0,
+    "carbs": 1.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.9,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-aioli",
+   "name": "Garlic Aioli",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 144,
+    "protein": 0.6,
+    "carbs": 3,
+    "fat": 14,
+    "saturatedFat": 1.2,
+    "sugar": 1.4,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-butter",
+   "name": "Garlic Butter",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 227,
+    "protein": 0,
+    "carbs": 1.5,
+    "fat": 24,
+    "saturatedFat": 5.6,
+    "sugar": 0,
+    "salt": 0.53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "genovese-pesto",
+   "name": "Genovese Pesto",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 106,
+    "protein": 0.9,
+    "carbs": 5,
+    "fat": 8.9,
+    "saturatedFat": 1.3,
+    "sugar": 0,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "goat-cheese",
+   "name": "Goat Cheese",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 8.6,
+    "carbs": 0.5,
+    "fat": 16,
+    "saturatedFat": 11,
+    "sugar": 0,
+    "salt": 0.65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harissa",
+   "name": "Harissa",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 49,
+    "protein": 0,
+    "carbs": 1,
+    "fat": 4.6,
+    "saturatedFat": 0.6,
+    "sugar": 0,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harissa-king-prawn-skewers",
+   "name": "Harissa King Prawn Skewers",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 20,
+    "carbs": 2.1,
+    "fat": 3.4,
+    "saturatedFat": 0.7,
+    "sugar": 1.7,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb",
+   "name": "Honeycomb",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 119,
+    "protein": 0,
+    "carbs": 28,
+    "fat": 0.6,
+    "saturatedFat": 0.3,
+    "sugar": 20,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ketchup",
+   "name": "Ketchup",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0,
+    "carbs": 10,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.7,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lime-cordial-50ml",
+   "name": "Lime Cordial 50ml",
+   "category": "Extras",
+   "serving": "50 ml",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0,
+    "carbs": 1.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mafaldine",
+   "name": "Mafaldine",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 368,
+    "protein": 13,
+    "carbs": 70,
+    "fat": 3.3,
+    "saturatedFat": 1,
+    "sugar": 1.4,
+    "salt": 0.08
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mascarpone",
+   "name": "Mascarpone",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 98,
+    "protein": 1,
+    "carbs": 0.9,
+    "fat": 10,
+    "saturatedFat": 6.9,
+    "sugar": 0.8,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meatballs",
+   "name": "Meatballs",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 165,
+    "protein": 11,
+    "carbs": 5.2,
+    "fat": 11,
+    "saturatedFat": 4.8,
+    "sugar": 0.5,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella",
+   "name": "Mozzarella",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 209,
+    "protein": 16,
+    "carbs": 0.7,
+    "fat": 16,
+    "saturatedFat": 10,
+    "sugar": 0.7,
+    "salt": 0.89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.6,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nduja",
+   "name": "Nduja",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 139,
+    "protein": 2.9,
+    "carbs": 0,
+    "fat": 14,
+    "saturatedFat": 4.9,
+    "sugar": 0,
+    "salt": 0.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "olive-oil",
+   "name": "Olive Oil",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 75,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 8.4,
+    "saturatedFat": 0.8,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "olives",
+   "name": "Olives",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 107,
+    "protein": 0,
+    "carbs": 0.5,
+    "fat": 11,
+    "saturatedFat": 1.3,
+    "sugar": 0,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-squash-50ml",
+   "name": "Orange Squash 50ml",
+   "category": "Extras",
+   "serving": "50 ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancetta-lardons",
+   "name": "Pancetta Lardons",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 50,
+    "protein": 3.4,
+    "carbs": 0,
+    "fat": 4,
+    "saturatedFat": 1.6,
+    "sugar": 0,
+    "salt": 0.63
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "parsley",
+   "name": "Parsley",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni",
+   "name": "Pepperoni",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 3.5,
+    "carbs": 0,
+    "fat": 6.9,
+    "saturatedFat": 2.9,
+    "sugar": 0,
+    "salt": 0.58
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pesto-mayo",
+   "name": "Pesto Mayo",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 0.6,
+    "carbs": 3.2,
+    "fat": 27,
+    "saturatedFat": 2.4,
+    "sugar": 1,
+    "salt": 0.69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pinenuts",
+   "name": "Pinenuts",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 22,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 2,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-olives",
+   "name": "Pizza Olives",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 107,
+    "protein": 0,
+    "carbs": 0.5,
+    "fat": 11,
+    "saturatedFat": 1.3,
+    "sugar": 0,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-sauce",
+   "name": "Pizza Sauce",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.7,
+    "carbs": 1.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.9,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-mayo",
+   "name": "Plain Mayo",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 214,
+    "protein": 0,
+    "carbs": 1.2,
+    "fat": 23,
+    "saturatedFat": 1.8,
+    "sugar": 0.9,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pomodoro-sauce",
+   "name": "Pomodoro Sauce",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "protein": 1.4,
+    "carbs": 7.4,
+    "fat": 4.1,
+    "saturatedFat": 0.7,
+    "sugar": 7.4,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prosciutto",
+   "name": "Prosciutto",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 5.6,
+    "carbs": 0,
+    "fat": 3.4,
+    "saturatedFat": 1.4,
+    "sugar": 0,
+    "salt": 0.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-harissa-chicken-breast",
+   "name": "Pulled Harissa Chicken Breast",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "protein": 12,
+    "carbs": 1.7,
+    "fat": 2.1,
+    "saturatedFat": 0.4,
+    "sugar": 0,
+    "salt": 0.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-pork",
+   "name": "Pulled Pork",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 317,
+    "protein": 15,
+    "carbs": 5.2,
+    "fat": 26,
+    "saturatedFat": 8.7,
+    "sugar": 0,
+    "salt": 2.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-and-orange-baby-plum-tomato",
+   "name": "Red & Orange Baby Plum Tomato",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 14,
+    "protein": 0.6,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-chillies",
+   "name": "Red Chillies",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-onion",
+   "name": "Red Onion",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 21,
+    "protein": 0.6,
+    "carbs": 4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "riserva-block-cheese",
+   "name": "Riserva Block Cheese",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 17,
+    "protein": 1.7,
+    "carbs": 0,
+    "fat": 1.2,
+    "saturatedFat": 0.8,
+    "sugar": 0,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "riserva-crisp",
+   "name": "Riserva Crisp",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 76,
+    "protein": 6.2,
+    "carbs": 0,
+    "fat": 5.6,
+    "saturatedFat": 4,
+    "sugar": 0,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-peppers",
+   "name": "Roasted Peppers",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0,
+    "carbs": 1.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.9,
+    "salt": 0.63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocket",
+   "name": "Rocket",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.7,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roquito-chilli-pearl",
+   "name": "Roquito Chilli Pearl",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 19,
+    "protein": 0,
+    "carbs": 4.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.6,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roquito-hot-honey",
+   "name": "Roquito Hot Honey",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 106,
+    "protein": 0,
+    "carbs": 27,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 27,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosemary",
+   "name": "Rosemary",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sage",
+   "name": "Sage",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-sauce",
+   "name": "Salted Caramel Sauce",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 22,
+    "protein": 0,
+    "carbs": 3.1,
+    "fat": 1,
+    "saturatedFat": 0.5,
+    "sugar": 2.7,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-garlic-oil",
+   "name": "Smoked Garlic Oil",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 124,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 14,
+    "saturatedFat": 1.3,
+    "sugar": 0,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spaghetti",
+   "name": "Spaghetti",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 416,
+    "protein": 9.2,
+    "carbs": 61,
+    "fat": 17,
+    "saturatedFat": 1.2,
+    "sugar": 1.1,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spianata",
+   "name": "Spianata",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 118,
+    "protein": 7.7,
+    "carbs": 0,
+    "fat": 9.7,
+    "saturatedFat": 3.7,
+    "sugar": 0,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-roquito-chillies",
+   "name": "Spicy Roquito Chillies",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0,
+    "carbs": 2.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.1,
+    "salt": 0.14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach",
+   "name": "Spinach",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunblush-baby-tomato",
+   "name": "Sunblush Baby Tomato",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0,
+    "carbs": 1.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.7,
+    "salt": 0.19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-ketchup",
+   "name": "Tomato Ketchup",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0,
+    "carbs": 10,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.7,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "torn-chicken-breast",
+   "name": "Torn Chicken Breast",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 62,
+    "protein": 11,
+    "carbs": 1.4,
+    "fat": 1.3,
+    "saturatedFat": 0.3,
+    "sugar": 0,
+    "salt": 0.15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-paste",
+   "name": "Truffle Paste",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 25,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 2.4,
+    "saturatedFat": 0.3,
+    "sugar": 0,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-mozzarisella",
+   "name": "Vegan Mozzarisella",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 0.7,
+    "carbs": 8.5,
+    "fat": 16,
+    "saturatedFat": 14,
+    "sugar": 0,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whipping-cream",
+   "name": "Whipping Cream",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 378,
+    "protein": 1.9,
+    "carbs": 2.6,
+    "fat": 40,
+    "saturatedFat": 25,
+    "sugar": 2.6,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellow-tomato-and-pepper-dressing",
+   "name": "Yellow Tomato & Pepper Dressing",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0,
+    "carbs": 1.6,
+    "fat": 0.7,
+    "saturatedFat": 0,
+    "sugar": 1.4,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ask-for-double-cheese",
+   "name": "Ask for double cheese",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 209,
+    "protein": 16,
+    "carbs": 0.7,
+    "fat": 16,
+    "saturatedFat": 10,
+    "sugar": 0.7,
+    "salt": 0.89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-creamy-burrata",
+   "name": "Add Creamy Burrata",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 8,
+    "carbs": 2,
+    "fat": 24,
+    "saturatedFat": 15,
+    "sugar": 2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-goats-cheese",
+   "name": "Add Goat's Cheese",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 8.6,
+    "carbs": 0.5,
+    "fat": 16,
+    "saturatedFat": 11,
+    "sugar": 0,
+    "salt": 0.65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chicken-skewer",
+   "name": "Add Chicken Skewer",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 293,
+    "protein": 28,
+    "carbs": 6.2,
+    "fat": 17,
+    "saturatedFat": 3.1,
+    "sugar": 2.5,
+    "salt": 0.69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-harissa-king-prawn-skewer",
+   "name": "Add Harissa King Prawn Skewer",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 20,
+    "carbs": 2.1,
+    "fat": 3.4,
+    "saturatedFat": 0.7,
+    "sugar": 1.7,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-torn-chicken-breast",
+   "name": "Add Torn Chicken Breast",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 62,
+    "protein": 11,
+    "carbs": 1.4,
+    "fat": 1.3,
+    "saturatedFat": 0.3,
+    "sugar": 0,
+    "salt": 0.15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-bombolini-each",
+   "name": "Biscoff Bombolini - each",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 106,
+    "protein": 1.7,
+    "carbs": 11,
+    "fat": 6.3,
+    "saturatedFat": 2.3,
+    "sugar": 3.5,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-bombolini-3-each",
+   "name": "Biscoff Bombolini - 3 each",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 317,
+    "protein": 5,
+    "carbs": 32,
+    "fat": 19,
+    "saturatedFat": 7,
+    "sugar": 11,
+    "salt": 0.59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-doughnuts-each",
+   "name": "Pistachio Doughnuts - each",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 107,
+    "protein": 1.9,
+    "carbs": 12,
+    "fat": 5.8,
+    "saturatedFat": 2.2,
+    "sugar": 5.3,
+    "salt": 0.15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-doughnuts-3-each",
+   "name": "Pistachio Doughnuts - 3 each",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 322,
+    "protein": 5.6,
+    "carbs": 35,
+    "fat": 17,
+    "saturatedFat": 6.5,
+    "sugar": 16,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-cucumber-and-dough-crust",
+   "name": "Carrot, Cucumber & Dough Crust",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 213,
+    "protein": 6.2,
+    "carbs": 37,
+    "fat": 3.8,
+    "saturatedFat": 0.8,
+    "sugar": 7.5,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-cucumber-and-pasta-crisps",
+   "name": "Carrot, Cucumber & Pasta Crisps",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 82,
+    "protein": 1.5,
+    "carbs": 15,
+    "fat": 1.3,
+    "saturatedFat": 0.2,
+    "sugar": 6.9,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pizza-margherita",
+   "name": "Kids Pizza Margherita",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 404,
+    "protein": 19,
+    "carbs": 59,
+    "fat": 10,
+    "saturatedFat": 6.1,
+    "sugar": 3,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-margherita-pizza",
+   "name": "Kids Non-Gluten Margherita Pizza",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 639,
+    "protein": 14,
+    "carbs": 97,
+    "fat": 19,
+    "saturatedFat": 6.3,
+    "sugar": 5.7,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vegan-pizza-margherita",
+   "name": "Kids Vegan Pizza Margherita",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 377,
+    "protein": 9.7,
+    "carbs": 63,
+    "fat": 9.1,
+    "saturatedFat": 7.1,
+    "sugar": 2.6,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-vegan-margherita",
+   "name": "Kids Non-Gluten Vegan Margherita",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 627,
+    "protein": 6.6,
+    "carbs": 101,
+    "fat": 19,
+    "saturatedFat": 8.1,
+    "sugar": 5.4,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-pizza-base-only",
+   "name": "Kids Non-Gluten Pizza Base Only",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 528,
+    "protein": 5.9,
+    "carbs": 96,
+    "fat": 11,
+    "saturatedFat": 1.1,
+    "sugar": 4.4,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ham-topping",
+   "name": "Kids Ham Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 4,
+    "carbs": 0,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 0,
+    "salt": 0.46
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-sun-blush-baby-tomato-topping",
+   "name": "Kids Sun Blush Baby Tomato Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 0,
+    "carbs": 1.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.7,
+    "salt": 0.19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pepperoni-topping",
+   "name": "Kids Pepperoni Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 41,
+    "protein": 1.9,
+    "carbs": 0,
+    "fat": 3.7,
+    "saturatedFat": 1.5,
+    "sugar": 0,
+    "salt": 0.31
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-olives-topping",
+   "name": "Kids Olives Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 54,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 5.5,
+    "saturatedFat": 0.7,
+    "sugar": 0,
+    "salt": 0.67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spinach-topping",
+   "name": "Kids Spinach Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-topping",
+   "name": "Kids Chicken Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 38,
+    "protein": 6.9,
+    "carbs": 0.9,
+    "fat": 0.8,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "salt": 0.09
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mozzarella-topping",
+   "name": "Kids Mozzarella Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 105,
+    "protein": 8.1,
+    "carbs": 0,
+    "fat": 7.9,
+    "saturatedFat": 5.2,
+    "sugar": 0,
+    "salt": 0.45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mushroom-topping",
+   "name": "Kids Mushroom Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-roasted-peppers-topping",
+   "name": "Kids Roasted Peppers Topping",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 1.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.1,
+    "salt": 0.38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-pomodoro",
+   "name": "Kids Spaghetti Pomodoro",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 281,
+    "protein": 6,
+    "carbs": 38,
+    "fat": 12,
+    "saturatedFat": 1.3,
+    "sugar": 8,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-casareccia-pomodoro",
+   "name": "Kids Casareccia Pomodoro",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 281,
+    "protein": 6,
+    "carbs": 38,
+    "fat": 12,
+    "saturatedFat": 1.3,
+    "sugar": 8,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-pomodoro-pasta",
+   "name": "Kids Non-Gluten Pomodoro Pasta",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 267,
+    "protein": 4.8,
+    "carbs": 49,
+    "fat": 5.4,
+    "saturatedFat": 1,
+    "sugar": 8,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-cheese-sauce",
+   "name": "Kids Spaghetti Cheese Sauce",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 362,
+    "protein": 11,
+    "carbs": 31,
+    "fat": 22,
+    "saturatedFat": 9.2,
+    "sugar": 0.9,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-casareccia-cheese-pasta",
+   "name": "Kids Casareccia Cheese Pasta",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 362,
+    "protein": 11,
+    "carbs": 31,
+    "fat": 22,
+    "saturatedFat": 9.2,
+    "sugar": 0.9,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-cheese-pasta",
+   "name": "Kids Non-Gluten Cheese Pasta",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 9.7,
+    "carbs": 42,
+    "fat": 15,
+    "saturatedFat": 8.9,
+    "sugar": 0.9,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-bolognese",
+   "name": "Kids Spaghetti Bolognese",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 258,
+    "protein": 8,
+    "carbs": 32,
+    "fat": 11,
+    "saturatedFat": 2,
+    "sugar": 2.3,
+    "salt": 0.82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-casareccia-bolognese",
+   "name": "Kids Casareccia Bolognese",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 258,
+    "protein": 8,
+    "carbs": 32,
+    "fat": 11,
+    "saturatedFat": 2,
+    "sugar": 2.3,
+    "salt": 0.82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-bolognese-pasta",
+   "name": "Kids Non-Gluten Bolognese Pasta",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 244,
+    "protein": 6.8,
+    "carbs": 44,
+    "fat": 4.2,
+    "saturatedFat": 1.7,
+    "sugar": 2.3,
+    "salt": 0.67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-lentil-ragu",
+   "name": "Kids Spaghetti Lentil Ragu",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 331,
+    "protein": 8.9,
+    "carbs": 41,
+    "fat": 15,
+    "saturatedFat": 1.3,
+    "sugar": 5.1,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-casareccia-lentil-ragu",
+   "name": "Kids Casareccia Lentil Ragu",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 331,
+    "protein": 8.9,
+    "carbs": 41,
+    "fat": 15,
+    "saturatedFat": 1.3,
+    "sugar": 5.1,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-vegan-lentil-ragu",
+   "name": "Kids Non-Gluten Vegan Lentil Ragu",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 317,
+    "protein": 7.7,
+    "carbs": 52,
+    "fat": 7.5,
+    "saturatedFat": 1,
+    "sugar": 5.2,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-sweet-potato-fries",
+   "name": "Kids Sweet Potato Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 239,
+    "protein": 1.6,
+    "carbs": 35,
+    "fat": 9.3,
+    "saturatedFat": 1.4,
+    "sugar": 11,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chips",
+   "name": "Kids Chips",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 4.5,
+    "carbs": 41,
+    "fat": 21,
+    "saturatedFat": 1.8,
+    "sugar": 0.6,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-green-beans",
+   "name": "Kids Green Beans",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0.9,
+    "carbs": 1.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilly-billy-ice-lolly",
+   "name": "Chilly Billy Ice Lolly",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 44,
+    "protein": 0,
+    "carbs": 10,
+    "fat": 0,
+    "saturatedFat": 0.1,
+    "sugar": 10,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vanilla-gelato",
+   "name": "Kids Vanilla Gelato",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 61,
+    "protein": 1.1,
+    "carbs": 8.1,
+    "fat": 2.7,
+    "saturatedFat": 1.8,
+    "sugar": 6.9,
+    "salt": 0.04
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chocolate-gelato",
+   "name": "Kids Chocolate Gelato",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 1.6,
+    "carbs": 7.9,
+    "fat": 3.2,
+    "saturatedFat": 2.1,
+    "sugar": 6.7,
+    "salt": 0.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-candy-floss-sundae",
+   "name": "Kids Candy Floss Sundae",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 211,
+    "protein": 2.5,
+    "carbs": 38,
+    "fat": 5.5,
+    "saturatedFat": 3.6,
+    "sugar": 34,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-sugar-cones-and-salted-caramel-sauce-no-gelato",
+   "name": "Kids Sugar Cones & Salted Caramel Sauce (No Gelato)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0,
+    "carbs": 7.9,
+    "fat": 2.1,
+    "saturatedFat": 1.1,
+    "sugar": 5.5,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-cones-only",
+   "name": "Mini Cones Only",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0,
+    "carbs": 2.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fruit-pot",
+   "name": "Kids Fruit Pot",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 28,
+    "protein": 0,
+    "carbs": 6.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chocacino",
+   "name": "Kids Chocacino",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 67,
+    "protein": 2.4,
+    "carbs": 8.6,
+    "fat": 2.3,
+    "saturatedFat": 1.4,
+    "sugar": 8.3,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-oat-chocacino",
+   "name": "Kids Oat Chocacino",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 79,
+    "protein": 1.1,
+    "carbs": 13,
+    "fat": 2.4,
+    "saturatedFat": 0.8,
+    "sugar": 9.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiny-tummies-dough-crust",
+   "name": "Tiny Tummies Dough Crust",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 5,
+    "carbs": 30,
+    "fat": 2.6,
+    "saturatedFat": 0.5,
+    "sugar": 1,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiny-spaghetti-pomodoro",
+   "name": "Tiny Spaghetti Pomodoro",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 141,
+    "protein": 3,
+    "carbs": 19,
+    "fat": 6.2,
+    "saturatedFat": 0.6,
+    "sugar": 4,
+    "salt": 0.88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiny-casareccia-pomodoro",
+   "name": "Tiny Casareccia Pomodoro",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 141,
+    "protein": 3,
+    "carbs": 19,
+    "fat": 6.2,
+    "saturatedFat": 0.6,
+    "sugar": 4,
+    "salt": 0.88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiny-non-gluten-vegan-pomodoro-pasta",
+   "name": "Tiny Non-Gluten Vegan Pomodoro Pasta",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 134,
+    "protein": 2.4,
+    "carbs": 24,
+    "fat": 2.7,
+    "saturatedFat": 0.5,
+    "sugar": 4,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-milk",
+   "name": "Kids Milk",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 92,
+    "protein": 7,
+    "carbs": 9.2,
+    "fat": 3,
+    "saturatedFat": 1.8,
+    "sugar": 9.2,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-oat-milk",
+   "name": "Kids Oat Milk",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 96,
+    "protein": 0.6,
+    "carbs": 14,
+    "fat": 4.4,
+    "saturatedFat": 0.4,
+    "sugar": 6.2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-blackcurrant-squash",
+   "name": "Apple & Blackcurrant Squash",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-squash",
+   "name": "Orange Squash",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-flawsome-apple-and-blackcurrant-carton",
+   "name": "Kids Flawsome Apple & Blackcurrant Carton",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 72,
+    "protein": 0,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 17,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-flawsome-sweet-apple",
+   "name": "Kids Flawsome Sweet Apple",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 70,
+    "protein": 0,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 17,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-apple-juice",
+   "name": "Kids Apple Juice",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 82,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-orange-juice",
+   "name": "Kids Orange Juice",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 1.8,
+    "carbs": 22,
+    "fat": 0,
+    "saturatedFat": 0.2,
+    "sugar": 21,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-sparkler",
+   "name": "Strawberry Sparkler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 44,
+    "protein": 0,
+    "carbs": 11,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "passion-fruit-sparkler",
+   "name": "Passion Fruit Sparkler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 74,
+    "protein": 0.7,
+    "carbs": 17,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "morello-cherry-refresher",
+   "name": "Morello Cherry Refresher",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 203,
+    "protein": 0,
+    "carbs": 50,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 49,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-and-citrus-refresher",
+   "name": "Pineapple and Citrus Refresher",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 192,
+    "protein": 0,
+    "carbs": 48,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 47,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-mint-cooler",
+   "name": "Raspberry & Mint Cooler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 59,
+    "protein": 0,
+    "carbs": 15,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lime-and-mint-cooler",
+   "name": "Lime & Mint Cooler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0.6,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hip-pop-strawberry-and-pineapple",
+   "name": "Hip Pop Strawberry & Pineapple",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 3,
+    "carbs": 9.2,
+    "fat": 0,
+    "saturatedFat": 0.3,
+    "sugar": 9.2,
+    "salt": 0.25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hip-pop-kombucha-blueberry-and-ginger",
+   "name": "Hip Pop Kombucha Blueberry & Ginger",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 3.3,
+    "carbs": 8.6,
+    "fat": 0.7,
+    "saturatedFat": 0.3,
+    "sugar": 8.6,
+    "salt": 0.25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hip-pop-berries-and-cherries",
+   "name": "Hip Pop Berries & Cherries",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 0,
+    "carbs": 8.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-mindful-blend-blood-orange-and-rosemary",
+   "name": "Trip Mindful Blend Blood Orange & Rosemary",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 0,
+    "carbs": 5.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-cbd-blend-raspberry-and-orange-blossom",
+   "name": "Trip CBD Blend Raspberry & Orange Blossom",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 28,
+    "protein": 0,
+    "carbs": 7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-tonic",
+   "name": "Original Tonic",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0,
+    "carbs": 8.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blood-orange-and-elderflower-tonic",
+   "name": "Blood Orange & Elderflower Tonic",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0,
+    "carbs": 8.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-lemon",
+   "name": "San Pellegrino Lemon",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0,
+    "carbs": 16,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-blood-orange",
+   "name": "San Pellegrino Blood Orange",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0,
+    "carbs": 16,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-small",
+   "name": "Coke Small",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 145,
+    "protein": 0,
+    "carbs": 36,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 35,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-large",
+   "name": "Coke Large",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 290,
+    "protein": 0,
+    "carbs": 73,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 69,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-coke",
+   "name": "Take Away Only: Coke",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 145,
+    "protein": 0,
+    "carbs": 36,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 35,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-small",
+   "name": "Diet Coke Small",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-large",
+   "name": "Diet Coke Large",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-diet-coke",
+   "name": "Take Away Only: Diet Coke",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero-small",
+   "name": "Coke Zero Small",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero-large",
+   "name": "Coke Zero Large",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-coke-zero",
+   "name": "Take Away Only: Coke Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-small",
+   "name": "Sprite Zero Small",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-large",
+   "name": "Sprite Zero Large",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-sprite-zero",
+   "name": "Take Away Only: Sprite Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "appletiser",
+   "name": "Appletiser",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 0,
+    "carbs": 30,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 29,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 0,
+    "carbs": 25,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 25,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 125,
+    "protein": 2.3,
+    "carbs": 27,
+    "fat": 0,
+    "saturatedFat": 0.3,
+    "sugar": 26,
+    "salt": 0.02
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belu-water-still-small",
+   "name": "Belu Water Still Small",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-belu-water-still-small",
+   "name": "Take Away Only: Belu Water Still Small",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belu-still-water-large",
+   "name": "Belu Still Water Large",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belu-sparkling-water-small",
+   "name": "Belu Sparkling Water Small",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-belu-sparkling-water-small",
+   "name": "Take Away Only: Belu Sparkling Water Small",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belu-sparkling-water-large",
+   "name": "Belu Sparkling Water Large",
+   "category": "Drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peroni-zero",
+   "name": "Peroni Zero",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "protein": 0.7,
+    "carbs": 17,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 2,
+    "carbs": 7.2,
+    "fat": 0.9,
+    "saturatedFat": 0.6,
+    "sugar": 5.9,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-americano",
+   "name": "Black Americano",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 4.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 3.6,
+    "carbs": 9.8,
+    "fat": 1.7,
+    "saturatedFat": 1,
+    "sugar": 8.5,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-americano",
+   "name": "Decaf Americano",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 2,
+    "carbs": 7.2,
+    "fat": 0.9,
+    "saturatedFat": 0.6,
+    "sugar": 5.9,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-black-americano",
+   "name": "Decaf Black Americano",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 4.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-cappuccino",
+   "name": "Decaf Cappuccino",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 3.6,
+    "carbs": 9.8,
+    "fat": 1.7,
+    "saturatedFat": 1,
+    "sugar": 8.5,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-double-espresso",
+   "name": "Decaf Double Espresso",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 4.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-flat-white",
+   "name": "Decaf Flat White",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 123,
+    "protein": 7.9,
+    "carbs": 15,
+    "fat": 3.5,
+    "saturatedFat": 2.1,
+    "sugar": 14,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-latte",
+   "name": "Decaf Latte",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 123,
+    "protein": 7.9,
+    "carbs": 15,
+    "fat": 3.5,
+    "saturatedFat": 2.1,
+    "sugar": 14,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-macchiato",
+   "name": "Decaf Macchiato",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 26,
+    "protein": 0.6,
+    "carbs": 5.3,
+    "fat": 0,
+    "saturatedFat": 0.2,
+    "sugar": 4,
+    "salt": 0.12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-mocha",
+   "name": "Decaf Mocha",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 5.5,
+    "carbs": 16,
+    "fat": 3,
+    "saturatedFat": 2,
+    "sugar": 15,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-single-espresso",
+   "name": "Decaf Single Espresso",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 4.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double Espresso",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 4.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey",
+   "name": "Earl Grey",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 2,
+    "carbs": 7.2,
+    "fat": 0.9,
+    "saturatedFat": 0.6,
+    "sugar": 5.9,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast",
+   "name": "English Breakfast",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 2,
+    "carbs": 7.2,
+    "fat": 0.9,
+    "saturatedFat": 0.6,
+    "sugar": 5.9,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 123,
+    "protein": 7.9,
+    "carbs": 15,
+    "fat": 3.5,
+    "saturatedFat": 2.1,
+    "sugar": 14,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-mint-tea",
+   "name": "Fresh Mint Tea",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 21,
+    "protein": 0,
+    "carbs": 4.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 231,
+    "protein": 9.9,
+    "carbs": 33,
+    "fat": 5.8,
+    "saturatedFat": 3.5,
+    "sugar": 30,
+    "salt": 0.44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-cioccolata-with-cream",
+   "name": "Hot Cioccolata with Cream",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 320,
+    "protein": 9.5,
+    "carbs": 38,
+    "fat": 13,
+    "saturatedFat": 8.1,
+    "sugar": 36,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-americano",
+   "name": "Ice Americano",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-decaf-latte",
+   "name": "Ice Decaf Latte",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 3.5,
+    "carbs": 4.6,
+    "fat": 1.5,
+    "saturatedFat": 0.9,
+    "sugar": 4.6,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-oat-decaf-latte",
+   "name": "Ice Oat Decaf Latte",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 0,
+    "carbs": 6.8,
+    "fat": 2.2,
+    "saturatedFat": 0.2,
+    "sugar": 3.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-oat-latte",
+   "name": "Ice Oat Latte",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 0,
+    "carbs": 6.8,
+    "fat": 2.2,
+    "saturatedFat": 0.2,
+    "sugar": 3.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-decaf-americano",
+   "name": "Iced Decaf Americano",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 3.5,
+    "carbs": 4.6,
+    "fat": 1.5,
+    "saturatedFat": 0.9,
+    "sugar": 4.6,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 123,
+    "protein": 7.9,
+    "carbs": 15,
+    "fat": 3.5,
+    "saturatedFat": 2.1,
+    "sugar": 14,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato",
+   "name": "Macchiato",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 86,
+    "protein": 5.1,
+    "carbs": 11,
+    "fat": 2.3,
+    "saturatedFat": 1.3,
+    "sugar": 10,
+    "salt": 0.26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 5.5,
+    "carbs": 16,
+    "fat": 3,
+    "saturatedFat": 2,
+    "sugar": 15,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-americano",
+   "name": "Oat Americano",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 47,
+    "protein": 0,
+    "carbs": 8.5,
+    "fat": 1.3,
+    "saturatedFat": 0.2,
+    "sugar": 5.1,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-cappuccino",
+   "name": "Oat Cappuccino",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 2.3,
+    "saturatedFat": 0.3,
+    "sugar": 7,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-decaf-americano",
+   "name": "Oat Decaf Americano",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 47,
+    "protein": 0,
+    "carbs": 8.5,
+    "fat": 1.3,
+    "saturatedFat": 0.2,
+    "sugar": 5.1,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-decaf-cappuccino",
+   "name": "Oat Decaf Cappuccino",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 2.3,
+    "saturatedFat": 0.3,
+    "sugar": 7,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-decaf-flat-white",
+   "name": "Oat Decaf Flat White",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 127,
+    "protein": 0.7,
+    "carbs": 20,
+    "fat": 5,
+    "saturatedFat": 0.5,
+    "sugar": 10,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-decaf-latte",
+   "name": "Oat Decaf Latte",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 127,
+    "protein": 0.7,
+    "carbs": 20,
+    "fat": 5,
+    "saturatedFat": 0.5,
+    "sugar": 10,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-decaf-macchiato",
+   "name": "Oat Decaf Macchiato",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0,
+    "carbs": 5.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-decaf-mocha",
+   "name": "Oat Decaf Mocha",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 1,
+    "carbs": 19,
+    "fat": 3.9,
+    "saturatedFat": 0.7,
+    "sugar": 12,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-flat-white",
+   "name": "Oat Flat White",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 128,
+    "protein": 0.8,
+    "carbs": 20,
+    "fat": 5,
+    "saturatedFat": 0.5,
+    "sugar": 10,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-hot-chocolate",
+   "name": "Oat Hot Chocolate",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 235,
+    "protein": 2.7,
+    "carbs": 38,
+    "fat": 7.4,
+    "saturatedFat": 2,
+    "sugar": 27,
+    "salt": 0.42
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-latte",
+   "name": "Oat Latte",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 127,
+    "protein": 0.7,
+    "carbs": 20,
+    "fat": 5,
+    "saturatedFat": 0.5,
+    "sugar": 10,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-macchiato",
+   "name": "Oat Macchiato",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0,
+    "carbs": 5.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "salt": 0.11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-mocha",
+   "name": "Oat Mocha",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 1,
+    "carbs": 19,
+    "fat": 3.9,
+    "saturatedFat": 0.7,
+    "sugar": 12,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint",
+   "name": "Peppermint",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 2,
+    "carbs": 7.2,
+    "fat": 0.9,
+    "saturatedFat": 0.6,
+    "sugar": 5.9,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pure-green",
+   "name": "Pure Green",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 2,
+    "carbs": 7.2,
+    "fat": 0.9,
+    "saturatedFat": 0.6,
+    "sugar": 5.9,
+    "salt": 0.16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "single-espresso",
+   "name": "Single Espresso",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 20,
+    "protein": 0,
+    "carbs": 4.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sub-oat-drink",
+   "name": "Sub Oat Drink",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0,
+    "carbs": 8.5,
+    "fat": 2.8,
+    "saturatedFat": 0.3,
+    "sugar": 3.9,
+    "salt": 0.13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sugar-stick",
+   "name": "Sugar Stick",
+   "category": "Coffee and tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0,
+    "carbs": 6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-pig-fonduta",
+   "name": "Sticky Pig Fonduta",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 1086,
+    "protein": 45,
+    "carbs": 98,
+    "fat": 56,
+    "saturatedFat": 25,
+    "sugar": 6.7,
+    "salt": 6.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-cacciatore",
+   "name": "Chicken Cacciatore",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 807,
+    "protein": 31,
+    "carbs": 88,
+    "fat": 35,
+    "saturatedFat": 13,
+    "sugar": 13,
+    "salt": 7
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "five-cheese-gnocchi",
+   "name": "Five Cheese Gnocchi",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 406,
+    "protein": 14,
+    "carbs": 38,
+    "fat": 22,
+    "saturatedFat": 14,
+    "sugar": 1.4,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-bread-and-butter-pudding",
+   "name": "Salted Caramel Bread & Butter Pudding",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 641,
+    "protein": 13,
+    "carbs": 74,
+    "fat": 32,
+    "saturatedFat": 17,
+    "sugar": 54,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-salted-caramel-bread-and-butter-pudding",
+   "name": "Take Away Only: Salted Caramel Bread & Butter Pudding",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 579,
+    "protein": 12,
+    "carbs": 66,
+    "fat": 29,
+    "saturatedFat": 15,
+    "sugar": 47,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-smoked-paprika-gnocchi",
+   "name": "Take Away Only: Smoked Paprika Gnocchi",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 383,
+    "protein": 7.1,
+    "carbs": 81,
+    "fat": 2,
+    "saturatedFat": 0.4,
+    "sugar": 7.2,
+    "salt": 5.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pig-in-blanket-bombe",
+   "name": "Pig in Blanket Bombe",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 896,
+    "protein": 37,
+    "carbs": 127,
+    "fat": 26,
+    "saturatedFat": 10,
+    "sugar": 24,
+    "salt": 4.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-truffle-arancini",
+   "name": "Black Truffle Arancini",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 353,
+    "protein": 11,
+    "carbs": 32,
+    "fat": 20,
+    "saturatedFat": 9.8,
+    "sugar": 2.7,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-baked-gnocchi",
+   "name": "Vegan Baked Gnocchi",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 748,
+    "protein": 12,
+    "carbs": 106,
+    "fat": 28,
+    "saturatedFat": 3.2,
+    "sugar": 20,
+    "salt": 5.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lobster-and-five-cheese-casareccia",
+   "name": "Lobster & Five Cheese Casareccia",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 1691,
+    "protein": 80,
+    "carbs": 130,
+    "fat": 95,
+    "saturatedFat": 46,
+    "sugar": 6.3,
+    "salt": 8.6
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-and-prosciutto-roast-chicken-with-potatoes",
+   "name": "Cranberry & Prosciutto Roast Chicken with potatoes",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 1196,
+    "protein": 80,
+    "carbs": 107,
+    "fat": 51,
+    "saturatedFat": 16,
+    "sugar": 30,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-and-prosciutto-roast-chicken-with-gnocchi",
+   "name": "Cranberry & Prosciutto Roast Chicken with Gnocchi",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 1152,
+    "protein": 82,
+    "carbs": 76,
+    "fat": 57,
+    "saturatedFat": 27,
+    "sugar": 30,
+    "salt": 5.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-pigs-in-blankets",
+   "name": "Sticky Pigs in Blankets",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 384,
+    "protein": 22,
+    "carbs": 32,
+    "fat": 19,
+    "saturatedFat": 7.1,
+    "sugar": 27,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-christmas-tree",
+   "name": "Pistachio Christmas Tree",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 639,
+    "protein": 7.1,
+    "carbs": 54,
+    "fat": 43,
+    "saturatedFat": 21,
+    "sugar": 44,
+    "salt": 0.43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-christmas-bombolini",
+   "name": "Take Away Only: Christmas Bombolini",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 705,
+    "protein": 8.6,
+    "carbs": 89,
+    "fat": 35,
+    "saturatedFat": 14,
+    "sugar": 49,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-sauce",
+   "name": "Cranberry Sauce",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0,
+    "carbs": 13,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cioccolato-mousse",
+   "name": "Cioccolato Mousse",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 611,
+    "protein": 4.7,
+    "carbs": 20,
+    "fat": 56,
+    "saturatedFat": 30,
+    "sugar": 17,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-pork-belly",
+   "name": "Hot Honey Pork Belly",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 1044,
+    "protein": 22,
+    "carbs": 22,
+    "fat": 96,
+    "saturatedFat": 30,
+    "sugar": 17,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crab-and-lemon-arancini",
+   "name": "Crab & Lemon Arancini",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 344,
+    "protein": 7.7,
+    "carbs": 29,
+    "fat": 22,
+    "saturatedFat": 4.5,
+    "sugar": 4.8,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-milanese-fonduta",
+   "name": "Chicken Milanese Fonduta",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 1718,
+    "protein": 62,
+    "carbs": 139,
+    "fat": 103,
+    "saturatedFat": 24,
+    "sugar": 18,
+    "salt": 6.3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nemesis",
+   "name": "Nemesis",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 596,
+    "protein": 8.1,
+    "carbs": 53,
+    "fat": 39,
+    "saturatedFat": 23,
+    "sugar": 49,
+    "salt": 0.19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-rose-lemonade",
+   "name": "Raspberry & Rose Lemonade",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 125,
+    "protein": 1.5,
+    "carbs": 28,
+    "fat": 0,
+    "saturatedFat": 0.1,
+    "sugar": 25,
+    "salt": 0.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "take-away-only-nemesis",
+   "name": "Take Away Only: Nemesis",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 529,
+    "protein": 6.9,
+    "carbs": 44,
+    "fat": 36,
+    "saturatedFat": 21,
+    "sugar": 42,
+    "salt": 0.14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "quattro-pomodoro",
+   "name": "Quattro Pomodoro",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 1201,
+    "protein": 54,
+    "carbs": 108,
+    "fat": 60,
+    "saturatedFat": 29,
+    "sugar": 12,
+    "salt": 5.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-quattro-pomodoro",
+   "name": "Non-Gluten Quattro Pomodoro",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 1254,
+    "protein": 42,
+    "carbs": 111,
+    "fat": 68,
+    "saturatedFat": 30,
+    "sugar": 16,
+    "salt": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tropical-pina-colada-sundae",
+   "name": "Tropical Pina Colada Sundae",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 385,
+    "protein": 2.7,
+    "carbs": 61,
+    "fat": 14,
+    "saturatedFat": 11,
+    "sugar": 56,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunset-mango-margarita",
+   "name": "Sunset Mango Margarita",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 297,
+    "protein": 0.7,
+    "carbs": 54,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 53,
+    "salt": 0.78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-and-lime-cooler",
+   "name": "Mango & Lime Cooler",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 201,
+    "protein": 0.6,
+    "carbs": 49,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 48,
+    "salt": 0.78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zucca-salad",
+   "name": "Zucca Salad",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 4.2,
+    "carbs": 16,
+    "fat": 18,
+    "saturatedFat": 2,
+    "sugar": 11,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-rose-flavoured-soda-drink",
+   "name": "Raspberry & Rose Flavoured Soda Drink",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 8.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sicilian-lemon-and-ricotta-gelato",
+   "name": "Sicilian Lemon & Ricotta Gelato",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 72,
+    "protein": 1.3,
+    "carbs": 8.7,
+    "fat": 3.6,
+    "saturatedFat": 2.3,
+    "sugar": 7.8,
+    "salt": 0.13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-pineapple-soda",
+   "name": "Roasted Pineapple Soda",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-grapefruit-soda",
+   "name": "Pink Grapefruit Soda",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 9.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-ale",
+   "name": "Ginger Ale",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0,
+    "carbs": 8.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-fruit-and-wild-strawberry-sundae",
+   "name": "Dragon Fruit & Wild Strawberry Sundae",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 350,
+    "protein": 4.1,
+    "carbs": 57,
+    "fat": 11,
+    "saturatedFat": 7.2,
+    "sugar": 55,
+    "salt": 0.15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sicilian-still-lemonade",
+   "name": "Sicilian Still Lemonade",
+   "category": "Special guest",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 1.3,
+    "saturatedFat": 0.3,
+    "sugar": 12,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

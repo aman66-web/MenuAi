@@ -1,0 +1,3556 @@
+{
+ "schemaVersion": 1,
+ "id": "aunties-anne",
+ "name": "Auntie Anne's",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "auntie annes",
+  "auntie anne's",
+  "auntie annes pretzels"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Auntie Anne's UK website: menu item pages, Nutrition tab (auntieannes.co.uk/menu/, retrieved 2026-10-06; the pages carry no version date, the menu sitemap was last modified 2026-10-05)",
+  "url": "https://www.auntieannes.co.uk/menu/",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are for the item or size each page shows (pizza 8 or 14 inch, one to three scoops, regular or large). The pages give no weights and don't say how many nuggets or mini dogs are in a portion, nor which milk is used. Some items print identical values (e.g. Margherita, Farmhouse and Vegetarian pizza).",
+ "categories": [
+  "Pretzels, nuggets & stix",
+  "Pretzel dogs",
+  "Pizza",
+  "Breakfast buns",
+  "Gelato",
+  "Milkshakes",
+  "Hot drinks",
+  "Dips"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "choco-nuggets",
+   "name": "Choco Nuggets",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 783,
+    "protein": 13.2,
+    "carbs": 139.3,
+    "fat": 18,
+    "saturatedFat": 10.4,
+    "sugar": 62.7,
+    "fiber": 6.4,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-jalapeno-pretzel",
+   "name": "Cheese & Jalapeno Pretzel",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 12.6,
+    "carbs": 64.6,
+    "fat": 12.6,
+    "saturatedFat": 7.3,
+    "sugar": 12.2,
+    "fiber": 3,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-pepperoni-pretzel",
+   "name": "Cheese & Pepperoni Pretzel",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 458,
+    "protein": 15.2,
+    "carbs": 63.5,
+    "fat": 15.6,
+    "saturatedFat": 8.6,
+    "sugar": 11.2,
+    "fiber": 2.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-stuffed-nuggets",
+   "name": "Cheese Stuffed Nuggets",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 376,
+    "protein": 9.5,
+    "carbs": 71,
+    "fat": 5.5,
+    "saturatedFat": 2.8,
+    "sugar": 12.6,
+    "fiber": 2.8,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-nuggets",
+   "name": "Cinnamon Nuggets",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 469,
+    "protein": 10.2,
+    "carbs": 93.8,
+    "fat": 5.3,
+    "saturatedFat": 2.7,
+    "sugar": 28.7,
+    "fiber": 3.3,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-stix-6-stix",
+   "name": "Cinnamon Stix (6 stix)",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "6 stix",
+   "nutrients": {
+    "calories": 437,
+    "protein": 9.2,
+    "carbs": 82.9,
+    "fat": 7.2,
+    "saturatedFat": 3.9,
+    "sugar": 24.3,
+    "fiber": 3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-stix-3-stix",
+   "name": "Cinnamon Stix (3 stix)",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "3 stix",
+   "nutrients": {
+    "calories": 219,
+    "protein": 4.6,
+    "carbs": 41.5,
+    "fat": 3.6,
+    "saturatedFat": 1.9,
+    "sugar": 12.2,
+    "fiber": 1.5,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-nuggets",
+   "name": "Original Nuggets",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 10.2,
+    "carbs": 78.8,
+    "fat": 5.3,
+    "saturatedFat": 2.7,
+    "sugar": 14,
+    "fiber": 3.1,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-stix-6-stix",
+   "name": "Original Stix (6 stix)",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "6 stix",
+   "nutrients": {
+    "calories": 390,
+    "protein": 9.2,
+    "carbs": 70.9,
+    "fat": 7.2,
+    "saturatedFat": 3.9,
+    "sugar": 12.6,
+    "fiber": 2.8,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-stix-3-stix",
+   "name": "Original Stix (3 stix)",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "3 stix",
+   "nutrients": {
+    "calories": 195,
+    "protein": 4.6,
+    "carbs": 35.5,
+    "fat": 3.6,
+    "saturatedFat": 1.9,
+    "sugar": 6.3,
+    "fiber": 1.4,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutella-pull-apart",
+   "name": "Nutella Pull Apart",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 467,
+    "protein": 11.2,
+    "carbs": 88.1,
+    "fat": 7,
+    "saturatedFat": 2,
+    "sugar": 25.3,
+    "fiber": 3.3,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-nuggets",
+   "name": "Pepperoni Nuggets",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 561,
+    "protein": 20.6,
+    "carbs": 79.6,
+    "fat": 17.5,
+    "saturatedFat": 9.3,
+    "sugar": 14,
+    "fiber": 3.1,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-nuggets",
+   "name": "Vanilla Nuggets",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 469,
+    "protein": 10.2,
+    "carbs": 93.5,
+    "fat": 5.3,
+    "saturatedFat": 2.7,
+    "sugar": 28.7,
+    "fiber": 3.1,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-stix-6-stix",
+   "name": "Vanilla Stix (6 stix)",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "6 stix",
+   "nutrients": {
+    "calories": 437,
+    "protein": 9.2,
+    "carbs": 82.7,
+    "fat": 7.2,
+    "saturatedFat": 3.9,
+    "sugar": 24.3,
+    "fiber": 2.8,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-stix-3-stix",
+   "name": "Vanilla Stix (3 stix)",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "3 stix",
+   "nutrients": {
+    "calories": 219,
+    "protein": 4.6,
+    "carbs": 41.3,
+    "fat": 3.6,
+    "saturatedFat": 1.9,
+    "sugar": 12.2,
+    "fiber": 1.4,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-jalapeno-pretzel-dog-original",
+   "name": "Cheese & Jalapeno Pretzel Dog (original)",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 484,
+    "protein": 18.5,
+    "carbs": 26.9,
+    "fat": 33.2,
+    "saturatedFat": 15.6,
+    "sugar": 5.3,
+    "fiber": 1.5,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-jalapeno-pretzel-dog-halal-beef",
+   "name": "Cheese & Jalapeno Pretzel Dog (halal beef)",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 19,
+    "carbs": 26.7,
+    "fat": 25.2,
+    "saturatedFat": 12.1,
+    "sugar": 4.9,
+    "fiber": 1.1,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-pretzel-dog-original",
+   "name": "Cheese Pretzel Dog (original)",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 483,
+    "protein": 18.4,
+    "carbs": 26.8,
+    "fat": 33.2,
+    "saturatedFat": 15.6,
+    "sugar": 5.2,
+    "fiber": 1.5,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-pretzel-dog-halal-beef",
+   "name": "Cheese Pretzel Dog (halal beef)",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 411,
+    "protein": 18.9,
+    "carbs": 26.6,
+    "fat": 25.2,
+    "saturatedFat": 12.1,
+    "sugar": 4.8,
+    "fiber": 1.1,
+    "salt": 2.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-pepperoni-pretzel-dog-original",
+   "name": "Cheese & Pepperoni Pretzel Dog (original)",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 485,
+    "protein": 18.6,
+    "carbs": 26.8,
+    "fat": 33.4,
+    "saturatedFat": 15.7,
+    "sugar": 5.2,
+    "fiber": 1.5,
+    "salt": 2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-pepperoni-pretzel-dog-halal-beef",
+   "name": "Cheese & Pepperoni Pretzel Dog (halal beef)",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 413,
+    "protein": 19.1,
+    "carbs": 26.6,
+    "fat": 25.4,
+    "saturatedFat": 12.2,
+    "sugar": 4.8,
+    "fiber": 1.1,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-pretzel-dogs-halal-beef",
+   "name": "Mini Pretzel Dogs (halal beef)",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 470,
+    "protein": 19.2,
+    "carbs": 44.4,
+    "fat": 22.7,
+    "saturatedFat": 11,
+    "sugar": 8.7,
+    "fiber": 1.8,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-pretzel-dog",
+   "name": "Original Pretzel Dog",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 449,
+    "protein": 16.4,
+    "carbs": 26.8,
+    "fat": 30.4,
+    "saturatedFat": 13.9,
+    "sugar": 5.2,
+    "fiber": 1.5,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-pretzel-dog-halal-beef",
+   "name": "Original Pretzel Dog (halal beef)",
+   "category": "Pretzel dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 377,
+    "protein": 16.9,
+    "carbs": 26.6,
+    "fat": 22.4,
+    "saturatedFat": 10.4,
+    "sugar": 4.8,
+    "fiber": 1.1,
+    "salt": 2.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-hot-pizza-8-inch",
+   "name": "American Hot Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 773,
+    "protein": 37.5,
+    "carbs": 95.5,
+    "fat": 25.9,
+    "saturatedFat": 14.7,
+    "sugar": 18,
+    "fiber": 4.1,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-hot-pizza-14-inch",
+   "name": "American Hot Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1696,
+    "protein": 79.1,
+    "carbs": 222.5,
+    "fat": 52.3,
+    "saturatedFat": 29.4,
+    "sugar": 41.7,
+    "fiber": 9.5,
+    "salt": 7.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-pizza-8-inch",
+   "name": "BBQ Chicken Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 1012,
+    "protein": 37.8,
+    "carbs": 111.3,
+    "fat": 32.4,
+    "saturatedFat": 15.8,
+    "sugar": 32.3,
+    "fiber": 3.7,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-pizza-14-inch",
+   "name": "BBQ Chicken Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 2173,
+    "protein": 79.6,
+    "carbs": 254.1,
+    "fat": 65.3,
+    "saturatedFat": 31.7,
+    "sugar": 70.2,
+    "fiber": 8.7,
+    "salt": 5.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-meat-feast-pizza-8-inch",
+   "name": "BBQ Meat Feast Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 953,
+    "protein": 41.8,
+    "carbs": 113.6,
+    "fat": 36.2,
+    "saturatedFat": 18,
+    "sugar": 32.8,
+    "fiber": 3.7,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-meat-feast-pizza-14-inch",
+   "name": "BBQ Meat Feast Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 2056,
+    "protein": 87.7,
+    "carbs": 258.8,
+    "fat": 72.8,
+    "saturatedFat": 36.1,
+    "sugar": 71.2,
+    "fiber": 8.7,
+    "salt": 6.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-pizza-8-inch",
+   "name": "Chicken Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 863,
+    "protein": 33.4,
+    "carbs": 93,
+    "fat": 25.5,
+    "saturatedFat": 13,
+    "sugar": 16.9,
+    "fiber": 3.6,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-pizza-14-inch",
+   "name": "Chicken Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1875,
+    "protein": 70.8,
+    "carbs": 217.6,
+    "fat": 51.4,
+    "saturatedFat": 26,
+    "sugar": 39.3,
+    "fiber": 8.4,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-pizza-8-inch",
+   "name": "Farmhouse Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 702,
+    "protein": 32.5,
+    "carbs": 93,
+    "fat": 21.3,
+    "saturatedFat": 12.7,
+    "sugar": 16.9,
+    "fiber": 3.6,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farmhouse-pizza-14-inch",
+   "name": "Farmhouse Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1554,
+    "protein": 69,
+    "carbs": 217.6,
+    "fat": 43,
+    "saturatedFat": 25.4,
+    "sugar": 39.3,
+    "fiber": 8.4,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-pizza-8-inch",
+   "name": "Hawaiian Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 721,
+    "protein": 32.6,
+    "carbs": 98,
+    "fat": 21.3,
+    "saturatedFat": 12.7,
+    "sugar": 21.8,
+    "fiber": 3.8,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hawaiian-pizza-14-inch",
+   "name": "Hawaiian Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1592,
+    "protein": 69.3,
+    "carbs": 227.5,
+    "fat": 43.1,
+    "saturatedFat": 25.5,
+    "sugar": 49.2,
+    "fiber": 8.8,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-8-inch",
+   "name": "Margherita Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 702,
+    "protein": 32.5,
+    "carbs": 93,
+    "fat": 21.3,
+    "saturatedFat": 12.7,
+    "sugar": 16.9,
+    "fiber": 3.6,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-14-inch",
+   "name": "Margherita Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1554,
+    "protein": 69,
+    "carbs": 217.6,
+    "fat": 43,
+    "saturatedFat": 25.4,
+    "sugar": 39.3,
+    "fiber": 8.4,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-pizza-8-inch",
+   "name": "Meat Feast Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 845,
+    "protein": 41.9,
+    "carbs": 93.7,
+    "fat": 32.9,
+    "saturatedFat": 17.5,
+    "sugar": 16.9,
+    "fiber": 3.6,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-feast-pizza-14-inch",
+   "name": "Meat Feast Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1922,
+    "protein": 88.4,
+    "carbs": 222.3,
+    "fat": 72.9,
+    "saturatedFat": 36.1,
+    "sugar": 40.4,
+    "fiber": 8.4,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-8-inch",
+   "name": "Pepperoni Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 814,
+    "protein": 41,
+    "carbs": 94.2,
+    "fat": 29.8,
+    "saturatedFat": 16.4,
+    "sugar": 16.9,
+    "fiber": 3.6,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-14-inch",
+   "name": "Pepperoni Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1726,
+    "protein": 82.2,
+    "carbs": 219.4,
+    "fat": 56.2,
+    "saturatedFat": 31.1,
+    "sugar": 39.3,
+    "fiber": 8.4,
+    "salt": 5.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-pizza-8-inch",
+   "name": "Spicy Chicken Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 873,
+    "protein": 33.8,
+    "carbs": 94.9,
+    "fat": 25.5,
+    "saturatedFat": 13,
+    "sugar": 18,
+    "fiber": 4.1,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-pizza-14-inch",
+   "name": "Spicy Chicken Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1896,
+    "protein": 71.7,
+    "carbs": 221.2,
+    "fat": 51.4,
+    "saturatedFat": 26,
+    "sugar": 41.7,
+    "fiber": 9.5,
+    "salt": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-pizza-8-inch",
+   "name": "Vegetarian Pizza (8 inch)",
+   "category": "Pizza",
+   "serving": "8 inch",
+   "nutrients": {
+    "calories": 702,
+    "protein": 32.5,
+    "carbs": 93,
+    "fat": 21.3,
+    "saturatedFat": 12.7,
+    "sugar": 16.9,
+    "fiber": 3.6,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-pizza-14-inch",
+   "name": "Vegetarian Pizza (14 inch)",
+   "category": "Pizza",
+   "serving": "14 inch",
+   "nutrients": {
+    "calories": 1554,
+    "protein": 69,
+    "carbs": 217.6,
+    "fat": 43,
+    "saturatedFat": 25.4,
+    "sugar": 39.3,
+    "fiber": 8.4,
+    "salt": 3.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-hot-pizza-bake",
+   "name": "American Hot Pizza Bake",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 306,
+    "protein": 12.2,
+    "carbs": 48.9,
+    "fat": 6.5,
+    "saturatedFat": 3.3,
+    "sugar": 8.9,
+    "fiber": 2,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-bake",
+   "name": "Margherita Pizza Bake",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 278,
+    "protein": 10.1,
+    "carbs": 48.2,
+    "fat": 4.5,
+    "saturatedFat": 2.5,
+    "sugar": 8.7,
+    "fiber": 1.9,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-bake",
+   "name": "Pepperoni Pizza Bake",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 303,
+    "protein": 12.1,
+    "carbs": 48.5,
+    "fat": 6.5,
+    "saturatedFat": 3.3,
+    "sugar": 8.7,
+    "fiber": 1.9,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-bun",
+   "name": "Bacon Bun",
+   "category": "Breakfast buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 362,
+    "protein": 13,
+    "carbs": 44.7,
+    "fat": 14.2,
+    "saturatedFat": 6.2,
+    "sugar": 7.9,
+    "fiber": 1.8,
+    "salt": 0.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-egg-and-cheese-bun",
+   "name": "Bacon, Egg and Cheese Bun",
+   "category": "Breakfast buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 449,
+    "protein": 18.1,
+    "carbs": 45.7,
+    "fat": 21.1,
+    "saturatedFat": 8.4,
+    "sugar": 8.8,
+    "fiber": 2.2,
+    "salt": 1.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-and-cheese-bun",
+   "name": "Egg and Cheese Bun",
+   "category": "Breakfast buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 325,
+    "protein": 10.9,
+    "carbs": 45.7,
+    "fat": 10.6,
+    "saturatedFat": 4.2,
+    "sugar": 8.8,
+    "fiber": 2.2,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-bun",
+   "name": "The Big Bun",
+   "category": "Breakfast buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 449,
+    "protein": 18.1,
+    "carbs": 45.7,
+    "fat": 21.1,
+    "saturatedFat": 8.4,
+    "sugar": 8.8,
+    "fiber": 2.2,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ambassador-gelato-one-scoop",
+   "name": "Ambassador Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 248,
+    "protein": 4.6,
+    "carbs": 29,
+    "fat": 13,
+    "saturatedFat": 3.1,
+    "sugar": 26,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ambassador-gelato-two-scoops",
+   "name": "Ambassador Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 496,
+    "protein": 9.2,
+    "carbs": 58,
+    "fat": 26,
+    "saturatedFat": 6.2,
+    "sugar": 52,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ambassador-gelato-three-scoops",
+   "name": "Ambassador Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 744,
+    "protein": 13.8,
+    "carbs": 87,
+    "fat": 39,
+    "saturatedFat": 9.3,
+    "sugar": 78,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banoffee-gelato-one-scoop",
+   "name": "Banoffee Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 164,
+    "protein": 2.1,
+    "carbs": 34,
+    "fat": 2.3,
+    "saturatedFat": 1.4,
+    "sugar": 30,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banoffee-gelato-two-scoops",
+   "name": "Banoffee Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 328,
+    "protein": 4.2,
+    "carbs": 68,
+    "fat": 4.6,
+    "saturatedFat": 2.8,
+    "sugar": 60,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banoffee-gelato-three-scoops",
+   "name": "Banoffee Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 492,
+    "protein": 6.3,
+    "carbs": 102,
+    "fat": 6.9,
+    "saturatedFat": 4.2,
+    "sugar": 90,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubblegum-gelato-one-scoop",
+   "name": "Bubblegum Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 170,
+    "protein": 3.5,
+    "carbs": 26,
+    "fat": 6.1,
+    "saturatedFat": 4,
+    "sugar": 24,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubblegum-gelato-two-scoops",
+   "name": "Bubblegum Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 340,
+    "protein": 7,
+    "carbs": 52,
+    "fat": 12.2,
+    "saturatedFat": 8,
+    "sugar": 48,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubblegum-gelato-three-scoops",
+   "name": "Bubblegum Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 510,
+    "protein": 10.5,
+    "carbs": 78,
+    "fat": 18.3,
+    "saturatedFat": 12,
+    "sugar": 72,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-passion-fruit-gelato-one-scoop",
+   "name": "Cheesecake Passion Fruit Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 207,
+    "protein": 4.1,
+    "carbs": 32,
+    "fat": 7,
+    "saturatedFat": 4.3,
+    "sugar": 26,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-passion-fruit-gelato-two-scoops",
+   "name": "Cheesecake Passion Fruit Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 414,
+    "protein": 8.2,
+    "carbs": 64,
+    "fat": 14,
+    "saturatedFat": 8.6,
+    "sugar": 52,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-passion-fruit-gelato-three-scoops",
+   "name": "Cheesecake Passion Fruit Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 621,
+    "protein": 12.3,
+    "carbs": 96,
+    "fat": 21,
+    "saturatedFat": 12.9,
+    "sugar": 78,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-strawberry-gelato-one-scoop",
+   "name": "Cheesecake Strawberry Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 198,
+    "protein": 3.8,
+    "carbs": 32,
+    "fat": 6.2,
+    "saturatedFat": 3.8,
+    "sugar": 27,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-strawberry-gelato-two-scoops",
+   "name": "Cheesecake Strawberry Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 396,
+    "protein": 7.6,
+    "carbs": 64,
+    "fat": 12.4,
+    "saturatedFat": 7.6,
+    "sugar": 54,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-strawberry-gelato-three-scoops",
+   "name": "Cheesecake Strawberry Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 594,
+    "protein": 11.4,
+    "carbs": 96,
+    "fat": 18.6,
+    "saturatedFat": 11.4,
+    "sugar": 81,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-gelato-one-scoop",
+   "name": "Chocolate Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 172,
+    "protein": 3.7,
+    "carbs": 25,
+    "fat": 6.2,
+    "saturatedFat": 3.9,
+    "sugar": 23,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-gelato-two-scoops",
+   "name": "Chocolate Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 344,
+    "protein": 7.4,
+    "carbs": 50,
+    "fat": 12.4,
+    "saturatedFat": 7.8,
+    "sugar": 46,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-gelato-three-scoops",
+   "name": "Chocolate Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 516,
+    "protein": 11.1,
+    "carbs": 75,
+    "fat": 18.6,
+    "saturatedFat": 11.7,
+    "sugar": 69,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-gelato-one-scoop",
+   "name": "Coconut Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 202,
+    "protein": 3.8,
+    "carbs": 26,
+    "fat": 9.4,
+    "saturatedFat": 7.1,
+    "sugar": 24,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-gelato-two-scoops",
+   "name": "Coconut Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 404,
+    "protein": 7.6,
+    "carbs": 52,
+    "fat": 18.8,
+    "saturatedFat": 14.2,
+    "sugar": 48,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-gelato-three-scoops",
+   "name": "Coconut Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 606,
+    "protein": 11.4,
+    "carbs": 78,
+    "fat": 28.2,
+    "saturatedFat": 21.3,
+    "sugar": 72,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eton-mess-gelato-one-scoop",
+   "name": "Eton Mess Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 190,
+    "protein": 3.2,
+    "carbs": 30,
+    "fat": 6.6,
+    "saturatedFat": 4.4,
+    "sugar": 27,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eton-mess-gelato-two-scoops",
+   "name": "Eton Mess Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 380,
+    "protein": 6.4,
+    "carbs": 60,
+    "fat": 13.2,
+    "saturatedFat": 8.8,
+    "sugar": 54,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eton-mess-gelato-three-scoops",
+   "name": "Eton Mess Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 570,
+    "protein": 9.6,
+    "carbs": 90,
+    "fat": 19.8,
+    "saturatedFat": 13.2,
+    "sugar": 81,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-gelato-one-scoop",
+   "name": "Honeycomb Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 180,
+    "protein": 3.4,
+    "carbs": 27,
+    "fat": 7,
+    "saturatedFat": 4.7,
+    "sugar": 26,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-gelato-two-scoops",
+   "name": "Honeycomb Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 360,
+    "protein": 6.8,
+    "carbs": 54,
+    "fat": 14,
+    "saturatedFat": 9.4,
+    "sugar": 52,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-gelato-three-scoops",
+   "name": "Honeycomb Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 540,
+    "protein": 10.2,
+    "carbs": 81,
+    "fat": 21,
+    "saturatedFat": 14.1,
+    "sugar": 78,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-sorbet-gelato-one-scoop",
+   "name": "Mango Sorbet Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 113,
+    "protein": 0.2,
+    "carbs": 29,
+    "fat": 0.1,
+    "sugar": 25,
+    "fiber": 0.7,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-sorbet-gelato-two-scoops",
+   "name": "Mango Sorbet Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 226,
+    "protein": 0.4,
+    "carbs": 58,
+    "fat": 0.2,
+    "sugar": 50,
+    "fiber": 1.4,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-sorbet-gelato-three-scoops",
+   "name": "Mango Sorbet Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 339,
+    "protein": 0.6,
+    "carbs": 87,
+    "fat": 0.3,
+    "sugar": 75,
+    "fiber": 2.1,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-choc-chip-gelato-one-scoop",
+   "name": "Mint Choc Chip Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 192,
+    "protein": 3.5,
+    "carbs": 26,
+    "fat": 8.3,
+    "saturatedFat": 6,
+    "sugar": 24,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-choc-chip-gelato-two-scoops",
+   "name": "Mint Choc Chip Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 384,
+    "protein": 7,
+    "carbs": 52,
+    "fat": 16.6,
+    "saturatedFat": 12,
+    "sugar": 48,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-choc-chip-gelato-three-scoops",
+   "name": "Mint Choc Chip Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 576,
+    "protein": 10.5,
+    "carbs": 78,
+    "fat": 24.9,
+    "saturatedFat": 18,
+    "sugar": 72,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-gelato-one-scoop",
+   "name": "Oreo Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 212,
+    "protein": 3.8,
+    "carbs": 31,
+    "fat": 8.4,
+    "saturatedFat": 5,
+    "sugar": 25,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-gelato-two-scoops",
+   "name": "Oreo Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 424,
+    "protein": 7.6,
+    "carbs": 62,
+    "fat": 16.8,
+    "saturatedFat": 10,
+    "sugar": 50,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-gelato-three-scoops",
+   "name": "Oreo Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 636,
+    "protein": 11.4,
+    "carbs": 93,
+    "fat": 25.2,
+    "saturatedFat": 15,
+    "sugar": 75,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanutella-gelato-one-scoop",
+   "name": "Peanutella Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 234,
+    "protein": 5.5,
+    "carbs": 28,
+    "fat": 11,
+    "saturatedFat": 3.8,
+    "sugar": 26,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanutella-gelato-two-scoops",
+   "name": "Peanutella Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 468,
+    "protein": 11,
+    "carbs": 56,
+    "fat": 22,
+    "saturatedFat": 7.6,
+    "sugar": 52,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanutella-gelato-three-scoops",
+   "name": "Peanutella Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 702,
+    "protein": 16.5,
+    "carbs": 84,
+    "fat": 33,
+    "saturatedFat": 11.4,
+    "sugar": 78,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet-gelato-one-scoop",
+   "name": "Raspberry Sorbet Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 106,
+    "protein": 0.4,
+    "carbs": 26,
+    "fat": 0.1,
+    "sugar": 23,
+    "fiber": 0.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet-gelato-two-scoops",
+   "name": "Raspberry Sorbet Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 212,
+    "protein": 0.8,
+    "carbs": 52,
+    "fat": 0.2,
+    "sugar": 46,
+    "fiber": 1.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet-gelato-three-scoops",
+   "name": "Raspberry Sorbet Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 318,
+    "protein": 1.2,
+    "carbs": 78,
+    "fat": 0.3,
+    "sugar": 69,
+    "fiber": 2.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-gelato-one-scoop",
+   "name": "Salted Caramel Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 166,
+    "protein": 3.6,
+    "carbs": 25,
+    "fat": 6.2,
+    "saturatedFat": 4,
+    "sugar": 23,
+    "fiber": 0.1,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-gelato-two-scoops",
+   "name": "Salted Caramel Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 332,
+    "protein": 7.2,
+    "carbs": 50,
+    "fat": 12.4,
+    "saturatedFat": 8,
+    "sugar": 46,
+    "fiber": 0.2,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-gelato-three-scoops",
+   "name": "Salted Caramel Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 498,
+    "protein": 10.8,
+    "carbs": 75,
+    "fat": 18.6,
+    "saturatedFat": 12,
+    "sugar": 69,
+    "fiber": 0.3,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stracciatella-gelato-one-scoop",
+   "name": "Stracciatella Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 192,
+    "protein": 3.5,
+    "carbs": 26,
+    "fat": 8.3,
+    "saturatedFat": 6,
+    "sugar": 24,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stracciatella-gelato-two-scoops",
+   "name": "Stracciatella Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 384,
+    "protein": 7,
+    "carbs": 52,
+    "fat": 16.6,
+    "saturatedFat": 12,
+    "sugar": 48,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stracciatella-gelato-three-scoops",
+   "name": "Stracciatella Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 576,
+    "protein": 10.5,
+    "carbs": 78,
+    "fat": 24.9,
+    "saturatedFat": 18,
+    "sugar": 72,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-gelato-one-scoop",
+   "name": "Strawberry Milkshake Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 124,
+    "protein": 0.8,
+    "carbs": 29,
+    "fat": 0.7,
+    "saturatedFat": 0.4,
+    "sugar": 25,
+    "fiber": 0.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-gelato-two-scoops",
+   "name": "Strawberry Milkshake Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 248,
+    "protein": 1.6,
+    "carbs": 58,
+    "fat": 1.4,
+    "saturatedFat": 0.8,
+    "sugar": 50,
+    "fiber": 1,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-gelato-three-scoops",
+   "name": "Strawberry Milkshake Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 372,
+    "protein": 2.4,
+    "carbs": 87,
+    "fat": 2.1,
+    "saturatedFat": 1.2,
+    "sugar": 75,
+    "fiber": 1.5,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu-gelato-one-scoop",
+   "name": "Tiramisu Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 189,
+    "protein": 3.9,
+    "carbs": 29,
+    "fat": 6.3,
+    "saturatedFat": 4,
+    "sugar": 26,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu-gelato-two-scoops",
+   "name": "Tiramisu Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 378,
+    "protein": 7.8,
+    "carbs": 58,
+    "fat": 12.6,
+    "saturatedFat": 8,
+    "sugar": 52,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu-gelato-three-scoops",
+   "name": "Tiramisu Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 567,
+    "protein": 11.7,
+    "carbs": 87,
+    "fat": 18.9,
+    "saturatedFat": 12,
+    "sugar": 78,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-gelato-one-scoop",
+   "name": "Vanilla Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 168,
+    "protein": 3.5,
+    "carbs": 25,
+    "fat": 6.2,
+    "saturatedFat": 4,
+    "sugar": 23,
+    "fiber": 0.1,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-gelato-two-scoops",
+   "name": "Vanilla Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 336,
+    "protein": 7,
+    "carbs": 50,
+    "fat": 12.4,
+    "saturatedFat": 8,
+    "sugar": 46,
+    "fiber": 0.2,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-gelato-three-scoops",
+   "name": "Vanilla Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 504,
+    "protein": 10.5,
+    "carbs": 75,
+    "fat": 18.6,
+    "saturatedFat": 12,
+    "sugar": 69,
+    "fiber": 0.3,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-gelato-one-scoop",
+   "name": "White Chocolate Gelato (one scoop)",
+   "category": "Gelato",
+   "serving": "One scoop",
+   "nutrients": {
+    "calories": 225,
+    "protein": 3.9,
+    "carbs": 28,
+    "fat": 11,
+    "saturatedFat": 5.4,
+    "sugar": 27,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-gelato-two-scoops",
+   "name": "White Chocolate Gelato (two scoops)",
+   "category": "Gelato",
+   "serving": "Two scoops",
+   "nutrients": {
+    "calories": 450,
+    "protein": 7.8,
+    "carbs": 56,
+    "fat": 22,
+    "saturatedFat": 10.8,
+    "sugar": 54,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-gelato-three-scoops",
+   "name": "White Chocolate Gelato (three scoops)",
+   "category": "Gelato",
+   "serving": "Three scoops",
+   "nutrients": {
+    "calories": 675,
+    "protein": 11.7,
+    "carbs": 84,
+    "fat": 33,
+    "saturatedFat": 16.2,
+    "sugar": 81,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubblegum-milkshake-regular",
+   "name": "Bubblegum Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 389,
+    "protein": 10.4,
+    "carbs": 52.7,
+    "fat": 15.4,
+    "saturatedFat": 10.5,
+    "sugar": 49.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubblegum-milkshake-large",
+   "name": "Bubblegum Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 507,
+    "protein": 13.4,
+    "carbs": 69.5,
+    "fat": 19.9,
+    "saturatedFat": 13.5,
+    "sugar": 64.7,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ambassador-milkshake-regular",
+   "name": "Ambassador Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 529,
+    "protein": 12.4,
+    "carbs": 58.1,
+    "fat": 27.8,
+    "saturatedFat": 8.8,
+    "sugar": 52.7,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ambassador-milkshake-large",
+   "name": "Ambassador Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 694,
+    "protein": 16,
+    "carbs": 76.7,
+    "fat": 36.5,
+    "saturatedFat": 11.3,
+    "sugar": 69.5,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banoffee-milkshake-regular",
+   "name": "Banoffee Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 378,
+    "protein": 7.9,
+    "carbs": 67.1,
+    "fat": 8.5,
+    "saturatedFat": 5.8,
+    "sugar": 59.9,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banoffee-milkshake-large",
+   "name": "Banoffee Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 493,
+    "protein": 10,
+    "carbs": 88.7,
+    "fat": 10.8,
+    "saturatedFat": 7.3,
+    "sugar": 79.1,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-passion-fruit-milkshake-regular",
+   "name": "Cheesecake Passion Fruit Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 455,
+    "protein": 11.5,
+    "carbs": 63.5,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 52.7,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-passion-fruit-milkshake-large",
+   "name": "Cheesecake Passion Fruit Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 596,
+    "protein": 14.8,
+    "carbs": 83.9,
+    "fat": 22.1,
+    "saturatedFat": 14.2,
+    "sugar": 69.5,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-strawberry-milkshake-regular",
+   "name": "Cheesecake Strawberry Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 439,
+    "protein": 11,
+    "carbs": 63.5,
+    "fat": 15.5,
+    "saturatedFat": 10.1,
+    "sugar": 54.5,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake-strawberry-milkshake-large",
+   "name": "Cheesecake Strawberry Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 574,
+    "protein": 14.1,
+    "carbs": 83.9,
+    "fat": 20.1,
+    "saturatedFat": 13,
+    "sugar": 71.9,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eton-mess-milkshake-regular",
+   "name": "Eton Mess Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 425,
+    "protein": 9.9,
+    "carbs": 59.9,
+    "fat": 16.3,
+    "saturatedFat": 11.2,
+    "sugar": 54.5,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eton-mess-milkshake-large",
+   "name": "Eton Mess Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 555,
+    "protein": 12.6,
+    "carbs": 79.1,
+    "fat": 21.1,
+    "saturatedFat": 14.5,
+    "sugar": 71.9,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-milkshake-regular",
+   "name": "Coconut Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 446,
+    "protein": 11,
+    "carbs": 52.7,
+    "fat": 21.3,
+    "saturatedFat": 16,
+    "sugar": 49.1,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-milkshake-large",
+   "name": "Coconut Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 584,
+    "protein": 14.1,
+    "carbs": 69.5,
+    "fat": 27.8,
+    "saturatedFat": 20.9,
+    "sugar": 64.7,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dulce-de-leche-milkshake-regular",
+   "name": "Dulce de Leche Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 421,
+    "protein": 11.5,
+    "carbs": 58.1,
+    "fat": 15.5,
+    "saturatedFat": 10.6,
+    "sugar": 56.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dulce-de-leche-milkshake-large",
+   "name": "Dulce de Leche Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 550,
+    "protein": 14.8,
+    "carbs": 76.7,
+    "fat": 20.1,
+    "saturatedFat": 13.7,
+    "sugar": 74.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-milkshake-regular",
+   "name": "Honeycomb Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 407,
+    "protein": 10.3,
+    "carbs": 54.5,
+    "fat": 17,
+    "saturatedFat": 11.7,
+    "sugar": 52.7,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-milkshake-large",
+   "name": "Honeycomb Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 531,
+    "protein": 13.1,
+    "carbs": 71.9,
+    "fat": 22.1,
+    "saturatedFat": 15.2,
+    "sugar": 69.5,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanutella-milkshake-regular",
+   "name": "Peanutella Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 504,
+    "protein": 14,
+    "carbs": 56.3,
+    "fat": 24.2,
+    "saturatedFat": 10.1,
+    "sugar": 52.7,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanutella-milkshake-large",
+   "name": "Peanutella Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 661,
+    "protein": 18.2,
+    "carbs": 74.3,
+    "fat": 31.7,
+    "saturatedFat": 13,
+    "sugar": 69.5,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-milkshake-regular",
+   "name": "Pistachio Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 448,
+    "protein": 12.8,
+    "carbs": 50.9,
+    "fat": 20.8,
+    "saturatedFat": 8.8,
+    "sugar": 49.1,
+    "fiber": 2,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-milkshake-large",
+   "name": "Pistachio Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 586,
+    "protein": 16.5,
+    "carbs": 67.1,
+    "fat": 27.1,
+    "saturatedFat": 11.3,
+    "sugar": 64.7,
+    "fiber": 2.6,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-milkshake-regular",
+   "name": "Salted Caramel Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 381,
+    "protein": 10.6,
+    "carbs": 50.9,
+    "fat": 15.5,
+    "saturatedFat": 10.5,
+    "sugar": 47.3,
+    "fiber": 0.2,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-milkshake-large",
+   "name": "Salted Caramel Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 497,
+    "protein": 13.6,
+    "carbs": 67.1,
+    "fat": 20.1,
+    "saturatedFat": 13.5,
+    "sugar": 62.3,
+    "fiber": 0.2,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-milkshake-regular",
+   "name": "Mango Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 286,
+    "protein": 4.5,
+    "carbs": 58.1,
+    "fat": 4.6,
+    "saturatedFat": 3.3,
+    "sugar": 50.9,
+    "fiber": 1.3,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-milkshake-large",
+   "name": "Mango Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 370,
+    "protein": 5.4,
+    "carbs": 76.7,
+    "fat": 5.5,
+    "saturatedFat": 3.9,
+    "sugar": 67.1,
+    "fiber": 1.7,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-choc-chip-milkshake-regular",
+   "name": "Mint Choc Chip Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 428,
+    "protein": 10.4,
+    "carbs": 52.7,
+    "fat": 19.3,
+    "saturatedFat": 14.1,
+    "sugar": 49.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-choc-chip-milkshake-large",
+   "name": "Mint Choc Chip Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 560,
+    "protein": 13.4,
+    "carbs": 69.5,
+    "fat": 25.2,
+    "saturatedFat": 18.3,
+    "sugar": 64.7,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-milkshake-regular",
+   "name": "Oreo Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 464,
+    "protein": 11,
+    "carbs": 61.7,
+    "fat": 19.5,
+    "saturatedFat": 12.3,
+    "sugar": 50.9,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-milkshake-large",
+   "name": "Oreo Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 608,
+    "protein": 14.1,
+    "carbs": 81.5,
+    "fat": 25.4,
+    "saturatedFat": 15.9,
+    "sugar": 67.1,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet-milkshake-regular",
+   "name": "Raspberry Sorbet Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 273,
+    "protein": 4.9,
+    "carbs": 52.7,
+    "fat": 4.6,
+    "saturatedFat": 3.3,
+    "sugar": 47.3,
+    "fiber": 1.6,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet-milkshake-large",
+   "name": "Raspberry Sorbet Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 353,
+    "protein": 5.9,
+    "carbs": 69.5,
+    "fat": 5.5,
+    "saturatedFat": 3.9,
+    "sugar": 62.3,
+    "fiber": 2.2,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-regular",
+   "name": "Strawberry Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 306,
+    "protein": 5.6,
+    "carbs": 58.1,
+    "fat": 5.6,
+    "saturatedFat": 4,
+    "sugar": 50.9,
+    "fiber": 0.9,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-large",
+   "name": "Strawberry Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 397,
+    "protein": 6.9,
+    "carbs": 76.7,
+    "fat": 6.9,
+    "saturatedFat": 4.9,
+    "sugar": 67.1,
+    "fiber": 1.2,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-milkshake-regular",
+   "name": "White Chocolate Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 488,
+    "protein": 11.2,
+    "carbs": 56.3,
+    "fat": 24.2,
+    "saturatedFat": 13,
+    "sugar": 54.5,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-milkshake-large",
+   "name": "White Chocolate Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 639,
+    "protein": 14.3,
+    "carbs": 74.3,
+    "fat": 31.7,
+    "saturatedFat": 16.9,
+    "sugar": 71.9,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stracciatella-milkshake-regular",
+   "name": "Stracciatella Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 428,
+    "protein": 10.4,
+    "carbs": 52.7,
+    "fat": 19.3,
+    "saturatedFat": 14.1,
+    "sugar": 49.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stracciatella-milkshake-large",
+   "name": "Stracciatella Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 560,
+    "protein": 13.4,
+    "carbs": 69.5,
+    "fat": 25.2,
+    "saturatedFat": 18.3,
+    "sugar": 64.7,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-sorbet-milkshake",
+   "name": "Strawberry Sorbet Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 282,
+    "protein": 4.5,
+    "carbs": 56.3,
+    "fat": 4.4,
+    "saturatedFat": 3.3,
+    "sugar": 49.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu-milkshake-regular",
+   "name": "Tiramisu Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 423,
+    "protein": 11.2,
+    "carbs": 58.1,
+    "fat": 15.7,
+    "saturatedFat": 10.5,
+    "sugar": 52.7,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu-milkshake-large",
+   "name": "Tiramisu Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 553,
+    "protein": 14.3,
+    "carbs": 76.7,
+    "fat": 20.4,
+    "saturatedFat": 13.5,
+    "sugar": 69.5,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake-regular",
+   "name": "Vanilla Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 385,
+    "protein": 10.4,
+    "carbs": 50.9,
+    "fat": 15.5,
+    "saturatedFat": 10.5,
+    "sugar": 47.3,
+    "fiber": 0.2,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake-large",
+   "name": "Vanilla Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 502,
+    "protein": 13.4,
+    "carbs": 67.1,
+    "fat": 20.1,
+    "saturatedFat": 13.5,
+    "sugar": 62.3,
+    "fiber": 0.2,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 141,
+    "protein": 7.1,
+    "carbs": 10.1,
+    "fat": 7.5,
+    "saturatedFat": 5.6,
+    "sugar": 10.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 187,
+    "protein": 9.4,
+    "carbs": 13.4,
+    "fat": 9.9,
+    "saturatedFat": 7.4,
+    "sugar": 13.4,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-regular",
+   "name": "Hot Chocolate (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 183,
+    "protein": 8.2,
+    "carbs": 16,
+    "fat": 8.9,
+    "saturatedFat": 6.6,
+    "sugar": 15.7,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-large",
+   "name": "Hot Chocolate (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 236,
+    "protein": 10.8,
+    "carbs": 19.7,
+    "fat": 11.7,
+    "saturatedFat": 8.7,
+    "sugar": 19.4,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-regular",
+   "name": "Mocha (regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 183,
+    "protein": 8.2,
+    "carbs": 16,
+    "fat": 8.9,
+    "saturatedFat": 6.6,
+    "sugar": 15.7,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-large",
+   "name": "Mocha (large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 236,
+    "protein": 10.8,
+    "carbs": 19.7,
+    "fat": 11.7,
+    "saturatedFat": 8.7,
+    "sugar": 19.4,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-dip",
+   "name": "BBQ Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.2,
+    "carbs": 14.5,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 11.5,
+    "fiber": 0.1,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-dip",
+   "name": "Caramel Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 186,
+    "protein": 0.7,
+    "carbs": 33.6,
+    "fat": 5.3,
+    "saturatedFat": 3.5,
+    "sugar": 21.2,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-dip",
+   "name": "Chocolate Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 183,
+    "protein": 1.2,
+    "carbs": 31.6,
+    "fat": 5.1,
+    "saturatedFat": 3.3,
+    "sugar": 20.2,
+    "fiber": 3.3,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "firecracker-dip",
+   "name": "Firecracker Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 26,
+    "protein": 0.7,
+    "carbs": 5.5,
+    "fat": 0.1,
+    "sugar": 2,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "marinara-dip",
+   "name": "Marinara Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 31,
+    "protein": 0.7,
+    "carbs": 3.6,
+    "fat": 1.4,
+    "saturatedFat": 0.2,
+    "sugar": 2.9,
+    "fiber": 0.6,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutella-dip",
+   "name": "Nutella Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 273,
+    "protein": 3,
+    "carbs": 28.8,
+    "fat": 15.8,
+    "saturatedFat": 5.5,
+    "sugar": 28.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-dip",
+   "name": "Sweet Chilli Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 108,
+    "protein": 0.2,
+    "carbs": 26.5,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 25,
+    "fiber": 0.1,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-dip",
+   "name": "Vanilla Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 0.8,
+    "carbs": 36.5,
+    "fat": 1,
+    "saturatedFat": 0.8,
+    "sugar": 23,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

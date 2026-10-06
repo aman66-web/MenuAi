@@ -133,7 +133,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Payments for the web app (Stripe or RevenueCat Web Billing: both add a dependency/account; needs your decision)
 - [ ] Domain + support email; Vercel Pro before the site is public
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
-- [x] Real chain data in `data/source/`: 11 UK chains extracted from official sources (Burger King included) (see docs/UK_DATA_STATUS.md); more to come (keep the two sample folders; release builds use `--no-samples`)
+- [x] Real chain data in `data/source/`: 72 UK chains (about 12,900 items) extracted from official sources (see docs/UK_DATA_STATUS.md, which lists what needs your decision); keep the two sample folders; release builds use `--no-samples`. 150 was not possible: only 62 of 210 candidates publish full official macros, and 25 more need a file from you
 - [ ] App icon and screenshots (the web app and PWA use a placeholder `M` icon in `web/public/icons/` and `web/app/icon.png`)
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)

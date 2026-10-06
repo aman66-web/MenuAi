@@ -1,0 +1,3155 @@
+{
+ "schemaVersion": 1,
+ "id": "pure",
+ "name": "Pure",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "pure",
+  "pure cafe",
+  "pure café",
+  "pure uk"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Pure menu pages: nutrition per portion (pure.co.uk/menus; accessed 2026-10-06, no date shown)",
+  "url": "https://www.pure.co.uk/menus/",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Values are per portion as printed on Pure's own menu pages (an average, as food is made by hand in store); no portion weights are printed. Airport and selected-store items are left out.",
+ "categories": [
+  "Porridge",
+  "Super Eggs",
+  "Protein egg muffins",
+  "Wrap toasties",
+  "Birchers & yoghurts",
+  "Bakery",
+  "Wraps",
+  "Pretzel subs",
+  "Soups",
+  "Pure bowls",
+  "Salads",
+  "Grain bowls",
+  "Sides",
+  "Desserts",
+  "Bread",
+  "Fruit pots",
+  "Sweet treats",
+  "Snacks",
+  "Coffee",
+  "Speciality drinks",
+  "Iced drinks",
+  "Smoothies",
+  "Juices & shots",
+  "Branded drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "banana-and-honey-organic-dairy-milk",
+   "name": "Banana & Honey (organic dairy milk)",
+   "category": "Porridge",
+   "serving": "With organic dairy milk",
+   "nutrients": {
+    "calories": 345,
+    "protein": 9.3,
+    "carbs": 60.6,
+    "fat": 6.4,
+    "saturatedFat": 3.5,
+    "sugar": 35.8,
+    "fiber": 4.1,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-and-honey-oat-milk",
+   "name": "Banana & Honey (oat milk)",
+   "category": "Porridge",
+   "serving": "With oat milk",
+   "nutrients": {
+    "calories": 336,
+    "protein": 6.7,
+    "carbs": 66.9,
+    "fat": 4.1,
+    "saturatedFat": 0.7,
+    "sugar": 34.8,
+    "fiber": 4.7,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pure-and-pip-oat-milk",
+   "name": "Pure & Pip (oat milk)",
+   "category": "Porridge",
+   "serving": "With oat milk",
+   "nutrients": {
+    "calories": 388,
+    "protein": 13.4,
+    "carbs": 42.1,
+    "fat": 16.4,
+    "saturatedFat": 2.2,
+    "sugar": 9.2,
+    "fiber": 8.9,
+    "salt": 0.73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-strong-organic-dairy-milk",
+   "name": "Berry Strong (organic dairy milk)",
+   "category": "Porridge",
+   "serving": "With organic dairy milk",
+   "nutrients": {
+    "calories": 473,
+    "protein": 19,
+    "carbs": 58,
+    "fat": 18.3,
+    "saturatedFat": 5,
+    "sugar": 31.3,
+    "fiber": 10.2,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-strong-oat-milk",
+   "name": "Berry Strong (oat milk)",
+   "category": "Porridge",
+   "serving": "With oat milk",
+   "nutrients": {
+    "calories": 465,
+    "protein": 19,
+    "carbs": 64.3,
+    "fat": 16,
+    "saturatedFat": 2.1,
+    "sugar": 30.4,
+    "fiber": 10.8,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-and-maple-syrup-organic-dairy-milk",
+   "name": "Banana & Maple Syrup (organic dairy milk)",
+   "category": "Porridge",
+   "serving": "With organic dairy milk",
+   "nutrients": {
+    "calories": 319,
+    "protein": 9.2,
+    "carbs": 54,
+    "fat": 6.3,
+    "saturatedFat": 3.5,
+    "sugar": 27.4,
+    "fiber": 3.9,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-and-maple-syrup-oat-milk",
+   "name": "Banana & Maple Syrup (oat milk)",
+   "category": "Porridge",
+   "serving": "With oat milk",
+   "nutrients": {
+    "calories": 310,
+    "protein": 6.5,
+    "carbs": 60.3,
+    "fat": 4,
+    "saturatedFat": 0.6,
+    "sugar": 26.4,
+    "fiber": 4.5,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-berries-and-peanut-butter-organic-dairy-milk",
+   "name": "Mixed Berries & Peanut Butter (organic dairy milk)",
+   "category": "Porridge",
+   "serving": "With organic dairy milk",
+   "nutrients": {
+    "calories": 394,
+    "protein": 15.9,
+    "carbs": 35.4,
+    "fat": 18.6,
+    "saturatedFat": 5,
+    "sugar": 9.3,
+    "fiber": 6.7,
+    "salt": 0.73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-berries-and-peanut-butter-oat-milk",
+   "name": "Mixed Berries & Peanut Butter (oat milk)",
+   "category": "Porridge",
+   "serving": "With oat milk",
+   "nutrients": {
+    "calories": 385,
+    "protein": 13.3,
+    "carbs": 41.6,
+    "fat": 16.3,
+    "saturatedFat": 2.2,
+    "sugar": 8.4,
+    "fiber": 7.3,
+    "salt": 0.73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "start-strong-organic-dairy-milk",
+   "name": "Start Strong (organic dairy milk)",
+   "category": "Porridge",
+   "serving": "With organic dairy milk",
+   "nutrients": {
+    "calories": 477,
+    "protein": 17.9,
+    "carbs": 42.4,
+    "fat": 23.7,
+    "saturatedFat": 5.8,
+    "sugar": 15.3,
+    "fiber": 10.7,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "start-strong-oat-milk",
+   "name": "Start Strong (oat milk)",
+   "category": "Porridge",
+   "serving": "With oat milk",
+   "nutrients": {
+    "calories": 469,
+    "protein": 15.3,
+    "carbs": 48.6,
+    "fat": 21.5,
+    "saturatedFat": 2.9,
+    "sugar": 14.3,
+    "fiber": 11.3,
+    "salt": 0.61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "organic-dairy-milk-pure-porridge",
+   "name": "Organic Dairy Milk Pure Porridge",
+   "category": "Porridge",
+   "serving": "",
+   "nutrients": {
+    "calories": 221,
+    "protein": 9,
+    "carbs": 30,
+    "fat": 6,
+    "saturatedFat": 3,
+    "sugar": 6,
+    "fiber": 4,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-milk-pure-porridge",
+   "name": "Oat Milk Pure Porridge",
+   "category": "Porridge",
+   "serving": "",
+   "nutrients": {
+    "calories": 189,
+    "protein": 5.3,
+    "carbs": 30.7,
+    "fat": 3.4,
+    "saturatedFat": 0.6,
+    "sugar": 2.5,
+    "fiber": 4.3,
+    "salt": 0.64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-eggs",
+   "name": "Super Eggs",
+   "category": "Super Eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 252,
+    "protein": 21,
+    "carbs": 2,
+    "fat": 18,
+    "saturatedFat": 6,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-eggs-with-avocado",
+   "name": "Super Eggs with Avocado",
+   "category": "Super Eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 331,
+    "protein": 21.8,
+    "carbs": 1.9,
+    "fat": 25.9,
+    "saturatedFat": 8.4,
+    "sugar": 0.7,
+    "fiber": 1.6,
+    "salt": 0.95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-eggs-with-bacon",
+   "name": "Super Eggs with Bacon",
+   "category": "Super Eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "protein": 29.4,
+    "carbs": 4,
+    "fat": 24.6,
+    "saturatedFat": 9.1,
+    "sugar": 2,
+    "fiber": 0.5,
+    "salt": 1.93
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-eggs-with-sauteed-mushrooms",
+   "name": "Super Eggs with Sautéed Mushrooms",
+   "category": "Super Eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 273,
+    "protein": 21.6,
+    "carbs": 1.3,
+    "fat": 20,
+    "saturatedFat": 7.1,
+    "sugar": 0.5,
+    "fiber": 1.3,
+    "salt": 1.09
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-eggs-with-smoked-salmon",
+   "name": "Super Eggs with Smoked Salmon",
+   "category": "Super Eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 301,
+    "protein": 26.5,
+    "carbs": 1.2,
+    "fat": 20.9,
+    "saturatedFat": 7.3,
+    "sugar": 0.5,
+    "fiber": 0.9,
+    "salt": 1.51
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-tomato-and-spinach",
+   "name": "Cheese, Tomato & Spinach",
+   "category": "Protein egg muffins",
+   "serving": "",
+   "nutrients": {
+    "calories": 366,
+    "protein": 20.1,
+    "carbs": 7.1,
+    "fat": 28.2,
+    "saturatedFat": 11.2,
+    "sugar": 3.6,
+    "fiber": 0.6,
+    "salt": 1.67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese",
+   "name": "Ham & Cheese",
+   "category": "Protein egg muffins",
+   "serving": "",
+   "nutrients": {
+    "calories": 499,
+    "protein": 25,
+    "carbs": 50.1,
+    "fat": 22.5,
+    "saturatedFat": 10.2,
+    "sugar": 5.6,
+    "fiber": 2.9,
+    "salt": 2.68
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-and-egg",
+   "name": "Bacon & Egg",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 519,
+    "protein": 20.9,
+    "carbs": 55.5,
+    "fat": 23.5,
+    "saturatedFat": 7,
+    "sugar": 11.5,
+    "fiber": 2.6,
+    "salt": 2.64
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "full-of-beans",
+   "name": "Full of Beans",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 485,
+    "protein": 16.1,
+    "carbs": 66.6,
+    "fat": 18.9,
+    "saturatedFat": 3.5,
+    "sugar": 9.8,
+    "fiber": 7,
+    "salt": 2.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-start",
+   "name": "Super Start",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 431,
+    "protein": 16,
+    "carbs": 49.8,
+    "fat": 18.8,
+    "saturatedFat": 6.5,
+    "sugar": 5.7,
+    "fiber": 3,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-egg-and-ketchup",
+   "name": "Bacon, Egg & Ketchup",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 506,
+    "protein": 20.7,
+    "carbs": 52.6,
+    "fat": 23.5,
+    "saturatedFat": 7.1,
+    "sugar": 9.3,
+    "fiber": 2.3,
+    "salt": 2.72
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "full-english",
+   "name": "Full English",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 569,
+    "protein": 21.7,
+    "carbs": 50,
+    "fat": 30.4,
+    "saturatedFat": 9.9,
+    "sugar": 6.1,
+    "fiber": 2.9,
+    "salt": 2.79
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-salmon",
+   "name": "Smoked Salmon",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 452,
+    "protein": 21.5,
+    "carbs": 47.8,
+    "fat": 19.3,
+    "saturatedFat": 5,
+    "sugar": 4.6,
+    "fiber": 2.5,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-veg",
+   "name": "Super Veg",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 15.6,
+    "carbs": 49,
+    "fat": 17.2,
+    "saturatedFat": 6.4,
+    "sugar": 4.8,
+    "fiber": 2.8,
+    "salt": 1.79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-very-vegan",
+   "name": "The Very Vegan",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 429,
+    "protein": 9.8,
+    "carbs": 52.2,
+    "fat": 21.5,
+    "saturatedFat": 4.2,
+    "sugar": 4.8,
+    "fiber": 6.1,
+    "salt": 1.33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-new-yorker",
+   "name": "Chicken New Yorker",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 519,
+    "protein": 26.9,
+    "carbs": 48.7,
+    "fat": 24.1,
+    "saturatedFat": 7.9,
+    "sugar": 5.4,
+    "fiber": 2.6,
+    "salt": 2.46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-picante",
+   "name": "Chicken Picante",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 576,
+    "protein": 30.3,
+    "carbs": 60.8,
+    "fat": 25.4,
+    "saturatedFat": 8.1,
+    "sugar": 8.2,
+    "fiber": 6.3,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi",
+   "name": "Halloumi",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 647,
+    "protein": 12.1,
+    "carbs": 60.2,
+    "fat": 33,
+    "saturatedFat": 13.6,
+    "sugar": 13.2,
+    "fiber": 6.6,
+    "salt": 4.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-barbecue-beef",
+   "name": "Korean Barbecue Beef",
+   "category": "Wrap toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 523,
+    "protein": 25.1,
+    "carbs": 62.6,
+    "fat": 19.8,
+    "saturatedFat": 9.5,
+    "sugar": 17.4,
+    "fiber": 3.3,
+    "salt": 3.77
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-overnight-oats",
+   "name": "Berry Overnight Oats",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 316,
+    "protein": 10.4,
+    "carbs": 37.8,
+    "fat": 11.4,
+    "saturatedFat": 4,
+    "sugar": 10.7,
+    "fiber": 8.6,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blossom-honey-yoghurt-and-granola",
+   "name": "Blossom Honey, Yoghurt & Granola",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 326,
+    "protein": 9.4,
+    "carbs": 29,
+    "fat": 20.6,
+    "saturatedFat": 8.5,
+    "sugar": 14.5,
+    "fiber": 4.3,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fibre-starter",
+   "name": "Fibre Starter",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 674,
+    "protein": 23.2,
+    "carbs": 33.8,
+    "fat": 50.3,
+    "saturatedFat": 13.7,
+    "sugar": 24.4,
+    "fiber": 14.2,
+    "salt": 0.39
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "go-nuts-bircher",
+   "name": "Go Nuts Bircher",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 413,
+    "protein": 13,
+    "carbs": 51.3,
+    "fat": 17,
+    "saturatedFat": 4.3,
+    "sugar": 16.3,
+    "fiber": 6.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-peanut-butter",
+   "name": "Raspberry & Peanut Butter",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 361,
+    "protein": 14.8,
+    "carbs": 18,
+    "fat": 24.7,
+    "saturatedFat": 9.4,
+    "sugar": 14.2,
+    "fiber": 4.9,
+    "salt": 0.36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rise-and-shine-bircher",
+   "name": "Rise & Shine Bircher",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 298,
+    "protein": 8.6,
+    "carbs": 45.8,
+    "fat": 7.9,
+    "saturatedFat": 3.2,
+    "sugar": 12.5,
+    "fiber": 5.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-nut-overnight-oats",
+   "name": "Super Nut Overnight Oats",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 438,
+    "protein": 13.9,
+    "carbs": 52.6,
+    "fat": 18.9,
+    "saturatedFat": 4.5,
+    "sugar": 17.3,
+    "fiber": 6.8,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-protein",
+   "name": "Super Protein",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 702,
+    "protein": 26.5,
+    "carbs": 30.9,
+    "fat": 53.9,
+    "saturatedFat": 14.3,
+    "sugar": 20,
+    "fiber": 9.7,
+    "salt": 0.52
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "top-banana",
+   "name": "Top Banana",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 338,
+    "protein": 10.4,
+    "carbs": 36,
+    "fat": 15.9,
+    "saturatedFat": 6.8,
+    "sugar": 20.3,
+    "fiber": 5.4,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peanut-butter-protein-pot",
+   "name": "Peanut Butter Protein Pot",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 404,
+    "protein": 15,
+    "carbs": 25.9,
+    "fat": 25.1,
+    "saturatedFat": 8.4,
+    "sugar": 8.8,
+    "fiber": 9.6,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "forest-berries-overnight-oats",
+   "name": "Forest Berries Overnight Oats",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 316,
+    "protein": 10.4,
+    "carbs": 37.8,
+    "fat": 11.4,
+    "saturatedFat": 4,
+    "sugar": 10.7,
+    "fiber": 8.6,
+    "salt": 0.06
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-berry-yoghurt-and-granola",
+   "name": "Mixed Berry Yoghurt & Granola",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 298,
+    "protein": 9.1,
+    "carbs": 23.2,
+    "fat": 19,
+    "saturatedFat": 7.6,
+    "sugar": 8.9,
+    "fiber": 6.8,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-overnight-oats",
+   "name": "Blueberry Overnight Oats",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 298,
+    "protein": 8.6,
+    "carbs": 45.8,
+    "fat": 7.9,
+    "saturatedFat": 3.2,
+    "sugar": 12.5,
+    "fiber": 5.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "protein-boost",
+   "name": "Protein Boost",
+   "category": "Birchers & yoghurts",
+   "serving": "",
+   "nutrients": {
+    "calories": 449,
+    "protein": 16.3,
+    "carbs": 21.5,
+    "fat": 33.7,
+    "saturatedFat": 8.4,
+    "sugar": 14.4,
+    "fiber": 6.2,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin",
+   "name": "Blueberry Muffin",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 405,
+    "protein": 5,
+    "carbs": 44,
+    "fat": 23,
+    "saturatedFat": 4,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 6.7,
+    "carbs": 32.8,
+    "fat": 21.1,
+    "saturatedFat": 13.3,
+    "sugar": 5.6,
+    "fiber": 1.8,
+    "salt": 0.78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-raisin",
+   "name": "Pain au Raisin",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 322,
+    "protein": 5.5,
+    "carbs": 44,
+    "fat": 13.2,
+    "saturatedFat": 8.7,
+    "sugar": 18.7,
+    "fiber": 2.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-almond-croissant",
+   "name": "Vegan Almond Croissant",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 486,
+    "protein": 7.5,
+    "carbs": 48.3,
+    "fat": 28.8,
+    "saturatedFat": 8.5,
+    "sugar": 11.5,
+    "fiber": 2.9,
+    "salt": 0.54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-croissant",
+   "name": "Chocolate Croissant",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 6.6,
+    "carbs": 43.1,
+    "fat": 22.7,
+    "saturatedFat": 8.4,
+    "sugar": 18.1,
+    "fiber": 2.9,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seoul-good-seoul-good",
+   "name": "Seoul Good, Seoul Good",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 21.1,
+    "carbs": 53.2,
+    "fat": 15.9,
+    "saturatedFat": 4.7,
+    "sugar": 8.9,
+    "fiber": 3.5,
+    "salt": 3.25
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fajita-chicken-and-smashed-avo",
+   "name": "Fajita Chicken & Smashed Avo",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 576,
+    "protein": 26.7,
+    "carbs": 54.7,
+    "fat": 28.7,
+    "saturatedFat": 9.3,
+    "sugar": 8,
+    "fiber": 5.3,
+    "salt": 2.17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hail-caesar",
+   "name": "Hail Caesar",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 576,
+    "protein": 29.8,
+    "carbs": 56.5,
+    "fat": 25.6,
+    "saturatedFat": 8.8,
+    "sugar": 6.1,
+    "fiber": 3,
+    "salt": 2.43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lock-stock-and-hot-smoked-salmon",
+   "name": "Lock, Stock & Hot Smoked Salmon",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 427,
+    "protein": 21.3,
+    "carbs": 49.9,
+    "fat": 15.6,
+    "saturatedFat": 3.8,
+    "sugar": 6.4,
+    "fiber": 3.8,
+    "salt": 2.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falafalo-soldier",
+   "name": "Falafalo Soldier",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 702,
+    "protein": 17.2,
+    "carbs": 72.5,
+    "fat": 38,
+    "saturatedFat": 5.9,
+    "sugar": 15.4,
+    "fiber": 11.8,
+    "salt": 2.51
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-veg-and-sriracha-mayo",
+   "name": "Roasted Veg & Sriracha Mayo",
+   "category": "Pretzel subs",
+   "serving": "",
+   "nutrients": {
+    "calories": 336,
+    "protein": 7.7,
+    "carbs": 46.9,
+    "fat": 13.9,
+    "saturatedFat": 1.4,
+    "sugar": 6.2,
+    "fiber": 6,
+    "salt": 2.03
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-cream-cheese",
+   "name": "Salmon & Cream Cheese",
+   "category": "Pretzel subs",
+   "serving": "",
+   "nutrients": {
+    "calories": 339,
+    "protein": 19.8,
+    "carbs": 41.5,
+    "fat": 9.8,
+    "saturatedFat": 2.9,
+    "sugar": 4.4,
+    "fiber": 3.4,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-beef-mustard-and-pickles",
+   "name": "Salt Beef, Mustard & Pickles",
+   "category": "Pretzel subs",
+   "serving": "",
+   "nutrients": {
+    "calories": 351,
+    "protein": 16.3,
+    "carbs": 42.7,
+    "fat": 11.7,
+    "saturatedFat": 2,
+    "sugar": 5.1,
+    "fiber": 3.2,
+    "salt": 4.12
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "british-chargrilled-chicken",
+   "name": "British Chargrilled Chicken",
+   "category": "Pretzel subs",
+   "serving": "",
+   "nutrients": {
+    "calories": 360,
+    "protein": 17.1,
+    "carbs": 43.1,
+    "fat": 12.4,
+    "saturatedFat": 1.3,
+    "sugar": 5.9,
+    "fiber": 3.3,
+    "salt": 2.06
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "british-chicken-regular",
+   "name": "British Chicken (regular)",
+   "category": "Soups",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 145,
+    "protein": 17.5,
+    "carbs": 10.1,
+    "fat": 3.6,
+    "saturatedFat": 0.5,
+    "sugar": 3.7,
+    "fiber": 1.1,
+    "salt": 2.96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "british-chicken-large",
+   "name": "British Chicken (large)",
+   "category": "Soups",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 226,
+    "protein": 27.3,
+    "carbs": 15.8,
+    "fat": 5.6,
+    "saturatedFat": 0.7,
+    "sugar": 5.8,
+    "fiber": 1.8,
+    "salt": 4.62
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-laksa-soup-regular",
+   "name": "Chicken Laksa Soup (regular)",
+   "category": "Soups",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 329,
+    "protein": 20.7,
+    "carbs": 20,
+    "fat": 19.2,
+    "saturatedFat": 7.2,
+    "sugar": 8.6,
+    "fiber": 3.6,
+    "salt": 1.75
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-laksa-soup-large",
+   "name": "Chicken Laksa Soup (large)",
+   "category": "Soups",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 444,
+    "protein": 27.9,
+    "carbs": 26.9,
+    "fat": 25.9,
+    "saturatedFat": 9.6,
+    "sugar": 11.5,
+    "fiber": 4.9,
+    "salt": 2.36
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-lentil-regular",
+   "name": "Thai Green Lentil (regular)",
+   "category": "Soups",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 207,
+    "protein": 6,
+    "carbs": 13,
+    "fat": 13,
+    "saturatedFat": 11,
+    "sugar": 4,
+    "fiber": 5,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-lentil-large",
+   "name": "Thai Green Lentil (large)",
+   "category": "Soups",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 326,
+    "protein": 9,
+    "carbs": 20,
+    "fat": 21,
+    "saturatedFat": 17,
+    "sugar": 6,
+    "fiber": 7,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-shawarma",
+   "name": "Chicken Shawarma",
+   "category": "Pure bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 651,
+    "protein": 39.8,
+    "carbs": 67.3,
+    "fat": 26.6,
+    "saturatedFat": 3.3,
+    "sugar": 11.6,
+    "fiber": 8.3,
+    "salt": 4.24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-protein-chilli-and-cheese",
+   "name": "High Protein Chilli & Cheese",
+   "category": "Pure bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 874,
+    "protein": 34.9,
+    "carbs": 100.5,
+    "fat": 39.1,
+    "saturatedFat": 12.5,
+    "sugar": 7.5,
+    "fiber": 14.3,
+    "salt": 1.75
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "protein-chicken-and-mushroom",
+   "name": "Protein Chicken & Mushroom",
+   "category": "Pure bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 597,
+    "protein": 34.1,
+    "carbs": 65.7,
+    "fat": 23.1,
+    "saturatedFat": 8.1,
+    "sugar": 6.6,
+    "fiber": 3.5,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "protein-power",
+   "name": "Protein Power",
+   "category": "Pure bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 615,
+    "protein": 36.2,
+    "carbs": 75.9,
+    "fat": 19.9,
+    "saturatedFat": 3.3,
+    "sugar": 16,
+    "fiber": 4.9,
+    "salt": 2.64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-and-coconut-curry",
+   "name": "Sweet Potato & Coconut Curry",
+   "category": "Pure bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 556,
+    "protein": 14.3,
+    "carbs": 85.5,
+    "fat": 19.9,
+    "saturatedFat": 2.9,
+    "sugar": 19.1,
+    "fiber": 2.1,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "feel-good-chicken",
+   "name": "Feel Good Chicken",
+   "category": "Pure bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 573,
+    "protein": 30,
+    "carbs": 93.8,
+    "fat": 8.3,
+    "saturatedFat": 1.6,
+    "sugar": 13.2,
+    "fiber": 7.7,
+    "salt": 4.11
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pure-bibimbap-dressed",
+   "name": "Pure Bibimbap (dressed)",
+   "category": "Salads",
+   "serving": "Dressed",
+   "nutrients": {
+    "calories": 426,
+    "protein": 27.1,
+    "carbs": 24.9,
+    "fat": 23,
+    "saturatedFat": 4.9,
+    "sugar": 16.1,
+    "fiber": 6.2,
+    "salt": 4.15
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pure-bibimbap-undressed",
+   "name": "Pure Bibimbap (undressed)",
+   "category": "Salads",
+   "serving": "Undressed",
+   "nutrients": {
+    "calories": 264,
+    "protein": 25.6,
+    "carbs": 6.9,
+    "fat": 14,
+    "saturatedFat": 4.2,
+    "sugar": 4.7,
+    "fiber": 6.1,
+    "salt": 2.65
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-dressed",
+   "name": "Chicken Caesar (dressed)",
+   "category": "Salads",
+   "serving": "Dressed",
+   "nutrients": {
+    "calories": 475,
+    "protein": 37.6,
+    "carbs": 13.2,
+    "fat": 29.8,
+    "saturatedFat": 10.4,
+    "sugar": 6.1,
+    "fiber": 1.6,
+    "salt": 1.69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-undressed",
+   "name": "Chicken Caesar (undressed)",
+   "category": "Salads",
+   "serving": "Undressed",
+   "nutrients": {
+    "calories": 369,
+    "protein": 37.2,
+    "carbs": 12.5,
+    "fat": 18.4,
+    "saturatedFat": 6.6,
+    "sugar": 3.1,
+    "fiber": 1.9,
+    "salt": 1.27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "naked-chicken-burrito-dressed",
+   "name": "Naked Chicken Burrito (dressed)",
+   "category": "Salads",
+   "serving": "Dressed",
+   "nutrients": {
+    "calories": 503,
+    "protein": 26.5,
+    "carbs": 25.2,
+    "fat": 34.1,
+    "saturatedFat": 4.5,
+    "sugar": 7.9,
+    "fiber": 10.8,
+    "salt": 2.03
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "celebrity-skin-dressed",
+   "name": "Celebrity Skin (dressed)",
+   "category": "Salads",
+   "serving": "Dressed",
+   "nutrients": {
+    "calories": 653,
+    "protein": 30.2,
+    "carbs": 14.1,
+    "fat": 52.8,
+    "saturatedFat": 6.7,
+    "sugar": 5.3,
+    "fiber": 6.8,
+    "salt": 2.26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "celebrity-skin-undressed",
+   "name": "Celebrity Skin (undressed)",
+   "category": "Salads",
+   "serving": "Undressed",
+   "nutrients": {
+    "calories": 357,
+    "protein": 30.1,
+    "carbs": 9.8,
+    "fat": 22.3,
+    "saturatedFat": 3.9,
+    "sugar": 3.1,
+    "fiber": 6.5,
+    "salt": 1.96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-veg-dressed",
+   "name": "Rainbow Veg (dressed)",
+   "category": "Salads",
+   "serving": "Dressed",
+   "nutrients": {
+    "calories": 430,
+    "protein": 13.3,
+    "carbs": 26,
+    "fat": 29.7,
+    "saturatedFat": 4.4,
+    "sugar": 19.5,
+    "fiber": 12.9,
+    "salt": 1.96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-veg-undressed",
+   "name": "Rainbow Veg (undressed)",
+   "category": "Salads",
+   "serving": "Undressed",
+   "nutrients": {
+    "calories": 240,
+    "protein": 8.8,
+    "carbs": 21.5,
+    "fat": 13.2,
+    "saturatedFat": 2,
+    "sugar": 16.6,
+    "fiber": 11.1,
+    "salt": 1.42
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-king-caesar-dressed",
+   "name": "The King Caesar (dressed)",
+   "category": "Salads",
+   "serving": "Dressed",
+   "nutrients": {
+    "calories": 465,
+    "protein": 36.1,
+    "carbs": 14.6,
+    "fat": 29.6,
+    "saturatedFat": 6.8,
+    "sugar": 10.1,
+    "fiber": 5.1,
+    "salt": 1.99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-king-caesar-undressed",
+   "name": "The King Caesar (undressed)",
+   "category": "Salads",
+   "serving": "Undressed",
+   "nutrients": {
+    "calories": 381,
+    "protein": 35.2,
+    "carbs": 11.3,
+    "fat": 22.2,
+    "saturatedFat": 5.7,
+    "sugar": 6.8,
+    "fiber": 4.9,
+    "salt": 1.82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prime-protein",
+   "name": "Prime Protein",
+   "category": "Grain bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 534,
+    "protein": 26.5,
+    "carbs": 31.5,
+    "fat": 33.3,
+    "saturatedFat": 4.8,
+    "sugar": 10.2,
+    "fiber": 7.8,
+    "salt": 2.61
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-lovin",
+   "name": "Salmon Lovin’",
+   "category": "Grain bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 19.4,
+    "carbs": 26.6,
+    "fat": 25.9,
+    "saturatedFat": 4.3,
+    "sugar": 5.9,
+    "fiber": 6,
+    "salt": 1.41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "24-carrot",
+   "name": "24 Carrot",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 238,
+    "protein": 4.9,
+    "carbs": 17.6,
+    "fat": 14.6,
+    "saturatedFat": 1.2,
+    "sugar": 10.5,
+    "fiber": 7.4,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "25g-protein-chicken-and-hummus",
+   "name": "25g Protein Chicken & Hummus",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 324,
+    "protein": 25,
+    "carbs": 5.2,
+    "fat": 21.3,
+    "saturatedFat": 2.1,
+    "sugar": 1.1,
+    "fiber": 5.7,
+    "salt": 1.23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-fast-fibre",
+   "name": "Super Fast Fibre",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 333,
+    "protein": 13.1,
+    "carbs": 18.8,
+    "fat": 22.5,
+    "saturatedFat": 2.1,
+    "sugar": 4.8,
+    "fiber": 9.4,
+    "salt": 2.01
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "20g-protein-chicken-and-harissa",
+   "name": "20g Protein Chicken & Harissa",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 276,
+    "protein": 20.3,
+    "carbs": 7.3,
+    "fat": 18.1,
+    "saturatedFat": 1.9,
+    "sugar": 5.1,
+    "fiber": 1.2,
+    "salt": 1.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10g-protein-eggs-and-spicy-greens",
+   "name": "10g Protein Eggs & Spicy Greens",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 124,
+    "protein": 10.4,
+    "carbs": 2.5,
+    "fat": 8.3,
+    "saturatedFat": 2.5,
+    "sugar": 1.9,
+    "fiber": 0.8,
+    "salt": 0.92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-rice-pudding",
+   "name": "Super Rice Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 206,
+    "protein": 2.2,
+    "carbs": 27.1,
+    "fat": 10,
+    "saturatedFat": 8.2,
+    "sugar": 6.2,
+    "fiber": 0.9,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sourdough-roll-and-butter",
+   "name": "Sourdough Roll and Butter",
+   "category": "Bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 230,
+    "protein": 6,
+    "carbs": 37,
+    "fat": 6,
+    "saturatedFat": 3,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-fruit-pot",
+   "name": "Classic Fruit Pot",
+   "category": "Fruit pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 118,
+    "protein": 1.5,
+    "carbs": 30.5,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 24.2,
+    "fiber": 0,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-and-pineapple",
+   "name": "Mango & Pineapple",
+   "category": "Fruit pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 83,
+    "protein": 1.3,
+    "carbs": 15.8,
+    "fat": 0.3,
+    "sugar": 15.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "melon-and-blueberries",
+   "name": "Melon & Blueberries",
+   "category": "Fruit pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 54,
+    "protein": 1.2,
+    "carbs": 12.9,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 11.9,
+    "fiber": 1.5,
+    "salt": 0.21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-fruit-salad",
+   "name": "Super Fruit Salad",
+   "category": "Fruit pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 118,
+    "protein": 1.3,
+    "carbs": 29.8,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 25.6,
+    "fiber": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dark-chocolate-and-hazelnut-cookie",
+   "name": "Dark Chocolate & Hazelnut Cookie",
+   "category": "Sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 272,
+    "protein": 5.1,
+    "carbs": 37.8,
+    "fat": 10.5,
+    "saturatedFat": 1.5,
+    "sugar": 36.4,
+    "fiber": 2.2,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-and-cranberry-cookie",
+   "name": "Oat & Cranberry Cookie",
+   "category": "Sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 246,
+    "protein": 3.2,
+    "carbs": 37.1,
+    "fat": 9.1,
+    "saturatedFat": 5,
+    "sugar": 23.1,
+    "fiber": 1.6,
+    "salt": 0.48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-brownie",
+   "name": "Salted Caramel Brownie",
+   "category": "Sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 270,
+    "protein": 1.9,
+    "carbs": 30.5,
+    "fat": 15.2,
+    "saturatedFat": 9.1,
+    "sugar": 26.5,
+    "fiber": 1.1,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brave-paprika-and-chilli-peas",
+   "name": "Brave Paprika and Chilli Peas",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 7,
+    "carbs": 14,
+    "fat": 3.9,
+    "saturatedFat": 0.4,
+    "sugar": 0.9,
+    "fiber": 7,
+    "salt": 0.53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brave-sea-salt-and-vinegar-peas",
+   "name": "Brave Sea Salt and Vinegar Peas",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 134,
+    "protein": 6.7,
+    "carbs": 14.4,
+    "fat": 3.9,
+    "saturatedFat": 0.4,
+    "sugar": 0.7,
+    "fiber": 6.7,
+    "salt": 0.77
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-bag-crisps-cheddar-and-onion",
+   "name": "Brown Bag Crisps – Cheddar & Onion",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 2.2,
+    "carbs": 23.4,
+    "fat": 10.8,
+    "saturatedFat": 0.9,
+    "sugar": 0.7,
+    "fiber": 1,
+    "salt": 0.68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-bag-crisps-lightly-salted",
+   "name": "Brown Bag Crisps – Lightly Salted",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 206,
+    "protein": 2,
+    "carbs": 23.4,
+    "fat": 11.5,
+    "saturatedFat": 0.9,
+    "sugar": 0.1,
+    "fiber": 1,
+    "salt": 0.48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-bag-crisps-sea-salt-and-malt-vinegar",
+   "name": "Brown Bag Crisps – Sea Salt & Malt Vinegar",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 196,
+    "protein": 1.9,
+    "carbs": 23.3,
+    "fat": 10.6,
+    "saturatedFat": 0.9,
+    "sugar": 1.2,
+    "fiber": 0.9,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-crisps-smoked-chilli",
+   "name": "Brown Crisps – Smoked Chilli",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 199,
+    "protein": 2.1,
+    "carbs": 23.6,
+    "fat": 10.7,
+    "saturatedFat": 0.9,
+    "sugar": 1.4,
+    "fiber": 1,
+    "salt": 0.76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deliciously-ella-apple-raisin-and-cinnamon-oat-bar",
+   "name": "Deliciously Ella Apple, Raisin and Cinnamon Oat Bar",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 213,
+    "protein": 2.8,
+    "carbs": 29.7,
+    "fat": 8.7,
+    "saturatedFat": 4.8,
+    "sugar": 14.5,
+    "fiber": 2.5,
+    "salt": 0.15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deliciously-ella-cacao-and-almond-energy-ball",
+   "name": "Deliciously Ella Cacao & Almond Energy Ball",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 3.9,
+    "carbs": 17.9,
+    "fat": 7.8,
+    "saturatedFat": 1.6,
+    "sugar": 16.7,
+    "fiber": 3.8,
+    "salt": 0.02
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deliciously-ella-peanut-butter-oat-bar",
+   "name": "Deliciously Ella Peanut Butter Oat Bar",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 230,
+    "protein": 5.1,
+    "carbs": 25,
+    "fat": 11.8,
+    "saturatedFat": 5.1,
+    "sugar": 10.6,
+    "fiber": 2.5,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eat-real-hummus-chips-tomato-and-basil",
+   "name": "Eat Real – Hummus Chips Tomato & Basil",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 2,
+    "carbs": 15,
+    "fat": 3.6,
+    "saturatedFat": 0.3,
+    "sugar": 0.6,
+    "fiber": 0.8,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eat-real-quinoa-chips-sour-cream-and-chive",
+   "name": "Eat Real – Quinoa Chips Sour Cream & Chive",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 90,
+    "protein": 1.8,
+    "carbs": 14,
+    "fat": 3.6,
+    "saturatedFat": 0.3,
+    "sugar": 0.7,
+    "fiber": 0.8,
+    "salt": 0.42
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-and-nut-dark-chocolate-almond-butter-cups",
+   "name": "Pip & Nut Dark Chocolate Almond Butter Cups",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 204,
+    "protein": 3.8,
+    "carbs": 10.3,
+    "fat": 15.8,
+    "saturatedFat": 6.6,
+    "sugar": 8.9,
+    "fiber": 2.3,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-and-nut-milk-chocolate-peanut-butter-cups",
+   "name": "Pip & Nut Milk Chocolate Peanut Butter Cups",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 202,
+    "protein": 3.9,
+    "carbs": 12.8,
+    "fat": 14.7,
+    "saturatedFat": 6.5,
+    "sugar": 11.9,
+    "fiber": 1.4,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tonys-chocolonely-dark-almond-sea-salt",
+   "name": "Tony’s Chocolonely Dark Almond Sea Salt",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 253,
+    "protein": 3.5,
+    "carbs": 20.7,
+    "fat": 16.5,
+    "saturatedFat": 8.6,
+    "sugar": 19.5,
+    "fiber": 0,
+    "salt": 0.24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tonys-chocolonely-milk-caramel-sea-salt",
+   "name": "Tony’s Chocolonely Milk Caramel Sea Salt",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 252,
+    "protein": 3.2,
+    "carbs": 25.5,
+    "fat": 15,
+    "saturatedFat": 9.1,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tonys-chocolonely-milk-chocolate",
+   "name": "Tony’s Chocolonely Milk Chocolate",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 3.6,
+    "carbs": 24.4,
+    "fat": 15.5,
+    "saturatedFat": 9.4,
+    "sugar": 23.8,
+    "fiber": 0,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deliciously-ella-salted-caramel-almonds",
+   "name": "Deliciously Ella Salted Caramel Almonds",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 176,
+    "protein": 4.2,
+    "carbs": 8.5,
+    "fat": 14.2,
+    "saturatedFat": 4.4,
+    "sugar": 5.3,
+    "fiber": 3.6,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 137,
+    "protein": 7.8,
+    "carbs": 9.4,
+    "fat": 7.8,
+    "saturatedFat": 4.8,
+    "sugar": 9.4,
+    "salt": 0.22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cortado",
+   "name": "Cortado",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 3.3,
+    "carbs": 4.5,
+    "fat": 3.5,
+    "saturatedFat": 2.3,
+    "sugar": 4.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 107,
+    "protein": 5.9,
+    "carbs": 7.4,
+    "fat": 5.9,
+    "saturatedFat": 3.7,
+    "sugar": 7.4,
+    "salt": 0.18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 169,
+    "protein": 9.6,
+    "carbs": 11.8,
+    "fat": 9.6,
+    "saturatedFat": 6.1,
+    "sugar": 11.8,
+    "salt": 0.29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 11,
+    "carbs": 16.6,
+    "fat": 15.9,
+    "saturatedFat": 10,
+    "sugar": 16.3,
+    "fiber": 1.7,
+    "salt": 0.27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-latte",
+   "name": "Chai Latte",
+   "category": "Speciality drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 266,
+    "protein": 11,
+    "carbs": 32.2,
+    "fat": 10.6,
+    "saturatedFat": 6.6,
+    "sugar": 22.9,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha",
+   "name": "Matcha",
+   "category": "Speciality drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 147,
+    "protein": 3,
+    "carbs": 16,
+    "fat": 7.1,
+    "saturatedFat": 0.7,
+    "sugar": 9.3,
+    "fiber": 2.7,
+    "salt": 0.23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pure-matcha",
+   "name": "Pure Matcha",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 192,
+    "protein": 3.7,
+    "carbs": 20.8,
+    "fat": 9.3,
+    "saturatedFat": 0.9,
+    "sugar": 12.3,
+    "fiber": 2.7,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-berry-good-large",
+   "name": "Berry Berry Good (large)",
+   "category": "Smoothies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 374,
+    "protein": 10.8,
+    "carbs": 34,
+    "fat": 17.1,
+    "saturatedFat": 6.2,
+    "sugar": 28.7,
+    "fiber": 12.8,
+    "salt": 0.15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-berry-good-regular",
+   "name": "Berry Berry Good (regular)",
+   "category": "Smoothies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 187,
+    "protein": 5.4,
+    "carbs": 17,
+    "fat": 8.5,
+    "saturatedFat": 3.1,
+    "sugar": 14.3,
+    "fiber": 6.4,
+    "salt": 0.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brain-boost-large",
+   "name": "Brain Boost (large)",
+   "category": "Smoothies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 535,
+    "protein": 11.5,
+    "carbs": 72,
+    "fat": 20.5,
+    "saturatedFat": 5,
+    "sugar": 55.5,
+    "fiber": 6,
+    "salt": 0.65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brain-boost-regular",
+   "name": "Brain Boost (regular)",
+   "category": "Smoothies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 268,
+    "protein": 5.8,
+    "carbs": 36,
+    "fat": 10.3,
+    "saturatedFat": 2.5,
+    "sugar": 27.8,
+    "fiber": 3,
+    "salt": 0.33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "get-vit-large",
+   "name": "Get Vit (large)",
+   "category": "Smoothies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 266,
+    "protein": 3.5,
+    "carbs": 40.2,
+    "fat": 9.5,
+    "saturatedFat": 8.7,
+    "sugar": 35.8,
+    "fiber": 1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "get-vit-regular",
+   "name": "Get Vit (regular)",
+   "category": "Smoothies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 133,
+    "protein": 1.8,
+    "carbs": 20.1,
+    "fat": 4.7,
+    "saturatedFat": 4.4,
+    "sugar": 17.9,
+    "fiber": 0.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-the-day-large",
+   "name": "Matcha the Day (large)",
+   "category": "Smoothies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 447,
+    "protein": 12.7,
+    "carbs": 53.4,
+    "fat": 20.7,
+    "saturatedFat": 2.5,
+    "sugar": 40.2,
+    "fiber": 6.6,
+    "salt": 0.35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-the-day-regular",
+   "name": "Matcha the Day (regular)",
+   "category": "Smoothies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 223,
+    "protein": 6.4,
+    "carbs": 26.7,
+    "fat": 10.3,
+    "saturatedFat": 1.3,
+    "sugar": 20.1,
+    "fiber": 3.3,
+    "salt": 0.17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pure-protein-large",
+   "name": "Pure Protein (large)",
+   "category": "Smoothies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 417,
+    "protein": 34.4,
+    "carbs": 31,
+    "fat": 18.1,
+    "saturatedFat": 1.9,
+    "sugar": 15.9,
+    "fiber": 5.3,
+    "salt": 1.07
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pure-protein-regular",
+   "name": "Pure Protein (regular)",
+   "category": "Smoothies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 222,
+    "protein": 17.2,
+    "carbs": 15.5,
+    "fat": 9,
+    "saturatedFat": 0.9,
+    "sugar": 7.9,
+    "fiber": 2.7,
+    "salt": 0.54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice-250ml",
+   "name": "Apple Juice 250ml",
+   "category": "Juices & shots",
+   "serving": "250 ml",
+   "nutrients": {
+    "calories": 120,
+    "protein": 0.3,
+    "carbs": 29.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 27.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice-250ml",
+   "name": "Orange Juice 250ml",
+   "category": "Juices & shots",
+   "serving": "250 ml",
+   "nutrients": {
+    "calories": 120,
+    "protein": 1.5,
+    "carbs": 27.3,
+    "fat": 0.3,
+    "sugar": 23.3,
+    "fiber": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tenzing-pineapple-and-passion-fruit",
+   "name": "Tenzing Pineapple & Passion Fruit",
+   "category": "Branded drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 0,
+    "carbs": 11.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11.3,
+    "fiber": 0,
+    "salt": 0.25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-elderflower-and-mint",
+   "name": "Trip Elderflower & Mint",
+   "category": "Branded drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 19,
+    "protein": 0,
+    "carbs": 4.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

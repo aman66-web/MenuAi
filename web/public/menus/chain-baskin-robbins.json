@@ -1,0 +1,555 @@
+{
+ "schemaVersion": 1,
+ "id": "baskin-robbins",
+ "name": "Baskin-Robbins",
+ "cuisine": "Ice cream",
+ "builderType": "standard",
+ "aliases": [
+  "baskin robbins",
+  "baskin-robbins",
+  "baskin robbins ice cream"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Baskin-Robbins UK allergen and nutrition index, per 113 g (4 oz) scoop (PDF dated 2025: file name 11-2025, created 20 June 2025)",
+  "url": "https://baskinrobbins.co.uk/wp-content/uploads/2025/06/IND-PIS-NUTRITION-INDEX-11-2025.pdf",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Ice cream scoops only (113 g / 4 oz, per scoop): no shakes, sundaes, cakes or toppings. The source is a 2025 PDF that has no entry for some newer flavours, so a flavour in the shop may be missing here.",
+ "categories": [
+  "Ice cream scoops"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "americas-birthday-cake",
+   "name": "America's Birthday Cake",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 253,
+    "protein": 3.4,
+    "carbs": 32,
+    "fat": 12.4,
+    "saturatedFat": 6.7,
+    "sugar": 27.3,
+    "fiber": 0.2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-caramel",
+   "name": "Banana Caramel",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 244,
+    "protein": 3.7,
+    "carbs": 27.8,
+    "fat": 13.2,
+    "saturatedFat": 8.4,
+    "sugar": 23.9,
+    "fiber": 0.7,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubblegum-candyland",
+   "name": "Bubblegum Candyland",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 253,
+    "protein": 4,
+    "carbs": 30.2,
+    "fat": 12.9,
+    "saturatedFat": 8.1,
+    "sugar": 29.6,
+    "fiber": 0.2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-honeycomb-candy",
+   "name": "Caramel Honeycomb Candy",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 264,
+    "protein": 3.1,
+    "carbs": 32.1,
+    "fat": 13.8,
+    "saturatedFat": 11,
+    "sugar": 30.4,
+    "fiber": 0.1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate",
+   "name": "Chocolate",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 249,
+    "protein": 3.7,
+    "carbs": 30.6,
+    "fat": 13.1,
+    "saturatedFat": 10.6,
+    "sugar": 28.4,
+    "fiber": 1.5,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-chip-cookie-dough",
+   "name": "Chocolate Chip Cookie Dough",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 297,
+    "protein": 4.3,
+    "carbs": 33.3,
+    "fat": 15.1,
+    "saturatedFat": 9.4,
+    "sugar": 25.4,
+    "fiber": 0.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-n-cream",
+   "name": "Cookies 'N Cream",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 273,
+    "protein": 3.6,
+    "carbs": 31.5,
+    "fat": 14.9,
+    "saturatedFat": 12.3,
+    "sugar": 27.6,
+    "fiber": 0.6,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cotton-candy",
+   "name": "Cotton Candy",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 237,
+    "protein": 3.4,
+    "carbs": 25.2,
+    "fat": 13.8,
+    "saturatedFat": 11.5,
+    "sugar": 25.1,
+    "fiber": 0.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gold-medal-ribbon",
+   "name": "Gold Medal Ribbon",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 261,
+    "protein": 3.5,
+    "carbs": 29.9,
+    "fat": 14.3,
+    "saturatedFat": 11.3,
+    "sugar": 28.6,
+    "fiber": 0.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jamoca-almond-fudge",
+   "name": "Jamoca Almond Fudge",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 265,
+    "protein": 3.5,
+    "carbs": 29.8,
+    "fat": 15.5,
+    "saturatedFat": 9.5,
+    "sugar": 27.2,
+    "fiber": 1.8,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-tango",
+   "name": "Mango Tango",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 175,
+    "protein": 2.7,
+    "carbs": 18.8,
+    "fat": 9.9,
+    "saturatedFat": 5.8,
+    "sugar": 15,
+    "fiber": 0.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-chocolate-chip",
+   "name": "Mint Chocolate Chip",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 262,
+    "protein": 4.1,
+    "carbs": 25.5,
+    "fat": 15.9,
+    "saturatedFat": 10,
+    "sugar": 21,
+    "fiber": 0.6,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mississippi-mud",
+   "name": "Mississippi Mud",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 269,
+    "protein": 3.8,
+    "carbs": 33.9,
+    "fat": 13.1,
+    "saturatedFat": 8.3,
+    "sugar": 27.9,
+    "fiber": 2.1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutty-salted-caramel",
+   "name": "Nutty Salted Caramel",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 284,
+    "protein": 4.1,
+    "carbs": 34.7,
+    "fat": 14.4,
+    "saturatedFat": 8.8,
+    "sugar": 32.7,
+    "fiber": 0.4,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-almond",
+   "name": "Pistachio Almond",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 281,
+    "protein": 5.9,
+    "carbs": 22.4,
+    "fat": 18.7,
+    "saturatedFat": 8.4,
+    "sugar": 18.5,
+    "fiber": 1.7,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pralines-n-cream",
+   "name": "Pralines 'N Cream",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 282,
+    "protein": 3.5,
+    "carbs": 31.7,
+    "fat": 15.9,
+    "saturatedFat": 11,
+    "sugar": 30.9,
+    "fiber": 0.5,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rum-raisin",
+   "name": "Rum Raisin",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 239,
+    "protein": 3.6,
+    "carbs": 29.3,
+    "fat": 11.9,
+    "saturatedFat": 7.5,
+    "sugar": 25.6,
+    "fiber": 0.4,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sea-salt-caramel-espresso",
+   "name": "Sea Salt Caramel Espresso",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 282,
+    "protein": 4.1,
+    "carbs": 29.7,
+    "fat": 16.4,
+    "saturatedFat": 9.6,
+    "sugar": 28.7,
+    "fiber": 0.3,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-coconut-crunch",
+   "name": "Toasted Coconut Crunch",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 280,
+    "protein": 5,
+    "carbs": 28.8,
+    "fat": 16.1,
+    "saturatedFat": 8.2,
+    "sugar": 24.8,
+    "fiber": 1.6,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla",
+   "name": "Vanilla",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 236,
+    "protein": 4,
+    "carbs": 24.2,
+    "fat": 13.8,
+    "saturatedFat": 8.7,
+    "sugar": 19.9,
+    "fiber": 0.2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "very-berry-strawberry",
+   "name": "Very Berry Strawberry",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 234,
+    "protein": 3.6,
+    "carbs": 29.5,
+    "fat": 11.3,
+    "saturatedFat": 7.2,
+    "sugar": 25,
+    "fiber": 0.2,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "world-class-chocolate",
+   "name": "World Class Chocolate",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 254,
+    "protein": 3.9,
+    "carbs": 28.6,
+    "fat": 13.8,
+    "saturatedFat": 8.6,
+    "sugar": 22.8,
+    "fiber": 1,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-sherbet",
+   "name": "Rainbow Sherbet",
+   "category": "Ice cream scoops",
+   "serving": "1 scoop (113 g / 4 oz)",
+   "nutrients": {
+    "calories": 147,
+    "protein": 1.2,
+    "carbs": 30.8,
+    "fat": 2,
+    "saturatedFat": 1.1,
+    "sugar": 30.2,
+    "fiber": 0.5,
+    "salt": 0.04
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,2104 @@
+{
+ "schemaVersion": 1,
+ "id": "yo-sushi",
+ "name": "Yo! Sushi",
+ "cuisine": "Japanese",
+ "builderType": "standard",
+ "aliases": [
+  "yo sushi",
+  "yo! sushi",
+  "yosushi"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-10-06)",
+  "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
+  "checkedOn": "2026-10-06"
+ },
+ "note": "Figures are per serving from Yo! Sushi's own nutrition page for its Dine-in menu (hosted by Ten Kites), which prints no date. Dishes sold only at Selfridges and Heathrow are left out.",
+ "categories": [
+  "Curry",
+  "Rice",
+  "Ramen",
+  "Noodles",
+  "Street food",
+  "Sushi & fish",
+  "Yasai (vegetable)",
+  "Meat",
+  "To share",
+  "Desserts",
+  "Condiments",
+  "Sides",
+  "Limited time"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chicken-katsu-curry-large",
+   "name": "Chicken Katsu Curry (large)",
+   "category": "Curry",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 922,
+    "protein": 31.3,
+    "carbs": 112.2,
+    "fat": 37,
+    "saturatedFat": 13.5,
+    "sugar": 9.1,
+    "fiber": 8.9,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-large",
+   "name": "Pumpkin Katsu Curry (large)",
+   "category": "Curry",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 735,
+    "protein": 11.6,
+    "carbs": 129.8,
+    "fat": 18.1,
+    "saturatedFat": 4.9,
+    "sugar": 20.7,
+    "fiber": 7.7,
+    "salt": 3.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-regular",
+   "name": "Chicken Katsu Curry (regular)",
+   "category": "Curry",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 543,
+    "protein": 16.8,
+    "carbs": 71.3,
+    "fat": 20.1,
+    "saturatedFat": 7.9,
+    "sugar": 3.1,
+    "fiber": 4.2,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-regular",
+   "name": "Pumpkin Katsu Curry (regular)",
+   "category": "Curry",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 407,
+    "protein": 6.8,
+    "carbs": 78.7,
+    "fat": 6.5,
+    "saturatedFat": 3.3,
+    "sugar": 8.7,
+    "fiber": 3.5,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-beef-curry",
+   "name": "Teriyaki Beef Curry",
+   "category": "Curry",
+   "serving": "",
+   "nutrients": {
+    "calories": 1063,
+    "protein": 32.8,
+    "carbs": 120,
+    "fat": 49,
+    "saturatedFat": 12,
+    "sugar": 17,
+    "fiber": 5.2,
+    "salt": 3.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-teriyaki-donburi",
+   "name": "Beef Teriyaki Donburi",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 981,
+    "protein": 32.4,
+    "carbs": 112.7,
+    "fat": 43.4,
+    "saturatedFat": 8.2,
+    "sugar": 14.4,
+    "fiber": 5,
+    "salt": 1.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-teriyaki-donburi",
+   "name": "Chicken Teriyaki Donburi",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 714,
+    "protein": 44.9,
+    "carbs": 99.7,
+    "fat": 14.3,
+    "saturatedFat": 3.8,
+    "sugar": 15.9,
+    "fiber": 3.3,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-shiitake-teriyaki-donburi",
+   "name": "Pulled Shiitake Teriyaki Donburi",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 869,
+    "protein": 25.7,
+    "carbs": 123.7,
+    "fat": 29,
+    "saturatedFat": 15.7,
+    "sugar": 13.9,
+    "fiber": 27,
+    "salt": 3.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-fried-chicken-donburi",
+   "name": "Korean Fried Chicken Donburi",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 1059,
+    "protein": 45.3,
+    "carbs": 163.2,
+    "fat": 22.2,
+    "saturatedFat": 10.4,
+    "sugar": 42.4,
+    "fiber": 7.4,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bulgogi-fried-rice",
+   "name": "Chicken Bulgogi Fried Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 14.3,
+    "carbs": 47.1,
+    "fat": 17.5,
+    "saturatedFat": 3.1,
+    "sugar": 10.5,
+    "fiber": 3.6,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-shiitake-teriyaki-fried-rice",
+   "name": "Pulled Shiitake Teriyaki Fried Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 460,
+    "protein": 8.8,
+    "carbs": 52.5,
+    "fat": 23.1,
+    "saturatedFat": 5.8,
+    "sugar": 10.6,
+    "fiber": 7.6,
+    "salt": 3.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-teriyaki-fried-rice",
+   "name": "Salmon Teriyaki Fried Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 10.8,
+    "carbs": 46.9,
+    "fat": 22.6,
+    "saturatedFat": 3.6,
+    "sugar": 11.2,
+    "fiber": 3.3,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-gyoza-and-shiitake-ramen",
+   "name": "Vegetable Gyoza & Shiitake Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 642,
+    "protein": 23.8,
+    "carbs": 86.3,
+    "fat": 20.7,
+    "saturatedFat": 6.4,
+    "sugar": 11.7,
+    "fiber": 11.8,
+    "salt": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-seafood-tan-tan",
+   "name": "Spicy Seafood Tan Tan",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 555,
+    "protein": 32.9,
+    "carbs": 66,
+    "fat": 15.9,
+    "saturatedFat": 3.6,
+    "sugar": 5.2,
+    "fiber": 5.5,
+    "salt": 8.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-dashi-ramen",
+   "name": "Chicken Dashi Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 644,
+    "protein": 43.3,
+    "carbs": 77.4,
+    "fat": 16.2,
+    "saturatedFat": 4.2,
+    "sugar": 15.3,
+    "fiber": 5,
+    "salt": 9.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chashu-chicken-ramen",
+   "name": "Chashu Chicken Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 876,
+    "protein": 50.1,
+    "carbs": 74.5,
+    "fat": 40.2,
+    "saturatedFat": 11.4,
+    "sugar": 13.4,
+    "fiber": 4.6,
+    "salt": 13.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bulgogi-noodles",
+   "name": "Chicken Bulgogi Noodles",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 339,
+    "protein": 14,
+    "carbs": 42.9,
+    "fat": 11.9,
+    "saturatedFat": 2.3,
+    "sugar": 14.3,
+    "fiber": 3.1,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-shiitake-teriyaki-noodles",
+   "name": "Pulled Shiitake Teriyaki Noodles",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 390,
+    "protein": 8.5,
+    "carbs": 48.3,
+    "fat": 17.6,
+    "saturatedFat": 5,
+    "sugar": 14.4,
+    "fiber": 7.1,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-noodles",
+   "name": "Prawn Noodles",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 317,
+    "protein": 10.9,
+    "carbs": 40.7,
+    "fat": 11.8,
+    "saturatedFat": 2.2,
+    "sugar": 12.6,
+    "fiber": 3,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu",
+   "name": "Chicken Katsu",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 247,
+    "protein": 12.4,
+    "carbs": 14.9,
+    "fat": 15,
+    "saturatedFat": 4.7,
+    "sugar": 3.4,
+    "fiber": 1.8,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu",
+   "name": "Pumpkin Katsu",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 154,
+    "protein": 2.5,
+    "carbs": 23.6,
+    "fat": 5.6,
+    "saturatedFat": 0.5,
+    "sugar": 9.2,
+    "fiber": 1.2,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-katsu",
+   "name": "Prawn Katsu",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 151,
+    "protein": 6,
+    "carbs": 18.7,
+    "fat": 5.9,
+    "saturatedFat": 0.8,
+    "sugar": 3,
+    "fiber": 1.5,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-teriyaki",
+   "name": "Beef Teriyaki",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 326,
+    "protein": 13.5,
+    "carbs": 19,
+    "fat": 21.7,
+    "saturatedFat": 4.1,
+    "sugar": 7.7,
+    "fiber": 1.4,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-teriyaki",
+   "name": "Chicken Teriyaki",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 193,
+    "protein": 19.8,
+    "carbs": 12.5,
+    "fat": 7.1,
+    "saturatedFat": 1.9,
+    "sugar": 8.5,
+    "fiber": 0.6,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-shiitake-teriyaki",
+   "name": "Pulled Shiitake Teriyaki",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 271,
+    "protein": 10.2,
+    "carbs": 24.5,
+    "fat": 14.5,
+    "saturatedFat": 7.8,
+    "sugar": 7.5,
+    "fiber": 12.4,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-gyoza",
+   "name": "Chicken Gyoza",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 206,
+    "protein": 8.1,
+    "carbs": 21,
+    "fat": 8.8,
+    "saturatedFat": 1.2,
+    "sugar": 1.6,
+    "fiber": 2.3,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-gyoza",
+   "name": "Vegetable Gyoza",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 7,
+    "carbs": 23,
+    "fat": 8.8,
+    "saturatedFat": 0.8,
+    "sugar": 3.4,
+    "fiber": 2.3,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-chicken-teriyaki-gyoza",
+   "name": "Loaded Chicken Teriyaki Gyoza",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 280,
+    "protein": 7.9,
+    "carbs": 24.8,
+    "fat": 16.2,
+    "saturatedFat": 1.8,
+    "sugar": 4.9,
+    "fiber": 2.4,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-vegetable-korean-gyoza",
+   "name": "Loaded Vegetable Korean Gyoza",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 220,
+    "protein": 6.6,
+    "carbs": 27,
+    "fat": 8.9,
+    "saturatedFat": 0.9,
+    "sugar": 6.9,
+    "fiber": 2.5,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-fried-chicken",
+   "name": "Korean Fried Chicken",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 19.6,
+    "carbs": 43.6,
+    "fat": 13.2,
+    "saturatedFat": 5.2,
+    "sugar": 21.4,
+    "fiber": 2.5,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "japanese-fried-chicken",
+   "name": "Japanese Fried Chicken",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 344,
+    "protein": 19.8,
+    "carbs": 17.2,
+    "fat": 21.2,
+    "saturatedFat": 5.9,
+    "sugar": 0.9,
+    "fiber": 2.5,
+    "salt": 1.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-yakitori",
+   "name": "Chicken Yakitori",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 227,
+    "protein": 18.8,
+    "carbs": 11,
+    "fat": 12.3,
+    "saturatedFat": 1.9,
+    "sugar": 9.1,
+    "fiber": 0.7,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-shrimp",
+   "name": "Popcorn Shrimp",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 427,
+    "protein": 14,
+    "carbs": 27.1,
+    "fat": 27.8,
+    "saturatedFat": 2.3,
+    "sugar": 15.4,
+    "fiber": 1,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-pepper-squid",
+   "name": "Spicy Pepper Squid",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 193,
+    "protein": 16.9,
+    "carbs": 15,
+    "fat": 6.4,
+    "saturatedFat": 0.8,
+    "sugar": 6.8,
+    "fiber": 0.7,
+    "salt": 1.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yo-fries",
+   "name": "Yo Fries",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 320,
+    "protein": 3.2,
+    "carbs": 32.8,
+    "fat": 19.2,
+    "saturatedFat": 1.7,
+    "sugar": 2.1,
+    "fiber": 0,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mighty-duck-fries",
+   "name": "Mighty Duck Fries",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 391,
+    "protein": 11.2,
+    "carbs": 39.5,
+    "fat": 20.7,
+    "saturatedFat": 1.9,
+    "sugar": 7.5,
+    "fiber": 0.2,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-shiitake-bao",
+   "name": "Pulled Shiitake Bao",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 378,
+    "protein": 7.1,
+    "carbs": 38.1,
+    "fat": 21.9,
+    "saturatedFat": 6.4,
+    "sugar": 9.4,
+    "fiber": 4.8,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chicken-bao",
+   "name": "Korean Chicken Bao",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 328,
+    "protein": 12.3,
+    "carbs": 38.6,
+    "fat": 13.7,
+    "saturatedFat": 3.4,
+    "sugar": 15,
+    "fiber": 0.9,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-crackers",
+   "name": "Prawn Crackers",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 142,
+    "protein": 0.6,
+    "carbs": 21.2,
+    "fat": 4.3,
+    "saturatedFat": 0.3,
+    "sugar": 0,
+    "fiber": 0.5,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "furi-furi-salt-and-pepper-chicken",
+   "name": "Furi Furi Salt & Pepper Chicken",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 412,
+    "protein": 21.4,
+    "carbs": 19.8,
+    "fat": 27.1,
+    "saturatedFat": 6.7,
+    "sugar": 1.8,
+    "fiber": 2.5,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickled-kimchi-cucumber",
+   "name": "Pickled Kimchi Cucumber",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0.5,
+    "carbs": 5.1,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 5,
+    "fiber": 2.1,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-crackers-2",
+   "name": "Prawn Crackers",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 0.2,
+    "carbs": 27.4,
+    "fat": 5.7,
+    "saturatedFat": 0.4,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-egg",
+   "name": "Katsu Egg",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 7.9,
+    "carbs": 10.1,
+    "fat": 4.7,
+    "saturatedFat": 1.3,
+    "sugar": 0.8,
+    "fiber": 0.8,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-corn-ribs",
+   "name": "Miso Corn Ribs",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 6.5,
+    "carbs": 30.1,
+    "fat": 6.9,
+    "saturatedFat": 0.9,
+    "sugar": 6.5,
+    "fiber": 0.1,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pak-choi-with-chilli-ginger",
+   "name": "Pak Choi with Chilli + Ginger",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 2.6,
+    "carbs": 9.6,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 7.9,
+    "fiber": 1.5,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sesame-tender-stem-broccoli",
+   "name": "Sesame Tender Stem Broccoli",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 4.9,
+    "carbs": 8,
+    "fat": 8.5,
+    "saturatedFat": 1.1,
+    "sugar": 6.9,
+    "fiber": 2.9,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-kakiage",
+   "name": "Vegetable Kakiage",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 2.5,
+    "carbs": 17,
+    "fat": 5.8,
+    "saturatedFat": 0.5,
+    "sugar": 7.6,
+    "fiber": 1.1,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-nigiri",
+   "name": "Salmon Nigiri",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 161,
+    "protein": 6.2,
+    "carbs": 20.8,
+    "fat": 5.6,
+    "saturatedFat": 0.7,
+    "sugar": 2.8,
+    "fiber": 0.7,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-nigiri",
+   "name": "Tuna Nigiri",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 126,
+    "protein": 9.2,
+    "carbs": 20.9,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 2.8,
+    "fiber": 0.9,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-maki",
+   "name": "Salmon Maki",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 6.6,
+    "carbs": 31.5,
+    "fat": 4.8,
+    "saturatedFat": 0.6,
+    "sugar": 4.1,
+    "fiber": 1.6,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-sashimi",
+   "name": "Salmon Sashimi",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 176,
+    "protein": 12.2,
+    "carbs": 1.2,
+    "fat": 13.8,
+    "saturatedFat": 1.7,
+    "sugar": 0.4,
+    "fiber": 0.4,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-sashimi",
+   "name": "Tuna Sashimi",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "protein": 19.7,
+    "carbs": 1.3,
+    "fat": 1.1,
+    "saturatedFat": 0.3,
+    "sugar": 0.5,
+    "fiber": 0.7,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nigiri-n-maki-mix",
+   "name": "Nigiri 'n' Maki Mix",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 299,
+    "protein": 10.3,
+    "carbs": 44.7,
+    "fat": 6.9,
+    "saturatedFat": 1,
+    "sugar": 6,
+    "fiber": 2.3,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-top-hits",
+   "name": "Salmon Top Hits",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 339,
+    "protein": 14.3,
+    "carbs": 35.5,
+    "fat": 14.2,
+    "saturatedFat": 1.8,
+    "sugar": 5.5,
+    "fiber": 2,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-california-roll",
+   "name": "Crunchy California Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 309,
+    "protein": 4.3,
+    "carbs": 31.1,
+    "fat": 17.6,
+    "saturatedFat": 2.5,
+    "sugar": 7.1,
+    "fiber": 1.8,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yo-roll",
+   "name": "Yo Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 205,
+    "protein": 6.6,
+    "carbs": 24.9,
+    "fat": 7.5,
+    "saturatedFat": 1.1,
+    "sugar": 4.3,
+    "fiber": 1.4,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "popcorn-prawn-roll",
+   "name": "Popcorn Prawn Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 321,
+    "protein": 7.4,
+    "carbs": 36,
+    "fat": 14.6,
+    "saturatedFat": 2.3,
+    "sugar": 6.6,
+    "fiber": 3.1,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dynamite-roll",
+   "name": "Dynamite Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 245,
+    "protein": 4.7,
+    "carbs": 26.9,
+    "fat": 12.7,
+    "saturatedFat": 2.1,
+    "sugar": 6.6,
+    "fiber": 1.1,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monster-maki",
+   "name": "Monster Maki",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 179,
+    "protein": 4.6,
+    "carbs": 24.4,
+    "fat": 5.5,
+    "saturatedFat": 0.7,
+    "sugar": 3.7,
+    "fiber": 1.6,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-dragon-roll",
+   "name": "Salmon Dragon Roll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 243,
+    "protein": 7.3,
+    "carbs": 25.2,
+    "fat": 11.5,
+    "saturatedFat": 1.4,
+    "sugar": 3.6,
+    "fiber": 1.4,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "konbini-tuna-onigiri",
+   "name": "Konbini Tuna Onigiri",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 219,
+    "protein": 8.7,
+    "carbs": 29.9,
+    "fat": 6.8,
+    "saturatedFat": 0.7,
+    "sugar": 5.3,
+    "fiber": 1.2,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-avocado-handroll",
+   "name": "Salmon + Avocado Handroll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 5.2,
+    "carbs": 15.1,
+    "fat": 11.2,
+    "saturatedFat": 1.5,
+    "sugar": 1.9,
+    "fiber": 1.7,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california-handroll",
+   "name": "California Handroll",
+   "category": "Sushi & fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 234,
+    "protein": 4.7,
+    "carbs": 19.3,
+    "fat": 13.5,
+    "saturatedFat": 1.5,
+    "sugar": 2.8,
+    "fiber": 1.7,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-edamame",
+   "name": "Classic Edamame",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 129,
+    "protein": 12.3,
+    "carbs": 5.9,
+    "fat": 4.7,
+    "saturatedFat": 0.7,
+    "sugar": 2.8,
+    "fiber": 7.5,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kaiso-seaweed",
+   "name": "Kaiso Seaweed",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 171,
+    "protein": 4.8,
+    "carbs": 26.8,
+    "fat": 3.3,
+    "saturatedFat": 0.5,
+    "sugar": 23.4,
+    "fiber": 2.4,
+    "salt": 5.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-inari-taco",
+   "name": "Veggie Inari Taco",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 4.3,
+    "carbs": 20.4,
+    "fat": 4.7,
+    "saturatedFat": 0.7,
+    "sugar": 8,
+    "fiber": 0.9,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sesame-cucumber-maki",
+   "name": "Sesame Cucumber Maki",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 163,
+    "protein": 3.1,
+    "carbs": 32,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 4.5,
+    "fiber": 1.8,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-maki",
+   "name": "Avocado Maki",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 220,
+    "protein": 3.1,
+    "carbs": 32,
+    "fat": 6.4,
+    "saturatedFat": 1.2,
+    "sugar": 4.3,
+    "fiber": 2.5,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yasai-roll",
+   "name": "Yasai Roll",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 191,
+    "protein": 3.2,
+    "carbs": 30.1,
+    "fat": 5.3,
+    "saturatedFat": 0.5,
+    "sugar": 8.6,
+    "fiber": 1.3,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-volcano-roll",
+   "name": "Veggie Volcano Roll",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 238,
+    "protein": 3.3,
+    "carbs": 29.5,
+    "fat": 10.3,
+    "saturatedFat": 2.7,
+    "sugar": 6.4,
+    "fiber": 2.9,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yasai-handroll",
+   "name": "Yasai Handroll",
+   "category": "Yasai (vegetable)",
+   "serving": "",
+   "nutrients": {
+    "calories": 155,
+    "protein": 2.9,
+    "carbs": 16.7,
+    "fat": 6.5,
+    "saturatedFat": 1,
+    "sugar": 3.5,
+    "fiber": 1.7,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-sushi-sando",
+   "name": "Chicken Katsu Sushi Sando",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 570,
+    "protein": 16.4,
+    "carbs": 59.8,
+    "fat": 26.9,
+    "saturatedFat": 6.1,
+    "sugar": 7.2,
+    "fiber": 4.2,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-katsu-roll",
+   "name": "Spicy Chicken Katsu Roll",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 180,
+    "protein": 5,
+    "carbs": 29.7,
+    "fat": 3.2,
+    "saturatedFat": 1.2,
+    "sugar": 6.1,
+    "fiber": 1.6,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hoisin-duck-roll",
+   "name": "Hoisin Duck Roll",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 6.1,
+    "carbs": 31.2,
+    "fat": 1.4,
+    "saturatedFat": 0.6,
+    "sugar": 9.1,
+    "fiber": 1.3,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-roll",
+   "name": "Korean Bbq Chicken Roll",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 180,
+    "protein": 7.4,
+    "carbs": 27,
+    "fat": 3.6,
+    "saturatedFat": 0.4,
+    "sugar": 6.1,
+    "fiber": 1.6,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-nigiri",
+   "name": "Beef Nigiri",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 8.2,
+    "carbs": 21.5,
+    "fat": 1.8,
+    "saturatedFat": 0.6,
+    "sugar": 3.2,
+    "fiber": 0.9,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-tataki",
+   "name": "Beef Tataki",
+   "category": "Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 79,
+    "protein": 10.1,
+    "carbs": 4.9,
+    "fat": 2.1,
+    "saturatedFat": 0.7,
+    "sugar": 3.8,
+    "fiber": 0.6,
+    "salt": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sushi-for-two",
+   "name": "Sushi for Two",
+   "category": "To share",
+   "serving": "",
+   "nutrients": {
+    "calories": 728,
+    "protein": 30.4,
+    "carbs": 78.3,
+    "fat": 29.6,
+    "saturatedFat": 3.7,
+    "sugar": 11.1,
+    "fiber": 3.6,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-little-moons-mochi",
+   "name": "Chocolate Little Moons Mochi",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 3,
+    "carbs": 37.2,
+    "fat": 9.8,
+    "saturatedFat": 6.1,
+    "sugar": 23.2,
+    "fiber": 0.1,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dorayaki-pancakes",
+   "name": "Dorayaki Pancakes",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 174,
+    "protein": 2.3,
+    "carbs": 36.7,
+    "fat": 1.8,
+    "saturatedFat": 0.8,
+    "sugar": 19.2,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-pie-gyoza",
+   "name": "Apple Pie Gyoza",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 2.8,
+    "carbs": 33.1,
+    "fat": 1.8,
+    "saturatedFat": 0.4,
+    "sugar": 14.9,
+    "fiber": 1.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cotton-candy-cheesecake",
+   "name": "Cotton Candy Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 294,
+    "protein": 7.7,
+    "carbs": 26.8,
+    "fat": 17.3,
+    "saturatedFat": 10.7,
+    "sugar": 20.4,
+    "fiber": 0.2,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yuzu-cheesecake-mochi",
+   "name": "Yuzu Cheesecake Mochi",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 202,
+    "protein": 1.9,
+    "carbs": 34.9,
+    "fat": 6,
+    "saturatedFat": 3.7,
+    "sugar": 20.3,
+    "fiber": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-latte-strawberry-mochi",
+   "name": "Matcha Latte Strawberry Mochi",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 202,
+    "protein": 1.7,
+    "carbs": 34.5,
+    "fat": 6.3,
+    "saturatedFat": 4,
+    "sugar": 17.3,
+    "fiber": 0.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-matcha-cream-puff",
+   "name": "Blueberry Matcha Cream Puff",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 430,
+    "protein": 7.8,
+    "carbs": 24.5,
+    "fat": 32.9,
+    "saturatedFat": 20.8,
+    "sugar": 18.6,
+    "fiber": 3.2,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mississippi-mud-cake",
+   "name": "Mississippi Mud Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 211,
+    "protein": 1.9,
+    "carbs": 33.7,
+    "fat": 7.5,
+    "saturatedFat": 4,
+    "sugar": 23.1,
+    "fiber": 0.1,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-caramel-chocolate-brownie",
+   "name": "Miso-caramel Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 505,
+    "protein": 5.9,
+    "carbs": 65,
+    "fat": 24.8,
+    "saturatedFat": 12.5,
+    "sugar": 46.2,
+    "fiber": 2.4,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soy-sauce",
+   "name": "Soy Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 1.4,
+    "carbs": 1.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 2.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickled-ginger",
+   "name": "Pickled Ginger",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wasabi",
+   "name": "Wasabi",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 44,
+    "protein": 1.4,
+    "carbs": 6.5,
+    "fat": 1.3,
+    "saturatedFat": 0,
+    "sugar": 3.1,
+    "fiber": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-soup",
+   "name": "Miso Soup",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 2.7,
+    "carbs": 6.7,
+    "fat": 1.2,
+    "saturatedFat": 0.2,
+    "sugar": 3,
+    "fiber": 0,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-rice",
+   "name": "Steamed Rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 309,
+    "protein": 5.1,
+    "carbs": 68.8,
+    "fat": 0.3,
+    "saturatedFat": 0.1,
+    "sugar": 0.3,
+    "fiber": 2.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-sauce",
+   "name": "Curry Sauce",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "protein": 0.9,
+    "carbs": 7.8,
+    "fat": 6,
+    "saturatedFat": 3.8,
+    "sugar": 3,
+    "fiber": 0.6,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cod-bites",
+   "name": "Cod Bites",
+   "category": "Limited time",
+   "serving": "",
+   "nutrients": {
+    "calories": 254,
+    "protein": 24.7,
+    "carbs": 22.7,
+    "fat": 6,
+    "saturatedFat": 0.6,
+    "sugar": 2.6,
+    "fiber": 2.2,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}
