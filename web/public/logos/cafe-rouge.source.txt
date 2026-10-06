@@ -1,0 +1,8 @@
+status: installed
+file: cafe-rouge.png
+source_url: https://www.caferouge.com/assets/rouge/images/logo.png
+page: https://www.caferouge.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+retrieved: 2026-10-06

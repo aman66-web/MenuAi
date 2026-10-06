@@ -1,6 +1,7 @@
-status: skipped-unavailable
+status: skipped-blocked
 file: none
-source_url: none (no brand or press page found: pizzahut.co.uk is a JavaScript app that returns the same shell for every path, and the Pizza Hut Restaurants site at /restaurants/about has no press, media or brand-asset link in its menu or footer)
+page: https://www.pizzahut.co.uk/
+why: The chain's own site refused an automated visit (page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.pizzahut.co.uk/); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
 terms_url: https://www.pizzahut.co.uk/restaurants/about/terms-and-conditions
 terms_summary: The terms page body is loaded by script and was not present in the page as served (no browser was available and no workaround was attempted), so no licence to use the logo could be confirmed; with no download offered, nothing was installed.
-retrieved: 2026-10-05
+retrieved: 2026-10-06

@@ -1,0 +1,8 @@
+status: installed
+file: puccinos.png
+source_url: https://cdn.shopify.com/s/files/1/0383/3328/4487/files/logo_2x_b50b5643-ff11-4fb0-bb84-b8373960f631_175x.png?v=1591474937
+page: https://www.puccinosworldwide.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+retrieved: 2026-10-06

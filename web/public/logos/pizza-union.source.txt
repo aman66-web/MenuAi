@@ -1,0 +1,9 @@
+status: installed
+file: pizza-union.svg
+source_url: https://www.pizzaunion.com/ (inline SVG in the page header)
+page: https://www.pizzaunion.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+note: single-colour artwork whose colour the site sets with CSS (white on its header); the file is saved as served, so on its own it renders in its default black, shown on a white tile
+retrieved: 2026-10-06

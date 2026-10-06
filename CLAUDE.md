@@ -43,8 +43,10 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    food images). The chain's name is always plain text. Founder's decision (2026-10-05, nominative use): a chain's **official logo file, unmodified**, may appear small next
    to its name in lists and headers purely to identify the restaurant (`web/lib/mm/logos.ts`, `web/public/logos/`). Never
    recreate or redraw a logo; never recolour, crop or distort one; never use one as the app's own icon or branding or on
-   marketing as if the chain were a partner; files come only from the chain's own brand/press page, with source and terms
-   noted in `web/public/logos/SOURCES.md`; take one down the day its owner asks. Show "Not affiliated with {chain}" where
+   marketing as if the chain were a partner; files come only from the chain's own website (its brand/press page if it has one,
+   otherwise the logo file its own site serves, saved byte for byte), with source and terms noted in `web/public/logos/SOURCES.md`;
+   take one down the day its owner asks. Founder's decision (2026-10-06): logos are installed even where a chain's site terms
+   restrict reuse of its marks (the founder's accepted risk); photos still need the per-chain go-ahead below. Show "Not affiliated with {chain}" where
    the spec says. Founder's decision (2026-10-06, they checked they may): an item may show **the chain's own photo of it**,
    resized only (never cropped in the file, recoloured, retouched or generated), taken only from the chain's own official
    menu/nutrition pages or feeds (never third parties, aggregators or stock), attached only when that page names the item

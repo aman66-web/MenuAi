@@ -1,0 +1,8 @@
+status: installed
+file: coco-di-mama.png
+source_url: https://www.cocodimama.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fysupxjc9%2Fproduction%2F021c8a553d5ea5cf238fbd476d68889d828918da-2953x1221.png&w=128&q=75
+page: https://www.cocodimama.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+retrieved: 2026-10-06

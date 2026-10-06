@@ -1,0 +1,7 @@
+status: skipped-blocked
+file: none
+page: https://www.gbk.co.uk/
+why: The chain's own site didn't load within 30 seconds (gbkinfo.com returned 404, gbk.co.uk timed out); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+retrieved: 2026-10-06

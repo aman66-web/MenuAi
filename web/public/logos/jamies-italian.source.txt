@@ -1,0 +1,7 @@
+status: skipped-unconfirmed
+file: none
+page: https://www.jamiesitalian.co.uk/
+why: The only header artwork is a large yellow "J" served as /icons/logo/jamies-overlay-vector.svg; its name says it is a decorative overlay, so it can't be confirmed as the logo and was not installed.
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+retrieved: 2026-10-06

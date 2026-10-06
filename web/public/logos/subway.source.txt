@@ -1,6 +1,7 @@
-status: skipped-terms
+status: skipped-blocked
 file: none
-source_url: none (the UK site links to https://media.subway.com, which serves only the single word "media" and no press kit or logo downloads; /en-gb/aboutus/press returns 404)
+page: https://www.subway.com/en-GB
+why: The chain's own site refused an automated visit (page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.subway.com/en-GB); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
 terms_url: https://www.subway.com/en-gb/legal/terms-of-use
 terms_summary: Subway's terms say the Subway name and logo are registered trademarks of Subway IP LLC, grant no licence to any of its trademarks or service marks, and prohibit unauthorised use.
-retrieved: 2026-10-05
+retrieved: 2026-10-06

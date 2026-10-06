@@ -1,6 +1,8 @@
-status: skipped-terms
-file: none
-source_url: https://www.starbucks.co.uk/about-us (no press or brand page on the UK site; its only press link, https://stories.starbucks.com/emea/, and about.starbucks.com both returned HTTP 403 with a Cloudflare challenge, which was not worked around)
+status: installed
+file: starbucks.svg
+source_url: https://www.starbucks.co.uk/ (inline SVG in the page header)
+page: https://www.starbucks.co.uk/
 terms_url: https://www.starbucks.co.uk/termsandconditions
 terms_summary: The terms (Copyright, Trademarks, and User License) say the Starbucks logo and other Starbucks Marks may not be copied, imitated or used, in whole or in part, without Starbucks' prior written permission, and no logo download is offered.
-retrieved: 2026-10-05
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+retrieved: 2026-10-06

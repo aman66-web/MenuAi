@@ -30,9 +30,9 @@ export function ChainMark({ chainId, cuisine, size = "md" }: { chainId?: string;
   const glyph = size === "lg" ? "h-8 w-8" : size === "sm" ? "h-5 w-5" : "h-6 w-6";
   if (logo) {
     return (
-      <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line bg-white p-1.5 ${box}`}>
+      <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line ${size === "sm" ? "p-1" : "p-1.5"} ${logo.tile === "dark" ? "bg-[#111]" : "bg-white"} ${box}`}>
         {/* eslint-disable-next-line @next/next/no-img-element -- the official file, used as published: no resizing pipeline, no recolouring */}
-        <img src={logo} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" onError={() => setLogoFailed(true)} />
+        <img src={logo.src} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" onError={() => setLogoFailed(true)} />
       </span>
     );
   }

@@ -1,6 +1,8 @@
-status: skipped-terms
-file: none
-source_url: https://www.pret.co.uk/en-GB/mediacentre (press releases only, with a Press Office contact; no logo or brand-asset download offered)
+status: installed
+file: pret.png
+source_url: https://images.ctfassets.net/4zu8gvmtwqss/4J3tq43hFKDHLTwPXX2YBb/ee4fbeaa8ea7b08f41ec974168af5927/pret-a-manger-logo.png
+page: https://www.pret.co.uk/en-GB
 terms_url: https://www.pret.co.uk/en-GB/legal
 terms_summary: Pret's terms (clauses 7.1-7.2) reserve all trade marks and say none of the site content may be downloaded, copied or reproduced without prior written consent, and no brand kit is offered.
-retrieved: 2026-10-05
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+retrieved: 2026-10-06

@@ -1,6 +1,8 @@
-status: skipped-unavailable
-file: none
-source_url: https://www.popeyes.co.uk/ (no press/brand page reachable: /, /media and /robots.txt all returned HTTP 403 with a Cloudflare "Just a moment..." challenge; popeyes.com is the US chain, not the UK operator, and rbi.com is behind the same challenge)
+status: installed
+file: popeyes.png
+source_url: https://popeyesuk.com/assets/images/header-logo.png
+page: https://popeyesuk.com/
 terms_url: none reachable (blocked by the same challenge)
 terms_summary: Not read: the Popeyes UK site is behind a bot challenge, which was not worked around, so no brand page or terms could be checked and nothing was downloaded.
-retrieved: 2026-10-05
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+retrieved: 2026-10-06

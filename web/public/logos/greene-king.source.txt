@@ -1,0 +1,8 @@
+status: installed
+file: greene-king.png
+source_url: https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/46eed790ac914e3bba51ba55913b2510?v=37953a30
+page: https://www.greeneking-pubs.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+retrieved: 2026-10-06

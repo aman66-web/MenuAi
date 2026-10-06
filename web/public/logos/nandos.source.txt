@@ -1,6 +1,7 @@
-status: skipped-terms
+status: skipped-blocked
 file: none
-source_url: none (no brand or press page found: nandos.co.uk/press returns 404 and the homepage footer links to no press kit or brand assets)
+page: https://www.nandos.co.uk/
+why: The chain's own site refused an automated visit (blocked); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
 terms_url: https://www.nandos.co.uk/nandos-terms-and-conditions
 terms_summary: Nando's terms reserve the Nando's name and mark and its images, grant no right to use its intellectual property, and allow downloads only for personal non-commercial use.
-retrieved: 2026-10-05
+retrieved: 2026-10-06

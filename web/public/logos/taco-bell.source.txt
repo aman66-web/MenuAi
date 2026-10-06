@@ -1,6 +1,8 @@
-status: skipped-terms
-file: none
-source_url: https://www.tacobell.co.uk/ (no press, media or brand page: /press returns the home page and the terms directory lists only app, offer and website terms)
+status: installed
+file: taco-bell.png
+source_url: https://www.tacobell.co.uk/wp-content/uploads/2020/07/logo.png
+page: https://www.tacobell.co.uk/
 terms_url: https://www.tacobell.co.uk/website-terms/
 terms_summary: The website terms say Taco Bell's trademarks are not to be reproduced or copied without the express written permission of Taco Bell, and no logo download is offered.
-retrieved: 2026-10-05
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page
+retrieved: 2026-10-06

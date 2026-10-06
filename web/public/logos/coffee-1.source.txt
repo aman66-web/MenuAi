@@ -1,0 +1,7 @@
+status: skipped-no-file
+file: none
+page: https://www.coffee1.co.uk/
+why: The header logo is a character in the site's icon font (<i class="icon-c1-logo">), not a file; saving it would mean redrawing it.
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+retrieved: 2026-10-06

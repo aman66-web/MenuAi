@@ -147,6 +147,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   /app/settings/numbers), the onboarding line "We'll leave matching items out of your top picks" is fine but the filters can't promise
   anything, so the new caution line sits under it; consider folding the two into one sentence.
 
+- 2026-10-06 — **Logos installed (founder: "Use the actual logos for the brands").** 53 of 72 chains now show their own logo,
+  saved byte for byte from the chain's own website header (robots.txt honoured), on a plain white or near-black tile
+  (`web/lib/mm/logos.ts`, `web/public/logos/`, records in `SOURCES.md` + `<id>.source.txt`). This is installed even where a chain's
+  terms restrict reuse of its marks (KFC-style clauses were found on 11 of 11 chains checked): the founder's accepted risk; CLAUDE.md
+  rule 2 updated. Not installed (19): 17 sites blocked or challenged an automated visit and were not worked around (KFC, Nando's,
+  Pizza Hut, Subway, Premier Inn, GBK, and the Mitchells & Butlers pubs: All Bar One, Browns, Ember Inns, Harvester, Miller & Carter,
+  Nicholson's, O'Neill's, Sizzling Pubs, Stonehouse, Toby Carvery, Vintage Inns); Coffee #1's logo is only a character in its icon
+  font (no file); Jamie's Italian's header "J" is named as an overlay graphic, so not confirmed as the logo. Côte and Pizza Union are
+  single-colour SVGs the site colours white with CSS: saved as served, they render black on a white tile. Item photos are unchanged
+  (still need the per-chain go-ahead).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -169,7 +180,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md
-- [ ] **Logos:** send the official logo files you are comfortable using (each chain's own brand/press page), or tell me to fetch them from those pages and I'll record the source and terms for each
+- [ ] **Logos (19 missing):** their sites block automated visits. To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me: KFC, Nando's, Pizza Hut, Subway, Premier Inn, GBK, Coffee #1, Jamie's Italian, and the M&B pubs (All Bar One, Browns, Ember Inns, Harvester, Miller & Carter, Nicholson's, O'Neill's, Sizzling Pubs, Stonehouse, Toby Carvery, Vintage Inns)
 - [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
