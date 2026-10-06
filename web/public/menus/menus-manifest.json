@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261006092329,
- "generatedAt": "2026-10-06T09:23:29Z",
+ "dataVersion": 20261006094809,
+ "generatedAt": "2026-10-06T09:48:09Z",
  "chains": [
   {
    "id": "abokado",
@@ -195,8 +195,8 @@
    "name": "Chiquito",
    "cuisine": "Mexican",
    "file": "chain-chiquito.json",
-   "sha256": "8469e531eab54e213afb53d8650a9182020a742ac3519ee10962ea017881c413",
-   "contentHash": "3f49123ba5c8dd7443dcdfbd02b4b94fd21c415df6d2c0b327e2124fbc11720d",
+   "sha256": "1424d97994c677b415831afeabb5a05349c96f1f27118318ca3609c1758d0a28",
+   "contentHash": "4538da5001814c2cabed6267df5f1be85ccf55a941b1f9cfb7c4b8160f4410f7",
    "sample": false,
    "itemCount": 197,
    "checkedOn": "2026-10-06"
