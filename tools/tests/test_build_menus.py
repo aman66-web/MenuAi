@@ -405,3 +405,71 @@ class NoteAndHoldbackTests(unittest.TestCase):
         (chain,) = search["chains"]
         self.assertEqual((chain["id"], chain["sample"]), ("uk-chain", True))
         self.assertEqual(chain["items"], [["burger", "Burger", 463]])  # the held-back item is not searchable either
+
+
+class ImagesTests(unittest.TestCase):
+    """images.csv: the chain's own item photo, exported as item.image once the stored file checks out."""
+    NUT = NoteAndHoldbackTests.NUT
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.src = self.tmp / "source"
+        self.out = self.tmp / "out"
+        self.images = self.tmp / "images"
+        (self.src / "uk-chain").mkdir(parents=True)
+        (self.images / "uk-chain").mkdir(parents=True)
+        NoteAndHoldbackTests.write(self, holdback="odd,Guide prints 367 g of carbohydrate\n")
+        (self.images / "uk-chain" / "abc123def456.webp").write_bytes(b"RIFFxxxxWEBPfake")
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def images_csv(self, *rows):
+        (self.src / "uk-chain" / "images.csv").write_text("item_id,file,source_url,retrieved_on\n" + "".join(r + "\n" for r in rows))
+
+    def build(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            return bm.main(["--source", str(self.src), "--out", str(self.out), "--images-dir", str(self.images), "--quiet"])
+
+    def items(self):
+        return {i["id"]: i for i in json.loads((self.out / "chain-uk-chain.json").read_text())["items"]}
+
+    def test_no_images_file_means_no_image_key(self):
+        self.assertEqual(self.build(), 0)
+        self.assertNotIn("image", self.items()["burger"])
+
+    def test_a_valid_row_exports_the_image_path(self):
+        self.images_csv("burger,abc123def456.webp,https://example.com/menu/burger,2026-10-06")
+        self.assertEqual(self.build(), 0)
+        self.assertEqual(self.items()["burger"]["image"], "uk-chain/abc123def456.webp")
+
+    def test_a_missing_file_is_an_error(self):
+        self.images_csv("burger,000000000000.webp,https://example.com/menu/burger,2026-10-06")
+        self.assertEqual(self.build(), 1)
+
+    def test_only_webp_names_and_https_sources_are_accepted(self):
+        self.images_csv("burger,abc123def456.png,https://example.com/x,2026-10-06")
+        self.assertEqual(self.build(), 1)
+        self.images_csv("burger,abc123def456.webp,http://example.com/x,2026-10-06")
+        self.assertEqual(self.build(), 1)
+
+    def test_an_oversized_file_is_an_error(self):
+        (self.images / "uk-chain" / "abc123def456.webp").write_bytes(b"x" * (bm.MAX_IMAGE_BYTES + 1))
+        self.images_csv("burger,abc123def456.webp,https://example.com/x,2026-10-06")
+        self.assertEqual(self.build(), 1)
+
+    def test_rows_for_held_back_items_are_ignored_and_stale_rows_only_warn(self):
+        self.images_csv("odd,abc123def456.webp,https://example.com/x,2026-10-06",
+                        "gone,abc123def456.webp,https://example.com/y,2026-10-06")
+        self.assertEqual(self.build(), 0)
+        report = (self.out / "check-report.md").read_text()
+        self.assertIn("images.csv line 3: item 'gone' is not in items.csv any more", report)
+        self.assertNotIn("'odd' is not in items.csv", report)
+        self.assertNotIn("image", self.items()["burger"])
+
+    def test_items_may_share_one_photo(self):
+        (self.src / "uk-chain" / "holdback.csv").unlink()
+        self.images_csv("burger,abc123def456.webp,https://example.com/x,2026-10-06",
+                        "odd,abc123def456.webp,https://example.com/x,2026-10-06")
+        self.assertEqual(self.build(), 0)
+        self.assertEqual({self.items()[i]["image"] for i in ("burger", "odd")}, {"uk-chain/abc123def456.webp"})

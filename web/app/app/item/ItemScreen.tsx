@@ -9,6 +9,7 @@ import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
 import { ChevronLeftIcon } from "../_components/icons";
+import { ItemPhotoHero } from "../_components/ItemPhoto";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
 import { ReportSheet } from "../_components/Submit";
@@ -48,6 +49,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
         {chain.sample && <Badge>Sample data</Badge>}
       </div>
 
+      <ItemPhotoHero image={item.image} chainName={chain.name} />
       <div className="mt-5"><ItemHero nutrients={item.nutrients} name={item.name} /></div>
       <div className="mt-3"><NutrientTable nutrients={item.nutrients} /></div>
 

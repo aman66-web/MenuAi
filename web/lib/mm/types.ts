@@ -60,6 +60,8 @@ export interface MenuItem {
   limitedTime: boolean;
   rankable: boolean;
   addedOn?: string; // yyyy-MM-dd
+  /** The chain's own photo of this item, "<chain-id>/<file>.webp" under /menu-images/ (see lib/mm/images.ts); absent when none. */
+  image?: string;
   components: ComponentRef[];
   modifiers: Modifier[];
 }

@@ -52,6 +52,11 @@ NUTRIENT_COLUMNS = {  # CSV column -> JSON key
 # Columns a CSV may leave out entirely (older files); when present they are read like any other nutrient column.
 OPTIONAL_COLUMNS = {"salt_g"}
 SEARCH_FILE = "menus-search.json"
+# Item photos (docs/DATA.md "images.csv"): the chain's own photo, resized and stored here by tools/uk_extract/images_common.py.
+DEFAULT_IMAGES_DIR = ROOT / "web" / "public" / "menu-images"
+IMAGES_DIR = DEFAULT_IMAGES_DIR
+IMAGE_FILE_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*\.webp$")
+MAX_IMAGE_BYTES = 150_000
 INTEGER_NUTRIENTS = {"calories", "sodium"}
 TWO_DECIMAL_NUTRIENTS = {"salt"}  # salt is published to 2 decimals (e.g. 0.16 g); rounding it to 1 would change the published figure
 _N = list(NUTRIENT_COLUMNS)
@@ -64,6 +69,7 @@ HEADERS = {
     "modifiers.csv": ["item_id", "id", "label", "kind", *_N, "tags"],
     "combos.csv": ["id", "name", "item_ids"],
     "holdback.csv": ["item_id", "reason"],
+    "images.csv": ["item_id", "file", "source_url", "retrieved_on"],
 }
 
 ALLOWED_TAGS = {"vegetarian", "contains_pork", "contains_beef"}
@@ -428,6 +434,29 @@ def load_chain(folder: Path) -> ChainBuild:
             item["addedOn"] = r["added_on"]
         b.items[item_id] = item
 
+    # images.csv (optional): the chain's own photo for an item. The file lives under IMAGES_DIR/<chain-id>/ (written by
+    # tools/uk_extract/images_common.py); a row only counts while its item is published. Many items may share one file.
+    for line, r in read_csv(folder / "images.csv", E, f"{cid}/images.csv"):
+        w = f"{cid}/images.csv line {line}"
+        item = b.items.get(r["item_id"])
+        if item is None:
+            if r["item_id"] not in holdback:
+                W.append(f"{w}: item {r['item_id']!r} is not in items.csv any more: remove or update this line")
+            continue
+        path = IMAGES_DIR / cid / r["file"]
+        if not IMAGE_FILE_RE.match(r["file"]):
+            E.append(f"{w}: file {r['file']!r} must be a lowercase-hyphen .webp name")
+        elif not path.is_file():
+            E.append(f"{w}: image file {path.relative_to(ROOT) if path.is_relative_to(ROOT) else path} does not exist")
+        elif path.stat().st_size > MAX_IMAGE_BYTES:
+            E.append(f"{w}: image is {path.stat().st_size:,} bytes; keep each under {MAX_IMAGE_BYTES:,}")
+        else:
+            if not r["source_url"].startswith("https://"):
+                E.append(f"{w}: source_url must start with https:// (the chain's own page the photo came from)")
+            if r["retrieved_on"]:
+                parse_date(r["retrieved_on"], "retrieved_on", w, E)
+            item["image"] = f"{cid}/{r['file']}"
+
     # modifiers.csv -----------------------------------------------------
     for line, r in read_csv(folder / "modifiers.csv", E, f"{cid}/modifiers.csv"):
         w = f"{cid}/modifiers.csv line {line}"
@@ -631,14 +660,17 @@ def file_sha256(path: Path) -> str:
 
 
 def main(argv=None) -> int:
+    global IMAGES_DIR
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--source", default=str(ROOT / "data" / "source"))
     ap.add_argument("--out", default=str(ROOT / "dist" / "menus"))
     ap.add_argument("--bundle-into", default=None, help="also copy the JSON files here (e.g. MenuMacros/Resources/Menus)")
     ap.add_argument("--only", action="append", help="rebuild only these chain ids into an existing --out (repeatable)")
     ap.add_argument("--no-samples", action="store_true", help="skip chains marked sample=true (use for release)")
+    ap.add_argument("--images-dir", default=None, help="where item photos live (default web/public/menu-images)")
     ap.add_argument("-q", "--quiet", action="store_true", help="print only errors")
     args = ap.parse_args(argv)
+    IMAGES_DIR = Path(args.images_dir).resolve() if args.images_dir else DEFAULT_IMAGES_DIR
 
     src, out = Path(args.source), Path(args.out)
     folders = sorted(p for p in src.iterdir() if p.is_dir() and not p.name.startswith(("_", ".")))

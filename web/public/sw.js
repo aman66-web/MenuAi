@@ -2,6 +2,7 @@
  *
  * Goal: after you've opened something once, it keeps working with a poor or no connection.
  *  - /_next/static/* and /icons/*: cache-first (file names contain a content hash, so they never go stale)
+ *  - /menu-images/*: cache-first in their own capped cache (item photos are named by content hash, so they never go stale)
  *  - /menus/*, /menus-sample/* and /logos/*: network-first, falling back to the last copy
  *  - /app/* pages (and their data requests): network-first, falling back to the last copy
  *  - /app/chain, /app/item and /app/builder are static shells that read their ids from the query string, so ONE cached
@@ -13,7 +14,8 @@ const VERSION = "mm-v1";
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const DATA = `${VERSION}-data`;
-const MAX_ENTRIES = { [PAGES]: 80, [DATA]: 120, [STATIC]: 200 };
+const IMAGES = `${VERSION}-images`;
+const MAX_ENTRIES = { [PAGES]: 80, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150 };
 const NETWORK_TIMEOUT_MS = 5000;
 const SHELLS = ["/app", "/app/search", "/app/saved", "/app/today", "/app/settings", "/app/settings/numbers", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
 const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder"];
@@ -94,13 +96,13 @@ async function trim(cache, name) {
   for (let i = 0; i < extra; i++) await cache.delete(keys[i]);
 }
 
-async function cacheFirst(request) {
-  const cache = await caches.open(STATIC);
+async function cacheFirst(request, cacheName = STATIC) {
+  const cache = await caches.open(cacheName);
   const hit = await cache.match(request);
   if (hit) return hit;
   const response = await fetch(request);
   if (response.ok && response.type === "basic") {
-    cache.put(request, response.clone()).then(() => trim(cache, STATIC));
+    cache.put(request, response.clone()).then(() => trim(cache, cacheName));
   }
   return response;
 }
@@ -139,6 +141,8 @@ self.addEventListener("fetch", (event) => {
 
   if (path.startsWith("/_next/static/") || path.startsWith("/icons/")) {
     event.respondWith(cacheFirst(request));
+  } else if (path.startsWith("/menu-images/")) {
+    event.respondWith(cacheFirst(request, IMAGES));
   } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/") || path.startsWith("/logos/")) {
     event.respondWith(networkFirst(request, DATA));
   } else if (path === "/app" || path.startsWith("/app/")) {

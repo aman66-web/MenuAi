@@ -39,13 +39,18 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
 1. **Never invent or estimate nutrition numbers.** Menu data comes only from the pipeline JSON.
    Missing optional nutrients display "not published". Don't hand-edit files in `Resources/Menus/`;
    change `data/source/` and rerun the pipeline.
-2. **No restaurant brand colours, mascots, food photos, or logos we make ourselves.** The chain's name is always plain
-   text. Founder's decision (2026-10-05, nominative use): a chain's **official logo file, unmodified**, may appear small next
+2. **No restaurant brand colours, mascots, or logos/pictures we make ourselves** (no drawn, redrawn, generated or edited
+   food images). The chain's name is always plain text. Founder's decision (2026-10-05, nominative use): a chain's **official logo file, unmodified**, may appear small next
    to its name in lists and headers purely to identify the restaurant (`web/lib/mm/logos.ts`, `web/public/logos/`). Never
    recreate or redraw a logo; never recolour, crop or distort one; never use one as the app's own icon or branding or on
    marketing as if the chain were a partner; files come only from the chain's own brand/press page, with source and terms
    noted in `web/public/logos/SOURCES.md`; take one down the day its owner asks. Show "Not affiliated with {chain}" where
-   the spec says.
+   the spec says. Founder's decision (2026-10-06, they checked they may): an item may show **the chain's own photo of it**,
+   resized only (never cropped in the file, recoloured, retouched or generated), taken only from the chain's own official
+   menu/nutrition pages or feeds (never third parties, aggregators or stock), attached only when that page names the item
+   exactly, stored in `web/public/menu-images/` with `images.csv` + `web/public/menu-images/SOURCES.md` recording the page;
+   fetched politely (robots.txt honoured, never round a block); captioned "Photo from {chain}'s website"; never in marketing,
+   the share card, the app icon or store screenshots; a chain's photos come down the day it asks (delete its folder + `images.csv`).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
 4. **Privacy:** no accounts, no personal data off the device (except what the user chooses to send
    through the API: reports, chain requests, support messages). **Never put a Supabase key in the

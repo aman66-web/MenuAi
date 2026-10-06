@@ -12,6 +12,7 @@ import type { Meal, MenuItem, Preferences } from "@/lib/mm/types";
 import { BestForYou } from "../_components/BestForYou";
 import { ChainMark } from "../_components/ChainMark";
 import { ChevronLeftIcon, ChevronRightIcon, StarIcon } from "../_components/icons";
+import { ItemThumb } from "../_components/ItemPhoto";
 import { MacroLine } from "../_components/Nutrition";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, Chip, EmptyState, ErrorBox, inputClass, SampleBadge, Spinner } from "../_components/ui";
@@ -126,13 +127,16 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                     onClick={() => analytics.track({ name: "itemOpened", chainId: chain.id })}
                     className="glass flex min-h-16 items-center justify-between gap-3 rounded-2xl px-4 py-3 transition active:scale-[0.99] hover:bg-soft-strong"
                   >
-                    <span className="min-w-0">
-                      <span className="flex flex-wrap items-center gap-2">
-                        <span className="text-base font-bold tracking-tight">{item.name}</span>
-                        {isNewItem(item, now) && <Badge tone="accent">New</Badge>}
-                        {item.limitedTime && <Badge>Limited time</Badge>}
+                    <span className="flex min-w-0 items-center gap-3">
+                      <ItemThumb image={item.image} />
+                      <span className="min-w-0">
+                        <span className="flex flex-wrap items-center gap-2">
+                          <span className="text-base font-bold tracking-tight">{item.name}</span>
+                          {isNewItem(item, now) && <Badge tone="accent">New</Badge>}
+                          {item.limitedTime && <Badge>Limited time</Badge>}
+                        </span>
+                        <MacroLine nutrients={item.nutrients} />
                       </span>
-                      <MacroLine nutrients={item.nutrients} />
                     </span>
                     <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
                   </Link>

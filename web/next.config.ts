@@ -16,6 +16,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Item photos are named by a hash of their content (tools/uk_extract/images_common.py), so a file never changes.
+        source: "/menu-images/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+        ],
+      },
+      {
         // The service worker must always be re-checked so a new version reaches people promptly.
         source: "/sw.js",
         headers: [

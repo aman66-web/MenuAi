@@ -115,6 +115,16 @@ left out of the menu and shown in the check report under "Held back" until the c
 the extraction script's output, so a monthly re-extraction never brings the item back by accident. A line whose item no
 longer exists gives a warning.
 
+### images.csv (optional)
+
+`item_id,file,source_url,retrieved_on`: the chain's **own photo** of an item (founder's decision 2026-10-06, CLAUDE.md
+rule 2). `file` is a `<12 hex>.webp` under `web/public/menu-images/<chain-id>/`, written by
+`tools/uk_extract/images_common.py` (resize to 640 px and WebP only: no crop, recolour or retouch). `source_url` is the
+chain page that shows that photo for that item; a photo is attached only when the chain's own page names the item exactly.
+Several items may share one file (sizes of one product). The build exports `image: "<chain-id>/<file>"` on the item
+(errors: missing file, not `.webp`, over 150,000 bytes, non-https source; warning: item no longer in items.csv). Rows for
+held-back items are ignored. Never from third-party sites, stock libraries, or generated/edited images.
+
 ### combos.csv (optional, hand-made meals of whole items)
 
 `id, name, item_ids` — e.g. `nuggets-fruit, Nuggets (12 ct) + fruit cup, nuggets-12|fruit-cup`.

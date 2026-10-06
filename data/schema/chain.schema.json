@@ -329,6 +329,11 @@
             "$ref": "#/$defs/modifier"
           },
           "description": "Standard items only: published add/remove options."
+        },
+        "image": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*/[a-z0-9]+(?:-[a-z0-9]+)*\\.webp$",
+          "description": "Optional. The chain's own photo of this item: '<chain-id>/<file>.webp', served from /menu-images/ (docs/DATA.md images.csv)."
         }
       }
     },

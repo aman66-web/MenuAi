@@ -20,7 +20,8 @@ invented number. Read `docs/DATA.md` first (file formats, checks). The worked ex
 4. **Great Britain menu only.** Leave out rows marked as Ireland / Northern Ireland only, regional trials, "selected
    restaurants" only, and rows without a stated serving (e.g. "per 250 ml" when the bottle size isn't given).
    Write each exclusion down in your report.
-5. **Plain text only.** No logos, brand colours, mascots, food photos; names as the chain prints them (tidy
+5. **Plain text only** in the nutrition extraction. No logos, brand colours, mascots, food photos (item photos are a separate
+   Phase 4 job below); names as the chain prints them (tidy
    capitalisation and "(regular)/(large)" suffixes are fine).
 6. Don't change anything outside your chain's own `data/source/<chain-id>/` and
    `tools/uk_extract/<chain-id>*.py`. No commits, no pushes, no edits to the pipeline, docs, web code or other chains.
@@ -130,3 +131,27 @@ The founder authorised sourcing official logos (CLAUDE.md rule 2). For each chai
    `web/public/logos/<chain-id>.source.txt` (one `key: value` per line: `status` = installed | skipped-terms |
    skipped-unavailable, `file`, `source_url`, `terms_url`, `terms_summary` (one sentence), `retrieved` (date)).
    Do **not** edit `logos.ts`, `SOURCES.md` or any other file: the orchestrator assembles them from the sidecars.
+
+## Phase 4: item photos (`web/public/menu-images/`, `data/source/<chain>/images.csv`)
+
+Founder-approved 2026-10-06 (CLAUDE.md rule 2): the chain's own photo of an item, from the chain's own pages/feeds only.
+Done after the chain's nutrition data is banked. Use `tools/uk_extract/images_common.py` (see its docstring) and write
+`tools/uk_extract/images_<chain>.py` (re-runnable, `--cache <dir>`).
+
+1. **Source:** the chain's own website: its menu/product pages or the JSON feed those pages load (often the same feed as the
+   nutrition data). Never Google Images, delivery apps, aggregators, social media, stock sites, Wikipedia. If robots.txt
+   disallows it, or the site answers 403/429, stop and report: never work round it.
+2. **Match exactly:** attach a photo to an item only when the chain's own page/feed entry for that photo has the same name
+   (use `norm_name`) as the published item, or when the same product record carries both the photo and the item's size/variant.
+   No fuzzy matching, no "closest dish", no category banners. Ambiguous or duplicate names: no photo. Wrong photo is worse than
+   none. `source_url` = the page that shows the photo for that item.
+3. **Placeholders:** sites often serve a generic "coming soon"/logo image. Run `suspected_placeholders()` and look at every
+   file used by 4+ items and at a random 15 others (Read the PNG/WebP files); drop anything that is not a real photo of that item.
+4. **Never** crop, recolour, add text, upscale, retouch or generate. `store_image` only downsizes to 640 px and converts to
+   WebP; it rejects icons (<200 px) and animations.
+5. **Politeness:** 1 request/second per host, normal browser User-Agent, one fetch per photo (cache), no crawling beyond the
+   menu pages. Budget: about 40-80 tool calls; the downloads happen inside your script.
+6. Deliver: the script, `images.csv`, the stored files, `python3 tools/uk_extract/check_chain.py <chain>` showing 0 errors, and a
+   report (under 150 words): items with a photo / published items, source pages, anything skipped and why, any terms or
+   robots notice you saw on the site (quote it). Photos are about 20-60 KB each, so skip a chain rather than store hundreds of
+   photos that don't match. Do not commit; touch only your chain's files.

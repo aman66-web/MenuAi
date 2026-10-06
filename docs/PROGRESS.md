@@ -109,6 +109,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   UK guides don't say the meat type for every item, so the filter can't promise a dish is pork-free (matters for halal): the
   per-chain lists of "meat type not stated" are in docs/UK_DATA_STATUS.md.
 
+- 2026-10-06 — **Food images** (founder's call, "I checked I'm able to do that"; CLAUDE.md rule 2 amended). An item may show the
+  chain's own photo of it: taken only from the chain's own pages/feeds, attached only when that page names the item exactly,
+  resized to 640 px WebP (nothing else changed), stored in `web/public/menu-images/<chain>/` (git, about 20-60 KB each), recorded in
+  `data/source/<chain>/images.csv` (+ `SOURCES.md`), shown on the chain list (thumbnail) and item page (with "Photo from {chain}'s
+  website"), never in marketing/share card/icon. Items without a photo keep the plain layout. Playbook: Phase 4. Photos are found
+  chain by chain by agents after the nutrition data is banked, so coverage differs per chain; the report says how many items have one.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -136,4 +143,4 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
 - [ ] Decide whether to promote the newest build to Production (it is only on Previews, behind Vercel login)
-- [ ] **Food images (decision needed, rule 2 currently says no food photos):** you asked for "images for each food, ideally". Nothing has been downloaded. Options: (a) keep our own cuisine glyphs (today); (b) the chain's own item photos where its nutrition page shows one: copyright sits with the chain and nominative use (your logo reasoning) does not cover product photography, so this needs each chain's permission or a licence; (c) pictures you commission or generate yourself (cost, and a "this is an illustration" label). Tell me which and I will amend CLAUDE.md rule 2 and build the image slot (`image` per item, optional, lazy-loaded, with a text fallback)
+- [x] Food images: decided 2026-10-06 (chain's own photos, see decisions log). Still yours: keep the proof that you may use them (each chain's terms or permission), and tell me to remove a chain's photos the day it asks (`web/public/menu-images/<chain>/` + its `images.csv`)
