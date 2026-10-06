@@ -100,6 +100,36 @@
       "items": {
         "$ref": "#/$defs/combination"
       }
+    },
+    "allergenGuide": {
+      "type": "object",
+      "required": [
+        "title",
+        "url",
+        "checkedOn",
+        "mayContainPublished",
+        "complete"
+      ],
+      "additionalProperties": false,
+      "description": "Optional. The chain's own allergen guide. complete=false: the guide couldn't be read completely, so no item carries allergens and the app only links to the guide.",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "checkedOn": {
+          "$ref": "#/$defs/date"
+        },
+        "mayContainPublished": {
+          "type": "boolean"
+        },
+        "complete": {
+          "type": "boolean"
+        }
+      }
     }
   },
   "$defs": {
@@ -236,6 +266,9 @@
         },
         "allowDouble": {
           "type": "boolean"
+        },
+        "allergens": {
+          "$ref": "#/$defs/allergens"
         }
       }
     },
@@ -334,6 +367,9 @@
           "type": "string",
           "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*/[a-z0-9]+(?:-[a-z0-9]+)*\\.webp$",
           "description": "Optional. The chain's own photo of this item: '<chain-id>/<file>.webp', served from /menu-images/ (docs/DATA.md images.csv)."
+        },
+        "allergens": {
+          "$ref": "#/$defs/allergens"
         }
       }
     },
@@ -408,6 +444,84 @@
         "itemCount": {
           "type": "integer",
           "minimum": 1
+        }
+      }
+    },
+    "allergenKey": {
+      "type": "string",
+      "enum": [
+        "celery",
+        "gluten",
+        "crustaceans",
+        "eggs",
+        "fish",
+        "lupin",
+        "milk",
+        "molluscs",
+        "mustard",
+        "nuts",
+        "peanuts",
+        "sesame",
+        "soya",
+        "sulphites"
+      ],
+      "description": "One of the 14 allergens UK law requires to be declared ('gluten' = cereals containing gluten, 'nuts' = tree nuts, 'sulphites' = sulphur dioxide and sulphites)."
+    },
+    "allergens": {
+      "type": "object",
+      "required": [
+        "contains",
+        "mayContain"
+      ],
+      "additionalProperties": false,
+      "description": "Copied from the chain's own allergen guide (docs/DATA.md 'Allergens'). Present only when the chain's guide was read completely.",
+      "properties": {
+        "contains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/allergenKey"
+          },
+          "uniqueItems": true
+        },
+        "mayContain": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/allergenKey"
+          },
+          "uniqueItems": true,
+          "description": "'May contain' / traces, only as the guide prints them; empty when none are printed (see allergenGuide.mayContainPublished)."
+        },
+        "cereals": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "wheat",
+              "rye",
+              "barley",
+              "oats",
+              "spelt",
+              "kamut"
+            ]
+          },
+          "uniqueItems": true,
+          "description": "Which cereals containing gluten, when the guide names them."
+        },
+        "nuts": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "almond",
+              "hazelnut",
+              "walnut",
+              "cashew",
+              "pecan",
+              "brazil nut",
+              "pistachio",
+              "macadamia"
+            ]
+          },
+          "uniqueItems": true,
+          "description": "Which tree nuts, when the guide names them."
         }
       }
     }

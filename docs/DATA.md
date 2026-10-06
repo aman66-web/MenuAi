@@ -126,6 +126,33 @@ Several items may share one file (sizes of one product). The build exports `imag
 (errors: missing file, not `.webp`, over 150,000 bytes, non-https source; warning: item no longer in items.csv). Rows for
 held-back items are ignored. Never from third-party sites, stock libraries, or generated/edited images.
 
+### Allergens: allergens.csv + allergen_guide.csv (optional)
+
+Founder's decision 2026-10-06: show each item's allergens, as specifically as the chain's own guide prints them. Allergens
+are safety information, so the rules are stricter than for nutrition:
+
+- **Copied by the chain's extraction script from the chain's own allergen guide** (the same official page/PDF/feed family as
+  the nutrition numbers). Never typed in by hand, never inferred from an item's name or ingredients, never from third parties.
+- **All or nothing.** When `allergens.csv` exists, every published item (and every component a recipe uses) must have a row,
+  or the build stops. If a chain's guide can't be read completely (blocked site, missing items), leave `allergens.csv` out:
+  with only `allergen_guide.csv` the app shows "See {chain}'s allergen guide" with the link and no list.
+
+`allergen_guide.csv` (one row): `title, url, checked_on, may_contain_published` — the guide's own name and date, its https
+URL, the day it was read, and `yes` if the guide prints "may contain"/traces information at all (`no` otherwise, so the app
+never implies "no traces" from silence).
+
+`allergens.csv`: `id, contains, may_contain, cereals, nuts` — `id` is an item id, or a component id for build-your-own
+chains (component items get the union of their parts: contains = anything any part contains). `contains` and `may_contain`
+are `|`-separated keys from the 14 allergens UK law requires: `celery, gluten` (cereals containing gluten)`, crustaceans,
+eggs, fish, lupin, milk, molluscs, mustard, nuts` (tree nuts)`, peanuts, sesame, soya, sulphites` (sulphur dioxide and
+sulphites). An empty `contains` means the guide marks none of the 14 for that item. `cereals` names which gluten cereals
+(`wheat|rye|barley|oats|spelt|kamut`) and `nuts` which tree nuts (`almond|hazelnut|walnut|cashew|pecan|brazil nut|pistachio|
+macadamia`) when the guide names them; they require `gluten` / `nuts` in `contains`. Errors: unknown key, a key in both
+columns, a missing or duplicate row, a row for an id that doesn't exist. Rows for held-back items are ignored.
+
+Output: `item.allergens = {contains, mayContain, cereals?, nuts?}` (and the same on components), and
+`chain.allergenGuide = {title, url, checkedOn, mayContainPublished, complete}`.
+
 ### combos.csv (optional, hand-made meals of whole items)
 
 `id, name, item_ids` — e.g. `nuggets-fruit, Nuggets (12 ct) + fruit cup, nuggets-12|fruit-cup`.

@@ -158,6 +158,18 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   single-colour SVGs the site colours white with CSS: saved as served, they render black on a white tile. Item photos are unchanged
   (still need the per-chain go-ahead).
 
+- 2026-10-06 — **New colours (founder: "green gradient and white").** The orange "ember" palette is replaced by "fresh": white
+  base with a soft green glow, a lime-to-emerald gradient for the main action, emerald accents; dark mode is deep green-black.
+  All text colours re-checked for WCAG AA (muted 6.3:1, accent 5.5:1 on white); axe 0 in light and dark. The app icon is now a
+  white ring on the green gradient; social card, share card, progress ring and browser theme colour follow. Offline cache
+  bumped to `mm-v3` so installed copies get the new icon.
+- 2026-10-06 — **Allergens (founder's request) — groundwork done, extraction next.** Data contract in docs/DATA.md
+  ("Allergens"): the 14 UK allergens plus the named cereal and tree nut, copied by each chain's extraction script from its
+  own allergen guide, all or nothing per chain (a chain we can't read completely shows only a link to its guide: founder's
+  decision). Display only for now (no allergen filter yet: founder's decision). Pipeline + schema + tests and the web
+  helpers are in; the item-page section and the per-chain extraction follow. Prices: the founder wants the nearest branch's
+  prices; a feasibility check per chain is running (location must stay on the device, CLAUDE.md rule 4).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

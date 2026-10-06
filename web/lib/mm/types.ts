@@ -31,6 +31,27 @@ export interface ComponentRef {
   qty: number; // 1 or 2 in menu data
 }
 
+/** The 14 allergens UK law requires to be declared (docs/DATA.md "Allergens"). */
+export const ALLERGEN_KEYS = ["celery", "gluten", "crustaceans", "eggs", "fish", "lupin", "milk", "molluscs", "mustard", "nuts", "peanuts", "sesame", "soya", "sulphites"] as const;
+export type AllergenKey = (typeof ALLERGEN_KEYS)[number];
+
+/** Copied from the chain's own allergen guide; present only when that guide was read completely. */
+export interface Allergens {
+  contains: AllergenKey[];
+  mayContain: AllergenKey[];
+  cereals?: string[]; // which cereals containing gluten, as the guide names them
+  nuts?: string[]; // which tree nuts
+}
+
+export interface AllergenGuide {
+  title: string;
+  url: string;
+  checkedOn: string;
+  mayContainPublished: boolean;
+  /** false: the guide couldn't be read completely, so nothing carries allergens and the app only links to it. */
+  complete: boolean;
+}
+
 export interface MenuComponent {
   id: string;
   group: ComponentGroup;
@@ -40,6 +61,7 @@ export interface MenuComponent {
   tags: Tag[];
   removable: boolean;
   allowDouble: boolean;
+  allergens?: Allergens;
 }
 
 export interface Modifier {
@@ -62,6 +84,7 @@ export interface MenuItem {
   addedOn?: string; // yyyy-MM-dd
   /** The chain's own photo of this item, "<chain-id>/<file>.webp" under /menu-images/ (see lib/mm/images.ts); absent when none. */
   image?: string;
+  allergens?: Allergens;
   components: ComponentRef[];
   modifiers: Modifier[];
 }
@@ -88,6 +111,7 @@ export interface Chain {
   sample: boolean;
   source: { title: string; url: string; checkedOn: string };
   note?: string; // a limit of the published data (docs/DATA.md note.txt), shown under the source
+  allergenGuide?: AllergenGuide;
   categories: string[];
   components: MenuComponent[];
   items: MenuItem[];

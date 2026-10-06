@@ -70,7 +70,16 @@ HEADERS = {
     "combos.csv": ["id", "name", "item_ids"],
     "holdback.csv": ["item_id", "reason"],
     "images.csv": ["item_id", "file", "source_url", "retrieved_on"],
+    "allergens.csv": ["id", "contains", "may_contain", "cereals", "nuts"],
+    "allergen_guide.csv": ["title", "url", "checked_on", "may_contain_published"],
 }
+
+# The 14 allergens UK law requires food businesses to declare, in the order guides usually print them (docs/DATA.md).
+ALLERGENS = ["celery", "gluten", "crustaceans", "eggs", "fish", "lupin", "milk", "molluscs", "mustard", "nuts", "peanuts",
+             "sesame", "soya", "sulphites"]
+# UK law also names the cereal and the tree nut; these are the ones the law lists ("spelt" and "kamut" are wheats).
+CEREALS = ["wheat", "rye", "barley", "oats", "spelt", "kamut"]
+TREE_NUTS = ["almond", "hazelnut", "walnut", "cashew", "pecan", "brazil nut", "pistachio", "macadamia"]
 
 ALLOWED_TAGS = {"vegetarian", "contains_pork", "contains_beef"}
 ALLOWED_GROUPS = ["base", "wrap", "protein", "topping", "sauce", "side", "drink", "extra"]
@@ -152,6 +161,20 @@ def add_nutrients(parts: list[tuple[dict, float]]) -> dict:
 
 def energy_estimate(n: dict) -> float:
     return 4 * n["protein"] + 4 * n["carbs"] + 9 * n["fat"]
+
+
+def union_allergens(parts: list[dict]) -> dict:
+    """An item built from parts contains everything any part contains; 'may contain' never repeats a 'contains'."""
+    contains = sorted({k for p in parts for k in p["contains"]}, key=ALLERGENS.index)
+    may = sorted({k for p in parts for k in p["mayContain"]} - set(contains), key=ALLERGENS.index)
+    out = {"contains": contains, "mayContain": may}
+    cereals = sorted({k for p in parts for k in p.get("cereals", [])}, key=CEREALS.index)
+    nuts = sorted({k for p in parts for k in p.get("nuts", [])}, key=TREE_NUTS.index)
+    if cereals:
+        out["cereals"] = cereals
+    if nuts:
+        out["nuts"] = nuts
+    return out
 
 
 def energy_problem(n: dict) -> str | None:
@@ -456,6 +479,83 @@ def load_chain(folder: Path) -> ChainBuild:
             if r["retrieved_on"]:
                 parse_date(r["retrieved_on"], "retrieved_on", w, E)
             item["image"] = f"{cid}/{r['file']}"
+
+    # allergens.csv + allergen_guide.csv (optional; docs/DATA.md "Allergens"). All or nothing: when allergens.csv exists,
+    # every published item (and every component a recipe uses) must have a row, so a chain never shows a list that only
+    # looks complete. Copied from the chain's own allergen guide by its extraction script; never typed or inferred.
+    guide_rows = read_csv(folder / "allergen_guide.csv", E, f"{cid}/allergen_guide.csv")
+    allergen_rows = read_csv(folder / "allergens.csv", E, f"{cid}/allergens.csv")
+    if allergen_rows and not guide_rows:
+        E.append(f"{cid}/allergens.csv needs allergen_guide.csv (the guide's title, URL and date)")
+    if len(guide_rows) > 1:
+        E.append(f"{cid}/allergen_guide.csv: exactly one row expected, found {len(guide_rows)}")
+    if guide_rows:
+        gl, g = guide_rows[0]
+        w = f"{cid}/allergen_guide.csv"
+        for col in ["title", "url", "checked_on"]:
+            if not g[col]:
+                E.append(f"{w}: '{col}' is required")
+        if g["url"] and not g["url"].startswith("https://"):
+            E.append(f"{w}: url must start with https://")
+        if g["checked_on"]:
+            parse_date(g["checked_on"], "checked_on", w, E)
+        b.chain["allergenGuide"] = {
+            "title": g["title"], "url": g["url"], "checkedOn": g["checked_on"],
+            "mayContainPublished": parse_bool(g["may_contain_published"], False, w, E),
+            "complete": bool(allergen_rows),
+        }
+    if allergen_rows:
+        def keys(raw, allowed, what, w):
+            out = []
+            for k in [x.strip().lower() for x in raw.split("|") if x.strip()]:
+                if k not in allowed:
+                    E.append(f"{w}: unknown {what} {k!r} (allowed: {', '.join(allowed)})")
+                elif k not in out:
+                    out.append(k)
+            return sorted(out, key=allowed.index)
+        found = {}
+        for line, r in allergen_rows:
+            w = f"{cid}/allergens.csv line {line}"
+            aid = r["id"]
+            if aid in found:
+                E.append(f"{w}: duplicate id {aid!r}")
+                continue
+            if aid not in b.items and aid not in b.components:
+                if aid not in holdback:
+                    E.append(f"{w}: {aid!r} is neither an item nor a component of this chain")
+                continue
+            a = {"contains": keys(r["contains"], ALLERGENS, "allergen", w), "mayContain": keys(r["may_contain"], ALLERGENS, "allergen", w)}
+            both = set(a["contains"]) & set(a["mayContain"])
+            if both:
+                E.append(f"{w}: {', '.join(sorted(both))} listed as both 'contains' and 'may contain'")
+            cereals, nuts = keys(r["cereals"], CEREALS, "cereal", w), keys(r["nuts"], TREE_NUTS, "tree nut", w)
+            if cereals and "gluten" not in a["contains"]:
+                E.append(f"{w}: cereals named but 'gluten' is not in contains")
+            if nuts and "nuts" not in a["contains"]:
+                E.append(f"{w}: tree nuts named but 'nuts' is not in contains")
+            if cereals:
+                a["cereals"] = cereals
+            if nuts:
+                a["nuts"] = nuts
+            found[aid] = a
+        used_components = {c["id"] for it in b.items.values() for c in it["components"]}
+        for cid_ in sorted(used_components):
+            if cid_ not in found:
+                E.append(f"{cid}/allergens.csv: no row for component {cid_!r} (every component a recipe uses needs one)")
+            else:
+                b.components[cid_]["allergens"] = found[cid_]
+        for item in b.items.values():
+            if item["components"]:
+                parts = [found[c["id"]] for c in item["components"] if c["id"] in found]
+                if len(parts) == len(item["components"]):
+                    item["allergens"] = union_allergens(parts)
+            elif item["id"] in found:
+                item["allergens"] = found[item["id"]]
+            else:
+                E.append(f"{cid}/allergens.csv: no row for item {item['id']!r} ({item['name']})")
+        for comp_id, comp in b.components.items():
+            if comp_id in found and comp_id not in used_components:
+                comp["allergens"] = found[comp_id]
 
     # modifiers.csv -----------------------------------------------------
     for line, r in read_csv(folder / "modifiers.csv", E, f"{cid}/modifiers.csv"):

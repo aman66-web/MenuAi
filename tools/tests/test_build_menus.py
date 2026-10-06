@@ -473,3 +473,99 @@ class ImagesTests(unittest.TestCase):
                         "odd,abc123def456.webp,https://example.com/x,2026-10-06")
         self.assertEqual(self.build(), 0)
         self.assertEqual({self.items()[i]["image"] for i in ("burger", "odd")}, {"uk-chain/abc123def456.webp"})
+
+
+class AllergenTests(unittest.TestCase):
+    """allergens.csv + allergen_guide.csv: copied from the chain's own guide, all or nothing (docs/DATA.md "Allergens")."""
+
+    GUIDE = "title,url,checked_on,may_contain_published\nAllergen guide (Oct 2026),https://example.com/allergens,2026-10-06,yes\n"
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.src, self.out = self.tmp / "source", self.tmp / "out"
+        self.src.mkdir()
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def build(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            return bm.main(["--source", str(self.src), "--out", str(self.out), "--quiet"])
+
+    def report(self):
+        return (self.out / "check-report.md").read_text()
+
+    def doc(self):
+        return json.loads((self.out / "chain-test-chain.json").read_text())
+
+    def chain(self, rows, guide=GUIDE, builder="build_your_own"):
+        f = write_chain(self.src, builder=builder, components=BASIC_COMPONENTS, items=BASIC_ITEMS)
+        if guide is not None:
+            (f / "allergen_guide.csv").write_text(guide)
+        if rows is not None:
+            (f / "allergens.csv").write_text("id,contains,may_contain,cereals,nuts\n" + rows)
+        return f
+
+    FULL = ("rice,,,,\ngreens,celery,,,\nchicken,gluten|eggs,mustard,wheat|barley,\n"
+            "cheese,milk,nuts,,\ndressing,mustard|eggs|nuts,sesame,,almond|walnut\n")
+
+    def test_component_items_contain_everything_their_parts_contain(self):
+        self.chain(self.FULL)
+        self.assertEqual(self.build(), 0, self.report())
+        doc = self.doc()
+        bowl = doc["items"][0]["allergens"]
+        self.assertEqual(bowl["contains"], ["gluten", "eggs", "milk", "mustard", "nuts"])  # canonical order
+        self.assertEqual(bowl["mayContain"], ["sesame"])  # mustard and nuts are contained by another part, so not "may"
+        self.assertEqual(bowl["cereals"], ["wheat", "barley"])
+        self.assertEqual(bowl["nuts"], ["almond", "walnut"])
+        self.assertEqual(doc["allergenGuide"], {"title": "Allergen guide (Oct 2026)", "url": "https://example.com/allergens",
+                                                "checkedOn": "2026-10-06", "mayContainPublished": True, "complete": True})
+        self.assertEqual(next(c for c in doc["components"] if c["id"] == "greens")["allergens"]["contains"], ["celery"])
+
+    def test_a_missing_row_is_an_error_never_a_partial_list(self):
+        self.chain(self.FULL.replace("cheese,milk,nuts,,\n", ""))
+        self.assertEqual(self.build(), 1)
+        self.assertIn("no row for component 'cheese'", self.report())
+
+    def test_standard_item_without_a_row_is_an_error(self):
+        f = write_chain(self.src, builder="standard", items=item_row("a", "A", "B", nutrients="100,5,10,4,,,,") + item_row("b", "B", "B", nutrients="100,5,10,4,,,,"))
+        (f / "allergen_guide.csv").write_text(self.GUIDE)
+        (f / "allergens.csv").write_text("id,contains,may_contain,cereals,nuts\na,milk,,,\n")
+        self.assertEqual(self.build(), 1)
+        self.assertIn("no row for item 'b'", self.report())
+
+    def test_bad_values_are_errors(self):
+        for rows, message in [
+            (self.FULL.replace("rice,,,,", "rice,gluten-free,,,"), "unknown allergen 'gluten-free'"),
+            (self.FULL.replace("rice,,,,", "rice,milk,milk,,"), "both 'contains' and 'may contain'"),
+            (self.FULL.replace("rice,,,,", "rice,,,wheat,"), "cereals named but 'gluten' is not in contains"),
+            (self.FULL.replace("rice,,,,", "rice,nuts,,,peanut"), "unknown tree nut 'peanut'"),
+            (self.FULL + "rice,,,,\n", "duplicate id 'rice'"),
+            (self.FULL + "ghost,,,,\n", "neither an item nor a component"),
+        ]:
+            with self.subTest(message=message):
+                shutil.rmtree(self.src); self.src.mkdir()
+                self.chain(rows)
+                self.assertEqual(self.build(), 1)
+                self.assertIn(message, self.report())
+
+    def test_allergens_need_the_guide(self):
+        self.chain(self.FULL, guide=None)
+        self.assertEqual(self.build(), 1)
+        self.assertIn("needs allergen_guide.csv", self.report())
+
+    def test_guide_without_allergens_is_link_only(self):
+        self.chain(None)
+        self.assertEqual(self.build(), 0, self.report())
+        doc = self.doc()
+        self.assertFalse(doc["allergenGuide"]["complete"])
+        self.assertNotIn("allergens", doc["items"][0])
+
+    def test_output_matches_schema(self):
+        try:
+            import jsonschema
+        except ImportError:
+            self.skipTest("pip install jsonschema to run schema validation")
+        self.chain(self.FULL)
+        self.assertEqual(self.build(), 0)
+        jsonschema.validate(self.doc(), json.loads((ROOT / "data/schema/chain.schema.json").read_text()))
