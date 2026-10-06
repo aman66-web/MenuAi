@@ -13,7 +13,18 @@ let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
 
-await step("home: honest empty state, no sample data, even with a stale Pro override in storage", async () => {
+await step("home: real chains only (no sample data), even with a stale Pro override in storage", async () => {
+  await page.goto(BASE + "/app");
+  await vis(page.getByText(/\d+ UK restaurants/));
+  await page.waitForTimeout(500);
+  if (requests.some((r) => r.startsWith("/menus-sample"))) throw new Error("sample menus were requested in production");
+  if (await page.getByText("fictional sample data").count()) throw new Error("sample banner visible");
+  if (await page.getByText(/Cluck House|Bowl & Co/).count()) throw new Error("a fictional chain is listed");
+  if (await page.getByText("Left today").count()) throw new Error("Pro UI visible although Pro cannot be unlocked here");
+});
+await step("home: honest empty state when no chain is published yet", async () => {
+  // the published data now has real chains, so serve an empty (valid) manifest to check the state a new deploy starts in
+  await page.route("**/menus/menus-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ schemaVersion: 1, dataVersion: 1, generatedAt: "2026-10-01T00:00:00Z", chains: [] }) }));
   await page.goto(BASE + "/app");
   await vis(page.getByText("Menus are coming soon"));
   await vis(page.getByRole("button", { name: "Request a chain" }));

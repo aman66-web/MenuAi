@@ -149,7 +149,7 @@ export function Toggle({ checked, onChange, label, description }: { checked: boo
         {description && <span className="block text-sm text-muted">{description}</span>}
       </span>
       <input type="checkbox" role="switch" checked={checked} onChange={(e) => onChange(e.target.checked)} className="peer sr-only" />
-      <span aria-hidden className="relative h-8 w-14 shrink-0 rounded-full border border-line bg-soft-strong transition-colors peer-checked:border-transparent peer-checked:bg-sun peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent after:absolute after:left-1 after:top-1 after:h-5.5 after:w-5.5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-6" />
+      <span aria-hidden className="relative h-8 w-14 shrink-0 rounded-full border border-line bg-soft-strong transition-colors peer-checked:border-transparent peer-checked:[background:var(--sun)] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent after:absolute after:left-1 after:top-1 after:h-5.5 after:w-5.5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-6" />
     </label>
   );
 }

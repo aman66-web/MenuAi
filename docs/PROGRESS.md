@@ -17,6 +17,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 | W7 Saved, Today, Settings | done |  |
 | W8 Reports, requests, contact, share card | done |  |
 | W9 PWA, privacy page, verification | done | offline, a11y (axe 0), text-size, production-mode checked |
+| W10 UI finish for 72 real chains | done | browse by type, long-menu tools, search polish, item hero, own icon + social card; Lighthouse mobile 95-98 perf, 100 a11y |
 
 ## Native iPhone app (later)
 
@@ -124,6 +125,28 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   (11 of 11 chains checked): cuisine icons stay, the mechanisms stay ready, and the prepared photo sets install in one step if a chain
   gives permission or the founder says "install anyway" for it. Next step for the UI is `docs/NEXT_UI_PROMPT.md`.
 
+- 2026-10-06 — **UI finish (docs/NEXT_UI_PROMPT.md).** Home: search first, honest "{n} UK restaurants", browse-by-type chips
+  (`lib/mm/cuisine.ts`: 12 broad groups over the chains' own `cuisine` values, e.g. Japanese/Thai/Noodles → Asian; anything else
+  → "More"; the choice is kept for the browser tab), A to Z letter jump. Chain page: the data note and source/checked date in a card
+  at the top (footer keeps the spec's source line), sticky in-menu search + section chips, menus over 120 items open with 6 rows per
+  section ("Show all N in …"), sorted lists page by 60, off-screen rows skip layout (`.cv-row`), a "Best for you" shortcut button once
+  it has scrolled away, quieter rows for items Best for you never suggests (and "Not suggested in Best for you." under sections made only
+  of them). Search: skeleton while the index loads, match highlight, recent searches (this device only; "Clear data" removes them).
+  Item page: one hero card carries chain, name, serving, category and the numbers; the chain's note sits under the table. Filters: the
+  line "We only know what each restaurant publishes, so this can't promise a dish is pork-free." (names whichever filters are on) on
+  the chain page, Settings and onboarding. Own app icon (sun ring, `web/design/icon.svg`, rendered by `web/e2e/brand.mjs`) and social card
+  (`app/opengraph-image.png`); service worker cache bumped to `mm-v2` so installed copies pick up the icon. Marketing page shows numbers
+  read from the manifest at build time ("72 UK restaurants", "over 12,500" items: the true count is 12,614, so not "about 13,000").
+  Speed: first visits are sent to onboarding by a tiny inline script before the app loads, and the screen a visit opens on no longer
+  fades in (only in-app navigation does): Lighthouse mobile 89 → 96. Fixes found on the way: toggles never showed their "on" colour,
+  focus rings were squared off, item/Best for you rows had screen-reader names that didn't match their visible text (axe), 200% text
+  pushed long titles sideways. **Data:** Farmer J's cuisine label was "Healthy" (CLAUDE.md rule 3), now "Bowls" in `data/source`.
+  Not done: no logos or item photos (decision above); keyboard-over-input on iPhone Safari needs a real-device check (inputs use
+  `enterKeyHint`, nothing sits fixed above the keyboard except the tab bar).
+- 2026-10-06 — **Flagged for the founder (copy not changed, rule 8):** besides §12.3 above ("We type it in" is still on
+  /app/settings/numbers), the onboarding line "We'll leave matching items out of your top picks" is fine but the filters can't promise
+  anything, so the new caution line sits under it; consider folding the two into one sentence.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -142,7 +165,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Domain + support email; Vercel Pro before the site is public
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
 - [x] Real chain data in `data/source/`: 72 UK chains (about 12,900 items) extracted from official sources (see docs/UK_DATA_STATUS.md, which lists what needs your decision); keep the two sample folders; release builds use `--no-samples`. 150 was not possible: only 62 of 210 candidates publish full official macros, and 25 more need a file from you
-- [ ] App icon and screenshots (the web app and PWA use a placeholder `M` icon in `web/public/icons/` and `web/app/icon.png`)
+- [ ] App icon: an original icon now replaces the placeholder `M` (sun ring, `web/design/icon.svg`); tell me if you want a different mark. Store screenshots still to do
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md

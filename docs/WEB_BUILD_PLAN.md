@@ -17,7 +17,8 @@ accounts; personal data stays in the browser** (`localStorage`); only what the u
 
 | Spec item | Web version |
 |---|---|
-| Nearby chains (MapKit) | **Not in v1.** Browsers have no POI search that keeps location on the device. Home always shows "Popular" (all chains A–Z, first 10). Revisit if a privacy-safe option appears. |
+| Nearby chains (MapKit) | **Not in v1.** Browsers have no POI search that keeps location on the device. Home shows "Popular" (curated), then every other chain A–Z with a letter jump, plus "browse by type" chips (`lib/mm/cuisine.ts`). Revisit if a privacy-safe option appears. |
+| Chain page with very long menus | Beyond the spec: sticky in-menu search and section chips; menus over 120 items open with 6 rows per section (tap to show all); the chain's data note shows at the top as well as in the source footer. |
 | Apple Health | Not available on the web. "Log" saves to the device only. |
 | StoreKit subscriptions | **Not wired.** `lib/mm/entitlements.ts` is the seam. In production the paywall is honest ("Pro isn't on the web yet", email capture to the waitlist). Pro can be previewed with `NEXT_PUBLIC_PRO_PREVIEW=1` or the Settings toggle shown in non-production builds. Real payments need a founder decision (new dependency/account). |
 | Trial reminder notification | Skipped (depends on payments). |

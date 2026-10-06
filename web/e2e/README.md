@@ -21,10 +21,13 @@ node extra.mjs                                    # shared-link onboarding, menu
 node a11y.mjs                                     # axe-core on every screen, light and dark (expects 0 violations)
 node largetext.mjs                                # no horizontal overflow at 100/150/200% text
 node share.mjs                                    # share card downloads as a 1080×1350 PNG
+node browse.mjs                                   # Home browse by type + A-Z jump, long-menu search/section chips, filter caution, recent searches
 node offline.mjs                                  # stops and restarts the server: real offline (takes ~1.5 min)
+node shoot.mjs home=/app "chain=/app/chain?id=kfc" # screenshots for review (THEME=light, WIDTH=360, FULL=1, PRO=1)
+node brand.mjs                                    # re-render the app icon + social card from web/design/ (after a name change too)
 ```
 
 `prodmode.mjs` is for the **production default** (no sample data): build without `NEXT_PUBLIC_SHOW_SAMPLE_DATA`, start on port 3102
-(`BASE=http://localhost:3102 node prodmode.mjs`). It checks the honest empty state and that Pro cannot be unlocked.
+(`BASE=http://localhost:3102 node prodmode.mjs`). It checks that only real chains show, the honest empty state (with an empty manifest), and that Pro cannot be unlocked.
 
 Screenshots land in `e2e/shots/` (git-ignored).

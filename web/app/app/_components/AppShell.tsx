@@ -25,6 +25,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const onboarded = useSettings().hasCompletedOnboarding;
   const fullScreen = pathname.startsWith("/app/welcome");
   const online = useOnline();
+  const animate = useNavigatedOnce(pathname);
   const menu = useMenu();
   const favorites = useStore(favoritesStore);
   const saved = useStore(savedStore);
@@ -77,7 +78,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </p>
         )}
         <main className={`flex-1 px-5 ${fullScreen ? "pb-8" : "pb-32"} pt-[max(1.25rem,env(safe-area-inset-top))]`}>
-          <div key={pathname} className="rise">{children}</div>
+          <div key={pathname} className={animate ? "rise" : undefined}>{children}</div>
         </main>
         {!fullScreen && (
           <nav
@@ -121,4 +122,17 @@ function useOnline(): boolean {
     };
   }, []);
   return online;
+}
+
+/**
+ * True after the first in-app navigation. The screen a visit opens on appears at once (it is already in the HTML, and a
+ * fade-in there only delays the first paint); screens reached inside the app get the gentle .rise entrance.
+ */
+function useNavigatedOnce(pathname: string): boolean {
+  const [first] = useState(pathname);
+  const [navigated, setNavigated] = useState(false);
+  useEffect(() => {
+    if (pathname !== first) setNavigated(true); // eslint-disable-line react-hooks/set-state-in-effect -- latches once
+  }, [pathname, first]);
+  return navigated || pathname !== first;
 }
