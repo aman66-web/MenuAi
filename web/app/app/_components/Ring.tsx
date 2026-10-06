@@ -23,9 +23,9 @@ export function Ring({ fraction, label, size = 104, stroke = 9, children, id }: 
       <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90" aria-hidden focusable="false">
         <defs>
           <linearGradient id={gradient} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#ffd27a" />
-            <stop offset="0.55" stopColor="#f7a04b" />
-            <stop offset="1" stopColor="#ee5a2a" />
+            <stop offset="0" stopColor="#a3e635" />
+            <stop offset="0.55" stopColor="#34d399" />
+            <stop offset="1" stopColor="#059669" />
           </linearGradient>
         </defs>
         <circle cx="50" cy="50" r={r} fill="none" stroke="var(--ring-track)" strokeWidth={stroke} />

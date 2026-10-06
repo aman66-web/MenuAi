@@ -189,7 +189,7 @@ export function Sheet({ open, onClose, title, children }: { open: boolean; onClo
       className="fixed inset-x-0 bottom-0 top-auto m-0 mx-auto max-h-[92dvh] w-full max-w-md overflow-visible rounded-t-[2rem] bg-transparent p-0 text-foreground backdrop:bg-black/60 backdrop:backdrop-blur-sm"
     >
       {open && (
-        <div className="sheet-in max-h-[92dvh] overflow-y-auto rounded-t-[2rem] border border-b-0 border-line bg-background px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-20px_60px_-20px_rgba(238,90,42,0.35)]">
+        <div className="sheet-in max-h-[92dvh] overflow-y-auto rounded-t-[2rem] border border-b-0 border-line bg-background px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-20px_60px_-20px_var(--brand-shadow)]">
           <div aria-hidden className="mx-auto mb-1 mt-1 h-1 w-10 rounded-full bg-line" />
           <div className="mb-2 flex items-center">
             <button type="button" onClick={onClose} aria-label="Close" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">

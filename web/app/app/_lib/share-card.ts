@@ -43,11 +43,11 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
   ctx.fillRect(0, 0, W, H);
   ctx.textBaseline = "alphabetic";
 
-  ctx.fillStyle = "#5b6577";
+  ctx.fillStyle = "#55645b";
   ctx.font = font(48, 600);
   wrap(ctx, `My order at ${input.chainName}`, W - PAD * 2, 2).forEach((l, i) => ctx.fillText(l, PAD, 170 + i * 60));
 
-  ctx.fillStyle = "#d9481e";
+  ctx.fillStyle = "#047857";
   ctx.font = font(330, 800);
   const protein = String(Math.round(Number(formatGrams(input.nutrients.protein).replace("g", ""))));
   ctx.fillText(protein, PAD, 560);
@@ -55,21 +55,21 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
   ctx.font = font(84, 700);
   ctx.fillText("g protein", PAD + proteinWidth + 24, 560);
 
-  ctx.fillStyle = "#1d2433";
+  ctx.fillStyle = "#0b1a12";
   const sub = `${formatCalories(input.nutrients.calories).replace(" kcal", " calories")} · ${formatGrams(input.nutrients.carbs)} carbs · ${formatGrams(input.nutrients.fat)} fat`;
   let subSize = 54;
   ctx.font = font(subSize, 700);
   while (subSize > 34 && ctx.measureText(sub).width > W - PAD * 2) ctx.font = font(--subSize, 700); // keep it on one line
   ctx.fillText(sub, PAD, 680);
 
-  ctx.fillStyle = "#1d2433";
+  ctx.fillStyle = "#0b1a12";
   ctx.font = font(46, 500);
   wrap(ctx, input.description, W - PAD * 2, 4).forEach((l, i) => ctx.fillText(l, PAD, 800 + i * 62));
 
-  ctx.fillStyle = "#1d2433";
+  ctx.fillStyle = "#0b1a12";
   ctx.font = font(60, 800);
   ctx.fillText(input.appName, PAD, H - 140);
-  ctx.fillStyle = "#5b6577";
+  ctx.fillStyle = "#55645b";
   ctx.font = font(34, 500);
   ctx.fillText(input.siteHost, PAD, H - 86);
 

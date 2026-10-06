@@ -13,7 +13,7 @@ async function icon(size, out, { radius = 0, pad = 0 } = {}) {
   await page.setViewportSize({ width: size, height: size });
   const svg = readFileSync(web + "design/icon.svg", "utf8");
   // maskable: shrink the mark a little further into the safe zone over the same background colour
-  await page.setContent(`<html><body style="margin:0;background:${radius ? "transparent" : "#0a0709"}"><div style="width:${size}px;height:${size}px;border-radius:${radius * size}px;overflow:hidden;background:#0a0709;display:flex;align-items:center;justify-content:center">
+  await page.setContent(`<html><body style="margin:0;background:${radius ? "transparent" : "#22c55e"}"><div style="width:${size}px;height:${size}px;border-radius:${radius * size}px;overflow:hidden;background:#22c55e;display:flex;align-items:center;justify-content:center">
     <div style="width:${size * (1 - pad * 2)}px;height:${size * (1 - pad * 2)}px">${svg.replace("<svg ", '<svg style="width:100%;height:100%;display:block" ')}</div></div></body></html>`);
   await page.screenshot({ path: web + out, omitBackground: radius > 0 });
   console.log("wrote", out);
@@ -21,7 +21,7 @@ async function icon(size, out, { radius = 0, pad = 0 } = {}) {
 
 await icon(512, "public/icons/icon-512.png");
 await icon(192, "public/icons/icon-192.png");
-await icon(512, "public/icons/icon-maskable-512.png", { pad: 0.06 });
+await icon(512, "public/icons/icon-maskable-512.png"); // the mark already sits inside the maskable safe zone
 await icon(180, "app/apple-icon.png");
 await icon(512, "app/icon.png", { radius: 0.22 });
 await icon(32, "e2e/shots/favicon-32.png", { radius: 0.22 });

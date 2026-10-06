@@ -10,7 +10,7 @@
  * Nothing under /api/ is ever cached, and only same-origin GET requests are handled.
  * Bump VERSION to drop all old caches.
  */
-const VERSION = "mm-v2"; // v2: new app icon (icon files keep their names, so changing them needs a bump)
+const VERSION = "mm-v3"; // v3: green app icon (icon files keep their names, so changing them needs a bump)
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const DATA = `${VERSION}-data`;

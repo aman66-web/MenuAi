@@ -1,47 +1,51 @@
 @import "tailwindcss";
 
 /*
-  Design language ("ember"): a dark base lit from above by a warm glow, translucent glass cards, a sun-coloured
-  pill for the one main action on a screen, Plus Jakarta Sans for everything and a little Playfair italic for
-  editorial accents. Light mode is warm paper with the same accent. Colours here are OUR palette only: no
-  restaurant brand colours, and nothing on food is ever coloured good/bad (docs: CLAUDE.md rules 2 and 3).
-  Contrast: --muted, --accent and --on-accent were checked against their backgrounds for WCAG AA.
+  Design language ("fresh", founder's choice 2026-10-06: green gradient and white): a clean white base lit from above by a
+  soft green glow, glass cards, a green-gradient pill for the one main action on a screen, Plus Jakarta Sans for everything
+  and a little Playfair italic for editorial accents. Dark mode is a deep green-black with the same gradient. The class and
+  variable names (--sun, .btn-sun, .sun-text) are from the first palette and mean "the brand gradient". Colours here are
+  OUR palette only: no restaurant brand colours, and nothing on food is ever coloured good/bad (CLAUDE.md rules 2 and 3).
+  Contrast (WCAG AA, checked): --muted 6.3:1 and --accent 5.5:1 on white; --on-accent 5.9:1 on the darkest gradient stop;
+  dark mode --accent 12.7:1, --muted 8.5:1.
 */
 :root {
-  --background: #fbf7f1;
-  --foreground: #1b1410;
-  --muted: #6b5f55;
-  --line: rgba(27, 20, 16, 0.11);
+  --background: #ffffff;
+  --foreground: #0b1a12;
+  --muted: #55645b;
+  --line: rgba(11, 26, 18, 0.1);
   --soft: #ffffff;
-  --soft-strong: #f3ece3;
-  --accent: #c0360f;
-  --accent-soft: rgba(238, 90, 42, 0.1);
-  --on-accent: #1a0d05;
-  --sun: linear-gradient(95deg, #ffd27a, #f7a04b 46%, #ee5a2a);
-  --sun-text: linear-gradient(100deg, #c0360f, #e0561f 55%, #b8264f);
-  --glow: radial-gradient(70% 55% at 50% 0%, rgba(238, 90, 42, 0.16), rgba(217, 44, 122, 0.05) 50%, transparent 78%);
-  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 12px 30px -18px rgba(80, 40, 10, 0.25);
-  --nav-bg: rgba(255, 255, 255, 0.82);
-  --ring-track: rgba(27, 20, 16, 0.09);
+  --soft-strong: #eef6f1;
+  --accent: #047857;
+  --accent-soft: rgba(16, 185, 129, 0.12);
+  --on-accent: #052e16;
+  --sun: linear-gradient(95deg, #d9f99d, #86efac 38%, #34d399 70%, #10b981);
+  --sun-text: linear-gradient(100deg, #047857, #059669 55%, #0f766e);
+  --glow: radial-gradient(70% 55% at 50% 0%, rgba(52, 211, 153, 0.2), rgba(163, 230, 53, 0.07) 50%, transparent 78%);
+  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 12px 30px -18px rgba(6, 78, 59, 0.28);
+  --nav-bg: rgba(255, 255, 255, 0.86);
+  --ring-track: rgba(11, 26, 18, 0.08);
+  --brand-shadow: rgba(16, 185, 129, 0.55);
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #050507;
-    --foreground: #f6f3ee;
-    --muted: rgba(246, 243, 238, 0.64);
+    --background: #04100a;
+    --foreground: #f1f7f3;
+    --muted: rgba(241, 247, 243, 0.66);
     --line: rgba(255, 255, 255, 0.1);
     --soft: rgba(255, 255, 255, 0.05);
     --soft-strong: rgba(255, 255, 255, 0.09);
-    --accent: #ffb36b;
-    --accent-soft: rgba(255, 179, 107, 0.12);
-    --on-accent: #1a0d05;
-    --sun-text: linear-gradient(100deg, #ffffff 0%, #ffe2b8 40%, #ffb36b 66%, #ff7a8a 100%);
-    --glow: radial-gradient(75% 60% at 50% 0%, rgba(238, 90, 42, 0.28), rgba(217, 44, 122, 0.1) 48%, transparent 78%);
+    --accent: #6ee7b7;
+    --accent-soft: rgba(110, 231, 183, 0.12);
+    --on-accent: #052e16;
+    --sun-text: linear-gradient(100deg, #ffffff 0%, #d9f99d 40%, #86efac 66%, #34d399 100%);
+    --glow: radial-gradient(75% 60% at 50% 0%, rgba(16, 185, 129, 0.3), rgba(132, 204, 22, 0.1) 48%, transparent 78%);
     --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 18px 40px -24px rgba(0, 0, 0, 0.9);
-    --nav-bg: rgba(14, 12, 14, 0.78);
+    --nav-bg: rgba(8, 20, 14, 0.8);
     --ring-track: rgba(255, 255, 255, 0.1);
+    --brand-shadow: rgba(16, 185, 129, 0.45);
   }
 }
 
@@ -93,7 +97,7 @@ p { text-wrap: pretty; }
 
 /* Surfaces */
 .glass { background: var(--soft); border: 1px solid var(--line); box-shadow: var(--card-shadow); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
-.glow-shadow { box-shadow: 0 10px 26px -10px rgba(238, 90, 42, 0.75); }
+.glow-shadow { box-shadow: 0 10px 26px -10px var(--brand-shadow); }
 
 .prose-legal h2 { font-size: 1.15rem; font-weight: 700; margin: 2rem 0 0.5rem; letter-spacing: -0.01em; }
 .prose-legal p, .prose-legal li { color: var(--foreground); line-height: 1.7; margin: 0.5rem 0; }
@@ -119,11 +123,11 @@ p { text-wrap: pretty; }
   * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
 
-/* The one hero surface on a screen: a card lit by the same sunset as the page. */
+/* The one hero surface on a screen: a card lit by the same green glow as the page. */
 .hero-card {
   position: relative;
   background:
-    linear-gradient(150deg, rgba(255, 179, 107, 0.16), rgba(217, 44, 122, 0.06) 55%, transparent),
+    linear-gradient(150deg, rgba(134, 239, 172, 0.2), rgba(163, 230, 53, 0.06) 55%, transparent),
     var(--soft);
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
   box-shadow: var(--card-shadow);
