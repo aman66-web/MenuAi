@@ -6,7 +6,9 @@
 Source: https://www.sbarro.co.uk/_files/ugd/3da10b_04caa1f5c88441d588b76ca40bfaef78.pdf
 (linked from https://www.sbarro.co.uk/nutritional-information). The PDF is an Excel export with 15 numeric columns:
 weight, then kcal, fat, saturates, carbs, sugars, protein and salt, each per 100 g AND per serving. ONLY THE PER-SERVING
-COLUMNS ARE USED (nothing is converted from per-100 g). kJ and fibre are not printed. Salt is salt_g.
+COLUMNS ARE USED (nothing is converted from per-100 g). kJ and fibre are not printed. Salt is salt_g. The "Wgt (g) per
+serving" column becomes weight_g (as printed, a trailing "g" dropped) except for drinks: there it is a bottle size in ml
+("500ml", once a bare "500") or not the drink's weight at all (a 12oz Black Americano prints 14.0), so it is left blank.
 
 Only the NAMES, categories, servings, tags and the hold-backs below are typed by hand, in the PDF's row order. Each row
 is checked against the printed name and serving, so if Sbarro adds, removes, reorders or renames a row (or the layout
@@ -16,7 +18,15 @@ The guide is messy, so every row is also tested against its own columns (consist
 (holdback.csv, still listed in items.csv, never corrected) when its printed numbers are impossible or when its weight,
 per-100 g and per-serving columns cannot all be true. The script stops if a row that is not held back fails those tests,
 so a new problem in a later guide is never published by accident.
+
+Allergens: LINK ONLY (allergen_guide.csv, no allergens.csv). The guide's allergen ticks have only 8 "Contains These Allergens"
+columns (Celery, Mustard, Egg, Milk, Soy, Wheat, Tree Nuts, Hazelnuts) and 10 "May Contain" columns; there are no columns for
+fish, crustaceans, molluscs, sesame, sulphites, lupin, peanuts (as contains) or cereals other than wheat, so a row without ticks
+cannot be shown as "none of the 14" (e.g. Balsamic Vinegar Glaze has no ticks at all). Some rows also tick the same allergen as
+both contains and may contain (Caesar Dressing, Diced Beef Peperoni Salad, Turkey Ham Salad, Cheese Salad). So the app links to
+the guide instead (all or nothing).
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import re
@@ -30,6 +40,7 @@ from common import slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "sbarro"
 SOURCE_URL = "https://www.sbarro.co.uk/_files/ugd/3da10b_04caa1f5c88441d588b76ca40bfaef78.pdf"
 SOURCE_TITLE = "Sbarro UK Nutritional & Allergen Guide (August 2026)"
+ALLERGEN_GUIDE = {"title": SOURCE_TITLE, "url": SOURCE_URL, "may_contain_published": True}
 NOTE = ("Sbarro's guide prints the 12in and 14in pizzas whole but most 17in pizzas per slice (each item says which). "
         "Rows where the guide's own weight, per-100 g and per-serving columns contradict each other are left out until Sbarro corrects it.")
 
@@ -313,10 +324,17 @@ def main() -> int:
         if serving is BOTTLE:
             serving = f"1 bottle ({p['weight']})" if p["weight"].endswith("ml") else "1 bottle"
         by_name[spec["name"]] = p
+        weight = ""
+        if spec["category"] not in (HOT, COLD):
+            m = re.fullmatch(r"(\d+(?:\.\d+)?)g?", p["weight"])
+            if not m:
+                print(f"{spec['name']}: printed weight {p['weight']!r} is not grams: re-check before running again.", file=sys.stderr)
+                return 1
+            weight = m.group(1)
         items.append({
             "name": spec["name"], "category": spec["category"], "serving": serving,
             "calories": p["kcal"], "protein_g": p["protein"], "carbs_g": p["carbs"], "fat_g": p["fat"],
-            "sat_fat_g": p["sat"], "salt_g": p["salt"], "sugar_g": p["sugars"],
+            "sat_fat_g": p["sat"], "salt_g": p["salt"], "sugar_g": p["sugars"], "weight_g": weight,
             "tags": spec["tags"], "rankable": spec["rankable"], "notes": spec["note"],
         })
 
@@ -347,7 +365,8 @@ def main() -> int:
     items.sort(key=lambda it: it["category_rank"])
     write_chain_folder(
         chain_id=CHAIN_ID, name="Sbarro", cuisine="Pizza", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-        checked_on=args.checked_on, aliases=["sbarro", "sbarro pizza"], items=items, out=args.out, note=NOTE, holdback=holdback)
+        checked_on=args.checked_on, aliases=["sbarro", "sbarro pizza"], items=items, out=args.out, note=NOTE, holdback=holdback,
+        allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on})   # link only: items carry no allergens (see docstring)
     sha = hashlib.sha256(args.pdf.read_bytes()).hexdigest()
     print(f"wrote {len(items)} items ({len(holdback)} held back) to {args.out} (PDF sha256 {sha})")
     return 0

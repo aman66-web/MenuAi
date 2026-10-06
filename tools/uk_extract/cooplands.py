@@ -3,8 +3,9 @@
 
     python3 tools/uk_extract/cooplands.py path/to/Cooplands-Allergen-Nutrition-March-2026.pdf --checked-on 2026-10-06 [--out DIR]
 
-Numbers are copied from the PDF's "Per Product" columns exactly as printed (kcal, fat, saturates, carbohydrate, sugars,
-protein, salt; kJ is only used to check the guide against itself). Per-100g columns are never used. Only the NAMES,
+Numbers are copied from the PDF's "Per Product" columns exactly as printed (kJ, kcal, fat, saturates, carbohydrate, sugars,
+protein, salt; kJ also checks the guide against itself). Per-100g columns are never used. weight_g is the printed Weight
+only where the per-product values are for that weight (see weight_for). Only the NAMES,
 categories, rankable/seasonal flags, the held-back rows and the notes below are typed by hand. Every printed row is matched, in
 the PDF's order, with one entry in SECTIONS: the script stops if a section, a printed name or the number of rows differs, so a
 human re-checks the entries when Cooplands publishes a new guide.
@@ -16,7 +17,16 @@ Needs `pdftotext` (poppler). The PDF is one A4 page of about 3 pt type read by w
 What "per product" means: the guide prints a Weight column and per-100g and per-product values. A few rows add a KCAL_Per
 note ("per cake", "Per Scone", "Per 1/6 Slice"): the per-product values are then for that unit, not the whole weight (e.g.
 "EASTER BUN - 4 PACK", 280 g, is per cake). Rows with a pack weight but no such note are left out (basis not stated).
+
+Allergens (docs/DATA.md "Allergens") come from the same row of the same PDF: its "Contains" column ("Contains Barley, Egg,
+Wheat", sometimes followed by a meat/cheese percentage such as ", 18% Pork", which is not an allergen and is dropped) and its
+"May Contain" column ("Not suitable for someone with a celery, egg allergy."). Every allergen this guide prints is one word,
+so each cell is split on commas and spaces (two cells miss a comma: "Celery Soya", "celery egg"); every word must be a known
+allergen word or the run stops. An empty Contains cell means the guide lists none of the 14 for that item; an empty May
+Contain cell means no may-contain line is printed for it. The guide names cereals (wheat, barley, oats) but never which tree
+nut ("Nuts").
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import re
@@ -25,12 +35,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import cooplands_pdf as pdf_reader  # noqa: E402
-from common import slug, write_chain_folder  # noqa: E402
+from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "cooplands"
 SOURCE_URL = "https://cooplands-bakery.co.uk/wp-content/uploads/2026/03/Cooplands-Allergen-Nutrition-March-2026.pdf"
 SOURCE_TITLE = "Cooplands 2026 March Allergen and Nutrition Information (PDF created 19 March 2026)"
 ALIASES = ["cooplands", "cooplands bakery"]
+ALLERGEN_GUIDE_TITLE = "Cooplands 2026 March Allergen and Nutrition Information (PDF created 19 March 2026): Contains and May Contain columns"
 NOTE = ("Per product from Cooplands' March 2026 guide, the latest on its website: its seasonal (Easter) lines may no longer be sold. "
         "Bread, rolls and a few multipack rows aren't listed, and five items whose printed numbers contradict each other are held back.")
 
@@ -242,8 +253,51 @@ HOLDBACK = {
     "SUPER SAUSAGE ROLL": "The guide prints {kcal} kcal per roll but {kj} kJ (about {kjkcal:.0f} kcal), and its own macros add up to about {macro:.0f} kcal.",
     "YUM YUM": "The guide prints {kcal} kcal but {kj} kJ (about {kjkcal:.0f} kcal), and its own macros add up to about {macro:.0f} kcal.",
 }
-EXPLAINED_FLAGS = {"Easter Cornflake Nest"}  # kJ typo in a column we don't publish; explained in the entry's note
+EXPLAINED_FLAGS = {"Easter Cornflake Nest"}  # kJ typo; explained in the entry's note, and its kJ is not published (below)
+# Printed kJ per product left blank (never corrected): the number is impossible next to the row's own kJ per 100 g and kcal.
+KJ_NOT_PUBLISHED = {"EASTER CORNFLAKE NEST": "kJ per product printed 14049 for a 55 g item (1908 kJ per 100 g, 251 kcal)"}
 PER_PRODUCT = ("kj", "kcal", "fat", "sat", "carbs", "sugars", "protein", "salt")
+
+
+# The guide's own spellings of the word that opens the Contains cell ("ContainsEgg, ..." has no space).
+CONTAINS_OPENING = re.compile(r"^(?:Contains|Contians|Contans|Contain)\s*")
+# A percentage after the allergens names the meat or cheese content ("Wheat, 18% Pork"): it is not an allergen word.
+QUID = re.compile(r"\s*,?\s*(\d+)%\s+([A-Za-z][A-Za-z ]*)$")
+QUID_WORDS = {"Lamb", "Pork", "Beef", "Corned Beef", "Bacon", "Chicken", "Cheese"}
+MAY_SENTENCE = re.compile(r"^Not suitable for someone with (?:an? )+(.+?) allergy\.?$", re.I)
+
+
+def _allergen_cell(text: str, where: str) -> tuple[set[str], set[str], set[str]]:
+    words = [w for w in re.split(r"[,\s]+", text) if w]
+    return allergen_words(words, where)
+
+
+def allergens_for(row: dict) -> dict:
+    """The item's allergens exactly as its row prints them (see the module docstring). Stops on anything unexpected."""
+    where = f"Cooplands {row['name']}"
+    contains_text = row["contains"].strip()
+    contains, cereals, nuts = set(), set(), set()
+    if contains_text:
+        m = CONTAINS_OPENING.match(contains_text)
+        if not m:
+            raise SystemExit(f"{where}: Contains cell {contains_text!r} does not start with 'Contains'")
+        body = contains_text[m.end():]
+        q = QUID.search(body)
+        if q:
+            if q.group(2).strip() not in QUID_WORDS:
+                raise SystemExit(f"{where}: unexpected percentage ingredient {q.group(0)!r} in the Contains cell")
+            body = body[:q.start()]
+        contains, cereals, nuts = _allergen_cell(body, where)
+        if q and q.group(2).strip() == "Cheese" and "milk" not in contains:
+            raise SystemExit(f"{where}: the Contains cell names cheese but not milk: re-read the guide")
+    may: set[str] = set()
+    may_text = row["may_contain"].strip()
+    if may_text:
+        m = MAY_SENTENCE.match(may_text)
+        if not m:
+            raise SystemExit(f"{where}: May Contain cell {may_text!r} is not 'Not suitable for someone with a ... allergy'")
+        may, _, _ = _allergen_cell(m.group(1), where)
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}
 
 
 def num(row: dict, key: str) -> float:
@@ -261,6 +315,14 @@ def serving_for(row: dict, entry: dict) -> str:
     if not m:
         raise SystemExit(f"{row['name']}: weight {row['weight']!r} is not a plain number of grams.")
     return f"{m.group(1)} g"
+
+
+def weight_for(row: dict, entry: dict) -> str:
+    """weight_g: the printed Weight, only when the per-product values are for that weight, i.e. the row has no KCAL_Per note
+    ("per cake", "Per 1/6 Slice" ...) and its serving is not set by hand (the same rows whose serving is '<Weight> g')."""
+    if entry["serving"] is not None or row["per"]:
+        return ""
+    return serving_for(row, entry)[:-2]  # '<n> g' -> '<n>' (serving_for checks the cell is a plain number of grams)
 
 
 def tags_for(row: dict, name: str) -> tuple[list[str], str]:
@@ -320,8 +382,10 @@ def main() -> int:
             "name": e["name"], "category": e["cat"], "serving": serving_for(row, e),
             "calories": row["kcal"], "protein_g": row["protein"], "carbs_g": row["carbs"], "fat_g": row["fat"],
             "sat_fat_g": row["sat"], "sodium_mg": "", "salt_g": row["salt"], "sugar_g": row["sugars"], "fiber_g": "",
+            "energy_kj": "" if row["name"] in KJ_NOT_PUBLISHED else row.get("kj", ""), "weight_g": weight_for(row, e),
             "tags": "|".join(tags), "limited_time": e["limited"], "rankable": e["rank"],
             "notes": "; ".join(n for n in (e["note"], extra_note) if n),
+            "allergens": allergens_for(row),
             "_printed": row["name"],
         })
     for it in items:
@@ -358,15 +422,17 @@ def main() -> int:
         print("Printed numbers disagree for items not in HOLDBACK (decide: hold back, or explain in the entry's note): "
               + ", ".join(unlisted), file=sys.stderr)
         return 1
-    missing = [p for p in HOLDBACK if p not in {i["_printed"] for i in items}]
+    missing = [p for p in list(HOLDBACK) + list(KJ_NOT_PUBLISHED) if p not in {i["_printed"] for i in items}]
     if missing:
-        print(f"HOLDBACK names rows that are not published: {missing}", file=sys.stderr)
+        print(f"HOLDBACK or KJ_NOT_PUBLISHED names rows that are not published: {missing}", file=sys.stderr)
         return 1
     for it in items:
         it.pop("_printed")
 
     out = write_chain_folder(chain_id=CHAIN_ID, name="Cooplands", cuisine="Bakery", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=holdback)
+                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=holdback,
+                             allergen_guide={"title": ALLERGEN_GUIDE_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on,
+                                             "may_contain_published": True})
     by_cat: dict[str, int] = {}
     for it in items:
         by_cat[it["category"]] = by_cat.get(it["category"], 0) + 1

@@ -1,178 +1,180 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-olives,Olives,For the table,,97,0.8,0,9.9,1.5,,,0.0,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
-baguette,Baguette,For the table,,428,10.5,56,17.2,10.6,,,1.2,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
-fougasse,Fougasse,For the table,,606,17.0,75,26.2,13.7,,3.2,2.0,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
-black-garlic-butter-fougasse,Black Garlic Butter Fougasse,For the table,,615,17.0,75,27.3,14.6,,,2.0,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
-wild-garlic-and-sun-dried-tomato-butter-fougasse,Wild Garlic & Sun-Dried Tomato Butter Fougasse,For the table,,585,17.1,76,23.7,11.9,,4.1,2.5,,vegetarian,false,false,,,On: weekday menu
-cheesy-french-onion-fougasse,Cheesy French Onion Fougasse,For the table,,618,23.5,80,22.1,10.3,,1.0,5.6,,,false,false,,,"On: weekday menu, weekend menu"
-baked-camembert,Baked Camembert,For the table,,557,32.5,35,31.4,22.6,,,9.9,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
-charcuterie-board,Charcuterie Board,For the table,,675,34.2,54,34.1,12.5,,5.9,11.0,,contains_pork,false,false,,,"On: weekday menu, weekend menu"
-fougasse-wild-garlic-and-sun-dried-tomato-butter,Fougasse Wild Garlic & Sun-Dried Tomato Butter,For the table,,670,17.1,76,33.0,17.6,,,3.0,,vegetarian,false,false,,,"On: weekend menu, drinks menu"
-bread-and-butter,Bread and Butter,For the table,,327,6.4,21,21.8,11.2,,1.2,0.6,,vegetarian,false,false,,,"On: weekday gluten free menu, weekend gluten free menu"
-baked-camembert-gluten-free,Baked Camembert (gluten free),For the table,,516,31.0,22,32.8,22.8,,,9.6,,vegetarian,false,false,,,"On: weekday gluten free menu, weekend gluten free menu"
-charcuterie-board-gluten-free,Charcuterie Board (gluten free),For the table,,558,29.6,23,36.3,12.7,,5.2,10.5,,contains_pork,false,false,,,On: weekday gluten free menu
-olives-gluten-free,Olives (gluten free),For the table,,278,0.8,0,9.0,1.5,,,0.0,,vegetarian,false,false,,,On: weekend gluten free menu
-french-onion-soup,French Onion Soup,Starters,,314,10.4,33,176.4,4.4,,,14.5,,,false,true,,,"On: weekday menu, weekend menu"
-veggie-french-onion-soup,Veggie French Onion Soup,Starters,,291,8.9,33,10.8,3.8,,1.0,14.5,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-twice-baked-souffle,Twice Baked Souffle,Starters,,297,15.9,9,21.8,10.3,,,3.5,,vegetarian,false,true,,,On: weekday menu
-chicken-liver-parfait,Chicken Liver Parfait,Starters,,470,11.5,37,29.6,16.8,,2.1,12.5,,,false,true,,,"On: weekday menu, weekend menu"
-potted-crab,Potted Crab,Starters,,504,14.1,26,37.2,8.0,,,1.9,,,false,true,,,"On: weekday menu, weekend menu"
-calamari,Calamari,Starters,,672,15.4,28,54.4,5.4,,2.6,2.3,,,false,true,,,"On: weekday menu, weekend menu"
-garlic-and-chilli-king-prawns,Garlic & Chilli King Prawns,Starters,,284,19.4,2,21.8,11.4,,,1.6,,,false,true,,,"On: weekday menu, weekend menu"
-grilled-peach-and-lentil-salad,Grilled Peach & Lentil Salad,Starters,,290,8.3,19,18.6,1.9,,1.1,12.7,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-sauteed-scallops,Sautéed Scallops,Starters,,266,13.5,7,19.9,4.2,,,3.1,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-roast-chicken-dijonnaise,Roast Chicken Dijonnaise,Starters,,500,15.9,28,35.0,5.0,,,4.4,,,false,true,,,"On: weekday menu, weekend menu"
-twice-baked-cheese-souffle,Twice Baked Cheese Soufflé,Starters,,297,15.9,9,21.8,10.3,,,3.5,,vegetarian,false,true,,,"On: weekend menu, weekday gluten free menu, weekend gluten free menu"
-french-onion-soup-gluten-free,French Onion Soup (gluten free),Starters,,362,11.9,35,15.2,4.8,,1.3,14.6,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
-french-onion-soup-vegetarian,French Onion Soup - Vegetarian,Starters,,339,10.5,35,13.4,4.1,,1.2,14.6,,vegetarian,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
-chicken-liver-parfait-gluten-free,Chicken Liver Parfait (gluten free),Starters,,430,10.2,24,31.1,17.2,,,12.2,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
-potted-crab-weekday-gluten-free-menu,Potted Crab (weekday gluten free menu),Starters,,402,12.2,12,32.5,6.9,,1.4,1.4,,,false,true,,,On: weekday gluten free menu
-garlic-and-chilli-prawns,Garlic & Chilli Prawns,Starters,,373,22.4,13,24.5,11.7,,,1.6,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
-roast-chicken-dijonnaise-gluten-free,Roast Chicken Dijonnaise (gluten free),Starters,,461,14.6,15,36.4,5.2,,,4.0,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
-potted-crab-weekend-gluten-free-menu,Potted Crab (weekend gluten free menu),Starters,,464,12.8,13,38.5,8.3,,,1.6,,,false,true,,,On: weekend gluten free menu
-steak-frites,Steak Frites,Côte icons,,628,33.2,35,38.5,13.0,,1.4,0.5,,contains_beef,false,true,,,"On: weekday menu, weekend menu, prix fixe, weekday gluten free menu, weekend gluten free menu, prix fixe gluten free menu"
-half-poulet-breton,Half Poulet Breton,Côte icons,,1384,81.0,36,100.1,36.4,,3.9,1.2,,,false,true,,,"On: weekday menu, weekend menu"
-whole-poulet-breton,Whole Poulet Breton,Côte icons,,2769,162.1,73,200.4,72.9,,7.8,4.0,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu"
-confit-pork-belly,Confit Pork Belly,Côte icons,,947,30.3,64,54.5,21.7,,,29.9,,contains_pork|contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-duck-confit,Duck Confit,Côte icons,,1009,74.0,19,71.6,20.7,,3.9,3.9,,contains_beef,false,true,,,"On: weekday menu, weekend menu"
-beef-bourguignon,Beef Bourguignon,Côte icons,,959,85.0,31,50.7,13.4,,,8.0,,contains_pork|contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-salmon-bearnaise,Salmon Béarnaise,Côte icons,,933,32.7,18,80.6,26.0,,,2.5,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-breton-fish-stew,Breton Fish Stew,Côte icons,,657,38.5,43,33.9,7.7,,,10.3,,,false,true,,,"On: weekday menu, weekend menu"
-plaice-frites,Plaice Frites,Côte icons,,1133,33.3,98,64.7,9.3,,3.6,9.4,,,false,true,,,"On: weekday menu, weekend menu"
-moules-mariniere,Moules Mariniere,Côte icons,,810,35.2,46,52.7,22.8,,3.7,4.6,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-provencal-tarte-tatin,Provençal Tarte Tatin,Côte icons,,754,9.9,76,42.9,22.6,,,45.7,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-risotto-vert,Risotto Vert,Côte icons,,613,16.8,83,22.4,5.2,,2.5,7.6,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-risotto-vert-vegan,Risotto Vert - Vegan,Côte icons,,574,13.8,83,19.4,3.1,,2.5,7.6,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-steak-hache-burger,Steak Haché Burger,Côte icons,,1122,50.2,72,68.0,22.2,,1.0,9.6,,contains_beef,false,true,,,"On: weekday menu, weekend menu"
-mushroom-comte-burger,Mushroom Comté Burger,Côte icons,,1221,56.6,73,76.5,27.1,,5.1,10.2,,,false,true,,,"On: weekday menu, weekend menu"
-vegan-fable-burger,Vegan Fable Burger,Côte icons,,821,20.4,95,40.5,14.1,,4.4,10.9,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-poulet-breton,Poulet Breton,Côte icons,,1384,81.0,36,100.1,36.4,,3.9,1.2,,,false,true,,,On: weekday gluten free menu
-breton-fish-stew-gluten-free,Breton Fish Stew (gluten free),Côte icons,,654,38.1,36,36.0,8.2,,,10.3,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
-risotto-vert-weekday-gluten-free-menu,Risotto Vert (weekday gluten free menu),Côte icons,,611,16.9,83,22.3,5.4,,2.5,7.6,,vegetarian,false,true,,,On: weekday gluten free menu
-risotto-vert-vegan-weekday-gluten-free-menu,Risotto Vert - Vegan (weekday gluten free menu),Côte icons,,576,14.0,83,19.6,46.7,,2.5,7.4,,vegetarian,false,true,,,On: weekday gluten free menu
-half-poulet-breton-gluten-free,Half Poulet Breton (gluten free),Côte icons,,1146,77.1,2,91.1,35.5,,,0.7,,,false,true,,,On: weekend gluten free menu
-whole-poulet-breton-gluten-free,Whole Poulet Breton (gluten free),Côte icons,,2459,160.9,4,168.4,53.6,,,1.5,,,false,true,,,On: weekend gluten free menu
-risotto-vert-weekend-gluten-free-menu,Risotto Vert (weekend gluten free menu),Côte icons,,611,16.9,83,22.3,5.4,,,7.6,,vegetarian,false,true,,,On: weekend gluten free menu
-risotto-vert-vegan-weekend-gluten-free-menu,Risotto Vert - Vegan (weekend gluten free menu),Côte icons,,576,14.0,83,19.6,46.7,,,7.4,,vegetarian,false,true,,,On: weekend gluten free menu
-add-on-streaky-bacon,Add on Streaky Bacon,Add-ons,,113,9.5,0,8.0,2.6,,,0.1,,contains_pork,false,false,,,"On: weekday menu, weekend menu, weekend brunch, breakfast, breakfast gluten free"
-add-on-comte-cheese-slice,Add on Comté Cheese Slice,Add-ons,,83,6.0,0,6.5,3.8,,,0.1,,,false,false,,,"On: weekday menu, weekend menu"
-add-on-fried-egg,Add on Fried Egg,Add-ons,,117,6.9,0,9.9,1.7,,,0.0,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
-add-on-anchovies,Add on Anchovies,Add-ons,,36,5.2,0,1.6,0.3,,,0.0,,,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-add-on-savoie-ham,Add on Savoie Ham,Add-ons,,44,4.9,0,2.4,1.2,,,0.0,,contains_pork,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-add-on-shredded-chicken,Add on Shredded Chicken,Add-ons,,279,16.7,1,23.1,6.0,,,0.5,,,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-add-on-king-prawns-mafalde,Add on King Prawns (Mafalde),Add-ons,,140,11.5,0,10.4,0.8,,,0.0,,,false,false,,,"On: weekday menu, weekend menu, prix fixe"
-add-on-smoked-salmon,Add on Smoked Salmon,Add-ons,,88,7.3,0,6.5,2.0,,,0.0,,,false,false,,,"On: weekend brunch, prix fixe, prix fixe gluten free menu"
-add-on-smoked-salmon-breakfast-gluten-free,Add on Smoked Salmon (breakfast / gluten free),Add-ons,,112,15.2,1,5.3,1.2,,1.3,0.7,,,false,false,,,"On: breakfast, breakfast gluten free"
-two-fried-eggs-breakfast-upgrade,Two Fried Eggs (breakfast upgrade),Add-ons,,248,15.2,0,20.8,3.7,,0.8,0.0,,vegetarian,false,false,,,"On: breakfast, breakfast gluten free"
-sauteed-chestnut-mushrooms-breakfast-upgrade,Sautéed Chestnut Mushrooms (breakfast upgrade),Add-ons,,58,2.0,0,5.2,0.3,,1.0,0.3,,vegetarian,false,false,,,"On: breakfast, breakfast gluten free"
-ham-breakfast-upgrade,Ham (breakfast upgrade),Add-ons,,71,12.6,0,2.0,0.5,,1.5,0.2,,contains_pork,false,false,,,"On: breakfast, breakfast gluten free"
-smoked-salmon-breakfast-upgrade,Smoked Salmon (breakfast upgrade),Add-ons,,112,15.2,1,5.3,1.2,,1.3,0.7,,,false,false,,,"On: breakfast, breakfast gluten free"
-free-flow-frites,Free-Flow Frites,Sides,,240,3.6,34,9.1,0.8,,,0.4,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu"
-green-salad,Green Salad,Sides,,123,1.4,3,11.5,1.7,,0.8,2.3,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu"
-tomato-and-basil-salad,Tomato & Basil Salad,Sides,,74,1.2,5,4.9,0.7,,0.4,5.2,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-gratin-mushrooms,Gratin Mushrooms,Sides,,383,8.8,9,34.5,17.2,,1.1,4.5,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-creamed-spinach,Creamed Spinach,Sides,,161,3.7,5,13.3,3.6,,,4.2,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-gratin-dauphinois,Gratin Dauphinois,Sides,,253,3.1,23,16.7,10.1,,1.9,3.0,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-french-beans,French Beans,Sides,,185,2.4,6,17.1,9.1,,2.0,3.9,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-tenderstem-amandine,Tenderstem Amandine,Sides,,99,4.2,3,7.1,0.8,,,2.0,,vegetarian,false,true,,,On: weekend menu
-sauteed-chestnut-mushrooms,Sautéed Chestnut Mushrooms,Sides,,58,2.0,0,5.2,0.3,,1.0,0.3,,vegetarian,false,true,,,"On: breakfast, breakfast gluten free"
-boudin-noir,Boudin Noir,Sides,,226,3.4,7,20.0,6.8,,0.1,2.4,,contains_pork,false,true,,,"On: breakfast, breakfast gluten free"
-tenderstem-broccoli-amandine,Tenderstem® Broccoli Amandine,Sides,,99,4.2,3,7.1,0.8,,,2.0,,vegetarian,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
-free-flow-frites-gluten-free,Free-Flow Frites (gluten free),Sides,,266,4.0,38,10.1,0.9,,,0.4,,vegetarian,false,true,,,On: weekend gluten free menu
-fillet-7oz,Fillet (7oz),Côte butchery,,612,53.1,36,27.6,7.6,,1.6,1.3,,contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-sirloin-8oz,Sirloin (8oz),Côte butchery,,700,51.3,36,38.1,12.2,,1.6,1.3,,contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-ribeye-10oz,Ribeye (10oz),Côte butchery,,987,57.0,36,67.7,25.6,,2.9,1.3,,contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-garlic-butter,Garlic Butter,Sauces,,142,0.2,0,15.6,9.9,,0.2,0.1,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu"
-black-garlic-butter,Black Garlic Butter,Sauces,,142,0.2,0,15.6,9.9,,,0.1,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-wild-garlic-and-sun-dried-tomato-butter,Wild Garlic & Sun-Dried Tomato Butter,Sauces,,115,0.1,1,12.3,7.4,,1.4,0.7,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-peppercorn,Peppercorn,Sauces,,114,1.0,2,10.0,6.4,,,1.4,,contains_beef,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-wild-mushroom,Wild Mushroom,Sauces,,151,1.8,4,251.0,8.6,,0.8,2.5,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-bearnaise,Béarnaise,Sauces,,306,1.5,1,33.0,20.3,,,0.5,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-cote-gravy,Côte Gravy,Sauces,,44,0.6,5,1.8,0.7,,0.7,3.0,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-caesar-salad,Caesar Salad,Light mains,,574,14.7,11,52.4,7.9,,,4.8,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-crab-and-prawn-linguine,Crab & Prawn Linguine,Light mains,,662,33.9,58,31.4,12.6,,0.9,5.6,,,false,true,,,"On: weekday menu, weekend menu"
-sirloin-steak-baguette,Sirloin Steak Baguette,Light mains,,740,38.7,78,29.3,7.5,,2.6,4.8,,contains_beef,false,true,,,On: weekday menu
-tuna-nicoise,Tuna Niçoise,Light mains,,581,34.7,14,42.5,5.5,,,5.9,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
-french-onion-baguette,French Onion Baguette,Light mains,,808,28.8,92,32.8,10.9,,,7.4,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
-creamy-tomato-mafalde,Creamy Tomato Mafalde,Light mains,,673,36.1,90,19.0,2.9,,,13.7,,vegetarian,false,true,,,"On: weekday menu, weekend menu, prix fixe"
-sirloin-steak-baguette-weekend-menu,Sirloin Steak Baguette (weekend menu),Light mains,,740,38.5,78,29.2,7.6,,,4.6,,contains_beef,false,true,,,On: weekend menu
-caesar-salad-gluten-free,Caesar Salad (gluten free),Light mains,,498,13.5,3,48.0,7.4,,,2.7,,vegetarian,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
-cote-breakfast,Côte Breakfast,Breakfast,,1039,48.5,44,72.6,20.9,,,5.2,,contains_pork,false,true,,,"On: weekend brunch, breakfast, breakfast gluten free"
-veggie-breakfast,Veggie Breakfast,Breakfast,,890,39.8,47,57.8,19.1,,,5.3,,vegetarian,false,true,,,"On: weekend brunch, breakfast"
-brunch-burger,Brunch Burger,Breakfast,,1314,68.2,72,82.5,27.2,,,8.9,,contains_pork|contains_beef,false,true,,,On: weekend brunch
-avocado-toast,Avocado Toast,Breakfast,,877,25.7,63,55.5,10.6,,3.5,2.1,,vegetarian,false,true,,,On: weekend brunch
-brittany-salt-butter-french-toast,Brittany Salt Butter French Toast,Breakfast,,664,11.6,68,37.8,12.0,,,30.2,,vegetarian,false,true,,,"On: weekend brunch, breakfast"
-fresh-berries-and-vanilla-chantilly-french-toast,Fresh Berries & Vanilla Chantilly French Toast,Breakfast,,585,12.5,68,28.2,10.9,,,30.3,,vegetarian,false,true,,,"On: weekend brunch, breakfast"
-smoked-streaky-bacon-and-vanilla-chantilly-french-toast,Smoked Streaky Bacon & Vanilla Chantilly French Toast,Breakfast,,680,18.6,70,35.4,13.9,,,32.3,,contains_pork,false,true,,,"On: weekend brunch, breakfast"
-sunny-side-steak,Sunny-Side Steak,Breakfast,,602,42.0,32,32.8,6.7,,,0.3,,contains_beef,false,true,,,"On: breakfast, breakfast gluten free"
-avocado-toast-breakfast,Avocado Toast (breakfast),Breakfast,,531,8.3,37,36.8,7.1,,2.1,2.1,,vegetarian,false,true,,,On: breakfast
-benedict-eggs-hollandaise,Benedict (Eggs Hollandaise),Breakfast,,718,39.0,30,48.5,23.3,,,1.6,,contains_pork,false,true,,,On: breakfast
-royale-eggs-hollandaise,Royale (Eggs Hollandaise),Breakfast,,803,39.4,31,57.6,25.8,,,1.6,,,false,true,,,On: breakfast
-florentine-eggs-hollandaise,Florentine (Eggs Hollandaise),Breakfast,,718,26.7,31,35.8,10.7,,,1.6,,vegetarian,false,true,,,On: breakfast
-the-og-the-croques,The OG (The Croques),Breakfast,,594,36.5,28,37.3,19.9,,,6.2,,contains_pork,false,true,,,On: breakfast
-mushroom-the-croques,Mushroom (The Croques),Breakfast,,547,23.3,34,34.5,19.4,,,6.7,,vegetarian,false,true,,,On: breakfast
-royale-the-croques,Royale (The Croques),Breakfast,,643,33.4,28,43.9,21.6,,,6.2,,,false,true,,,On: breakfast
-comte-omelette,Comté Omelette,Breakfast,,825,36.2,55,50.3,24.6,,,4.3,,,false,true,,,On: breakfast
-cheese-croissant,Cheese Croissant,Breakfast,,451,18.1,28,29.2,15.9,,,5.9,,,false,true,,,On: breakfast
-bacon-baguette,Bacon Baguette,Breakfast,,708,27.9,79,30.1,14.8,,,8.3,,contains_pork,false,true,,,On: breakfast
-sausage-baguette,Sausage Baguette,Breakfast,,779,28.5,80,37.0,18.0,,3.6,8.9,,contains_pork,false,true,,,On: breakfast
-vegetarian-sausage-baguette,Vegetarian Sausage Baguette,Breakfast,,781,35.4,88,30.9,14.9,,2.5,10.4,,vegetarian,false,true,,,On: breakfast
-granola-bowl,Granola Bowl,Breakfast,,326,7.6,47,10.6,4.0,,,37.5,,vegetarian,false,true,,,"On: breakfast, breakfast gluten free"
-vegetarian-breakfast,Vegetarian Breakfast,Breakfast,,890,39.8,47,57.8,19.1,,,5.3,,vegetarian,false,true,,,On: breakfast gluten free
-avocado-on-toast,Avocado on Toast,Breakfast,,531,8.3,37,36.8,7.1,,,2.1,,vegetarian,false,true,,,On: breakfast gluten free
-matcha-bowl,Matcha Bowl,Breakfast,,318,6.9,50,8.8,1.0,,,47.3,,vegetarian,false,true,,,On: breakfast gluten free
-baked-comte-omelette,Baked Comté Omelette,Breakfast,,647,30.0,15,50.5,24.8,,2.1,3.4,,,false,true,,,On: breakfast gluten free
-vegetarian-baked-comte-omelette,Vegetarian Baked Comté Omelette,Breakfast,,571,26.4,13,44.9,22.7,,1.7,2.5,,vegetarian,false,true,,,On: breakfast gluten free
-leek-and-potato-soup,Leek & Potato Soup,Prix fixe starters,,178,2.8,16,10.7,2.3,,,4.6,,vegetarian,false,true,,,On: prix fixe
-leek-and-potato-soup-vegan,Leek & Potato Soup - Vegan,Prix fixe starters,,135,2.0,12,8.3,2.0,,0.9,3.4,,vegetarian,false,true,,,"On: prix fixe, prix fixe gluten free menu"
-pork-rillettes,Pork Rillettes,Prix fixe starters,,373,20.3,27,18.3,4.5,,,3.1,,contains_pork,false,true,,,On: prix fixe
-marinated-tomato-salad,Marinated Tomato Salad,Prix fixe starters,,318,7.8,11,26.5,9.4,,,7.2,,vegetarian,false,true,,,On: prix fixe
-crispy-whitebait,Crispy Whitebait,Prix fixe starters,,596,19.4,11,52.6,1.6,,1.8,5.8,,,false,true,,,On: prix fixe
-leek-and-potato-soup-gluten-free,Leek & Potato Soup (gluten free),Prix fixe starters,,225,5.1,50,11.0,2.5,,,3.7,,vegetarian,false,true,,,On: prix fixe gluten free menu
-pork-rillette,Pork Rillette,Prix fixe starters,,333,19.0,14,19.7,4.9,,,2.6,,contains_pork,false,true,,,On: prix fixe gluten free menu
-tomato-and-raspberry-salad,Tomato & Raspberry Salad,Prix fixe starters,,126,0.8,5,11.3,1.3,,,4.7,,vegetarian,false,true,,,On: prix fixe gluten free menu
-poulet-grille,Poulet Grille,Prix fixe mains,,728,54.9,2,44.1,21.6,,,6.2,,,false,true,,,"On: prix fixe, prix fixe gluten free menu"
-fish-parmentier,Fish Parmentier,Prix fixe mains,,681,30.1,24,48.8,17.0,,3.0,4.5,,,false,true,,,"On: prix fixe, prix fixe gluten free menu"
-cherry-chocolate-crepe,Cherry Chocolate Crêpe,Prix fixe desserts,,383,6.0,53,15.6,9.2,,0.3,40.3,,vegetarian,false,true,,,"On: prix fixe, treat yourself"
-raspberry-sorbet-with-wafer,Raspberry Sorbet with wafer,Prix fixe desserts,,115,0.7,27,0.5,0.4,,0.1,22.3,,vegetarian,false,true,,,"On: prix fixe, treat yourself"
-elderflower-creme-brulee,Elderflower Crème Brûlée,Prix fixe desserts,,540,6.5,24,45.9,27.0,,,24.4,,vegetarian,false,true,,,"On: prix fixe, treat yourself, prix fixe gluten free menu, treat yourself gluten free"
-tarte-au-citron,Tarte au Citron,Desserts,,549,6.0,58,32.3,20.7,,0.0,41.5,,vegetarian,false,false,,,On: treat yourself
-chocolate-mousse-for-one,Chocolate Mousse for One,Desserts,,636,11.4,22,49.1,24.0,,3.4,23.9,,vegetarian,false,false,,,On: treat yourself
-pastry-platter,Pastry Platter,Pastries,,983,18.3,112,50.0,26.2,,,31.5,,vegetarian,false,false,,,On: breakfast
-sticks-n-dips,Sticks 'N' Dips,Kids starters,,116,2.2,7,8.2,1.7,,0.1,6.2,,vegetarian,false,true,,,On: kids menu
-calamari-kids-menu,Calamari (kids menu),Kids starters,,440,13.0,24,32.1,3.1,,1.9,1.5,,,false,true,,,On: kids menu
-garlic-butter-baguette,Garlic Butter Baguette,Kids starters,,161,3.9,21,6.4,3.8,,,0.8,,vegetarian,false,true,,,On: kids menu
-kids-garlic-butter-baguette-with-cheese,Kids Garlic Butter Baguette with Cheese,Kids starters,,202,6.9,21,9.7,5.7,,,0.8,,,false,true,,,On: kids menu
-andreas-pasta,Andrea's Pasta,Kids mains,,233,10.9,34,5.1,2.2,,0.7,5.4,,,false,true,,,On: kids menu
-vegan-andreas-pasta,Vegan Andrea's Pasta,Kids mains,,192,7.9,34,1.9,0.3,,0.7,5.3,,vegetarian,false,true,,,On: kids menu
-haddock-goujons,Haddock Goujons,Kids mains,,340,17.1,13,23.7,2.2,,0.8,2.8,,,false,true,,,On: kids menu
-beef-burger,Beef Burger,Kids mains,,692,29.1,67,33.3,9.7,,2.5,12.3,,contains_beef,false,true,,,On: kids menu
-vegan-burger,Vegan Burger,Kids mains,,665,18.6,88,27.8,12.2,,,12.5,,vegetarian,false,true,,,On: kids menu
-kids-comte-cheese-slice,Kids Comte Cheese Slice,Kids mains,,21,1.5,0,1.6,0.9,,0.0,0.0,,,false,true,,,On: kids menu
-petit-steak-frites,Petit Steak Frites,Kids mains,,384,22.9,28,19.3,6.9,,0.8,0.7,,contains_beef,false,true,,,On: kids menu
-cheese-and-ham-croque,Cheese & Ham Croque,Kids mains,,311,23.4,13,18.6,9.8,,,2.7,,contains_pork,false,true,,,On: kids menu
-kids-omelette-with-cheese,Kids Omelette with Cheese,Kids mains,,410,19.4,0,36.9,9.7,,0.6,0.1,,,false,true,,,On: kids menu
-kids-omelette-with-ham,Kids Omelette with Ham,Kids mains,,406,22.2,0,35.3,8.4,,1.3,0.1,,contains_pork,false,true,,,On: kids menu
-omelette,Omelette,Kids mains,,469,26.4,0,40.6,10.9,,,0.0,,contains_pork,false,true,,,On: kids menu
-creamed-potato-puree,Creamed Potato Purée,Kids sides,,178,2.2,13,12.5,1.6,,,1.2,,vegetarian,false,true,,,On: kids menu
-tomato-and-cucumber-salad,Tomato & Cucumber Salad,Kids sides,,21,1.0,3,0.3,0.1,,,2.6,,vegetarian,false,true,,,On: kids menu
-kids-tenderstem-broccoli-and-peas,Kids Tenderstem® Broccoli & Peas,Kids sides,,86,4.5,4,5.3,0.8,,,2.4,,vegetarian,false,true,,,On: kids menu
-frites,Frites,Kids sides,,192,2.8,27,7.3,0.6,,1.0,0.3,,vegetarian,false,true,,,On: kids menu
-fruit-and-yogurt-bowl,Fruit & Yogurt Bowl,Kids desserts,,136,3.5,23,2.5,0.9,,,22.3,,vegetarian,false,false,,,"On: kids menu, kids breakfast, kids breakfast gluten free"
-warm-madeleine,Warm Madeleine,Kids desserts,,301,4.1,28,18.8,12.6,,,19.2,,vegetarian,false,false,,,On: kids menu
-warm-chocolate-fondant,Warm Chocolate Fondant,Kids desserts,,572,9.5,56,33.7,20.8,,,48.8,,vegetarian,false,false,,,On: kids menu
-ice-cream-scoop,Ice Cream Scoop,Kids desserts,,109,1.7,13,5.4,3.2,,,11.6,,vegetarian,false,false,,,On: kids menu
-kids-chocolate-ice-cream-with-wafer,Kids Chocolate Ice Cream with Wafer,Kids desserts,,126,2.3,15,6.3,3.8,,,12.8,,vegetarian,false,false,,,On: kids menu
-kids-salted-caramel-ice-cream-with-wafer,Kids Salted Caramel Ice Cream with Wafer,Kids desserts,,112,1.6,2,5.1,3.2,,0.2,11.1,,vegetarian,false,false,,,On: kids menu
-kids-raspberry-sorbet-with-wafer,Kids Raspberry Sorbet with Wafer,Kids desserts,,77,0.9,17,0.5,0.3,,,15.3,,vegetarian,false,false,,,On: kids menu
-kids-vegan-vanilla-ice-cream-with-wafer,Kids Vegan Vanilla Ice Cream with Wafer,Kids desserts,,55,0.3,7,2.7,2.3,,,4.8,,vegetarian,false,false,,,On: kids menu
-build-your-own-sundae,Build Your Own Sundae,Kids desserts,,280,4.1,29,16.1,9.7,,,21.5,,vegetarian,false,false,,,On: kids menu
-tomato-baked-beans,Tomato Baked Beans,Kids breakfast,,221,6.9,27,8.6,3.1,,,6.6,,vegetarian,false,true,,,On: kids breakfast
-cooked-breakfast,Cooked Breakfast,Kids breakfast,,236,20.0,1,16.7,5.5,,,0.0,,,false,true,,,page marks it vegetarian but its own text names pork: no diet tags given; On: kids breakfast
-scrambled-eggs-on-toast,Scrambled Eggs on Toast,Kids breakfast,,313,8.9,26,18.6,6.0,,,5.5,,vegetarian,false,true,,,On: kids breakfast
-bacon-baguette-kids-breakfast,Bacon Baguette (kids breakfast),Kids breakfast,,332,14.8,36,13.6,6.1,,,0.7,,contains_pork,false,true,,,On: kids breakfast
-sausage-baguette-kids-breakfast,Sausage Baguette (kids breakfast),Kids breakfast,,370,16.4,38,16.5,7.3,,,1.2,,contains_pork,false,true,,,On: kids breakfast
-charcuterie-board-drinks-menu,Charcuterie Board (drinks menu),Bar bites,,675,34.3,54,34.0,12.4,,,11.1,,contains_pork,false,false,,,On: drinks menu
-cheesy-french-onion-fougasse-drinks-menu,Cheesy French Onion Fougasse (drinks menu),Bar bites,,618,20.4,64,25.3,8.6,,2.2,28.5,,,false,false,,,On: drinks menu
-botivo-elderflower-spritz,Botivo Elderflower Spritz,Drinks,,47,0.2,6,0.2,0.0,,0.0,10.6,,vegetarian,false,false,,,On: drinks menu
-passionfruit-no-tini,Passionfruit No-tini,Drinks,,178,0.7,43,0.1,0.0,,0.0,42.3,,vegetarian,false,false,,,On: drinks menu
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+olives,Olives,For the table,,97,0.8,0,9.9,1.5,,,0.0,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
+baguette,Baguette,For the table,,428,10.5,56,17.2,10.6,,,1.2,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
+fougasse,Fougasse,For the table,,606,17.0,75,26.2,13.7,,3.2,2.0,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
+black-garlic-butter-fougasse,Black Garlic Butter Fougasse,For the table,,615,17.0,75,27.3,14.6,,,2.0,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
+wild-garlic-and-sun-dried-tomato-butter-fougasse,Wild Garlic & Sun-Dried Tomato Butter Fougasse,For the table,,585,17.1,76,23.7,11.9,,4.1,2.5,,,,,,,,vegetarian,false,false,,,On: weekday menu
+cheesy-french-onion-fougasse,Cheesy French Onion Fougasse,For the table,,618,23.5,80,22.1,10.3,,1.0,5.6,,,,,,,,,false,false,,,"On: weekday menu, weekend menu"
+baked-camembert,Baked Camembert,For the table,,557,32.5,35,31.4,22.6,,,9.9,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
+charcuterie-board,Charcuterie Board,For the table,,675,34.2,54,34.1,12.5,,5.9,11.0,,,,,,,,contains_pork,false,false,,,"On: weekday menu, weekend menu"
+fougasse-wild-garlic-and-sun-dried-tomato-butter,Fougasse Wild Garlic & Sun-Dried Tomato Butter,For the table,,670,17.1,76,33.0,17.6,,,3.0,,,,,,,,vegetarian,false,false,,,"On: weekend menu, drinks menu"
+bread-and-butter,Bread and Butter,For the table,,327,6.4,21,21.8,11.2,,1.2,0.6,,,,,,,,vegetarian,false,false,,,"On: weekday gluten free menu, weekend gluten free menu"
+baked-camembert-gluten-free,Baked Camembert (gluten free),For the table,,516,31.0,22,32.8,22.8,,,9.6,,,,,,,,vegetarian,false,false,,,"On: weekday gluten free menu, weekend gluten free menu"
+charcuterie-board-gluten-free,Charcuterie Board (gluten free),For the table,,558,29.6,23,36.3,12.7,,5.2,10.5,,,,,,,,contains_pork,false,false,,,On: weekday gluten free menu
+olives-gluten-free,Olives (gluten free),For the table,,278,0.8,0,9.0,1.5,,,0.0,,,,,,,,vegetarian,false,false,,,On: weekend gluten free menu
+french-onion-soup,French Onion Soup,Starters,,314,10.4,33,176.4,4.4,,,14.5,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+veggie-french-onion-soup,Veggie French Onion Soup,Starters,,291,8.9,33,10.8,3.8,,1.0,14.5,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+twice-baked-souffle,Twice Baked Souffle,Starters,,297,15.9,9,21.8,10.3,,,3.5,,,,,,,,vegetarian,false,true,,,On: weekday menu
+chicken-liver-parfait,Chicken Liver Parfait,Starters,,470,11.5,37,29.6,16.8,,2.1,12.5,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+potted-crab,Potted Crab,Starters,,504,14.1,26,37.2,8.0,,,1.9,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+calamari,Calamari,Starters,,672,15.4,28,54.4,5.4,,2.6,2.3,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+garlic-and-chilli-king-prawns,Garlic & Chilli King Prawns,Starters,,284,19.4,2,21.8,11.4,,,1.6,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+grilled-peach-and-lentil-salad,Grilled Peach & Lentil Salad,Starters,,290,8.3,19,18.6,1.9,,1.1,12.7,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+sauteed-scallops,Sautéed Scallops,Starters,,266,13.5,7,19.9,4.2,,,3.1,,,,,,,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+roast-chicken-dijonnaise,Roast Chicken Dijonnaise,Starters,,500,15.9,28,35.0,5.0,,,4.4,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+twice-baked-cheese-souffle,Twice Baked Cheese Soufflé,Starters,,297,15.9,9,21.8,10.3,,,3.5,,,,,,,,vegetarian,false,true,,,"On: weekend menu, weekday gluten free menu, weekend gluten free menu"
+french-onion-soup-gluten-free,French Onion Soup (gluten free),Starters,,362,11.9,35,15.2,4.8,,1.3,14.6,,,,,,,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+french-onion-soup-vegetarian,French Onion Soup - Vegetarian,Starters,,339,10.5,35,13.4,4.1,,1.2,14.6,,,,,,,,vegetarian,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+chicken-liver-parfait-gluten-free,Chicken Liver Parfait (gluten free),Starters,,430,10.2,24,31.1,17.2,,,12.2,,,,,,,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+potted-crab-weekday-gluten-free-menu,Potted Crab (weekday gluten free menu),Starters,,402,12.2,12,32.5,6.9,,1.4,1.4,,,,,,,,,false,true,,,On: weekday gluten free menu
+garlic-and-chilli-prawns,Garlic & Chilli Prawns,Starters,,373,22.4,13,24.5,11.7,,,1.6,,,,,,,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+roast-chicken-dijonnaise-gluten-free,Roast Chicken Dijonnaise (gluten free),Starters,,461,14.6,15,36.4,5.2,,,4.0,,,,,,,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+potted-crab-weekend-gluten-free-menu,Potted Crab (weekend gluten free menu),Starters,,464,12.8,13,38.5,8.3,,,1.6,,,,,,,,,false,true,,,On: weekend gluten free menu
+steak-frites,Steak Frites,Côte icons,,628,33.2,35,38.5,13.0,,1.4,0.5,,,,,,,,contains_beef,false,true,,,"On: weekday menu, weekend menu, prix fixe, weekday gluten free menu, weekend gluten free menu, prix fixe gluten free menu"
+half-poulet-breton,Half Poulet Breton,Côte icons,,1384,81.0,36,100.1,36.4,,3.9,1.2,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+whole-poulet-breton,Whole Poulet Breton,Côte icons,,2769,162.1,73,200.4,72.9,,7.8,4.0,,,,,,,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu"
+confit-pork-belly,Confit Pork Belly,Côte icons,,947,30.3,64,54.5,21.7,,,29.9,,,,,,,,contains_pork|contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+duck-confit,Duck Confit,Côte icons,,1009,74.0,19,71.6,20.7,,3.9,3.9,,,,,,,,contains_beef,false,true,,,"On: weekday menu, weekend menu"
+beef-bourguignon,Beef Bourguignon,Côte icons,,959,85.0,31,50.7,13.4,,,8.0,,,,,,,,contains_pork|contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+salmon-bearnaise,Salmon Béarnaise,Côte icons,,933,32.7,18,80.6,26.0,,,2.5,,,,,,,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+breton-fish-stew,Breton Fish Stew,Côte icons,,657,38.5,43,33.9,7.7,,,10.3,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+plaice-frites,Plaice Frites,Côte icons,,1133,33.3,98,64.7,9.3,,3.6,9.4,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+moules-mariniere,Moules Mariniere,Côte icons,,810,35.2,46,52.7,22.8,,3.7,4.6,,,,,,,,,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+provencal-tarte-tatin,Provençal Tarte Tatin,Côte icons,,754,9.9,76,42.9,22.6,,,45.7,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+risotto-vert,Risotto Vert,Côte icons,,613,16.8,83,22.4,5.2,,2.5,7.6,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+risotto-vert-vegan,Risotto Vert - Vegan,Côte icons,,574,13.8,83,19.4,3.1,,2.5,7.6,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+steak-hache-burger,Steak Haché Burger,Côte icons,,1122,50.2,72,68.0,22.2,,1.0,9.6,,,,,,,,contains_beef,false,true,,,"On: weekday menu, weekend menu"
+mushroom-comte-burger,Mushroom Comté Burger,Côte icons,,1221,56.6,73,76.5,27.1,,5.1,10.2,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+vegan-fable-burger,Vegan Fable Burger,Côte icons,,821,20.4,95,40.5,14.1,,4.4,10.9,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+poulet-breton,Poulet Breton,Côte icons,,1384,81.0,36,100.1,36.4,,3.9,1.2,,,,,,,,,false,true,,,On: weekday gluten free menu
+breton-fish-stew-gluten-free,Breton Fish Stew (gluten free),Côte icons,,654,38.1,36,36.0,8.2,,,10.3,,,,,,,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+risotto-vert-weekday-gluten-free-menu,Risotto Vert (weekday gluten free menu),Côte icons,,611,16.9,83,22.3,5.4,,2.5,7.6,,,,,,,,vegetarian,false,true,,,On: weekday gluten free menu
+risotto-vert-vegan-weekday-gluten-free-menu,Risotto Vert - Vegan (weekday gluten free menu),Côte icons,,576,14.0,83,19.6,46.7,,2.5,7.4,,,,,,,,vegetarian,false,true,,,On: weekday gluten free menu
+half-poulet-breton-gluten-free,Half Poulet Breton (gluten free),Côte icons,,1146,77.1,2,91.1,35.5,,,0.7,,,,,,,,,false,true,,,On: weekend gluten free menu
+whole-poulet-breton-gluten-free,Whole Poulet Breton (gluten free),Côte icons,,2459,160.9,4,168.4,53.6,,,1.5,,,,,,,,,false,true,,,On: weekend gluten free menu
+risotto-vert-weekend-gluten-free-menu,Risotto Vert (weekend gluten free menu),Côte icons,,611,16.9,83,22.3,5.4,,,7.6,,,,,,,,vegetarian,false,true,,,On: weekend gluten free menu
+risotto-vert-vegan-weekend-gluten-free-menu,Risotto Vert - Vegan (weekend gluten free menu),Côte icons,,576,14.0,83,19.6,46.7,,,7.4,,,,,,,,vegetarian,false,true,,,On: weekend gluten free menu
+add-on-streaky-bacon,Add on Streaky Bacon,Add-ons,,113,9.5,0,8.0,2.6,,,0.1,,,,,,,,contains_pork,false,false,,,"On: weekday menu, weekend menu, weekend brunch, breakfast, breakfast gluten free"
+add-on-comte-cheese-slice,Add on Comté Cheese Slice,Add-ons,,83,6.0,0,6.5,3.8,,,0.1,,,,,,,,,false,false,,,"On: weekday menu, weekend menu"
+add-on-fried-egg,Add on Fried Egg,Add-ons,,117,6.9,0,9.9,1.7,,,0.0,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu"
+add-on-anchovies,Add on Anchovies,Add-ons,,36,5.2,0,1.6,0.3,,,0.0,,,,,,,,,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+add-on-savoie-ham,Add on Savoie Ham,Add-ons,,44,4.9,0,2.4,1.2,,,0.0,,,,,,,,contains_pork,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+add-on-shredded-chicken,Add on Shredded Chicken,Add-ons,,279,16.7,1,23.1,6.0,,,0.5,,,,,,,,,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+add-on-king-prawns-mafalde,Add on King Prawns (Mafalde),Add-ons,,140,11.5,0,10.4,0.8,,,0.0,,,,,,,,,false,false,,,"On: weekday menu, weekend menu, prix fixe"
+add-on-smoked-salmon,Add on Smoked Salmon,Add-ons,,88,7.3,0,6.5,2.0,,,0.0,,,,,,,,,false,false,,,"On: weekend brunch, prix fixe, prix fixe gluten free menu"
+add-on-smoked-salmon-breakfast-gluten-free,Add on Smoked Salmon (breakfast / gluten free),Add-ons,,112,15.2,1,5.3,1.2,,1.3,0.7,,,,,,,,,false,false,,,"On: breakfast, breakfast gluten free"
+two-fried-eggs-breakfast-upgrade,Two Fried Eggs (breakfast upgrade),Add-ons,,248,15.2,0,20.8,3.7,,0.8,0.0,,,,,,,,vegetarian,false,false,,,"On: breakfast, breakfast gluten free"
+sauteed-chestnut-mushrooms-breakfast-upgrade,Sautéed Chestnut Mushrooms (breakfast upgrade),Add-ons,,58,2.0,0,5.2,0.3,,1.0,0.3,,,,,,,,vegetarian,false,false,,,"On: breakfast, breakfast gluten free"
+ham-breakfast-upgrade,Ham (breakfast upgrade),Add-ons,,71,12.6,0,2.0,0.5,,1.5,0.2,,,,,,,,contains_pork,false,false,,,"On: breakfast, breakfast gluten free"
+smoked-salmon-breakfast-upgrade,Smoked Salmon (breakfast upgrade),Add-ons,,112,15.2,1,5.3,1.2,,1.3,0.7,,,,,,,,,false,false,,,"On: breakfast, breakfast gluten free"
+free-flow-frites,Free-Flow Frites,Sides,,240,3.6,34,9.1,0.8,,,0.4,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu"
+green-salad,Green Salad,Sides,,123,1.4,3,11.5,1.7,,0.8,2.3,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu"
+tomato-and-basil-salad,Tomato & Basil Salad,Sides,,74,1.2,5,4.9,0.7,,0.4,5.2,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+gratin-mushrooms,Gratin Mushrooms,Sides,,383,8.8,9,34.5,17.2,,1.1,4.5,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+creamed-spinach,Creamed Spinach,Sides,,161,3.7,5,13.3,3.6,,,4.2,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+gratin-dauphinois,Gratin Dauphinois,Sides,,253,3.1,23,16.7,10.1,,1.9,3.0,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+french-beans,French Beans,Sides,,185,2.4,6,17.1,9.1,,2.0,3.9,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+tenderstem-amandine,Tenderstem Amandine,Sides,,99,4.2,3,7.1,0.8,,,2.0,,,,,,,,vegetarian,false,true,,,On: weekend menu
+sauteed-chestnut-mushrooms,Sautéed Chestnut Mushrooms,Sides,,58,2.0,0,5.2,0.3,,1.0,0.3,,,,,,,,vegetarian,false,true,,,"On: breakfast, breakfast gluten free"
+boudin-noir,Boudin Noir,Sides,,226,3.4,7,20.0,6.8,,0.1,2.4,,,,,,,,contains_pork,false,true,,,"On: breakfast, breakfast gluten free"
+tenderstem-broccoli-amandine,Tenderstem® Broccoli Amandine,Sides,,99,4.2,3,7.1,0.8,,,2.0,,,,,,,,vegetarian,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+free-flow-frites-gluten-free,Free-Flow Frites (gluten free),Sides,,266,4.0,38,10.1,0.9,,,0.4,,,,,,,,vegetarian,false,true,,,On: weekend gluten free menu
+fillet-7oz,Fillet (7oz),Côte butchery,,612,53.1,36,27.6,7.6,,1.6,1.3,,,,,,,,contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+sirloin-8oz,Sirloin (8oz),Côte butchery,,700,51.3,36,38.1,12.2,,1.6,1.3,,,,,,,,contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+ribeye-10oz,Ribeye (10oz),Côte butchery,,987,57.0,36,67.7,25.6,,2.9,1.3,,,,,,,,contains_beef,false,true,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+garlic-butter,Garlic Butter,Sauces,,142,0.2,0,15.6,9.9,,0.2,0.1,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu"
+black-garlic-butter,Black Garlic Butter,Sauces,,142,0.2,0,15.6,9.9,,,0.1,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+wild-garlic-and-sun-dried-tomato-butter,Wild Garlic & Sun-Dried Tomato Butter,Sauces,,115,0.1,1,12.3,7.4,,1.4,0.7,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+peppercorn,Peppercorn,Sauces,,114,1.0,2,10.0,6.4,,,1.4,,,,,,,,contains_beef,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+wild-mushroom,Wild Mushroom,Sauces,,151,1.8,4,251.0,8.6,,0.8,2.5,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+bearnaise,Béarnaise,Sauces,,306,1.5,1,33.0,20.3,,,0.5,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+cote-gravy,Côte Gravy,Sauces,,44,0.6,5,1.8,0.7,,0.7,3.0,,,,,,,,vegetarian,false,false,,,"On: weekday menu, weekend menu, weekday gluten free menu, weekend gluten free menu"
+caesar-salad,Caesar Salad,Light mains,,574,14.7,11,52.4,7.9,,,4.8,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+crab-and-prawn-linguine,Crab & Prawn Linguine,Light mains,,662,33.9,58,31.4,12.6,,0.9,5.6,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+sirloin-steak-baguette,Sirloin Steak Baguette,Light mains,,740,38.7,78,29.3,7.5,,2.6,4.8,,,,,,,,contains_beef,false,true,,,On: weekday menu
+tuna-nicoise,Tuna Niçoise,Light mains,,581,34.7,14,42.5,5.5,,,5.9,,,,,,,,,false,true,,,"On: weekday menu, weekend menu"
+french-onion-baguette,French Onion Baguette,Light mains,,808,28.8,92,32.8,10.9,,,7.4,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu"
+creamy-tomato-mafalde,Creamy Tomato Mafalde,Light mains,,673,36.1,90,19.0,2.9,,,13.7,,,,,,,,vegetarian,false,true,,,"On: weekday menu, weekend menu, prix fixe"
+sirloin-steak-baguette-weekend-menu,Sirloin Steak Baguette (weekend menu),Light mains,,740,38.5,78,29.2,7.6,,,4.6,,,,,,,,contains_beef,false,true,,,On: weekend menu
+caesar-salad-gluten-free,Caesar Salad (gluten free),Light mains,,498,13.5,3,48.0,7.4,,,2.7,,,,,,,,vegetarian,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+tuna-nicoise-gluten-free,Tuna Niçoise (gluten free),Light mains,,581,34.7,14,42.5,5.5,,,5.9,,,,,,,,,false,true,,,"On: weekday gluten free menu, weekend gluten free menu"
+cote-breakfast,Côte Breakfast,Breakfast,,1039,48.5,44,72.6,20.9,,,5.2,,,,,,,,contains_pork,false,true,,,"On: weekend brunch, breakfast"
+veggie-breakfast,Veggie Breakfast,Breakfast,,890,39.8,47,57.8,19.1,,,5.3,,,,,,,,vegetarian,false,true,,,"On: weekend brunch, breakfast"
+brunch-burger,Brunch Burger,Breakfast,,1314,68.2,72,82.5,27.2,,,8.9,,,,,,,,contains_pork|contains_beef,false,true,,,On: weekend brunch
+avocado-toast,Avocado Toast,Breakfast,,877,25.7,63,55.5,10.6,,3.5,2.1,,,,,,,,vegetarian,false,true,,,On: weekend brunch
+brittany-salt-butter-french-toast,Brittany Salt Butter French Toast,Breakfast,,664,11.6,68,37.8,12.0,,,30.2,,,,,,,,vegetarian,false,true,,,"On: weekend brunch, breakfast"
+fresh-berries-and-vanilla-chantilly-french-toast,Fresh Berries & Vanilla Chantilly French Toast,Breakfast,,585,12.5,68,28.2,10.9,,,30.3,,,,,,,,vegetarian,false,true,,,"On: weekend brunch, breakfast"
+smoked-streaky-bacon-and-vanilla-chantilly-french-toast,Smoked Streaky Bacon & Vanilla Chantilly French Toast,Breakfast,,680,18.6,70,35.4,13.9,,,32.3,,,,,,,,contains_pork,false,true,,,"On: weekend brunch, breakfast"
+sunny-side-steak,Sunny-Side Steak,Breakfast,,602,42.0,32,32.8,6.7,,,0.3,,,,,,,,contains_beef,false,true,,,"On: breakfast, breakfast gluten free"
+avocado-toast-breakfast,Avocado Toast (breakfast),Breakfast,,531,8.3,37,36.8,7.1,,2.1,2.1,,,,,,,,vegetarian,false,true,,,On: breakfast
+benedict-eggs-hollandaise,Benedict (Eggs Hollandaise),Breakfast,,718,39.0,30,48.5,23.3,,,1.6,,,,,,,,contains_pork,false,true,,,On: breakfast
+royale-eggs-hollandaise,Royale (Eggs Hollandaise),Breakfast,,803,39.4,31,57.6,25.8,,,1.6,,,,,,,,,false,true,,,On: breakfast
+florentine-eggs-hollandaise,Florentine (Eggs Hollandaise),Breakfast,,718,26.7,31,35.8,10.7,,,1.6,,,,,,,,vegetarian,false,true,,,On: breakfast
+the-og-the-croques,The OG (The Croques),Breakfast,,594,36.5,28,37.3,19.9,,,6.2,,,,,,,,contains_pork,false,true,,,On: breakfast
+mushroom-the-croques,Mushroom (The Croques),Breakfast,,547,23.3,34,34.5,19.4,,,6.7,,,,,,,,vegetarian,false,true,,,On: breakfast
+royale-the-croques,Royale (The Croques),Breakfast,,643,33.4,28,43.9,21.6,,,6.2,,,,,,,,,false,true,,,On: breakfast
+comte-omelette,Comté Omelette,Breakfast,,825,36.2,55,50.3,24.6,,,4.3,,,,,,,,,false,true,,,On: breakfast
+cheese-croissant,Cheese Croissant,Breakfast,,451,18.1,28,29.2,15.9,,,5.9,,,,,,,,,false,true,,,On: breakfast
+bacon-baguette,Bacon Baguette,Breakfast,,708,27.9,79,30.1,14.8,,,8.3,,,,,,,,contains_pork,false,true,,,On: breakfast
+sausage-baguette,Sausage Baguette,Breakfast,,779,28.5,80,37.0,18.0,,3.6,8.9,,,,,,,,contains_pork,false,true,,,On: breakfast
+vegetarian-sausage-baguette,Vegetarian Sausage Baguette,Breakfast,,781,35.4,88,30.9,14.9,,2.5,10.4,,,,,,,,vegetarian,false,true,,,On: breakfast
+granola-bowl,Granola Bowl,Breakfast,,326,7.6,47,10.6,4.0,,,37.5,,,,,,,,vegetarian,false,true,,,"On: breakfast, breakfast gluten free"
+cote-breakfast-gluten-free,Côte Breakfast (gluten free),Breakfast,,1039,48.5,44,72.6,20.9,,,5.2,,,,,,,,contains_pork,false,true,,,On: breakfast gluten free
+vegetarian-breakfast,Vegetarian Breakfast,Breakfast,,890,39.8,47,57.8,19.1,,,5.3,,,,,,,,vegetarian,false,true,,,On: breakfast gluten free
+avocado-on-toast,Avocado on Toast,Breakfast,,531,8.3,37,36.8,7.1,,,2.1,,,,,,,,vegetarian,false,true,,,On: breakfast gluten free
+matcha-bowl,Matcha Bowl,Breakfast,,318,6.9,50,8.8,1.0,,,47.3,,,,,,,,vegetarian,false,true,,,On: breakfast gluten free
+baked-comte-omelette,Baked Comté Omelette,Breakfast,,647,30.0,15,50.5,24.8,,2.1,3.4,,,,,,,,,false,true,,,On: breakfast gluten free
+vegetarian-baked-comte-omelette,Vegetarian Baked Comté Omelette,Breakfast,,571,26.4,13,44.9,22.7,,1.7,2.5,,,,,,,,vegetarian,false,true,,,On: breakfast gluten free
+leek-and-potato-soup,Leek & Potato Soup,Prix fixe starters,,178,2.8,16,10.7,2.3,,,4.6,,,,,,,,vegetarian,false,true,,,On: prix fixe
+leek-and-potato-soup-vegan,Leek & Potato Soup - Vegan,Prix fixe starters,,135,2.0,12,8.3,2.0,,0.9,3.4,,,,,,,,vegetarian,false,true,,,"On: prix fixe, prix fixe gluten free menu"
+pork-rillettes,Pork Rillettes,Prix fixe starters,,373,20.3,27,18.3,4.5,,,3.1,,,,,,,,contains_pork,false,true,,,On: prix fixe
+marinated-tomato-salad,Marinated Tomato Salad,Prix fixe starters,,318,7.8,11,26.5,9.4,,,7.2,,,,,,,,vegetarian,false,true,,,On: prix fixe
+crispy-whitebait,Crispy Whitebait,Prix fixe starters,,596,19.4,11,52.6,1.6,,1.8,5.8,,,,,,,,,false,true,,,On: prix fixe
+leek-and-potato-soup-gluten-free,Leek & Potato Soup (gluten free),Prix fixe starters,,225,5.1,50,11.0,2.5,,,3.7,,,,,,,,vegetarian,false,true,,,On: prix fixe gluten free menu
+pork-rillette,Pork Rillette,Prix fixe starters,,333,19.0,14,19.7,4.9,,,2.6,,,,,,,,contains_pork,false,true,,,On: prix fixe gluten free menu
+tomato-and-raspberry-salad,Tomato & Raspberry Salad,Prix fixe starters,,126,0.8,5,11.3,1.3,,,4.7,,,,,,,,vegetarian,false,true,,,On: prix fixe gluten free menu
+poulet-grille,Poulet Grille,Prix fixe mains,,728,54.9,2,44.1,21.6,,,6.2,,,,,,,,,false,true,,,"On: prix fixe, prix fixe gluten free menu"
+fish-parmentier,Fish Parmentier,Prix fixe mains,,681,30.1,24,48.8,17.0,,3.0,4.5,,,,,,,,,false,true,,,"On: prix fixe, prix fixe gluten free menu"
+cherry-chocolate-crepe,Cherry Chocolate Crêpe,Prix fixe desserts,,383,6.0,53,15.6,9.2,,0.3,40.3,,,,,,,,vegetarian,false,true,,,"On: prix fixe, treat yourself"
+raspberry-sorbet-with-wafer,Raspberry Sorbet with wafer,Prix fixe desserts,,115,0.7,27,0.5,0.4,,0.1,22.3,,,,,,,,vegetarian,false,true,,,"On: prix fixe, treat yourself"
+elderflower-creme-brulee,Elderflower Crème Brûlée,Prix fixe desserts,,540,6.5,24,45.9,27.0,,,24.4,,,,,,,,vegetarian,false,true,,,"On: prix fixe, treat yourself, prix fixe gluten free menu, treat yourself gluten free"
+tarte-au-citron,Tarte au Citron,Desserts,,549,6.0,58,32.3,20.7,,0.0,41.5,,,,,,,,vegetarian,false,false,,,On: treat yourself
+chocolate-mousse-for-one,Chocolate Mousse for One,Desserts,,636,11.4,22,49.1,24.0,,3.4,23.9,,,,,,,,vegetarian,false,false,,,On: treat yourself
+pastry-platter,Pastry Platter,Pastries,,983,18.3,112,50.0,26.2,,,31.5,,,,,,,,vegetarian,false,false,,,On: breakfast
+sticks-n-dips,Sticks 'N' Dips,Kids starters,,116,2.2,7,8.2,1.7,,0.1,6.2,,,,,,,,vegetarian,false,true,,,On: kids menu
+calamari-kids-menu,Calamari (kids menu),Kids starters,,440,13.0,24,32.1,3.1,,1.9,1.5,,,,,,,,,false,true,,,On: kids menu
+garlic-butter-baguette,Garlic Butter Baguette,Kids starters,,161,3.9,21,6.4,3.8,,,0.8,,,,,,,,vegetarian,false,true,,,On: kids menu
+kids-garlic-butter-baguette-with-cheese,Kids Garlic Butter Baguette with Cheese,Kids starters,,202,6.9,21,9.7,5.7,,,0.8,,,,,,,,,false,true,,,On: kids menu
+andreas-pasta,Andrea's Pasta,Kids mains,,233,10.9,34,5.1,2.2,,0.7,5.4,,,,,,,,,false,true,,,On: kids menu
+vegan-andreas-pasta,Vegan Andrea's Pasta,Kids mains,,192,7.9,34,1.9,0.3,,0.7,5.3,,,,,,,,vegetarian,false,true,,,On: kids menu
+haddock-goujons,Haddock Goujons,Kids mains,,340,17.1,13,23.7,2.2,,0.8,2.8,,,,,,,,,false,true,,,On: kids menu
+beef-burger,Beef Burger,Kids mains,,692,29.1,67,33.3,9.7,,2.5,12.3,,,,,,,,contains_beef,false,true,,,On: kids menu
+vegan-burger,Vegan Burger,Kids mains,,665,18.6,88,27.8,12.2,,,12.5,,,,,,,,vegetarian,false,true,,,On: kids menu
+kids-comte-cheese-slice,Kids Comte Cheese Slice,Kids mains,,21,1.5,0,1.6,0.9,,0.0,0.0,,,,,,,,,false,true,,,On: kids menu
+petit-steak-frites,Petit Steak Frites,Kids mains,,384,22.9,28,19.3,6.9,,0.8,0.7,,,,,,,,contains_beef,false,true,,,On: kids menu
+cheese-and-ham-croque,Cheese & Ham Croque,Kids mains,,311,23.4,13,18.6,9.8,,,2.7,,,,,,,,contains_pork,false,true,,,On: kids menu
+kids-omelette-with-cheese,Kids Omelette with Cheese,Kids mains,,410,19.4,0,36.9,9.7,,0.6,0.1,,,,,,,,,false,true,,,On: kids menu
+kids-omelette-with-ham,Kids Omelette with Ham,Kids mains,,406,22.2,0,35.3,8.4,,1.3,0.1,,,,,,,,contains_pork,false,true,,,On: kids menu
+omelette,Omelette,Kids mains,,469,26.4,0,40.6,10.9,,,0.0,,,,,,,,contains_pork,false,true,,,On: kids menu
+creamed-potato-puree,Creamed Potato Purée,Kids sides,,178,2.2,13,12.5,1.6,,,1.2,,,,,,,,vegetarian,false,true,,,On: kids menu
+tomato-and-cucumber-salad,Tomato & Cucumber Salad,Kids sides,,21,1.0,3,0.3,0.1,,,2.6,,,,,,,,vegetarian,false,true,,,On: kids menu
+kids-tenderstem-broccoli-and-peas,Kids Tenderstem® Broccoli & Peas,Kids sides,,86,4.5,4,5.3,0.8,,,2.4,,,,,,,,vegetarian,false,true,,,On: kids menu
+frites,Frites,Kids sides,,192,2.8,27,7.3,0.6,,1.0,0.3,,,,,,,,vegetarian,false,true,,,On: kids menu
+fruit-and-yogurt-bowl,Fruit & Yogurt Bowl,Kids desserts,,136,3.5,23,2.5,0.9,,,22.3,,,,,,,,vegetarian,false,false,,,"On: kids menu, kids breakfast, kids breakfast gluten free"
+warm-madeleine,Warm Madeleine,Kids desserts,,301,4.1,28,18.8,12.6,,,19.2,,,,,,,,vegetarian,false,false,,,On: kids menu
+warm-chocolate-fondant,Warm Chocolate Fondant,Kids desserts,,572,9.5,56,33.7,20.8,,,48.8,,,,,,,,vegetarian,false,false,,,On: kids menu
+ice-cream-scoop,Ice Cream Scoop,Kids desserts,,109,1.7,13,5.4,3.2,,,11.6,,,,,,,,vegetarian,false,false,,,On: kids menu
+kids-chocolate-ice-cream-with-wafer,Kids Chocolate Ice Cream with Wafer,Kids desserts,,126,2.3,15,6.3,3.8,,,12.8,,,,,,,,vegetarian,false,false,,,On: kids menu
+kids-salted-caramel-ice-cream-with-wafer,Kids Salted Caramel Ice Cream with Wafer,Kids desserts,,112,1.6,2,5.1,3.2,,0.2,11.1,,,,,,,,vegetarian,false,false,,,On: kids menu
+kids-raspberry-sorbet-with-wafer,Kids Raspberry Sorbet with Wafer,Kids desserts,,77,0.9,17,0.5,0.3,,,15.3,,,,,,,,vegetarian,false,false,,,On: kids menu
+kids-vegan-vanilla-ice-cream-with-wafer,Kids Vegan Vanilla Ice Cream with Wafer,Kids desserts,,55,0.3,7,2.7,2.3,,,4.8,,,,,,,,vegetarian,false,false,,,On: kids menu
+build-your-own-sundae,Build Your Own Sundae,Kids desserts,,280,4.1,29,16.1,9.7,,,21.5,,,,,,,,vegetarian,false,false,,,On: kids menu
+tomato-baked-beans,Tomato Baked Beans,Kids breakfast,,221,6.9,27,8.6,3.1,,,6.6,,,,,,,,vegetarian,false,true,,,On: kids breakfast
+cooked-breakfast,Cooked Breakfast,Kids breakfast,,236,20.0,1,16.7,5.5,,,0.0,,,,,,,,,false,true,,,page marks it vegetarian but its own text names pork: no diet tags given; On: kids breakfast
+scrambled-eggs-on-toast,Scrambled Eggs on Toast,Kids breakfast,,313,8.9,26,18.6,6.0,,,5.5,,,,,,,,vegetarian,false,true,,,On: kids breakfast
+bacon-baguette-kids-breakfast,Bacon Baguette (kids breakfast),Kids breakfast,,332,14.8,36,13.6,6.1,,,0.7,,,,,,,,contains_pork,false,true,,,On: kids breakfast
+sausage-baguette-kids-breakfast,Sausage Baguette (kids breakfast),Kids breakfast,,370,16.4,38,16.5,7.3,,,1.2,,,,,,,,contains_pork,false,true,,,On: kids breakfast
+charcuterie-board-drinks-menu,Charcuterie Board (drinks menu),Bar bites,,675,34.3,54,34.0,12.4,,,11.1,,,,,,,,contains_pork,false,false,,,On: drinks menu
+cheesy-french-onion-fougasse-drinks-menu,Cheesy French Onion Fougasse (drinks menu),Bar bites,,618,20.4,64,25.3,8.6,,2.2,28.5,,,,,,,,,false,false,,,On: drinks menu
+botivo-elderflower-spritz,Botivo Elderflower Spritz,Drinks,,47,0.2,6,0.2,0.0,,0.0,10.6,,,,,,,,vegetarian,false,false,,,On: drinks menu
+passionfruit-no-tini,Passionfruit No-tini,Drinks,,178,0.7,43,0.1,0.0,,0.0,42.3,,,,,,,,vegetarian,false,false,,,On: drinks menu

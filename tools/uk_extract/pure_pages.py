@@ -12,7 +12,13 @@ Only the "Per portion" column is read here.
 
 Pages that hold the menu: PAGES below (one request per page; robots.txt asks for a 10 second crawl delay). Save each
 once into a folder as <page>.html and give that folder to pure.py. The Catering and Events Packages pages are not read.
+
+Allergens: each article also prints a bold "Contains ..." line (or "Does not contain any of the 14 common allergens") under the
+description, an "Allergen Info" list of "No X" tags, and the ingredients with allergens in bold (the page's own footnote: "For
+allergens, including cereals containing gluten, see ingredients in bold."). They are returned raw (contains_lines,
+allergen_tags, ingredients_html); pure.py decides what they say.
 """
+from __future__ import annotations
 import html
 import re
 from pathlib import Path
@@ -98,8 +104,16 @@ def read_page(path: Path, strict: bool = True) -> list[dict]:
         if n_tables != len(tables):
             raise ValueError(f"{path}: {name!r} has {n_tables} tables but {len(tables)} were read")
         ing = re.search(r"<h5>Full Ingredients List</h5>\s*<div>(.*?)</div>", a, re.S)
+        # allergen statements: the paragraphs between the header and the first <h5> after it that start "Contains" / "Does not contain"
+        hs = a.find("</header>")
+        head = a[hs:a.find("<h5>", hs)] if hs != -1 else ""
+        contains_lines = [t for t in (text(p) for p in re.findall(r"<p>(.*?)</p>", head, re.S))
+                          if re.match(r"(?:Contains\b|Does not contain\b)", t)]
+        tags = re.search(r'<h5>Allergen Info</h5>\s*<ul class="tags"[^>]*>(.*?)</ul>', a, re.S)
         out.append({"page": Path(path).stem, "section": section, "name": name, "slug": slug, "tile": tile_title,
-                    "marks": marks, "ingredients": text(ing.group(1)) if ing else "", "tables": tables})
+                    "marks": marks, "ingredients": text(ing.group(1)) if ing else "", "tables": tables,
+                    "contains_lines": contains_lines, "ingredients_html": ing.group(1) if ing else "",
+                    "allergen_tags": [text(x) for x in re.findall(r"<li><a>(.*?)</a></li>", tags.group(1), re.S)] if tags else None})
     return out
 
 

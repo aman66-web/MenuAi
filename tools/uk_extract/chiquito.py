@@ -7,6 +7,7 @@ https://menus.tenkites.com/thebigtg/chiquito02 is the menu chiquito.co.uk/menu e
 "Nutrition (per portion)" table. The other tabs are the same address with ?mguid=<tab id>. Parser: tenkites_a.py.
 Numbers are copied as printed; only names, categories and the rules below are written by hand.
 """
+from __future__ import annotations
 import re
 import sys
 from pathlib import Path
@@ -16,7 +17,7 @@ import tenkites_a as t  # noqa: E402
 
 URL = "https://menus.tenkites.com/thebigtg/chiquito02"
 TABS = {"Main Menu": "use", "Lunch": "use", "Dessert": "use", "Kids": "use", "Drinks": "use"}
-EXPECTED = {"Main Menu": 114, "Lunch": 46, "Dessert": 14, "Kids": 42, "Drinks": 110}
+EXPECTED = {"Main Menu": 112, "Lunch": 44, "Dessert": 14, "Kids": 42, "Drinks": 103}
 
 ADDONS = "Add-ons & extras"
 BYO = "Build your own"
@@ -139,15 +140,20 @@ def classify(rec: dict):
     return spec
 
 
-HOLDBACK = {
-    "Vegan Cheese (add-on, Starters)": "The table prints 1,152 kcal for a vegan-cheese add-on; the same guide prints 308 kcal for vegan cheese added to sides.",
-}
+# The 1,152 kcal "Vegan Cheese" add-on that was held back here is no longer on the page (2026-10-06 refresh: both vegan
+# cheese add-ons were removed), so nothing is held back.
+HOLDBACK: dict = {}
 NOTE = ("Per portion as printed on the chain's menu pages. Each part of a meal is listed on its own: sides, sauces, tortillas, "
         "toppings and build-your-own parts are separate rows, so add the parts you order. Wines, cocktails and most drinks "
         "print no numbers and are not listed.")
+
+# The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
+# and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
+ALLERGEN_TITLE = "Chiquito Dietary Information (allergens) on its online Main, Lunch, Dessert, Kids and Drinks menus (Ten Kites page generated 2026-10-06)"
 
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="chiquito", name="Chiquito", cuisine="Mexican", aliases=["chiquito"], url=URL,
         source_title="Chiquito Nutrition (per portion) menus: Main, Lunch, Dessert, Kids and Drinks (page generated 2026-10-06)",
-        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK))
+        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
+        allergen_title=ALLERGEN_TITLE))

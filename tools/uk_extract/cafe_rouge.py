@@ -8,6 +8,7 @@ https://menus.tenkites.com/thebigtg/mobilemenuscaferouge is the generic menu caf
 Tenkites page template (popover instead of modal), which tenkites_a.py also reads. The other tabs are the same address
 with ?mguid=<tab id>. Numbers are copied as printed; only names, categories and the rules below are written by hand.
 """
+from __future__ import annotations
 import re
 import sys
 from pathlib import Path
@@ -134,8 +135,18 @@ NOTE = ("Per portion as printed on the chain's menu pages. Wines, cocktails and 
         "afternoon tea, Sunday roast (Centre Parcs only) and the Christmas Day menus are not listed. Extras and the side served "
         "with a grill dish are separate rows: add them yourself.")
 
+# The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
+# and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
+# Cafe Rouge also prints a label "Nuts" (label id 29) beside the 14. It is not one of the 14: the page's own allergen filter
+# lists "Tree Nuts" and "Peanuts" and not "Nuts"; every dish with a tree nut also prints "Tree Nuts (...)" (Waldorf Salad:
+# "Nuts / Tree Nuts (Walnuts)"), and "Nuts" alone is printed only for the chestnut soups (Mushroom & Chestnut Soup:
+# "Contains: Nuts / Cereals (Wheat)", with "Tree Nuts (...)" under "May contain"). So the word is skipped, never read as tree nuts.
+ALLERGEN_IGNORE = {"nuts"}
+ALLERGEN_TITLE = "Cafe Rouge Dietary Information (allergens) on its online Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (Ten Kites page generated 2026-10-06)"
+
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="cafe-rouge", name="Cafe Rouge", cuisine="French", aliases=["cafe rouge", "café rouge"], url=URL,
         source_title="Cafe Rouge Nutritional Values: Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (page generated 2026-10-06)",
-        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK))
+        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
+        allergen_title=ALLERGEN_TITLE, allergen_ignore=ALLERGEN_IGNORE))

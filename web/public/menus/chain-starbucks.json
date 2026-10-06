@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-05"
  },
  "note": "Drinks follow the guide's standard build where it marks one; otherwise the milk is named on the row. Syrups, toppings and other milks aren't included.",
+ "allergenGuide": {
+  "title": "Starbucks UK Nutrition & Allergens page: Core and Seasonal Beverage and Food Nutritional and Allergen Information (Autumn 2026 booklets)",
+  "url": "https://www.starbucks.co.uk/quick-links/nutrition-info",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Espresso & coffee",
   "Mocha & hot chocolate",

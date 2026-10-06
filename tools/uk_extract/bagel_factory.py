@@ -8,7 +8,8 @@ Source: https://bagelfactory.co.uk/menu/ lists the bagels; each bagel's own page
 page also carries the same blocks, but they are inside HTML comments (switched off, and out of date), so this script strips
 every HTML comment and reads ONLY the live block on each bagel's page. Per-100 g blocks are ignored.
 
-Numbers are copied exactly as printed (units removed). Only names, categories, servings, rankable and the pork/beef tags
+Numbers are copied exactly as printed (units removed); the printed kJ goes to energy_kj (the pages print no serving weight,
+mono/poly/trans fat or caffeine). Only names, categories, servings, rankable and the pork/beef tags
 are typed by hand in ROWS below. The categories and the vegetarian tag come from the chain's own filter pages
 (/menu/breakfast/, /cream-cheese/, /deli/, /gluten-free/, /seafood/, /spread/, /veggie/ = "Veggie & Vegan").
 
@@ -16,8 +17,18 @@ The script STOPS (exit 1, nothing written) if: the set of bagels on /menu/ chang
 nutrition block is not the expected nine rows; the "plain bagel bun" statement appears or disappears; a filter page's
 members differ from the table; or the pork/beef tags no longer match the ingredient text. Then re-check ROWS by hand.
 
---cache DIR keeps the downloaded pages (menu.html, items/<slug>.html, filters/<filter>.html) so a re-run does not download
-again; files already there are read instead of fetched. Downloads are one request per second.
+--cache DIR keeps the downloaded pages (menu.html, items/<slug>.html, filters/<filter>.html, allergen-guide.pdf) so a re-run
+does not download again; files already there are read instead of fetched. Downloads are one request per second.
+
+Allergens (docs/DATA.md "Allergens"): the chain's allergen information is its "Ingredient List" PDF, linked from /menu/ as
+"VIEW OUR ALLERGENS" (it says "For allergens, see ingredients in BOLD"; it prints no per-item "may contain"). It cannot be
+tied to the published items, so only allergen_guide.csv is written (the app links to the guide) and no allergens.csv:
+  * most of its item names differ from the bagel pages' names ("Mini Bacon Bagel" vs "BACON MINI", "Bacon & Egg Bagel" vs
+    "BACON AND EGG", "Tuna Melt" vs "TUNA MELT BAGEL", ...); items are matched by exact name only, never by a hand-made map;
+  * its filled bagels start "BAGEL BUN OF CUSTOMER CHOICE", so an entry does not name the bun's allergens, while our numbers are
+    for a bagel made with the plain bun.
+The script reads the guide's issue and date from the PDF for the guide's title and prints how many items have an exact-name
+entry, so a later guide that lines up can be re-checked. Needs `pdftotext` (poppler).
 """
 from __future__ import annotations
 import argparse
@@ -25,7 +36,9 @@ import hashlib
 import html
 import json
 import re
+import subprocess
 import sys
+import tempfile
 import time
 import urllib.request
 from pathlib import Path
@@ -112,6 +125,9 @@ NOTE = ("Values are for each bagel as made with a plain bagel bun; Bagel Factory
         "the numbers. Minis and gluten-free boxes are as listed with their own bun. Drinks have no published nutrition.")
 
 LABELS = ["Energy (Kcal)", "Energy (Kj)", "Fat", "of which Saturates", "Carbohydrates", "of which Sugars", "Fibre", "Protein", "Salt"]
+# The allergen guide /menu/ links as "VIEW OUR ALLERGENS" (the script stops if the link changes).
+ALLERGEN_URL = f"{BASE}/wp-content/uploads/Full-Ingredient-List.pdf"
+ALLERGEN_TITLE = "Bagel Factory Ingredient List, allergens in bold (Issue {issue}, {date})"  # issue and date read from the PDF
 PORK = re.compile(r"\b(bacon|ham|pepperoni|sausage|pork|salami|chorizo)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak|brisket)\b", re.I)
 
@@ -125,19 +141,22 @@ class Fetcher:
         self.cache, self.last, self.fetched = cache, 0.0, 0
 
     def get(self, url: str, rel: str) -> str:
+        return self.get_bytes(url, rel).decode("utf-8")
+
+    def get_bytes(self, url: str, rel: str) -> bytes:
         if self.cache and (self.cache / rel).exists():
-            return (self.cache / rel).read_bytes().decode("utf-8")
+            return (self.cache / rel).read_bytes()
         wait = 1.1 - (time.monotonic() - self.last)  # one request per second at most
         if wait > 0:
             time.sleep(wait)
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            text = resp.read().decode("utf-8")
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            data = resp.read()
         self.last, self.fetched = time.monotonic(), self.fetched + 1
         if self.cache:
             (self.cache / rel).parent.mkdir(parents=True, exist_ok=True)
-            (self.cache / rel).write_bytes(text.encode("utf-8"))
-        return text
+            (self.cache / rel).write_bytes(data)
+        return data
 
 
 def strip_comments(page: str) -> str:
@@ -186,6 +205,35 @@ def parse_item(page: str, slug_: str) -> dict:
         "plain_bun": bool(re.search(r"Nutritional values (?:are )?(?:refer|referred) to a bagel prepared with a plain bagel bun", re.sub(r"\s+", " ", ingredients))),
         "modified": date.group(1)[:10] if date else "",
     }
+
+
+def allergen_guide_text(pdf: bytes) -> str:
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "guide.pdf"
+        path.write_bytes(pdf)
+        out = subprocess.run(["pdftotext", "-layout", str(path), "-"], capture_output=True, text=True, check=True)
+    return out.stdout
+
+
+def read_allergen_guide(text: str) -> tuple[str, str, list[str]]:
+    """-> (issue, date, the guide's names for its filled bagels, minis and gluten-free boxes). Stops if the guide no longer
+    says that allergens are shown in bold or carries no issue/date."""
+    if "For allergens, see ingredients in BOLD" not in text:
+        raise Stop("the allergen guide no longer says 'For allergens, see ingredients in BOLD': re-check how it shows allergens")
+    issues = set(re.findall(r"ISSUE (\d+) DATE (\d\d/\d\d/\d{4})", text))
+    if len(issues) != 1:
+        raise Stop(f"the allergen guide's issue/date is not one clear value: {sorted(issues)}")
+    (issue, date), = issues
+    lines = text.split("\n")
+    fillings = ("BAGEL BUN OF CUSTOMER CHOICE", "PLAIN MINI BAGEL BUN", "GLUTEN-FREE PLAIN BAGEL")
+    names = [re.sub(r"(,?\s+(V|VG|H))+$", "", line).strip()
+             for line, nxt in zip(lines, lines[1:] + [""]) if line and not line[0].isspace() and nxt.startswith(fillings)]
+    return issue, date, names
+
+
+def norm_name(name: str) -> str:
+    """Exact-name comparison: case, punctuation and spaces only."""
+    return re.sub(r"[^a-z0-9]+", "", html.unescape(name).lower())
 
 
 def main() -> int:
@@ -246,11 +294,22 @@ def main() -> int:
                 "id": slug(name), "name": name, "category": category[s], "serving": serving,
                 "calories": v["Energy (Kcal)"], "protein_g": v["Protein"], "carbs_g": v["Carbohydrates"], "fat_g": v["Fat"],
                 "sat_fat_g": v["of which Saturates"], "sodium_mg": "", "salt_g": v["Salt"], "sugar_g": v["of which Sugars"],
-                "fiber_g": v["Fibre"], "tags": "|".join(tags), "limited_time": False, "rankable": True, "notes": note,
+                "fiber_g": v["Fibre"], "energy_kj": v["Energy (Kj)"],
+                "tags": "|".join(tags), "limited_time": False, "rankable": True, "notes": note,
             })
         ids = [i["id"] for i in items]
         assert len(ids) == len(set(ids)), "duplicate ids"
         holdback = [(slug(ROWS[s][1]), reason) for s, reason in HOLDBACK.items()]
+
+        # allergens: the guide /menu/ links to; link only (see the module docstring)
+        links = set(re.findall(r'href="([^"]+)"[^>]*><span[^>]*>VIEW OUR </span><strong> ALLERGENS</strong>', strip_comments(menu)))
+        if links != {ALLERGEN_URL}:
+            raise Stop(f"/menu/'s 'VIEW OUR ALLERGENS' link is now {sorted(links)}, not {ALLERGEN_URL}: re-check the allergen guide")
+        issue, date, guide_names = read_allergen_guide(allergen_guide_text(fetch.get_bytes(ALLERGEN_URL, "allergen-guide.pdf")))
+        in_guide = {norm_name(n) for n in guide_names}
+        unmatched = [ROWS[s][0] for s in ROWS if norm_name(ROWS[s][0]) not in in_guide]
+        allergen_guide = {"title": ALLERGEN_TITLE.format(issue=issue, date=date), "url": ALLERGEN_URL,
+                          "checked_on": args.checked_on, "may_contain_published": False}
     except Stop as e:
         print(f"STOP: {e}", file=sys.stderr)
         return 1
@@ -262,9 +321,12 @@ def main() -> int:
     dates = f"/menu/ page updated {menu_date.group(1)[:10]}; bagel pages updated {min(modified)} to {max(modified)}"
     write_chain_folder(chain_id=CHAIN_ID, name="Bagel Factory", cuisine="Bakery", source_title=SOURCE_TITLE.format(dates=dates), source_url=MENU_URL,
                        checked_on=args.checked_on, aliases=["bagel factory", "the bagel factory", "bagelfactory"], items=items,
-                       out=args.out, note=NOTE, holdback=holdback)
+                       out=args.out, note=NOTE, holdback=holdback, allergen_guide=allergen_guide)
     digest = hashlib.sha256(json.dumps(shas, sort_keys=True).encode()).hexdigest()
     print(f"wrote {len(items)} items ({len(holdback)} held back) to {args.out}")
+    print(f"allergens: link to {allergen_guide['title']} only. {len(ROWS) - len(unmatched)} of {len(ROWS)} bagel names have an "
+          f"exact-name entry in the guide; no entry: {', '.join(unmatched)}. Filled bagels' entries also leave out the bun "
+          "('BAGEL BUN OF CUSTOMER CHOICE').")
     print(f"/menu/ page sha256 {hashlib.sha256(menu.encode('utf-8')).hexdigest()}; combined sha256 of the {len(shas)} bagel pages {digest}")
     print(f"downloaded {fetch.fetched} pages this run")
     for a in anomalies:

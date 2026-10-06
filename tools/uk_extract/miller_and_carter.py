@@ -11,6 +11,7 @@ menu items, the held-back rows and the notes are written by hand below. Not read
 steaks, drinks), which use other websitePageUrlPath values. The older printed menu differs from the feed for some items
 (Cheesy Garlic Bread 575 vs 596 kcal): the feed, which is what the site shows now, is the only source used.
 """
+from __future__ import annotations
 import sys
 from pathlib import Path
 
@@ -73,7 +74,7 @@ CHAIN = mb.Chain(
         "Ice Cream & Sorbet": "The feed prints 40 kcal for a dessert of three scoops and a chocolate twirl; the scoops are chosen separately and their values aren't added in.",
     },
     note_txt=("A la carte menu only (the Sunday, set and drinks menus aren't included). Where you choose a side, sauce, butter or "
-              "dressing it is listed separately and isn't added in. Weights in names (oz) are approximate uncooked weights."),
+              "dressing it is listed separately and isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights."),
 )
 
 if __name__ == "__main__":

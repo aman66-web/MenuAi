@@ -1,67 +1,67 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-marinara,Marinara,Pizza,Average portion,606,18.9,102.9,13.7,2.1,,1.5,8.7,,vegetarian,false,true,,,
-bianca,Bianca,Pizza,Average portion,872,42,98.7,35.5,15.1,,2.5,5.5,,vegetarian,false,true,,,
-margherita,Margherita,Pizza,Average portion,792,43.2,102.3,24.6,13.4,,2.9,8.7,,vegetarian,false,true,,,
-funghi,Funghi,Pizza,Average portion,812,45.5,105,25,13.5,,3,10.1,,vegetarian,false,true,,,
-fiorentina,Fiorentina,Pizza,Average portion,915,54.8,102.6,32.6,16.6,,3.4,9.1,,vegetarian,false,true,,,
-giardino,Giardino,Pizza,Average portion,827,46,108.2,25,13.5,,3,13.3,,vegetarian,false,true,,,
-formaggi,Formaggi,Pizza,Average portion,1024,53.5,103,45.5,27.7,,3.6,9.6,,,false,true,,,Guide marks it not vegetarian but does not say why (meat type not stated)
-regina,Regina,Pizza,Average portion,921,53.7,105,32.9,16.2,,4.7,9.7,,,false,true,,,Meat type not stated
-tropicali,Tropicali,Pizza,Average portion,875,49.2,114.1,25.9,13.9,,3.8,18.9,,,false,true,,,Meat type not stated
-vesuvio,Vesuvio,Pizza,Average portion,885,48.8,102.9,32.1,18.2,,4.9,9.1,,,false,true,,,Meat type not stated
-pepperoni,Pepperoni,Pizza,Average portion,983,54.7,102.8,40.3,23.6,,4.9,9.4,,contains_pork,false,true,,,Pork because the guide's own topping row is 'Pepperoni (PORK)'
-calabria,Calabria,Pizza,Average portion,1110,50.4,104,55.9,29.7,,4,10.2,,,false,true,,,Meat type not stated
-carne,Carne,Pizza,Average portion,1016,69.4,107.2,35.2,19.3,,5,11.4,,,false,true,,,Meat type not stated
-pollo,Pollo,Pizza,Average portion,899,61.2,105.2,26.9,14,,3.2,11.2,,,false,true,,,Meat type not stated
-napoli,Napoli,Pizza,Average portion,894,52,102.3,31.7,14.4,,8.1,8.7,,,false,true,,,"Salt printed as 8.1 g, well above the other pizzas (the anchovy topping alone is printed at 4.5 g); allergens list fish: anchovies"
-rucola,Rucola,Salad,Average portion,174,3.4,4.9,15.4,2.7,,0.4,4,,vegetarian,false,true,,,
-verdura,Verdura,Salad,Average portion,203,3,4,19.2,3,,1.1,3.5,,vegetarian,false,true,,,
-campagna,Campagna,Salad,Average portion,246,17.3,5.7,16.9,3,,0.6,4.7,,,false,true,,,Guide marks it not vegetarian; meat type not stated
-hot-chilli-dip,Hot Chilli Dip,Savoury,Average portion,16,0.2,2.1,0.2,0.04,,1.2,0.2,,vegetarian,false,false,,,
-hot-honey-dip,Hot Honey Dip,Savoury,Average portion,118,0.45,29.6,0.2,0,,0.4,28.5,,vegetarian,false,false,,,Protein is printed as 0.45 (two decimals)
-garlic-and-herb-dip,Garlic & Herb Dip,Savoury,Average portion,235,0.3,3.5,24.2,1.8,,0.8,3.2,,vegetarian,false,false,,,
-taralli,Taralli,Savoury,Average portion,443,9,65.6,13.3,2,,2.5,0,,vegetarian,false,true,,,
-mixed-olives,Mixed Olives,Savoury,Average portion,122,1,0.7,12,1.3,,4,0,,vegetarian,false,true,,,
-cannoli-chocolate,Cannoli Chocolate,Sweet,Average portion,131,1.2,13.6,7.8,2.4,,0.1,8.2,,vegetarian,false,false,,,
-cannoli-pistachio,Cannoli Pistachio,Sweet,Average portion,127,1,14.2,7.7,2.4,,0.1,8.4,,vegetarian,false,false,,,
-dark-chocolate-sorbetto,Dark Chocolate Sorbetto,Gelato & sorbetto,Average portion,170,2,30.2,4,2.4,,0.25,30,,vegetarian,false,false,,,
-bronte-pistachio-gelato,Bronte Pistachio Gelato,Gelato & sorbetto,Average portion,183,5.4,22.7,7.4,2.9,,0.37,16.8,,vegetarian,false,false,,,
-madagascan-vanilla-gelato,Madagascan Vanilla Gelato,Gelato & sorbetto,Average portion,178,3.7,22.3,7.1,5,,0.15,14.3,,vegetarian,false,false,,,
-sea-salted-caramel-gelato,Sea Salted Caramel Gelato,Gelato & sorbetto,Average portion,208,3.5,26.4,9.4,6.4,,0.65,25.7,,vegetarian,false,false,,,
-raspberry-sorbetto,Raspberry Sorbetto,Gelato & sorbetto,Average portion,100,0.6,24,0,0,,0,20,,vegetarian,false,false,,,
-anchovies-fish,Anchovies (fish),Toppings,Average portion,62,8.7,0,3,0.6,,4.5,0,,,false,false,,,
-chicken,Chicken,Toppings,Average portion,80,17.5,0.4,1.0,0.3,,0.7,0.4,,,false,false,,,
-ham-pork,Ham (pork),Toppings,Average portion,56,8.2,0.2,2.5,0.8,,0.8,0.2,,contains_pork,false,false,,,
-nduja-pork,N'duja (pork),Toppings,Average portion,207,5.2,0.4,20.4,8.8,,1.0,0.3,,contains_pork,false,false,,,
-pepperoni-pork,Pepperoni (pork),Toppings,Average portion,91,5.5,0.3,7.4,4.8,,0.7,0.3,,contains_pork,false,false,,,
-black-olives,Black olives,Toppings,Average portion,41,0.2,0.2,4.1,0.5,,0.7,0,,vegetarian,false,false,,,
-fresh-spinach,Fresh spinach,Toppings,Average portion,9,0.8,0.5,0.2,0,,0,0.5,,vegetarian,false,false,,,
-jalapeno-peppers,Jalapeno peppers,Toppings,Average portion,3,0.2,0.5,0.1,0,,1.1,0.1,,vegetarian,false,false,,,kJ printed as 14 for 3 kcal (rounding)
-mushrooms,Mushrooms,Toppings,Average portion,11,1.6,1.7,0.2,0.1,,0,0.1,,vegetarian,false,false,,,
-mixed-peppers,Mixed peppers,Toppings,Average portion,11,0.4,0,0.1,0,,0,1.8,,vegetarian,false,false,,,HELD BACK: sugars 1.8 g printed with 0 g carbohydrate
-onions,Onions,Toppings,Average portion,10,0.3,2,0.1,0,,0,1.4,,vegetarian,false,false,,,
-pineapple,Pineapple,Toppings,Average portion,41,0.4,9.8,0,0,,0,9.8,,vegetarian,false,false,,,
-rocket,Rocket,Toppings,Average portion,7,0.5,0.8,0.1,0,,0,0.4,,vegetarian,false,false,,,
-gorgonzola,Gorgonzola,Toppings,Average portion,84,4.8,0,7.3,5,,0.5,0,,,false,false,,,Printed 'Gorngozola' (spelling corrected in the name only); guide marks it not vegetarian; meat type not stated
-mascarpone,Mascarpone,Toppings,Average portion,107,1.8,0.9,10.8,7.5,,0,0.9,,vegetarian,false,false,,,
-mozzarella,Mozzarella,Toppings,Average portion,205,17.3,0,15.6,9.2,,1,0,,vegetarian,false,false,,,
-parmesan-dalter-vegetarian-cheese,Parmesan (Dalter vegetarian cheese),Toppings,Average portion,43,3.9,0,2.9,1.8,,0.2,0,,vegetarian,false,false,,,Printed 'Parmesan (dalter vegeterian cheese' with no closing bracket (name tidied only)
-vegan-mozzarella,Vegan Mozzarella,Toppings,Average portion,233,0.1,14.9,18.4,15.5,,1,0.9,,vegetarian,false,false,,,
-egg,Egg,Toppings,Average portion,73,6.9,0,5,1.4,,0.2,0,,vegetarian,false,false,,,
-chilli-oil,Chilli oil,Toppings,Average portion,135,0,0,13.8,1.8,,0,0,,vegetarian,false,false,,,Identical numbers to Garlic oil as printed
-garlic-oil,Garlic oil,Toppings,Average portion,135,0,0,13.8,1.8,,0,0,,vegetarian,false,false,,,Identical numbers to Chilli oil as printed
-pizza-sauce,Pizza sauce,Toppings,Average portion,21,1,3.3,0.3,0.1,,0.4,2.8,,vegetarian,false,false,,,
-salad-dressing,Salad dressing,Toppings,Average portion,137,0.3,3,13.7,1.7,,0.3,3,,vegetarian,false,false,,,
-coke,Coke,Soft drinks,Average portion,139,0,35,0,0,,0,35,,vegetarian,false,false,,,
-diet-coke,Diet Coke,Soft drinks,Average portion,1,0,0,0,0,,0,0,,vegetarian,false,false,,,kJ 5 for 1 kcal (rounding)
-san-p-aranciata,San P. Aranciata,Soft drinks,Average portion,69,0.3,14.9,0,0,,0,14.6,,vegetarian,false,false,,,
-san-p-limonata,San P. Limonata,Soft drinks,Average portion,73,0.2,14.9,0,0,,0,14.9,,vegetarian,false,false,,,Printed kcal (73) is higher than its carbohydrate and protein explain (about 60); the printed kJ agrees with the kcal
-water-still,Water (still),Soft drinks,Average portion,0,0,0,0,0,,0,0,,vegetarian,false,false,,,
-water-sparkling,Water (sparkling),Soft drinks,Average portion,0,0,0,0,0,,0,0,,vegetarian,false,false,,,
-americano,Americano,Hot drinks,Average portion,9,0.4,1.7,0,0,,0,0,,vegetarian,false,false,,,
-cappuccino,Cappuccino,Hot drinks,Average portion,96,6.8,10,3.2,2.2,,0.3,10,,vegetarian,false,false,,,
-espresso,Espresso,Hot drinks,Average portion,11,0.8,1.9,0,0,,0,0,,vegetarian,false,false,,,
-latte,Latte,Hot drinks,Average portion,105,7.2,11.7,3.4,2.4,,0.3,10,,vegetarian,false,false,,,
-beer-moretti,Beer Moretti,Beer,Average portion,125,1,10.6,0.3,0.3,,0.3,0.3,,vegetarian,false,false,,,"Calories include the energy of the alcohol, so they are well above 4P+4C+9F"
-beer-moretti-large,Beer Moretti Large,Beer,Average portion,250,2,21.1,0.7,0.7,,0.7,0.7,,vegetarian,false,false,,,"Calories include the energy of the alcohol, so they are well above 4P+4C+9F"
-beer-moretti-0,Beer Moretti 0%,Beer,Average portion,66,1.7,14.5,0,0,,0,4,,vegetarian,false,false,,,
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+marinara,Marinara,Pizza,Average portion,606,18.9,102.9,13.7,2.1,,1.5,8.7,,2555,,,,,,vegetarian,false,true,,,
+bianca,Bianca,Pizza,Average portion,872,42,98.7,35.5,15.1,,2.5,5.5,,3649,,,,,,vegetarian,false,true,,,
+margherita,Margherita,Pizza,Average portion,792,43.2,102.3,24.6,13.4,,2.9,8.7,,3324,,,,,,vegetarian,false,true,,,
+funghi,Funghi,Pizza,Average portion,812,45.5,105,25,13.5,,3,10.1,,3407,,,,,,vegetarian,false,true,,,
+fiorentina,Fiorentina,Pizza,Average portion,915,54.8,102.6,32.6,16.6,,3.4,9.1,,3836,,,,,,vegetarian,false,true,,,
+giardino,Giardino,Pizza,Average portion,827,46,108.2,25,13.5,,3,13.3,,3474,,,,,,vegetarian,false,true,,,
+formaggi,Formaggi,Pizza,Average portion,1024,53.5,103,45.5,27.7,,3.6,9.6,,4286,,,,,,,false,true,,,Guide marks it not vegetarian but does not say why (meat type not stated)
+regina,Regina,Pizza,Average portion,921,53.7,105,32.9,16.2,,4.7,9.7,,3860,,,,,,,false,true,,,Meat type not stated
+tropicali,Tropicali,Pizza,Average portion,875,49.2,114.1,25.9,13.9,,3.8,18.9,,3672,,,,,,,false,true,,,Meat type not stated
+vesuvio,Vesuvio,Pizza,Average portion,885,48.8,102.9,32.1,18.2,,4.9,9.1,,3715,,,,,,,false,true,,,Meat type not stated
+pepperoni,Pepperoni,Pizza,Average portion,983,54.7,102.8,40.3,23.6,,4.9,9.4,,4127,,,,,,contains_pork,false,true,,,Pork because the guide's own topping row is 'Pepperoni (PORK)'
+calabria,Calabria,Pizza,Average portion,1110,50.4,104,55.9,29.7,,4,10.2,,4646,,,,,,,false,true,,,Meat type not stated
+carne,Carne,Pizza,Average portion,1016,69.4,107.2,35.2,19.3,,5,11.4,,4264,,,,,,,false,true,,,Meat type not stated
+pollo,Pollo,Pizza,Average portion,899,61.2,105.2,26.9,14,,3.2,11.2,,3778,,,,,,,false,true,,,Meat type not stated
+napoli,Napoli,Pizza,Average portion,894,52,102.3,31.7,14.4,,8.1,8.7,,3747,,,,,,,false,true,,,"Salt printed as 8.1 g, well above the other pizzas (the anchovy topping alone is printed at 4.5 g); allergens list fish: anchovies"
+rucola,Rucola,Salad,Average portion,174,3.4,4.9,15.4,2.7,,0.4,4,,724,,,,,,vegetarian,false,true,,,
+verdura,Verdura,Salad,Average portion,203,3,4,19.2,3,,1.1,3.5,,844,,,,,,vegetarian,false,true,,,
+campagna,Campagna,Salad,Average portion,246,17.3,5.7,16.9,3,,0.6,4.7,,1029,,,,,,,false,true,,,Guide marks it not vegetarian; meat type not stated
+hot-chilli-dip,Hot Chilli Dip,Savoury,Average portion,16,0.2,2.1,0.2,0.04,,1.2,0.2,,67,,,,,,vegetarian,false,false,,,
+hot-honey-dip,Hot Honey Dip,Savoury,Average portion,118,0.45,29.6,0.2,0,,0.4,28.5,,496,,,,,,vegetarian,false,false,,,Protein is printed as 0.45 (two decimals)
+garlic-and-herb-dip,Garlic & Herb Dip,Savoury,Average portion,235,0.3,3.5,24.2,1.8,,0.8,3.2,,969,,,,,,vegetarian,false,false,,,
+taralli,Taralli,Savoury,Average portion,443,9,65.6,13.3,2,,2.5,0,,1783,,,,,,vegetarian,false,true,,,
+mixed-olives,Mixed Olives,Savoury,Average portion,122,1,0.7,12,1.3,,4,0,,501,,,,,,vegetarian,false,true,,,
+cannoli-chocolate,Cannoli Chocolate,Sweet,Average portion,131,1.2,13.6,7.8,2.4,,0.1,8.2,,545,,,,,,vegetarian,false,false,,,
+cannoli-pistachio,Cannoli Pistachio,Sweet,Average portion,127,1,14.2,7.7,2.4,,0.1,8.4,,529,,,,,,vegetarian,false,false,,,
+dark-chocolate-sorbetto,Dark Chocolate Sorbetto,Gelato & sorbetto,Average portion,170,2,30.2,4,2.4,,0.25,30,,715,,,,,,vegetarian,false,false,,,
+bronte-pistachio-gelato,Bronte Pistachio Gelato,Gelato & sorbetto,Average portion,183,5.4,22.7,7.4,2.9,,0.37,16.8,,767,,,,,,vegetarian,false,false,,,
+madagascan-vanilla-gelato,Madagascan Vanilla Gelato,Gelato & sorbetto,Average portion,178,3.7,22.3,7.1,5,,0.15,14.3,,744,,,,,,vegetarian,false,false,,,
+sea-salted-caramel-gelato,Sea Salted Caramel Gelato,Gelato & sorbetto,Average portion,208,3.5,26.4,9.4,6.4,,0.65,25.7,,871,,,,,,vegetarian,false,false,,,
+raspberry-sorbetto,Raspberry Sorbetto,Gelato & sorbetto,Average portion,100,0.6,24,0,0,,0,20,,426,,,,,,vegetarian,false,false,,,
+anchovies-fish,Anchovies (fish),Toppings,Average portion,62,8.7,0,3,0.6,,4.5,0,,259,,,,,,,false,false,,,
+chicken,Chicken,Toppings,Average portion,80,17.5,0.4,1.0,0.3,,0.7,0.4,,340,,,,,,,false,false,,,
+ham-pork,Ham (pork),Toppings,Average portion,56,8.2,0.2,2.5,0.8,,0.8,0.2,,234,,,,,,contains_pork,false,false,,,
+nduja-pork,N'duja (pork),Toppings,Average portion,207,5.2,0.4,20.4,8.8,,1.0,0.3,,866,,,,,,contains_pork,false,false,,,
+pepperoni-pork,Pepperoni (pork),Toppings,Average portion,91,5.5,0.3,7.4,4.8,,0.7,0.3,,382,,,,,,contains_pork,false,false,,,
+black-olives,Black olives,Toppings,Average portion,41,0.2,0.2,4.1,0.5,,0.7,0,,170,,,,,,vegetarian,false,false,,,
+fresh-spinach,Fresh spinach,Toppings,Average portion,9,0.8,0.5,0.2,0,,0,0.5,,37,,,,,,vegetarian,false,false,,,
+jalapeno-peppers,Jalapeno peppers,Toppings,Average portion,3,0.2,0.5,0.1,0,,1.1,0.1,,14,,,,,,vegetarian,false,false,,,kJ printed as 14 for 3 kcal (rounding)
+mushrooms,Mushrooms,Toppings,Average portion,11,1.6,1.7,0.2,0.1,,0,0.1,,46,,,,,,vegetarian,false,false,,,
+mixed-peppers,Mixed peppers,Toppings,Average portion,11,0.4,0,0.1,0,,0,1.8,,48,,,,,,vegetarian,false,false,,,HELD BACK: sugars 1.8 g printed with 0 g carbohydrate
+onions,Onions,Toppings,Average portion,10,0.3,2,0.1,0,,0,1.4,,43,,,,,,vegetarian,false,false,,,
+pineapple,Pineapple,Toppings,Average portion,41,0.4,9.8,0,0,,0,9.8,,174,,,,,,vegetarian,false,false,,,
+rocket,Rocket,Toppings,Average portion,7,0.5,0.8,0.1,0,,0,0.4,,29,,,,,,vegetarian,false,false,,,
+gorgonzola,Gorgonzola,Toppings,Average portion,84,4.8,0,7.3,5,,0.5,0,,349,,,,,,,false,false,,,Printed 'Gorngozola' (spelling corrected in the name only); guide marks it not vegetarian; meat type not stated
+mascarpone,Mascarpone,Toppings,Average portion,107,1.8,0.9,10.8,7.5,,0,0.9,,439,,,,,,vegetarian,false,false,,,
+mozzarella,Mozzarella,Toppings,Average portion,205,17.3,0,15.6,9.2,,1,0,,848,,,,,,vegetarian,false,false,,,
+parmesan-dalter-vegetarian-cheese,Parmesan (Dalter vegetarian cheese),Toppings,Average portion,43,3.9,0,2.9,1.8,,0.2,0,,179,,,,,,vegetarian,false,false,,,Printed 'Parmesan (dalter vegeterian cheese' with no closing bracket (name tidied only)
+vegan-mozzarella,Vegan Mozzarella,Toppings,Average portion,233,0.1,14.9,18.4,15.5,,1,0.9,,968,,,,,,vegetarian,false,false,,,
+egg,Egg,Toppings,Average portion,73,6.9,0,5,1.4,,0.2,0,,301,,,,,,vegetarian,false,false,,,
+chilli-oil,Chilli oil,Toppings,Average portion,135,0,0,13.8,1.8,,0,0,,555,,,,,,vegetarian,false,false,,,Identical numbers to Garlic oil as printed
+garlic-oil,Garlic oil,Toppings,Average portion,135,0,0,13.8,1.8,,0,0,,555,,,,,,vegetarian,false,false,,,Identical numbers to Chilli oil as printed
+pizza-sauce,Pizza sauce,Toppings,Average portion,21,1,3.3,0.3,0.1,,0.4,2.8,,90,,,,,,vegetarian,false,false,,,
+salad-dressing,Salad dressing,Toppings,Average portion,137,0.3,3,13.7,1.7,,0.3,3,,568,,,,,,vegetarian,false,false,,,
+coke,Coke,Soft drinks,Average portion,139,0,35,0,0,,0,35,,594,,,,,,vegetarian,false,false,,,
+diet-coke,Diet Coke,Soft drinks,Average portion,1,0,0,0,0,,0,0,,5,,,,,,vegetarian,false,false,,,kJ 5 for 1 kcal (rounding)
+san-p-aranciata,San P. Aranciata,Soft drinks,Average portion,69,0.3,14.9,0,0,,0,14.6,,291,,,,,,vegetarian,false,false,,,
+san-p-limonata,San P. Limonata,Soft drinks,Average portion,73,0.2,14.9,0,0,,0,14.9,,310,,,,,,vegetarian,false,false,,,Printed kcal (73) is higher than its carbohydrate and protein explain (about 60); the printed kJ agrees with the kcal
+water-still,Water (still),Soft drinks,Average portion,0,0,0,0,0,,0,0,,0,,,,,,vegetarian,false,false,,,
+water-sparkling,Water (sparkling),Soft drinks,Average portion,0,0,0,0,0,,0,0,,0,,,,,,vegetarian,false,false,,,
+americano,Americano,Hot drinks,Average portion,9,0.4,1.7,0,0,,0,0,,40,,,,,,vegetarian,false,false,,,
+cappuccino,Cappuccino,Hot drinks,Average portion,96,6.8,10,3.2,2.2,,0.3,10,,404,,,,,,vegetarian,false,false,,,
+espresso,Espresso,Hot drinks,Average portion,11,0.8,1.9,0,0,,0,0,,47,,,,,,vegetarian,false,false,,,
+latte,Latte,Hot drinks,Average portion,105,7.2,11.7,3.4,2.4,,0.3,10,,444,,,,,,vegetarian,false,false,,,
+beer-moretti,Beer Moretti,Beer,Average portion,125,1,10.6,0.3,0.3,,0.3,0.3,,521,,,,,,vegetarian,false,false,,,"Calories include the energy of the alcohol, so they are well above 4P+4C+9F"
+beer-moretti-large,Beer Moretti Large,Beer,Average portion,250,2,21.1,0.7,0.7,,0.7,0.7,,1043,,,,,,vegetarian,false,false,,,"Calories include the energy of the alcohol, so they are well above 4P+4C+9F"
+beer-moretti-0,Beer Moretti 0%,Beer,Average portion,66,1.7,14.5,0,0,,0,4,,277,,,,,,vegetarian,false,false,,,

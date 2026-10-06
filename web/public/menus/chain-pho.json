@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Values are per dish as served; the guide says they vary slightly because dishes are cooked to order. Starters exclude dipping sauces. Curries and rice bowls exclude the rice they are served with (rice is listed separately). Vermicelli (bún) dishes exclude the veggie spring roll.",
+ "allergenGuide": {
+  "title": "Pho Allergen Guide 2026: Main Food Menu (accurate as of August 2026)",
+  "url": "https://pho-media.sp.works/wp-content/uploads/2026/09/Pho-Allergen-Guide-2026_web.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": false
+ },
  "categories": [
   "Starters & sides",
   "Phở",

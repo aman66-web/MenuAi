@@ -9,8 +9,8 @@ example https://www.greeneking.co.uk/pubs/west-yorkshire/new-inn/menu). The file
 Nutritional Information - Spring Summer 2024, Version 1" (HTTP Last-Modified 25 Jul 2024, PDF created 16 May 2024). Only Pub &
 Social pubs publish it; other Greene King pubs offer an allergen tool only. The menu may have changed since 2024.
 
-Numbers are copied from the PDF exactly as printed, per serving (kcal, fat, saturates, carbohydrates, sugars, protein, salt;
-kJ and the %RI columns are not used). Only names, categories and flags are decided by hand in ROWS below, one entry per printed
+Numbers are copied from the PDF exactly as printed, per serving (kJ, kcal, fat, saturates, carbohydrates, sugars, protein,
+salt; the %RI columns are not used). Only names, categories and flags are decided by hand in ROWS below, one entry per printed
 row in the PDF's order, together with the row's printed category and name. If Greene King adds, removes, renames or reorders a
 row the printed text no longer matches ROWS and this script stops, so a human re-checks the structure.
 
@@ -28,6 +28,11 @@ dish, please add the nutrition for the choice to the total dish." So a row follo
 
 In the PDF the choices (options) are printed in red text and everything else in black; the entries below agree with that for
 every row (checked by rendering the pages and testing the colour of each row's name on 2026-10-06).
+
+Allergens: this PDF prints none. Greene King publishes allergens per pub only, through each pub's "View Allergen Info" tool
+(hosted by SmartChef, whose robots.txt disallows all automated access, and showing the pub's current menu rather than this 2024
+guide). So no allergens are copied: only allergen_guide.csv is written, linking to Greene King's own allergen page (the app then
+shows a link, not a list). may_contain_published is "no" because nothing per dish could be read here.
 """
 from __future__ import annotations
 import argparse
@@ -44,6 +49,9 @@ from common import ROOT, slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "greene-king"
 SOURCE_URL = "https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/b538641dcd674078a9ed2355770d6eb6?v=c6782b60"
 SOURCE_TITLE = "Greene King Pub & Social Core Menu Nutritional Information, Spring Summer 2024 (Version 1)"
+# Greene King's own allergen page (it sends guests to each pub's allergen menu via the pub finder). Read 2026-10-06.
+ALLERGEN_GUIDE_TITLE = "Greene King allergen information: each pub's allergen menu, via the pub finder (no date shown)"
+ALLERGEN_GUIDE_URL = "https://www.greeneking.co.uk/allergens"
 NOTE = ("Pub & Social menu only, from Greene King's spring/summer 2024 guide. Where the guide asks you to choose a sauce, side or "
         "bread, the dish is listed without it and the choice is an add-on, so those dishes are not suggested as orders.")
 HELD_REASON = ("Printed as 0 kcal and 0 g of protein, carbohydrate and fat: a placeholder for the choices listed under it, "
@@ -284,7 +292,7 @@ def norm(s: str) -> str:
 def nutrients(printed: dict) -> dict:
     v = printed["values"]
     return {"calories": v["kcal"], "protein_g": v["protein"], "carbs_g": v["carbs"], "fat_g": v["fat"], "sat_fat_g": v["sat"],
-            "sodium_mg": "", "salt_g": v["salt"], "sugar_g": v["sugars"], "fiber_g": ""}
+            "sodium_mg": "", "salt_g": v["salt"], "sugar_g": v["sugars"], "fiber_g": "", "energy_kj": v["kj"]}
 
 
 def build(pdf_rows: list[dict]) -> tuple[list[dict], list[dict], list[tuple[str, str]], list[str]]:
@@ -356,9 +364,11 @@ def main() -> int:
     out = write_chain_folder(chain_id=CHAIN_ID, name="Greene King", cuisine="Pub", source_title=SOURCE_TITLE,
                              source_url=SOURCE_URL, checked_on=args.checked_on,
                              aliases=["greene king", "greene king pub", "pub & social"], items=items, out=args.out,
-                             note=NOTE, holdback=held)
+                             note=NOTE, holdback=held,
+                             allergen_guide={"title": ALLERGEN_GUIDE_TITLE, "url": ALLERGEN_GUIDE_URL, "checked_on": args.checked_on,
+                                             "may_contain_published": False})
     fields = ["item_id", "id", "label", "kind", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
-              "sugar_g", "fiber_g", "tags"]
+              "sugar_g", "fiber_g", "energy_kj", "weight_g", "mono_fat_g", "poly_fat_g", "trans_fat_g", "caffeine_mg", "tags"]
     with open(out / "modifiers.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()

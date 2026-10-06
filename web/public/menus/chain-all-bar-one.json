@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Cocktails, wines and beers have no nutrition table in the guide, so they are not included. Small Appetites portions are listed separately; swaps, 'With ...' choices and the hotel, group, buffet and tour menus are not included.",
+ "allergenGuide": {
+  "title": "All Bar One Allergen & Nutrition Guide, Mitchells & Butlers (live page)",
+  "url": "https://allergens.mbplc.io/AllergenGuideAllBarOneEstate.html",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Sides & snacks",
   "Add-ons",

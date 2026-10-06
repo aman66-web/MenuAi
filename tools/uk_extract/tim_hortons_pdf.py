@@ -2,9 +2,15 @@
 
 Used by tools/uk_extract/tim_hortons.py --pdf. Needs `pdftotext` (poppler). The PDF is the same table the product pages show
 (one row per product and size: portion, kJ, kcal, fat, saturates, carbohydrates, sugars, fibre, protein, salt, each with its
-%RI columns), stamped with a version such as "C5 5.10.26 - v6". Nothing is read from it into the menu: this only reports rows
-whose printed numbers differ from the page's, and published products the PDF does not list.
+%RI columns), stamped with a version such as "C5 5.10.26 - v6". No number is read from it into the menu: `compare` only reports
+rows whose printed numbers differ from the page's, and published products the PDF does not list.
+
+The PDF also opens with "Allergen Information (UK & Ireland)": one row per product (no sizes) with Yes / No / Maybe under 19
+columns (Wheat, Rye, Barley, Oats, Spelt, Kamut, Soya, Nuts, Peanuts, Sesame, Milk, Eggs, Fish, Crustaceans, Celery, Sulphur
+Dioxide and Sulphites, Mustard, Molluscs, Lupin) and "Suitable for Vegetarians?". `read_allergens` returns it for
+tim_hortons.py, which cross-checks the product pages' own "Allergens:" lines against it.
 """
+from __future__ import annotations
 import re
 import subprocess
 import unicodedata
@@ -73,3 +79,67 @@ def compare(pdf: Path, rows: list[dict]) -> None:
         print(f"  not in the PDF: {line}")
     for line in differ:
         print(f"  differs: {line}")
+
+
+# ---------------------------------------------------------------- allergen matrix
+ALLERGEN_COLUMNS = ("Wheat", "Rye", "Barley", "Oats", "Spelt", "Kamut", "Soya", "Nuts", "Peanuts", "Sesame", "Milk", "Eggs", "Fish",
+                    "Crustaceans", "Celery", "Sulphites", "Mustard", "Molluscs", "Lupin")
+_AROW = re.compile(r"^(.*?)\s*((?:(?:Yes|No|Maybe)\s+){19}(?:Yes|No|Maybe))\s*$")
+_SECTION = re.compile(r"^(\S[^()]*?) \((\d+) Items\)\s*$")
+
+
+def norm_name(s: str) -> str:
+    """Exact-name matching key: case, punctuation (including ®) and spacing ignored, nothing else."""
+    s = unicodedata.normalize("NFKC", s).replace("\u200b", "").lower()
+    return " ".join(re.sub(r"[^a-z0-9]+", " ", s).split())
+
+
+def read_allergens(pdf: Path) -> tuple[str, dict[str, list[dict]]]:
+    """The allergen matrix: (version, {norm_name: [{"name", "yes": {column}, "maybe": {column}}]}). Stops if the column
+    headings move or a section's row count differs from the "(N Items)" it prints."""
+    text = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True, check=True).stdout
+    version = re.search(r"C\d+ \d+\.\d+\.\d+ - v\d+", text)
+    start, end = text.find("Allergen Information (UK & Ireland)"), text.find("Nutritional Information (UK & Ireland)")
+    if start < 0 or end < start:
+        raise SystemExit("The PDF has no 'Allergen Information' table before the nutrition table: re-check the layout.")
+    lines = text[start:end].splitlines()
+    heads = [n for n, ln in enumerate(lines) if re.match(r"^\s*ALLERGENS\s", ln)]
+    for n in heads:   # the 15 one-line headings, then the multi-line ones in this left-to-right order
+        if lines[n].split()[1:] != list(ALLERGEN_COLUMNS[:15]):
+            raise SystemExit(f"Allergen table headings changed: {lines[n].split()[1:]}")
+        block = "\n".join(lines[max(0, n - 4):n + 6])
+        cols = [min((ln.find(w) for ln in block.splitlines() if w in ln), default=-1)
+                for w in ("Sulphur", "Mustard", "Molluscs", "Lupin", "Suitable")]
+        if -1 in cols or cols != sorted(cols) or min(cols) <= lines[n].find("Celery"):
+            raise SystemExit("Allergen table headings after Celery changed order: re-check ALLERGEN_COLUMNS.")
+    rows: dict[str, list[dict]] = {}
+    sections, current = [], None
+    for n, ln in enumerate(lines):
+        m = _SECTION.match(ln)
+        if m:
+            current = [m.group(1), int(m.group(2)), 0]
+            sections.append(current)
+            continue
+        if current is not None and re.match(r"^\S.*\(Draft\)(?:\s+(?:Yes|No))?\s*$", ln):
+            current[2] += 1   # a draft product with no allergen values, only the vegetarian column ("Timmies Minis Meal Deal (Draft)")
+            continue
+        m = _AROW.match(ln)
+        if m:
+            if current is None:
+                raise SystemExit(f"Allergen row before any section heading: {ln.strip()!r}")
+            current[2] += 1
+            vals = m.group(2).split()
+            name = m.group(1).strip()
+            if not name:   # a long name is wrapped: its first half is the line above the values, its second half the line below
+                above, below = lines[n - 1].strip(), lines[n + 1].strip()
+                if not above or not below or _AROW.match(lines[n - 1]) or _AROW.match(lines[n + 1]):
+                    raise SystemExit(f"Allergen row without a readable name near {ln.strip()[:40]!r}: re-check the layout.")
+                name = f"{above} {below}"
+            rows.setdefault(norm_name(name), []).append({
+                "name": name,
+                "yes": {c for c, v in zip(ALLERGEN_COLUMNS, vals) if v == "Yes"},
+                "maybe": {c for c, v in zip(ALLERGEN_COLUMNS, vals) if v == "Maybe"}})
+    bad = [f"{t}: prints {n} items, {k} rows read" for t, n, k in sections if n != k]
+    if bad or not sections:
+        raise SystemExit("Allergen table rows do not match the section counts: " + "; ".join(bad))
+    return (version.group(0) if version else "unknown version"), rows

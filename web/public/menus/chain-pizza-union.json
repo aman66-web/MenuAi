@@ -14,6 +14,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Pizza Union's guide gives values per average portion with no weights, and toppings are listed separately (they are not added to the pizza figures). Wines, cocktails and teas have no data in the guide.",
+ "allergenGuide": {
+  "title": "Pizza Union Nutrition and Allergen Information (renewed 17.03.26)",
+  "url": "https://www.pizzaunion.com/wp-content/pizza-union-nutrition-allergen-information.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Pizza",
   "Salad",
@@ -39,7 +46,8 @@
     "fat": 13.7,
     "saturatedFat": 2.1,
     "sugar": 8.7,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 2555
    },
    "tags": [
     "vegetarian"
@@ -47,7 +55,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bianca",
@@ -61,7 +78,8 @@
     "fat": 35.5,
     "saturatedFat": 15.1,
     "sugar": 5.5,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 3649
    },
    "tags": [
     "vegetarian"
@@ -69,7 +87,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "margherita",
@@ -83,7 +111,8 @@
     "fat": 24.6,
     "saturatedFat": 13.4,
     "sugar": 8.7,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 3324
    },
    "tags": [
     "vegetarian"
@@ -91,7 +120,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "funghi",
@@ -105,7 +144,8 @@
     "fat": 25,
     "saturatedFat": 13.5,
     "sugar": 10.1,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 3407
    },
    "tags": [
     "vegetarian"
@@ -113,7 +153,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "fiorentina",
@@ -127,7 +177,8 @@
     "fat": 32.6,
     "saturatedFat": 16.6,
     "sugar": 9.1,
-    "salt": 3.4
+    "salt": 3.4,
+    "energyKj": 3836
    },
    "tags": [
     "vegetarian"
@@ -135,7 +186,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "giardino",
@@ -149,7 +211,8 @@
     "fat": 25,
     "saturatedFat": 13.5,
     "sugar": 13.3,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 3474
    },
    "tags": [
     "vegetarian"
@@ -157,7 +220,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "formaggi",
@@ -171,13 +244,24 @@
     "fat": 45.5,
     "saturatedFat": 27.7,
     "sugar": 9.6,
-    "salt": 3.6
+    "salt": 3.6,
+    "energyKj": 4286
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "regina",
@@ -191,13 +275,24 @@
     "fat": 32.9,
     "saturatedFat": 16.2,
     "sugar": 9.7,
-    "salt": 4.7
+    "salt": 4.7,
+    "energyKj": 3860
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tropicali",
@@ -211,13 +306,24 @@
     "fat": 25.9,
     "saturatedFat": 13.9,
     "sugar": 18.9,
-    "salt": 3.8
+    "salt": 3.8,
+    "energyKj": 3672
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "vesuvio",
@@ -231,13 +337,24 @@
     "fat": 32.1,
     "saturatedFat": 18.2,
     "sugar": 9.1,
-    "salt": 4.9
+    "salt": 4.9,
+    "energyKj": 3715
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pepperoni",
@@ -251,7 +368,8 @@
     "fat": 40.3,
     "saturatedFat": 23.6,
     "sugar": 9.4,
-    "salt": 4.9
+    "salt": 4.9,
+    "energyKj": 4127
    },
    "tags": [
     "contains_pork"
@@ -259,7 +377,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "calabria",
@@ -273,13 +401,24 @@
     "fat": 55.9,
     "saturatedFat": 29.7,
     "sugar": 10.2,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 4646
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "carne",
@@ -293,13 +432,24 @@
     "fat": 35.2,
     "saturatedFat": 19.3,
     "sugar": 11.4,
-    "salt": 5
+    "salt": 5,
+    "energyKj": 4264
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pollo",
@@ -313,13 +463,24 @@
     "fat": 26.9,
     "saturatedFat": 14,
     "sugar": 11.2,
-    "salt": 3.2
+    "salt": 3.2,
+    "energyKj": 3778
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "napoli",
@@ -333,13 +494,25 @@
     "fat": 31.7,
     "saturatedFat": 14.4,
     "sugar": 8.7,
-    "salt": 8.1
+    "salt": 8.1,
+    "energyKj": 3747
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "rucola",
@@ -353,7 +526,8 @@
     "fat": 15.4,
     "saturatedFat": 2.7,
     "sugar": 4,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 724
    },
    "tags": [
     "vegetarian"
@@ -361,7 +535,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "verdura",
@@ -375,7 +557,8 @@
     "fat": 19.2,
     "saturatedFat": 3,
     "sugar": 3.5,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 844
    },
    "tags": [
     "vegetarian"
@@ -383,7 +566,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "campagna",
@@ -397,13 +588,22 @@
     "fat": 16.9,
     "saturatedFat": 3,
     "sugar": 4.7,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 1029
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chilli-dip",
@@ -417,7 +617,8 @@
     "fat": 0.2,
     "saturatedFat": 0,
     "sugar": 0.2,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 67
    },
    "tags": [
     "vegetarian"
@@ -425,7 +626,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-honey-dip",
@@ -439,7 +644,8 @@
     "fat": 0.2,
     "saturatedFat": 0,
     "sugar": 28.5,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 496
    },
    "tags": [
     "vegetarian"
@@ -447,7 +653,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "garlic-and-herb-dip",
@@ -461,7 +681,8 @@
     "fat": 24.2,
     "saturatedFat": 1.8,
     "sugar": 3.2,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 969
    },
    "tags": [
     "vegetarian"
@@ -469,7 +690,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "taralli",
@@ -483,7 +711,8 @@
     "fat": 13.3,
     "saturatedFat": 2,
     "sugar": 0,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 1783
    },
    "tags": [
     "vegetarian"
@@ -491,7 +720,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mixed-olives",
@@ -505,7 +749,8 @@
     "fat": 12,
     "saturatedFat": 1.3,
     "sugar": 0,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 501
    },
    "tags": [
     "vegetarian"
@@ -513,7 +758,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cannoli-chocolate",
@@ -527,7 +776,8 @@
     "fat": 7.8,
     "saturatedFat": 2.4,
     "sugar": 8.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 545
    },
    "tags": [
     "vegetarian"
@@ -535,7 +785,26 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
   },
   {
    "id": "cannoli-pistachio",
@@ -549,7 +818,8 @@
     "fat": 7.7,
     "saturatedFat": 2.4,
     "sugar": 8.4,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 529
    },
    "tags": [
     "vegetarian"
@@ -557,7 +827,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut",
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "dark-chocolate-sorbetto",
@@ -571,7 +861,8 @@
     "fat": 4,
     "saturatedFat": 2.4,
     "sugar": 30,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 715
    },
    "tags": [
     "vegetarian"
@@ -579,7 +870,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bronte-pistachio-gelato",
@@ -593,7 +890,8 @@
     "fat": 7.4,
     "saturatedFat": 2.9,
     "sugar": 16.8,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 767
    },
    "tags": [
     "vegetarian"
@@ -601,7 +899,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "madagascan-vanilla-gelato",
@@ -615,7 +923,8 @@
     "fat": 7.1,
     "saturatedFat": 5,
     "sugar": 14.3,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 744
    },
    "tags": [
     "vegetarian"
@@ -623,7 +932,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sea-salted-caramel-gelato",
@@ -637,7 +952,8 @@
     "fat": 9.4,
     "saturatedFat": 6.4,
     "sugar": 25.7,
-    "salt": 0.65
+    "salt": 0.65,
+    "energyKj": 871
    },
    "tags": [
     "vegetarian"
@@ -645,7 +961,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "raspberry-sorbetto",
@@ -659,7 +981,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 20,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 426
    },
    "tags": [
     "vegetarian"
@@ -667,7 +990,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "anchovies-fish",
@@ -681,13 +1008,20 @@
     "fat": 3,
     "saturatedFat": 0.6,
     "sugar": 0,
-    "salt": 4.5
+    "salt": 4.5,
+    "energyKj": 259
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken",
@@ -701,13 +1035,18 @@
     "fat": 1,
     "saturatedFat": 0.3,
     "sugar": 0.4,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 340
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "ham-pork",
@@ -721,7 +1060,8 @@
     "fat": 2.5,
     "saturatedFat": 0.8,
     "sugar": 0.2,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 234
    },
    "tags": [
     "contains_pork"
@@ -729,7 +1069,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "nduja-pork",
@@ -743,7 +1087,8 @@
     "fat": 20.4,
     "saturatedFat": 8.8,
     "sugar": 0.3,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 866
    },
    "tags": [
     "contains_pork"
@@ -751,7 +1096,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pepperoni-pork",
@@ -765,7 +1114,8 @@
     "fat": 7.4,
     "saturatedFat": 4.8,
     "sugar": 0.3,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 382
    },
    "tags": [
     "contains_pork"
@@ -773,7 +1123,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "black-olives",
@@ -787,7 +1143,8 @@
     "fat": 4.1,
     "saturatedFat": 0.5,
     "sugar": 0,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 170
    },
    "tags": [
     "vegetarian"
@@ -795,7 +1152,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fresh-spinach",
@@ -809,7 +1170,8 @@
     "fat": 0.2,
     "saturatedFat": 0,
     "sugar": 0.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 37
    },
    "tags": [
     "vegetarian"
@@ -817,7 +1179,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "jalapeno-peppers",
@@ -831,7 +1197,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 0.1,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 14
    },
    "tags": [
     "vegetarian"
@@ -839,7 +1206,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mushrooms",
@@ -853,7 +1224,8 @@
     "fat": 0.2,
     "saturatedFat": 0.1,
     "sugar": 0.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 46
    },
    "tags": [
     "vegetarian"
@@ -861,7 +1233,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "onions",
@@ -875,7 +1251,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 1.4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 43
    },
    "tags": [
     "vegetarian"
@@ -883,7 +1260,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pineapple",
@@ -897,7 +1278,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 9.8,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 174
    },
    "tags": [
     "vegetarian"
@@ -905,7 +1287,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "rocket",
@@ -919,7 +1305,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 0.4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 29
    },
    "tags": [
     "vegetarian"
@@ -927,7 +1314,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "gorgonzola",
@@ -941,13 +1332,20 @@
     "fat": 7.3,
     "saturatedFat": 5,
     "sugar": 0,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 349
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mascarpone",
@@ -961,7 +1359,8 @@
     "fat": 10.8,
     "saturatedFat": 7.5,
     "sugar": 0.9,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 439
    },
    "tags": [
     "vegetarian"
@@ -969,7 +1368,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mozzarella",
@@ -983,7 +1388,8 @@
     "fat": 15.6,
     "saturatedFat": 9.2,
     "sugar": 0,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 848
    },
    "tags": [
     "vegetarian"
@@ -991,7 +1397,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "parmesan-dalter-vegetarian-cheese",
@@ -1005,7 +1417,8 @@
     "fat": 2.9,
     "saturatedFat": 1.8,
     "sugar": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 179
    },
    "tags": [
     "vegetarian"
@@ -1013,7 +1426,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vegan-mozzarella",
@@ -1027,7 +1446,8 @@
     "fat": 18.4,
     "saturatedFat": 15.5,
     "sugar": 0.9,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 968
    },
    "tags": [
     "vegetarian"
@@ -1035,7 +1455,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "egg",
@@ -1049,7 +1473,8 @@
     "fat": 5,
     "saturatedFat": 1.4,
     "sugar": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 301
    },
    "tags": [
     "vegetarian"
@@ -1057,7 +1482,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chilli-oil",
@@ -1071,7 +1502,8 @@
     "fat": 13.8,
     "saturatedFat": 1.8,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 555
    },
    "tags": [
     "vegetarian"
@@ -1079,7 +1511,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "garlic-oil",
@@ -1093,7 +1529,8 @@
     "fat": 13.8,
     "saturatedFat": 1.8,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 555
    },
    "tags": [
     "vegetarian"
@@ -1101,7 +1538,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pizza-sauce",
@@ -1115,7 +1556,8 @@
     "fat": 0.3,
     "saturatedFat": 0.1,
     "sugar": 2.8,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 90
    },
    "tags": [
     "vegetarian"
@@ -1123,7 +1565,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "salad-dressing",
@@ -1137,7 +1583,8 @@
     "fat": 13.7,
     "saturatedFat": 1.7,
     "sugar": 3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 568
    },
    "tags": [
     "vegetarian"
@@ -1145,7 +1592,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coke",
@@ -1159,7 +1613,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 35,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 594
    },
    "tags": [
     "vegetarian"
@@ -1167,7 +1622,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke",
@@ -1181,7 +1640,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 5
    },
    "tags": [
     "vegetarian"
@@ -1189,7 +1649,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "san-p-aranciata",
@@ -1203,7 +1667,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 14.6,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 291
    },
    "tags": [
     "vegetarian"
@@ -1211,7 +1676,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "san-p-limonata",
@@ -1225,7 +1694,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 14.9,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 310
    },
    "tags": [
     "vegetarian"
@@ -1233,7 +1703,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "water-still",
@@ -1247,7 +1721,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -1255,7 +1730,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "water-sparkling",
@@ -1269,7 +1748,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -1277,7 +1757,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "americano",
@@ -1291,7 +1775,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 40
    },
    "tags": [
     "vegetarian"
@@ -1299,7 +1784,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino",
@@ -1313,7 +1802,8 @@
     "fat": 3.2,
     "saturatedFat": 2.2,
     "sugar": 10,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 404
    },
    "tags": [
     "vegetarian"
@@ -1321,7 +1811,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso",
@@ -1335,7 +1831,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 47
    },
    "tags": [
     "vegetarian"
@@ -1343,7 +1840,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "latte",
@@ -1357,7 +1858,8 @@
     "fat": 3.4,
     "saturatedFat": 2.4,
     "sugar": 10,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 444
    },
    "tags": [
     "vegetarian"
@@ -1365,7 +1867,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "beer-moretti",
@@ -1379,7 +1887,8 @@
     "fat": 0.3,
     "saturatedFat": 0.3,
     "sugar": 0.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 521
    },
    "tags": [
     "vegetarian"
@@ -1387,7 +1896,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "beer-moretti-large",
@@ -1401,7 +1919,8 @@
     "fat": 0.7,
     "saturatedFat": 0.7,
     "sugar": 0.7,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1043
    },
    "tags": [
     "vegetarian"
@@ -1409,7 +1928,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "beer-moretti-0",
@@ -1423,7 +1951,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 277
    },
    "tags": [
     "vegetarian"
@@ -1431,7 +1960,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   }
  ],
  "combinations": []

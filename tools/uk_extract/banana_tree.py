@@ -54,6 +54,10 @@ NOTES = {
     "Lychee Juice": "Calories (50) are lower than 4P+4C+9F (62), possibly fibre counted in carbohydrate. Entered as printed.",
 }
 
+# Each dish's pop-up prints "Contains:" / "May contain:" (naming the cereals and tree nuts) and the dish carries label ids;
+# tenkites_b.allergens_from_rec checks they agree.
+ALLERGEN_TITLE = "Banana Tree allergen and nutrition information (menus.tenkites.com/thebigtg/bananatree04, pages dated 6 October 2026)"
+
 EXPECTED_ROWS = 281
 
 
@@ -151,7 +155,8 @@ def main() -> int:
     rows, excluded, skipped, total = tk.collect_rows(
         labels, paths, "modal", name_of, category, skip_fn=skip,
         key_fn=same_dish, veg_fn=lambda rec: bool({"V", "VG"} & set(rec["check"]["labels"])),
-        text_fn=lambda rec: " ".join([] if is_option_of_dish(rec) else [clean_group(rec["group"])]) + " " + rec["name"] + " " + rec["desc"])
+        text_fn=lambda rec: " ".join([] if is_option_of_dish(rec) else [clean_group(rec["group"])]) + " " + rec["name"] + " " + rec["desc"],
+        allergen_fn=lambda label, rec: tk.allergens_from_rec(rec, f"{label} {rec['name']}"))
     if total != EXPECTED_ROWS:
         print(f"The pages hold {total} rows but this script was written for {EXPECTED_ROWS}: re-check the menu list "
               "and the mappings against the pages, then update EXPECTED_ROWS.", file=sys.stderr)
@@ -175,6 +180,7 @@ def main() -> int:
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note="Values are per portion as printed. Options offered on top of a dish (rice, sauces, extra protein) are listed "
              "separately under Options & add-ons.",
+        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in labels:
         print(f"{label:10} sha256 {sha256_file(paths[label])[:16]}  {tk.page_title(paths[label])}")
@@ -183,6 +189,7 @@ def main() -> int:
         by_menu[label] = by_menu.get(label, 0) + 1
     print("rows without calories/protein/carbs/fat, by menu:", by_menu)
     print("skipped:", [(s[0], s[1]) for s in skipped])
+    print("\n".join(tk.ALLERGEN_NOTES))
     print(f"wrote {len(items)} items to {folder}; {len(excluded)} rows without the four required numbers; "
           f"{total - len(excluded) - len(skipped) - len(items)} duplicate rows dropped")
     return 0

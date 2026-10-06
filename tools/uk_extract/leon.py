@@ -6,10 +6,18 @@
     # 2. build:
     python3 tools/uk_extract/leon.py DIR --checked-on 2026-10-06
 
-Numbers are copied from the pages' own data as printed (kcal, protein, carbohydrate, fat, saturated fat, sugar, fibre,
-salt; every value is "per portion" and the site prints the portion weight in grams, used here as the serving). Mono- and
-poly-unsaturated fat, glycaemic index and kJ are not used. How the pages are read, and why only items a menu page really
-shows are used, is explained in leon_pages.py.
+Numbers are copied from the pages' own data as printed (kcal, protein, carbohydrate, fat, saturated fat, mono- and
+poly-unsaturated fat, sugar, fibre, salt; every value is "per portion" and the site prints the portion weight in grams, used
+here as the serving and as weight_g). The glycaemic index is not used (the pages print no kJ). How the pages are read, and
+why only items a menu page really shows are used, is explained in leon_pages.py.
+
+Allergens: NOT copied; the chain gets a link to its allergen guide only (ALLERGEN_GUIDE). LEON's allergen page
+(https://leon.co/allergens/) says its "Foodie Fact Sheet" is the allergen guide (every ingredient with allergens in bold and
+listed again in a separate column) and the menu pages carry only "a summary". On 2026-10-06 that online summary contradicted
+the same pages' own ingredient lists (capitals mark allergens there): Levantine Squash Salad lists no allergens while its
+ingredients print SOY beans and Yellow MUSTARD; LOVe Burger's list leaves out the SULPHITES its ingredients print; and
+ingredients printing gluten-free OATS never list oats. The Foodie Fact Sheet itself ("Foodie Fact Sheet - September 2026
+v1.pdf") is a Google Drive file whose download host disallows automated access in robots.txt, so it is not read here.
 
 Only the grouping into categories, the tags rule and the notes are decided here. EXPECTED lists every item the six menu
 pages show, by name. If LEON adds, removes or renames an item, or an item gains or loses its nutrition table, the lists
@@ -18,6 +26,7 @@ no longer match and this script stops, so a human re-checks before the next run.
 Source: https://leon.co/menu/all-day/ (and the other five menu pages listed in leon_pages.PAGES). The pages show no issue
 date or version; re-run when the menu changes.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import re
@@ -33,6 +42,9 @@ from common import ROOT, slug as base_slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "leon"
 SOURCE_URL = "https://leon.co/menu/all-day/"
 SOURCE_TITLE = "LEON UK menu, nutrition per portion (live pages on leon.co/menu; no issue date or version shown)"
+# Link only (see the docstring): LEON's allergen page, which links its Foodie Fact Sheet.
+ALLERGEN_GUIDE = {"title": "LEON allergen information and Foodie Fact Sheet (September 2026 v1)", "url": "https://leon.co/allergens/",
+                  "may_contain_published": False}
 
 # Every item the six menu pages show (page: submenu), in the pages' own order. The three listed in NO_NUTRITION are
 # shown without a nutrition table, so they are not published.
@@ -85,6 +97,8 @@ HAND_NOTES = {
     "Vegan Garlic Aioli": "No vegetarian mark on the page; vegetarian tag because the item's own name says Vegan",
     "Vegan Sausage Muffin": "Marked vegan by LEON, so no pork tag although the name says sausage (a plant-based patty)",
 }
+# Items whose printed numbers contradict themselves: kept in items.csv, listed in holdback.csv (never corrected).
+HOLDBACK = {"love-burger": "The site prints 565 kcal; its own macros add up to about 403 kcal."}
 NOTE = ("Per-portion values as shown on leon.co's menu pages, which carry no issue date. Milk drinks are the organic whole milk "
         "versions; other milks aren't shown on the menu pages. Three items the pages show without nutrition are left out.")
 
@@ -178,6 +192,13 @@ def main() -> int:
             "sodium_mg": "", "tags": "|".join(sorted(tags)), "limited_time": False, "rankable": category not in NOT_RANKABLE,
         }
         row.update({col: n[key] for col, key in COLUMNS.items()})
+        for col, key in (("mono_fat_g", "mono"), ("poly_fat_g", "poly")):
+            if key in n:
+                if not leon_pages.NUMBER.match(n[key]):
+                    raise SystemExit(f"{it['name']}: {key} is printed as {n[key]!r}, not a number: re-check the page.")
+                row[col] = n[key]
+        row["weight_g"] = weight if num(weight) > 0 else ""
+        row["allergens"] = None  # link only, see the docstring
         row["id"] = make_id(it["name"])
         row["_notes"] = notes
         rows.append(row)
@@ -195,12 +216,15 @@ def main() -> int:
         r["notes"] = "; ".join(r.pop("_notes"))
     ids = [r["id"] for r in rows]
     assert len(ids) == len(set(ids)), "duplicate ids"
+    stale = [h for h in HOLDBACK if h not in ids]
+    if stale:
+        raise SystemExit(f"HOLDBACK names items that are not on the menu any more: {stale}")
     rows.sort(key=lambda r: CATEGORY_ORDER.index(r["category"]))  # stable: page order inside a category
 
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="LEON", cuisine="Wraps & bowls", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=["leon", "leon naturally fast food", "leon restaurants"], items=rows,
-        out=args.out, note=NOTE,
+        out=args.out, note=NOTE, holdback=list(HOLDBACK.items()), allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on},
     )
     for page in leon_pages.PAGES:
         print(f"{page}.html sha256 {hashlib.sha256((args.pages / f'{page}.html').read_bytes()).hexdigest()}")

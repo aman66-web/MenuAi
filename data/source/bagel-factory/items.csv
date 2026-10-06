@@ -1,28 +1,28 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-sausage-bagel,Sausage Bagel,Breakfast,1 bagel (plain bun),455,20.0,61.0,13.6,4.6,,1.6,7.3,4.7,contains_pork,false,true,,,
-veggie-breakfast,Veggie Breakfast,Breakfast,1 bagel (plain bun),542,23.0,62.1,21.3,7.8,,2.0,8.8,4.9,,false,true,,,
-bacon-mini,Bacon Mini,Breakfast,1 mini bagel,185,5.9,18.6,8.4,2.9,,0.77,2.0,1.2,contains_pork,false,true,,,
-bacon-and-egg,Bacon and Egg,Breakfast,1 bagel (plain bun),589,24.0,61.0,15.8,4.9,,2.2,7.5,3.8,contains_pork,false,true,,,Printed 589 kcal but 2062 kJ (= about 493 kcal) and macros that add up to about 482 kcal: held back
-sausage-and-egg,Sausage and Egg,Breakfast,1 bagel (plain bun),537,26.6,62.5,19.0,6.2,,2.3,7.9,4.7,contains_pork,false,true,,,Page says 'Nutritional values are referred to a bagel prepared with a plain bagel bun'
-bacon,Bacon,Breakfast,1 bagel (plain bun),470,21.4,59.5,15.4,5.2,,1.8,6.9,3.8,contains_pork,false,true,,,
-cream-cheese,Cream Cheese,Cream Cheese,1 bagel (plain bun),435,14.5,60.0,14.4,8.1,,1.02,7.8,3.6,,false,true,,,Every number is identical to Garlic & Herbs Cream Cheese
-garlic-and-herbs-cream-cheese,Garlic & Herbs Cream Cheese,Cream Cheese,1 bagel (plain bun),435,14.5,60.0,14.4,8.1,,1.02,7.8,3.6,,false,true,,,Every number is identical to Cream Cheese
-vegan-cream-cheese,Vegan Cream Cheese,Cream Cheese,1 bagel (plain bun),422,13.4,58.6,13.9,10.4,,1.3,6.2,4.7,,false,true,,,
-smoky-pulled-pork,Smoky Pulled Pork,Deli,1 bagel (plain bun),720,43.0,68.3,29.1,12.8,,3.1,10.2,5.3,contains_pork,false,true,,,
-chicken-and-avocado,Chicken & Avocado,Deli,1 bagel (plain bun),565,26.6,59.0,23.6,3.4,,1.39,6.6,4.9,,false,true,,,
-salt-beef-melt,Salt Beef Melt,Deli,1 bagel (plain bun),562,36.8,59.3,18.5,10.2,,4.0,7.4,4.2,contains_beef,false,true,,,
-chicken-club,Chicken Club,Deli,1 bagel (plain bun),637,36.6,60.6,26.6,8.4,,2.2,8.4,4.2,contains_pork,false,true,,,
-gluten-free-bagel-box-with-avocado-and-vegan-cream-cheese,Gluten Free Bagel Box with Avocado & Vegan Cream Cheese,Gluten Free,1 bagel box,407,7.1,36.2,24.7,13.9,,1.40,4.2,5.8,,false,true,,,"The page's web address says salmon, but its title and ingredients are avocado and vegan cream cheese"
-gluten-free-bagel-box-with-salmon-and-cream-cheese,Gluten Free Bagel Box with Salmon & Cream Cheese,Gluten Free,1 bagel box,425,16.3,37.1,22.3,10.5,,2.1,4.7,5.0,,false,true,,,
-the-new-yorker,The New Yorker,Seafood,1 bagel (plain bun),540,24.0,63.8,19.9,9.0,,3.2,10.9,4.9,,false,true,,,
-tuna-melt-bagel,Tuna Melt Bagel,Seafood,1 bagel (plain bun),667,33.2,60.8,31.4,10.2,,2.6,7.9,4.1,,false,true,,,
-the-classic,The Classic,Seafood,1 bagel (plain bun),519,33.2,60.3,19.7,9.0,,2.6,8.0,4.1,,false,true,,,
-salmon-and-avocado,Salmon & Avocado,Seafood,1 bagel (plain bun),506,19.3,60.4,20.2,3.4,,2.1,6.3,5.8,,false,true,,,
-the-classic-mini,The Classic Mini,Seafood,1 mini bagel,154,5.0,17.8,7.2,4.1,,0.3,2.4,0.8,,false,true,,,
-nutella-bagel,Nutella Bagel,Spreads,1 bagel (plain bun),511,10.5,80.5,14.2,4.5,,0.8,28.3,6.1,,false,true,,,
-strawberry-jam,Strawberry Jam,Spreads,1 bagel (plain bun),388,10.7,92.9,2.0,0.3,,0.8,7.2,3.6,,false,true,,,Carbohydrate is much higher than sugars: the jam is sweetened with sorbitol (a polyol)
-peanut-butter,Peanut Butter,Spreads,1 bagel (plain bun),548,20.5,63.1,22.2,3.0,,1.1,8.1,6.3,,false,true,,,
-honey-heat-halloumi,Honey Heat Halloumi,Veggie & Vegan,1 bagel (plain bun),682,31.6,73.5,28.7,13.9,,3.9,16.5,6.6,vegetarian,false,true,,,
-halloumi-melt,Halloumi Melt,Veggie & Vegan,1 bagel (plain bun),612,29.6,61.3,26.6,13.5,,3.4,9.5,4.3,vegetarian,false,true,,,
-vegan-cream-cheese-stack-mini,Vegan Cream Cheese Stack Mini,Veggie & Vegan,1 mini bagel,224,2.9,18.5,14.0,6.7,,0.68,2.0,1.8,vegetarian,false,true,,,"Page last modified 2025-09-16 (the others 2026); it also prints a per-100 g block, not used"
-vegan-cream-cheese-stack,Vegan Cream Cheese Stack,Veggie & Vegan,1 bagel (plain bun),550,14.3,59.9,26.9,12.5,,1.5,6.7,6.0,vegetarian,false,true,,,
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+sausage-bagel,Sausage Bagel,Breakfast,1 bagel (plain bun),455,20.0,61.0,13.6,4.6,,1.6,7.3,4.7,1914,,,,,,contains_pork,false,true,,,
+veggie-breakfast,Veggie Breakfast,Breakfast,1 bagel (plain bun),542,23.0,62.1,21.3,7.8,,2.0,8.8,4.9,2275,,,,,,,false,true,,,
+bacon-mini,Bacon Mini,Breakfast,1 mini bagel,185,5.9,18.6,8.4,2.9,,0.77,2.0,1.2,779,,,,,,contains_pork,false,true,,,
+bacon-and-egg,Bacon and Egg,Breakfast,1 bagel (plain bun),589,24.0,61.0,15.8,4.9,,2.2,7.5,3.8,2062,,,,,,contains_pork,false,true,,,Printed 589 kcal but 2062 kJ (= about 493 kcal) and macros that add up to about 482 kcal: held back
+sausage-and-egg,Sausage and Egg,Breakfast,1 bagel (plain bun),537,26.6,62.5,19.0,6.2,,2.3,7.9,4.7,2256,,,,,,contains_pork,false,true,,,Page says 'Nutritional values are referred to a bagel prepared with a plain bagel bun'
+bacon,Bacon,Breakfast,1 bagel (plain bun),470,21.4,59.5,15.4,5.2,,1.8,6.9,3.8,1981,,,,,,contains_pork,false,true,,,
+cream-cheese,Cream Cheese,Cream Cheese,1 bagel (plain bun),435,14.5,60.0,14.4,8.1,,1.02,7.8,3.6,1824,,,,,,,false,true,,,Every number is identical to Garlic & Herbs Cream Cheese
+garlic-and-herbs-cream-cheese,Garlic & Herbs Cream Cheese,Cream Cheese,1 bagel (plain bun),435,14.5,60.0,14.4,8.1,,1.02,7.8,3.6,1824,,,,,,,false,true,,,Every number is identical to Cream Cheese
+vegan-cream-cheese,Vegan Cream Cheese,Cream Cheese,1 bagel (plain bun),422,13.4,58.6,13.9,10.4,,1.3,6.2,4.7,1772,,,,,,,false,true,,,
+smoky-pulled-pork,Smoky Pulled Pork,Deli,1 bagel (plain bun),720,43.0,68.3,29.1,12.8,,3.1,10.2,5.3,3022,,,,,,contains_pork,false,true,,,
+chicken-and-avocado,Chicken & Avocado,Deli,1 bagel (plain bun),565,26.6,59.0,23.6,3.4,,1.39,6.6,4.9,2367,,,,,,,false,true,,,
+salt-beef-melt,Salt Beef Melt,Deli,1 bagel (plain bun),562,36.8,59.3,18.5,10.2,,4.0,7.4,4.2,2361,,,,,,contains_beef,false,true,,,
+chicken-club,Chicken Club,Deli,1 bagel (plain bun),637,36.6,60.6,26.6,8.4,,2.2,8.4,4.2,2672,,,,,,contains_pork,false,true,,,
+gluten-free-bagel-box-with-avocado-and-vegan-cream-cheese,Gluten Free Bagel Box with Avocado & Vegan Cream Cheese,Gluten Free,1 bagel box,407,7.1,36.2,24.7,13.9,,1.40,4.2,5.8,1706,,,,,,,false,true,,,"The page's web address says salmon, but its title and ingredients are avocado and vegan cream cheese"
+gluten-free-bagel-box-with-salmon-and-cream-cheese,Gluten Free Bagel Box with Salmon & Cream Cheese,Gluten Free,1 bagel box,425,16.3,37.1,22.3,10.5,,2.1,4.7,5.0,1770,,,,,,,false,true,,,
+the-new-yorker,The New Yorker,Seafood,1 bagel (plain bun),540,24.0,63.8,19.9,9.0,,3.2,10.9,4.9,2265,,,,,,,false,true,,,
+tuna-melt-bagel,Tuna Melt Bagel,Seafood,1 bagel (plain bun),667,33.2,60.8,31.4,10.2,,2.6,7.9,4.1,2790,,,,,,,false,true,,,
+the-classic,The Classic,Seafood,1 bagel (plain bun),519,33.2,60.3,19.7,9.0,,2.6,8.0,4.1,2179,,,,,,,false,true,,,
+salmon-and-avocado,Salmon & Avocado,Seafood,1 bagel (plain bun),506,19.3,60.4,20.2,3.4,,2.1,6.3,5.8,2127,,,,,,,false,true,,,
+the-classic-mini,The Classic Mini,Seafood,1 mini bagel,154,5.0,17.8,7.2,4.1,,0.3,2.4,0.8,644,,,,,,,false,true,,,
+nutella-bagel,Nutella Bagel,Spreads,1 bagel (plain bun),511,10.5,80.5,14.2,4.5,,0.8,28.3,6.1,2151,,,,,,,false,true,,,
+strawberry-jam,Strawberry Jam,Spreads,1 bagel (plain bun),388,10.7,92.9,2.0,0.3,,0.8,7.2,3.6,1634,,,,,,,false,true,,,Carbohydrate is much higher than sugars: the jam is sweetened with sorbitol (a polyol)
+peanut-butter,Peanut Butter,Spreads,1 bagel (plain bun),548,20.5,63.1,22.2,3.0,,1.1,8.1,6.3,2295,,,,,,,false,true,,,
+honey-heat-halloumi,Honey Heat Halloumi,Veggie & Vegan,1 bagel (plain bun),682,31.6,73.5,28.7,13.9,,3.9,16.5,6.6,2870,,,,,,vegetarian,false,true,,,
+halloumi-melt,Halloumi Melt,Veggie & Vegan,1 bagel (plain bun),612,29.6,61.3,26.6,13.5,,3.4,9.5,4.3,2569,,,,,,vegetarian,false,true,,,
+vegan-cream-cheese-stack-mini,Vegan Cream Cheese Stack Mini,Veggie & Vegan,1 mini bagel,224,2.9,18.5,14.0,6.7,,0.68,2.0,1.8,941,,,,,,vegetarian,false,true,,,"Page last modified 2025-09-16 (the others 2026); it also prints a per-100 g block, not used"
+vegan-cream-cheese-stack,Vegan Cream Cheese Stack,Veggie & Vegan,1 bagel (plain bun),550,14.3,59.9,26.9,12.5,,1.5,6.7,6.0,2300,,,,,,vegetarian,false,true,,,

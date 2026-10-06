@@ -9,7 +9,13 @@ returned exactly as printed (strings such as "0.04", "34.9", "1195"); nothing is
 
 Column order (checked against the rendered header): Grams, Energy (kcal), Fat, Saturated Fat, Carbohydrates, Sugars,
 Fibre, Protein, Salt.
+
+Allergens: ten columns to the right of the numbers (Celery, Egg, Fish, Barley (Gluten), Rye (Gluten), Milk, Mustard, Soy,
+Wheat (Gluten), Sesame; the column names are rotated). The guide's "Allergen Key": "✓" = "Menu item contains the allergen",
+a filled dot (the text layer gives the letter "l" of a symbol font) = "Menu item may contain the allergen". Each row's marks
+are returned by column name; a mark outside a column, or text among the columns, stops the run.
 """
+from __future__ import annotations
 import re
 import subprocess
 import tempfile
@@ -26,6 +32,10 @@ COLUMN_X = (529.0, 640.0, 695.0, 750.0, 805.0, 861.0, 916.0, 971.0, 1026.0)
 COLUMN_TOLERANCE = 28.0
 ROW_TOLERANCE = 6.0
 BIG_TEXT_HEIGHT = 30.0  # section bars and the page title
+ALLERGEN_MIN_X = 1100.0  # the allergen marks sit right of this
+ALLERGEN_COLUMNS = ("Celery", "Egg", "Fish", "Barley", "Rye", "Milk", "Mustard", "Soy", "Wheat", "Sesame")
+ALLERGEN_TOLERANCE = 10.0  # pt between a mark's centre and its column name's centre (columns are 55 pt apart)
+CONTAINS_MARK, MAY_MARK = "✓", "l"  # the key's "contains" tick and "may contain" dot (symbol font "l")
 TITLE_BOTTOM = 330.0    # everything above this on page 1 is the title block / column headings
 
 
@@ -55,6 +65,11 @@ def read_rows(pdf: Path) -> list[dict]:
     if len(pages) != 2:
         raise SystemExit(f"Expected a 2-page PDF, found {len(pages)} pages: the guide's layout changed.")
     centre = lambda w: (w[1] + w[3]) / 2  # noqa: E731
+    # Allergen column names (rotated) on page 1's header, left to right; marks on both pages line up with them.
+    heads = sorted((w for w in pages[0] if ALLERGEN_MIN_X <= w[0] and 290 < w[1] < 400 and not w[4].startswith("(")), key=lambda w: w[0])
+    if tuple(w[4] for w in heads) != ALLERGEN_COLUMNS:
+        raise SystemExit(f"The allergen columns are now {[w[4] for w in heads]}, expected {list(ALLERGEN_COLUMNS)}. Layout changed.")
+    col_x = [((w[0] + w[2]) / 2, w[4]) for w in heads]
     rows: list[dict] = []
     section = ""
     for page_no, words in enumerate(pages, start=1):
@@ -90,6 +105,11 @@ def read_rows(pdf: Path) -> list[dict]:
             else:
                 clusters.append([w])
         labelwords = [w for w in body if w[0] < LABEL_MAX_X]
+        marks = [w for w in body if w[0] >= ALLERGEN_MIN_X]
+        odd = [w[4] for w in marks if w[4] not in (CONTAINS_MARK, MAY_MARK)]
+        if odd:
+            raise SystemExit(f"Page {page_no}: unexpected text among the allergen columns: {odd[:5]}. Layout changed.")
+        placed: set[int] = set()
 
         events = [(y, "bar", t) for y, t in bar_text] + [(sum(centre(w) for w in cl) / len(cl), "row", cl) for cl in clusters]
         events.sort(key=lambda e: e[0])
@@ -108,5 +128,25 @@ def read_rows(pdf: Path) -> list[dict]:
             label = " ".join(w[4] for w in lw)
             if not label:
                 raise SystemExit(f"Page {page_no}, y={y:.0f}: a row of numbers has no name. Layout changed.")
-            rows.append({"section": section, "label": label, "values": {f: w[4] for f, w in zip(FIELDS, cl)}})
+            allergens: dict[str, list[str]] = {"contains": [], "may_contain": []}
+            for i, m in enumerate(marks):
+                if abs(centre(m) - y) > ROW_TOLERANCE:
+                    continue
+                mx = (m[0] + m[2]) / 2
+                cx, name = min(col_x, key=lambda c: abs(c[0] - mx))
+                if abs(cx - mx) > ALLERGEN_TOLERANCE:
+                    raise SystemExit(f"Page {page_no}, {label!r}: an allergen mark at x={mx:.0f} is not under a column. Layout changed.")
+                if i in placed:
+                    raise SystemExit(f"Page {page_no}, {label!r}: an allergen mark is beside two rows. Layout changed.")
+                placed.add(i)
+                kind = "contains" if m[4] == CONTAINS_MARK else "may_contain"
+                if name in allergens["contains"] + allergens["may_contain"]:
+                    raise SystemExit(f"Page {page_no}, {label!r}: two marks in the {name} column. Layout changed.")
+                allergens[kind].append(name)
+            for kind in allergens:
+                allergens[kind].sort(key=ALLERGEN_COLUMNS.index)
+            rows.append({"section": section, "label": label, "values": {f: w[4] for f, w in zip(FIELDS, cl)},
+                         "allergens": allergens})
+        if len(placed) != len(marks):
+            raise SystemExit(f"Page {page_no}: {len(marks) - len(placed)} allergen marks are not beside any row. Layout changed.")
     return rows

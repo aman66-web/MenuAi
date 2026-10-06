@@ -13,8 +13,14 @@ single-page app that load these two JSON feeds (one request each, no login):
 The nutrition page shows the figures "Per Serving": energy kcal and kJ, protein, carbohydrates, sugar, fat, saturated
 fats, fibre and salt (it rounds kcal to a whole number and the rest to 1 decimal, and prints "-" for 0). The feed
 carries the same figures to 2 decimals plus a `sodium` field that the page does not show and that does not agree with
-`salt`, so it is ignored here. The allergen feed carries the chain's own `preference` mark (none / vegetarian / vegan).
+`salt`, so it is ignored here. The allergen feed carries the chain's own `preference` mark (none / vegetarian / vegan)
+and, per row, three lists of allergens: `contains`, `may_contain` and `free_from`. The public allergen page
+(https://allergensandnutritions.popeyesuk.com/allergen-information, linked from popeyesuk.com) shows only the first two:
+a "Contains" mark or a "May contain traces of" mark per allergen column, and a blank cell otherwise; `free_from` is not
+shown there and is not used here.
 """
+from __future__ import annotations
+
 import json
 import re
 from pathlib import Path
@@ -59,4 +65,31 @@ def read_preferences(path: Path) -> dict[int, str]:
         if pref not in ("none", "vegetarian", "vegan"):
             raise ValueError(f"{path}: row {r.get('id')} {r.get('name')!r} has unknown preference {pref!r}")
         out[int(r["id"])] = pref
+    return out
+
+
+def read_allergens(path: Path) -> dict[int, dict]:
+    """feed id -> {'contains': [printed allergen names], 'may_contain': [printed allergen names]}, exactly the two lists the
+    allergen page shows. Stops if a row lacks either list, names an allergen without a name, puts one allergen in two
+    lists, or if one allergen id carries two different names in the feed. (On 2026-10-06 the free_from list of 53 rows left
+    out oats, and of 28 of them also rye and the eight tree nuts; the page shows those cells blank like every other
+    unmarked allergen, so nothing is added here.)"""
+    out, names = {}, {}
+    for r in _load(path):
+        where = f"{path}: row {r.get('id')} {r.get('name')!r}"
+        a = r.get("allergens")
+        if not isinstance(a, dict) or not all(isinstance(a.get(k), list) for k in ("contains", "may_contain", "free_from")):
+            raise ValueError(f"{where}: no contains / may_contain / free_from lists")
+        seen = {}
+        for k in ("contains", "may_contain", "free_from"):
+            for x in a[k]:
+                aid, name = str(x.get("id")), x.get("name")
+                if not isinstance(name, str) or not name.strip():
+                    raise ValueError(f"{where}: allergen {aid} has no name")
+                if names.setdefault(aid, name) != name:
+                    raise ValueError(f"{where}: allergen {aid} is called {name!r} here and {names[aid]!r} elsewhere")
+                if aid in seen:
+                    raise ValueError(f"{where}: {name!r} is in both {seen[aid]} and {k}")
+                seen[aid] = k
+        out[int(r["id"])] = {"contains": [x["name"] for x in a["contains"]], "may_contain": [x["name"] for x in a["may_contain"]]}
     return out

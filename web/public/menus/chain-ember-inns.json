@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Where the guide flags a dish as having choices (a side, sauce or topping), its numbers may not include them. Hotel, sports, group, wedding and buffet menus are not included. Seasonal Specials are marked limited time.",
+ "allergenGuide": {
+  "title": "Ember Inns Allergen & Nutrition Guide, Mitchells & Butlers (live page)",
+  "url": "https://allergens.mbplc.io/AllergenGuideEmberEstate.html",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Starters & sharing",
   "Sides & snacks",

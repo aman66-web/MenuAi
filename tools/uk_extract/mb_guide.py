@@ -12,6 +12,11 @@ Drinks and a few dishes have an EMPTY nutrition div: they have no published numb
 
 This module only READS the page and returns the cells exactly as printed (units stripped, nothing rounded,
 converted or filled). Naming, categories and exclusions are decided by the per-chain scripts. Standard library only.
+
+Allergens: the same page prints each dish's allergens, but this reader does not parse them yet (on 2026-10-06 the page answered
+this machine with a Cloudflare 403, so its allergen markup could not be seen). Until it does, main_for writes allergen_guide.csv
+only (a link to this guide, may_contain_published = no) and no allergens.csv, so the app links to the guide instead of listing
+allergens. Never fill allergens in by hand.
 """
 from __future__ import annotations
 import argparse
@@ -519,11 +524,13 @@ def main_for(*, chain_id: str, chain_name: str, cuisine: str, aliases: list[str]
     items = res["items"]
     for it in items:
         it.pop("_desc", None)
+    guide_title = f"{brand_label} Allergen & Nutrition Guide, Mitchells & Butlers (page stamped {page_date})"
     out = write_chain_folder(
-        chain_id=chain_id, name=chain_name, cuisine=cuisine,
-        source_title=f"{brand_label} Allergen & Nutrition Guide, Mitchells & Butlers (page stamped {page_date})",
+        chain_id=chain_id, name=chain_name, cuisine=cuisine, source_title=guide_title,
         source_url=source_url, checked_on=args.checked_on, aliases=aliases, items=items, out=args.out, note=note,
-        holdback=res["holdback"])
+        holdback=res["holdback"],
+        # link only: the items carry no "allergens" (see the module docstring), so no allergens.csv is written
+        allergen_guide={"title": guide_title, "url": source_url, "checked_on": args.checked_on, "may_contain_published": False})
     print(f"wrote {len(items)} items ({len(res['holdback'])} held back) to {out}; page stamp {stamp!r}; sha256 {sha_of(args.html)}")
     print(f"  {sum('flags this dish as having choices' in i['notes'] for i in items)} published items are dishes the guide flags as having choices")
     for reason, n in sorted(res["log"].items()):

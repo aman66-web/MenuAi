@@ -7,6 +7,7 @@ https://menus.tenkites.com/thebigtg/frankiebennys02 is the menu frankieandbennys
 "Nutrition (per portion)" table. The Breakfast tab is "in selected sites only", so it is left out. Parser:
 tenkites_a.py. Numbers are copied as printed; only names, categories and the rules below are written by hand.
 """
+from __future__ import annotations
 import re
 import sys
 from pathlib import Path
@@ -140,9 +141,14 @@ NOTE = ("Per portion as printed on the chain's menu pages; the Breakfast menu (s
         "cocktails and some drinks print no numbers and are not listed. Sauces, toppings, extras and upgrade sides are separate "
         "rows: add them to a dish yourself.")
 
+# The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
+# and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
+ALLERGEN_TITLE = "Frankie & Benny's Dietary Information (allergens) on its online Main, Lunch, Desserts, Drinks, Evening and Kids menus (Ten Kites page generated 2026-10-06)"
+
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="frankie-and-bennys", name="Frankie & Benny's", cuisine="Italian American",
         aliases=["frankie & benny's", "frankie and bennys", "frankie & bennys", "frankie and benny's"], url=URL,
         source_title="Frankie & Benny's Nutritional Information: Main, Lunch, Desserts, Drinks, Evening and Kids menus (page generated 2026-10-06)",
-        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK))
+        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
+        allergen_title=ALLERGEN_TITLE))

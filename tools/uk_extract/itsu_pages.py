@@ -9,7 +9,12 @@ of which saturates, protein, carbohydrates, of which sugars, fibre, salt). Those
 
 The same page also embeds the data it was rendered from (window.__NUXT__ ... calories:"318", salt:"1.218"). That copy is
 less rounded for salt, so it is only used to cross-check the printed numbers (see `embedded`), never as the source.
+
+Allergens: each dish page prints "contains: gluten, sesame, soya" and "may contain: celery, sulphur dioxide" (read_item returns
+both lines as printed); the embedded copy (allergens:[{name:"Gluten"},...], may_contain:[...]) is read by
+`embedded_allergens` only to cross-check them.
 """
+from __future__ import annotations
 import html
 import re
 
@@ -163,3 +168,30 @@ def embedded(page: str) -> dict[str, str]:
         if v != "" or re.search(r'[,{]' + key + r':""', _nuxt(page)[0]):
             out[ours] = v
     return out
+
+
+_NAME_ENTRY = re.compile(r'\{name:(' + _STR + r'|[A-Za-z_$][\w$]*)\}')
+
+
+def embedded_allergens(page: str) -> tuple[list[str], list[str]] | None:
+    """The dish's own allergen lists from the page's embedded data: (contains names, may-contain names), or None when the
+    page carries no such lists (or more than one pair, so it is not clear which belongs to the dish)."""
+    blob, names = _nuxt(page)
+    pairs = re.findall(r"[,{]allergens:\[(.*?)\],may_contain:\[(.*?)\]", blob)
+    if len(pairs) != 1:
+        return None
+
+    def read(lst: str) -> list[str]:
+        out = []
+        for v in _NAME_ENTRY.findall(lst):
+            if v.startswith('"'):
+                out.append(_unjs(v))
+            elif v in names:
+                out.append(_unjs(names[v]))
+            else:
+                raise SystemExit(f"An allergen name in the page's embedded data is not a plain string ({v}): re-check the reader.")
+        if re.sub(_NAME_ENTRY, "", lst).replace(",", "").strip():
+            raise SystemExit(f"Unexpected allergen entry in the page's embedded data: {lst[:120]!r}")
+        return out
+
+    return read(pairs[0][0]), read(pairs[0][1])

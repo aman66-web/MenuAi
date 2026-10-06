@@ -23,7 +23,15 @@ human re-checks, if the set of menu pages changes, an option label changes, a nu
 panel shown on the page disagrees with the embedded data, an excluded page starts printing the numbers, or a published page loses
 one.
 
-Page dates: the pages carry none. The menu sitemap's lastmod (2026-10-05T10:50, the same for every page) is quoted in source_title.
+Page dates: the pages carry none. The menu sitemap's latest lastmod date (it is rewritten for every page at once, e.g. 2026-10-06T10:50)
+is quoted in source_title.
+
+Allergens (docs/DATA.md "Allergens"): the same pages have an "Allergens" tab, one set per option like the numbers (variantData[i]
+.allergens; the tab shown is the default option's, checked). It prints an icon and a label for each allergen the item contains
+("Contains Gluten" / "Gluten"), or the word "None". It prints no "may contain" information and names no cereal or nut. An option
+whose allergen data is empty or missing (e.g. two and three scoops of gelato, some dips) has NO allergens published: nothing is
+copied from another option or page, so the chain then gets only the guide link (allergen_guide.csv, no allergens.csv) and the
+script lists every such item.
 """
 from __future__ import annotations
 import argparse
@@ -38,13 +46,16 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "aunties-anne"
 BASE = "https://www.auntieannes.co.uk"
 SOURCE_URL = BASE + "/menu/"
 SOURCE_TITLE = ("Auntie Anne's UK website: menu item pages, Nutrition tab (auntieannes.co.uk/menu/, retrieved {checked_on}; the pages "
-                "carry no version date, the menu sitemap was last modified 2026-10-05)")
+                "carry no version date, the menu sitemap was last modified {sitemap_date})")
+ALLERGEN_TITLE = "Auntie Anne's UK website: menu item pages, Allergens tab (no date printed)"
+ALLERGEN_ICON = re.compile(r'<div><div><img class="aamm-allergen-icon" src="/wp-content/themes/auntie-annes-uk/img/allergens-icons/'
+                           r'([A-Za-z]+)\.png" alt="([^"]*)" title="([^"]*)" /></div><div class="aamm-allergen-label">([^<]*)</div></div>')
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
 
 PZ, DG, PI, BB, GE, MS, HD, DP = ("Pretzels, nuggets & stix", "Pretzel dogs", "Pizza", "Breakfast buns", "Gelato", "Milkshakes",
@@ -232,7 +243,9 @@ KNOWN_LABELS = {
     "Protein": "protein", "Potassium": None, "Vegan": "vegan", "Vegetarian": "vegetarian", "Gluten Free": None,
 }
 # The page labels cholesterol / mono / poly / trans / potassium in grams and several look shifted (23.3 g "cholesterol" in a pretzel);
-# none of them is used. The labels that are used were cross-checked: kcal = 4P + 4C + 9F + 2 fibre on nearly every row, saturates <= fat,
+# none of them is used, so mono_fat_g / poly_fat_g / trans_fat_g stay blank: every pizza prints "Monounsaturated Fat 0g" (21-73 g
+# fat), items from 3.7 to 33 g fat print the same 0.9 / 0.1 / 0.2 g, and two dips print saturates + mono + poly above total fat
+# (checked 2026-10-06). The pages print no kJ, weight or caffeine. The labels that are used were cross-checked: kcal = 4P + 4C + 9F + 2 fibre on nearly every row, saturates <= fat,
 # sugars <= carbohydrate, and salt values are plausible (0.1-3.3 g); the salt label itself cannot be verified independently.
 NUM = re.compile(r"^\d+(?:\.\d+)?$")
 # pages whose own title differs from the name used here (tidied or completed): salted-caramel-2 is titled "Salted Caramel"
@@ -288,8 +301,27 @@ def fetch_all(raw: Path) -> None:
         dest.write_bytes(get(f"{BASE}/menu/{s}/", b"aamm-tab-nutrition-C"))
 
 
+def read_allergens(panel, where: str) -> dict | None:
+    """One option's Allergens tab -> {contains, may_contain, cereals, nuts}, or None when nothing is published for it (missing,
+    empty). "None" printed = contains none of the 14. Each icon's alt/title must say "Contains <label>"; any other text stops."""
+    if not isinstance(panel, str) or not panel.strip():
+        return None
+    if panel.strip() == "None":
+        return {"contains": set(), "may_contain": set(), "cereals": set(), "nuts": set()}
+    icons = ALLERGEN_ICON.findall(panel)
+    rest = ALLERGEN_ICON.sub("", panel).strip()
+    if rest or not icons:
+        raise SystemExit(f"{where}: unexpected text in the Allergens tab: {rest[:200] or panel[:200]!r}")
+    for icon, alt, title, label in icons:
+        if alt != f"Contains {label}" or title != alt or re.sub(r"\s", "", label).lower() != icon.lower():
+            raise SystemExit(f"{where}: allergen icon {icon!r} / {alt!r} / {title!r} does not match its label {label!r}")
+    contains, cereals, nuts = allergen_words([html.unescape(lbl) for *_, lbl in icons], where)
+    return {"contains": contains, "may_contain": set(), "cereals": cereals, "nuts": nuts}
+
+
 def read_page(text: str, slug_: str) -> dict:
-    """-> {title, group, options: [(label, is_default, printed dict, flags set)]}. Raises SystemExit on anything unexpected."""
+    """-> {title, group, options: [(label, is_default, printed dict, flags set, allergens dict or None)]}. Raises SystemExit on
+    anything unexpected."""
     t = re.search(r'<h1 class="entry-title">(.*?)</h1>', text, re.S)
     g = re.search(r"hentry menu_group-([a-z\-]+)", text)
     if not t:
@@ -299,14 +331,18 @@ def read_page(text: str, slug_: str) -> dict:
         raise SystemExit(f"{slug_}: no nutrition tab found: re-check the page layout.")
     panel = text[panel_at:text.find("<!-- .entry-content -->", panel_at)]
     m = re.search(r"var variantData = (\[.*?\]);\s*\n", text, re.S)
+    a_at = text.find('id="aamm-tab-allergens-C"')
+    a_panel = text[text.find(">", a_at) + 1:text.find('<div class="aamm-tab-container" id="aamm-tab-nutrition-C"', a_at)] if a_at >= 0 else None
+    if a_panel is not None:
+        a_panel = re.sub(r"</div>\s*$", "", a_panel.strip())
     raw_options = []
     if m:
         for v in json.loads(m.group(1)):
-            raw_options.append((v.get("label", ""), bool(v.get("isDefault")), v.get("nutrition") or ""))
+            raw_options.append((v.get("label", ""), bool(v.get("isDefault")), v.get("nutrition") or "", v.get("allergens")))
     else:
-        raw_options.append(("", True, panel))
+        raw_options.append(("", True, panel, a_panel))
     options = []
-    for label, is_default, nut in raw_options:
+    for label, is_default, nut, alg in raw_options:
         printed: dict[str, str] = {}
         flags: set[str] = set()
         pairs = re.findall(r'aamm-nutrition-value">([^<]*)</div><div class="aamm-nutrition-label">([^<]*)<', nut)
@@ -329,7 +365,7 @@ def read_page(text: str, slug_: str) -> dict:
                 if not NUM.match(number):
                     raise SystemExit(f"{slug_} ({label}): {lab} is printed as {value!r}, not a number.")
                 printed[key] = number
-        options.append((label, is_default, printed, flags))
+        options.append((label, is_default, printed, flags, read_allergens(alg, f"{slug_} ({label or 'single'})")))
     # the panel shown on the page must be the default option's data
     shown = dict((KNOWN_LABELS[html.unescape(lab).strip()], v) for v, lab in re.findall(
         r'aamm-nutrition-value">([^<]*)</div><div class="aamm-nutrition-label">([^<]*)<', panel) if KNOWN_LABELS.get(html.unescape(lab).strip()))
@@ -337,6 +373,8 @@ def read_page(text: str, slug_: str) -> dict:
     for k, v in default[2].items():
         if shown.get(k) not in (v, v + "g"):
             raise SystemExit(f"{slug_}: the panel shows {k}={shown.get(k)!r} but the page's own option data says {v!r}.")
+    if m and read_allergens(a_panel, f"{slug_} (allergens tab)") != default[4]:
+        raise SystemExit(f"{slug_}: the Allergens tab shown disagrees with the page's own data for the default option.")
     return {"title": html.unescape(t.group(1)).strip(), "group": g.group(1) if g else "", "options": options}
 
 
@@ -400,7 +438,7 @@ def main() -> int:
             raise SystemExit(f"{s}: the page's options are {labels} but the script expects {expected}: re-check.")
         if norm(page["title"]) != norm(name) and s not in TITLE_DIFFERS:
             raise SystemExit(f"{s}: the page title is {page['title']!r} but the script names it {name!r}: re-check.")
-        for label, _is_default, printed, flags in page["options"]:
+        for label, _is_default, printed, flags, allergens in page["options"]:
             missing = [k for k in NEEDS if k not in printed]
             if missing:
                 raise SystemExit(f"{s} ({label or 'single'}): required number(s) not printed: {missing}. Move it to NOT_PRINTED.")
@@ -439,7 +477,7 @@ def main() -> int:
                 "calories": printed["kcal"], "protein_g": printed["protein"], "carbs_g": printed["carbs"], "fat_g": printed["fat"],
                 "sat_fat_g": printed.get("sat", ""), "sodium_mg": "", "salt_g": printed.get("salt", ""), "sugar_g": printed.get("sugars", ""),
                 "fiber_g": printed.get("fibre", ""), "tags": "|".join(tags), "limited_time": False, "rankable": rankable,
-                "notes": "; ".join(notes),
+                "notes": "; ".join(notes), "allergens": allergens,
             })
     ids = [i["id"] for i in items]
     stale = [h for h in HOLDBACK if h not in ids]
@@ -456,10 +494,16 @@ def main() -> int:
     note = ("Values are for the item or size each page shows (pizza 8 or 14 inch, one to three scoops, regular or large). The pages give no weights "
             "and don't say how many nuggets or mini dogs are in a portion, nor which milk is used. Some items print identical values "
             "(e.g. Margherita, Farmhouse and Vegetarian pizza).")
+    lastmods = re.findall(r"<lastmod>(\d{4}-\d\d-\d\d)T", (raw / "menu-sitemap.xml").read_text(encoding="utf-8", errors="replace"))
+    if not lastmods:
+        raise SystemExit("The menu sitemap carries no lastmod dates: re-check how source_title dates the pages.")
+    no_allergens = [i["name"] for i in items if i["allergens"] is None]
     write_chain_folder(
-        chain_id=CHAIN_ID, name="Auntie Anne's", cuisine="Bakery", source_title=SOURCE_TITLE.format(checked_on=args.checked_on),
+        chain_id=CHAIN_ID, name="Auntie Anne's", cuisine="Bakery",
+        source_title=SOURCE_TITLE.format(checked_on=args.checked_on, sitemap_date=max(lastmods)),
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["auntie annes", "auntie anne's", "auntie annes pretzels"],
-        items=items, out=args.out, note=note, holdback=[(i, HOLDBACK[i]) for i in ids if i in HOLDBACK])
+        items=items, out=args.out, note=note, holdback=[(i, HOLDBACK[i]) for i in ids if i in HOLDBACK],
+        allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": False})
     combined = hashlib.sha256("".join(f"{h}  {n}\n" for n, h in sums).encode()).hexdigest()
     (raw / "SHA256SUMS").write_text("".join(f"{h}  {n}\n" for n, h in sums), encoding="utf-8")
     print(f"wrote {len(items)} items ({len(HOLDBACK)} held back, {len(excluded)} pages left out) to {args.out}; combined SHA-256 of the "
@@ -469,6 +513,11 @@ def main() -> int:
         print(f"  {n}: {why}")
     print("Identical value sets on different items:", "; ".join(", ".join(g) for g in twin_groups))
     print("Meat type not stated:", "; ".join(meat_log))
+    if no_allergens:
+        print(f"Allergens: INCOMPLETE, guide link only (no allergens.csv). {len(no_allergens)} of {len(items)} items have no allergens "
+              f"published for their option: {'; '.join(no_allergens)}")
+    else:
+        print(f"Allergens: all {len(items)} items have them (allergens.csv written)")
     return 0
 
 

@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-05"
  },
  "note": "Based on Burger King's June 2026 nutrition table: newer items (for example some wraps, tenders and drinks) aren't in it yet.",
+ "allergenGuide": {
+  "title": "Burger King UK Allergen Information (PDF linked from burgerking.co.uk/allergy-info)",
+  "url": "https://www.burgerking.co.uk/allergy-info",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Beef",
   "Chicken",

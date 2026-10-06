@@ -177,6 +177,7 @@ def _desktop_part(text: str) -> str:
 def read_table_layout(text: str) -> list[dict]:
     """One row per dish, from the 'Nutrition values per serving' cells beside each dish name."""
     root = parse_html("<div>" + _desktop_part(text) + "</div></div>")
+    filt = filter_labels(parse_html(text))
     rows = []
     section = ""
     for node in root.iter():
@@ -190,6 +191,8 @@ def read_table_layout(text: str) -> list[dict]:
                 vals[label] = printed(cell.text())
             labels = {c.attrs["data-label-name"]: _yes(c) for c in node.find_all("k10-recipe__label")
                       if c.attrs.get("data-label-name")}
+            states = {c.attrs["data-label-name"]: _state(c) for c in node.find_all("k10-recipe__label")
+                      if c.attrs.get("data-label-name")}
             card = node.parent if node.parent is not None else node
             ing, desc = card.find("k10-recipe__ingredients-wrapper"), card.find("k10-recipe__desc")
             names = card.find("k10-recipe__label-names-wrapper")
@@ -197,7 +200,8 @@ def read_table_layout(text: str) -> list[dict]:
                          "vegetarian": _diet(labels), "recipe_id": node.attrs.get("data-recipe-id", ""),
                          "page_kcal": node.attrs.get("data-calories", ""),
                          "ingredients": ing.text() if ing is not None else "", "desc": desc.text() if desc is not None else "",
-                         "label_names": names.text() if names is not None else ""})
+                         "label_names": names.text() if names is not None else "", "label_states": states,
+                         "label_ids": _label_ids(node, node.attrs.get("data-recipe-id", "")), "filter": filt})
     return rows
 
 
@@ -253,12 +257,170 @@ def allergens_from_row(row: dict, where: str) -> dict | None:
     return {"contains": from_cols, "may_contain": may - from_cols, "cereals": cereals | c2, "nuts": nuts | n2}
 
 
+# The other layouts print each dish's "Contains: ..." and "May contain: ..." lines (cereals and tree nuts named in brackets,
+# "Cereals with Gluten (Barley, Wheat)"), and the element around the dish carries the label ids the page's own allergen
+# filter reads (data-no-may-labels = what the dish contains, data-all-labels = that plus what it may contain); the filter
+# names the ids. allergens_checked reads the printed lines and stops if they disagree with the ids.
+
+def filter_labels(root: Node) -> dict:
+    """The page's allergen filter: {label id: printed name} for its 'exclude' labels (data-label-isext="True")."""
+    out: dict = {}
+    for n in root.iter():
+        i, name = n.attrs.get("data-label-id"), n.attrs.get("data-label-name")
+        if i and name and n.attrs.get("data-label-isext") == "True":
+            name = re.sub(r"\s+", " ", html.unescape(name)).strip()
+            if out.setdefault(i, name) != name:
+                raise ValueError(f"the allergen filter names label {i} both {out[i]!r} and {name!r}")
+    return out
+
+
+def _label_ids(node: Node, recipe_id: str = "") -> tuple | None:
+    """(all label ids, contained label ids) from the nearest element (the node or around it) that carries them; None if
+    there is none, or if it belongs to another dish (a different data-recipe-id)."""
+    for a in [node, *_ancestors(node)]:
+        if "data-all-labels" in a.attrs and "data-no-may-labels" in a.attrs:
+            rid = a.attrs.get("data-recipe-id", "")
+            if recipe_id and rid and rid != recipe_id:
+                return None
+            ids = [[x.strip() for x in a.attrs[k].split(",") if x.strip()] for k in ("data-all-labels", "data-no-may-labels")]
+            return ids[0], ids[1]
+    return None
+
+
+def _parts(text: str | None) -> list:
+    """'Milk, Cereals with Gluten (Barley, Wheat)' -> [('Milk', []), ('Cereals with Gluten', ['Barley', 'Wheat'])]."""
+    out = []
+    for part in _split_top(text or ""):
+        head, _, inner = part.partition("(")
+        out.append((head.strip(), [w.strip() for w in inner.rstrip().rstrip(")").split(",") if w.strip()]))
+    return out
+
+
+def _line(text: str, lines: dict, heads: dict, where: str) -> None:
+    """One printed 'Contains: ...' style line into lines[field] (as parts). An unknown heading stops the run."""
+    if text == "This dish contains none of the listed allergens":    # printed instead of a 'Contains' line
+        heads = {text: "contains"}
+    for head, field in heads.items():
+        if text.startswith(head):
+            if field is None:
+                return
+            if lines[field] is not None:
+                raise ValueError(f"{where}: two {head!r} lines")
+            lines[field] = _parts(text[len(head):].strip())
+            return
+    raise ValueError(f"{where}: unknown dietary line {text!r}")
+
+
+def _modal_line(modal: Node, kind: str) -> list | None:
+    sec = modal.find(f"k10-recipe-modal__section_{kind}")
+    vals = sec.find("k10-recipe-modal__section-values") if sec is not None else None
+    return _parts(vals.text()) if vals is not None else None
+
+
+def _json_parts(j: dict, value: str) -> list:
+    """The dish data's own allergen labels with this value ('yes' = contains, 'maybe' = may contain), children named."""
+    out = []
+    for lbl in j.get("lbls", []):
+        if lbl.get("IsExtended") != "True":
+            continue
+        kids = [c["Description"].strip() for c in lbl.get("Childs", []) if c.get("Value") == value]
+        if lbl.get("Value") == value or kids:
+            out.append((lbl["Description"].strip(), kids))
+    return out
+
+
+def _keys(parts: list | None, where: str, extra: dict | None) -> tuple[set, set, set]:
+    from common import allergen_words
+    keys, cereals, nuts = set(), set(), set()
+    for head, inner in parts or []:
+        k, c, n = allergen_words([head], where, extra)
+        if inner:
+            ik, ic, inn = allergen_words(inner, where, extra)
+            if ik - k:
+                raise SystemExit(f"{where}: {head!r} names {sorted(ik - k)} in its brackets")
+            c, n = c | ic, n | inn
+        keys, cereals, nuts = keys | k, cereals | c, nuts | n
+    return keys, cereals, nuts
+
+
+FOURTEEN = {"celery", "gluten", "crustaceans", "eggs", "fish", "lupin", "milk", "molluscs", "mustard", "nuts", "peanuts",
+            "sesame", "soya", "sulphites"}
+
+
+def allergens_checked(row: dict, where: str, extra: dict | None = None) -> dict | None:
+    """Allergens for one dish from its printed 'Contains' / 'May contain' lines (row['contains'], row['may']), checked
+    against the label ids around the dish (row['label_ids']) named by the page's allergen filter (row['filter']): the
+    allergens must be the same, and so must the named cereals and nuts the filter has labels for. None when the dish has
+    no label ids or the page no filter (nothing to check against). Stops (SystemExit) when the two disagree."""
+    from common import allergen_words
+    ids, filt = row.get("label_ids"), row.get("filter") or {}
+    if ids is None or not filt:
+        return None
+    named = {i: allergen_words([name], f"{where}: allergen filter", extra) for i, name in filt.items()}
+    if set().union(*(k for k, _, _ in named.values())) != FOURTEEN:
+        raise SystemExit(f"{where}: the page's allergen filter does not cover the 14 allergens")
+    all_ids, no_may = ids
+    contains, cereals, nuts = _keys(row.get("contains"), where, extra)
+    may, _, _ = _keys(row.get("may"), where, extra)
+
+    def from_ids(group):
+        k, c, n = set(), set(), set()
+        for i in group:
+            if i in named:
+                k, c, n = k | named[i][0], c | named[i][1], n | named[i][2]
+        return k, c, n
+
+    ck, cc, cn = from_ids(no_may)
+    mk, _, _ = from_ids([i for i in all_ids if i not in no_may])
+    known_c = set().union(*(c for _, c, _ in named.values()))
+    known_n = set().union(*(n for _, _, n in named.values()))
+    if ck != contains or cc != cereals & known_c or cn != nuts & known_n:
+        raise SystemExit(f"{where}: printed 'Contains' {sorted(contains | cereals | nuts)} disagrees with the label ids "
+                         f"{sorted(ck | cc | cn)}")
+    # a dish can contain one tree nut and "may contain" another: the key is then in both lines
+    if mk - contains != may - contains:
+        raise SystemExit(f"{where}: printed 'May contain' {sorted(may)} disagrees with the label ids {sorted(mk)}")
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+
+
+def allergens_from_columns(row: dict, where: str, columns: list[str], extra: dict | None = None) -> dict | None:
+    """Table layout with three-state columns (Yo! Sushi: yes / may / no for each of the 14, named `columns`): the columns,
+    the printed "Contains: ... May contain: ..." line, and the label ids around the dish must all agree. None if a
+    column is missing or unmarked."""
+    from common import allergen_words
+    states = row.get("label_states", {})
+    if any(states.get(c) not in ("yes", "may", "no") for c in columns):
+        return None
+    col_yes = allergen_words([c for c in columns if states[c] == "yes"], where, extra)[0]
+    col_may = allergen_words([c for c in columns if states[c] == "may"], where, extra)[0]
+    text = row.get("label_names", "")
+    m = re.search(r"Contains:\s*(.*?)\s*(?=May contain:|$)", text, re.S)
+    mm = re.search(r"May contain:\s*(.*)$", text, re.S)
+    lines = {**row, "contains": _parts(m.group(1)) if m else [], "may": _parts(mm.group(1)) if mm else []}
+    out = allergens_checked(lines, where, extra)
+    if out is None:
+        return None
+    if col_yes != out["contains"] or col_may - col_yes != out["may_contain"]:
+        raise SystemExit(f"{where}: allergen columns (contains {sorted(col_yes)}, may {sorted(col_may)}) disagree with "
+                         f"the printed line {text!r}")
+    return out
+
+
 def _diet(labels: dict) -> bool | None:
     """True when the page's own 'suitable for' columns mark the dish Vegetarian / Vegan / Plant Based."""
     marks = [v for k, v in labels.items() if k.lower().rstrip("s") in ("vegetarian", "vegan", "plant based")]
     if not marks:
         return None
     return any(m is True for m in marks)
+
+
+def _state(cell: Node) -> str | None:
+    """An allergen column's printed state: 'yes' (contains), 'may' (may contain), 'no', or None (no mark)."""
+    for n in cell.iter():
+        v = n.attrs.get("data-label-name", "")
+        if v in ("LabelValueYes", "LabelValueMay", "LabelValueNo"):
+            return {"LabelValueYes": "yes", "LabelValueMay": "may", "LabelValueNo": "no"}[v]
+    return None
 
 
 def _yes(cell: Node) -> bool | None:
@@ -311,6 +473,7 @@ def read_modal_layout(text: str) -> list[dict]:
     if body is None:
         raise ValueError("pop-up layout not found: the page has no k10-all-courses block")
     rows: list[dict] = []
+    filt = filter_labels(root)
 
     def emit(top: Node, dish: str, group: str, choice: str, modal: Node):
         vals, caption = _modal_nutrients(modal)
@@ -321,7 +484,9 @@ def read_modal_layout(text: str) -> list[dict]:
                      "nutrients": vals, "per": caption, "recipe_id": modal.attrs.get("data-recipe-id", ""),
                      "energy_shown": shown.text() if shown is not None else "",
                      "desc": " ".join(x.text() for x in (dish_desc, desc) if x is not None),
-                     "suitable": suit.text() if suit is not None else ""})
+                     "suitable": suit.text() if suit is not None else "",
+                     "contains": _modal_line(modal, "contains"), "may": _modal_line(modal, "may"),
+                     "label_ids": _label_ids(modal, modal.attrs.get("data-recipe-id", "")), "filter": filt})
 
     for top in body.iter():
         if not top.has("k10-recipe"):
@@ -379,6 +544,7 @@ def read_box_layout(text: str) -> list[dict]:
     if body is None:
         raise ValueError("info-box layout not found: the page has no k10-all-courses block")
     rows = []
+    filt = filter_labels(root)
     for rec in body.iter():
         if not rec.has("k10-recipe"):
             continue
@@ -405,9 +571,14 @@ def read_box_layout(text: str) -> list[dict]:
                 if h is not None and h.text() and rec is not a:
                     sections.append(h.text())
         desc = _own(rec, "k10-recipe__desc")
+        lines = {"contains": None, "may": None}
+        for box in _own(rec, "k10-recipe__labels-wrapper-content"):
+            for div in (c for c in box.children if isinstance(c, Node)):
+                _line(div.text(), lines, {"Contains:": "contains", "Dish ingredients may also contain:": "may"}, name)
         rows.append({"section": " > ".join(sections[::-1]), "name": name, "nutrients": vals,
                      "energy_shown": shown[0].text() if shown else "", "desc": desc[0].text() if desc else "",
-                     "kind": "option" if rec.has("k10-recipe_sub-byo") else ("core" if rec.has("k10-recipe_byo") else "item")})
+                     "kind": "option" if rec.has("k10-recipe_sub-byo") else ("core" if rec.has("k10-recipe_byo") else "item"),
+                     **lines, "label_ids": _label_ids(rec), "filter": filt})
     return rows
 
 
@@ -423,6 +594,7 @@ def read_popover_layout(text: str) -> list[dict]:
     if body is None:
         raise ValueError("pop-up layout not found: the page has no k10-all-courses block")
     rows = []
+    filt = filter_labels(root)
     for rec in body.iter():
         if not (rec.has("k10-recipe") and rec.has("k10-recipe_menu-item")):
             continue
@@ -438,9 +610,13 @@ def read_popover_layout(text: str) -> list[dict]:
         shown = rec.find("k10-recipe__nutrient_energy")
         desc = rec.find("k10-recipe__desc")
         suit = rec.find("k10-popover__label-names-wrapper")
+        lines = {"contains": None, "may": None}
+        for div in (c for c in (suit.children if suit is not None else []) if isinstance(c, Node)):
+            _line(div.text(), lines, {"Contains:": "contains", "May contain:": "may", "Suitable for:": None}, name.text())
         rows.append({"section": _course_section(rec), "name": name.text(), "nutrients": vals,
                      "energy_shown": shown.text() if shown is not None else "", "desc": desc.text() if desc is not None else "",
-                     "suitable": suit.text() if suit is not None else "", "kind": "item"})
+                     "suitable": suit.text() if suit is not None else "", "kind": "item",
+                     **lines, "label_ids": _label_ids(rec), "filter": filt})
     for n in body.iter():
         raw = n.attrs.get("data-recipe")
         if not raw:
@@ -457,7 +633,9 @@ def read_popover_layout(text: str) -> list[dict]:
                 group = h.text() if h is not None else ""
                 break
         rows.append({"section": group or _course_section(n), "name": j["name"].strip(), "nutrients": vals,
-                     "energy_shown": "", "desc": j.get("desc", ""), "suitable": "", "kind": "choice" if group else "dish-with-choices"})
+                     "energy_shown": "", "desc": j.get("desc", ""), "suitable": "", "kind": "choice" if group else "dish-with-choices",
+                     "contains": _json_parts(j, "yes"), "may": _json_parts(j, "maybe"), "label_ids": _label_ids(n),
+                     "filter": filt})
     return rows
 
 
@@ -487,10 +665,14 @@ REQUIRED = ("calories", "protein_g", "carbs_g", "fat_g")
 KNOWN_LABELS = {lab for labs in LABELS.values() for lab in labs} | IGNORED_LABELS
 
 
-def numbers(nutrients: dict, where: str = "") -> tuple[dict, list[str]]:
+EXTRA_LABELS = {"energy_kj": ("Energy (kJ)",)}   # common.EXTRA_KEYS this reader can copy (per serving, as printed)
+
+
+def numbers(nutrients: dict, where: str = "", extras: bool = False) -> tuple[dict, list[str]]:
     """Map a row's printed labels to item fields, values exactly as printed. A value the page prints as '-' or leaves
     empty becomes '' (not published). Returns (fields, missing required fields). An unknown label stops the run:
-    the page has a column this script has not been checked against."""
+    the page has a column this script has not been checked against. extras=True also copies the printed kJ
+    (energy_kj); it is off by default so a chain's output only changes when its script asks for it."""
     unknown = set(nutrients) - KNOWN_LABELS
     if unknown:
         raise ValueError(f"{where}: unknown nutrition label(s) {sorted(unknown)}: check tenkites_c.LABELS before running again")
@@ -502,6 +684,10 @@ def numbers(nutrients: dict, where: str = "") -> tuple[dict, list[str]]:
                 v = nutrients[lab]
                 break
         out[field] = v if is_number(v) else ""
+    if extras:
+        for field, labs in EXTRA_LABELS.items():
+            v = next((nutrients[lab] for lab in labs if lab in nutrients), "")
+            out[field] = v if is_number(v) else ""
     return out, [k for k in REQUIRED if out[k] == ""]
 
 
@@ -563,6 +749,22 @@ def dedupe_items(items: list[dict]) -> tuple[list[dict], list[str]]:
         seen.add(key)
         kept.append(it)
     return kept, dropped
+
+
+def allergen_conflicts(items: list[dict]) -> list[str]:
+    """Items printed more than once with the same name and numbers (dedupe_items keeps the first) but different
+    allergens: the kept item's allergens are set to None (so the chain is not published as complete) and the names
+    are returned for the report."""
+    first: dict = {}
+    out = []
+    for it in items:
+        key = (it["name"], tuple(it[k] for k in LABELS))
+        if key not in first:
+            first[key] = it
+        elif it.get("allergens") != first[key].get("allergens") and first[key].get("allergens") is not None:
+            first[key]["allergens"] = None
+            out.append(it["name"])
+    return out
 
 
 def annotate(item: dict) -> list[str]:

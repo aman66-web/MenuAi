@@ -3,23 +3,30 @@
 
     python3 tools/uk_extract/pizza_union.py path/to/pizza-union-nutrition-allergen-information.pdf --checked-on 2026-10-06
 
-Numbers are copied from the PDF as printed (kcal, fat, saturates, carbs, sugars, protein, salt; kJ is not used, there is
-no fibre column). Only the display NAMES, categories and the rankable flag below are typed by hand, in the PDF's reading
+Numbers are copied from the PDF as printed (kcal, kJ, fat, saturates, carbs, sugars, protein, salt; there is no fibre column
+and no portion weight). Only the display NAMES, categories and the rankable flag below are typed by hand, in the PDF's reading
 order. Every row's printed name must match the name the script reads from the PDF; if Pizza Union adds, removes, renames or
 reorders a row the script stops so a human re-checks ROWS against the guide.
 
 Source: https://www.pizzaunion.com/wp-content/pizza-union-nutrition-allergen-information.pdf
 The page footers say "Renewed 17.03.26" (PDF created 10 March 2026). Values are "Typical Nutrition Values Per Average Portion".
+
+Allergens come from the same table's "Contains: Allergens, Alcohol" column (read by pizza_union_pdf.py, text as printed) and are
+turned into keys by allergens_from_text() below: "Gluten: Wheat & Barley" names the cereals, "Nuts: Hazelnuts" / "Nuts
+(Pistachio)" the tree nuts, "May contain(s):" / "Can contain:" starts the may-contain list, "Alcohol" is not an allergen and is
+skipped. A blank cell means none of the 14 (the guide says its allergen information covers the 14). Any word not known stops the
+run.
 """
 from __future__ import annotations
 import argparse
 import hashlib
+import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import pizza_union_pdf  # noqa: E402
-from common import ROOT, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "pizza-union"
 SOURCE_URL = "https://www.pizzaunion.com/wp-content/pizza-union-nutrition-allergen-information.pdf"
@@ -120,6 +127,65 @@ HOLDBACK = [
     ("mixed-peppers", "The guide prints 1.8 g of sugars with 0 g of carbohydrate (sugars are part of carbohydrate), and 11 kcal where its own macros add up to about 2 kcal."),
 ]
 
+# Pizza Union's own printed spellings that common.allergen_words does not know (lower case -> (key, cereal/nut or None)).
+ALLERGEN_EXTRA = {
+    "seasame": ("sesame", None),                  # Taralli: "Seasame"
+    "soybean": ("soya", None),                    # Hot Honey dip: "Soybean"
+    "other nuts": ("nuts", None),                 # Cannoli: "May contain other nuts & Mustard"
+    "wheat from semolina": ("gluten", "wheat"),   # Gluten free base: "Can contain: Gluten, Wheat from semolina"
+}
+# "<allergen>: <detail>" where the detail names a source, not a cereal or nut: (allergen, detail) as printed, lower case.
+ALLERGEN_SOURCE_DETAIL = {("fish", "anchovies"), ("sulphur dioxide", "white wine")}
+ALLERGEN_TITLE = "Pizza Union Nutrition and Allergen Information (renewed 17.03.26)"
+MAY = re.compile(r"\b(?:may contains?|can contain)\s*:?", re.I)
+
+
+def _top_split(text: str) -> list[str]:
+    """Split on commas and semicolons that are not inside brackets."""
+    parts, depth, cur = [], 0, ""
+    for ch in text:
+        depth += (ch == "(") - (ch == ")")
+        if ch in ",;" and depth == 0:
+            parts.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    return [p.strip() for p in parts + [cur] if p.strip()]
+
+
+def _keys(part: str, where: str) -> tuple[set[str], set[str], set[str]]:
+    keys, cereals, nuts = set(), set(), set()
+    for tok in _top_split(part):
+        if re.match(r"alcohol\b", tok, re.I):
+            continue  # the column is "Allergens, Alcohol": alcohol is not one of the 14
+        m = re.match(r"^(?P<head>[^:(]+?)\s*(?::\s*(?P<a>.+)|\((?P<b>[^)]*)\))$", tok)
+        if not m:
+            words = tok.split("&")                                  # "other nuts & Mustard"
+        elif (m["head"].lower(), (m["a"] or m["b"]).strip().lower()) in ALLERGEN_SOURCE_DETAIL:
+            words = [m["head"]]                                     # "Fish: Anchovies": the detail names the source
+        else:
+            head_keys, _, _ = allergen_words([m["head"]], where, ALLERGEN_EXTRA)
+            if head_keys not in ({"gluten"}, {"nuts"}):
+                raise SystemExit(f"{where}: unexpected detail in {tok!r}: check the guide")
+            words = [m["head"]] + (m["a"] or m["b"]).split("&")      # "Gluten: Wheat & Barley", "Nuts (Pistachio)"
+        k, c, n = allergen_words(words, where, ALLERGEN_EXTRA)
+        keys |= k
+        cereals |= c
+        nuts |= n
+    return keys, cereals, nuts
+
+
+def allergens_from_text(text: str, where: str) -> dict:
+    """The printed allergen cell -> {"contains", "may_contain", "cereals", "nuts"} (see the module docstring)."""
+    text = text.replace('"', "").strip()
+    parts = MAY.split(text)
+    if len(parts) > 2:
+        raise SystemExit(f"{where}: two may-contain lists in {text!r}")
+    contains, cereals, nuts = _keys(parts[0], where)
+    may = _keys(parts[1], where)[0] if len(parts) == 2 else set()
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+
+
 NOTE = ("Pizza Union's guide gives values per average portion with no weights, and toppings are listed separately (they are "
         "not added to the pizza figures). Wines, cocktails and teas have no data in the guide.")
 
@@ -159,9 +225,10 @@ def main() -> int:
             tags.insert(0, "vegetarian")
         items.append({
             "id": slug(name), "name": name, "category": category, "serving": SERVING,
-            "calories": printed["kcal"], "protein_g": printed["protein"], "carbs_g": printed["carbs"], "fat_g": printed["fat"],
+            "calories": printed["kcal"], "energy_kj": printed["kj"], "protein_g": printed["protein"], "carbs_g": printed["carbs"], "fat_g": printed["fat"],
             "sat_fat_g": printed["sat"], "sodium_mg": "", "salt_g": printed["salt"], "sugar_g": printed["sugars"], "fiber_g": "",
             "tags": "|".join(tags), "limited_time": False, "rankable": rankable, "components": "", "added_on": "", "notes": note,
+            "allergens": allergens_from_text(printed["allergen_text"], f"row {n} {printed['name']!r}"),
         })
     if next(skipped, None) is not None:
         print("Some skipped rows were not matched against the PDF. Re-check SKIPPED_PRINTED.", file=sys.stderr)
@@ -174,7 +241,8 @@ def main() -> int:
         chain_id=CHAIN_ID, name="Pizza Union", cuisine="Pizza",
         source_title="Pizza Union Nutrition and Allergen Information (renewed 17.03.26)",
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["pizza union"], items=items, out=args.out,
-        note=NOTE, holdback=HOLDBACK)
+        note=NOTE, holdback=HOLDBACK,
+        allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} items to {args.out} ({len(HOLDBACK)} held back; PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()})")
     return 0
 

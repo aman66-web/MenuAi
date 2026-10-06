@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
-"""Build data/source/wendys/ from Wendy's UK's official "Nutrition Information" PDF (UK national menu).
+"""
+from __future__ import annotationsBuild data/source/wendys/ from Wendy's UK's official "Nutrition Information" PDF (UK national menu).
 
     python3 tools/uk_extract/wendys.py path/to/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf --checked-on 2026-10-06
 
 Numbers are copied from the PDF as printed: kcal, fat, saturates, carbohydrates, sugars, fibre, protein, salt (there is
-no kJ column), per menu item as sold. The weight printed in the first column is copied into `serving` ("213 g").
+no kJ column), per menu item as sold. The weight printed in the first column is copied into `serving` ("213 g") and into weight_g.
 Only the NAMES, categories, rankable flags and meat tags below are typed by hand, in the PDF's reading order. The script
 stops if the number of rows, any row label or any section changes, so a human re-checks the names when Wendy's edits the guide.
 
 Source: https://www.wendys.com/sites/default/files/2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf
 (linked from https://www.wendys.com/en-gb/nutrition; printed "September 2026", PDF created 17 Sep 2026).
+
+Allergens come from the same PDF's allergen columns (wendys_pdf.py): "✓" = contains, a dot = may contain, copied per row.
+The guide prints columns for ten allergens only (celery, egg, fish, barley, rye, milk, mustard, soy, wheat, sesame) and says
+it gives "current information on the known instances of the 14 major allergens", so an allergen without a column is one the
+guide marks for no item. Gluten cereals are named as the guide names them (barley, rye, wheat).
 
 Left out on purpose (see the `None` rows): the five dip pots, whose weight is printed as 100 g (values are per 100 g of sauce,
 not per pot), and the second copy of the Jr. Crispy Chicken Sandwich (identical numbers, listed again under Kid's Meal).
@@ -21,11 +27,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import wendys_pdf  # noqa: E402
-from common import slug, write_chain_folder  # noqa: E402
+from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "wendys"
 SOURCE_URL = "https://www.wendys.com/sites/default/files/2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf"
 SOURCE_TITLE = "Wendy's UK National Nutrition Information (September 2026)"
+ALLERGEN_TITLE = "Wendy's UK National Nutrition Information, allergen columns (September 2026)"
 ALIASES = ["wendys", "wendy's", "wendys uk", "wendys burgers"]
 
 BU, CH, WR, SL, SI, KD, BF, FR, DR = "Burgers", "Chicken", "Wraps", "Salads", "Sides", "Kids", "Breakfast", "Frosty & desserts", "Drinks"
@@ -249,19 +256,23 @@ def main() -> int:
     items, first_seen, excluded = [], {}, []
     for printed, (label, _section, name, category, rankable, tags, note) in zip(rows, ROWS):
         v = printed["values"]
+        printed_allergens = (tuple(printed["allergens"]["contains"]), tuple(printed["allergens"]["may_contain"]))
         if name is None:
-            if label in first_seen and first_seen[label] != tuple(v.values()):
-                print(f"{label!r} appears twice with different numbers: it is not a plain duplicate. Re-check.", file=sys.stderr)
+            if label in first_seen and first_seen[label] != (tuple(v.values()), printed_allergens):
+                print(f"{label!r} appears twice with different numbers or allergens: it is not a plain duplicate. Re-check.", file=sys.stderr)
                 return 1
             excluded.append((label, note))
             continue
-        first_seen[label] = tuple(v.values())
+        first_seen[label] = (tuple(v.values()), printed_allergens)
+        contains, cereals, nuts = allergen_words(printed["allergens"]["contains"], f"{label} (contains)")
+        may, _, _ = allergen_words(printed["allergens"]["may_contain"], f"{label} (may contain)")
         notes = "; ".join(x for x in (note, ODDITIES.get(label, "")) if x)
         items.append({
             "name": name, "category": category, "serving": f"{v['weight']} g",
             "calories": v["kcal"], "protein_g": v["protein"], "carbs_g": v["carbs"], "fat_g": v["fat"],
-            "sat_fat_g": v["sat"], "salt_g": v["salt"], "sugar_g": v["sugars"], "fiber_g": v["fibre"],
+            "sat_fat_g": v["sat"], "salt_g": v["salt"], "sugar_g": v["sugars"], "fiber_g": v["fibre"], "weight_g": v["weight"],
             "tags": "|".join(tags), "rankable": rankable, "limited_time": False, "notes": notes,
+            "allergens": {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts},
         })
     ids = [slug(i["name"]) for i in items]
     assert len(ids) == len(set(ids)), "duplicate ids"
@@ -273,7 +284,9 @@ def main() -> int:
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))
 
     out = write_chain_folder(chain_id=CHAIN_ID, name="Wendy's", cuisine="Burgers", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=held)
+                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=held,
+                             allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on,
+                                             "may_contain_published": True})
     print(f"wrote {len(items)} items ({len(held)} held back) to {out}; PDF has {len(rows)} rows, {len(excluded)} left out "
           f"(PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()})")
     for label, why in excluded:

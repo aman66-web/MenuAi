@@ -21,7 +21,12 @@ Left out on purpose:
   "(Belfast)"            Northern Ireland variant of the Hibiscus Lemonade.
   Hot Drinks             the table prints calories only (no protein, carbs or fat), so it cannot be used.
   Ingredient tables      see above.
+
+Also copied per item: the printed kJ (energy_kj; never converted from kcal) and the allergens from the same row's "Contains
+Allergens" and "May Contain" columns (docs/DATA.md "Allergens"; read by tortilla_pdf.allergen_cells / allergen_keys). Every
+published row must carry a readable allergen cell or the run stops. The guide prints no serving weights.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import sys
@@ -107,6 +112,19 @@ EXCLUDED_SUFFIXES = ("(Canary Wharf only)", "(Belfast)")
 HOLDBACK = [("queso-fundido", QUESO)]
 NOTE = ("Tortilla publishes its burritos, bowls, salads, tacos, nachos, quesadillas and fuel bowls only as separate ingredients, "
         "never as finished dishes, so those are not listed here. Breakfast items sold at Canary Wharf only are left out.")
+# Allergens come from the same PDF. Its own spellings that common.allergen_words doesn't know (printed in the Contains / May
+# Contain columns): "Soybean" (Ghost Chilli Ranch), "Soyabean" (churros, breakfast buns).
+ALLERGEN_GUIDE = {"title": SOURCE_TITLE, "url": SOURCE_URL, "may_contain_published": True}
+ALLERGEN_SPELLINGS = {"soybean": ("soya", None), "soyabean": ("soya", None)}
+
+
+def allergens_of(row: dict, where: str) -> dict:
+    """The row's printed 'Contains Allergens' and 'May Contain' cells as allergen keys. Stops on an unreadable cell."""
+    if row.get("allergen_problem"):
+        raise SystemExit(f"{where}: {row['allergen_problem']}")
+    contains, cereals, nuts = tortilla_pdf.allergen_keys(row["contains_text"], where, ALLERGEN_SPELLINGS)
+    may, _, _ = tortilla_pdf.allergen_keys(row["may_text"], where, ALLERGEN_SPELLINGS)
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
 
 
 def main() -> int:
@@ -132,6 +150,7 @@ def main() -> int:
     printed = [r["name"] for _, r in whole]
     excluded = [r["name"] for _, r in whole if r["name"].endswith(EXCLUDED_SUFFIXES)]
     kept = [r for _, r in whole if not r["name"].endswith(EXCLUDED_SUFFIXES)]
+    page_of = {r["name"]: n for n, r in whole}
     if len(set(printed)) != len(printed):
         problems.append("Two printed rows have the same name.")
     new = [r["name"] for r in kept if r["name"] not in SPEC]
@@ -147,20 +166,37 @@ def main() -> int:
         return 1
 
     items = []
+    report = []
     for r in kept:
         category, serving, rankable, extra_tags, note = SPEC[r["name"]]
         tags = (["vegetarian"] if r["veg"] else []) + extra_tags
+        where = f"page {page_of[r['name']]} {r['name']!r}"
+        allergens = allergens_of(r, where)
+        both, _, _ = tortilla_pdf.allergen_keys(r["may_text"], where, ALLERGEN_SPELLINGS)
+        if both & allergens["contains"]:
+            report.append(f"{where}: {sorted(both & allergens['contains'])} printed under both Contains and May Contain (kept as contains)")
         items.append({
             "name": r["name"], "category": category, "serving": serving,
             "calories": r["kcal"], "protein_g": r["protein"], "carbs_g": r["carbs"], "fat_g": r["fat"],
             "sat_fat_g": r["sat"], "sodium_mg": "", "salt_g": r["salt"], "sugar_g": r["sugars"], "fiber_g": r["fibre"],
+            "energy_kj": r["kj"],
             "tags": "|".join(tags), "limited_time": False, "rankable": rankable, "components": "", "added_on": "", "notes": note,
+            "allergens": allergens,
         })
+    # Advisory: a Medium and a Large of the same thing should print the same allergens.
+    by_name = {i["name"]: i["allergens"] for i in items}
+    for name, a in by_name.items():
+        if name.startswith("Medium "):
+            b = by_name.get("Large " + name[len("Medium "):])
+            if b is not None and (a["contains"], a["may_contain"]) != (b["contains"], b["may_contain"]):
+                report.append(f"{name} and its Large print different allergens: {a} / {b}")
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))  # stable: PDF order inside a category
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Tortilla", cuisine="Mexican", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=["tortilla", "tortilla burritos and tacos", "tortilla burritos & tacos"],
-        items=items, out=args.out, note=NOTE, holdback=HOLDBACK)
+        items=items, out=args.out, note=NOTE, holdback=HOLDBACK,
+        allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on})
+    print("\n".join(report))
     print(f"wrote {len(items)} items ({len(HOLDBACK)} of them held back) to {out} (PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()})")
     print(f"left out: {len(excluded)} rows labelled Canary Wharf only / Belfast, {len(HOT_DRINKS)} hot drinks (calories only), "
           f"{sum(INGREDIENT_PAGE_ROWS.values())} ingredient rows on {len(INGREDIENT_PAGE_ROWS)} pages")

@@ -12,11 +12,18 @@
  ],
  "sample": false,
  "source": {
-  "title": "Pret A Manger UK website: product nutritional information, GB shops (pret.co.uk product pages, retrieved 2026-10-05; the pages carry no version date)",
+  "title": "Pret A Manger UK website: product nutritional information, GB shops (pret.co.uk product pages, retrieved 2026-10-06; the pages carry no version date)",
   "url": "https://www.pret.co.uk/en-GB/products",
-  "checkedOn": "2026-10-05"
+  "checkedOn": "2026-10-06"
  },
  "note": "Per-serving numbers from Pret's own product pages; Pret's allergen guide doesn't list nutrition.",
+ "allergenGuide": {
+  "title": "Pret's Allergen Guide, GB Pret shops (Allergen Guide 8th September 2026 V1)",
+  "url": "https://assets.ctfassets.net/4zu8gvmtwqss/11hMIULPpeCprPZIUG76L2/0b636725a4e1551ed7a9817c02c98f31/Allergen_Guide_8th_September_2026_V1.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Sandwiches, baguettes & wraps",
   "Breakfast",
@@ -43,7 +50,8 @@
     "saturatedFat": 4.7,
     "sugar": 1.5,
     "fiber": 1.6,
-    "salt": 1.01
+    "salt": 1.01,
+    "energyKj": 1015
    },
    "tags": [
     "vegetarian"
@@ -66,7 +74,8 @@
     "saturatedFat": 14.4,
     "sugar": 1.9,
     "fiber": 4.7,
-    "salt": 2.23
+    "salt": 2.23,
+    "energyKj": 2667
    },
    "tags": [],
    "limitedTime": false,
@@ -87,7 +96,8 @@
     "saturatedFat": 10.9,
     "sugar": 15,
     "fiber": 8.2,
-    "salt": 3.59
+    "salt": 3.59,
+    "energyKj": 2609
    },
    "tags": [
     "vegetarian"
@@ -110,7 +120,8 @@
     "saturatedFat": 10.9,
     "sugar": 1.6,
     "fiber": 5,
-    "salt": 3.85
+    "salt": 3.85,
+    "energyKj": 2480
    },
    "tags": [
     "contains_pork"
@@ -133,7 +144,8 @@
     "saturatedFat": 7,
     "sugar": 11.8,
     "fiber": 6.1,
-    "salt": 2.95
+    "salt": 2.95,
+    "energyKj": 2325
    },
    "tags": [],
    "limitedTime": false,
@@ -154,7 +166,8 @@
     "saturatedFat": 15.1,
     "sugar": 8.5,
     "fiber": 4.8,
-    "salt": 2.59
+    "salt": 2.59,
+    "energyKj": 2629
    },
    "tags": [
     "contains_pork"
@@ -177,7 +190,8 @@
     "saturatedFat": 7.4,
     "sugar": 1.5,
     "fiber": 5,
-    "salt": 2.58
+    "salt": 2.58,
+    "energyKj": 2315
    },
    "tags": [],
    "limitedTime": false,
@@ -198,7 +212,8 @@
     "saturatedFat": 6.8,
     "sugar": 5.8,
     "fiber": 5,
-    "salt": 2.48
+    "salt": 2.48,
+    "energyKj": 2088
    },
    "tags": [
     "contains_beef"
@@ -221,7 +236,8 @@
     "saturatedFat": 10.2,
     "sugar": 3,
     "fiber": 3.5,
-    "salt": 3.71
+    "salt": 3.71,
+    "energyKj": 3304
    },
    "tags": [
     "contains_pork"
@@ -244,7 +260,8 @@
     "saturatedFat": 10.9,
     "sugar": 8,
     "fiber": 5.1,
-    "salt": 2.83
+    "salt": 2.83,
+    "energyKj": 2387
    },
    "tags": [
     "vegetarian"
@@ -267,7 +284,8 @@
     "saturatedFat": 7.9,
     "sugar": 3.1,
     "fiber": 3.8,
-    "salt": 2.22
+    "salt": 2.22,
+    "energyKj": 2211
    },
    "tags": [],
    "limitedTime": false,
@@ -288,7 +306,8 @@
     "saturatedFat": 4.7,
     "sugar": 3.4,
     "fiber": 6,
-    "salt": 2.07
+    "salt": 2.07,
+    "energyKj": 2042
    },
    "tags": [],
    "limitedTime": false,
@@ -309,7 +328,8 @@
     "saturatedFat": 2.3,
     "sugar": 1.7,
     "fiber": 3,
-    "salt": 1.04
+    "salt": 1.04,
+    "energyKj": 1021
    },
    "tags": [],
    "limitedTime": false,
@@ -330,7 +350,8 @@
     "saturatedFat": 4.3,
     "sugar": 3.9,
     "fiber": 4.1,
-    "salt": 2.75
+    "salt": 2.75,
+    "energyKj": 2208
    },
    "tags": [
     "contains_pork"
@@ -353,7 +374,8 @@
     "saturatedFat": 2.2,
     "sugar": 1.9,
     "fiber": 2.1,
-    "salt": 1.38
+    "salt": 1.38,
+    "energyKj": 1104
    },
    "tags": [
     "contains_pork"
@@ -376,7 +398,8 @@
     "saturatedFat": 5.6,
     "sugar": 5.3,
     "fiber": 4.5,
-    "salt": 2.47
+    "salt": 2.47,
+    "energyKj": 2037
    },
    "tags": [],
    "limitedTime": false,
@@ -397,7 +420,8 @@
     "saturatedFat": 5.9,
     "sugar": 3.6,
     "fiber": 4.7,
-    "salt": 1.84
+    "salt": 1.84,
+    "energyKj": 1926
    },
    "tags": [
     "vegetarian"
@@ -420,7 +444,8 @@
     "saturatedFat": 2.8,
     "sugar": 2.1,
     "fiber": 3.8,
-    "salt": 1.52
+    "salt": 1.52,
+    "energyKj": 1591
    },
    "tags": [
     "vegetarian"
@@ -443,7 +468,8 @@
     "saturatedFat": 15.8,
     "sugar": 2.5,
     "fiber": 3.9,
-    "salt": 3.61
+    "salt": 3.61,
+    "energyKj": 2223
    },
    "tags": [
     "contains_pork"
@@ -466,7 +492,8 @@
     "saturatedFat": 9.4,
     "sugar": 12.9,
     "fiber": 4.8,
-    "salt": 2.16
+    "salt": 2.16,
+    "energyKj": 2128
    },
    "tags": [
     "vegetarian"
@@ -489,7 +516,8 @@
     "saturatedFat": 9.6,
     "sugar": 9.9,
     "fiber": 7.1,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 3010
    },
    "tags": [
     "contains_beef"
@@ -512,7 +540,8 @@
     "saturatedFat": 5.3,
     "sugar": 2.3,
     "fiber": 3.4,
-    "salt": 3.19
+    "salt": 3.19,
+    "energyKj": 1744
    },
    "tags": [],
    "limitedTime": false,
@@ -533,7 +562,8 @@
     "saturatedFat": 1.6,
     "sugar": 3.4,
     "fiber": 3.5,
-    "salt": 1.42
+    "salt": 1.42,
+    "energyKj": 1592
    },
    "tags": [],
    "limitedTime": false,
@@ -554,7 +584,8 @@
     "saturatedFat": 4.9,
     "sugar": 5.9,
     "fiber": 8.5,
-    "salt": 1.64
+    "salt": 1.64,
+    "energyKj": 2355
    },
    "tags": [
     "vegetarian"
@@ -577,7 +608,8 @@
     "saturatedFat": 2.4,
     "sugar": 2.9,
     "fiber": 4.2,
-    "salt": 0.82
+    "salt": 0.82,
+    "energyKj": 1178
    },
    "tags": [
     "vegetarian"
@@ -600,7 +632,8 @@
     "saturatedFat": 10.1,
     "sugar": 3.6,
     "fiber": 3.3,
-    "salt": 2.14
+    "salt": 2.14,
+    "energyKj": 1844
    },
    "tags": [
     "vegetarian"
@@ -623,7 +656,8 @@
     "saturatedFat": 2.5,
     "sugar": 1.6,
     "fiber": 2.2,
-    "salt": 1.31
+    "salt": 1.31,
+    "energyKj": 1247
    },
    "tags": [
     "contains_pork"
@@ -646,7 +680,8 @@
     "saturatedFat": 4.9,
     "sugar": 3.2,
     "fiber": 4.4,
-    "salt": 2.62
+    "salt": 2.62,
+    "energyKj": 2494
    },
    "tags": [
     "contains_pork"
@@ -669,7 +704,8 @@
     "saturatedFat": 7.9,
     "sugar": 3.2,
     "fiber": 2.8,
-    "salt": 2.98
+    "salt": 2.98,
+    "energyKj": 2491
    },
    "tags": [],
    "limitedTime": false,
@@ -690,7 +726,8 @@
     "saturatedFat": 3.2,
     "sugar": 9.9,
     "fiber": 4.4,
-    "salt": 3.34
+    "salt": 3.34,
+    "energyKj": 2258
    },
    "tags": [],
    "limitedTime": false,
@@ -711,7 +748,8 @@
     "saturatedFat": 3.1,
     "sugar": 5.3,
     "fiber": 5,
-    "salt": 2.74
+    "salt": 2.74,
+    "energyKj": 2272
    },
    "tags": [],
    "limitedTime": false,
@@ -732,7 +770,8 @@
     "saturatedFat": 1.5,
     "sugar": 2.7,
     "fiber": 2.5,
-    "salt": 1.37
+    "salt": 1.37,
+    "energyKj": 1136
    },
    "tags": [],
    "limitedTime": false,
@@ -753,7 +792,8 @@
     "saturatedFat": 5.9,
     "sugar": 3.8,
     "fiber": 4.8,
-    "salt": 3.59
+    "salt": 3.59,
+    "energyKj": 2287
    },
    "tags": [
     "contains_pork"
@@ -776,7 +816,8 @@
     "saturatedFat": 3,
     "sugar": 1.9,
     "fiber": 2.4,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1146
    },
    "tags": [
     "contains_pork"
@@ -799,7 +840,8 @@
     "saturatedFat": 14.7,
     "sugar": 3.9,
     "fiber": 5.4,
-    "salt": 2.94
+    "salt": 2.94,
+    "energyKj": 2985
    },
    "tags": [
     "contains_pork"
@@ -822,7 +864,8 @@
     "saturatedFat": 2.2,
     "sugar": 4.1,
     "fiber": 2.6,
-    "salt": 2.46
+    "salt": 2.46,
+    "energyKj": 2161
    },
    "tags": [],
    "limitedTime": false,
@@ -843,7 +886,8 @@
     "saturatedFat": 1.1,
     "sugar": 2,
     "fiber": 1.3,
-    "salt": 1.23
+    "salt": 1.23,
+    "energyKj": 1081
    },
    "tags": [],
    "limitedTime": false,
@@ -864,7 +908,8 @@
     "saturatedFat": 9.8,
     "sugar": 18.6,
     "fiber": 6.6,
-    "salt": 2.82
+    "salt": 2.82,
+    "energyKj": 2695
    },
    "tags": [
     "vegetarian"
@@ -887,7 +932,8 @@
     "saturatedFat": 4.9,
     "sugar": 9.3,
     "fiber": 3.3,
-    "salt": 1.41
+    "salt": 1.41,
+    "energyKj": 1348
    },
    "tags": [
     "vegetarian"
@@ -910,7 +956,8 @@
     "saturatedFat": 1.6,
     "sugar": 4.9,
     "fiber": 2.2,
-    "salt": 1.67
+    "salt": 1.67,
+    "energyKj": 1129
    },
    "tags": [],
    "limitedTime": false,
@@ -931,7 +978,8 @@
     "saturatedFat": 4.9,
     "sugar": 2.4,
     "fiber": 5.7,
-    "salt": 2.86
+    "salt": 2.86,
+    "energyKj": 2314
    },
    "tags": [],
    "limitedTime": false,
@@ -952,7 +1000,8 @@
     "saturatedFat": 4.9,
     "sugar": 3.4,
     "fiber": 4.2,
-    "salt": 3.61
+    "salt": 3.61,
+    "energyKj": 2104
    },
    "tags": [],
    "limitedTime": false,
@@ -973,7 +1022,8 @@
     "saturatedFat": 8.3,
     "sugar": 3.2,
     "fiber": 3.4,
-    "salt": 3.85
+    "salt": 3.85,
+    "energyKj": 2498
    },
    "tags": [
     "contains_pork"
@@ -996,7 +1046,8 @@
     "saturatedFat": 6.2,
     "sugar": 4.3,
     "fiber": 6,
-    "salt": 1.29
+    "salt": 1.29,
+    "energyKj": 2091
    },
    "tags": [
     "vegetarian"
@@ -1019,7 +1070,8 @@
     "saturatedFat": 3.4,
     "sugar": 3.4,
     "fiber": 3.2,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 2154
    },
    "tags": [],
    "limitedTime": false,
@@ -1040,7 +1092,8 @@
     "saturatedFat": 3.4,
     "sugar": 8.9,
     "fiber": 4.6,
-    "salt": 2.39
+    "salt": 2.39,
+    "energyKj": 1927
    },
    "tags": [],
    "limitedTime": false,
@@ -1061,7 +1114,8 @@
     "saturatedFat": 4.1,
     "sugar": 16.2,
     "fiber": 8.3,
-    "salt": 0.79
+    "salt": 0.79,
+    "energyKj": 2094
    },
    "tags": [
     "vegetarian"
@@ -1084,7 +1138,8 @@
     "saturatedFat": 2,
     "sugar": 8.1,
     "fiber": 4.1,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 1047
    },
    "tags": [
     "vegetarian"
@@ -1107,7 +1162,8 @@
     "saturatedFat": 2.7,
     "sugar": 12.5,
     "fiber": 3.8,
-    "salt": 2.61
+    "salt": 2.61,
+    "energyKj": 1856
    },
    "tags": [],
    "limitedTime": false,
@@ -1128,7 +1184,8 @@
     "saturatedFat": 2,
     "sugar": 11.5,
     "fiber": 11.3,
-    "salt": 1.61
+    "salt": 1.61,
+    "energyKj": 1736
    },
    "tags": [
     "vegetarian"
@@ -1151,7 +1208,8 @@
     "saturatedFat": 2.5,
     "sugar": 8.7,
     "fiber": 3.2,
-    "salt": 1.52
+    "salt": 1.52,
+    "energyKj": 2105
    },
    "tags": [],
    "limitedTime": false,
@@ -1172,7 +1230,8 @@
     "saturatedFat": 1.3,
     "sugar": 4.3,
     "fiber": 1.6,
-    "salt": 0.76
+    "salt": 0.76,
+    "energyKj": 1052
    },
    "tags": [],
    "limitedTime": false,
@@ -1193,7 +1252,8 @@
     "saturatedFat": 1.6,
     "sugar": 15,
     "fiber": 7.8,
-    "salt": 2.14
+    "salt": 2.14,
+    "energyKj": 1906
    },
    "tags": [],
    "limitedTime": false,
@@ -1214,7 +1274,8 @@
     "saturatedFat": 0.8,
     "sugar": 7.5,
     "fiber": 3.9,
-    "salt": 1.07
+    "salt": 1.07,
+    "energyKj": 953
    },
    "tags": [],
    "limitedTime": false,
@@ -1235,7 +1296,8 @@
     "saturatedFat": 4.8,
     "sugar": 20.4,
     "fiber": 5.1,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 1188
    },
    "tags": [
     "vegetarian"
@@ -1258,7 +1320,8 @@
     "saturatedFat": 8.8,
     "sugar": 3.2,
     "fiber": 1.5,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 1152
    },
    "tags": [
     "vegetarian"
@@ -1281,7 +1344,8 @@
     "saturatedFat": 4.8,
     "sugar": 6.9,
     "fiber": 4.2,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 906
    },
    "tags": [
     "vegetarian"
@@ -1304,7 +1368,8 @@
     "saturatedFat": 3.2,
     "sugar": 4.6,
     "fiber": 2.8,
-    "salt": 0.12
+    "salt": 0.12,
+    "energyKj": 604
    },
    "tags": [
     "vegetarian"
@@ -1327,7 +1392,8 @@
     "saturatedFat": 9.8,
     "sugar": 3.2,
     "fiber": 1.9,
-    "salt": 1.19
+    "salt": 1.19,
+    "energyKj": 1300
    },
    "tags": [
     "contains_pork"
@@ -1350,7 +1416,8 @@
     "saturatedFat": 13.9,
     "sugar": 3.7,
     "fiber": 1.8,
-    "salt": 1.28
+    "salt": 1.28,
+    "energyKj": 1555
    },
    "tags": [
     "vegetarian"
@@ -1373,7 +1440,8 @@
     "saturatedFat": 4.5,
     "sugar": 6.4,
     "fiber": 4.2,
-    "salt": 2.12
+    "salt": 2.12,
+    "energyKj": 1561
    },
    "tags": [
     "vegetarian"
@@ -1396,7 +1464,8 @@
     "saturatedFat": 10,
     "sugar": 3.3,
     "fiber": 2.8,
-    "salt": 1.97
+    "salt": 1.97,
+    "energyKj": 1952
    },
    "tags": [
     "contains_pork"
@@ -1419,7 +1488,8 @@
     "saturatedFat": 4.7,
     "sugar": 2.5,
     "fiber": 2.2,
-    "salt": 1.36
+    "salt": 1.36,
+    "energyKj": 1353
    },
    "tags": [
     "contains_pork"
@@ -1442,7 +1512,8 @@
     "saturatedFat": 10.1,
     "sugar": 3.7,
     "fiber": 3,
-    "salt": 1.94
+    "salt": 1.94,
+    "energyKj": 1960
    },
    "tags": [
     "contains_pork"
@@ -1465,7 +1536,8 @@
     "saturatedFat": 7.8,
     "sugar": 7.1,
     "fiber": 3.8,
-    "salt": 2.56
+    "salt": 2.56,
+    "energyKj": 2103
    },
    "tags": [
     "contains_pork"
@@ -1488,7 +1560,8 @@
     "saturatedFat": 6.6,
     "sugar": 6.4,
     "fiber": 14.9,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1421
    },
    "tags": [
     "contains_pork"
@@ -1511,7 +1584,8 @@
     "saturatedFat": 1.5,
     "sugar": 5.7,
     "fiber": 15.1,
-    "salt": 1.06
+    "salt": 1.06,
+    "energyKj": 797
    },
    "tags": [
     "vegetarian"
@@ -1534,7 +1608,8 @@
     "saturatedFat": 11.5,
     "sugar": 4.5,
     "fiber": 1.6,
-    "salt": 0.68
+    "salt": 0.68,
+    "energyKj": 1213
    },
    "tags": [
     "vegetarian"
@@ -1557,7 +1632,8 @@
     "saturatedFat": 10.7,
     "sugar": 14.3,
     "fiber": 2.6,
-    "salt": 0.53
+    "salt": 0.53,
+    "energyKj": 1596
    },
    "tags": [
     "vegetarian"
@@ -1580,7 +1656,8 @@
     "saturatedFat": 12.3,
     "sugar": 15.6,
     "fiber": 3.7,
-    "salt": 0.41
+    "salt": 0.41,
+    "energyKj": 1461
    },
    "tags": [
     "vegetarian"
@@ -1603,7 +1680,8 @@
     "saturatedFat": 13.2,
     "sugar": 24.1,
     "fiber": 2.5,
-    "salt": 1.01
+    "salt": 1.01,
+    "energyKj": 1728
    },
    "tags": [
     "vegetarian"
@@ -1626,7 +1704,8 @@
     "saturatedFat": 9.1,
     "sugar": 21.4,
     "fiber": 2.5,
-    "salt": 0.85
+    "salt": 0.85,
+    "energyKj": 1504
    },
    "tags": [
     "vegetarian"
@@ -1649,7 +1728,8 @@
     "saturatedFat": 7.4,
     "sugar": 21.9,
     "fiber": 2.3,
-    "salt": 0.56
+    "salt": 0.56,
+    "energyKj": 1255
    },
    "tags": [
     "vegetarian"
@@ -1672,7 +1752,8 @@
     "saturatedFat": 3.4,
     "sugar": 1.5,
     "fiber": 2,
-    "salt": 1.89
+    "salt": 1.89,
+    "energyKj": 1463
    },
    "tags": [
     "contains_pork"
@@ -1695,7 +1776,8 @@
     "saturatedFat": 3.2,
     "sugar": 1.7,
     "fiber": 3.2,
-    "salt": 2.09
+    "salt": 2.09,
+    "energyKj": 1454
    },
    "tags": [
     "vegetarian"
@@ -1718,7 +1800,8 @@
     "saturatedFat": 2.3,
     "sugar": 5.2,
     "fiber": 3.2,
-    "salt": 1.88
+    "salt": 1.88,
+    "energyKj": 1515
    },
    "tags": [
     "vegetarian"
@@ -1741,7 +1824,8 @@
     "saturatedFat": 2.6,
     "sugar": 1.5,
     "fiber": 1.9,
-    "salt": 2.14
+    "salt": 2.14,
+    "energyKj": 1476
    },
    "tags": [],
    "limitedTime": false,
@@ -1762,7 +1846,8 @@
     "saturatedFat": 1.6,
     "sugar": 25.6,
     "fiber": 7.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1416
    },
    "tags": [
     "vegetarian"
@@ -1785,7 +1870,8 @@
     "saturatedFat": 4.1,
     "sugar": 32.7,
     "fiber": 3.8,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 1413
    },
    "tags": [
     "vegetarian"
@@ -1808,7 +1894,8 @@
     "saturatedFat": 9.3,
     "sugar": 20,
     "fiber": 4.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1331
    },
    "tags": [
     "vegetarian"
@@ -1831,7 +1918,8 @@
     "saturatedFat": 3.6,
     "sugar": 26.1,
     "fiber": 5.7,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 1403
    },
    "tags": [
     "vegetarian"
@@ -1854,7 +1942,8 @@
     "saturatedFat": 8.1,
     "sugar": 24.2,
     "fiber": 5.7,
-    "salt": 0.06
+    "salt": 0.06,
+    "energyKj": 1432
    },
    "tags": [
     "vegetarian"
@@ -1877,7 +1966,8 @@
     "saturatedFat": 3.4,
     "sugar": 29.3,
     "fiber": 4.2,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 1278
    },
    "tags": [
     "vegetarian"
@@ -1900,7 +1990,8 @@
     "saturatedFat": 0.3,
     "sugar": 1.5,
     "fiber": 3.9,
-    "salt": 1.19
+    "salt": 1.19,
+    "energyKj": 780
    },
    "tags": [
     "vegetarian"
@@ -1923,7 +2014,8 @@
     "saturatedFat": 16.9,
     "sugar": 6.2,
     "fiber": 5.1,
-    "salt": 1.72
+    "salt": 1.72,
+    "energyKj": 2237
    },
    "tags": [
     "vegetarian"
@@ -1946,7 +2038,8 @@
     "saturatedFat": 6.1,
     "sugar": 6.3,
     "fiber": 4,
-    "salt": 0.93
+    "salt": 0.93,
+    "energyKj": 748
    },
    "tags": [],
    "limitedTime": false,
@@ -1967,7 +2060,8 @@
     "saturatedFat": 12.2,
     "sugar": 12.5,
     "fiber": 7.9,
-    "salt": 1.86
+    "salt": 1.86,
+    "energyKj": 1496
    },
    "tags": [],
    "limitedTime": false,
@@ -1988,7 +2082,8 @@
     "saturatedFat": 7.6,
     "sugar": 3.5,
     "fiber": 2,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 616
    },
    "tags": [],
    "limitedTime": false,
@@ -2009,7 +2104,8 @@
     "saturatedFat": 15.2,
     "sugar": 6.9,
     "fiber": 3.9,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 1232
    },
    "tags": [],
    "limitedTime": false,
@@ -2030,7 +2126,8 @@
     "saturatedFat": 3.5,
     "sugar": 1.9,
     "fiber": 1.1,
-    "salt": 1.06
+    "salt": 1.06,
+    "energyKj": 478
    },
    "tags": [],
    "limitedTime": false,
@@ -2051,7 +2148,8 @@
     "saturatedFat": 7,
     "sugar": 3.8,
     "fiber": 2.1,
-    "salt": 2.12
+    "salt": 2.12,
+    "energyKj": 955
    },
    "tags": [],
    "limitedTime": false,
@@ -2072,7 +2170,8 @@
     "saturatedFat": 2.2,
     "sugar": 4.9,
     "fiber": 2,
-    "salt": 1.23
+    "salt": 1.23,
+    "energyKj": 639
    },
    "tags": [
     "contains_pork"
@@ -2095,7 +2194,8 @@
     "saturatedFat": 4.3,
     "sugar": 9.7,
     "fiber": 4,
-    "salt": 2.43
+    "salt": 2.43,
+    "energyKj": 1260
    },
    "tags": [
     "contains_pork"
@@ -2118,7 +2218,8 @@
     "saturatedFat": 4.6,
     "sugar": 2.7,
     "fiber": 3,
-    "salt": 2.16
+    "salt": 2.16,
+    "energyKj": 934
    },
    "tags": [
     "vegetarian"
@@ -2141,7 +2242,8 @@
     "saturatedFat": 2.3,
     "sugar": 1.4,
     "fiber": 1.5,
-    "salt": 1.08
+    "salt": 1.08,
+    "energyKj": 467
    },
    "tags": [
     "vegetarian"
@@ -2164,7 +2266,8 @@
     "saturatedFat": 0.4,
     "sugar": 14.7,
     "fiber": 5,
-    "salt": 1.62
+    "salt": 1.62,
+    "energyKj": 590
    },
    "tags": [
     "vegetarian"
@@ -2187,7 +2290,8 @@
     "saturatedFat": 0.2,
     "sugar": 7.4,
     "fiber": 2.5,
-    "salt": 0.81
+    "salt": 0.81,
+    "energyKj": 295
    },
    "tags": [
     "vegetarian"
@@ -2210,7 +2314,8 @@
     "saturatedFat": 21.9,
     "sugar": 5.8,
     "fiber": 2.3,
-    "salt": 2.23
+    "salt": 2.23,
+    "energyKj": 2466
    },
    "tags": [
     "contains_pork"
@@ -2233,7 +2338,8 @@
     "saturatedFat": 13.4,
     "sugar": 2.7,
     "fiber": 3,
-    "salt": 1.24
+    "salt": 1.24,
+    "energyKj": 1600
    },
    "tags": [
     "contains_pork"
@@ -2256,7 +2362,8 @@
     "saturatedFat": 20.8,
     "sugar": 4.7,
     "fiber": 5.2,
-    "salt": 1.92
+    "salt": 1.92,
+    "energyKj": 2296
    },
    "tags": [
     "vegetarian"
@@ -2279,7 +2386,8 @@
     "saturatedFat": 8.9,
     "sugar": 13.6,
     "fiber": 13.9,
-    "salt": 2.53
+    "salt": 2.53,
+    "energyKj": 2968
    },
    "tags": [],
    "limitedTime": false,
@@ -2300,7 +2408,8 @@
     "saturatedFat": 10,
     "sugar": 21,
     "fiber": 10.4,
-    "salt": 3.27
+    "salt": 3.27,
+    "energyKj": 1886
    },
    "tags": [
     "vegetarian"
@@ -2323,7 +2432,8 @@
     "saturatedFat": 7.1,
     "sugar": 16.5,
     "fiber": 12.8,
-    "salt": 3.16
+    "salt": 3.16,
+    "energyKj": 3167
    },
    "tags": [],
    "limitedTime": false,
@@ -2344,7 +2454,8 @@
     "saturatedFat": 4,
     "sugar": 14.3,
     "fiber": 14.9,
-    "salt": 2.82
+    "salt": 2.82,
+    "energyKj": 2624
    },
    "tags": [],
    "limitedTime": false,
@@ -2365,7 +2476,8 @@
     "saturatedFat": 2.2,
     "sugar": 12.1,
     "fiber": 13.5,
-    "salt": 1.62
+    "salt": 1.62,
+    "energyKj": 1650
    },
    "tags": [
     "vegetarian"
@@ -2388,7 +2500,8 @@
     "saturatedFat": 0.8,
     "sugar": 6.5,
     "fiber": 6,
-    "salt": 0.76
+    "salt": 0.76,
+    "energyKj": 623
    },
    "tags": [
     "vegetarian"
@@ -2411,7 +2524,8 @@
     "saturatedFat": 5.9,
     "sugar": 10.3,
     "fiber": 3.2,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 2184
    },
    "tags": [],
    "limitedTime": false,
@@ -2432,7 +2546,8 @@
     "saturatedFat": 2.1,
     "sugar": 9.2,
     "fiber": 4.3,
-    "salt": 2.85
+    "salt": 2.85,
+    "energyKj": 1198
    },
    "tags": [],
    "limitedTime": false,
@@ -2453,7 +2568,8 @@
     "saturatedFat": 3.3,
     "sugar": 5.1,
     "fiber": 1.5,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 748
    },
    "tags": [
     "vegetarian"
@@ -2476,7 +2592,8 @@
     "saturatedFat": 1.8,
     "sugar": 17.5,
     "fiber": 7.1,
-    "salt": 2.98
+    "salt": 2.98,
+    "energyKj": 1613
    },
    "tags": [],
    "limitedTime": false,
@@ -2497,7 +2614,8 @@
     "saturatedFat": 5.6,
     "sugar": 1.9,
     "fiber": 3.9,
-    "salt": 3.09
+    "salt": 3.09,
+    "energyKj": 1718
    },
    "tags": [],
    "limitedTime": false,
@@ -2518,7 +2636,8 @@
     "saturatedFat": 3.4,
     "sugar": 7,
     "fiber": 1.5,
-    "salt": 1.97
+    "salt": 1.97,
+    "energyKj": 1490
    },
    "tags": [],
    "limitedTime": false,
@@ -2539,7 +2658,8 @@
     "saturatedFat": 1.2,
     "sugar": 0.8,
     "fiber": 3,
-    "salt": 1.22
+    "salt": 1.22,
+    "energyKj": 820
    },
    "tags": [],
    "limitedTime": false,
@@ -2560,7 +2680,8 @@
     "saturatedFat": 1.5,
     "sugar": 0.2,
     "fiber": 0.3,
-    "salt": 0.57
+    "salt": 0.57,
+    "energyKj": 432
    },
    "tags": [
     "vegetarian"
@@ -2583,7 +2704,8 @@
     "saturatedFat": 1.7,
     "sugar": 0.7,
     "fiber": 0.5,
-    "salt": 1.61
+    "salt": 1.61,
+    "energyKj": 565
    },
    "tags": [],
    "limitedTime": false,
@@ -2604,7 +2726,8 @@
     "saturatedFat": 0.9,
     "sugar": 0.4,
     "fiber": 1.7,
-    "salt": 0.65
+    "salt": 0.65,
+    "energyKj": 859
    },
    "tags": [
     "vegetarian"
@@ -2627,7 +2750,8 @@
     "saturatedFat": 1,
     "sugar": 1,
     "fiber": 1.8,
-    "salt": 0.53
+    "salt": 0.53,
+    "energyKj": 874
    },
    "tags": [
     "vegetarian"
@@ -2650,7 +2774,8 @@
     "saturatedFat": 0.5,
     "sugar": 0.1,
     "fiber": 3.5,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 567
    },
    "tags": [
     "vegetarian"
@@ -2673,7 +2798,8 @@
     "saturatedFat": 1.4,
     "sugar": 0.2,
     "fiber": 1.7,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 888
    },
    "tags": [
     "vegetarian"
@@ -2696,7 +2822,8 @@
     "saturatedFat": 0.9,
     "sugar": 0.9,
     "fiber": 1.9,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 867
    },
    "tags": [
     "vegetarian"
@@ -2719,7 +2846,8 @@
     "saturatedFat": 0.7,
     "sugar": 5.4,
     "fiber": 2.4,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 653
    },
    "tags": [
     "vegetarian"
@@ -2742,7 +2870,8 @@
     "saturatedFat": 4,
     "sugar": 11.8,
     "fiber": 2.2,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 659
    },
    "tags": [
     "vegetarian"
@@ -2765,7 +2894,8 @@
     "saturatedFat": 14.1,
     "sugar": 22.7,
     "fiber": 3.1,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 1583
    },
    "tags": [
     "vegetarian"
@@ -2788,7 +2918,8 @@
     "saturatedFat": 12.4,
     "sugar": 25.3,
     "fiber": 2.8,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1336
    },
    "tags": [
     "vegetarian"
@@ -2811,7 +2942,8 @@
     "saturatedFat": 2.2,
     "sugar": 4.4,
     "fiber": 0.8,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 341
    },
    "tags": [
     "vegetarian"
@@ -2834,7 +2966,8 @@
     "saturatedFat": 7.8,
     "sugar": 8.3,
     "fiber": 3.9,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 715
    },
    "tags": [
     "vegetarian"
@@ -2857,7 +2990,8 @@
     "saturatedFat": 9,
     "sugar": 20.8,
     "fiber": 3,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1454
    },
    "tags": [
     "vegetarian"
@@ -2880,7 +3014,8 @@
     "saturatedFat": 7.2,
     "sugar": 13,
     "fiber": 1.6,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 717
    },
    "tags": [
     "vegetarian"
@@ -2903,7 +3038,8 @@
     "saturatedFat": 5.1,
     "sugar": 12.5,
     "fiber": 0.8,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 737
    },
    "tags": [
     "vegetarian"
@@ -2926,7 +3062,8 @@
     "saturatedFat": 7,
     "sugar": 22.4,
     "fiber": 2.6,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 1169
    },
    "tags": [
     "vegetarian"
@@ -2949,7 +3086,8 @@
     "saturatedFat": 5.5,
     "sugar": 31,
     "fiber": 0.8,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 988
    },
    "tags": [],
    "limitedTime": false,
@@ -2970,7 +3108,8 @@
     "saturatedFat": 5.3,
     "sugar": 7.9,
     "fiber": 3.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 892
    },
    "tags": [
     "vegetarian"
@@ -2993,7 +3132,8 @@
     "saturatedFat": 2,
     "sugar": 10.1,
     "fiber": 2.2,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 815
    },
    "tags": [
     "vegetarian"
@@ -3016,7 +3156,8 @@
     "saturatedFat": 0.1,
     "sugar": 17.5,
     "fiber": 1.8,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 500
    },
    "tags": [
     "vegetarian"
@@ -3039,7 +3180,8 @@
     "saturatedFat": 7.4,
     "sugar": 25.2,
     "fiber": 2.1,
-    "salt": 0.41
+    "salt": 0.41,
+    "energyKj": 1381
    },
    "tags": [
     "vegetarian"
@@ -3062,7 +3204,8 @@
     "saturatedFat": 11.4,
     "sugar": 31,
     "fiber": 2.2,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 1775
    },
    "tags": [
     "vegetarian"
@@ -3085,7 +3228,8 @@
     "saturatedFat": 2.5,
     "sugar": 30.5,
     "fiber": 3.5,
-    "salt": 0.72
+    "salt": 0.72,
+    "energyKj": 1846
    },
    "tags": [
     "vegetarian"
@@ -3108,7 +3252,8 @@
     "saturatedFat": 7.8,
     "sugar": 37.4,
     "fiber": 3.5,
-    "salt": 0.86
+    "salt": 0.86,
+    "energyKj": 2338
    },
    "tags": [
     "vegetarian"
@@ -3131,7 +3276,8 @@
     "saturatedFat": 17.9,
     "sugar": 32.8,
     "fiber": 3.1,
-    "salt": 0.94
+    "salt": 0.94,
+    "energyKj": 2508
    },
    "tags": [
     "vegetarian"
@@ -3154,7 +3300,8 @@
     "saturatedFat": 2.8,
     "sugar": 17.5,
     "fiber": 0.7,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 840
    },
    "tags": [
     "vegetarian"
@@ -3177,7 +3324,8 @@
     "saturatedFat": 11.9,
     "sugar": 35.6,
     "fiber": 1.6,
-    "salt": 0.54
+    "salt": 0.54,
+    "energyKj": 1728
    },
    "tags": [
     "vegetarian"
@@ -3200,7 +3348,8 @@
     "saturatedFat": 12.7,
     "sugar": 34.4,
     "fiber": 2.2,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 1733
    },
    "tags": [
     "vegetarian"
@@ -3223,7 +3372,8 @@
     "saturatedFat": 14.8,
     "sugar": 42.3,
     "fiber": 2.6,
-    "salt": 0.85
+    "salt": 0.85,
+    "energyKj": 2464
    },
    "tags": [
     "vegetarian"
@@ -3246,7 +3396,8 @@
     "saturatedFat": 0,
     "sugar": 18.9,
     "fiber": 2.9,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 360
    },
    "tags": [
     "vegetarian"
@@ -3269,7 +3420,8 @@
     "saturatedFat": 0.1,
     "sugar": 13.4,
     "fiber": 1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 323
    },
    "tags": [
     "vegetarian"
@@ -3292,7 +3444,8 @@
     "saturatedFat": 0,
     "sugar": 22.7,
     "fiber": 3.1,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 451
    },
    "tags": [
     "vegetarian"
@@ -3315,7 +3468,8 @@
     "saturatedFat": 0.1,
     "sugar": 13.8,
     "fiber": 1.5,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 303
    },
    "tags": [
     "vegetarian"
@@ -3338,7 +3492,8 @@
     "saturatedFat": 0.2,
     "sugar": 16.7,
     "fiber": 2.5,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 370
    },
    "tags": [
     "vegetarian"
@@ -3361,7 +3516,8 @@
     "saturatedFat": 7.5,
     "sugar": 3.9,
     "fiber": 4.1,
-    "salt": 1.25
+    "salt": 1.25,
+    "energyKj": 1550
    },
    "tags": [
     "vegetarian"
@@ -3384,7 +3540,8 @@
     "saturatedFat": 1.5,
     "sugar": 2.7,
     "fiber": 3.6,
-    "salt": 1.61
+    "salt": 1.61,
+    "energyKj": 1600
    },
    "tags": [],
    "limitedTime": false,
@@ -3405,7 +3562,8 @@
     "saturatedFat": 3.8,
     "sugar": 2.2,
     "fiber": 3.5,
-    "salt": 1.72
+    "salt": 1.72,
+    "energyKj": 1215
    },
    "tags": [
     "contains_pork"
@@ -3428,7 +3586,8 @@
     "saturatedFat": 0.7,
     "sugar": 1.2,
     "fiber": 3.2,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 347
    },
    "tags": [
     "vegetarian"
@@ -3451,7 +3610,8 @@
     "saturatedFat": 2.9,
     "sugar": 8.8,
     "fiber": 0.2,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 422
    },
    "tags": [
     "vegetarian"
@@ -3474,7 +3634,8 @@
     "saturatedFat": 6.5,
     "sugar": 4.3,
     "fiber": 4.4,
-    "salt": 1.42
+    "salt": 1.42,
+    "energyKj": 1590
    },
    "tags": [],
    "limitedTime": false,
@@ -3495,7 +3656,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 7
    },
    "tags": [
     "vegetarian"
@@ -3519,7 +3681,8 @@
     "sodium": 50,
     "sugar": 4.9,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 189
    },
    "tags": [
     "vegetarian"
@@ -3543,7 +3706,8 @@
     "sodium": 40,
     "sugar": 3.8,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 152
    },
    "tags": [
     "vegetarian"
@@ -3567,7 +3731,8 @@
     "sodium": 15,
     "sugar": 2,
     "fiber": 0.4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 125
    },
    "tags": [
     "vegetarian"
@@ -3591,7 +3756,8 @@
     "sodium": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 17
    },
    "tags": [
     "vegetarian"
@@ -3615,7 +3781,8 @@
     "sodium": 0,
     "sugar": 1.4,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 59
    },
    "tags": [
     "vegetarian"
@@ -3638,7 +3805,8 @@
     "saturatedFat": 0.8,
     "sodium": 40,
     "sugar": 3.4,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 147
    },
    "tags": [
     "vegetarian"
@@ -3662,7 +3830,8 @@
     "sodium": 40,
     "sugar": 3.8,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 115
    },
    "tags": [
     "vegetarian"
@@ -3686,7 +3855,8 @@
     "sodium": 15,
     "sugar": 2,
     "fiber": 0.4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 125
    },
    "tags": [
     "vegetarian"
@@ -3710,7 +3880,8 @@
     "sodium": 50,
     "sugar": 4.9,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 189
    },
    "tags": [
     "vegetarian"
@@ -3733,7 +3904,8 @@
     "saturatedFat": 2.6,
     "sugar": 11.5,
     "fiber": 0.2,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 488
    },
    "tags": [
     "vegetarian"
@@ -3757,7 +3929,8 @@
     "sodium": 80,
     "sugar": 8.8,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 384
    },
    "tags": [
     "vegetarian"
@@ -3781,7 +3954,8 @@
     "sodium": 80,
     "sugar": 8.8,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 384
    },
    "tags": [
     "vegetarian"
@@ -3805,7 +3979,8 @@
     "sodium": 80,
     "sugar": 12.7,
     "fiber": 0.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 492
    },
    "tags": [
     "vegetarian"
@@ -3829,7 +4004,11 @@
     "sodium": 100,
     "sugar": 5.4,
     "fiber": 1.2,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 385,
+    "monounsaturatedFat": 0.8,
+    "polyunsaturatedFat": 2.5,
+    "transFat": 0
    },
    "tags": [
     "vegetarian"
@@ -3853,7 +4032,9 @@
     "sodium": 80,
     "sugar": 12.7,
     "fiber": 0.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 492,
+    "monounsaturatedFat": 0.4
    },
    "tags": [
     "vegetarian"
@@ -3877,7 +4058,8 @@
     "sodium": 100,
     "sugar": 5.4,
     "fiber": 1.2,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 385
    },
    "tags": [
     "vegetarian"
@@ -3901,7 +4083,8 @@
     "sodium": 80,
     "sugar": 8.8,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 384
    },
    "tags": [
     "vegetarian"
@@ -3924,7 +4107,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 7
    },
    "tags": [
     "vegetarian"
@@ -3947,7 +4131,8 @@
     "sodium": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3970,7 +4155,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 8
    },
    "tags": [
     "vegetarian"
@@ -3993,7 +4179,8 @@
     "saturatedFat": 0.2,
     "sugar": 1.2,
     "fiber": 0.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 67
    },
    "tags": [
     "vegetarian"
@@ -4016,7 +4203,8 @@
     "saturatedFat": 0,
     "sugar": 1.4,
     "fiber": 0,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 52
    },
    "tags": [
     "vegetarian"
@@ -4039,7 +4227,8 @@
     "saturatedFat": 0.3,
     "sugar": 1.5,
     "fiber": 0,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 68
    },
    "tags": [
     "vegetarian"
@@ -4062,7 +4251,8 @@
     "saturatedFat": 0.1,
     "sugar": 0.8,
     "fiber": 0.2,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 64
    },
    "tags": [
     "vegetarian"
@@ -4085,7 +4275,8 @@
     "saturatedFat": 2,
     "sugar": 10,
     "fiber": 0,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 411
    },
    "tags": [
     "vegetarian"
@@ -4108,7 +4299,8 @@
     "saturatedFat": 1.8,
     "sodium": 80,
     "sugar": 7.7,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 335
    },
    "tags": [
     "vegetarian"
@@ -4132,7 +4324,8 @@
     "sodium": 50,
     "sugar": 11.4,
     "fiber": 0.4,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 442
    },
    "tags": [
     "vegetarian"
@@ -4156,7 +4349,8 @@
     "sodium": 70,
     "sugar": 11.4,
     "fiber": 0.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 441
    },
    "tags": [
     "vegetarian"
@@ -4180,7 +4374,11 @@
     "sodium": 90,
     "sugar": 4.1,
     "fiber": 1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 323,
+    "monounsaturatedFat": 0.7,
+    "polyunsaturatedFat": 2.2,
+    "transFat": 0
    },
    "tags": [
     "vegetarian"
@@ -4204,7 +4402,8 @@
     "sodium": 90,
     "sugar": 4.1,
     "fiber": 1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 323
    },
    "tags": [
     "vegetarian"
@@ -4227,7 +4426,8 @@
     "saturatedFat": 1.8,
     "sodium": 80,
     "sugar": 7.7,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 335
    },
    "tags": [
     "vegetarian"
@@ -4250,7 +4450,8 @@
     "saturatedFat": 1.8,
     "sodium": 80,
     "sugar": 7.7,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 335
    },
    "tags": [
     "vegetarian"
@@ -4273,7 +4474,8 @@
     "saturatedFat": 2.8,
     "sugar": 14,
     "fiber": 0,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 573
    },
    "tags": [
     "vegetarian"
@@ -4296,7 +4498,8 @@
     "saturatedFat": 2.7,
     "sodium": 120,
     "sugar": 11.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 494
    },
    "tags": [
     "vegetarian"
@@ -4320,7 +4523,8 @@
     "sodium": 120,
     "sugar": 11.3,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 494
    },
    "tags": [
     "vegetarian"
@@ -4344,7 +4548,8 @@
     "sodium": 100,
     "sugar": 16.3,
     "fiber": 0.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 631
    },
    "tags": [
     "vegetarian"
@@ -4368,7 +4573,11 @@
     "sodium": 130,
     "sugar": 6,
     "fiber": 1.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 473,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 3.3,
+    "transFat": 0
    },
    "tags": [
     "vegetarian"
@@ -4392,7 +4601,8 @@
     "sodium": 100,
     "sugar": 18.2,
     "fiber": 0.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 707
    },
    "tags": [
     "vegetarian"
@@ -4415,7 +4625,8 @@
     "saturatedFat": 2.7,
     "sodium": 120,
     "sugar": 11.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 494
    },
    "tags": [
     "vegetarian"
@@ -4439,7 +4650,8 @@
     "sodium": 132,
     "sugar": 6,
     "fiber": 1.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 473
    },
    "tags": [
     "vegetarian"
@@ -4462,7 +4674,8 @@
     "saturatedFat": 0.1,
     "sugar": 0.6,
     "fiber": 0,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 29
    },
    "tags": [
     "vegetarian"
@@ -4486,7 +4699,8 @@
     "sodium": 0,
     "sugar": 0.7,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 25
    },
    "tags": [
     "vegetarian"
@@ -4510,7 +4724,8 @@
     "sodium": 0,
     "sugar": 0.5,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 21
    },
    "tags": [
     "vegetarian"
@@ -4534,7 +4749,8 @@
     "sodium": 0,
     "sugar": 0.3,
     "fiber": 0.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 7
    },
    "tags": [
     "vegetarian"
@@ -4556,7 +4772,8 @@
     "fat": 0,
     "sodium": 0,
     "sugar": 0.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 21
    },
    "tags": [
     "vegetarian"
@@ -4578,7 +4795,8 @@
     "fat": 0,
     "sodium": 0,
     "sugar": 0.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 21
    },
    "tags": [
     "vegetarian"
@@ -4602,7 +4820,8 @@
     "sodium": 0,
     "sugar": 0.7,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 25
    },
    "tags": [
     "vegetarian"
@@ -4626,7 +4845,8 @@
     "sodium": 0,
     "sugar": 0.3,
     "fiber": 0.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 17
    },
    "tags": [
     "vegetarian"
@@ -4649,7 +4869,8 @@
     "saturatedFat": 3.3,
     "sugar": 24.2,
     "fiber": 2.8,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 825
    },
    "tags": [
     "vegetarian"
@@ -4673,7 +4894,8 @@
     "sodium": 105,
     "sugar": 23.4,
     "fiber": 1.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 778
    },
    "tags": [
     "vegetarian"
@@ -4697,7 +4919,8 @@
     "sodium": 100,
     "sugar": 28.2,
     "fiber": 1.9,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 915
    },
    "tags": [
     "vegetarian"
@@ -4721,7 +4944,8 @@
     "sodium": 100,
     "sugar": 28.2,
     "fiber": 1.9,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 915
    },
    "tags": [
     "vegetarian"
@@ -4745,7 +4969,11 @@
     "sodium": 123,
     "sugar": 18.4,
     "fiber": 2.9,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 760,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 3.1,
+    "transFat": 0
    },
    "tags": [
     "vegetarian"
@@ -4769,7 +4997,8 @@
     "sodium": 123,
     "sugar": 18.4,
     "fiber": 2.9,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 760
    },
    "tags": [
     "vegetarian"
@@ -4793,7 +5022,8 @@
     "sodium": 105,
     "sugar": 23.4,
     "fiber": 1.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 778
    },
    "tags": [
     "vegetarian"
@@ -4817,7 +5047,11 @@
     "sodium": 105,
     "sugar": 23.4,
     "fiber": 1.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 778,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 0,
+    "transFat": 0.2
    },
    "tags": [
     "vegetarian"
@@ -4840,7 +5074,8 @@
     "saturatedFat": 2.9,
     "sugar": 24.6,
     "fiber": 0.5,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 770
    },
    "tags": [
     "vegetarian"
@@ -4863,7 +5098,8 @@
     "saturatedFat": 0.3,
     "sugar": 23.8,
     "fiber": 0.5,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 628
    },
    "tags": [
     "vegetarian"
@@ -4886,7 +5122,8 @@
     "saturatedFat": 1.1,
     "sugar": 18.6,
     "fiber": 2.1,
-    "salt": 0.57
+    "salt": 0.57,
+    "energyKj": 728
    },
    "tags": [
     "vegetarian"
@@ -4909,7 +5146,8 @@
     "saturatedFat": 1.3,
     "sugar": 22.5,
     "fiber": 2.7,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 757
    },
    "tags": [
     "vegetarian"
@@ -4932,7 +5170,8 @@
     "saturatedFat": 0.3,
     "sugar": 23.8,
     "fiber": 0.5,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 628
    },
    "tags": [
     "vegetarian"
@@ -4955,7 +5194,8 @@
     "saturatedFat": 2.9,
     "sugar": 24.6,
     "fiber": 0.5,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 770
    },
    "tags": [
     "vegetarian"
@@ -4978,7 +5218,8 @@
     "saturatedFat": 1.1,
     "sugar": 18.6,
     "fiber": 2.1,
-    "salt": 0.57
+    "salt": 0.57,
+    "energyKj": 728
    },
    "tags": [
     "vegetarian"
@@ -5001,7 +5242,8 @@
     "saturatedFat": 1.3,
     "sugar": 22.5,
     "fiber": 2.7,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 757
    },
    "tags": [
     "vegetarian"
@@ -5024,7 +5266,8 @@
     "saturatedFat": 0.3,
     "sugar": 23.8,
     "fiber": 0.5,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 627
    },
    "tags": [
     "vegetarian"
@@ -5047,7 +5290,8 @@
     "saturatedFat": 4.9,
     "sugar": 38,
     "fiber": 2.8,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 1505
    },
    "tags": [
     "vegetarian"
@@ -5070,7 +5314,8 @@
     "saturatedFat": 4.6,
     "sugar": 26.1,
     "fiber": 0,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 1226
    },
    "tags": [
     "vegetarian"
@@ -5093,7 +5338,8 @@
     "saturatedFat": 0.4,
     "sugar": 2.1,
     "fiber": 0.2,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 77
    },
    "tags": [
     "vegetarian"
@@ -5116,7 +5362,8 @@
     "saturatedFat": 0.1,
     "sugar": 2,
     "fiber": 0.2,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 61
    },
    "tags": [
     "vegetarian"
@@ -5139,7 +5386,8 @@
     "saturatedFat": 0.1,
     "sugar": 1.4,
     "fiber": 0.3,
-    "salt": 0.05
+    "salt": 0.05,
+    "energyKj": 72
    },
    "tags": [
     "vegetarian"
@@ -5162,7 +5410,8 @@
     "saturatedFat": 0.3,
     "sugar": 1.6,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 61
    },
    "tags": [
     "vegetarian"
@@ -5186,7 +5435,8 @@
     "sodium": 50,
     "sugar": 4.9,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 189
    },
    "tags": [
     "vegetarian"
@@ -5210,7 +5460,8 @@
     "sodium": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -5234,7 +5485,8 @@
     "sodium": 0,
     "sugar": 1.4,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 59
    },
    "tags": [
     "vegetarian"
@@ -5258,7 +5510,8 @@
     "sodium": 0,
     "sugar": 1.8,
     "fiber": 0.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 141
    },
    "tags": [
     "vegetarian"
@@ -5281,7 +5534,8 @@
     "saturatedFat": 3.5,
     "sugar": 27.2,
     "fiber": 0.5,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 874
    },
    "tags": [
     "vegetarian"
@@ -5304,7 +5558,8 @@
     "saturatedFat": 0.3,
     "sugar": 26,
     "fiber": 0.5,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 696
    },
    "tags": [
     "vegetarian"
@@ -5327,7 +5582,8 @@
     "saturatedFat": 1.3,
     "sugar": 19.7,
     "fiber": 2.4,
-    "salt": 0.48
+    "salt": 0.48,
+    "energyKj": 813
    },
    "tags": [
     "vegetarian"
@@ -5350,7 +5606,8 @@
     "saturatedFat": 1.6,
     "sugar": 24.5,
     "fiber": 3.1,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 848
    },
    "tags": [
     "vegetarian"
@@ -5373,7 +5630,8 @@
     "saturatedFat": 0.3,
     "sugar": 1.5,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 61
    },
    "tags": [
     "vegetarian"
@@ -5397,7 +5655,8 @@
     "sodium": 50,
     "sugar": 4.9,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 189
    },
    "tags": [
     "vegetarian"
@@ -5421,7 +5680,8 @@
     "sodium": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -5445,7 +5705,8 @@
     "sodium": 0,
     "sugar": 1.4,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 59
    },
    "tags": [
     "vegetarian"
@@ -5469,7 +5730,8 @@
     "sodium": 0,
     "sugar": 1.8,
     "fiber": 0.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 141
    },
    "tags": [
     "vegetarian"
@@ -5492,7 +5754,8 @@
     "saturatedFat": 3.4,
     "sugar": 34,
     "fiber": 5.3,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 1039
    },
    "tags": [
     "vegetarian"
@@ -5516,7 +5779,8 @@
     "sodium": 105,
     "sugar": 35.5,
     "fiber": 2.8,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1077
    },
    "tags": [
     "vegetarian"
@@ -5540,7 +5804,8 @@
     "sodium": 100,
     "sugar": 40.4,
     "fiber": 3.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1212
    },
    "tags": [
     "vegetarian"
@@ -5564,7 +5829,8 @@
     "sodium": 124,
     "sugar": 30.4,
     "fiber": 4.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1055
    },
    "tags": [
     "vegetarian"
@@ -5587,7 +5853,8 @@
     "saturatedFat": 2,
     "sugar": 11.8,
     "fiber": 0.6,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 361
    },
    "tags": [
     "vegetarian"
@@ -5610,7 +5877,8 @@
     "saturatedFat": 0.3,
     "sugar": 12.3,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 444
    },
    "tags": [
     "vegetarian"
@@ -5633,7 +5901,8 @@
     "saturatedFat": 1.1,
     "sugar": 6.7,
     "fiber": 1.7,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 548
    },
    "tags": [
     "vegetarian"
@@ -5656,7 +5925,8 @@
     "saturatedFat": 3.1,
     "sugar": 13.2,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 594
    },
    "tags": [
     "vegetarian"
@@ -5679,7 +5949,8 @@
     "saturatedFat": 1.4,
     "sugar": 10.9,
     "fiber": 2.2,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 580
    },
    "tags": [
     "vegetarian"
@@ -5702,7 +5973,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -5725,7 +5997,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -5748,7 +6021,8 @@
     "saturatedFat": 2.6,
     "sugar": 23.2,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 683
    },
    "tags": [
     "vegetarian"
@@ -5771,7 +6045,8 @@
     "saturatedFat": 0.2,
     "sugar": 22.4,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 558
    },
    "tags": [
     "vegetarian"
@@ -5794,7 +6069,8 @@
     "saturatedFat": 0.9,
     "sugar": 17.8,
     "fiber": 1.4,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 645
    },
    "tags": [
     "vegetarian"
@@ -5817,7 +6093,8 @@
     "saturatedFat": 1.2,
     "sugar": 21.3,
     "fiber": 1.9,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 671
    },
    "tags": [
     "vegetarian"
@@ -5840,7 +6117,8 @@
     "saturatedFat": 2.3,
     "sugar": 29.1,
     "fiber": 5.3,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 831
    },
    "tags": [
     "vegetarian"
@@ -5863,7 +6141,8 @@
     "saturatedFat": 1.4,
     "sugar": 8.4,
     "fiber": 0.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 266
    },
    "tags": [
     "vegetarian"
@@ -5886,7 +6165,8 @@
     "saturatedFat": 0.8,
     "sugar": 4.8,
     "fiber": 1.2,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 399
    },
    "tags": [
     "vegetarian"
@@ -5909,7 +6189,8 @@
     "saturatedFat": 0.2,
     "sugar": 8.8,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 325
    },
    "tags": [
     "vegetarian"
@@ -5932,7 +6213,8 @@
     "saturatedFat": 2.2,
     "sugar": 9.4,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 432
    },
    "tags": [
     "vegetarian"
@@ -5955,7 +6237,8 @@
     "saturatedFat": 1,
     "sugar": 7.8,
     "fiber": 1.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 422
    },
    "tags": [
     "vegetarian"
@@ -5978,7 +6261,8 @@
     "saturatedFat": 7.9,
     "sugar": 33.6,
     "fiber": 0.4,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 1772
    },
    "tags": [
     "vegetarian"
@@ -6001,7 +6285,8 @@
     "saturatedFat": 7.4,
     "sugar": 17.3,
     "fiber": 0.4,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 1522
    },
    "tags": [
     "vegetarian"
@@ -6024,7 +6309,8 @@
     "saturatedFat": 5.9,
     "sugar": 21.1,
     "fiber": 0.4,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 1463
    },
    "tags": [
     "vegetarian"
@@ -6047,7 +6333,8 @@
     "saturatedFat": 7.9,
     "sugar": 21.7,
     "fiber": 0.4,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 1570
    },
    "tags": [
     "vegetarian"
@@ -6070,7 +6357,8 @@
     "saturatedFat": 5.9,
     "sugar": 21.1,
     "fiber": 0.4,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 1463
    },
    "tags": [
     "vegetarian"
@@ -6093,7 +6381,8 @@
     "saturatedFat": 8.7,
     "sugar": 44.1,
     "fiber": 5.7,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 2105
    },
    "tags": [
     "vegetarian"
@@ -6116,7 +6405,8 @@
     "saturatedFat": 6.7,
     "sugar": 43.4,
     "fiber": 5.7,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 1998
    },
    "tags": [
     "vegetarian"
@@ -6139,7 +6429,8 @@
     "saturatedFat": 7.9,
     "sugar": 33.4,
     "fiber": 0.4,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 1769
    },
    "tags": [
     "vegetarian"
@@ -6162,7 +6453,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 7
    },
    "tags": [
     "vegetarian"
@@ -6185,7 +6477,8 @@
     "saturatedFat": 0.8,
     "sodium": 32,
     "sugar": 3.4,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 147
    },
    "tags": [
     "vegetarian"
@@ -6209,7 +6502,11 @@
     "sodium": 32,
     "sugar": 3.4,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 147,
+    "monounsaturatedFat": 0.3,
+    "polyunsaturatedFat": 0,
+    "transFat": 0.1
    },
    "tags": [
     "vegetarian"
@@ -6233,7 +6530,8 @@
     "sodium": 0,
     "sugar": 1.8,
     "fiber": 0.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 141
    },
    "tags": [
     "vegetarian"
@@ -6256,7 +6554,8 @@
     "saturatedFat": 0.8,
     "sodium": 45,
     "sugar": 3.8,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 151
    },
    "tags": [
     "vegetarian"
@@ -6280,7 +6579,8 @@
     "sodium": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -6303,7 +6603,8 @@
     "saturatedFat": 0.8,
     "sodium": 45,
     "sugar": 3.8,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 151
    },
    "tags": [
     "vegetarian"
@@ -6327,7 +6628,8 @@
     "sodium": 40,
     "sugar": 4.9,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 189
    },
    "tags": [
     "vegetarian"
@@ -6351,7 +6653,8 @@
     "sodium": 40,
     "sugar": 4.9,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 189
    },
    "tags": [
     "vegetarian"
@@ -6374,7 +6677,8 @@
     "saturatedFat": 2,
     "sugar": 10,
     "fiber": 0,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 411
    },
    "tags": [
     "vegetarian"
@@ -6397,7 +6701,8 @@
     "saturatedFat": 2.7,
     "sodium": 120,
     "sugar": 11.4,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 504
    },
    "tags": [
     "vegetarian"
@@ -6421,7 +6726,9 @@
     "sodium": 124,
     "sugar": 12.7,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 559,
+    "monounsaturatedFat": 1.1
    },
    "tags": [
     "vegetarian"
@@ -6445,7 +6752,11 @@
     "sodium": 128,
     "sugar": 6,
     "fiber": 1.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 473,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 3.3,
+    "transFat": 0
    },
    "tags": [
     "vegetarian"
@@ -6469,7 +6780,8 @@
     "sodium": 128,
     "sugar": 6,
     "fiber": 1.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 473
    },
    "tags": [
     "vegetarian"
@@ -6492,7 +6804,8 @@
     "saturatedFat": 2.7,
     "sodium": 120,
     "sugar": 11.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 494
    },
    "tags": [
     "vegetarian"
@@ -6516,7 +6829,8 @@
     "sodium": 80,
     "sugar": 16.3,
     "fiber": 0.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 631
    },
    "tags": [
     "vegetarian"
@@ -6540,7 +6854,8 @@
     "sodium": 80,
     "sugar": 16.3,
     "fiber": 0.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 631
    },
    "tags": [
     "vegetarian"
@@ -6563,7 +6878,8 @@
     "saturatedFat": 2.4,
     "sugar": 20.6,
     "fiber": 2.8,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 669
    },
    "tags": [
     "vegetarian"
@@ -6587,7 +6903,8 @@
     "sodium": 125,
     "sugar": 17.1,
     "fiber": 2.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 669
    },
    "tags": [
     "vegetarian"
@@ -6611,7 +6928,8 @@
     "sodium": 125,
     "sugar": 22.3,
     "fiber": 1.4,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 604
    },
    "tags": [
     "vegetarian"
@@ -6635,7 +6953,8 @@
     "sodium": 140,
     "sugar": 17.1,
     "fiber": 2.6,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 669
    },
    "tags": [
     "vegetarian"
@@ -6659,7 +6978,8 @@
     "sodium": 135,
     "sugar": 22.3,
     "fiber": 1.4,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 701
    },
    "tags": [
     "vegetarian"
@@ -6682,7 +7002,8 @@
     "saturatedFat": 1.6,
     "sugar": 20.1,
     "fiber": 2.9,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 679
    },
    "tags": [
     "vegetarian"
@@ -6706,7 +7027,8 @@
     "sodium": 65,
     "sugar": 24.7,
     "fiber": 0.9,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 794
    },
    "tags": [
     "vegetarian"
@@ -6729,7 +7051,8 @@
     "saturatedFat": 8.3,
     "sugar": 32.9,
     "fiber": 3.1,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 1842
    },
    "tags": [
     "vegetarian"
@@ -6752,7 +7075,8 @@
     "saturatedFat": 7.9,
     "sugar": 34.3,
     "fiber": 0.4,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 1784
    },
    "tags": [
     "vegetarian"
@@ -6775,7 +7099,8 @@
     "saturatedFat": 7.9,
     "sugar": 34.2,
     "fiber": 0.4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 1803
    },
    "tags": [
     "vegetarian"
@@ -6798,7 +7123,8 @@
     "saturatedFat": 0.1,
     "sugar": 28.2,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 536
    },
    "tags": [
     "vegetarian"
@@ -6821,7 +7147,8 @@
     "saturatedFat": 0.1,
     "sugar": 43.8,
     "fiber": 3.9,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 849
    },
    "tags": [
     "vegetarian"
@@ -6844,7 +7171,8 @@
     "saturatedFat": 0,
     "sugar": 7,
     "fiber": 0,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 150
    },
    "tags": [
     "vegetarian"
@@ -6867,7 +7195,8 @@
     "saturatedFat": 0.1,
     "sugar": 9.7,
     "fiber": 1.8,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 234
    },
    "tags": [
     "vegetarian"
@@ -6890,7 +7219,8 @@
     "saturatedFat": 0,
     "sugar": 3.7,
     "fiber": 1.4,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 115
    },
    "tags": [
     "vegetarian"
@@ -6913,7 +7243,8 @@
     "saturatedFat": 0.1,
     "sugar": 42.4,
     "fiber": 2.2,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 807
    },
    "tags": [
     "vegetarian"
@@ -6936,7 +7267,8 @@
     "saturatedFat": 0.2,
     "sugar": 29.7,
     "fiber": 1.6,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 602
    },
    "tags": [
     "vegetarian"
@@ -6959,7 +7291,8 @@
     "saturatedFat": 0,
     "sugar": 12.6,
     "fiber": 0.7,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 267
    },
    "tags": [
     "vegetarian"
@@ -6982,7 +7315,8 @@
     "saturatedFat": 0,
     "sugar": 24.5,
     "fiber": 1.2,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 487
    },
    "tags": [
     "vegetarian"
@@ -7005,7 +7339,8 @@
     "saturatedFat": 0,
     "sugar": 53,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 901
    },
    "tags": [
     "vegetarian"
@@ -7028,7 +7363,8 @@
     "saturatedFat": 0,
     "sugar": 35,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 595
    },
    "tags": [
     "vegetarian"
@@ -7051,7 +7387,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -7072,7 +7409,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -7095,7 +7433,8 @@
     "saturatedFat": 0.3,
     "sugar": 24.5,
     "fiber": 2.6,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 486
    },
    "tags": [
     "vegetarian"
@@ -7118,7 +7457,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -7141,7 +7481,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -7164,7 +7505,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -7187,7 +7529,8 @@
     "saturatedFat": 0,
     "sugar": 11.2,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 191
    },
    "tags": [
     "vegetarian"
@@ -7210,7 +7553,8 @@
     "saturatedFat": 0.5,
     "sugar": 21.5,
     "fiber": 2.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 438
    },
    "tags": [
     "vegetarian"
@@ -7233,7 +7577,8 @@
     "saturatedFat": 0.2,
     "sugar": 19.5,
     "fiber": 2.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 397
    },
    "tags": [
     "vegetarian"
@@ -7256,7 +7601,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -7279,7 +7625,8 @@
     "saturatedFat": 0.3,
     "sugar": 23.5,
     "fiber": 2.5,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 474
    },
    "tags": [
     "vegetarian"
@@ -7302,7 +7649,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -7325,7 +7673,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.07
+    "salt": 0.07,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -7348,7 +7697,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -7371,7 +7721,8 @@
     "saturatedFat": 0,
     "sugar": 26.7,
     "fiber": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 454
    },
    "tags": [
     "vegetarian"
@@ -7394,7 +7745,8 @@
     "saturatedFat": 0,
     "sugar": 25.1,
     "fiber": 0,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 443
    },
    "tags": [
     "vegetarian"
@@ -7417,7 +7769,8 @@
     "saturatedFat": 0,
     "sugar": 29.4,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 505
    },
    "tags": [
     "vegetarian"
@@ -7440,7 +7793,8 @@
     "saturatedFat": 0,
     "sugar": 24.4,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 415
    },
    "tags": [
     "vegetarian"
@@ -7463,7 +7817,8 @@
     "saturatedFat": 0,
     "sugar": 4.6,
     "fiber": 3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 108
    },
    "tags": [],
    "limitedTime": false,
@@ -7484,7 +7839,8 @@
     "saturatedFat": 0,
     "sugar": 4.3,
     "fiber": 3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 108
    },
    "tags": [],
    "limitedTime": false,
@@ -7505,7 +7861,8 @@
     "saturatedFat": 0,
     "sugar": 3.6,
     "fiber": 3.6,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 113
    },
    "tags": [],
    "limitedTime": false,
@@ -7526,7 +7883,8 @@
     "saturatedFat": 0,
     "sugar": 4.3,
     "fiber": 3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 114
    },
    "tags": [],
    "limitedTime": false,
@@ -7547,7 +7905,8 @@
     "saturatedFat": 0,
     "sugar": 4.3,
     "fiber": 3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 102
    },
    "tags": [],
    "limitedTime": false,

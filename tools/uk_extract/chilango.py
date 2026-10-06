@@ -24,17 +24,29 @@ Sharers rows are portions of the sharing dishes, e.g. "Cheese Sauce 211.5 kcal" 
 the duplicate "Tortilla Chips (Bag)" row on the Sharers page (identical to the Sides row).
 Held back (holdback.csv): Baked Fries (Sides): 288 kcal printed beside 905 kJ (about 216 kcal) and fat, carbs and protein that add
 up to about 225 kcal; the same page's two topped-fries rows and the BBQ salsa pot put the plain fries at about 216-228 kcal.
+
+Also copied: the printed kJ of every component and side (energy_kj; never converted from kcal), the pot weights printed in the
+side names ("Guacamole Pot (80g)" -> weight_g 80), and the allergens printed on the same rows ("Contains Allergens" / "May
+Contain"; docs/DATA.md "Allergens"): components.csv ids and side items each get a row in allergens.csv, and the pipeline gives a
+box the union of its components. Two rows (Fajita Peppers and Onions, Steak) print, in the Contains column, only a cross-contact
+note: "*Cooked on the same grill as THIS Isn't Chicken which contains allergens: Soya, Sulphites, ..." / "... as grilled prawns
+which contain allergens: Crustacean, Celery, Sulphites". The guide says these items are cooked beside an item that contains those
+allergens, not that they contain them, so the note's allergens are recorded as "may contain" (GRILL_NOTE below). The same
+ingredient rows on the Burrito page are compared with the box pages and any difference is printed in the run summary.
 """
+from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import re
 import sys
 from decimal import Decimal
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import chilango_pdf  # noqa: E402
-from common import ITEM_FIELDS, ROOT, slug, write_chain_folder  # noqa: E402
+import tortilla_pdf  # noqa: E402  (allergen_keys: the same group's guide design)
+from common import ITEM_FIELDS, NUTRIENT_KEYS, ROOT, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "chilango"
 SOURCE_URL = "https://a.storyblok.com/f/293792/x/c1bd09189b/chilango-nutrition-guide_19-nov-2024.pdf"
@@ -89,8 +101,7 @@ COMPONENTS = {
 PROTEIN_BOX_CHICKEN = ("chicken-protein-box", "Chicken (Protein Box portion)", PROTEIN, False)
 BEEF_NAMES = {"Steak"}  # the guide's own name says steak -> contains_beef (playbook rule); no other pork/beef name is in the box rows
 
-COMPONENT_FIELDS = ["id", "group", "name", "portion", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
-                    "sugar_g", "fiber_g", "tags", "removable", "allow_double"]
+COMPONENT_FIELDS = ["id", "group", "name", "portion", *NUTRIENT_KEYS, "tags", "removable", "allow_double"]
 
 # Sides page: printed name -> (item name, category, serving, rankable, note)
 SIDES_PAGE = 10
@@ -109,6 +120,30 @@ SIDES_ROWS = {
     "Baked Fries with Chipotle Crema": ("Baked Fries with Chipotle Crema", SIDES, "", True, ""),
     "Homemade Lemonade": ("Homemade Lemonade", DRINKS, "", False, ""),
 }
+ALLERGEN_GUIDE = {"title": SOURCE_TITLE, "url": SOURCE_URL, "may_contain_published": True}
+# The cross-contact note some rows print in the Contains column (see the docstring): its allergens become "may contain".
+GRILL_NOTE = re.compile(r"^\*Cooked on the same grill as (?:our vegan )?(.+?) which contains? (?:the following )?allergens:\s*(.+)$")
+POT_WEIGHT = re.compile(r"\((\d+)g\)$")  # "Guacamole Pot (80g)": the pot's printed weight
+INGREDIENT_PAGE_FOR_CHECK = 2  # the Burrito page prints the same ingredient rows: compared with the box pages (advisory)
+
+
+def allergens_of(row: dict, where: str) -> dict:
+    """A printed row's Contains / May Contain cells as allergen keys. Stops on an unreadable cell or an unknown word."""
+    if row.get("allergen_problem"):
+        raise SystemExit(f"{where}: {row['allergen_problem']}")
+    contains_text, may_extra = row["contains_text"], set()
+    m = GRILL_NOTE.match(contains_text)
+    if m:
+        may_extra, _, _ = tortilla_pdf.allergen_keys(m.group(2), where)
+        contains_text = ""
+    elif contains_text.startswith("*"):
+        raise SystemExit(f"{where}: a note this script doesn't know is printed under Contains: {contains_text!r}")
+    contains, cereals, nuts = tortilla_pdf.allergen_keys(contains_text, where)
+    may, _, _ = tortilla_pdf.allergen_keys(row["may_text"], where)
+    return {"contains": contains, "may_contain": (may | may_extra) - contains, "cereals": cereals, "nuts": nuts,
+            "_printed": (row["contains_text"], row["may_text"])}
+
+
 HOLDBACK = {
     "baked-fries": ("kcal", "288.0", "kj", "905.0",
                     "Printed 288 kcal disagrees with its own 905 kJ (about 216 kcal) and with its fat, carbs and protein (about 225 kcal); "
@@ -170,6 +205,8 @@ def main() -> int:
             if cid in components:
                 if components[cid]["_printed"] != nums:
                     return die(f"{cname}: printed numbers differ between box pages ({components[cid]['_printed']} vs {nums}); give it its own component")
+                if components[cid]["_allergens"]["_printed"] != allergens_of(r, f"page {n} {r['name']!r}")["_printed"]:
+                    return die(f"{cname}: printed allergens differ between box pages; look at the guide before publishing either")
             else:
                 ctags = []
                 if r["veg"]:
@@ -179,8 +216,9 @@ def main() -> int:
                 components[cid] = {
                     "id": cid, "group": group, "name": cname, "portion": "", "calories": r["kcal"], "protein_g": r["protein"],
                     "carbs_g": r["carbs"], "fat_g": r["fat"], "sat_fat_g": r["sat"], "sodium_mg": "", "salt_g": r["salt"],
-                    "sugar_g": r["sugars"], "fiber_g": r["fibre"], "tags": "|".join(ctags),
+                    "sugar_g": r["sugars"], "fiber_g": r["fibre"], "energy_kj": r["kj"], "tags": "|".join(ctags),
                     "removable": str(removable).lower(), "allow_double": "false", "_printed": nums,
+                    "_allergens": allergens_of(r, f"page {n} {r['name']!r}"), "_printed_name": r["name"],
                 }
             recipe.append(cid)
         items.append({
@@ -201,7 +239,9 @@ def main() -> int:
         item = {
             "name": name, "category": category, "serving": serving, "calories": r["kcal"], "protein_g": r["protein"],
             "carbs_g": r["carbs"], "fat_g": r["fat"], "sat_fat_g": r["sat"], "salt_g": r["salt"], "sugar_g": r["sugars"],
-            "fiber_g": r["fibre"], "tags": "vegetarian" if r["veg"] else "", "limited_time": False, "rankable": rankable, "notes": note,
+            "fiber_g": r["fibre"], "energy_kj": r["kj"], "weight_g": (POT_WEIGHT.search(r["name"]) or [None, ""])[1],
+            "tags": "vegetarian" if r["veg"] else "", "limited_time": False, "rankable": rankable, "notes": note,
+            "allergens": allergens_of(r, f"page {SIDES_PAGE} {r['name']!r}"),
         }
         standard.append(item)
     for item_id, (k1, v1, k2, v2, reason) in HOLDBACK.items():
@@ -253,6 +293,22 @@ def main() -> int:
         w = csv.DictWriter(f, fieldnames=COMPONENT_FIELDS, extrasaction="ignore")
         w.writeheader()
         w.writerows(components.values())
+
+    # allergens.csv: every side item (under the id the shared writer gave it) and every component (boxes get their union).
+    side_allergens = {it["name"]: it["allergens"] for it in standard}
+    allergen_rows = [(r["id"], side_allergens[r["name"]]) for r in std_rows] + [(c["id"], c["_allergens"]) for c in components.values()]
+    write_allergens(out, CHAIN_ID, allergen_rows, {**ALLERGEN_GUIDE, "checked_on": args.checked_on})
+    # Advisory second reading: the Burrito page prints the same ingredients; report where it differs from the box pages.
+    burrito = {r["name"]: r for r in pages[INGREDIENT_PAGE_FOR_CHECK]["rows"]}
+    for c in components.values():
+        other = burrito.get(c["_printed_name"])
+        if other is None:
+            print(f"  allergen check: {c['_printed_name']} is not on the Burrito page")
+            continue
+        a, b = c["_allergens"], allergens_of(other, f"page {INGREDIENT_PAGE_FOR_CHECK} {other['name']!r}")
+        if (a["contains"], a["may_contain"]) != (b["contains"], b["may_contain"]):
+            print(f"  allergen check: {c['_printed_name']}: box page contains {sorted(a['contains'])} may {sorted(a['may_contain'])}; "
+                  f"Burrito page contains {sorted(b['contains'])} may {sorted(b['may_contain'])} (the box page's row is used)")
     print(f"wrote {len(items)} box items ({len(components)} components) + {len(standard)} side items ({len(holdback)} held back) "
           f"to {out} (PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()})")
     return 0

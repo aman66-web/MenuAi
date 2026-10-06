@@ -7,7 +7,8 @@
     python3 tools/uk_extract/fat_hippo.py pages --checked-on 2026-10-06
 
 Numbers are copied from each panel as printed: "per 1 serving", whole grams (kcal, fat, saturates, carbohydrate, sugars,
-fibre, protein, salt). Trans fat and added sugar are not used. Only NAMES, categories and flags below are typed by hand,
+fibre, protein, salt). Trans fat and added sugar are not used: on 2026-10-06 every panel (134) printed "0g" for both, even
+milkshakes for added sugar and beef burgers for trans fat, so those two lines look unfilled rather than measured. Only NAMES, categories and flags below are typed by hand,
 in the pages' reading order. If Fat Hippo adds, removes, renames or reorders a dish (or a panel changes its layout, its
 unit or gets a second diet tab) the rows no longer match ROWS and this script stops, so a human re-checks the names.
 
@@ -16,6 +17,16 @@ evaluated on every run, so a corrected page brings the row back automatically.
 
 Pages: https://fathippo.co.uk/menus/food/ (the source_url), /menus/kids/, /menus/drinks/, /menus/special-menu/.
 The pages show no issue date: chain.csv says "accessed <date>, no date shown".
+
+Allergens (docs/DATA.md "Allergens"): Fat Hippo's allergen page https://fathippo.co.uk/allergens/ says the allergen details
+are the ones in each dish's modal on these same menu pages. Each modal lists the dish's parts, each with its own allergens
+(or "No Known Allergens") and a "May Contain" list; under the card the page repeats the dish's whole list ("May Contain X" for
+traces). read_allergens() reads both and stops if they disagree. Garlic and Onion are printed too but are not among the 14,
+so they are skipped. A dish with a part that prints no allergen statement at all (not even "No Known Allergens") is not
+complete, so it gets no allergens; then (all or nothing) only the guide link is written. When the generic "Cereal - Gluten"
+appears next to "Barley", the cereals are not named (the generic one may be wheat), so the list doesn't read "barley" only.
+The allergen page also says "all dishes may contain traces of nuts, as peanuts are present on the premises", which the
+per-dish lists don't repeat: per-dish allergens are only written once NUT_NOTICE_DECIDED says how to show that.
 """
 from __future__ import annotations
 import argparse
@@ -25,7 +36,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "fat-hippo"
 SOURCE_URL = "https://fathippo.co.uk/menus/food/"
@@ -42,6 +53,14 @@ VEG_SECTIONS = {"VEGGIE / Vegan", "Veggie / Vegan Starters"}
 # Drinks sections that are alcoholic: their calories legitimately exceed 4P+4C+9F (alcohol is 7 kcal/g).
 ALCOHOL_SECTIONS = {"Cocktails", "Hard Shakes", "Naughty Shots", "Sparkling"}
 UPGRADE_NOTE = "Burger-meal upgrade option (the page's Upgrades section)."
+
+ALLERGEN_URL = "https://fathippo.co.uk/allergens/"
+# Fat Hippo's own spellings (the dish lists and the allergen filter): lower-case word -> (key, specific).
+ALLERGEN_EXTRA = {"cereal - gluten": ("gluten", None), "crustaeceans": ("crustaceans", None)}
+NOT_14 = {"garlic", "onion"}            # printed as allergens by the page, but not among the 14 UK allergens
+NONE_WORD = "No Known Allergens"
+# Founder's decision needed (see docstring) before per-dish allergens are published; until then: guide link only.
+NUT_NOTICE_DECIDED = False
 
 
 def it(section, title, name, category, rankable=True, limited=False, note=""):
@@ -303,9 +322,57 @@ def read_page(path: Path, page: str) -> list[dict]:
         modal_desc = re.search(r'modal__dialogue__price">.*?</p>\s*(.*?)</div>\s*</div>\s*</div>\s*<div class="modal__dialogue__content">', blk, re.S)
         comps = [text_of(x) for x in re.findall(r'<div style="margin-bottom:1em;"><div>(.*?)<span data-nutrition>', blk, re.S)]
         marks = re.findall(r'data-content="([^"]*)"', blk)
-        rows.append({"section": section, "title": title, "table": table, "marks": marks, "comps": comps,
+        allergens = read_allergens(blk, where) if table is not None else None
+        rows.append({"section": section, "title": title, "table": table, "marks": marks, "comps": comps, "allergens": allergens,
                      "text": " ".join([text_of(desc.group(1)) if desc else "", text_of(modal_desc.group(1)) if modal_desc else ""])})
     return rows
+
+
+def read_allergens(blk: str, where: str) -> dict:
+    """The dish's allergens as printed: {'words': (contains, may) as printed, 'gaps': [parts with no statement],
+    'allergens': dict for write_chain_folder or None}. Stops if the card's list is not the union of its parts' lists."""
+    start = blk.find('modal__dialogue__cell ingredients">')
+    ends = [k for k in (blk.find("modal__dialogue__cell nutrition", start), blk.find("modal__dialogue__footer", start)) if k > 0]
+    if start < 0 or not ends:
+        raise SystemExit(f"{where}: no ingredients/allergen cell in the dish modal. The layout changed: re-check the page.")
+    contains, may, gaps, parts = set(), set(), [], blk[start:min(ends)].split('<div style="margin-bottom:1em;">')[1:]
+    for part in parts:
+        name = text_of(re.match(r"<div>(.*?)</div>", part, re.S).group(1)) if part.startswith("<div>") else "?"
+        con = [text_of(x) for x in re.findall(r'<span class="modal__dialogue__allergen" data-allergen-highlight="\d+">([^<]*)</span>', part)]
+        mc = [text_of(x) for x in re.findall(r'<span class="modal__dialogue__allergen modal__dialogue__allergen--may" '
+                                              r'data-allergen-highlight="\d+">([^<]*)</span>', part)]
+        if part.count("modal__dialogue__allergen\"") + part.count("modal__dialogue__allergen--may") != len(con) + len(mc):
+            raise SystemExit(f"{where}: part {name!r} has allergen markup this script doesn't read. Re-check the page.")
+        if NONE_WORD in con and con != [NONE_WORD]:
+            raise SystemExit(f"{where}: part {name!r} prints {NONE_WORD!r} next to allergens {con}.")
+        if not con and not mc:
+            gaps.append(name or "(unnamed part)")
+        contains |= set(con) - {NONE_WORD}
+        may |= set(mc)
+    if not parts:
+        gaps.append("(no parts listed)")
+    lst = re.search(r'<div class="menu-item__allergens__list">(.*?)</div>', blk, re.S)
+    if lst is None:
+        raise SystemExit(f"{where}: no allergen list under the card. The layout changed: re-check the page.")
+    card = re.findall(r'<span class="menu-item__allergens__item( menu-item__allergens__item--may-contain)?" data-allergen-id="\d+">([^<]*)</span>',
+                      lst.group(1))
+    card_con = {text_of(w) for m, w in card if not m}
+    card_may = {text_of(w) for m, w in card if m}
+    if not all(w.startswith("May Contain ") for w in card_may):
+        raise SystemExit(f"{where}: may-contain entries under the card don't start with 'May Contain ': {sorted(card_may)}")
+    card_may = {w[len("May Contain "):] for w in card_may}
+    if card_con != contains or card_may != may - contains:
+        raise SystemExit(f"{where}: the card's allergen list ({sorted(card_con)}, may {sorted(card_may)}) is not the union of its parts' "
+                         f"lists ({sorted(contains)}, may {sorted(may - contains)}). Re-check the page.")
+
+    def keys(words: set[str]) -> tuple[set, set, set]:
+        return allergen_words([w for w in words if w.lower() not in NOT_14], where, extra=ALLERGEN_EXTRA)
+    k_con, cereals, nuts = keys(contains)
+    k_may, _, _ = keys(may - contains)
+    if "cereal - gluten" in {w.lower() for w in contains}:
+        cereals = set()      # generic gluten next to a named cereal: the other cereal is not named, so name none
+    a = {"contains": k_con, "may_contain": k_may - k_con, "cereals": cereals, "nuts": nuts}
+    return {"words": (sorted(contains), sorted(may - contains)), "gaps": gaps, "allergens": None if gaps else a}
 
 
 # ---------------------------------------------------------------- the "impossible numbers" rule
@@ -369,7 +436,8 @@ def main() -> int:
                 continue
             if spec["kind"] == "dup":
                 original = first[(page,) + spec["of"]]
-                if original["_panel"] != card["table"] or original["_text"] != card["text"]:
+                if (original["_panel"] != card["table"] or original["_text"] != card["text"]
+                        or original["_allergens"]["words"] != card["allergens"]["words"]):
                     print(f"{page} page: '{spec['title']}' appears twice with DIFFERENT numbers or text: keep both and name them.", file=sys.stderr)
                     return 1
                 original["_veg"] = original["_veg"] or spec["section"] in VEG_SECTIONS
@@ -386,6 +454,7 @@ def main() -> int:
                    "fiber_g": n["fiber_g"], "limited_time": spec["limited"], "rankable": spec["rankable"],
                    "_panel": n, "_text": card["text"], "_veg": marked_veg, "_pork": bool(PORK.search(text)),
                    "_beef": bool(BEEF.search(text)), "_title": spec["title"], "_note": spec["note"],
+                   "_allergens": card["allergens"],
                    "_alcohol": spec["section"] in ALCOHOL_SECTIONS and page == "drinks"}
             first[key] = row
             items.append(row)
@@ -413,6 +482,11 @@ def main() -> int:
             notes.append(f"Printed {row['calories']} kcal vs {est:.0f} kcal from its own macros ({abs(est - cal) / cal:.0%} off); entered as printed.")
         row["notes"] = " ".join(notes)
 
+    gaps = [(r["name"], r["_allergens"]["gaps"]) for r in items if r["_allergens"]["gaps"]]
+    complete = not gaps and NUT_NOTICE_DECIDED
+    for r in items:
+        r["allergens"] = r["_allergens"]["allergens"] if complete else None
+
     ids = [r["id"] for r in items]
     assert len(ids) == len(set(ids)), "duplicate ids"
     out_items = [{k: v for k, v in r.items() if not k.startswith("_")} for r in items]
@@ -424,8 +498,19 @@ def main() -> int:
         chain_id=CHAIN_ID, name="Fat Hippo", cuisine="Burgers",
         source_title=f"Fat Hippo website nutrition panels: Food, Kids, Drinks and Special menu pages (accessed {args.checked_on}, no date shown)",
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["fat hippo", "the fat hippo", "fathippo"],
-        items=out_items, out=args.out, note=note, holdback=holdback)
+        items=out_items, out=args.out, note=note, holdback=holdback,
+        allergen_guide={"title": f"Fat Hippo allergen information: Allergens page and each dish's allergen details on its online menus "
+                                 f"(accessed {args.checked_on}, no date shown)",
+                        "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(out_items)} items ({len(holdback)} held back, {len(excluded)} dishes without a panel left out) to {out}")
+    if complete:
+        print("allergens: every published dish has its allergens: allergens.csv written")
+    else:
+        print("allergens: guide link only (allergen_guide.csv); allergens.csv not written because"
+              + ("" if NUT_NOTICE_DECIDED else " NUT_NOTICE_DECIDED is False (see docstring)") + ("" if not gaps else
+              f"; {len(gaps)} dishes have a part with no allergen statement:"))
+        for name, g in gaps:
+            print(f"  {name}: {', '.join(g)}")
     for fname, sha in shas.items():
         print(f"  {fname} sha256 {sha}")
     return 0

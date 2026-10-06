@@ -3,9 +3,14 @@
 
     python3 tools/uk_extract/kfc.py path/to/nutrition-allergens.pdf --checked-on 2026-10-05
 
-Numbers are copied from the PDF as printed (kcal, fat, saturates, carbs, sugars, protein, salt; kJ is not used).
+Numbers are copied from the PDF as printed (kJ into energy_kj, kcal, fat, saturates, carbs, sugars, protein, salt).
 Only the NAMES and the grouping below are typed by hand, in the PDF's reading order. If KFC reorders or adds
 rows the row count no longer matches and this script stops, so a human re-checks the names.
+
+Allergens come from the same PDF: each row's "Contains Allergens" and "May Contain Allergens" cells, copied word for word
+(kfc_pdf.read_allergen_cells). The guide names gluten cereals as "wheat gluten", "oat gluten" ..., so every cereal word must be
+followed by "gluten" (and every "gluten" must follow a cereal) or the script stops. Any word that is not one of the 14 allergens
+also stops it (common.allergen_words). The cells are matched to the nutrition rows by position and checked by their kcal.
 
 Source: https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf (a new PDF is published about monthly).
 """
@@ -18,6 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import kfc_pdf  # noqa: E402
+from common import ITEM_FIELDS, allergen_words, write_allergens  # noqa: E402
 
 CHAIN_ID = "kfc"
 SOURCE_URL = "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf"
@@ -172,6 +178,28 @@ ROWS: list[tuple | None] = [
 ]
 
 CATEGORY_ORDER = [B, W, R, C, S, A, D, DR, SA]
+# Printed as "<cereal> gluten" in the allergen cells.
+CEREALS = ("wheat", "barley", "oat", "rye", "spelt")
+ALLERGEN_TITLE = "KFC UK & Ireland Allergen & Nutrition Information (September 2026)"
+
+
+def cell_allergens(words: list[str], where: str) -> tuple[set[str], set[str], set[str]]:
+    """One printed allergen cell -> (keys, cereals, nuts). "wheat gluten" is one entry (wheat); a cereal without "gluten"
+    after it, or a "gluten" without a cereal before it, stops the run."""
+    entries, i = [], 0
+    while i < len(words):
+        w = words[i].lower()
+        if w in CEREALS:
+            if i + 1 >= len(words) or words[i + 1].lower() != "gluten":
+                raise SystemExit(f"{where}: {w!r} is not followed by 'gluten' in {' '.join(words)!r}: re-check the PDF")
+            entries.append(w)
+            i += 2
+            continue
+        if w == "gluten":
+            raise SystemExit(f"{where}: 'gluten' printed without its cereal in {' '.join(words)!r}: re-check the PDF")
+        entries.append(w)
+        i += 1
+    return allergen_words(entries, where)
 
 
 def slug(name: str) -> str:
@@ -191,16 +219,25 @@ def main() -> int:
         print(f"The PDF has {len(rows)} nutrition rows but this script names {len(ROWS)}. The layout or menu changed: "
               "re-check the names in ROWS against the PDF before running again.", file=sys.stderr)
         return 1
+    cells = kfc_pdf.read_allergen_cells(args.pdf)
+    if len(cells) != len(rows) or any(c["kcal"] != r["kcal"] for c, r in zip(cells, rows)):
+        print("The allergen cells do not line up with the nutrition rows (count or kcal differs): re-check the PDF layout.",
+              file=sys.stderr)
+        return 1
 
-    items = []
-    for printed, spec in zip(rows, ROWS):
+    items, allergens = [], {}
+    for printed, cell, spec in zip(rows, cells, ROWS):
         if spec is None:
             continue
         name, category, serving, rankable, limited, note = spec
+        contains, cereals, nuts = cell_allergens(cell["contains"], f"{name} (contains)")
+        may, _, _ = cell_allergens(cell["may_contain"], f"{name} (may contain)")
+        allergens[slug(name)] = {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
         items.append({
             "id": slug(name), "name": name, "category": category, "serving": serving,
             "calories": printed["kcal"], "protein_g": printed["protein"], "carbs_g": printed["carbs"], "fat_g": printed["fat"],
             "sat_fat_g": printed["sat"], "sodium_mg": "", "salt_g": printed["salt"], "sugar_g": printed["sugars"], "fiber_g": "",
+            "energy_kj": printed["kj"],
             "tags": "vegetarian" if printed["veg"] == "✔" else "",
             "limited_time": str(limited).lower(), "rankable": str(rankable).lower(), "components": "", "added_on": "", "notes": note,
         })
@@ -209,10 +246,8 @@ def main() -> int:
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))
 
     args.out.mkdir(parents=True, exist_ok=True)
-    fields = ["id", "name", "category", "serving", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
-              "sugar_g", "fiber_g", "tags", "limited_time", "rankable", "components", "added_on", "notes"]
     with open(args.out / "items.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
+        w = csv.DictWriter(f, fieldnames=ITEM_FIELDS, restval="")
         w.writeheader()
         w.writerows(items)
     (args.out / "chain.csv").write_text(
@@ -224,6 +259,8 @@ def main() -> int:
     (args.out / "modifiers.csv").write_text(
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
+    write_allergens(args.out, CHAIN_ID, [(i["id"], allergens[i["id"]]) for i in items],
+                    {"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} items to {args.out} (PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()[:16]})")
     return 0
 

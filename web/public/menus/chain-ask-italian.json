@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "From ASK Italian's Spring/Summer 2026 guide (V3, 10 Sep 2026), which does not list every dish on the current menu; dishes whose calories differ on askitalian.co.uk are left out. ASK says the figures are approximate and exclude substitutions and extras.",
+ "allergenGuide": {
+  "title": "ASK Italian Allergen Guide (full estate), Autumn 2026",
+  "url": "https://cdn.sanity.io/files/ysupxjc9/production/ecd7a56f0b39eedfeb25391e6dc42bb62ba0d3d3.pdf/autumn26_allergenguide_nocrop.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Bread and nibbles",
   "Starters",

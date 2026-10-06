@@ -8,8 +8,9 @@ PAGES_DIR holds each menu page saved once as <page>.html (names in pure_pages.PA
 them politely: one request per page, one every 10 seconds (the site's robots.txt asks for `Crawl-delay: 10`), a normal browser
 User-Agent, and it stops at the first answer that is not 200 (never work round a block).
 
-Numbers are copied from the "Per portion" column exactly as printed (kcal, fat, saturates, carbohydrate, sugars, fibre,
-protein, salt; kJ is not used). The "Per 100g" column is never used (it has glitches on this site, see notes in items.csv).
+Numbers are copied from the "Per portion" column exactly as printed (kcal, kJ, fat, saturates, carbohydrate, sugars, fibre,
+protein, salt; kJ written without its thousands comma, "1,096" -> 1096, and left blank where the page prints it as "1.707",
+which as printed reads 1.707 kJ). No portion weights, mono/poly/trans fat or caffeine are printed. The "Per 100g" column is never used (it has glitches on this site, see notes in items.csv).
 Only NAMES, categories and grouping are written by hand below. If Pure adds, removes or renames items the page counts or the
 name lists no longer match and this script stops, so a human re-checks.
 
@@ -19,6 +20,15 @@ What is left out, and why (all reported on every run):
   * Items with no nutrition table, or a table where protein, carbohydrate or fat (or kcal) is printed as "-": the app needs
     all four, and a dash is never read as zero.
 Held back (holdback.csv): rows whose own printed numbers contradict each other; they stay in items.csv as printed.
+
+Allergens (docs/DATA.md "Allergens"): each item's page prints a bold "Contains ..." line (naming the cereals and nuts) and its
+ingredients with the allergens in bold ("For allergens, including cereals containing gluten, see ingredients in bold."). An
+item gets allergens only when the two printed forms name exactly the same allergens, cereals and nuts (allergens_for); the
+"No X" tags under "Allergen Info" are not used (many items carry an incomplete set). No "may contain" is printed. All or
+nothing: allergens.csv is written only when every item has them, otherwise only allergen_guide.csv (the app then links the
+menu pages). As of 2026-10-06 Pure is link-only: for about a fifth of the items the two printed forms disagree or the
+"Contains" line is missing, and the "Undressed" rows of the salads have no allergen statement of their own (the page prints
+one list for the salad as sold, with its dressing on the side). Every blocked item is printed with its reason on each run.
 """
 from __future__ import annotations
 import argparse
@@ -32,7 +42,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import pure_pages  # noqa: E402
-from common import ROOT, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "pure"
 SOURCE_URL = "https://www.pure.co.uk/menus/"
@@ -150,6 +160,69 @@ NOTE = ("Values are per portion as printed on Pure's own menu pages (an average,
         "no portion weights are printed. Airport and selected-store items are left out.")
 SEASON_NOTE = "Listed under 'New this Season' on the menus page"
 
+# ---------------------------------------------------------------- allergens
+ALLERGEN_TITLE = ('Pure menu pages: allergens per item (the bold "Contains" line and the ingredients in bold; '
+                  "pure.co.uk/menus, no date shown)")
+ALLERGEN_EXTRA = {  # Pure's own printed words that common._A does not list
+    "hzelnut": ("nuts", "hazelnut"),                 # "Contains Oats, Almonds, Hzelnut, Cashew, Soya" (a misspelling as printed)
+    "sodium metabisulphite": ("sulphites", None),    # printed in bold in ingredient lists
+}
+NONE_OF_14 = "Does not contain any of the 14 common allergens"
+MILK_IF_DAIRY = "Milk (when made with organic dairy milk)"   # the porridges' own condition on milk
+MILK_TABLES = {"Organic Dairy Milk": True, "Oat Milk": False}  # table label -> made with dairy milk
+# The porridges print their ingredients once per milk, each part headed "<label>:".
+MILK_PART = re.compile(r"(Organic Dairy (?:<strong>)?Milk(?:</strong>)?|Oat Milk)\s*:")
+# Founder's decision (not taken): the salads print one allergen list for the salad as sold (dressing on the side). True would
+# give the "Undressed" rows that same list (it can only over-state: e.g. Pure Bibimbap's soya and sesame are in its dressing).
+UNDRESSED_GETS_SALAD_ALLERGENS = False
+
+
+def _bold_part(ingredients_html: str, label: str) -> str | None:
+    """The ingredients (HTML) that describe this table: a porridge's part for its milk, otherwise the whole list.
+    None when the list is split by milk but the item has no milk tables (it would not say which part applies)."""
+    marks = list(MILK_PART.finditer(ingredients_html))
+    if label not in MILK_TABLES:
+        return None if marks else ingredients_html
+    names = [re.sub(r"<[^>]+>", "", m.group(1)) for m in marks]
+    if sorted(names) != sorted(MILK_TABLES):
+        return None
+    i = names.index(label)
+    return ingredients_html[marks[i].end():marks[i + 1].start() if i + 1 < len(marks) else len(ingredients_html)]
+
+
+def allergens_for(it: dict, label: str, where: str) -> tuple[dict | None, str]:
+    """(allergens, "") for one table of an item, read from its "Contains" line and cross-checked with the ingredients in
+    bold, or (None, why) when they don't describe this table exactly."""
+    lines = it["contains_lines"]
+    if len(lines) != 1:
+        return None, "no 'Contains' line printed" if not lines else "several 'Contains' lines printed"
+    line = lines[0].rstrip(". ")
+    if_dairy = MILK_IF_DAIRY in line
+    if (label in MILK_TABLES) != if_dairy:
+        return None, f"table {label!r} but the 'Contains' line is {lines[0]!r}"
+    if label == "Undressed" and not UNDRESSED_GETS_SALAD_ALLERGENS:
+        return None, "'Undressed' row: the page prints allergens for the salad as sold (dressing on the side) only"
+    if line == NONE_OF_14:
+        words = []
+    elif line.startswith("Contains "):
+        words = [w for w in line[len("Contains "):].replace(MILK_IF_DAIRY, "").split(",") if w.strip(" .")]
+    else:
+        raise SystemExit(f"{where}: allergen line not understood: {lines[0]!r}")
+    keys, cereals, nuts = allergen_words(words, where, ALLERGEN_EXTRA)
+    if if_dairy and MILK_TABLES[label]:
+        keys.add("milk")
+    part = _bold_part(it["ingredients_html"], label)
+    if part is None:
+        return None, "the ingredients are printed per milk but the item has one table"
+    bold = [pure_pages.text(b) for b in re.findall(r"<strong>(.*?)</strong>", part, re.S)]
+    bkeys, bcereals, bnuts = allergen_words(bold, where, ALLERGEN_EXTRA)
+    if (keys, cereals, nuts) != (bkeys, bcereals, bnuts):
+        def show(k, c, n):
+            return "|".join(sorted(k)) + (f" cereals {'|'.join(sorted(c))}" if c else "") + (f" nuts {'|'.join(sorted(n))}" if n else "")
+        return None, f"'Contains' line says {show(keys, cereals, nuts) or 'none'}; ingredients in bold say {show(bkeys, bcereals, bnuts) or 'none'}"
+    return {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}, ""
+
+
 KEYS = {"calories": "kcal", "protein_g": "protein", "carbs_g": "carbs", "fat_g": "fat", "sat_fat_g": "sat",
         "salt_g": "salt", "sugar_g": "sugars", "fiber_g": "fibre"}
 REQUIRED = ("calories", "protein_g", "carbs_g", "fat_g")
@@ -184,6 +257,20 @@ def printed_number(raw: str, key: str, ctx: tuple) -> str:
     if fix and fix[0] == raw:
         return fix[1]
     raise ValueError(f"{ctx}: {key} is printed as {raw!r}: check the page, then add it to PRINTED_FIXES or NO_MACROS")
+
+
+def printed_kj(raw: str) -> tuple[str, str]:
+    """(energy_kj CSV value, note) for the printed kJ cell: digits as printed (a thousands comma dropped); blank for '-' and
+    for 'd.ddd' (the site's way of writing e.g. 1,707 that, as printed, reads 1.707 kJ: never re-read as another number)."""
+    if re.fullmatch(r"\d+(?:\.\d)?", raw):
+        return raw, ""
+    if re.fullmatch(r"\d{1,3}(?:,\d{3})+", raw):
+        return raw.replace(",", ""), ""
+    if raw == "-":
+        return "", ""
+    if re.fullmatch(r"\d\.\d{3}", raw):
+        return "", f"kJ printed as {raw!r}: left blank"
+    raise ValueError(f"kJ printed as {raw!r}: check the page and extend printed_kj()")
 
 
 def make_id(name: str) -> str:
@@ -290,6 +377,9 @@ def build_items(folder: Path):
                     fix = PRINTED_FIXES.get((*ctx, k))
                     if fix and fix[0] == rows[k][0]:
                         notes.append(f"{k} printed as {fix[0]!r}: {fix[2]}")
+                vals["energy_kj"], kj_note = printed_kj(rows["kj"][0])
+                if kj_note:
+                    notes.append(kj_note)
                 kcal_v = as_float(vals["calories"])
                 est = 4 * as_float(vals["protein_g"]) + 4 * as_float(vals["carbs_g"]) + 9 * as_float(vals["fat_g"])
                 if kcal_v >= 50 and abs(est - kcal_v) / kcal_v > 0.10:
@@ -310,10 +400,11 @@ def build_items(folder: Path):
                     sys.exit(f"{printed_name!r} is marked vegetarian but its ingredients name meat: check by hand")
                 if not ing:
                     sys.exit(f"{printed_name!r} has no ingredients text, so its meat tags can't be checked")
+                allergens, why = allergens_for(it, label, f"{page} {printed_name!r} {label}".strip())
                 items.append({
                     "id": make_id(name), "name": name, "category": category, "serving": serving, **vals, "tags": "|".join(tags),
                     "limited_time": it["slug"] in season_slugs, "rankable": category in RANKABLE,
-                    "notes": "; ".join(notes), "_kj": rows["kj"][0], "_page": page,
+                    "notes": "; ".join(notes), "_kj": rows["kj"][0], "_page": page, "allergens": allergens, "_allergen_why": why,
                 })
     for key, want in SECTION_SKIP_COUNT.items():
         if seen_skips.get(key, 0) != want:
@@ -367,6 +458,7 @@ def main() -> int:
         aliases=["pure", "pure cafe", "pure café", "pure uk"],
         items=items, out=args.out, note=NOTE,
         holdback=[(i, r) for i, r in HOLDBACK.items()],
+        allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": False},
     )
     digests = {p: hashlib.sha256((args.pages / f"{p}.html").read_bytes()).hexdigest()
                for p in [*pure_pages.PAGES, pure_pages.SEASON_PAGE]}
@@ -376,6 +468,11 @@ def main() -> int:
         print(f"left out ({reason}): {len(names)}: {', '.join(names)}")
     print(f"not in items.csv (no usable macros): {len(unpublished)}: " + "; ".join(f"{n} ({r})" for n, r in unpublished))
     print(f"limited_time (New this Season, in-store): {len(season)}")
+    blocked = [(i["id"], i["_allergen_why"]) for i in items if i["allergens"] is None]
+    print(f"allergens: {len(items) - len(blocked)} items read, {len(blocked)} blocked"
+          + (" -> allergens.csv NOT written (all or nothing); allergen_guide.csv links the menu pages" if blocked else ""))
+    for item_id, why in blocked:
+        print(f"  {item_id}: {why}")
     for p, d in digests.items():
         print(f"sha256 {p}.html {d}")
     print(f"combined sha256 (page hashes joined in order) {combined}")

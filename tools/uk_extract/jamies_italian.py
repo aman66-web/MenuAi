@@ -4,8 +4,8 @@
     python3 tools/uk_extract/jamies_italian.py path/to/jamies-italian-nutrition-menu-1506.pdf \
         --allergen-pdf path/to/allergen-menu-080926.pdf --checked-on 2026-10-06 [--out DIR]
 
-Numbers are copied by script from the PDF's "Label values per serving" block exactly as printed (kcal, fat, saturates,
-carbohydrate, sugars, fibre, protein, salt; kJ and the "per 100g" block are not used; salt stays salt). Names and sections are
+Numbers are copied by script from the PDF's "Label values per serving" block exactly as printed (kJ, kcal, fat, saturates,
+carbohydrate, sugars, fibre, protein, salt; the "per 100g" block is not used; salt stays salt; no serving weight is printed). Names and sections are
 read from the PDF too; only the grouping into categories, the rankable flag, notes and the pork/beef tags are written by hand
 below. If Jamie's Italian adds, removes, renames or reorders a row, or the column headings change, this script stops and shows
 the difference, so a person re-checks the names, categories and tags before running again.
@@ -24,6 +24,11 @@ Sources (the nutrition PDF is "June V1", created 2026-06-17; the allergen menu i
   file   https://www.jamiesitalian.co.uk/media/qmqjxvyt/jamies-italian-nutrition-menu-1506.pdf   (nutrition, used for every number)
   file   https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf               (vegetarian marks only)
 Requires `pdftotext` (poppler). Nothing is converted, rounded or estimated here.
+
+Allergens: LINK ONLY (allergen_guide.csv, no allergens.csv). The Allergen Menu (Sept V1) is a later menu than the nutrition PDF
+(June V1): four published dishes are not on it at all (San Danielle Salad Large, Pork Milanese, Amalfi Coast Trout, Steak
+Tagliata) and two are printed under other names (Antipasto Plank for 2 / Antipasto Plank, Giardiniera / Giardiniera Pickles),
+and allergens are matched by exact name only, so the app links to the allergen menu instead (all or nothing).
 """
 from __future__ import annotations
 import argparse
@@ -41,6 +46,8 @@ CHAIN_ID = "jamies-italian"
 SOURCE_URL = "https://www.jamiesitalian.co.uk/media/qmqjxvyt/jamies-italian-nutrition-menu-1506.pdf"
 SOURCE_TITLE = ("Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks from the "
                 "Allergen Menu (Sept V1, PDF dated 8 September 2026)")
+ALLERGEN_URL = "https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf"
+ALLERGEN_TITLE = "Jamie's Italian Allergen Menu (Sept V1, PDF dated 8 September 2026)"
 NOTE = ("Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Its September 2026 "
         "allergen menu lists a different set of dishes, so some dishes here may have changed or gone.")
 
@@ -50,8 +57,8 @@ NUM = r"<?\d+(?:\.\d+)?"
 ROW = re.compile(rf"^\s*(?P<name>[^\s\d<].*?)\s{{2,}}(?P<nums>{NUM}(?:\s+{NUM})*)\s*$")
 ONLY_NUMBERS = re.compile(rf"^\s*{NUM}(?:\s+{NUM})*\s*$")
 SECTIONS = ["Spuntino and Antipasto", "Pizza", "Pasta", "Secondi", "Contorni", "Dolci", "Kids"]
-# positions of the per-serving numbers inside the 18 printed numbers (per 100g first, then per serving), kJ at 9 is not used
-POS = {"calories": 10, "fat_g": 11, "sat_fat_g": 12, "carbs_g": 13, "sugar_g": 14, "fiber_g": 15, "protein_g": 16, "salt_g": 17}
+# positions of the per-serving numbers inside the 18 printed numbers (per 100g first, then per serving)
+POS = {"energy_kj": 9, "calories": 10, "fat_g": 11, "sat_fat_g": 12, "carbs_g": 13, "sugar_g": 14, "fiber_g": 15, "protein_g": 16, "salt_g": 17}
 
 CATEGORY = {
     "Spuntino and Antipasto": "Starters (spuntino and antipasto)",
@@ -314,7 +321,9 @@ def main() -> int:
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Jamie's Italian", cuisine="Italian", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=["jamies italian", "jamie's italian"], items=items, note=NOTE,
-        out=args.out, holdback=HOLDBACK or None)
+        out=args.out, holdback=HOLDBACK or None,
+        # link only: items carry no allergens (see the module docstring); the allergen menu prints "MC" (may contain)
+        allergen_guide={"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} items ({len(HOLDBACK)} held back) to {out} (nutrition PDF sha256 {sha256_file(args.pdf)}, "
           f"allergen PDF sha256 {sha256_file(args.allergen_pdf)})")
     print(f"not found on the allergen menu (no vegetarian mark): {no_mark}")

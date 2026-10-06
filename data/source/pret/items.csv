@@ -1,330 +1,330 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-soup-white-baguette-with-butter,Soup White Baguette with Butter,"Sandwiches, baguettes & wraps",,241,6.5,36.6,7.3,4.7,,1.01,1.5,1.6,vegetarian,false,true,,,
-classic-cheese-bloomer-toastie,Classic Cheese Bloomer Toastie,"Sandwiches, baguettes & wraps",,638,27.5,51.4,34.8,14.4,,2.23,1.9,4.7,,false,true,,,
-falafel-halloumi-hot-wrap,Falafel & Halloumi Hot Wrap,"Sandwiches, baguettes & wraps",,623,22.3,63.1,29.5,10.9,,3.59,15,8.2,vegetarian,false,true,,,
-ham-cheese-bloomer-toastie,Ham & Cheese Bloomer Toastie,"Sandwiches, baguettes & wraps",,592,32.5,50.8,27.7,10.9,,3.85,1.6,5,contains_pork,false,true,,,
-italian-style-chicken-basil-hot-wrap,Italian Style Chicken & Basil Hot Wrap,"Sandwiches, baguettes & wraps",,555,32.4,48.2,24.5,7,,2.95,11.8,6.1,,false,true,,,
-swedish-meatball-hot-wrap,Swedish Meatball Hot Wrap,"Sandwiches, baguettes & wraps",,630,30.3,44.8,35.5,15.1,,2.59,8.5,4.8,contains_pork,false,true,,,
-tuna-melt-bloomer-toastie,Tuna Melt Bloomer Toastie,"Sandwiches, baguettes & wraps",,552,34.1,50.2,22.8,7.4,,2.58,1.5,5,,false,true,,,
-warm-beef-birria-jalapeno-ciabatta,Warm Beef Birria & Jalapeño Ciabatta,"Sandwiches, baguettes & wraps",,496,27.9,59.1,15.4,6.8,,2.48,5.8,5,contains_beef,false,true,,,
-warm-chicken-caesar-bacon-ciabatta,Warm Chicken Caesar Bacon Ciabatta,"Sandwiches, baguettes & wraps",,791,39.9,54.4,45.2,10.2,,3.71,3,3.5,contains_pork,false,true,,,
-warm-three-cheese-tomato-ciabatta,Warm Three Cheese & Tomato Ciabatta,"Sandwiches, baguettes & wraps",,570,24.5,59.2,25,10.9,,2.83,8,5.1,vegetarian,false,true,,,
-chicken-salad,Chicken Salad,"Sandwiches, baguettes & wraps",,529,21.8,42.7,29.3,7.9,,2.22,3.1,3.8,,false,true,,,
-chicken-avocado-basil,"Chicken, Avocado & Basil","Sandwiches, baguettes & wraps",,488,23.2,43.5,23.3,4.7,,2.07,3.4,6,,false,true,,,
-chicken-avocado-basil-half-sandwich,"Chicken, Avocado & Basil Half Sandwich","Sandwiches, baguettes & wraps",,244,11.6,21.8,11.6,2.3,,1.04,1.7,3,,false,true,,,
-classic-super-club,Classic Super Club,"Sandwiches, baguettes & wraps",,528,26.8,43.5,26.5,4.3,,2.75,3.9,4.1,contains_pork,false,true,,,
-classic-super-club-half-sandwich,Classic Super Club Half Sandwich,"Sandwiches, baguettes & wraps",,264,13.4,21.7,13.3,2.2,,1.38,1.9,2.1,contains_pork,false,true,,,
-coronation-chicken,Coronation Chicken,"Sandwiches, baguettes & wraps",,486,22.3,47.7,21.9,5.6,,2.47,5.3,4.5,,false,true,,,
-egg-florentine,Egg Florentine,"Sandwiches, baguettes & wraps",,459,23.7,45.5,19.2,5.9,,1.84,3.6,4.7,vegetarian,false,true,,,
-free-range-egg-mayo,Free-Range Egg Mayo,"Sandwiches, baguettes & wraps",,379,17.3,43.3,14.3,2.8,,1.52,2.1,3.8,vegetarian,false,true,,,
-ham-cheese,Ham & Cheese,"Sandwiches, baguettes & wraps",,531,30,42.7,25.8,15.8,,3.61,2.5,3.9,contains_pork,false,true,,,
-mature-cheddar-pret-pickle,Mature Cheddar & Pret Pickle,"Sandwiches, baguettes & wraps",,508,18.2,54.7,23,9.4,,2.16,12.9,4.8,vegetarian,false,true,,,
-new-yorker-club-sandwich,New Yorker Club Sandwich,"Sandwiches, baguettes & wraps",,719,34.5,69.5,32,9.6,,3,9.9,7.1,contains_beef,false,true,,,
-scottish-smoked-salmon,Scottish Smoked Salmon,"Sandwiches, baguettes & wraps",,416,22.2,40.8,17.4,5.3,,3.19,2.3,3.4,,false,true,,,
-tuna-cucumber,Tuna & Cucumber,"Sandwiches, baguettes & wraps",,379,18.5,43.3,13.9,1.6,,1.42,3.4,3.5,,false,true,,,
-avo-olive-toms-baguette,"Avo, Olive & Toms Baguette","Sandwiches, baguettes & wraps",,564,13,57.1,29.6,4.9,,1.64,5.9,8.5,vegetarian,false,true,,,
-avo-olive-toms-half-baguette,"Avo, Olive & Toms Half Baguette","Sandwiches, baguettes & wraps",,282,6.5,28.6,14.8,2.4,,0.82,2.9,4.2,vegetarian,false,true,,,
-brie-tomato-basil-baguette,"Brie, Tomato & Basil Baguette","Sandwiches, baguettes & wraps",,439,17.6,56.2,15.2,10.1,,2.14,3.6,3.3,vegetarian,false,true,,,
-chicken-caesar-bacon-half-baguette,Chicken Caesar & Bacon Half Baguette,"Sandwiches, baguettes & wraps",,298,15.1,27.2,13.8,2.5,,1.31,1.6,2.2,contains_pork,false,true,,,
-chicken-caesar-bacon-baguette,Chicken Caesar Bacon Baguette,"Sandwiches, baguettes & wraps",,596,30.3,54.3,27.6,4.9,,2.62,3.2,4.4,contains_pork,false,true,,,
-chicken-salad-baguette,Chicken Salad Baguette,"Sandwiches, baguettes & wraps",,595,24,57,29.5,7.9,,2.98,3.2,2.8,,false,true,,,
-chicken-satay-baguette,Chicken Satay Baguette,"Sandwiches, baguettes & wraps",,537,27.6,64.8,17.6,3.2,,3.34,9.9,4.4,,false,true,,,
-coronation-chicken-baguette,Coronation Chicken Baguette,"Sandwiches, baguettes & wraps",,542,25,59.1,21.7,3.1,,2.74,5.3,5,,false,true,,,
-coronation-chicken-half-baguette,Coronation Chicken Half Baguette,"Sandwiches, baguettes & wraps",,271,12.5,29.6,10.8,1.5,,1.37,2.7,2.5,,false,true,,,
-italian-prosciutto-baguette,Italian Prosciutto Baguette,"Sandwiches, baguettes & wraps",,546,24.1,54.3,24.7,5.9,,3.59,3.8,4.8,contains_pork,false,true,,,
-italian-prosciutto-half-baguette,Italian Prosciutto Half Baguette,"Sandwiches, baguettes & wraps",,274,12.1,27.2,12.4,3,,1.8,1.9,2.4,contains_pork,false,true,,,
-mortadella-mozzarella-pistachio-baguette,"Mortadella, Mozzarella & Pistachio Baguette","Sandwiches, baguettes & wraps",,715,31.8,54.6,39.8,14.7,,2.94,3.9,5.4,contains_pork,false,true,,,
-pole-line-caught-tuna-baguette,Pole & Line Caught Tuna Baguette,"Sandwiches, baguettes & wraps",,515,25.2,58.8,19.3,2.2,,2.46,4.1,2.6,,false,true,,,
-pole-line-caught-tuna-half-baguette,Pole & Line Caught Tuna Half Baguette,"Sandwiches, baguettes & wraps",,257,12.6,29.4,9.6,1.1,,1.23,2,1.3,,false,true,,,
-posh-cheddar-pickle-baguette,Posh Cheddar & Pickle Baguette,"Sandwiches, baguettes & wraps",,643,21.4,71.9,28.5,9.8,,2.82,18.6,6.6,vegetarian,false,true,,,
-posh-cheddar-pickle-half-baguette,Posh Cheddar & Pickle Half Baguette,"Sandwiches, baguettes & wraps",,322,10.7,36,14.3,4.9,,1.41,9.3,3.3,vegetarian,false,true,,,
-prets-chicken-satay-half-baguette,Pret's Chicken Satay Half Baguette,"Sandwiches, baguettes & wraps",,269,13.8,32.4,8.8,1.6,,1.67,4.9,2.2,,false,true,,,
-smoked-salmon-egg-mayo-avo-baguette,"Smoked Salmon, Egg Mayo & Avo Baguette","Sandwiches, baguettes & wraps",,552,24.6,54.6,24.9,4.9,,2.86,2.4,5.7,,false,true,,,
-smoked-salmon-soft-cheese-dill-baguette,"Smoked Salmon, Soft Cheese & Dill Baguette","Sandwiches, baguettes & wraps",,501,27,53.4,19,4.9,,3.61,3.4,4.2,,false,true,,,
-wiltshire-cured-ham-greve-baguette,Wiltshire Cured Ham & Grevé Baguette,"Sandwiches, baguettes & wraps",,596,31.5,57.4,25.9,8.3,,3.85,3.2,3.4,contains_pork,false,true,,,
-avo-herb-wrap,Avo & Herb Wrap,"Sandwiches, baguettes & wraps",,502,12.5,40,31.1,6.2,,1.29,4.3,6,vegetarian,false,true,,,
-chicken-pesto-rocket-wrap,Chicken Pesto & Rocket Wrap,"Sandwiches, baguettes & wraps",,516,22.1,38.4,29.7,3.4,,2,3.4,3.2,,false,true,,,
-chicken-satay-wrap,Chicken Satay Wrap,"Sandwiches, baguettes & wraps",,460,24.4,45,19.2,3.4,,2.39,8.9,4.6,,false,true,,,
-falafel-avo-chipotle-flatbread,"Falafel, Avo & Chipotle Flatbread","Sandwiches, baguettes & wraps",,499,11.9,65.5,19.2,4.1,,0.79,16.2,8.3,vegetarian,false,true,,,
-falafel-avo-chipotle-half-flatbread,"Falafel, Avo & Chipotle Half Flatbread","Sandwiches, baguettes & wraps",,250,5.9,32.8,9.6,2,,0.39,8.1,4.1,vegetarian,false,true,,,
-hoisin-duck-wrap,Hoisin Duck Wrap,"Sandwiches, baguettes & wraps",,442,21,48.2,17.5,2.7,,2.61,12.5,3.8,,false,true,,,
-humous-chipotle-wrap,Humous & Chipotle Wrap,"Sandwiches, baguettes & wraps",,414,12.7,49.2,16,2,,1.61,11.5,11.3,vegetarian,false,true,,,
-mediterranean-style-tuna-flatbread,Mediterranean Style Tuna Flatbread,"Sandwiches, baguettes & wraps",,502,24.3,49.7,22.2,2.5,,1.52,8.7,3.2,,false,true,,,
-mediterranean-style-tuna-half-flatbread,Mediterranean Style Tuna Half Flatbread,"Sandwiches, baguettes & wraps",,251,12.1,24.9,11.1,1.3,,0.76,4.3,1.6,,false,true,,,
-shawarma-spiced-chicken-flatbread,Shawarma Spiced Chicken Flatbread,"Sandwiches, baguettes & wraps",,453,28.5,56.7,10.7,1.6,,2.14,15,7.8,,false,true,,,
-shawarma-spiced-chicken-half-flatbread,Shawarma Spiced Chicken Half Flatbread,"Sandwiches, baguettes & wraps",,226,14.2,28.4,5.3,0.8,,1.07,7.5,3.9,,false,true,,,
-banana-cinnamon-porridge,Banana Cinnamon Porridge,Breakfast,,283,9,39.3,8.8,4.8,,0.19,20.4,5.1,vegetarian,false,true,,,
-coconut-quinoa-porridge,Coconut & Quinoa Porridge,Breakfast,,275,6.1,34.4,12.2,8.8,,0.34,3.2,1.5,vegetarian,false,true,,,
-prets-proper-porridge,Pret's Proper Porridge,Breakfast,,216,8.7,23.7,8.7,4.8,,0.18,6.9,4.2,vegetarian,false,true,,,
-side-porridge,Side Porridge,Breakfast,,144,5.8,15.8,5.8,3.2,,0.12,4.6,2.8,vegetarian,false,true,,,
-ham-cheese-croissant,Ham & Cheese Croissant,Breakfast,,312,13.5,19.9,19.4,9.8,,1.19,3.2,1.9,contains_pork,false,false,,,
-mozzarella-tomato-croissant,Mozzarella & Tomato Croissant,Breakfast,,373,12.9,24.1,24.6,13.9,,1.28,3.7,1.8,vegetarian,false,false,,,
-prets-veggie-breakfast-ciabatta,Pret's Veggie Breakfast Ciabatta,Breakfast,,372,17.1,40.4,14.9,4.5,,2.12,6.4,4.2,vegetarian,false,true,,,
-sausage-bacon-ciabatta,Sausage & Bacon Ciabatta,Breakfast,,467,23.2,37.1,24.5,10,,1.97,3.3,2.8,contains_pork,false,true,,,
-triple-bacon-ciabatta,Triple Bacon Ciabatta,Breakfast,,322,18.1,35.7,11.3,4.7,,1.36,2.5,2.2,contains_pork,false,true,,,
-triple-sausage-ciabatta,Triple Sausage Ciabatta,Breakfast,,469,19.8,37.8,25.9,10.1,,1.94,3.7,3,contains_pork,false,true,,,
-ultimate-breakfast-ciabatta,Ultimate Breakfast Ciabatta,Breakfast,,503,25.7,40.9,25.4,7.8,,2.56,7.1,3.8,contains_pork,false,true,,,
-british-sausages-prets-baked-beans-egg-pot,"British Sausages, Pret's Baked Beans & Egg Pot",Breakfast,,342,22.1,12,19.5,6.6,,1.7,6.4,14.9,contains_pork,false,true,,,
-roasted-mushroom-prets-baked-beans-egg-pot,"Roasted Mushroom, Pret's Baked Beans & Egg Pot",Breakfast,,191,14.1,11.2,6.6,1.5,,1.06,5.7,15.1,vegetarian,false,true,,,kcal is above 4P+4C+9F because UK labels count fibre separately from carbohydrate (about 2 kcal/g); kcal entered as printed
-all-butter-croissant,All Butter Croissant,Breakfast,,291,6.5,27.5,16.8,11.5,,0.68,4.5,1.6,vegetarian,false,false,,,
-almond-croissant,Almond Croissant,Breakfast,,382,7.8,38.9,21.1,10.7,,0.53,14.3,2.6,vegetarian,false,false,,,
-chocolate-croissant,Chocolate Croissant,Breakfast,,350,5.9,33.4,20.6,12.3,,0.41,15.6,3.7,vegetarian,false,false,,,
-cinnamon-danish,Cinnamon Danish,Breakfast,,413,6.7,48.3,20.9,13.2,,1.01,24.1,2.5,vegetarian,false,false,,,
-pain-aux-raisins,Pain aux Raisins,Breakfast,,358,7,49,14.4,9.1,,0.85,21.4,2.5,vegetarian,false,false,,,
-very-berry-croissant,Very Berry Croissant,Breakfast,,299,4.4,41.7,12.2,7.4,,0.56,21.9,2.3,vegetarian,false,false,,,
-bacon-egg-mayo-breakfast-baguette,Bacon & Egg Mayo Breakfast Baguette,Breakfast,,348,16.6,38.7,13.7,3.4,,1.89,1.5,2,contains_pork,false,true,,,
-free-range-egg-avo-breakfast-baguette,Free-Range Egg & Avo Breakfast Baguette,Breakfast,,347,12.3,39,15,3.2,,2.09,1.7,3.2,vegetarian,false,true,,,
-roasted-tomato-egg-mayo-breakfast-baguette,Roasted Tomato & Egg Mayo Breakfast Baguette,Breakfast,,361,14.1,42.3,14.3,2.3,,1.88,5.2,3.2,vegetarian,false,true,,,
-smoked-salmon-egg-mayo-breakfast-baguette,Smoked Salmon & Egg Mayo Breakfast Baguette,Breakfast,,352,17.5,38.7,13.7,2.6,,2.14,1.5,1.9,,false,true,,,
-acai-almond-butter-bowl,Acai & Almond Butter Bowl,Breakfast,,338,8.1,43.7,12.9,1.6,,0.2,25.6,7.4,vegetarian,false,true,,,
-bircher-muesli,Bircher Muesli,Breakfast,,336,14,43.5,11,4.1,,0.27,32.7,3.8,vegetarian,false,true,,,
-blueberry-balance-bowl,Blueberry Balance Bowl,Breakfast,,318,12.9,33.8,13.6,9.3,,0.2,20,4.2,vegetarian,false,true,,,
-five-berry-bowl,Five Berry Bowl,Breakfast,,334,12.9,45.7,9.8,3.6,,0.32,26.1,5.7,vegetarian,false,true,,,
-mango-banana-sunshine-bowl,Mango & Banana Sunshine Bowl,Breakfast,,342,6.4,45.9,13.4,8.1,,0.06,24.2,5.7,vegetarian,false,true,,,
-the-big-apple-bowl,The Big Apple Bowl,Breakfast,,304,11.7,43.2,8.4,3.4,,0.24,29.3,4.2,vegetarian,false,true,,,
-crispy-potato-bites,Crispy Potato Bites,Hot food,,185,3.6,30,4.8,0.3,,1.19,1.5,3.9,vegetarian,false,true,,,
-kale-cauli-macaroni-cheese,Kale & Cauli Macaroni Cheese,Hot food,,535,25.5,45.5,26.7,16.9,,1.72,6.2,5.1,vegetarian,false,true,,,
-butter-chicken-side-soup,Butter Chicken Side Soup,Hot food,,179,8.1,12.4,9.9,6.1,,0.93,6.3,4,,false,true,,,
-butter-chicken-soup,Butter Chicken Soup,Hot food,,359,16.2,24.9,19.8,12.2,,1.86,12.5,7.9,,false,true,,,
-chicken-laksa-side-soup,Chicken Laksa Side Soup,Hot food,,148,4.3,11.3,9.1,7.6,,1.1,3.5,2,,false,true,,,
-chicken-laksa-soup,Chicken Laksa Soup,Hot food,,296,8.7,22.5,18.1,15.2,,2.2,6.9,3.9,,false,true,,,
-creamy-roast-chicken-side-soup,Creamy Roast Chicken Side Soup,Hot food,,114,5.1,8.9,6.2,3.5,,1.06,1.9,1.1,,false,true,,,
-creamy-roast-chicken-soup,Creamy Roast Chicken Soup,Hot food,,229,10.2,17.8,12.5,7,,2.12,3.8,2.1,,false,true,,,
-prets-lasagne-side-soup,Pret's Lasagne Side Soup,Hot food,,153,6.9,12.2,8,2.2,,1.23,4.9,2,contains_pork,false,true,,,
-prets-lasagne-soup,Pret's Lasagne Soup,Hot food,,302,13.7,24.1,15.8,4.3,,2.43,9.7,4,contains_pork,false,true,,,
-prets-mushroom-risotto,Pret's Mushroom Risotto,Hot food,,222,7.1,29.5,7.8,4.6,,2.16,2.7,3,vegetarian,false,true,,,
-prets-mushroom-risotto-side-soup,Pret's Mushroom Risotto Side Soup,Hot food,,111,3.6,14.7,3.9,2.3,,1.08,1.4,1.5,vegetarian,false,true,,,
-souper-tomato,Souper Tomato,Hot food,,141,6,15.1,5.2,0.4,,1.62,14.7,5,vegetarian,false,true,,,
-souper-tomato-side-soup,Souper Tomato Side Soup,Hot food,,71,3,7.5,2.6,0.2,,0.81,7.4,2.5,vegetarian,false,true,,,
-bacon-cheese-jalapeno-pastry,"Bacon, Cheese & Jalapeño Pastry",Hot food,,591,16.1,48.6,36.4,21.9,,2.23,5.8,2.3,contains_pork,false,false,,,
-prets-sausage-roll,Pret's Sausage Roll,Hot food,,384,13.7,22.4,26,13.4,,1.24,2.7,3,contains_pork,false,false,,,
-spinach-feta-pastry,Spinach & Feta Pastry,Hot food,,551,12.6,45,34.5,20.8,,1.92,4.7,5.2,vegetarian,false,false,,,
-chipotle-chicken,Chipotle Chicken,"Salads, plates & protein pots",,709,50.1,48.4,32,8.9,,2.53,13.6,13.9,,false,true,,,
-korean-bbq-tofu,Korean BBQ Tofu,"Salads, plates & protein pots",,449,21.5,51,15.4,10,,3.27,21,10.4,vegetarian,false,true,,,
-miso-salmon,Miso Salmon,"Salads, plates & protein pots",,761,36,43.4,47.1,7.1,,3.16,16.5,12.8,,false,true,,,
-shawarma-chicken,Shawarma Chicken,"Salads, plates & protein pots",,628,50.3,31.1,30.3,4,,2.82,14.3,14.9,,false,true,,,
-butternut-humous-mezze-bowl,Butternut & Humous Mezze Bowl,"Salads, plates & protein pots",,395,13.2,40.4,17,2.2,,1.62,12.1,13.5,vegetarian,false,true,,,
-butternut-humous-side-salad,Butternut & Humous Side Salad,"Salads, plates & protein pots",,149,5.5,12.7,7.2,0.8,,0.76,6.5,6,vegetarian,false,true,,,
-chefs-italian-chicken-salad,Chef's Italian Chicken Salad,"Salads, plates & protein pots",,526,25.3,12,41.2,5.9,,2.3,10.3,3.2,,false,true,,,
-chicken-greens-protein-plate,Chicken & Greens Protein Plate,"Salads, plates & protein pots",,285,34.2,14.6,9,2.1,,2.85,9.2,4.3,,false,true,,,
-classic-green-side-salad,Classic Green Side Salad,"Salads, plates & protein pots",,180,6.8,6.2,13.9,3.3,,0.44,5.1,1.5,vegetarian,false,true,,,
-miso-chicken-rice-bowl,Miso Chicken Rice Bowl,"Salads, plates & protein pots",,385,26.6,34.3,14.5,1.8,,2.98,17.5,7.1,,false,true,,,
-smoked-salmon-egg-protein-plate,Smoked Salmon & Egg Protein Plate,"Salads, plates & protein pots",,413,32,7.7,27.3,5.6,,3.09,1.9,3.9,,false,true,,,
-tuna-nicoise-salad,Tuna Nicoise Salad,"Salads, plates & protein pots",,357,29.6,8.5,22.4,3.4,,1.97,7,1.5,,false,true,,,
-chicken-edamame-protein-pot,Chicken & Edamame Protein Pot,"Salads, plates & protein pots",,195,26.6,7,6.1,1.2,,1.22,0.8,3,,false,true,,,
-egg-spinach-protein-pot,Egg & Spinach Protein Pot,"Salads, plates & protein pots",,103,11.4,2.3,5.3,1.5,,0.57,0.2,0.3,vegetarian,false,true,,,
-smoked-salmon-egg-protein-pot,Smoked Salmon & Egg Protein Pot,"Salads, plates & protein pots",,136,12.9,1.9,8.4,1.7,,1.61,0.7,0.5,,false,true,,,
-salt-cider-vinegar-crisps,Salt & Cider Vinegar Crisps,Snacks & sweet treats,,206,1.9,21.3,12.2,0.9,,0.65,0.4,1.7,vegetarian,false,false,,,
-mature-cheddar-red-onion-crisps,Mature Cheddar & Red Onion Crisps,Snacks & sweet treats,,210,2.6,20.5,12.7,1,,0.53,1,1.8,vegetarian,false,false,,,
-salted-popcorn,Salted Popcorn,Snacks & sweet treats,,136,2.5,14.2,6.9,0.5,,0.44,0.1,3.5,vegetarian,false,false,,,
-sea-salt-crisps,Sea Salt Crisps,Snacks & sweet treats,,213,2.4,22,12.4,1.4,,0.36,0.2,1.7,vegetarian,false,false,,,
-smoky-chipotle-crisps,Smoky Chipotle Crisps,Snacks & sweet treats,,208,2.2,21,12.4,0.9,,0.39,0.9,1.9,vegetarian,false,false,,,
-sweet-salt-popcorn,Sweet & Salt Popcorn,Snacks & sweet treats,,157,1.7,15.2,9.3,0.7,,0.24,5.4,2.4,vegetarian,false,false,,,
-pastel-de-nata,Pastel De Nata,Snacks & sweet treats,,157,2.9,21.2,6.2,4,,0.33,11.8,2.2,vegetarian,false,false,,,
-choc-bar,Choc Bar,Snacks & sweet treats,,380,3.1,37.3,23.5,14.1,,0.32,22.7,3.1,vegetarian,false,false,,,
-chocolate-brownie-bar,Chocolate Brownie Bar,Snacks & sweet treats,,321,4,30,19.9,12.4,,0.1,25.3,2.8,vegetarian,false,false,,,
-dark-chocolate-corn-cakes,Dark Chocolate Corn Cakes,Snacks & sweet treats,,82,1.2,10.4,3.7,2.2,,0.01,4.4,0.8,vegetarian,false,false,,,
-dark-chocolate-with-sea-salt,Dark Chocolate with Sea Salt,Snacks & sweet treats,,172,2.7,9.5,12.9,7.8,,0,8.3,3.9,vegetarian,false,false,,,
-love-bar,Love Bar,Snacks & sweet treats,,348,3.8,41.2,18,9,,0.4,20.8,3,vegetarian,false,false,,,
-milk-chocolate-bar,Milk Chocolate Bar,Snacks & sweet treats,,172,2.3,13.3,11.8,7.2,,0,13,1.6,vegetarian,false,false,,,
-popcorn-bar,Popcorn Bar,Snacks & sweet treats,,176,1.7,21.8,8.9,5.1,,0.13,12.5,0.8,vegetarian,false,false,,,
-pret-bar,Pret Bar,Snacks & sweet treats,,279,4,34.6,13.4,7,,0.11,22.4,2.6,vegetarian,false,false,,,
-cranberries-in-coats,Cranberries in Coats,Snacks & sweet treats,,235,0.5,36.5,9.5,5.5,,0.1,31,0.8,,false,false,,,
-dark-chocolate-salted-almonds,Dark Chocolate Salted Almonds,Snacks & sweet treats,,215,5.5,12.4,15.1,5.3,,0.2,7.9,3.5,vegetarian,false,false,,,
-nuts-fruit-chocolate,"Nuts, Fruit, Chocolate",Snacks & sweet treats,,196,5.7,13.4,12.8,2,,0.01,10.1,2.2,vegetarian,false,false,,,
-pret-a-mango,Pret A Mango,Snacks & sweet treats,,118,0.7,26.9,0.4,0.1,,0,17.5,1.8,vegetarian,false,false,,,
-chocolate-chunk-cookie,Chocolate Chunk Cookie,Snacks & sweet treats,,329,4.1,48.9,12.5,7.4,,0.41,25.2,2.1,vegetarian,false,false,,,
-chocolate-hazelnut-praline-cookie,Chocolate Hazelnut Praline Cookie,Snacks & sweet treats,,424,5.5,50.4,21.8,11.4,,0.39,31,2.2,vegetarian,false,false,,,
-double-berry-muffin,Double Berry Muffin,Snacks & sweet treats,,441,6.6,53.4,21.6,2.5,,0.72,30.5,3.5,vegetarian,false,false,,,
-loaded-chocolate-chunk-banana-bread,Loaded Chocolate Chunk Banana Bread,Snacks & sweet treats,,560,7.5,59.3,31.7,7.8,,0.86,37.4,3.5,vegetarian,false,false,,,
-nutty-pistachio-almond-loaf-cake,Nutty Pistachio & Almond Loaf Cake,Snacks & sweet treats,,604,12.3,34.7,45.5,17.9,,0.94,32.8,3.1,vegetarian,false,false,,,
-prets-gingerbread-biscuit-godfrey,Pret's Gingerbread Biscuit Godfrey,Snacks & sweet treats,,200,2.1,33.2,6.3,2.8,,0.34,17.5,0.7,vegetarian,false,false,,,
-raspberry-white-chocolate-cookie,Raspberry & White Chocolate Cookie,Snacks & sweet treats,,412,4.5,55.8,18.6,11.9,,0.54,35.6,1.6,vegetarian,false,false,,,
-triple-chocolate-cookie,Triple Chocolate Cookie,Snacks & sweet treats,,414,5.5,51.8,20,12.7,,0.21,34.4,2.2,vegetarian,false,false,,,
-zingy-lemon-almond-loaf-cake,Zingy Lemon & Almond Loaf Cake,Snacks & sweet treats,,592,9.4,44.7,41.2,14.8,,0.85,42.3,2.6,vegetarian,false,false,,,
-apple,Apple,Fruit,,85,0.6,18.9,0.2,0,,0.02,18.9,2.9,vegetarian,false,false,,,
-banana,Banana,Fruit,,76,0.9,17.2,0.2,0.1,,0,13.4,1,vegetarian,false,false,,,
-fruit-salad,Fruit Salad,Fruit,,107,1.3,22.7,0.4,0,,0.02,22.7,3.1,vegetarian,false,false,,,
-mango-lime,Mango & Lime,Fruit,,72,1,14.1,0.9,0.1,,0.01,13.8,1.5,vegetarian,false,false,,,
-super-fruit,Super Fruit,Fruit,,88,1.4,17,1,0.2,,0.01,16.7,2.5,vegetarian,false,false,,,
-kids-cheese-tomato-triangles,Kids' Cheese & Tomato Triangles,Little Pret Stars,,369,17.9,43.2,12.9,7.5,,1.25,3.9,4.1,vegetarian,false,false,,,
-kids-chicken-cucumber-triangles,Kids' Chicken & Cucumber Triangles,Little Pret Stars,,381,18.6,41.8,14.7,1.5,,1.61,2.7,3.6,,false,false,,,
-kids-ham-triangles,Kids' Ham Triangles,Little Pret Stars,,288,13.9,40.8,7,3.8,,1.72,2.2,3.5,contains_pork,false,false,,,
-kids-humous-cucumber-bowl,Kids' Humous & Cucumber Bowl,Little Pret Stars,,84,3,3,5.9,0.7,,0.33,1.2,3.2,vegetarian,false,false,,,
-kids-mango-banana-yogurt-pot,Kids' Mango & Banana Yogurt Pot,Little Pret Stars,,101,6.1,9.3,4.3,2.9,,0.15,8.8,0.2,vegetarian,false,false,,,
-kids-pizza-toastie,Kids' Pizza Toastie,Little Pret Stars,,379,16.9,44.3,13.9,6.5,,1.42,4.3,4.4,,false,false,,,
-americano,Americano,Hot drinks,,2,0,0,0.2,0,,0.15,0,0,vegetarian,false,false,,,
-americano-oat-milk,Americano (oat milk),Hot drinks,,45,0.2,9.4,0.7,0.5,50,0.1,4.9,0.2,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-americano-semi-skimmed-milk,Americano (semi-skimmed milk),Hot drinks,,36,2.6,3.8,1.2,0.8,40,0.1,3.8,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-americano-soya-milk-decaf,"Americano (soya milk, decaf)",Hot drinks,,30,2.3,2.1,1.4,0.2,15,0,2,0.4,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-americano-black-decaf,"Americano (black, decaf)",Hot drinks,,3,0,0,0,0,0,0,0,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-americano-skimmed-milk-decaf,"Americano (skimmed milk, decaf)",Hot drinks,,14,1,1.4,0.5,0.3,0,0,1.4,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-americano-semi-skimmed-milk-decaf,"Americano (semi-skimmed milk, decaf)",Hot drinks,,35,2.6,3.4,1.3,0.8,40,0.1,3.4,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-americano-skimmed-milk,Americano (skimmed milk),Hot drinks,,27,2.6,3.8,0.2,0.1,40,0.1,3.8,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-americano-soya-milk,Americano (soya milk),Hot drinks,,30,2.3,2.1,1.4,0.2,15,0,2,0.4,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-americano-oat-milk-decaf,"Americano (oat milk, decaf)",Hot drinks,,45,0.2,9.4,0.7,0.5,50,0.1,4.9,0.2,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-cappuccino-semi-skimmed-milk,Cappuccino (semi-skimmed milk),Hot drinks,,116,8.2,11.6,4.1,2.6,,0.15,11.5,0.2,vegetarian,false,false,,,
-cappuccino-skimmed-milk-decaf,"Cappuccino (skimmed milk, decaf)",Hot drinks,,92,6.6,8.8,3.3,2.1,80,0.2,8.8,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-cappuccino-skimmed-milk,Cappuccino (skimmed milk),Hot drinks,,92,6.6,8.8,3.3,2.1,80,0.2,8.8,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-cappuccino-oat-milk-decaf,"Cappuccino (oat milk, decaf)",Hot drinks,,116,0.6,24.4,1.8,1.4,80,0.2,12.7,0.4,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-cappuccino-soya-milk,Cappuccino (soya milk),Hot drinks,,92,7.3,5.5,4.2,0.8,100,0.3,5.4,1.2,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-cappuccino-oat-milk,Cappuccino (oat milk),Hot drinks,,116,0.6,24.4,1.8,1.4,80,0.2,12.7,0.4,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-cappuccino-soya-milk-decaf,"Cappuccino (soya milk, decaf)",Hot drinks,,92,7.3,5.5,4.2,0.8,100,0.3,5.4,1.2,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-cappuccino-semi-skimmed-milk-decaf,"Cappuccino (semi-skimmed milk, decaf)",Hot drinks,,92,6.6,8.8,3.3,2.1,80,0.2,8.8,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-espresso,Espresso,Hot drinks,,2,0,0,0.2,0,,0.15,0,0,vegetarian,false,false,,,
-espresso-black-decaf,"Espresso (black, decaf)",Hot drinks,,0,0,0,0,,0,0,0,0,vegetarian,false,false,,,"saturates not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-filter-coffee,Filter Coffee,Hot drinks,,2,0,0,0.2,0,,0.16,0,0,vegetarian,false,false,,,
-filter-coffee-oat-milk,Filter Coffee (oat milk),Hot drinks,,16,0.1,2.5,0.6,0.2,,0.2,1.2,0.3,vegetarian,false,false,,,
-filter-coffee-skimmed-milk,Filter Coffee (skimmed milk),Hot drinks,,12,1,1.5,0.3,0,,0.16,1.4,0,vegetarian,false,false,,,
-filter-coffee-semi-skimmed-milk,Filter Coffee (semi-skimmed milk),Hot drinks,,16,1.1,1.5,0.7,0.3,,0.16,1.5,0,vegetarian,false,false,,,
-filter-coffee-soya-milk,Filter Coffee (soya milk),Hot drinks,,15,1.1,0.8,0.8,0.1,,0.21,0.8,0.2,vegetarian,false,false,,,
-flat-white-semi-skimmed-milk,Flat White (semi-skimmed milk),Hot drinks,,98,6.8,10,3.4,2,,0.15,10,0,vegetarian,false,false,,,
-flat-white-skimmed-milk,Flat White (skimmed milk),Hot drinks,,80,5.8,7.7,2.9,1.8,80,0.2,7.7,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-flat-white-oat-milk-decaf,"Flat White (oat milk, decaf)",Hot drinks,,105,0.5,21.9,1.6,1.2,50,0.1,11.4,0.4,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-flat-white-oat-milk,Flat White (oat milk),Hot drinks,,104,0.5,22,1.6,1.2,70,0.2,11.4,0.4,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-flat-white-soya-milk,Flat White (soya milk),Hot drinks,,77,6.3,4.1,3.6,0.7,90,0.2,4.1,1,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-flat-white-soya-milk-decaf,"Flat White (soya milk, decaf)",Hot drinks,,77,6.3,4.1,3.6,0.7,90,0.2,4.1,1,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-flat-white-semi-skimmed-milk-decaf,"Flat White (semi-skimmed milk, decaf)",Hot drinks,,80,5.8,7.7,2.9,1.8,80,0.2,7.7,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-flat-white-skimmed-milk-decaf,"Flat White (skimmed milk, decaf)",Hot drinks,,80,5.8,7.7,2.9,1.8,80,0.2,7.7,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-latte-semi-skimmed-milk,Latte (semi-skimmed milk),Hot drinks,,136,9.5,14,4.6,2.8,,0.15,14,0,vegetarian,false,false,,,
-latte-skimmed-milk-decaf,"Latte (skimmed milk, decaf)",Hot drinks,,118,8.5,11.3,4.3,2.7,120,0.3,11.3,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-latte-skimmed-milk,Latte (skimmed milk),Hot drinks,,118,8.5,11.3,4.3,2.7,120,0.3,11.3,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-latte-oat-milk-decaf,"Latte (oat milk, decaf)",Hot drinks,,149,0.8,31.3,2.3,1.8,100,0.3,16.3,0.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-latte-soya-milk,Latte (soya milk),Hot drinks,,113,9.3,6.1,5.3,1,130,0.3,6,1.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-latte-oat-milk,Latte (oat milk),Hot drinks,,167,0.8,35,2.5,2,100,0.3,18.2,0.6,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-latte-semi-skimmed-milk-decaf,"Latte (semi-skimmed milk, decaf)",Hot drinks,,118,8.5,11.3,4.3,2.7,120,0.3,11.3,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-latte-soya-milk-decaf,"Latte (soya milk, decaf)",Hot drinks,,113,9.3,6.1,5.3,1,132,0.3,6,1.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-macchiato-semi-skimmed-milk,Macchiato (semi-skimmed milk),Hot drinks,,7,0.4,0.6,0.3,0.1,,0.15,0.6,0,vegetarian,false,false,,,
-macchiato-oat-milk,Macchiato (oat milk),Hot drinks,,6,0,1.3,0.1,0.1,0,0,0.7,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-macchiato-skimmed-milk,Macchiato (skimmed milk),Hot drinks,,5,0.4,0.5,0.2,0.1,0,0,0.5,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-macchiato-soya-milk-decaf,"Macchiato (soya milk, decaf)",Hot drinks,,4,0.3,0.3,0.2,0,0,0,0.3,0.1,vegetarian,false,false,,,"printed kJ 7 and kcal 4 do not agree; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-macchiato-semi-skimmed-milk-decaf,"Macchiato (semi-skimmed milk, decaf)",Hot drinks,,5,0.4,0.5,0,,0,0,0.5,,vegetarian,false,false,,,"saturates not printed; fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-macchiato-skimmed-milk-decaf,"Macchiato (skimmed milk, decaf)",Hot drinks,,5,0.4,0.5,0,,0,0,0.5,,vegetarian,false,false,,,"saturates not printed; fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-macchiato-oat-milk-decaf,"Macchiato (oat milk, decaf)",Hot drinks,,6,0,1.3,0.1,0.1,0,0,0.7,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-macchiato-soya-milk,Macchiato (soya milk),Hot drinks,,4,0.3,0.3,0.2,0,0,0,0.3,0.1,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-mocha-semi-skimmed-milk,Mocha (semi-skimmed milk),Hot drinks,,196,10.7,25,5.3,3.3,,0.17,24.2,2.8,vegetarian,false,false,,,
-mocha-skimmed-milk,Mocha (skimmed milk),Hot drinks,,185,9.3,24.4,5.2,3.3,105,0.3,23.4,1.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-mocha-oat-milk-decaf,"Mocha (oat milk, decaf)",Hot drinks,,216,1.9,44,3.3,2.4,100,0.3,28.2,1.9,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-mocha-oat-milk,Mocha (oat milk),Hot drinks,,216,1.9,44,3.3,2.4,100,0.3,28.2,1.9,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-mocha-soya-milk,Mocha (soya milk),Hot drinks,,181,10.1,19.5,6.2,1.6,123,0.3,18.4,2.9,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-mocha-soya-milk-decaf,"Mocha (soya milk, decaf)",Hot drinks,,181,10.1,19.5,6.2,1.6,123,0.3,18.4,2.9,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-mocha-skimmed-milk-decaf,"Mocha (skimmed milk, decaf)",Hot drinks,,185,9.3,24.4,5.2,3.3,105,0.3,23.4,1.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-mocha-semi-skimmed-milk-decaf,"Mocha (semi-skimmed milk, decaf)",Hot drinks,,185,9.3,24.4,5.2,3.3,105,0.3,23.4,1.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-pumpkin-spice-latte-semi-skimmed-milk,Pumpkin Spice Latte (semi-skimmed milk),Hot drinks,,183,9.3,25.5,4.7,2.9,,0.17,24.6,0.5,vegetarian,true,false,,,Pret's own description calls it seasonal
-pumpkin-spice-latte-skimmed-milk,Pumpkin Spice Latte (skimmed milk),Hot drinks,,148,8.8,25.8,1,0.3,,0.17,23.8,0.5,vegetarian,true,false,,,Pret's own description calls it seasonal
-pumpkin-spice-latte-soya-milk,Pumpkin Spice Latte (soya milk),Hot drinks,,173,9.9,19.4,5.8,1.1,,0.57,18.6,2.1,vegetarian,true,false,,,Pret's own description calls it seasonal
-pumpkin-spice-latte-oat-milk,Pumpkin Spice Latte (oat milk),Hot drinks,,179,0.9,34.5,3.6,1.3,,0.44,22.5,2.7,vegetarian,true,false,,,Pret's own description calls it seasonal
-pumpkin-spice-latte-skimmed-milk-decaf,"Pumpkin Spice Latte (skimmed milk, decaf)",Hot drinks,,148,8.8,25.8,1,0.3,,0.17,23.8,0.5,vegetarian,true,false,,,Pret's own description calls it seasonal
-pumpkin-spice-latte-semi-skimmed-milk-decaf,"Pumpkin Spice Latte (semi-skimmed milk, decaf)",Hot drinks,,183,9.3,25.5,4.7,2.9,,0.17,24.6,0.5,vegetarian,true,false,,,Pret's own description calls it seasonal
-pumpkin-spice-latte-soya-milk-decaf,"Pumpkin Spice Latte (soya milk, decaf)",Hot drinks,,173,9.9,19.4,5.8,1.1,,0.57,18.6,2.1,vegetarian,true,false,,,Pret's own description calls it seasonal
-pumpkin-spice-latte-oat-milk-decaf,"Pumpkin Spice Latte (oat milk, decaf)",Hot drinks,,179,0.9,34.5,3.6,1.3,,0.44,22.5,2.7,vegetarian,true,false,,,Pret's own description calls it seasonal
-pumpkin-spice-latte-skimmed-milk-decaf-pod,"Pumpkin Spice Latte (skimmed milk, decaf pod)",Hot drinks,,148,8.8,25.7,1,0.3,,0.15,23.8,0.5,vegetarian,true,false,,,Pret's own description calls it seasonal
-toasted-marshmallow-hot-chocolate,Toasted Marshmallow Hot Chocolate,Hot drinks,,360,11.4,38.7,17,4.9,,0.02,38,2.8,vegetarian,false,false,,,
-toasted-marshmallow-latte,Toasted Marshmallow Latte,Hot drinks,,293,9.9,26.1,16.6,4.6,,0.17,26.1,0,vegetarian,false,false,,,
-babyccino-semi-skimmed-milk,Babyccino (semi-skimmed milk),Hot drinks,,18,1.1,2.1,0.5,0.4,,0,2.1,0.2,vegetarian,false,false,,,
-babyccino-skimmed-milk,Babyccino (skimmed milk),Hot drinks,,14,1.1,2.1,0.1,0.1,,0,2,0.2,vegetarian,false,false,,,
-babyccino-soya-milk,Babyccino (soya milk),Hot drinks,,17,1.2,1.4,0.7,0.1,,0.05,1.4,0.3,vegetarian,false,false,,,
-breakfast-tea-semi-skimmed-milk,Breakfast Tea (semi-skimmed milk),Hot drinks,,15,1,1.5,0.5,0.3,,0,1.6,0,vegetarian,false,false,,,sugars printed higher than carbohydrate
-breakfast-tea-oat-milk,Breakfast Tea (oat milk),Hot drinks,,45,0.2,9.4,0.7,0.5,50,0.1,4.9,0.2,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-breakfast-tea-black,Breakfast Tea (black),Hot drinks,,0,0,0,0,0,0,0,0,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-breakfast-tea-skimmed-milk,Breakfast Tea (skimmed milk),Hot drinks,,14,1,1.4,0.5,0.3,0,0,1.4,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-breakfast-tea-soya-milk,Breakfast Tea (soya milk),Hot drinks,,33,2.3,1.8,1.6,0.3,0,0,1.8,0.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-chai-latte-semi-skimmed-milk,Chai Latte (semi-skimmed milk),Hot drinks,,207,11.2,28.1,5.5,3.5,,0.01,27.2,0.5,vegetarian,false,false,,,
-chai-latte-skimmed-milk,Chai Latte (skimmed milk),Hot drinks,,164,10.4,28.2,1,0.3,,0.01,26,0.5,vegetarian,false,false,,,
-chai-latte-soya-milk,Chai Latte (soya milk),Hot drinks,,194,11.7,20.6,6.6,1.3,,0.48,19.7,2.4,vegetarian,false,false,,,
-chai-latte-oat-milk,Chai Latte (oat milk),Hot drinks,,201,1,38.5,4.1,1.6,,0.32,24.5,3.1,vegetarian,false,false,,,
-earl-grey-tea-semi-skimmed-milk,Earl Grey Tea (semi-skimmed milk),Hot drinks,,15,1,1.5,0.5,0.3,,0,1.5,0,vegetarian,false,false,,,
-earl-grey-tea-oat-milk,Earl Grey Tea (oat milk),Hot drinks,,45,0.2,9.4,0.7,0.5,50,0.1,4.9,0.2,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-earl-grey-tea-black,Earl Grey Tea (black),Hot drinks,,0,0,0,0,0,0,0,0,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-earl-grey-tea-skimmed-milk,Earl Grey Tea (skimmed milk),Hot drinks,,14,1,1.4,0.5,0.3,0,0,1.4,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-earl-grey-tea-soya-milk,Earl Grey Tea (soya milk),Hot drinks,,33,2.3,1.8,1.6,0.3,0,0,1.8,0.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-hot-chocolate-semi-skimmed-milk,Hot Chocolate (semi-skimmed milk),Hot drinks,,247,11.5,35.3,5.4,3.4,,0.04,34,5.3,vegetarian,false,false,,,
-hot-chocolate-skimmed-milk,Hot Chocolate (skimmed milk),Hot drinks,,256,10.6,37.5,6.4,4,105,0.3,35.5,2.8,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-hot-chocolate-oat-milk,Hot Chocolate (oat milk),Hot drinks,,287,3,57.1,4.4,3,100,0.3,40.4,3.3,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-hot-chocolate-soya-milk,Hot Chocolate (soya milk),Hot drinks,,251,11.4,32.4,7.4,2.3,124,0.3,30.4,4.3,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-matcha-latte,Matcha Latte,Hot drinks,,86,1.2,15.3,2.1,2,,0.28,11.8,0.6,vegetarian,false,false,,,
-matcha-latte-skimmed-milk,Matcha Latte (skimmed milk),Hot drinks,,105,9.8,14.2,0.9,0.3,,0,12.3,0,vegetarian,false,false,,,
-matcha-latte-soya-milk,Matcha Latte (soya milk),Hot drinks,,131,11,7.5,6,1.1,,0.42,6.7,1.7,vegetarian,false,false,,,
-matcha-latte-semi-skimmed-milk,Matcha Latte (semi-skimmed milk),Hot drinks,,141,10.4,13.9,4.9,3.1,,0,13.2,0,vegetarian,false,false,,,
-matcha-latte-oat-milk,Matcha Latte (oat milk),Hot drinks,,138,1.4,23.4,3.7,1.4,,0.28,10.9,2.2,vegetarian,false,false,,,
-peppermint-tea,Peppermint Tea,Hot drinks,,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
-tropical-green-tea,Tropical Green Tea,Hot drinks,,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
-iced-chai-latte-semi-skimmed-milk,Iced Chai Latte (semi-skimmed milk),Cold drinks,,162,8.2,23.3,4,2.6,,0.01,23.2,0,vegetarian,false,false,,,
-iced-chai-latte-skimmed-milk,Iced Chai Latte (skimmed milk),Cold drinks,,131,7.8,23.5,0.7,0.2,,0.01,22.4,0,vegetarian,false,false,,,
-iced-chai-latte-soya-milk,Iced Chai Latte (soya milk),Cold drinks,,153,8.7,17.9,4.9,0.9,,0.36,17.8,1.4,vegetarian,false,false,,,
-iced-chai-latte-oat-milk,Iced Chai Latte (oat milk),Cold drinks,,159,0.7,31.3,3.1,1.2,,0.24,21.3,1.9,vegetarian,false,false,,,
-iced-hot-chocolate,Iced Hot Chocolate,Cold drinks,,197,7.9,30.5,3.7,2.3,,0.03,29.1,5.3,vegetarian,false,false,,,
-iced-matcha-latte,Iced Matcha Latte,Cold drinks,,63,1,11.2,1.5,1.4,,0.2,8.4,0.4,vegetarian,false,false,,,
-iced-matcha-latte-soya-milk,Iced Matcha Latte (soya milk),Cold drinks,,95,8,5.6,4.3,0.8,,0.3,4.8,1.2,vegetarian,false,false,,,
-iced-matcha-latte-skimmed-milk,Iced Matcha Latte (skimmed milk),Cold drinks,,77,7.2,10.4,0.7,0.2,,0,8.8,0,vegetarian,false,false,,,
-iced-matcha-latte-semi-skimmed-milk,Iced Matcha Latte (semi-skimmed milk),Cold drinks,,103,7.6,10.2,3.5,2.2,,0,9.4,0,vegetarian,false,false,,,
-iced-matcha-latte-oat-milk,Iced Matcha Latte (oat milk),Cold drinks,,100,1.2,17,2.7,1,,0.2,7.8,1.6,vegetarian,false,false,,,
-caramel-frappe,Caramel Frappé,Cold drinks,,423,13.9,43,21.7,7.9,,0.17,33.6,0.4,vegetarian,false,false,,,
-classic-frappe-semi-skimmed-milk,Classic Frappe (semi-skimmed milk),Cold drinks,,365,10.6,26.7,23.9,7.4,,0.15,17.3,0.4,vegetarian,false,false,,,
-classic-frappe-skimmed-milk,Classic Frappe (skimmed milk),Cold drinks,,350,13.5,31.3,18.9,5.9,,0.17,21.1,0.4,vegetarian,false,false,,,
-classic-frappe-semi-skimmed-milk-decaf,"Classic Frappe (semi-skimmed milk, decaf)",Cold drinks,,376,13.9,31.1,21.7,7.9,,0.17,21.7,0.4,vegetarian,false,false,,,
-classic-frappe-skimmed-milk-decaf,"Classic Frappe (skimmed milk, decaf)",Cold drinks,,350,13.5,31.3,18.9,5.9,,0.17,21.1,0.4,vegetarian,false,false,,,
-frozen-hot-chocolate-semi-skimmed-milk,Frozen Hot Chocolate (semi-skimmed milk),Cold drinks,,503,16.8,54.8,22.8,8.7,,0.04,44.1,5.7,vegetarian,false,false,,,
-frozen-hot-chocolate-skimmed-milk,Frozen Hot Chocolate (skimmed milk),Cold drinks,,477,16.4,55,20,6.7,,0.04,43.4,5.7,vegetarian,false,false,,,
-hazelnut-frappe,Hazelnut Frappé,Cold drinks,,423,13.9,42.8,21.7,7.9,,0.17,33.4,0.4,vegetarian,false,false,,,
-iced-black-americano,Iced Black Americano,Cold drinks,,2,0,0,0.2,0,,0.15,0,0,vegetarian,false,false,,,
-iced-black-americano-skimmed-milk,Iced Black Americano (skimmed milk),Cold drinks,,35,2.6,3.4,1.3,0.8,32,0.1,3.4,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-black-americano-semi-skimmed-milk,Iced Black Americano (semi-skimmed milk),Cold drinks,,35,2.6,3.4,1.3,0.8,32,0.1,3.4,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-black-americano-soya-milk-decaf,"Iced Black Americano (soya milk, decaf)",Cold drinks,,33,2.8,1.8,1.6,0.3,0,0,1.8,0.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-black-americano-semi-skimmed-milk-decaf,"Iced Black Americano (semi-skimmed milk, decaf)",Cold drinks,,36,2.6,3.8,1.2,0.8,45,0.1,3.8,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-black-americano-black-decaf,"Iced Black Americano (black, decaf)",Cold drinks,,0,0,0,0,0,0,0,0,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-black-americano-skimmed-milk-decaf,"Iced Black Americano (skimmed milk, decaf)",Cold drinks,,36,2.6,3.8,1.2,0.8,45,0.1,3.8,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-black-americano-oat-milk-decaf,"Iced Black Americano (oat milk, decaf)",Cold drinks,,45,0.2,9.4,0.7,0.5,40,0.1,4.9,0.2,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-black-americano-oat-milk,Iced Black Americano (oat milk),Cold drinks,,45,0.2,9.4,0.7,0.5,40,0.1,4.9,0.2,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-latte-semi-skimmed-milk,Iced Latte (semi-skimmed milk),Cold drinks,,98,6.8,10,3.4,2,,0.15,10,0,vegetarian,false,false,,,
-iced-latte-skimmed-milk,Iced Latte (skimmed milk),Cold drinks,,120,8.6,11.5,4.4,2.7,120,0.3,11.4,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-latte-semi-skimmed-milk-decaf,"Iced Latte (semi-skimmed milk, decaf)",Cold drinks,,133,9.6,12.8,4.8,3,124,0.3,12.7,0,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-latte-soya-milk,Iced Latte (soya milk),Cold drinks,,113,9.3,6.1,5.3,1,128,0.3,6,1.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-latte-soya-milk-decaf,"Iced Latte (soya milk, decaf)",Cold drinks,,113,9.3,6.1,5.3,1,128,0.3,6,1.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-latte-skimmed-milk-decaf,"Iced Latte (skimmed milk, decaf)",Cold drinks,,118,8.5,11.3,4.3,2.7,120,0.3,11.3,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-latte-oat-milk-decaf,"Iced Latte (oat milk, decaf)",Cold drinks,,149,0.8,31.3,2.3,1.8,80,0.2,16.3,0.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-latte-oat-milk,Iced Latte (oat milk),Cold drinks,,149,0.8,31.3,2.3,1.8,80,0.2,16.3,0.5,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-mocha-semi-skimmed-milk,Iced Mocha (semi-skimmed milk),Cold drinks,,159,8,21.4,4,2.4,,0.17,20.6,2.8,vegetarian,false,false,,,
-iced-mocha-soya-milk,Iced Mocha (soya milk),Cold drinks,,160,8.6,18,5.3,1.5,125,0.3,17.1,2.6,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-mocha-skimmed-milk,Iced Mocha (skimmed milk),Cold drinks,,143,8,23.2,1.7,0.9,125,0.3,22.3,1.4,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-mocha-soya-milk-decaf,"Iced Mocha (soya milk, decaf)",Cold drinks,,160,8.6,18,5.3,1.5,140,0.4,17.1,2.6,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-mocha-semi-skimmed-milk-decaf,"Iced Mocha (semi-skimmed milk, decaf)",Cold drinks,,166,8,23.2,4.3,2.7,135,0.3,22.3,1.4,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-iced-mocha-oat-milk,Iced Mocha (oat milk),Cold drinks,,161,1.8,28.7,3.7,1.6,,0.34,20.1,2.9,vegetarian,false,false,,,
-iced-mocha-oat-milk-decaf,"Iced Mocha (oat milk, decaf)",Cold drinks,,188,1.7,37.3,3,2.1,64.7,0.2,24.7,0.9,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
-mocha-frappe,Mocha Frappé,Cold drinks,,440,15.3,43,22.3,8.3,,0.19,32.9,3.1,vegetarian,false,false,,,
-vanilla-frappe,Vanilla Frappé,Cold drinks,,426,13.9,43.7,21.7,7.9,,0.17,34.3,0.4,vegetarian,false,false,,,
-vanilla-matcha-frappe,Vanilla Matcha Frappe,Cold drinks,,431,14.5,44.4,21.6,7.9,,0,34.2,0.4,vegetarian,false,false,,,
-apple-juice,Apple Juice,Cold drinks,,126,0.3,30.7,0.2,0.1,,0,28.2,0,vegetarian,false,false,,,
-berries-banana-smoothie,Berries & Banana Smoothie,Cold drinks,,200,1.7,45.1,0.6,0.1,,0,43.8,3.9,vegetarian,false,false,,,
-easy-greens,Easy Greens,Cold drinks,,35,0,8.8,0,0,,0.11,7,0,vegetarian,false,false,,,
-ginger-shot,Ginger Shot,Cold drinks,,55,0.8,11.4,0.3,0.1,,0.11,9.7,1.8,vegetarian,false,false,,,
-hot-shot,Hot Shot,Cold drinks,,27,0.4,5.2,0.2,0,,0.02,3.7,1.4,vegetarian,false,false,,,
-mango-peach-smoothie,Mango & Peach Smoothie,Cold drinks,,190,1.8,43.6,0.4,0.1,,0.01,42.4,2.2,vegetarian,false,false,,,
-mango-smoothie,Mango Smoothie,Cold drinks,,142,1.2,31.7,0.7,0.2,,0,29.7,1.6,vegetarian,false,false,,,
-orange-juice,Orange Juice,Cold drinks,,63,1.2,13.5,0.3,0,,0.01,12.6,0.7,vegetarian,false,false,,,
-vitamin-volcano,Vitamin Volcano,Cold drinks,,115,1.2,27.5,0,0,,0.18,24.5,1.2,vegetarian,false,false,,,
-coke-bottle,Coke Bottle,Cold drinks,,212,0,53,0,0,,0,53,0,vegetarian,false,false,,,
-coke-can,Coke Can,Cold drinks,,140,0,35,0,0,,0,35,0,vegetarian,false,false,,,
-coke-zero-bottle,Coke Zero Bottle,Cold drinks,,0,0,0,0,0,,0,0,0,,false,false,,,
-coke-zero-can,Coke Zero Can,Cold drinks,,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
-cranberry-raspberry-pomegranate-pret-still,"Cranberry, Raspberry & Pomegranate Pret Still",Cold drinks,,115,0.5,24.5,1.1,0.3,,0,24.5,2.6,vegetarian,false,false,,,
-cucumber-mint-seltzer,Cucumber & Mint Seltzer,Cold drinks,,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
-diet-coke-bottle,Diet Coke Bottle,Cold drinks,,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
-diet-coke-can,Diet Coke Can,Cold drinks,,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
-ginger-kombucha,Ginger Kombucha,Cold drinks,,45,0,11.2,0,0,,0,11.2,0,vegetarian,false,false,,,
-green-tea-peach-pret-still,Green Tea & Peach Pret Still,Cold drinks,,104,0.5,21.5,1.2,0.5,,0,21.5,2.5,vegetarian,false,false,,,
-lemon-ginger-pret-still,Lemon & Ginger Pret Still,Cold drinks,,94,0.5,19.5,1,0.2,,0,19.5,2.5,vegetarian,false,false,,,
-lime-raspberry-seltzer,Lime & Raspberry Seltzer,Cold drinks,,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
-mango-passion-fruit-pret-still,Mango & Passion Fruit Pret Still,Cold drinks,,112,0.5,23.5,1.2,0.3,,0,23.5,2.5,vegetarian,false,false,,,
-pret-sparkling-water-500ml,Pret Sparkling Water 500ml,Cold drinks,,0,0,0,0,0,,0,0,0,vegetarian,false,false,,,
-pret-still-water-500ml,Pret Still Water 500ml,Cold drinks,,0,0,0,0,0,,0.07,0,0,vegetarian,false,false,,,
-pret-still-water-750ml,Pret Still Water 750ml,Cold drinks,,0,0,0,0,0,,0.1,0,0,vegetarian,false,false,,,
-prets-rhubarb-lemonade,Pret's Rhubarb Lemonade,Cold drinks,,107,0,26.7,0,0,,0.03,26.7,0,vegetarian,false,false,,,
-prets-sparkling-apple-fizz,Pret's Sparkling Apple Fizz,Cold drinks,,104,0,26.1,0,0,,0.13,25.1,0,vegetarian,false,false,,,
-prets-sparkling-ginger-beer,Pret's Sparkling Ginger Beer,Cold drinks,,119,0,29.7,0,0,,0,29.4,0,vegetarian,false,false,,,
-prets-sparkling-grape-elderflower,Pret's Sparkling Grape & Elderflower,Cold drinks,,98,0,24.4,0,0,,0,24.4,0,vegetarian,false,false,,,
-poppi-lemon-lime,poppi Lemon Lime,Cold drinks,,26,0,4.9,0,0,,0,4.6,3,,false,false,,,
-poppi-orange,poppi Orange,Cold drinks,,26,0,4.9,0,0,,0,4.3,3,,false,false,,,
-poppi-raspberry-rose,poppi Raspberry Rose,Cold drinks,,27,0,4.9,0,0,,0,3.6,3.6,,false,false,,,
-poppi-strawberry-lemon,poppi Strawberry & Lemon,Cold drinks,,27,0,5.3,0,0,,0,4.3,3,,false,false,,,
-poppi-wild-berry,poppi Wild Berry,Cold drinks,,24,0,4.6,0,0,,0,4.3,3,,false,false,,,
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+soup-white-baguette-with-butter,Soup White Baguette with Butter,"Sandwiches, baguettes & wraps",,241,6.5,36.6,7.3,4.7,,1.01,1.5,1.6,1015,,,,,,vegetarian,false,true,,,
+classic-cheese-bloomer-toastie,Classic Cheese Bloomer Toastie,"Sandwiches, baguettes & wraps",,638,27.5,51.4,34.8,14.4,,2.23,1.9,4.7,2667,,,,,,,false,true,,,
+falafel-halloumi-hot-wrap,Falafel & Halloumi Hot Wrap,"Sandwiches, baguettes & wraps",,623,22.3,63.1,29.5,10.9,,3.59,15,8.2,2609,,,,,,vegetarian,false,true,,,
+ham-cheese-bloomer-toastie,Ham & Cheese Bloomer Toastie,"Sandwiches, baguettes & wraps",,592,32.5,50.8,27.7,10.9,,3.85,1.6,5,2480,,,,,,contains_pork,false,true,,,
+italian-style-chicken-basil-hot-wrap,Italian Style Chicken & Basil Hot Wrap,"Sandwiches, baguettes & wraps",,555,32.4,48.2,24.5,7,,2.95,11.8,6.1,2325,,,,,,,false,true,,,
+swedish-meatball-hot-wrap,Swedish Meatball Hot Wrap,"Sandwiches, baguettes & wraps",,630,30.3,44.8,35.5,15.1,,2.59,8.5,4.8,2629,,,,,,contains_pork,false,true,,,
+tuna-melt-bloomer-toastie,Tuna Melt Bloomer Toastie,"Sandwiches, baguettes & wraps",,552,34.1,50.2,22.8,7.4,,2.58,1.5,5,2315,,,,,,,false,true,,,
+warm-beef-birria-jalapeno-ciabatta,Warm Beef Birria & Jalapeño Ciabatta,"Sandwiches, baguettes & wraps",,496,27.9,59.1,15.4,6.8,,2.48,5.8,5,2088,,,,,,contains_beef,false,true,,,
+warm-chicken-caesar-bacon-ciabatta,Warm Chicken Caesar Bacon Ciabatta,"Sandwiches, baguettes & wraps",,791,39.9,54.4,45.2,10.2,,3.71,3,3.5,3304,,,,,,contains_pork,false,true,,,
+warm-three-cheese-tomato-ciabatta,Warm Three Cheese & Tomato Ciabatta,"Sandwiches, baguettes & wraps",,570,24.5,59.2,25,10.9,,2.83,8,5.1,2387,,,,,,vegetarian,false,true,,,
+chicken-salad,Chicken Salad,"Sandwiches, baguettes & wraps",,529,21.8,42.7,29.3,7.9,,2.22,3.1,3.8,2211,,,,,,,false,true,,,
+chicken-avocado-basil,"Chicken, Avocado & Basil","Sandwiches, baguettes & wraps",,488,23.2,43.5,23.3,4.7,,2.07,3.4,6,2042,,,,,,,false,true,,,
+chicken-avocado-basil-half-sandwich,"Chicken, Avocado & Basil Half Sandwich","Sandwiches, baguettes & wraps",,244,11.6,21.8,11.6,2.3,,1.04,1.7,3,1021,,,,,,,false,true,,,
+classic-super-club,Classic Super Club,"Sandwiches, baguettes & wraps",,528,26.8,43.5,26.5,4.3,,2.75,3.9,4.1,2208,,,,,,contains_pork,false,true,,,
+classic-super-club-half-sandwich,Classic Super Club Half Sandwich,"Sandwiches, baguettes & wraps",,264,13.4,21.7,13.3,2.2,,1.38,1.9,2.1,1104,,,,,,contains_pork,false,true,,,
+coronation-chicken,Coronation Chicken,"Sandwiches, baguettes & wraps",,486,22.3,47.7,21.9,5.6,,2.47,5.3,4.5,2037,,,,,,,false,true,,,
+egg-florentine,Egg Florentine,"Sandwiches, baguettes & wraps",,459,23.7,45.5,19.2,5.9,,1.84,3.6,4.7,1926,,,,,,vegetarian,false,true,,,
+free-range-egg-mayo,Free-Range Egg Mayo,"Sandwiches, baguettes & wraps",,379,17.3,43.3,14.3,2.8,,1.52,2.1,3.8,1591,,,,,,vegetarian,false,true,,,
+ham-cheese,Ham & Cheese,"Sandwiches, baguettes & wraps",,531,30,42.7,25.8,15.8,,3.61,2.5,3.9,2223,,,,,,contains_pork,false,true,,,
+mature-cheddar-pret-pickle,Mature Cheddar & Pret Pickle,"Sandwiches, baguettes & wraps",,508,18.2,54.7,23,9.4,,2.16,12.9,4.8,2128,,,,,,vegetarian,false,true,,,
+new-yorker-club-sandwich,New Yorker Club Sandwich,"Sandwiches, baguettes & wraps",,719,34.5,69.5,32,9.6,,3,9.9,7.1,3010,,,,,,contains_beef,false,true,,,
+scottish-smoked-salmon,Scottish Smoked Salmon,"Sandwiches, baguettes & wraps",,416,22.2,40.8,17.4,5.3,,3.19,2.3,3.4,1744,,,,,,,false,true,,,
+tuna-cucumber,Tuna & Cucumber,"Sandwiches, baguettes & wraps",,379,18.5,43.3,13.9,1.6,,1.42,3.4,3.5,1592,,,,,,,false,true,,,
+avo-olive-toms-baguette,"Avo, Olive & Toms Baguette","Sandwiches, baguettes & wraps",,564,13,57.1,29.6,4.9,,1.64,5.9,8.5,2355,,,,,,vegetarian,false,true,,,
+avo-olive-toms-half-baguette,"Avo, Olive & Toms Half Baguette","Sandwiches, baguettes & wraps",,282,6.5,28.6,14.8,2.4,,0.82,2.9,4.2,1178,,,,,,vegetarian,false,true,,,
+brie-tomato-basil-baguette,"Brie, Tomato & Basil Baguette","Sandwiches, baguettes & wraps",,439,17.6,56.2,15.2,10.1,,2.14,3.6,3.3,1844,,,,,,vegetarian,false,true,,,
+chicken-caesar-bacon-half-baguette,Chicken Caesar & Bacon Half Baguette,"Sandwiches, baguettes & wraps",,298,15.1,27.2,13.8,2.5,,1.31,1.6,2.2,1247,,,,,,contains_pork,false,true,,,
+chicken-caesar-bacon-baguette,Chicken Caesar Bacon Baguette,"Sandwiches, baguettes & wraps",,596,30.3,54.3,27.6,4.9,,2.62,3.2,4.4,2494,,,,,,contains_pork,false,true,,,
+chicken-salad-baguette,Chicken Salad Baguette,"Sandwiches, baguettes & wraps",,595,24,57,29.5,7.9,,2.98,3.2,2.8,2491,,,,,,,false,true,,,
+chicken-satay-baguette,Chicken Satay Baguette,"Sandwiches, baguettes & wraps",,537,27.6,64.8,17.6,3.2,,3.34,9.9,4.4,2258,,,,,,,false,true,,,
+coronation-chicken-baguette,Coronation Chicken Baguette,"Sandwiches, baguettes & wraps",,542,25,59.1,21.7,3.1,,2.74,5.3,5,2272,,,,,,,false,true,,,
+coronation-chicken-half-baguette,Coronation Chicken Half Baguette,"Sandwiches, baguettes & wraps",,271,12.5,29.6,10.8,1.5,,1.37,2.7,2.5,1136,,,,,,,false,true,,,
+italian-prosciutto-baguette,Italian Prosciutto Baguette,"Sandwiches, baguettes & wraps",,546,24.1,54.3,24.7,5.9,,3.59,3.8,4.8,2287,,,,,,contains_pork,false,true,,,
+italian-prosciutto-half-baguette,Italian Prosciutto Half Baguette,"Sandwiches, baguettes & wraps",,274,12.1,27.2,12.4,3,,1.8,1.9,2.4,1146,,,,,,contains_pork,false,true,,,
+mortadella-mozzarella-pistachio-baguette,"Mortadella, Mozzarella & Pistachio Baguette","Sandwiches, baguettes & wraps",,715,31.8,54.6,39.8,14.7,,2.94,3.9,5.4,2985,,,,,,contains_pork,false,true,,,
+pole-line-caught-tuna-baguette,Pole & Line Caught Tuna Baguette,"Sandwiches, baguettes & wraps",,515,25.2,58.8,19.3,2.2,,2.46,4.1,2.6,2161,,,,,,,false,true,,,
+pole-line-caught-tuna-half-baguette,Pole & Line Caught Tuna Half Baguette,"Sandwiches, baguettes & wraps",,257,12.6,29.4,9.6,1.1,,1.23,2,1.3,1081,,,,,,,false,true,,,
+posh-cheddar-pickle-baguette,Posh Cheddar & Pickle Baguette,"Sandwiches, baguettes & wraps",,643,21.4,71.9,28.5,9.8,,2.82,18.6,6.6,2695,,,,,,vegetarian,false,true,,,
+posh-cheddar-pickle-half-baguette,Posh Cheddar & Pickle Half Baguette,"Sandwiches, baguettes & wraps",,322,10.7,36,14.3,4.9,,1.41,9.3,3.3,1348,,,,,,vegetarian,false,true,,,
+prets-chicken-satay-half-baguette,Pret's Chicken Satay Half Baguette,"Sandwiches, baguettes & wraps",,269,13.8,32.4,8.8,1.6,,1.67,4.9,2.2,1129,,,,,,,false,true,,,
+smoked-salmon-egg-mayo-avo-baguette,"Smoked Salmon, Egg Mayo & Avo Baguette","Sandwiches, baguettes & wraps",,552,24.6,54.6,24.9,4.9,,2.86,2.4,5.7,2314,,,,,,,false,true,,,
+smoked-salmon-soft-cheese-dill-baguette,"Smoked Salmon, Soft Cheese & Dill Baguette","Sandwiches, baguettes & wraps",,501,27,53.4,19,4.9,,3.61,3.4,4.2,2104,,,,,,,false,true,,,
+wiltshire-cured-ham-greve-baguette,Wiltshire Cured Ham & Grevé Baguette,"Sandwiches, baguettes & wraps",,596,31.5,57.4,25.9,8.3,,3.85,3.2,3.4,2498,,,,,,contains_pork,false,true,,,
+avo-herb-wrap,Avo & Herb Wrap,"Sandwiches, baguettes & wraps",,502,12.5,40,31.1,6.2,,1.29,4.3,6,2091,,,,,,vegetarian,false,true,,,
+chicken-pesto-rocket-wrap,Chicken Pesto & Rocket Wrap,"Sandwiches, baguettes & wraps",,516,22.1,38.4,29.7,3.4,,2,3.4,3.2,2154,,,,,,,false,true,,,
+chicken-satay-wrap,Chicken Satay Wrap,"Sandwiches, baguettes & wraps",,460,24.4,45,19.2,3.4,,2.39,8.9,4.6,1927,,,,,,,false,true,,,
+falafel-avo-chipotle-flatbread,"Falafel, Avo & Chipotle Flatbread","Sandwiches, baguettes & wraps",,499,11.9,65.5,19.2,4.1,,0.79,16.2,8.3,2094,,,,,,vegetarian,false,true,,,
+falafel-avo-chipotle-half-flatbread,"Falafel, Avo & Chipotle Half Flatbread","Sandwiches, baguettes & wraps",,250,5.9,32.8,9.6,2,,0.39,8.1,4.1,1047,,,,,,vegetarian,false,true,,,
+hoisin-duck-wrap,Hoisin Duck Wrap,"Sandwiches, baguettes & wraps",,442,21,48.2,17.5,2.7,,2.61,12.5,3.8,1856,,,,,,,false,true,,,
+humous-chipotle-wrap,Humous & Chipotle Wrap,"Sandwiches, baguettes & wraps",,414,12.7,49.2,16,2,,1.61,11.5,11.3,1736,,,,,,vegetarian,false,true,,,
+mediterranean-style-tuna-flatbread,Mediterranean Style Tuna Flatbread,"Sandwiches, baguettes & wraps",,502,24.3,49.7,22.2,2.5,,1.52,8.7,3.2,2105,,,,,,,false,true,,,
+mediterranean-style-tuna-half-flatbread,Mediterranean Style Tuna Half Flatbread,"Sandwiches, baguettes & wraps",,251,12.1,24.9,11.1,1.3,,0.76,4.3,1.6,1052,,,,,,,false,true,,,
+shawarma-spiced-chicken-flatbread,Shawarma Spiced Chicken Flatbread,"Sandwiches, baguettes & wraps",,453,28.5,56.7,10.7,1.6,,2.14,15,7.8,1906,,,,,,,false,true,,,
+shawarma-spiced-chicken-half-flatbread,Shawarma Spiced Chicken Half Flatbread,"Sandwiches, baguettes & wraps",,226,14.2,28.4,5.3,0.8,,1.07,7.5,3.9,953,,,,,,,false,true,,,
+banana-cinnamon-porridge,Banana Cinnamon Porridge,Breakfast,,283,9,39.3,8.8,4.8,,0.19,20.4,5.1,1188,,,,,,vegetarian,false,true,,,
+coconut-quinoa-porridge,Coconut & Quinoa Porridge,Breakfast,,275,6.1,34.4,12.2,8.8,,0.34,3.2,1.5,1152,,,,,,vegetarian,false,true,,,
+prets-proper-porridge,Pret's Proper Porridge,Breakfast,,216,8.7,23.7,8.7,4.8,,0.18,6.9,4.2,906,,,,,,vegetarian,false,true,,,
+side-porridge,Side Porridge,Breakfast,,144,5.8,15.8,5.8,3.2,,0.12,4.6,2.8,604,,,,,,vegetarian,false,true,,,
+ham-cheese-croissant,Ham & Cheese Croissant,Breakfast,,312,13.5,19.9,19.4,9.8,,1.19,3.2,1.9,1300,,,,,,contains_pork,false,false,,,
+mozzarella-tomato-croissant,Mozzarella & Tomato Croissant,Breakfast,,373,12.9,24.1,24.6,13.9,,1.28,3.7,1.8,1555,,,,,,vegetarian,false,false,,,
+prets-veggie-breakfast-ciabatta,Pret's Veggie Breakfast Ciabatta,Breakfast,,372,17.1,40.4,14.9,4.5,,2.12,6.4,4.2,1561,,,,,,vegetarian,false,true,,,
+sausage-bacon-ciabatta,Sausage & Bacon Ciabatta,Breakfast,,467,23.2,37.1,24.5,10,,1.97,3.3,2.8,1952,,,,,,contains_pork,false,true,,,
+triple-bacon-ciabatta,Triple Bacon Ciabatta,Breakfast,,322,18.1,35.7,11.3,4.7,,1.36,2.5,2.2,1353,,,,,,contains_pork,false,true,,,
+triple-sausage-ciabatta,Triple Sausage Ciabatta,Breakfast,,469,19.8,37.8,25.9,10.1,,1.94,3.7,3,1960,,,,,,contains_pork,false,true,,,
+ultimate-breakfast-ciabatta,Ultimate Breakfast Ciabatta,Breakfast,,503,25.7,40.9,25.4,7.8,,2.56,7.1,3.8,2103,,,,,,contains_pork,false,true,,,
+british-sausages-prets-baked-beans-egg-pot,"British Sausages, Pret's Baked Beans & Egg Pot",Breakfast,,342,22.1,12,19.5,6.6,,1.7,6.4,14.9,1421,,,,,,contains_pork,false,true,,,
+roasted-mushroom-prets-baked-beans-egg-pot,"Roasted Mushroom, Pret's Baked Beans & Egg Pot",Breakfast,,191,14.1,11.2,6.6,1.5,,1.06,5.7,15.1,797,,,,,,vegetarian,false,true,,,kcal is above 4P+4C+9F because UK labels count fibre separately from carbohydrate (about 2 kcal/g); kcal entered as printed
+all-butter-croissant,All Butter Croissant,Breakfast,,291,6.5,27.5,16.8,11.5,,0.68,4.5,1.6,1213,,,,,,vegetarian,false,false,,,
+almond-croissant,Almond Croissant,Breakfast,,382,7.8,38.9,21.1,10.7,,0.53,14.3,2.6,1596,,,,,,vegetarian,false,false,,,
+chocolate-croissant,Chocolate Croissant,Breakfast,,350,5.9,33.4,20.6,12.3,,0.41,15.6,3.7,1461,,,,,,vegetarian,false,false,,,
+cinnamon-danish,Cinnamon Danish,Breakfast,,413,6.7,48.3,20.9,13.2,,1.01,24.1,2.5,1728,,,,,,vegetarian,false,false,,,
+pain-aux-raisins,Pain aux Raisins,Breakfast,,358,7,49,14.4,9.1,,0.85,21.4,2.5,1504,,,,,,vegetarian,false,false,,,
+very-berry-croissant,Very Berry Croissant,Breakfast,,299,4.4,41.7,12.2,7.4,,0.56,21.9,2.3,1255,,,,,,vegetarian,false,false,,,
+bacon-egg-mayo-breakfast-baguette,Bacon & Egg Mayo Breakfast Baguette,Breakfast,,348,16.6,38.7,13.7,3.4,,1.89,1.5,2,1463,,,,,,contains_pork,false,true,,,
+free-range-egg-avo-breakfast-baguette,Free-Range Egg & Avo Breakfast Baguette,Breakfast,,347,12.3,39,15,3.2,,2.09,1.7,3.2,1454,,,,,,vegetarian,false,true,,,
+roasted-tomato-egg-mayo-breakfast-baguette,Roasted Tomato & Egg Mayo Breakfast Baguette,Breakfast,,361,14.1,42.3,14.3,2.3,,1.88,5.2,3.2,1515,,,,,,vegetarian,false,true,,,
+smoked-salmon-egg-mayo-breakfast-baguette,Smoked Salmon & Egg Mayo Breakfast Baguette,Breakfast,,352,17.5,38.7,13.7,2.6,,2.14,1.5,1.9,1476,,,,,,,false,true,,,
+acai-almond-butter-bowl,Acai & Almond Butter Bowl,Breakfast,,338,8.1,43.7,12.9,1.6,,0.2,25.6,7.4,1416,,,,,,vegetarian,false,true,,,
+bircher-muesli,Bircher Muesli,Breakfast,,336,14,43.5,11,4.1,,0.27,32.7,3.8,1413,,,,,,vegetarian,false,true,,,
+blueberry-balance-bowl,Blueberry Balance Bowl,Breakfast,,318,12.9,33.8,13.6,9.3,,0.2,20,4.2,1331,,,,,,vegetarian,false,true,,,
+five-berry-bowl,Five Berry Bowl,Breakfast,,334,12.9,45.7,9.8,3.6,,0.32,26.1,5.7,1403,,,,,,vegetarian,false,true,,,
+mango-banana-sunshine-bowl,Mango & Banana Sunshine Bowl,Breakfast,,342,6.4,45.9,13.4,8.1,,0.06,24.2,5.7,1432,,,,,,vegetarian,false,true,,,
+the-big-apple-bowl,The Big Apple Bowl,Breakfast,,304,11.7,43.2,8.4,3.4,,0.24,29.3,4.2,1278,,,,,,vegetarian,false,true,,,
+crispy-potato-bites,Crispy Potato Bites,Hot food,,185,3.6,30,4.8,0.3,,1.19,1.5,3.9,780,,,,,,vegetarian,false,true,,,
+kale-cauli-macaroni-cheese,Kale & Cauli Macaroni Cheese,Hot food,,535,25.5,45.5,26.7,16.9,,1.72,6.2,5.1,2237,,,,,,vegetarian,false,true,,,
+butter-chicken-side-soup,Butter Chicken Side Soup,Hot food,,179,8.1,12.4,9.9,6.1,,0.93,6.3,4,748,,,,,,,false,true,,,
+butter-chicken-soup,Butter Chicken Soup,Hot food,,359,16.2,24.9,19.8,12.2,,1.86,12.5,7.9,1496,,,,,,,false,true,,,
+chicken-laksa-side-soup,Chicken Laksa Side Soup,Hot food,,148,4.3,11.3,9.1,7.6,,1.1,3.5,2,616,,,,,,,false,true,,,
+chicken-laksa-soup,Chicken Laksa Soup,Hot food,,296,8.7,22.5,18.1,15.2,,2.2,6.9,3.9,1232,,,,,,,false,true,,,
+creamy-roast-chicken-side-soup,Creamy Roast Chicken Side Soup,Hot food,,114,5.1,8.9,6.2,3.5,,1.06,1.9,1.1,478,,,,,,,false,true,,,
+creamy-roast-chicken-soup,Creamy Roast Chicken Soup,Hot food,,229,10.2,17.8,12.5,7,,2.12,3.8,2.1,955,,,,,,,false,true,,,
+prets-lasagne-side-soup,Pret's Lasagne Side Soup,Hot food,,153,6.9,12.2,8,2.2,,1.23,4.9,2,639,,,,,,contains_pork,false,true,,,
+prets-lasagne-soup,Pret's Lasagne Soup,Hot food,,302,13.7,24.1,15.8,4.3,,2.43,9.7,4,1260,,,,,,contains_pork,false,true,,,
+prets-mushroom-risotto,Pret's Mushroom Risotto,Hot food,,222,7.1,29.5,7.8,4.6,,2.16,2.7,3,934,,,,,,vegetarian,false,true,,,
+prets-mushroom-risotto-side-soup,Pret's Mushroom Risotto Side Soup,Hot food,,111,3.6,14.7,3.9,2.3,,1.08,1.4,1.5,467,,,,,,vegetarian,false,true,,,
+souper-tomato,Souper Tomato,Hot food,,141,6,15.1,5.2,0.4,,1.62,14.7,5,590,,,,,,vegetarian,false,true,,,
+souper-tomato-side-soup,Souper Tomato Side Soup,Hot food,,71,3,7.5,2.6,0.2,,0.81,7.4,2.5,295,,,,,,vegetarian,false,true,,,
+bacon-cheese-jalapeno-pastry,"Bacon, Cheese & Jalapeño Pastry",Hot food,,591,16.1,48.6,36.4,21.9,,2.23,5.8,2.3,2466,,,,,,contains_pork,false,false,,,
+prets-sausage-roll,Pret's Sausage Roll,Hot food,,384,13.7,22.4,26,13.4,,1.24,2.7,3,1600,,,,,,contains_pork,false,false,,,
+spinach-feta-pastry,Spinach & Feta Pastry,Hot food,,551,12.6,45,34.5,20.8,,1.92,4.7,5.2,2296,,,,,,vegetarian,false,false,,,
+chipotle-chicken,Chipotle Chicken,"Salads, plates & protein pots",,709,50.1,48.4,32,8.9,,2.53,13.6,13.9,2968,,,,,,,false,true,,,
+korean-bbq-tofu,Korean BBQ Tofu,"Salads, plates & protein pots",,449,21.5,51,15.4,10,,3.27,21,10.4,1886,,,,,,vegetarian,false,true,,,
+miso-salmon,Miso Salmon,"Salads, plates & protein pots",,761,36,43.4,47.1,7.1,,3.16,16.5,12.8,3167,,,,,,,false,true,,,
+shawarma-chicken,Shawarma Chicken,"Salads, plates & protein pots",,628,50.3,31.1,30.3,4,,2.82,14.3,14.9,2624,,,,,,,false,true,,,
+butternut-humous-mezze-bowl,Butternut & Humous Mezze Bowl,"Salads, plates & protein pots",,395,13.2,40.4,17,2.2,,1.62,12.1,13.5,1650,,,,,,vegetarian,false,true,,,
+butternut-humous-side-salad,Butternut & Humous Side Salad,"Salads, plates & protein pots",,149,5.5,12.7,7.2,0.8,,0.76,6.5,6,623,,,,,,vegetarian,false,true,,,
+chefs-italian-chicken-salad,Chef's Italian Chicken Salad,"Salads, plates & protein pots",,526,25.3,12,41.2,5.9,,2.3,10.3,3.2,2184,,,,,,,false,true,,,
+chicken-greens-protein-plate,Chicken & Greens Protein Plate,"Salads, plates & protein pots",,285,34.2,14.6,9,2.1,,2.85,9.2,4.3,1198,,,,,,,false,true,,,
+classic-green-side-salad,Classic Green Side Salad,"Salads, plates & protein pots",,180,6.8,6.2,13.9,3.3,,0.44,5.1,1.5,748,,,,,,vegetarian,false,true,,,
+miso-chicken-rice-bowl,Miso Chicken Rice Bowl,"Salads, plates & protein pots",,385,26.6,34.3,14.5,1.8,,2.98,17.5,7.1,1613,,,,,,,false,true,,,
+smoked-salmon-egg-protein-plate,Smoked Salmon & Egg Protein Plate,"Salads, plates & protein pots",,413,32,7.7,27.3,5.6,,3.09,1.9,3.9,1718,,,,,,,false,true,,,
+tuna-nicoise-salad,Tuna Nicoise Salad,"Salads, plates & protein pots",,357,29.6,8.5,22.4,3.4,,1.97,7,1.5,1490,,,,,,,false,true,,,
+chicken-edamame-protein-pot,Chicken & Edamame Protein Pot,"Salads, plates & protein pots",,195,26.6,7,6.1,1.2,,1.22,0.8,3,820,,,,,,,false,true,,,
+egg-spinach-protein-pot,Egg & Spinach Protein Pot,"Salads, plates & protein pots",,103,11.4,2.3,5.3,1.5,,0.57,0.2,0.3,432,,,,,,vegetarian,false,true,,,
+smoked-salmon-egg-protein-pot,Smoked Salmon & Egg Protein Pot,"Salads, plates & protein pots",,136,12.9,1.9,8.4,1.7,,1.61,0.7,0.5,565,,,,,,,false,true,,,
+salt-cider-vinegar-crisps,Salt & Cider Vinegar Crisps,Snacks & sweet treats,,206,1.9,21.3,12.2,0.9,,0.65,0.4,1.7,859,,,,,,vegetarian,false,false,,,
+mature-cheddar-red-onion-crisps,Mature Cheddar & Red Onion Crisps,Snacks & sweet treats,,210,2.6,20.5,12.7,1,,0.53,1,1.8,874,,,,,,vegetarian,false,false,,,
+salted-popcorn,Salted Popcorn,Snacks & sweet treats,,136,2.5,14.2,6.9,0.5,,0.44,0.1,3.5,567,,,,,,vegetarian,false,false,,,
+sea-salt-crisps,Sea Salt Crisps,Snacks & sweet treats,,213,2.4,22,12.4,1.4,,0.36,0.2,1.7,888,,,,,,vegetarian,false,false,,,
+smoky-chipotle-crisps,Smoky Chipotle Crisps,Snacks & sweet treats,,208,2.2,21,12.4,0.9,,0.39,0.9,1.9,867,,,,,,vegetarian,false,false,,,
+sweet-salt-popcorn,Sweet & Salt Popcorn,Snacks & sweet treats,,157,1.7,15.2,9.3,0.7,,0.24,5.4,2.4,653,,,,,,vegetarian,false,false,,,
+pastel-de-nata,Pastel De Nata,Snacks & sweet treats,,157,2.9,21.2,6.2,4,,0.33,11.8,2.2,659,,,,,,vegetarian,false,false,,,
+choc-bar,Choc Bar,Snacks & sweet treats,,380,3.1,37.3,23.5,14.1,,0.32,22.7,3.1,1583,,,,,,vegetarian,false,false,,,
+chocolate-brownie-bar,Chocolate Brownie Bar,Snacks & sweet treats,,321,4,30,19.9,12.4,,0.1,25.3,2.8,1336,,,,,,vegetarian,false,false,,,
+dark-chocolate-corn-cakes,Dark Chocolate Corn Cakes,Snacks & sweet treats,,82,1.2,10.4,3.7,2.2,,0.01,4.4,0.8,341,,,,,,vegetarian,false,false,,,
+dark-chocolate-with-sea-salt,Dark Chocolate with Sea Salt,Snacks & sweet treats,,172,2.7,9.5,12.9,7.8,,0,8.3,3.9,715,,,,,,vegetarian,false,false,,,
+love-bar,Love Bar,Snacks & sweet treats,,348,3.8,41.2,18,9,,0.4,20.8,3,1454,,,,,,vegetarian,false,false,,,
+milk-chocolate-bar,Milk Chocolate Bar,Snacks & sweet treats,,172,2.3,13.3,11.8,7.2,,0,13,1.6,717,,,,,,vegetarian,false,false,,,
+popcorn-bar,Popcorn Bar,Snacks & sweet treats,,176,1.7,21.8,8.9,5.1,,0.13,12.5,0.8,737,,,,,,vegetarian,false,false,,,
+pret-bar,Pret Bar,Snacks & sweet treats,,279,4,34.6,13.4,7,,0.11,22.4,2.6,1169,,,,,,vegetarian,false,false,,,
+cranberries-in-coats,Cranberries in Coats,Snacks & sweet treats,,235,0.5,36.5,9.5,5.5,,0.1,31,0.8,988,,,,,,,false,false,,,
+dark-chocolate-salted-almonds,Dark Chocolate Salted Almonds,Snacks & sweet treats,,215,5.5,12.4,15.1,5.3,,0.2,7.9,3.5,892,,,,,,vegetarian,false,false,,,
+nuts-fruit-chocolate,"Nuts, Fruit, Chocolate",Snacks & sweet treats,,196,5.7,13.4,12.8,2,,0.01,10.1,2.2,815,,,,,,vegetarian,false,false,,,
+pret-a-mango,Pret A Mango,Snacks & sweet treats,,118,0.7,26.9,0.4,0.1,,0,17.5,1.8,500,,,,,,vegetarian,false,false,,,
+chocolate-chunk-cookie,Chocolate Chunk Cookie,Snacks & sweet treats,,329,4.1,48.9,12.5,7.4,,0.41,25.2,2.1,1381,,,,,,vegetarian,false,false,,,
+chocolate-hazelnut-praline-cookie,Chocolate Hazelnut Praline Cookie,Snacks & sweet treats,,424,5.5,50.4,21.8,11.4,,0.39,31,2.2,1775,,,,,,vegetarian,false,false,,,
+double-berry-muffin,Double Berry Muffin,Snacks & sweet treats,,441,6.6,53.4,21.6,2.5,,0.72,30.5,3.5,1846,,,,,,vegetarian,false,false,,,
+loaded-chocolate-chunk-banana-bread,Loaded Chocolate Chunk Banana Bread,Snacks & sweet treats,,560,7.5,59.3,31.7,7.8,,0.86,37.4,3.5,2338,,,,,,vegetarian,false,false,,,
+nutty-pistachio-almond-loaf-cake,Nutty Pistachio & Almond Loaf Cake,Snacks & sweet treats,,604,12.3,34.7,45.5,17.9,,0.94,32.8,3.1,2508,,,,,,vegetarian,false,false,,,
+prets-gingerbread-biscuit-godfrey,Pret's Gingerbread Biscuit Godfrey,Snacks & sweet treats,,200,2.1,33.2,6.3,2.8,,0.34,17.5,0.7,840,,,,,,vegetarian,false,false,,,
+raspberry-white-chocolate-cookie,Raspberry & White Chocolate Cookie,Snacks & sweet treats,,412,4.5,55.8,18.6,11.9,,0.54,35.6,1.6,1728,,,,,,vegetarian,false,false,,,
+triple-chocolate-cookie,Triple Chocolate Cookie,Snacks & sweet treats,,414,5.5,51.8,20,12.7,,0.21,34.4,2.2,1733,,,,,,vegetarian,false,false,,,
+zingy-lemon-almond-loaf-cake,Zingy Lemon & Almond Loaf Cake,Snacks & sweet treats,,592,9.4,44.7,41.2,14.8,,0.85,42.3,2.6,2464,,,,,,vegetarian,false,false,,,
+apple,Apple,Fruit,,85,0.6,18.9,0.2,0,,0.02,18.9,2.9,360,,,,,,vegetarian,false,false,,,
+banana,Banana,Fruit,,76,0.9,17.2,0.2,0.1,,0,13.4,1,323,,,,,,vegetarian,false,false,,,
+fruit-salad,Fruit Salad,Fruit,,107,1.3,22.7,0.4,0,,0.02,22.7,3.1,451,,,,,,vegetarian,false,false,,,
+mango-lime,Mango & Lime,Fruit,,72,1,14.1,0.9,0.1,,0.01,13.8,1.5,303,,,,,,vegetarian,false,false,,,
+super-fruit,Super Fruit,Fruit,,88,1.4,17,1,0.2,,0.01,16.7,2.5,370,,,,,,vegetarian,false,false,,,
+kids-cheese-tomato-triangles,Kids' Cheese & Tomato Triangles,Little Pret Stars,,369,17.9,43.2,12.9,7.5,,1.25,3.9,4.1,1550,,,,,,vegetarian,false,false,,,
+kids-chicken-cucumber-triangles,Kids' Chicken & Cucumber Triangles,Little Pret Stars,,381,18.6,41.8,14.7,1.5,,1.61,2.7,3.6,1600,,,,,,,false,false,,,
+kids-ham-triangles,Kids' Ham Triangles,Little Pret Stars,,288,13.9,40.8,7,3.8,,1.72,2.2,3.5,1215,,,,,,contains_pork,false,false,,,
+kids-humous-cucumber-bowl,Kids' Humous & Cucumber Bowl,Little Pret Stars,,84,3,3,5.9,0.7,,0.33,1.2,3.2,347,,,,,,vegetarian,false,false,,,
+kids-mango-banana-yogurt-pot,Kids' Mango & Banana Yogurt Pot,Little Pret Stars,,101,6.1,9.3,4.3,2.9,,0.15,8.8,0.2,422,,,,,,vegetarian,false,false,,,
+kids-pizza-toastie,Kids' Pizza Toastie,Little Pret Stars,,379,16.9,44.3,13.9,6.5,,1.42,4.3,4.4,1590,,,,,,,false,false,,,
+americano,Americano,Hot drinks,,2,0,0,0.2,0,,0.15,0,0,7,,,,,,vegetarian,false,false,,,
+americano-oat-milk,Americano (oat milk),Hot drinks,,45,0.2,9.4,0.7,0.5,50,0.1,4.9,0.2,189,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+americano-semi-skimmed-milk,Americano (semi-skimmed milk),Hot drinks,,36,2.6,3.8,1.2,0.8,40,0.1,3.8,0,152,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+americano-soya-milk-decaf,"Americano (soya milk, decaf)",Hot drinks,,30,2.3,2.1,1.4,0.2,15,0,2,0.4,125,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+americano-black-decaf,"Americano (black, decaf)",Hot drinks,,3,0,0,0,0,0,0,0,0,17,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+americano-skimmed-milk-decaf,"Americano (skimmed milk, decaf)",Hot drinks,,14,1,1.4,0.5,0.3,0,0,1.4,0,59,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+americano-semi-skimmed-milk-decaf,"Americano (semi-skimmed milk, decaf)",Hot drinks,,35,2.6,3.4,1.3,0.8,40,0.1,3.4,,147,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+americano-skimmed-milk,Americano (skimmed milk),Hot drinks,,27,2.6,3.8,0.2,0.1,40,0.1,3.8,0,115,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+americano-soya-milk,Americano (soya milk),Hot drinks,,30,2.3,2.1,1.4,0.2,15,0,2,0.4,125,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+americano-oat-milk-decaf,"Americano (oat milk, decaf)",Hot drinks,,45,0.2,9.4,0.7,0.5,50,0.1,4.9,0.2,189,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+cappuccino-semi-skimmed-milk,Cappuccino (semi-skimmed milk),Hot drinks,,116,8.2,11.6,4.1,2.6,,0.15,11.5,0.2,488,,,,,,vegetarian,false,false,,,
+cappuccino-skimmed-milk-decaf,"Cappuccino (skimmed milk, decaf)",Hot drinks,,92,6.6,8.8,3.3,2.1,80,0.2,8.8,0,384,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+cappuccino-skimmed-milk,Cappuccino (skimmed milk),Hot drinks,,92,6.6,8.8,3.3,2.1,80,0.2,8.8,0,384,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+cappuccino-oat-milk-decaf,"Cappuccino (oat milk, decaf)",Hot drinks,,116,0.6,24.4,1.8,1.4,80,0.2,12.7,0.4,492,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+cappuccino-soya-milk,Cappuccino (soya milk),Hot drinks,,92,7.3,5.5,4.2,0.8,100,0.3,5.4,1.2,385,,0.8,2.5,0,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+cappuccino-oat-milk,Cappuccino (oat milk),Hot drinks,,116,0.6,24.4,1.8,1.4,80,0.2,12.7,0.4,492,,0.4,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+cappuccino-soya-milk-decaf,"Cappuccino (soya milk, decaf)",Hot drinks,,92,7.3,5.5,4.2,0.8,100,0.3,5.4,1.2,385,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+cappuccino-semi-skimmed-milk-decaf,"Cappuccino (semi-skimmed milk, decaf)",Hot drinks,,92,6.6,8.8,3.3,2.1,80,0.2,8.8,0,384,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+espresso,Espresso,Hot drinks,,2,0,0,0.2,0,,0.15,0,0,7,,,,,,vegetarian,false,false,,,
+espresso-black-decaf,"Espresso (black, decaf)",Hot drinks,,0,0,0,0,,0,0,0,0,0,,,,,,vegetarian,false,false,,,"saturates not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+filter-coffee,Filter Coffee,Hot drinks,,2,0,0,0.2,0,,0.16,0,0,8,,,,,,vegetarian,false,false,,,
+filter-coffee-oat-milk,Filter Coffee (oat milk),Hot drinks,,16,0.1,2.5,0.6,0.2,,0.2,1.2,0.3,67,,,,,,vegetarian,false,false,,,
+filter-coffee-skimmed-milk,Filter Coffee (skimmed milk),Hot drinks,,12,1,1.5,0.3,0,,0.16,1.4,0,52,,,,,,vegetarian,false,false,,,
+filter-coffee-semi-skimmed-milk,Filter Coffee (semi-skimmed milk),Hot drinks,,16,1.1,1.5,0.7,0.3,,0.16,1.5,0,68,,,,,,vegetarian,false,false,,,
+filter-coffee-soya-milk,Filter Coffee (soya milk),Hot drinks,,15,1.1,0.8,0.8,0.1,,0.21,0.8,0.2,64,,,,,,vegetarian,false,false,,,
+flat-white-semi-skimmed-milk,Flat White (semi-skimmed milk),Hot drinks,,98,6.8,10,3.4,2,,0.15,10,0,411,,,,,,vegetarian,false,false,,,
+flat-white-skimmed-milk,Flat White (skimmed milk),Hot drinks,,80,5.8,7.7,2.9,1.8,80,0.2,7.7,,335,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+flat-white-oat-milk-decaf,"Flat White (oat milk, decaf)",Hot drinks,,105,0.5,21.9,1.6,1.2,50,0.1,11.4,0.4,442,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+flat-white-oat-milk,Flat White (oat milk),Hot drinks,,104,0.5,22,1.6,1.2,70,0.2,11.4,0.4,441,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+flat-white-soya-milk,Flat White (soya milk),Hot drinks,,77,6.3,4.1,3.6,0.7,90,0.2,4.1,1,323,,0.7,2.2,0,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+flat-white-soya-milk-decaf,"Flat White (soya milk, decaf)",Hot drinks,,77,6.3,4.1,3.6,0.7,90,0.2,4.1,1,323,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+flat-white-semi-skimmed-milk-decaf,"Flat White (semi-skimmed milk, decaf)",Hot drinks,,80,5.8,7.7,2.9,1.8,80,0.2,7.7,,335,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+flat-white-skimmed-milk-decaf,"Flat White (skimmed milk, decaf)",Hot drinks,,80,5.8,7.7,2.9,1.8,80,0.2,7.7,,335,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+latte-semi-skimmed-milk,Latte (semi-skimmed milk),Hot drinks,,136,9.5,14,4.6,2.8,,0.15,14,0,573,,,,,,vegetarian,false,false,,,
+latte-skimmed-milk-decaf,"Latte (skimmed milk, decaf)",Hot drinks,,118,8.5,11.3,4.3,2.7,120,0.3,11.3,,494,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+latte-skimmed-milk,Latte (skimmed milk),Hot drinks,,118,8.5,11.3,4.3,2.7,120,0.3,11.3,0,494,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+latte-oat-milk-decaf,"Latte (oat milk, decaf)",Hot drinks,,149,0.8,31.3,2.3,1.8,100,0.3,16.3,0.5,631,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+latte-soya-milk,Latte (soya milk),Hot drinks,,113,9.3,6.1,5.3,1,130,0.3,6,1.5,473,,1,3.3,0,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+latte-oat-milk,Latte (oat milk),Hot drinks,,167,0.8,35,2.5,2,100,0.3,18.2,0.6,707,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+latte-semi-skimmed-milk-decaf,"Latte (semi-skimmed milk, decaf)",Hot drinks,,118,8.5,11.3,4.3,2.7,120,0.3,11.3,,494,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+latte-soya-milk-decaf,"Latte (soya milk, decaf)",Hot drinks,,113,9.3,6.1,5.3,1,132,0.3,6,1.5,473,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+macchiato-semi-skimmed-milk,Macchiato (semi-skimmed milk),Hot drinks,,7,0.4,0.6,0.3,0.1,,0.15,0.6,0,29,,,,,,vegetarian,false,false,,,
+macchiato-oat-milk,Macchiato (oat milk),Hot drinks,,6,0,1.3,0.1,0.1,0,0,0.7,0,25,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+macchiato-skimmed-milk,Macchiato (skimmed milk),Hot drinks,,5,0.4,0.5,0.2,0.1,0,0,0.5,0,21,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+macchiato-soya-milk-decaf,"Macchiato (soya milk, decaf)",Hot drinks,,4,0.3,0.3,0.2,0,0,0,0.3,0.1,7,,,,,,vegetarian,false,false,,,"printed kJ 7 and kcal 4 do not agree; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+macchiato-semi-skimmed-milk-decaf,"Macchiato (semi-skimmed milk, decaf)",Hot drinks,,5,0.4,0.5,0,,0,0,0.5,,21,,,,,,vegetarian,false,false,,,"saturates not printed; fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+macchiato-skimmed-milk-decaf,"Macchiato (skimmed milk, decaf)",Hot drinks,,5,0.4,0.5,0,,0,0,0.5,,21,,,,,,vegetarian,false,false,,,"saturates not printed; fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+macchiato-oat-milk-decaf,"Macchiato (oat milk, decaf)",Hot drinks,,6,0,1.3,0.1,0.1,0,0,0.7,0,25,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+macchiato-soya-milk,Macchiato (soya milk),Hot drinks,,4,0.3,0.3,0.2,0,0,0,0.3,0.1,17,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+mocha-semi-skimmed-milk,Mocha (semi-skimmed milk),Hot drinks,,196,10.7,25,5.3,3.3,,0.17,24.2,2.8,825,,,,,,vegetarian,false,false,,,
+mocha-skimmed-milk,Mocha (skimmed milk),Hot drinks,,185,9.3,24.4,5.2,3.3,105,0.3,23.4,1.5,778,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+mocha-oat-milk-decaf,"Mocha (oat milk, decaf)",Hot drinks,,216,1.9,44,3.3,2.4,100,0.3,28.2,1.9,915,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+mocha-oat-milk,Mocha (oat milk),Hot drinks,,216,1.9,44,3.3,2.4,100,0.3,28.2,1.9,915,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+mocha-soya-milk,Mocha (soya milk),Hot drinks,,181,10.1,19.5,6.2,1.6,123,0.3,18.4,2.9,760,,1,3.1,0,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+mocha-soya-milk-decaf,"Mocha (soya milk, decaf)",Hot drinks,,181,10.1,19.5,6.2,1.6,123,0.3,18.4,2.9,760,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+mocha-skimmed-milk-decaf,"Mocha (skimmed milk, decaf)",Hot drinks,,185,9.3,24.4,5.2,3.3,105,0.3,23.4,1.5,778,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+mocha-semi-skimmed-milk-decaf,"Mocha (semi-skimmed milk, decaf)",Hot drinks,,185,9.3,24.4,5.2,3.3,105,0.3,23.4,1.5,778,,1,0,0.2,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+pumpkin-spice-latte-semi-skimmed-milk,Pumpkin Spice Latte (semi-skimmed milk),Hot drinks,,183,9.3,25.5,4.7,2.9,,0.17,24.6,0.5,770,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+pumpkin-spice-latte-skimmed-milk,Pumpkin Spice Latte (skimmed milk),Hot drinks,,148,8.8,25.8,1,0.3,,0.17,23.8,0.5,628,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+pumpkin-spice-latte-soya-milk,Pumpkin Spice Latte (soya milk),Hot drinks,,173,9.9,19.4,5.8,1.1,,0.57,18.6,2.1,728,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+pumpkin-spice-latte-oat-milk,Pumpkin Spice Latte (oat milk),Hot drinks,,179,0.9,34.5,3.6,1.3,,0.44,22.5,2.7,757,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+pumpkin-spice-latte-skimmed-milk-decaf,"Pumpkin Spice Latte (skimmed milk, decaf)",Hot drinks,,148,8.8,25.8,1,0.3,,0.17,23.8,0.5,628,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+pumpkin-spice-latte-semi-skimmed-milk-decaf,"Pumpkin Spice Latte (semi-skimmed milk, decaf)",Hot drinks,,183,9.3,25.5,4.7,2.9,,0.17,24.6,0.5,770,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+pumpkin-spice-latte-soya-milk-decaf,"Pumpkin Spice Latte (soya milk, decaf)",Hot drinks,,173,9.9,19.4,5.8,1.1,,0.57,18.6,2.1,728,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+pumpkin-spice-latte-oat-milk-decaf,"Pumpkin Spice Latte (oat milk, decaf)",Hot drinks,,179,0.9,34.5,3.6,1.3,,0.44,22.5,2.7,757,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+pumpkin-spice-latte-skimmed-milk-decaf-pod,"Pumpkin Spice Latte (skimmed milk, decaf pod)",Hot drinks,,148,8.8,25.7,1,0.3,,0.15,23.8,0.5,627,,,,,,vegetarian,true,false,,,Pret's own description calls it seasonal
+toasted-marshmallow-hot-chocolate,Toasted Marshmallow Hot Chocolate,Hot drinks,,360,11.4,38.7,17,4.9,,0.02,38,2.8,1505,,,,,,vegetarian,false,false,,,
+toasted-marshmallow-latte,Toasted Marshmallow Latte,Hot drinks,,293,9.9,26.1,16.6,4.6,,0.17,26.1,0,1226,,,,,,vegetarian,false,false,,,
+babyccino-semi-skimmed-milk,Babyccino (semi-skimmed milk),Hot drinks,,18,1.1,2.1,0.5,0.4,,0,2.1,0.2,77,,,,,,vegetarian,false,false,,,
+babyccino-skimmed-milk,Babyccino (skimmed milk),Hot drinks,,14,1.1,2.1,0.1,0.1,,0,2,0.2,61,,,,,,vegetarian,false,false,,,
+babyccino-soya-milk,Babyccino (soya milk),Hot drinks,,17,1.2,1.4,0.7,0.1,,0.05,1.4,0.3,72,,,,,,vegetarian,false,false,,,
+breakfast-tea-semi-skimmed-milk,Breakfast Tea (semi-skimmed milk),Hot drinks,,15,1,1.5,0.5,0.3,,0,1.6,0,61,,,,,,vegetarian,false,false,,,sugars printed higher than carbohydrate
+breakfast-tea-oat-milk,Breakfast Tea (oat milk),Hot drinks,,45,0.2,9.4,0.7,0.5,50,0.1,4.9,0.2,189,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+breakfast-tea-black,Breakfast Tea (black),Hot drinks,,0,0,0,0,0,0,0,0,0,0,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+breakfast-tea-skimmed-milk,Breakfast Tea (skimmed milk),Hot drinks,,14,1,1.4,0.5,0.3,0,0,1.4,0,59,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+breakfast-tea-soya-milk,Breakfast Tea (soya milk),Hot drinks,,33,2.3,1.8,1.6,0.3,0,0,1.8,0.5,141,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+chai-latte-semi-skimmed-milk,Chai Latte (semi-skimmed milk),Hot drinks,,207,11.2,28.1,5.5,3.5,,0.01,27.2,0.5,874,,,,,,vegetarian,false,false,,,
+chai-latte-skimmed-milk,Chai Latte (skimmed milk),Hot drinks,,164,10.4,28.2,1,0.3,,0.01,26,0.5,696,,,,,,vegetarian,false,false,,,
+chai-latte-soya-milk,Chai Latte (soya milk),Hot drinks,,194,11.7,20.6,6.6,1.3,,0.48,19.7,2.4,813,,,,,,vegetarian,false,false,,,
+chai-latte-oat-milk,Chai Latte (oat milk),Hot drinks,,201,1,38.5,4.1,1.6,,0.32,24.5,3.1,848,,,,,,vegetarian,false,false,,,
+earl-grey-tea-semi-skimmed-milk,Earl Grey Tea (semi-skimmed milk),Hot drinks,,15,1,1.5,0.5,0.3,,0,1.5,0,61,,,,,,vegetarian,false,false,,,
+earl-grey-tea-oat-milk,Earl Grey Tea (oat milk),Hot drinks,,45,0.2,9.4,0.7,0.5,50,0.1,4.9,0.2,189,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+earl-grey-tea-black,Earl Grey Tea (black),Hot drinks,,0,0,0,0,0,0,0,0,0,0,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+earl-grey-tea-skimmed-milk,Earl Grey Tea (skimmed milk),Hot drinks,,14,1,1.4,0.5,0.3,0,0,1.4,0,59,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+earl-grey-tea-soya-milk,Earl Grey Tea (soya milk),Hot drinks,,33,2.3,1.8,1.6,0.3,0,0,1.8,0.5,141,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+hot-chocolate-semi-skimmed-milk,Hot Chocolate (semi-skimmed milk),Hot drinks,,247,11.5,35.3,5.4,3.4,,0.04,34,5.3,1039,,,,,,vegetarian,false,false,,,
+hot-chocolate-skimmed-milk,Hot Chocolate (skimmed milk),Hot drinks,,256,10.6,37.5,6.4,4,105,0.3,35.5,2.8,1077,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+hot-chocolate-oat-milk,Hot Chocolate (oat milk),Hot drinks,,287,3,57.1,4.4,3,100,0.3,40.4,3.3,1212,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+hot-chocolate-soya-milk,Hot Chocolate (soya milk),Hot drinks,,251,11.4,32.4,7.4,2.3,124,0.3,30.4,4.3,1055,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+matcha-latte,Matcha Latte,Hot drinks,,86,1.2,15.3,2.1,2,,0.28,11.8,0.6,361,,,,,,vegetarian,false,false,,,
+matcha-latte-skimmed-milk,Matcha Latte (skimmed milk),Hot drinks,,105,9.8,14.2,0.9,0.3,,0,12.3,0,444,,,,,,vegetarian,false,false,,,
+matcha-latte-soya-milk,Matcha Latte (soya milk),Hot drinks,,131,11,7.5,6,1.1,,0.42,6.7,1.7,548,,,,,,vegetarian,false,false,,,
+matcha-latte-semi-skimmed-milk,Matcha Latte (semi-skimmed milk),Hot drinks,,141,10.4,13.9,4.9,3.1,,0,13.2,0,594,,,,,,vegetarian,false,false,,,
+matcha-latte-oat-milk,Matcha Latte (oat milk),Hot drinks,,138,1.4,23.4,3.7,1.4,,0.28,10.9,2.2,580,,,,,,vegetarian,false,false,,,
+peppermint-tea,Peppermint Tea,Hot drinks,,0,0,0,0,0,,0,0,0,0,,,,,,vegetarian,false,false,,,
+tropical-green-tea,Tropical Green Tea,Hot drinks,,0,0,0,0,0,,0,0,0,0,,,,,,vegetarian,false,false,,,
+iced-chai-latte-semi-skimmed-milk,Iced Chai Latte (semi-skimmed milk),Cold drinks,,162,8.2,23.3,4,2.6,,0.01,23.2,0,683,,,,,,vegetarian,false,false,,,
+iced-chai-latte-skimmed-milk,Iced Chai Latte (skimmed milk),Cold drinks,,131,7.8,23.5,0.7,0.2,,0.01,22.4,0,558,,,,,,vegetarian,false,false,,,
+iced-chai-latte-soya-milk,Iced Chai Latte (soya milk),Cold drinks,,153,8.7,17.9,4.9,0.9,,0.36,17.8,1.4,645,,,,,,vegetarian,false,false,,,
+iced-chai-latte-oat-milk,Iced Chai Latte (oat milk),Cold drinks,,159,0.7,31.3,3.1,1.2,,0.24,21.3,1.9,671,,,,,,vegetarian,false,false,,,
+iced-hot-chocolate,Iced Hot Chocolate,Cold drinks,,197,7.9,30.5,3.7,2.3,,0.03,29.1,5.3,831,,,,,,vegetarian,false,false,,,
+iced-matcha-latte,Iced Matcha Latte,Cold drinks,,63,1,11.2,1.5,1.4,,0.2,8.4,0.4,266,,,,,,vegetarian,false,false,,,
+iced-matcha-latte-soya-milk,Iced Matcha Latte (soya milk),Cold drinks,,95,8,5.6,4.3,0.8,,0.3,4.8,1.2,399,,,,,,vegetarian,false,false,,,
+iced-matcha-latte-skimmed-milk,Iced Matcha Latte (skimmed milk),Cold drinks,,77,7.2,10.4,0.7,0.2,,0,8.8,0,325,,,,,,vegetarian,false,false,,,
+iced-matcha-latte-semi-skimmed-milk,Iced Matcha Latte (semi-skimmed milk),Cold drinks,,103,7.6,10.2,3.5,2.2,,0,9.4,0,432,,,,,,vegetarian,false,false,,,
+iced-matcha-latte-oat-milk,Iced Matcha Latte (oat milk),Cold drinks,,100,1.2,17,2.7,1,,0.2,7.8,1.6,422,,,,,,vegetarian,false,false,,,
+caramel-frappe,Caramel Frappé,Cold drinks,,423,13.9,43,21.7,7.9,,0.17,33.6,0.4,1772,,,,,,vegetarian,false,false,,,
+classic-frappe-semi-skimmed-milk,Classic Frappe (semi-skimmed milk),Cold drinks,,365,10.6,26.7,23.9,7.4,,0.15,17.3,0.4,1522,,,,,,vegetarian,false,false,,,
+classic-frappe-skimmed-milk,Classic Frappe (skimmed milk),Cold drinks,,350,13.5,31.3,18.9,5.9,,0.17,21.1,0.4,1463,,,,,,vegetarian,false,false,,,
+classic-frappe-semi-skimmed-milk-decaf,"Classic Frappe (semi-skimmed milk, decaf)",Cold drinks,,376,13.9,31.1,21.7,7.9,,0.17,21.7,0.4,1570,,,,,,vegetarian,false,false,,,
+classic-frappe-skimmed-milk-decaf,"Classic Frappe (skimmed milk, decaf)",Cold drinks,,350,13.5,31.3,18.9,5.9,,0.17,21.1,0.4,1463,,,,,,vegetarian,false,false,,,
+frozen-hot-chocolate-semi-skimmed-milk,Frozen Hot Chocolate (semi-skimmed milk),Cold drinks,,503,16.8,54.8,22.8,8.7,,0.04,44.1,5.7,2105,,,,,,vegetarian,false,false,,,
+frozen-hot-chocolate-skimmed-milk,Frozen Hot Chocolate (skimmed milk),Cold drinks,,477,16.4,55,20,6.7,,0.04,43.4,5.7,1998,,,,,,vegetarian,false,false,,,
+hazelnut-frappe,Hazelnut Frappé,Cold drinks,,423,13.9,42.8,21.7,7.9,,0.17,33.4,0.4,1769,,,,,,vegetarian,false,false,,,
+iced-black-americano,Iced Black Americano,Cold drinks,,2,0,0,0.2,0,,0.15,0,0,7,,,,,,vegetarian,false,false,,,
+iced-black-americano-skimmed-milk,Iced Black Americano (skimmed milk),Cold drinks,,35,2.6,3.4,1.3,0.8,32,0.1,3.4,,147,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-black-americano-semi-skimmed-milk,Iced Black Americano (semi-skimmed milk),Cold drinks,,35,2.6,3.4,1.3,0.8,32,0.1,3.4,0,147,,0.3,0,0.1,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-black-americano-soya-milk-decaf,"Iced Black Americano (soya milk, decaf)",Cold drinks,,33,2.8,1.8,1.6,0.3,0,0,1.8,0.5,141,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-black-americano-semi-skimmed-milk-decaf,"Iced Black Americano (semi-skimmed milk, decaf)",Cold drinks,,36,2.6,3.8,1.2,0.8,45,0.1,3.8,,151,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-black-americano-black-decaf,"Iced Black Americano (black, decaf)",Cold drinks,,0,0,0,0,0,0,0,0,0,0,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-black-americano-skimmed-milk-decaf,"Iced Black Americano (skimmed milk, decaf)",Cold drinks,,36,2.6,3.8,1.2,0.8,45,0.1,3.8,,151,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-black-americano-oat-milk-decaf,"Iced Black Americano (oat milk, decaf)",Cold drinks,,45,0.2,9.4,0.7,0.5,40,0.1,4.9,0.2,189,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-black-americano-oat-milk,Iced Black Americano (oat milk),Cold drinks,,45,0.2,9.4,0.7,0.5,40,0.1,4.9,0.2,189,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-latte-semi-skimmed-milk,Iced Latte (semi-skimmed milk),Cold drinks,,98,6.8,10,3.4,2,,0.15,10,0,411,,,,,,vegetarian,false,false,,,
+iced-latte-skimmed-milk,Iced Latte (skimmed milk),Cold drinks,,120,8.6,11.5,4.4,2.7,120,0.3,11.4,,504,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-latte-semi-skimmed-milk-decaf,"Iced Latte (semi-skimmed milk, decaf)",Cold drinks,,133,9.6,12.8,4.8,3,124,0.3,12.7,0,559,,1.1,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-latte-soya-milk,Iced Latte (soya milk),Cold drinks,,113,9.3,6.1,5.3,1,128,0.3,6,1.5,473,,1,3.3,0,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-latte-soya-milk-decaf,"Iced Latte (soya milk, decaf)",Cold drinks,,113,9.3,6.1,5.3,1,128,0.3,6,1.5,473,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-latte-skimmed-milk-decaf,"Iced Latte (skimmed milk, decaf)",Cold drinks,,118,8.5,11.3,4.3,2.7,120,0.3,11.3,,494,,,,,,vegetarian,false,false,,,"fibre not printed; row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-latte-oat-milk-decaf,"Iced Latte (oat milk, decaf)",Cold drinks,,149,0.8,31.3,2.3,1.8,80,0.2,16.3,0.5,631,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-latte-oat-milk,Iced Latte (oat milk),Cold drinks,,149,0.8,31.3,2.3,1.8,80,0.2,16.3,0.5,631,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-mocha-semi-skimmed-milk,Iced Mocha (semi-skimmed milk),Cold drinks,,159,8,21.4,4,2.4,,0.17,20.6,2.8,669,,,,,,vegetarian,false,false,,,
+iced-mocha-soya-milk,Iced Mocha (soya milk),Cold drinks,,160,8.6,18,5.3,1.5,125,0.3,17.1,2.6,669,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-mocha-skimmed-milk,Iced Mocha (skimmed milk),Cold drinks,,143,8,23.2,1.7,0.9,125,0.3,22.3,1.4,604,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-mocha-soya-milk-decaf,"Iced Mocha (soya milk, decaf)",Cold drinks,,160,8.6,18,5.3,1.5,140,0.4,17.1,2.6,669,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-mocha-semi-skimmed-milk-decaf,"Iced Mocha (semi-skimmed milk, decaf)",Cold drinks,,166,8,23.2,4.3,2.7,135,0.3,22.3,1.4,701,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+iced-mocha-oat-milk,Iced Mocha (oat milk),Cold drinks,,161,1.8,28.7,3.7,1.6,,0.34,20.1,2.9,679,,,,,,vegetarian,false,false,,,
+iced-mocha-oat-milk-decaf,"Iced Mocha (oat milk, decaf)",Cold drinks,,188,1.7,37.3,3,2.1,64.7,0.2,24.7,0.9,794,,,,,,vegetarian,false,false,,,"row prints both salt (g) and sodium (mg): both entered as printed, neither converted"
+mocha-frappe,Mocha Frappé,Cold drinks,,440,15.3,43,22.3,8.3,,0.19,32.9,3.1,1842,,,,,,vegetarian,false,false,,,
+vanilla-frappe,Vanilla Frappé,Cold drinks,,426,13.9,43.7,21.7,7.9,,0.17,34.3,0.4,1784,,,,,,vegetarian,false,false,,,
+vanilla-matcha-frappe,Vanilla Matcha Frappe,Cold drinks,,431,14.5,44.4,21.6,7.9,,0,34.2,0.4,1803,,,,,,vegetarian,false,false,,,
+apple-juice,Apple Juice,Cold drinks,,126,0.3,30.7,0.2,0.1,,0,28.2,0,536,,,,,,vegetarian,false,false,,,
+berries-banana-smoothie,Berries & Banana Smoothie,Cold drinks,,200,1.7,45.1,0.6,0.1,,0,43.8,3.9,849,,,,,,vegetarian,false,false,,,
+easy-greens,Easy Greens,Cold drinks,,35,0,8.8,0,0,,0.11,7,0,150,,,,,,vegetarian,false,false,,,
+ginger-shot,Ginger Shot,Cold drinks,,55,0.8,11.4,0.3,0.1,,0.11,9.7,1.8,234,,,,,,vegetarian,false,false,,,
+hot-shot,Hot Shot,Cold drinks,,27,0.4,5.2,0.2,0,,0.02,3.7,1.4,115,,,,,,vegetarian,false,false,,,
+mango-peach-smoothie,Mango & Peach Smoothie,Cold drinks,,190,1.8,43.6,0.4,0.1,,0.01,42.4,2.2,807,,,,,,vegetarian,false,false,,,
+mango-smoothie,Mango Smoothie,Cold drinks,,142,1.2,31.7,0.7,0.2,,0,29.7,1.6,602,,,,,,vegetarian,false,false,,,
+orange-juice,Orange Juice,Cold drinks,,63,1.2,13.5,0.3,0,,0.01,12.6,0.7,267,,,,,,vegetarian,false,false,,,
+vitamin-volcano,Vitamin Volcano,Cold drinks,,115,1.2,27.5,0,0,,0.18,24.5,1.2,487,,,,,,vegetarian,false,false,,,
+coke-bottle,Coke Bottle,Cold drinks,,212,0,53,0,0,,0,53,0,901,,,,,,vegetarian,false,false,,,
+coke-can,Coke Can,Cold drinks,,140,0,35,0,0,,0,35,0,595,,,,,,vegetarian,false,false,,,
+coke-zero-bottle,Coke Zero Bottle,Cold drinks,,0,0,0,0,0,,0,0,0,0,,,,,,,false,false,,,
+coke-zero-can,Coke Zero Can,Cold drinks,,0,0,0,0,0,,0,0,0,0,,,,,,vegetarian,false,false,,,
+cranberry-raspberry-pomegranate-pret-still,"Cranberry, Raspberry & Pomegranate Pret Still",Cold drinks,,115,0.5,24.5,1.1,0.3,,0,24.5,2.6,486,,,,,,vegetarian,false,false,,,
+cucumber-mint-seltzer,Cucumber & Mint Seltzer,Cold drinks,,0,0,0,0,0,,0,0,0,0,,,,,,vegetarian,false,false,,,
+diet-coke-bottle,Diet Coke Bottle,Cold drinks,,0,0,0,0,0,,0,0,0,0,,,,,,vegetarian,false,false,,,
+diet-coke-can,Diet Coke Can,Cold drinks,,0,0,0,0,0,,0,0,0,0,,,,,,vegetarian,false,false,,,
+ginger-kombucha,Ginger Kombucha,Cold drinks,,45,0,11.2,0,0,,0,11.2,0,191,,,,,,vegetarian,false,false,,,
+green-tea-peach-pret-still,Green Tea & Peach Pret Still,Cold drinks,,104,0.5,21.5,1.2,0.5,,0,21.5,2.5,438,,,,,,vegetarian,false,false,,,
+lemon-ginger-pret-still,Lemon & Ginger Pret Still,Cold drinks,,94,0.5,19.5,1,0.2,,0,19.5,2.5,397,,,,,,vegetarian,false,false,,,
+lime-raspberry-seltzer,Lime & Raspberry Seltzer,Cold drinks,,0,0,0,0,0,,0,0,0,0,,,,,,vegetarian,false,false,,,
+mango-passion-fruit-pret-still,Mango & Passion Fruit Pret Still,Cold drinks,,112,0.5,23.5,1.2,0.3,,0,23.5,2.5,474,,,,,,vegetarian,false,false,,,
+pret-sparkling-water-500ml,Pret Sparkling Water 500ml,Cold drinks,,0,0,0,0,0,,0,0,0,0,,,,,,vegetarian,false,false,,,
+pret-still-water-500ml,Pret Still Water 500ml,Cold drinks,,0,0,0,0,0,,0.07,0,0,0,,,,,,vegetarian,false,false,,,
+pret-still-water-750ml,Pret Still Water 750ml,Cold drinks,,0,0,0,0,0,,0.1,0,0,0,,,,,,vegetarian,false,false,,,
+prets-rhubarb-lemonade,Pret's Rhubarb Lemonade,Cold drinks,,107,0,26.7,0,0,,0.03,26.7,0,454,,,,,,vegetarian,false,false,,,
+prets-sparkling-apple-fizz,Pret's Sparkling Apple Fizz,Cold drinks,,104,0,26.1,0,0,,0.13,25.1,0,443,,,,,,vegetarian,false,false,,,
+prets-sparkling-ginger-beer,Pret's Sparkling Ginger Beer,Cold drinks,,119,0,29.7,0,0,,0,29.4,0,505,,,,,,vegetarian,false,false,,,
+prets-sparkling-grape-elderflower,Pret's Sparkling Grape & Elderflower,Cold drinks,,98,0,24.4,0,0,,0,24.4,0,415,,,,,,vegetarian,false,false,,,
+poppi-lemon-lime,poppi Lemon Lime,Cold drinks,,26,0,4.9,0,0,,0,4.6,3,108,,,,,,,false,false,,,
+poppi-orange,poppi Orange,Cold drinks,,26,0,4.9,0,0,,0,4.3,3,108,,,,,,,false,false,,,
+poppi-raspberry-rose,poppi Raspberry Rose,Cold drinks,,27,0,4.9,0,0,,0,3.6,3.6,113,,,,,,,false,false,,,
+poppi-strawberry-lemon,poppi Strawberry & Lemon,Cold drinks,,27,0,5.3,0,0,,0,4.3,3,114,,,,,,,false,false,,,
+poppi-wild-berry,poppi Wild Berry,Cold drinks,,24,0,4.6,0,0,,0,4.3,3,102,,,,,,,false,false,,,

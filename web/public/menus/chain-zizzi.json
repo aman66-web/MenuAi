@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Zizzi says its figures are approximate (ingredients measured by hand, a mix of calculation and lab testing) and cover core dishes only, not substitutions or added extras. Portion weights are not published.",
+ "allergenGuide": {
+  "title": "Zizzi UK Allergen Guide, Autumn 2026 V3",
+  "url": "https://cdn.sanity.io/files/ysupxjc9/production/f09c553c16331e303f96ab6b8da9ceffd7808a19.pdf/ZIZZI-UK-ALLERGEN-GUIDE_AUTUMN_SEP2026-V3.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Aperitivo",
   "Starters",

@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Specials are seasonal and change often. Pre-booked buffet, celebration, BBQ and canape menus are not included. Where the guide flags a dish as having choices of sides or sauces, its numbers may not include them.",
+ "allergenGuide": {
+  "title": "Nicholson's Allergen & Nutrition Guide, Mitchells & Butlers (live page)",
+  "url": "https://allergens.mbplc.io/AllergenGuideNicholsonsEstate.html",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Mains",
   "Sides & snacks",

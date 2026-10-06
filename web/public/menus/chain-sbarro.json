@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Sbarro's guide prints the 12in and 14in pizzas whole but most 17in pizzas per slice (each item says which). Rows where the guide's own weight, per-100 g and per-serving columns contradict each other are left out until Sbarro corrects it.",
+ "allergenGuide": {
+  "title": "Sbarro UK Nutritional & Allergen Guide (August 2026)",
+  "url": "https://www.sbarro.co.uk/_files/ugd/3da10b_04caa1f5c88441d588b76ca40bfaef78.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": false
+ },
  "categories": [
   "Pizza slices",
   "Whole pizzas",
@@ -39,7 +46,8 @@
     "fat": 17,
     "saturatedFat": 8,
     "sugar": 4,
-    "salt": 2.6
+    "salt": 2.6,
+    "weight": 206
    },
    "tags": [],
    "limitedTime": false,
@@ -59,7 +67,8 @@
     "fat": 21.2,
     "saturatedFat": 9.1,
     "sugar": 4.4,
-    "salt": 3.6
+    "salt": 3.6,
+    "weight": 259.7
    },
    "tags": [
     "contains_pork"
@@ -81,7 +90,8 @@
     "fat": 30,
     "saturatedFat": 13,
     "sugar": 5,
-    "salt": 4
+    "salt": 4,
+    "weight": 248
    },
    "tags": [
     "contains_pork"
@@ -103,7 +113,8 @@
     "fat": 17,
     "saturatedFat": 7,
     "sugar": 24,
-    "salt": 3
+    "salt": 3,
+    "weight": 281
    },
    "tags": [],
    "limitedTime": false,
@@ -123,7 +134,8 @@
     "fat": 15,
     "saturatedFat": 6.4,
     "sugar": 4.3,
-    "salt": 2.9
+    "salt": 2.9,
+    "weight": 214
    },
    "tags": [],
    "limitedTime": false,
@@ -143,7 +155,8 @@
     "fat": 29.5,
     "saturatedFat": 9.8,
     "sugar": 9.8,
-    "salt": 3.3
+    "salt": 3.3,
+    "weight": 246
    },
    "tags": [],
    "limitedTime": false,
@@ -163,7 +176,8 @@
     "fat": 16,
     "saturatedFat": 7,
     "sugar": 5,
-    "salt": 3
+    "salt": 3,
+    "weight": 251
    },
    "tags": [],
    "limitedTime": false,
@@ -183,7 +197,8 @@
     "fat": 45,
     "saturatedFat": 17,
     "sugar": 5,
-    "salt": 5.4
+    "salt": 5.4,
+    "weight": 351
    },
    "tags": [
     "contains_pork"
@@ -205,7 +220,8 @@
     "fat": 22.1,
     "saturatedFat": 9.3,
     "sugar": 4.6,
-    "salt": 3.2
+    "salt": 3.2,
+    "weight": 273
    },
    "tags": [],
    "limitedTime": false,
@@ -225,7 +241,8 @@
     "fat": 54,
     "saturatedFat": 22,
     "sugar": 13,
-    "salt": 9
+    "salt": 9,
+    "weight": 734
    },
    "tags": [
     "contains_pork"
@@ -247,7 +264,8 @@
     "fat": 76,
     "saturatedFat": 31,
     "sugar": 17,
-    "salt": 12
+    "salt": 12,
+    "weight": 999
    },
    "tags": [
     "contains_pork"
@@ -269,7 +287,8 @@
     "fat": 112,
     "saturatedFat": 47,
     "sugar": 26,
-    "salt": 18
+    "salt": 18,
+    "weight": 1478
    },
    "tags": [
     "contains_pork"
@@ -291,7 +310,8 @@
     "fat": 65,
     "saturatedFat": 29,
     "sugar": 14,
-    "salt": 10
+    "salt": 10,
+    "weight": 699
    },
    "tags": [],
    "limitedTime": false,
@@ -311,7 +331,8 @@
     "fat": 93,
     "saturatedFat": 42,
     "sugar": 19,
-    "salt": 14
+    "salt": 14,
+    "weight": 950
    },
    "tags": [],
    "limitedTime": false,
@@ -331,7 +352,8 @@
     "fat": 132,
     "saturatedFat": 59,
     "sugar": 27,
-    "salt": 19
+    "salt": 19,
+    "weight": 1389
    },
    "tags": [],
    "limitedTime": false,
@@ -351,7 +373,8 @@
     "fat": 50,
     "saturatedFat": 24,
     "sugar": 12,
-    "salt": 7.6
+    "salt": 7.6,
+    "weight": 600
    },
    "tags": [],
    "limitedTime": false,
@@ -371,7 +394,8 @@
     "fat": 68,
     "saturatedFat": 32,
     "sugar": 16,
-    "salt": 10.1
+    "salt": 10.1,
+    "weight": 800
    },
    "tags": [],
    "limitedTime": false,
@@ -391,7 +415,8 @@
     "fat": 127.4,
     "saturatedFat": 54.3,
     "sugar": 26.6,
-    "salt": 21.9
+    "salt": 21.9,
+    "weight": 1558
    },
    "tags": [
     "contains_pork"
@@ -413,7 +438,8 @@
     "fat": 91,
     "saturatedFat": 40.4,
     "sugar": 18.2,
-    "salt": 14.6
+    "salt": 14.6,
+    "weight": 1059
    },
    "tags": [
     "contains_pork"
@@ -435,7 +461,8 @@
     "fat": 66.4,
     "saturatedFat": 29.9,
     "sugar": 13.6,
-    "salt": 10.4
+    "salt": 10.4,
+    "weight": 782
    },
    "tags": [
     "contains_pork"
@@ -457,7 +484,8 @@
     "fat": 80,
     "saturatedFat": 35,
     "sugar": 13,
-    "salt": 10.8
+    "salt": 10.8,
+    "weight": 666
    },
    "tags": [
     "contains_pork"
@@ -479,7 +507,8 @@
     "fat": 112,
     "saturatedFat": 50,
     "sugar": 18,
-    "salt": 15
+    "salt": 15,
+    "weight": 930
    },
    "tags": [
     "contains_pork"
@@ -501,7 +530,8 @@
     "fat": 42,
     "saturatedFat": 19,
     "sugar": 57,
-    "salt": 8
+    "salt": 8,
+    "weight": 676
    },
    "tags": [],
    "limitedTime": false,
@@ -521,7 +551,8 @@
     "fat": 61,
     "saturatedFat": 28,
     "sugar": 83,
-    "salt": 12
+    "salt": 12,
+    "weight": 970
    },
    "tags": [],
    "limitedTime": false,
@@ -541,7 +572,8 @@
     "fat": 44.2,
     "saturatedFat": 19,
     "sugar": 12.6,
-    "salt": 8.3
+    "salt": 8.3,
+    "weight": 632
    },
    "tags": [],
    "limitedTime": false,
@@ -561,7 +593,8 @@
     "fat": 60.3,
     "saturatedFat": 25.8,
     "sugar": 17.2,
-    "salt": 11.5
+    "salt": 11.5,
+    "weight": 861
    },
    "tags": [],
    "limitedTime": false,
@@ -581,7 +614,8 @@
     "fat": 99.5,
     "saturatedFat": 33.2,
     "sugar": 33.2,
-    "salt": 11.4
+    "salt": 11.4,
+    "weight": 829
    },
    "tags": [],
    "limitedTime": false,
@@ -601,7 +635,8 @@
     "fat": 121.8,
     "saturatedFat": 40.6,
     "sugar": 40.6,
-    "salt": 13.8
+    "salt": 13.8,
+    "weight": 1015
    },
    "tags": [],
    "limitedTime": false,
@@ -621,7 +656,8 @@
     "fat": 47,
     "saturatedFat": 21,
     "sugar": 16,
-    "salt": 8.98
+    "salt": 8.98,
+    "weight": 752
    },
    "tags": [],
    "limitedTime": false,
@@ -641,7 +677,8 @@
     "fat": 64,
     "saturatedFat": 28,
     "sugar": 21,
-    "salt": 11.95
+    "salt": 11.95,
+    "weight": 999
    },
    "tags": [],
    "limitedTime": false,
@@ -661,7 +698,8 @@
     "fat": 96,
     "saturatedFat": 42,
     "sugar": 32,
-    "salt": 17.98
+    "salt": 17.98,
+    "weight": 1504
    },
    "tags": [],
    "limitedTime": false,
@@ -681,7 +719,8 @@
     "fat": 33.2,
     "saturatedFat": 13.7,
     "sugar": 4.9,
-    "salt": 3
+    "salt": 3,
+    "weight": 288
    },
    "tags": [],
    "limitedTime": false,
@@ -701,7 +740,8 @@
     "fat": 30.8,
     "saturatedFat": 11.4,
     "sugar": 4,
-    "salt": 4
+    "salt": 4,
+    "weight": 288
    },
    "tags": [
     "contains_pork"
@@ -723,7 +763,8 @@
     "fat": 29.9,
     "saturatedFat": 11.1,
     "sugar": 3.5,
-    "salt": 3.7
+    "salt": 3.7,
+    "weight": 288
    },
    "tags": [],
    "limitedTime": false,
@@ -743,7 +784,8 @@
     "fat": 49.9,
     "saturatedFat": 19.8,
     "sugar": 3.4,
-    "salt": 5
+    "salt": 5,
+    "weight": 288
    },
    "tags": [
     "contains_pork"
@@ -765,7 +807,8 @@
     "fat": 23,
     "saturatedFat": 6,
     "sugar": 6,
-    "salt": 4
+    "salt": 4,
+    "weight": 240
    },
    "tags": [],
    "limitedTime": false,
@@ -785,7 +828,8 @@
     "fat": 32,
     "saturatedFat": 9,
     "sugar": 7,
-    "salt": 4
+    "salt": 4,
+    "weight": 320
    },
    "tags": [],
    "limitedTime": false,
@@ -805,7 +849,8 @@
     "fat": 7,
     "saturatedFat": 3,
     "sugar": 1,
-    "salt": 1
+    "salt": 1,
+    "weight": 66
    },
    "tags": [],
    "limitedTime": false,
@@ -825,7 +870,8 @@
     "fat": 4.8,
     "saturatedFat": 2.6,
     "sugar": 0.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 64
    },
    "tags": [],
    "limitedTime": false,
@@ -845,7 +891,8 @@
     "fat": 74,
     "saturatedFat": 39,
     "sugar": 6,
-    "salt": 8.3
+    "salt": 8.3,
+    "weight": 586
    },
    "tags": [],
    "limitedTime": false,
@@ -865,7 +912,8 @@
     "fat": 10,
     "saturatedFat": 5,
     "sugar": 1,
-    "salt": 1
+    "salt": 1,
+    "weight": 92
    },
    "tags": [],
    "limitedTime": false,
@@ -885,7 +933,8 @@
     "fat": 10,
     "saturatedFat": 1,
     "sugar": 1.8,
-    "salt": 1.24
+    "salt": 1.24,
+    "weight": 200
    },
    "tags": [],
    "limitedTime": false,
@@ -905,7 +954,8 @@
     "fat": 15.6,
     "saturatedFat": 5.9,
     "sugar": 5.9,
-    "salt": 1.4
+    "salt": 1.4,
+    "weight": 102
    },
    "tags": [],
    "limitedTime": false,
@@ -925,7 +975,8 @@
     "fat": 9.2,
     "saturatedFat": 1,
     "sugar": 1.1,
-    "salt": 0.6
+    "salt": 0.6,
+    "weight": 90
    },
    "tags": [],
    "limitedTime": false,
@@ -945,7 +996,8 @@
     "fat": 13.7,
     "saturatedFat": 1.5,
     "sugar": 1.6,
-    "salt": 0.9
+    "salt": 0.9,
+    "weight": 134
    },
    "tags": [],
    "limitedTime": false,
@@ -965,7 +1017,8 @@
     "fat": 29.8,
     "saturatedFat": 6.2,
     "sugar": 1,
-    "salt": 2.2
+    "salt": 2.2,
+    "weight": 200
    },
    "tags": [],
    "limitedTime": false,
@@ -985,7 +1038,8 @@
     "fat": 19.8,
     "saturatedFat": 8.7,
     "sugar": 0.6,
-    "salt": 2.6
+    "salt": 2.6,
+    "weight": 198
    },
    "tags": [],
    "limitedTime": false,
@@ -1005,7 +1059,8 @@
     "fat": 33,
     "saturatedFat": 12,
     "sugar": 27,
-    "salt": 5.7
+    "salt": 5.7,
+    "weight": 476
    },
    "tags": [],
    "limitedTime": false,
@@ -1025,7 +1080,8 @@
     "fat": 23,
     "saturatedFat": 10.8,
     "sugar": 36.2,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 110
    },
    "tags": [],
    "limitedTime": false,
@@ -1045,7 +1101,8 @@
     "fat": 24,
     "saturatedFat": 11,
     "sugar": 32,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 110
    },
    "tags": [],
    "limitedTime": false,
@@ -1065,7 +1122,8 @@
     "fat": 9.7,
     "saturatedFat": 4.1,
     "sugar": 16.2,
-    "salt": 0.4
+    "salt": 0.4,
+    "weight": 50
    },
    "tags": [],
    "limitedTime": false,
@@ -1085,7 +1143,8 @@
     "fat": 39,
     "saturatedFat": 22,
     "sugar": 78,
-    "salt": 1.4
+    "salt": 1.4,
+    "weight": 243
    },
    "tags": [],
    "limitedTime": false,
@@ -1105,7 +1164,8 @@
     "fat": 16.2,
     "saturatedFat": 9.5,
     "sugar": 18.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 95
    },
    "tags": [],
    "limitedTime": false,
@@ -1125,7 +1185,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 40
    },
    "tags": [],
    "limitedTime": false,
@@ -1145,7 +1206,8 @@
     "fat": 6,
     "saturatedFat": 2,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 40
    },
    "tags": [
     "contains_pork"
@@ -1167,7 +1229,8 @@
     "fat": 16,
     "saturatedFat": 7,
     "sugar": 0,
-    "salt": 4
+    "salt": 4,
+    "weight": 40
    },
    "tags": [
     "contains_pork"
@@ -1189,7 +1252,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 11.9,
-    "salt": 0
+    "salt": 0,
+    "weight": 15
    },
    "tags": [],
    "limitedTime": false,
@@ -1209,7 +1273,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 11.8,
-    "salt": 0
+    "salt": 0,
+    "weight": 15
    },
    "tags": [],
    "limitedTime": false,
@@ -1229,7 +1294,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 12.6,
-    "salt": 0
+    "salt": 0,
+    "weight": 15
    },
    "tags": [],
    "limitedTime": false,
@@ -1249,7 +1315,8 @@
     "fat": 6.3,
     "saturatedFat": 0.5,
     "sugar": 0.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 15
    },
    "tags": [],
    "limitedTime": false,
@@ -1269,7 +1336,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 5.3,
-    "salt": 0
+    "salt": 0,
+    "weight": 15
    },
    "tags": [],
    "limitedTime": false,
@@ -1289,7 +1357,8 @@
     "fat": 12,
     "saturatedFat": 1,
     "sugar": 2,
-    "salt": 0
+    "salt": 0,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1309,7 +1378,8 @@
     "fat": 18,
     "saturatedFat": 14.5,
     "sugar": 0.1,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1329,7 +1399,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 5.7,
-    "salt": 0.45
+    "salt": 0.45,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1349,7 +1420,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 7.1,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1369,7 +1441,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 9.6,
-    "salt": 0.6
+    "salt": 0.6,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1389,7 +1462,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 4.5,
-    "salt": 0.4
+    "salt": 0.4,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1409,7 +1483,8 @@
     "fat": 10.2,
     "saturatedFat": 0.8,
     "sugar": 2.6,
-    "salt": 0.4
+    "salt": 0.4,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1429,7 +1504,8 @@
     "fat": 12.6,
     "saturatedFat": 1,
     "sugar": 0.6,
-    "salt": 0.4
+    "salt": 0.4,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1449,7 +1525,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 6.5,
-    "salt": 0.4
+    "salt": 0.4,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,
@@ -1469,7 +1546,8 @@
     "fat": 9.3,
     "saturatedFat": 0.7,
     "sugar": 0.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 25
    },
    "tags": [],
    "limitedTime": false,

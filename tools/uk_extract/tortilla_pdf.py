@@ -8,7 +8,15 @@ protein, salt (g). The Hot Drinks table has the kcal column only. The item name 
 centred on them, so a long name wraps onto the line above AND below the numbers (e.g. "Medium" / "Breakfast Burrito
 (Canary Wharf only)"). `pdftotext -layout` cannot say which wrapped line belongs to which row, so this reads word
 coordinates (`-bbox-layout`) and gives each row the name words that sit in its own band of the page.
+
+Allergens: right of the Dietary column every table prints "Contains Allergens" and "May Contain" as wrapped text centred on
+the row (e.g. "Soybean, Sesame, / Mustard, / Celery, Fish, / Egg & Cereals / Containing / Gluten."). `allergen_cells()` reads
+them by position: the two columns' x-limits come from their own header words, each vertically contiguous block of text in a
+column must be centred (within CENTRE_TOL) on ONE row's numbers (else that row gets an `allergen_problem` and the caller
+stops), and the words are returned as printed ("contains_text", "may_text"). `allergen_keys()` turns a printed cell into allergen keys with
+common.allergen_words (an unknown word stops the run). Chilango's guide (same group, same design) uses both functions too.
 """
+from __future__ import annotations
 import html
 import re
 import subprocess
@@ -93,4 +101,113 @@ def _read_page(words: list[tuple[float, float, float, float, str]]) -> list[dict
         else:
             printed["kcal"] = nums[0]
         out.append(printed)
+    for t, header_y in enumerate(headers):
+        idx = [i for i, r in enumerate(rows) if r["table"] == t]
+        bottom = headers[t + 1] - 26 if t + 1 < len(headers) else footer_y  # the next table's header words start ~25 pt above its Kcal
+        allergen_cells(words, [rows[i] for i in idx], [out[i] for i in idx], header_y, bottom)
     return out
+
+
+# ---------------------------------------------------------------- allergens (docs/DATA.md "Allergens")
+CONTAINS_HEADS = {"contains", "allergens"}
+MAY_HEADS = {"may", "contain"}
+LINE_GAP = 2.5  # points between one printed line's bottom and the next line's top inside one wrapped cell (measured: 0.3-0.6)
+CENTRE_TOL = 3.0  # points between a cell's vertical centre and its row's numbers' centre
+
+
+def allergen_cells(words, rows: list[dict], printed: list[dict], header_y: float, bottom: float) -> None:
+    """Fill printed[i]["contains_text"], ["may_text"] and ["allergen_problem"] for the rows of one table.
+
+    rows[i] carries the row's printed "numbers" (word boxes); a wrapped cell is centred on them. header_y is the table's Kcal
+    header (the column headers sit just above it); bottom is where the table region ends (next table's header or the page's
+    "Dietary:" legend). A problem is recorded, never guessed round: the caller stops if a row it publishes has one."""
+    for p in printed:
+        p.update({"contains_text": "", "may_text": "", "allergen_problem": ""})
+    head = [w for w in words if header_y - 25 <= w[1] <= header_y + 5]
+    cont = [w for w in head if w[4].lower() in CONTAINS_HEADS]
+    may = [w for w in head if w[4].lower() in MAY_HEADS]
+    diet = [w for w in head if w[4].lower() == "dietary"]
+    if not cont or not may or len(diet) != 1:
+        for p in printed:
+            p["allergen_problem"] = "the table's Dietary / Contains Allergens / May Contain headers were not found"
+        return
+    left = diet[0][2] + 3.0
+    span = lambda ws: (min(w[0] for w in ws) + max(w[2] for w in ws)) / 2  # noqa: E731
+    boundary = (span(cont) + span(may)) / 2
+    top = max(w[3] for w in head)
+    mid = lambda w: (w[1] + w[3]) / 2  # noqa: E731
+    region = [w for w in words if w[0] >= left and top < mid(w) < bottom]
+    if not rows:
+        return
+    centres = [sum(mid(w) for w in r["numbers"]) / len(r["numbers"]) for r in rows]
+    first, last = min(min(w[1] for w in r["numbers"]) for r in rows), max(max(w[3] for w in r["numbers"]) for r in rows)
+
+    for side, ws in (("contains_text", [w for w in region if w[2] < boundary]), ("may_text", [w for w in region if w[0] > boundary])):
+        blocks: list[list[tuple]] = []
+        for w in sorted(ws, key=lambda w: (w[1], w[0])):
+            if blocks and w[1] - max(x[3] for x in blocks[-1]) <= LINE_GAP:
+                blocks[-1].append(w)
+            else:
+                blocks.append([w])
+        for b in blocks:
+            # A cell is printed vertically centred on its row's numbers: the block goes to the row whose numbers' centre is
+            # within CENTRE_TOL of the block's centre. Anything else inside the table is a layout we don't understand.
+            top_b, bot_b = min(w[1] for w in b), max(w[3] for w in b)
+            cb = (top_b + bot_b) / 2
+            i = min(range(len(rows)), key=lambda k: abs(centres[k] - cb))
+            text = _reading_order(b)
+            if abs(centres[i] - cb) <= CENTRE_TOL:
+                if printed[i][side]:
+                    printed[i]["allergen_problem"] = f"two separate text blocks in one cell ({printed[i][side]!r}, {text!r})"
+                printed[i][side] = text
+            elif bot_b > first and top_b < last:
+                printed[i]["allergen_problem"] = f"allergen text {text!r} is not centred on any row (nearest is {abs(centres[i] - cb):.1f} pt away)"
+            # else: a note above or below the table rows, not a cell
+    for w in region:
+        if w[0] <= boundary <= w[2] and first < mid(w) < last:
+            i = min(range(len(rows)), key=lambda k: abs(centres[k] - mid(w)))
+            printed[i]["allergen_problem"] = f"the word {w[4]!r} straddles the Contains / May Contain columns"
+
+
+def _reading_order(ws) -> str:
+    lines: list[list[tuple]] = []
+    for w in sorted(ws, key=lambda w: (w[1], w[0])):
+        if lines and abs(lines[-1][0][1] - w[1]) <= LINE_TOLERANCE:
+            lines[-1].append(w)
+        else:
+            lines.append([w])
+    return " ".join(" ".join(x[4] for x in sorted(line, key=lambda x: x[0])) for line in lines)
+
+
+def allergen_keys(text: str, where: str, extra: dict | None = None) -> tuple[set[str], set[str], set[str]]:
+    """'Cereals Containing Gluten, Soybeans, Milk, Eggs & Sulphur Dioxide.' -> ({gluten, soya, milk, eggs, sulphites}, cereals, nuts).
+    A part may name its cereal in brackets ("Gluten (Wheat)"); "(and products thereof)" is legal wording, not a cereal."""
+    from common import allergen_words
+    text = re.sub(r"\(and products thereof\)", "", text, flags=re.I).strip().rstrip(".")
+    keys, cereals, nuts = set(), set(), set()
+    for part in _split_top(text):
+        head, _, inner = part.partition("(")
+        k, c, n = allergen_words([head], where, extra)
+        keys |= k
+        cereals |= c
+        nuts |= n
+        if inner:
+            k2, c2, n2 = allergen_words(re.split(r"[,/&]", inner.rstrip(")")), where, extra)
+            if not k2 <= k:
+                raise SystemExit(f"{where}: {part!r} names {sorted(k2 - k)} in brackets under a different allergen")
+            cereals |= c2
+            nuts |= n2
+    return keys, cereals, nuts
+
+
+def _split_top(text: str) -> list[str]:
+    """Split on ',', '&' and '/' outside brackets."""
+    parts, depth, cur = [], 0, ""
+    for ch in text:
+        depth += (ch == "(") - (ch == ")")
+        if ch in ",&/" and depth == 0:
+            parts.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    return [p.strip() for p in parts + [cur] if p.strip()]

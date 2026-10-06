@@ -11,6 +11,7 @@ This feed is for ONE restaurant; the brand-level menu id was not found, so the v
 note.txt. Numbers are copied as the feed prints them; see mb_feed.py. Only categories, the lines that are not menu items, the
 held-back rows and the notes are written by hand below. Not read: the feed's other menus (kids, drinks, Sunday...).
 """
+from __future__ import annotations
 import sys
 from pathlib import Path
 
@@ -73,8 +74,9 @@ CHAIN = mb.Chain(
         "Wholetail Scampi": "The feed prints 951 kcal; its own macros add up to about 774 kcal (and its kJ to about 679 kcal).",
     },
     note_txt=("From the menu of one Stonehouse restaurant, used as published: other restaurants' menus and values may differ. Main menu "
-              "(Mon-Sat) only. Carvery meat rows cover the carved meat only (vegetables and gravy are served at the carvery), so the "
-              "Meat Free Carvery figure isn't comparable with them."),
+              "(Mon-Sat) only. A side, sauce or topping you choose isn't added in, to the numbers or to the allergens. Carvery meat "
+              "rows cover the carved meat only (vegetables and gravy are served at the carvery), so the Meat Free Carvery figure "
+              "isn't comparable with them."),
 )
 
 if __name__ == "__main__":

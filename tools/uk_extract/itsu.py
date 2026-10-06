@@ -11,6 +11,11 @@ grams); the page's own embedded copy of the data is only used to cross-check the
 script). Dish names come from the dish page (tidied: capitalised, itsu's joining apostrophe in "rice'bowl" shown as a space).
 Only the display categories, the rankable flags, the held-back list and the tag word lists below are typed by hand.
 
+Allergens come from the same dish pages: each prints "contains: ..." and "may contain: ..." (the 14 allergens by name; no
+cereal or nut is named). The words are mapped with common.allergen_words (an unknown word stops the script) and must agree with
+the page's own embedded copy of the lists, or the script stops. A dish with neither line counts as "none" only when its
+embedded lists are present and empty.
+
 The script stops, so a human re-checks, if the menu's set of dishes changes (EXPECTED_PATHS), the categories change, a nutrition
 label changes, a dish lacks a required number, or a page failed to load. The menu has no date, so source_title carries the
 retrieval date.
@@ -28,7 +33,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import itsu_pages  # noqa: E402
-from common import ROOT, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "itsu"
 BASE = "https://www.itsu.com"
@@ -226,6 +231,24 @@ ITEM_NOTES = {
 SMALL = {"and", "with", "of", "in", "a", "on", "the", "to", "or", "&"}
 
 
+def dish_allergens(d: dict, page: str, name: str) -> dict:
+    """The dish page's printed "contains" / "may contain" lines, cross-checked with the page's embedded lists."""
+    split = lambda text: [w for w in text.split(",") if w.strip()]  # noqa: E731
+    contains, cereals, nuts = allergen_words(split(d["contains"]), f"itsu {name} (contains)")
+    may, _, _ = allergen_words(split(d["may_contain"]), f"itsu {name} (may contain)")
+    emb = itsu_pages.embedded_allergens(page)
+    if emb is None:
+        raise SystemExit(f"{name}: the page's embedded allergen lists are missing or ambiguous, so the printed lines cannot be checked.")
+    e_contains, _, _ = allergen_words(emb[0], f"itsu {name} (embedded contains)")
+    e_may, _, _ = allergen_words(emb[1], f"itsu {name} (embedded may contain)")
+    if (contains, may) != (e_contains, e_may):
+        raise SystemExit(f"{name}: printed allergens {sorted(contains)} / may {sorted(may)} disagree with the page's own data "
+                         f"{sorted(e_contains)} / may {sorted(e_may)}: re-check by hand.")
+    if contains & may:
+        raise SystemExit(f"{name}: {sorted(contains & may)} printed both as contained and as 'may contain'.")
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}
+
+
 def tidy_name(raw: str) -> str:
     """'smoked salmon & avo egg'pot' -> 'Smoked Salmon & Avo Egg Pot'. Only capitalisation and itsu's joining apostrophe change."""
     s = re.sub(r"(?<=[A-Za-z])['’](?=[a-z])", " ", html.unescape(raw))
@@ -348,7 +371,8 @@ def main() -> int:
             continue
         if path in UNREADABLE:
             print(f"note: {path} can be read now; remove it from UNREADABLE.", file=sys.stderr)
-        d = itsu_pages.read_item(page_file.read_text(encoding="utf-8", errors="replace"))
+        page_text = page_file.read_text(encoding="utf-8", errors="replace")
+        d = itsu_pages.read_item(page_text)
         name = tidy_name(d["name"])
         name = NAME_FIXES.get(name, name)
         printed = d["printed"]
@@ -404,6 +428,7 @@ def main() -> int:
             "sat_fat_g": printed.get("sat", ""), "sodium_mg": "", "salt_g": printed.get("salt", ""), "sugar_g": printed.get("sugars", ""),
             "fiber_g": printed.get("fibre", ""), "tags": "|".join(tags), "limited_time": limited,
             "rankable": rankable and path not in NOT_RANKABLE, "notes": "; ".join(notes),
+            "allergens": dish_allergens(d, page_text, name),
         })
     if excluded:
         print("Dishes left out:", file=sys.stderr)
@@ -420,7 +445,9 @@ def main() -> int:
     write_chain_folder(
         chain_id=CHAIN_ID, name="itsu", cuisine="Japanese", source_title=SOURCE_TITLE.format(checked_on=args.checked_on),
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["itsu", "itsu uk"], items=items, out=args.out, note=note,
-        holdback=[(i, HOLDBACK[i]) for i in ids if i in HOLDBACK])
+        holdback=[(i, HOLDBACK[i]) for i in ids if i in HOLDBACK],
+        allergen_guide={"title": f"itsu UK website: allergens on each menu dish page (itsu.com/menu, read {args.checked_on})",
+                        "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} items ({len(HOLDBACK)} held back) to {args.out}; combined SHA-256 of the {len(list((raw / 'items').glob('*.html')))} "
           f"dish pages, {len(cats)} category pages and the menu page: {combined}")
     for n, w in log:

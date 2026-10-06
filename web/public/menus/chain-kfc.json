@@ -12,7 +12,14 @@
  "source": {
   "title": "KFC UK & Ireland Allergen & Nutrition Information (September 2026)",
   "url": "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf",
-  "checkedOn": "2026-10-05"
+  "checkedOn": "2026-10-06"
+ },
+ "allergenGuide": {
+  "title": "KFC UK & Ireland Allergen & Nutrition Information (September 2026)",
+  "url": "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
  },
  "categories": [
   "Burgers",
@@ -39,13 +46,30 @@
     "fat": 18.7,
     "saturatedFat": 2.2,
     "sugar": 6.5,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 1942
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "zinger-burger",
@@ -59,13 +83,30 @@
     "fat": 22,
     "saturatedFat": 2.2,
     "sugar": 6.5,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1962
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "fillet-tower-burger",
@@ -79,13 +120,30 @@
     "fat": 27,
     "saturatedFat": 4.3,
     "sugar": 11,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 2531
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-fillet-tower-burger",
@@ -99,13 +157,30 @@
     "fat": 27.2,
     "saturatedFat": 4.3,
     "sugar": 11,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 2564
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "zinger-supercharger-tower-burger",
@@ -119,13 +194,30 @@
     "fat": 35.9,
     "saturatedFat": 5,
     "sugar": 8.7,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 2723
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "zinger-stacker-burger",
@@ -139,13 +231,30 @@
     "fat": 42.3,
     "saturatedFat": 7.7,
     "sugar": 13,
-    "salt": 3.7
+    "salt": 3.7,
+    "energyKj": 3399
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mini-burger",
@@ -159,13 +268,30 @@
     "fat": 10,
     "saturatedFat": 1.1,
     "sugar": 2.6,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1164
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-burger",
@@ -179,13 +305,30 @@
     "fat": 7,
     "saturatedFat": 0.9,
     "sugar": 4.8,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1087
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "vegan-burger",
@@ -199,7 +342,8 @@
     "fat": 17,
     "saturatedFat": 1.4,
     "sugar": 7.7,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 1659
    },
    "tags": [
     "vegetarian"
@@ -207,7 +351,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-fillet-stacker-burger",
@@ -221,13 +379,30 @@
     "fat": 37.9,
     "saturatedFat": 7.8,
     "sugar": 10,
-    "salt": 4.6
+    "salt": 4.6,
+    "energyKj": 3408
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mozzamelt-fillet-burger",
@@ -241,13 +416,30 @@
     "fat": 34,
     "saturatedFat": 8.1,
     "sugar": 10,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 3107
    },
    "tags": [],
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mozzamelt-zinger-burger",
@@ -261,13 +453,30 @@
     "fat": 35.3,
     "saturatedFat": 7.6,
     "sugar": 9.8,
-    "salt": 2.7
+    "salt": 2.7,
+    "energyKj": 3006
    },
    "tags": [],
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kentucky-mayo-twister",
@@ -281,13 +490,30 @@
     "fat": 24,
     "saturatedFat": 4,
     "sugar": 5.1,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2179
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sweet-chilli-twister",
@@ -301,13 +527,30 @@
     "fat": 17.6,
     "saturatedFat": 3.3,
     "sugar": 11,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2068
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "smokey-bbq-twister",
@@ -321,13 +564,30 @@
     "fat": 17.4,
     "saturatedFat": 3.3,
     "sugar": 9,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2027
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "supercharger-twister",
@@ -341,13 +601,30 @@
     "fat": 26,
     "saturatedFat": 4.2,
     "sugar": 6.2,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2296
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "flamin-mini-wrap",
@@ -361,13 +638,30 @@
     "fat": 15.3,
     "saturatedFat": 2.5,
     "sugar": 2.9,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1360
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-mini-wrap",
@@ -381,13 +675,30 @@
     "fat": 10.8,
     "saturatedFat": 2.2,
     "sugar": 4.5,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1235
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kentucky-original-wrap",
@@ -401,13 +712,30 @@
     "fat": 23.3,
     "saturatedFat": 3.5,
     "sugar": 3.1,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 2162
    },
    "tags": [],
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "original-ranch-rice-bowl",
@@ -421,13 +749,29 @@
     "fat": 19.7,
     "saturatedFat": 2.5,
     "sugar": 7.4,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 2342
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "zinger-ranch-rice-bowl",
@@ -441,13 +785,29 @@
     "fat": 21.3,
     "saturatedFat": 2.4,
     "sugar": 6.5,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2278
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "veggie-ranch-rice-bowl",
@@ -461,7 +821,8 @@
     "fat": 9.5,
     "saturatedFat": 1.3,
     "sugar": 8.8,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1560
    },
    "tags": [
     "vegetarian"
@@ -469,7 +830,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "original-recipe-chicken-per-piece",
@@ -483,13 +853,29 @@
     "fat": 13,
     "saturatedFat": 2.3,
     "sugar": 0.5,
-    "salt": 0.94
+    "salt": 0.94,
+    "energyKj": 1009
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "popcorn-chicken-small",
@@ -503,13 +889,29 @@
     "fat": 8.3,
     "saturatedFat": 0.8,
     "sugar": 0,
-    "salt": 0.64
+    "salt": 0.64,
+    "energyKj": 592
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "popcorn-chicken-regular",
@@ -523,13 +925,29 @@
     "fat": 18,
     "saturatedFat": 1.8,
     "sugar": 0.5,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1283
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "popcorn-chicken-large",
@@ -543,13 +961,29 @@
     "fat": 28,
     "saturatedFat": 2.8,
     "sugar": 0.6,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 1996
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "hot-wing-per-piece",
@@ -563,13 +997,29 @@
     "fat": 6.2,
     "saturatedFat": 0.9,
     "sugar": 0,
-    "salt": 0.35
+    "salt": 0.35,
+    "energyKj": 380
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tender-per-piece",
@@ -583,13 +1033,29 @@
     "fat": 5.4,
     "saturatedFat": 0.6,
     "sugar": 0.5,
-    "salt": 0.87
+    "salt": 0.87,
+    "energyKj": 524
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sweet-chilli-dripd-bites",
@@ -603,13 +1069,29 @@
     "fat": 13.5,
     "saturatedFat": 1.5,
     "sugar": 21,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1462
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kansas-bbq-dripd-bites",
@@ -623,13 +1105,29 @@
     "fat": 10.8,
     "saturatedFat": 1.2,
     "sugar": 18,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1267
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "signature-fries-regular",
@@ -643,13 +1141,23 @@
     "fat": 9.8,
     "saturatedFat": 0.8,
     "sugar": 0.5,
-    "salt": 0.74
+    "salt": 0.74,
+    "energyKj": 1096
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "signature-fries-large",
@@ -663,13 +1171,23 @@
     "fat": 14,
     "saturatedFat": 1.1,
     "sugar": 0.5,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1559
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "bbq-beans-regular",
@@ -683,7 +1201,8 @@
     "fat": 0.6,
     "saturatedFat": 0.1,
     "sugar": 5.9,
-    "salt": 0.63
+    "salt": 0.63,
+    "energyKj": 393
    },
    "tags": [
     "vegetarian"
@@ -691,7 +1210,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "bbq-beans-large",
@@ -705,7 +1236,8 @@
     "fat": 1.4,
     "saturatedFat": 0.2,
     "sugar": 13,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 841
    },
    "tags": [
     "vegetarian"
@@ -713,7 +1245,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "coleslaw-regular",
@@ -727,7 +1271,8 @@
     "fat": 13,
     "saturatedFat": 1,
     "sugar": 5.3,
-    "salt": 0.57
+    "salt": 0.57,
+    "energyKj": 619
    },
    "tags": [
     "vegetarian"
@@ -735,7 +1280,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coleslaw-large",
@@ -749,7 +1300,8 @@
     "fat": 26,
     "saturatedFat": 2,
     "sugar": 11,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1235
    },
    "tags": [
     "vegetarian"
@@ -757,7 +1309,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "corn-cobette",
@@ -771,7 +1329,8 @@
     "fat": 1.3,
     "saturatedFat": 0.2,
     "sugar": 1.9,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 240
    },
    "tags": [
     "vegetarian"
@@ -779,7 +1338,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "2-corn-cobettes-large",
@@ -793,7 +1356,8 @@
     "fat": 2.7,
     "saturatedFat": 0.4,
     "sugar": 3.8,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 481
    },
    "tags": [
     "vegetarian"
@@ -801,7 +1365,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "gravy-regular",
@@ -815,13 +1383,31 @@
     "fat": 3.5,
     "saturatedFat": 0.3,
     "sugar": 0.5,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 306
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "gravy-large",
@@ -835,13 +1421,31 @@
     "fat": 8,
     "saturatedFat": 0.8,
     "sugar": 0.8,
-    "salt": 2.8
+    "salt": 2.8,
+    "energyKj": 696
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "creamy-mash-regular",
@@ -855,7 +1459,8 @@
     "fat": 3.4,
     "saturatedFat": 2.1,
     "sugar": 1,
-    "salt": 0.88
+    "salt": 0.88,
+    "energyKj": 523
    },
    "tags": [
     "vegetarian"
@@ -863,7 +1468,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "creamy-mash-large",
@@ -877,7 +1488,8 @@
     "fat": 6.8,
     "saturatedFat": 4.3,
     "sugar": 2,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1045
    },
    "tags": [
     "vegetarian"
@@ -885,7 +1497,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cajun-dirty-rice",
@@ -899,7 +1517,8 @@
     "fat": 2.6,
     "saturatedFat": 0.5,
     "sugar": 2.4,
-    "salt": 0.66
+    "salt": 0.66,
+    "energyKj": 917
    },
    "tags": [
     "vegetarian"
@@ -907,7 +1526,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "side-salad",
@@ -921,7 +1544,8 @@
     "fat": 3.6,
     "saturatedFat": 0.3,
     "sugar": 2.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 232
    },
    "tags": [
     "vegetarian"
@@ -929,7 +1553,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "dirty-loaded-fries",
@@ -943,13 +1576,29 @@
     "fat": 22.7,
     "saturatedFat": 2,
     "sugar": 5.5,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1981
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "3-mega-mozza-sticks",
@@ -963,7 +1612,8 @@
     "fat": 17.7,
     "saturatedFat": 5.6,
     "sugar": 2.1,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1391
    },
    "tags": [
     "vegetarian"
@@ -971,7 +1621,22 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-slice-per-slice",
@@ -985,7 +1650,8 @@
     "fat": 3.1,
     "saturatedFat": 2,
     "sugar": 0,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 159
    },
    "tags": [
     "vegetarian"
@@ -993,7 +1659,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "hash-brown-per-piece",
@@ -1007,13 +1683,25 @@
     "fat": 5.5,
     "saturatedFat": 0.2,
     "sugar": 0.7,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 381
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "oreo-krushems-shake",
@@ -1027,7 +1715,8 @@
     "fat": 10,
     "saturatedFat": 5.4,
     "sugar": 31,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 1145
    },
    "tags": [
     "vegetarian"
@@ -1035,7 +1724,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "milkybar-krushems-shake",
@@ -1049,7 +1749,8 @@
     "fat": 13,
     "saturatedFat": 8.3,
     "sugar": 40,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 1322
    },
    "tags": [
     "vegetarian"
@@ -1057,7 +1758,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "aero-peppermint-krushem-shake",
@@ -1071,7 +1781,8 @@
     "fat": 11,
     "saturatedFat": 6.7,
     "sugar": 34,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 1174
    },
    "tags": [
     "vegetarian"
@@ -1079,7 +1790,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "raspberry-ripple-krushem-shake",
@@ -1093,7 +1813,8 @@
     "fat": 11,
     "saturatedFat": 7.2,
     "sugar": 31,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 1099
    },
    "tags": [
     "vegetarian"
@@ -1101,7 +1822,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mini-chocolate-sundae",
@@ -1115,7 +1845,8 @@
     "fat": 5.3,
     "saturatedFat": 3.4,
     "sugar": 16,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 580
    },
    "tags": [
     "vegetarian"
@@ -1123,7 +1854,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "oreo-sundae",
@@ -1137,7 +1874,8 @@
     "fat": 9.6,
     "saturatedFat": 5.6,
     "sugar": 29,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 1077
    },
    "tags": [
     "vegetarian"
@@ -1145,7 +1883,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "milkybar-sundae",
@@ -1159,7 +1908,8 @@
     "fat": 13,
     "saturatedFat": 8.4,
     "sugar": 34,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 1242
    },
    "tags": [
     "vegetarian"
@@ -1167,7 +1917,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "raspberry-ripple-sundae",
@@ -1181,7 +1939,8 @@
     "fat": 12,
     "saturatedFat": 7.8,
     "sugar": 33,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 1160
    },
    "tags": [
     "vegetarian"
@@ -1189,7 +1948,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "milk-chocolate-cookie",
@@ -1203,7 +1971,8 @@
     "fat": 13.8,
     "saturatedFat": 7.8,
     "sugar": 22,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 1188
    },
    "tags": [
     "vegetarian"
@@ -1211,7 +1980,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "white-chocolate-cookie",
@@ -1225,7 +2006,8 @@
     "fat": 14,
     "saturatedFat": 5.9,
     "sugar": 21,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 1186
    },
    "tags": [
     "vegetarian"
@@ -1233,7 +2015,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "yoyo-bear-strawberry",
@@ -1247,7 +2041,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 8.4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 243
    },
    "tags": [
     "vegetarian"
@@ -1255,7 +2050,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cherry-boba-refresher",
@@ -1269,7 +2068,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 27,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 486
    },
    "tags": [
     "vegetarian"
@@ -1277,7 +2077,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-boba-refresher",
@@ -1291,7 +2095,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 34,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 628
    },
    "tags": [
     "vegetarian"
@@ -1299,7 +2104,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sparkling-raspberry-lemonade",
@@ -1313,7 +2122,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 22,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 421
    },
    "tags": [
     "vegetarian"
@@ -1321,7 +2131,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sparkling-cloudy-lemonade",
@@ -1335,7 +2149,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 3.8,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 103
    },
    "tags": [
     "vegetarian"
@@ -1343,7 +2158,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte",
@@ -1357,7 +2178,8 @@
     "fat": 3.1,
     "saturatedFat": 1.7,
     "sugar": 11,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 428
    },
    "tags": [
     "vegetarian"
@@ -1365,7 +2187,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-tiramisu-latte",
@@ -1379,7 +2207,8 @@
     "fat": 3.3,
     "saturatedFat": 1.9,
     "sugar": 38,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 909
    },
    "tags": [
     "vegetarian"
@@ -1387,7 +2216,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-latte",
@@ -1401,7 +2236,8 @@
     "fat": 3.2,
     "saturatedFat": 1.8,
     "sugar": 27,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 702
    },
    "tags": [
     "vegetarian"
@@ -1409,7 +2245,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-vanilla-latte",
@@ -1423,7 +2265,8 @@
     "fat": 3.2,
     "saturatedFat": 1.8,
     "sugar": 11,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 469
    },
    "tags": [
     "vegetarian"
@@ -1431,7 +2274,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-matcha",
@@ -1445,7 +2294,8 @@
     "fat": 2.7,
     "saturatedFat": 1.8,
     "sugar": 7.6,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 367
    },
    "tags": [
     "vegetarian"
@@ -1453,7 +2303,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-shortcake-iced-matcha",
@@ -1467,7 +2323,8 @@
     "fat": 6.4,
     "saturatedFat": 3.5,
     "sugar": 35,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1114
    },
    "tags": [
     "vegetarian"
@@ -1475,7 +2332,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "oatly-iced-latte",
@@ -1489,7 +2359,8 @@
     "fat": 5.5,
     "saturatedFat": 0.5,
     "sugar": 5.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 510
    },
    "tags": [
     "vegetarian"
@@ -1497,7 +2368,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "oatly-iced-caramel-latte",
@@ -1511,7 +2391,8 @@
     "fat": 6.3,
     "saturatedFat": 1,
     "sugar": 35,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 1030
    },
    "tags": [
     "vegetarian"
@@ -1519,7 +2400,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "oatly-iced-tiramisu-latte",
@@ -1533,7 +2423,8 @@
     "fat": 5.7,
     "saturatedFat": 0.9,
     "sugar": 19,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 736
    },
    "tags": [
     "vegetarian"
@@ -1541,7 +2432,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "oatly-iced-vanilla-latte",
@@ -1555,7 +2455,8 @@
     "fat": 5.5,
     "saturatedFat": 0.5,
     "sugar": 8.2,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 562
    },
    "tags": [
     "vegetarian"
@@ -1563,7 +2464,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "oatly-vanilla-iced-matcha",
@@ -1577,7 +2487,8 @@
     "fat": 4.9,
     "saturatedFat": 0.4,
     "sugar": 5.4,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 467
    },
    "tags": [
     "vegetarian"
@@ -1585,7 +2496,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "oatly-strawberry-shortcake-iced-matcha",
@@ -1599,7 +2519,8 @@
     "fat": 8.4,
     "saturatedFat": 2.5,
     "sugar": 33,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1191
    },
    "tags": [
     "vegetarian"
@@ -1607,7 +2528,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
   },
   {
    "id": "caramel-krunch-shake",
@@ -1621,7 +2556,8 @@
     "fat": 14.3,
     "saturatedFat": 9.1,
     "sugar": 69,
-    "salt": 0.86
+    "salt": 0.86,
+    "energyKj": 2065
    },
    "tags": [
     "vegetarian"
@@ -1629,7 +2565,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-krunch-shake",
@@ -1643,7 +2592,8 @@
     "fat": 13.8,
     "saturatedFat": 8.9,
     "sugar": 71,
-    "salt": 0.84
+    "salt": 0.84,
+    "energyKj": 2038
    },
    "tags": [
     "vegetarian"
@@ -1651,7 +2601,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "strawberry-shortcake-krunch-shake",
@@ -1665,7 +2628,8 @@
     "fat": 13.3,
     "saturatedFat": 8.9,
     "sugar": 69,
-    "salt": 0.79
+    "salt": 0.79,
+    "energyKj": 2026
    },
    "tags": [
     "vegetarian"
@@ -1673,7 +2637,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bottle-of-still-water",
@@ -1687,7 +2664,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 0.5,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -1695,7 +2673,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fruit-shoot-robinsons-blackcurrant-apple",
@@ -1709,7 +2691,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 1.4,
-    "salt": 0.06
+    "salt": 0.06,
+    "energyKj": 35
    },
    "tags": [
     "vegetarian"
@@ -1717,7 +2700,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fruit-shoot-robinsons-orange",
@@ -1731,7 +2718,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 2.4,
-    "salt": 0.06
+    "salt": 0.06,
+    "energyKj": 41
    },
    "tags": [
     "vegetarian"
@@ -1739,7 +2727,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pepsi-max-regular",
@@ -1753,7 +2745,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 8
    },
    "tags": [
     "vegetarian"
@@ -1761,7 +2754,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pepsi-max-large",
@@ -1775,7 +2772,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 10
    },
    "tags": [
     "vegetarian"
@@ -1783,7 +2781,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pepsi-max-cherry-regular",
@@ -1797,7 +2799,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.09
+    "salt": 0.09,
+    "energyKj": 10
    },
    "tags": [
     "vegetarian"
@@ -1805,7 +2808,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pepsi-max-cherry-large",
@@ -1819,7 +2826,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 14
    },
    "tags": [
     "vegetarian"
@@ -1827,7 +2835,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "7up-free-regular",
@@ -1841,7 +2853,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 27
    },
    "tags": [
     "vegetarian"
@@ -1849,7 +2862,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "7up-free-large",
@@ -1863,7 +2880,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 38
    },
    "tags": [
     "vegetarian"
@@ -1871,7 +2889,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "robinsons-apple-blackcurrant-regular",
@@ -1885,7 +2907,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 0.5,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 20
    },
    "tags": [
     "vegetarian"
@@ -1893,7 +2916,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "robinsons-apple-blackcurrant-large",
@@ -1907,7 +2936,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 0.5,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 27
    },
    "tags": [
     "vegetarian"
@@ -1915,7 +2945,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tango-orange-sugar-free-regular",
@@ -1929,7 +2965,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 16
    },
    "tags": [
     "vegetarian"
@@ -1937,7 +2974,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "tango-orange-sugar-free-large",
@@ -1951,7 +2992,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.46
+    "salt": 0.46,
+    "energyKj": 22
    },
    "tags": [
     "vegetarian"
@@ -1959,7 +3001,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-pepsi-regular",
@@ -1973,7 +3019,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 8
    },
    "tags": [
     "vegetarian"
@@ -1981,7 +3028,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-pepsi-large",
@@ -1995,7 +3046,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 10
    },
    "tags": [
     "vegetarian"
@@ -2003,7 +3055,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "apple-tango-regular",
@@ -2017,7 +3073,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 1.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 30
    },
    "tags": [
     "vegetarian"
@@ -2025,7 +3082,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "apple-tango-large",
@@ -2039,7 +3100,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 2.3,
-    "salt": 0.45
+    "salt": 0.45,
+    "energyKj": 68
    },
    "tags": [
     "vegetarian"
@@ -2047,7 +3109,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lipton-ice-tea-regular",
@@ -2061,7 +3127,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 14,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 242
    },
    "tags": [
     "vegetarian"
@@ -2069,7 +3136,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lipton-ice-tea-large",
@@ -2083,7 +3154,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 19,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 328
    },
    "tags": [
     "vegetarian"
@@ -2091,7 +3163,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "garlic-parm-dip-pot",
@@ -2105,13 +3181,22 @@
     "fat": 19.7,
     "saturatedFat": 1.6,
     "sugar": 2,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 793
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honey-mustard-dip-pot",
@@ -2125,7 +3210,8 @@
     "fat": 17.1,
     "saturatedFat": 1.2,
     "sugar": 8.4,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 804
    },
    "tags": [
     "vegetarian"
@@ -2133,7 +3219,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-honey-habanero-dip-pot",
@@ -2147,7 +3242,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 19,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 391
    },
    "tags": [
     "vegetarian"
@@ -2155,7 +3251,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "jalapeno-ranch-dip-pot",
@@ -2169,7 +3269,8 @@
     "fat": 15.4,
     "saturatedFat": 1.1,
     "sugar": 1.8,
-    "salt": 0.48
+    "salt": 0.48,
+    "energyKj": 639
    },
    "tags": [
     "vegetarian"
@@ -2177,7 +3278,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-masala-dip-pot",
@@ -2191,7 +3301,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 14,
-    "salt": 0.48
+    "salt": 0.48,
+    "energyKj": 266
    },
    "tags": [
     "vegetarian"
@@ -2199,7 +3310,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "original-sauce-dip-pot",
@@ -2213,7 +3330,8 @@
     "fat": 15.6,
     "saturatedFat": 1.1,
     "sugar": 3,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 652
    },
    "tags": [
     "vegetarian"
@@ -2221,7 +3339,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "supercharger-dip-pot",
@@ -2235,7 +3361,8 @@
     "fat": 19,
     "saturatedFat": 1.4,
     "sugar": 2.9,
-    "salt": 0.72
+    "salt": 0.72,
+    "energyKj": 781
    },
    "tags": [
     "vegetarian"
@@ -2243,7 +3370,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sweet-teriyaki-dip-pot",
@@ -2257,7 +3391,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 9.2,
-    "salt": 0.52
+    "salt": 0.52,
+    "energyKj": 222
    },
    "tags": [
     "vegetarian"
@@ -2265,7 +3400,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "texas-bbq-dip-pot",
@@ -2279,7 +3421,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 15,
-    "salt": 0.52
+    "salt": 0.52,
+    "energyKj": 297
    },
    "tags": [
     "vegetarian"
@@ -2287,7 +3430,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "heinz-tomato-ketchup-sachet",
@@ -2301,7 +3448,8 @@
     "fat": 0.5,
     "saturatedFat": 0.1,
     "sugar": 2.3,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 42
    },
    "tags": [
     "vegetarian"
@@ -2309,7 +3457,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "heinz-light-mayonnaise-sachet",
@@ -2323,7 +3477,8 @@
     "fat": 2.7,
     "saturatedFat": 0.2,
     "sugar": 0.5,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 115
    },
    "tags": [
     "vegetarian"
@@ -2331,7 +3486,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

@@ -9,6 +9,7 @@ exactly as printed (kcal, fat, saturates, sugars, salt, protein, carbohydrate, f
 Only the section choices and the name tidying below are typed by hand. If the page gains or loses dishes, or a new
 section appears, the run stops so a human re-checks. Yo! Sushi prints no date on the page.
 """
+from __future__ import annotations
 import argparse
 import re
 import sys
@@ -38,6 +39,13 @@ EXCLUDED = {"Selfridges & Heathrow": "dishes sold only at the Selfridges and Hea
 NOT_RANKABLE = {"curry sauce"}
 # printed numbers that look odd; they are entered exactly as printed
 ODD = {"Pulled Shiitake Teriyaki Donburi": "Fibre is printed as 27.0 g, far above the other dishes (7.6 g for the fried rice)"}
+# The same page prints each dish's 14 allergen columns (a tick = contains, "M" = may contain, as its key says), a
+# "Contains: ... May contain: ..." line naming the cereals, and the label ids of its own allergen filter; all three are
+# cross-checked (tenkites_c.allergens_from_columns). Column names and spellings as the page prints them:
+ALLERGEN_COLUMNS = ["Cereals with Gluten", "Tree Nuts", "Peanuts", "Eggs", "Milk", "Fish", "Crustaceans", "Molluscs", "Celery",
+                    "Mustard", "Sesame", "Soyabeans", "Sulphur Dioxide / Sulphites", "Lupin"]
+ALLERGEN_EXTRA = {"soyabeans": ("soya", None), "sulphur dioxide / sulphites": ("sulphites", None)}
+ALLERGEN_TITLE = "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (Ten Kites page; no date printed, read 2026-10-06)"
 SOURCE_TITLE = "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-10-06)"
 NOTE = ("Figures are per serving from Yo! Sushi's own nutrition page for its Dine-in menu (hosted by Ten Kites), which "
         "prints no date. Dishes sold only at Selfridges and Heathrow are left out.")
@@ -66,7 +74,7 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
         if spec is None:
             left_out[r["section"]] = left_out.get(r["section"], 0) + 1
             continue
-        nums, missing = tk.numbers(r["nutrients"], r["name"])
+        nums, missing = tk.numbers(r["nutrients"], r["name"], extras=True)
         if missing:
             report.append(f"skipped {r['name']!r}: {missing} not printed")
             continue
@@ -78,8 +86,12 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
             report.append(f"meat type not stated: {name}")
         items.append({"id": slug(name), "name": name, "category": category, "serving": serving, **nums,
                       "tags": "|".join(tags + meat), "limited_time": limited,
-                      "rankable": rankable and r["name"].lower() not in NOT_RANKABLE, "notes": ""})
+                      "rankable": rankable and r["name"].lower() not in NOT_RANKABLE, "notes": "",
+                      "allergens": tk.allergens_from_columns(r, f"{FILE} {r['name']}", ALLERGEN_COLUMNS, ALLERGEN_EXTRA)})
     report += [f"left out {n} dishes in {s!r}: {EXCLUDED[s]}" for s, n in left_out.items()]
+    report += [f"allergens: {n!r} is printed twice with the same numbers but different allergens: not used"
+               for n in tk.allergen_conflicts(items)]
+    report += [f"allergens: no allergen information to read for {i['name']!r}" for i in items if i["allergens"] is None]
     kept, dropped = tk.dedupe_items(items)
     report += [f"dropped exact duplicate: {n}" for n in dropped]
     names = [i["name"] for i in kept]
@@ -106,7 +118,9 @@ def main() -> int:
     items, holdback, report = build(args.pages)
     out = write_chain_folder(chain_id=CHAIN_ID, name="Yo! Sushi", cuisine="Japanese", source_title=SOURCE_TITLE, source_url=URL,
                              checked_on=args.checked_on, aliases=["yo sushi", "yo! sushi", "yosushi"], items=items,
-                             out=args.out, note=NOTE, holdback=holdback)
+                             out=args.out, note=NOTE, holdback=holdback,
+                             allergen_guide={"title": ALLERGEN_TITLE, "url": URL, "checked_on": args.checked_on,
+                                             "may_contain_published": True})
     print(f"{FILE} sha256 {tk.sha256_text_file(args.pages / FILE)}")
     print("\n".join(report))
     print(f"wrote {len(items)} items to {out}")

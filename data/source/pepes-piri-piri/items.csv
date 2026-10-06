@@ -1,111 +1,111 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-1-2-chicken,1/2 Chicken,Grilled collection,,798,125.6,2.5,32.0,9.5,,4.1,0.8,,,false,true,,,Page lists Add Flavour 70 ml
-1-4-chicken,1/4 Chicken,Grilled collection,,399,62.8,1.3,16.0,4.7,,2.1,0.4,,,false,true,,,Page lists Add Flavour 40 ml
-bbq-quesadilla,BBQ Quesadilla,Grilled collection,,434,31.4,47.8,12.2,6.0,,2.0,12.9,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
-bbq-wrap,BBQ Wrap,Grilled collection,,388,27.3,39.9,13.0,3.3,,1.6,6.8,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
-chick-n-rice,Chick n Rice,Grilled collection,,556,31.2,76.8,13.6,2.2,,1.6,3.2,,,false,true,,,Page lists Add Flavour 40 ml
-chicken-box,Chicken Box,Grilled collection,,739,56.8,70.7,24.9,5.5,,2.9,7.9,,,false,true,,,Page lists Add Flavour 40 ml
-chicken-burrito,Chicken Burrito,Grilled collection,,353,22.0,48.7,7.4,2.9,,1.2,4.3,,,false,true,,,Page lists Add Flavour 40 ml
-chicken-fajita-wrap,Chicken Fajita Wrap,Grilled collection,,785,43.6,54.1,42.9,16.4,,2.9,7.3,,,false,true,,,Page lists Add Flavour 40 ml
-chicken-nachos,Chicken Nachos,Grilled collection,,790,35.0,67.6,40.9,14.7,,2.8,4.8,,,false,true,,,Page lists Add Flavour 30 ml
-chicken-quesadilla,Chicken Quesadilla,Grilled collection,,395,31.3,38.4,12.1,6.0,,2.0,4.4,,,false,true,,,Page lists Add Flavour 40 ml
-chicken-salad,Chicken Salad,Grilled collection,,120,23.3,4.6,1.4,0.5,,0.5,3.1,,,false,true,,,Page lists Add Flavour 40 ml
-chicken-tasca,Chicken Tasca,Grilled collection,,476,32.7,52.5,16.2,3.6,,2.8,3.9,,,false,true,,,Page lists Add Flavour 40 ml
-chicken-xl,Chicken XL,Grilled collection,,443,39.2,43.8,12.1,2.2,,1.5,6.1,,,false,true,,,Page lists Add Flavour 20 ml
-gourmet-beef-burger-double,Gourmet Beef Burger – Double,Grilled collection,,1361,71.3,52.1,96.6,41.2,,3.0,10.4,,contains_beef,false,true,,,Page lists Add Flavour 40 ml
-gourmet-beef-burger-single,Gourmet Beef Burger – Single,Grilled collection,,876,39.8,49.7,58.1,22.6,,2.0,9.9,,contains_beef,false,true,,,Page lists Add Flavour 20 ml
-gourmet-lamb-burger-double,Gourmet Lamb Burger – Double,Grilled collection,,1185,71.8,49.3,78.3,33.2,,1.3,11.3,,,false,true,,,Page lists Add Flavour 40 ml
-gourmet-lamb-burger-single,Gourmet Lamb Burger – Single,Grilled collection,,807,40.9,48.6,50.7,19.4,,1.3,10.2,,,false,true,,,Page lists Add Flavour 20 ml
-hot-and-spicy-quesadilla,Hot & Spicy Quesadilla,Grilled collection,,417,31.3,43.6,12.5,5.8,,2.0,9.9,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
-korean-beef-burger-double,Korean Beef Burger – Double,Grilled collection,,1326,69.5,54.3,92.5,40.6,,2.8,10.3,,contains_beef,false,true,,,Page lists Add Flavour 40 ml
-korean-beef-burger-single,Korean Beef Burger – Single,Grilled collection,,881,39.6,52.3,57.4,23.3,,2.1,9.6,,contains_beef,false,true,,,Page lists Add Flavour 20 ml
-korean-lamb-burger-double,Korean Lamb Burger – Double,Grilled collection,,1189,71.9,52.3,77.8,33.8,,1.5,11.3,,,false,true,,,Page lists Add Flavour 40 ml
-korean-lamb-burger-single,Korean Lamb Burger – Single,Grilled collection,,814,40.8,51.4,50.1,20.1,,1.5,9.9,,,false,true,,,Page lists Add Flavour 20 ml
-loaded-fries-chicken,Loaded Fries Chicken,Grilled collection,,755,37.3,75.5,32.5,12.3,,5.9,5.7,,,false,true,,,Page lists Add Flavour 40 ml
-pepes-original,Pepe's Original,Grilled collection,,1596,251.2,5.0,64.0,18.9,,8.2,1.6,,,false,true,,,meat type not stated; same numbers as Whole Chicken (the page lists both names); Page lists Add Flavour 140 ml
-pepes-wings-5,Pepe's Wings – 5,Grilled collection,,221,23.7,2.2,13.5,3.5,,0.2,0.3,,,false,true,,,meat type not stated; Page lists Add Flavour 45 ml
-prime-pitta,Prime Pitta,Grilled collection,,412,38.8,41.7,9.6,1.3,,1.2,4.2,,,false,true,,,meat type not stated; Page lists Add Flavour 20 ml
-tender-strips-5,Tender Strips – 5,Grilled collection,,166,36.7,0.4,2.2,0.9,,0.9,0.4,,,false,true,,,meat type not stated; Page lists Add Flavour 70 ml
-texan-beef-burger-double,Texan Beef Burger – Double,Grilled collection,,1224,66.7,53.7,82.7,37.2,,2.6,13.5,,contains_beef,false,true,,,Page lists Add Flavour 40 ml
-texan-beef-burger-single,Texan Beef Burger – Single,Grilled collection,,781,37.2,51.9,47.5,20.3,,1.9,12.8,,contains_beef,false,true,,,Page lists Add Flavour 20 ml
-texan-lamb-burger-double,Texan Lamb Burger – Double,Grilled collection,,1088,69.2,51.8,67.7,31.0,,1.3,14.5,,,false,true,,,Page lists Add Flavour 40 ml
-texan-lamb-burger-single,Texan Lamb Burger – Single,Grilled collection,,713,38.4,50.6,40.0,17.2,,1.3,13.1,,,false,true,,,Page lists Add Flavour 20 ml
-the-wrap,The Wrap,Grilled collection,,367,27.1,35.1,12.8,3.2,,1.3,3.0,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
-whole-chicken,Whole Chicken,Grilled collection,,1596,251.2,5.0,64.0,18.9,,8.2,1.6,,,false,true,,,Same numbers as Pepe's Original (the page lists both names); Page lists Add Flavour 140 ml
-chicken-burger,Chicken Burger,Fried collection,,383,15.7,38.4,19.3,2.8,,1.6,3.3,,,false,true,,,
-chicken-burger-double,Chicken Burger – Double,Fried collection,,563,26.9,51.9,29.6,4.6,,2.5,3.6,,,false,true,,,
-chicken-nuggets-5,Chicken Nuggets – 5,Fried collection,,268,17.8,19.5,15.0,2.2,,1.3,0.5,,,false,true,,,
-chicken-nuggets-8,Chicken Nuggets – 8,Fried collection,,429,28.5,31.3,23.9,3.5,,2.0,0.7,,,false,true,,,
-feta-salad,Feta Salad,Veggie table,,136,6.9,8.2,8.6,5.3,,1.0,2.7,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat
-paneer-burrito,Paneer Burrito,Veggie table,,495,19.9,49.2,23.0,12.8,,1.2,3.3,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
-paneer-loaded-fries,Paneer Loaded Fries,Veggie table,,971,34.3,76.3,56.0,27.6,,5.8,6.4,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
-paneer-nachos,Paneer Nachos,Veggie table,,1039,39.3,68.1,65.4,30.2,,2.6,10.0,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
-paneer-rice,Paneer Rice,Veggie table,,688,26.4,64.5,35.1,17.0,,1.4,4.5,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
-paneer-salad,Paneer Salad,Veggie table,,228,13.6,5.2,16.8,10.4,,0.3,4.2,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
-paneer-wrap,Paneer Wrap,Veggie table,,581,24.0,36.0,36.4,18.4,,1.3,6.8,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
-veggie-burger-double,Veggie Burger – Double,Veggie table,,721,13.9,92.9,31.4,5.4,,2.8,10.3,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat
-veggie-burger-single,Veggie Burger – Single,Veggie table,,514,10.5,68.4,21.9,4.3,,1.8,8.5,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat
-kids-meal-chicken-burger,Kids Meal – Chicken Burger,Kids meals,,652,18.3,81.3,27.5,3.2,,2.4,5.9,,,false,true,,,
-kids-meal-nuggets,Kids Meal – Nuggets,Kids meals,,427,13.2,54.9,17.3,1.8,,1.6,2.7,,,false,true,,,
-kids-meal-strips,Kids Meal – Strips,Kids meals,,332,17.3,43.2,9.1,0.9,,1.2,2.7,,,false,true,,,meat type not stated; Page lists Add Flavour 30 ml
-platter-combo-serves-2-3,Combo Platter (serves 2-3),Grilled platters,,1979,152.9,140.9,88.4,15.0,,7.6,12.0,,,false,false,,,"meat type not stated; serves more than one, so never suggested as one person's order; Page lists Add Flavour 105 ml"
-family-platter-serves-3-4,Family Platter (serves 3-4),Grilled platters,,3397,287.3,217.3,149.9,27.5,,13.7,22.5,,,false,false,,,"meat type not stated; serves more than one, so never suggested as one person's order; Page lists Add Flavour 195 ml"
-mega-platter-serves-5-6,Mega Platter (serves 5-6),Grilled platters,,6005,547.1,440.4,222.4,44.5,,24.9,31.1,,,false,false,,,"meat type not stated; serves more than one, so never suggested as one person's order; Page lists Add Flavour 320 ml"
-solo-platter-serves-1,Solo Platter (serves 1),Grilled platters,,1178,86.7,84.8,52.8,8.5,,4.0,3.8,,,false,true,,,meat type not stated; Page lists Add Flavour 65 ml
-wings-x-18-serves-2,Wings x 18 (serves 2),Grilled platters,,791,84.8,8.2,48.9,12.2,,8.0,0.8,,,false,false,,,meat type not stated; serves more than one; salt is printed as 8.0 g here but 1.3 g for 28 wings; entered as printed; Page lists Add Flavour 160 ml
-wings-x-28-serves-3,Wings x 28 (serves 3),Grilled platters,,1238,132.6,12.6,75.8,18.9,,1.3,1.3,,,false,false,,,meat type not stated; serves more than one; salt is printed as 1.3 g here but 8.0 g for 18 wings; entered as printed; Page lists Add Flavour 250 ml
-cheese-slice,Cheese Slice,Extras & sides,,42,2.1,0.8,3.3,1.6,,0.3,0.7,,,false,false,,,
-chilli-cheese-nuggets,Chilli Cheese Nuggets,Extras & sides,,237,7.2,20.3,13.8,4.2,,1.4,1.5,,,false,true,,,
-chimichurri-fries-large,Chimichurri Fries – Large,Extras & sides,Large,423,5.1,68.6,12.5,1.0,,3.6,4.6,,,false,true,,,
-chimichurri-fries-regular,Chimichurri Fries – Regular,Extras & sides,Regular,282,3.4,45.7,8.3,0.7,,2.4,3.1,,,false,true,,,
-chimichurri-wedges,Chimichurri Wedges,Extras & sides,,247,4.6,34.1,9.3,1.0,,3.1,5.8,,,false,true,,,The page spells the name 'Chimmichurri Wedges'
-corn-on-the-cob,Corn on the Cob,Extras & sides,,232,15.4,39.3,0.9,0.2,,0.0,5.8,,,false,true,,,Protein 15.4 g is printed; high for corn but the energy adds up; entered as printed
-fries-large,Fries – Large,Extras & sides,Large,390,3.9,62.4,12.3,1.0,,1.1,1.2,,,false,true,,,
-fries-regular,Fries – Regular,Extras & sides,Regular,259,2.6,41.6,8.2,0.7,,0.9,0.8,,,false,true,,,
-loaded-fries-plain,Loaded Fries Plain,Extras & sides,,658,15.4,75.2,31.1,11.7,,5.3,5.3,,,false,true,,,
-mozzarella-sticks,Mozzarella Sticks,Extras & sides,,430,16.6,40.4,22.5,8.7,,2.1,8.7,,,false,true,,,The page spells the name 'Mozarella Sticks'
-onion-rings,Onion Rings,Extras & sides,,305,5.9,393.0,13.8,1.4,,0.8,4.4,,,false,true,,,HELD BACK: carbs 393.0 g with 305 kcal is impossible (Piri Piri Onion Rings prints 43.0 g); nothing corrected
-pepes-wings-3,Pepe's Wings – 3,Extras & sides,,133,14.2,1.4,8.1,1.9,,0.1,0.2,,,false,true,,,meat type not stated; Page lists Add Flavour 25 ml
-piri-piri-corn-on-the-cob,Piri Piri Corn on the Cob,Extras & sides,,290,15.8,42.8,5.8,0.8,,1.0,6.3,,,false,true,,,Protein 15.8 g is printed; high for corn but the energy adds up; entered as printed
-piri-piri-fries-large,Piri Piri Fries – Large,Extras & sides,Large,418,4.6,68.1,12.8,1.0,,4.1,2.3,,,false,true,,,
-piri-piri-fries-regular,Piri Piri Fries – Regular,Extras & sides,Regular,279,3.1,45.4,8.5,0.7,,2.7,1.5,,,false,true,,,
-piri-piri-onion-rings,Piri Piri Onion Rings,Extras & sides,,325,6.4,43.0,14.1,1.4,,2.9,5.1,,,false,true,,,
-piri-piri-pitta-bread,Piri Piri Pitta Bread,Extras & sides,,251,7.3,42.3,5.3,0.7,,1.4,2.0,,,false,true,,,
-piri-piri-wedges,Piri Piri Wedges,Extras & sides,,245,4.3,33.8,9.4,4.0,,3.4,2.2,,,false,true,,,
-pitta-bread,Pitta Bread,Extras & sides,,193,7.0,38.8,0.6,0.1,,0.4,1.4,,,false,true,,,
-side-salad,Side Salad,Extras & sides,,15,0.8,3.4,0.1,0.0,,0.0,1.6,,,false,true,,,
-spicy-rice,Spicy Rice,Extras & sides,,377,7.7,63.3,10.1,1.4,,0.9,1.0,,,false,true,,,
-steamed-mixed-veg,Steamed Mixed Veg,Extras & sides,,106,4.8,16.2,0.2,0.2,,0.2,9.0,,,false,true,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
-tender-strips-3,Tender Strips – 3,Extras & sides,,100,22.1,0.3,1.4,0.5,,0.5,0.3,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
-wedges,Wedges,Extras & sides,,225,3.8,30.0,9.2,0.9,,1.2,1.5,,,false,true,,,
-pepes-chimichurri-mayo,Pepe's Chimichurri Mayo,Dips,,256,0.5,2.4,27.2,2.0,,1.1,1.8,,,false,false,,,
-pepes-dark-chocolate-sauce,Pepe's Dark Chocolate Sauce,Dips,,137,1.3,26.2,2.8,1.4,,0.0,22.5,,,false,false,,,
-pepes-extra-hot-sauce,Pepe's Extra Hot Sauce,Dips,,39,0.8,4.3,1.1,0.2,,1.0,2.1,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
-pepes-garlic-mayo,Pepe's Garlic Mayo,Dips,,189,0.7,1.4,20.2,1.5,,0.4,1.3,,,false,false,,,
-pepes-piri-piri-mayo,Pepe's Piri Piri Mayo,Dips,,178,0.7,7.2,16.4,1.3,,2.2,1.2,,,false,false,,,
-pepes-sweet-chilli-sauce,Pepe's Sweet Chilli Sauce,Dips,,53,1.0,11.2,0.2,0.0,,0.7,8.3,,,false,false,,,
-pepes-carrot-cake,Pepe's Carrot Cake,Desserts,,325,6.1,36.2,17.3,4.9,,0.7,24.2,,,false,false,,,
-pepes-chocolate-fudge-cake,Pepe's Chocolate Fudge Cake,Desserts,,387,5.5,48.8,18.9,7.9,,0.5,33.5,,,false,false,,,
-pepes-churros,Pepe's Churros,Desserts,,316,5.1,65.4,3.5,1.7,,1,30.2,,,false,false,,,Salt is printed as '1' without a decimal; entered as printed
-pepes-strawberry-cheesecake,Pepe's Strawberry Cheesecake,Desserts,,315,7.5,38.2,14.7,5.2,,0.5,9,,,false,false,,,Sugars printed as '9' without a decimal; entered as printed
-chocolate-fudge-brownie-100-ml,Chocolate Fudge Brownie (100 ml),Ben & Jerry's ice cream,100 ml,183,3.1,22.0,8.9,5.4,,0.2,20.0,,,false,false,,,Ben & Jerry's; size is printed in the name
-chocolate-fudge-brownie-465-ml,Chocolate Fudge Brownie (465 ml),Ben & Jerry's ice cream,465 ml,853,14.3,102.5,41.5,25.2,,0.9,93.2,,,false,false,,,Ben & Jerry's; size is printed in the name
-cookie-dough-100-ml,Cookie Dough (100 ml),Ben & Jerry's ice cream,100 ml,273,4.1,31.0,15.0,9.2,,0.2,25.0,,,false,false,,,Ben & Jerry's; size is printed in the name
-cookie-dough-465-ml,Cookie Dough (465 ml),Ben & Jerry's ice cream,465 ml,1268,16.3,144.0,69.9,42.9,,0.9,116.0,,,false,false,,,Ben & Jerry's; size is printed in the name
-7-up-free-1-5l,7 Up Free (1.5L),Drinks,1.5L,30,0.0,1.5,0.0,0.0,,0.0,0.0,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
-7up-fountain-large,7UP fountain (large),Drinks,Large,13,0.0,0.6,0.0,0.0,,0.3,0.0,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
-7up-fountain-regular,7UP fountain (regular),Drinks,Regular,9,0.0,0.5,0.0,0.0,,0.2,0.0,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
-pepsi-fountain-large,Pepsi fountain (large),Drinks,Large,256,0.0,68.8,0.0,0.0,,0.0,68.8,,,false,false,,,
-pepsi-fountain-regular,Pepsi fountain (regular),Drinks,Regular,186,0.0,49.9,0.0,0.0,,0.0,49.9,,,false,false,,,
-pepsi-1-5l,Pepsi (1.5L),Drinks,1.5L,615,1.5,165.0,0.0,0.0,,0.2,165.0,,,false,false,,,
-pepsi-max-fountain-large,Pepsi Max fountain (large),Drinks,Large,2,0.0,0.0,0.0,0.0,,0.1,0.0,,,false,false,,,
-pepsi-max-fountain-regular,Pepsi Max fountain (regular),Drinks,Regular,1,0.0,0.0,0.0,0.0,,0.1,0.0,,,false,false,,,
-pepsi-max-1-5l,Pepsi Max (1.5L),Drinks,1.5L,6,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
-tango-fountain-large,Tango fountain (large),Drinks,Large,25,0.0,0.0,0.0,0.0,,0.4,0.0,,,false,false,,,The page prints just 'Tango'; Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
-tango-fountain-regular,Tango fountain (regular),Drinks,Regular,18,0.0,0.0,0.0,0.0,,0.3,0.0,,,false,false,,,The page prints just 'Tango'; Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
-extra-hot-flavour-10-ml,Extra Hot flavour (10 ml),Sauce flavours (per 10 ml),10 ml,24,0.2,1.3,2.0,0.3,,0.8,0.2,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
-extreme-flavour-10-ml,Extreme flavour (10 ml),Sauce flavours (per 10 ml),10 ml,17,0.1,0.9,1.4,0.2,,0.5,0.2,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
-hot-flavour-10-ml,Hot flavour (10 ml),Sauce flavours (per 10 ml),10 ml,29,0.1,1.8,2.4,0.3,,0.5,0.1,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
-lemon-and-herb-flavour-10-ml,Lemon & Herb flavour (10 ml),Sauce flavours (per 10 ml),10 ml,31,0.1,1.8,2.5,0.3,,0.0,0.3,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
-mango-and-lime-flavour-10-ml,Mango & Lime flavour (10 ml),Sauce flavours (per 10 ml),10 ml,31,0.1,2.9,2.1,0.3,,0.2,1.5,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
-mild-flavour-10-ml,Mild flavour (10 ml),Sauce flavours (per 10 ml),10 ml,29,0.2,1.7,2.4,0.3,,0.5,0.3,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+1-2-chicken,1/2 Chicken,Grilled collection,,798,125.6,2.5,32.0,9.5,,4.1,0.8,,,,,,,,,false,true,,,Page lists Add Flavour 70 ml
+1-4-chicken,1/4 Chicken,Grilled collection,,399,62.8,1.3,16.0,4.7,,2.1,0.4,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+bbq-quesadilla,BBQ Quesadilla,Grilled collection,,434,31.4,47.8,12.2,6.0,,2.0,12.9,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
+bbq-wrap,BBQ Wrap,Grilled collection,,388,27.3,39.9,13.0,3.3,,1.6,6.8,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
+chick-n-rice,Chick n Rice,Grilled collection,,556,31.2,76.8,13.6,2.2,,1.6,3.2,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+chicken-box,Chicken Box,Grilled collection,,739,56.8,70.7,24.9,5.5,,2.9,7.9,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+chicken-burrito,Chicken Burrito,Grilled collection,,353,22.0,48.7,7.4,2.9,,1.2,4.3,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+chicken-fajita-wrap,Chicken Fajita Wrap,Grilled collection,,785,43.6,54.1,42.9,16.4,,2.9,7.3,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+chicken-nachos,Chicken Nachos,Grilled collection,,790,35.0,67.6,40.9,14.7,,2.8,4.8,,,,,,,,,false,true,,,Page lists Add Flavour 30 ml
+chicken-quesadilla,Chicken Quesadilla,Grilled collection,,395,31.3,38.4,12.1,6.0,,2.0,4.4,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+chicken-salad,Chicken Salad,Grilled collection,,120,23.3,4.6,1.4,0.5,,0.5,3.1,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+chicken-tasca,Chicken Tasca,Grilled collection,,476,32.7,52.5,16.2,3.6,,2.8,3.9,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+chicken-xl,Chicken XL,Grilled collection,,443,39.2,43.8,12.1,2.2,,1.5,6.1,,,,,,,,,false,true,,,Page lists Add Flavour 20 ml
+gourmet-beef-burger-double,Gourmet Beef Burger – Double,Grilled collection,,1361,71.3,52.1,96.6,41.2,,3.0,10.4,,,,,,,,contains_beef,false,true,,,Page lists Add Flavour 40 ml
+gourmet-beef-burger-single,Gourmet Beef Burger – Single,Grilled collection,,876,39.8,49.7,58.1,22.6,,2.0,9.9,,,,,,,,contains_beef,false,true,,,Page lists Add Flavour 20 ml
+gourmet-lamb-burger-double,Gourmet Lamb Burger – Double,Grilled collection,,1185,71.8,49.3,78.3,33.2,,1.3,11.3,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+gourmet-lamb-burger-single,Gourmet Lamb Burger – Single,Grilled collection,,807,40.9,48.6,50.7,19.4,,1.3,10.2,,,,,,,,,false,true,,,Page lists Add Flavour 20 ml
+hot-and-spicy-quesadilla,Hot & Spicy Quesadilla,Grilled collection,,417,31.3,43.6,12.5,5.8,,2.0,9.9,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
+korean-beef-burger-double,Korean Beef Burger – Double,Grilled collection,,1326,69.5,54.3,92.5,40.6,,2.8,10.3,,,,,,,,contains_beef,false,true,,,Page lists Add Flavour 40 ml
+korean-beef-burger-single,Korean Beef Burger – Single,Grilled collection,,881,39.6,52.3,57.4,23.3,,2.1,9.6,,,,,,,,contains_beef,false,true,,,Page lists Add Flavour 20 ml
+korean-lamb-burger-double,Korean Lamb Burger – Double,Grilled collection,,1189,71.9,52.3,77.8,33.8,,1.5,11.3,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+korean-lamb-burger-single,Korean Lamb Burger – Single,Grilled collection,,814,40.8,51.4,50.1,20.1,,1.5,9.9,,,,,,,,,false,true,,,Page lists Add Flavour 20 ml
+loaded-fries-chicken,Loaded Fries Chicken,Grilled collection,,755,37.3,75.5,32.5,12.3,,5.9,5.7,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+pepes-original,Pepe's Original,Grilled collection,,1596,251.2,5.0,64.0,18.9,,8.2,1.6,,,,,,,,,false,true,,,meat type not stated; same numbers as Whole Chicken (the page lists both names); Page lists Add Flavour 140 ml
+pepes-wings-5,Pepe's Wings – 5,Grilled collection,,221,23.7,2.2,13.5,3.5,,0.2,0.3,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 45 ml
+prime-pitta,Prime Pitta,Grilled collection,,412,38.8,41.7,9.6,1.3,,1.2,4.2,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 20 ml
+tender-strips-5,Tender Strips – 5,Grilled collection,,166,36.7,0.4,2.2,0.9,,0.9,0.4,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 70 ml
+texan-beef-burger-double,Texan Beef Burger – Double,Grilled collection,,1224,66.7,53.7,82.7,37.2,,2.6,13.5,,,,,,,,contains_beef,false,true,,,Page lists Add Flavour 40 ml
+texan-beef-burger-single,Texan Beef Burger – Single,Grilled collection,,781,37.2,51.9,47.5,20.3,,1.9,12.8,,,,,,,,contains_beef,false,true,,,Page lists Add Flavour 20 ml
+texan-lamb-burger-double,Texan Lamb Burger – Double,Grilled collection,,1088,69.2,51.8,67.7,31.0,,1.3,14.5,,,,,,,,,false,true,,,Page lists Add Flavour 40 ml
+texan-lamb-burger-single,Texan Lamb Burger – Single,Grilled collection,,713,38.4,50.6,40.0,17.2,,1.3,13.1,,,,,,,,,false,true,,,Page lists Add Flavour 20 ml
+the-wrap,The Wrap,Grilled collection,,367,27.1,35.1,12.8,3.2,,1.3,3.0,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
+whole-chicken,Whole Chicken,Grilled collection,,1596,251.2,5.0,64.0,18.9,,8.2,1.6,,,,,,,,,false,true,,,Same numbers as Pepe's Original (the page lists both names); Page lists Add Flavour 140 ml
+chicken-burger,Chicken Burger,Fried collection,,383,15.7,38.4,19.3,2.8,,1.6,3.3,,,,,,,,,false,true,,,
+chicken-burger-double,Chicken Burger – Double,Fried collection,,563,26.9,51.9,29.6,4.6,,2.5,3.6,,,,,,,,,false,true,,,
+chicken-nuggets-5,Chicken Nuggets – 5,Fried collection,,268,17.8,19.5,15.0,2.2,,1.3,0.5,,,,,,,,,false,true,,,
+chicken-nuggets-8,Chicken Nuggets – 8,Fried collection,,429,28.5,31.3,23.9,3.5,,2.0,0.7,,,,,,,,,false,true,,,
+feta-salad,Feta Salad,Veggie table,,136,6.9,8.2,8.6,5.3,,1.0,2.7,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat
+paneer-burrito,Paneer Burrito,Veggie table,,495,19.9,49.2,23.0,12.8,,1.2,3.3,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
+paneer-loaded-fries,Paneer Loaded Fries,Veggie table,,971,34.3,76.3,56.0,27.6,,5.8,6.4,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
+paneer-nachos,Paneer Nachos,Veggie table,,1039,39.3,68.1,65.4,30.2,,2.6,10.0,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
+paneer-rice,Paneer Rice,Veggie table,,688,26.4,64.5,35.1,17.0,,1.4,4.5,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
+paneer-salad,Paneer Salad,Veggie table,,228,13.6,5.2,16.8,10.4,,0.3,4.2,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
+paneer-wrap,Paneer Wrap,Veggie table,,581,24.0,36.0,36.4,18.4,,1.3,6.8,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat; Page lists Add Flavour 30 ml
+veggie-burger-double,Veggie Burger – Double,Veggie table,,721,13.9,92.9,31.4,5.4,,2.8,10.3,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat
+veggie-burger-single,Veggie Burger – Single,Veggie table,,514,10.5,68.4,21.9,4.3,,1.8,8.5,,,,,,,,vegetarian,false,true,,,Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat
+kids-meal-chicken-burger,Kids Meal – Chicken Burger,Kids meals,,652,18.3,81.3,27.5,3.2,,2.4,5.9,,,,,,,,,false,true,,,
+kids-meal-nuggets,Kids Meal – Nuggets,Kids meals,,427,13.2,54.9,17.3,1.8,,1.6,2.7,,,,,,,,,false,true,,,
+kids-meal-strips,Kids Meal – Strips,Kids meals,,332,17.3,43.2,9.1,0.9,,1.2,2.7,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 30 ml
+platter-combo-serves-2-3,Combo Platter (serves 2-3),Grilled platters,,1979,152.9,140.9,88.4,15.0,,7.6,12.0,,,,,,,,,false,false,,,"meat type not stated; serves more than one, so never suggested as one person's order; Page lists Add Flavour 105 ml"
+family-platter-serves-3-4,Family Platter (serves 3-4),Grilled platters,,3397,287.3,217.3,149.9,27.5,,13.7,22.5,,,,,,,,,false,false,,,"meat type not stated; serves more than one, so never suggested as one person's order; Page lists Add Flavour 195 ml"
+mega-platter-serves-5-6,Mega Platter (serves 5-6),Grilled platters,,6005,547.1,440.4,222.4,44.5,,24.9,31.1,,,,,,,,,false,false,,,"meat type not stated; serves more than one, so never suggested as one person's order; Page lists Add Flavour 320 ml"
+solo-platter-serves-1,Solo Platter (serves 1),Grilled platters,,1178,86.7,84.8,52.8,8.5,,4.0,3.8,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 65 ml
+wings-x-18-serves-2,Wings x 18 (serves 2),Grilled platters,,791,84.8,8.2,48.9,12.2,,8.0,0.8,,,,,,,,,false,false,,,meat type not stated; serves more than one; salt is printed as 8.0 g here but 1.3 g for 28 wings; entered as printed; Page lists Add Flavour 160 ml
+wings-x-28-serves-3,Wings x 28 (serves 3),Grilled platters,,1238,132.6,12.6,75.8,18.9,,1.3,1.3,,,,,,,,,false,false,,,meat type not stated; serves more than one; salt is printed as 1.3 g here but 8.0 g for 18 wings; entered as printed; Page lists Add Flavour 250 ml
+cheese-slice,Cheese Slice,Extras & sides,,42,2.1,0.8,3.3,1.6,,0.3,0.7,,,,,,,,,false,false,,,
+chilli-cheese-nuggets,Chilli Cheese Nuggets,Extras & sides,,237,7.2,20.3,13.8,4.2,,1.4,1.5,,,,,,,,,false,true,,,
+chimichurri-fries-large,Chimichurri Fries – Large,Extras & sides,Large,423,5.1,68.6,12.5,1.0,,3.6,4.6,,,,,,,,,false,true,,,
+chimichurri-fries-regular,Chimichurri Fries – Regular,Extras & sides,Regular,282,3.4,45.7,8.3,0.7,,2.4,3.1,,,,,,,,,false,true,,,
+chimichurri-wedges,Chimichurri Wedges,Extras & sides,,247,4.6,34.1,9.3,1.0,,3.1,5.8,,,,,,,,,false,true,,,The page spells the name 'Chimmichurri Wedges'
+corn-on-the-cob,Corn on the Cob,Extras & sides,,232,15.4,39.3,0.9,0.2,,0.0,5.8,,,,,,,,,false,true,,,Protein 15.4 g is printed; high for corn but the energy adds up; entered as printed
+fries-large,Fries – Large,Extras & sides,Large,390,3.9,62.4,12.3,1.0,,1.1,1.2,,,,,,,,,false,true,,,
+fries-regular,Fries – Regular,Extras & sides,Regular,259,2.6,41.6,8.2,0.7,,0.9,0.8,,,,,,,,,false,true,,,
+loaded-fries-plain,Loaded Fries Plain,Extras & sides,,658,15.4,75.2,31.1,11.7,,5.3,5.3,,,,,,,,,false,true,,,
+mozzarella-sticks,Mozzarella Sticks,Extras & sides,,430,16.6,40.4,22.5,8.7,,2.1,8.7,,,,,,,,,false,true,,,The page spells the name 'Mozarella Sticks'
+onion-rings,Onion Rings,Extras & sides,,305,5.9,393.0,13.8,1.4,,0.8,4.4,,,,,,,,,false,true,,,HELD BACK: carbs 393.0 g with 305 kcal is impossible (Piri Piri Onion Rings prints 43.0 g); nothing corrected
+pepes-wings-3,Pepe's Wings – 3,Extras & sides,,133,14.2,1.4,8.1,1.9,,0.1,0.2,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 25 ml
+piri-piri-corn-on-the-cob,Piri Piri Corn on the Cob,Extras & sides,,290,15.8,42.8,5.8,0.8,,1.0,6.3,,,,,,,,,false,true,,,Protein 15.8 g is printed; high for corn but the energy adds up; entered as printed
+piri-piri-fries-large,Piri Piri Fries – Large,Extras & sides,Large,418,4.6,68.1,12.8,1.0,,4.1,2.3,,,,,,,,,false,true,,,
+piri-piri-fries-regular,Piri Piri Fries – Regular,Extras & sides,Regular,279,3.1,45.4,8.5,0.7,,2.7,1.5,,,,,,,,,false,true,,,
+piri-piri-onion-rings,Piri Piri Onion Rings,Extras & sides,,325,6.4,43.0,14.1,1.4,,2.9,5.1,,,,,,,,,false,true,,,
+piri-piri-pitta-bread,Piri Piri Pitta Bread,Extras & sides,,251,7.3,42.3,5.3,0.7,,1.4,2.0,,,,,,,,,false,true,,,
+piri-piri-wedges,Piri Piri Wedges,Extras & sides,,245,4.3,33.8,9.4,4.0,,3.4,2.2,,,,,,,,,false,true,,,
+pitta-bread,Pitta Bread,Extras & sides,,193,7.0,38.8,0.6,0.1,,0.4,1.4,,,,,,,,,false,true,,,
+side-salad,Side Salad,Extras & sides,,15,0.8,3.4,0.1,0.0,,0.0,1.6,,,,,,,,,false,true,,,
+spicy-rice,Spicy Rice,Extras & sides,,377,7.7,63.3,10.1,1.4,,0.9,1.0,,,,,,,,,false,true,,,
+steamed-mixed-veg,Steamed Mixed Veg,Extras & sides,,106,4.8,16.2,0.2,0.2,,0.2,9.0,,,,,,,,,false,true,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
+tender-strips-3,Tender Strips – 3,Extras & sides,,100,22.1,0.3,1.4,0.5,,0.5,0.3,,,,,,,,,false,true,,,meat type not stated; Page lists Add Flavour 40 ml
+wedges,Wedges,Extras & sides,,225,3.8,30.0,9.2,0.9,,1.2,1.5,,,,,,,,,false,true,,,
+pepes-chimichurri-mayo,Pepe's Chimichurri Mayo,Dips,,256,0.5,2.4,27.2,2.0,,1.1,1.8,,,,,,,,,false,false,,,
+pepes-dark-chocolate-sauce,Pepe's Dark Chocolate Sauce,Dips,,137,1.3,26.2,2.8,1.4,,0.0,22.5,,,,,,,,,false,false,,,
+pepes-extra-hot-sauce,Pepe's Extra Hot Sauce,Dips,,39,0.8,4.3,1.1,0.2,,1.0,2.1,,,,,,,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
+pepes-garlic-mayo,Pepe's Garlic Mayo,Dips,,189,0.7,1.4,20.2,1.5,,0.4,1.3,,,,,,,,,false,false,,,
+pepes-piri-piri-mayo,Pepe's Piri Piri Mayo,Dips,,178,0.7,7.2,16.4,1.3,,2.2,1.2,,,,,,,,,false,false,,,
+pepes-sweet-chilli-sauce,Pepe's Sweet Chilli Sauce,Dips,,53,1.0,11.2,0.2,0.0,,0.7,8.3,,,,,,,,,false,false,,,
+pepes-carrot-cake,Pepe's Carrot Cake,Desserts,,325,6.1,36.2,17.3,4.9,,0.7,24.2,,,,,,,,,false,false,,,
+pepes-chocolate-fudge-cake,Pepe's Chocolate Fudge Cake,Desserts,,387,5.5,48.8,18.9,7.9,,0.5,33.5,,,,,,,,,false,false,,,
+pepes-churros,Pepe's Churros,Desserts,,316,5.1,65.4,3.5,1.7,,1,30.2,,,,,,,,,false,false,,,Salt is printed as '1' without a decimal; entered as printed
+pepes-strawberry-cheesecake,Pepe's Strawberry Cheesecake,Desserts,,315,7.5,38.2,14.7,5.2,,0.5,9,,,,,,,,,false,false,,,Sugars printed as '9' without a decimal; entered as printed
+chocolate-fudge-brownie-100-ml,Chocolate Fudge Brownie (100 ml),Ben & Jerry's ice cream,100 ml,183,3.1,22.0,8.9,5.4,,0.2,20.0,,,,,,,,,false,false,,,Ben & Jerry's; size is printed in the name
+chocolate-fudge-brownie-465-ml,Chocolate Fudge Brownie (465 ml),Ben & Jerry's ice cream,465 ml,853,14.3,102.5,41.5,25.2,,0.9,93.2,,,,,,,,,false,false,,,Ben & Jerry's; size is printed in the name
+cookie-dough-100-ml,Cookie Dough (100 ml),Ben & Jerry's ice cream,100 ml,273,4.1,31.0,15.0,9.2,,0.2,25.0,,,,,,,,,false,false,,,Ben & Jerry's; size is printed in the name
+cookie-dough-465-ml,Cookie Dough (465 ml),Ben & Jerry's ice cream,465 ml,1268,16.3,144.0,69.9,42.9,,0.9,116.0,,,,,,,,,false,false,,,Ben & Jerry's; size is printed in the name
+7-up-free-1-5l,7 Up Free (1.5L),Drinks,1.5L,30,0.0,1.5,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
+7up-fountain-large,7UP fountain (large),Drinks,Large,13,0.0,0.6,0.0,0.0,,0.3,0.0,,,,,,,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
+7up-fountain-regular,7UP fountain (regular),Drinks,Regular,9,0.0,0.5,0.0,0.0,,0.2,0.0,,,,,,,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
+pepsi-fountain-large,Pepsi fountain (large),Drinks,Large,256,0.0,68.8,0.0,0.0,,0.0,68.8,,,,,,,,,false,false,,,
+pepsi-fountain-regular,Pepsi fountain (regular),Drinks,Regular,186,0.0,49.9,0.0,0.0,,0.0,49.9,,,,,,,,,false,false,,,
+pepsi-1-5l,Pepsi (1.5L),Drinks,1.5L,615,1.5,165.0,0.0,0.0,,0.2,165.0,,,,,,,,,false,false,,,
+pepsi-max-fountain-large,Pepsi Max fountain (large),Drinks,Large,2,0.0,0.0,0.0,0.0,,0.1,0.0,,,,,,,,,false,false,,,
+pepsi-max-fountain-regular,Pepsi Max fountain (regular),Drinks,Regular,1,0.0,0.0,0.0,0.0,,0.1,0.0,,,,,,,,,false,false,,,
+pepsi-max-1-5l,Pepsi Max (1.5L),Drinks,1.5L,6,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
+tango-fountain-large,Tango fountain (large),Drinks,Large,25,0.0,0.0,0.0,0.0,,0.4,0.0,,,,,,,,,false,false,,,The page prints just 'Tango'; Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
+tango-fountain-regular,Tango fountain (regular),Drinks,Regular,18,0.0,0.0,0.0,0.0,,0.3,0.0,,,,,,,,,false,false,,,The page prints just 'Tango'; Printed calories are higher than 4 x protein + 4 x carbs + 9 x fat account for (fibre or sweeteners may explain; the page doesn't say); entered as printed
+extra-hot-flavour-10-ml,Extra Hot flavour (10 ml),Sauce flavours (per 10 ml),10 ml,24,0.2,1.3,2.0,0.3,,0.8,0.2,,,,,,,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
+extreme-flavour-10-ml,Extreme flavour (10 ml),Sauce flavours (per 10 ml),10 ml,17,0.1,0.9,1.4,0.2,,0.5,0.2,,,,,,,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
+hot-flavour-10-ml,Hot flavour (10 ml),Sauce flavours (per 10 ml),10 ml,29,0.1,1.8,2.4,0.3,,0.5,0.1,,,,,,,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
+lemon-and-herb-flavour-10-ml,Lemon & Herb flavour (10 ml),Sauce flavours (per 10 ml),10 ml,31,0.1,1.8,2.5,0.3,,0.0,0.3,,,,,,,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
+mango-and-lime-flavour-10-ml,Mango & Lime flavour (10 ml),Sauce flavours (per 10 ml),10 ml,31,0.1,2.9,2.1,0.3,,0.2,1.5,,,,,,,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column
+mild-flavour-10-ml,Mild flavour (10 ml),Sauce flavours (per 10 ml),10 ml,29,0.2,1.7,2.4,0.3,,0.5,0.3,,,,,,,,,false,false,,,Per 10 ml of flavour sauce; items list how much flavour is added in their 'Add Flavour' column

@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-05"
  },
  "note": "Fixed meals, sharing boxes and drinks aren't included.",
+ "allergenGuide": {
+  "title": "Taco Bell UK Allergen Information",
+  "url": "https://www.tacobell.co.uk/allergen-information/",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Tacos",
   "Burritos",

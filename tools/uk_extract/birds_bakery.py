@@ -10,6 +10,8 @@ public Shopify Storefront feed that the page's own script (nutrition-and-allerge
 used here (the access token is read from that script, not kept in this file). Each item has its own server-rendered page,
 /pages/nutrition-and-allergen-data/<handle>, with ONE table headed "Typical values | Per <basis>" and kJ, kcal, fat,
 saturates, carbohydrate, sugars, fibre, protein, salt. No date or version is printed on the pages (footer: (c) 2026).
+The printed kJ goes to energy_kj (as printed, also where it disagrees with the kcal: the row's notes say so), and a basis that
+states a weight ("Per 77g", "Per Slice (75g)") to weight_g. The pages print no mono/poly/trans fat or caffeine.
 
 The basis varies by item: "Per Product", "Per roll", "Per Portion", "Per 77g" ... or "Per 100g". Only rows that are per ITEM
 (or a stated weight) are published. "Per 100g" rows are left out (a per-100g value is never converted), and so is "Per 80"
@@ -18,6 +20,16 @@ the script. Only names, categories, rankable and the groupings below are typed b
 
 The script STOPS (listing the differences) if the site's item list, an item's name or an item's basis no longer matches the
 tables below, so a human re-checks before anything is published. Politeness: one request per second.
+
+Allergens (docs/DATA.md "Allergens"), from the same item pages: an "Allergens" section printing one line of the 14 allergens
+the item contains ("Eggs, Gluten, Milk, Soya"), and in the Ingredients section a sentence "May contain traces of Oats, Rye,
+... & Nuts (Almonds, Pistachios, Peanuts)." Contains = the Allergens line only, which every used page prints. The ingredients
+are not read for allergens: most pages bold or capitalise some words without saying what that means (only ten say "for allergens
+see ingredients in BOLD and CAPITALS"; on those the capitals named the same allergens as the Allergens line on 2026-10-06). The
+Allergens line only says "Gluten" / "Nuts", so no cereal or nut is named. May contain = the sentence(s), word by word (a cereal
+there counts as gluten; words that are not one of the 14 are listed in NOT_ALLERGENS). A page without an Allergens section gives
+the item no allergens (none and missing cannot be told apart), so the chain falls back to the guide link only. A repeat page
+(DUPLICATES) that prints different allergens from the page kept is reported and its allergens are added to the item's.
 """
 from __future__ import annotations
 import argparse
@@ -31,7 +43,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "birds-bakery"
 SITE = "https://birdsbakery.com"
@@ -204,6 +216,17 @@ LABELS = (("Energy (kJ)", "kJ"), ("Energy (kcal)", "kcal"), ("Fat", "g"), ("of w
 VALUE = re.compile(r"^(<?\d+(?:\.\d+)?)(kJ|kcal|g)$")
 DIET = {"Suitable for vegans and vegetarians": True, "Suitable for vegetarians": True,
         "Not suitable for vegans or vegetarians": False}
+ALLERGEN_TITLE = "Birds Bakery Nutrition and allergen data, birdsbakery.com (website pages, no date printed)"
+# The site's own spellings that common.allergen_words doesn't know: "Nuts (Tree & Almonds, Pistachios, Peanuts)".
+ALLERGEN_EXTRA = {"tree": ("nuts", None)}
+# Printed in a "may contain" sentence but not one of the 14 UK allergens, so not shown.
+NOT_ALLERGENS = {"sunflower seeds", "pine kernel"}
+# Two allergen words printed without the comma between them (summer-gingerbread-person: "Barley, Milk Soya, Sulphites").
+RUN_TOGETHER = {"milk soya": ("Milk", "Soya")}
+# Each "May contain traces of ..." sentence in the Ingredients section (some pages print two: both are read). Notes the site
+# prints after one are cut off; anything else that is not an allergen word stops the run.
+MAY_CONTAIN = re.compile(r"May contain traces of (.*?)(?=May contain traces of|$)", re.I)
+MAY_NOTE = re.compile(r"\s*\*May have an adverse effect on activity (?:and|&) attention in children\.*\s*$")  # colours warning
 PORK = re.compile(r"\b(pork|bacon|ham|gammon|sausages?|pepperoni|salami|chorizo)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
 
@@ -310,7 +333,63 @@ def read_page(handle: str, text: str) -> dict:
     out["diet"] = clean(diet.group(1)) if diet else ""
     i, j = text.find('<div class="c-nutrition">'), text.find("c-our-food-item__index-link")
     out["block"] = re.sub(r"\s+", " ", text[i:j]) if 0 <= i < j else ""
+    out["raw_block"] = text[i:j] if 0 <= i < j else ""
     return out
+
+
+def split_words(text: str) -> list[str]:
+    """'Oats, Rye, & Nuts (Almonds, Peanuts)' -> ['Oats', 'Rye', 'Nuts', 'Almonds', 'Peanuts']: the words of a printed list,
+    split at commas, '&' and 'and' (a word in brackets is a part of the word before it, and is listed too)."""
+    words, cur, depth = [], "", 0
+    for ch in text + ",":
+        if ch in "()":
+            depth += 1 if ch == "(" else -1
+            if depth < 0 or depth > 1:
+                raise SystemExit(f"Unbalanced brackets in {text!r}")
+            ch = ","
+        if ch in ",&":
+            words += [w for w in re.split(r"\band\b", cur) if w.strip()]
+            cur = ""
+        else:
+            cur += ch
+    if depth:
+        raise SystemExit(f"Unbalanced brackets in {text!r}")
+    return [w.strip() for w in words]
+
+
+def read_allergens(handle: str, block: str) -> dict | None:
+    """The item's allergens as its page prints them, or None when the page has no Allergens section."""
+    sections = dict((clean(h), body) for h, body in re.findall(
+        r'<h3 class="c-nutrition__heading">(.*?)</h3>(.*?)</div>', block, re.S))
+    if "Allergens" not in sections:
+        return None
+    line = [clean(p) for p in re.findall(r"<p[^>]*>(.*?)</p>", sections["Allergens"], re.S)]
+    if len(line) != 1 or not line[0]:
+        raise SystemExit(f"{handle}: the Allergens section is {line}, expected one line: the layout changed.")
+    contains, cereals, nuts = allergen_words(split_words(line[0]), f"{handle} Allergens", ALLERGEN_EXTRA)
+    paras = [clean(p) for p in re.findall(r"<p[^>]*>(.*?)</p>", sections.get("Ingredients", ""), re.S)]
+    found = sum(len(MAY_CONTAIN.findall(p)) for p in paras)
+    if any(sum(len(re.findall(w, p, re.I)) for p in paras) != found for w in (r"may contain", r"traces")):
+        raise SystemExit(f"{handle}: a 'may contain' / 'traces' wording that is not 'May contain traces of ...': {paras}")
+    sentences = [m.group(1) for p in paras for m in MAY_CONTAIN.finditer(p)]
+    if not sentences:
+        raise SystemExit(f"{handle}: no 'May contain traces of ...' sentence in the ingredients: re-check the page.")
+    may: set[str] = set()
+    for sentence in sentences:
+        sentence = MAY_NOTE.sub("", sentence)
+        words = [x for w in split_words(sentence.strip().rstrip(".").strip()) if w.lower() not in NOT_ALLERGENS
+                 for x in RUN_TOGETHER.get(w.lower(), (w,))]
+        may |= allergen_words(words, f"{handle} may contain", ALLERGEN_EXTRA)[0]
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts,
+            "printed": (line[0], tuple(sentences))}
+
+
+def weight_for(basis: str) -> str:
+    """The serving weight in grams when the basis prints one ("Per 77g" -> "77", "Per Slice (75g)" -> "75"), else ""."""
+    m = re.fullmatch(r"per (?:per )?(?:slice \()?(\d+(?:\.\d+)?)g\)?", basis.strip().lower())
+    if m and m.group(1) == "100":
+        raise SystemExit(f"weight_for({basis!r}): a per-100 g basis is never published")
+    return m.group(1) if m else ""
 
 
 def serving_for(basis: str) -> str:
@@ -394,6 +473,23 @@ def main() -> int:
     if problems:
         print("\n".join("  - " + p for p in problems), file=sys.stderr)
         return 1
+    # a repeat that prints different allergens: the item gets both pages' allergens (the guide contradicts itself; reported)
+    allergen_report: list[str] = []
+    used_pages = [s[0] for s in INCLUDE] + [s[0] for s in HOLD] + list(DUPLICATES)
+    allergens: dict[str, dict | None] = {h: read_allergens(h, pages[h]["raw_block"]) for h in used_pages}
+    for keep, dups in dup_of.items():
+        for dup in dups:
+            a, b = allergens[keep], allergens[dup]
+            if a is None or b is None:
+                allergens[keep] = None
+                allergen_report.append(f"{keep} / repeat {dup}: a page has no Allergens section")
+                continue
+            if a["printed"] != b["printed"]:
+                allergen_report.append(f"{keep} prints {a['printed']}; its repeat {dup} prints {b['printed']}: both are used")
+                contains = a["contains"] | b["contains"]
+                allergens[keep] = {"contains": contains, "may_contain": (a["may_contain"] | b["may_contain"]) - contains,
+                                   "cereals": a["cereals"] | b["cereals"], "nuts": a["nuts"] | b["nuts"],
+                                   "printed": a["printed"]}
 
     # 4. build the rows (published first, then the held-back ones, which are written to items.csv AND holdback.csv)
     specs = [(h, n, c, r, b, None) for h, n, c, r, b in INCLUDE] + [(h, n, c, False, b, why) for h, n, c, b, why in HOLD]
@@ -419,6 +515,8 @@ def main() -> int:
             notes.append("listed more than once on the site with the same numbers")
         if handle in ODD:
             notes.append(ODD[handle])
+        if allergens[handle] is None:
+            allergen_report.append(f"{handle}: no Allergens section on its page, so the chain gets the guide link only")
         if not 4.02 <= float(p["kj"]) / float(p["kcal"]) <= 4.35:
             notes.append(f"printed kJ ({p['kj']}) and kcal ({p['kcal']}) differ by more than 4 percent")
         if float(p["protein"]) > 50:
@@ -439,7 +537,10 @@ def main() -> int:
             "calories": p["kcal"], "protein_g": p["protein"], "carbs_g": p["carbs"], "fat_g": p["fat"],
             "sat_fat_g": p["sat"], "sodium_mg": "", "salt_g": p["salt"],
             "sugar_g": "" if handle in blank_sugar else p["sugars"], "fiber_g": p["fibre"],
+            "energy_kj": p["kj"], "weight_g": weight_for(p["basis"]),
             "tags": "|".join(tags), "limited_time": False, "rankable": rankable, "notes": "; ".join(notes),
+            "allergens": None if allergens[handle] is None else
+            {k: v for k, v in allergens[handle].items() if k in ("contains", "may_contain", "cereals", "nuts")},
         })
         if hold_reason:
             holdback.append((item_id, hold_reason))
@@ -459,10 +560,15 @@ def main() -> int:
         source_url=INDEX_URL, checked_on=args.checked_on, aliases=["birds bakery", "birds of derby"],
         items=items, holdback=holdback, out=args.out,
         note="Values are per item as the bakery's website prints them (per roll, product, portion or stated weight). Items it "
-             "lists only per 100 g are left out, because we never convert. The website carries no date.")
+             "lists only per 100 g are left out, because we never convert. The website carries no date.",
+        allergen_guide={"title": ALLERGEN_TITLE, "url": INDEX_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} rows to {out}: {len(items) - len(holdback)} published, {len(holdback)} held back; dropped {len(DUPLICATES)} repeats, "
           f"left out {len(PER_100G)} per-100g and {len(NO_UNIT)} no-unit rows (site lists {len(names)} items)")
     print(f"source digest (sha256 of every item page's nutrition block, in feed order): {digest.hexdigest()}")
+    complete = all(it["allergens"] is not None for it in items)
+    print(f"allergens: {'every row has them (allergens.csv written)' if complete else 'INCOMPLETE: guide link only'}")
+    for line in allergen_report:
+        print("  allergens:", line)
     return 0
 
 

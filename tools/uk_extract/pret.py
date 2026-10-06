@@ -8,10 +8,21 @@ Pret has no nutrition PDF (its Allergen Guide PDF lists allergens only). The per
 product is on the product-category pages of https://www.pret.co.uk/en-GB/products, and tools/uk_extract/pret_feed.py
 reads exactly the data those pages load (one request per category, no login or key).
 
-Numbers are copied as printed (kcal, fat, saturates, carbohydrate, sugars, fibre, protein, salt; kJ is only used to
-flag disagreements). The `perServing` column is used, never `per100g`. Only the display categories, the rankable
+Numbers are copied as printed (kcal, kJ, fat, saturates, carbohydrate, sugars, fibre, protein, salt, and the mono- /
+polyunsaturated and trans fat rows some drink variants print). The `perServing` column is used, never `per100g`. The data's
+`averageWeight` field is not used: the site never shows it, so it is not a printed serving weight. Only the display categories, the rankable
 flags and the tag word lists below are typed by hand. If the site adds categories/subcategories, changes nutrient
 labels, or the item count changes, this script stops so a human re-checks (see EXPECTED_ITEMS, `--expect`).
+
+Allergens (docs/DATA.md "Allergens"): each product record in the same data carries an `allergens` list, read here per item
+(product_allergens). A chain gets allergens.csv only when EVERY item has them (all or nothing); otherwise only
+allergen_guide.csv is written, so the app links to Pret's own Allergen Guide. As of 2026-10-06 Pret is link-only, because:
+  * barista drinks: the data prints allergens once per product, not per milk / decaf variant (an oat or soya latte is not
+    described), and the Allergen Guide PDF, which does print each milk, names the rows differently ("Latte Oat (instead of
+    milk)" against the site's "Latte" + milk flag), so its rows could only be joined by a hand-typed name map (not allowed);
+  * branded drinks whose page says "see can / bottle" and items whose page prints "Ingredient data not found";
+  * Pret also declares Pine Nuts, which is not one of the 14 allergens (founder's decision how to show it).
+The script prints every blocked item with its reason on each run.
 """
 from __future__ import annotations
 import argparse
@@ -24,11 +35,20 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import pret_feed  # noqa: E402
+from common import ITEM_FIELDS, allergen_words, write_allergens  # noqa: E402
 
 CHAIN_ID = "pret"
 SOURCE_URL = "https://www.pret.co.uk/en-GB/products"
 SOURCE_TITLE = ("Pret A Manger UK website: product nutritional information, GB shops "
                 "(pret.co.uk product pages, retrieved {checked_on}; the pages carry no version date)")
+# The Allergen Guide the app links to (Pret's own PDF, linked from pret_feed.ALLERGEN_PAGE). Its title is the guide's own
+# printed name and version. If the saved Allergen Guide page links a different PDF, the script stops: update these two.
+ALLERGEN_GUIDE_URL = ("https://assets.ctfassets.net/4zu8gvmtwqss/11hMIULPpeCprPZIUG76L2/0b636725a4e1551ed7a9817c02c98f31/"
+                      "Allergen_Guide_8th_September_2026_V1.pdf")
+ALLERGEN_GUIDE_TITLE = "Pret's Allergen Guide, GB Pret shops (Allergen Guide 8th September 2026 V1)"
+# Printed allergen labels that are not one of the 14 (the guide: "In addition we also declare Pine Nuts as an allergen.").
+NOT_OF_THE_14 = {"Pine Nuts"}
+PACK_ONLY = re.compile(r"please see (?:can|bottle)|see (?:can|bottle)|ingredient data not found", re.I)
 EXPECTED_ITEMS = 329  # set after the reviewed run of 2026-10-05; if the menu changes the script stops: re-check, then pass --expect N
 
 # Display categories, in display order.
@@ -88,12 +108,13 @@ LABELS = {
     "Energy (KJ)": "kj", "Energy (Kcal)": "calories", "Fat (g)": "fat_g", "of which saturates (g)": "sat_fat_g",
     "Carbohydrates (g)": "carbs_g", "of which sugars (g)": "sugar_g", "Fibre (g)": "fiber_g", "Protein (g)": "protein_g",
     "Salt (g)": "salt_g", "Sodium (mg)": "sodium_mg",
+    "Fat (Mono Unsaturated) (g)": "mono_fat_g", "Fat (Poly Unsaturated) (g)": "poly_fat_g", "Trans Fats (g)": "trans_fat_g",
 }
 # Extra printed rows we do not use (micronutrients); any other unknown label makes the script stop.
 IGNORED_LABELS = {
-    "Calcium (mg)", "Chloride (mg)", "Copper (mg)", "Fat (Mono Unsaturated) (g)", "Fat (Poly Unsaturated) (g)", "Folate (\u03bcg)",
+    "Calcium (mg)", "Chloride (mg)", "Copper (mg)", "Folate (\u03bcg)",
     "Iodine (\u03bcg)", "Iron (mg)", "Magnesium (mg)", "Niacin (mg)", "Phosphorus (mg)", "Potassium (mg)", "Riboflavin (mg)",
-    "Selenium (\u03bcg)", "Thiamin (mg)", "Trans Fats (g)", "Vitamin B12 (\u03bcg)", "Vitamin B6 (mg)", "Vitamin C (mg)", "Zinc (mg)",
+    "Selenium (\u03bcg)", "Thiamin (mg)", "Vitamin B12 (\u03bcg)", "Vitamin B6 (mg)", "Vitamin C (mg)", "Zinc (mg)",
 }
 UNKNOWN_LABELS: set[str] = set()
 REQUIRED = {"kj", "calories", "fat_g", "carbs_g", "protein_g"}  # the others are left blank when a row does not print them
@@ -143,6 +164,21 @@ def tidy(name: str) -> str:
 
 def plain(html: str) -> str:
     return re.sub(r"<[^>]+>", "", html or "")
+
+
+def product_allergens(p: dict, who: str) -> tuple[dict | None, str]:
+    """(allergens, "") from a product record's own `allergens` list, or (None, why) when it does not describe the item.
+    An empty list counts as "none of the 14" only when the page prints a real ingredients list."""
+    labels = [a["label"] for a in p.get("allergens") or []]
+    if p.get("variants"):
+        return None, "barista drink: allergens printed per product, not per milk/decaf variant"
+    if PACK_ONLY.search(plain(p.get("ingredients"))) or not plain(p.get("ingredients")).strip():
+        return None, "page prints no ingredients/allergens (see pack, or 'Ingredient data not found')"
+    odd = sorted(set(labels) & NOT_OF_THE_14)
+    if odd:
+        return None, f"declares {', '.join(odd)} (not one of the 14): needs the founder's decision"
+    keys, cereals, nuts = allergen_words(labels, who)
+    return {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}, ""
 
 
 def read_nutrition(rows: list, who: str) -> dict[str, str] | None:
@@ -203,7 +239,7 @@ def collect(rawdir: Path):
 
 
 def build_items(rawdir: Path):
-    items, excluded, notes_log = [], [], []
+    items, excluded, notes_log, allergens = [], [], [], []
     products = collect(rawdir)
     print(f"products read: {len(products)} unique ({sum(1 for p, *_ in products if p.get('variants'))} with drink variants)")
     for p, display, rankable, where in products:
@@ -279,11 +315,14 @@ def build_items(rawdir: Path):
                 if abs(kcal - (p4 + 2 * num(n["fiber_g"]))) <= 0.10 * kcal:
                     notes.append("kcal is above 4P+4C+9F because UK labels count fibre separately from carbohydrate (about 2 kcal/g); "
                                  "kcal entered as printed")
+            allergens.append(product_allergens(p, iname))
             items.append({
                 "id": slug(iname), "name": iname, "category": display, "serving": "",
                 "calories": n["calories"], "protein_g": n["protein_g"], "carbs_g": n["carbs_g"], "fat_g": n["fat_g"],
                 "sat_fat_g": n.get("sat_fat_g", ""), "sodium_mg": n.get("sodium_mg", ""), "salt_g": n.get("salt_g", ""),
                 "sugar_g": n.get("sugar_g", ""), "fiber_g": n.get("fiber_g", ""),
+                "energy_kj": n["kj"], "weight_g": "", "mono_fat_g": n.get("mono_fat_g", ""), "poly_fat_g": n.get("poly_fat_g", ""),
+                "trans_fat_g": n.get("trans_fat_g", ""), "caffeine_mg": "",
                 "tags": "|".join(tags), "limited_time": str(limited).lower(), "rankable": str(rankable).lower(),
                 "components": "", "added_on": "", "notes": "; ".join(notes),
             })
@@ -296,7 +335,7 @@ def build_items(rawdir: Path):
     bad = [i["id"] for i in items if i["id"].startswith(("var-", "combo-"))]
     if bad:
         raise SystemExit(f"Reserved id prefix: {bad}")
-    return items, excluded, notes_log
+    return items, excluded, notes_log, allergens
 
 
 def main() -> int:
@@ -312,17 +351,20 @@ def main() -> int:
     rawdir = args.fetch or args.raw
     if args.fetch:
         pret_feed.fetch(rawdir)
-    items, excluded, notes_log = build_items(rawdir)
+    items, excluded, notes_log, allergens = build_items(rawdir)
+    pdfs = pret_feed.allergen_guide_pdfs(rawdir)
+    if pdfs is not None and pdfs != [ALLERGEN_GUIDE_URL]:
+        print(f"The Allergen Guide page links {pdfs}, not {ALLERGEN_GUIDE_URL}: a new guide is out. Update ALLERGEN_GUIDE_URL and "
+              "ALLERGEN_GUIDE_TITLE (the guide's own printed name and version) in pret.py.", file=sys.stderr)
+        return 1
     if args.expect and len(items) != args.expect:
         print(f"{len(items)} items extracted but {args.expect} were expected. The menu changed: re-check the names, categories and "
               "the excluded list (run once with the new count in --expect to see it), then update EXPECTED_ITEMS.", file=sys.stderr)
         return 1
 
     args.out.mkdir(parents=True, exist_ok=True)
-    fields = ["id", "name", "category", "serving", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
-              "sugar_g", "fiber_g", "tags", "limited_time", "rankable", "components", "added_on", "notes"]
     with open(args.out / "items.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
+        w = csv.DictWriter(f, fieldnames=ITEM_FIELDS)
         w.writeheader()
         w.writerows(items)
     title = SOURCE_TITLE.format(checked_on=args.checked_on)
@@ -335,6 +377,9 @@ def main() -> int:
     (args.out / "modifiers.csv").write_text(
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
+    write_allergens(args.out, CHAIN_ID, [(i["id"], a) for i, (a, _) in zip(items, allergens)],
+                    {"title": ALLERGEN_GUIDE_TITLE, "url": ALLERGEN_GUIDE_URL, "checked_on": args.checked_on,
+                     "may_contain_published": False})
 
     digests = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(rawdir.glob("*.json"))}
     combined = hashlib.sha256("".join(f"{k}:{v}\n" for k, v in digests.items()).encode()).hexdigest()
@@ -351,6 +396,16 @@ def main() -> int:
     print("log:")
     for e in notes_log:
         print("  ", e)
+    blocked = [(i["id"], why) for i, (a, why) in zip(items, allergens) if a is None]
+    print(f"allergens: {len(items) - len(blocked)} items read from their product record, {len(blocked)} blocked"
+          + (" -> allergens.csv NOT written (all or nothing); allergen_guide.csv links the guide" if blocked else ""))
+    by_why: dict[str, list[str]] = {}
+    for item_id, why in blocked:
+        by_why.setdefault(why, []).append(item_id)
+    for why, ids in by_why.items():
+        print(f"  {len(ids)} {why}: {', '.join(ids)}")
+    if pdfs is None:
+        print(f"note: {pret_feed.ALLERGEN_PAGE_FILE} not saved in {rawdir}, so the guide link was not re-checked")
     print("sha256 of each saved category file:")
     for k, v in digests.items():
         print(f"  {v}  {k}")

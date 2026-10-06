@@ -5,7 +5,8 @@
         --checked-on 2026-10-06
 
 Numbers are copied from the PDFs exactly as printed, PER PORTION (food: the "per portion (g)" column; drinks: the "Per
-product" / "Per serving" block). kJ and the per-100 g / per-100 ml columns are never written. Only names, grouping and the
+product" / "Per serving" block), including kJ (energy_kj) and the food's printed "Portion weight (g)" (weight_g). The
+per-100 g / per-100 ml columns are never written. Allergens: see the "allergens" section below. Only names, grouping and the
 holdback reasons below are typed by hand. The script stops, listing the differences, if Coffee #1 adds, renames or removes
 a product (food), adds or removes a drink or a size (beverages), or if a page no longer has the layout
 `coffee_1_pdf.py` reads, so a human re-checks the lists below.
@@ -29,7 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import coffee_1_pdf as pdf  # noqa: E402
-from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "coffee-1"
 SOURCE_PAGE = "https://www.coffee1.co.uk/allergy-advice/"
@@ -117,9 +118,10 @@ def serving_label(printed: str) -> str:
     return re.sub(r"\.0+$", "", printed)  # '125.00' is shown as '125'; the nutrient numbers themselves are never touched
 
 
-def build_food(food_pdf: Path) -> tuple[list[dict], list[str], list[str]]:
-    """(items, anomalies, meat_type_not_stated)"""
-    blocks = pdf.food_blocks(food_pdf)
+def build_food(food_pdf: Path) -> tuple[list[dict], list[str], list[str], list[str]]:
+    """(items, anomalies, meat_type_not_stated, allergen_report)"""
+    unassigned: list = []
+    blocks = pdf.food_blocks(food_pdf, unassigned)
     printed = [clean_food_name(b["name_text"]) for b in blocks]
     typed = [f[0] for f in FOOD]
     if [p[0] for p in printed] != typed:
@@ -128,10 +130,16 @@ def build_food(food_pdf: Path) -> tuple[list[dict], list[str], list[str]]:
         raise SystemExit(f"The food guide has {len(printed)} products but FOOD names {len(typed)}.\n"
                          f"  in the PDF only: {only_pdf}\n  in this script only: {only_script}\n"
                          "The menu changed (or the order did): re-check the names in FOOD against the PDF, then run again.")
-    items, anomalies, meat_unstated = [], [], []
+    items, anomalies, meat_unstated, allergen_report = [], [], [], []
+    for pno, text, _ in unassigned:  # headings, footnotes and products without nutrition (Marmalade) only
+        caps = [t for t in CAPS_TOKEN.findall(text) if len(t) >= 2 and t.isupper() and is_allergen_word(t)]
+        if caps:
+            raise SystemExit(f"food guide p{pno}: allergen capitals {caps} in text that belongs to no product: {text!r}")
+    matrix = food_matrix_allergens(food_pdf, allergen_report)
     for block, (pname, marked), (_, display, category, rankable) in zip(blocks, printed, FOOD):
         row = block["rows"]
         item = {"name": display or pname, "category": category, "rankable": rankable, "limited_time": False, "tags": []}
+        item["allergens"] = food_allergens(block, pname, display or pname, matrix, allergen_report)
         notes = []
         for label, field in FOOD_FIELDS.items():
             vals = row[label]
@@ -145,6 +153,11 @@ def build_food(food_pdf: Path) -> tuple[list[dict], list[str], list[str]]:
         if len(block["portion_g"]) != 1:
             raise SystemExit(f"{pname}: portion weight not found")
         item["serving"] = f"{serving_label(printed_number(block['portion_g'][0], pname + ' portion'))} g"
+        # extras (docs/DATA.md "Extra nutrients"): the printed per-portion kJ and the printed portion weight, as printed
+        item["weight_g"] = printed_number(block["portion_g"][0], pname + " portion")
+        if len(row["KJ"]) != 2:
+            raise SystemExit(f"{pname}: KJ has {len(row['KJ'])} numbers, expected per-100 g and per-portion")
+        item["energy_kj"] = printed_number(row["KJ"][1], f"{pname} KJ")
         # tags: from the guide's own marks and ingredient lists only
         text = pname + " " + block["ingredients"]
         meat = sorted({m.group(0).lower() for m in MEAT.finditer(block["ingredients"])})
@@ -177,7 +190,146 @@ def build_food(food_pdf: Path) -> tuple[list[dict], list[str], list[str]]:
             item["notes"] = "; ".join(notes)
         item["tags"] = "|".join(item["tags"])
         items.append(item)
-    return items, anomalies, meat_unstated
+    return items, anomalies, meat_unstated, allergen_report
+
+
+# ------------------------------------------------------------------------------------------------------------ allergens
+# Food: the guide says "Allergens can be found in BOLD CAPITALS within the Ingredient Declaration", so the allergens of a
+# product are the allergen words its declaration prints in capitals (coffee_1_pdf.food_blocks ties each declaration to
+# its product block by position). The allergen matrix on pages 4-8 is a second printed form: every product whose matrix
+# name is printed identically is cross-checked against it and a difference stops the run. Drinks: the ALLERGENS cell of
+# each drink and milk, as printed (one merged cell over that drink's size rows). Neither guide prints "may contain"
+# information for its products (the food guide's only "May contain" line is its worked example), so may_contain_published
+# is no and the run stops if a declaration ever prints one.
+ALLERGEN_GUIDE = {"title": SOURCE_TITLE, "url": SOURCE_PAGE, "may_contain_published": False}
+# Coffee #1's own printed allergen words that common.allergen_words does not know (lower-case word -> (key, specific)).
+ALLERGEN_EXTRA = {
+    "buttermilk": ("milk", None),          # Welsh Cake: "EGG, BUTTERMILK" in bold capitals
+    "metabisulphite": ("sulphites", None),  # Lemon Drizzle Cake: "Potassium METABISULPHITE"
+    "metbisulphite": ("sulphites", None),   # Lemon Drizzle Cake: "Sodium METBISULPHITE" (the guide's spelling)
+    "milk (lactose)": ("milk", None),       # the matrix column heading
+}
+# Words the declarations print in capitals that are not allergens (checked by eye in the guide); any other capital word
+# stops the run.
+NOT_ALLERGENS = {"PLEASE", "NOTE", "RSPO", "SG", "MB"}
+# item id -> (the matrix row's printed name, why the product is not published): the food guide's two printed allergen
+# lists (the matrix on pages 4-8 and the bold capitals in the product's ingredient declaration) disagree, so neither can
+# be shown as the product's allergens. Found by the exact-name cross-check, and for products the matrix names differently
+# by reading the two lists side by side (the matrix name below is used only to re-check the conflict on a refresh; no
+# allergen is ever taken from it). If Coffee #1 makes the two agree, the script stops and asks for the line to be deleted.
+ALLERGEN_CONFLICTS: dict[str, tuple[str, str]] = {
+    "pistachio-croissant": ("Pistachio Croissant",
+                            "The guide's allergen matrix marks Egg but the product's ingredient declaration names no egg "
+                            "(both otherwise agree: wheat, milk, soya, pistachio), so its allergens cannot be shown."),
+    "bakewell-tart": ("Bakewell Tart",
+                      "The product's ingredient declaration names SOYA (soya protein concentrate in the sponge) but the "
+                      "guide's allergen matrix does not mark Soya (both otherwise agree: wheat, sulphites, almond), so its "
+                      "allergens cannot be shown."),
+    "mango-and-passionfruit-tart": ("Passionfruit & Mango Tart",
+                                    "The product's ingredient declaration names EGG (dried egg white) but the guide's allergen "
+                                    "matrix row 'Passionfruit & Mango Tart' does not mark Egg (both otherwise agree: wheat, "
+                                    "milk, sulphites), so its allergens cannot be shown."),
+}
+CAPS_TOKEN = re.compile(r"[A-Z]+(?![a-z])|[A-Z]?[a-z]+")
+
+
+def is_allergen_word(word: str) -> bool:
+    try:
+        allergen_words([word], "", ALLERGEN_EXTRA)
+        return True
+    except SystemExit:
+        return False
+
+
+def capital_allergens(text: str, mask: str, where: str) -> tuple[list[tuple[str, bool]], list[str]]:
+    """([(allergen word or phrase in capitals, printed bold?)], notes) for one ingredient declaration. Neighbouring
+    capitals that together name an allergen (SULPHUR DIOXIDE, PISTACHIO NUTS) are read as one phrase. A capital word that is
+    neither an allergen nor in NOT_ALLERGENS stops the run; so does any "may contain" / "traces" text."""
+    if re.search(r"may contain|traces", text, re.I):
+        raise SystemExit(f"{where}: the declaration prints may-contain information: read it, then set may_contain_published")
+    toks = [(m.start(), m.end(), m.group(0)) for m in CAPS_TOKEN.finditer(text)]
+    caps = [t for t in toks if len(t[2]) >= 2 and t[2].isupper()]
+    phrases: list[list[tuple[int, int, str]]] = []
+    for t in caps:
+        if phrases and text[phrases[-1][-1][1]:t[0]] == " ":
+            phrases[-1].append(t)
+        else:
+            phrases.append([t])
+    found, notes, used = [], [], set()
+    for ph in phrases:
+        whole = " ".join(t[2] for t in ph)
+        groups = [ph] if len(ph) > 1 and is_allergen_word(whole) else [[t] for t in ph]
+        for g in groups:
+            word = " ".join(t[2] for t in g)
+            if is_allergen_word(word):
+                bold = "B" in mask[g[0][0]:g[-1][1]]
+                found.append((word, bold))
+                used.update(t[0] for t in g)
+                if not bold:
+                    notes.append(f"{where}: {word} is in capitals but not bold (counted: capitals mark allergens)")
+            elif word not in NOT_ALLERGENS:
+                raise SystemExit(f"{where}: {word!r} is printed in capitals in the ingredients: is it an allergen? Add it "
+                                 "to ALLERGEN_EXTRA (an allergen spelling) or NOT_ALLERGENS after checking the guide")
+    for a, b, t in toks:
+        if a not in used and "B" in mask[a:b] and any(ch.isalpha() for ch in t):
+            notes.append(f"{where}: {t!r} is bold but not an allergen word in capitals (not counted)")
+    return found, notes
+
+
+def food_allergens(block: dict, pname: str, display: str, matrix: dict[str, tuple], report: list[str]) -> dict:
+    where = f"food guide p{block['page']} {pname}"
+    text = " ".join(t for t, _ in block["ingredient_lines"])
+    mask = ".".join(m for _, m in block["ingredient_lines"])
+    found, notes = capital_allergens(text, mask, where)
+    report += notes
+    keys, cereals, nuts = allergen_words([w for w, _ in found], where, ALLERGEN_EXTRA)
+    key, item_id = matrix_key(pname), slug(display)
+    if item_id in ALLERGEN_CONFLICTS:
+        mkey = matrix_key(ALLERGEN_CONFLICTS[item_id][0])
+        if mkey not in matrix:
+            raise SystemExit(f"{where}: ALLERGEN_CONFLICTS names the matrix row {ALLERGEN_CONFLICTS[item_id][0]!r}, which "
+                             "is no longer in the matrix: re-check by hand")
+        if matrix[mkey] == (keys, cereals, nuts):
+            raise SystemExit(f"{where}: ALLERGEN_CONFLICTS lists {item_id!r} but the guide's two lists now agree: delete its line")
+        report.append(f"held back, the guide's two allergen lists disagree: {pname}: declaration {sorted(keys)} "
+                      f"{sorted(cereals)} {sorted(nuts)}; matrix {[sorted(x) for x in matrix[mkey]]}")
+        mk, mc, mn = matrix[mkey]  # the row is ignored by the pipeline (held back); written as both lists together
+        return {"contains": keys | mk, "may_contain": set(), "cereals": cereals | mc, "nuts": nuts | mn}
+    if key in matrix:
+        if matrix[key] != (keys, cereals, nuts):
+            raise SystemExit(f"{where}: the ingredient declaration ({sorted(keys)}, {sorted(cereals)}, {sorted(nuts)}) and "
+                             f"the allergen matrix ({[sorted(x) for x in matrix[key]]}) disagree: re-read the guide, then "
+                             "decide by hand (ALLERGEN_CONFLICTS holds the product back)")
+        report.append(f"cross-checked with the matrix: {pname}")
+    else:
+        report.append(f"not in the matrix under the same name (declaration only): {pname}")
+    return {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}
+
+
+def matrix_key(name: str) -> str:
+    """Exact-match key between the matrix and the product blocks: case, punctuation, '&'/'and', spacing and the guide's
+    NEW / diet marks are ignored; words are never dropped, reordered or approximated."""
+    s = re.sub(r"^\s*NEW\s+", "", name)
+    s = re.sub(r"\((?:V|Vg)(?:/GF)?\)\s*\*?\s*$", "", s).lower().replace("&", " and ")
+    return " ".join(re.sub(r"[^a-z0-9]+", " ", s).split())
+
+
+def food_matrix_allergens(food_pdf: Path, report: list[str]) -> dict[str, tuple]:
+    rows, problems = pdf.food_allergen_matrix(food_pdf)
+    report += problems
+    out: dict[str, tuple] = {}
+    for r in rows:
+        key = matrix_key(r["name"])
+        if key in out:
+            raise SystemExit(f"allergen matrix: {r['name']!r} is printed twice")
+        out[key] = allergen_words(sorted(r["marks"]), f"allergen matrix p{r['page']} {r['name']}", ALLERGEN_EXTRA)
+    return out
+
+
+def drink_allergens(product: dict, where: str) -> dict:
+    words = [w for w in re.split(r"[,\s]+", product["allergens"]) if w]
+    keys, cereals, nuts = allergen_words(words, where, ALLERGEN_EXTRA)
+    return {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}
 
 
 # -------------------------------------------------------------------------------------------------------------- drinks
@@ -287,9 +439,12 @@ def build_drinks(drinks_pdf: Path, sections: dict[str, tuple[str, int]], limited
             if len(vals) != 9:
                 raise SystemExit(f"{label}: {p['name']} has no per-product block")
             item = {"name": drink_name(p["name"], s["size"]) if key not in (addons or {}) else p["name"],
-                    "category": category, "serving": size_label(s["size"]), "rankable": False, "limited_time": limited, "tags": ""}
+                    "category": category, "serving": size_label(s["size"]), "rankable": False, "limited_time": limited, "tags": "",
+                    # one ALLERGENS cell per drink and milk, merged over its size rows (see coffee_1_pdf._allergen_cells)
+                    "allergens": drink_allergens(p, f"{label} p{p['page']} {p['name']}")}
             for col, field in DRINK_FIELDS.items():
                 item[field] = printed_number(vals[col], f"{p['name']} {s['size']} {col}")
+            item["energy_kj"] = printed_number(vals["KJ"], f"{p['name']} {s['size']} KJ")  # per product / per serving
             notes = []
             if s["size"] == "" and key in (addons or {}):
                 notes.append("Serving size not printed: values are the guide's 'Per serving' column")
@@ -346,7 +501,7 @@ def main() -> int:
     args = ap.parse_args()
 
     try:
-        food, f_anom, meat_unstated = build_food(args.food)
+        food, f_anom, meat_unstated, allergen_report = build_food(args.food)
         core, c_anom, c_skipped = build_drinks(args.core_drinks, CORE_SECTIONS, False, "core beverages", CORE_LEFT_OUT, CORE_ADDONS)
         autumn, a_anom, _ = build_drinks(args.autumn_drinks, AUTUMN_SECTIONS, True, "autumn beverages")
     except pdf.LayoutChanged as e:
@@ -359,21 +514,28 @@ def main() -> int:
     dupes = sorted({x for x in ids if ids.count(x) > 1})
     if dupes:
         raise SystemExit(f"duplicate item names (ids): {dupes}")
-    for hid in HOLDBACK:
+    conflicts = {k: v[1] for k, v in ALLERGEN_CONFLICTS.items()}
+    for hid in {**HOLDBACK, **conflicts}:
         if hid not in ids:
-            raise SystemExit(f"HOLDBACK names {hid!r}, which is not an item: the names changed")
+            raise SystemExit(f"HOLDBACK / ALLERGEN_CONFLICTS names {hid!r}, which is not an item: the names changed")
 
     write_chain_folder(chain_id=CHAIN_ID, name="Coffee #1", cuisine="Coffee", source_title=SOURCE_TITLE, source_url=SOURCE_PAGE,
                        checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE,
-                       holdback=sorted(HOLDBACK.items()))
+                       holdback=sorted({**HOLDBACK, **conflicts}.items()),
+                       allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on})
     print(f"wrote {len(items)} items to {args.out}: {len(food)} food, {len(core)} core drinks and add-ons, {len(autumn)} autumn drinks; "
-          f"{len(HOLDBACK)} held back")
+          f"{len(HOLDBACK) + len(ALLERGEN_CONFLICTS)} held back ({len(ALLERGEN_CONFLICTS)} for contradictory allergen lists)")
     for name, path in (("food", args.food), ("core beverages", args.core_drinks), ("autumn beverages", args.autumn_drinks)):
         print(f"  {name}: sha256 {sha256_file(path)}")
     print(f"left out of core beverages p32 (per 100 ml only / per 15 ml-22.5 ml measures): {len(c_skipped)} rows")
     print(f"meat type not stated: {meat_unstated or 'none'}")
     for a in f_anom + c_anom + a_anom:
         print("ANOMALY:", a)
+    checked = [r for r in allergen_report if r.startswith("cross-checked")]
+    print(f"allergens: {len(items)} items; food declarations cross-checked with the allergen matrix: {len(checked)} of {len(food)}")
+    for r in allergen_report:
+        if not r.startswith("cross-checked"):
+            print("ALLERGENS:", r)
     return 0
 
 

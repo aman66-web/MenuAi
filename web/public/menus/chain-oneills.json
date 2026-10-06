@@ -17,6 +17,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "The guide covers the whole High Street estate, not only O'Neill's, and has no menu named Main Menu. Only the menus O'Neill's names on its own site (weekday lunch deal and breakfast) are included, so the burgers, pizzas and waffle fries of the main menu are missing.",
+ "allergenGuide": {
+  "title": "O'Neill's (High Street estate) Allergen & Nutrition Guide, Mitchells & Butlers (live page)",
+  "url": "https://allergens.mbplc.io/AllergenGuideHighSteetEstate.html",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Add-ons",
   "Mains",

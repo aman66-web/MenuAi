@@ -7,6 +7,7 @@ The page https://menus.tenkites.com/thebigtg/mobilemenus04 (the menu bellaitalia
 "Nutrition (per portion)" table. The other tabs are the same address with ?mguid=<tab id>. The parser is
 tenkites_a.py; numbers are copied as printed. Only names, categories and the rules below are written by hand.
 """
+from __future__ import annotations
 import re
 import sys
 from pathlib import Path
@@ -106,8 +107,13 @@ NOTE = ("Per portion as printed on the chain's menu pages. Wines, many cocktails
         "listed; the build-your-own pasta is not listed because only its ingredients are given. Extras (toppings, dips, "
         "add-ons) and the sides served with a dish are separate rows: add them yourself.")
 
+# The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
+# and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
+ALLERGEN_TITLE = "Bella Italia Dietary Information (allergens) on its online Main, Desserts, Drinks and Kids menus (Ten Kites page generated 2026-10-06)"
+
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="bella-italia", name="Bella Italia", cuisine="Italian", aliases=["bella italia"], url=URL,
         source_title="Bella Italia Nutritional Information: Main, Desserts, Drinks and Kids menus (page generated 2026-10-06)",
-        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK))
+        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
+        allergen_title=ALLERGEN_TITLE))

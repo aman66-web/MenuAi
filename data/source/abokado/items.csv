@@ -1,119 +1,119 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-nourish-bowl-miso-salmon,Nourish Bowl - Miso Salmon,Poke & nourish bowls,,425.7,16.3,58.2,13.9,1.9,,2.6,10.9,4.2,,false,true,,,
-nourish-bowl-plant-based,Nourish Bowl - Plant-Based,Poke & nourish bowls,,529.5,14.9,79.2,16.8,2.9,,2.9,13.5,4.3,,false,true,,,Named Plant-Based but the guide marks no diet
-nourish-bowl-teriyaki-chicken,Nourish Bowl - Teriyaki Chicken,Poke & nourish bowls,,493.7,29.9,67.4,11.5,1.5,,3.0,18.8,4.4,,false,true,,,
-poke-plant-based,Poke - Plant Based,Poke & nourish bowls,,568.1,23.2,89.2,14.6,9.4,,1.9,12.3,5.8,,false,true,,,Named Plant Based but the guide marks no diet
-poke-spicy-citrus-salmon,Poke - Spicy Citrus Salmon,Poke & nourish bowls,,426.5,19.9,66.7,10.1,2.1,,1.1,9.8,4.3,,false,true,,,
-poke-teriyaki-salmon,Poke - Teriyaki Salmon,Poke & nourish bowls,,487.0,19.7,72.9,14.4,4.4,,1.5,13.2,4.7,,false,true,,,
-poke-teriyaki-chicken,Poke - Teriyaki Chicken,Poke & nourish bowls,,471.1,23.7,78.5,8.9,3.4,,1.7,17.7,4.8,,false,true,,,
-poke-tonkatsu-bbq-chicken,Poke - Tonkatsu BBQ Chicken,Poke & nourish bowls,,446.5,18.3,53.8,18.7,6.6,,1.6,10.9,3.1,,false,true,,,
-brown-rice-bowl-sweet-chilli-dumplings-regular,Brown Rice Bowl - Sweet Chilli Dumplings (regular),Rice bowls,Regular,526.2,12.4,91.3,13.9,2.8,,1.2,21.5,3.2,,false,true,,,Meat/fish type not stated in the guide
-brown-rice-bowl-sweet-chilli-dumplings-large,Brown Rice Bowl - Sweet Chilli Dumplings (large),Rice bowls,Large,656.9,15.8,111.5,18.2,3.8,,1.6,22.9,4.2,,false,true,,,Meat/fish type not stated in the guide
-brown-rice-bowl-teriyaki-chicken-regular,Brown Rice Bowl - Teriyaki Chicken (regular),Rice bowls,Regular,482.3,31.3,70.5,10.3,2.4,,3.1,26.2,3.6,,false,true,,,
-brown-rice-bowl-teriyaki-chicken-large,Brown Rice Bowl - Teriyaki Chicken (large),Rice bowls,Large,581.9,33.1,89.6,12.6,2.6,,3.3,28.7,4.9,,false,true,,,
-brown-rice-bowl-teriyaki-salmon-regular,Brown Rice Bowl - Teriyaki Salmon (regular),Rice bowls,Regular,464.6,23.2,64.6,14.2,2.5,,3.5,21.9,3.2,,false,true,,,
-brown-rice-bowl-teriyaki-salmon-large,Brown Rice Bowl - Teriyaki Salmon (large),Rice bowls,Large,564.3,24.9,83.7,16.5,2.7,,3.6,24.4,4.6,,false,true,,,
-brown-rice-bowl-thai-green-curry-regular,Brown Rice Bowl - Thai Green Curry (regular),Rice bowls,Regular,516.3,12.5,77.7,18.7,3.2,,1.3,13.3,3.1,,false,true,,,
-brown-rice-bowl-thai-green-curry-large,Brown Rice Bowl - Thai Green Curry (large),Rice bowls,Large,699.1,16.4,104.6,25.7,4.4,,1.9,19.0,4.1,,false,true,,,
-brown-rice-bowl-thai-red-curry-regular,Brown Rice Bowl - Thai Red Curry (regular),Rice bowls,Regular,510.7,12.8,76.9,18.3,3.1,,1.9,12.9,4.0,,false,true,,,
-brown-rice-bowl-thai-red-curry-large,Brown Rice Bowl - Thai Red Curry (large),Rice bowls,Large,691.5,16.9,103.7,25.0,4.2,,2.7,18.5,5.4,,false,true,,,
-rice-bowl-chicken-katsu-curry,Rice Bowl - Chicken Katsu Curry,Rice bowls,,805.7,34.4,106.7,25.5,7.1,,4.2,9.6,4.7,,false,true,,,
-rice-bowl-thai-green-chicken-curry,Rice Bowl - Thai Green Chicken Curry,Rice bowls,,825.9,34.1,117.1,23.4,7.5,,3.7,16.3,1.9,,false,true,,,
-rice-bowl-thai-red-chicken-curry,Rice Bowl - Thai Red Chicken Curry,Rice bowls,,818.5,34.6,116.1,22.8,7.3,,4.5,15.9,3.2,,false,true,,,
-rice-bowl-tonkatsu-bbq-chicken,Rice Bowl - Tonkatsu BBQ Chicken,Rice bowls,,836.2,33.4,135.3,16.6,6.9,,5.4,33.4,1.9,,false,true,,,
-rice-bowl-sweet-chilli-chicken,Rice Bowl - Sweet Chilli Chicken,Rice bowls,,848.5,33.1,138.6,16.5,6.9,,3.5,37.4,1.9,,false,true,,,
-rice-bowl-plant-based-katsu-curry,Rice Bowl - Plant-Based Katsu Curry,Rice bowls,,721.6,27.5,110.4,17.3,6.9,,4.6,10.6,5.9,,false,true,,,Named Plant-Based but the guide marks no diet
-on-rice-salad-miso-salmon,"""On Rice"" Salad - Miso Salmon",Salads,,346.1,13.5,60.9,4.7,1.1,,2.0,5.1,2.3,,false,true,,,
-on-rice-salad-teriyaki-chicken,"""On Rice"" Salad - Teriyaki Chicken",Salads,,411.9,25.6,68.4,3.4,1.0,,2.4,11.5,2.5,,false,true,,,
-on-rice-salad-gyoza,"""On Rice"" Salad - Gyoza",Salads,,536.0,16.8,90.1,11.4,3.1,,2.7,8.9,2.8,,false,true,,,Meat/fish type not stated in the guide
-wild-rice-salad-chicken,Wild Rice Salad - Chicken,Salads,,408.0,18.0,48.9,16.4,4.9,,0.8,6.1,3.6,,false,true,,,
-wild-rice-salad-salmon-tartare,Wild Rice Salad - Salmon Tartare,Salads,,309.6,11.5,41.3,11.6,1.8,,0.5,6.1,3.7,,false,true,,,
-yaki-udon-noodles-katsu-curry,Yaki Udon Noodles - Katsu Curry,Yaki udon,,499.9,10.4,90.6,10.1,0.9,,2.9,8.4,7.6,,false,true,,,Meat/fish type not stated in the guide
-yaki-udon-noodles-sweet-chilli,Yaki Udon Noodles - Sweet Chilli,Yaki udon,,506.0,9.5,106.2,4.2,0.8,,2.4,22.2,6.0,,false,true,,,Meat/fish type not stated in the guide
-yaki-udon-noodles-teriyaki,Yaki Udon Noodles - Teriyaki,Yaki udon,,504.2,11.6,105.7,4.2,0.8,,4.9,22.9,6.4,,false,true,,,Meat/fish type not stated in the guide
-yaki-udon-noodles-thai-green-curry,Yaki Udon Noodles - Thai Green Curry,Yaki udon,,530.7,10.5,100.1,9.5,1.3,,2.6,14.8,6.2,,false,true,,,Meat/fish type not stated in the guide
-yaki-udon-noodles-thai-red-curry,Yaki Udon Noodles - Thai Red Curry,Yaki udon,,525.1,10.8,99.4,9.0,1.1,,3.2,14.4,7.2,,false,true,,,Meat/fish type not stated in the guide
-yaki-udon-noodles-tonkatsu-bbq,Yaki Udon Noodles - Tonkatsu BBQ,Yaki udon,,523.4,9.8,110.3,4.3,0.8,,3.7,24.7,6.0,,false,true,,,Meat/fish type not stated in the guide
-california-nigiri-sushi,California Nigiri Sushi,Sushi,,579.8,19.1,56.6,29.6,4.5,,1.8,6.4,3.9,,false,true,,,Meat/fish type not stated in the guide
-deep-blue-sushi,Deep Blue Sushi,Sushi,,523.4,20.5,67.4,17.6,4.0,,2.2,5.5,3.5,,false,true,,,Meat/fish type not stated in the guide
-dragon-california-crab,Dragon - California Crab,Sushi,,477.0,9.3,49.0,26.5,5.8,,1.8,9.4,3.6,,false,true,,,
-dragon-chicken-katsu,Dragon - Chicken Katsu,Sushi,,519.9,13.7,55.5,26.5,7.3,,2.1,12.7,3.6,,false,true,,,
-dragon-salmon-and-avo,Dragon - Salmon & Avo,Sushi,,445.1,13.2,50.5,20.4,5.8,,1.9,9.7,3.7,,false,true,,,
-katsu-nigiri-sushi,Katsu Nigiri Sushi,Sushi,,593.7,26.7,64.6,24.2,6.8,,2.1,7.6,4.3,,false,true,,,Meat/fish type not stated in the guide
-mean-clean-and-green-sushi,"Mean, Clean & Green Sushi",Sushi,,543.6,11.5,74.5,21.3,4.5,,2.1,9.9,4.5,,false,true,,,Meat/fish type not stated in the guide
-oishi-sushi,Oishi Sushi,Sushi,,374.1,14.6,48.9,12.3,2.7,,1.6,4.0,2.3,,false,true,,,Meat/fish type not stated in the guide
-omega-3-sushi,Omega 3 Sushi,Sushi,,597.1,28.2,80.0,16.3,3.7,,2.4,10.3,2.6,,false,true,,,Meat/fish type not stated in the guide
-omega-lite-sushi,Omega Lite Sushi,Sushi,,303.2,15.2,45.6,5.9,1.2,,1.1,3.1,2.2,,false,true,,,Meat/fish type not stated in the guide
-river-run-sushi,River Run Sushi,Sushi,,369.3,18.3,48.9,10.3,2.2,,1.6,4.7,2.9,,false,true,,,Meat/fish type not stated in the guide
-sashimi-salmon-sushi,Sashimi Salmon Sushi,Sushi,,263.5,18.5,24.9,9.7,1.6,,0.7,0.6,2.3,,false,true,,,
-spicy-chicken-katsu-sushi,Spicy Chicken Katsu Sushi,Sushi,,502.2,15.2,58.3,22.3,5.9,,3.1,12.6,4.2,,false,true,,,
-spicy-salmon-sushi,Spicy Salmon Sushi,Sushi,,339.1,14.1,49.9,8.3,2.4,,2.9,10.2,2.9,,false,true,,,
-sushi-roll-salmon-avo,Sushi Roll - Salmon Avo,Sushi,,209.6,6.7,27.1,7.7,1.5,,0.9,2.9,1.5,,false,true,,,
-sushi-roll-sesame-seaweed,Sushi Roll - Sesame Seaweed,Sushi,,138.3,3.0,28.6,0.9,0.1,,1.2,2.6,1.1,,false,true,,,
-sushi-roll-spicy-california,Sushi Roll - Spicy California,Sushi,,194.6,4.5,28.4,6.5,0.5,,1.2,3.5,0.9,,false,true,,,Meat/fish type not stated in the guide
-sushi-roll-teriyaki-chicken,Sushi Roll - Teriyaki Chicken,Sushi,,155.9,8.1,28.5,0.7,0.2,,0.9,4.4,1.2,,false,true,,,
-sushi-roll-teriyaki-salmon,Sushi Roll - Teriyaki Salmon,Sushi,,159.6,6.8,26.4,2.4,0.5,,0.9,2.7,0.8,,false,true,,,
-sushi-roll-tonkatsu-bbq-chicken,Sushi Roll - Tonkatsu BBQ Chicken,Sushi,,217.3,7.3,30.2,7.0,2.2,,1.1,3.3,1.5,,false,true,,,
-banh-mi-crispy-chicken,Banh Mi - Crispy Chicken,Banh mi,,666.1,23.9,86.1,24.6,7.0,,2.9,13.3,4.9,,false,true,,,
-banh-mi-sweet-and-sour-chicken,Banh Mi - Sweet & Sour Chicken,Banh mi,,577.0,23.6,81.1,15.5,4.5,,2.7,12.5,5.6,,false,true,,,
-banh-mi-tonkatsu-bbq-chicken,"Banh Mi - Tonkatsu BBQ ""Chicken""",Banh mi,,591.4,23.7,92.2,13.5,6.3,,3.5,14.2,4.9,,false,true,,,"The guide puts ""Chicken"" in quotes"
-bagel-avo-and-bacon,Bagel - Avo & Bacon,Bagels,,527.0,20.2,54.7,23.4,5.5,,1.7,6.8,11.4,contains_pork,false,true,,,
-bagel-avo-and-cream-cheese,Bagel - Avo & Cream Cheese,Bagels,,450.0,13.4,43.5,23.7,8.8,,0.8,6.5,8.8,,false,true,,,
-bagel-avo-and-vegan-bacon,Bagel - Avo & Vegan Bacon,Bagels,,446.3,18.8,53.3,15.8,2.9,,0.6,6.6,10.6,,false,true,,,
-bagel-avocado-and-shichimi,Bagel - Avocado & Shichimi,Bagels,,444.6,14.3,54.8,16.7,3.1,,1.1,6.8,11.5,,false,true,,,
-bagel-bacon-and-egg,Bagel - Bacon & Egg,Bagels,,560.5,24.6,54.2,25.4,4.7,,2.0,6.8,9.1,contains_pork,false,true,,,
-bagel-bacon-butty,Bagel - Bacon Butty,Bagels,,560.8,25.4,53.7,25.2,6.8,,2.9,6.6,9.1,contains_pork,false,true,,,
-bagel-buttered,Bagel - Buttered,Bagels,,392.3,13.5,53.7,11.8,1.9,,0.8,6.6,9.1,,false,true,,,
-bagel-cream-cheese,Bagel - Cream Cheese,Bagels,,487.3,16.5,55.5,20.8,9.1,,1.0,8.2,9.1,,false,true,,,
-bagel-egg,Bagel - Egg,Bagels,,476.3,18.7,54.2,18.6,2.3,,0.9,6.8,9.1,,false,true,,,
-bagel-marmite,Bagel - Marmite,Bagels,,405.3,15.2,55.2,11.8,1.9,,1.3,6.6,9.1,,false,true,,,
-bagel-peanut-butter,Bagel - Peanut Butter,Bagels,,469.7,18.9,56.3,16.6,2.1,,1.0,7.4,9.1,,false,true,,,
-bagel-smoked-salmon-and-cream-cheese,Bagel - Smoked Salmon & Cream Cheese,Bagels,,525.6,23.4,55.5,22.0,9.3,,2.3,8.2,9.1,,false,true,,,
-overnight-oats-berry-and-almond,Overnight Oats - Berry & Almond,Breakfast,,332.0,7.6,56.4,9.9,1.1,,0.1,30.3,5.7,,false,true,,,
-overnight-oats-golden-mango,Overnight Oats - Golden Mango,Breakfast,,265.0,6.7,43.6,7.1,0.9,,0.1,17.5,5.9,,false,true,,,
-overnight-oats-pb-and-banana,Overnight Oats - PB & Banana,Breakfast,,378.0,13.3,42.8,19.3,2.6,,0.6,14.6,5.2,,false,true,,,
-scrambled-eggs-plain,Scrambled Eggs - Plain,Breakfast,,248.9,20.7,0,18.4,5.0,,1.5,0,0,,false,true,,,"Carbohydrate, sugars and fibre printed as ""0"" (no decimal)"
-scrambled-eggs-smashed-avo,Scrambled Eggs - Smashed Avo,Breakfast,,348.1,21.6,1.3,28.3,7.4,,1.5,0.3,2.6,,false,true,,,Fibre printed higher than carbohydrate
-scrambled-eggs-crispy-smoked-bacon,Scrambled Eggs - Crispy Smoked Bacon,Breakfast,,333.2,26.7,0,25.1,7.5,,2.6,0,0,contains_pork,false,true,,,"Carbohydrate, sugars and fibre printed as ""0"" (no decimal)"
-scrambled-eggs-vegan-bacon,"Scrambled Eggs - Vegan ""Bacon""",Breakfast,,286.9,26.8,2.7,18.7,0,,1.5,0.3,0,,false,true,,,"Saturates printed as ""0"" with 18.7 g fat, while Scrambled Eggs - Plain prints 5.0 g saturates"
-scrambled-eggs-smoked-salmon,Scrambled Eggs - Smoked Salmon,Breakfast,,287.3,27.6,0,19.6,5.2,,2.8,0,0,,false,true,,,"Carbohydrate, sugars and fibre printed as ""0"" (no decimal)"
-edamame-beans,Edamame Beans,Sides & snacks,,134.0,11.5,8.9,3.3,0.5,,0.5,0.9,4.2,,false,true,,,Printed kcal is 17% above 4P+4C+9F; the printed kcal and kJ agree with each other
-exotic-fruit-salad,Exotic Fruit Salad,Sides & snacks,,96.9,1.2,23.9,0.3,0.0,,0.0,17.0,4.4,,false,false,,,"Same kcal as Mango & Lime Pot (96.9) but kJ, saturates and sugars differ"
-gyoza-spicy,Gyoza - Spicy,Sides & snacks,,332.9,10.8,41.9,13.8,3.6,,1.4,5.8,0.1,,false,true,,,Numbers are identical to the other three Gyoza rows as printed. Meat/fish type not stated in the guide
-gyoza-sweet-chilli,Gyoza - Sweet Chilli,Sides & snacks,,332.9,10.8,41.9,13.8,3.6,,1.4,5.8,0.1,,false,true,,,Numbers are identical to the other three Gyoza rows as printed. Meat/fish type not stated in the guide
-gyoza-teriyaki,Gyoza - Teriyaki,Sides & snacks,,332.9,10.8,41.9,13.8,3.6,,1.4,5.8,0.1,,false,true,,,Numbers are identical to the other three Gyoza rows as printed. Meat/fish type not stated in the guide
-gyoza-tonkatsu-bbq,Gyoza - Tonkatsu BBQ,Sides & snacks,,332.9,10.8,41.9,13.8,3.6,,1.4,5.8,0.1,,false,true,,,Numbers are identical to the other three Gyoza rows as printed. Meat/fish type not stated in the guide
-mango-and-lime-pot,Mango & Lime Pot,Sides & snacks,,96.9,1.2,23.9,0.3,0.2,,0.0,23.5,4.4,,false,false,,,"Same kcal as Exotic Fruit Salad (96.9) but kJ, saturates and sugars differ"
-miso-soup,Miso Soup,Sides & snacks,,36.9,3.1,7.8,1.6,0.3,,2.7,3.5,0.4,,false,true,,,
-dressing-pot-asian-soy-and-ginger,Dressing Pot - Asian (Soy & Ginger),Extras & pots,,163.2,0.4,10.1,13.4,1.0,,0.5,8.3,0.0,,false,false,,,
-dressing-pot-sesame,Dressing Pot - Sesame,Extras & pots,,121.2,1.7,9.5,8.5,0.9,,1.1,8.6,0,,false,false,,,"Fibre printed as ""0"" (no decimal)"
-dressing-pot-sweet-chilli,Dressing Pot - Sweet Chilli,Extras & pots,,70.4,0.1,17.3,0.1,0.0,,0.2,14.2,0.0,,false,false,,,
-dressing-pot-teriyaki,Dressing Pot - Teriyaki,Extras & pots,,22.5,0.6,5.5,0.0,0.0,,0.8,4.9,0.1,,false,false,,,
-dressing-pot-tonkatsu-bbq,Dressing Pot - Tonkatsu BBQ,Extras & pots,,62.8,0.3,15.3,0.1,0.0,,1.0,12.0,0.0,,false,false,,,
-extra-avocado,Extra - Avocado,Extras & pots,,95.5,0.8,1.0,9.9,2.4,,0.0,0.3,2.3,,false,false,,,Fibre printed higher than carbohydrate
-extra-bacon,Extra - Bacon,Extras & pots,,84.3,6.0,0.0,6.7,2.5,,1.1,0.0,0.0,contains_pork,false,false,,,
-extra-cream-cheese,Extra - Cream Cheese,Extras & pots,,112.0,2.4,1.4,11.2,6.7,,0.3,1.3,0.0,,false,false,,,
-extra-espresso-shot,Extra - Espresso Shot,Extras & pots,,0.6,0.0,0.1,0.0,0.0,,0.0,0.0,0.0,,false,false,,,
-extra-smoked-salmon,Extra - Smoked Salmon,Extras & pots,,1.4,0.3,0.0,0.0,0.0,,0.0,0.0,0.0,,false,false,,,
-extra-vegan-bacon,Extra - Vegan Bacon,Extras & pots,,38.0,6.1,2.7,0.3,0.1,,0.0,0.3,0.0,,false,false,,,
-ginger,Ginger,Extras & pots,,3.0,0.0,0.7,0.0,0.0,,0.3,0.0,,,false,false,,,"Fibre printed as ""-"" (not published). The guide does not say what Ginger is served with"
-pot-crispy-onions,Pot - Crispy Onions,Extras & pots,,58.0,0.6,4.0,4.4,2.2,,0.1,1.5,0.5,,false,false,,,
-pot-sriracha-hot-sauce,Pot - Sriracha Hot Sauce,Extras & pots,,53.6,0.8,11.6,0.3,0.1,,2.8,11.2,1.1,,false,false,,,
-pot-pumpkin-seeds,Pot - Pumpkin Seeds,Extras & pots,,111.8,6,2.1,9.8,1.7,,0.0,0.3,1.2,,false,false,,,"Protein printed as ""6"" (no decimal)"
-topping-pumpkin-seeds,Topping - Pumpkin Seeds,Extras & pots,,27.9,1.5,0.5,2.4,0.4,,0.0,0.1,0.3,,false,false,,,
-topping-sun-dried-tomatoes,Topping - Sun-Dried Tomatoes,Extras & pots,,8.5,0.1,1.6,0.0,0.0,,0.6,1.6,0.6,,false,false,,,
-wasabi,Wasabi,Extras & pots,,7.2,0.1,1.1,0.3,0.0,,0.1,0.3,0.3,,false,false,,,
-black-americano-large,Black Americano (large),Hot drinks,Large,1.3,0.0,0.2,0.0,0.0,,0.0,0.0,0.0,,false,false,,,
-black-americano-regular,Black Americano (regular),Hot drinks,Regular,1.1,0.0,0.2,0.0,0.0,,0.0,0.0,0.0,,false,false,,,
-cappuccino-large,Cappuccino (large),Hot drinks,Large,248.1,12.4,17.4,14.6,9.3,,0.4,17.2,0.0,,false,false,,,
-cappuccino-regular,Cappuccino (regular),Hot drinks,Regular,176.0,8.8,12.4,10.3,6.6,,0.3,12.2,0.0,,false,false,,,
-double-espresso,Double Espresso,Hot drinks,,4.4,0.1,0.8,0.1,0.0,,0.0,0.0,0.0,,false,false,,,
-flat-white,Flat White,Hot drinks,,122.0,6.1,8.6,7.2,4.5,,0.2,8.4,0.0,,false,false,,,
-latte-large,Latte (large),Hot drinks,Large,283.4,14.1,19.9,16.7,10.6,,0.5,19.7,0.0,,false,false,,,
-latte-regular,Latte (regular),Hot drinks,Regular,206.2,10.3,14.5,12.1,7.7,,0.3,14.3,0.0,,false,false,,,
-white-americano-large,White Americano (large),Hot drinks,Large,41.7,2.0,3.1,2.4,1.5,,0.1,2.8,0.0,,false,false,,,
-white-americano-regular,White Americano (regular),Hot drinks,Regular,21.4,1.0,1.6,1.2,0.8,,0.0,1.4,0.0,,false,false,,,
-coca-cola,Coca Cola,Cold drinks,,135.3,0.0,36.0,0.0,0.0,,0.0,36.0,0.0,,false,false,,,Drink size not printed
-coke-zero,Coke Zero,Cold drinks,,1.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,false,false,,,Drink size not printed
-diet-coke,Diet Coke,Cold drinks,,3.3,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,false,false,,,Drink size not printed. Printed kJ (6.6) and kcal (3.3) do not agree
-sparkling-water,Sparkling Water,Cold drinks,,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,false,false,,,Drink size not printed. Every number is printed as 0.0
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+nourish-bowl-miso-salmon,Nourish Bowl - Miso Salmon,Poke & nourish bowls,,425.7,16.3,58.2,13.9,1.9,,2.6,10.9,4.2,1834.6,,,,,,,false,true,,,
+nourish-bowl-plant-based,Nourish Bowl - Plant-Based,Poke & nourish bowls,,529.5,14.9,79.2,16.8,2.9,,2.9,13.5,4.3,2232.7,,,,,,,false,true,,,Named Plant-Based but the guide marks no diet
+nourish-bowl-teriyaki-chicken,Nourish Bowl - Teriyaki Chicken,Poke & nourish bowls,,493.7,29.9,67.4,11.5,1.5,,3.0,18.8,4.4,2088.9,,,,,,,false,true,,,
+poke-plant-based,Poke - Plant Based,Poke & nourish bowls,,568.1,23.2,89.2,14.6,9.4,,1.9,12.3,5.8,2390.6,,,,,,,false,true,,,Named Plant Based but the guide marks no diet
+poke-spicy-citrus-salmon,Poke - Spicy Citrus Salmon,Poke & nourish bowls,,426.5,19.9,66.7,10.1,2.1,,1.1,9.8,4.3,1878.6,,,,,,,false,true,,,
+poke-teriyaki-salmon,Poke - Teriyaki Salmon,Poke & nourish bowls,,487.0,19.7,72.9,14.4,4.4,,1.5,13.2,4.7,2121.7,,,,,,,false,true,,,
+poke-teriyaki-chicken,Poke - Teriyaki Chicken,Poke & nourish bowls,,471.1,23.7,78.5,8.9,3.4,,1.7,17.7,4.8,1991.1,,,,,,,false,true,,,
+poke-tonkatsu-bbq-chicken,Poke - Tonkatsu BBQ Chicken,Poke & nourish bowls,,446.5,18.3,53.8,18.7,6.6,,1.6,10.9,3.1,1873.5,,,,,,,false,true,,,
+brown-rice-bowl-sweet-chilli-dumplings-regular,Brown Rice Bowl - Sweet Chilli Dumplings (regular),Rice bowls,Regular,526.2,12.4,91.3,13.9,2.8,,1.2,21.5,3.2,2220.5,,,,,,,false,true,,,Meat/fish type not stated in the guide
+brown-rice-bowl-sweet-chilli-dumplings-large,Brown Rice Bowl - Sweet Chilli Dumplings (large),Rice bowls,Large,656.9,15.8,111.5,18.2,3.8,,1.6,22.9,4.2,2770.9,,,,,,,false,true,,,Meat/fish type not stated in the guide
+brown-rice-bowl-teriyaki-chicken-regular,Brown Rice Bowl - Teriyaki Chicken (regular),Rice bowls,Regular,482.3,31.3,70.5,10.3,2.4,,3.1,26.2,3.6,2038.7,,,,,,,false,true,,,
+brown-rice-bowl-teriyaki-chicken-large,Brown Rice Bowl - Teriyaki Chicken (large),Rice bowls,Large,581.9,33.1,89.6,12.6,2.6,,3.3,28.7,4.9,2459.9,,,,,,,false,true,,,
+brown-rice-bowl-teriyaki-salmon-regular,Brown Rice Bowl - Teriyaki Salmon (regular),Rice bowls,Regular,464.6,23.2,64.6,14.2,2.5,,3.5,21.9,3.2,2046.9,,,,,,,false,true,,,
+brown-rice-bowl-teriyaki-salmon-large,Brown Rice Bowl - Teriyaki Salmon (large),Rice bowls,Large,564.3,24.9,83.7,16.5,2.7,,3.6,24.4,4.6,2468.2,,,,,,,false,true,,,
+brown-rice-bowl-thai-green-curry-regular,Brown Rice Bowl - Thai Green Curry (regular),Rice bowls,Regular,516.3,12.5,77.7,18.7,3.2,,1.3,13.3,3.1,2169.5,,,,,,,false,true,,,
+brown-rice-bowl-thai-green-curry-large,Brown Rice Bowl - Thai Green Curry (large),Rice bowls,Large,699.1,16.4,104.6,25.7,4.4,,1.9,19.0,4.1,2937.6,,,,,,,false,true,,,
+brown-rice-bowl-thai-red-curry-regular,Brown Rice Bowl - Thai Red Curry (regular),Rice bowls,Regular,510.7,12.8,76.9,18.3,3.1,,1.9,12.9,4.0,2146.2,,,,,,,false,true,,,
+brown-rice-bowl-thai-red-curry-large,Brown Rice Bowl - Thai Red Curry (large),Rice bowls,Large,691.5,16.9,103.7,25.0,4.2,,2.7,18.5,5.4,2905.9,,,,,,,false,true,,,
+rice-bowl-chicken-katsu-curry,Rice Bowl - Chicken Katsu Curry,Rice bowls,,805.7,34.4,106.7,25.5,7.1,,4.2,9.6,4.7,3365.8,,,,,,,false,true,,,
+rice-bowl-thai-green-chicken-curry,Rice Bowl - Thai Green Chicken Curry,Rice bowls,,825.9,34.1,117.1,23.4,7.5,,3.7,16.3,1.9,3453.8,,,,,,,false,true,,,
+rice-bowl-thai-red-chicken-curry,Rice Bowl - Thai Red Chicken Curry,Rice bowls,,818.5,34.6,116.1,22.8,7.3,,4.5,15.9,3.2,3422.6,,,,,,,false,true,,,
+rice-bowl-tonkatsu-bbq-chicken,Rice Bowl - Tonkatsu BBQ Chicken,Rice bowls,,836.2,33.4,135.3,16.6,6.9,,5.4,33.4,1.9,3489.2,,,,,,,false,true,,,
+rice-bowl-sweet-chilli-chicken,Rice Bowl - Sweet Chilli Chicken,Rice bowls,,848.5,33.1,138.6,16.5,6.9,,3.5,37.4,1.9,3558.8,,,,,,,false,true,,,
+rice-bowl-plant-based-katsu-curry,Rice Bowl - Plant-Based Katsu Curry,Rice bowls,,721.6,27.5,110.4,17.3,6.9,,4.6,10.6,5.9,3015.7,,,,,,,false,true,,,Named Plant-Based but the guide marks no diet
+on-rice-salad-miso-salmon,"""On Rice"" Salad - Miso Salmon",Salads,,346.1,13.5,60.9,4.7,1.1,,2.0,5.1,2.3,1470.8,,,,,,,false,true,,,
+on-rice-salad-teriyaki-chicken,"""On Rice"" Salad - Teriyaki Chicken",Salads,,411.9,25.6,68.4,3.4,1.0,,2.4,11.5,2.5,1728.6,,,,,,,false,true,,,
+on-rice-salad-gyoza,"""On Rice"" Salad - Gyoza",Salads,,536.0,16.8,90.1,11.4,3.1,,2.7,8.9,2.8,2244.4,,,,,,,false,true,,,Meat/fish type not stated in the guide
+wild-rice-salad-chicken,Wild Rice Salad - Chicken,Salads,,408.0,18.0,48.9,16.4,4.9,,0.8,6.1,3.6,1710.4,,,,,,,false,true,,,
+wild-rice-salad-salmon-tartare,Wild Rice Salad - Salmon Tartare,Salads,,309.6,11.5,41.3,11.6,1.8,,0.5,6.1,3.7,1340.0,,,,,,,false,true,,,
+yaki-udon-noodles-katsu-curry,Yaki Udon Noodles - Katsu Curry,Yaki udon,,499.9,10.4,90.6,10.1,0.9,,2.9,8.4,7.6,2084.0,,,,,,,false,true,,,Meat/fish type not stated in the guide
+yaki-udon-noodles-sweet-chilli,Yaki Udon Noodles - Sweet Chilli,Yaki udon,,506.0,9.5,106.2,4.2,0.8,,2.4,22.2,6.0,2117.4,,,,,,,false,true,,,Meat/fish type not stated in the guide
+yaki-udon-noodles-teriyaki,Yaki Udon Noodles - Teriyaki,Yaki udon,,504.2,11.6,105.7,4.2,0.8,,4.9,22.9,6.4,2110.2,,,,,,,false,true,,,Meat/fish type not stated in the guide
+yaki-udon-noodles-thai-green-curry,Yaki Udon Noodles - Thai Green Curry,Yaki udon,,530.7,10.5,100.1,9.5,1.3,,2.6,14.8,6.2,2215.2,,,,,,,false,true,,,Meat/fish type not stated in the guide
+yaki-udon-noodles-thai-red-curry,Yaki Udon Noodles - Thai Red Curry,Yaki udon,,525.1,10.8,99.4,9.0,1.1,,3.2,14.4,7.2,2191.8,,,,,,,false,true,,,Meat/fish type not stated in the guide
+yaki-udon-noodles-tonkatsu-bbq,Yaki Udon Noodles - Tonkatsu BBQ,Yaki udon,,523.4,9.8,110.3,4.3,0.8,,3.7,24.7,6.0,2179.8,,,,,,,false,true,,,Meat/fish type not stated in the guide
+california-nigiri-sushi,California Nigiri Sushi,Sushi,,579.8,19.1,56.6,29.6,4.5,,1.8,6.4,3.9,2440.3,,,,,,,false,true,,,Meat/fish type not stated in the guide
+deep-blue-sushi,Deep Blue Sushi,Sushi,,523.4,20.5,67.4,17.6,4.0,,2.2,5.5,3.5,2219.3,,,,,,,false,true,,,Meat/fish type not stated in the guide
+dragon-california-crab,Dragon - California Crab,Sushi,,477.0,9.3,49.0,26.5,5.8,,1.8,9.4,3.6,1962.8,,,,,,,false,true,,,
+dragon-chicken-katsu,Dragon - Chicken Katsu,Sushi,,519.9,13.7,55.5,26.5,7.3,,2.1,12.7,3.6,2140.9,,,,,,,false,true,,,
+dragon-salmon-and-avo,Dragon - Salmon & Avo,Sushi,,445.1,13.2,50.5,20.4,5.8,,1.9,9.7,3.7,1867.3,,,,,,,false,true,,,
+katsu-nigiri-sushi,Katsu Nigiri Sushi,Sushi,,593.7,26.7,64.6,24.2,6.8,,2.1,7.6,4.3,2502.9,,,,,,,false,true,,,Meat/fish type not stated in the guide
+mean-clean-and-green-sushi,"Mean, Clean & Green Sushi",Sushi,,543.6,11.5,74.5,21.3,4.5,,2.1,9.9,4.5,2247.8,,,,,,,false,true,,,Meat/fish type not stated in the guide
+oishi-sushi,Oishi Sushi,Sushi,,374.1,14.6,48.9,12.3,2.7,,1.6,4.0,2.3,1585.5,,,,,,,false,true,,,Meat/fish type not stated in the guide
+omega-3-sushi,Omega 3 Sushi,Sushi,,597.1,28.2,80.0,16.3,3.7,,2.4,10.3,2.6,2583.8,,,,,,,false,true,,,Meat/fish type not stated in the guide
+omega-lite-sushi,Omega Lite Sushi,Sushi,,303.2,15.2,45.6,5.9,1.2,,1.1,3.1,2.2,1315.5,,,,,,,false,true,,,Meat/fish type not stated in the guide
+river-run-sushi,River Run Sushi,Sushi,,369.3,18.3,48.9,10.3,2.2,,1.6,4.7,2.9,1593.1,,,,,,,false,true,,,Meat/fish type not stated in the guide
+sashimi-salmon-sushi,Sashimi Salmon Sushi,Sushi,,263.5,18.5,24.9,9.7,1.6,,0.7,0.6,2.3,1200.7,,,,,,,false,true,,,
+spicy-chicken-katsu-sushi,Spicy Chicken Katsu Sushi,Sushi,,502.2,15.2,58.3,22.3,5.9,,3.1,12.6,4.2,2063.2,,,,,,,false,true,,,
+spicy-salmon-sushi,Spicy Salmon Sushi,Sushi,,339.1,14.1,49.9,8.3,2.4,,2.9,10.2,2.9,1427.6,,,,,,,false,true,,,
+sushi-roll-salmon-avo,Sushi Roll - Salmon Avo,Sushi,,209.6,6.7,27.1,7.7,1.5,,0.9,2.9,1.5,883.9,,,,,,,false,true,,,
+sushi-roll-sesame-seaweed,Sushi Roll - Sesame Seaweed,Sushi,,138.3,3.0,28.6,0.9,0.1,,1.2,2.6,1.1,581.3,,,,,,,false,true,,,
+sushi-roll-spicy-california,Sushi Roll - Spicy California,Sushi,,194.6,4.5,28.4,6.5,0.5,,1.2,3.5,0.9,779.3,,,,,,,false,true,,,Meat/fish type not stated in the guide
+sushi-roll-teriyaki-chicken,Sushi Roll - Teriyaki Chicken,Sushi,,155.9,8.1,28.5,0.7,0.2,,0.9,4.4,1.2,644.1,,,,,,,false,true,,,
+sushi-roll-teriyaki-salmon,Sushi Roll - Teriyaki Salmon,Sushi,,159.6,6.8,26.4,2.4,0.5,,0.9,2.7,0.8,679.3,,,,,,,false,true,,,
+sushi-roll-tonkatsu-bbq-chicken,Sushi Roll - Tonkatsu BBQ Chicken,Sushi,,217.3,7.3,30.2,7.0,2.2,,1.1,3.3,1.5,895.8,,,,,,,false,true,,,
+banh-mi-crispy-chicken,Banh Mi - Crispy Chicken,Banh mi,,666.1,23.9,86.1,24.6,7.0,,2.9,13.3,4.9,2799,,,,,,,false,true,,,
+banh-mi-sweet-and-sour-chicken,Banh Mi - Sweet & Sour Chicken,Banh mi,,577.0,23.6,81.1,15.5,4.5,,2.7,12.5,5.6,2432.2,,,,,,,false,true,,,
+banh-mi-tonkatsu-bbq-chicken,"Banh Mi - Tonkatsu BBQ ""Chicken""",Banh mi,,591.4,23.7,92.2,13.5,6.3,,3.5,14.2,4.9,2489.7,,,,,,,false,true,,,"The guide puts ""Chicken"" in quotes"
+bagel-avo-and-bacon,Bagel - Avo & Bacon,Bagels,,527.0,20.2,54.7,23.4,5.5,,1.7,6.8,11.4,2209.7,,,,,,contains_pork,false,true,,,
+bagel-avo-and-cream-cheese,Bagel - Avo & Cream Cheese,Bagels,,450.0,13.4,43.5,23.7,8.8,,0.8,6.5,8.8,1882.9,,,,,,,false,true,,,
+bagel-avo-and-vegan-bacon,Bagel - Avo & Vegan Bacon,Bagels,,446.3,18.8,53.3,15.8,2.9,,0.6,6.6,10.6,1874.4,,,,,,,false,true,,,
+bagel-avocado-and-shichimi,Bagel - Avocado & Shichimi,Bagels,,444.6,14.3,54.8,16.7,3.1,,1.1,6.8,11.5,1867.4,,,,,,,false,true,,,
+bagel-bacon-and-egg,Bagel - Bacon & Egg,Bagels,,560.5,24.6,54.2,25.4,4.7,,2.0,6.8,9.1,2350.2,,,,,,contains_pork,false,true,,,
+bagel-bacon-butty,Bagel - Bacon Butty,Bagels,,560.8,25.4,53.7,25.2,6.8,,2.9,6.6,9.1,2351.2,,,,,,contains_pork,false,true,,,
+bagel-buttered,Bagel - Buttered,Bagels,,392.3,13.5,53.7,11.8,1.9,,0.8,6.6,9.1,1651.3,,,,,,,false,true,,,
+bagel-cream-cheese,Bagel - Cream Cheese,Bagels,,487.3,16.5,55.5,20.8,9.1,,1.0,8.2,9.1,2045.2,,,,,,,false,true,,,
+bagel-egg,Bagel - Egg,Bagels,,476.3,18.7,54.2,18.6,2.3,,0.9,6.8,9.1,2000.2,,,,,,,false,true,,,
+bagel-marmite,Bagel - Marmite,Bagels,,405.3,15.2,55.2,11.8,1.9,,1.3,6.6,9.1,1706.2,,,,,,,false,true,,,
+bagel-peanut-butter,Bagel - Peanut Butter,Bagels,,469.7,18.9,56.3,16.6,2.1,,1.0,7.4,9.1,1974.0,,,,,,,false,true,,,
+bagel-smoked-salmon-and-cream-cheese,Bagel - Smoked Salmon & Cream Cheese,Bagels,,525.6,23.4,55.5,22.0,9.3,,2.3,8.2,9.1,2206.7,,,,,,,false,true,,,
+overnight-oats-berry-and-almond,Overnight Oats - Berry & Almond,Breakfast,,332.0,7.6,56.4,9.9,1.1,,0.1,30.3,5.7,1394.0,,,,,,,false,true,,,
+overnight-oats-golden-mango,Overnight Oats - Golden Mango,Breakfast,,265.0,6.7,43.6,7.1,0.9,,0.1,17.5,5.9,1113.0,,,,,,,false,true,,,
+overnight-oats-pb-and-banana,Overnight Oats - PB & Banana,Breakfast,,378.0,13.3,42.8,19.3,2.6,,0.6,14.6,5.2,1588.0,,,,,,,false,true,,,
+scrambled-eggs-plain,Scrambled Eggs - Plain,Breakfast,,248.9,20.7,0,18.4,5.0,,1.5,0,0,1032.9,,,,,,,false,true,,,"Carbohydrate, sugars and fibre printed as ""0"" (no decimal)"
+scrambled-eggs-smashed-avo,Scrambled Eggs - Smashed Avo,Breakfast,,348.1,21.6,1.3,28.3,7.4,,1.5,0.3,2.6,1441.7,,,,,,,false,true,,,Fibre printed higher than carbohydrate
+scrambled-eggs-crispy-smoked-bacon,Scrambled Eggs - Crispy Smoked Bacon,Breakfast,,333.2,26.7,0,25.1,7.5,,2.6,0,0,1382.9,,,,,,contains_pork,false,true,,,"Carbohydrate, sugars and fibre printed as ""0"" (no decimal)"
+scrambled-eggs-vegan-bacon,"Scrambled Eggs - Vegan ""Bacon""",Breakfast,,286.9,26.8,2.7,18.7,0,,1.5,0.3,0,1192.5,,,,,,,false,true,,,"Saturates printed as ""0"" with 18.7 g fat, while Scrambled Eggs - Plain prints 5.0 g saturates"
+scrambled-eggs-smoked-salmon,Scrambled Eggs - Smoked Salmon,Breakfast,,287.3,27.6,0,19.6,5.2,,2.8,0,0,1194.5,,,,,,,false,true,,,"Carbohydrate, sugars and fibre printed as ""0"" (no decimal)"
+edamame-beans,Edamame Beans,Sides & snacks,,134.0,11.5,8.9,3.3,0.5,,0.5,0.9,4.2,561.0,,,,,,,false,true,,,Printed kcal is 17% above 4P+4C+9F; the printed kcal and kJ agree with each other
+exotic-fruit-salad,Exotic Fruit Salad,Sides & snacks,,96.9,1.2,23.9,0.3,0.0,,0.0,17.0,4.4,409.7,,,,,,,false,false,,,"Same kcal as Mango & Lime Pot (96.9) but kJ, saturates and sugars differ"
+gyoza-spicy,Gyoza - Spicy,Sides & snacks,,332.9,10.8,41.9,13.8,3.6,,1.4,5.8,0.1,1397.8,,,,,,,false,true,,,Numbers are identical to the other three Gyoza rows as printed. Meat/fish type not stated in the guide
+gyoza-sweet-chilli,Gyoza - Sweet Chilli,Sides & snacks,,332.9,10.8,41.9,13.8,3.6,,1.4,5.8,0.1,1397.8,,,,,,,false,true,,,Numbers are identical to the other three Gyoza rows as printed. Meat/fish type not stated in the guide
+gyoza-teriyaki,Gyoza - Teriyaki,Sides & snacks,,332.9,10.8,41.9,13.8,3.6,,1.4,5.8,0.1,1397.8,,,,,,,false,true,,,Numbers are identical to the other three Gyoza rows as printed. Meat/fish type not stated in the guide
+gyoza-tonkatsu-bbq,Gyoza - Tonkatsu BBQ,Sides & snacks,,332.9,10.8,41.9,13.8,3.6,,1.4,5.8,0.1,1397.8,,,,,,,false,true,,,Numbers are identical to the other three Gyoza rows as printed. Meat/fish type not stated in the guide
+mango-and-lime-pot,Mango & Lime Pot,Sides & snacks,,96.9,1.2,23.9,0.3,0.2,,0.0,23.5,4.4,416.5,,,,,,,false,false,,,"Same kcal as Exotic Fruit Salad (96.9) but kJ, saturates and sugars differ"
+miso-soup,Miso Soup,Sides & snacks,,36.9,3.1,7.8,1.6,0.3,,2.7,3.5,0.4,154.7,,,,,,,false,true,,,
+dressing-pot-asian-soy-and-ginger,Dressing Pot - Asian (Soy & Ginger),Extras & pots,,163.2,0.4,10.1,13.4,1.0,,0.5,8.3,0.0,676.8,,,,,,,false,false,,,
+dressing-pot-sesame,Dressing Pot - Sesame,Extras & pots,,121.2,1.7,9.5,8.5,0.9,,1.1,8.6,0,507.6,,,,,,,false,false,,,"Fibre printed as ""0"" (no decimal)"
+dressing-pot-sweet-chilli,Dressing Pot - Sweet Chilli,Extras & pots,,70.4,0.1,17.3,0.1,0.0,,0.2,14.2,0.0,299.2,,,,,,,false,false,,,
+dressing-pot-teriyaki,Dressing Pot - Teriyaki,Extras & pots,,22.5,0.6,5.5,0.0,0.0,,0.8,4.9,0.1,95.8,,,,,,,false,false,,,
+dressing-pot-tonkatsu-bbq,Dressing Pot - Tonkatsu BBQ,Extras & pots,,62.8,0.3,15.3,0.1,0.0,,1.0,12.0,0.0,259.2,,,,,,,false,false,,,
+extra-avocado,Extra - Avocado,Extras & pots,,95.5,0.8,1.0,9.9,2.4,,0.0,0.3,2.3,393.5,,,,,,,false,false,,,Fibre printed higher than carbohydrate
+extra-bacon,Extra - Bacon,Extras & pots,,84.3,6.0,0.0,6.7,2.5,,1.1,0.0,0.0,350.0,,,,,,contains_pork,false,false,,,
+extra-cream-cheese,Extra - Cream Cheese,Extras & pots,,112.0,2.4,1.4,11.2,6.7,,0.3,1.3,0.0,463.2,,,,,,,false,false,,,
+extra-espresso-shot,Extra - Espresso Shot,Extras & pots,,0.6,0.0,0.1,0.0,0.0,,0.0,0.0,0.0,2.5,,,,,,,false,false,,,
+extra-smoked-salmon,Extra - Smoked Salmon,Extras & pots,,1.4,0.3,0.0,0.0,0.0,,0.0,0.0,0.0,6.0,,,,,,,false,false,,,
+extra-vegan-bacon,Extra - Vegan Bacon,Extras & pots,,38.0,6.1,2.7,0.3,0.1,,0.0,0.3,0.0,159.5,,,,,,,false,false,,,
+ginger,Ginger,Extras & pots,,3.0,0.0,0.7,0.0,0.0,,0.3,0.0,,12.5,,,,,,,false,false,,,"Fibre printed as ""-"" (not published). The guide does not say what Ginger is served with"
+pot-crispy-onions,Pot - Crispy Onions,Extras & pots,,58.0,0.6,4.0,4.4,2.2,,0.1,1.5,0.5,241.0,,,,,,,false,false,,,
+pot-sriracha-hot-sauce,Pot - Sriracha Hot Sauce,Extras & pots,,53.6,0.8,11.6,0.3,0.1,,2.8,11.2,1.1,224.4,,,,,,,false,false,,,
+pot-pumpkin-seeds,Pot - Pumpkin Seeds,Extras & pots,,111.8,6,2.1,9.8,1.7,,0.0,0.3,1.2,467.8,,,,,,,false,false,,,"Protein printed as ""6"" (no decimal)"
+topping-pumpkin-seeds,Topping - Pumpkin Seeds,Extras & pots,,27.9,1.5,0.5,2.4,0.4,,0.0,0.1,0.3,116.9,,,,,,,false,false,,,
+topping-sun-dried-tomatoes,Topping - Sun-Dried Tomatoes,Extras & pots,,8.5,0.1,1.6,0.0,0.0,,0.6,1.6,0.6,35.7,,,,,,,false,false,,,
+wasabi,Wasabi,Extras & pots,,7.2,0.1,1.1,0.3,0.0,,0.1,0.3,0.3,29.9,,,,,,,false,false,,,
+black-americano-large,Black Americano (large),Hot drinks,Large,1.3,0.0,0.2,0.0,0.0,,0.0,0.0,0.0,5.0,,,,,,,false,false,,,
+black-americano-regular,Black Americano (regular),Hot drinks,Regular,1.1,0.0,0.2,0.0,0.0,,0.0,0.0,0.0,4.3,,,,,,,false,false,,,
+cappuccino-large,Cappuccino (large),Hot drinks,Large,248.1,12.4,17.4,14.6,9.3,,0.4,17.2,0.0,1029.8,,,,,,,false,false,,,
+cappuccino-regular,Cappuccino (regular),Hot drinks,Regular,176.0,8.8,12.4,10.3,6.6,,0.3,12.2,0.0,730.4,,,,,,,false,false,,,
+double-espresso,Double Espresso,Hot drinks,,4.4,0.1,0.8,0.1,0.0,,0.0,0.0,0.0,17.6,,,,,,,false,false,,,
+flat-white,Flat White,Hot drinks,,122.0,6.1,8.6,7.2,4.5,,0.2,8.4,0.0,506.1,,,,,,,false,false,,,
+latte-large,Latte (large),Hot drinks,Large,283.4,14.1,19.9,16.7,10.6,,0.5,19.7,0.0,1176.5,,,,,,,false,false,,,
+latte-regular,Latte (regular),Hot drinks,Regular,206.2,10.3,14.5,12.1,7.7,,0.3,14.3,0.0,855.6,,,,,,,false,false,,,
+white-americano-large,White Americano (large),Hot drinks,Large,41.7,2.0,3.1,2.4,1.5,,0.1,2.8,0.0,173.0,,,,,,,false,false,,,
+white-americano-regular,White Americano (regular),Hot drinks,Regular,21.4,1.0,1.6,1.2,0.8,,0.0,1.4,0.0,88.6,,,,,,,false,false,,,
+coca-cola,Coca Cola,Cold drinks,,135.3,0.0,36.0,0.0,0.0,,0.0,36.0,0.0,574.2,,,,,,,false,false,,,Drink size not printed
+coke-zero,Coke Zero,Cold drinks,,1.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,4.6,,,,,,,false,false,,,Drink size not printed
+diet-coke,Diet Coke,Cold drinks,,3.3,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,6.6,,,,,,,false,false,,,Drink size not printed. Printed kJ (6.6) and kcal (3.3) do not agree
+sparkling-water,Sparkling Water,Cold drinks,,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,,,,,,,false,false,,,Drink size not printed. Every number is printed as 0.0

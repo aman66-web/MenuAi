@@ -15,7 +15,13 @@ section lines (SEASONAL, SANDWICH, SALAD, SAVOURIES, BREAD, CONFECTIONERY, PACKS
 A few rows print fewer than 16 numbers (a cell is simply left out), so a number is assigned to its column by the
 right-hand edge of the word (every numeric column is right-aligned), never by counting. Only the per-product columns
 are used for the menu data: per-100g values are not per-serving values.
+
+Allergens: the "Contains" column (left edge X_CONTAINS) prints "Contains Egg, Milk, Wheat" (sometimes followed by a meat or
+cheese percentage such as ", 18% Pork"); the "May Contain" column (left edge X_MAY) prints "Not suitable for someone with a
+celery, egg allergy." Each is returned as its own text, read by word position (a word belongs to the column its left edge
+falls in); the header words "Contains" and "May Contain" are checked at those positions on every run.
 """
+from __future__ import annotations
 import html
 import re
 import subprocess
@@ -43,10 +49,21 @@ def _words(pdf: Path) -> list[tuple[float, float, float, float, str]]:
     return [(float(a), float(b), float(c), float(d), html.unescape(t)) for a, b, c, d, t in WORD.findall(out)]
 
 
+def _check_header(words: list[tuple]) -> None:
+    """The allergen columns must still start where this reader splits them: 'Contains' at X_CONTAINS, 'May Contain' at X_MAY."""
+    top = min(w[1] for w in words)
+    head = {w[4]: w[0] for w in words if abs(w[1] - top) <= LINE_TOLERANCE}
+    for label, x in (("Contains", X_CONTAINS), ("May", X_MAY), ("Contain", None), ("Vegetarians", X_VEG)):
+        if label not in head or (x is not None and not x <= head[label] < x + 2.0):
+            raise ValueError(f"Header changed: {label!r} is not at x {x} (header words: {sorted(head)}). Re-measure the columns.")
+
+
 def read_rows(pdf: Path) -> list[dict]:
-    """One dict per product in printed order: {"section", "name", "contains", "veg", "vegan", "weight", "per",
-    <the 16 NUM_COLUMNS keys: printed text, only those present>}. Raises if a number fits no column."""
+    """One dict per product in printed order: {"section", "name", "contains", "may_contain", "veg", "vegan", "weight", "per",
+    <the 16 NUM_COLUMNS keys: printed text, only those present>}. "contains" / "may_contain" are the two allergen columns'
+    text as printed ("" when the cell is empty). Raises if a number fits no column."""
     words = _words(pdf)
+    _check_header(words)
     lines: list[list[tuple]] = []
     for w in sorted(words, key=lambda w: (w[1], w[0])):
         if lines and abs(lines[-1][0][1] - w[1]) <= LINE_TOLERANCE:
@@ -61,8 +78,8 @@ def read_rows(pdf: Path) -> list[dict]:
         if text in SECTION_HEADINGS:
             section = text
             continue
-        row = {"section": section, "name": "", "contains": "", "veg": "", "vegan": "", "weight": "", "per": ""}
-        parts: dict[str, list[str]] = {k: [] for k in ("name", "contains", "veg", "vegan", "weight", "per")}
+        row = {"section": section, "name": "", "contains": "", "may_contain": "", "veg": "", "vegan": "", "weight": "", "per": ""}
+        parts: dict[str, list[str]] = {k: [] for k in ("name", "contains", "may_contain", "veg", "vegan", "weight", "per")}
         for w in line:
             x0, _, x1, _, t = w
             if x0 >= X_NUMBERS:
@@ -72,8 +89,10 @@ def read_rows(pdf: Path) -> list[dict]:
                 row[key] = t
             elif x0 < X_CONTAINS:
                 parts["name"].append(t)
+            elif x0 < X_MAY:
+                parts["contains"].append(t)
             elif x0 < X_VEG:
-                parts["contains"].append(t)  # "Contains" and "May Contain" text together
+                parts["may_contain"].append(t)
             elif x0 < X_VEGAN:
                 parts["veg"].append(t)
             elif x0 < X_WEIGHT:

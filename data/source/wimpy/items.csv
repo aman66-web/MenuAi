@@ -1,184 +1,184 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-bacon-and-hash-brown-muffin,Bacon & Hash Brown Muffin,Breakfasts,,514,23.6,48.1,25.5,6.3,,2.9,2.2,3.1,contains_pork,false,true,,,Bacon is in the name
-double-up-bacon,Double Up Bacon,Breakfasts,,592,30.4,48.1,31.1,8.4,,3.9,2.2,3.1,contains_pork,false,true,,,Bacon is in the name
-sausage-and-hash-brown-muffin,Sausage & Hash Brown Muffin,Breakfasts,,559,26.3,49.2,28.8,7.7,,2.6,2.8,3.2,contains_pork,false,true,,,Sausage is in the name
-double-up-sausage,Double Up Sausage,Breakfasts,,683,35.9,50.4,37.8,11.2,,3.2,3.4,3.2,contains_pork,false,true,,,Sausage is in the name
-hash-brown-muffin,Hash Brown Muffin,Breakfasts,,436,16.8,48.1,19.9,4.2,,1.9,2.2,3.1,,false,true,,,
-sausage-muffin,Sausage Muffin,Breakfasts,,431,25.2,37.8,20.6,6.8,,2.0,2.0,1.9,contains_pork,false,true,,,Sausage is in the name
-bacon-muffin,Bacon Muffin,Breakfasts,,386,22.4,36.7,17.2,5.4,,2.4,1.4,1.9,contains_pork,false,true,,,Bacon is in the name
-breakfast-stack,Breakfast Stack,Breakfasts,,794,36.6,65.7,42.5,12.3,,5.1,10.3,4.1,,false,true,,,
-all-day-breakfast,All-Day Breakfast,Breakfasts,,925,43.4,66.5,54.6,15.4,,4.7,7.5,9.7,,false,true,,,
-big-brekkie-white-toast,Big Brekkie (white toast),Breakfasts,,1185,52.7,71.1,75.2,18.9,,6.3,10.7,10.3,,false,true,,,Printed 'Figures are for white toast'
-sunrise-white-toast,Sunrise (white toast),Breakfasts,,665,30.1,53.7,35.4,11.0,,3.7,9.0,7.4,,false,true,,,Printed 'Figures are for white toast'
-meat-free-mini-white-toast,Meat-Free Mini (white toast),Breakfasts,,579,18.2,49.3,33.0,7.0,,1.8,9.9,8.0,,false,true,,,Printed 'Figures are for white toast'
-toasted-teacake-and-butter,Toasted Teacake & Butter,Breakfasts,,343,8.0,46.6,13.1,7.5,,0.9,11.1,2.9,,false,true,,,
-wimpy-ketchup-on-breakfast-stack-adds,Wimpy Ketchup on Breakfast Stack (adds),Add-ons,,12,0.1,2.7,0.0,0.0,,0.3,2.5,0.1,,false,false,,,Printed under Breakfast Stack as 'with Wimpy Ketchup (Adds)': the amount it adds
-hp-brown-sauce-on-breakfast-stack-adds,HP Brown Sauce on Breakfast Stack (adds),Add-ons,,12,0.1,2.8,0.0,0.0,,0.1,2.3,0.0,,false,false,,,Printed under Breakfast Stack as 'with HP Brown Sauce (Adds)': the amount it adds
-1-slice-of-white-toast-and-butter,1 Slice of White Toast & Butter,Add-ons,1 slice,166,3.9,22.6,6.4,3.8,,0.4,1.5,1.3,,false,false,,,
-1-slice-of-wholemeal-toast-and-butter,1 Slice of Wholemeal Toast & Butter,Add-ons,1 slice,155,4.6,18.0,6.4,3.8,,0.5,1.2,3.3,,false,false,,,
-bacon-slice,Bacon Slice,Add-ons,1 slice,78,6.8,0.0,5.6,2.1,,1.0,0.0,0.0,contains_pork,false,false,,,Bacon is in the name; also printed under Burger and Grill add-ons
-breakfast-sausage,Breakfast Sausage,Add-ons,,118,6.6,5.7,7.9,2.7,,0.8,0.5,0.7,contains_pork,false,false,,,Sausage is in the name; also printed under Grill add-ons
-sausage-patty,Sausage Patty,Add-ons,,123,9.6,1.2,8.9,3.5,,0.6,0.6,0.0,contains_pork,false,false,,,Sausage is in the name
-free-range-fried-egg,Free-Range Fried Egg,Add-ons,,90,6.6,0.0,7.1,1.5,,0.2,0.0,0.0,,false,false,,,Also printed under Grill add-ons
-hash-brown,Hash Brown,Add-ons,,128,1.2,11.4,8.3,0.9,,0.6,0.9,1.3,,false,false,,,"Also printed under Burger add-ons, Grill add-ons and Kids side choices"
-cheese-slice,Cheese Slice,Add-ons,1 slice,41,1.9,1.3,3.2,1.5,,0.5,0.3,0.0,,false,false,,,Also printed under Burger add-ons
-jalapenos,Jalapeños,Add-ons,,6,0.3,0.7,0.1,0.0,,2.5,0.1,0.1,,false,false,,,Salt printed 2.5 g for 6 kcal: high but not impossible; entered as printed
-pork-bendy,Pork Bendy,Add-ons,,275,14.0,0.9,24.3,8.3,,1.6,0.9,0.0,contains_pork,false,false,,,Pork is in the name
-3-chicken-strips,3 Chicken Strips,Sides,,282,17.2,12.2,18.4,3.7,,0.8,0.1,0.9,,false,true,,,
-5-chicken-strips,5 Chicken Strips,Sides,,470,28.7,20.4,30.6,6.2,,1.3,0.2,1.5,,false,true,,,
-10-chicken-strips,10 Chicken Strips,Sides,,939,57.3,40.8,61.2,12.3,,2.7,0.3,3.0,,false,true,,,
-3-plant-based-strips,3 Plant-Based Strips,Sides,,347,8.7,23.1,23.1,2.1,,1.4,1.3,3.3,,false,true,,,Fat and carbs are printed as the same number; calories agree with them
-5-plant-based-strips,5 Plant-Based Strips,Sides,,578,14.5,38.5,38.5,3.5,,2.3,2.1,5.4,,false,true,,,Fat and carbs are printed as the same number; calories agree with them
-10-plant-based-strips,10 Plant-Based Strips,Sides,,1155,29.1,77.0,77.0,7.0,,4.6,4.2,10.9,,false,true,,,Fat and carbs are printed as the same number; calories agree with them
-4-mozzarella-melts,4 Mozzarella Melts,Sides,,348,12.5,27.0,20.8,7.0,,1.2,4.9,1.8,,false,true,,,
-6-mozzarella-melts,6 Mozzarella Melts,Sides,,523,18.7,40.6,31.2,10.5,,1.9,7.3,2.7,,false,true,,,
-6-onion-rings,6 Onion Rings,Sides,,235,3.6,25.0,12.9,1.3,,0.7,3.1,2.9,,false,true,,,
-10-onion-rings,10 Onion Rings,Sides,,392,6.1,41.6,21.4,2.2,,1.2,5.1,4.8,,false,true,,,
-cheesy-chips,Cheesy Chips,Sides,,377,6.3,56.2,15.3,3.6,,0.6,2.6,5.6,,false,true,,,
-sweet-potato-chips,Sweet Potato Chips,Sides,,302,1.9,31.4,19.0,1.7,,0.6,9.0,2.4,,false,true,,,
-wimpy-chips,Wimpy Chips,Sides,,318,4.1,51.6,11.8,1.4,,0.2,0.4,5.6,,false,true,,,
-steakhouse-seasoned-chips,Steakhouse Seasoned Chips,Sides,,321,4.3,52.0,11.9,1.4,,0.8,0.5,5.9,,false,true,,,
-heinz-baked-beans,Heinz Baked Beans,Sides,,81,4.8,13.1,0.2,0.0,,0.7,5.3,3.9,,false,true,,,"Also printed, identical, under Breakfast add-ons"
-peas,Peas,Sides,,92,6.0,12.2,0.8,0.1,,0.0,6.5,6.0,,false,true,,,
-mushrooms,Mushrooms,Sides,,106,1.4,0.4,11.0,0.8,,0.0,0.4,1.7,,false,true,,,"Also printed, identical, under Breakfast and Burger add-ons"
-coleslaw,Coleslaw,Sides,,139,0.6,4.6,13.0,1.1,,0.6,4.0,0.9,,false,true,,,
-mini-cob,Mini Cob,Sides,,44,2.1,5.6,1.1,0.2,,0.0,1.5,1.5,,false,true,,,"Also printed, identical, under Kids side choices"
-bbq-sauce-side-portion,BBQ Sauce (side portion),Sauces,20 g,32,0.2,7.8,0.0,0.0,,0.3,6.8,0.1,,false,false,,,
-hp-brown-sauce-side-portion,HP Brown Sauce (side portion),Sauces,20 g,24,0.2,5.7,0.0,0.0,,0.3,4.6,0.1,,false,false,,,
-habanero-sauce-side-portion,Habanero Sauce (side portion),Sauces,20 g,40,0.1,5.4,1.8,0.1,,0.3,4.3,0.1,,false,false,,,
-wimpy-ketchup-side-portion,Wimpy Ketchup (side portion),Sauces,20 g,23,0.2,5.4,0.0,0.0,,0.6,4.9,0.2,,false,false,,,
-wimpy-mayo-side-portion,Wimpy Mayo (side portion),Sauces,20 g,79,0.1,0.9,8.3,0.6,,0.3,0.5,0.1,,false,false,,,
-wimpy-special-sauce-side-portion,Wimpy Special Sauce (side portion),Sauces,20 g,89,0.2,3.5,8.3,0.6,,0.4,3.1,0.1,,false,false,,,
-tartare-sauce-side-portion,Tartare Sauce (side portion),Sauces,20 g,62,0.2,2.7,5.7,0.4,,0.4,2.2,0.0,,false,false,,,
-vegan-mayo-side-portion,Vegan Mayo (side portion),Sauces,20 g,110,0.0,0.7,12.0,0.8,,0.2,0.3,0.0,vegetarian,false,false,,,'Vegan' is in the name
-bbq-sauce-dip-pot,BBQ Sauce (dip pot),Sauces,100 g dip pot,162,1.0,39.0,0.1,0.1,,1.3,34.0,0.5,,false,false,,,
-hp-brown-sauce-dip-pot,HP Brown Sauce (dip pot),Sauces,100 g dip pot,122,0.9,28.3,0.1,0.1,,1.3,23.1,0.4,,false,false,,,
-habanero-sauce-dip-pot,Habanero Sauce (dip pot),Sauces,100 g dip pot,200,0.5,27.2,9.0,0.7,,1.6,21.5,0.7,,false,false,,,
-wimpy-ketchup-dip-pot,Wimpy Ketchup (dip pot),Sauces,100 g dip pot,117,1.0,27.2,0.1,0.0,,2.8,24.6,1.2,,false,false,,,
-wimpy-mayo-dip-pot,Wimpy Mayo (dip pot),Sauces,100 g dip pot,397,0.5,4.4,41.7,2.9,,1.5,2.3,0.5,,false,false,,,
-wimpy-special-sauce-dip-pot,Wimpy Special Sauce (dip pot),Sauces,100 g dip pot,447,0.8,17.4,41.4,2.9,,1.8,15.5,0.4,,false,false,,,
-tartare-sauce-dip-pot,Tartare Sauce (dip pot),Sauces,100 g dip pot,312,0.9,13.4,28.3,2.1,,2.2,10.8,0.0,,false,false,,,
-vegan-mayo-dip-pot,Vegan Mayo (dip pot),Sauces,100 g dip pot,550,0.0,3.3,60.0,4.2,,1.1,1.5,0.0,vegetarian,false,false,,,'Vegan' is in the name
-wimpy-hamburger,Wimpy Hamburger,Burgers,,399,20.5,42.0,16.4,6.3,,1.5,8.3,2.2,,false,true,,,
-wimpy-cheeseburger,Wimpy Cheeseburger,Burgers,,440,22.5,43.3,19.5,7.8,,2.0,8.6,2.2,,false,true,,,
-double-wimpy-cheeseburger,Double Wimpy Cheeseburger,Burgers,,664,37.7,46.2,36.3,14.7,,3.2,10.2,2.6,,false,true,,,
-quarterpounder-bacon-and-cheese-burger,Quarterpounder Bacon & Cheese Burger,Burgers,,621,36.4,45.7,32.3,12.7,,3.4,10.5,2.7,contains_pork,false,true,,,Bacon is in the name
-original-quarterpounder-cheese,Original Quarterpounder Cheese,Burgers,,610,30.6,45.7,32.9,11.1,,2.3,7.1,5.4,,false,true,,,
-original-halfpounder,Original Halfpounder,Burgers,,880,50.9,46.2,53.6,19.2,,3.1,7.2,5.8,,false,true,,,
-halfpounder-bacon-and-cheese,Halfpounder Bacon & Cheese,Burgers,,891,56.7,46.1,53.0,20.9,,4.2,10.6,3.2,contains_pork,false,true,,,Bacon is in the name
-hot-n-loaded,Hot n Loaded,Burgers,,731,40.9,51.9,39.8,13.1,,3.1,8.4,3.0,,false,true,,,
-bendy-and-cheese,Bendy & Cheese,Burgers,,535,23.0,43.3,30.2,10.7,,3.1,8.9,1.6,,false,true,,,
-big-n-mighty,Big n Mighty,Burgers,,964,51.2,52.7,60.8,21.4,,5.3,10.6,2.8,,false,true,,,
-fish-burger,Fish Burger,Burgers,,589,22.6,63.8,26.6,4.1,,2.5,7.5,2.5,,false,true,,,
-crispy-chicken-fillet-excl-sauce,Crispy Chicken Fillet (excl. sauce),Burgers,,491,27.6,53.1,18.2,5.1,,1.9,7.1,3.4,,false,true,,,Printed 'Figures exclude choice of sauce'
-crispy-chicken-stack-excl-sauce,Crispy Chicken Stack (excl. sauce),Burgers,,656,30.7,65.0,29.6,7.5,,3.0,7.5,4.4,,false,true,,,Printed 'Figures exclude choice of sauce'
-crispy-chicken-bacon-stack-excl-sauce,Crispy Chicken Bacon Stack (excl. sauce),Burgers,,734,37.5,65.0,35.2,9.6,,4.0,7.5,4.4,contains_pork,false,true,,,Printed 'Figures exclude choice of sauce'. Printed 'Chickn' (typo in the guide); name tidied. Bacon is in the name
-spicy-bean-and-slaw,Spicy Bean & Slaw,Burgers,,595,16.3,72.7,23.9,4.0,,2.1,12.2,12.5,,false,true,,,
-the-beyond-burger,The Beyond Burger,Burgers,,517,27.5,46.3,25.3,4.8,,1.7,7.1,3.3,,false,true,,,
-express-hamburger,Express Hamburger,Burgers,,393,20.2,40.7,16.3,6.3,,1.5,7.1,1.7,,false,true,,,
-express-cheeseburger,Express Cheeseburger,Burgers,,434,22.1,41.9,19.5,7.8,,2.0,7.4,1.7,,false,true,,,
-express-bacon-and-cheese-burger,Express Bacon & Cheese Burger,Burgers,,513,29.0,42.3,25.1,9.9,,3.0,7.7,1.8,contains_pork,false,true,,,Bacon is in the name
-the-big-grill,The Big Grill,Grill plates,,1113,58.9,53.9,75.2,23.6,,4.8,2.3,6.3,,false,true,,,
-mini-grill,Mini Grill,Grill plates,,754,25.4,64.2,45.6,9.1,,2.1,2.6,8.3,,false,true,,,
-wimpy-grill,Wimpy Grill,Grill plates,,864,38.2,53.7,56.8,16.6,,2.5,2.3,6.2,,false,true,,,
-chicken-wrap-excl-sauce,Chicken Wrap (excl. sauce),Chicken & plant-based,,651,25.0,60.8,33.4,7.3,,1.8,6.8,6.5,,false,true,,,Printed 'Figures exclude choice of sauce'
-plant-based-wrap-excl-sauce,Plant-Based Wrap (excl. sauce),Chicken & plant-based,,716,16.5,71.7,38.2,5.8,,2.4,8.0,8.9,,false,true,,,Printed 'Figures exclude choice of sauce'
-chicken-strips-and-chips-excl-sauce,Chicken Strips & Chips (excl. sauce),Chicken & plant-based,,693,27.1,67.9,36.3,6.3,,1.3,0.5,6.8,,false,true,,,Printed 'Figures exclude choice of sauce'
-plant-based-strips-and-chips-excl-sauce,Plant-Based Strips & Chips (excl. sauce),Chicken & plant-based,,780,15.8,82.4,42.6,4.2,,2.0,2.1,9.9,,false,true,,,Printed 'Figures exclude choice of sauce'
-chicken-salad-basket,Chicken Salad Basket,Chicken & plant-based,,495,23.6,24.6,33.3,5.7,,2.6,10.3,5.6,,false,true,,,
-plant-based-salad-basket,Plant-Based Salad Basket,Chicken & plant-based,,581,11.9,34.4,42.7,3.7,,2.7,10.9,7.5,,false,true,,,
-club-sandwich,Club Sandwich,Chicken & plant-based,,901,43.1,85.8,41.8,10.7,,4.5,7.3,5.7,,false,true,,,
-loaded-cheesy-chips,Loaded Cheesy Chips,Comfort eats,,594,8.9,86.2,25.5,4.7,,2.2,5.8,9.2,,false,true,,,
-battered-cod-chips-and-peas,"Battered Cod, Chips & Peas",Comfort eats,,862,31.7,83.2,43.9,11.5,,1.7,15.5,14.4,,false,true,,,
-express-battered-cod-and-chips,Express Battered Cod & Chips,Comfort eats,,691,25.4,67.7,36.1,10.9,,1.1,6.3,8.3,,false,true,,,
-jacket-potato-and-butter,Jacket Potato and Butter,Jacket potatoes,,520,12.2,98.9,6.4,3.6,,0.2,3.8,8.4,,false,true,,,
-baked-beans-jacket-potato-filling,Baked Beans (jacket potato filling),Jacket potatoes,,93,5.5,14.9,0.3,0.0,,0.8,6.0,4.4,,false,false,,,Different numbers from the Baked Beans side
-grated-cheese-jacket-potato-filling,Grated Cheese (jacket potato filling),Jacket potatoes,,208,12.5,0.7,17.2,10.7,,0.9,0.1,0.0,,false,false,,,
-mushrooms-jacket-potato-filling,Mushrooms (jacket potato filling),Jacket potatoes,,106,1.4,0.4,11.0,0.8,,0.0,0.4,1.0,,false,false,,,"Fibre printed 1.0 here, 1.7 for the Mushrooms side; other numbers identical"
-bacon-jacket-potato-filling,Bacon (jacket potato filling),Jacket potatoes,,78,6.8,0.0,5.6,2.1,,1.0,0.0,0.0,contains_pork,false,false,,,Bacon is in the name; numbers identical to Bacon Slice
-coleslaw-jacket-potato-filling,Coleslaw (jacket potato filling),Jacket potatoes,,278,1.2,9.2,26.0,2.3,,1.2,8.0,1.8,,false,false,,,Different numbers from the Coleslaw side
-brown-derby,Brown Derby,Desserts,,419,6.3,60.8,16.5,7.6,,0.4,36.5,2.9,,false,false,,,
-waffle-stack-excl-topping,Waffle Stack (excl. topping),Desserts,,597,9.5,73.1,29.2,14.4,,2.9,40.4,3.3,,false,false,,,Printed 'Figures exclude choice of topping'
-chocolate-brownie-excl-cream-or-ice-cream,Chocolate Brownie (excl. cream or ice cream),Desserts,,340,4.6,43.9,15.4,5.7,,0.4,37.9,3.2,,false,false,,,Printed 'Figures exclude choice of cream or ice cream side'
-brownie-whirl,Brownie Whirl,Desserts,,396,6.8,57.7,14.9,7.1,,0.6,49.4,4.2,,false,false,,,
-wimpy-whirl-excl-toppings,Wimpy Whirl (excl. toppings),Desserts,,209,5.3,28.0,8.4,5.0,,0.4,26.2,2.8,,false,false,,,Printed 'Figures exclude choice of toppings'
-berry-nice-cheesecake-excl-cream-or-ice-cream,Berry Nice Cheesecake (excl. cream or ice cream),Desserts,,439,9.0,49.3,22.6,11.6,,0.2,30.0,1.2,,false,false,,,Printed 'Figures exclude choice of cream or ice cream side'
-caramel-apple-pie-excl-cream-or-ice-cream,Caramel Apple Pie (excl. cream or ice cream),Desserts,,316,2.8,47.6,12.8,4.4,,0.2,26.1,1.0,,false,false,,,Printed 'Figures exclude choice of cream or ice cream side'
-churro-whirl-adult,Churro Whirl (adult),Desserts,,404,7.2,53.2,18.5,5.2,,0.9,31.1,2.9,,false,false,,,
-loaded-churros-sharer-basket-excl-sauce,"Loaded Churros, sharer basket (excl. sauce)",Desserts,,691,10.0,72.1,41.8,5.2,,1.8,9.8,1.6,,false,false,,,Printed 'excludes choice of sauce'
-takeaway-churro-cup-excl-sauce,Takeaway Churro Cup (excl. sauce),Desserts,,357,5.4,35.0,22.7,1.9,,1.0,1.3,0.7,,false,false,,,Printed 'excludes choice of sauce'
-ice-cream-cone,Ice Cream Cone,Desserts,,115,2.9,16.4,4.2,2.5,,0.2,12.7,1.5,,false,false,,,
-side-of-ice-cream,Side of Ice Cream,Desserts,,101,2.6,13.6,4.1,2.4,,0.2,12.7,1.4,,false,false,,,
-side-of-cream,Side of Cream,Desserts,,67,0.4,1.4,6.6,4.6,,0.0,1.4,0.0,,false,false,,,
-chocolate-sauce,Chocolate Sauce,Toppings,,57,0.2,13.0,0.4,0.2,,0.0,9.2,0.3,,false,false,,,
-strawberry-sauce,Strawberry Sauce,Toppings,,46,0.0,11.6,0.0,0.0,,0.0,7.8,0.0,,false,false,,,
-maple-flavoured-syrup,Maple-Flavoured Syrup,Toppings,,63,0.0,15.8,0.0,0.0,,0.1,15.8,0.0,,false,false,,,
-toffee-fudge-sauce,Toffee Fudge Sauce,Toppings,,58,0.2,13.2,0.5,0.3,,0.1,8.8,0.0,,false,false,,,
-oreo-cookie-pieces,OREO Cookie Pieces,Toppings,,48,0.5,6.9,2.0,1.0,,0.0,3.8,0.3,,false,false,,,"Also printed, identical, under Shake add-ons"
-lotus-biscoff-crumb,Lotus Biscoff Crumb,Toppings,,48,0.5,7.3,1.9,0.8,,0.1,3.8,0.1,,false,false,,,"Also printed, identical, under Shake add-ons"
-chocolate-flake,Chocolate Flake,Toppings,,43,0.6,4.8,2.3,1.4,,0.1,4.7,0.2,,false,false,,,"Also printed, identical, under Shake add-ons"
-mini-marshmallows,Mini Marshmallows,Toppings,,33,0.3,7.9,0.1,0.0,,0.0,6.9,0.0,,false,false,,,"Also printed, identical, under Shake add-ons"
-cream-shake-or-drink-topping,Cream (shake or drink topping),Toppings,,94,0.6,1.9,9.2,6.4,,0.0,1.9,0.0,,false,false,,,Different numbers from Side of Cream
-pepsi,Pepsi,Cold drinks,,143,0.0,37.4,0.0,0.0,,0.0,37.4,0.0,,false,false,,,
-pepsi-max-cherry,Pepsi Max Cherry,Cold drinks,,2,0.0,0.0,0.0,0.0,,0.2,0.0,0.0,,false,false,,,
-pepsi-max,Pepsi Max,Cold drinks,,2,0.0,0.0,0.0,0.0,,0.2,0.0,0.0,,false,false,,,
-7up-zero-sugar,7UP Zero Sugar,Cold drinks,,7,0.0,0.0,0.0,0.0,,0.3,0.0,0.0,,false,false,,,
-tango-orange-sugar-free,Tango Orange Sugar Free,Cold drinks,,3,0.0,0.0,0.0,0.0,,0.4,0.0,0.0,,false,false,,,
-iced-coffee,Iced Coffee,Cold drinks,,149,10.4,15.3,4.5,2.7,,0.3,13.8,0.0,,false,false,,,
-lipton-ice-tea-peach,Lipton Ice Tea Peach,Cold drinks,,65,0.0,15.5,0.0,0.0,,0.2,15.0,0.0,,false,false,,,
-lipton-ice-tea-lemon,Lipton Ice Tea Lemon,Cold drinks,,65,0.0,15.5,0.0,0.0,,0.2,15.0,0.0,,false,false,,,
-ballygowan-sparkling-mineral-water,Ballygowan Sparkling Mineral Water,Cold drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,false,false,,,
-ballygowan-still-mineral-water,Ballygowan Still Mineral Water,Cold drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,false,false,,,
-orange-juice,Orange Juice,Cold drinks,,160,1.7,35.7,0.3,0.0,,0.0,35.7,0.0,,false,false,,,
-apple-juice,Apple Juice,Cold drinks,,163,0.3,38.8,0.3,0.0,,0.0,38.8,0.0,,false,false,,,
-thick-shake-vanilla,Thick Shake - Vanilla,Shakes & floats,,307,9.7,49.9,7.7,4.1,,0.0,45.7,0.3,,false,false,,,
-thick-shake-strawberry,Thick Shake - Strawberry,Shakes & floats,,340,9.3,59.2,7.4,3.9,,0.0,55.2,0.3,,false,false,,,
-thick-shake-chocolate,Thick Shake - Chocolate,Shakes & floats,,342,9.3,59.9,7.3,3.9,,0.0,55.2,0.4,,false,false,,,
-thick-shake-banana,Thick Shake - Banana,Shakes & floats,,340,9.3,59.5,7.3,3.9,,0.0,55.3,0.3,,false,false,,,
-thick-shake-salted-caramel,Thick Shake - Salted Caramel,Shakes & floats,,361,9.3,64.4,7.3,3.9,,0.2,60.5,0.3,,false,false,,,
-thick-shake-coffee,Thick Shake - Coffee,Shakes & floats,,290,9.3,47.0,7.2,3.9,,0.0,43.2,0.3,,false,false,,,
-pepsi-float,Pepsi Float,Shakes & floats,,190,2.6,36.7,4.1,2.4,,0.2,35.8,1.4,,false,false,,,
-pepsi-max-cherry-float,Pepsi Max Cherry Float,Shakes & floats,,103,2.6,13.6,4.1,2.4,,0.3,12.7,1.4,,false,false,,,
-pepsi-max-float,Pepsi Max Float,Shakes & floats,,102,2.6,13.6,4.1,2.4,,0.3,12.7,1.4,,false,false,,,
-7up-zero-sugar-float,7UP Zero Sugar Float,Shakes & floats,,106,2.6,13.6,4.1,2.4,,0.4,12.7,1.4,,false,false,,,
-tango-orange-sugar-free-float,Tango Orange Sugar Free Float,Shakes & floats,,103,2.6,13.6,4.1,2.4,,0.4,12.7,1.4,,false,false,,,
-cappuccino,Cappuccino,Hot drinks,Regular,96,6.3,10.6,2.8,1.7,,0.2,9.8,0.1,,false,false,,,Printed size column: Reg
-latte,Latte,Hot drinks,Regular,116,8.1,12.0,3.5,2.1,,0.3,10.8,0.0,,false,false,,,Printed size column: Reg
-flat-white,Flat White,Hot drinks,Regular,91,6.5,9.5,2.7,1.6,,0.2,8.7,0.0,,false,false,,,Printed size column: Reg
-americano-with-milk,Americano with Milk,Hot drinks,Regular,16,1.2,1.7,0.4,0.3,,0.0,1.6,0.0,,false,false,,,Printed size column: Reg
-americano-black,Americano - Black,Hot drinks,Regular,2,0.2,0.3,0.0,0.0,,0.0,0.3,0.0,,false,false,,,Printed size column: Reg
-hot-chocolate-without-cream,Hot Chocolate (without cream),Hot drinks,Regular,228,10.8,32.3,5.5,3.4,,0.5,30.2,0.8,,false,false,,,Printed size column: Reg
-tea-with-milk,Tea with Milk,Hot drinks,Regular,17,1.0,2.3,0.4,0.3,,0.0,1.3,0.0,,false,false,,,Printed size column: Reg
-tea-black,Tea - Black,Hot drinks,Regular,3,0.0,1.0,0.0,0.0,,0.0,0.0,0.0,,false,false,,,Printed size column: Reg
-fruit-and-herbal-teas-various,Fruit & Herbal Teas (various),Hot drinks,Regular,7,0.3,2.0,0.0,0.0,,0.0,0.7,0.0,,false,false,,,One set of numbers printed for 'Various' teas; Printed size column: Reg
-extra-shot-of-coffee,Extra Shot of Coffee,Hot drinks,Single shot,2,0.2,0.3,0.0,0.0,,0.0,0.3,0.0,,false,false,,,Printed size column: Single
-flavoured-syrup-vanilla,Flavoured Syrup - Vanilla,Hot drinks,1 shot,51,0.0,12.6,0.0,0.0,,0.0,12.6,0.0,,false,false,,,Printed size column: Shot
-flavoured-syrup-salted-caramel,Flavoured Syrup - Salted Caramel,Hot drinks,1 shot,49,0.0,12.0,0.0,0.0,,0.2,12.0,0.0,,false,false,,,Printed size column: Shot
-lotus-biscoff-biscuit,Lotus Biscoff Biscuit,Hot drinks,,30,0.3,4.5,1.2,0.5,,0.1,2.4,0.1,,false,false,,,
-kids-chicken-strips,Kids Chicken Strips,Kids meals,,188,11.5,8.2,12.2,2.5,,0.5,0.1,0.6,,false,true,,,Printed 'Chicken Strips' under Kids meal main items
-junior-hamburger,Junior Hamburger,Kids meals,,243,12.9,25.4,9.7,3.6,,0.8,1.8,1.7,,false,true,,,
-junior-cheeseburger,Junior Cheeseburger,Kids meals,,284,14.8,26.7,12.9,5.1,,1.3,2.1,1.7,,false,true,,,
-kids-sausage,Kids Sausage,Kids meals,,118,6.6,5.7,7.9,2.7,,0.8,0.5,0.7,contains_pork,false,true,,,Printed 'Sausage' under Kids meal main items; sausage is in the name; numbers identical to Breakfast Sausage
-kids-plant-based-strips,Kids Plant-Based Strips,Kids meals,,231,5.8,15.4,15.4,1.4,,0.9,0.8,2.2,,false,true,,,Printed 'Plant-Based Strips' under Kids meal main items; Fat and carbs are printed as the same number; calories agree with them
-kids-chips,Kids Chips,Kids meals,,178,2.3,29.0,6.6,0.8,,0.1,0.2,3.1,,false,true,,,Printed 'Chips' under Kids meal side choices
-kids-baked-beans,Kids Baked Beans,Kids meals,,52,3.1,8.3,0.1,0.0,,0.4,3.4,2.5,,false,true,,,Printed 'Heinz Baked Beans' under Kids meal side choices
-kids-peas,Kids Peas,Kids meals,,53,3.4,7.0,0.5,0.1,,0.0,3.7,3.4,,false,true,,,Printed 'Peas' under Kids meal side choices
-junior-whirl-excl-sauce-topping,Junior Whirl (excl. sauce topping),Kids desserts,,101,2.6,13.6,4.1,2.4,,0.2,12.7,1.4,,false,false,,,Printed 'Figures exclude choice of sauce topping'
-waffle-and-ice-cream-excl-sauce-topping,Waffle & Ice Cream (excl. sauce topping),Kids desserts,,314,5.1,38.6,15.2,7.6,,1.5,22.1,1.9,,false,false,,,Printed 'Figures exclude choice of sauce topping'
-jelly-and-ice-cream,Jelly & Ice Cream,Kids desserts,,112,1.7,20.0,2.6,1.8,,0.3,19.6,0.8,,false,false,,,
-kids-chocolate-sauce,Kids Chocolate Sauce,Kids desserts,,14,0.1,3.3,0.1,0.0,,0.0,2.3,0.1,,false,false,,,Printed 'Chocolate Sauce' under Kids desserts
-kids-strawberry-sauce,Kids Strawberry Sauce,Kids desserts,,12,0.0,2.9,0.0,0.0,,0.0,2.0,0.0,,false,false,,,Printed 'Strawberry Sauce' under Kids desserts
-kids-toffee-fudge-sauce,Kids Toffee Fudge Sauce,Kids desserts,,14,0.0,3.3,0.1,0.1,,0.0,2.2,0.0,,false,false,,,Printed 'Toffee Fudge Sauce' under Kids desserts
-kids-pepsi-max,Kids Pepsi Max,Kids drinks,,1,0.0,0.0,0.0,0.0,,0.1,0.0,0.0,,false,false,,,Printed 'Pepsi Max' under Kids drinks
-kids-pepsi-max-cherry,Kids Pepsi Max Cherry,Kids drinks,,2,0.0,0.0,0.0,0.0,,0.1,0.0,0.0,,false,false,,,Printed 'Pepsi Max Cherry' under Kids drinks
-kids-7up-zero-sugar,Kids 7UP Zero Sugar,Kids drinks,,5,0.0,0.0,0.0,0.0,,0.2,0.0,0.0,,false,false,,,Printed '7UP Zero Sugar' under Kids drinks
-kids-tango-orange-free,Kids Tango Orange Free,Kids drinks,,3,0.0,0.0,0.0,0.0,,0.3,0.0,0.0,,false,false,,,Printed 'Tango Orange Free' under Kids drinks
-robinsons-fruit-shoot-orange,Robinsons Fruit Shoot Orange,Kids drinks,,17,0.0,3.3,0.0,0.0,,0.1,3.3,0.0,,false,false,,,
-robinsons-fruit-shoot-apple-and-blackcurrant,Robinsons Fruit Shoot Apple and Blackcurrant,Kids drinks,,11,0.0,2.2,0.0,0.0,,0.1,1.9,0.0,,false,false,,,
-orange-squash,Orange Squash,Kids drinks,,2,0.0,0.2,0.0,0.0,,0.1,0.2,0.1,,false,false,,,
-apple-and-blackcurrant-squash,Apple & Blackcurrant Squash,Kids drinks,,2,0.0,0.3,0.0,0.0,,0.0,0.3,0.0,,false,false,,,
-kids-thick-shake-vanilla,Kids Thick Shake - Vanilla,Kids drinks,,230,7.3,37.3,5.7,3.1,,0.0,34.3,0.2,,false,false,,,Printed 'Thick Shake - Vanilla' under Kids drinks
-kids-thick-shake-strawberry,Kids Thick Shake - Strawberry,Kids drinks,,249,7.0,42.7,5.6,3.0,,0.0,39.7,0.2,,false,false,,,Printed 'Thick Shake - Strawberry' under Kids drinks
-kids-thick-shake-chocolate,Kids Thick Shake - Chocolate,Kids drinks,,250,7.0,43.1,5.5,3.0,,0.0,39.7,0.3,,false,false,,,Printed 'Thick Shake - Chocolate' under Kids drinks
-kids-thick-shake-banana,Kids Thick Shake - Banana,Kids drinks,,249,7.0,42.8,5.5,3.0,,0.0,39.7,0.2,,false,false,,,Printed 'Thick Shake - Banana' under Kids drinks
-kids-thick-shake-salted-caramel,Kids Thick Shake - Salted Caramel,Kids drinks,,261,7.0,45.7,5.5,3.0,,0.1,42.7,0.2,,false,false,,,Printed 'Thick Shake - Salted Caramel' under Kids drinks
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+bacon-and-hash-brown-muffin,Bacon & Hash Brown Muffin,Breakfasts,,514,23.6,48.1,25.5,6.3,,2.9,2.2,3.1,2149,,,,,,contains_pork,false,true,,,Bacon is in the name
+double-up-bacon,Double Up Bacon,Breakfasts,,592,30.4,48.1,31.1,8.4,,3.9,2.2,3.1,2476,,,,,,contains_pork,false,true,,,Bacon is in the name
+sausage-and-hash-brown-muffin,Sausage & Hash Brown Muffin,Breakfasts,,559,26.3,49.2,28.8,7.7,,2.6,2.8,3.2,2339,,,,,,contains_pork,false,true,,,Sausage is in the name
+double-up-sausage,Double Up Sausage,Breakfasts,,683,35.9,50.4,37.8,11.2,,3.2,3.4,3.2,2856,,,,,,contains_pork,false,true,,,Sausage is in the name
+hash-brown-muffin,Hash Brown Muffin,Breakfasts,,436,16.8,48.1,19.9,4.2,,1.9,2.2,3.1,1823,,,,,,,false,true,,,
+sausage-muffin,Sausage Muffin,Breakfasts,,431,25.2,37.8,20.6,6.8,,2.0,2.0,1.9,1805,,,,,,contains_pork,false,true,,,Sausage is in the name
+bacon-muffin,Bacon Muffin,Breakfasts,,386,22.4,36.7,17.2,5.4,,2.4,1.4,1.9,1615,,,,,,contains_pork,false,true,,,Bacon is in the name
+breakfast-stack,Breakfast Stack,Breakfasts,,794,36.6,65.7,42.5,12.3,,5.1,10.3,4.1,3323,,,,,,,false,true,,,
+all-day-breakfast,All-Day Breakfast,Breakfasts,,925,43.4,66.5,54.6,15.4,,4.7,7.5,9.7,3870,,,,,,,false,true,,,
+big-brekkie-white-toast,Big Brekkie (white toast),Breakfasts,,1185,52.7,71.1,75.2,18.9,,6.3,10.7,10.3,4958,,,,,,,false,true,,,Printed 'Figures are for white toast'
+sunrise-white-toast,Sunrise (white toast),Breakfasts,,665,30.1,53.7,35.4,11.0,,3.7,9.0,7.4,2783,,,,,,,false,true,,,Printed 'Figures are for white toast'
+meat-free-mini-white-toast,Meat-Free Mini (white toast),Breakfasts,,579,18.2,49.3,33.0,7.0,,1.8,9.9,8.0,2424,,,,,,,false,true,,,Printed 'Figures are for white toast'
+toasted-teacake-and-butter,Toasted Teacake & Butter,Breakfasts,,343,8.0,46.6,13.1,7.5,,0.9,11.1,2.9,1434,,,,,,,false,true,,,
+wimpy-ketchup-on-breakfast-stack-adds,Wimpy Ketchup on Breakfast Stack (adds),Add-ons,,12,0.1,2.7,0.0,0.0,,0.3,2.5,0.1,49,,,,,,,false,false,,,Printed under Breakfast Stack as 'with Wimpy Ketchup (Adds)': the amount it adds
+hp-brown-sauce-on-breakfast-stack-adds,HP Brown Sauce on Breakfast Stack (adds),Add-ons,,12,0.1,2.8,0.0,0.0,,0.1,2.3,0.0,51,,,,,,,false,false,,,Printed under Breakfast Stack as 'with HP Brown Sauce (Adds)': the amount it adds
+1-slice-of-white-toast-and-butter,1 Slice of White Toast & Butter,Add-ons,1 slice,166,3.9,22.6,6.4,3.8,,0.4,1.5,1.3,694,,,,,,,false,false,,,
+1-slice-of-wholemeal-toast-and-butter,1 Slice of Wholemeal Toast & Butter,Add-ons,1 slice,155,4.6,18.0,6.4,3.8,,0.5,1.2,3.3,647,,,,,,,false,false,,,
+bacon-slice,Bacon Slice,Add-ons,1 slice,78,6.8,0.0,5.6,2.1,,1.0,0.0,0.0,327,,,,,,contains_pork,false,false,,,Bacon is in the name; also printed under Burger and Grill add-ons
+breakfast-sausage,Breakfast Sausage,Add-ons,,118,6.6,5.7,7.9,2.7,,0.8,0.5,0.7,494,,,,,,contains_pork,false,false,,,Sausage is in the name; also printed under Grill add-ons
+sausage-patty,Sausage Patty,Add-ons,,123,9.6,1.2,8.9,3.5,,0.6,0.6,0.0,517,,,,,,contains_pork,false,false,,,Sausage is in the name
+free-range-fried-egg,Free-Range Fried Egg,Add-ons,,90,6.6,0.0,7.1,1.5,,0.2,0.0,0.0,377,,,,,,,false,false,,,Also printed under Grill add-ons
+hash-brown,Hash Brown,Add-ons,,128,1.2,11.4,8.3,0.9,,0.6,0.9,1.3,534,,,,,,,false,false,,,"Also printed under Burger add-ons, Grill add-ons and Kids side choices"
+cheese-slice,Cheese Slice,Add-ons,1 slice,41,1.9,1.3,3.2,1.5,,0.5,0.3,0.0,171,,,,,,,false,false,,,Also printed under Burger add-ons
+jalapenos,Jalapeños,Add-ons,,6,0.3,0.7,0.1,0.0,,2.5,0.1,0.1,23,,,,,,,false,false,,,Salt printed 2.5 g for 6 kcal: high but not impossible; entered as printed
+pork-bendy,Pork Bendy,Add-ons,,275,14.0,0.9,24.3,8.3,,1.6,0.9,0.0,1152,,,,,,contains_pork,false,false,,,Pork is in the name
+3-chicken-strips,3 Chicken Strips,Sides,,282,17.2,12.2,18.4,3.7,,0.8,0.1,0.9,1179,,,,,,,false,true,,,
+5-chicken-strips,5 Chicken Strips,Sides,,470,28.7,20.4,30.6,6.2,,1.3,0.2,1.5,1964,,,,,,,false,true,,,
+10-chicken-strips,10 Chicken Strips,Sides,,939,57.3,40.8,61.2,12.3,,2.7,0.3,3.0,3929,,,,,,,false,true,,,
+3-plant-based-strips,3 Plant-Based Strips,Sides,,347,8.7,23.1,23.1,2.1,,1.4,1.3,3.3,1450,,,,,,,false,true,,,Fat and carbs are printed as the same number; calories agree with them
+5-plant-based-strips,5 Plant-Based Strips,Sides,,578,14.5,38.5,38.5,3.5,,2.3,2.1,5.4,2416,,,,,,,false,true,,,Fat and carbs are printed as the same number; calories agree with them
+10-plant-based-strips,10 Plant-Based Strips,Sides,,1155,29.1,77.0,77.0,7.0,,4.6,4.2,10.9,4833,,,,,,,false,true,,,Fat and carbs are printed as the same number; calories agree with them
+4-mozzarella-melts,4 Mozzarella Melts,Sides,,348,12.5,27.0,20.8,7.0,,1.2,4.9,1.8,1458,,,,,,,false,true,,,
+6-mozzarella-melts,6 Mozzarella Melts,Sides,,523,18.7,40.6,31.2,10.5,,1.9,7.3,2.7,2187,,,,,,,false,true,,,
+6-onion-rings,6 Onion Rings,Sides,,235,3.6,25.0,12.9,1.3,,0.7,3.1,2.9,984,,,,,,,false,true,,,
+10-onion-rings,10 Onion Rings,Sides,,392,6.1,41.6,21.4,2.2,,1.2,5.1,4.8,1640,,,,,,,false,true,,,
+cheesy-chips,Cheesy Chips,Sides,,377,6.3,56.2,15.3,3.6,,0.6,2.6,5.6,1577,,,,,,,false,true,,,
+sweet-potato-chips,Sweet Potato Chips,Sides,,302,1.9,31.4,19.0,1.7,,0.6,9.0,2.4,1264,,,,,,,false,true,,,
+wimpy-chips,Wimpy Chips,Sides,,318,4.1,51.6,11.8,1.4,,0.2,0.4,5.6,1330,,,,,,,false,true,,,
+steakhouse-seasoned-chips,Steakhouse Seasoned Chips,Sides,,321,4.3,52.0,11.9,1.4,,0.8,0.5,5.9,1345,,,,,,,false,true,,,
+heinz-baked-beans,Heinz Baked Beans,Sides,,81,4.8,13.1,0.2,0.0,,0.7,5.3,3.9,341,,,,,,,false,true,,,"Also printed, identical, under Breakfast add-ons"
+peas,Peas,Sides,,92,6.0,12.2,0.8,0.1,,0.0,6.5,6.0,386,,,,,,,false,true,,,
+mushrooms,Mushrooms,Sides,,106,1.4,0.4,11.0,0.8,,0.0,0.4,1.7,444,,,,,,,false,true,,,"Also printed, identical, under Breakfast and Burger add-ons"
+coleslaw,Coleslaw,Sides,,139,0.6,4.6,13.0,1.1,,0.6,4.0,0.9,581,,,,,,,false,true,,,
+mini-cob,Mini Cob,Sides,,44,2.1,5.6,1.1,0.2,,0.0,1.5,1.5,184,,,,,,,false,true,,,"Also printed, identical, under Kids side choices"
+bbq-sauce-side-portion,BBQ Sauce (side portion),Sauces,20 g,32,0.2,7.8,0.0,0.0,,0.3,6.8,0.1,136,,,,,,,false,false,,,
+hp-brown-sauce-side-portion,HP Brown Sauce (side portion),Sauces,20 g,24,0.2,5.7,0.0,0.0,,0.3,4.6,0.1,102,,,,,,,false,false,,,
+habanero-sauce-side-portion,Habanero Sauce (side portion),Sauces,20 g,40,0.1,5.4,1.8,0.1,,0.3,4.3,0.1,167,,,,,,,false,false,,,
+wimpy-ketchup-side-portion,Wimpy Ketchup (side portion),Sauces,20 g,23,0.2,5.4,0.0,0.0,,0.6,4.9,0.2,98,,,,,,,false,false,,,
+wimpy-mayo-side-portion,Wimpy Mayo (side portion),Sauces,20 g,79,0.1,0.9,8.3,0.6,,0.3,0.5,0.1,332,,,,,,,false,false,,,
+wimpy-special-sauce-side-portion,Wimpy Special Sauce (side portion),Sauces,20 g,89,0.2,3.5,8.3,0.6,,0.4,3.1,0.1,374,,,,,,,false,false,,,
+tartare-sauce-side-portion,Tartare Sauce (side portion),Sauces,20 g,62,0.2,2.7,5.7,0.4,,0.4,2.2,0.0,261,,,,,,,false,false,,,
+vegan-mayo-side-portion,Vegan Mayo (side portion),Sauces,20 g,110,0.0,0.7,12.0,0.8,,0.2,0.3,0.0,460,,,,,,vegetarian,false,false,,,'Vegan' is in the name
+bbq-sauce-dip-pot,BBQ Sauce (dip pot),Sauces,100 g dip pot,162,1.0,39.0,0.1,0.1,,1.3,34.0,0.5,678,,,,,,,false,false,,,
+hp-brown-sauce-dip-pot,HP Brown Sauce (dip pot),Sauces,100 g dip pot,122,0.9,28.3,0.1,0.1,,1.3,23.1,0.4,510,,,,,,,false,false,,,
+habanero-sauce-dip-pot,Habanero Sauce (dip pot),Sauces,100 g dip pot,200,0.5,27.2,9.0,0.7,,1.6,21.5,0.7,837,,,,,,,false,false,,,
+wimpy-ketchup-dip-pot,Wimpy Ketchup (dip pot),Sauces,100 g dip pot,117,1.0,27.2,0.1,0.0,,2.8,24.6,1.2,490,,,,,,,false,false,,,
+wimpy-mayo-dip-pot,Wimpy Mayo (dip pot),Sauces,100 g dip pot,397,0.5,4.4,41.7,2.9,,1.5,2.3,0.5,1661,,,,,,,false,false,,,
+wimpy-special-sauce-dip-pot,Wimpy Special Sauce (dip pot),Sauces,100 g dip pot,447,0.8,17.4,41.4,2.9,,1.8,15.5,0.4,1870,,,,,,,false,false,,,
+tartare-sauce-dip-pot,Tartare Sauce (dip pot),Sauces,100 g dip pot,312,0.9,13.4,28.3,2.1,,2.2,10.8,0.0,1305,,,,,,,false,false,,,
+vegan-mayo-dip-pot,Vegan Mayo (dip pot),Sauces,100 g dip pot,550,0.0,3.3,60.0,4.2,,1.1,1.5,0.0,2301,,,,,,vegetarian,false,false,,,'Vegan' is in the name
+wimpy-hamburger,Wimpy Hamburger,Burgers,,399,20.5,42.0,16.4,6.3,,1.5,8.3,2.2,1671,,,,,,,false,true,,,
+wimpy-cheeseburger,Wimpy Cheeseburger,Burgers,,440,22.5,43.3,19.5,7.8,,2.0,8.6,2.2,1842,,,,,,,false,true,,,
+double-wimpy-cheeseburger,Double Wimpy Cheeseburger,Burgers,,664,37.7,46.2,36.3,14.7,,3.2,10.2,2.6,2778,,,,,,,false,true,,,
+quarterpounder-bacon-and-cheese-burger,Quarterpounder Bacon & Cheese Burger,Burgers,,621,36.4,45.7,32.3,12.7,,3.4,10.5,2.7,2598,,,,,,contains_pork,false,true,,,Bacon is in the name
+original-quarterpounder-cheese,Original Quarterpounder Cheese,Burgers,,610,30.6,45.7,32.9,11.1,,2.3,7.1,5.4,2552,,,,,,,false,true,,,
+original-halfpounder,Original Halfpounder,Burgers,,880,50.9,46.2,53.6,19.2,,3.1,7.2,5.8,3680,,,,,,,false,true,,,
+halfpounder-bacon-and-cheese,Halfpounder Bacon & Cheese,Burgers,,891,56.7,46.1,53.0,20.9,,4.2,10.6,3.2,3726,,,,,,contains_pork,false,true,,,Bacon is in the name
+hot-n-loaded,Hot n Loaded,Burgers,,731,40.9,51.9,39.8,13.1,,3.1,8.4,3.0,3057,,,,,,,false,true,,,
+bendy-and-cheese,Bendy & Cheese,Burgers,,535,23.0,43.3,30.2,10.7,,3.1,8.9,1.6,2240,,,,,,,false,true,,,
+big-n-mighty,Big n Mighty,Burgers,,964,51.2,52.7,60.8,21.4,,5.3,10.6,2.8,4033,,,,,,,false,true,,,
+fish-burger,Fish Burger,Burgers,,589,22.6,63.8,26.6,4.1,,2.5,7.5,2.5,2465,,,,,,,false,true,,,
+crispy-chicken-fillet-excl-sauce,Crispy Chicken Fillet (excl. sauce),Burgers,,491,27.6,53.1,18.2,5.1,,1.9,7.1,3.4,2053,,,,,,,false,true,,,Printed 'Figures exclude choice of sauce'
+crispy-chicken-stack-excl-sauce,Crispy Chicken Stack (excl. sauce),Burgers,,656,30.7,65.0,29.6,7.5,,3.0,7.5,4.4,2744,,,,,,,false,true,,,Printed 'Figures exclude choice of sauce'
+crispy-chicken-bacon-stack-excl-sauce,Crispy Chicken Bacon Stack (excl. sauce),Burgers,,734,37.5,65.0,35.2,9.6,,4.0,7.5,4.4,3071,,,,,,contains_pork,false,true,,,Printed 'Figures exclude choice of sauce'. Printed 'Chickn' (typo in the guide); name tidied. Bacon is in the name
+spicy-bean-and-slaw,Spicy Bean & Slaw,Burgers,,595,16.3,72.7,23.9,4.0,,2.1,12.2,12.5,2490,,,,,,,false,true,,,
+the-beyond-burger,The Beyond Burger,Burgers,,517,27.5,46.3,25.3,4.8,,1.7,7.1,3.3,2164,,,,,,,false,true,,,
+express-hamburger,Express Hamburger,Burgers,,393,20.2,40.7,16.3,6.3,,1.5,7.1,1.7,1643,,,,,,,false,true,,,
+express-cheeseburger,Express Cheeseburger,Burgers,,434,22.1,41.9,19.5,7.8,,2.0,7.4,1.7,1814,,,,,,,false,true,,,
+express-bacon-and-cheese-burger,Express Bacon & Cheese Burger,Burgers,,513,29.0,42.3,25.1,9.9,,3.0,7.7,1.8,2148,,,,,,contains_pork,false,true,,,Bacon is in the name
+the-big-grill,The Big Grill,Grill plates,,1113,58.9,53.9,75.2,23.6,,4.8,2.3,6.3,4658,,,,,,,false,true,,,
+mini-grill,Mini Grill,Grill plates,,754,25.4,64.2,45.6,9.1,,2.1,2.6,8.3,3155,,,,,,,false,true,,,
+wimpy-grill,Wimpy Grill,Grill plates,,864,38.2,53.7,56.8,16.6,,2.5,2.3,6.2,3616,,,,,,,false,true,,,
+chicken-wrap-excl-sauce,Chicken Wrap (excl. sauce),Chicken & plant-based,,651,25.0,60.8,33.4,7.3,,1.8,6.8,6.5,2725,,,,,,,false,true,,,Printed 'Figures exclude choice of sauce'
+plant-based-wrap-excl-sauce,Plant-Based Wrap (excl. sauce),Chicken & plant-based,,716,16.5,71.7,38.2,5.8,,2.4,8.0,8.9,2996,,,,,,,false,true,,,Printed 'Figures exclude choice of sauce'
+chicken-strips-and-chips-excl-sauce,Chicken Strips & Chips (excl. sauce),Chicken & plant-based,,693,27.1,67.9,36.3,6.3,,1.3,0.5,6.8,2901,,,,,,,false,true,,,Printed 'Figures exclude choice of sauce'
+plant-based-strips-and-chips-excl-sauce,Plant-Based Strips & Chips (excl. sauce),Chicken & plant-based,,780,15.8,82.4,42.6,4.2,,2.0,2.1,9.9,3263,,,,,,,false,true,,,Printed 'Figures exclude choice of sauce'
+chicken-salad-basket,Chicken Salad Basket,Chicken & plant-based,,495,23.6,24.6,33.3,5.7,,2.6,10.3,5.6,2073,,,,,,,false,true,,,
+plant-based-salad-basket,Plant-Based Salad Basket,Chicken & plant-based,,581,11.9,34.4,42.7,3.7,,2.7,10.9,7.5,2432,,,,,,,false,true,,,
+club-sandwich,Club Sandwich,Chicken & plant-based,,901,43.1,85.8,41.8,10.7,,4.5,7.3,5.7,3770,,,,,,,false,true,,,
+loaded-cheesy-chips,Loaded Cheesy Chips,Comfort eats,,594,8.9,86.2,25.5,4.7,,2.2,5.8,9.2,2486,,,,,,,false,true,,,
+battered-cod-chips-and-peas,"Battered Cod, Chips & Peas",Comfort eats,,862,31.7,83.2,43.9,11.5,,1.7,15.5,14.4,3606,,,,,,,false,true,,,
+express-battered-cod-and-chips,Express Battered Cod & Chips,Comfort eats,,691,25.4,67.7,36.1,10.9,,1.1,6.3,8.3,2893,,,,,,,false,true,,,
+jacket-potato-and-butter,Jacket Potato and Butter,Jacket potatoes,,520,12.2,98.9,6.4,3.6,,0.2,3.8,8.4,2176,,,,,,,false,true,,,
+baked-beans-jacket-potato-filling,Baked Beans (jacket potato filling),Jacket potatoes,,93,5.5,14.9,0.3,0.0,,0.8,6.0,4.4,387,,,,,,,false,false,,,Different numbers from the Baked Beans side
+grated-cheese-jacket-potato-filling,Grated Cheese (jacket potato filling),Jacket potatoes,,208,12.5,0.7,17.2,10.7,,0.9,0.1,0.0,868,,,,,,,false,false,,,
+mushrooms-jacket-potato-filling,Mushrooms (jacket potato filling),Jacket potatoes,,106,1.4,0.4,11.0,0.8,,0.0,0.4,1.0,444,,,,,,,false,false,,,"Fibre printed 1.0 here, 1.7 for the Mushrooms side; other numbers identical"
+bacon-jacket-potato-filling,Bacon (jacket potato filling),Jacket potatoes,,78,6.8,0.0,5.6,2.1,,1.0,0.0,0.0,327,,,,,,contains_pork,false,false,,,Bacon is in the name; numbers identical to Bacon Slice
+coleslaw-jacket-potato-filling,Coleslaw (jacket potato filling),Jacket potatoes,,278,1.2,9.2,26.0,2.3,,1.2,8.0,1.8,1161,,,,,,,false,false,,,Different numbers from the Coleslaw side
+brown-derby,Brown Derby,Desserts,,419,6.3,60.8,16.5,7.6,,0.4,36.5,2.9,1754,,,,,,,false,false,,,
+waffle-stack-excl-topping,Waffle Stack (excl. topping),Desserts,,597,9.5,73.1,29.2,14.4,,2.9,40.4,3.3,2500,,,,,,,false,false,,,Printed 'Figures exclude choice of topping'
+chocolate-brownie-excl-cream-or-ice-cream,Chocolate Brownie (excl. cream or ice cream),Desserts,,340,4.6,43.9,15.4,5.7,,0.4,37.9,3.2,1423,,,,,,,false,false,,,Printed 'Figures exclude choice of cream or ice cream side'
+brownie-whirl,Brownie Whirl,Desserts,,396,6.8,57.7,14.9,7.1,,0.6,49.4,4.2,1656,,,,,,,false,false,,,
+wimpy-whirl-excl-toppings,Wimpy Whirl (excl. toppings),Desserts,,209,5.3,28.0,8.4,5.0,,0.4,26.2,2.8,873,,,,,,,false,false,,,Printed 'Figures exclude choice of toppings'
+berry-nice-cheesecake-excl-cream-or-ice-cream,Berry Nice Cheesecake (excl. cream or ice cream),Desserts,,439,9.0,49.3,22.6,11.6,,0.2,30.0,1.2,1838,,,,,,,false,false,,,Printed 'Figures exclude choice of cream or ice cream side'
+caramel-apple-pie-excl-cream-or-ice-cream,Caramel Apple Pie (excl. cream or ice cream),Desserts,,316,2.8,47.6,12.8,4.4,,0.2,26.1,1.0,1323,,,,,,,false,false,,,Printed 'Figures exclude choice of cream or ice cream side'
+churro-whirl-adult,Churro Whirl (adult),Desserts,,404,7.2,53.2,18.5,5.2,,0.9,31.1,2.9,1692,,,,,,,false,false,,,
+loaded-churros-sharer-basket-excl-sauce,"Loaded Churros, sharer basket (excl. sauce)",Desserts,,691,10.0,72.1,41.8,5.2,,1.8,9.8,1.6,2891,,,,,,,false,false,,,Printed 'excludes choice of sauce'
+takeaway-churro-cup-excl-sauce,Takeaway Churro Cup (excl. sauce),Desserts,,357,5.4,35.0,22.7,1.9,,1.0,1.3,0.7,1494,,,,,,,false,false,,,Printed 'excludes choice of sauce'
+ice-cream-cone,Ice Cream Cone,Desserts,,115,2.9,16.4,4.2,2.5,,0.2,12.7,1.5,482,,,,,,,false,false,,,
+side-of-ice-cream,Side of Ice Cream,Desserts,,101,2.6,13.6,4.1,2.4,,0.2,12.7,1.4,424,,,,,,,false,false,,,
+side-of-cream,Side of Cream,Desserts,,67,0.4,1.4,6.6,4.6,,0.0,1.4,0.0,281,,,,,,,false,false,,,
+chocolate-sauce,Chocolate Sauce,Toppings,,57,0.2,13.0,0.4,0.2,,0.0,9.2,0.3,237,,,,,,,false,false,,,
+strawberry-sauce,Strawberry Sauce,Toppings,,46,0.0,11.6,0.0,0.0,,0.0,7.8,0.0,194,,,,,,,false,false,,,
+maple-flavoured-syrup,Maple-Flavoured Syrup,Toppings,,63,0.0,15.8,0.0,0.0,,0.1,15.8,0.0,264,,,,,,,false,false,,,
+toffee-fudge-sauce,Toffee Fudge Sauce,Toppings,,58,0.2,13.2,0.5,0.3,,0.1,8.8,0.0,242,,,,,,,false,false,,,
+oreo-cookie-pieces,OREO Cookie Pieces,Toppings,,48,0.5,6.9,2.0,1.0,,0.0,3.8,0.3,201,,,,,,,false,false,,,"Also printed, identical, under Shake add-ons"
+lotus-biscoff-crumb,Lotus Biscoff Crumb,Toppings,,48,0.5,7.3,1.9,0.8,,0.1,3.8,0.1,203,,,,,,,false,false,,,"Also printed, identical, under Shake add-ons"
+chocolate-flake,Chocolate Flake,Toppings,,43,0.6,4.8,2.3,1.4,,0.1,4.7,0.2,181,,,,,,,false,false,,,"Also printed, identical, under Shake add-ons"
+mini-marshmallows,Mini Marshmallows,Toppings,,33,0.3,7.9,0.1,0.0,,0.0,6.9,0.0,136,,,,,,,false,false,,,"Also printed, identical, under Shake add-ons"
+cream-shake-or-drink-topping,Cream (shake or drink topping),Toppings,,94,0.6,1.9,9.2,6.4,,0.0,1.9,0.0,394,,,,,,,false,false,,,Different numbers from Side of Cream
+pepsi,Pepsi,Cold drinks,,143,0.0,37.4,0.0,0.0,,0.0,37.4,0.0,597,,,,,,,false,false,,,
+pepsi-max-cherry,Pepsi Max Cherry,Cold drinks,,2,0.0,0.0,0.0,0.0,,0.2,0.0,0.0,10,,,,,,,false,false,,,
+pepsi-max,Pepsi Max,Cold drinks,,2,0.0,0.0,0.0,0.0,,0.2,0.0,0.0,7,,,,,,,false,false,,,
+7up-zero-sugar,7UP Zero Sugar,Cold drinks,,7,0.0,0.0,0.0,0.0,,0.3,0.0,0.0,28,,,,,,,false,false,,,
+tango-orange-sugar-free,Tango Orange Sugar Free,Cold drinks,,3,0.0,0.0,0.0,0.0,,0.4,0.0,0.0,14,,,,,,,false,false,,,
+iced-coffee,Iced Coffee,Cold drinks,,149,10.4,15.3,4.5,2.7,,0.3,13.8,0.0,623,,,,,,,false,false,,,
+lipton-ice-tea-peach,Lipton Ice Tea Peach,Cold drinks,,65,0.0,15.5,0.0,0.0,,0.2,15.0,0.0,272,,,,,,,false,false,,,
+lipton-ice-tea-lemon,Lipton Ice Tea Lemon,Cold drinks,,65,0.0,15.5,0.0,0.0,,0.2,15.0,0.0,272,,,,,,,false,false,,,
+ballygowan-sparkling-mineral-water,Ballygowan Sparkling Mineral Water,Cold drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0,,,,,,,false,false,,,
+ballygowan-still-mineral-water,Ballygowan Still Mineral Water,Cold drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0,,,,,,,false,false,,,
+orange-juice,Orange Juice,Cold drinks,,160,1.7,35.7,0.3,0.0,,0.0,35.7,0.0,669,,,,,,,false,false,,,
+apple-juice,Apple Juice,Cold drinks,,163,0.3,38.8,0.3,0.0,,0.0,38.8,0.0,680,,,,,,,false,false,,,
+thick-shake-vanilla,Thick Shake - Vanilla,Shakes & floats,,307,9.7,49.9,7.7,4.1,,0.0,45.7,0.3,1284,,,,,,,false,false,,,
+thick-shake-strawberry,Thick Shake - Strawberry,Shakes & floats,,340,9.3,59.2,7.4,3.9,,0.0,55.2,0.3,1422,,,,,,,false,false,,,
+thick-shake-chocolate,Thick Shake - Chocolate,Shakes & floats,,342,9.3,59.9,7.3,3.9,,0.0,55.2,0.4,1432,,,,,,,false,false,,,
+thick-shake-banana,Thick Shake - Banana,Shakes & floats,,340,9.3,59.5,7.3,3.9,,0.0,55.3,0.3,1424,,,,,,,false,false,,,
+thick-shake-salted-caramel,Thick Shake - Salted Caramel,Shakes & floats,,361,9.3,64.4,7.3,3.9,,0.2,60.5,0.3,1511,,,,,,,false,false,,,
+thick-shake-coffee,Thick Shake - Coffee,Shakes & floats,,290,9.3,47.0,7.2,3.9,,0.0,43.2,0.3,1212,,,,,,,false,false,,,
+pepsi-float,Pepsi Float,Shakes & floats,,190,2.6,36.7,4.1,2.4,,0.2,35.8,1.4,793,,,,,,,false,false,,,
+pepsi-max-cherry-float,Pepsi Max Cherry Float,Shakes & floats,,103,2.6,13.6,4.1,2.4,,0.3,12.7,1.4,430,,,,,,,false,false,,,
+pepsi-max-float,Pepsi Max Float,Shakes & floats,,102,2.6,13.6,4.1,2.4,,0.3,12.7,1.4,428,,,,,,,false,false,,,
+7up-zero-sugar-float,7UP Zero Sugar Float,Shakes & floats,,106,2.6,13.6,4.1,2.4,,0.4,12.7,1.4,441,,,,,,,false,false,,,
+tango-orange-sugar-free-float,Tango Orange Sugar Free Float,Shakes & floats,,103,2.6,13.6,4.1,2.4,,0.4,12.7,1.4,433,,,,,,,false,false,,,
+cappuccino,Cappuccino,Hot drinks,Regular,96,6.3,10.6,2.8,1.7,,0.2,9.8,0.1,402,,,,,,,false,false,,,Printed size column: Reg
+latte,Latte,Hot drinks,Regular,116,8.1,12.0,3.5,2.1,,0.3,10.8,0.0,486,,,,,,,false,false,,,Printed size column: Reg
+flat-white,Flat White,Hot drinks,Regular,91,6.5,9.5,2.7,1.6,,0.2,8.7,0.0,382,,,,,,,false,false,,,Printed size column: Reg
+americano-with-milk,Americano with Milk,Hot drinks,Regular,16,1.2,1.7,0.4,0.3,,0.0,1.6,0.0,66,,,,,,,false,false,,,Printed size column: Reg
+americano-black,Americano - Black,Hot drinks,Regular,2,0.2,0.3,0.0,0.0,,0.0,0.3,0.0,8,,,,,,,false,false,,,Printed size column: Reg
+hot-chocolate-without-cream,Hot Chocolate (without cream),Hot drinks,Regular,228,10.8,32.3,5.5,3.4,,0.5,30.2,0.8,953,,,,,,,false,false,,,Printed size column: Reg
+tea-with-milk,Tea with Milk,Hot drinks,Regular,17,1.0,2.3,0.4,0.3,,0.0,1.3,0.0,70,,,,,,,false,false,,,Printed size column: Reg
+tea-black,Tea - Black,Hot drinks,Regular,3,0.0,1.0,0.0,0.0,,0.0,0.0,0.0,14,,,,,,,false,false,,,Printed size column: Reg
+fruit-and-herbal-teas-various,Fruit & Herbal Teas (various),Hot drinks,Regular,7,0.3,2.0,0.0,0.0,,0.0,0.7,0.0,28,,,,,,,false,false,,,One set of numbers printed for 'Various' teas; Printed size column: Reg
+extra-shot-of-coffee,Extra Shot of Coffee,Hot drinks,Single shot,2,0.2,0.3,0.0,0.0,,0.0,0.3,0.0,8,,,,,,,false,false,,,Printed size column: Single
+flavoured-syrup-vanilla,Flavoured Syrup - Vanilla,Hot drinks,1 shot,51,0.0,12.6,0.0,0.0,,0.0,12.6,0.0,214,,,,,,,false,false,,,Printed size column: Shot
+flavoured-syrup-salted-caramel,Flavoured Syrup - Salted Caramel,Hot drinks,1 shot,49,0.0,12.0,0.0,0.0,,0.2,12.0,0.0,205,,,,,,,false,false,,,Printed size column: Shot
+lotus-biscoff-biscuit,Lotus Biscoff Biscuit,Hot drinks,,30,0.3,4.5,1.2,0.5,,0.1,2.4,0.1,127,,,,,,,false,false,,,
+kids-chicken-strips,Kids Chicken Strips,Kids meals,,188,11.5,8.2,12.2,2.5,,0.5,0.1,0.6,786,,,,,,,false,true,,,Printed 'Chicken Strips' under Kids meal main items
+junior-hamburger,Junior Hamburger,Kids meals,,243,12.9,25.4,9.7,3.6,,0.8,1.8,1.7,1017,,,,,,,false,true,,,
+junior-cheeseburger,Junior Cheeseburger,Kids meals,,284,14.8,26.7,12.9,5.1,,1.3,2.1,1.7,1188,,,,,,,false,true,,,
+kids-sausage,Kids Sausage,Kids meals,,118,6.6,5.7,7.9,2.7,,0.8,0.5,0.7,494,,,,,,contains_pork,false,true,,,Printed 'Sausage' under Kids meal main items; sausage is in the name; numbers identical to Breakfast Sausage
+kids-plant-based-strips,Kids Plant-Based Strips,Kids meals,,231,5.8,15.4,15.4,1.4,,0.9,0.8,2.2,967,,,,,,,false,true,,,Printed 'Plant-Based Strips' under Kids meal main items; Fat and carbs are printed as the same number; calories agree with them
+kids-chips,Kids Chips,Kids meals,,178,2.3,29.0,6.6,0.8,,0.1,0.2,3.1,746,,,,,,,false,true,,,Printed 'Chips' under Kids meal side choices
+kids-baked-beans,Kids Baked Beans,Kids meals,,52,3.1,8.3,0.1,0.0,,0.4,3.4,2.5,217,,,,,,,false,true,,,Printed 'Heinz Baked Beans' under Kids meal side choices
+kids-peas,Kids Peas,Kids meals,,53,3.4,7.0,0.5,0.1,,0.0,3.7,3.4,220,,,,,,,false,true,,,Printed 'Peas' under Kids meal side choices
+junior-whirl-excl-sauce-topping,Junior Whirl (excl. sauce topping),Kids desserts,,101,2.6,13.6,4.1,2.4,,0.2,12.7,1.4,424,,,,,,,false,false,,,Printed 'Figures exclude choice of sauce topping'
+waffle-and-ice-cream-excl-sauce-topping,Waffle & Ice Cream (excl. sauce topping),Kids desserts,,314,5.1,38.6,15.2,7.6,,1.5,22.1,1.9,1312,,,,,,,false,false,,,Printed 'Figures exclude choice of sauce topping'
+jelly-and-ice-cream,Jelly & Ice Cream,Kids desserts,,112,1.7,20.0,2.6,1.8,,0.3,19.6,0.8,468,,,,,,,false,false,,,
+kids-chocolate-sauce,Kids Chocolate Sauce,Kids desserts,,14,0.1,3.3,0.1,0.0,,0.0,2.3,0.1,59,,,,,,,false,false,,,Printed 'Chocolate Sauce' under Kids desserts
+kids-strawberry-sauce,Kids Strawberry Sauce,Kids desserts,,12,0.0,2.9,0.0,0.0,,0.0,2.0,0.0,49,,,,,,,false,false,,,Printed 'Strawberry Sauce' under Kids desserts
+kids-toffee-fudge-sauce,Kids Toffee Fudge Sauce,Kids desserts,,14,0.0,3.3,0.1,0.1,,0.0,2.2,0.0,60,,,,,,,false,false,,,Printed 'Toffee Fudge Sauce' under Kids desserts
+kids-pepsi-max,Kids Pepsi Max,Kids drinks,,1,0.0,0.0,0.0,0.0,,0.1,0.0,0.0,5,,,,,,,false,false,,,Printed 'Pepsi Max' under Kids drinks
+kids-pepsi-max-cherry,Kids Pepsi Max Cherry,Kids drinks,,2,0.0,0.0,0.0,0.0,,0.1,0.0,0.0,7,,,,,,,false,false,,,Printed 'Pepsi Max Cherry' under Kids drinks
+kids-7up-zero-sugar,Kids 7UP Zero Sugar,Kids drinks,,5,0.0,0.0,0.0,0.0,,0.2,0.0,0.0,21,,,,,,,false,false,,,Printed '7UP Zero Sugar' under Kids drinks
+kids-tango-orange-free,Kids Tango Orange Free,Kids drinks,,3,0.0,0.0,0.0,0.0,,0.3,0.0,0.0,11,,,,,,,false,false,,,Printed 'Tango Orange Free' under Kids drinks
+robinsons-fruit-shoot-orange,Robinsons Fruit Shoot Orange,Kids drinks,,17,0.0,3.3,0.0,0.0,,0.1,3.3,0.0,70,,,,,,,false,false,,,
+robinsons-fruit-shoot-apple-and-blackcurrant,Robinsons Fruit Shoot Apple and Blackcurrant,Kids drinks,,11,0.0,2.2,0.0,0.0,,0.1,1.9,0.0,46,,,,,,,false,false,,,
+orange-squash,Orange Squash,Kids drinks,,2,0.0,0.2,0.0,0.0,,0.1,0.2,0.1,6,,,,,,,false,false,,,
+apple-and-blackcurrant-squash,Apple & Blackcurrant Squash,Kids drinks,,2,0.0,0.3,0.0,0.0,,0.0,0.3,0.0,8,,,,,,,false,false,,,
+kids-thick-shake-vanilla,Kids Thick Shake - Vanilla,Kids drinks,,230,7.3,37.3,5.7,3.1,,0.0,34.3,0.2,962,,,,,,,false,false,,,Printed 'Thick Shake - Vanilla' under Kids drinks
+kids-thick-shake-strawberry,Kids Thick Shake - Strawberry,Kids drinks,,249,7.0,42.7,5.6,3.0,,0.0,39.7,0.2,1040,,,,,,,false,false,,,Printed 'Thick Shake - Strawberry' under Kids drinks
+kids-thick-shake-chocolate,Kids Thick Shake - Chocolate,Kids drinks,,250,7.0,43.1,5.5,3.0,,0.0,39.7,0.3,1046,,,,,,,false,false,,,Printed 'Thick Shake - Chocolate' under Kids drinks
+kids-thick-shake-banana,Kids Thick Shake - Banana,Kids drinks,,249,7.0,42.8,5.5,3.0,,0.0,39.7,0.2,1042,,,,,,,false,false,,,Printed 'Thick Shake - Banana' under Kids drinks
+kids-thick-shake-salted-caramel,Kids Thick Shake - Salted Caramel,Kids drinks,,261,7.0,45.7,5.5,3.0,,0.1,42.7,0.2,1091,,,,,,,false,false,,,Printed 'Thick Shake - Salted Caramel' under Kids drinks

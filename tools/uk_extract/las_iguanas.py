@@ -8,6 +8,7 @@ lasiguanas202502 was not used: the 202507 page is the newer one). Every dish has
 The other tabs are the same address with ?mguid=<tab id>. Parser: tenkites_a.py. Numbers are copied as printed; only
 names, categories and the rules below are written by hand.
 """
+from __future__ import annotations
 import re
 import sys
 from pathlib import Path
@@ -163,8 +164,13 @@ NOTE = ("Per portion as printed on the chain's menu pages. Each part of a meal i
         "burger or steak, fajita and taco fillings, nacho toppings and extras are separate rows, so add the parts you order. "
         "Wines, cocktails and most drinks print no numbers and are not listed.")
 
+# The same pages print each dish's allergens ("Dietary Information": "Contains:" and "May contain:", naming the cereals
+# and tree nuts) and carry the label ids of the page's own allergen filter; tenkites_a cross-checks the two.
+ALLERGEN_TITLE = "Las Iguanas Dietary Information (allergens) on its online Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas menus (Ten Kites page generated 2026-10-06)"
+
 if __name__ == "__main__":
     sys.exit(t.run(
         chain_id="las-iguanas", name="Las Iguanas", cuisine="Latin American", aliases=["las iguanas"], url=URL,
         source_title="Las Iguanas Nutrition (per portion) menus, page lasiguanas202507: Main, Lunch, Bottomless Brunch, Kids, Cocktails, Drinks and Bottomless Tapas (page generated 2026-10-06)",
-        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK))
+        tabs=TABS, classify=classify, category_order=CATEGORY_ORDER, expected_rows=EXPECTED, note=NOTE, holdback=HOLDBACK,
+        allergen_title=ALLERGEN_TITLE))

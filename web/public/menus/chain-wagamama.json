@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Alcoholic drinks are not listed because Wagamama publishes no nutrition for them. Gluten free menu dishes appear only where their numbers differ from the standard dish.",
+ "allergenGuide": {
+  "title": "Wagamama UK menu allergen information (wagamama.com/menu, menu \"17/06/2026 - UK - main website\")",
+  "url": "https://www.wagamama.com/menu",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Limited time",
   "Lunch time",
@@ -30,7 +37,6 @@
   "Desserts",
   "Juices",
   "Soft drinks",
-  "Beers + cider",
   "Coffee + tea",
   "Kids",
   "Gluten free menu"
@@ -50,13 +56,36 @@
     "saturatedFat": 7.4,
     "sugar": 20.7,
     "fiber": 3.5,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 4845
    },
    "tags": [],
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "buldak-bibimbap",
@@ -71,7 +100,8 @@
     "saturatedFat": 7.3,
     "sugar": 26,
     "fiber": 8.5,
-    "salt": 6.1
+    "salt": 6.1,
+    "energyKj": 4239
    },
    "tags": [
     "contains_beef"
@@ -79,7 +109,29 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "katsu-chicken-wrap",
@@ -94,13 +146,36 @@
     "saturatedFat": 5.4,
     "sugar": 9.5,
     "fiber": 5.1,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 2018
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "yasai-ramen-wrap",
@@ -115,7 +190,8 @@
     "saturatedFat": 3.9,
     "sugar": 11.4,
     "fiber": 4.9,
-    "salt": 2.8
+    "salt": 2.8,
+    "energyKj": 1919
    },
    "tags": [
     "vegetarian"
@@ -123,7 +199,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "miso-k-chicken-lunch-box",
@@ -138,13 +226,34 @@
     "saturatedFat": 3.5,
     "sugar": 20.1,
     "fiber": 7.6,
-    "salt": 5.6
+    "salt": 5.6,
+    "energyKj": 3112
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "miso-cauliflower-lunch-box",
@@ -159,7 +268,8 @@
     "saturatedFat": 3.1,
     "sugar": 20.7,
     "fiber": 8.6,
-    "salt": 4.9
+    "salt": 4.9,
+    "energyKj": 3367
    },
    "tags": [
     "vegetarian"
@@ -167,7 +277,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "nasi-goreng-lunch-box",
@@ -182,13 +308,33 @@
     "saturatedFat": 4.1,
     "sugar": 18.8,
     "fiber": 4.6,
-    "salt": 4.1
+    "salt": 4.1,
+    "energyKj": 3212
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spicy-smashed-cucumber",
@@ -203,7 +349,8 @@
     "saturatedFat": 2.6,
     "sugar": 11.2,
     "fiber": 2,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 923
    },
    "tags": [
     "vegetarian"
@@ -211,7 +358,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "edamame-with-salt",
@@ -226,7 +380,8 @@
     "saturatedFat": 1.8,
     "sugar": 5.6,
     "fiber": 13.6,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1166
    },
    "tags": [
     "vegetarian"
@@ -234,7 +389,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "edamame-with-chilli-garlic-salt",
@@ -249,7 +412,8 @@
     "saturatedFat": 1.8,
     "sugar": 5.7,
     "fiber": 13.9,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1193
    },
    "tags": [
     "vegetarian"
@@ -257,7 +421,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "koko-prawn-crackers",
@@ -272,7 +445,8 @@
     "saturatedFat": 3,
     "sugar": 20.2,
     "fiber": 0.9,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 1061
    },
    "tags": [
     "vegetarian"
@@ -280,7 +454,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "wok-fried-greens",
@@ -295,7 +479,8 @@
     "saturatedFat": 0.7,
     "sugar": 6.3,
     "fiber": 3.3,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 675
    },
    "tags": [
     "vegetarian"
@@ -303,7 +488,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "duck-gyoza",
@@ -318,13 +511,31 @@
     "saturatedFat": 1.5,
     "sugar": 17.8,
     "fiber": 1.5,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 1313
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "beef-brisket-kimchee-gyoza",
@@ -339,7 +550,8 @@
     "saturatedFat": 2.1,
     "sugar": 7.5,
     "fiber": 2,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 967
    },
    "tags": [
     "contains_beef"
@@ -347,7 +559,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "chicken-gyoza",
@@ -362,13 +587,26 @@
     "saturatedFat": 1.3,
     "sugar": 1.1,
     "fiber": 1.8,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 815
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "yasai-vegetable-gyoza",
@@ -383,7 +621,8 @@
     "saturatedFat": 0.8,
     "sugar": 7.4,
     "fiber": 2.4,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 874
    },
    "tags": [
     "vegetarian"
@@ -391,7 +630,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "gochujang-tamarind-pork-ribs",
@@ -406,7 +656,8 @@
     "saturatedFat": 11.3,
     "sugar": 26.6,
     "fiber": 2.1,
-    "salt": 3.6
+    "salt": 3.6,
+    "energyKj": 2767
    },
    "tags": [
     "contains_pork"
@@ -414,7 +665,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs"
+    ]
+   }
   },
   {
    "id": "gochujang-tamarind-corn-ribs",
@@ -429,7 +694,8 @@
     "saturatedFat": 3.6,
     "sugar": 29.9,
     "fiber": 11.6,
-    "salt": 3.1
+    "salt": 3.1,
+    "energyKj": 1950
    },
    "tags": [
     "vegetarian"
@@ -437,7 +703,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-honey-fried-chicken-yuzu",
@@ -452,13 +726,32 @@
     "saturatedFat": 6,
     "sugar": 32.5,
     "fiber": 2.6,
-    "salt": 4.1
+    "salt": 4.1,
+    "energyKj": 3273
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "hot-honey-fried-chicken-teriyaki",
@@ -473,13 +766,32 @@
     "saturatedFat": 5.4,
     "sugar": 39.4,
     "fiber": 2.5,
-    "salt": 4.9
+    "salt": 4.9,
+    "energyKj": 3365
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "hot-honey-fried-chicken-firecracker",
@@ -494,13 +806,32 @@
     "saturatedFat": 5.8,
     "sugar": 35.6,
     "fiber": 2.9,
-    "salt": 3.8
+    "salt": 3.8,
+    "energyKj": 3512
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "chilli-squid",
@@ -515,13 +846,28 @@
     "saturatedFat": 3,
     "sugar": 9.9,
     "fiber": 1.9,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1702
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "soya"
+    ]
+   }
   },
   {
    "id": "ebi-katsu",
@@ -536,13 +882,32 @@
     "saturatedFat": 1.2,
     "sugar": 7.8,
     "fiber": 1.7,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 1191
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "lollipop-prawn-kushiyaki",
@@ -557,13 +922,22 @@
     "saturatedFat": 1.8,
     "sugar": 12.7,
     "fiber": 1.3,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 778
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bang-bang-cauliflower",
@@ -578,7 +952,8 @@
     "saturatedFat": 2.4,
     "sugar": 9.3,
     "fiber": 2.7,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1867
    },
    "tags": [
     "vegetarian"
@@ -586,7 +961,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "korean-fried-chicken-bao-bun",
@@ -601,13 +986,31 @@
     "saturatedFat": 4.2,
     "sugar": 44.8,
     "fiber": 4.4,
-    "salt": 4.6
+    "salt": 4.6,
+    "energyKj": 3023
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tonkatsu-pork-bao-bun",
@@ -622,7 +1025,8 @@
     "saturatedFat": 6.4,
     "sugar": 28.7,
     "fiber": 4,
-    "salt": 5.1
+    "salt": 5.1,
+    "energyKj": 3676
    },
    "tags": [
     "contains_pork"
@@ -630,7 +1034,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "korean-barbecue-brisket-bao-bun",
@@ -645,7 +1066,8 @@
     "saturatedFat": 3.1,
     "sugar": 15.4,
     "fiber": 3.2,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2187
    },
    "tags": [
     "contains_beef"
@@ -653,7 +1075,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "oyster-shiitake-mushrooms-bao-bun",
@@ -668,7 +1101,8 @@
     "saturatedFat": 2.6,
     "sugar": 10.6,
     "fiber": 5.4,
-    "salt": 3.6
+    "salt": 3.6,
+    "energyKj": 2355
    },
    "tags": [
     "vegetarian"
@@ -676,7 +1110,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "hoisin-pulled-duck-bao-bun",
@@ -691,13 +1139,26 @@
     "saturatedFat": 4.8,
     "sugar": 17,
     "fiber": 3.2,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 2633
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-katsu-curry",
@@ -712,13 +1173,36 @@
     "saturatedFat": 8.8,
     "sugar": 7,
     "fiber": 7.9,
-    "salt": 2.8
+    "salt": 2.8,
+    "energyKj": 4146
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "yasai-katsu-curry",
@@ -733,7 +1217,8 @@
     "saturatedFat": 9.3,
     "sugar": 13.8,
     "fiber": 10.6,
-    "salt": 2.7
+    "salt": 2.7,
+    "energyKj": 5126
    },
    "tags": [
     "vegetarian"
@@ -741,7 +1226,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "hot-chicken-katsu-curry",
@@ -756,13 +1259,36 @@
     "saturatedFat": 9.6,
     "sugar": 13.1,
     "fiber": 9.9,
-    "salt": 4.5
+    "salt": 4.5,
+    "energyKj": 4672
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "hot-yasai-katsu-curry",
@@ -777,7 +1303,8 @@
     "saturatedFat": 10,
     "sugar": 19.8,
     "fiber": 12.6,
-    "salt": 4.4
+    "salt": 4.4,
+    "energyKj": 5652
    },
    "tags": [
     "vegetarian"
@@ -785,7 +1312,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "prawn-raisukaree",
@@ -800,13 +1345,24 @@
     "saturatedFat": 13.9,
     "sugar": 13,
     "fiber": 8,
-    "salt": 4.7
+    "salt": 4.7,
+    "energyKj": 4265
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-raisukaree",
@@ -821,13 +1377,23 @@
     "saturatedFat": 14.2,
     "sugar": 13.2,
     "fiber": 8.4,
-    "salt": 3.2
+    "salt": 3.2,
+    "energyKj": 4563
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "tofu-raisukaree",
@@ -842,7 +1408,8 @@
     "saturatedFat": 14.8,
     "sugar": 13.8,
     "fiber": 8.5,
-    "salt": 3.1
+    "salt": 3.1,
+    "energyKj": 4737
    },
    "tags": [
     "vegetarian"
@@ -850,7 +1417,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "prawn-firecracker",
@@ -865,13 +1441,23 @@
     "saturatedFat": 3.8,
     "sugar": 34.8,
     "fiber": 10.6,
-    "salt": 6.7
+    "salt": 6.7,
+    "energyKj": 4533
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-firecracker",
@@ -886,13 +1472,22 @@
     "saturatedFat": 4.3,
     "sugar": 35.1,
     "fiber": 11.1,
-    "salt": 5.2
+    "salt": 5.2,
+    "energyKj": 4959
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tofu-firecracker",
@@ -907,7 +1502,8 @@
     "saturatedFat": 4.7,
     "sugar": 35.6,
     "fiber": 11.1,
-    "salt": 5.1
+    "salt": 5.1,
+    "energyKj": 5005
    },
    "tags": [
     "vegetarian"
@@ -915,7 +1511,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-prawn-turmeric-rice-bowl",
@@ -930,13 +1534,24 @@
     "saturatedFat": 4.9,
     "sugar": 11.1,
     "fiber": 5.5,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 2825
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "gochujang-salmon-rice-bowl-may-contain-small-bones",
@@ -951,13 +1566,24 @@
     "saturatedFat": 4.9,
     "sugar": 20.8,
     "fiber": 5.4,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 3281
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "beef-brisket-teriyaki-donburi",
@@ -972,7 +1598,8 @@
     "saturatedFat": 4.3,
     "sugar": 18.8,
     "fiber": 8,
-    "salt": 4.8
+    "salt": 4.8,
+    "energyKj": 3443
    },
    "tags": [
     "contains_beef"
@@ -980,7 +1607,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "chicken-thigh-teriyaki-donburi",
@@ -995,13 +1633,25 @@
     "saturatedFat": 4.4,
     "sugar": 17.2,
     "fiber": 8.4,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 3395
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "grilled-duck-donburi",
@@ -1016,13 +1666,26 @@
     "saturatedFat": 10,
     "sugar": 25.3,
     "fiber": 8.9,
-    "salt": 6
+    "salt": 6,
+    "energyKj": 4774
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "pulled-shiitake-donburi",
@@ -1037,7 +1700,8 @@
     "saturatedFat": 7.5,
     "sugar": 25.8,
     "fiber": 22.5,
-    "salt": 6.2
+    "salt": 6.2,
+    "energyKj": 3901
    },
    "tags": [
     "vegetarian"
@@ -1045,7 +1709,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "signature-seafood-ramen-may-contain-small-bones",
@@ -1060,13 +1736,29 @@
     "saturatedFat": 5.8,
     "sugar": 21,
     "fiber": 6.2,
-    "salt": 10.4
+    "salt": 10.4,
+    "energyKj": 3959
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tantanmen-beef-brisket-ramen",
@@ -1081,7 +1773,8 @@
     "saturatedFat": 8.2,
     "sugar": 8.2,
     "fiber": 3.7,
-    "salt": 6.6
+    "salt": 6.6,
+    "energyKj": 2828
    },
    "tags": [
     "contains_beef"
@@ -1089,7 +1782,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "grilled-chicken-ramen",
@@ -1104,13 +1812,26 @@
     "saturatedFat": 1,
     "sugar": 4.6,
     "fiber": 3.8,
-    "salt": 4.9
+    "salt": 4.9,
+    "energyKj": 1812
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chilli-chicken-ramen",
@@ -1125,13 +1846,27 @@
     "saturatedFat": 1.1,
     "sugar": 19.1,
     "fiber": 6.4,
-    "salt": 5.7
+    "salt": 5.7,
+    "energyKj": 2170
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "kare-burosu-ramen",
@@ -1146,7 +1881,8 @@
     "saturatedFat": 3.9,
     "sugar": 11,
     "fiber": 12.8,
-    "salt": 5.1
+    "salt": 5.1,
+    "energyKj": 2873
    },
    "tags": [
     "vegetarian"
@@ -1154,7 +1890,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "gochujang-pork-belly-ramen",
@@ -1169,7 +1924,8 @@
     "saturatedFat": 14.2,
     "sugar": 22.5,
     "fiber": 4.6,
-    "salt": 6.4
+    "salt": 6.4,
+    "energyKj": 3847
    },
    "tags": [
     "contains_pork"
@@ -1177,7 +1933,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "saku-saku-duck-soba",
@@ -1192,13 +1960,31 @@
     "saturatedFat": 4.7,
     "sugar": 22.7,
     "fiber": 4.7,
-    "salt": 5.1
+    "salt": 5.1,
+    "energyKj": 3911
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "katsu-udon",
@@ -1213,7 +1999,8 @@
     "saturatedFat": 5.1,
     "sugar": 21,
     "fiber": 13,
-    "salt": 3.2
+    "salt": 3.2,
+    "energyKj": 3050
    },
    "tags": [
     "vegetarian"
@@ -1221,7 +2008,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-prawn-yaki-soba",
@@ -1236,13 +2041,27 @@
     "saturatedFat": 4.8,
     "sugar": 7.8,
     "fiber": 5.9,
-    "salt": 3.7
+    "salt": 3.7,
+    "energyKj": 3178
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "yasai-yaki-soba-mushroom",
@@ -1257,7 +2076,8 @@
     "saturatedFat": 3.8,
     "sugar": 12.1,
     "fiber": 6.5,
-    "salt": 3.8
+    "salt": 3.8,
+    "energyKj": 3054
    },
    "tags": [
     "vegetarian"
@@ -1265,7 +2085,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "yasai-yaki-soba-rice-noodles",
@@ -1280,7 +2115,8 @@
     "saturatedFat": 2.2,
     "sugar": 11.8,
     "fiber": 5.9,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2608
    },
    "tags": [
     "vegetarian"
@@ -1288,7 +2124,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "yasai-yaki-soba-udon",
@@ -1303,7 +2153,8 @@
     "saturatedFat": 1.6,
     "sugar": 14,
     "fiber": 10.2,
-    "salt": 3.2
+    "salt": 3.2,
+    "energyKj": 2495
    },
    "tags": [
     "vegetarian"
@@ -1311,7 +2162,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "steak-teriyaki-soba",
@@ -1326,7 +2191,8 @@
     "saturatedFat": 3.3,
     "sugar": 18.4,
     "fiber": 5.8,
-    "salt": 3.8
+    "salt": 3.8,
+    "energyKj": 3623
    },
    "tags": [
     "contains_beef"
@@ -1334,7 +2200,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "salmon-teriyaki-soba",
@@ -1349,13 +2228,28 @@
     "saturatedFat": 6.1,
     "sugar": 17.4,
     "fiber": 5.5,
-    "salt": 4.6
+    "salt": 4.6,
+    "energyKj": 4157
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-teriyaki-soba",
@@ -1370,13 +2264,27 @@
     "saturatedFat": 2.9,
     "sugar": 17.5,
     "fiber": 5.7,
-    "salt": 3.4
+    "salt": 3.4,
+    "energyKj": 3226
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-prawn-yaki-udon",
@@ -1391,13 +2299,28 @@
     "saturatedFat": 3.9,
     "sugar": 8.6,
     "fiber": 9.7,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 2925
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "katsu-pickles",
@@ -1412,7 +2335,8 @@
     "saturatedFat": 0,
     "sugar": 0.4,
     "fiber": 0.2,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 22
    },
    "tags": [
     "vegetarian"
@@ -1420,7 +2344,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tea-stained-egg",
@@ -1435,7 +2369,8 @@
     "saturatedFat": 1.1,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 289
    },
    "tags": [
     "vegetarian"
@@ -1443,7 +2378,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kimchee",
@@ -1458,7 +2400,8 @@
     "saturatedFat": 0,
     "sugar": 0.7,
     "fiber": 0.8,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 46
    },
    "tags": [
     "vegetarian"
@@ -1466,7 +2409,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "chillies",
@@ -1481,7 +2433,8 @@
     "saturatedFat": 0,
     "sugar": 0.7,
     "fiber": 0.4,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 36
    },
    "tags": [
     "vegetarian"
@@ -1489,7 +2442,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "katsu-curry-sauce",
@@ -1504,7 +2461,8 @@
     "saturatedFat": 6.1,
     "sugar": 4.4,
     "fiber": 2.1,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 943
    },
    "tags": [
     "vegetarian"
@@ -1512,7 +2470,25 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "hot-katsu-sauce",
@@ -1527,7 +2503,8 @@
     "saturatedFat": 6.8,
     "sugar": 10.3,
     "fiber": 4.1,
-    "salt": 3.4
+    "salt": 3.4,
+    "energyKj": 1457
    },
    "tags": [
     "vegetarian"
@@ -1535,7 +2512,25 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "firecracker-sauce",
@@ -1550,7 +2545,8 @@
     "saturatedFat": 1,
     "sugar": 26,
     "fiber": 3.2,
-    "salt": 4.8
+    "salt": 4.8,
+    "energyKj": 1126
    },
    "tags": [
     "vegetarian"
@@ -1558,7 +2554,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "raisukaree-sauce",
@@ -1573,7 +2581,8 @@
     "saturatedFat": 13.6,
     "sugar": 8.8,
     "fiber": 1.5,
-    "salt": 3.2
+    "salt": 3.2,
+    "energyKj": 1280
    },
    "tags": [
     "vegetarian"
@@ -1581,7 +2590,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "amai-sauce",
@@ -1596,7 +2611,8 @@
     "saturatedFat": 0,
     "sugar": 14.8,
     "fiber": 0.1,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 292
    },
    "tags": [
     "vegetarian"
@@ -1604,7 +2620,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "ube-cherry-bao-nut",
@@ -1619,7 +2641,8 @@
     "saturatedFat": 7.2,
     "sugar": 32.6,
     "fiber": 3.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 2048
    },
    "tags": [
     "vegetarian"
@@ -1627,7 +2650,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "matcha-chocolate-bao-nut",
@@ -1642,7 +2678,8 @@
     "saturatedFat": 7,
     "sugar": 37.9,
     "fiber": 3.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1715
    },
    "tags": [
     "vegetarian"
@@ -1650,7 +2687,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "miso-caramel-toffee-bao-nut",
@@ -1665,7 +2715,8 @@
     "saturatedFat": 8.8,
     "sugar": 29.7,
     "fiber": 3.9,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 1768
    },
    "tags": [
     "vegetarian"
@@ -1673,7 +2724,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "white-chocolate-ginger-cheesecake",
@@ -1688,7 +2752,8 @@
     "saturatedFat": 16.6,
     "sugar": 35.2,
     "fiber": 1.1,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 2030
    },
    "tags": [
     "vegetarian"
@@ -1696,7 +2761,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
   },
   {
    "id": "banana-katsu",
@@ -1711,7 +2791,8 @@
     "saturatedFat": 6.8,
     "sugar": 18.7,
     "fiber": 3.1,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 1367
    },
    "tags": [
     "vegetarian"
@@ -1719,7 +2800,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "smoked-chocolate-caramel-cake",
@@ -1734,7 +2828,8 @@
     "saturatedFat": 17.6,
     "sugar": 46.7,
     "fiber": 2.9,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 2059
    },
    "tags": [
     "vegetarian"
@@ -1742,7 +2837,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "miso-caramel-banana-bread",
@@ -1757,7 +2867,8 @@
     "saturatedFat": 13.5,
     "sugar": 45.4,
     "fiber": 1.3,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1968
    },
    "tags": [
     "vegetarian"
@@ -1765,7 +2876,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "miso-caramel-ice-cream",
@@ -1780,7 +2903,8 @@
     "saturatedFat": 15.6,
     "sugar": 40.3,
     "fiber": 6.3,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 1755
    },
    "tags": [
     "vegetarian"
@@ -1788,7 +2912,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coconut-reika-ice-cream",
@@ -1803,7 +2933,8 @@
     "saturatedFat": 18.5,
     "sugar": 41.1,
     "fiber": 1.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1748
    },
    "tags": [
     "vegetarian"
@@ -1811,7 +2942,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "popcorn-affogato",
@@ -1826,7 +2961,8 @@
     "saturatedFat": 5.7,
     "sugar": 27.5,
     "fiber": 0.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 946
    },
    "tags": [
     "vegetarian"
@@ -1834,7 +2970,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-brownie",
@@ -1849,7 +2991,8 @@
     "saturatedFat": 10.3,
     "sugar": 37.4,
     "fiber": 6.5,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1763
    },
    "tags": [
     "vegetarian"
@@ -1857,7 +3000,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "lemon-yuzu-muffin",
@@ -1872,7 +3025,8 @@
     "saturatedFat": 2.7,
     "sugar": 43,
     "fiber": 1.6,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1897
    },
    "tags": [
     "vegetarian"
@@ -1880,7 +3034,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "matcha-colada-juice",
@@ -1895,7 +3064,8 @@
     "saturatedFat": 0,
     "sugar": 30.3,
     "fiber": 4.2,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 509
    },
    "tags": [
     "vegetarian"
@@ -1903,7 +3073,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "high-five-juice",
@@ -1918,7 +3092,8 @@
     "saturatedFat": 0,
     "sugar": 30.3,
     "fiber": 4.2,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 509
    },
    "tags": [
     "vegetarian"
@@ -1926,7 +3101,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "positive-juice",
@@ -1941,7 +3120,8 @@
     "saturatedFat": 0,
     "sugar": 29.1,
     "fiber": 5.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 517
    },
    "tags": [
     "vegetarian"
@@ -1949,7 +3129,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "tropical-juice",
@@ -1964,7 +3148,8 @@
     "saturatedFat": 0,
     "sugar": 34.6,
     "fiber": 5.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 588
    },
    "tags": [
     "vegetarian"
@@ -1972,7 +3157,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "power-juice",
@@ -1987,7 +3176,8 @@
     "saturatedFat": 0,
     "sugar": 33.2,
     "fiber": 5.6,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 585
    },
    "tags": [
     "vegetarian"
@@ -1995,7 +3185,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cherry-blossom-lemonade",
@@ -2010,7 +3204,8 @@
     "saturatedFat": 0,
     "sugar": 25.4,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 462
    },
    "tags": [
     "vegetarian"
@@ -2018,7 +3213,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "peach-iced-tea",
@@ -2033,7 +3232,8 @@
     "saturatedFat": 0,
     "sugar": 12.7,
     "fiber": 0.2,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 216
    },
    "tags": [
     "vegetarian"
@@ -2041,7 +3241,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cloudy-lemonade",
@@ -2056,7 +3260,8 @@
     "saturatedFat": 0,
     "sugar": 19.3,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 360
    },
    "tags": [
     "vegetarian"
@@ -2064,7 +3269,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "double-dutch-ginger-beer",
@@ -2079,7 +3288,8 @@
     "saturatedFat": 0,
     "sugar": 20,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 354
    },
    "tags": [
     "vegetarian"
@@ -2087,7 +3297,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coke",
@@ -2102,7 +3316,8 @@
     "saturatedFat": 0,
     "sugar": 35,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 594
    },
    "tags": [
     "vegetarian"
@@ -2110,7 +3325,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke",
@@ -2125,7 +3344,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 5
    },
    "tags": [
     "vegetarian"
@@ -2133,7 +3353,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coke-zero",
@@ -2148,7 +3372,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 4
    },
    "tags": [
     "vegetarian"
@@ -2156,7 +3381,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sprite-zero",
@@ -2171,7 +3400,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 17
    },
    "tags": [
     "vegetarian"
@@ -2179,7 +3409,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "still-water",
@@ -2194,7 +3428,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -2202,7 +3437,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sparkling-water",
@@ -2217,7 +3456,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -2225,7 +3465,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "ginger-kombucha",
@@ -2240,7 +3484,8 @@
     "saturatedFat": 0,
     "sugar": 8.3,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 178
    },
    "tags": [
     "vegetarian"
@@ -2248,7 +3493,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-spritz",
@@ -2263,7 +3512,8 @@
     "saturatedFat": 0,
     "sugar": 17.6,
     "fiber": 1.4,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 367
    },
    "tags": [
     "vegetarian"
@@ -2271,30 +3521,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "asahi-zero",
-   "name": "Asahi zero",
-   "category": "Beers + cider",
-   "serving": "",
-   "nutrients": {
-    "calories": 83,
-    "protein": 0.7,
-    "carbs": 20.1,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0.7,
-    "fiber": 0,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white-whole-milk",
@@ -2309,7 +3540,8 @@
     "saturatedFat": 3.9,
     "sugar": 7.1,
     "fiber": 0.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 428
    },
    "tags": [
     "vegetarian"
@@ -2317,7 +3549,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-whole-milk",
@@ -2332,7 +3570,8 @@
     "saturatedFat": 4.6,
     "sugar": 8.2,
     "fiber": 0.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 499
    },
    "tags": [
     "vegetarian"
@@ -2340,7 +3579,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-whole-milk",
@@ -2355,7 +3600,8 @@
     "saturatedFat": 4.6,
     "sugar": 9.7,
     "fiber": 0.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 533
    },
    "tags": [
     "vegetarian"
@@ -2363,7 +3609,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-whole-milk",
@@ -2378,7 +3630,8 @@
     "saturatedFat": 0.9,
     "sugar": 1.7,
     "fiber": 0.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 103
    },
    "tags": [
     "vegetarian"
@@ -2386,7 +3639,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "double-espresso",
@@ -2401,7 +3660,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 4
    },
    "tags": [
     "vegetarian"
@@ -2409,7 +3669,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-whole-milk",
@@ -2424,7 +3688,8 @@
     "saturatedFat": 3.9,
     "sugar": 7.1,
     "fiber": 0.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 428
    },
    "tags": [
     "vegetarian"
@@ -2432,7 +3697,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-matcha-strawberry-latte",
@@ -2447,7 +3718,8 @@
     "saturatedFat": 0.5,
     "sugar": 17.3,
     "fiber": 1.4,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 594
    },
    "tags": [
     "vegetarian"
@@ -2455,7 +3727,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "green-tea",
@@ -2470,7 +3746,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -2478,7 +3755,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-chicken-katsu-with-katsu-curry-sauce",
@@ -2493,13 +3774,36 @@
     "saturatedFat": 2.7,
     "sugar": 4.3,
     "fiber": 4.7,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 1760
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-chicken-katsu-with-amai-sauce",
@@ -2514,13 +3818,31 @@
     "saturatedFat": 1.2,
     "sugar": 10.8,
     "fiber": 4.2,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 1671
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-yasai-katsu-with-katsu-curry-sauce",
@@ -2535,7 +3857,8 @@
     "saturatedFat": 2.9,
     "sugar": 7,
     "fiber": 6,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 2265
    },
    "tags": [
     "vegetarian"
@@ -2543,7 +3866,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-yasai-katsu-with-amai-sauce",
@@ -2558,7 +3899,8 @@
     "saturatedFat": 1.4,
     "sugar": 13.5,
     "fiber": 5.6,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 2177
    },
    "tags": [
     "vegetarian"
@@ -2566,7 +3908,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-chicken-ramen",
@@ -2581,13 +3936,25 @@
     "saturatedFat": 1.4,
     "sugar": 4.6,
     "fiber": 2.8,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 1507
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-yasai-ramen",
@@ -2602,7 +3969,8 @@
     "saturatedFat": 1.1,
     "sugar": 4.7,
     "fiber": 2.7,
-    "salt": 3.1
+    "salt": 3.1,
+    "energyKj": 1331
    },
    "tags": [
     "vegetarian"
@@ -2610,7 +3978,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-yasai-ramen-rice-noodles",
@@ -2625,7 +4004,8 @@
     "saturatedFat": 0.9,
     "sugar": 4.6,
     "fiber": 2.4,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 1242
    },
    "tags": [
     "vegetarian"
@@ -2633,7 +4013,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-yasai-ramen-udon-noodles",
@@ -2648,7 +4034,8 @@
     "saturatedFat": 0.7,
     "sugar": 5,
     "fiber": 3.3,
-    "salt": 3.1
+    "salt": 3.1,
+    "energyKj": 1244
    },
    "tags": [
     "vegetarian"
@@ -2656,7 +4043,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-chicken-yaki-soba",
@@ -2671,13 +4068,25 @@
     "saturatedFat": 2.5,
     "sugar": 9.3,
     "fiber": 2,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1653
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-yasai-yaki-soba",
@@ -2692,7 +4101,8 @@
     "saturatedFat": 2.1,
     "sugar": 9.6,
     "fiber": 2.1,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1693
    },
    "tags": [
     "vegetarian"
@@ -2700,7 +4110,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-yasai-yaki-soba-rice-noodles",
@@ -2715,7 +4136,8 @@
     "saturatedFat": 1.2,
     "sugar": 9.4,
     "fiber": 1.8,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 1440
    },
    "tags": [
     "vegetarian"
@@ -2723,7 +4145,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-yasai-yaki-soba-udon-noodles",
@@ -2738,7 +4166,8 @@
     "saturatedFat": 0.9,
     "sugar": 10.5,
     "fiber": 3.9,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1384
    },
    "tags": [
     "vegetarian"
@@ -2746,7 +4175,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-chicken-cha-han",
@@ -2761,13 +4200,21 @@
     "saturatedFat": 2,
     "sugar": 9.3,
     "fiber": 2.7,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1624
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-yasai-cha-han-vegetarian",
@@ -2782,7 +4229,8 @@
     "saturatedFat": 1.6,
     "sugar": 9.5,
     "fiber": 2.8,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 1665
    },
    "tags": [
     "vegetarian"
@@ -2790,7 +4238,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-yasai-cha-han-vegan",
@@ -2805,7 +4260,8 @@
     "saturatedFat": 0.9,
     "sugar": 9.5,
     "fiber": 2.8,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 1500
    },
    "tags": [
     "vegetarian"
@@ -2813,7 +4269,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-vanilla-pod-ice-cream-with-toffee-sauce",
@@ -2828,7 +4290,8 @@
     "saturatedFat": 4.7,
     "sugar": 15.2,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 608
    },
    "tags": [
     "vegetarian"
@@ -2836,7 +4299,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-vanilla-pod-ice-cream-with-passion-fruit-sauce",
@@ -2851,7 +4320,8 @@
     "saturatedFat": 4.4,
     "sugar": 14.6,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 578
    },
    "tags": [
     "vegetarian"
@@ -2859,7 +4329,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-vanilla-pod-ice-cream-with-chocolate-sauce",
@@ -2874,7 +4350,8 @@
     "saturatedFat": 4.5,
     "sugar": 16.7,
     "fiber": 0.1,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 605
    },
    "tags": [
     "vegetarian"
@@ -2882,7 +4359,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-mini-brownie-bite",
@@ -2897,7 +4380,8 @@
     "saturatedFat": 5.1,
     "sugar": 19.2,
     "fiber": 3.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 890
    },
    "tags": [
     "vegetarian"
@@ -2905,7 +4389,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "kids-tropical-fruit-ice-lolly",
@@ -2920,7 +4414,8 @@
     "saturatedFat": 0,
     "sugar": 4.8,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 89
    },
    "tags": [
     "vegetarian"
@@ -2928,7 +4423,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-mini-orange-juice",
@@ -2943,7 +4442,8 @@
     "saturatedFat": 0,
     "sugar": 18,
     "fiber": 1,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 354
    },
    "tags": [
     "vegetarian"
@@ -2951,7 +4451,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-mini-apple-juice",
@@ -2966,7 +4470,8 @@
     "saturatedFat": 0,
     "sugar": 20.1,
     "fiber": 3.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 338
    },
    "tags": [
     "vegetarian"
@@ -2974,7 +4479,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-mini-apple-orange-juice",
@@ -2989,7 +4498,8 @@
     "saturatedFat": 0,
     "sugar": 21.5,
     "fiber": 2.8,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 376
    },
    "tags": [
     "vegetarian"
@@ -2997,7 +4507,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-cawston-press-apple-pear-juice-drink",
@@ -3012,7 +4526,8 @@
     "saturatedFat": 0.2,
     "sugar": 12.8,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 234
    },
    "tags": [
     "vegetarian"
@@ -3020,7 +4535,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-cawston-press-apple-summer-berries-juice-drink",
@@ -3035,7 +4554,8 @@
     "saturatedFat": 0,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 214
    },
    "tags": [
     "vegetarian"
@@ -3043,7 +4563,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-cococino-whole-milk",
@@ -3058,7 +4582,8 @@
     "saturatedFat": 1.6,
     "sugar": 4.3,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 204
    },
    "tags": [
     "vegetarian"
@@ -3066,7 +4591,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "lollipop-prawn-kushiyaki-gluten-free-menu",
@@ -3081,13 +4612,22 @@
     "saturatedFat": 1.8,
     "sugar": 11.7,
     "fiber": 1.3,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 761
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "grilled-chicken-ramen-gluten-free-menu",
@@ -3102,13 +4642,20 @@
     "saturatedFat": 1.6,
     "sugar": 2.8,
     "fiber": 2.1,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 2091
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "signature-seafood-ramen-gluten-free-menu-may-contain-small-bones",
@@ -3123,13 +4670,24 @@
     "saturatedFat": 6.4,
     "sugar": 21.1,
     "fiber": 4.5,
-    "salt": 9.8
+    "salt": 9.8,
+    "energyKj": 4303
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "gochujang-pork-belly-ramen-gluten-free-menu",
@@ -3144,7 +4702,8 @@
     "saturatedFat": 14.9,
     "sugar": 22.6,
     "fiber": 2.9,
-    "salt": 5.8
+    "salt": 5.8,
+    "energyKj": 4191
    },
    "tags": [
     "contains_pork"
@@ -3152,7 +4711,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

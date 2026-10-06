@@ -4,7 +4,7 @@ Used by tools/uk_extract/tim_hortons.py. Standard library only.
 
 timhortons.co.uk has no nutrition PDF. Every product has its own server-rendered page,
 https://timhortons.co.uk/information/<id>, with a per-serving table (serving size, energy kJ/kcal, fat, saturates,
-carbohydrates, sugars, fibre, protein, salt) and the full menu index (every product id, grouped by menu section) in the
+carbohydrates, sugars, fibre, protein, salt), an "Allergens:" line under it, and the full menu index (every product id, grouped by menu section) in the
 sidebar of every page. Drinks with sizes link to /information/<id>/small and /information/<id>/large; the page without a
 suffix is the Medium one. Numbers are returned exactly as printed (strings such as "<0.5", "0.00", "2.1"); nothing is
 converted, rounded or estimated here.
@@ -86,8 +86,13 @@ def read_page(page: str) -> dict:
         raise SystemExit(f"The table's rows changed.\n  expected {LABELS}\n  found    {tuple(label for label, _ in rows)}")
     diet = re.search(r"Dietary considerations:</strong>(.*?)</p>", page, flags=re.S)
     allergens = re.search(r"<strong>Allergens:</strong>(.*?)</p>", page, flags=re.S)
+    if len(re.findall(r"<strong>Allergens:</strong>", page)) > 1:
+        raise SystemExit("A product page prints two 'Allergens:' lines: the layout changed, re-check the source.")
+    # "allergens_printed" is False when the page has no "Allergens:" line at all (the site leaves it out for plain coffee,
+    # teas, lemonades and fountain drinks); tim_hortons.py decides what that means.
     return {"name": clean(m.group(1)), "cells": dict(zip(FIELDS, (v for _, v in rows))),
-            "diet": clean(diet.group(1)) if diet else "", "allergens": clean(allergens.group(1)) if allergens else ""}
+            "diet": clean(diet.group(1)) if diet else "", "allergens": clean(allergens.group(1)) if allergens else "",
+            "allergens_printed": allergens is not None}
 
 
 def printed_numbers(cells: dict[str, str]) -> dict[str, str] | None:

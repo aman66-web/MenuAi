@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Build data/source/greggs/ from Greggs' official "Nutritional Information (Guide only)" PDF.
 
-    python3 tools/uk_extract/greggs.py path/to/nutritional-information.pdf --checked-on 2026-10-05
+    python3 tools/uk_extract/greggs.py path/to/nutritional-information.pdf --allergen-pdf path/to/allergen-guide.pdf \
+        --checked-on 2026-10-06
 
-Numbers are copied from the PDF as printed, PER PORTION (kcal, fat, saturates, carbohydrate, sugars, fibre, protein,
-salt). The per-100g columns, kJ and the %RI columns are not used. Only the grouping below (category, rankable) and the
+Numbers are copied from the PDF as printed, PER PORTION (kJ, kcal, fat, saturates, carbohydrate, sugars, fibre, protein,
+salt). The per-100g and %RI columns are not used. weight_g is the "Portion Size (g/ml)" number, only for the solid-food
+categories whose serving is "<portion> g" (GRAM_SERVINGS): for drinks, sauces, syrups and soup it may be millilitres. Only the grouping below (category, rankable) and the
 display names are typed by hand. Every printed product name must appear exactly once below (or be an exclusion) and
 the script stops, listing the differences, if Greggs adds, renames or removes a product, so a human re-checks.
 
@@ -12,7 +14,17 @@ Source: the "Our Nutrition Guide" button on https://www.greggs.com/nutrition. It
 host; the address changes whenever Greggs uploads a new file (about monthly), so re-read the page for the new link.
 The guide says "Information correct at time of print (<Month Year>)": that text becomes part of source_title.
 Rows marked (HS) = Hospital Shop are left out automatically.
+
+Allergens (docs/DATA.md "Allergens"): Greggs prints them in a separate file, the "Customer Allergen Information Guide" (the
+"Our Allergen Guide" button on the same page, ALLERGEN_URL; a ✓/• matrix per product). Only allergen_guide.csv is written
+(the app links to the guide), never allergens.csv: items may only be matched across the two files by exact normalised name,
+and on 2026-10-06 (allergen guide Version 13, 01.10.26) 124 of the 263 published items had no exactly matching name there.
+The allergen guide prints each drink once (no Regular/Large, no decaf), lists pizzas but not the 2/4/6 pizza boxes, and
+spells many products differently ("Bacon & Omelette with cheese Breakfast Roll" for "Bacon & Omelette Breakfast Roll",
+"Gingerbread Man" for "Gingerbread Men", "&" for "and"). Matching those by hand would be fuzzy matching, so it is not done.
+--allergen-pdf is read only for the guide's version and date (page 1: "Version 13 01.10.26"), which go into its title.
 """
+from __future__ import annotations
 import argparse
 import csv
 import hashlib
@@ -24,10 +36,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import greggs_pdf  # noqa: E402
+from common import ITEM_FIELDS, write_allergens  # noqa: E402
 
 CHAIN_ID = "greggs"
 SOURCE_URL = "https://a.storyblok.com/f/94904/x/7dd8489dab/nutritional-information.pdf"
 SOURCE_PAGE = "https://www.greggs.com/nutrition"
+ALLERGEN_URL = "https://a.storyblok.com/f/94904/x/c38f77c7c1/allergen-guide.pdf"
+ALLERGEN_TITLE = "Greggs Customer Allergen Information Guide"
 
 BR, SV, PZ, PB, HF, SW, SP, SS, ST, HD, CD, AD, DP, BD = (
     "Breakfast", "Savouries & bakes", "Pizzas", "Pizza boxes", "Hot food", "Sandwiches, rolls & baguettes",
@@ -233,6 +248,11 @@ def serving_for(printed: str, category: str, portion: str) -> str:
     return ""
 
 
+def weight_for(printed: str, category: str, portion: str) -> str:
+    """The portion size in grams: the same rows whose serving is '<portion> g'."""
+    return portion if category in GRAM_SERVINGS and printed not in NO_SERVING else ""
+
+
 def tags_for(printed: str) -> str:
     tags = []
     if VEGAN_NAME.search(printed):
@@ -255,6 +275,7 @@ def kj_note(r: dict[str, str]) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf", type=Path)
+    ap.add_argument("--allergen-pdf", type=Path, required=True, help="Greggs' allergen guide PDF (ALLERGEN_URL), for its version and date")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you compared the PDF with the website")
     ap.add_argument("--out", type=Path, default=Path(__file__).resolve().parents[2] / "data" / "source" / CHAIN_ID)
     args = ap.parse_args()
@@ -295,6 +316,12 @@ def main() -> int:
         print("Could not find 'Information correct at time of print (<date>)' in the PDF: the layout changed.", file=sys.stderr)
         return 1
     guide_date = m.group(1)
+    allergen_text = " ".join(greggs_pdf.read_text(args.allergen_pdf)[:5])
+    v = re.search(r"Version\s+(\d+)\s+(\d\d\.\d\d\.\d\d)\b", allergen_text)
+    if not v:
+        print("Could not find 'Version <n> <dd.mm.yy>' on page 1 of the allergen guide: is it the right file?", file=sys.stderr)
+        return 1
+    allergen_version = f"Version {v.group(1)}, {v.group(2)}"
 
     by_name = {r["name"]: r for r in rows}
     items = []
@@ -310,6 +337,7 @@ def main() -> int:
                 "id": slug(name), "name": name, "category": category, "serving": serving_for(printed, category, r["portion"]),
                 "calories": r["kcal"], "protein_g": r["protein"], "carbs_g": r["carbs"], "fat_g": r["fat"],
                 "sat_fat_g": r["sat"], "sodium_mg": "", "salt_g": r["salt"], "sugar_g": r["sugars"], "fiber_g": r["fibre"],
+                "energy_kj": r["kj"], "weight_g": weight_for(printed, category, r["portion"]),
                 "tags": tags_for(printed), "limited_time": "false", "rankable": str(rankable).lower(),
                 "components": "", "added_on": "", "notes": note,
             })
@@ -318,10 +346,8 @@ def main() -> int:
     items.sort(key=lambda i: category_order.index(i["category"]))  # stable: keeps the order inside each group
 
     args.out.mkdir(parents=True, exist_ok=True)
-    fields = ["id", "name", "category", "serving", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
-              "sugar_g", "fiber_g", "tags", "limited_time", "rankable", "components", "added_on", "notes"]
     with open(args.out / "items.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
+        w = csv.DictWriter(f, fieldnames=ITEM_FIELDS)
         w.writeheader()
         w.writerows(items)
     with open(args.out / "chain.csv", "w", newline="", encoding="utf-8") as f:
@@ -335,11 +361,17 @@ def main() -> int:
     (args.out / "modifiers.csv").write_text(
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
+    # Link only (see the docstring): every item's allergens are None, so write_allergens writes allergen_guide.csv alone.
+    write_allergens(args.out, CHAIN_ID, [(i["id"], None) for i in items],
+                    {"title": f"{ALLERGEN_TITLE} ({allergen_version})", "url": ALLERGEN_URL, "checked_on": args.checked_on,
+                     "may_contain_published": True})
 
     per_cat = Counter(i["category"] for i in items)
     print(f"wrote {len(items)} items to {args.out} (PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()}, guide date {guide_date})")
     print("by category: " + "; ".join(f"{c} {per_cat[c]}" for c in category_order))
     print(f"left out: {len(hospital)} hospital-shop rows {sorted(hospital)}; {len(EXCLUDED)} others {sorted(EXCLUDED)}")
+    print(f"allergens: link to {ALLERGEN_TITLE} ({allergen_version}) only, allergen PDF sha256 "
+          f"{hashlib.sha256(args.allergen_pdf.read_bytes()).hexdigest()}")
     return 0
 
 

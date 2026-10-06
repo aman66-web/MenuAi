@@ -1,206 +1,206 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-forager-set,Forager Set,Lunch sets,,736,17.0,106.0,25.0,15.0,,3.8,25.0,,,false,true,,,"page marks it vegetarian but its own text names pork: no diet tags given; On: all day menu, click & collect menu, Deliveroo menu"
-amber-honey-set,Amber Honey Set,Lunch sets,,835,37.0,93.0,34.0,5.0,,3.8,20.0,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-scrummy-set,Scrummy Set,Lunch sets,,951,44.0,112.0,34.0,19.0,,4.9,31.0,,contains_pork,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-bangkok-chinatown-set,Bangkok Chinatown Set,Lunch sets,,658,40.0,86.0,16.0,3.0,,7.6,11.0,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-melt-in-mouth-set,Melt in Mouth Set,Lunch sets,,792,32.0,97.0,28.0,19.0,,3.6,32.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-sea-breeze-set,Sea Breeze Set,Lunch sets,,479,42.0,44.0,13.0,2.4,,6.6,22.0,,,false,true,,,On: all day menu
-big-wallet-set,Big Wallet Set,Lunch sets,,888,43.0,98.0,34.0,17.0,,4.9,28.0,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-kids-boiled-broccoli-and-carrots,Kids Boiled Broccoli & Carrots,Kids set picks,,113,1.4,2.9,10.0,0.7,,1.6,2.1,,vegetarian,false,false,,,On: kids set
-spring-rolls-kids-set,Spring Rolls (kids set),Kids set picks,,100,1.7,20.0,1.5,0.3,,1.2,8.7,,vegetarian,false,false,,,On: kids set
-moo-ping-pork-skewers,Moo Ping Pork Skewers,Kids set picks,,222,13.0,19.0,10.0,3.1,,1.9,18.0,,contains_pork,false,false,,,On: kids set
-salt-and-pepper-squid-bites,Salt & Pepper Squid Bites,Kids set picks,,251,18.0,35.0,4.3,0.8,,2.5,9.1,,,false,false,,,On: kids set
-sticky-chicken-kids-set,Sticky Chicken (kids set),Kids set picks,,364,14.0,21.0,25.0,1.9,,1.9,9.6,,,false,false,,,On: kids set
-chicken-satay-skewers,Chicken Satay Skewers,Kids set picks,,187,13.0,14.0,8.5,2.9,,1.1,12.0,,,false,false,,,On: kids set
-mild-chicken-massaman-curry,Mild Chicken Massaman Curry,Kids set picks,,314,12.0,21.0,19.0,15.0,,2.7,12.0,,,false,false,,,On: kids set
-kids-mild-massaman-veg-curry,Kids Mild Massaman Veg Curry,Kids set picks,,556,10.0,80.0,20.0,15.0,,2.6,14.0,,vegetarian,false,false,,,On: kids set
-jasmine-rice-kids-set,Jasmine rice (kids set),Kids set picks,,259,5.2,57.0,0.6,0.2,,0.0,0.0,,vegetarian,false,false,,,On: kids set
-egg-fried-rice-kids-set,Egg Fried Rice (kids set),Kids set picks,,281,4.5,47.0,7.8,0.7,,0.5,1.4,,vegetarian,false,false,,,On: kids set
-stir-fry-yellow-noodles,Stir Fry Yellow Noodles,Kids set picks,,144,5.4,25.0,2.2,0.1,,1.6,1.2,,vegetarian,false,false,,,On: kids set
-cobra-zero-330ml,Cobra Zero (330ml),Drinks,,79,1.0,17.0,1.0,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu, click & collect menu, Deliveroo menu"
-mango-passion-smoothie,Mango Passion Smoothie,Drinks,,130,1.8,27.0,0.7,0.2,,0.0,26.0,,vegetarian,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
-pineapple-banana-coconut-smoothie,Pineapple Banana Coconut Smoothie,Drinks,,150,1.6,34.0,0.1,0.0,,0.0,31.0,,vegetarian,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
-pepsi,Pepsi,Drinks,,61,0.0,15.0,0.0,0.0,,0.0,15.0,,,false,false,,,"On: all day menu, Big Squids menu, drinks menu, click & collect menu, Deliveroo menu"
-pepsi-max,Pepsi Max,Drinks,,1,0.0,0.6,0.0,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, Big Squids menu, drinks menu, click & collect menu, Deliveroo menu"
-diet-pepsi,Diet Pepsi,Drinks,,2,0.0,0.0,0.0,0.0,,0.2,0.0,,,false,false,,,"On: all day menu, Big Squids menu, drinks menu, click & collect menu, Deliveroo menu"
-7up-zero,7up Zero,Drinks,,7,0.0,0.0,0.0,0.0,,0.1,0.0,,,false,false,,,"On: all day menu, Big Squids menu, drinks menu, click & collect menu, Deliveroo menu"
-thai-iced-coffee,Thai Iced Coffee,Drinks,,309,7.1,53.0,7.7,4.8,,0.3,52.0,,,false,false,,,"On: all day menu, drinks menu"
-caffe-latte,Caffe Latte,Drinks,,81,3.9,5.8,4.7,2.9,,0.2,4.7,,,false,false,,,"On: all day menu, drinks menu"
-double-espresso,Double Espresso,Drinks,,5,0.1,1.0,0.1,0.1,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu"
-single-espresso,Single Espresso,Drinks,,3,0.0,0.5,0.1,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu"
-flat-white,Flat White,Drinks,,58,5.6,7.8,0.5,0.2,,0.2,7.4,,,false,false,,,"On: all day menu, drinks menu"
-americano,Americano,Drinks,,4,0.0,0.7,0.1,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu"
-english-breakfast-tea,English Breakfast Tea,Drinks,,1,0.0,0.2,0.0,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu"
-organic-sencha-green,Organic Sencha Green,Drinks,,1,0.0,0.2,0.0,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu"
-jasmine-tea,Jasmine Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu"
-lemongrass-tea,Lemongrass Tea,Drinks,,17,0.5,3.8,0.1,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu"
-fresh-mint,Fresh Mint,Drinks,,2,0.2,0.2,0.0,0.0,,0.0,0.0,,,false,false,,,"On: all day menu, drinks menu"
-orange-juice,Orange Juice,Drinks,,76,1.2,16.0,0.0,0.0,,0.0,16.0,,vegetarian,false,false,,,On: kids menu
-cranberry-juice,Cranberry Juice,Drinks,,34,0.0,8.6,0.0,0.0,,0.0,8.6,,vegetarian,false,false,,,On: kids menu
-apple-juice,Apple Juice,Drinks,,90,0.2,22.0,0.0,0.0,,0.0,22.0,,vegetarian,false,false,,,On: kids menu
-pineapple-juice,Pineapple Juice,Drinks,,102,0.5,25.0,0.0,0.0,,0.0,25.0,,vegetarian,false,false,,,On: kids menu
-milk-kids,Milk - kids,Drinks,,127,6.8,8.8,7.2,4.6,,0.2,8.8,,vegetarian,false,false,,,On: kids menu
-fresh-orange-juice,Fresh Orange Juice,Drinks,,95,1.6,20.0,0.0,0.0,,0.0,20.0,,,false,false,,,"On: Big Squids menu, drinks menu"
-cloudy-lemonade,Cloudy Lemonade,Drinks,,77,0.5,18.0,0.5,0.3,,0.1,16.0,,,false,false,,,"On: Big Squids menu, drinks menu"
-applestina,Applestina,Drinks,,193,0.5,47.0,0.2,0.0,,0.1,42.0,,,false,false,,,On: drinks menu
-lychee-angel,Lychee Angel,Drinks,,205,0.2,51.0,0.1,0.0,,0.0,49.0,,,false,false,,,On: drinks menu
-feeling-fruity-cooler-strawberry,Feeling Fruity Cooler - Strawberry,Drinks,,111,0.2,27.0,0.1,0.0,,0.0,25.0,,,false,false,,,On: drinks menu
-feeling-fruity-cooler-mixed-berry,Feeling Fruity Cooler - Mixed Berry,Drinks,,131,0.2,32.0,0.1,26.0,,0.1,7.0,,,false,false,,,On: drinks menu
-virtue-mango-and-chilli-mocktail,Virtue Mango and Chilli Mocktail,Drinks,,94,0.7,22.0,0.5,0.0,,0.0,19.0,,,false,false,,,On: drinks menu
-sweet-jungle-colada,Sweet Jungle Colada,Drinks,,95,0.5,23.0,0.0,0.0,,0.0,21.0,,,false,false,,,On: drinks menu
-virgin-mojito,Virgin Mojito,Drinks,,150,1.8,34.0,0.2,0.0,,0.5,29.0,,,false,false,,,On: drinks menu
-white-peach-and-lemongrass-spritz,White Peach & Lemongrass Spritz,Drinks,,135,0.0,34.0,0.0,0.0,,0.2,31.0,,,false,false,,,On: drinks menu
-ginger-and-lemongrass-cooler,Ginger & Lemongrass Cooler,Drinks,,121,0.0,30.0,0.0,0.0,,0.2,27.0,,,false,false,,,On: drinks menu
-the-low-low-spritz,The Low Low Spritz,Drinks,,27,0.6,5.0,0.5,0.4,,0.1,3.4,,,false,false,,,On: drinks menu
-wildlife-botanical-sparkling-nude,Wildlife Botanical Sparkling Nude,Drinks,,43,1.2,7.2,1.0,0.8,,0.2,4.0,,vegetarian,false,false,,,On: drinks menu
-franklin-and-sons-lemonade,Franklin & Sons lemonade,Drinks,,80,0.0,20.0,0.0,0.0,,0.0,20.0,,,false,false,,,On: drinks menu
-britvic-soda-water,Britvic Soda Water,Drinks,,0,0.0,0.0,0.0,0.0,,0.1,0.0,,,false,false,,,On: drinks menu
-london-essence-original-tonic-water,London Essence Original Tonic Water,Drinks,,37,0.2,8.6,0.2,0.0,,0.2,8.6,,,false,false,,,On: drinks menu
-london-essence-pink-grapefruit-soda,London Essence Pink Grapefruit Soda,Drinks,,38,0.2,8.8,0.2,0.0,,0.0,8.8,,,false,false,,,"On: drinks menu, click & collect menu, Deliveroo menu"
-london-essence-white-peach-and-jasmine-tonic,London Essence White Peach & Jasmine Tonic,Drinks,,32,0.0,8.0,0.0,0.0,,0.0,8.0,,,false,false,,,On: drinks menu
-london-essence-raspberry-and-rose-tonic,London Essence Raspberry & Rose Tonic,Drinks,,35,0.0,8.8,0.0,0.0,,0.0,8.8,,,false,false,,,On: drinks menu
-london-essence-roasted-pineapple-crafted-soda,London Essence Roasted Pineapple Crafted Soda,Drinks,,36,0.0,9.0,0.0,0.0,,0.0,9.0,,,false,false,,,"On: drinks menu, click & collect menu, Deliveroo menu"
-london-essence-ginger-ale,London Essence Ginger Ale,Drinks,,34,0.0,8.4,0.0,0.0,,0.0,8.4,,,false,false,,,On: drinks menu
-trip-mindful-blend-wild-strawberry,TRIP Mindful Blend - Wild Strawberry,Drinks,,23,0.0,5.8,0.0,0.0,,0.0,4.0,,,false,false,,,On: drinks menu
-trip-mindful-blend-apple-blossom,TRIP Mindful Blend - Apple Blossom,Drinks,,27,0.0,6.8,0.0,0.0,,0.0,4.5,,,false,false,,,On: drinks menu
-mango-passion-smoothie-drinks-menu,Mango Passion Smoothie (drinks menu),Drinks,,125,0.9,29.0,0.5,0.3,,0.0,26.0,,,false,false,,,On: drinks menu
-pineapple-banana-coconut-smoothie-drinks-menu,Pineapple Banana Coconut Smoothie (drinks menu),Drinks,,166,1.3,34.0,2.8,2.5,,0.0,26.0,,,false,false,,,On: drinks menu
-cranberry-juice-drinks-menu,Cranberry Juice (drinks menu),Drinks,,43,0.0,11.0,0.0,0.0,,0.0,11.0,,,false,false,,,On: drinks menu
-organic-coconut-water,Organic Coconut Water,Drinks,,60,0.0,15.0,0.0,0.0,,0.0,15.0,,vegetarian,false,false,,,"On: drinks menu, click & collect menu, Deliveroo menu"
-ginger-beer,Ginger Beer,Drinks,,58,0.0,15.0,0.0,0.0,,0.1,15.0,,,false,false,,,"On: drinks menu, click & collect menu, Deliveroo menu"
-singha-ume-lemonade,Singha Ume Lemonade,Drinks,,0,0.0,0.0,0.0,0.0,,0.3,0.0,,,false,false,,,On: drinks menu
-thai-tea-served-chilled,Thai Tea (Served Chilled),Drinks,,62,2.1,8.0,2.3,1.5,,0.1,8.0,,,false,false,,,On: drinks menu
-harmony-tea,Harmony Tea,Drinks,,10,0.2,2.2,0.0,0.0,,0.0,1.8,,,false,false,,,On: drinks menu
-macchiato,Macchiato,Drinks,,49,2.6,3.6,2.7,1.7,,0.1,3.3,,,false,false,,,On: drinks menu
-cappuccino,Cappuccino,Drinks,,52,3.8,5.7,1.5,1.0,,0.1,4.4,,,false,false,,,On: drinks menu
-prawn-crackers,Prawn Crackers,Nibbles & bar snacks,,203,2.9,47.0,0.5,0.0,,3.2,15.0,,,false,false,,,"On: all day menu, Big Squids menu, non gluten menu, click & collect menu, Deliveroo menu"
-golden-money-bags,Golden Money Bags,Nibbles & bar snacks,,215,10.0,37.0,2.6,1.2,,1.6,12.0,,,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
-crunchy-noodle-nests,Crunchy Noodle Nests,Nibbles & bar snacks,,266,4.4,48.0,5.7,2.4,,1.0,10.0,,,false,false,,,page marks it vegetarian but its own text names pork: no diet tags given; On: all day menu
-spicy-popcorn-chicken,Spicy Popcorn Chicken,Nibbles & bar snacks,,219,29.0,17.0,3.3,0.7,,0.9,3.3,,,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
-golden-flying-prawns,Golden Flying Prawns,Nibbles & bar snacks,,138,15.0,11.0,3.8,1.1,,0.7,0.6,,,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
-thai-crispy-chicken-wings,Thai Crispy Chicken Wings,Nibbles & bar snacks,,522,30.0,40.0,26.0,6.3,,6.4,15.0,,,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
-chilli-chickpeas,Chilli Chickpeas,Nibbles & bar snacks,,436,21.0,61.0,7.6,1.3,,0.6,2.4,,vegetarian,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
-street-food-sharer,Street Food Sharer,Sharing platters,,434,24.0,46.0,17.0,4.5,,4.4,22.0,,contains_pork,false,false,,,On: all day menu
-bangkok-bites,Bangkok Bites,Sharing platters,,379,30.0,28.0,16.0,4.6,,1.9,16.0,,contains_beef,false,false,,,On: all day menu
-satay-four-ways,Satay Four Ways,Sharing platters,,259,23.0,17.0,11.0,3.3,,3.0,15.0,,contains_pork,false,false,,,"On: all day menu, non gluten menu"
-salt-and-pepper-squid,Salt & Pepper Squid,Sides & sharers,,390,30.0,48.0,8.1,1.3,,4.5,17.0,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-tall-husbands-favourite,Tall Husband's Favourite,Sides & sharers,,508,17.0,75.0,15.0,5.0,,6.7,57.0,,,false,true,,,"On: all day menu, non gluten menu"
-prawn-and-squid-herb-lettuce-cups,Prawn & Squid Herb Lettuce Cups,Sides & sharers,,166,19.0,12.0,4.3,2.5,,2.5,5.6,,,false,true,,,"On: all day menu, non gluten menu"
-caramelised-pork-belly,Caramelised Pork Belly,Sides & sharers,,769,58.0,43.0,40.0,16.0,,3.7,23.0,,contains_pork,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-classic-papaya-salad,Classic Papaya Salad,Sides & sharers,,232,9.5,32.0,5.8,1.0,,3.7,24.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-tamarind-mushrooms-and-greens,Tamarind Mushrooms & Greens,Sides & sharers,,397,15.0,59.0,9.6,1.5,,0.4,28.0,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-veg-spring-rolls,Veg Spring Rolls,Sides & sharers,,285,5.3,55.0,4.7,0.8,,3.7,21.0,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-yummy-duck-spring-rolls,Yummy Duck Spring Rolls,Sides & sharers,,382,17.0,25.0,23.0,6.3,,2.1,23.0,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-moo-ping,Moo Ping,Sides & sharers,,402,19.0,38.0,19.0,4.7,,3.2,34.0,,contains_pork,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-salt-and-pepper-chilli-mushrooms,Salt & Pepper Chilli Mushrooms,Sides & sharers,,341,8.2,49.0,12.0,1.3,,1.4,8.3,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-samui-zingy-prawns,Samui Zingy Prawns,Sides & sharers,,140,17.0,11.0,2.6,0.5,,4.1,8.6,,,false,true,,,"On: all day menu, non gluten menu"
-khao-mok-pla,Khao Mok Pla,Sides & sharers,,1036,59.0,102.0,42.0,7.8,,5.0,3.9,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-khao-mok-moo,Khao Mok Moo,Sides & sharers,,766,23.0,100.0,29.0,4.7,,5.6,11.0,,contains_pork,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-chicken-satay,Chicken Satay,Sides & sharers,,423,25.0,32.0,21.0,5.8,,4.0,22.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-yellow-noodle-tamarind-duck,Yellow Noodle Tamarind Duck,Noodles,,520,34.0,59.0,16.0,3.2,,8.8,12.0,,contains_pork,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-chicken-and-prawn-glass-noodles,Chicken & Prawn Glass Noodles,Noodles,,228,21.0,13.0,9.9,2.8,,2.0,4.5,,,false,true,,,"On: all day menu, non gluten menu"
-live-long-noodles,Live Long Noodles,Noodles,,489,14.0,58.0,21.0,1.4,,6.8,17.0,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-garlic-steamed-noodles,Garlic Steamed Noodles,Noodles,,425,9.7,81.0,6.4,0.8,,1.6,2.4,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-giant-butterfly-king-prawn-pad-thai,Giant Butterfly King Prawn Pad Thai,Noodles,,984,47.0,96.0,45.0,5.2,,4.4,27.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-pad-thai-chicken,Pad Thai - Chicken,Noodles,,1076,34.0,89.0,64.0,6.3,,4.1,30.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-pad-thai-prawn,Pad Thai - Prawn,Noodles,,1085,36.0,89.0,64.0,6.3,,4.4,30.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-pad-thai-chicken-and-prawn,Pad Thai - Chicken & Prawn,Noodles,,1122,44.0,89.0,64.0,6.4,,4.5,30.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-pad-thai-vegetable,Pad Thai - Vegetable,Noodles,,1042,23.0,92.0,64.0,6.3,,4.0,32.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-pad-thai-vegan,Pad Thai - Vegan,Noodles,,970,16.0,92.0,59.0,4.9,,3.8,32.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-drunken-noodles-chicken,Drunken Noodles - Chicken,Noodles,,948,25.0,138.0,32.0,2.9,,9.0,13.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-drunken-noodles-prawn,Drunken Noodles - Prawn,Noodles,,957,28.0,138.0,32.0,2.9,,9.3,13.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-drunken-noodles-chicken-and-prawns,Drunken Noodles - Chicken & Prawns,Noodles,,994,36.0,138.0,32.0,3.0,,9.4,13.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-drunken-noodles-vegetable,Drunken Noodles - Vegetable,Noodles,,908,15.0,139.0,31.0,2.8,,8.9,14.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-sticky-chicken,Sticky Chicken,Stir fries,,567,35.0,71.0,14.0,1.9,,3.8,18.0,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-wholesome-cashew-stir-fry-duck,Wholesome Cashew Stir Fry - Duck,Stir fries,,480,32.0,21.0,29.0,5.3,,5.1,12.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-wholesome-cashew-stir-fry-chicken,Wholesome Cashew Stir Fry - Chicken,Stir fries,,424,28.0,20.0,24.0,3.9,,4.5,12.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-wholesome-cashew-stir-fry-prawn,Wholesome Cashew Stir Fry - Prawn,Stir fries,,422,27.0,20.0,25.0,3.8,,4.9,12.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-wholesome-cashew-stir-fry-vegetable,Wholesome Cashew Stir Fry - Vegetable,Stir fries,,396,14.0,23.0,26.0,3.9,,4.4,14.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-chilli-and-basil-gra-pao-chicken,Chilli & Basil Gra Pao - Chicken,Stir fries,,300,23.0,12.0,17.0,1.4,,5.4,5.5,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-chilli-and-basil-gra-pao-prawn,Chilli & Basil Gra Pao - Prawn,Stir fries,,295,22.0,12.0,17.0,1.4,,5.7,5.5,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-chilli-and-basil-gra-pao-slow-cooked-beef,Chilli & Basil Gra Pao - Slow-cooked Beef,Stir fries,,352,28.0,14.0,19.0,2.4,,5.8,7.4,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-chilli-and-basil-gra-pao-vegetable,Chilli & Basil Gra Pao - Vegetable,Stir fries,,246,6.9,15.0,16.0,1.2,,5.0,8.2,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-feisty-chicken-khua-kling,Feisty Chicken Khua Kling,Stir fries,,442,33.0,23.0,23.0,1.8,,6.6,11.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-spicy-crispy-pork-belly,Spicy Crispy Pork Belly,Stir fries,,505,36.0,20.0,30.0,9.0,,6.5,7.3,,contains_pork,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-morning-glory,Morning Glory,Stir fries,,219,7.9,7.6,16.0,1.0,,5.3,3.0,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-pak-choi-and-tenderstems,Pak Choi & Tenderstems,Stir fries,,228,7.1,7.5,18.0,1.1,,4.5,4.9,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-lamb-shank-massaman,Lamb Shank Massaman,Big appetites,,1088,45.0,55.0,73.0,44.0,,7.8,31.0,,,false,true,,,"On: all day menu, non gluten menu"
-red-duck-rising-star,Red Duck Rising Star,Big appetites,,706,46.0,29.0,43.0,25.0,,7.1,23.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-tamarind-duck-confit,Tamarind Duck Confit,Big appetites,,1011,44.0,78.0,58.0,17.0,,6.2,67.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-melting-beef,Thai Melting Beef,Big appetites,,541,46.0,29.0,25.0,15.0,,5.6,19.0,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-sea-bass-samun-prai,Sea Bass Samun Prai,Seafood specials,,1431,129.0,79.0,64.0,14.0,,5.3,53.0,,contains_pork,false,true,,,On: all day menu
-prawn-and-soft-shell-crab,Prawn & Soft Shell Crab,Seafood specials,,619,24.0,47.0,35.0,14.0,,2.7,12.0,,,false,true,,,On: all day menu
-whole-sea-bass-green-curry,Whole Sea Bass Green Curry,Seafood specials,,1279,124.0,33.0,70.0,27.0,,4.4,21.0,,,false,true,,,"On: all day menu, non gluten menu"
-chilli-lime-sea-bass,Chilli Lime Sea Bass,Seafood specials,,412,34.0,40.0,9.8,2.1,,10.4,28.0,,,false,true,,,"On: all day menu, non gluten menu"
-steamed-seafood-feast,Steamed Seafood Feast,Seafood specials,,651,81.0,33.0,20.0,4.4,,10.9,22.0,,,false,true,,,"On: all day menu, non gluten menu"
-red-prawn-hot-pot,Red Prawn Hot Pot,Seafood specials,,575,26.0,28.0,38.0,26.0,,6.4,21.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-salmon-paneang,Salmon Paneang,Seafood specials,,1028,45.0,49.0,70.0,36.0,,7.1,25.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-green-curry-chicken,Thai Green Curry - Chicken,Curries,,597,24.0,31.0,40.0,32.0,,6.1,24.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-green-curry-slow-cooked-beef,Thai Green Curry - Slow Cooked Beef,Curries,,645,29.0,33.0,42.0,33.0,,6.3,26.0,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-green-curry-prawn,Thai Green Curry - Prawn,Curries,,589,23.0,31.0,39.0,32.0,,6.5,24.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-green-curry-vegetable,Thai Green Curry - Vegetable,Curries,,614,16.0,35.0,42.0,32.0,,6.0,28.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-red-curry-chicken,Thai Red Curry - Chicken,Curries,,608,24.0,31.0,40.0,32.0,,5.9,26.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-red-curry-slow-cooked-beef,Thai Red Curry - Slow-cooked Beef,Curries,,656,29.0,34.0,42.0,33.0,,6.0,28.0,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-red-curry-prawn,Thai Red Curry - Prawn,Curries,,600,23.0,31.0,40.0,32.0,,6.2,26.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-thai-red-curry-vegetable,Thai Red Curry - Vegetable,Curries,,625,16.0,36.0,43.0,33.0,,5.8,30.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-paneang-curry-chicken,Paneang Curry - Chicken,Curries,,608,30.0,30.0,39.0,30.0,,4.7,24.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-paneang-curry-slow-cooked-beef,Paneang Curry - Slow-cooked Beef,Curries,,650,33.0,33.0,41.0,31.0,,4.9,26.0,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-paneang-curry-prawn,Paneang Curry - Prawn,Curries,,568,22.0,30.0,38.0,30.0,,5.0,24.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-paneang-curry-vegetable,Paneang Curry - Vegetable,Curries,,594,15.0,35.0,41.0,31.0,,4.6,27.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-massaman-curry-chicken,Massaman Curry - Chicken,Curries,,770,28.0,48.0,49.0,34.0,,5.9,27.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-massaman-curry-slow-cooked-beef,Massaman Curry - Slow-cooked Beef,Curries,,818,33.0,51.0,51.0,34.0,,6.0,29.0,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-massaman-curry-prawn,Massaman Curry - Prawn,Curries,,761,27.0,48.0,48.0,33.0,,6.2,27.0,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-massaman-curry-vegetable,Massaman Curry - Vegetable,Curries,,776,20.0,51.0,51.0,34.0,,5.8,29.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-jungle-firepot,Jungle Firepot,Curries,,318,23.0,31.0,9.5,3.9,,4.3,18.0,,contains_beef,false,true,,,"On: all day menu, non gluten menu"
-jasmine-rice,Jasmine rice,Rice & roti,,380,7.6,84.0,0.9,0.4,,0.0,0.1,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-sticky-rice,Sticky Rice,Rice & roti,,510,9.8,108.0,4.2,3.7,,0.0,0.5,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-egg-fried-rice,Egg Fried Rice,Rice & roti,,412,6.5,69.0,11.0,1.0,,0.7,2.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-coconut-rice,Coconut Rice,Rice & roti,,401,7.5,78.0,6.1,4.6,,0.3,2.0,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
-roti,Roti,Rice & roti,,528,6.2,70.0,22.0,9.3,,1.0,5.1,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
-thai-apple-pie-spring-rolls,Thai Apple Pie Spring Rolls,Desserts,,424,4.0,52.0,22.0,9.1,,0.3,38.0,,vegetarian,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
-coconut-pudding-with-mango-lime-sauce,Coconut Pudding with Mango Lime Sauce,Desserts,,378,2.2,42.0,22.0,20.0,,0.2,34.0,,vegetarian,false,false,,,"On: all day menu, non gluten menu"
-mother-in-laws-chocolate-mousse,Mother in Law's Chocolate Mousse,Desserts,,292,3.1,23.0,20.0,12.0,,0.0,22.0,,vegetarian,false,false,,,"On: all day menu, non gluten menu"
-lychee-yoghurt-ice-cream,Lychee Yoghurt Ice Cream,Desserts,,184,4.0,26.0,7.0,4.1,,0.0,25.0,,vegetarian,false,false,,,"On: all day menu, non gluten menu"
-thai-salted-caramel-ice-cream,Thai Salted Caramel Ice Cream,Desserts,,208,4.0,30.0,7.8,4.8,,0.8,29.0,,vegetarian,false,false,,,On: all day menu
-pineapple-and-coconut-sorbet,Pineapple & Coconut Sorbet,Desserts,,122,0.6,24.0,2.6,1.9,,0.0,24.0,,vegetarian,false,false,,,"On: all day menu, Big Squids menu, non gluten menu"
-cookies-and-cream-ice-cream,Cookies & Cream Ice Cream,Desserts,,222,4.1,31.0,9.1,5.3,,0.2,27.0,,vegetarian,false,false,,,On: all day menu
-vanilla-ice-cream,Vanilla Ice Cream,Desserts,,206,3.8,25.0,9.8,6.2,,0.2,25.0,,vegetarian,false,false,,,"On: all day menu, Big Squids menu, non gluten menu"
-jelly-beans,Jelly Beans,Desserts,,33,0.0,8.1,0.0,0.0,,0.0,5.4,,vegetarian,false,false,,,On: all day menu
-roti-with-condensed-milk-and-a-sprinkle-of-sugar,Roti with Condensed Milk and a Sprinkle of Sugar,Desserts,,321,5.4,41.0,14.0,6.4,,0.6,8.4,,vegetarian,false,false,,,"On: kids menu, Big Squids menu"
-vanilla,Vanilla,Desserts,,124,2.3,16.0,5.1,3.1,,0.1,16.0,,vegetarian,false,false,,,On: kids menu
-cookies-and-cream-ice-cream-kids-menu-big-squids-menu,Cookies & Cream Ice Cream (kids menu / Big Squids menu),Desserts,,132,2.4,19.0,4.7,2.7,,0.1,17.0,,vegetarian,false,false,,,"On: kids menu, Big Squids menu"
-lychee-ice-cream,Lychee Ice Cream,Desserts,,113,2.4,17.0,3.7,2.1,,0.0,16.0,,vegetarian,false,false,,,"On: kids menu, Big Squids menu"
-thai-salted-caramel-ice-cream-kids-menu-big-squids-menu,Thai Salted Caramel Ice Cream (kids menu / Big Squids menu),Desserts,,125,2.3,19.0,4.1,2.4,,0.4,18.0,,vegetarian,false,false,,,"On: kids menu, Big Squids menu"
-caramel-and-chocolate-lollipop,Caramel and Chocolate Lollipop,Desserts,,63,0.8,5.8,4.0,2.6,,0.1,4.8,,vegetarian,false,false,,,On: Big Squids menu
-black-sesame-ice-cream,Black Sesame Ice Cream,Desserts,,219,4.8,28.0,9.1,4.9,,0.1,28.0,,vegetarian,false,false,,,On: Big Squids menu
-jasmine-and-toasted-rice-ice-cream,Jasmine & Toasted Rice Ice Cream,Desserts,,177,4.4,23.0,7.6,4.4,,0.1,22.0,,vegetarian,false,false,,,On: Big Squids menu
-spring-rolls,Spring Rolls,Big Squids sides,,176,3.2,34.0,3.0,0.5,,1.9,12.0,,vegetarian,false,true,,,On: Big Squids menu
-chicken-satay-big-squids-menu,Chicken Satay (Big Squids menu),Big Squids sides,,218,14.0,16.0,10.0,4.1,,1.6,14.0,,,false,true,,,On: Big Squids menu
-chicken-thai-green-curry,Chicken Thai Green Curry,Big Squids mains,,651,22.0,77.0,26.0,21.0,,3.8,16.0,,,false,true,,,On: Big Squids menu
-thai-green-curry-vegetable-big-squids-menu,Thai Green Curry - Vegetable (Big Squids menu),Big Squids mains,,667,17.0,81.0,28.0,21.0,,3.8,20.0,,vegetarian,false,true,,,On: Big Squids menu
-thai-red-curry-chicken-big-squids-menu,Thai Red Curry - Chicken (Big Squids menu),Big Squids mains,,657,22.0,77.0,27.0,21.0,,3.7,18.0,,,false,true,,,On: Big Squids menu
-thai-red-curry-vegetable-big-squids-menu,Thai Red Curry - Vegetable (Big Squids menu),Big Squids mains,,716,18.0,82.0,32.0,22.0,,3.6,21.0,,vegetarian,false,true,,,On: Big Squids menu
-massaman-curry-chicken-with-jasmine-rice,Massaman Curry Chicken with Jasmine Rice,Big Squids mains,,1150,36.0,132.0,50.0,34.0,,5.9,27.0,,,false,true,,,On: Big Squids menu
-massaman-curry-vegetable-with-jasmine-rice,Massaman Curry Vegetable with Jasmine Rice,Big Squids mains,,1156,28.0,135.0,52.0,34.0,,5.8,29.0,,vegetarian,false,true,,,On: Big Squids menu
-giggling-pad-thai-chicken,Giggling Pad Thai - Chicken,Big Squids mains,,769,32.0,60.0,44.0,4.9,,3.1,22.0,,,false,true,,,On: Big Squids menu
-giggling-pad-thai-prawn,Giggling Pad Thai - Prawn,Big Squids mains,,775,33.0,60.0,44.0,4.9,,3.4,22.0,,,false,true,,,On: Big Squids menu
-giggling-pad-thai-vegan,Giggling Pad Thai - Vegan,Big Squids mains,,664,14.0,62.0,39.0,3.4,,2.8,24.0,,vegetarian,false,true,,,On: Big Squids menu
-sizzle-and-tang-stir-fry-noodles,Sizzle & Tang Stir Fry Noodles,Big Squids mains,,490,15.0,86.0,8.3,0.6,,9.1,38.0,,,false,true,,,"page marks it vegetarian but its own text names pork: no diet tags given; On: Big Squids menu, click & collect menu, Deliveroo menu"
-feisty-chicken-stir-fry,Feisty Chicken Stir Fry,Big Squids mains,,511,33.0,66.0,12.0,2.3,,5.7,4.0,,,false,true,,,On: Big Squids menu
-red-curry-lunch-box-chicken,Red Curry Lunch Box - Chicken,Lunch boxes,,801,29.0,105.0,27.0,21.0,,3.7,17.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-red-curry-lunch-box-prawns,Red Curry Lunch Box - Prawns,Lunch boxes,,800,30.0,105.0,27.0,21.0,,4.1,17.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-red-curry-lunch-box-vegetable,Red Curry Lunch Box - Vegetable,Lunch boxes,,861,26.0,109.0,32.0,22.0,,3.7,20.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-green-curry-lunch-box-chicken,Green Curry Lunch Box - Chicken,Lunch boxes,,794,29.0,104.0,27.0,21.0,,3.9,16.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-green-curry-lunch-box-prawns,Green Curry Lunch Box - Prawns,Lunch boxes,,793,30.0,104.0,26.0,21.0,,4.3,16.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-green-curry-lunch-box-vegetable,Green Curry Lunch Box - Vegetable,Lunch boxes,,854,26.0,108.0,32.0,22.0,,3.8,19.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-giggling-pad-thai-lunch-box-chicken,Giggling PAd Thai Lunch Box - Chicken,Lunch boxes,,1044,34.0,81.0,64.0,6.4,,3.1,22.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-giggling-pad-thai-lunch-box-prawns,Giggling PAd Thai Lunch Box - Prawns,Lunch boxes,,1068,40.0,81.0,64.0,6.4,,3.5,22.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-giggling-pad-thai-lunch-box-vegetable,Giggling PAd Thai Lunch Box - Vegetable,Lunch boxes,,1010,23.0,83.0,64.0,6.3,,3.0,24.0,,vegetarian,false,true,,,"On: click & collect menu, Deliveroo menu"
-giggling-pad-thai-lunch-box-vegan,Giggling PAd Thai Lunch Box - Vegan,Lunch boxes,,939,16.0,83.0,59.0,4.9,,2.8,24.0,,vegetarian,false,true,,,"On: click & collect menu, Deliveroo menu"
-lamb-massaman-and-jasmine-rice,Lamb Massaman & Jasmine rice,Lunch boxes,,800,30.0,113.0,24.0,13.0,,2.3,15.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-sticky-chicken-and-yellow-noodles,Sticky Chicken and Yellow Noodles,Lunch boxes,,593,25.0,60.0,27.0,2.0,,5.8,7.1,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-salt-and-pepper-squid-nuggets,Salt & Pepper Squid Nuggets,Lunch boxes,,361,30.0,41.0,8.1,1.3,,3.7,11.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-seabass-gra-pao-and-egg-with-jasmine-rice,Seabass Gra Pao & Egg with Jasmine Rice,Lunch boxes,,1055,68.0,103.0,39.0,6.8,,6.0,5.5,,,false,true,,,On: click & collect menu
-feisty-chicken-stir-fry-and-jasmine-rice,Feisty Chicken Stir Fry & Jasmine rice,Lunch boxes,,769,35.0,93.0,27.0,3.4,,5.7,4.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
-thai-melting-beef-showstoppers,Thai Melting Beef (Showstoppers),Showstoppers,,683,51.0,35.0,35.0,22.0,,5.2,27.0,,contains_beef,false,true,,,"On: click & collect menu, Deliveroo menu"
-rising-star-red-duck-curry,Rising Star Red Duck Curry,Showstoppers,,730,47.0,33.0,43.0,25.0,,8.5,26.0,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+forager-set,Forager Set,Lunch sets,,736,17.0,106.0,25.0,15.0,,3.8,25.0,,,,,,,,,false,true,,,"page marks it vegetarian but its own text names pork: no diet tags given; On: all day menu, click & collect menu, Deliveroo menu"
+amber-honey-set,Amber Honey Set,Lunch sets,,835,37.0,93.0,34.0,5.0,,3.8,20.0,,,,,,,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+scrummy-set,Scrummy Set,Lunch sets,,951,44.0,112.0,34.0,19.0,,4.9,31.0,,,,,,,,contains_pork,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+bangkok-chinatown-set,Bangkok Chinatown Set,Lunch sets,,658,40.0,86.0,16.0,3.0,,7.6,11.0,,,,,,,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+melt-in-mouth-set,Melt in Mouth Set,Lunch sets,,792,32.0,97.0,28.0,19.0,,3.6,32.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+sea-breeze-set,Sea Breeze Set,Lunch sets,,479,42.0,44.0,13.0,2.4,,6.6,22.0,,,,,,,,,false,true,,,On: all day menu
+big-wallet-set,Big Wallet Set,Lunch sets,,888,43.0,98.0,34.0,17.0,,4.9,28.0,,,,,,,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+kids-boiled-broccoli-and-carrots,Kids Boiled Broccoli & Carrots,Kids set picks,,113,1.4,2.9,10.0,0.7,,1.6,2.1,,,,,,,,vegetarian,false,false,,,On: kids set
+spring-rolls-kids-set,Spring Rolls (kids set),Kids set picks,,100,1.7,20.0,1.5,0.3,,1.2,8.7,,,,,,,,vegetarian,false,false,,,On: kids set
+moo-ping-pork-skewers,Moo Ping Pork Skewers,Kids set picks,,222,13.0,19.0,10.0,3.1,,1.9,18.0,,,,,,,,contains_pork,false,false,,,On: kids set
+salt-and-pepper-squid-bites,Salt & Pepper Squid Bites,Kids set picks,,251,18.0,35.0,4.3,0.8,,2.5,9.1,,,,,,,,,false,false,,,On: kids set
+sticky-chicken-kids-set,Sticky Chicken (kids set),Kids set picks,,364,14.0,21.0,25.0,1.9,,1.9,9.6,,,,,,,,,false,false,,,On: kids set
+chicken-satay-skewers,Chicken Satay Skewers,Kids set picks,,187,13.0,14.0,8.5,2.9,,1.1,12.0,,,,,,,,,false,false,,,On: kids set
+mild-chicken-massaman-curry,Mild Chicken Massaman Curry,Kids set picks,,314,12.0,21.0,19.0,15.0,,2.7,12.0,,,,,,,,,false,false,,,On: kids set
+kids-mild-massaman-veg-curry,Kids Mild Massaman Veg Curry,Kids set picks,,556,10.0,80.0,20.0,15.0,,2.6,14.0,,,,,,,,vegetarian,false,false,,,On: kids set
+jasmine-rice-kids-set,Jasmine rice (kids set),Kids set picks,,259,5.2,57.0,0.6,0.2,,0.0,0.0,,,,,,,,vegetarian,false,false,,,On: kids set
+egg-fried-rice-kids-set,Egg Fried Rice (kids set),Kids set picks,,281,4.5,47.0,7.8,0.7,,0.5,1.4,,,,,,,,vegetarian,false,false,,,On: kids set
+stir-fry-yellow-noodles,Stir Fry Yellow Noodles,Kids set picks,,144,5.4,25.0,2.2,0.1,,1.6,1.2,,,,,,,,vegetarian,false,false,,,On: kids set
+cobra-zero-330ml,Cobra Zero (330ml),Drinks,,79,1.0,17.0,1.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu, click & collect menu, Deliveroo menu"
+mango-passion-smoothie,Mango Passion Smoothie,Drinks,,130,1.8,27.0,0.7,0.2,,0.0,26.0,,,,,,,,vegetarian,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
+pineapple-banana-coconut-smoothie,Pineapple Banana Coconut Smoothie,Drinks,,150,1.6,34.0,0.1,0.0,,0.0,31.0,,,,,,,,vegetarian,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
+pepsi,Pepsi,Drinks,,61,0.0,15.0,0.0,0.0,,0.0,15.0,,,,,,,,,false,false,,,"On: all day menu, Big Squids menu, drinks menu, click & collect menu, Deliveroo menu"
+pepsi-max,Pepsi Max,Drinks,,1,0.0,0.6,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, Big Squids menu, drinks menu, click & collect menu, Deliveroo menu"
+diet-pepsi,Diet Pepsi,Drinks,,2,0.0,0.0,0.0,0.0,,0.2,0.0,,,,,,,,,false,false,,,"On: all day menu, Big Squids menu, drinks menu, click & collect menu, Deliveroo menu"
+7up-zero,7up Zero,Drinks,,7,0.0,0.0,0.0,0.0,,0.1,0.0,,,,,,,,,false,false,,,"On: all day menu, Big Squids menu, drinks menu, click & collect menu, Deliveroo menu"
+thai-iced-coffee,Thai Iced Coffee,Drinks,,309,7.1,53.0,7.7,4.8,,0.3,52.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+caffe-latte,Caffe Latte,Drinks,,81,3.9,5.8,4.7,2.9,,0.2,4.7,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+double-espresso,Double Espresso,Drinks,,5,0.1,1.0,0.1,0.1,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+single-espresso,Single Espresso,Drinks,,3,0.0,0.5,0.1,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+flat-white,Flat White,Drinks,,58,5.6,7.8,0.5,0.2,,0.2,7.4,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+americano,Americano,Drinks,,4,0.0,0.7,0.1,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+english-breakfast-tea,English Breakfast Tea,Drinks,,1,0.0,0.2,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+organic-sencha-green,Organic Sencha Green,Drinks,,1,0.0,0.2,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+jasmine-tea,Jasmine Tea,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+lemongrass-tea,Lemongrass Tea,Drinks,,17,0.5,3.8,0.1,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+fresh-mint,Fresh Mint,Drinks,,2,0.2,0.2,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,"On: all day menu, drinks menu"
+orange-juice,Orange Juice,Drinks,,76,1.2,16.0,0.0,0.0,,0.0,16.0,,,,,,,,vegetarian,false,false,,,On: kids menu
+cranberry-juice,Cranberry Juice,Drinks,,34,0.0,8.6,0.0,0.0,,0.0,8.6,,,,,,,,vegetarian,false,false,,,On: kids menu
+apple-juice,Apple Juice,Drinks,,90,0.2,22.0,0.0,0.0,,0.0,22.0,,,,,,,,vegetarian,false,false,,,On: kids menu
+pineapple-juice,Pineapple Juice,Drinks,,102,0.5,25.0,0.0,0.0,,0.0,25.0,,,,,,,,vegetarian,false,false,,,On: kids menu
+milk-kids,Milk - kids,Drinks,,127,6.8,8.8,7.2,4.6,,0.2,8.8,,,,,,,,vegetarian,false,false,,,On: kids menu
+fresh-orange-juice,Fresh Orange Juice,Drinks,,95,1.6,20.0,0.0,0.0,,0.0,20.0,,,,,,,,,false,false,,,"On: Big Squids menu, drinks menu"
+cloudy-lemonade,Cloudy Lemonade,Drinks,,77,0.5,18.0,0.5,0.3,,0.1,16.0,,,,,,,,,false,false,,,"On: Big Squids menu, drinks menu"
+applestina,Applestina,Drinks,,193,0.5,47.0,0.2,0.0,,0.1,42.0,,,,,,,,,false,false,,,On: drinks menu
+lychee-angel,Lychee Angel,Drinks,,205,0.2,51.0,0.1,0.0,,0.0,49.0,,,,,,,,,false,false,,,On: drinks menu
+feeling-fruity-cooler-strawberry,Feeling Fruity Cooler - Strawberry,Drinks,,111,0.2,27.0,0.1,0.0,,0.0,25.0,,,,,,,,,false,false,,,On: drinks menu
+feeling-fruity-cooler-mixed-berry,Feeling Fruity Cooler - Mixed Berry,Drinks,,131,0.2,32.0,0.1,26.0,,0.1,7.0,,,,,,,,,false,false,,,On: drinks menu
+virtue-mango-and-chilli-mocktail,Virtue Mango and Chilli Mocktail,Drinks,,94,0.7,22.0,0.5,0.0,,0.0,19.0,,,,,,,,,false,false,,,On: drinks menu
+sweet-jungle-colada,Sweet Jungle Colada,Drinks,,95,0.5,23.0,0.0,0.0,,0.0,21.0,,,,,,,,,false,false,,,On: drinks menu
+virgin-mojito,Virgin Mojito,Drinks,,150,1.8,34.0,0.2,0.0,,0.5,29.0,,,,,,,,,false,false,,,On: drinks menu
+white-peach-and-lemongrass-spritz,White Peach & Lemongrass Spritz,Drinks,,135,0.0,34.0,0.0,0.0,,0.2,31.0,,,,,,,,,false,false,,,On: drinks menu
+ginger-and-lemongrass-cooler,Ginger & Lemongrass Cooler,Drinks,,121,0.0,30.0,0.0,0.0,,0.2,27.0,,,,,,,,,false,false,,,On: drinks menu
+the-low-low-spritz,The Low Low Spritz,Drinks,,27,0.6,5.0,0.5,0.4,,0.1,3.4,,,,,,,,,false,false,,,On: drinks menu
+wildlife-botanical-sparkling-nude,Wildlife Botanical Sparkling Nude,Drinks,,43,1.2,7.2,1.0,0.8,,0.2,4.0,,,,,,,,vegetarian,false,false,,,On: drinks menu
+franklin-and-sons-lemonade,Franklin & Sons lemonade,Drinks,,80,0.0,20.0,0.0,0.0,,0.0,20.0,,,,,,,,,false,false,,,On: drinks menu
+britvic-soda-water,Britvic Soda Water,Drinks,,0,0.0,0.0,0.0,0.0,,0.1,0.0,,,,,,,,,false,false,,,On: drinks menu
+london-essence-original-tonic-water,London Essence Original Tonic Water,Drinks,,37,0.2,8.6,0.2,0.0,,0.2,8.6,,,,,,,,,false,false,,,On: drinks menu
+london-essence-pink-grapefruit-soda,London Essence Pink Grapefruit Soda,Drinks,,38,0.2,8.8,0.2,0.0,,0.0,8.8,,,,,,,,,false,false,,,"On: drinks menu, click & collect menu, Deliveroo menu"
+london-essence-white-peach-and-jasmine-tonic,London Essence White Peach & Jasmine Tonic,Drinks,,32,0.0,8.0,0.0,0.0,,0.0,8.0,,,,,,,,,false,false,,,On: drinks menu
+london-essence-raspberry-and-rose-tonic,London Essence Raspberry & Rose Tonic,Drinks,,35,0.0,8.8,0.0,0.0,,0.0,8.8,,,,,,,,,false,false,,,On: drinks menu
+london-essence-roasted-pineapple-crafted-soda,London Essence Roasted Pineapple Crafted Soda,Drinks,,36,0.0,9.0,0.0,0.0,,0.0,9.0,,,,,,,,,false,false,,,"On: drinks menu, click & collect menu, Deliveroo menu"
+london-essence-ginger-ale,London Essence Ginger Ale,Drinks,,34,0.0,8.4,0.0,0.0,,0.0,8.4,,,,,,,,,false,false,,,On: drinks menu
+trip-mindful-blend-wild-strawberry,TRIP Mindful Blend - Wild Strawberry,Drinks,,23,0.0,5.8,0.0,0.0,,0.0,4.0,,,,,,,,,false,false,,,On: drinks menu
+trip-mindful-blend-apple-blossom,TRIP Mindful Blend - Apple Blossom,Drinks,,27,0.0,6.8,0.0,0.0,,0.0,4.5,,,,,,,,,false,false,,,On: drinks menu
+mango-passion-smoothie-drinks-menu,Mango Passion Smoothie (drinks menu),Drinks,,125,0.9,29.0,0.5,0.3,,0.0,26.0,,,,,,,,,false,false,,,On: drinks menu
+pineapple-banana-coconut-smoothie-drinks-menu,Pineapple Banana Coconut Smoothie (drinks menu),Drinks,,166,1.3,34.0,2.8,2.5,,0.0,26.0,,,,,,,,,false,false,,,On: drinks menu
+cranberry-juice-drinks-menu,Cranberry Juice (drinks menu),Drinks,,43,0.0,11.0,0.0,0.0,,0.0,11.0,,,,,,,,,false,false,,,On: drinks menu
+organic-coconut-water,Organic Coconut Water,Drinks,,60,0.0,15.0,0.0,0.0,,0.0,15.0,,,,,,,,vegetarian,false,false,,,"On: drinks menu, click & collect menu, Deliveroo menu"
+ginger-beer,Ginger Beer,Drinks,,58,0.0,15.0,0.0,0.0,,0.1,15.0,,,,,,,,,false,false,,,"On: drinks menu, click & collect menu, Deliveroo menu"
+singha-ume-lemonade,Singha Ume Lemonade,Drinks,,0,0.0,0.0,0.0,0.0,,0.3,0.0,,,,,,,,,false,false,,,On: drinks menu
+thai-tea-served-chilled,Thai Tea (Served Chilled),Drinks,,62,2.1,8.0,2.3,1.5,,0.1,8.0,,,,,,,,,false,false,,,On: drinks menu
+harmony-tea,Harmony Tea,Drinks,,10,0.2,2.2,0.0,0.0,,0.0,1.8,,,,,,,,,false,false,,,On: drinks menu
+macchiato,Macchiato,Drinks,,49,2.6,3.6,2.7,1.7,,0.1,3.3,,,,,,,,,false,false,,,On: drinks menu
+cappuccino,Cappuccino,Drinks,,52,3.8,5.7,1.5,1.0,,0.1,4.4,,,,,,,,,false,false,,,On: drinks menu
+prawn-crackers,Prawn Crackers,Nibbles & bar snacks,,203,2.9,47.0,0.5,0.0,,3.2,15.0,,,,,,,,,false,false,,,"On: all day menu, Big Squids menu, non gluten menu, click & collect menu, Deliveroo menu"
+golden-money-bags,Golden Money Bags,Nibbles & bar snacks,,215,10.0,37.0,2.6,1.2,,1.6,12.0,,,,,,,,,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
+crunchy-noodle-nests,Crunchy Noodle Nests,Nibbles & bar snacks,,266,4.4,48.0,5.7,2.4,,1.0,10.0,,,,,,,,,false,false,,,page marks it vegetarian but its own text names pork: no diet tags given; On: all day menu
+spicy-popcorn-chicken,Spicy Popcorn Chicken,Nibbles & bar snacks,,219,29.0,17.0,3.3,0.7,,0.9,3.3,,,,,,,,,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
+golden-flying-prawns,Golden Flying Prawns,Nibbles & bar snacks,,138,15.0,11.0,3.8,1.1,,0.7,0.6,,,,,,,,,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
+thai-crispy-chicken-wings,Thai Crispy Chicken Wings,Nibbles & bar snacks,,522,30.0,40.0,26.0,6.3,,6.4,15.0,,,,,,,,,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
+chilli-chickpeas,Chilli Chickpeas,Nibbles & bar snacks,,436,21.0,61.0,7.6,1.3,,0.6,2.4,,,,,,,,vegetarian,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
+street-food-sharer,Street Food Sharer,Sharing platters,,434,24.0,46.0,17.0,4.5,,4.4,22.0,,,,,,,,contains_pork,false,false,,,On: all day menu
+bangkok-bites,Bangkok Bites,Sharing platters,,379,30.0,28.0,16.0,4.6,,1.9,16.0,,,,,,,,contains_beef,false,false,,,On: all day menu
+satay-four-ways,Satay Four Ways,Sharing platters,,259,23.0,17.0,11.0,3.3,,3.0,15.0,,,,,,,,contains_pork,false,false,,,"On: all day menu, non gluten menu"
+salt-and-pepper-squid,Salt & Pepper Squid,Sides & sharers,,390,30.0,48.0,8.1,1.3,,4.5,17.0,,,,,,,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+tall-husbands-favourite,Tall Husband's Favourite,Sides & sharers,,508,17.0,75.0,15.0,5.0,,6.7,57.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu"
+prawn-and-squid-herb-lettuce-cups,Prawn & Squid Herb Lettuce Cups,Sides & sharers,,166,19.0,12.0,4.3,2.5,,2.5,5.6,,,,,,,,,false,true,,,"On: all day menu, non gluten menu"
+caramelised-pork-belly,Caramelised Pork Belly,Sides & sharers,,769,58.0,43.0,40.0,16.0,,3.7,23.0,,,,,,,,contains_pork,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+classic-papaya-salad,Classic Papaya Salad,Sides & sharers,,232,9.5,32.0,5.8,1.0,,3.7,24.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+tamarind-mushrooms-and-greens,Tamarind Mushrooms & Greens,Sides & sharers,,397,15.0,59.0,9.6,1.5,,0.4,28.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+veg-spring-rolls,Veg Spring Rolls,Sides & sharers,,285,5.3,55.0,4.7,0.8,,3.7,21.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+yummy-duck-spring-rolls,Yummy Duck Spring Rolls,Sides & sharers,,382,17.0,25.0,23.0,6.3,,2.1,23.0,,,,,,,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+moo-ping,Moo Ping,Sides & sharers,,402,19.0,38.0,19.0,4.7,,3.2,34.0,,,,,,,,contains_pork,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+salt-and-pepper-chilli-mushrooms,Salt & Pepper Chilli Mushrooms,Sides & sharers,,341,8.2,49.0,12.0,1.3,,1.4,8.3,,,,,,,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+samui-zingy-prawns,Samui Zingy Prawns,Sides & sharers,,140,17.0,11.0,2.6,0.5,,4.1,8.6,,,,,,,,,false,true,,,"On: all day menu, non gluten menu"
+khao-mok-pla,Khao Mok Pla,Sides & sharers,,1036,59.0,102.0,42.0,7.8,,5.0,3.9,,,,,,,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+khao-mok-moo,Khao Mok Moo,Sides & sharers,,766,23.0,100.0,29.0,4.7,,5.6,11.0,,,,,,,,contains_pork,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+chicken-satay,Chicken Satay,Sides & sharers,,423,25.0,32.0,21.0,5.8,,4.0,22.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+yellow-noodle-tamarind-duck,Yellow Noodle Tamarind Duck,Noodles,,520,34.0,59.0,16.0,3.2,,8.8,12.0,,,,,,,,contains_pork,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+chicken-and-prawn-glass-noodles,Chicken & Prawn Glass Noodles,Noodles,,228,21.0,13.0,9.9,2.8,,2.0,4.5,,,,,,,,,false,true,,,"On: all day menu, non gluten menu"
+live-long-noodles,Live Long Noodles,Noodles,,489,14.0,58.0,21.0,1.4,,6.8,17.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+garlic-steamed-noodles,Garlic Steamed Noodles,Noodles,,425,9.7,81.0,6.4,0.8,,1.6,2.4,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+giant-butterfly-king-prawn-pad-thai,Giant Butterfly King Prawn Pad Thai,Noodles,,984,47.0,96.0,45.0,5.2,,4.4,27.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+pad-thai-chicken,Pad Thai - Chicken,Noodles,,1076,34.0,89.0,64.0,6.3,,4.1,30.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+pad-thai-prawn,Pad Thai - Prawn,Noodles,,1085,36.0,89.0,64.0,6.3,,4.4,30.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+pad-thai-chicken-and-prawn,Pad Thai - Chicken & Prawn,Noodles,,1122,44.0,89.0,64.0,6.4,,4.5,30.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+pad-thai-vegetable,Pad Thai - Vegetable,Noodles,,1042,23.0,92.0,64.0,6.3,,4.0,32.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+pad-thai-vegan,Pad Thai - Vegan,Noodles,,970,16.0,92.0,59.0,4.9,,3.8,32.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+drunken-noodles-chicken,Drunken Noodles - Chicken,Noodles,,948,25.0,138.0,32.0,2.9,,9.0,13.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+drunken-noodles-prawn,Drunken Noodles - Prawn,Noodles,,957,28.0,138.0,32.0,2.9,,9.3,13.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+drunken-noodles-chicken-and-prawns,Drunken Noodles - Chicken & Prawns,Noodles,,994,36.0,138.0,32.0,3.0,,9.4,13.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+drunken-noodles-vegetable,Drunken Noodles - Vegetable,Noodles,,908,15.0,139.0,31.0,2.8,,8.9,14.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+sticky-chicken,Sticky Chicken,Stir fries,,567,35.0,71.0,14.0,1.9,,3.8,18.0,,,,,,,,,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+wholesome-cashew-stir-fry-duck,Wholesome Cashew Stir Fry - Duck,Stir fries,,480,32.0,21.0,29.0,5.3,,5.1,12.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+wholesome-cashew-stir-fry-chicken,Wholesome Cashew Stir Fry - Chicken,Stir fries,,424,28.0,20.0,24.0,3.9,,4.5,12.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+wholesome-cashew-stir-fry-prawn,Wholesome Cashew Stir Fry - Prawn,Stir fries,,422,27.0,20.0,25.0,3.8,,4.9,12.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+wholesome-cashew-stir-fry-vegetable,Wholesome Cashew Stir Fry - Vegetable,Stir fries,,396,14.0,23.0,26.0,3.9,,4.4,14.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+chilli-and-basil-gra-pao-chicken,Chilli & Basil Gra Pao - Chicken,Stir fries,,300,23.0,12.0,17.0,1.4,,5.4,5.5,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+chilli-and-basil-gra-pao-prawn,Chilli & Basil Gra Pao - Prawn,Stir fries,,295,22.0,12.0,17.0,1.4,,5.7,5.5,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+chilli-and-basil-gra-pao-slow-cooked-beef,Chilli & Basil Gra Pao - Slow-cooked Beef,Stir fries,,352,28.0,14.0,19.0,2.4,,5.8,7.4,,,,,,,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+chilli-and-basil-gra-pao-vegetable,Chilli & Basil Gra Pao - Vegetable,Stir fries,,246,6.9,15.0,16.0,1.2,,5.0,8.2,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+feisty-chicken-khua-kling,Feisty Chicken Khua Kling,Stir fries,,442,33.0,23.0,23.0,1.8,,6.6,11.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+spicy-crispy-pork-belly,Spicy Crispy Pork Belly,Stir fries,,505,36.0,20.0,30.0,9.0,,6.5,7.3,,,,,,,,contains_pork,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+morning-glory,Morning Glory,Stir fries,,219,7.9,7.6,16.0,1.0,,5.3,3.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+pak-choi-and-tenderstems,Pak Choi & Tenderstems,Stir fries,,228,7.1,7.5,18.0,1.1,,4.5,4.9,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+lamb-shank-massaman,Lamb Shank Massaman,Big appetites,,1088,45.0,55.0,73.0,44.0,,7.8,31.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu"
+red-duck-rising-star,Red Duck Rising Star,Big appetites,,706,46.0,29.0,43.0,25.0,,7.1,23.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+tamarind-duck-confit,Tamarind Duck Confit,Big appetites,,1011,44.0,78.0,58.0,17.0,,6.2,67.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-melting-beef,Thai Melting Beef,Big appetites,,541,46.0,29.0,25.0,15.0,,5.6,19.0,,,,,,,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+sea-bass-samun-prai,Sea Bass Samun Prai,Seafood specials,,1431,129.0,79.0,64.0,14.0,,5.3,53.0,,,,,,,,contains_pork,false,true,,,On: all day menu
+prawn-and-soft-shell-crab,Prawn & Soft Shell Crab,Seafood specials,,619,24.0,47.0,35.0,14.0,,2.7,12.0,,,,,,,,,false,true,,,On: all day menu
+whole-sea-bass-green-curry,Whole Sea Bass Green Curry,Seafood specials,,1279,124.0,33.0,70.0,27.0,,4.4,21.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu"
+chilli-lime-sea-bass,Chilli Lime Sea Bass,Seafood specials,,412,34.0,40.0,9.8,2.1,,10.4,28.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu"
+steamed-seafood-feast,Steamed Seafood Feast,Seafood specials,,651,81.0,33.0,20.0,4.4,,10.9,22.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu"
+red-prawn-hot-pot,Red Prawn Hot Pot,Seafood specials,,575,26.0,28.0,38.0,26.0,,6.4,21.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+salmon-paneang,Salmon Paneang,Seafood specials,,1028,45.0,49.0,70.0,36.0,,7.1,25.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-green-curry-chicken,Thai Green Curry - Chicken,Curries,,597,24.0,31.0,40.0,32.0,,6.1,24.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-green-curry-slow-cooked-beef,Thai Green Curry - Slow Cooked Beef,Curries,,645,29.0,33.0,42.0,33.0,,6.3,26.0,,,,,,,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-green-curry-prawn,Thai Green Curry - Prawn,Curries,,589,23.0,31.0,39.0,32.0,,6.5,24.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-green-curry-vegetable,Thai Green Curry - Vegetable,Curries,,614,16.0,35.0,42.0,32.0,,6.0,28.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-red-curry-chicken,Thai Red Curry - Chicken,Curries,,608,24.0,31.0,40.0,32.0,,5.9,26.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-red-curry-slow-cooked-beef,Thai Red Curry - Slow-cooked Beef,Curries,,656,29.0,34.0,42.0,33.0,,6.0,28.0,,,,,,,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-red-curry-prawn,Thai Red Curry - Prawn,Curries,,600,23.0,31.0,40.0,32.0,,6.2,26.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+thai-red-curry-vegetable,Thai Red Curry - Vegetable,Curries,,625,16.0,36.0,43.0,33.0,,5.8,30.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+paneang-curry-chicken,Paneang Curry - Chicken,Curries,,608,30.0,30.0,39.0,30.0,,4.7,24.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+paneang-curry-slow-cooked-beef,Paneang Curry - Slow-cooked Beef,Curries,,650,33.0,33.0,41.0,31.0,,4.9,26.0,,,,,,,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+paneang-curry-prawn,Paneang Curry - Prawn,Curries,,568,22.0,30.0,38.0,30.0,,5.0,24.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+paneang-curry-vegetable,Paneang Curry - Vegetable,Curries,,594,15.0,35.0,41.0,31.0,,4.6,27.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+massaman-curry-chicken,Massaman Curry - Chicken,Curries,,770,28.0,48.0,49.0,34.0,,5.9,27.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+massaman-curry-slow-cooked-beef,Massaman Curry - Slow-cooked Beef,Curries,,818,33.0,51.0,51.0,34.0,,6.0,29.0,,,,,,,,contains_beef,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+massaman-curry-prawn,Massaman Curry - Prawn,Curries,,761,27.0,48.0,48.0,33.0,,6.2,27.0,,,,,,,,,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+massaman-curry-vegetable,Massaman Curry - Vegetable,Curries,,776,20.0,51.0,51.0,34.0,,5.8,29.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+jungle-firepot,Jungle Firepot,Curries,,318,23.0,31.0,9.5,3.9,,4.3,18.0,,,,,,,,contains_beef,false,true,,,"On: all day menu, non gluten menu"
+jasmine-rice,Jasmine rice,Rice & roti,,380,7.6,84.0,0.9,0.4,,0.0,0.1,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+sticky-rice,Sticky Rice,Rice & roti,,510,9.8,108.0,4.2,3.7,,0.0,0.5,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+egg-fried-rice,Egg Fried Rice,Rice & roti,,412,6.5,69.0,11.0,1.0,,0.7,2.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+coconut-rice,Coconut Rice,Rice & roti,,401,7.5,78.0,6.1,4.6,,0.3,2.0,,,,,,,,vegetarian,false,true,,,"On: all day menu, non gluten menu, click & collect menu, Deliveroo menu"
+roti,Roti,Rice & roti,,528,6.2,70.0,22.0,9.3,,1.0,5.1,,,,,,,,vegetarian,false,true,,,"On: all day menu, click & collect menu, Deliveroo menu"
+thai-apple-pie-spring-rolls,Thai Apple Pie Spring Rolls,Desserts,,424,4.0,52.0,22.0,9.1,,0.3,38.0,,,,,,,,vegetarian,false,false,,,"On: all day menu, click & collect menu, Deliveroo menu"
+coconut-pudding-with-mango-lime-sauce,Coconut Pudding with Mango Lime Sauce,Desserts,,378,2.2,42.0,22.0,20.0,,0.2,34.0,,,,,,,,vegetarian,false,false,,,"On: all day menu, non gluten menu"
+mother-in-laws-chocolate-mousse,Mother in Law's Chocolate Mousse,Desserts,,292,3.1,23.0,20.0,12.0,,0.0,22.0,,,,,,,,vegetarian,false,false,,,"On: all day menu, non gluten menu"
+lychee-yoghurt-ice-cream,Lychee Yoghurt Ice Cream,Desserts,,184,4.0,26.0,7.0,4.1,,0.0,25.0,,,,,,,,vegetarian,false,false,,,"On: all day menu, non gluten menu"
+thai-salted-caramel-ice-cream,Thai Salted Caramel Ice Cream,Desserts,,208,4.0,30.0,7.8,4.8,,0.8,29.0,,,,,,,,vegetarian,false,false,,,On: all day menu
+pineapple-and-coconut-sorbet,Pineapple & Coconut Sorbet,Desserts,,122,0.6,24.0,2.6,1.9,,0.0,24.0,,,,,,,,vegetarian,false,false,,,"On: all day menu, Big Squids menu, non gluten menu"
+cookies-and-cream-ice-cream,Cookies & Cream Ice Cream,Desserts,,222,4.1,31.0,9.1,5.3,,0.2,27.0,,,,,,,,vegetarian,false,false,,,On: all day menu
+vanilla-ice-cream,Vanilla Ice Cream,Desserts,,206,3.8,25.0,9.8,6.2,,0.2,25.0,,,,,,,,vegetarian,false,false,,,"On: all day menu, Big Squids menu, non gluten menu"
+jelly-beans,Jelly Beans,Desserts,,33,0.0,8.1,0.0,0.0,,0.0,5.4,,,,,,,,vegetarian,false,false,,,On: all day menu
+roti-with-condensed-milk-and-a-sprinkle-of-sugar,Roti with Condensed Milk and a Sprinkle of Sugar,Desserts,,321,5.4,41.0,14.0,6.4,,0.6,8.4,,,,,,,,vegetarian,false,false,,,"On: kids menu, Big Squids menu"
+vanilla,Vanilla,Desserts,,124,2.3,16.0,5.1,3.1,,0.1,16.0,,,,,,,,vegetarian,false,false,,,On: kids menu
+cookies-and-cream-ice-cream-kids-menu-big-squids-menu,Cookies & Cream Ice Cream (kids menu / Big Squids menu),Desserts,,132,2.4,19.0,4.7,2.7,,0.1,17.0,,,,,,,,vegetarian,false,false,,,"On: kids menu, Big Squids menu"
+lychee-ice-cream,Lychee Ice Cream,Desserts,,113,2.4,17.0,3.7,2.1,,0.0,16.0,,,,,,,,vegetarian,false,false,,,"On: kids menu, Big Squids menu"
+thai-salted-caramel-ice-cream-kids-menu-big-squids-menu,Thai Salted Caramel Ice Cream (kids menu / Big Squids menu),Desserts,,125,2.3,19.0,4.1,2.4,,0.4,18.0,,,,,,,,vegetarian,false,false,,,"On: kids menu, Big Squids menu"
+caramel-and-chocolate-lollipop,Caramel and Chocolate Lollipop,Desserts,,63,0.8,5.8,4.0,2.6,,0.1,4.8,,,,,,,,vegetarian,false,false,,,On: Big Squids menu
+black-sesame-ice-cream,Black Sesame Ice Cream,Desserts,,219,4.8,28.0,9.1,4.9,,0.1,28.0,,,,,,,,vegetarian,false,false,,,On: Big Squids menu
+jasmine-and-toasted-rice-ice-cream,Jasmine & Toasted Rice Ice Cream,Desserts,,177,4.4,23.0,7.6,4.4,,0.1,22.0,,,,,,,,vegetarian,false,false,,,On: Big Squids menu
+spring-rolls,Spring Rolls,Big Squids sides,,176,3.2,34.0,3.0,0.5,,1.9,12.0,,,,,,,,vegetarian,false,true,,,On: Big Squids menu
+chicken-satay-big-squids-menu,Chicken Satay (Big Squids menu),Big Squids sides,,218,14.0,16.0,10.0,4.1,,1.6,14.0,,,,,,,,,false,true,,,On: Big Squids menu
+chicken-thai-green-curry,Chicken Thai Green Curry,Big Squids mains,,651,22.0,77.0,26.0,21.0,,3.8,16.0,,,,,,,,,false,true,,,On: Big Squids menu
+thai-green-curry-vegetable-big-squids-menu,Thai Green Curry - Vegetable (Big Squids menu),Big Squids mains,,667,17.0,81.0,28.0,21.0,,3.8,20.0,,,,,,,,vegetarian,false,true,,,On: Big Squids menu
+thai-red-curry-chicken-big-squids-menu,Thai Red Curry - Chicken (Big Squids menu),Big Squids mains,,657,22.0,77.0,27.0,21.0,,3.7,18.0,,,,,,,,,false,true,,,On: Big Squids menu
+thai-red-curry-vegetable-big-squids-menu,Thai Red Curry - Vegetable (Big Squids menu),Big Squids mains,,716,18.0,82.0,32.0,22.0,,3.6,21.0,,,,,,,,vegetarian,false,true,,,On: Big Squids menu
+massaman-curry-chicken-with-jasmine-rice,Massaman Curry Chicken with Jasmine Rice,Big Squids mains,,1150,36.0,132.0,50.0,34.0,,5.9,27.0,,,,,,,,,false,true,,,On: Big Squids menu
+massaman-curry-vegetable-with-jasmine-rice,Massaman Curry Vegetable with Jasmine Rice,Big Squids mains,,1156,28.0,135.0,52.0,34.0,,5.8,29.0,,,,,,,,vegetarian,false,true,,,On: Big Squids menu
+giggling-pad-thai-chicken,Giggling Pad Thai - Chicken,Big Squids mains,,769,32.0,60.0,44.0,4.9,,3.1,22.0,,,,,,,,,false,true,,,On: Big Squids menu
+giggling-pad-thai-prawn,Giggling Pad Thai - Prawn,Big Squids mains,,775,33.0,60.0,44.0,4.9,,3.4,22.0,,,,,,,,,false,true,,,On: Big Squids menu
+giggling-pad-thai-vegan,Giggling Pad Thai - Vegan,Big Squids mains,,664,14.0,62.0,39.0,3.4,,2.8,24.0,,,,,,,,vegetarian,false,true,,,On: Big Squids menu
+sizzle-and-tang-stir-fry-noodles,Sizzle & Tang Stir Fry Noodles,Big Squids mains,,490,15.0,86.0,8.3,0.6,,9.1,38.0,,,,,,,,,false,true,,,"page marks it vegetarian but its own text names pork: no diet tags given; On: Big Squids menu, click & collect menu, Deliveroo menu"
+feisty-chicken-stir-fry,Feisty Chicken Stir Fry,Big Squids mains,,511,33.0,66.0,12.0,2.3,,5.7,4.0,,,,,,,,,false,true,,,On: Big Squids menu
+red-curry-lunch-box-chicken,Red Curry Lunch Box - Chicken,Lunch boxes,,801,29.0,105.0,27.0,21.0,,3.7,17.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+red-curry-lunch-box-prawns,Red Curry Lunch Box - Prawns,Lunch boxes,,800,30.0,105.0,27.0,21.0,,4.1,17.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+red-curry-lunch-box-vegetable,Red Curry Lunch Box - Vegetable,Lunch boxes,,861,26.0,109.0,32.0,22.0,,3.7,20.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+green-curry-lunch-box-chicken,Green Curry Lunch Box - Chicken,Lunch boxes,,794,29.0,104.0,27.0,21.0,,3.9,16.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+green-curry-lunch-box-prawns,Green Curry Lunch Box - Prawns,Lunch boxes,,793,30.0,104.0,26.0,21.0,,4.3,16.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+green-curry-lunch-box-vegetable,Green Curry Lunch Box - Vegetable,Lunch boxes,,854,26.0,108.0,32.0,22.0,,3.8,19.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+giggling-pad-thai-lunch-box-chicken,Giggling PAd Thai Lunch Box - Chicken,Lunch boxes,,1044,34.0,81.0,64.0,6.4,,3.1,22.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+giggling-pad-thai-lunch-box-prawns,Giggling PAd Thai Lunch Box - Prawns,Lunch boxes,,1068,40.0,81.0,64.0,6.4,,3.5,22.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+giggling-pad-thai-lunch-box-vegetable,Giggling PAd Thai Lunch Box - Vegetable,Lunch boxes,,1010,23.0,83.0,64.0,6.3,,3.0,24.0,,,,,,,,vegetarian,false,true,,,"On: click & collect menu, Deliveroo menu"
+giggling-pad-thai-lunch-box-vegan,Giggling PAd Thai Lunch Box - Vegan,Lunch boxes,,939,16.0,83.0,59.0,4.9,,2.8,24.0,,,,,,,,vegetarian,false,true,,,"On: click & collect menu, Deliveroo menu"
+lamb-massaman-and-jasmine-rice,Lamb Massaman & Jasmine rice,Lunch boxes,,800,30.0,113.0,24.0,13.0,,2.3,15.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+sticky-chicken-and-yellow-noodles,Sticky Chicken and Yellow Noodles,Lunch boxes,,593,25.0,60.0,27.0,2.0,,5.8,7.1,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+salt-and-pepper-squid-nuggets,Salt & Pepper Squid Nuggets,Lunch boxes,,361,30.0,41.0,8.1,1.3,,3.7,11.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+seabass-gra-pao-and-egg-with-jasmine-rice,Seabass Gra Pao & Egg with Jasmine Rice,Lunch boxes,,1055,68.0,103.0,39.0,6.8,,6.0,5.5,,,,,,,,,false,true,,,On: click & collect menu
+feisty-chicken-stir-fry-and-jasmine-rice,Feisty Chicken Stir Fry & Jasmine rice,Lunch boxes,,769,35.0,93.0,27.0,3.4,,5.7,4.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"
+thai-melting-beef-showstoppers,Thai Melting Beef (Showstoppers),Showstoppers,,683,51.0,35.0,35.0,22.0,,5.2,27.0,,,,,,,,contains_beef,false,true,,,"On: click & collect menu, Deliveroo menu"
+rising-star-red-duck-curry,Rising Star Red Duck Curry,Showstoppers,,730,47.0,33.0,43.0,25.0,,8.5,26.0,,,,,,,,,false,true,,,"On: click & collect menu, Deliveroo menu"

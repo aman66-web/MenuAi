@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build data/source/chopstix/ from Chopstix's official "Nutritional Data" PDF (V22, September 2026).
 
-    python3 tools/uk_extract/chopstix.py path/to/NUTRITIONAL-TABLE-V22-SEPT-26.pdf --checked-on 2026-10-06 [--out DIR]
+    python3 tools/uk_extract/chopstix.py path/to/NUTRITIONAL-TABLE-V22-SEPT-26.pdf \
+        --allergens path/to/CUSTOMER-ALLERGENS-NON-QR-V22-SEPT-2026.pdf --checked-on 2026-10-06 [--out DIR]
 
 Source: https://chopstixnoodles.co.uk/wp-content/uploads/2026/09/NUTRITIONAL-TABLE-V22-SEPT-26.pdf (linked as
 "Nutritional" in the footer of https://chopstixnoodles.co.uk/; a new version is published when the menu changes).
@@ -9,14 +10,23 @@ Source: https://chopstixnoodles.co.uk/wp-content/uploads/2026/09/NUTRITIONAL-TAB
 How it works
 - `pdftotext -tsv` (poppler) gives every word with its position. Rows are rebuilt from the words and each number is
   assigned to a column by its x position, so a blank cell stays blank and nothing is shifted into the wrong column.
-- Numbers are copied exactly as printed ("0.0", "39", "1.08"); nothing is converted, rounded or estimated. kJ is read
-  only to check the row, it is not published (the app shows kcal). Salt is salt_g as printed; sodium is not printed.
+- Numbers are copied exactly as printed ("0.0", "39", "1.08"); nothing is converted, rounded or estimated. kJ is
+  published as energy_kj exactly as printed (per serving, like kcal). Salt is salt_g as printed; sodium is not printed.
 - Only the NAMES, categories, servings and grouping below are typed by hand. SPEC lists every row of the PDF in reading
   order with its printed label. If the PDF gains, loses, renames or reorders a row, this script stops with a message so a
   human re-checks SPEC before anything is written.
 - Rows we leave out say why (EXCLUDED rows below). Rows the guide prints with impossible numbers go to holdback.csv
   (HOLDBACK) and are never corrected.
+
+Allergens: the chain's "Customer Allergen Chart" (CS QA 07, V22 September 2026, linked in the same footer:
+ALLERGEN_URL) lists dishes and pot parts by name only (no sizes: "Egg Fried Rice", "SPICY ONE - Firecracker"), groups the
+Mini Stix meals under other names, and has no drinks or dip pots at all. So most published rows have no row of their own
+in the chart and, all or nothing, no allergens are published: the chain links to the chart (allergen_guide.csv, which
+prints "may contain" as M). --allergens is checked only for its title and version, so a new chart stops the run and a
+human updates ALLERGEN_URL / ALLERGEN_TITLE (and re-checks whether the chart now covers every published row).
 """
+from __future__ import annotations
+
 import argparse
 import csv
 import re
@@ -31,6 +41,9 @@ from common import sha256_file, slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "chopstix"
 SOURCE_URL = "https://chopstixnoodles.co.uk/wp-content/uploads/2026/09/NUTRITIONAL-TABLE-V22-SEPT-26.pdf"
 SOURCE_TITLE = "Chopstix Nutritional Data V22 (September 2026)"
+ALLERGEN_URL = "https://chopstixnoodles.co.uk/wp-content/uploads/2026/09/CUSTOMER-ALLERGENS-NON-QR-V22-SEPT-2026.pdf"
+ALLERGEN_TITLE = "Chopstix Customer Allergen Chart (CS QA 07, V22 September 2026)"
+ALLERGEN_VERSION = re.compile(r"CUSTOMER ALLERGEN CHART\s+CS QA 07\s+V22 SEPTEMBER 2026")
 NUMBER = re.compile(r"^<?\d+(?:\.\d+)?$")
 FIELDS = ("kj", "kcal", "fat", "sat", "carbs", "sugars", "fibre", "protein", "salt")
 # x (pt) of the boundaries between the numeric columns; the name column ends at NAME_MAX_X. Same on all three pages.
@@ -236,9 +249,16 @@ HOLDBACK = {
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf", type=Path)
+    ap.add_argument("--allergens", type=Path, required=True, help="the Customer Allergen Chart PDF (ALLERGEN_URL)")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you read the PDF")
     ap.add_argument("--out", type=Path, default=None, help="default: data/source/chopstix")
     args = ap.parse_args()
+
+    chart = subprocess.run(["pdftotext", "-layout", str(args.allergens), "-"], check=True, capture_output=True, text=True).stdout
+    if not ALLERGEN_VERSION.search(chart):
+        print("The allergen chart is not 'CUSTOMER ALLERGEN CHART CS QA 07 V22 SEPTEMBER 2026': update ALLERGEN_URL and "
+              "ALLERGEN_TITLE, and check whether it now has a row for every published item.", file=sys.stderr)
+        return 1
 
     rows = read_rows(args.pdf)
     printed = [r["label"] for r in rows]
@@ -270,6 +290,7 @@ def main() -> int:
             "name": name, "category": category, "serving": serving, "rankable": rankable, "notes": note,
             "calories": row["kcal"], "protein_g": row["protein"], "carbs_g": row["carbs"], "fat_g": row["fat"],
             "sat_fat_g": row["sat"], "salt_g": row["salt"], "sugar_g": row["sugars"], "fiber_g": row["fibre"],
+            "energy_kj": row["kj"],
         })
     for label, reason in HOLDBACK.items():
         if label not in id_of:
@@ -281,10 +302,11 @@ def main() -> int:
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Chopstix", cuisine="Noodles", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=["chopstix", "chopstix noodle bar", "chopstix noodles"], items=items,
-        out=args.out, note=NOTE, holdback=held)
+        out=args.out, note=NOTE, holdback=held,
+        allergen_guide={"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True})
     excluded = [s for s in SPEC if s[1] is None]
     print(f"wrote {len(items)} items ({len(held)} held back) to {out}; {len(excluded)} PDF rows left out "
-          f"(PDF sha256 {sha256_file(args.pdf)})")
+          f"(PDF sha256 {sha256_file(args.pdf)}; allergen chart sha256 {sha256_file(args.allergens)}, linked only)")
     return 0
 
 

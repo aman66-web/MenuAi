@@ -12,6 +12,7 @@ a section or nutrient column appears that is not mapped below, or the row counts
 Where a dish is printed on several menus the identical rows are kept once; rows with different numbers are kept as
 separate items and the later ones are named "<dish> (<menu>)".
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import sys
@@ -103,6 +104,10 @@ HOLDBACK = {
     "Kids Salted Caramel Ice Cream with Wafer": "The menu prints 112 kcal; its own macros add up to about 60 kcal.",
 }
 
+# The same pages print each dish's allergens three ways (the 14 yes/may/no columns, the card's "Contains:" / "May contain:"
+# lines naming the cereals and tree nuts, and the dish's label ids); tenkites_b.allergens_from_rec checks they agree.
+ALLERGEN_TITLE = "Côte Brasserie allergen and nutrition menus (June 2026 menus, menus.tenkites.com/cote/cote)"
+
 # row counts the pages had when this script was written (rows with the four required numbers / all rows)
 EXPECTED_ROWS = 541
 
@@ -131,7 +136,8 @@ def main() -> int:
     long = {m[0]: m[3] for m in MENUS}
 
     rows, excluded, _, total = tk.collect_rows(
-        labels, paths, "table", name_of, lambda label, rec, name: category(label, rec["course"], rec["name"]))
+        labels, paths, "table", name_of, lambda label, rec, name: category(label, rec["course"], rec["name"]),
+        allergen_fn=lambda label, rec: tk.allergens_from_rec(rec, f"{label} {rec['name']}"))
     if total != EXPECTED_ROWS:
         print(f"The pages hold {total} rows but this script was written for {EXPECTED_ROWS}: re-check the menu list "
               "and category() against the pages, then update EXPECTED_ROWS.", file=sys.stderr)
@@ -152,6 +158,7 @@ def main() -> int:
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note="Carbohydrate is the menu's 'Available Carb' column, and the menu prints salt for only some dishes. Dishes that differ "
              "on the gluten free, weekend or kids menus appear once per version.",
+        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in labels:
         print(f"{label:18} sha256 {sha256_file(paths[label])[:16]}  {tk.page_title(paths[label])}")
@@ -159,6 +166,7 @@ def main() -> int:
     for label, _, _ in excluded:
         by_menu[label] = by_menu.get(label, 0) + 1
     print("rows without calories/protein/carbs/fat, by menu:", by_menu)
+    print("\n".join(tk.ALLERGEN_NOTES))
     print(f"wrote {len(items)} items to {folder}; {len(excluded)} rows without the four required numbers; "
           f"{total - len(excluded) - len(items)} duplicate rows dropped")
     return 0

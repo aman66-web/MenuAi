@@ -10,6 +10,7 @@ Numbers are copied as the feed prints them; see mb_feed.py for how the feed is r
 menu items, the held-back rows and the notes are written by hand below. Not read: the feed's other menus (breakfast, salad
 bar, kids, lunch, evening set, Sunday, buffet, drinks), which use other websitePageUrlPath values.
 """
+from __future__ import annotations
 import sys
 from pathlib import Path
 
@@ -74,7 +75,7 @@ CHAIN = mb.Chain(
         "Wholetail Whitby Scampi": "The feed prints 1,052 kcal; its own macros add up to about 854 kcal (and its kJ to about 761 kcal).",
     },
     note_txt=("Main menu only (kids, breakfast, salad bar and set menus aren't included). Each dish is listed as the menu publishes it: "
-              "a side, sauce, swap or topping you choose isn't added in. Weights in names (oz) are approximate uncooked weights."),
+              "a side, sauce, swap or topping you choose isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights."),
 )
 
 if __name__ == "__main__":

@@ -57,6 +57,12 @@ NOTES: dict[str, str] = {
     "K Town Panko": "Printed with exactly the same numbers as K-Town - Grilled Chicken in the same section (the Panko versions elsewhere are higher). Entered as printed.",
 }
 
+# Each dish's pop-up prints a Contain / May Contain table and the dish carries label ids; tenkites_b.allergens_from_rec checks
+# they agree. The table doesn't name cereals, so the cereals come from the label ids, named by the page's own allergen filter
+# (Wheat, Barley, Rye, Oats), and only when every id is named there.
+ALLERGEN_TITLE = "Gourmet Burger Kitchen allergen menus (menus.tenkites.com/brg/gourmetburgerkitchen, files dated 6 October 2026)"
+ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
+
 EXPECTED_ROWS = 268
 
 
@@ -118,8 +124,9 @@ def main() -> int:
             if table != "-" and head != tk.number(table):
                 raise SystemExit(f"{label}: {rec['name']!r} header says {rec['check']['header_energy']!r}, table says {table!r}")
 
-    rows, excluded, skipped, total = tk.collect_rows(labels, paths, "perfect", name_of, category,
-                                                     skip_fn=skip)
+    rows, excluded, skipped, total = tk.collect_rows(
+        labels, paths, "perfect", name_of, category, skip_fn=skip,
+        allergen_fn=lambda label, rec: tk.allergens_from_rec(rec, f"{label} {rec['name']}", ALLERGEN_WORDS, kinds_from_ids=True))
     if total != EXPECTED_ROWS:
         print(f"The pages hold {total} rows but this script was written for {EXPECTED_ROWS}: re-check the menu list "
               "and the mappings against the pages, then update EXPECTED_ROWS.", file=sys.stderr)
@@ -144,6 +151,7 @@ def main() -> int:
         aliases=["gbk", "gourmet burger kitchen", "gbk burgers"], items=items, out=args.out,
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note="GBK calculates these values using typical weights and measures. Dishes that differ on the no gluten, kids or drinks menus appear once per version.",
+        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in labels:
         print(f"{label:9} sha256 {sha256_file(paths[label])[:16]}  {tk.page_title(paths[label])}")
@@ -152,6 +160,7 @@ def main() -> int:
         by_menu[label] = by_menu.get(label, 0) + 1
     print("rows without calories/protein/carbs/fat, by menu:", by_menu)
     print("skipped:", [(s[0], s[1]) for s in skipped])
+    print("\n".join(tk.ALLERGEN_NOTES))
     print(f"wrote {len(items)} items to {folder}; {len(excluded)} rows without the four required numbers; "
           f"{total - len(excluded) - len(skipped) - len(items)} duplicate rows dropped")
     return 0

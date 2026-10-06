@@ -20,6 +20,13 @@ What is left out (each run prints every exclusion with its reason): the packaged
 items for Northern Ireland only (the page says "Belfast only" or every Great Britain store is in its excluded-stores list);
 items sold in fewer than MIN_GB_STORES Great Britain stores ("selected stores only"); items whose page hides nutrition.
 Items whose printed numbers are impossible stay in items.csv but are listed in holdback.csv (see impossible_energy).
+The per-portion kJ (energy_kj) and the stated portion weight (weight_g) are copied as printed too.
+
+Allergens come from the same item pages: IKEA prints each item's allergens ("allergens") and what it "may contain traces of"
+("allergensTracesOf") by name. The names are mapped with common.allergen_words (an unknown name stops the script). IKEA names
+no cereal or nut there, so none is named here. Each item's list is cross-checked with the allergens IKEA marks in bold in the
+same item's ingredient statement (BOLD_EXTRA maps IKEA's bold words); if the two printed forms disagree, or IKEA hides an
+item's allergens, the script stops so a human decides.
 """
 from __future__ import annotations
 import argparse
@@ -36,7 +43,7 @@ from decimal import Decimal
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import slug, write_chain_folder  # noqa: E402
+from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "ikea"
 BASE = "https://www.ikea.com/gb/en/food/salesareas/"
@@ -56,7 +63,7 @@ NUTRIENT_CODES = {
     "NUT_NRG_KCAL_EU": "calories", "NUT_PROTEIN_TOT": "protein_g", "NUT_CARB_TOT": "carbs_g", "NUT_FAT_TOT": "fat_g",
     "NUT_FAT_SAT": "sat_fat_g", "NUT_SALT": "salt_g", "NUT_CARB_SUG": "sugar_g",
 }
-IGNORED_CODES = {"NUT_NRG_KJ_EU"}  # kJ is not used (compared with kcal only in the report)
+IGNORED_CODES = {"NUT_NRG_KJ_EU"}  # kJ: published as energy_kj (per portion, as printed), never used as calories
 
 
 # Display categories (IKEA's own category names), in display order.
@@ -301,7 +308,7 @@ def item_page(cache: Path, item_id: str, area: str, offline: bool, stats: Counte
 def check_structure(item: dict) -> None:
     """Stop if an item page no longer looks the way this script expects (a human must re-check the new layout)."""
     for key in ("id", "title", "shortDescription", "servingSizeDisplayValue", "hideNutrient", "nutrients", "excludedStores",
-                "salesAreas", "ingredientStatement"):
+                "salesAreas", "ingredientStatement", "allergens", "allergensTracesOf", "hideAllergen", "hideAllergenTracesOf"):
         if key not in item:
             raise StructureChanged(f"item {item.get('id')}: the page has no {key!r} any more")
     for n in item["nutrients"] or []:
@@ -341,6 +348,33 @@ def impossible_energy(n: dict[str, str], grams: Decimal) -> str | None:
         return (f"IKEA prints {kcal} kcal per portion, but its own protein {p} g, carbohydrate {c} g and fat {f} g give at most "
                 f"{high:.0f} kcal, even with fibre at 10% of the {grams} g portion")
     return None
+
+
+# IKEA's own spellings of allergen words in bold in its ingredient statements (beyond common.allergen_words). Only words seen
+# in IKEA's statements belong here; an unknown bold word stops the script.
+BOLD_EXTRA: dict[str, tuple[str, str | None]] = {}
+
+
+class Contradiction(StructureChanged):
+    pass
+
+
+def item_allergens(item: dict) -> dict:
+    """IKEA's printed allergens for the item, cross-checked with the bold words of its ingredient statement."""
+    where = f"IKEA item {item['id']} ({item['title']})"
+    if item["hideAllergen"] or item["hideAllergenTracesOf"]:
+        raise StructureChanged(f"{where}: IKEA hides this item's allergens on its page")
+    if any(a.get("isTrace") for a in item["allergens"]) or any(not a.get("isTrace") for a in item["allergensTracesOf"]):
+        raise StructureChanged(f"{where}: an allergen and trace list are mixed up ({item['allergens']!r} / {item['allergensTracesOf']!r})")
+    contains, cereals, nuts = allergen_words([a["description"] for a in item["allergens"]], where)
+    may, _, _ = allergen_words([a["description"] for a in item["allergensTracesOf"]], where)
+    bold_words = []
+    for b in re.findall(r"<strong>(.*?)</strong>", item["ingredientStatement"] or "", re.S):
+        bold_words += [w for w in re.split(r",|\band\b|&", re.sub(r"<[^>]+>", "", b)) if w.strip()]
+    bold, _, _ = allergen_words(bold_words, f"{where} (bold in the ingredients)", extra=BOLD_EXTRA)
+    if bold != contains:
+        raise Contradiction(f"{where}: allergens {sorted(contains)} but the ingredients put {sorted(bold)} in bold")
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
 
 
 PORK_RE = re.compile(r"\b(pork|bacon|ham|gammon|salami|chorizo|pepperoni)\b", re.I)
@@ -476,6 +510,8 @@ def build(items_by_id: dict[str, dict], keep: dict[str, dict], checked_on: str, 
         rows.append({
             "id": item_id_out, "name": name, "category": category, "serving": it["servingSizeDisplayValue"],
             **{k: n.get(k, "") for k in ("calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "salt_g", "sugar_g")},
+            "energy_kj": n.get("_kj", ""), "weight_g": it["servingSizeDisplayValue"].split()[0],
+            "allergens": item_allergens(it),
             "tags": "|".join(tags), "rankable": rankable, "notes": item_notes(it, n, bool(problem)),
         })
     if {h[0] for h in holdback} != EXPECTED_HELDBACK:
@@ -488,7 +524,9 @@ def build(items_by_id: dict[str, dict], keep: dict[str, dict], checked_on: str, 
         chain_id=CHAIN_ID, name="IKEA", cuisine="Swedish", source_title=SOURCE_TITLE.format(checked_on=checked_on),
         source_url=SOURCE_URL, checked_on=checked_on, aliases=["ikea", "ikea restaurant", "ikea swedish restaurant", "ikea bistro",
                                                               "ikea swedish bistro", "ikea cafe", "ikea swedish cafe"],
-        items=rows, out=out, note=NOTE, holdback=[(h[1], h[3]) for h in holdback])
+        items=rows, out=out, note=NOTE, holdback=[(h[1], h[3]) for h in holdback],
+        allergen_guide={"title": f"IKEA UK food pages: allergens and traces on each item page (live pages, accessed {checked_on})",
+                        "url": SOURCE_URL, "checked_on": checked_on, "may_contain_published": True})
     return rows, holdback, not_stated, unflagged_veg
 
 

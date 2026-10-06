@@ -10,6 +10,7 @@ Numbers are copied as the feed prints them; see mb_feed.py for how the feed is r
 menu items, the held-back rows and the notes are written by hand below. Not read: the feed's other menus (breakfast,
 children's, set menu, drinks), which use other websitePageUrlPath values.
 """
+from __future__ import annotations
 import sys
 from pathlib import Path
 
@@ -52,7 +53,8 @@ CHAIN = mb.Chain(
     },
     holdback={},
     note_txt=("Main menu and puddings only. Carvery meats and sandwich fillings are listed without the bread, roast potatoes, "
-              "vegetables, Yorkshire pudding and gravy that come with them (Toby publishes those at the carvery deck), so a plate is higher."),
+              "vegetables, Yorkshire pudding and gravy that come with them (Toby publishes those at the carvery deck), so a plate is "
+              "higher and their allergens aren't included. A sauce, custard or topping you choose isn't added in either."),
 )
 
 if __name__ == "__main__":

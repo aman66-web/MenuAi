@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Only items with calories, protein, carbs and fat all printed are included: the bar snacks and the non-alcoholic drinks. Be At One prints no macros for its alcoholic cocktails, wine or beer, nor a total for items with a choice (dips, fruit).",
+ "allergenGuide": {
+  "title": "Be At One Allergen & Nutritional Data: Bar Snacks (March 2026), Drinks Menu (March 2026) and Cocktail Week (October 2026), data correct as of 06 October 2026",
+  "url": "https://menus.tenkites.com/beatone",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Bar snacks",
   "Sweet treats",
@@ -37,13 +44,31 @@
     "fat": 29,
     "saturatedFat": 3.7,
     "sugar": 3.6,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 2139
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "basil-and-garlic-green-olives",
@@ -57,7 +82,8 @@
     "fat": 25,
     "saturatedFat": 3,
     "sugar": 0,
-    "salt": 4.2
+    "salt": 4.2,
+    "energyKj": 983
    },
    "tags": [
     "vegetarian"
@@ -65,7 +91,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "be-at-one/64c9fd9b4380.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "salted-caramel-popcorn",
@@ -79,13 +114,20 @@
     "fat": 6.3,
     "saturatedFat": 0.5,
     "sugar": 3.7,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 552
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "lightly-sea-salted-popcorn",
@@ -99,13 +141,20 @@
     "fat": 3.5,
     "saturatedFat": 0.3,
     "sugar": 0.1,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 368
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "double-chocolate-brownie-and-marshmallows",
@@ -119,13 +168,27 @@
     "fat": 13.5,
     "saturatedFat": 2.2,
     "sugar": 25.7,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 1339
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "be-at-one/87ad28c01996.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "sweet-treats",
@@ -139,13 +202,19 @@
     "fat": 2.8,
     "saturatedFat": 1.4,
     "sugar": 143.6,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 3301
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "be-at-one/146aa4691070.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cucumber-caipirinha-0",
@@ -159,13 +228,18 @@
     "fat": 0.2,
     "saturatedFat": 0.1,
     "sugar": 14.6,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 349
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "bit-of-me-0",
@@ -179,13 +253,18 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 21.7,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 417
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "verdita-margarita-0",
@@ -199,13 +278,18 @@
     "fat": 0.3,
     "saturatedFat": 0.1,
     "sugar": 20.4,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 392
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cucumber-tom-collins-0",
@@ -219,13 +303,18 @@
     "fat": 0.3,
     "saturatedFat": 0.1,
     "sugar": 27.8,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 584
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "raspberry-tom-collins-0",
@@ -239,13 +328,18 @@
     "fat": 0.4,
     "saturatedFat": 0,
     "sugar": 19.4,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 399
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "peach-tom-collins-0",
@@ -259,13 +353,18 @@
     "fat": 0.2,
     "saturatedFat": 0.1,
     "sugar": 27.4,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 478
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "margarita-0",
@@ -279,13 +378,18 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 6.2,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 116
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "peroni-nastro-azzurro-0-0",
@@ -299,13 +403,23 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 2.6,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 327
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "heineken-0-0",
@@ -319,13 +433,23 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 4.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 294
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "guinness-0-0",
@@ -339,13 +463,23 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 3.8,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 382
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "corona-cero-0",
@@ -359,13 +493,23 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 2.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 234
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "garden-margarita-0",
@@ -379,13 +523,18 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 10,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 180
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "english-garden-midori-sour-0",
@@ -399,13 +548,18 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 10.8,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 231
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemon-drop-martini-0",
@@ -419,13 +573,18 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 17,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 303
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "rhubarb-and-strawberry-cosmo-0",
@@ -439,13 +598,20 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 6.9,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 130
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "rhubarb-hugo-0",
@@ -459,13 +625,18 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 13.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 248
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "rhubarb-hugo-0-pm",
@@ -479,13 +650,18 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 13.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 248
    },
    "tags": [],
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

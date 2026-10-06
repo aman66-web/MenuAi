@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Ice cream scoops only (113 g / 4 oz, per scoop): no shakes, sundaes, cakes or toppings. The source is a 2025 PDF that has no entry for some newer flavours, so a flavour in the shop may be missing here.",
+ "allergenGuide": {
+  "title": "Baskin-Robbins UK allergen and nutrition index (\"Baskin Robbins Allergen Sheet 11/06/2025\", file IND-PIS-NUTRITION-INDEX-11-2025, created 20 June 2025)",
+  "url": "https://baskinrobbins.co.uk/wp-content/uploads/2025/06/IND-PIS-NUTRITION-INDEX-11-2025.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Ice cream scoops"
  ],
@@ -34,7 +41,9 @@
     "saturatedFat": 6.7,
     "sugar": 27.3,
     "fiber": 0.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1062,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -42,7 +51,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/706259dfc71b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "banana-caramel",
@@ -57,7 +80,9 @@
     "saturatedFat": 8.4,
     "sugar": 23.9,
     "fiber": 0.7,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1021,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -65,7 +90,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/40c25aadf30a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "bubblegum-candyland",
@@ -80,7 +114,9 @@
     "saturatedFat": 8.1,
     "sugar": 29.6,
     "fiber": 0.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1057,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -88,7 +124,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/fad99030fcee.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "caramel-honeycomb-candy",
@@ -103,7 +151,9 @@
     "saturatedFat": 11,
     "sugar": 30.4,
     "fiber": 0.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1108,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -111,7 +161,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/e5bf6ff4aedc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "chocolate",
@@ -126,7 +185,9 @@
     "saturatedFat": 10.6,
     "sugar": 28.4,
     "fiber": 1.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1043,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -134,7 +195,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/4538230845d2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chocolate-chip-cookie-dough",
@@ -149,7 +220,9 @@
     "saturatedFat": 9.4,
     "sugar": 25.4,
     "fiber": 0.5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1198,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -157,7 +230,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/1cde35c31a8b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cookies-n-cream",
@@ -172,7 +260,9 @@
     "saturatedFat": 12.3,
     "sugar": 27.6,
     "fiber": 0.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1141,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -180,7 +270,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/b219e0a742e9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cotton-candy",
@@ -195,7 +299,9 @@
     "saturatedFat": 11.5,
     "sugar": 25.1,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 991,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -203,7 +309,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/b15e0b6198a8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "gold-medal-ribbon",
@@ -218,7 +333,9 @@
     "saturatedFat": 11.3,
     "sugar": 28.6,
     "fiber": 0.5,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1092,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -226,7 +343,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/1da58c03d2bc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "jamoca-almond-fudge",
@@ -241,7 +368,9 @@
     "saturatedFat": 9.5,
     "sugar": 27.2,
     "fiber": 1.8,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1108,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -249,7 +378,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/4b38cde111a9.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "mango-tango",
@@ -264,7 +405,9 @@
     "saturatedFat": 5.8,
     "sugar": 15,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 732,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -272,7 +415,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/55125e6bcb37.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "mint-chocolate-chip",
@@ -287,7 +439,9 @@
     "saturatedFat": 10,
     "sugar": 21,
     "fiber": 0.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1093,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -295,7 +449,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/eedcff2372f7.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "mississippi-mud",
@@ -310,7 +474,9 @@
     "saturatedFat": 8.3,
     "sugar": 27.9,
     "fiber": 2.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1127,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -318,7 +484,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/296afe03fee6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "nutty-salted-caramel",
@@ -333,7 +514,9 @@
     "saturatedFat": 8.8,
     "sugar": 32.7,
     "fiber": 0.4,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1193,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -341,7 +524,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/b8ff94ecf47d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "pistachio-almond",
@@ -356,7 +550,9 @@
     "saturatedFat": 8.4,
     "sugar": 18.5,
     "fiber": 1.7,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1174,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -364,7 +560,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/93fa40893d82.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "pralines-n-cream",
@@ -379,7 +586,9 @@
     "saturatedFat": 11,
     "sugar": 30.9,
     "fiber": 0.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1180,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -387,7 +596,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/8de9023c76e2.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pecan"
+    ]
+   }
   },
   {
    "id": "rum-raisin",
@@ -402,7 +622,9 @@
     "saturatedFat": 7.5,
     "sugar": 25.6,
     "fiber": 0.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1001,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -410,7 +632,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/de3b5aa16f19.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "sea-salt-caramel-espresso",
@@ -425,7 +656,9 @@
     "saturatedFat": 9.6,
     "sugar": 28.7,
     "fiber": 0.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1182,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -433,7 +666,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/5a779ca0591f.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "toasted-coconut-crunch",
@@ -448,7 +691,9 @@
     "saturatedFat": 8.2,
     "sugar": 24.8,
     "fiber": 1.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1169,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -456,7 +701,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/4d16840ac32b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "vanilla",
@@ -471,7 +727,9 @@
     "saturatedFat": 8.7,
     "sugar": 19.9,
     "fiber": 0.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 988,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -479,7 +737,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/d4280794a95e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "very-berry-strawberry",
@@ -494,7 +761,9 @@
     "saturatedFat": 7.2,
     "sugar": 25,
     "fiber": 0.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 980,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -502,7 +771,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/571d49f83a5d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "world-class-chocolate",
@@ -517,7 +795,9 @@
     "saturatedFat": 8.6,
     "sugar": 22.8,
     "fiber": 1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1063,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -525,7 +805,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/1669ed9d9f80.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "rainbow-sherbet",
@@ -540,7 +830,9 @@
     "saturatedFat": 1.1,
     "sugar": 30.2,
     "fiber": 0.5,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 619,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -548,7 +840,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "baskin-robbins/f14b4f4c2180.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

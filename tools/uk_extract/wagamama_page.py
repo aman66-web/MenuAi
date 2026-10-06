@@ -5,6 +5,7 @@ The page is a Nuxt site: the whole menu, with each item's nutrition per serving 
 This module resolves those references and walks menu -> sections -> recipes. It returns what the page prints, as strings:
 nothing is converted, rounded or filled in.
 """
+from __future__ import annotations
 import json
 import re
 import sys
@@ -57,7 +58,9 @@ def read_menu(html_path: Path) -> dict:
     """Return {"menu_name", "menu_modified", "recipes": [...]} with recipes in the page's reading order.
 
     Each recipe: section (tuple of section names), ident, name, orig_name, desc, modified, vegetarian, vegan,
-    nutr ({printed nutrient label: per-serving string}), nutr_100g, sizes (number of size rows), servings.
+    nutr ({printed nutrient label: per-serving string}), nutr_100g, sizes (number of size rows), servings,
+    intols (the recipe's own allergen/dietary flags as the page carries them: [(id, "yes"|"maybe", [(child id, value)])]).
+    "intol_names" maps every flag id the page defines to its printed name ("celery", "cereals containing gluten", "wheat"...).
     """
     html = Path(html_path).read_text(encoding="utf-8")
     m = NUXT_RE.search(html)
@@ -88,5 +91,12 @@ def read_menu(html_path: Path) -> dict:
                 "desc": r.get("Desc") or "", "pro_desc": r.get("ProDesc") or "", "modified": r["Modified"],
                 "vegetarian": flags.get(50) == "yes", "vegan": flags.get(52) == "yes",
                 "nutr": nutr, "nutr_100g": nutr100, "sizes": len(r.get("Sizes") or []), "servings": r.get("Servings"),
+                "intols": [(i["Id"], i["Val"], [(c["Id"], c["Val"]) for c in (i.get("ChIntols") or [])])
+                           for i in (r.get("Intols") or [])],
             })
-    return {"menu_name": menu["Name"], "menu_modified": menu["Modified"], "recipes": recipes}
+    names = {}
+    for i in menu_root["Intols"]:
+        if i["Id"] in names or i.get("ChIntols"):
+            raise SystemExit(f"Flag {i['Id']} is defined twice or has children: the reader needs updating.")
+        names[i["Id"]] = i["Desc"]
+    return {"menu_name": menu["Name"], "menu_modified": menu["Modified"], "recipes": recipes, "intol_names": names}

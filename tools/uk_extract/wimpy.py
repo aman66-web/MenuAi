@@ -12,24 +12,38 @@ Source: https://wimpy-uk.s3-eu-west-2.amazonaws.com/static/Nutrition%20Guide.pdf
 (linked as the Allergen & Nutritional Guide from https://www.wimpy.uk.com/; "correct at time of going to print 01/04/2026").
 Needs `pdftotext` (poppler).
 
+Allergens come from the same PDF's "Allergen Information" table: one coloured dot per allergen column, drawn as a shape (not
+text), so they are read from the page's vector drawing (pdftocairo -svg) and matched to the rows and the column names that
+pdftotext prints (read_allergens). The guide's key: red = "contains the indicated allergen as a planned ingredient"; amber =
+"may contain ... a supplier has advised us of the possible presence ... through cross-contact"; dark brown = "may contain ...
+via the use of shared cooking equipment or cross-contact through shared cooking oil". Both kinds of "may contain" are copied
+as may-contain. The script checks the key's own bullet colours, and stops on a dot of any other colour, a dot that is not in
+a column or beside a numbered row, or two dots in one cell. The guide names gluten cereals (wheat, rye, barley, oats, spelt,
+kamut) in their own columns, and tree nuts only as "Nuts".
+The printed Energy (kJ) per portion is copied into energy_kj.
+
 Why `standard` items only: the guide prints a value for each finished item and for each add-on, not for ingredients, and it
 says nothing about which add-ons a finished item already includes, so nothing is added up from parts.
 """
+from __future__ import annotations
 import argparse
 import hashlib
+import html
 import re
 import subprocess
 import sys
+import tempfile
 import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import slug, write_chain_folder  # noqa: E402
+from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "wimpy"
 SOURCE_URL = "https://wimpy-uk.s3-eu-west-2.amazonaws.com/static/Nutrition%20Guide.pdf"
 SOURCE_TITLE = "Wimpy Allergen & Nutritional Guide (April 2026 edition, correct at time of going to print 01/04/2026)"
 ALIASES = ["wimpy", "wimpy uk", "wimpy burger", "wimpy burgers", "wimpy restaurant"]
+ALLERGEN_TITLE = "Wimpy Allergen & Nutritional Guide, allergen table (correct at time of going to print 01/04/2026)"
 NOTE = ("Figures are per portion as served. Items marked 'excl.' leave out the sauce, topping or cream you choose, and "
         "Big Brekkie, Sunrise and Meat-Free Mini are for white toast. Wimpy's guide doesn't say which meat is in most items.")
 
@@ -375,6 +389,151 @@ def read_pdf(pdf: Path) -> list[dict]:
     return out
 
 
+# ---------------------------------------------------------------------------------------------------------------------
+# Reading the allergen dots
+# ---------------------------------------------------------------------------------------------------------------------
+# The allergen column names, as printed (rotated) above the dots, left to right.
+ALLERGEN_COLUMNS = ("Wheat", "Rye", "Barley", "Oats", "Spelt", "Kamut", "Milk", "Egg", "Soya", "Peanuts", "Nuts", "Sesame",
+                    "Mustard", "Celery", "Fish", "Crustacean", "Sulphur Dioxide", "Lupin", "Mollusc")
+# The three dot colours drawn in the table (exact fills in the April 2026 PDF) and what the key says each means.
+CONTAINS, MAY = "contains", "may_contain"
+DOT_COLOURS = {
+    "rgb(66.168213%, 6.941223%, 16.738892%)": CONTAINS,   # red: planned ingredient
+    "rgb(97.740173%, 68.045044%, 4.518127%)": MAY,        # amber: supplier cross-contact
+    "rgb(28.773499%, 24.528503%, 21.588135%)": MAY,       # dark brown: shared cooking equipment / oil
+}
+# The key's three bullets top to bottom (text glyphs, slightly different tints): contains, may (supplier), may (equipment).
+KEY_ORDER = ("rgb(66.168213%, 6.941223%, 16.738892%)", "rgb(97.740173%, 68.045044%, 4.518127%)",
+             "rgb(28.773499%, 24.528503%, 21.588135%)")
+DOT_SIZE = (5.0, 6.5)       # pt, the dots are 5.7 pt circles
+ROW_REACH, COL_REACH = 2.0, 2.5  # pt between a dot's centre and its row / column centre (rows are 7.1 pt, columns 15.4 pt apart)
+LABEL_MAX_X, NUM_X = 240.0, (240.0, 505.0)  # crop-box x: row names left of 240, the nine numbers between 240 and 505
+
+
+def _rgb(s: str) -> tuple[float, ...]:
+    return tuple(float(x) for x in re.findall(r"[\d.]+", s))
+
+
+def _page_words(pdf: Path, page: int) -> list[tuple]:
+    """pdftotext words in crop-box coordinates (the same origin as pdftocairo's SVG)."""
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / "words.html"
+        subprocess.run(["pdftotext", "-cropbox", "-bbox", "-f", str(page), "-l", str(page), str(pdf), str(out)], check=True)
+        text = out.read_text(encoding="utf-8")
+    return [(float(a), float(b), float(c), float(d), html.unescape(w)) for a, b, c, d, w in
+            re.findall(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">([^<]*)</word>', text)]
+
+
+def _page_svg(pdf: Path, page: int) -> str:
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / "page.svg"
+        subprocess.run(["pdftocairo", "-svg", "-f", str(page), "-l", str(page), str(pdf), str(out)], check=True)
+        return out.read_text(encoding="utf-8")
+
+
+def _dots(svg: str) -> list[tuple[str, float, float]]:
+    """Every filled round shape of dot size: (fill, centre x, centre y)."""
+    body = svg[svg.index("</defs>"):]
+    dots = []
+    for attrs in re.findall(r"<path ([^>]*)/>", body):
+        fill = re.search(r'\bfill="([^"]+)"', attrs).group(1)
+        d = re.search(r'\bd="([^"]+)"', attrs).group(1)
+        if fill == "none" or "C" not in d:
+            continue
+        nums = [float(x) for x in re.findall(r"-?\d+(?:\.\d+)?", d)]
+        pts = list(zip(nums[0::2], nums[1::2]))
+        tm = re.search(r'transform="matrix\(([^)]+)\)"', attrs)
+        if tm:
+            a, b, c, dd, e, f = (float(x) for x in tm.group(1).split(","))
+            pts = [(a * x + c * y + e, b * x + dd * y + f) for x, y in pts]
+        xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+        w, h = max(xs) - min(xs), max(ys) - min(ys)
+        if DOT_SIZE[0] < w < DOT_SIZE[1] and DOT_SIZE[0] < h < DOT_SIZE[1]:
+            dots.append((fill, (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2))
+    return dots
+
+
+def _check_key(svg: str) -> None:
+    """The key's three bullets (page 1, top left) must be, top to bottom, nearest in colour to red, amber, dark brown."""
+    body = svg[svg.index("</defs>"):]
+    bullets = []
+    for fill, inner in re.findall(r'<g fill="([^"]+)"[^>]*>(.*?)</g>', body, re.S):
+        for x, y in re.findall(r'<use xlink:href="#[^"]+" x="([\d.]+)" y="([\d.]+)"/>', inner):
+            if float(x) < 36 and 80 < float(y) < 125:
+                bullets.append((float(y), fill))
+    bullets.sort()
+    if len(bullets) != 3:
+        raise SystemExit(f"The allergen key has {len(bullets)} bullets, expected 3: the layout changed, re-check the key.")
+    for (_, key_fill), dot_fill in zip(bullets, KEY_ORDER):
+        nearest = min(KEY_ORDER, key=lambda f: sum((a - b) ** 2 for a, b in zip(_rgb(f), _rgb(key_fill))))
+        if nearest != dot_fill:
+            raise SystemExit(f"The allergen key's colours are not in the expected order ({key_fill} is nearest to {nearest}): "
+                             "re-check what each dot colour means.")
+
+
+def read_allergens(pdf: Path) -> list[dict]:
+    """Numbered table rows in reading order (page 1, then page 2):
+    {"label", "kj", "kcal", "contains": [column names], "may_contain": [column names]}."""
+    rows: list[dict] = []
+    for page in (1, 2):
+        words, svg = _page_words(pdf, page), _page_svg(pdf, page)
+        text = " ".join(w[4] for w in words)
+        if page == 1:
+            _check_key(svg)
+            for phrase in ("This product contains the indicated allergen as a planned ingredient.",
+                           "This product may contain the indicated allergen. A supplier has advised us",
+                           "his product may contain the indicated allergen via the use of shared cooking equipment"):
+                if phrase not in text:
+                    raise SystemExit(f"The allergen key no longer says {phrase!r}: re-check what each dot colour means.")
+        # column names: rotated words in the header band right of the numbers
+        heads = [w for w in words if w[0] > NUM_X[1] and w[1] > 140 and w[3] < 205 and (w[3] - w[1]) > (w[2] - w[0])]
+        cols: list[list] = []
+        for w in sorted(heads, key=lambda w: (w[0] + w[2]) / 2):
+            cx = (w[0] + w[2]) / 2
+            if cols and abs(cols[-1][0] - cx) < 3:
+                cols[-1][1].append(w)
+            else:
+                cols.append([cx, [w]])
+        names = [" ".join(w[4] for w in sorted(ws, key=lambda w: -w[1])) for _, ws in cols]  # rotated: read bottom to top
+        if tuple(names) != ALLERGEN_COLUMNS:
+            raise SystemExit(f"Page {page}: the allergen columns are now {names}: the layout changed, re-check ALLERGEN_COLUMNS.")
+        col_x = [cx for cx, _ in cols]
+        # numbered rows: a line (words within 2 pt) below the header with exactly nine numbers in the nutrition columns
+        lines: list[list] = []
+        for w in sorted((w for w in words if w[1] > 205), key=lambda w: (w[1] + w[3]) / 2):
+            yc = (w[1] + w[3]) / 2
+            if lines and abs(lines[-1][0] - yc) < 2:
+                lines[-1][1].append(w)
+            else:
+                lines.append([yc, [w]])
+        page_rows = []
+        for yc, ws in lines:
+            nums = sorted((w for w in ws if NUM_X[0] < w[0] < NUM_X[1] and re.fullmatch(NUM, w[4])), key=lambda w: w[0])
+            if len(nums) != len(FIELDS):
+                continue
+            label = " ".join(w[4] for w in sorted(ws, key=lambda w: w[0]) if w[2] < LABEL_MAX_X)
+            page_rows.append({"y": yc, "label": label, "kj": nums[0][4], "kcal": nums[1][4], CONTAINS: [], MAY: []})
+        cells: set = set()
+        for fill, x, y in _dots(svg):
+            if fill not in DOT_COLOURS:
+                raise SystemExit(f"Page {page}: a dot of an unknown colour {fill} at ({x:.0f}, {y:.0f}): re-check the key.")
+            ri = min(range(len(page_rows)), key=lambda i: abs(page_rows[i]["y"] - y))
+            r = page_rows[ri]
+            c = min(range(len(col_x)), key=lambda i: abs(col_x[i] - x))
+            if abs(r["y"] - y) > ROW_REACH or abs(col_x[c] - x) > COL_REACH:
+                raise SystemExit(f"Page {page}: a dot at ({x:.0f}, {y:.0f}) is not in a column beside a numbered row: layout changed.")
+            if (ri, c) in cells:
+                raise SystemExit(f"Page {page}: two dots in one cell ({r['label']!r}, {ALLERGEN_COLUMNS[c]}): re-check the PDF.")
+            cells.add((ri, c))
+            r[DOT_COLOURS[fill]].append(ALLERGEN_COLUMNS[c])
+        for r in page_rows:
+            for k in (CONTAINS, MAY):
+                r[k].sort(key=ALLERGEN_COLUMNS.index)
+            del r["y"]
+        rows += page_rows
+    return rows
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf", type=Path)
@@ -388,6 +547,14 @@ def main() -> int:
         print(f"The PDF has {len(printed)} table rows but this script names {len(spec)}. The layout or menu changed: "
               "re-check SECTIONS against the PDF before running again.", file=sys.stderr)
         return 1
+    numbered = [r for r in printed if not r.get("unnumbered")]
+    dots = read_allergens(args.pdf)
+    if len(dots) != len(numbered) or any(norm(a["label"]) != norm(r["label"]) or a["kj"] != r["kj"] or a["kcal"] != r["kcal"]
+                                         for a, r in zip(dots, numbered)):
+        print("The allergen rows do not line up with the nutrition rows (count, name, kJ or kcal differs): re-check the layout.",
+              file=sys.stderr)
+        return 1
+    by_row = {id(r): a for r, a in zip(numbered, dots)}
     items, excluded = [], []
     for n, (row, (heading, e)) in enumerate(zip(printed, spec), start=1):
         same = (norm(row["label"]).startswith(norm(e["label"])) if row.get("unnumbered")
@@ -402,6 +569,9 @@ def main() -> int:
         if row.get("unnumbered"):
             print(f"Row {n}: {row['label']!r} has no numbers but is listed as an item.", file=sys.stderr)
             return 1
+        a = by_row[id(row)]
+        contains, cereals, nuts = allergen_words(a[CONTAINS], f"{e['label']} (contains)")
+        may, _, _ = allergen_words(a[MAY], f"{e['label']} (may contain)")
         note = e["note"]
         if row.get("size"):
             note = (note + "; " if note else "") + f"Printed size column: {row['size']}"
@@ -410,7 +580,8 @@ def main() -> int:
             "calories": row["kcal"], "protein_g": row["protein"], "carbs_g": row["carbs"], "fat_g": row["fat"],
             "sat_fat_g": row["sat"], "sodium_mg": "", "salt_g": row["salt"], "sugar_g": row["sugars"], "fiber_g": row["fibre"],
             "tags": "|".join(sorted(e["tags"])), "limited_time": False, "rankable": e["rank"], "notes": note,
-            "_kj": row["kj"], "_heading": heading,
+            "energy_kj": row["kj"], "_kj": row["kj"], "_heading": heading,
+            "allergens": {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts},
         })
     # Unique ids (the names above are written to be unique; a clash would mean two different products share a name).
     for it in items:
@@ -438,7 +609,9 @@ def main() -> int:
         it.pop("_kj"), it.pop("_heading")
 
     out = write_chain_folder(chain_id=CHAIN_ID, name="Wimpy", cuisine="Burgers", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=HOLDBACK)
+                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=HOLDBACK,
+                             allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on,
+                                             "may_contain_published": True})
     by_cat: dict[str, int] = {}
     for it in items:
         by_cat[it["category"]] = by_cat.get(it["category"], 0) + 1

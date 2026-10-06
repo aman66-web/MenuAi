@@ -1,20 +1,30 @@
 #!/usr/bin/env python3
 """Build data/source/tim-hortons/ from Tim Hortons UK's official nutrition pages (timhortons.co.uk/information/<id>).
 
-    python3 tools/uk_extract/tim_hortons.py --fetch /tmp/th-raw --checked-on 2026-10-06     # download once (1 request/s), then extract
-    python3 tools/uk_extract/tim_hortons.py --raw /tmp/th-raw --checked-on 2026-10-06       # re-extract from the saved pages
-    python3 tools/uk_extract/tim_hortons.py --raw /tmp/th-raw --checked-on 2026-10-06 --pdf Nutrition.pdf   # also compare with the chain's PDF
+    python3 tools/uk_extract/tim_hortons.py --fetch DIR --checked-on 2026-10-06 --pdf Nutrition-....pdf   # download once (1 request/s), extract
+    python3 tools/uk_extract/tim_hortons.py --raw DIR --checked-on 2026-10-06 --pdf Nutrition-....pdf     # re-extract from the saved pages
 
 Tim Hortons UK publishes one page per product with a per-serving table (kcal, fat, saturates, carbohydrates, sugars,
 fibre, protein, salt; kJ is only used to flag disagreements). The menu index in every page's sidebar lists every product;
 drinks with a size switch have /small and /large pages (the page without a suffix is the Medium one). The chain's menu page
-also links its "Nutrition" PDF (allergens + the same table, stamped with a version, e.g. "C5 5.10.26 - v6"); `--pdf` compares
-every row of this extraction against it and reports differences, but the PDF is never a source of numbers here.
+also links its "Nutrition" PDF (allergens + the same table, stamped with a version, e.g. "C5 5.10.26 - v6"; save it under its
+published file name); `--pdf` compares every row of this extraction against it and reports differences, but the PDF is never a
+source of numbers here. Extra per-serving numbers: energy_kj (the page's kJ) and weight_g (only where the serving is printed
+in grams).
+
+Allergens (docs/DATA.md "Allergens"): every product page, and every size page of a drink, prints its own "Allergens:" line
+under the table (e.g. "milk, wheat, rye"), so each item gets the allergens printed for exactly that product and size. The
+pages print no "may contain" information. Plain coffee, teas, lemonades and fountain drinks print no "Allergens:" line at all;
+such an item is read as containing none of the 14 only when the PDF's allergen table has a row of exactly the same name
+(case, punctuation and spacing ignored) with no "Yes" in it. Every page line is also cross-checked against that PDF row
+where one exists (the PDF prints one row per product, no sizes). Any disagreement or an unconfirmed missing line: the chain
+gets only allergen_guide.csv (a link to the PDF, all or nothing) and the run lists why.
 
 Numbers are copied as printed. Only the names (they must match the index exactly), the categories, the rankable flags and
 the tag word lists below are typed by hand. If the index gains, loses or renames a product, a size switch changes, or a row's
 numbers change which products are held back, this script stops so a human re-checks (see SPEC, EXCLUDED, EXPECTED_HELDBACK).
 """
+from __future__ import annotations
 import argparse
 import re
 import sys
@@ -22,10 +32,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import tim_hortons_page as page  # noqa: E402
-from common import slug, write_chain_folder  # noqa: E402
+import tim_hortons_pdf  # noqa: E402
+from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "tim-hortons"
 SOURCE_URL = "https://timhortons.co.uk/information/56"
+PDF_BASE = "https://timhortons.co.uk/assets/img/products/"   # where the menu page links the Nutrition PDF (file name = version)
 SOURCE_TITLE = ("Tim Hortons UK website: product nutritional information, Great Britain menu (timhortons.co.uk/information "
                 "pages, retrieved {checked_on}; the pages carry no version date)")
 
@@ -253,6 +265,9 @@ MANUAL_NOTES: dict[tuple[str, str], str] = {
 }
 
 
+GRAMS = re.compile(r"^(\d+(?:\.\d+)?) ?g(?: ?g)?$")   # a serving printed in grams only ("48 g", "190g g"); "19g oz" is not
+
+
 def num(x: str) -> float:
     return float(x.lstrip("<"))
 
@@ -345,11 +360,46 @@ def read_rows(raw: Path) -> tuple[list[dict], list[tuple[str, str]], str]:
             if veg and pork:
                 raise SystemExit(f"{name!r} is marked vegetarian by the chain but its name says pork: re-check.")
             rows.append({**printed, "page": i, "label": label, "base_name": name,
+                         "allergens_text": pg["allergens"], "allergens_printed": pg["allergens_printed"],
                          "name": f"{name} ({label.lower()})" if label else name,
                          "category": category, "rankable": rankable and not label,
                          "serving_out": f"{label}, {printed['serving']}" if label else printed["serving"],
                          "veg": veg, "pork": pork, "diet": pg["diet"]})
     return rows, exclusions, page.sha256_bytes("\n".join(digest).encode("utf-8"))
+
+
+def allergens_for(rows: list[dict], matrix: dict[str, list[dict]]) -> tuple[list[str], int]:
+    """Fill r['allergens'] from each page's own "Allergens:" line, cross-checked against the PDF's allergen table (see the
+    module docstring). Returns the problems (any problem = the chain is not published with allergens) and how many rows had
+    a PDF row to check against."""
+    problems, checked = [], 0
+    for r in rows:
+        where = f"{r['name']} (page {r['page']}{'/' + r['label'] if r['label'] else ''})"
+        pdf = matrix.get(tim_hortons_pdf.norm_name(r["base_name"]), [])
+        pdf_sets = [allergen_words(sorted(p["yes"]), f"PDF {p['name']}") for p in pdf]
+        if r["allergens_printed"]:
+            words = [w for w in r["allergens_text"].split(",") if w.strip()]
+            if not words:
+                problems.append(f"{where}: prints an empty 'Allergens:' line")
+                continue
+            keys, cereals, nuts = allergen_words(words, where)
+            if pdf:
+                checked += 1
+                if (keys, cereals, nuts) not in pdf_sets:
+                    problems.append(f"{where}: page prints '{r['allergens_text']}', the PDF's '{pdf[0]['name']}' row says Yes to "
+                                    f"{sorted(pdf[0]['yes'])}")
+        else:
+            if not pdf:
+                problems.append(f"{where}: page prints no 'Allergens:' line and the PDF has no row of that name")
+                continue
+            checked += 1
+            if any(k for k, _, _ in pdf_sets):
+                problems.append(f"{where}: page prints no 'Allergens:' line but the PDF's '{pdf[0]['name']}' row says Yes to "
+                                f"{sorted(pdf[0]['yes'])}")
+                continue
+            keys, cereals, nuts = set(), set(), set()
+        r["allergens"] = {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}
+    return problems, checked
 
 
 def notes_for(rows: list[dict]) -> None:
@@ -405,7 +455,9 @@ def main() -> int:
     g.add_argument("--raw", type=Path, metavar="DIR", help="extract from pages already saved in DIR")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you downloaded the pages")
     ap.add_argument("--refresh", action="store_true", help="with --fetch: download again even if a page is already saved")
-    ap.add_argument("--pdf", type=Path, help="the chain's Nutrition PDF (linked from timhortons.co.uk/menu): compare every row with it")
+    ap.add_argument("--pdf", type=Path, required=True,
+                    help="the chain's Nutrition PDF (linked from timhortons.co.uk/menu, saved under its own file name): "
+                         "allergen cross-check, and every number is compared with it")
     ap.add_argument("--out", type=Path, default=Path(__file__).resolve().parents[2] / "data" / "source" / CHAIN_ID)
     args = ap.parse_args()
     raw = args.fetch or args.raw
@@ -413,6 +465,8 @@ def main() -> int:
         fetch_all(raw, args.refresh)
 
     rows, exclusions, digest = read_rows(raw)
+    version, matrix = tim_hortons_pdf.read_allergens(args.pdf)
+    allergen_problems, allergen_checked = allergens_for(rows, matrix)
     notes_for(rows)
     rows.sort(key=lambda r: CATEGORY_ORDER.index(r["category"]))  # stable: keeps the menu's order inside a category
 
@@ -426,7 +480,9 @@ def main() -> int:
         item = {"name": r["name"], "category": r["category"], "serving": r["serving_out"], "calories": r["kcal"],
                 "protein_g": r["protein"], "carbs_g": r["carbs"], "fat_g": r["fat"], "sat_fat_g": r["sat"], "sodium_mg": "",
                 "salt_g": r["salt"], "sugar_g": r["sugars"], "fiber_g": r["fibre"], "tags": "|".join(tags),
-                "limited_time": False, "rankable": r["rankable"], "notes": r["notes"]}
+                "limited_time": False, "rankable": r["rankable"], "notes": r["notes"], "energy_kj": r["kj"],
+                "weight_g": grams.group(1) if (grams := GRAMS.match(r["serving_printed"])) else "",
+                "allergens": None if allergen_problems else r["allergens"]}
         items.append(item)
         reasons = impossible(r)
         if reasons:
@@ -449,10 +505,17 @@ def main() -> int:
     if len({v for v in ids_out.values()}) != len(items):
         raise SystemExit("duplicate item ids")
 
+    if allergen_problems:   # all or nothing: link to the PDF only
+        guide = {"title": f"Tim Hortons UK Nutrition PDF with Allergen Information (UK & Ireland), {version}",
+                 "url": PDF_BASE + args.pdf.name, "checked_on": args.checked_on, "may_contain_published": True}
+    else:
+        guide = {"title": ("Tim Hortons UK website: allergens printed on each product and size page (timhortons.co.uk/information "
+                           f"pages, retrieved {args.checked_on}), cross-checked against the Nutrition PDF's allergen table, {version}"),
+                 "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": False}
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Tim Hortons", cuisine="Coffee", source_title=SOURCE_TITLE.format(checked_on=args.checked_on),
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["tim hortons", "tims", "timmies"], items=items,
-        note=NOTE, holdback=held, out=args.out)
+        note=NOTE, holdback=held, out=args.out, allergen_guide=guide)
 
     published = len(items) - len(held)
     by_cat = {c: sum(1 for r in rows if r["category"] == c) for c in CATEGORY_ORDER}
@@ -463,9 +526,18 @@ def main() -> int:
     print(f"saved pages sha256 {page.sha256_bytes(*(p.read_bytes() for p in pages))} ({len(pages)} files)")
     print("meat type not stated: " + ", ".join(sorted({r['base_name'] for r in rows
           if (MEAT_NOT_STATED.search(r['base_name']) or r['page'] in MEAT_NOT_STATED_IDS) and not r['veg']})))
-    if args.pdf:
-        import tim_hortons_pdf  # noqa: E402
-        tim_hortons_pdf.compare(args.pdf, rows)
+    tim_hortons_pdf.compare(args.pdf, rows)
+    print(f"Allergens: {allergen_checked} of {len(rows)} rows had a PDF allergen row of the same name to check against; "
+          f"pages with no 'Allergens:' line: {sum(not r['allergens_printed'] for r in rows)}")
+    print("  no PDF row of the same name (page line used as printed): "
+          + ", ".join(sorted({r['base_name'] for r in rows if r['allergens_printed']
+                              and tim_hortons_pdf.norm_name(r['base_name']) not in matrix})))
+    if allergen_problems:
+        print(f"  NOT PUBLISHED (allergen_guide.csv only): {len(allergen_problems)} problem(s):")
+        for line in allergen_problems:
+            print("   ", line)
+    else:
+        print(f"  allergens.csv written for all {len(items)} rows")
     return 0
 
 

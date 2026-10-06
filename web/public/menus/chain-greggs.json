@@ -12,7 +12,14 @@
  "source": {
   "title": "Greggs Nutritional Information guide (information correct at time of print, September 2026)",
   "url": "https://a.storyblok.com/f/94904/x/7dd8489dab/nutritional-information.pdf",
-  "checkedOn": "2026-10-05"
+  "checkedOn": "2026-10-06"
+ },
+ "allergenGuide": {
+  "title": "Greggs Customer Allergen Information Guide (Version 13, 01.10.26)",
+  "url": "https://a.storyblok.com/f/94904/x/c38f77c7c1/allergen-guide.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": false
  },
  "categories": [
   "Breakfast",
@@ -45,7 +52,9 @@
     "saturatedFat": 8.9,
     "sugar": 3.1,
     "fiber": 4,
-    "salt": 3.5
+    "salt": 3.5,
+    "energyKj": 2545,
+    "weight": 221.5
    },
    "tags": [
     "contains_pork"
@@ -68,7 +77,9 @@
     "saturatedFat": 4.7,
     "sugar": 6,
     "fiber": 1.7,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1519,
+    "weight": 155
    },
    "tags": [
     "contains_pork"
@@ -91,7 +102,9 @@
     "saturatedFat": 7.3,
     "sugar": 3.3,
     "fiber": 3.3,
-    "salt": 3.1
+    "salt": 3.1,
+    "energyKj": 2312,
+    "weight": 208.5
    },
    "tags": [
     "contains_pork"
@@ -114,7 +127,9 @@
     "saturatedFat": 7.7,
     "sugar": 5.4,
     "fiber": 2.9,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 1935,
+    "weight": 170
    },
    "tags": [
     "contains_pork"
@@ -137,7 +152,9 @@
     "saturatedFat": 6,
     "sugar": 3.7,
     "fiber": 2.9,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 2117,
+    "weight": 206.5
    },
    "tags": [
     "contains_pork"
@@ -160,7 +177,9 @@
     "saturatedFat": 6,
     "sugar": 5.7,
     "fiber": 2.2,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 1697,
+    "weight": 157
    },
    "tags": [
     "contains_pork"
@@ -183,7 +202,9 @@
     "saturatedFat": 5.6,
     "sugar": 2.9,
     "fiber": 2.7,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 1943,
+    "weight": 171
    },
    "tags": [
     "contains_pork"
@@ -206,7 +227,9 @@
     "saturatedFat": 4.3,
     "sugar": 5.3,
     "fiber": 1.7,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1349,
+    "weight": 119.5
    },
    "tags": [
     "contains_pork"
@@ -229,7 +252,9 @@
     "saturatedFat": 7.1,
     "sugar": 1.2,
     "fiber": 0.6,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 1195,
+    "weight": 131
    },
    "tags": [],
    "limitedTime": false,
@@ -250,7 +275,9 @@
     "saturatedFat": 9.1,
     "sugar": 3.9,
     "fiber": 4.7,
-    "salt": 3.1
+    "salt": 3.1,
+    "energyKj": 2652,
+    "weight": 260.5
    },
    "tags": [],
    "limitedTime": false,
@@ -271,7 +298,9 @@
     "saturatedFat": 6.7,
     "sugar": 6.1,
     "fiber": 2.9,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 1866,
+    "weight": 191
    },
    "tags": [],
    "limitedTime": false,
@@ -292,7 +321,9 @@
     "saturatedFat": 9.7,
     "sugar": 3.2,
     "fiber": 5.1,
-    "salt": 3.4
+    "salt": 3.4,
+    "energyKj": 2739,
+    "weight": 243
    },
    "tags": [],
    "limitedTime": false,
@@ -313,7 +344,9 @@
     "saturatedFat": 5.1,
     "sugar": 5.4,
     "fiber": 2.8,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1551,
+    "weight": 141
    },
    "tags": [],
    "limitedTime": false,
@@ -334,7 +367,9 @@
     "saturatedFat": 4,
     "sugar": 4.5,
     "fiber": 3,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1853,
+    "weight": 213
    },
    "tags": [],
    "limitedTime": false,
@@ -355,7 +390,9 @@
     "saturatedFat": 3.9,
     "sugar": 6.9,
     "fiber": 1.8,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1475,
+    "weight": 176
    },
    "tags": [],
    "limitedTime": false,
@@ -376,7 +413,9 @@
     "saturatedFat": 6.7,
     "sugar": 4.3,
     "fiber": 3.6,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 2335,
+    "weight": 241
    },
    "tags": [
     "contains_pork"
@@ -399,7 +438,9 @@
     "saturatedFat": 5.2,
     "sugar": 6.4,
     "fiber": 2.3,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1655,
+    "weight": 178
    },
    "tags": [
     "contains_pork"
@@ -422,7 +463,9 @@
     "saturatedFat": 6.5,
     "sugar": 3.7,
     "fiber": 3.9,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2279,
+    "weight": 217
    },
    "tags": [
     "contains_pork"
@@ -445,7 +488,9 @@
     "saturatedFat": 5.1,
     "sugar": 5.9,
     "fiber": 2.5,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1585,
+    "weight": 154
    },
    "tags": [
     "contains_pork"
@@ -468,7 +513,9 @@
     "saturatedFat": 1.4,
     "sugar": 11,
     "fiber": 4.4,
-    "salt": 0.47
+    "salt": 0.47,
+    "energyKj": 971,
+    "weight": 234
    },
    "tags": [],
    "limitedTime": false,
@@ -489,7 +536,9 @@
     "saturatedFat": 1.4,
     "sugar": 14,
     "fiber": 4.3,
-    "salt": 0.47
+    "salt": 0.47,
+    "energyKj": 1045,
+    "weight": 237
    },
    "tags": [],
    "limitedTime": false,
@@ -510,7 +559,9 @@
     "saturatedFat": 1.8,
     "sugar": 6.6,
     "fiber": 4.1,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 1049,
+    "weight": 228
    },
    "tags": [],
    "limitedTime": false,
@@ -531,7 +582,9 @@
     "saturatedFat": 11,
     "sugar": 1,
     "fiber": 2,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1958,
+    "weight": 146.1
    },
    "tags": [
     "contains_pork"
@@ -554,7 +607,9 @@
     "saturatedFat": 11,
     "sugar": 0,
     "fiber": 1.5,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1446,
+    "weight": 103
    },
    "tags": [
     "contains_pork"
@@ -577,7 +632,9 @@
     "saturatedFat": 14,
     "sugar": 1.2,
     "fiber": 1.5,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1751,
+    "weight": 150.4
    },
    "tags": [],
    "limitedTime": false,
@@ -598,7 +655,9 @@
     "saturatedFat": 13,
     "sugar": 0,
     "fiber": 1.5,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1713,
+    "weight": 136.4
    },
    "tags": [
     "contains_beef"
@@ -621,7 +680,9 @@
     "saturatedFat": 15,
     "sugar": 0.7,
     "fiber": 1.7,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1940,
+    "weight": 152
    },
    "tags": [
     "contains_beef"
@@ -644,7 +705,9 @@
     "saturatedFat": 16,
     "sugar": 1.4,
     "fiber": 2,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1814,
+    "weight": 141.4
    },
    "tags": [],
    "limitedTime": false,
@@ -665,7 +728,9 @@
     "saturatedFat": 13,
     "sugar": 1.1,
     "fiber": 1.7,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1741,
+    "weight": 143.4
    },
    "tags": [
     "contains_beef"
@@ -688,7 +753,9 @@
     "saturatedFat": 15,
     "sugar": 2.6,
     "fiber": 2.4,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1790,
+    "weight": 150.4
    },
    "tags": [],
    "limitedTime": false,
@@ -709,7 +776,9 @@
     "saturatedFat": 9.3,
     "sugar": 0.7,
     "fiber": 2.9,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1283,
+    "weight": 101
    },
    "tags": [
     "vegetarian"
@@ -732,7 +801,9 @@
     "saturatedFat": 9,
     "sugar": 0,
     "fiber": 1.3,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1272,
+    "weight": 99
    },
    "tags": [],
    "limitedTime": false,
@@ -753,7 +824,9 @@
     "saturatedFat": 5.6,
     "sugar": 1,
     "fiber": 2.2,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1407,
+    "weight": 139
    },
    "tags": [],
    "limitedTime": false,
@@ -774,7 +847,9 @@
     "saturatedFat": 23,
     "sugar": 1.3,
     "fiber": 3,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 3590,
+    "weight": 253
    },
    "tags": [],
    "limitedTime": false,
@@ -795,7 +870,9 @@
     "saturatedFat": 14,
     "sugar": 3,
     "fiber": 3.9,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1902,
+    "weight": 149.4
    },
    "tags": [
     "contains_pork"
@@ -818,7 +895,9 @@
     "saturatedFat": 8.9,
     "sugar": 0.7,
     "fiber": 1.6,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 1423,
+    "weight": 97
    },
    "tags": [],
    "limitedTime": false,
@@ -839,7 +918,9 @@
     "saturatedFat": 12,
     "sugar": 0,
     "fiber": 1,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1492,
+    "weight": 98
    },
    "tags": [
     "contains_pork"
@@ -862,7 +943,9 @@
     "saturatedFat": 45,
     "sugar": 1.7,
     "fiber": 6.2,
-    "salt": 6.2
+    "salt": 6.2,
+    "energyKj": 5784,
+    "weight": 412
    },
    "tags": [
     "contains_pork"
@@ -885,7 +968,9 @@
     "saturatedFat": 11,
     "sugar": 12,
     "fiber": 4.1,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 2793,
+    "weight": 206.8
    },
    "tags": [
     "contains_pork"
@@ -908,7 +993,9 @@
     "saturatedFat": 11,
     "sugar": 6.5,
     "fiber": 4.2,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 2823,
+    "weight": 211
    },
    "tags": [],
    "limitedTime": false,
@@ -929,7 +1016,9 @@
     "saturatedFat": 10,
     "sugar": 4.5,
     "fiber": 3.5,
-    "salt": 0.88
+    "salt": 0.88,
+    "energyKj": 2453,
+    "weight": 160
    },
    "tags": [],
    "limitedTime": false,
@@ -950,7 +1039,9 @@
     "saturatedFat": 13,
     "sugar": 4.5,
     "fiber": 3.6,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 2676,
+    "weight": 172
    },
    "tags": [
     "contains_pork"
@@ -973,7 +1064,9 @@
     "saturatedFat": 10,
     "sugar": 5.7,
     "fiber": 4.1,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 2541,
+    "weight": 195
    },
    "tags": [],
    "limitedTime": false,
@@ -994,7 +1087,9 @@
     "saturatedFat": 10,
     "sugar": 7.8,
     "fiber": 4.8,
-    "salt": 0.87
+    "salt": 0.87,
+    "energyKj": 2569,
+    "weight": 230
    },
    "tags": [],
    "limitedTime": false,
@@ -1015,7 +1110,9 @@
     "saturatedFat": 22,
     "sugar": 24,
     "fiber": 8.3,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 5586,
+    "weight": 413.5
    },
    "tags": [
     "contains_pork"
@@ -1038,7 +1135,9 @@
     "saturatedFat": 44,
     "sugar": 47,
     "fiber": 17,
-    "salt": 5.8
+    "salt": 5.8,
+    "energyKj": 11173,
+    "weight": 827
    },
    "tags": [
     "contains_pork"
@@ -1061,7 +1160,9 @@
     "saturatedFat": 66,
     "sugar": 71,
     "fiber": 25,
-    "salt": 8.7
+    "salt": 8.7,
+    "energyKj": 16761,
+    "weight": 1240.6
    },
    "tags": [
     "contains_pork"
@@ -1084,7 +1185,9 @@
     "saturatedFat": 22,
     "sugar": 13,
     "fiber": 8.4,
-    "salt": 2.7
+    "salt": 2.7,
+    "energyKj": 5646,
+    "weight": 422
    },
    "tags": [],
    "limitedTime": false,
@@ -1105,7 +1208,9 @@
     "saturatedFat": 43,
     "sugar": 26,
     "fiber": 17,
-    "salt": 5.5
+    "salt": 5.5,
+    "energyKj": 11293,
+    "weight": 844
    },
    "tags": [],
    "limitedTime": false,
@@ -1126,7 +1231,9 @@
     "saturatedFat": 65,
     "sugar": 39,
     "fiber": 25,
-    "salt": 8.2
+    "salt": 8.2,
+    "energyKj": 16939,
+    "weight": 1266
    },
    "tags": [],
    "limitedTime": false,
@@ -1147,7 +1254,9 @@
     "saturatedFat": 20,
     "sugar": 9,
     "fiber": 7,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 4906,
+    "weight": 320
    },
    "tags": [],
    "limitedTime": false,
@@ -1168,7 +1277,9 @@
     "saturatedFat": 41,
     "sugar": 18,
     "fiber": 14,
-    "salt": 3.5
+    "salt": 3.5,
+    "energyKj": 9811,
+    "weight": 640
    },
    "tags": [],
    "limitedTime": false,
@@ -1189,7 +1300,9 @@
     "saturatedFat": 61,
     "sugar": 27,
     "fiber": 21,
-    "salt": 5.3
+    "salt": 5.3,
+    "energyKj": 14717,
+    "weight": 960
    },
    "tags": [],
    "limitedTime": false,
@@ -1210,7 +1323,9 @@
     "saturatedFat": 25,
     "sugar": 8.9,
     "fiber": 7.2,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 5353,
+    "weight": 344
    },
    "tags": [
     "contains_pork"
@@ -1233,7 +1348,9 @@
     "saturatedFat": 51,
     "sugar": 18,
     "fiber": 14,
-    "salt": 5.7
+    "salt": 5.7,
+    "energyKj": 10705,
+    "weight": 688
    },
    "tags": [
     "contains_pork"
@@ -1256,7 +1373,9 @@
     "saturatedFat": 76,
     "sugar": 27,
     "fiber": 22,
-    "salt": 8.6
+    "salt": 8.6,
+    "energyKj": 16058,
+    "weight": 1032
    },
    "tags": [
     "contains_pork"
@@ -1279,7 +1398,9 @@
     "saturatedFat": 21,
     "sugar": 11,
     "fiber": 8.2,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 5082,
+    "weight": 390
    },
    "tags": [],
    "limitedTime": false,
@@ -1300,7 +1421,9 @@
     "saturatedFat": 41,
     "sugar": 23,
     "fiber": 16,
-    "salt": 4.7
+    "salt": 4.7,
+    "energyKj": 10163,
+    "weight": 780
    },
    "tags": [],
    "limitedTime": false,
@@ -1321,7 +1444,9 @@
     "saturatedFat": 62,
     "sugar": 34,
     "fiber": 25,
-    "salt": 7
+    "salt": 7,
+    "energyKj": 15245,
+    "weight": 1170
    },
    "tags": [],
    "limitedTime": false,
@@ -1342,7 +1467,9 @@
     "saturatedFat": 21,
     "sugar": 16,
     "fiber": 9.7,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 5138,
+    "weight": 460
    },
    "tags": [],
    "limitedTime": false,
@@ -1363,7 +1490,9 @@
     "saturatedFat": 41,
     "sugar": 31,
     "fiber": 19,
-    "salt": 3.5
+    "salt": 3.5,
+    "energyKj": 10276,
+    "weight": 920
    },
    "tags": [],
    "limitedTime": false,
@@ -1384,7 +1513,9 @@
     "saturatedFat": 62,
     "sugar": 47,
     "fiber": 29,
-    "salt": 5.2
+    "salt": 5.2,
+    "energyKj": 15415,
+    "weight": 1380
    },
    "tags": [],
    "limitedTime": false,
@@ -1405,7 +1536,9 @@
     "saturatedFat": 18,
     "sugar": 5.2,
     "fiber": 2.3,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 2573,
+    "weight": 324.5
    },
    "tags": [],
    "limitedTime": false,
@@ -1426,7 +1559,8 @@
     "saturatedFat": 1.5,
     "sugar": 22,
     "fiber": 1.8,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 813
    },
    "tags": [],
    "limitedTime": false,
@@ -1447,7 +1581,9 @@
     "saturatedFat": 7,
     "sugar": 0,
     "fiber": 2.1,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1674,
+    "weight": 160
    },
    "tags": [],
    "limitedTime": false,
@@ -1468,7 +1604,9 @@
     "saturatedFat": 5.7,
     "sugar": 2.4,
     "fiber": 1,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1198,
+    "weight": 104
    },
    "tags": [],
    "limitedTime": false,
@@ -1489,7 +1627,9 @@
     "saturatedFat": 9.5,
     "sugar": 0,
     "fiber": 0,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1345,
+    "weight": 96.8
    },
    "tags": [],
    "limitedTime": false,
@@ -1510,7 +1650,9 @@
     "saturatedFat": 6.4,
     "sugar": 2.8,
     "fiber": 4.6,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 2202,
+    "weight": 254
    },
    "tags": [],
    "limitedTime": false,
@@ -1531,7 +1673,9 @@
     "saturatedFat": 11,
     "sugar": 15,
     "fiber": 3.7,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 2302,
+    "weight": 208.3
    },
    "tags": [],
    "limitedTime": false,
@@ -1552,7 +1696,9 @@
     "saturatedFat": 9.6,
     "sugar": 9.6,
     "fiber": 4,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 2398,
+    "weight": 208
    },
    "tags": [
     "contains_pork"
@@ -1575,7 +1721,9 @@
     "saturatedFat": 11,
     "sugar": 6.2,
     "fiber": 3.3,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 2279,
+    "weight": 207.4
    },
    "tags": [
     "contains_pork"
@@ -1598,7 +1746,9 @@
     "saturatedFat": 8,
     "sugar": 13,
     "fiber": 4.3,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 2775,
+    "weight": 267.3
    },
    "tags": [
     "contains_pork"
@@ -1621,7 +1771,9 @@
     "saturatedFat": 4.1,
     "sugar": 8.2,
     "fiber": 4.3,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1704,
+    "weight": 187
    },
    "tags": [
     "contains_pork"
@@ -1644,7 +1796,9 @@
     "saturatedFat": 9,
     "sugar": 11,
     "fiber": 4.9,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 2410,
+    "weight": 235.6
    },
    "tags": [],
    "limitedTime": false,
@@ -1665,7 +1819,9 @@
     "saturatedFat": 7.5,
     "sugar": 8.9,
     "fiber": 3.7,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1669,
+    "weight": 144
    },
    "tags": [],
    "limitedTime": false,
@@ -1686,7 +1842,9 @@
     "saturatedFat": 7.4,
     "sugar": 6.4,
     "fiber": 4.1,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1611,
+    "weight": 177
    },
    "tags": [],
    "limitedTime": false,
@@ -1707,7 +1865,9 @@
     "saturatedFat": 5.2,
     "sugar": 4.6,
     "fiber": 3.6,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1292,
+    "weight": 114
    },
    "tags": [],
    "limitedTime": false,
@@ -1728,7 +1888,9 @@
     "saturatedFat": 1.9,
     "sugar": 7,
     "fiber": 4.4,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1456,
+    "weight": 185.3
    },
    "tags": [],
    "limitedTime": false,
@@ -1749,7 +1911,9 @@
     "saturatedFat": 1.8,
     "sugar": 5.4,
     "fiber": 4.2,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1329,
+    "weight": 149.3
    },
    "tags": [],
    "limitedTime": false,
@@ -1770,7 +1934,9 @@
     "saturatedFat": 2.9,
     "sugar": 5.3,
     "fiber": 3.9,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 2133,
+    "weight": 241
    },
    "tags": [],
    "limitedTime": false,
@@ -1791,7 +1957,9 @@
     "saturatedFat": 1.4,
     "sugar": 2.7,
     "fiber": 1.9,
-    "salt": 0.94
+    "salt": 0.94,
+    "energyKj": 1066,
+    "weight": 120.5
    },
    "tags": [],
    "limitedTime": false,
@@ -1812,7 +1980,9 @@
     "saturatedFat": 2.1,
     "sugar": 6,
     "fiber": 4,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1502,
+    "weight": 161.3
    },
    "tags": [],
    "limitedTime": false,
@@ -1833,7 +2003,9 @@
     "saturatedFat": 8,
     "sugar": 2.9,
     "fiber": 2.7,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 2029,
+    "weight": 196
    },
    "tags": [
     "contains_pork"
@@ -1856,7 +2028,9 @@
     "saturatedFat": 1.1,
     "sugar": 4.5,
     "fiber": 3.7,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1090,
+    "weight": 126
    },
    "tags": [
     "contains_pork"
@@ -1879,7 +2053,9 @@
     "saturatedFat": 1.1,
     "sugar": 6.9,
     "fiber": 4,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1379,
+    "weight": 191
    },
    "tags": [
     "contains_pork"
@@ -1902,7 +2078,9 @@
     "saturatedFat": 1.4,
     "sugar": 7.4,
     "fiber": 4.9,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1403,
+    "weight": 196
    },
    "tags": [
     "contains_pork"
@@ -1925,7 +2103,9 @@
     "saturatedFat": 3.7,
     "sugar": 6.8,
     "fiber": 3.7,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 2130,
+    "weight": 220
    },
    "tags": [],
    "limitedTime": false,
@@ -1946,7 +2126,9 @@
     "saturatedFat": 7.9,
     "sugar": 3,
     "fiber": 2.8,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 2032,
+    "weight": 188.2
    },
    "tags": [
     "contains_pork"
@@ -1969,7 +2151,9 @@
     "saturatedFat": 4.1,
     "sugar": 18,
     "fiber": 4.1,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 2089,
+    "weight": 226.1
    },
    "tags": [],
    "limitedTime": false,
@@ -1990,7 +2174,9 @@
     "saturatedFat": 7.9,
     "sugar": 13,
     "fiber": 5.9,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1914,
+    "weight": 227
    },
    "tags": [],
    "limitedTime": false,
@@ -2011,7 +2197,9 @@
     "saturatedFat": 7.6,
     "sugar": 4.2,
     "fiber": 3.4,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1854,
+    "weight": 210
    },
    "tags": [],
    "limitedTime": false,
@@ -2032,7 +2220,9 @@
     "saturatedFat": 4,
     "sugar": 17,
     "fiber": 4,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 2077,
+    "weight": 235.5
    },
    "tags": [],
    "limitedTime": false,
@@ -2053,7 +2243,9 @@
     "saturatedFat": 1,
     "sugar": 16,
     "fiber": 5.1,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1580,
+    "weight": 197
    },
    "tags": [],
    "limitedTime": false,
@@ -2074,7 +2266,9 @@
     "saturatedFat": 1.3,
     "sugar": 21,
     "fiber": 5.9,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1944,
+    "weight": 217
    },
    "tags": [],
    "limitedTime": false,
@@ -2095,7 +2289,9 @@
     "saturatedFat": 0.9,
     "sugar": 12,
     "fiber": 4.2,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1482,
+    "weight": 176
    },
    "tags": [],
    "limitedTime": false,
@@ -2116,7 +2312,9 @@
     "saturatedFat": 2.4,
     "sugar": 5.5,
     "fiber": 3.6,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1925,
+    "weight": 239.1
    },
    "tags": [
     "contains_pork"
@@ -2139,7 +2337,9 @@
     "saturatedFat": 1.2,
     "sugar": 2.7,
     "fiber": 1.8,
-    "salt": 0.84
+    "salt": 0.84,
+    "energyKj": 962,
+    "weight": 119.6
    },
    "tags": [
     "contains_pork"
@@ -2162,7 +2362,9 @@
     "saturatedFat": 1.3,
     "sugar": 4.4,
     "fiber": 3.3,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1928,
+    "weight": 222.4
    },
    "tags": [],
    "limitedTime": false,
@@ -2183,7 +2385,9 @@
     "saturatedFat": 1,
     "sugar": 6.9,
     "fiber": 4.1,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1472,
+    "weight": 197.1
    },
    "tags": [],
    "limitedTime": false,
@@ -2204,7 +2408,9 @@
     "saturatedFat": 1,
     "sugar": 7.7,
     "fiber": 5,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1504,
+    "weight": 198.1
    },
    "tags": [],
    "limitedTime": false,
@@ -2225,7 +2431,9 @@
     "saturatedFat": 1.4,
     "sugar": 11,
     "fiber": 6.4,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1732,
+    "weight": 227
    },
    "tags": [],
    "limitedTime": false,
@@ -2246,7 +2454,9 @@
     "saturatedFat": 6.5,
     "sugar": 16,
     "fiber": 4.2,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 2349,
+    "weight": 223.7
    },
    "tags": [],
    "limitedTime": false,
@@ -2267,7 +2477,9 @@
     "saturatedFat": 1,
     "sugar": 8,
     "fiber": 4.2,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1472,
+    "weight": 167.5
    },
    "tags": [],
    "limitedTime": false,
@@ -2288,7 +2500,9 @@
     "saturatedFat": 1.3,
     "sugar": 7.1,
     "fiber": 3.6,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1940,
+    "weight": 223
    },
    "tags": [],
    "limitedTime": false,
@@ -2309,7 +2523,9 @@
     "saturatedFat": 0.7,
     "sugar": 3.6,
     "fiber": 1.8,
-    "salt": 0.78
+    "salt": 0.78,
+    "energyKj": 970,
+    "weight": 111.5
    },
    "tags": [],
    "limitedTime": false,
@@ -2330,7 +2546,9 @@
     "saturatedFat": 1,
     "sugar": 9.2,
     "fiber": 5.1,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1470,
+    "weight": 196
    },
    "tags": [],
    "limitedTime": false,
@@ -2351,7 +2569,9 @@
     "saturatedFat": 0.7,
     "sugar": 7.6,
     "fiber": 3.8,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1746,
+    "weight": 236
    },
    "tags": [],
    "limitedTime": false,
@@ -2372,7 +2592,9 @@
     "saturatedFat": 0.7,
     "sugar": 9.4,
     "fiber": 5.2,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1345,
+    "weight": 187
    },
    "tags": [],
    "limitedTime": false,
@@ -2393,7 +2615,9 @@
     "saturatedFat": 0.8,
     "sugar": 6.2,
     "fiber": 3.8,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1391,
+    "weight": 189.2
    },
    "tags": [],
    "limitedTime": false,
@@ -2414,7 +2638,9 @@
     "saturatedFat": 1,
     "sugar": 9.3,
     "fiber": 4.5,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 2038,
+    "weight": 252.6
    },
    "tags": [],
    "limitedTime": false,
@@ -2435,7 +2661,9 @@
     "saturatedFat": 5.4,
     "sugar": 2.8,
     "fiber": 1.9,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1885,
+    "weight": 235
    },
    "tags": [],
    "limitedTime": false,
@@ -2456,7 +2684,9 @@
     "saturatedFat": 1.5,
     "sugar": 7.8,
     "fiber": 3.2,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1424,
+    "weight": 290
    },
    "tags": [],
    "limitedTime": false,
@@ -2477,7 +2707,9 @@
     "saturatedFat": 2.9,
     "sugar": 8.8,
     "fiber": 3.4,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 2046,
+    "weight": 285
    },
    "tags": [
     "contains_pork"
@@ -2500,7 +2732,9 @@
     "saturatedFat": 6,
     "sugar": 7.1,
     "fiber": 4.3,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 2180,
+    "weight": 285
    },
    "tags": [],
    "limitedTime": false,
@@ -2521,7 +2755,9 @@
     "saturatedFat": 0.7,
     "sugar": 0,
     "fiber": 1.6,
-    "salt": 0.53
+    "salt": 0.53,
+    "energyKj": 643,
+    "weight": 76.4
    },
    "tags": [],
    "limitedTime": false,
@@ -2542,7 +2778,9 @@
     "saturatedFat": 0.8,
     "sugar": 1.2,
     "fiber": 3.6,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 1011,
+    "weight": 150
    },
    "tags": [],
    "limitedTime": false,
@@ -2563,7 +2801,9 @@
     "saturatedFat": 0,
     "sugar": 1.6,
     "fiber": 1.1,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 61,
+    "weight": 96
    },
    "tags": [],
    "limitedTime": false,
@@ -2584,7 +2824,9 @@
     "saturatedFat": 2.6,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 527,
+    "weight": 90
    },
    "tags": [],
    "limitedTime": false,
@@ -2605,7 +2847,9 @@
     "saturatedFat": 0,
     "sugar": 8.7,
     "fiber": 1.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 183,
+    "weight": 90
    },
    "tags": [],
    "limitedTime": false,
@@ -2626,7 +2870,9 @@
     "saturatedFat": 0,
     "sugar": 12,
     "fiber": 1.8,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 233,
+    "weight": 110
    },
    "tags": [],
    "limitedTime": false,
@@ -2647,7 +2893,9 @@
     "saturatedFat": 0.1,
     "sugar": 17,
     "fiber": 0.7,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 485,
+    "weight": 150
    },
    "tags": [],
    "limitedTime": false,
@@ -2668,7 +2916,9 @@
     "saturatedFat": 1,
     "sugar": 0.9,
     "fiber": 1.6,
-    "salt": 0.52
+    "salt": 0.52,
+    "energyKj": 836,
+    "weight": 40
    },
    "tags": [],
    "limitedTime": false,
@@ -2689,7 +2939,9 @@
     "saturatedFat": 0.9,
     "sugar": 0.7,
     "fiber": 1.4,
-    "salt": 0.68
+    "salt": 0.68,
+    "energyKj": 836,
+    "weight": 40
    },
    "tags": [],
    "limitedTime": false,
@@ -2710,7 +2962,9 @@
     "saturatedFat": 0.9,
     "sugar": 1.7,
     "fiber": 1.5,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 839,
+    "weight": 40
    },
    "tags": [],
    "limitedTime": false,
@@ -2731,7 +2985,9 @@
     "saturatedFat": 8.7,
     "sugar": 4.4,
     "fiber": 2.1,
-    "salt": 0.79
+    "salt": 0.79,
+    "energyKj": 1225,
+    "weight": 79
    },
    "tags": [],
    "limitedTime": false,
@@ -2752,7 +3008,9 @@
     "saturatedFat": 4,
     "sugar": 28,
     "fiber": 1.9,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 1368,
+    "weight": 116.7
    },
    "tags": [],
    "limitedTime": false,
@@ -2773,7 +3031,9 @@
     "saturatedFat": 9.7,
     "sugar": 29,
     "fiber": 1,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 1577,
+    "weight": 127
    },
    "tags": [],
    "limitedTime": false,
@@ -2794,7 +3054,9 @@
     "saturatedFat": 1.1,
     "sugar": 47,
     "fiber": 2.2,
-    "salt": 0.53
+    "salt": 0.53,
+    "energyKj": 1574,
+    "weight": 122.5
    },
    "tags": [],
    "limitedTime": false,
@@ -2815,7 +3077,9 @@
     "saturatedFat": 4.3,
     "sugar": 31,
     "fiber": 4.1,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 1522,
+    "weight": 103
    },
    "tags": [],
    "limitedTime": false,
@@ -2836,7 +3100,9 @@
     "saturatedFat": 6.5,
     "sugar": 29,
     "fiber": 0,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 1014,
+    "weight": 50
    },
    "tags": [],
    "limitedTime": false,
@@ -2857,7 +3123,9 @@
     "saturatedFat": 4.8,
     "sugar": 16,
     "fiber": 1.1,
-    "salt": 0.68
+    "salt": 0.68,
+    "energyKj": 1148,
+    "weight": 97
    },
    "tags": [],
    "limitedTime": false,
@@ -2878,7 +3146,9 @@
     "saturatedFat": 2.7,
     "sugar": 19,
     "fiber": 0.7,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 898,
+    "weight": 50
    },
    "tags": [],
    "limitedTime": false,
@@ -2899,7 +3169,9 @@
     "saturatedFat": 7,
     "sugar": 23,
     "fiber": 5,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 1245,
+    "weight": 74
    },
    "tags": [],
    "limitedTime": false,
@@ -2920,7 +3192,9 @@
     "saturatedFat": 12,
     "sugar": 16,
     "fiber": 0.9,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 1345,
+    "weight": 81
    },
    "tags": [],
    "limitedTime": false,
@@ -2941,7 +3215,9 @@
     "saturatedFat": 11,
     "sugar": 21,
     "fiber": 1.3,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 1556,
+    "weight": 111
    },
    "tags": [],
    "limitedTime": false,
@@ -2962,7 +3238,9 @@
     "saturatedFat": 3.4,
     "sugar": 26,
     "fiber": 4.9,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 1191,
+    "weight": 68.5
    },
    "tags": [],
    "limitedTime": false,
@@ -2983,7 +3261,9 @@
     "saturatedFat": 3,
     "sugar": 19,
     "fiber": 1.8,
-    "salt": 0.96
+    "salt": 0.96,
+    "energyKj": 1258,
+    "weight": 96
    },
    "tags": [],
    "limitedTime": false,
@@ -3004,7 +3284,9 @@
     "saturatedFat": 3.5,
     "sugar": 25,
     "fiber": 1.7,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 1061,
+    "weight": 60
    },
    "tags": [],
    "limitedTime": false,
@@ -3025,7 +3307,9 @@
     "saturatedFat": 1.6,
     "sugar": 13,
     "fiber": 2.9,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 742,
+    "weight": 42
    },
    "tags": [],
    "limitedTime": false,
@@ -3046,7 +3330,9 @@
     "saturatedFat": 2.3,
     "sugar": 21,
     "fiber": 0.8,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 845,
+    "weight": 58
    },
    "tags": [],
    "limitedTime": false,
@@ -3067,7 +3353,9 @@
     "saturatedFat": 4.5,
     "sugar": 42,
     "fiber": 1.5,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 1690,
+    "weight": 116
    },
    "tags": [],
    "limitedTime": false,
@@ -3088,7 +3376,9 @@
     "saturatedFat": 11,
     "sugar": 59,
     "fiber": 2,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 3168,
+    "weight": 168
    },
    "tags": [],
    "limitedTime": false,
@@ -3109,7 +3399,9 @@
     "saturatedFat": 14,
     "sugar": 41,
     "fiber": 11,
-    "salt": 0.74
+    "salt": 0.74,
+    "energyKj": 2862,
+    "weight": 140
    },
    "tags": [],
    "limitedTime": false,
@@ -3130,7 +3422,9 @@
     "saturatedFat": 17,
     "sugar": 33,
     "fiber": 2.2,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 2585,
+    "weight": 156.4
    },
    "tags": [],
    "limitedTime": false,
@@ -3151,7 +3445,9 @@
     "saturatedFat": 3.5,
     "sugar": 15,
     "fiber": 1.6,
-    "salt": 0.57
+    "salt": 0.57,
+    "energyKj": 996,
+    "weight": 76
    },
    "tags": [],
    "limitedTime": false,
@@ -3172,7 +3468,9 @@
     "saturatedFat": 7.7,
     "sugar": 13,
     "fiber": 1.1,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 1134,
+    "weight": 59
    },
    "tags": [],
    "limitedTime": false,
@@ -3193,7 +3491,9 @@
     "saturatedFat": 32,
     "sugar": 114,
     "fiber": 3.2,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 5250,
+    "weight": 265
    },
    "tags": [],
    "limitedTime": false,
@@ -3214,7 +3514,9 @@
     "saturatedFat": 7.4,
     "sugar": 27,
     "fiber": 0.7,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 1205,
+    "weight": 62
    },
    "tags": [],
    "limitedTime": false,
@@ -3235,7 +3537,9 @@
     "saturatedFat": 7,
     "sugar": 20,
     "fiber": 5.6,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 1431,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
@@ -3256,7 +3560,9 @@
     "saturatedFat": 2,
     "sugar": 18,
     "fiber": 2.1,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 819,
+    "weight": 49.4
    },
    "tags": [],
    "limitedTime": false,
@@ -3277,7 +3583,9 @@
     "saturatedFat": 2,
     "sugar": 19,
     "fiber": 2.1,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 820,
+    "weight": 49.5
    },
    "tags": [],
    "limitedTime": false,
@@ -3298,7 +3606,9 @@
     "saturatedFat": 9.5,
     "sugar": 7.9,
     "fiber": 2.4,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 1249,
+    "weight": 79
    },
    "tags": [],
    "limitedTime": false,
@@ -3319,7 +3629,9 @@
     "saturatedFat": 11,
     "sugar": 27,
     "fiber": 0.9,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 1543,
+    "weight": 99
    },
    "tags": [],
    "limitedTime": false,
@@ -3340,7 +3652,9 @@
     "saturatedFat": 4.1,
     "sugar": 28,
     "fiber": 0.6,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 1042,
+    "weight": 69
    },
    "tags": [],
    "limitedTime": false,
@@ -3361,7 +3675,9 @@
     "saturatedFat": 5.6,
     "sugar": 23,
     "fiber": 1.5,
-    "salt": 0.59
+    "salt": 0.59,
+    "energyKj": 1296,
+    "weight": 90
    },
    "tags": [],
    "limitedTime": false,
@@ -3382,7 +3698,9 @@
     "saturatedFat": 5.9,
     "sugar": 22,
     "fiber": 1.1,
-    "salt": 0.63
+    "salt": 0.63,
+    "energyKj": 1301,
+    "weight": 92
    },
    "tags": [],
    "limitedTime": false,
@@ -3403,7 +3721,9 @@
     "saturatedFat": 5.4,
     "sugar": 10,
     "fiber": 3.2,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 772,
+    "weight": 38.4
    },
    "tags": [],
    "limitedTime": false,
@@ -3424,7 +3744,9 @@
     "saturatedFat": 4.5,
     "sugar": 13,
     "fiber": 0.9,
-    "salt": 0.46
+    "salt": 0.46,
+    "energyKj": 938,
+    "weight": 59
    },
    "tags": [],
    "limitedTime": false,
@@ -3445,7 +3767,9 @@
     "saturatedFat": 3,
     "sugar": 38,
     "fiber": 0.7,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 1526,
+    "weight": 88
    },
    "tags": [],
    "limitedTime": false,
@@ -3466,7 +3790,9 @@
     "saturatedFat": 7,
     "sugar": 21,
     "fiber": 6.9,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 1392,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
@@ -3487,7 +3813,9 @@
     "saturatedFat": 6.9,
     "sugar": 20,
     "fiber": 1.3,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 1359,
+    "weight": 85
    },
    "tags": [],
    "limitedTime": false,
@@ -3508,7 +3836,9 @@
     "saturatedFat": 5.2,
     "sugar": 39,
     "fiber": 4.4,
-    "salt": 0.49
+    "salt": 0.49,
+    "energyKj": 1958,
+    "weight": 129.4
    },
    "tags": [],
    "limitedTime": false,
@@ -3529,7 +3859,9 @@
     "saturatedFat": 5.2,
     "sugar": 14,
     "fiber": 0.9,
-    "salt": 0.58
+    "salt": 0.58,
+    "energyKj": 1018,
+    "weight": 73
    },
    "tags": [],
    "limitedTime": false,
@@ -3550,7 +3882,9 @@
     "saturatedFat": 7.1,
     "sugar": 31,
     "fiber": 0.6,
-    "salt": 0.52
+    "salt": 0.52,
+    "energyKj": 1375,
+    "weight": 129
    },
    "tags": [],
    "limitedTime": false,
@@ -3571,7 +3905,9 @@
     "saturatedFat": 7,
     "sugar": 21,
     "fiber": 4.2,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 1433,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
@@ -3592,7 +3928,9 @@
     "saturatedFat": 8.6,
     "sugar": 16,
     "fiber": 1.1,
-    "salt": 0.77
+    "salt": 0.77,
+    "energyKj": 1293,
+    "weight": 78.2
    },
    "tags": [],
    "limitedTime": false,
@@ -3613,7 +3951,9 @@
     "saturatedFat": 17,
     "sugar": 33,
     "fiber": 2.2,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 2585,
+    "weight": 156.4
    },
    "tags": [],
    "limitedTime": false,
@@ -3634,7 +3974,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 61
    },
    "tags": [],
    "limitedTime": false,
@@ -3655,7 +3996,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 46
    },
    "tags": [],
    "limitedTime": false,
@@ -3676,7 +4018,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 61
    },
    "tags": [],
    "limitedTime": false,
@@ -3697,7 +4040,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 46
    },
    "tags": [],
    "limitedTime": false,
@@ -3718,7 +4062,8 @@
     "saturatedFat": 2,
     "sugar": 10,
     "fiber": 0,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 487
    },
    "tags": [],
    "limitedTime": false,
@@ -3739,7 +4084,8 @@
     "saturatedFat": 2,
     "sugar": 10,
     "fiber": 0,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 487
    },
    "tags": [],
    "limitedTime": false,
@@ -3760,7 +4106,8 @@
     "saturatedFat": 1.4,
     "sugar": 8.5,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 391
    },
    "tags": [],
    "limitedTime": false,
@@ -3781,7 +4128,8 @@
     "saturatedFat": 1.4,
     "sugar": 8.5,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 391
    },
    "tags": [],
    "limitedTime": false,
@@ -3802,7 +4150,8 @@
     "saturatedFat": 5.4,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 931
    },
    "tags": [],
    "limitedTime": false,
@@ -3823,7 +4172,8 @@
     "saturatedFat": 5.4,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 931
    },
    "tags": [],
    "limitedTime": false,
@@ -3844,7 +4194,8 @@
     "saturatedFat": 4.7,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 851
    },
    "tags": [],
    "limitedTime": false,
@@ -3865,7 +4216,8 @@
     "saturatedFat": 4.7,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 851
    },
    "tags": [],
    "limitedTime": false,
@@ -3886,7 +4238,8 @@
     "saturatedFat": 1.1,
     "sugar": 6,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 304
    },
    "tags": [],
    "limitedTime": false,
@@ -3907,7 +4260,8 @@
     "saturatedFat": 1.1,
     "sugar": 6,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 305
    },
    "tags": [],
    "limitedTime": false,
@@ -3928,7 +4282,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -3949,7 +4304,8 @@
     "saturatedFat": 5.3,
     "sugar": 42,
     "fiber": 0,
-    "salt": 0.57
+    "salt": 0.57,
+    "energyKj": 1216
    },
    "tags": [],
    "limitedTime": false,
@@ -3970,7 +4326,8 @@
     "saturatedFat": 4.1,
     "sugar": 30,
     "fiber": 0,
-    "salt": 0.48
+    "salt": 0.48,
+    "energyKj": 926
    },
    "tags": [],
    "limitedTime": false,
@@ -3991,7 +4348,8 @@
     "saturatedFat": 2.3,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 555
    },
    "tags": [],
    "limitedTime": false,
@@ -4012,7 +4370,8 @@
     "saturatedFat": 2,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 482
    },
    "tags": [],
    "limitedTime": false,
@@ -4033,7 +4392,8 @@
     "saturatedFat": 2.3,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 555
    },
    "tags": [],
    "limitedTime": false,
@@ -4054,7 +4414,8 @@
     "saturatedFat": 2,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 482
    },
    "tags": [],
    "limitedTime": false,
@@ -4075,7 +4436,8 @@
     "saturatedFat": 5.5,
     "sugar": 34,
     "fiber": 0,
-    "salt": 0.78
+    "salt": 0.78,
+    "energyKj": 1287
    },
    "tags": [],
    "limitedTime": false,
@@ -4096,7 +4458,8 @@
     "saturatedFat": 4.2,
     "sugar": 30,
     "fiber": 0,
-    "salt": 0.64
+    "salt": 0.64,
+    "energyKj": 978
    },
    "tags": [],
    "limitedTime": false,
@@ -4117,7 +4480,8 @@
     "saturatedFat": 5.5,
     "sugar": 34,
     "fiber": 0,
-    "salt": 0.78
+    "salt": 0.78,
+    "energyKj": 1287
    },
    "tags": [],
    "limitedTime": false,
@@ -4138,7 +4502,8 @@
     "saturatedFat": 4.2,
     "sugar": 30,
     "fiber": 0,
-    "salt": 0.64
+    "salt": 0.64,
+    "energyKj": 978
    },
    "tags": [],
    "limitedTime": false,
@@ -4159,7 +4524,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -4180,7 +4546,8 @@
     "saturatedFat": 5.1,
     "sugar": 27,
     "fiber": 0,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 980
    },
    "tags": [],
    "limitedTime": false,
@@ -4201,7 +4568,8 @@
     "saturatedFat": 4.8,
     "sugar": 27,
     "fiber": 0,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 907
    },
    "tags": [],
    "limitedTime": false,
@@ -4222,7 +4590,8 @@
     "saturatedFat": 5.1,
     "sugar": 27,
     "fiber": 0,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 980
    },
    "tags": [],
    "limitedTime": false,
@@ -4243,7 +4612,8 @@
     "saturatedFat": 4.8,
     "sugar": 27,
     "fiber": 0,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 907
    },
    "tags": [],
    "limitedTime": false,
@@ -4264,7 +4634,8 @@
     "saturatedFat": 5.4,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 939
    },
    "tags": [],
    "limitedTime": false,
@@ -4285,7 +4656,8 @@
     "saturatedFat": 5.4,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 939
    },
    "tags": [],
    "limitedTime": false,
@@ -4306,7 +4678,8 @@
     "saturatedFat": 4.7,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 851
    },
    "tags": [],
    "limitedTime": false,
@@ -4327,7 +4700,8 @@
     "saturatedFat": 4.7,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 851
    },
    "tags": [],
    "limitedTime": false,
@@ -4348,7 +4722,8 @@
     "saturatedFat": 0.8,
     "sugar": 3.4,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 189
    },
    "tags": [],
    "limitedTime": false,
@@ -4369,7 +4744,8 @@
     "saturatedFat": 0,
     "sugar": 2.9,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 143
    },
    "tags": [],
    "limitedTime": false,
@@ -4390,7 +4766,8 @@
     "saturatedFat": 0.8,
     "sugar": 3.4,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 189
    },
    "tags": [],
    "limitedTime": false,
@@ -4411,7 +4788,8 @@
     "saturatedFat": 0,
     "sugar": 2.9,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 143
    },
    "tags": [],
    "limitedTime": false,
@@ -4432,7 +4810,8 @@
     "saturatedFat": 0.4,
     "sugar": 1.2,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 49
    },
    "tags": [],
    "limitedTime": false,
@@ -4453,7 +4832,8 @@
     "saturatedFat": 0.3,
     "sugar": 0.9,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 41
    },
    "tags": [],
    "limitedTime": false,
@@ -4474,7 +4854,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 50
    },
    "tags": [],
    "limitedTime": false,
@@ -4495,7 +4876,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 50
    },
    "tags": [],
    "limitedTime": false,
@@ -4516,7 +4898,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.05
+    "salt": 0.05,
+    "energyKj": 53
    },
    "tags": [],
    "limitedTime": false,
@@ -4537,7 +4920,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.05
+    "salt": 0.05,
+    "energyKj": 48
    },
    "tags": [],
    "limitedTime": false,
@@ -4558,7 +4942,8 @@
     "saturatedFat": 3,
     "sugar": 39,
     "fiber": 1.4,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 931
    },
    "tags": [],
    "limitedTime": false,
@@ -4579,7 +4964,8 @@
     "saturatedFat": 2.4,
     "sugar": 22,
     "fiber": 0,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 723
    },
    "tags": [],
    "limitedTime": false,
@@ -4600,7 +4986,8 @@
     "saturatedFat": 2.4,
     "sugar": 22,
     "fiber": 0,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 723
    },
    "tags": [],
    "limitedTime": false,
@@ -4621,7 +5008,8 @@
     "saturatedFat": 3.1,
     "sugar": 24,
     "fiber": 1.4,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 680
    },
    "tags": [],
    "limitedTime": false,
@@ -4642,7 +5030,8 @@
     "saturatedFat": 2.3,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 521
    },
    "tags": [],
    "limitedTime": false,
@@ -4663,7 +5052,8 @@
     "saturatedFat": 2.3,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 521
    },
    "tags": [],
    "limitedTime": false,
@@ -4684,7 +5074,8 @@
     "saturatedFat": 1.9,
     "sugar": 9.1,
     "fiber": 0,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 425
    },
    "tags": [],
    "limitedTime": false,
@@ -4705,7 +5096,8 @@
     "saturatedFat": 3.1,
     "sugar": 23,
     "fiber": 1.4,
-    "salt": 0.35
+    "salt": 0.35,
+    "energyKj": 682
    },
    "tags": [],
    "limitedTime": false,
@@ -4726,7 +5118,8 @@
     "saturatedFat": 3.1,
     "sugar": 24,
     "fiber": 1.4,
-    "salt": 0.35
+    "salt": 0.35,
+    "energyKj": 680
    },
    "tags": [],
    "limitedTime": false,
@@ -4747,7 +5140,8 @@
     "saturatedFat": 2,
     "sugar": 29,
     "fiber": 0,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 773
    },
    "tags": [],
    "limitedTime": false,
@@ -4768,7 +5162,8 @@
     "saturatedFat": 2,
     "sugar": 29,
     "fiber": 0,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 772
    },
    "tags": [],
    "limitedTime": false,
@@ -4789,7 +5184,8 @@
     "saturatedFat": 2.4,
     "sugar": 23,
     "fiber": 0,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 723
    },
    "tags": [],
    "limitedTime": false,
@@ -4810,7 +5206,8 @@
     "saturatedFat": 2.4,
     "sugar": 23,
     "fiber": 0,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 723
    },
    "tags": [],
    "limitedTime": false,
@@ -4831,7 +5228,8 @@
     "saturatedFat": 1.9,
     "sugar": 18,
     "fiber": 0,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 569
    },
    "tags": [],
    "limitedTime": false,
@@ -4852,7 +5250,8 @@
     "saturatedFat": 1.9,
     "sugar": 19,
     "fiber": 0,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 630
    },
    "tags": [],
    "limitedTime": false,
@@ -4873,7 +5272,8 @@
     "saturatedFat": 1.9,
     "sugar": 20,
     "fiber": 0,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 593
    },
    "tags": [],
    "limitedTime": false,
@@ -4894,7 +5294,8 @@
     "saturatedFat": 2,
     "sugar": 23,
     "fiber": 0,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 649
    },
    "tags": [],
    "limitedTime": false,
@@ -4915,7 +5316,8 @@
     "saturatedFat": 0,
     "sugar": 18,
     "fiber": 0,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 340
    },
    "tags": [],
    "limitedTime": false,
@@ -4936,7 +5338,8 @@
     "saturatedFat": 0,
     "sugar": 18,
     "fiber": 0,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 449
    },
    "tags": [],
    "limitedTime": false,
@@ -4957,7 +5360,8 @@
     "saturatedFat": 0,
     "sugar": 13,
     "fiber": 0,
-    "salt": 0.05
+    "salt": 0.05,
+    "energyKj": 248
    },
    "tags": [],
    "limitedTime": false,
@@ -4978,7 +5382,8 @@
     "saturatedFat": 0,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0.05
+    "salt": 0.05,
+    "energyKj": 235
    },
    "tags": [],
    "limitedTime": false,
@@ -4999,7 +5404,8 @@
     "saturatedFat": 0,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 320
    },
    "tags": [],
    "limitedTime": false,
@@ -5020,7 +5426,8 @@
     "saturatedFat": 0,
     "sugar": 12,
     "fiber": 0,
-    "salt": 0.05
+    "salt": 0.05,
+    "energyKj": 292
    },
    "tags": [],
    "limitedTime": false,
@@ -5041,7 +5448,8 @@
     "saturatedFat": 0,
     "sugar": 0.5,
     "fiber": 0,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 55
    },
    "tags": [],
    "limitedTime": false,
@@ -5062,7 +5470,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -5083,7 +5492,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -5104,7 +5514,8 @@
     "saturatedFat": 1.2,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 186
    },
    "tags": [
     "contains_pork"
@@ -5127,7 +5538,8 @@
     "saturatedFat": 1.5,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 258
    },
    "tags": [
     "contains_pork"
@@ -5150,7 +5562,8 @@
     "saturatedFat": 0,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 192
    },
    "tags": [],
    "limitedTime": false,
@@ -5171,7 +5584,8 @@
     "saturatedFat": 2.9,
     "sugar": 0.9,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 172
    },
    "tags": [],
    "limitedTime": false,
@@ -5192,7 +5606,8 @@
     "saturatedFat": 0,
     "sugar": 0.6,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 17
    },
    "tags": [],
    "limitedTime": false,
@@ -5213,7 +5628,8 @@
     "saturatedFat": 4.5,
     "sugar": 0,
     "fiber": 1.2,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 772
    },
    "tags": [
     "contains_pork"
@@ -5236,7 +5652,8 @@
     "saturatedFat": 1.7,
     "sugar": 0.8,
     "fiber": 0,
-    "salt": 0.35
+    "salt": 0.35,
+    "energyKj": 321
    },
    "tags": [],
    "limitedTime": false,
@@ -5257,7 +5674,8 @@
     "saturatedFat": 0,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 192
    },
    "tags": [],
    "limitedTime": false,
@@ -5278,7 +5696,8 @@
     "saturatedFat": 0,
     "sugar": 12,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 196
    },
    "tags": [],
    "limitedTime": false,
@@ -5299,7 +5718,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 34
    },
    "tags": [],
    "limitedTime": false,
@@ -5320,7 +5740,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 33
    },
    "tags": [],
    "limitedTime": false,
@@ -5341,7 +5762,8 @@
     "saturatedFat": 0.7,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 111
    },
    "tags": [],
    "limitedTime": false,
@@ -5362,7 +5784,8 @@
     "saturatedFat": 1.9,
     "sugar": 2.7,
     "fiber": 0,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 264
    },
    "tags": [],
    "limitedTime": false,
@@ -5383,7 +5806,8 @@
     "saturatedFat": 0.9,
     "sugar": 1.2,
     "fiber": 0,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 526
    },
    "tags": [],
    "limitedTime": false,
@@ -5404,7 +5828,8 @@
     "saturatedFat": 0,
     "sugar": 13,
     "fiber": 0,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 262
    },
    "tags": [],
    "limitedTime": false,
@@ -5425,7 +5850,8 @@
     "saturatedFat": 0,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 317
    },
    "tags": [],
    "limitedTime": false,
@@ -5446,7 +5872,8 @@
     "saturatedFat": 3.1,
     "sugar": 26,
     "fiber": 1.3,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 844
    },
    "tags": [],
    "limitedTime": false,
@@ -5467,7 +5894,8 @@
     "saturatedFat": 4.1,
     "sugar": 28,
     "fiber": 0,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 904
    },
    "tags": [],
    "limitedTime": false,
@@ -5488,7 +5916,9 @@
     "saturatedFat": 0.3,
     "sugar": 2.9,
     "fiber": 2.8,
-    "salt": 0.79
+    "salt": 0.79,
+    "energyKj": 1166,
+    "weight": 108
    },
    "tags": [],
    "limitedTime": false,
@@ -5509,7 +5939,9 @@
     "saturatedFat": 0.3,
     "sugar": 5.3,
     "fiber": 1.7,
-    "salt": 0.53
+    "salt": 0.53,
+    "energyKj": 767,
+    "weight": 71
    },
    "tags": [],
    "limitedTime": false,
@@ -5530,7 +5962,9 @@
     "saturatedFat": 0.1,
     "sugar": 2.5,
     "fiber": 1.8,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 471,
+    "weight": 42
    },
    "tags": [],
    "limitedTime": false,
@@ -5551,7 +5985,9 @@
     "saturatedFat": 0.6,
     "sugar": 7.1,
     "fiber": 4.8,
-    "salt": 0.87
+    "salt": 0.87,
+    "energyKj": 1164,
+    "weight": 105
    },
    "tags": [],
    "limitedTime": false,
@@ -5572,7 +6008,9 @@
     "saturatedFat": 0.2,
     "sugar": 4,
     "fiber": 2.2,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 725,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
@@ -5593,7 +6031,9 @@
     "saturatedFat": 0,
     "sugar": 2.3,
     "fiber": 1.8,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 413,
+    "weight": 42
    },
    "tags": [],
    "limitedTime": false,
@@ -5614,7 +6054,9 @@
     "saturatedFat": 0.3,
     "sugar": 5.8,
     "fiber": 4.3,
-    "salt": 0.66
+    "salt": 0.66,
+    "energyKj": 929,
+    "weight": 85
    },
    "tags": [],
    "limitedTime": false,
@@ -5635,7 +6077,9 @@
     "saturatedFat": 0.1,
     "sugar": 2.9,
     "fiber": 1.6,
-    "salt": 0.47
+    "salt": 0.47,
+    "energyKj": 616,
+    "weight": 62
    },
    "tags": [],
    "limitedTime": false,

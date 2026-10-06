@@ -10,6 +10,13 @@ Protein, Salt (g) and an "Add Flavour (ml)" amount. The page prints no date, so 
 Numbers are copied from the cards exactly as printed. Only the NAMES, categories, serving words and tags below are
 typed by hand, one entry per card in the page's own order (it lists items alphabetically). If Pepe's adds, removes,
 renames or re-categorises a card, or changes the columns, this script stops so a human re-checks ROWS.
+
+Allergens (docs/DATA.md "Allergens") come from the same cards: each card's footer prints "Allergens: Wheat, Milk, ..."
+(one <span class="allergen" data-allergen="..."> per word) or "Allergens: N/A", and the card's data-allergens attribute
+repeats the list. Both are read and must agree, word for word, or the script stops. The page names cereals (Wheat,
+Barley, Oats) and nuts (Walnuts) rather than "gluten"/"nuts", so those are recorded specifically. "N/A" = none of the 14
+listed for that card. The page prints no per-item "may contain": only a general notice that any dish may contain traces
+of any of the 14 allergens (suppliers, shared fryer oil), so may_contain_published is "no" and no may-contain is written.
 """
 from __future__ import annotations
 import argparse
@@ -19,7 +26,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "pepes-piri-piri"
 SOURCE_URL = "https://pepes.co.uk/nutrition-allergens-uk/"
@@ -241,13 +248,14 @@ class CardParser(HTMLParser):
         self.card: dict | None = None
         self.mode: str | None = None
         self.item: list | None = None
+        self.in_allergen = False
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         cls = (a.get("class") or "").split()
         if tag == "div":
             if "nutrition-table-item" in cls and "data-adam" in a:
-                self.card = {"attrs": a, "head": "", "items": [], "footer": ""}
+                self.card = {"attrs": a, "head": "", "items": [], "footer": "", "allergen_spans": []}
                 self.stack.append("card")
             elif self.card is not None and "nutrition-table-heading" in cls:
                 self.stack.append("head"); self.mode = "head"
@@ -259,8 +267,13 @@ class CardParser(HTMLParser):
                 self.stack.append("other")
         elif tag == "strong" and self.item is not None and "ntc-name" in cls:
             self.mode = "label"
+        elif tag == "span" and self.card is not None and self.mode == "footer" and "allergen" in cls:
+            self.card["allergen_spans"].append([a.get("data-allergen", ""), ""])
+            self.in_allergen = True
 
     def handle_endtag(self, tag):
+        if tag == "span":
+            self.in_allergen = False
         if tag == "strong" and self.item is not None and self.mode == "label":
             self.mode = "value"
         elif tag == "div" and self.stack:
@@ -280,10 +293,25 @@ class CardParser(HTMLParser):
             self.card["head"] += data
         elif self.mode == "footer":
             self.card["footer"] += data
+            if self.in_allergen:
+                self.card["allergen_spans"][-1][1] += data
         elif self.item is not None and self.mode == "label":
             self.item[0] += data
         elif self.item is not None and self.mode == "value":
             self.item[1] += data
+
+
+def card_allergens(card: dict, where: str) -> dict:
+    """The card's allergens as printed: footer spans, footer text and data-allergens must all say the same words."""
+    attr = [w.strip() for w in card["attrs"].get("data-allergens", "").split(",") if w.strip()]
+    spans = [(k.strip(), t.strip()) for k, t in card["allergen_spans"]]
+    words = [k for k, _ in spans]
+    footer = re.sub(r"\s+", " ", card["footer"].replace("\u200d", "")).strip()
+    printed = "Allergens: " + (", ".join(t for _, t in spans) if spans else "N/A")
+    if any(k != t for k, t in spans) or attr != words or footer != printed:
+        raise SystemExit(f"{where}: allergen footer {footer!r}, spans {spans} and data-allergens {attr} disagree. Check the page.")
+    contains, cereals, nuts = allergen_words(words, where)
+    return {"contains": contains, "may_contain": set(), "cereals": cereals, "nuts": nuts}
 
 
 def fail(msg: str) -> int:
@@ -349,6 +377,7 @@ def main() -> int:
             "fat_g": values["Fat (g)"], "sat_fat_g": values["Saturated Fat (g)"], "salt_g": values["Salt (g)"],
             "sugar_g": values["Sugars (g)"], "tags": spec["tags"], "limited_time": False, "rankable": rankable,
             "notes": "; ".join(notes), "_cat": cat, "_title": title,
+            "allergens": card_allergens(card, f"Card {n} {title!r}"),
         }
         items.append(item)
         if title in HOLDBACK:
@@ -359,13 +388,15 @@ def main() -> int:
     for i in items:
         i.pop("_title")
     note = ("Pepe's lists a flavour amount (ml) for many chicken items and the sauce flavours separately per 10 ml; the page doesn't say whether item "
-            "values include the flavour, so none is added. Pepe's says its nutrition information doesn't apply to its Belfast stores.")
+            "values include the flavour, so none is added. Pepe's says its nutrition and allergen information doesn't apply to its Belfast stores.")
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Pepe's Piri Piri", cuisine="Chicken",
         source_title=f"Pepe's Piri Piri Nutrition & Allergens UK page (accessed {args.checked_on}, no date shown)",
         source_url=SOURCE_URL, checked_on=args.checked_on,
         aliases=["pepes piri piri", "pepe's piri piri", "pepes", "pepe's"],
-        items=items, out=args.out, note=note, holdback=holdback)
+        items=items, out=args.out, note=note, holdback=holdback,
+        allergen_guide={"title": f"Pepe's Piri Piri Nutrition & Allergens UK page (accessed {args.checked_on}, no date shown)",
+                        "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": False})
     print(f"wrote {len(items)} items ({len(holdback)} held back) to {out}; {len(left_out)} cards left out; "
           f"page sha256 {sha256_file(args.html)}")
     for title, why in left_out:

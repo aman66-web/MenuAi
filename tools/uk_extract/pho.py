@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build data/source/pho/ from Pho's official UK "Nutritional Guidelines" PDF.
 
-    python3 tools/uk_extract/pho.py path/to/Pho-Nutritional-Guidelines-2026_web.pdf --checked-on 2026-10-06
+    python3 tools/uk_extract/pho.py path/to/Pho-Nutritional-Guidelines-2026_web.pdf \
+        --allergens path/to/Pho-Allergen-Guide-2026_web.pdf --checked-on 2026-10-06
 
 Source: https://pho-media.sp.works/wp-content/uploads/2026/04/Pho-Nutritional-Guidelines-2026_web.pdf
 (linked from https://www.phocafe.co.uk/nutrition/; "accurate as of 31/01/2026"; one UK-wide guide, values per dish as served).
@@ -16,7 +17,17 @@ human re-checks ROWS against the PDF before running again.
 Excluded printed rows (see X(...) entries): two sides where the guide prints two calorie values "a / b" (with / without
 chillies) against ONE set of macros without saying which is which, and the cauliflower-rice rows (protein and carbs are
 printed as "-"). Never filled in, never guessed. The second "broken rice portion" is an identical repeat and is dropped.
+
+Allergens: Pho's separate "Allergen Guide" (ALLERGEN_URL, linked from the same page, "accurate as of August 2026", so a
+later version than this nutrition guide) prints its marks as coloured symbols (dot = contains, shaded = removable on
+request, triangle = may have been fried in shared oil), not as text, and names dishes differently from this guide
+("Crispy spring rolls - veggie" here "Spring rolls | Chả giò - Veggie ..."; its curries include rice, these exclude it).
+No published row has an exactly matching row there, so, all or nothing, no allergens are published: the chain links to
+the guide (allergen_guide.csv). --allergens is checked only for its date line, so a new guide stops the run and a human
+updates ALLERGEN_URL / ALLERGEN_TITLE.
 """
+from __future__ import annotations
+
 import argparse
 import re
 import subprocess
@@ -31,6 +42,9 @@ CHAIN_ID = "pho"
 SOURCE_URL = "https://pho-media.sp.works/wp-content/uploads/2026/04/Pho-Nutritional-Guidelines-2026_web.pdf"
 SOURCE_TITLE = "Pho Nutritional Guidelines 2026 (accurate as of 31/01/2026)"
 PRINTED_DATE = "accurate as of 31/01/2026"
+ALLERGEN_URL = "https://pho-media.sp.works/wp-content/uploads/2026/09/Pho-Allergen-Guide-2026_web.pdf"
+ALLERGEN_TITLE = "Pho Allergen Guide 2026: Main Food Menu (accurate as of August 2026)"
+ALLERGEN_DATE = "All allergen information is accurate as of August 2026"
 
 # categories in display order
 ST, PH, HS, HO, CN, CU, RB, WR, WN, BN, SL, CR, SA, AD = (
@@ -268,6 +282,7 @@ def clean(cell: str, *, allow_star: bool = False) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf", type=Path)
+    ap.add_argument("--allergens", type=Path, required=True, help="the Allergen Guide PDF (ALLERGEN_URL)")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you compared the PDF with the live menu")
     ap.add_argument("--out", type=Path, default=ROOT / "data" / "source" / CHAIN_ID)
     args = ap.parse_args()
@@ -275,6 +290,9 @@ def main() -> int:
     text = read_text(args.pdf)
     if PRINTED_DATE not in text:
         print(f"The PDF no longer says '{PRINTED_DATE}': update SOURCE_TITLE and re-check ROWS against the new guide.", file=sys.stderr)
+        return 1
+    if ALLERGEN_DATE not in read_text(args.allergens):
+        print(f"The allergen guide no longer says '{ALLERGEN_DATE}': update ALLERGEN_URL and ALLERGEN_TITLE.", file=sys.stderr)
         return 1
     rows = read_rows(text)
     if len(rows) != len(ROWS):
@@ -334,8 +352,10 @@ def main() -> int:
 
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Pho", cuisine="Vietnamese", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-        checked_on=args.checked_on, aliases=["pho", "phở", "pho cafe"], items=items, out=args.out, note=NOTE, holdback=HOLDBACK)
-    print(f"wrote {len(items)} items to {out} (PDF sha256 {sha256_file(args.pdf)})")
+        checked_on=args.checked_on, aliases=["pho", "phở", "pho cafe"], items=items, out=args.out, note=NOTE, holdback=HOLDBACK,
+        allergen_guide={"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True})
+    print(f"wrote {len(items)} items to {out} (PDF sha256 {sha256_file(args.pdf)}; allergen guide sha256 "
+          f"{sha256_file(args.allergens)}, linked only)")
     return 0
 
 

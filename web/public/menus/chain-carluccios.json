@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Figures are per menu item from Carluccio's All Day Menu, calculated by the chain from typical weights and measures. Its separate Pizza, Kids, Dessert and other menus are not included; dishes marked * are on the set menu.",
+ "allergenGuide": {
+  "title": "Carluccio's Allergen & Nutrition Information, All Day Menu (Ten Kites hub page, no date printed; read 2026-10-06)",
+  "url": "https://menus.tenkites.com/brg/carluccios",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Olives & bread",
   "Small plates & sharers",
@@ -38,7 +45,8 @@
     "saturatedFat": 1.3,
     "sugar": 0.3,
     "fiber": 2.8,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 400
    },
    "tags": [
     "vegetarian"
@@ -46,7 +54,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "focaccia",
@@ -61,7 +73,8 @@
     "saturatedFat": 4.2,
     "sugar": 0.7,
     "fiber": 1.7,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 2113
    },
    "tags": [
     "vegetarian"
@@ -69,7 +82,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "garlic-focaccia",
@@ -84,7 +109,8 @@
     "saturatedFat": 18.8,
     "sugar": 0.9,
     "fiber": 1.3,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 2787
    },
    "tags": [
     "vegetarian"
@@ -92,7 +118,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "garlic-focaccia-with-mozzarella",
@@ -107,7 +146,8 @@
     "saturatedFat": 26.6,
     "sugar": 1.3,
     "fiber": 1.9,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 3509
    },
    "tags": [
     "vegetarian"
@@ -115,7 +155,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "selection-of-breads",
@@ -130,7 +183,8 @@
     "saturatedFat": 6.4,
     "sugar": 5.2,
     "fiber": 3.3,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 3191
    },
    "tags": [
     "vegetarian"
@@ -138,7 +192,29 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
   },
   {
    "id": "burrata-e-crudo",
@@ -153,7 +229,8 @@
     "saturatedFat": 24.2,
     "sugar": 7.2,
     "fiber": 1.8,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 3579
    },
    "tags": [
     "contains_pork"
@@ -161,7 +238,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tomato-bruschetta",
@@ -176,7 +267,8 @@
     "saturatedFat": 7,
     "sugar": 3,
     "fiber": 2.5,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1889
    },
    "tags": [
     "vegetarian"
@@ -184,7 +276,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "spelt"
+    ]
+   }
   },
   {
    "id": "prawns-marinara",
@@ -199,13 +309,33 @@
     "saturatedFat": 6.7,
     "sugar": 4,
     "fiber": 2.1,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 2603
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "arancini",
@@ -220,7 +350,8 @@
     "saturatedFat": 2.8,
     "sugar": 1.8,
     "fiber": 1.5,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1293
    },
    "tags": [
     "vegetarian"
@@ -228,7 +359,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "zuppa-di-funghi",
@@ -243,7 +393,8 @@
     "saturatedFat": 7.9,
     "sugar": 3.7,
     "fiber": 3.3,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 2061
    },
    "tags": [
     "vegetarian"
@@ -251,7 +402,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "antipasti-board-to-share",
@@ -266,7 +429,8 @@
     "saturatedFat": 25.1,
     "sugar": 16.2,
     "fiber": 6.7,
-    "salt": 8
+    "salt": 8,
+    "energyKj": 5996
    },
    "tags": [
     "contains_pork"
@@ -274,7 +438,29 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
   },
   {
    "id": "antipasti-board-for-one",
@@ -289,7 +475,8 @@
     "saturatedFat": 12.5,
     "sugar": 8.1,
     "fiber": 3.4,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 2998
    },
    "tags": [
     "contains_pork"
@@ -297,7 +484,29 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
   },
   {
    "id": "fritto-misto",
@@ -312,13 +521,33 @@
     "saturatedFat": 13.5,
     "sugar": 14.3,
     "fiber": 9.1,
-    "salt": 6
+    "salt": 6,
+    "energyKj": 5103
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "garlic-and-mozzarella-pizza-bread",
@@ -333,7 +562,8 @@
     "saturatedFat": 44,
     "sugar": 5.2,
     "fiber": 5.1,
-    "salt": 7.3
+    "salt": 7.3,
+    "energyKj": 6303
    },
    "tags": [
     "vegetarian"
@@ -341,7 +571,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "calamari-fritti-small",
@@ -356,13 +601,30 @@
     "saturatedFat": 4.5,
     "sugar": 1.3,
     "fiber": 0.3,
-    "salt": 2.7
+    "salt": 2.7,
+    "energyKj": 1720
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "calamari-fritti-large",
@@ -377,13 +639,30 @@
     "saturatedFat": 7.7,
     "sugar": 2.9,
     "fiber": 0.6,
-    "salt": 6
+    "salt": 6,
+    "energyKj": 3019
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pappardelle-braised-beef-ragu",
@@ -398,7 +677,8 @@
     "saturatedFat": 12.2,
     "sugar": 7.2,
     "fiber": 2.8,
-    "salt": 5.3
+    "salt": 5.3,
+    "energyKj": 2896
    },
    "tags": [
     "contains_beef"
@@ -406,7 +686,34 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ]
+   }
   },
   {
    "id": "lasagne",
@@ -421,7 +728,8 @@
     "saturatedFat": 21.5,
     "sugar": 14.5,
     "fiber": 0.3,
-    "salt": 3.6
+    "salt": 3.6,
+    "energyKj": 3243
    },
    "tags": [
     "contains_beef"
@@ -429,7 +737,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "seafood-linguine",
@@ -444,13 +770,33 @@
     "saturatedFat": 6.4,
     "sugar": 6.6,
     "fiber": 0.8,
-    "salt": 10.6
+    "salt": 10.6,
+    "energyKj": 3506
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "gnocchi-piccante",
@@ -465,7 +811,8 @@
     "saturatedFat": 21.7,
     "sugar": 7.3,
     "fiber": 0.5,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 3610
    },
    "tags": [
     "contains_pork"
@@ -473,7 +820,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ricotta-and-spinach-ravioli",
@@ -488,7 +854,8 @@
     "saturatedFat": 31.6,
     "sugar": 4.3,
     "fiber": 3.9,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 3322
    },
    "tags": [
     "vegetarian"
@@ -496,7 +863,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "risotto-ai-funghi",
@@ -511,7 +896,8 @@
     "saturatedFat": 13,
     "sugar": 3.5,
     "fiber": 2.9,
-    "salt": 4.8
+    "salt": 4.8,
+    "energyKj": 2401
    },
    "tags": [
     "vegetarian"
@@ -519,7 +905,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "add-chicken",
@@ -534,13 +928,18 @@
     "saturatedFat": 2.5,
     "sugar": 0.5,
     "fiber": 0.3,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1244
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "add-truffle-oil",
@@ -555,7 +954,8 @@
     "saturatedFat": 0.2,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 46
    },
    "tags": [
     "vegetarian"
@@ -563,7 +963,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "carbonara",
@@ -578,7 +982,8 @@
     "saturatedFat": 20,
     "sugar": 9,
     "fiber": 1.3,
-    "salt": 6.5
+    "salt": 6.5,
+    "energyKj": 4325
    },
    "tags": [
     "contains_pork"
@@ -586,7 +991,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "penne-giardiniera",
@@ -601,7 +1025,8 @@
     "saturatedFat": 19.7,
     "sugar": 6.5,
     "fiber": 6.3,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 3890
    },
    "tags": [
     "vegetarian"
@@ -609,7 +1034,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "molluscs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "penne-regine-allarrabiatta",
@@ -624,7 +1067,8 @@
     "saturatedFat": 3.3,
     "sugar": 7.7,
     "fiber": 4.1,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 3001
    },
    "tags": [
     "vegetarian"
@@ -632,7 +1076,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-saltimbocca",
@@ -647,7 +1110,8 @@
     "saturatedFat": 13.8,
     "sugar": 2.5,
     "fiber": 3.4,
-    "salt": 3.5
+    "salt": 3.5,
+    "energyKj": 2950
    },
    "tags": [
     "contains_pork"
@@ -655,7 +1119,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-milanese",
@@ -670,13 +1150,33 @@
     "saturatedFat": 5.2,
     "sugar": 5.9,
     "fiber": 3.3,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 2355
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pan-fried-sea-bass-fillets",
@@ -691,13 +1191,26 @@
     "saturatedFat": 14,
     "sugar": 5.9,
     "fiber": 5.2,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 3792
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "carluccios-burger",
@@ -712,7 +1225,8 @@
     "saturatedFat": 18.6,
     "sugar": 7.2,
     "fiber": 7.9,
-    "salt": 5.3
+    "salt": 5.3,
+    "energyKj": 4789
    },
    "tags": [
     "contains_beef"
@@ -720,7 +1234,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "add-extra-pancetta",
@@ -735,7 +1266,8 @@
     "saturatedFat": 2.2,
     "sugar": 0.1,
     "fiber": 0,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 256
    },
    "tags": [
     "contains_pork"
@@ -743,7 +1275,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-milanese-burger",
@@ -758,7 +1297,8 @@
     "saturatedFat": 7.8,
     "sugar": 7.5,
     "fiber": 7.6,
-    "salt": 4.3
+    "salt": 4.3,
+    "energyKj": 4181
    },
    "tags": [
     "contains_pork"
@@ -766,7 +1306,27 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "goats-cheese-salad",
@@ -781,7 +1341,8 @@
     "saturatedFat": 19.3,
     "sugar": 13.6,
     "fiber": 7,
-    "salt": 4.7
+    "salt": 4.7,
+    "energyKj": 3946
    },
    "tags": [
     "vegetarian"
@@ -789,7 +1350,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "grilled-chicken-caesar-salad",
@@ -804,7 +1379,8 @@
     "saturatedFat": 17.4,
     "sugar": 5.8,
     "fiber": 4.8,
-    "salt": 7
+    "salt": 7,
+    "energyKj": 5064
    },
    "tags": [
     "contains_pork"
@@ -812,7 +1388,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sirloin-8oz",
@@ -827,7 +1419,8 @@
     "saturatedFat": 13.9,
     "sugar": 1.6,
     "fiber": 1.5,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 2246
    },
    "tags": [
     "contains_beef"
@@ -835,7 +1428,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mixed-salad",
@@ -850,7 +1457,8 @@
     "saturatedFat": 4.1,
     "sugar": 6.3,
     "fiber": 2.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 586
    },
    "tags": [
     "vegetarian"
@@ -858,7 +1466,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
   },
   {
    "id": "tenderstem-broccoli",
@@ -873,7 +1489,8 @@
     "saturatedFat": 3.9,
     "sugar": 2.7,
     "fiber": 4.6,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 1234
    },
    "tags": [
     "vegetarian"
@@ -881,7 +1498,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
   },
   {
    "id": "patatine-fritte",
@@ -896,7 +1519,8 @@
     "saturatedFat": 1.3,
     "sugar": 0.4,
     "fiber": 4.5,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 1395
    },
    "tags": [
     "vegetarian"
@@ -904,7 +1528,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "rosemary-and-garlic-roasted-potatoes",
@@ -919,7 +1555,8 @@
     "saturatedFat": 2.4,
     "sugar": 0.9,
     "fiber": 2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1065
    },
    "tags": [
     "vegetarian"
@@ -927,7 +1564,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "focaccia-with-garlic-butter",
@@ -942,7 +1591,8 @@
     "saturatedFat": 18.8,
     "sugar": 0.9,
     "fiber": 1.3,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 2787
    },
    "tags": [
     "vegetarian"
@@ -950,7 +1600,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "porcini-mushroom-sauce",
@@ -965,13 +1628,23 @@
     "saturatedFat": 5.5,
     "sugar": 1.1,
     "fiber": 0.8,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 485
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
   },
   {
    "id": "nduja-butter",
@@ -986,7 +1659,8 @@
     "saturatedFat": 7.6,
     "sugar": 0.1,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 454
    },
    "tags": [
     "contains_pork"
@@ -994,7 +1668,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "truffle-butter",
@@ -1008,13 +1692,20 @@
     "fat": 28.5,
     "saturatedFat": 17.6,
     "sugar": 0.2,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 1063
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "peppercorn-sauce",
@@ -1029,13 +1720,20 @@
     "saturatedFat": 4.5,
     "sugar": 1.4,
     "fiber": 0,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 362
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

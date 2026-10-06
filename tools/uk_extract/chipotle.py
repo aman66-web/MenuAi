@@ -18,7 +18,17 @@ Of Which Saturates, Carbohydrates, Of Which Sugars, Fibre, Protein, Salt (all in
 
 Source: https://www.chipotle.co.uk/nutrition-calculator (the page URL itself serves the PDF; Last-Modified 14 Dec 2023,
 PDF metadata created 19 Sep 2022, printed date "AUG 2022"). Requires `pdftotext` (poppler).
+
+ALLERGENS: link only (allergen_guide.csv, no allergens.csv). Chipotle UK's current allergen chart is ALLERGEN_URL, linked as
+"NUTRITION" from https://www.chipotle.co.uk/allergens (footer code UK270726, PDF created 6 Aug 2026): a 14-allergen grid with
+per-serving nutrition, but drawn entirely as outlines (no text layer, no fonts), so no script can read its row names; it can only
+be read by eye or OCR. The AUG 2022 sheet's own page-2 allergen table is out of date (it marks the two roasted-tomato salsas with
+gluten, soya, mustard and celery as cross-contamination, and the vinaigrette with sulphites; the 2026 chart marks none of these)
+and names its rows by groups ("Meats (All)",
+"Beans (Black & Pinto)", "Tortilla Chips"), not the item names, so it isn't used either. Every item's allergens stay None and
+the app links to the chart. The 2026 chart prints no "may contain" per item (only a general open-kitchen warning).
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import re
@@ -79,6 +89,10 @@ ROWS: list[tuple] = [
 ]
 
 # Rows the sheet prints impossibly (a part larger than its whole): not published, never corrected.
+ALLERGEN_URL = "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/Allergen-UK270726.pdf"
+ALLERGEN_GUIDE = {"title": "Chipotle UK 14 allergens and nutrition facts chart (UK270726)", "url": ALLERGEN_URL,
+                  "may_contain_published": False}
+
 HOLDBACK = [
     ("fresh-tomato-salsa", "The sheet prints sugars (1.5 g) higher than carbohydrate (1.1 g); sugars are part of carbohydrate."),
     ("romaine-lettuce-salad", "The sheet prints 15 kcal with 0 g carbohydrate, protein and fat, and 1.1 g sugars (sugars are part of carbohydrate)."),
@@ -197,7 +211,8 @@ def main() -> int:
     assert not missing, f"holdback names items that no longer exist: {missing}"
 
     out = write_chain_folder(chain_id=CHAIN_ID, name="Chipotle", cuisine="Mexican", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=HOLDBACK)
+                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=HOLDBACK,
+                             allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on})
     print(f"wrote {len(items)} items ({len(HOLDBACK)} held back) to {out} (PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()})")
     return 0
 

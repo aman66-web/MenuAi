@@ -18,10 +18,21 @@ What is published, and why:
   not offer, and the playbook says Great Britain menu only. The mapping is typed below (PDF name -> site name). Six site flavours
   have no row in the PDF, so they cannot be published (no macros). A monthly refresh must re-read the site list and update
   SITE_FLAVOURS / ROWS by hand.
-* Numbers are copied as printed: kcal, protein, carbohydrate, sugars, fat, saturates, fibre, salt. kJ is not used. The sheet
-  prints sodium in GRAMS; sodium is never converted (sodium_mg stays blank). "n/a" cells stay blank.
+* Numbers are copied as printed: kJ, kcal, protein, carbohydrate, sugars, fat, saturates, fibre, salt. The sheet
+  prints sodium in GRAMS; sodium is never converted (sodium_mg stays blank). "n/a" cells stay blank. weight_g is the scoop
+  weight the block's own title prints ("Nutrition per 113g/4oz scoop"), read from the page on every run.
 * Vegetarian tag = the sheet's own "SUITABLE VEGETARIANS" column. Only names, category, serving and the include/exclude
   choices are typed by hand. If the PDF's row names change, the script stops.
+* Allergens come from the same row of the same sheet ("ALLERGEN DATA": 25 columns whose rotated headings are read from page 1
+  on every run: GLUTEN CEREAL, WHEAT, BARLEY, RYE, OATS, SHELLFISH, EGGS, FISH, MILK (COWS), TREE NUT, eight named nuts incl.
+  PINE NUTS, SESAMEE SEEDS, PEANUTS, SOYA, SULPHITES, MOLLUSCS, CELERY, LUPIN, MUSTARD). A cell is read by word position
+  (its column is the one whose heading is just left of the word) and must be "O"/"0" (not present), "√" (contains: "the
+  below lists allergens contained in each item") or "√" with stars, which the sheet's legend defines as MAY CONTAIN:
+  "√ * = ... manufactured on equipment that handles peanuts, tree nuts & gluten and may therefore may contain", "√ ** ...
+  may contain traces of eggs", "*** soya", "**** sulphur dioxide", "***** mustard", "****** sesame seeds". The run stops if
+  a star count appears in a column its legend line does not name, if a named cereal/nut is ticked without GLUTEN CEREAL /
+  TREE NUT, or if a published flavour ticks SHELLFISH or PINE NUTS (SHELLFISH sits beside a separate MOLLUSCS column, so an
+  "O" there is read as no crustaceans; a tick would need a human; pine nuts are not one of the 14).
 """
 from __future__ import annotations
 import argparse
@@ -32,7 +43,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "baskin-robbins"
 SOURCE_URL = "https://baskinrobbins.co.uk/wp-content/uploads/2025/06/IND-PIS-NUTRITION-INDEX-11-2025.pdf"
@@ -40,6 +51,8 @@ SOURCE_TITLE = ("Baskin-Robbins UK allergen and nutrition index, per 113 g (4 oz
                 "(PDF dated 2025: file name 11-2025, created 20 June 2025)")
 CATEGORY = "Ice cream scoops"
 SERVING = "1 scoop (113 g / 4 oz)"
+ALLERGEN_TITLE = ("Baskin-Robbins UK allergen and nutrition index (\"Baskin Robbins Allergen Sheet 11/06/2025\", "
+                  "file IND-PIS-NUTRITION-INDEX-11-2025, created 20 June 2025)")
 NOTE = ("Ice cream scoops only (113 g / 4 oz, per scoop): no shakes, sundaes, cakes or toppings. The source is a 2025 PDF "
         "that has no entry for some newer flavours, so a flavour in the shop may be missing here.")
 
@@ -222,6 +235,30 @@ X_NUMBERS_FROM = 495          # numeric columns start here (per 100 g: x 501-625
 X_NAME = (36, 160)            # flavour name column (the left-most column holds a staff reference number)
 X_DATE_CODE = (160, 217)      # product code and date
 X_VEG = (406, 414)            # the "SUITABLE VEGETARIANS" column
+# Allergen headings are rotated text on page 1 between these x / y limits; each heading's words share one x position.
+X_ALLERGENS = (214, X_VEG[0])
+Y_ALLERGEN_HEADINGS = (60, 100)
+HEADING_TO_CELL = 1.5         # a column's cells start this far left of its heading's x
+# The sheet's own spellings of the allergen headings (lower-case) that common._A does not already know.
+EXTRA_WORDS = {"gluten cereal": ("gluten", None), "milk (cows)": ("milk", None), "pistashio nuts": ("nuts", "pistachio"),
+               "sesamee seeds": ("sesame", None), "shellfish": ("crustaceans", None)}
+NOT_IN_THE_14 = {"pine nuts"}
+MUST_BE_UNTICKED = {"shellfish", "pine nuts"}   # see the docstring: a tick in a published row needs a human
+# Legend: which star count (may contain) belongs to which headings.
+STARS = {"*": {"gluten cereal", "wheat", "barley", "rye", "oats", "tree nut", "pecan nuts", "macadamia", "almonds", "hazelnuts",
+               "walnuts", "pistashio nuts", "pine nuts", "peanuts"},
+         "**": {"eggs"}, "***": {"soya"}, "****": {"sulphites"}, "*****": {"mustard"}, "******": {"sesamee seeds"}}
+CELL = re.compile(r"^(?:[O0]|(√?)(\**))$")
+# Marks that do not follow the legend exactly, each checked by eye on the rendered sheet (2026-10-06). Every legend line
+# defines a starred mark as "may contain", and "***" is the legend's own key for "may contain traces of soya", so each is read
+# as MAY CONTAIN for its own column. (printed flavour, heading, cell as printed). A new mismatch stops the run.
+ACCEPTED_LEGEND_MISMATCHES = {
+    ("BUBBLEGUM CANDYLAND", "eggs", "√*"),      # legend: eggs traces are "√ **"
+    ("BUBBLEGUM CANDYLAND", "soya", "√*"),      # legend: soya traces are "√ ***"
+    ("GOLD MEDAL RIBBON", "soya", "√*"),
+    ("CHOCOLATE", "soya", "***"),               # stars printed without the tick
+    ("STRAWBERRY CHEESECAKE", "soya", "***"),   # stars printed without the tick (item is held back)
+}
 SCOOP_COLS = ("kj", "kcal", "protein", "carbs", "sugars", "fat", "sat", "fibre", "sodium_g", "salt")
 DATE = re.compile(r"^(?:[A-Z][a-z]{2}-\d\d|October)$")
 
@@ -255,11 +292,82 @@ def check_headers(page1) -> None:
         raise SystemExit(f"Header changed: scoop columns now read {order}.")
 
 
+def allergen_headings(page1) -> list[tuple[float, str]]:
+    """[(x of the heading, heading text lower-case)] in left-to-right order, read from page 1."""
+    words = [w for w in page1 if X_ALLERGENS[0] <= w[0] < X_ALLERGENS[1] and Y_ALLERGEN_HEADINGS[0] < w[1] < Y_ALLERGEN_HEADINGS[1]]
+    cols: list[list] = []
+    for w in sorted(words, key=lambda w: (w[0], w[1])):
+        if cols and abs(cols[-1][0][0] - w[0]) < 0.5:
+            cols[-1].append(w)
+        else:
+            cols.append([w])
+    heads = [(c[0][0], " ".join(x[4] for x in sorted(c, key=lambda x: x[1])).lower()) for c in cols]
+    if len(heads) != 25 or heads[0][1] != "gluten cereal" or heads[-1][1] != "mustard":
+        raise SystemExit(f"Allergen headings changed: {[h for _, h in heads]}")
+    for _, h in heads:  # every heading must be a known allergen word (or pine nuts): an unknown one stops the run
+        if h not in NOT_IN_THE_14:
+            allergen_words([h], "Baskin-Robbins allergen heading", extra=EXTRA_WORDS)
+    return heads
+
+
+def read_allergen_cells(band, heads) -> dict[str, str]:
+    """{heading: cell text as printed ("" = blank)} for one row. Checked by allergens_from_cells (published rows only: a few
+    rows we do not publish have a blank cell)."""
+    edges = [x - HEADING_TO_CELL for x, _ in heads] + [X_ALLERGENS[1]]
+    cells: dict[str, list[str]] = {h: [] for _, h in heads}
+    for w in sorted((w for w in band if edges[0] <= w[0] < edges[-1]), key=lambda w: w[0]):
+        i = max(k for k in range(len(heads)) if edges[k] <= w[0])
+        cells[heads[i][1]].append(w[4])
+    # A tick drawn twice in one cell (JAMOCA ALMOND FUDGE's soya cell has two overlapping "√", 1.8 pt apart; the sheet shows
+    # one tick) is one tick. Only a cell made of nothing but ticks is collapsed.
+    return {h: ("√" if v and set(v) == {"√"} else "".join(v)) for h, v in cells.items()}
+
+
+def allergens_from_cells(cells: dict[str, str], printed: str) -> dict:
+    """Contains / may contain (+ named cereals and nuts) from one row's 25 cells, following the sheet's legend."""
+    where = f"Baskin-Robbins {printed}"
+    bad = {h: v for h, v in cells.items() if not CELL.match(v) or v == ""}
+    if bad:
+        raise SystemExit(f"{where}: blank or unreadable allergen cells {bad}")
+    contains, may, cereals, nuts = set(), set(), set(), set()
+    for head, cell in cells.items():
+        if cell in ("O", "0"):
+            continue
+        if head in MUST_BE_UNTICKED:
+            raise SystemExit(f"{where}: {head.upper()} is ticked ({cell!r}): decide by hand how to read it before publishing")
+        tick, stars = CELL.match(cell).groups()
+        if stars and not (tick and head in STARS.get(stars, set())) and (printed, head, cell) not in ACCEPTED_LEGEND_MISMATCHES:
+            raise SystemExit(f"{where}: {cell!r} under {head.upper()} does not match the sheet's legend: check the sheet, then "
+                             "add it to ACCEPTED_LEGEND_MISMATCHES if it is still a may-contain mark")
+        k, c, n = allergen_words([head], where, extra=EXTRA_WORDS)
+        if stars:
+            may |= k
+        else:
+            contains |= k
+            cereals |= c
+            nuts |= n
+    if cereals and cells["gluten cereal"] != "√":
+        raise SystemExit(f"{where}: a cereal is ticked but GLUTEN CEREAL reads {cells['gluten cereal']!r}")
+    if nuts and cells["tree nut"] != "√":
+        raise SystemExit(f"{where}: a named nut is ticked but TREE NUT reads {cells['tree nut']!r}")
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+
+
+def scoop_grams(pdf: Path) -> str:
+    """The grams in the per-scoop block's title ('Nutrition per 113g/4oz scoop') -> '113'."""
+    page1 = read_pages(pdf)[0]
+    found = {m.group(1) for w in page1 if w[1] < 60 and w[0] > 600 for m in [re.fullmatch(r"(\d+)g/4oz", w[4])] if m}
+    if len(found) != 1:
+        raise SystemExit(f"Header changed: expected one '<n>g/4oz' in the scoop block title, found {sorted(found)}.")
+    return found.pop()
+
+
 def read_scoop_rows(pdf: Path) -> list[dict]:
     pages = read_pages(pdf)
     if len(pages) != 4:
         raise SystemExit(f"The PDF has {len(pages)} pages, expected 4: the layout changed.")
     check_headers(pages[0])
+    heads = allergen_headings(pages[0])
     stop = None
     for pn, ws in enumerate(pages, 1):
         for i, w in enumerate(ws):
@@ -299,6 +407,7 @@ def read_scoop_rows(pdf: Path) -> list[dict]:
                 raise SystemExit(f"{name}: unreadable 'suitable for vegetarians' mark {veg!r}.")
             rows.append({
                 "printed": name, "date": date, "vegetarian": vegetarian,
+                "allergen_cells": read_allergen_cells(band, heads),
                 "per100": dict(zip(SCOOP_COLS, vals[:10])), "scoop": dict(zip(SCOOP_COLS, vals[10:])),
             })
     return rows
@@ -331,6 +440,7 @@ def main() -> int:
         print("ROWS and SITE_FLAVOURS disagree: every site flavour must be published here or listed in SITE_NOT_IN_PDF.", file=sys.stderr)
         return 1
 
+    grams = scoop_grams(args.pdf)
     items = []
     for row, (_, display, site, note) in zip(rows, ROWS):
         if display is None:
@@ -352,11 +462,18 @@ def main() -> int:
             "calories": s["kcal"], "protein_g": s["protein"], "carbs_g": s["carbs"], "fat_g": s["fat"],
             "sat_fat_g": blank_na(s["sat"]), "sodium_mg": "", "salt_g": blank_na(s["salt"]),
             "sugar_g": blank_na(s["sugars"]), "fiber_g": blank_na(s["fibre"]),
+            "energy_kj": blank_na(s["kj"]), "weight_g": grams,
             "tags": "vegetarian" if row["vegetarian"] else "", "limited_time": False, "rankable": False,
             "notes": ". ".join(notes),
+            "allergens": allergens_from_cells(row["allergen_cells"], row["printed"]),
         })
     ids = [slug(i["name"]) for i in items]
     assert len(ids) == len(set(ids)), "duplicate ids"
+    used = {(r["printed"], h, c) for r in rows if any(x[0] == r["printed"] and x[1] for x in ROWS) for h, c in r["allergen_cells"].items()}
+    stale = ACCEPTED_LEGEND_MISMATCHES - used
+    if stale:
+        print(f"ACCEPTED_LEGEND_MISMATCHES lists marks the sheet no longer prints for a published flavour: {sorted(stale)}", file=sys.stderr)
+        return 1
     unknown = [h for h in HOLDBACK if h not in ids]
     if unknown:
         print(f"HOLDBACK names items that no longer exist: {unknown}", file=sys.stderr)
@@ -365,7 +482,8 @@ def main() -> int:
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Baskin-Robbins", cuisine="Ice cream", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=["baskin robbins", "baskin-robbins", "baskin robbins ice cream"],
-        items=items, out=args.out, note=NOTE, holdback=list(HOLDBACK.items()))
+        items=items, out=args.out, note=NOTE, holdback=list(HOLDBACK.items()),
+        allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} items ({len(HOLDBACK)} held back) to {out}; PDF has {len(rows)} ice cream rows "
           f"(sha256 {sha256_file(args.pdf)})")
     return 0

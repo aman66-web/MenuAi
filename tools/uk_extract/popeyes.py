@@ -3,16 +3,20 @@
 
     python3 tools/uk_extract/popeyes.py --nutrition nutrition.json --allergens allergens.json --checked-on 2026-10-05
 
-Numbers are copied from the nutrition feed exactly as the feed prints them (kcal, fat, saturates, carbs, sugars,
-protein, salt, fibre; kJ and the feed's unreliable `sodium` field are not used). The vegetarian tag comes from the chain's
-own `preference` mark in the allergen feed. Only the NAMES, categories, servings and the include/exclude choices
-below are typed by hand, keyed by the feed's own row ids. If Popeyes adds, removes or renames a row, the ids and printed
-names no longer match ROWS and this script stops, so a human re-checks them.
+Numbers are copied from the nutrition feed exactly as the feed prints them (kcal, kJ (as energy_kj), fat, saturates,
+carbs, sugars, protein, salt, fibre; the feed's unreliable `sodium` field is not used). The vegetarian tag comes from the chain's
+own `preference` mark in the allergen feed. Allergens come from the same allergen feed, keyed by the same row ids:
+the "Contains" and "May contain traces of" lists that the chain's allergen page shows (see popeyes_feed.py), each printed
+allergen name mapped by common.allergen_words (an unknown name stops the run). Only the NAMES, categories, servings and
+the include/exclude choices below are typed by hand, keyed by the feed's own row ids. If Popeyes adds, removes or renames
+a row, the ids and printed names no longer match ROWS and this script stops, so a human re-checks them.
 
 Source: https://allergensandnutritions.popeyesuk.com/nutritional-information (the page popeyesuk.com links to; it loads
 the feeds described in popeyes_feed.py). The page shows no issue date or version. Re-run when the menu changes
-(about monthly).
+(about monthly). Allergen page: https://allergensandnutritions.popeyesuk.com/allergen-information (no date shown).
 """
+from __future__ import annotations
+
 import argparse
 import csv
 import hashlib
@@ -23,10 +27,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import popeyes_feed  # noqa: E402
+from common import ITEM_FIELDS, allergen_words, write_allergens  # noqa: E402
 
 CHAIN_ID = "popeyes"
 SOURCE_URL = "https://allergensandnutritions.popeyesuk.com/nutritional-information"
 SOURCE_TITLE = "Popeyes UK Nutritional Information, per serving (live table; no issue date or version shown)"
+ALLERGEN_URL = "https://allergensandnutritions.popeyesuk.com/allergen-information"
+ALLERGEN_TITLE = "Popeyes UK Allergen Information (live table; no issue date or version shown)"
 
 SW, WR, LC, TE, BO, HW, BR, SI, DI, DS, DR = (
     "Sandwiches", "Wraps", "Signature Louisiana Chicken", "Tenders", "Boneless", "Hot Wings",
@@ -64,7 +71,7 @@ ROWS: list[dict] = [
     row(1270, 'Kids Sandwich ketchup', SW, name='Kids Sandwich Ketchup'),
     row(1269, 'Kids Sandwich Mayo', SW),
     row(1268, 'Kids Sandwich Plain', SW),
-    row(280, 'Red Bean Creole Vegan Sandwich', SW, note="Printed kJ (2363.83) and kcal (545.43) disagree by about 3.6%; kJ is not used"),
+    row(280, 'Red Bean Creole Vegan Sandwich', SW, note="Printed kJ (2363.83) and kcal (545.43) disagree by about 3.6%; both entered as printed"),
     row(1244, 'Spicy Chicken Sandwich', SW),
     row(1248, 'Spicy Deluxe Chicken Sandwich', SW),
     row(806, 'Spicy Superstack Sandwich', SW),
@@ -279,13 +286,14 @@ def tidy(s: str) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--nutrition", required=True, type=Path, help="the nutrition feed JSON (see popeyes_feed.py)")
-    ap.add_argument("--allergens", required=True, type=Path, help="the allergen feed JSON (for the vegetarian/vegan mark)")
+    ap.add_argument("--allergens", required=True, type=Path, help="the allergen feed JSON (allergens and the vegetarian/vegan mark)")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you downloaded the feeds")
     ap.add_argument("--out", type=Path, default=Path(__file__).resolve().parents[2] / "data" / "source" / CHAIN_ID)
     args = ap.parse_args()
 
     feed = popeyes_feed.read_nutrition(args.nutrition)
     prefs = popeyes_feed.read_preferences(args.allergens)
+    allergens = popeyes_feed.read_allergens(args.allergens)
 
     # Stop if the feed and ROWS no longer describe the same menu.
     spec = {r["id"]: r for r in ROWS}
@@ -324,20 +332,25 @@ def main() -> int:
         if BEEF.search(s["printed"]):
             tags.append("contains_beef")
         assert not ("vegetarian" in tags and len(tags) > 1), f"{s['printed']}: marked vegetarian but its name says meat"
+        where = f"allergen feed row {s['id']} {s['printed']!r}"
+        contains, cereals, nuts = allergen_words(allergens[s["id"]]["contains"], where)
+        may, _, _ = allergen_words(allergens[s["id"]]["may_contain"], where)
         items.append({
             "id": slug(s["name"]), "name": s["name"], "category": s["category"], "serving": s["serving"],
             "calories": printed["kcal"], "protein_g": printed["protein"], "carbs_g": printed["carbohydrates"], "fat_g": printed["fats"],
             "sat_fat_g": printed["saturated_fats"], "sodium_mg": "", "salt_g": printed["salt"], "sugar_g": printed["sugar"],
-            "fiber_g": printed["fibre"], "tags": "|".join(tags),
+            "fiber_g": printed["fibre"], "energy_kj": printed["kJ"], "tags": "|".join(tags),
             "limited_time": "false", "rankable": str(s["rankable"]).lower(), "components": "", "added_on": "", "notes": s["note"],
+            "_allergens": {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts},
         })
     ids = [i["id"] for i in items]
     assert len(ids) == len(set(ids)), "duplicate ids: " + ", ".join(i for i, n in Counter(ids).items() if n > 1)
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))  # stable: keeps ROWS order inside a category
 
     args.out.mkdir(parents=True, exist_ok=True)
-    fields = ["id", "name", "category", "serving", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
-              "sugar_g", "fiber_g", "tags", "limited_time", "rankable", "components", "added_on", "notes"]
+    fields = ITEM_FIELDS
+    write_allergens(args.out, CHAIN_ID, [(i["id"], i.pop("_allergens")) for i in items],
+                    {"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True})
     with open(args.out / "items.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()

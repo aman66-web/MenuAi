@@ -101,8 +101,9 @@ def fetch_menus(base_url: str, cache_dir: Path, delay: float = 1.0) -> list[tupl
 class _Parser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
-        self.stack: list[tuple[str, set]] = []
+        self.stack: list[tuple[str, set, tuple | None]] = []   # (tag, classes, (all label ids, no-may ids, recipe id) or None)
         self.records: list[dict] = []
+        self.filter_labels: dict[str, tuple[str, bool]] = {}   # allergen filter: label id -> (printed name, data-label-isext)
         self.menu_name = ""
         self.menu_desc = ""
         self.file_name = ""
@@ -126,15 +127,17 @@ class _Parser(HTMLParser):
             self.cap = (key, len(self.stack), [])
 
     def _new_record(self, kind: str) -> None:
+        ids = next((lab for _, _, lab in reversed(self.stack) if lab is not None), None)
         self.cur = {"kind": kind, "menu": self.menu_name, "course": self.course[0], "course2": self.course[1],
                     "byo": self.byo, "byo_section": self.byo_section, "name": "", "desc": "", "suitable": [],
-                    "contains": [], "may": [], "nutrition": {}, "caption": ""}
+                    "contains": [], "may": [], "contains_text": None, "may_text": None, "label_ids": ids,
+                    "nutrition": {}, "caption": ""}
         self.cur_depth = len(self.stack)
         self.cur_kind = kind
         self.section = ""
 
     def _in(self, token: str) -> bool:
-        return any(token in cls for _, cls in self.stack)
+        return any(token in cls for _, cls, _ in self.stack)
 
     # -- events
     def handle_starttag(self, tag, attrs):
@@ -144,7 +147,13 @@ class _Parser(HTMLParser):
             return
         a = dict(attrs)
         cls = set((a.get("class") or "").split())
-        self.stack.append((tag, cls))
+        ids = None
+        if "data-all-labels" in a and "data-no-may-labels" in a:   # the label ids the page's allergen filter reads
+            ids = tuple([x.strip() for x in (a[k] or "").split(",") if x.strip()] for k in ("data-all-labels", "data-no-may-labels"))
+            ids += (a.get("data-recipe-id") or "",)
+        self.stack.append((tag, cls, ids))
+        if a.get("data-label-id") and a.get("data-label-name"):
+            self.filter_labels[a["data-label-id"]] = (_clean(a["data-label-name"]), a.get("data-label-isext") == "True")
         cur = self.cur
 
         if "data-file-name" in a and not self.file_name:
@@ -157,7 +166,7 @@ class _Parser(HTMLParser):
         # courses
         if "k10-course__name-text" in cls:
             self._begin_cap("course1" if not any(t.startswith("k10-course__name_level_") and t.endswith("2")
-                                                 for _, c in self.stack for t in c) else "course2")
+                                                 for _, c, _ in self.stack for t in c) else "course2")
         elif "k10-course__name" in cls and not any(t.startswith("k10-course__name_level_") for t in cls):
             self._begin_cap("course1")
         # a new top-level dish resets the "build your own" context
@@ -172,6 +181,9 @@ class _Parser(HTMLParser):
         # ---- modal template
         if tag == "section" and "k10-recipe-modal" in cls:
             self._new_record("modal")
+            ids = self.cur["label_ids"]
+            if ids is not None and ids[2] and ids[2] != a.get("data-recipe-id"):
+                self.cur["label_ids"] = None    # the nearest label ids belong to another dish: not used
             return
         if cur is not None and self.cur_kind == "modal":
             if "k10-recipe-modal__recipe-name" in cls:
@@ -291,6 +303,10 @@ class _Parser(HTMLParser):
             cur["desc"] = text
         elif key.startswith("sect_"):
             cur[key[5:]] = [p.strip() for p in text.split(",") if p.strip()]
+            if key[5:] in ("contains", "may"):
+                if cur[key[5:] + "_text"] is not None:
+                    raise SystemExit(f"{cur.get('name')!r}: two '{key[5:]}' lines")
+                cur[key[5:] + "_text"] = text
         elif key == "caption":
             cur["caption"] = text
         elif key == "cell_name" and self.row is not None:
@@ -303,6 +319,10 @@ class _Parser(HTMLParser):
             for head, field in (("Suitable for:", "suitable"), ("Contains:", "contains"), ("May contain:", "may")):
                 if text.startswith(head):
                     cur[field] = [p.strip() for p in text[len(head):].split(" / ") if p.strip()]
+                    if field in ("contains", "may"):
+                        if cur[field + "_text"] is not None:
+                            raise SystemExit(f"two '{head}' lines in one popover")
+                        cur[field + "_text"] = text[len(head):].strip()
 
 
 def parse_page(page: str, menu_name: str | None = None) -> dict:
@@ -325,7 +345,7 @@ def parse_page(page: str, menu_name: str | None = None) -> dict:
             raise SystemExit(f"{rec['name']!r}: table is labelled {rec['caption']!r}")
     popovers = any(r["kind"] == "popover" for r in p.records)
     return {"menu": menu_name or p.menu_name, "menu_desc": p.menu_desc, "file_name": p.file_name, "records": p.records,
-            "names_without_table": p.unnamed_names if popovers else 0}
+            "names_without_table": p.unnamed_names if popovers else 0, "filter_labels": p.filter_labels}
 
 
 REQUIRED = ("calories", "protein_g", "carbs_g", "fat_g")
@@ -352,6 +372,7 @@ def read_cached(cache: list[tuple[str, Path]]) -> list[dict]:
         for rec in page["records"]:
             rec["menu"] = name
             rec["menu_desc"] = page["menu_desc"]
+            rec["filter_labels"] = page["filter_labels"]
             out.append(rec)
     return out
 
@@ -367,6 +388,133 @@ def drop_exact_duplicates(records: list[dict]) -> tuple[list[dict], list[dict]]:
             seen.add(key)
             kept.append(r)
     return kept, dropped
+
+
+# ------------------------------------------------------------------------------------------------ allergens
+# docs/DATA.md "Allergens". Each dish's "Dietary Information" prints "Contains: ..." and "May contain: ..." (the modal template
+# separates allergens with commas, the popover template with " / "), naming the cereals and tree nuts in brackets:
+# "Cereals (Rye, Wheat)", "Tree Nuts (Walnuts)". The element around the dish also carries the label ids the page's own
+# allergen filter reads (data-no-may-labels = what the dish contains, data-all-labels = that plus what it may contain); the
+# filter names the 14 allergen ids. The named cereals and nuts have ids of their own that the filter does not name: which
+# allergen each belongs to is learnt from the dishes that print them (learn_sub_labels). Both printed forms are read and
+# must agree for every dish, or the run stops.
+
+ALLERGEN_KEYS = ("celery", "gluten", "crustaceans", "eggs", "fish", "lupin", "milk", "molluscs", "mustard", "nuts", "peanuts",
+                 "sesame", "soya", "sulphites")
+
+
+def _split_top(text: str, sep: str) -> list[str]:
+    """'Milk, Cereals (Rye, Wheat)' -> ['Milk', 'Cereals (Rye, Wheat)']: split on `sep` outside brackets."""
+    parts, depth, cur, i = [], 0, "", 0
+    while i < len(text):
+        ch = text[i]
+        depth += (ch == "(") - (ch == ")")
+        if depth == 0 and text.startswith(sep, i):
+            parts.append(cur)
+            cur, i = "", i + len(sep)
+            continue
+        cur += ch
+        i += 1
+    if depth != 0:
+        raise SystemExit(f"unbalanced brackets in allergen line {text!r}")
+    return [p.strip() for p in parts + [cur] if p.strip()]
+
+
+def _sep(rec: dict) -> str:
+    return ", " if rec["kind"] == "modal" else " / "
+
+
+def _printed_allergens(text: str | None, sep: str, where: str, extra: dict | None,
+                       ignore: set | frozenset = frozenset()) -> tuple[set, set, set, set]:
+    """One printed line -> (keys, cereals, tree nuts, keys printed with named cereals/nuts in brackets). `ignore` holds
+    printed words the chain uses that are not one of the 14 (each one explained in the chain's script)."""
+    from common import allergen_words
+    keys, cereals, nuts, bracketed = set(), set(), set(), set()
+    for part in _split_top(text or "", sep):
+        head, _, inner = part.partition("(")
+        if " ".join(head.lower().split()) in ignore and not inner:
+            continue
+        k, c, n = allergen_words([head], where, extra)
+        if inner:
+            words = [w for w in inner.rstrip().rstrip(")").split(",") if w.strip()]
+            ik, ic, inn = allergen_words(words, where, extra)
+            if ik - k:
+                raise SystemExit(f"{where}: {part!r} names {sorted(ik - k)} inside the brackets of {head.strip()!r}")
+            c, n = c | ic, n | inn
+            if words:
+                bracketed |= k
+        keys |= k
+        cereals |= c
+        nuts |= n
+    return keys, cereals, nuts, bracketed
+
+
+def _filter_keys(rec: dict, where: str) -> dict:
+    """{label id: {allergen key}} for the page's allergen filter (the 'exclude' labels); {} when the page has none."""
+    from common import allergen_words
+    out = {}
+    for i, (name, isext) in rec.get("filter_labels", {}).items():
+        if isext:
+            out[i] = allergen_words([name], f"{where}: allergen filter")[0]
+    if out and set().union(*out.values()) != set(ALLERGEN_KEYS):
+        raise SystemExit(f"{where}: the allergen filter covers {sorted(set().union(*out.values()))}, not the 14 allergens")
+    return out
+
+
+def learn_sub_labels(records: list[dict], extra: dict | None = None, ignore: set | frozenset = frozenset()) -> dict:
+    """{label id the filter does not name: allergen keys it can belong to}. An id that a dish carries among what it
+    contains (or may contain) can only belong to an allergen the same line prints with names in brackets; the
+    candidates are narrowed over every dish. Ids that are never beside a bracketed name (other labels) map to set()."""
+    cand: dict[str, set] = {}
+    for rec in records:
+        if rec.get("label_ids") is None:
+            continue
+        where = f"{rec['menu']} > {rec['name']}"
+        filt = _filter_keys(rec, where)
+        all_ids, no_may, _ = rec["label_ids"]
+        lines = {"contains": _printed_allergens(rec.get("contains_text"), _sep(rec), where, extra, ignore)[3],
+                 "may": _printed_allergens(rec.get("may_text"), _sep(rec), where, extra, ignore)[3]}
+        for i in all_ids:
+            if i in filt:
+                continue
+            here = lines["contains"] if i in no_may else lines["may"]
+            cand[i] = cand[i] & here if i in cand else set(here)
+    return cand
+
+
+def allergens_from_record(rec: dict, where: str, sub_labels: dict, extra: dict | None = None,
+                          ignore: set | frozenset = frozenset()) -> dict | None:
+    """Allergens for one dish: the printed "Contains:" / "May contain:" lines, cross-checked against the label ids the
+    page's allergen filter uses for the same dish (sub_labels from learn_sub_labels over the same pages). None when the
+    dish carries no label ids or the page has no allergen filter (nothing to check against). Stops (SystemExit) when the
+    two forms disagree."""
+    ids = rec.get("label_ids")
+    filt = _filter_keys(rec, where)
+    if ids is None or not filt:
+        return None
+    contains, cereals, nuts, _ = _printed_allergens(rec.get("contains_text"), _sep(rec), where, extra, ignore)
+    may, _, _, _ = _printed_allergens(rec.get("may_text"), _sep(rec), where, extra, ignore)
+    all_ids, no_may, _ = ids
+
+    def keys_of(group):
+        out = set()
+        for i in group:
+            k = filt.get(i)
+            if k is None:
+                k = sub_labels.get(i, set())
+                if len(k) > 1:
+                    raise SystemExit(f"{where}: label id {i} could belong to {sorted(k)}: cannot check this dish")
+            out |= k
+        return out
+
+    from_ids = keys_of(no_may)
+    may_ids = keys_of([i for i in all_ids if i not in no_may])
+    if from_ids != contains:
+        raise SystemExit(f"{where}: 'Contains: {rec.get('contains_text')}' disagrees with the filter's label ids {sorted(from_ids)}")
+    # a dish can contain one tree nut and "may contain" another: the key is then in both lines
+    if may_ids - contains != may - contains:
+        raise SystemExit(f"{where}: 'May contain: {rec.get('may_text')}' disagrees with the filter's label ids {sorted(may_ids)}")
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
 
 
 # ------------------------------------------------------------------------------------------------ building items
@@ -495,13 +643,14 @@ def build_items(records: list[dict], classify, category_order: list[str]) -> dic
         item["_meat_unstated"] = meat_type_not_stated(rec, tidy_name(rec["name"]), tags)
         items.append(item)
 
-    kept, duplicates, seen = [], [], set()
+    kept, duplicates, seen = [], [], {}
     for it in items:
         key = (it["name"].lower(), tuple(it[c] for c in NUTRIENT_ROWS.values()))
         if key in seen:
+            it["_dup_of"] = seen[key]
             duplicates.append(it)
         else:
-            seen.add(key)
+            seen[key] = it
             kept.append(it)
 
     groups: dict[str, list[dict]] = {}
@@ -539,12 +688,16 @@ def public_items(items: list[dict]) -> list[dict]:
 
 def run(*, chain_id: str, name: str, cuisine: str, aliases: list[str], url: str, source_title: str, tabs: dict[str, str],
         classify, category_order: list[str], expected_rows: dict[str, int], note: str = "",
-        holdback: dict[str, str] | None = None, argv: list[str] | None = None) -> int:
+        holdback: dict[str, str] | None = None, argv: list[str] | None = None, allergen_title: str = "",
+        allergen_extra: dict | None = None, allergen_ignore: set | frozenset = frozenset()) -> int:
     """Shared command line for the five chain scripts.
 
     tabs: {tab name: "use" or a reason the whole tab is left out}; every tab the page lists must be named here, so a new
     tab can't slip in unseen. expected_rows: rows each used tab must contain; if the page changes the script stops and
-    a human re-checks the rules. holdback: {final item name: reason} for rows the page prints impossibly."""
+    a human re-checks the rules. holdback: {final item name: reason} for rows the page prints impossibly.
+    allergen_title: the name of the allergen information (the same pages); every item then gets its allergens from its
+    own dish (allergens_from_record). allergen_extra / allergen_ignore: the chain's own printed allergen spellings
+    (common.allergen_words `extra=`) and printed words that are not one of the 14 (each explained in the chain script)."""
     import argparse
     import tempfile
     from common import ROOT, sha256_file, slug, write_chain_folder
@@ -574,6 +727,28 @@ def run(*, chain_id: str, name: str, cuisine: str, aliases: list[str], url: str,
 
     built = build_items(records, classify, category_order)
     items = built["items"]
+    allergen_report = []
+    if allergen_title:
+        sub_labels = learn_sub_labels(records, allergen_extra, allergen_ignore)
+
+        def allergens(it: dict) -> dict | None:
+            r = it["_rec"]
+            where = f"{r['menu']} > {r['course']} > {r['name']}"
+            return allergens_from_record(r, where, sub_labels, allergen_extra, allergen_ignore)
+
+        for it in items:
+            it["allergens"] = allergens(it)
+            if it["allergens"] is None:
+                allergen_report.append(f"no allergen information to read for {it['name']!r}")
+        for dup in built["duplicates"]:
+            a, kept = allergens(dup), dup["_dup_of"]
+            if a != kept["allergens"]:
+                allergen_report.append(f"{kept['name']!r} is printed twice with the same numbers but different allergens "
+                                       f"({dup['_rec']['menu']} > {dup['_rec']['course']}): not used")
+                kept["allergens"] = None
+        everything = set(ALLERGEN_KEYS)
+        allergen_report += [f"the page prints all 14 allergens as 'Contains' for {it['name']!r}" for it in items
+                            if it["allergens"] is not None and it["allergens"]["contains"] == everything]
     holds = []
     ids = {it["name"]: slug(it["name"]) for it in items}
     for item_name, reason in (holdback or {}).items():
@@ -583,9 +758,14 @@ def run(*, chain_id: str, name: str, cuisine: str, aliases: list[str], url: str,
         holds.append((ids[item_name], reason))
     assert len(set(ids.values())) == len(ids), "two items would get the same id"
 
+    if not holds:   # write_chain_folder writes holdback.csv only when something is held back: drop a stale one
+        (Path(args.out) / "holdback.csv").unlink(missing_ok=True)
+    guide = None
+    if allergen_title:
+        guide = {"title": allergen_title, "url": url, "checked_on": args.checked_on, "may_contain_published": True}
     out = write_chain_folder(chain_id=chain_id, name=name, cuisine=cuisine, source_title=source_title, source_url=url,
                              checked_on=args.checked_on, aliases=aliases, items=public_items(items), out=args.out,
-                             note=note, holdback=holds)
+                             note=note, holdback=holds, allergen_guide=guide)
     by_tab = {}
     for r in records:
         by_tab[r["menu"]] = by_tab.get(r["menu"], 0) + 1
@@ -598,6 +778,12 @@ def run(*, chain_id: str, name: str, cuisine: str, aliases: list[str], url: str,
     print("page sha256 (first tab):", sha256_file(cache[0][1])[:16])
     problems = [(i["name"], p) for i in items for p in sanity_problems(i)]
     print("self-contradicting rows to review (not changed):", problems)
+    if allergen_title:
+        complete = all(it["allergens"] is not None for it in items)
+        print(f"allergens: {'every item has its allergens (allergens.csv written)' if complete else 'INCOMPLETE: allergen_guide.csv only'}"
+              f"; {len(allergen_report)} note(s)")
+        for line in allergen_report:
+            print("  allergens:", line)
     if args.report:
         print("-- unpublished:")
         for r in built["unpublished"]:

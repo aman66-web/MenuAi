@@ -15,6 +15,7 @@ Other menus on the same site (Halloween, Cocktail Wonderland, Off Menu Cocktails
 Bakewell) were read once and hold no item with all four macros except the fruit choices of "Off Menu Cocktails", which are
 parts of a drink whose total is blank, so they are not part of this run.
 """
+from __future__ import annotations
 import argparse
 import re
 import sys
@@ -41,6 +42,11 @@ MARK = re.compile(r"\s*\((V|VG|VG-M)\)\s*$")  # the chain's own diet mark, writt
 NOTES = {"Cucumber Tom Collins 0%": "Printed kJ (584) agrees with the 140 kcal; the gap is with the energy of the printed macros",
          "Sweet Treats": "Described as 'The perfect pick-and-mix combo'; the number of sweets is not stated",
          "Rhubarb Hugo 0% - PM": "Printed with the same numbers as Rhubarb Hugo 0%; the '- PM' is not explained on the page"}
+# The same pages print each item's "Dietary info" ("Contains: ..." naming the cereals and nuts, "Dish ingredients may also
+# contain: ...") and carry the label ids of the page's own allergen filter; tenkites_c.allergens_checked cross-checks the two.
+ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
+ALLERGEN_TITLE = ("Be At One Allergen & Nutritional Data: Bar Snacks (March 2026), Drinks Menu (March 2026) and Cocktail Week "
+                  "(October 2026), data correct as of 06 October 2026")
 SOURCE_TITLE = "Be At One Allergen & Nutritional Data: Bar Snacks (March 2026), Drinks Menu (March 2026) and Cocktail Week (October 2026)"
 NOTE = ("Only items with calories, protein, carbs and fat all printed are included: the bar snacks and the non-alcoholic drinks. "
         "Be At One prints no macros for its alcoholic cocktails, wine or beer, nor a total for items with a choice (dips, fruit).")
@@ -55,7 +61,7 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
             raise SystemExit(f"{fname} has {len(rows)} items but this script expects {expected}: the menu changed, "
                              "re-check CATEGORY and the expected counts before running again.")
         for r in rows:
-            nums, missing = tk.numbers(r["nutrients"], f"{fname} {r['name']}")
+            nums, missing = tk.numbers(r["nutrients"], f"{fname} {r['name']}", extras=True)
             if missing:
                 left_out["no protein, carbs or fat printed"] += 1
                 continue
@@ -81,7 +87,10 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
                 report.append(f"meat type not stated: {name}")
             items.append({"id": slug(name), "name": name, "category": CATEGORY[first], "serving": serving, **nums,
                           "tags": "|".join(tags + meat), "limited_time": limited, "rankable": False,
-                          "notes": "; ".join(notes)})
+                          "notes": "; ".join(notes), "allergens": tk.allergens_checked(r, f"{fname} {name}", ALLERGEN_EXTRA)})
+    report += [f"allergens: {n!r} is printed twice with the same numbers but different allergens: not used"
+               for n in tk.allergen_conflicts(items)]
+    report += [f"allergens: no allergen information to read for {i['name']!r}" for i in items if i["allergens"] is None]
     kept, dropped = tk.dedupe_items(items)
     report += [f"dropped exact duplicate: {n}" for n in dropped]
     report += [f"left out {n} entries: {why}" for why, n in left_out.items()]
@@ -106,7 +115,9 @@ def main() -> int:
     items, holdback, report = build(args.pages)
     out = write_chain_folder(chain_id=CHAIN_ID, name="Be At One", cuisine="Cocktail bar", source_title=SOURCE_TITLE,
                              source_url=BASE, checked_on=args.checked_on, aliases=["be at one", "beatone", "be-at-one"],
-                             items=items, out=args.out, note=NOTE, holdback=holdback)
+                             items=items, out=args.out, note=NOTE, holdback=holdback,
+                             allergen_guide={"title": ALLERGEN_TITLE, "url": BASE, "checked_on": args.checked_on,
+                                             "may_contain_published": True})
     for fname, _, _, _ in PAGES.values():
         print(f"{fname} sha256 {tk.sha256_text_file(args.pages / fname)}")
     print("\n".join(report))

@@ -13,9 +13,16 @@
  "source": {
   "title": "Pizza Hut Restaurants UK dine-in Dietary Information booklet: allergen, ingredients and nutrition (July 2026, Version 1)",
   "url": "https://assets.ctfassets.net/kahtja4ygpol/3lSanvl3X7vbTSxlptqtfx/d3479ac67d929e328d4638b469749a79/DINE-IN_AIN_Booklet_C3_2026_FINAL_V1.pdf",
-  "checkedOn": "2026-10-05"
+  "checkedOn": "2026-10-06"
  },
  "note": "Dine-in restaurant menu values, per slice. The delivery and takeaway menu isn't included.",
+ "allergenGuide": {
+  "title": "Pizza Hut Restaurants UK dine-in Dietary Information booklet: Allergen Information (July 2026, Version 1)",
+  "url": "https://assets.ctfassets.net/kahtja4ygpol/3lSanvl3X7vbTSxlptqtfx/d3479ac67d929e328d4638b469749a79/DINE-IN_AIN_Booklet_C3_2026_FINAL_V1.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": false
+ },
  "categories": [
   "Pan pizzas",
   "Handcrafted pizzas",
@@ -2351,7 +2358,8 @@
     "fat": 19,
     "saturatedFat": 5.5,
     "sugar": 6,
-    "salt": 1.9
+    "salt": 1.9,
+    "weight": 289
    },
    "tags": [],
    "limitedTime": false,
@@ -2371,7 +2379,8 @@
     "fat": 12,
     "saturatedFat": 5.2,
     "sugar": 6.7,
-    "salt": 2.7
+    "salt": 2.7,
+    "weight": 301
    },
    "tags": [
     "vegetarian"
@@ -2393,7 +2402,8 @@
     "fat": 8.9,
     "saturatedFat": 6.4,
     "sugar": 6,
-    "salt": 2.8
+    "salt": 2.8,
+    "weight": 289
    },
    "tags": [
     "vegetarian"
@@ -2415,7 +2425,8 @@
     "fat": 29,
     "saturatedFat": 13,
     "sugar": 11,
-    "salt": 2.9
+    "salt": 2.9,
+    "weight": 416
    },
    "tags": [],
    "limitedTime": false,
@@ -2435,7 +2446,8 @@
     "fat": 38,
     "saturatedFat": 22,
     "sugar": 10,
-    "salt": 3.8
+    "salt": 3.8,
+    "weight": 460
    },
    "tags": [],
    "limitedTime": false,
@@ -2455,7 +2467,8 @@
     "fat": 17,
     "saturatedFat": 2.1,
     "sugar": 1.2,
-    "salt": 2.3
+    "salt": 2.3,
+    "weight": 230
    },
    "tags": [
     "vegetarian"
@@ -2477,7 +2490,8 @@
     "fat": 15,
     "saturatedFat": 1.7,
     "sugar": 7,
-    "salt": 1.4
+    "salt": 1.4,
+    "weight": 158
    },
    "tags": [
     "vegetarian"
@@ -2499,7 +2513,8 @@
     "fat": 14,
     "saturatedFat": 4.3,
     "sugar": 3.4,
-    "salt": 0.84
+    "salt": 0.84,
+    "weight": 120
    },
    "tags": [
     "vegetarian"
@@ -2521,7 +2536,8 @@
     "fat": 27,
     "saturatedFat": 12,
     "sugar": 4.6,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 181
    },
    "tags": [
     "vegetarian"
@@ -2543,7 +2559,8 @@
     "fat": 20,
     "saturatedFat": 9,
     "sugar": 3,
-    "salt": 2
+    "salt": 2,
+    "weight": 85
    },
    "tags": [
     "vegetarian"
@@ -2565,7 +2582,8 @@
     "fat": 15,
     "saturatedFat": 6.2,
     "sugar": 2.2,
-    "salt": 2.1
+    "salt": 2.1,
+    "weight": 240
    },
    "tags": [
     "vegetarian"
@@ -2587,7 +2605,8 @@
     "fat": 29,
     "saturatedFat": 15,
     "sugar": 2.5,
-    "salt": 3.1
+    "salt": 3.1,
+    "weight": 297
    },
    "tags": [
     "contains_pork"
@@ -2609,7 +2628,8 @@
     "fat": 14,
     "saturatedFat": 3.4,
     "sugar": 4.4,
-    "salt": 2
+    "salt": 2,
+    "weight": 121
    },
    "tags": [],
    "limitedTime": false,
@@ -2629,7 +2649,8 @@
     "fat": 15,
     "saturatedFat": 2.8,
     "sugar": 1,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 200
    },
    "tags": [],
    "limitedTime": false,
@@ -2649,7 +2670,8 @@
     "fat": 15,
     "saturatedFat": 2.9,
     "sugar": 11,
-    "salt": 3.4
+    "salt": 3.4,
+    "weight": 218
    },
    "tags": [],
    "limitedTime": false,
@@ -2669,7 +2691,8 @@
     "fat": 19,
     "saturatedFat": 10,
     "sugar": 3.9,
-    "salt": 1.4
+    "salt": 1.4,
+    "weight": 230
    },
    "tags": [],
    "limitedTime": false,
@@ -2689,7 +2712,8 @@
     "fat": 15,
     "saturatedFat": 5.5,
     "sugar": 3.1,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 206
    },
    "tags": [],
    "limitedTime": false,
@@ -2709,7 +2733,8 @@
     "fat": 15,
     "saturatedFat": 5.5,
     "sugar": 3.1,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 206
    },
    "tags": [],
    "limitedTime": false,
@@ -2729,7 +2754,8 @@
     "fat": 17,
     "saturatedFat": 8,
     "sugar": 6.2,
-    "salt": 1.5
+    "salt": 1.5,
+    "weight": 181
    },
    "tags": [],
    "limitedTime": false,
@@ -2749,7 +2775,8 @@
     "fat": 17,
     "saturatedFat": 4,
     "sugar": 0.7,
-    "salt": 2.2
+    "salt": 2.2,
+    "weight": 230
    },
    "tags": [],
    "limitedTime": false,
@@ -2769,7 +2796,8 @@
     "fat": 19,
     "saturatedFat": 11,
     "sugar": 5,
-    "salt": 1.9
+    "salt": 1.9,
+    "weight": 230
    },
    "tags": [
     "vegetarian"
@@ -2791,7 +2819,8 @@
     "fat": 3.3,
     "saturatedFat": 1.3,
     "sugar": 5.8,
-    "salt": 0.6
+    "salt": 0.6,
+    "weight": 250
    },
    "tags": [
     "contains_beef"
@@ -2813,7 +2842,8 @@
     "fat": 9.3,
     "saturatedFat": 1.1,
     "sugar": 0.6,
-    "salt": 1.3
+    "salt": 1.3,
+    "weight": 125
    },
    "tags": [],
    "limitedTime": false,
@@ -2833,7 +2863,8 @@
     "fat": 7.2,
     "saturatedFat": 2.2,
     "sugar": 1.7,
-    "salt": 0.43
+    "salt": 0.43,
+    "weight": 60
    },
    "tags": [],
    "limitedTime": false,
@@ -2853,7 +2884,8 @@
     "fat": 7.4,
     "saturatedFat": 0.9,
     "sugar": 3.5,
-    "salt": 0.71
+    "salt": 0.71,
+    "weight": 79
    },
    "tags": [],
    "limitedTime": false,
@@ -2873,7 +2905,8 @@
     "fat": 3.4,
     "saturatedFat": 2,
     "sugar": 10,
-    "salt": 0.25
+    "salt": 0.25,
+    "weight": 225
    },
    "tags": [],
    "limitedTime": false,
@@ -2893,7 +2926,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 21,
-    "salt": 0
+    "salt": 0,
+    "weight": 230
    },
    "tags": [],
    "limitedTime": false,
@@ -2913,7 +2947,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 25,
-    "salt": 0
+    "salt": 0,
+    "weight": 230
    },
    "tags": [],
    "limitedTime": false,
@@ -2933,7 +2968,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.05
+    "salt": 0.05,
+    "weight": 230
    },
    "tags": [],
    "limitedTime": false,
@@ -2953,7 +2989,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.07
+    "salt": 0.07,
+    "weight": 230
    },
    "tags": [],
    "limitedTime": false,
@@ -2973,7 +3010,8 @@
     "fat": 20,
     "saturatedFat": 9.3,
     "sugar": 43,
-    "salt": 0.11
+    "salt": 0.11,
+    "weight": 145
    },
    "tags": [],
    "limitedTime": false,
@@ -2993,7 +3031,8 @@
     "fat": 10,
     "saturatedFat": 4.4,
     "sugar": 31.9,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 91
    },
    "tags": [],
    "limitedTime": false,
@@ -3013,7 +3052,8 @@
     "fat": 9,
     "saturatedFat": 4,
     "sugar": 30.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 91
    },
    "tags": [],
    "limitedTime": false,
@@ -3033,7 +3073,8 @@
     "fat": 6.7,
     "saturatedFat": 0.5,
     "sugar": 1.7,
-    "salt": 0.38
+    "salt": 0.38,
+    "weight": 63
    },
    "tags": [
     "vegetarian"
@@ -3055,7 +3096,8 @@
     "fat": 5.9,
     "saturatedFat": 0.4,
     "sugar": 2.4,
-    "salt": 0.07
+    "salt": 0.07,
+    "weight": 50
    },
    "tags": [
     "vegetarian"
@@ -3077,7 +3119,8 @@
     "fat": 0.4,
     "saturatedFat": 0.2,
     "sugar": 0.9,
-    "salt": 0.01
+    "salt": 0.01,
+    "weight": 26
    },
    "tags": [
     "vegetarian"
@@ -3099,7 +3142,8 @@
     "fat": 0.1,
     "saturatedFat": 0.1,
     "sugar": 1.1,
-    "salt": 0.02
+    "salt": 0.02,
+    "weight": 24
    },
    "tags": [
     "vegetarian"
@@ -3121,7 +3165,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0.48
+    "salt": 0.48,
+    "weight": 16
    },
    "tags": [
     "vegetarian"
@@ -3143,7 +3188,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 3,
-    "salt": 0
+    "salt": 0,
+    "weight": 16
    },
    "tags": [],
    "limitedTime": false,
@@ -3163,7 +3209,8 @@
     "fat": 2.1,
     "saturatedFat": 0.2,
     "sugar": 0,
-    "salt": 0.14
+    "salt": 0.14,
+    "weight": 15
    },
    "tags": [
     "vegetarian"
@@ -3185,7 +3232,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0.2,
-    "salt": 0
+    "salt": 0,
+    "weight": 17
    },
    "tags": [],
    "limitedTime": false,
@@ -3205,7 +3253,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 1,
-    "salt": 0
+    "salt": 0,
+    "weight": 33
    },
    "tags": [],
    "limitedTime": false,
@@ -3225,7 +3274,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0.5,
-    "salt": 0
+    "salt": 0,
+    "weight": 35
    },
    "tags": [],
    "limitedTime": false,
@@ -3245,7 +3295,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 0.6,
-    "salt": 0
+    "salt": 0,
+    "weight": 26
    },
    "tags": [],
    "limitedTime": false,
@@ -3265,7 +3316,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 1.2,
-    "salt": 0
+    "salt": 0,
+    "weight": 21
    },
    "tags": [],
    "limitedTime": false,
@@ -3285,7 +3337,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 2.3,
-    "salt": 0
+    "salt": 0,
+    "weight": 18
    },
    "tags": [],
    "limitedTime": false,
@@ -3305,7 +3358,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 20
    },
    "tags": [],
    "limitedTime": false,
@@ -3325,7 +3379,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 20
    },
    "tags": [],
    "limitedTime": false,
@@ -3345,7 +3400,8 @@
     "fat": 3.8,
     "saturatedFat": 1.7,
     "sugar": 0.3,
-    "salt": 0.33
+    "salt": 0.33,
+    "weight": 13
    },
    "tags": [
     "vegetarian"
@@ -3367,7 +3423,8 @@
     "fat": 1.1,
     "saturatedFat": 0.5,
     "sugar": 0.1,
-    "salt": 0.16
+    "salt": 0.16,
+    "weight": 7
    },
    "tags": [
     "vegetarian"
@@ -3389,7 +3446,8 @@
     "fat": 2.7,
     "saturatedFat": 0.3,
     "sugar": 0.2,
-    "salt": 0.09
+    "salt": 0.09,
+    "weight": 13
    },
    "tags": [
     "vegetarian"
@@ -3411,7 +3469,8 @@
     "fat": 2.6,
     "saturatedFat": 1.3,
     "sugar": 0.5,
-    "salt": 0.07
+    "salt": 0.07,
+    "weight": 6
    },
    "tags": [
     "vegetarian"
@@ -3433,7 +3492,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 11,
-    "salt": 0
+    "salt": 0,
+    "weight": 16
    },
    "tags": [
     "vegetarian"
@@ -3455,7 +3515,8 @@
     "fat": 7.2,
     "saturatedFat": 0.9,
     "sugar": 1.5,
-    "salt": 0.37
+    "salt": 0.37,
+    "weight": 30
    },
    "tags": [
     "vegetarian"
@@ -3477,7 +3538,8 @@
     "fat": 11,
     "saturatedFat": 4.2,
     "sugar": 2.1,
-    "salt": 0.36
+    "salt": 0.36,
+    "weight": 27
    },
    "tags": [
     "vegetarian"
@@ -3499,7 +3561,8 @@
     "fat": 13,
     "saturatedFat": 1.8,
     "sugar": 0.5,
-    "salt": 0.31
+    "salt": 0.31,
+    "weight": 29
    },
    "tags": [
     "vegetarian"
@@ -3521,7 +3584,8 @@
     "fat": 13,
     "saturatedFat": 1.8,
     "sugar": 2,
-    "salt": 0.44
+    "salt": 0.44,
+    "weight": 34
    },
    "tags": [
     "vegetarian"
@@ -3543,7 +3607,8 @@
     "fat": 15,
     "saturatedFat": 1.6,
     "sugar": 1.3,
-    "salt": 0.33
+    "salt": 0.33,
+    "weight": 31
    },
    "tags": [
     "vegetarian"
@@ -3565,7 +3630,8 @@
     "fat": 0.6,
     "saturatedFat": 0.4,
     "sugar": 1.9,
-    "salt": 0.27
+    "salt": 0.27,
+    "weight": 22
    },
    "tags": [
     "vegetarian"
@@ -3587,7 +3653,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 2.6,
-    "salt": 0.53
+    "salt": 0.53,
+    "weight": 33
    },
    "tags": [
     "vegetarian"
@@ -3609,7 +3676,8 @@
     "fat": 18,
     "saturatedFat": 1,
     "sugar": 1.8,
-    "salt": 0.27
+    "salt": 0.27,
+    "weight": 30
    },
    "tags": [],
    "limitedTime": false,
@@ -3629,7 +3697,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 29,
-    "salt": 1
+    "salt": 1,
+    "weight": 100
    },
    "tags": [
     "vegetarian"
@@ -3651,7 +3720,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 23,
-    "salt": 2
+    "salt": 2,
+    "weight": 100
    },
    "tags": [
     "vegetarian"
@@ -3673,7 +3743,8 @@
     "fat": 0.2,
     "saturatedFat": 0,
     "sugar": 0.1,
-    "salt": 0
+    "salt": 0,
+    "weight": 1
    },
    "tags": [],
    "limitedTime": false,
@@ -3693,7 +3764,8 @@
     "fat": 27.7,
     "saturatedFat": 2,
     "sugar": 2.8,
-    "salt": 0.41
+    "salt": 0.41,
+    "weight": 45
    },
    "tags": [
     "vegetarian"
@@ -3715,7 +3787,8 @@
     "fat": 0.4,
     "saturatedFat": 0.2,
     "sugar": 69.7,
-    "salt": 0.03
+    "salt": 0.03,
+    "weight": 86
    },
    "tags": [
     "vegetarian"
@@ -3737,7 +3810,8 @@
     "fat": 0.1,
     "saturatedFat": 0.1,
     "sugar": 21.8,
-    "salt": 1.68
+    "salt": 1.68,
+    "weight": 60
    },
    "tags": [
     "vegetarian"
@@ -3759,7 +3833,8 @@
     "fat": 0.4,
     "saturatedFat": 0,
     "sugar": 13,
-    "salt": 0.37
+    "salt": 0.37,
+    "weight": 35
    },
    "tags": [
     "vegetarian"
@@ -3781,7 +3856,8 @@
     "fat": 12,
     "saturatedFat": 0.8,
     "sugar": 2.7,
-    "salt": 0.34
+    "salt": 0.34,
+    "weight": 35
    },
    "tags": [
     "vegetarian"
@@ -3803,7 +3879,8 @@
     "fat": 0.2,
     "saturatedFat": 0,
     "sugar": 8.8,
-    "salt": 0.35
+    "salt": 0.35,
+    "weight": 35
    },
    "tags": [
     "vegetarian"
@@ -3825,7 +3902,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 6.5,
-    "salt": 0.47
+    "salt": 0.47,
+    "weight": 35
    },
    "tags": [
     "vegetarian"
@@ -3847,7 +3925,8 @@
     "fat": 5.5,
     "saturatedFat": 1.9,
     "sugar": 0,
-    "salt": 0.13
+    "salt": 0.13,
+    "weight": 10
    },
    "tags": [
     "vegetarian"
@@ -3869,7 +3948,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 1
    },
    "tags": [
     "vegetarian"
@@ -3891,7 +3971,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 2.3,
-    "salt": 0.12
+    "salt": 0.12,
+    "weight": 10
    },
    "tags": [
     "vegetarian"
@@ -3913,7 +3994,8 @@
     "fat": 6.2,
     "saturatedFat": 0.5,
     "sugar": 0.6,
-    "salt": 0.09
+    "salt": 0.09,
+    "weight": 10
    },
    "tags": [
     "vegetarian"
@@ -3935,7 +4017,8 @@
     "fat": 0,
     "saturatedFat": 0,
     "sugar": 2.6,
-    "salt": 0
+    "salt": 0,
+    "weight": 10
    },
    "tags": [
     "vegetarian"
@@ -3957,7 +4040,8 @@
     "fat": 0.2,
     "saturatedFat": 0,
     "sugar": 0.1,
-    "salt": 0
+    "salt": 0,
+    "weight": 1
    },
    "tags": [
     "vegetarian"
@@ -3979,7 +4063,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 8.1,
-    "salt": 0
+    "salt": 0,
+    "weight": 10
    },
    "tags": [
     "vegetarian"
@@ -4001,7 +4086,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 0.3,
-    "salt": 0.22
+    "salt": 0.22,
+    "weight": 1
    },
    "tags": [
     "vegetarian"
@@ -4023,7 +4109,8 @@
     "fat": 0.1,
     "saturatedFat": 0,
     "sugar": 0.2,
-    "salt": 0.18
+    "salt": 0.18,
+    "weight": 1
    },
    "tags": [
     "vegetarian"
@@ -4045,7 +4132,8 @@
     "fat": 25,
     "saturatedFat": 14,
     "sugar": 60,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 196
    },
    "tags": [
     "vegetarian"
@@ -4067,7 +4155,8 @@
     "fat": 27,
     "saturatedFat": 15,
     "sugar": 55,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 196
    },
    "tags": [
     "vegetarian"
@@ -4089,7 +4178,8 @@
     "fat": 25,
     "saturatedFat": 14,
     "sugar": 53,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 175
    },
    "tags": [
     "vegetarian"
@@ -4111,7 +4201,8 @@
     "fat": 27,
     "saturatedFat": 15,
     "sugar": 48,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 175
    },
    "tags": [
     "vegetarian"
@@ -4133,7 +4224,8 @@
     "fat": 30,
     "saturatedFat": 12,
     "sugar": 25,
-    "salt": 0.57
+    "salt": 0.57,
+    "weight": 107
    },
    "tags": [
     "vegetarian"
@@ -4155,7 +4247,8 @@
     "fat": 32,
     "saturatedFat": 15,
     "sugar": 62,
-    "salt": 3
+    "salt": 3,
+    "weight": 189
    },
    "tags": [
     "vegetarian"
@@ -4177,7 +4270,8 @@
     "fat": 33,
     "saturatedFat": 15,
     "sugar": 56,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 168
    },
    "tags": [],
    "limitedTime": false,
@@ -4197,7 +4291,8 @@
     "fat": 19,
     "saturatedFat": 8.3,
     "sugar": 40.8,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 131
    },
    "tags": [
     "vegetarian"
@@ -4219,7 +4314,8 @@
     "fat": 24,
     "saturatedFat": 10.7,
     "sugar": 33,
-    "salt": 0.4
+    "salt": 0.4,
+    "weight": 128
    },
    "tags": [],
    "limitedTime": false,
@@ -4239,7 +4335,8 @@
     "fat": 3.5,
     "saturatedFat": 1.8,
     "sugar": 9.8,
-    "salt": 0.06
+    "salt": 0.06,
+    "weight": 45
    },
    "tags": [
     "vegetarian"
@@ -4261,7 +4358,8 @@
     "fat": 6.5,
     "saturatedFat": 3.2,
     "sugar": 19,
-    "salt": 0.03
+    "salt": 0.03,
+    "weight": 86
    },
    "tags": [
     "vegetarian"
@@ -4283,7 +4381,8 @@
     "fat": 1.1,
     "saturatedFat": 0.7,
     "sugar": 6,
-    "salt": 0
+    "salt": 0,
+    "weight": 15
    },
    "tags": [
     "vegetarian"
@@ -4305,7 +4404,8 @@
     "fat": 0.5,
     "saturatedFat": 0.2,
     "sugar": 7.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 15
    },
    "tags": [
     "vegetarian"
@@ -4327,7 +4427,8 @@
     "fat": 0.3,
     "saturatedFat": 0.1,
     "sugar": 8.6,
-    "salt": 0.23
+    "salt": 0.23,
+    "weight": 15
    },
    "tags": [],
    "limitedTime": false,
@@ -4980,7 +5081,8 @@
     "fat": 0.8,
     "saturatedFat": 0.2,
     "sugar": 4.2,
-    "salt": 0.21
+    "salt": 0.21,
+    "weight": 100
    },
    "tags": [
     "vegetarian"
@@ -5002,7 +5104,8 @@
     "fat": 2.1,
     "saturatedFat": 0.4,
     "sugar": 0,
-    "salt": 0.17
+    "salt": 0.17,
+    "weight": 20.1
    },
    "tags": [
     "vegetarian"
@@ -5024,7 +5127,8 @@
     "fat": 1.6,
     "saturatedFat": 0.3,
     "sugar": 0,
-    "salt": 0.16
+    "salt": 0.16,
+    "weight": 18.6
    },
    "tags": [
     "vegetarian"
@@ -5046,7 +5150,8 @@
     "fat": 5.1,
     "saturatedFat": 1.9,
     "sugar": 0.1,
-    "salt": 0.32
+    "salt": 0.32,
+    "weight": 30.6
    },
    "tags": [
     "vegetarian"
@@ -5068,7 +5173,8 @@
     "fat": 4.2,
     "saturatedFat": 1.6,
     "sugar": 0.1,
-    "salt": 0.29
+    "salt": 0.29,
+    "weight": 27.5
    },
    "tags": [
     "vegetarian"

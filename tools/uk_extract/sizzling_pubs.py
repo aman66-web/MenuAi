@@ -10,6 +10,7 @@ This feed is for ONE venue; the brand-level menu id was not found, so the venue'
 note.txt. Numbers are copied as the feed prints them; see mb_feed.py. Only categories, the lines that are not menu items, the
 held-back rows and the notes are written by hand below. Not read: the feed's other menus (kids, drinks, Sunday...).
 """
+from __future__ import annotations
 import sys
 from pathlib import Path
 
@@ -55,7 +56,7 @@ CHAIN = mb.Chain(
         "Scampi and Chips": "The feed prints 826 kcal; its own macros add up to about 672 kcal (and its kJ to about 607 kcal).",
     },
     note_txt=("From the menu of one Sizzling Pubs venue, used as published: other venues' menus and values may differ. Main menu only. "
-              "A side, sauce, swap or topping you choose isn't added in. Weights in names (oz) are approximate uncooked weights."),
+              "A side, sauce, swap or topping you choose isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights."),
 )
 
 if __name__ == "__main__":

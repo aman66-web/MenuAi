@@ -1,233 +1,233 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-crispy-corn-tostadas-with-yucatan-style-diced-chicken,Crispy Corn Tostadas with Yucatan-Style Diced Chicken,Small plates,,788,25.7,56.7,49.8,13.9,,2.0,7.2,,,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-crispy-corn-tostadas-with-crispy-smoked-tofu-vg,Crispy Corn Tostadas with Crispy Smoked Tofu (VG),Small plates,,817,19.3,60.4,53.8,14.8,,3.8,6.9,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-corn-riblets-vg,Corn Riblets (VG),Small plates,,628,4.4,26.8,55.5,5.2,,6.9,15.8,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
-xl-mozzarella-sticks-v,XL Mozzarella Sticks (V),Small plates,,934,50.4,44.0,61.5,28.0,,3.3,7.6,,vegetarian,false,true,,,On: main food menu
-crispy-shredded-chicken,Crispy Shredded Chicken,Small plates,,458,21.1,46.2,20.1,6.4,,3.9,23.5,,,false,true,,,"On: main food menu, midweek eats menu"
-chicken-wings,Chicken Wings,Small plates,,505,34.0,21.6,30.6,5.4,,5.3,15.2,,,false,true,,,On: main food menu
-halloumi-fries-v,Halloumi Fries (V),Small plates,,400,14.2,26.6,25.9,12.2,,2.3,12.4,,vegetarian,false,true,,,"On: main food menu, midweek eats menu"
-smokey-tater-bites-vg,Smokey Tater Bites (VG),Small plates,,679,5.6,59.6,45.1,10.6,,3.9,2.1,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
-crispy-tofu-vg,Crispy Tofu (VG),Small plates,,387,17.3,25.1,20.3,4.6,,2.0,14.5,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
-iberico-ham-croquettes,Ibérico Ham Croquettes,Small plates,,554,11.8,28.9,42.8,8.6,,2.0,8.8,,contains_pork,false,true,,,"On: main food menu, midweek eats menu"
-crispy-coated-prawns,Crispy Coated Prawns,Small plates,,381,9.7,34.7,21.9,6.9,,2.7,6.5,,,false,true,,,"On: main food menu, midweek eats menu"
-duck-popcorn,Duck Popcorn,Small plates,,605,29.2,55.3,29.6,7.1,,4.3,21.0,,,false,true,,,On: main food menu
-crispy-calamari,Crispy Calamari,Small plates,,452,12.5,26.0,32.9,3.3,,2.5,2.8,,,false,true,,,"On: main food menu, midweek eats menu"
-crispy-buffalo-cauliflower-bites-v,Crispy Buffalo Cauliflower Bites (V),Small plates,,579,6.8,35.9,44.0,10.1,,4.2,7.2,,vegetarian,false,true,,,On: main food menu
-crispy-buffalo-cauliflower-bites-vg,Crispy Buffalo Cauliflower Bites (VG),Small plates,,618,5.9,34.3,49.5,10.3,,4.2,5.9,,vegetarian,false,true,,,On: main food menu
-tandoori-chicken-skewers,Tandoori Chicken Skewers,Small plates,,522,44.1,13.4,30.7,3.1,,2.8,10.3,,,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-s-and-l-sharer-for-two,S&L Sharer For Two,Sharers,,2511,111.6,176.9,149.8,33.6,,14.2,24.4,,contains_pork,false,true,,,On: main food menu
-cheesy-nachos-v,Cheesy Nachos (V),Sharers,,1381,31.6,129.5,79.4,23.7,,5.7,10.8,,vegetarian,false,true,,,On: main food menu
-sheese-nachos-vg-m,Sheese® Nachos (VG-M),Sharers,,1600,14.6,150.9,100.1,27.1,,6.2,8.5,,,false,true,,,On: main food menu
-cheese-and-bacon-loaded-fries,Cheese & Bacon Loaded Fries,Sharers,,1319,33.6,129.9,71.9,26.3,,6.1,6.1,,contains_pork,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-katsu-loaded-fries-excluding-topper-choice-see-below,"Katsu Loaded Fries (Excluding Topper Choice, see below)",Sharers,,1145,13.5,136.4,58.8,12.0,,5.9,7.1,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu"
-s-and-l-meat-feast,S&L Meat Feast,Sharers,,1848,77.6,163.0,98.5,28.1,,12.1,27.1,,,false,true,,,On: main food menu
-crispy-shredded-chicken-with-katsu-loaded-fries,Crispy Shredded Chicken (with Katsu Loaded Fries),Options & add-ons,,343,20.6,19.4,19.9,6.3,,1.7,0.3,,,false,false,,,On: main food menu
-crispy-smoked-tofu-vg-with-katsu-loaded-fries,Crispy Smoked Tofu (VG) (with Katsu Loaded Fries),Options & add-ons,,286,16.8,9.0,20.1,4.6,,1.0,0.6,,vegetarian,false,false,,,On: main food menu
-crispy-coated-chicken,Crispy Coated Chicken,Options & add-ons,,372,25.9,27.2,17.2,7.1,,1.6,0.6,,,false,false,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
-crispy-smoked-tofu-vg-with-katsu-curry,Crispy Smoked Tofu (VG) (with Katsu Curry),Options & add-ons,,431,25.3,13.6,30.2,6.9,,1.5,0.8,,vegetarian,false,false,,,"On: main food menu, midweek eats menu"
-grilled-chicken,Grilled Chicken,Options & add-ons,,184,39.0,1.9,2.3,0.6,,1.8,0.6,,,false,false,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
-crispy-smoked-tofu-v-m,Crispy Smoked Tofu (V-M),Options & add-ons,,431,25.3,13.6,30.2,6.9,,1.5,0.8,,,false,false,,,"On: main food menu, midweek eats menu"
-lemongrass-chicken-with-ginger-soy-and-sesame,"Lemongrass Chicken with Ginger, Soy and Sesame",Options & add-ons,,258,40.1,7.3,7.5,1.0,,2.8,4.6,,,false,false,,,"On: main food menu, midweek eats menu"
-sliced-shawarma-marinated-tofu-vg,Sliced Shawarma Marinated Tofu (VG),Options & add-ons,,305,23.5,10.9,18.2,2.6,,2.4,3.8,,vegetarian,false,false,,,"On: main food menu, midweek eats menu"
-garden-peas,Garden Peas,Options & add-ons,,76,5.7,8.8,0.9,0.2,,0.0,2.5,,,false,false,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
-mushy-peas,Mushy Peas,Options & add-ons,,91,5.6,14.4,0.4,0.1,,0.6,1.6,,,false,false,,,"On: main food menu, midweek eats menu"
-rocket,Rocket,Options & add-ons,,2,0.1,0.3,0.0,0.0,,0.0,0.1,,,false,false,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
-grilled-chicken-breast,Grilled Chicken Breast,Options & add-ons,,184,39.0,1.9,2.3,0.6,,1.8,0.6,,,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
-crispy-smoked-tofu-v,Crispy Smoked Tofu (V),Options & add-ons,,431,25.3,13.6,30.2,6.9,,1.5,0.8,,vegetarian,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
-crispy-shredded-bbq-chicken,Crispy Shredded BBQ Chicken,Options & add-ons,,388,20.9,29.7,19.9,6.3,,2.0,9.1,,,false,false,,,On: main food menu
-crispy-bbq-smoked-tofu-v,Crispy BBQ Smoked Tofu (V),Options & add-ons,,331,17.1,19.3,20.2,4.6,,1.4,9.3,,vegetarian,false,false,,,On: main food menu
-skin-on-fries,Skin-On Fries,Options & add-ons,,455,5.2,59.2,21.1,5.4,,1.1,0.5,,,false,false,,,"On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
-side-salad,Side Salad,Options & add-ons,,56,1.0,2.1,4.9,0.7,,0.1,1.1,,,false,false,,,"On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
-sweet-potato-fries,Sweet Potato Fries,Options & add-ons,,342,2.2,37.9,19.0,5.1,,0.9,17.2,,,false,false,,,"On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
-tater-bites,Tater Bites,Options & add-ons,,564,5.3,56.5,34.1,9.9,,1.9,0.6,,,false,false,,,"On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
-crispy-smoked-tofu-vg-with-katsu-fries,Crispy Smoked Tofu (VG) (with Katsu Fries),Options & add-ons,,145,8.5,4.6,10.2,2.3,,0.5,0.3,,vegetarian,false,false,,,On: main food menu
-crispy-shredded-chicken-with-katsu-fries,Crispy Shredded Chicken (with Katsu Fries),Options & add-ons,,172,10.3,9.7,9.9,3.2,,0.8,0.1,,,false,false,,,On: main food menu
-rosemary-focaccia,Rosemary Focaccia,Options & add-ons,,176,5.5,29.5,3.7,0.5,,1.2,2.5,,,false,false,,,On: lunch menu
-bagel,Bagel,Options & add-ons,,296,10.5,57.5,1.8,0.2,,0.7,5.8,,,false,false,,,On: lunch menu
-tortilla-wrap,Tortilla Wrap,Options & add-ons,,288,7.2,43.8,8.8,3.7,,0.6,3.7,,,false,false,,,On: lunch menu
-baby-gem-and-cucumber-salad,Baby Gem & Cucumber Salad,Options & add-ons,,9,0.6,1.2,0.2,0.1,,0.0,0.8,,,false,false,,,"On: lunch menu, no-gluten containing ingredients menu"
-yucatan-style-chicken-lunch-menu-brunch-menu-3-more,Yucatan-Style Chicken (lunch menu / brunch menu +3 more),Options & add-ons,,154,17.0,2.6,8.4,2.0,,0.9,0.9,,,false,false,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
-fried-egg,Fried Egg,Options & add-ons,,104,7.6,0.0,8.2,1.7,,0.2,0.0,,,false,false,,,On: kids' menu
-poached-egg,Poached Egg,Options & add-ons,,101,9.0,0.0,7.2,2.0,,0.2,0.0,,,false,false,,,On: kids' menu
-scrambled-egg,Scrambled Egg,Options & add-ons,,372,17.3,1.1,33.3,17.0,,1.0,1.1,,,false,false,,,On: kids' menu
-skin-on-fries-vg-kids-menu,Skin-on Fries (VG) (kids' menu),Options & add-ons,,228,2.6,29.6,10.5,2.7,,0.5,0.2,,vegetarian,false,false,,,On: kids' menu
-sweet-potato-fries-vg-kids-menu,Sweet Potato Fries (VG) (kids' menu),Options & add-ons,,171,1.1,18.9,9.5,2.6,,0.5,8.6,,vegetarian,false,false,,,On: kids' menu
-tater-bites-vg,Tater Bites (VG),Options & add-ons,,225,2.1,22.6,13.7,3.9,,0.8,0.2,,vegetarian,false,false,,,On: kids' menu
-basmati-rice-vg,Basmati Rice (VG),Options & add-ons,,125,2.9,26.5,0.7,0.2,,0.0,0.0,,vegetarian,false,false,,,On: kids' menu
-crispy-salad-vg,Crispy Salad (VG),Options & add-ons,,26,0.9,3.5,0.9,0.1,,0.2,3.2,,vegetarian,false,false,,,On: kids' menu
-peas-vg,Peas (VG),Options & add-ons,,76,5.7,8.8,0.9,0.2,,0.0,2.5,,vegetarian,false,false,,,On: kids' menu
-sweetcorn-vg,Sweetcorn (VG),Options & add-ons,,76,2.4,9.9,1.3,0.4,,0.0,4.2,,vegetarian,false,false,,,Calories (76) are about 20% higher than its macros allow (61). Entered as printed.; On: kids' menu
-add-a-monterey-jack-cheese-slice-v,Add a Monterey Jack Cheese Slice (V),Options & add-ons,,83,5.1,0.0,7.0,4.3,,0.4,0.0,,vegetarian,false,false,,,On: kids' menu
-add-sheese-vg,Add Sheese® (VG),Options & add-ons,,58,0.1,5.1,4.0,3.3,,0.3,0.1,,vegetarian,false,false,,,On: kids' menu
-seeded-roll,Seeded Roll,Options & add-ons,,179,2.0,26.7,6.2,0.5,,0.5,1.5,,,false,false,,,On: no-gluten containing ingredients menu
-katsu-curry-excluding-topper-option-see-below,"Katsu Curry (Excluding Topper Option, see below)",Mains,,509,9.0,69.6,18.1,1.5,,3.4,4.6,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu, midweek eats menu"
-fajita-chicken-pasta,Fajita Chicken Pasta,Mains,,1331,46.6,83.6,89.1,49.2,,5.0,14.5,,,false,true,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
-fajita-pasta-vg,Fajita Pasta (VG),Mains,,863,21.1,118.1,31.3,24.1,,5.8,13.3,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
-spaghetti-alfredo-excluding-topper-options-see-below,"Spaghetti Alfredo (Excluding Topper Options, see below)",Mains,,681,16.7,58.8,40.7,24.8,,2.8,3.3,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu, midweek eats menu"
-loaded-flatbread-excluding-topper-option-see-below,"Loaded Flatbread (Excluding Topper Option, see below)",Mains,,1167,14.3,113.9,69.8,9.0,,3.4,7.1,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu, midweek eats menu"
-fish-and-chips-excluding-your-pea-option-see-below,"Fish & Chips (Excluding Your Pea Option, see below)",Mains,,1404,47.0,102.7,87.4,22.4,,5.2,2.6,,,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, midweek eats menu"
-scampi-and-chips-excluding-your-pea-option-see-below,"Scampi & Chips (Excluding Your Pea Option, see below)",Mains,,900,19.3,93.6,48.0,10.1,,3.1,3.0,,,false,true,,,Printed without the side or option named in its title; add that item. On: main food menu
-smothered-chicken-excluding-chicken-and-greens-option-see-below,"Smothered Chicken (Excluding Chicken & Greens Option, see below)",Mains,,726,20.6,69.4,39.5,13.9,,3.6,9.2,,contains_pork,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu, midweek eats menu, bottomless evening brunch menu"
-caesar-salad-bowl-v,Caesar Salad Bowl (V),Mains,,503,9.5,34.0,36.7,4.5,,1.4,6.1,,vegetarian,false,true,,,"On: main food menu, bottomless evening brunch menu"
-steak-and-fries-excluding-your-greens-option-see-below,"Steak & Fries (Excluding Your Greens Option, see below)",Mains,,931,49.1,67.1,50.4,18.1,,2.8,5.4,,contains_beef,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, no-gluten containing ingredients menu"
-mac-n-cheese-v,Mac 'n' Cheese (V),Mains,,839,36.4,64.4,50.0,23.8,,3.5,9.2,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
-tandoori-chicken-skewers-main-menu-midweek-eats,Tandoori Chicken Skewers (main menu / midweek eats),Mains,,1282,56.3,110.3,66.0,10.3,,5.3,12.8,,,false,true,,,"On: main food menu, midweek eats menu"
-full-rack-of-bbq-pork-ribs,Full Rack of BBQ Pork Ribs,Mains,,1180,37.1,103.9,66.4,17.6,,5.2,35.1,,contains_pork,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-half-a-rack-of-bbq-pork-ribs,Half a Rack of BBQ Pork Ribs,Mains,,962,22.9,92.5,53.6,12.7,,4.3,25.3,,contains_pork,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-grilled-beef-burger-excluding-accompaniments-see-below,"Grilled Beef Burger (Excluding Accompaniments, see below)",Mains,,422,25.4,36.9,18.7,7.8,,1.4,7.2,,contains_beef,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-veggie-burger-v-excluding-cheese-and-accompaniment-options-see-below,"Veggie Burger (V) (Excluding Cheese & Accompaniment options, see below)",Mains,,441,23.4,40.8,18.7,6.6,,1.5,7.4,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-crispy-shredded-chicken-excluding-accompaniment-option-see-below,"Crispy Shredded Chicken (Excluding Accompaniment Option, see below)",Mains,,218,13.0,13.5,12.2,3.9,,1.0,2.0,,,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-fish-goujons-excluding-accompaniment-option-see-below,"Fish Goujons (Excluding Accompaniment Option, see below)",Mains,,240,12.0,13.5,15.1,4.5,,0.9,2.1,,,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-chicken-skewers-excluding-accompaniment-option-see-below,"Chicken Skewers (Excluding Accompaniment Option, see below)",Mains,,104,20.1,2.8,1.4,0.4,,0.9,2.1,,,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-two-pork-sausages-excluding-accompaniment-option-see-below,"Two Pork Sausages (Excluding Accompaniment Option, see below)",Mains,,317,17.6,10.7,22.6,8.3,,1.6,3.3,,contains_pork,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-two-plant-based-sausages-vg-excluding-accompaniment-option-see-below,"Two Plant-Based Sausages (VG) (Excluding Accompaniment Option, see below)",Mains,,179,11.0,7.3,11.0,1.0,,1.1,2.8,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-macaroni-cheese-v-excluding-accompaniment-option-see-below,"Macaroni Cheese (V) (Excluding Accompaniment Option, see below)",Mains,,419,17.2,43.0,20.8,9.6,,1.7,7.2,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-smothered-chicken-excluding-your-greens-option-see-below,"Smothered Chicken (Excluding Your Greens Option, see below)",Mains,,910,59.6,71.3,41.9,14.4,,5.4,9.8,,contains_pork,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
-tandoori-chicken-skewers-mains,Tandoori Chicken Skewers (Mains),Mains,,1250,52.6,101.6,67.7,10.5,,5.2,13.2,,,false,true,,,On: no-gluten containing ingredients menu
-caesar-salad-bowl-v-no-gluten-menu,Caesar Salad Bowl (V) (no-gluten menu),Mains,,445,8.2,26.9,33.8,4.2,,1.2,5.5,,vegetarian,false,true,,,On: no-gluten containing ingredients menu
-bacon-cheeseburger-excluding-accompaniment-option-see-below,"Bacon Cheeseburger (Excluding Accompaniment Option, see below)",Burgers,,1046,60.3,58.1,62.8,24.3,,6.0,21.6,,contains_pork|contains_beef,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu"
-breaded-chicken-burger-excluding-accompaniment-option-see-below,"Breaded Chicken Burger (Excluding Accompaniment Option, see below)",Burgers,,1060,50.5,96.3,51.1,18.6,,6.2,37.2,,contains_pork,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, lunch menu, midweek eats menu, bottomless evening brunch menu"
-mexican-chicken-burger-excluding-accompaniment-option-see-below,"Mexican Chicken Burger (Excluding Accompaniment Option, see below)",Burgers,,898,48.3,76.8,43.0,12.6,,4.9,10.7,,,false,true,,,Printed without the side or option named in its title; add that item. On: main food menu
-vegan-sheese-burger-vg-excluding-accompaniment-option-see-below,"Vegan Sheese® Burger (VG) (Excluding Accompaniment Option, see below)",Burgers,,798,24.7,86.0,36.9,14.4,,4.1,37.9,,vegetarian,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, lunch menu, midweek eats menu, bottomless evening brunch menu"
-veggie-cheeseburger-v-excluding-accompaniment-option-see-below,"Veggie Cheeseburger (V) (Excluding Accompaniment Option, see below)",Burgers,,786,30.8,77.5,37.0,12.6,,4.1,38.5,,vegetarian,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, lunch menu, midweek eats menu, bottomless evening brunch menu"
-bbq-mac-n-cheese-beef-burger,BBQ Mac 'n' Cheese Beef Burger,Burgers,,1406,73.7,96.0,80.3,33.2,,5.8,30.7,,contains_beef,false,true,,,On: main food menu
-banh-mi-chicken-burger-excluding-accompaniment-option-see-below,"Bánh Mì Chicken Burger (Excluding Accompaniment Option, see below)",Burgers,,866,34.6,66.7,48.7,10.5,,3.8,10.1,,,false,true,,,Printed without the side or option named in its title; add that item. On: main food menu
-bacon-cheeseburger-excluding-accompaniment-option-see-below-no-gluten-menu,"Bacon Cheeseburger (Excluding Accompaniment Option, see below) (no-gluten menu)",Burgers,,1030,55.7,52.4,65.0,23.5,,6.0,18.3,,contains_pork|contains_beef,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
-mexican-chicken-burger-excluding-accompaniment-option-see-below-no-gluten-menu,"Mexican Chicken Burger (Excluding Accompaniment Option, see below) (no-gluten menu)",Burgers,,644,56.2,39.6,28.1,5.1,,5.0,7.2,,,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
-grilled-chicken-burger-excluding-accompaniment-option-see-below,"Grilled Chicken Burger (Excluding Accompaniment Option, see below)",Burgers,,856,59.0,65.3,38.5,11.3,,6.4,33.8,,contains_pork,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
-banh-mi-chicken-burger-excluding-accompaniment-option-see-below-no-gluten-menu,"Bánh Mì Chicken Burger (Excluding Accompaniment Option, see below) (no-gluten menu)",Burgers,,661,43.1,35.7,36.1,3.2,,4.0,6.8,,,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
-avocado-and-pico-de-gallo-smash-vg,Avocado and Pico de Gallo Smash (VG),Extra toppings,,133,1.4,1.9,12.7,3.1,,0.1,0.7,,vegetarian,false,false,,,"On: main food menu, lunch menu, brunch menu, no-gluten containing ingredients menu"
-streaky-bacon,Streaky Bacon,Extra toppings,,143,10.1,0.0,11.4,4.2,,1.8,0.0,,contains_pork,false,false,,,"On: main food menu, lunch menu, brunch menu, no-gluten containing ingredients menu"
-sheese-vg,Sheese® (VG),Extra toppings,,115,0.2,10.2,7.9,6.7,,0.7,0.1,,vegetarian,false,false,,,"On: main food menu, lunch menu, no-gluten containing ingredients menu"
-yucatan-style-chicken,Yucatan-Style Chicken,Extra toppings,,103,11.3,1.7,5.6,1.3,,0.6,0.6,,,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
-monterey-jack-cheese-v,Monterey Jack Cheese (V),Extra toppings,,83,5.1,0.0,7.0,4.3,,0.4,0.0,,vegetarian,false,false,,,"On: main food menu, lunch menu, brunch menu, no-gluten containing ingredients menu"
-sweet-potato-fries-vg,Sweet Potato Fries (VG),Sides,,342,2.2,37.9,19.0,5.1,,0.9,17.2,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-skin-on-fries-vg,Skin-on Fries (VG),Sides,,455,5.2,59.2,21.1,5.4,,1.1,0.5,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-salt-and-pepper-fries-vg,Salt & Pepper Fries (VG),Sides,,477,5.4,60.2,21.1,5.4,,1.7,1.4,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-garlic-bread-v,Garlic Bread (V),Sides,,567,7.7,50.8,41.7,7.3,,1.7,4.7,,vegetarian,false,true,,,On: main food menu
-cheesy-garlic-bread-v,Cheesy Garlic Bread (V),Sides,,733,17.8,50.8,55.6,16.0,,2.5,4.7,,vegetarian,false,true,,,On: main food menu
-mac-n-cheese-v-sides,Mac 'n' Cheese (V) (Sides),Sides,,407,16.6,41.1,20.6,9.5,,1.7,5.3,,vegetarian,false,true,,,"On: main food menu, bottomless evening brunch menu"
-onion-rings-v,Onion Rings (V),Sides,,571,8.0,53.6,35.0,9.4,,2.0,6.5,,vegetarian,false,true,,,On: main food menu
-cheese-and-bacon-fries,Cheese & Bacon Fries,Sides,,593,12.0,65.1,30.6,11.2,,2.5,3.1,,contains_pork,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-katsu-fries-excluding-topper-choice-see-below,"Katsu Fries (Excluding Topper Choice, see below)",Sides,,572,6.7,68.2,29.4,6.0,,3.0,3.6,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu"
-side-salad-vg,Side Salad (VG),Sides,,56,1.0,2.1,4.9,0.7,,0.1,1.1,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
-espresso-martini-sundae-v,Espresso Martini Sundae (V),Desserts,,458,9.0,59.2,20.6,12.8,,0.2,53.1,,vegetarian,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
-strawberry-daiquiri-sundae-v,Strawberry Daiquiri Sundae (V),Desserts,,374,6.9,52.0,14.6,9.1,,0.3,44.1,,vegetarian,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
-pornstar-martini-sundae-v,Pornstar Martini Sundae (V),Desserts,,305,4.8,47.6,7.7,4.6,,0.2,44.2,,vegetarian,false,false,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
-warm-mini-churros-v,Warm Mini Churros (V),Desserts,,426,4.3,75.7,11.3,3.3,,1.7,39.2,,vegetarian,false,false,,,"On: main food menu, midweek eats menu"
-salted-caramel-chocolate-brownie-bites-vg,Salted Caramel Chocolate Brownie Bites (VG),Desserts,,295,3.6,42.3,11.5,4.3,,0.4,34.3,,vegetarian,false,false,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
-vanilla-flavour-ice-cream-v,Vanilla Flavour Ice Cream (V),Desserts,,243,6.0,32.6,9.6,5.3,,0.3,29.2,,vegetarian,false,false,,,On: kids' menu
-salted-caramel-chocolate-brownie-vg,Salted Caramel Chocolate Brownie (VG),Desserts,,287,3.4,41.1,11.4,4.3,,0.4,33.4,,vegetarian,false,false,,,On: kids' menu
-ice-cream-sundae,Ice Cream Sundae,Desserts,,325,7.0,47.8,11.2,6.0,,0.4,40.6,,,false,false,,,On: kids' menu
-belgian-waffle-v,Belgian Waffle (V),Desserts,,441,5.4,60.2,19.4,8.9,,2.4,32.8,,vegetarian,false,false,,,On: kids' menu
-chicken-bacon-and-avocado-excluding-base-option-see-below,"Chicken, Bacon & Avocado (Excluding Base Option, see below)",Lunch,,992,28.4,74.3,63.1,16.3,,4.2,2.7,,contains_pork,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
-steak-excluding-base-option-see-below,"Steak (Excluding Base Option, see below)",Lunch,,819,26.8,66.0,48.7,11.3,,2.5,5.7,,contains_beef,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
-shawarma-tofu-vg-m-excluding-base-option-see-below,"Shawarma Tofu (VG-M) (Excluding Base Option, see below)",Lunch,,750,18.0,71.0,41.6,7.6,,3.0,7.1,,,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
-hoisin-duck-excluding-base-option-see-below,"Hoisin Duck (Excluding Base Option, see below)",Lunch,,1016,34.6,110.4,47.4,12.0,,5.0,17.6,,,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
-tandoori-chicken-excluding-base-option-see-below,"Tandoori Chicken (Excluding Base Option, see below)",Lunch,,931,49.6,71.1,48.0,8.3,,4.0,9.0,,,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
-fish-goujon-excluding-base-option-see-below,"Fish Goujon (Excluding Base Option, see below)",Lunch,,824,17.3,73.4,49.8,10.9,,3.2,2.8,,,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
-avocado-and-poached-egg-bagel-v,Avocado & Poached Egg Bagel (V),Light bites,,559,21.8,64.8,22.0,5.4,,1.6,11.8,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-eggs-benedict,Eggs Benedict,Light bites,,705,39.2,35.0,44.7,15.3,,4.0,2.8,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-tomato-and-cheese-quesadilla-v,Tomato & Cheese Quesadilla (V),Light bites,,937,35.1,99.4,46.5,21.4,,5.1,6.1,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
-schweppes-lemonade-standard-glass-16oz,Schweppes Lemonade Standard Glass 16oz,Drinks,,86,0.0,19.5,0.0,0.0,,0.2,19.5,,,false,false,,,On: lunch menu
-coca-cola-zero-sugar-standard-glass-16oz,Coca-Cola Zero Sugar - Standard Glass 16oz,Drinks,,2,0.0,0.0,0.0,0.0,,0.1,0.0,,,false,false,,,On: lunch menu
-diet-coke-standard-glass-16oz,Diet Coke - Standard Glass 16oz,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,On: lunch menu
-capri-sun-no-added-sugar-orange-200ml,Capri Sun No Added Sugar Orange - 200ml,Drinks,,8,1.0,1.2,1.0,0.0,,0.0,1.2,,,false,false,,,On: kids' menu
-capri-sun-no-added-sugar-blackcurrant-and-apple-200ml,Capri Sun No Added Sugar Blackcurrant & Apple - 200ml,Drinks,,8,1.0,1.0,1.0,0.2,,0.0,1.0,,,false,false,,,On: kids' menu
-schweppes-tonic-water-200ml,Schweppes Tonic Water - 200ml,Drinks,,42,0.0,9.8,0.0,0.0,,0.0,9.8,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-schweppes-slimline-tonic-200ml,Schweppes Slimline Tonic - 200ml,Drinks,,4,0.0,0.0,0.0,0.0,,0.2,0.0,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-schweppes-pink-grapefruit-soda-200ml,Schweppes Pink Grapefruit Soda - 200ml,Drinks,,40,0.0,9.2,0.0,0.0,,0.0,9.2,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-schweppes-tropical-soda-200ml,Schweppes Tropical Soda - 200ml,Drinks,,40,0.0,9.0,0.0,0.0,,0.0,9.0,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-schweppes-pink-soda-200ml,Schweppes Pink Soda - 200ml,Drinks,,46,0.0,10.8,0.0,0.0,,0.0,10.8,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-schweppes-ginger-beer-200ml,Schweppes Ginger Beer - 200ml,Drinks,,44,0.0,9.8,0.0,0.0,,0.1,9.8,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-schweppes-ginger-ale-200ml,Schweppes Ginger Ale - 200ml,Drinks,,40,0.0,9.6,0.0,0.0,,0.0,9.6,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-schweppes-cherry-pepper-soda-200ml,Schweppes Cherry Pepper Soda 200ml,Drinks,,94,0.0,22.0,0.0,0.0,,0.0,21.0,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-fruity-pornstar-martini,Fruity Pornstar Martini,Drinks,,192,0.1,45.8,0.0,0.0,,0.0,44.4,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
-sober-sunrise,Sober Sunrise,Drinks,,116,0.9,26.5,0.1,0.0,,0.1,26.4,,,false,false,,,On: bottomless daytime brunch menu
-spiced-cuba-libre-0,Spiced Cuba Libre 0%,Drinks,,4,0.0,0.3,0.0,0.0,,0.1,0.3,,,false,false,,,On: bottomless evening brunch menu
-crodino-spritz,Crodino Spritz,Drinks,,41,0.2,9.7,0.1,0.0,,0.0,9.7,,,false,false,,,On: drinks menu
-zombie-zero,Zombie Zero,Drinks,,152,0.2,35.7,0.0,0.0,,0.1,34.8,,,false,false,,,On: drinks menu
-pink-spritz-0,Pink Spritz 0%,Drinks,,27,0.0,4.6,0.0,0.0,,,4.6,,,false,false,,,On: drinks menu
-elderflower-fizz,Elderflower Fizz,Drinks,,27,0.1,6.2,0.0,0.0,,0.0,5.3,,,false,false,,,On: drinks menu
-heineken-0-0-330ml,Heineken 0.0% - 330ml,Drinks,,69,1.3,15.8,0.0,0.0,,0.0,4.3,,,false,false,,,On: drinks menu
-corona-cero-0-330ml,Corona Cero 0% - 330ml,Drinks,,56,1.3,12.9,0.0,0.0,,0.0,2.3,,,false,false,,,On: drinks menu
-peroni-nastro-azzurro-0-0-330ml,Peroni Nastro Azzurro 0.0% - 330ml,Drinks,,76,0.7,18.5,0.0,0.0,,0.0,2.6,,,false,false,,,On: drinks menu
-guinness-0-0-538ml,Guinness 0.0% - 538ml,Drinks,,91,1.6,20.4,0.0,0.0,,0.0,3.8,,,false,false,,,On: drinks menu
-days-lager-0-0-330ml,Days Lager 0.0% - 330ml,Drinks,,33,1.3,6.9,0.0,0.0,,0.3,1.7,,,false,false,,,On: drinks menu
-old-mout-berries-and-cherries-0-500ml,Old Mout Berries & Cherries 0% - 500ml,Drinks,,170,0.0,41.0,0.0,0.0,,0.1,40.0,,,false,false,,,On: drinks menu
-crodino-spritz-175ml,Crodino Spritz - 175ml,Drinks,,30,0.0,7.7,0.0,0.0,,0.0,7.7,,,false,false,,,On: drinks menu
-captain-morgan-spiced-0-25ml,Captain Morgan Spiced 0% - 25ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,On: drinks menu
-gordons-pink-0-0-25ml,Gordon's Pink 0.0% - 25ml,Drinks,,3,0.0,0.0,0.0,0.0,,,0.0,,,false,false,,,On: drinks menu
-tanqueray-0-25ml,Tanqueray 0% 25ml,Drinks,,3,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,On: drinks menu
-jack-daniels-tennessee-honey,Jack Daniel's Tennessee Honey,Drinks,,60,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,"A spirit: 60 kcal with no macros, which fits alcohol calories. Entered as printed.; On: drinks menu"
-coca-cola-zero-sugar-330ml,Coca-Cola Zero Sugar - 330ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,On: drinks menu
-classic-coca-cola-330ml,Classic Coca-Cola - 330ml,Drinks,,139,0.0,35.0,0.0,0.0,,0.0,35.0,,,false,false,,,On: drinks menu
-diet-coke-330ml,Diet Coke - 330ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,On: drinks menu
-appletiser-250ml,Appletiser - 250ml,Drinks,,118,0.0,27.5,0.0,0.0,,0.0,26.3,,,false,false,,,On: drinks menu
-fanta-orange-330ml,Fanta Orange - 330ml,Drinks,,63,0.0,14.9,0.0,0.0,,0.0,14.9,,,false,false,,,On: drinks menu
-sprite-zero-sugar-330ml,Sprite Zero Sugar - 330ml,Drinks,,3,0.0,0.0,0.0,0.0,,0.1,0.0,,,false,false,,,On: drinks menu
-big-tom-tomato-juice-150ml,Big Tom Tomato Juice - 150ml,Drinks,,27,0.9,6.0,0.2,0.2,,1.5,4.5,,,false,false,,,On: drinks menu
-red-bull-original-250ml,Red Bull Original - 250ml,Drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,,false,false,,,On: drinks menu
-red-bull-sugarfree-250ml,Red Bull Sugarfree - 250ml,Drinks,,8,0.0,0.0,0.0,0.0,,0.3,0.0,,,false,false,,,On: drinks menu
-red-bull-tropical-edition-250ml,Red Bull Tropical Edition - 250ml,Drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,,false,false,,,On: drinks menu
-red-bull-pink-edition-sugarfree-250ml,Red Bull Pink Edition Sugarfree - 250ml,Drinks,,5,0.0,0.0,0.0,0.0,,0.3,0.0,,,false,false,,,On: drinks menu
-red-bull-peach-edition-250ml,Red Bull Peach Edition - 250ml,Drinks,,113,0.0,27.5,0.0,0.0,,0.3,27.5,,,false,false,,,On: drinks menu
-j2o-apple-and-mango-275ml,J2O Apple & Mango - 275ml,Drinks,,50,0.0,11.0,0.0,0.0,,0.2,11.0,,,false,false,,,On: drinks menu
-j2o-apple-and-raspberry-275ml,J2O Apple & Raspberry - 275ml,Drinks,,50,0.0,11.0,0.0,0.0,,0.2,11.0,,,false,false,,,On: drinks menu
-j2o-orange-and-passion-fruit-275ml,J2O Orange & Passion Fruit - 275ml,Drinks,,55,0.0,11.8,0.0,0.0,,0.0,11.8,,,false,false,,,On: drinks menu
-trip-blood-orange-250ml,Trip Blood Orange - 250ml,Drinks,,25,0.0,6.0,0.0,0.0,,0.0,4.3,,,false,false,,,On: drinks menu
-trip-tropical-mango-250ml,Trip Tropical Mango - 250ml,Drinks,,28,0.0,5.8,0.0,0.0,,0.0,5.5,,,false,false,,,On: drinks menu
-bottlegreen-raspberry-lemonade-330ml,Bottlegreen Raspberry Lemonade - 330ml,Drinks,,63,0.0,14.9,0.0,0.0,,0.0,13.9,,,false,false,,,On: drinks menu
-bottlegreen-elderflower-sparkling-presse-330ml,Bottlegreen Elderflower Sparkling Presse - 330ml,Drinks,,66,0.0,15.7,0.0,0.0,,0.1,15.7,,,false,false,,,On: drinks menu
-costa-coffee-iced-latte-250ml,Costa Coffee Iced Latte - 250ml,Drinks,,145,7.3,21.0,3.5,2.3,,0.2,17.8,,,false,false,,,On: drinks menu
-costa-coffee-caramel-iced-latte-250ml,Costa Coffee Caramel Iced Latte - 250ml,Drinks,,140,7.3,19.8,3.8,2.5,,0.2,17.5,,,false,false,,,On: drinks menu
-s-and-l-big-brunch-bagel,S&L Big Brunch Bagel,Brunch,,1209,53.8,96.9,65.3,20.8,,5.9,10.8,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-crispy-shredded-chicken-bacon-and-avocado-croll,"Crispy Shredded Chicken, Bacon & Avocado Croll",Brunch,,1273,37.5,106.9,75.4,25.2,,5.7,7.4,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
-crispy-chicken-strips-and-warm-belgian-waffles,Crispy Chicken Strips & Warm Belgian Waffles,Brunch,,1163,33.6,139.8,51.0,22.9,,6.1,66.1,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
-double-brekkie,Double Brekkie,Brunch,,1222,57.1,73.3,76.0,25.9,,5.7,10.1,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-american-style-brunch,American-Style Brunch,Brunch,,1517,47.8,129.3,88.0,23.3,,7.9,25.4,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-plant-based-big-breakfast-vg,Plant-Based Big Breakfast (VG),Brunch,,758,26.6,71.3,37.5,7.2,,3.3,10.2,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-rich-tomato-shakshuka-v,Rich Tomato Shakshuka (V),Brunch,,699,24.8,61.9,38.2,7.9,,4.2,20.8,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-steak-and-eggs,Steak & Eggs,Brunch,,574,57.8,1.1,37.6,12.9,,0.8,0.1,,contains_beef,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-american-style-mixed-berries-pancake-stack-v,American-Style Mixed Berries Pancake Stack (V),Brunch,,697,11.2,111.6,21.4,3.3,,1.9,44.9,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
-american-style-sliced-banana-pancake-stack-v,American-Style Sliced Banana Pancake Stack (V),Brunch,,958,11.6,110.2,51.0,8.5,,2.2,35.4,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
-american-style-strawberries-pancake-stack-v,American-Style Strawberries Pancake Stack (V),Brunch,,714,12.6,106.1,24.7,4.8,,2.1,37.5,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
-brunch-steak-and-chips,Brunch Steak & Chips,Brunch,,887,48.3,63.1,48.1,17.8,,2.0,1.7,,contains_beef,false,true,,,"On: lunch menu, brunch menu, bottomless evening brunch menu"
-triple-brekkie,Triple Brekkie,Brunch,,1889,85.4,114.8,118.5,41.6,,8.5,13.1,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
-loaded-hash-browns,Loaded Hash Browns,Brunch,,895,26.6,64.7,57.4,18.9,,4.5,4.6,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless evening brunch menu"
-smokey-tater-bites-vg-lunch-menu-brunch-menu-1-more,Smokey Tater Bites (VG) (lunch menu / brunch menu +1 more),Brunch,,573,5.7,57.5,34.4,9.9,,2.5,1.1,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless evening brunch menu"
-avocado-and-poached-egg-roll-v,Avocado & Poached Egg Roll (V),Brunch,,442,13.3,33.9,26.4,5.7,,1.4,7.5,,vegetarian,false,true,,,On: no-gluten containing ingredients menu
-double-brekkie-no-gluten-menu,Double Brekkie (no-gluten menu),Brunch,,1301,55.0,77.9,83.0,27.6,,5.8,11.2,,contains_pork,false,true,,,On: no-gluten containing ingredients menu
-eggs-benedict-no-gluten-menu,Eggs Benedict (no-gluten menu),Brunch,,720,34.5,31.1,49.8,15.5,,3.8,2.5,,contains_pork,false,true,,,On: no-gluten containing ingredients menu
-plant-based-big-breakfast-v,Plant-Based Big Breakfast (V),Brunch,,1037,35.9,83.5,59.0,13.4,,3.3,10.8,,vegetarian,false,true,,,On: no-gluten containing ingredients menu
-rich-tomato-shakshuka-v-no-gluten-menu,Rich Tomato Shakshuka (V) (no-gluten menu),Brunch,,667,21.1,53.2,39.9,8.1,,4.1,21.3,,vegetarian,false,true,,,On: no-gluten containing ingredients menu
-big-brunch-seeded-roll,Big Brunch Seeded Roll,Brunch,,1093,45.3,66.0,69.7,21.1,,5.6,6.6,,contains_pork,false,true,,,On: no-gluten containing ingredients menu
-baked-beans-vg,Baked Beans (VG),Brunch add-ons,,78,4.7,12.5,0.2,0.0,,0.6,4.7,,vegetarian,false,false,,,"On: lunch menu, brunch menu, kids' menu, no-gluten containing ingredients menu"
-fried-egg-v,Fried Egg (V),Brunch add-ons,,104,7.6,0.0,8.2,1.7,,0.2,0.0,,vegetarian,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
-scrambled-egg-v,Scrambled Egg (V),Brunch add-ons,,372,17.3,1.1,33.3,17.0,,1.0,1.1,,vegetarian,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
-poached-egg-v,Poached Egg (V),Brunch add-ons,,101,9.0,0.0,7.2,2.0,,0.2,0.0,,vegetarian,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
-hash-browns-vg,Hash Browns (VG),Brunch add-ons,,267,2.5,27.0,15.8,4.3,,0.6,0.7,,vegetarian,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
-back-bacon,Back Bacon,Brunch add-ons,,157,12.7,0.0,11.8,4.4,,1.9,0.0,,contains_pork,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
-toast-and-butter-v,Toast & Butter (V),Brunch add-ons,,383,8.5,44.2,18.6,10.7,,1.1,1.0,,vegetarian,false,false,,,"On: lunch menu, brunch menu"
-plant-based-sausage-vg,Plant-Based Sausage (VG),Brunch add-ons,,84,5.2,2.7,5.4,0.5,,0.5,0.5,,vegetarian,false,false,,,"On: lunch menu, brunch menu"
-pork-sausage,Pork Sausage,Brunch add-ons,,152,8.5,4.4,11.1,4.1,,0.8,0.7,,contains_pork,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
-full-breakfast,Full Breakfast,Kids brunch,,539,27.2,30.4,33.1,10.1,,2.8,5.8,,contains_pork,false,true,,,On: kids' menu
-beans-on-toast-vg-m,Beans on Toast (VG-M),Kids brunch,,211,8.8,34.9,3.0,0.4,,1.5,6.6,,,false,true,,,On: kids' menu
-egg-on-toast-v-excluding-egg-option-see-below,"Egg on Toast (V) (Excluding Egg Option, see below)",Kids brunch,,133,4.1,22.4,2.8,0.4,,0.9,1.9,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
-pancakes,Pancakes,Kids brunch,,408,5.3,48.6,20.8,2.6,,1.1,11.6,,,false,true,,,On: kids' menu
-s-and-l-big-brunch-bagel-v,S&L Big Brunch Bagel (V),Bottomless brunch food,,927,37.1,94.3,41.3,7.6,,3.5,10.8,,vegetarian,false,true,,,On: bottomless daytime brunch menu
-s-and-l-big-brunch-bagel-vg,S&L Big Brunch Bagel (VG),Bottomless brunch food,,907,34.6,96.9,38.5,6.3,,3.9,11.3,,,false,true,,,page marks it vegetarian but its own text names pork: no diet tags given; On: bottomless daytime brunch menu
-shawarma-tofu-v-excluding-base-option-see-below,"Shawarma Tofu (V) (Excluding Base Option, see below)",Sandwiches,,750,18.0,71.0,41.6,7.6,,3.0,7.1,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
-steak,Steak,Sandwiches,,819,26.8,66.0,48.7,11.3,,2.5,5.7,,contains_beef,false,true,,,On: no-gluten containing ingredients menu
-chicken-bacon-and-avocado,"Chicken, Bacon & Avocado",Sandwiches,,1013,55.7,64.5,57.8,13.5,,5.3,3.1,,contains_pork,false,true,,,On: no-gluten containing ingredients menu
-tandoori-chicken,Tandoori Chicken,Sandwiches,,931,49.6,71.1,48.0,8.3,,4.0,9.0,,,false,true,,,On: no-gluten containing ingredients menu
-blt-roll,BLT Roll,Afternoon tea,,261,13.5,21.8,13.9,5.0,,2.2,3.4,,contains_pork,false,false,,,On: afternoon tea menu
-cheese-salad-focaccia-v,Cheese Salad Focaccia (V),Afternoon tea,,178,8.1,15.8,8.9,4.6,,1.1,2.0,,vegetarian,false,false,,,On: afternoon tea menu
-tandoori-chicken-skewers-afternoon-tea,Tandoori Chicken Skewers (afternoon tea),Afternoon tea,,186,14.6,3.6,12.3,1.2,,0.8,2.7,,,false,false,,,On: afternoon tea menu
-scone-v,Scone (V),Afternoon tea,,611,5.4,70.2,34.9,19.0,,0.6,35.0,,vegetarian,false,false,,,On: afternoon tea menu
-salted-caramel-chocolate-brownie-vg-afternoon-tea,Salted Caramel Chocolate Brownie (VG) (afternoon tea),Afternoon tea,,127,1.7,16.8,5.6,2.1,,0.2,13.9,,vegetarian,false,false,,,On: afternoon tea menu
-lemon-drizzle-slice-v,Lemon Drizzle Slice (V),Afternoon tea,,95,1.0,12.9,4.3,1.5,,0.2,8.9,,vegetarian,false,false,,,On: afternoon tea menu
-mini-red-velvet-cake-vg-m,Mini Red Velvet Cake (VG-M),Afternoon tea,,134,1.1,18.1,6.3,1.4,,0.2,9.4,,,false,false,,,On: afternoon tea menu
-blt-roll-non-gluten-containing-afternoon-tea-selection,BLT Roll (Non-Gluten Containing Afternoon Tea Selection),Afternoon tea,,328,12.5,27.8,17.8,4.7,,2.3,2.1,,contains_pork,false,false,,,On: afternoon tea menu
-cheese-salad-roll-v,Cheese Salad Roll (V),Afternoon tea,,269,7.4,27.7,13.3,4.9,,1.0,2.3,,vegetarian,false,false,,,On: afternoon tea menu
-scone-v-non-gluten-containing-afternoon-tea-selection,Scone (V) (Non-Gluten Containing Afternoon Tea Selection),Afternoon tea,,618,5.0,68.6,35.3,21.2,,1.0,32.6,,vegetarian,false,false,,,On: afternoon tea menu
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+crispy-corn-tostadas-with-yucatan-style-diced-chicken,Crispy Corn Tostadas with Yucatan-Style Diced Chicken,Small plates,,788,25.7,56.7,49.8,13.9,,2.0,7.2,,3283,,,,,,,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+crispy-corn-tostadas-with-crispy-smoked-tofu-vg,Crispy Corn Tostadas with Crispy Smoked Tofu (VG),Small plates,,817,19.3,60.4,53.8,14.8,,3.8,6.9,,3404,,,,,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+corn-riblets-vg,Corn Riblets (VG),Small plates,,628,4.4,26.8,55.5,5.2,,6.9,15.8,,2597,,,,,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
+xl-mozzarella-sticks-v,XL Mozzarella Sticks (V),Small plates,,934,50.4,44.0,61.5,28.0,,3.3,7.6,,3890,,,,,,vegetarian,false,true,,,On: main food menu
+crispy-shredded-chicken,Crispy Shredded Chicken,Small plates,,458,21.1,46.2,20.1,6.4,,3.9,23.5,,1920,,,,,,,false,true,,,"On: main food menu, midweek eats menu"
+chicken-wings,Chicken Wings,Small plates,,505,34.0,21.6,30.6,5.4,,5.3,15.2,,2110,,,,,,,false,true,,,On: main food menu
+halloumi-fries-v,Halloumi Fries (V),Small plates,,400,14.2,26.6,25.9,12.2,,2.3,12.4,,1662,,,,,,vegetarian,false,true,,,"On: main food menu, midweek eats menu"
+smokey-tater-bites-vg,Smokey Tater Bites (VG),Small plates,,679,5.6,59.6,45.1,10.6,,3.9,2.1,,2829,,,,,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
+crispy-tofu-vg,Crispy Tofu (VG),Small plates,,387,17.3,25.1,20.3,4.6,,2.0,14.5,,1489,,,,,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
+iberico-ham-croquettes,Ibérico Ham Croquettes,Small plates,,554,11.8,28.9,42.8,8.6,,2.0,8.8,,2314,,,,,,contains_pork,false,true,,,"On: main food menu, midweek eats menu"
+crispy-coated-prawns,Crispy Coated Prawns,Small plates,,381,9.7,34.7,21.9,6.9,,2.7,6.5,,1590,,,,,,,false,true,,,"On: main food menu, midweek eats menu"
+duck-popcorn,Duck Popcorn,Small plates,,605,29.2,55.3,29.6,7.1,,4.3,21.0,,2530,,,,,,,false,true,,,On: main food menu
+crispy-calamari,Crispy Calamari,Small plates,,452,12.5,26.0,32.9,3.3,,2.5,2.8,,1882,,,,,,,false,true,,,"On: main food menu, midweek eats menu"
+crispy-buffalo-cauliflower-bites-v,Crispy Buffalo Cauliflower Bites (V),Small plates,,579,6.8,35.9,44.0,10.1,,4.2,7.2,,2410,,,,,,vegetarian,false,true,,,On: main food menu
+crispy-buffalo-cauliflower-bites-vg,Crispy Buffalo Cauliflower Bites (VG),Small plates,,618,5.9,34.3,49.5,10.3,,4.2,5.9,,2559,,,,,,vegetarian,false,true,,,On: main food menu
+tandoori-chicken-skewers,Tandoori Chicken Skewers,Small plates,,522,44.1,13.4,30.7,3.1,,2.8,10.3,,2163,,,,,,,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+s-and-l-sharer-for-two,S&L Sharer For Two,Sharers,,2511,111.6,176.9,149.8,33.6,,14.2,24.4,,10397,,,,,,contains_pork,false,true,,,On: main food menu
+cheesy-nachos-v,Cheesy Nachos (V),Sharers,,1381,31.6,129.5,79.4,23.7,,5.7,10.8,,5767,,,,,,vegetarian,false,true,,,On: main food menu
+sheese-nachos-vg-m,Sheese® Nachos (VG-M),Sharers,,1600,14.6,150.9,100.1,27.1,,6.2,8.5,,6674,,,,,,,false,true,,,On: main food menu
+cheese-and-bacon-loaded-fries,Cheese & Bacon Loaded Fries,Sharers,,1319,33.6,129.9,71.9,26.3,,6.1,6.1,,5518,,,,,,contains_pork,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+katsu-loaded-fries-excluding-topper-choice-see-below,"Katsu Loaded Fries (Excluding Topper Choice, see below)",Sharers,,1145,13.5,136.4,58.8,12.0,,5.9,7.1,,4798,,,,,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu"
+s-and-l-meat-feast,S&L Meat Feast,Sharers,,1848,77.6,163.0,98.5,28.1,,12.1,27.1,,7717,,,,,,,false,true,,,On: main food menu
+crispy-shredded-chicken-with-katsu-loaded-fries,Crispy Shredded Chicken (with Katsu Loaded Fries),Options & add-ons,,343,20.6,19.4,19.9,6.3,,1.7,0.3,,1433,,,,,,,false,false,,,On: main food menu
+crispy-smoked-tofu-vg-with-katsu-loaded-fries,Crispy Smoked Tofu (VG) (with Katsu Loaded Fries),Options & add-ons,,286,16.8,9.0,20.1,4.6,,1.0,0.6,,1193,,,,,,vegetarian,false,false,,,On: main food menu
+crispy-coated-chicken,Crispy Coated Chicken,Options & add-ons,,372,25.9,27.2,17.2,7.1,,1.6,0.6,,1558,,,,,,,false,false,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
+crispy-smoked-tofu-vg-with-katsu-curry,Crispy Smoked Tofu (VG) (with Katsu Curry),Options & add-ons,,431,25.3,13.6,30.2,6.9,,1.5,0.8,,1796,,,,,,vegetarian,false,false,,,"On: main food menu, midweek eats menu"
+grilled-chicken,Grilled Chicken,Options & add-ons,,184,39.0,1.9,2.3,0.6,,1.8,0.6,,782,,,,,,,false,false,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
+crispy-smoked-tofu-v-m,Crispy Smoked Tofu (V-M),Options & add-ons,,431,25.3,13.6,30.2,6.9,,1.5,0.8,,1796,,,,,,,false,false,,,"On: main food menu, midweek eats menu"
+lemongrass-chicken-with-ginger-soy-and-sesame,"Lemongrass Chicken with Ginger, Soy and Sesame",Options & add-ons,,258,40.1,7.3,7.5,1.0,,2.8,4.6,,1089,,,,,,,false,false,,,"On: main food menu, midweek eats menu"
+sliced-shawarma-marinated-tofu-vg,Sliced Shawarma Marinated Tofu (VG),Options & add-ons,,305,23.5,10.9,18.2,2.6,,2.4,3.8,,1272,,,,,,vegetarian,false,false,,,"On: main food menu, midweek eats menu"
+garden-peas,Garden Peas,Options & add-ons,,76,5.7,8.8,0.9,0.2,,0.0,2.5,,321,,,,,,,false,false,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
+mushy-peas,Mushy Peas,Options & add-ons,,91,5.6,14.4,0.4,0.1,,0.6,1.6,,381,,,,,,,false,false,,,"On: main food menu, midweek eats menu"
+rocket,Rocket,Options & add-ons,,2,0.1,0.3,0.0,0.0,,0.0,0.1,,7,,,,,,,false,false,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
+grilled-chicken-breast,Grilled Chicken Breast,Options & add-ons,,184,39.0,1.9,2.3,0.6,,1.8,0.6,,782,,,,,,,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
+crispy-smoked-tofu-v,Crispy Smoked Tofu (V),Options & add-ons,,431,25.3,13.6,30.2,6.9,,1.5,0.8,,1796,,,,,,vegetarian,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
+crispy-shredded-bbq-chicken,Crispy Shredded BBQ Chicken,Options & add-ons,,388,20.9,29.7,19.9,6.3,,2.0,9.1,,1620,,,,,,,false,false,,,On: main food menu
+crispy-bbq-smoked-tofu-v,Crispy BBQ Smoked Tofu (V),Options & add-ons,,331,17.1,19.3,20.2,4.6,,1.4,9.3,,1380,,,,,,vegetarian,false,false,,,On: main food menu
+skin-on-fries,Skin-On Fries,Options & add-ons,,455,5.2,59.2,21.1,5.4,,1.1,0.5,,1910,,,,,,,false,false,,,"On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
+side-salad,Side Salad,Options & add-ons,,56,1.0,2.1,4.9,0.7,,0.1,1.1,,231,,,,,,,false,false,,,"On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
+sweet-potato-fries,Sweet Potato Fries,Options & add-ons,,342,2.2,37.9,19.0,5.1,,0.9,17.2,,1426,,,,,,,false,false,,,"On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
+tater-bites,Tater Bites,Options & add-ons,,564,5.3,56.5,34.1,9.9,,1.9,0.6,,2352,,,,,,,false,false,,,"On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
+crispy-smoked-tofu-vg-with-katsu-fries,Crispy Smoked Tofu (VG) (with Katsu Fries),Options & add-ons,,145,8.5,4.6,10.2,2.3,,0.5,0.3,,603,,,,,,vegetarian,false,false,,,On: main food menu
+crispy-shredded-chicken-with-katsu-fries,Crispy Shredded Chicken (with Katsu Fries),Options & add-ons,,172,10.3,9.7,9.9,3.2,,0.8,0.1,,717,,,,,,,false,false,,,On: main food menu
+rosemary-focaccia,Rosemary Focaccia,Options & add-ons,,176,5.5,29.5,3.7,0.5,,1.2,2.5,,743,,,,,,,false,false,,,On: lunch menu
+bagel,Bagel,Options & add-ons,,296,10.5,57.5,1.8,0.2,,0.7,5.8,,1250,,,,,,,false,false,,,On: lunch menu
+tortilla-wrap,Tortilla Wrap,Options & add-ons,,288,7.2,43.8,8.8,3.7,,0.6,3.7,,1205,,,,,,,false,false,,,On: lunch menu
+baby-gem-and-cucumber-salad,Baby Gem & Cucumber Salad,Options & add-ons,,9,0.6,1.2,0.2,0.1,,0.0,0.8,,38,,,,,,,false,false,,,"On: lunch menu, no-gluten containing ingredients menu"
+yucatan-style-chicken-lunch-menu-brunch-menu-3-more,Yucatan-Style Chicken (lunch menu / brunch menu +3 more),Options & add-ons,,154,17.0,2.6,8.4,2.0,,0.9,0.9,,641,,,,,,,false,false,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
+fried-egg,Fried Egg,Options & add-ons,,104,7.6,0.0,8.2,1.7,,0.2,0.0,,432,,,,,,,false,false,,,On: kids' menu
+poached-egg,Poached Egg,Options & add-ons,,101,9.0,0.0,7.2,2.0,,0.2,0.0,,420,,,,,,,false,false,,,On: kids' menu
+scrambled-egg,Scrambled Egg,Options & add-ons,,372,17.3,1.1,33.3,17.0,,1.0,1.1,,1540,,,,,,,false,false,,,On: kids' menu
+skin-on-fries-vg-kids-menu,Skin-on Fries (VG) (kids' menu),Options & add-ons,,228,2.6,29.6,10.5,2.7,,0.5,0.2,,955,,,,,,vegetarian,false,false,,,On: kids' menu
+sweet-potato-fries-vg-kids-menu,Sweet Potato Fries (VG) (kids' menu),Options & add-ons,,171,1.1,18.9,9.5,2.6,,0.5,8.6,,713,,,,,,vegetarian,false,false,,,On: kids' menu
+tater-bites-vg,Tater Bites (VG),Options & add-ons,,225,2.1,22.6,13.7,3.9,,0.8,0.2,,941,,,,,,vegetarian,false,false,,,On: kids' menu
+basmati-rice-vg,Basmati Rice (VG),Options & add-ons,,125,2.9,26.5,0.7,0.2,,0.0,0.0,,529,,,,,,vegetarian,false,false,,,On: kids' menu
+crispy-salad-vg,Crispy Salad (VG),Options & add-ons,,26,0.9,3.5,0.9,0.1,,0.2,3.2,,107,,,,,,vegetarian,false,false,,,On: kids' menu
+peas-vg,Peas (VG),Options & add-ons,,76,5.7,8.8,0.9,0.2,,0.0,2.5,,321,,,,,,vegetarian,false,false,,,On: kids' menu
+sweetcorn-vg,Sweetcorn (VG),Options & add-ons,,76,2.4,9.9,1.3,0.4,,0.0,4.2,,318,,,,,,vegetarian,false,false,,,Calories (76) are about 20% higher than its macros allow (61). Entered as printed.; On: kids' menu
+add-a-monterey-jack-cheese-slice-v,Add a Monterey Jack Cheese Slice (V),Options & add-ons,,83,5.1,0.0,7.0,4.3,,0.4,0.0,,345,,,,,,vegetarian,false,false,,,On: kids' menu
+add-sheese-vg,Add Sheese® (VG),Options & add-ons,,58,0.1,5.1,4.0,3.3,,0.3,0.1,,241,,,,,,vegetarian,false,false,,,On: kids' menu
+seeded-roll,Seeded Roll,Options & add-ons,,179,2.0,26.7,6.2,0.5,,0.5,1.5,,748,,,,,,,false,false,,,On: no-gluten containing ingredients menu
+katsu-curry-excluding-topper-option-see-below,"Katsu Curry (Excluding Topper Option, see below)",Mains,,509,9.0,69.6,18.1,1.5,,3.4,4.6,,2008,,,,,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu, midweek eats menu"
+fajita-chicken-pasta,Fajita Chicken Pasta,Mains,,1331,46.6,83.6,89.1,49.2,,5.0,14.5,,5541,,,,,,,false,true,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
+fajita-pasta-vg,Fajita Pasta (VG),Mains,,863,21.1,118.1,31.3,24.1,,5.8,13.3,,3630,,,,,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
+spaghetti-alfredo-excluding-topper-options-see-below,"Spaghetti Alfredo (Excluding Topper Options, see below)",Mains,,681,16.7,58.8,40.7,24.8,,2.8,3.3,,2849,,,,,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu, midweek eats menu"
+loaded-flatbread-excluding-topper-option-see-below,"Loaded Flatbread (Excluding Topper Option, see below)",Mains,,1167,14.3,113.9,69.8,9.0,,3.4,7.1,,4889,,,,,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu, midweek eats menu"
+fish-and-chips-excluding-your-pea-option-see-below,"Fish & Chips (Excluding Your Pea Option, see below)",Mains,,1404,47.0,102.7,87.4,22.4,,5.2,2.6,,5866,,,,,,,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, midweek eats menu"
+scampi-and-chips-excluding-your-pea-option-see-below,"Scampi & Chips (Excluding Your Pea Option, see below)",Mains,,900,19.3,93.6,48.0,10.1,,3.1,3.0,,3775,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: main food menu
+smothered-chicken-excluding-chicken-and-greens-option-see-below,"Smothered Chicken (Excluding Chicken & Greens Option, see below)",Mains,,726,20.6,69.4,39.5,13.9,,3.6,9.2,,3035,,,,,,contains_pork,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu, midweek eats menu, bottomless evening brunch menu"
+caesar-salad-bowl-v,Caesar Salad Bowl (V),Mains,,503,9.5,34.0,36.7,4.5,,1.4,6.1,,2078,,,,,,vegetarian,false,true,,,"On: main food menu, bottomless evening brunch menu"
+steak-and-fries-excluding-your-greens-option-see-below,"Steak & Fries (Excluding Your Greens Option, see below)",Mains,,931,49.1,67.1,50.4,18.1,,2.8,5.4,,3891,,,,,,contains_beef,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, no-gluten containing ingredients menu"
+mac-n-cheese-v,Mac 'n' Cheese (V),Mains,,839,36.4,64.4,50.0,23.8,,3.5,9.2,,3518,,,,,,vegetarian,false,true,,,"On: main food menu, midweek eats menu, bottomless evening brunch menu"
+tandoori-chicken-skewers-main-menu-midweek-eats,Tandoori Chicken Skewers (main menu / midweek eats),Mains,,1282,56.3,110.3,66.0,10.3,,5.3,12.8,,5343,,,,,,,false,true,,,"On: main food menu, midweek eats menu"
+full-rack-of-bbq-pork-ribs,Full Rack of BBQ Pork Ribs,Mains,,1180,37.1,103.9,66.4,17.6,,5.2,35.1,,4935,,,,,,contains_pork,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+half-a-rack-of-bbq-pork-ribs,Half a Rack of BBQ Pork Ribs,Mains,,962,22.9,92.5,53.6,12.7,,4.3,25.3,,4022,,,,,,contains_pork,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+grilled-beef-burger-excluding-accompaniments-see-below,"Grilled Beef Burger (Excluding Accompaniments, see below)",Mains,,422,25.4,36.9,18.7,7.8,,1.4,7.2,,1757,,,,,,contains_beef,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+veggie-burger-v-excluding-cheese-and-accompaniment-options-see-below,"Veggie Burger (V) (Excluding Cheese & Accompaniment options, see below)",Mains,,441,23.4,40.8,18.7,6.6,,1.5,7.4,,1842,,,,,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+crispy-shredded-chicken-excluding-accompaniment-option-see-below,"Crispy Shredded Chicken (Excluding Accompaniment Option, see below)",Mains,,218,13.0,13.5,12.2,3.9,,1.0,2.0,,910,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+fish-goujons-excluding-accompaniment-option-see-below,"Fish Goujons (Excluding Accompaniment Option, see below)",Mains,,240,12.0,13.5,15.1,4.5,,0.9,2.1,,999,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+chicken-skewers-excluding-accompaniment-option-see-below,"Chicken Skewers (Excluding Accompaniment Option, see below)",Mains,,104,20.1,2.8,1.4,0.4,,0.9,2.1,,441,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+two-pork-sausages-excluding-accompaniment-option-see-below,"Two Pork Sausages (Excluding Accompaniment Option, see below)",Mains,,317,17.6,10.7,22.6,8.3,,1.6,3.3,,1315,,,,,,contains_pork,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+two-plant-based-sausages-vg-excluding-accompaniment-option-see-below,"Two Plant-Based Sausages (VG) (Excluding Accompaniment Option, see below)",Mains,,179,11.0,7.3,11.0,1.0,,1.1,2.8,,750,,,,,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+macaroni-cheese-v-excluding-accompaniment-option-see-below,"Macaroni Cheese (V) (Excluding Accompaniment Option, see below)",Mains,,419,17.2,43.0,20.8,9.6,,1.7,7.2,,1765,,,,,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+smothered-chicken-excluding-your-greens-option-see-below,"Smothered Chicken (Excluding Your Greens Option, see below)",Mains,,910,59.6,71.3,41.9,14.4,,5.4,9.8,,3817,,,,,,contains_pork,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
+tandoori-chicken-skewers-mains,Tandoori Chicken Skewers (Mains),Mains,,1250,52.6,101.6,67.7,10.5,,5.2,13.2,,5210,,,,,,,false,true,,,On: no-gluten containing ingredients menu
+caesar-salad-bowl-v-no-gluten-menu,Caesar Salad Bowl (V) (no-gluten menu),Mains,,445,8.2,26.9,33.8,4.2,,1.2,5.5,,1832,,,,,,vegetarian,false,true,,,On: no-gluten containing ingredients menu
+bacon-cheeseburger-excluding-accompaniment-option-see-below,"Bacon Cheeseburger (Excluding Accompaniment Option, see below)",Burgers,,1046,60.3,58.1,62.8,24.3,,6.0,21.6,,4358,,,,,,contains_pork|contains_beef,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, lunch menu, midweek eats menu, bottomless daytime brunch menu, bottomless evening brunch menu"
+breaded-chicken-burger-excluding-accompaniment-option-see-below,"Breaded Chicken Burger (Excluding Accompaniment Option, see below)",Burgers,,1060,50.5,96.3,51.1,18.6,,6.2,37.2,,4427,,,,,,contains_pork,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, lunch menu, midweek eats menu, bottomless evening brunch menu"
+mexican-chicken-burger-excluding-accompaniment-option-see-below,"Mexican Chicken Burger (Excluding Accompaniment Option, see below)",Burgers,,898,48.3,76.8,43.0,12.6,,4.9,10.7,,3755,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: main food menu
+vegan-sheese-burger-vg-excluding-accompaniment-option-see-below,"Vegan Sheese® Burger (VG) (Excluding Accompaniment Option, see below)",Burgers,,798,24.7,86.0,36.9,14.4,,4.1,37.9,,3337,,,,,,vegetarian,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, lunch menu, midweek eats menu, bottomless evening brunch menu"
+veggie-cheeseburger-v-excluding-accompaniment-option-see-below,"Veggie Cheeseburger (V) (Excluding Accompaniment Option, see below)",Burgers,,786,30.8,77.5,37.0,12.6,,4.1,38.5,,3282,,,,,,vegetarian,false,true,,,"Printed without the side or option named in its title; add that item. On: main food menu, lunch menu, midweek eats menu, bottomless evening brunch menu"
+bbq-mac-n-cheese-beef-burger,BBQ Mac 'n' Cheese Beef Burger,Burgers,,1406,73.7,96.0,80.3,33.2,,5.8,30.7,,5870,,,,,,contains_beef,false,true,,,On: main food menu
+banh-mi-chicken-burger-excluding-accompaniment-option-see-below,"Bánh Mì Chicken Burger (Excluding Accompaniment Option, see below)",Burgers,,866,34.6,66.7,48.7,10.5,,3.8,10.1,,3622,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: main food menu
+bacon-cheeseburger-excluding-accompaniment-option-see-below-no-gluten-menu,"Bacon Cheeseburger (Excluding Accompaniment Option, see below) (no-gluten menu)",Burgers,,1030,55.7,52.4,65.0,23.5,,6.0,18.3,,4291,,,,,,contains_pork|contains_beef,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
+mexican-chicken-burger-excluding-accompaniment-option-see-below-no-gluten-menu,"Mexican Chicken Burger (Excluding Accompaniment Option, see below) (no-gluten menu)",Burgers,,644,56.2,39.6,28.1,5.1,,5.0,7.2,,2705,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
+grilled-chicken-burger-excluding-accompaniment-option-see-below,"Grilled Chicken Burger (Excluding Accompaniment Option, see below)",Burgers,,856,59.0,65.3,38.5,11.3,,6.4,33.8,,3584,,,,,,contains_pork,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
+banh-mi-chicken-burger-excluding-accompaniment-option-see-below-no-gluten-menu,"Bánh Mì Chicken Burger (Excluding Accompaniment Option, see below) (no-gluten menu)",Burgers,,661,43.1,35.7,36.1,3.2,,4.0,6.8,,2778,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
+avocado-and-pico-de-gallo-smash-vg,Avocado and Pico de Gallo Smash (VG),Extra toppings,,133,1.4,1.9,12.7,3.1,,0.1,0.7,,555,,,,,,vegetarian,false,false,,,"On: main food menu, lunch menu, brunch menu, no-gluten containing ingredients menu"
+streaky-bacon,Streaky Bacon,Extra toppings,,143,10.1,0.0,11.4,4.2,,1.8,0.0,,596,,,,,,contains_pork,false,false,,,"On: main food menu, lunch menu, brunch menu, no-gluten containing ingredients menu"
+sheese-vg,Sheese® (VG),Extra toppings,,115,0.2,10.2,7.9,6.7,,0.7,0.1,,482,,,,,,vegetarian,false,false,,,"On: main food menu, lunch menu, no-gluten containing ingredients menu"
+yucatan-style-chicken,Yucatan-Style Chicken,Extra toppings,,103,11.3,1.7,5.6,1.3,,0.6,0.6,,428,,,,,,,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
+monterey-jack-cheese-v,Monterey Jack Cheese (V),Extra toppings,,83,5.1,0.0,7.0,4.3,,0.4,0.0,,345,,,,,,vegetarian,false,false,,,"On: main food menu, lunch menu, brunch menu, no-gluten containing ingredients menu"
+sweet-potato-fries-vg,Sweet Potato Fries (VG),Sides,,342,2.2,37.9,19.0,5.1,,0.9,17.2,,1426,,,,,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+skin-on-fries-vg,Skin-on Fries (VG),Sides,,455,5.2,59.2,21.1,5.4,,1.1,0.5,,1910,,,,,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+salt-and-pepper-fries-vg,Salt & Pepper Fries (VG),Sides,,477,5.4,60.2,21.1,5.4,,1.7,1.4,,1938,,,,,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+garlic-bread-v,Garlic Bread (V),Sides,,567,7.7,50.8,41.7,7.3,,1.7,4.7,,2340,,,,,,vegetarian,false,true,,,On: main food menu
+cheesy-garlic-bread-v,Cheesy Garlic Bread (V),Sides,,733,17.8,50.8,55.6,16.0,,2.5,4.7,,3030,,,,,,vegetarian,false,true,,,On: main food menu
+mac-n-cheese-v-sides,Mac 'n' Cheese (V) (Sides),Sides,,407,16.6,41.1,20.6,9.5,,1.7,5.3,,1715,,,,,,vegetarian,false,true,,,"On: main food menu, bottomless evening brunch menu"
+onion-rings-v,Onion Rings (V),Sides,,571,8.0,53.6,35.0,9.4,,2.0,6.5,,2382,,,,,,vegetarian,false,true,,,On: main food menu
+cheese-and-bacon-fries,Cheese & Bacon Fries,Sides,,593,12.0,65.1,30.6,11.2,,2.5,3.1,,2482,,,,,,contains_pork,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+katsu-fries-excluding-topper-choice-see-below,"Katsu Fries (Excluding Topper Choice, see below)",Sides,,572,6.7,68.2,29.4,6.0,,3.0,3.6,,2399,,,,,,,false,false,,,"Printed without its main protein topper, so not suggested as a meal; add the topper item. On: main food menu"
+side-salad-vg,Side Salad (VG),Sides,,56,1.0,2.1,4.9,0.7,,0.1,1.1,,231,,,,,,vegetarian,false,true,,,"On: main food menu, no-gluten containing ingredients menu"
+espresso-martini-sundae-v,Espresso Martini Sundae (V),Desserts,,458,9.0,59.2,20.6,12.8,,0.2,53.1,,1913,,,,,,vegetarian,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
+strawberry-daiquiri-sundae-v,Strawberry Daiquiri Sundae (V),Desserts,,374,6.9,52.0,14.6,9.1,,0.3,44.1,,1566,,,,,,vegetarian,false,false,,,"On: main food menu, no-gluten containing ingredients menu"
+pornstar-martini-sundae-v,Pornstar Martini Sundae (V),Desserts,,305,4.8,47.6,7.7,4.6,,0.2,44.2,,1275,,,,,,vegetarian,false,false,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
+warm-mini-churros-v,Warm Mini Churros (V),Desserts,,426,4.3,75.7,11.3,3.3,,1.7,39.2,,1794,,,,,,vegetarian,false,false,,,"On: main food menu, midweek eats menu"
+salted-caramel-chocolate-brownie-bites-vg,Salted Caramel Chocolate Brownie Bites (VG),Desserts,,295,3.6,42.3,11.5,4.3,,0.4,34.3,,1236,,,,,,vegetarian,false,false,,,"On: main food menu, midweek eats menu, no-gluten containing ingredients menu"
+vanilla-flavour-ice-cream-v,Vanilla Flavour Ice Cream (V),Desserts,,243,6.0,32.6,9.6,5.3,,0.3,29.2,,1015,,,,,,vegetarian,false,false,,,On: kids' menu
+salted-caramel-chocolate-brownie-vg,Salted Caramel Chocolate Brownie (VG),Desserts,,287,3.4,41.1,11.4,4.3,,0.4,33.4,,1202,,,,,,vegetarian,false,false,,,On: kids' menu
+ice-cream-sundae,Ice Cream Sundae,Desserts,,325,7.0,47.8,11.2,6.0,,0.4,40.6,,1356,,,,,,,false,false,,,On: kids' menu
+belgian-waffle-v,Belgian Waffle (V),Desserts,,441,5.4,60.2,19.4,8.9,,2.4,32.8,,1844,,,,,,vegetarian,false,false,,,On: kids' menu
+chicken-bacon-and-avocado-excluding-base-option-see-below,"Chicken, Bacon & Avocado (Excluding Base Option, see below)",Lunch,,992,28.4,74.3,63.1,16.3,,4.2,2.7,,4150,,,,,,contains_pork,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
+steak-excluding-base-option-see-below,"Steak (Excluding Base Option, see below)",Lunch,,819,26.8,66.0,48.7,11.3,,2.5,5.7,,3422,,,,,,contains_beef,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
+shawarma-tofu-vg-m-excluding-base-option-see-below,"Shawarma Tofu (VG-M) (Excluding Base Option, see below)",Lunch,,750,18.0,71.0,41.6,7.6,,3.0,7.1,,3143,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
+hoisin-duck-excluding-base-option-see-below,"Hoisin Duck (Excluding Base Option, see below)",Lunch,,1016,34.6,110.4,47.4,12.0,,5.0,17.6,,4259,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
+tandoori-chicken-excluding-base-option-see-below,"Tandoori Chicken (Excluding Base Option, see below)",Lunch,,931,49.6,71.1,48.0,8.3,,4.0,9.0,,3877,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
+fish-goujon-excluding-base-option-see-below,"Fish Goujon (Excluding Base Option, see below)",Lunch,,824,17.3,73.4,49.8,10.9,,3.2,2.8,,3449,,,,,,,false,true,,,Printed without the side or option named in its title; add that item. On: lunch menu
+avocado-and-poached-egg-bagel-v,Avocado & Poached Egg Bagel (V),Light bites,,559,21.8,64.8,22.0,5.4,,1.6,11.8,,2348,,,,,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+eggs-benedict,Eggs Benedict,Light bites,,705,39.2,35.0,44.7,15.3,,4.0,2.8,,2937,,,,,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+tomato-and-cheese-quesadilla-v,Tomato & Cheese Quesadilla (V),Light bites,,937,35.1,99.4,46.5,21.4,,5.1,6.1,,3925,,,,,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu, no-gluten containing ingredients menu"
+schweppes-lemonade-standard-glass-16oz,Schweppes Lemonade Standard Glass 16oz,Drinks,,86,0.0,19.5,0.0,0.0,,0.2,19.5,,363,,,,,,,false,false,,,On: lunch menu
+coca-cola-zero-sugar-standard-glass-16oz,Coca-Cola Zero Sugar - Standard Glass 16oz,Drinks,,2,0.0,0.0,0.0,0.0,,0.1,0.0,,6,,,,,,,false,false,,,On: lunch menu
+diet-coke-standard-glass-16oz,Diet Coke - Standard Glass 16oz,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,5,,,,,,,false,false,,,On: lunch menu
+capri-sun-no-added-sugar-orange-200ml,Capri Sun No Added Sugar Orange - 200ml,Drinks,,8,1.0,1.2,1.0,0.0,,0.0,1.2,,32,,,,,,,false,false,,,On: kids' menu
+capri-sun-no-added-sugar-blackcurrant-and-apple-200ml,Capri Sun No Added Sugar Blackcurrant & Apple - 200ml,Drinks,,8,1.0,1.0,1.0,0.2,,0.0,1.0,,30,,,,,,,false,false,,,On: kids' menu
+schweppes-tonic-water-200ml,Schweppes Tonic Water - 200ml,Drinks,,42,0.0,9.8,0.0,0.0,,0.0,9.8,,178,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+schweppes-slimline-tonic-200ml,Schweppes Slimline Tonic - 200ml,Drinks,,4,0.0,0.0,0.0,0.0,,0.2,0.0,,16,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+schweppes-pink-grapefruit-soda-200ml,Schweppes Pink Grapefruit Soda - 200ml,Drinks,,40,0.0,9.2,0.0,0.0,,0.0,9.2,,170,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+schweppes-tropical-soda-200ml,Schweppes Tropical Soda - 200ml,Drinks,,40,0.0,9.0,0.0,0.0,,0.0,9.0,,160,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+schweppes-pink-soda-200ml,Schweppes Pink Soda - 200ml,Drinks,,46,0.0,10.8,0.0,0.0,,0.0,10.8,,198,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+schweppes-ginger-beer-200ml,Schweppes Ginger Beer - 200ml,Drinks,,44,0.0,9.8,0.0,0.0,,0.1,9.8,,180,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+schweppes-ginger-ale-200ml,Schweppes Ginger Ale - 200ml,Drinks,,40,0.0,9.6,0.0,0.0,,0.0,9.6,,174,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+schweppes-cherry-pepper-soda-200ml,Schweppes Cherry Pepper Soda 200ml,Drinks,,94,0.0,22.0,0.0,0.0,,0.0,21.0,,394,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+fruity-pornstar-martini,Fruity Pornstar Martini,Drinks,,192,0.1,45.8,0.0,0.0,,0.0,44.4,,815,,,,,,,false,false,,,"On: bottomless daytime brunch menu, bottomless evening brunch menu, drinks menu"
+sober-sunrise,Sober Sunrise,Drinks,,116,0.9,26.5,0.1,0.0,,0.1,26.4,,495,,,,,,,false,false,,,On: bottomless daytime brunch menu
+spiced-cuba-libre-0,Spiced Cuba Libre 0%,Drinks,,4,0.0,0.3,0.0,0.0,,0.1,0.3,,18,,,,,,,false,false,,,On: bottomless evening brunch menu
+crodino-spritz,Crodino Spritz,Drinks,,41,0.2,9.7,0.1,0.0,,0.0,9.7,,1330,,,,,,,false,false,,,On: drinks menu
+zombie-zero,Zombie Zero,Drinks,,152,0.2,35.7,0.0,0.0,,0.1,34.8,,639,,,,,,,false,false,,,On: drinks menu
+pink-spritz-0,Pink Spritz 0%,Drinks,,27,0.0,4.6,0.0,0.0,,,4.6,,114,,,,,,,false,false,,,On: drinks menu
+elderflower-fizz,Elderflower Fizz,Drinks,,27,0.1,6.2,0.0,0.0,,0.0,5.3,,114,,,,,,,false,false,,,On: drinks menu
+heineken-0-0-330ml,Heineken 0.0% - 330ml,Drinks,,69,1.3,15.8,0.0,0.0,,0.0,4.3,,294,,,,,,,false,false,,,On: drinks menu
+corona-cero-0-330ml,Corona Cero 0% - 330ml,Drinks,,56,1.3,12.9,0.0,0.0,,0.0,2.3,,234,,,,,,,false,false,,,On: drinks menu
+peroni-nastro-azzurro-0-0-330ml,Peroni Nastro Azzurro 0.0% - 330ml,Drinks,,76,0.7,18.5,0.0,0.0,,0.0,2.6,,327,,,,,,,false,false,,,On: drinks menu
+guinness-0-0-538ml,Guinness 0.0% - 538ml,Drinks,,91,1.6,20.4,0.0,0.0,,0.0,3.8,,382,,,,,,,false,false,,,On: drinks menu
+days-lager-0-0-330ml,Days Lager 0.0% - 330ml,Drinks,,33,1.3,6.9,0.0,0.0,,0.3,1.7,,142,,,,,,,false,false,,,On: drinks menu
+old-mout-berries-and-cherries-0-500ml,Old Mout Berries & Cherries 0% - 500ml,Drinks,,170,0.0,41.0,0.0,0.0,,0.1,40.0,,710,,,,,,,false,false,,,On: drinks menu
+crodino-spritz-175ml,Crodino Spritz - 175ml,Drinks,,30,0.0,7.7,0.0,0.0,,0.0,7.7,,1285,,,,,,,false,false,,,On: drinks menu
+captain-morgan-spiced-0-25ml,Captain Morgan Spiced 0% - 25ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,2,,,,,,,false,false,,,On: drinks menu
+gordons-pink-0-0-25ml,Gordon's Pink 0.0% - 25ml,Drinks,,3,0.0,0.0,0.0,0.0,,,0.0,,11,,,,,,,false,false,,,On: drinks menu
+tanqueray-0-25ml,Tanqueray 0% 25ml,Drinks,,3,0.0,0.0,0.0,0.0,,0.0,0.0,,12,,,,,,,false,false,,,On: drinks menu
+jack-daniels-tennessee-honey,Jack Daniel's Tennessee Honey,Drinks,,60,0.0,0.0,0.0,0.0,,0.0,0.0,,252,,,,,,,false,false,,,"A spirit: 60 kcal with no macros, which fits alcohol calories. Entered as printed.; On: drinks menu"
+coca-cola-zero-sugar-330ml,Coca-Cola Zero Sugar - 330ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,4,,,,,,,false,false,,,On: drinks menu
+classic-coca-cola-330ml,Classic Coca-Cola - 330ml,Drinks,,139,0.0,35.0,0.0,0.0,,0.0,35.0,,594,,,,,,,false,false,,,On: drinks menu
+diet-coke-330ml,Diet Coke - 330ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,5,,,,,,,false,false,,,On: drinks menu
+appletiser-250ml,Appletiser - 250ml,Drinks,,118,0.0,27.5,0.0,0.0,,0.0,26.3,,493,,,,,,,false,false,,,On: drinks menu
+fanta-orange-330ml,Fanta Orange - 330ml,Drinks,,63,0.0,14.9,0.0,0.0,,0.0,14.9,,267,,,,,,,false,false,,,On: drinks menu
+sprite-zero-sugar-330ml,Sprite Zero Sugar - 330ml,Drinks,,3,0.0,0.0,0.0,0.0,,0.1,0.0,,17,,,,,,,false,false,,,On: drinks menu
+big-tom-tomato-juice-150ml,Big Tom Tomato Juice - 150ml,Drinks,,27,0.9,6.0,0.2,0.2,,1.5,4.5,,108,,,,,,,false,false,,,On: drinks menu
+red-bull-original-250ml,Red Bull Original - 250ml,Drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,488,,,,,,,false,false,,,On: drinks menu
+red-bull-sugarfree-250ml,Red Bull Sugarfree - 250ml,Drinks,,8,0.0,0.0,0.0,0.0,,0.3,0.0,,33,,,,,,,false,false,,,On: drinks menu
+red-bull-tropical-edition-250ml,Red Bull Tropical Edition - 250ml,Drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,495,,,,,,,false,false,,,On: drinks menu
+red-bull-pink-edition-sugarfree-250ml,Red Bull Pink Edition Sugarfree - 250ml,Drinks,,5,0.0,0.0,0.0,0.0,,0.3,0.0,,28,,,,,,,false,false,,,On: drinks menu
+red-bull-peach-edition-250ml,Red Bull Peach Edition - 250ml,Drinks,,113,0.0,27.5,0.0,0.0,,0.3,27.5,,483,,,,,,,false,false,,,On: drinks menu
+j2o-apple-and-mango-275ml,J2O Apple & Mango - 275ml,Drinks,,50,0.0,11.0,0.0,0.0,,0.2,11.0,,209,,,,,,,false,false,,,On: drinks menu
+j2o-apple-and-raspberry-275ml,J2O Apple & Raspberry - 275ml,Drinks,,50,0.0,11.0,0.0,0.0,,0.2,11.0,,209,,,,,,,false,false,,,On: drinks menu
+j2o-orange-and-passion-fruit-275ml,J2O Orange & Passion Fruit - 275ml,Drinks,,55,0.0,11.8,0.0,0.0,,0.0,11.8,,231,,,,,,,false,false,,,On: drinks menu
+trip-blood-orange-250ml,Trip Blood Orange - 250ml,Drinks,,25,0.0,6.0,0.0,0.0,,0.0,4.3,,105,,,,,,,false,false,,,On: drinks menu
+trip-tropical-mango-250ml,Trip Tropical Mango - 250ml,Drinks,,28,0.0,5.8,0.0,0.0,,0.0,5.5,,115,,,,,,,false,false,,,On: drinks menu
+bottlegreen-raspberry-lemonade-330ml,Bottlegreen Raspberry Lemonade - 330ml,Drinks,,63,0.0,14.9,0.0,0.0,,0.0,13.9,,262,,,,,,,false,false,,,On: drinks menu
+bottlegreen-elderflower-sparkling-presse-330ml,Bottlegreen Elderflower Sparkling Presse - 330ml,Drinks,,66,0.0,15.7,0.0,0.0,,0.1,15.7,,278,,,,,,,false,false,,,On: drinks menu
+costa-coffee-iced-latte-250ml,Costa Coffee Iced Latte - 250ml,Drinks,,145,7.3,21.0,3.5,2.3,,0.2,17.8,,608,,,,,,,false,false,,,On: drinks menu
+costa-coffee-caramel-iced-latte-250ml,Costa Coffee Caramel Iced Latte - 250ml,Drinks,,140,7.3,19.8,3.8,2.5,,0.2,17.5,,595,,,,,,,false,false,,,On: drinks menu
+s-and-l-big-brunch-bagel,S&L Big Brunch Bagel,Brunch,,1209,53.8,96.9,65.3,20.8,,5.9,10.8,,5052,,,,,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+crispy-shredded-chicken-bacon-and-avocado-croll,"Crispy Shredded Chicken, Bacon & Avocado Croll",Brunch,,1273,37.5,106.9,75.4,25.2,,5.7,7.4,,5330,,,,,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
+crispy-chicken-strips-and-warm-belgian-waffles,Crispy Chicken Strips & Warm Belgian Waffles,Brunch,,1163,33.6,139.8,51.0,22.9,,6.1,66.1,,4872,,,,,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
+double-brekkie,Double Brekkie,Brunch,,1222,57.1,73.3,76.0,25.9,,5.7,10.1,,5092,,,,,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+american-style-brunch,American-Style Brunch,Brunch,,1517,47.8,129.3,88.0,23.3,,7.9,25.4,,6327,,,,,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+plant-based-big-breakfast-vg,Plant-Based Big Breakfast (VG),Brunch,,758,26.6,71.3,37.5,7.2,,3.3,10.2,,3168,,,,,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+rich-tomato-shakshuka-v,Rich Tomato Shakshuka (V),Brunch,,699,24.8,61.9,38.2,7.9,,4.2,20.8,,2921,,,,,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+steak-and-eggs,Steak & Eggs,Brunch,,574,57.8,1.1,37.6,12.9,,0.8,0.1,,2390,,,,,,contains_beef,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+american-style-mixed-berries-pancake-stack-v,American-Style Mixed Berries Pancake Stack (V),Brunch,,697,11.2,111.6,21.4,3.3,,1.9,44.9,,2917,,,,,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
+american-style-sliced-banana-pancake-stack-v,American-Style Sliced Banana Pancake Stack (V),Brunch,,958,11.6,110.2,51.0,8.5,,2.2,35.4,,3992,,,,,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
+american-style-strawberries-pancake-stack-v,American-Style Strawberries Pancake Stack (V),Brunch,,714,12.6,106.1,24.7,4.8,,2.1,37.5,,2981,,,,,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu, bottomless evening brunch menu"
+brunch-steak-and-chips,Brunch Steak & Chips,Brunch,,887,48.3,63.1,48.1,17.8,,2.0,1.7,,3706,,,,,,contains_beef,false,true,,,"On: lunch menu, brunch menu, bottomless evening brunch menu"
+triple-brekkie,Triple Brekkie,Brunch,,1889,85.4,114.8,118.5,41.6,,8.5,13.1,,7877,,,,,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless daytime brunch menu"
+loaded-hash-browns,Loaded Hash Browns,Brunch,,895,26.6,64.7,57.4,18.9,,4.5,4.6,,3725,,,,,,contains_pork,false,true,,,"On: lunch menu, brunch menu, bottomless evening brunch menu"
+smokey-tater-bites-vg-lunch-menu-brunch-menu-1-more,Smokey Tater Bites (VG) (lunch menu / brunch menu +1 more),Brunch,,573,5.7,57.5,34.4,9.9,,2.5,1.1,,2391,,,,,,vegetarian,false,true,,,"On: lunch menu, brunch menu, bottomless evening brunch menu"
+avocado-and-poached-egg-roll-v,Avocado & Poached Egg Roll (V),Brunch,,442,13.3,33.9,26.4,5.7,,1.4,7.5,,1847,,,,,,vegetarian,false,true,,,On: no-gluten containing ingredients menu
+double-brekkie-no-gluten-menu,Double Brekkie (no-gluten menu),Brunch,,1301,55.0,77.9,83.0,27.6,,5.8,11.2,,5410,,,,,,contains_pork,false,true,,,On: no-gluten containing ingredients menu
+eggs-benedict-no-gluten-menu,Eggs Benedict (no-gluten menu),Brunch,,720,34.5,31.1,49.8,15.5,,3.8,2.5,,2991,,,,,,contains_pork,false,true,,,On: no-gluten containing ingredients menu
+plant-based-big-breakfast-v,Plant-Based Big Breakfast (V),Brunch,,1037,35.9,83.5,59.0,13.4,,3.3,10.8,,4325,,,,,,vegetarian,false,true,,,On: no-gluten containing ingredients menu
+rich-tomato-shakshuka-v-no-gluten-menu,Rich Tomato Shakshuka (V) (no-gluten menu),Brunch,,667,21.1,53.2,39.9,8.1,,4.1,21.3,,2789,,,,,,vegetarian,false,true,,,On: no-gluten containing ingredients menu
+big-brunch-seeded-roll,Big Brunch Seeded Roll,Brunch,,1093,45.3,66.0,69.7,21.1,,5.6,6.6,,4551,,,,,,contains_pork,false,true,,,On: no-gluten containing ingredients menu
+baked-beans-vg,Baked Beans (VG),Brunch add-ons,,78,4.7,12.5,0.2,0.0,,0.6,4.7,,326,,,,,,vegetarian,false,false,,,"On: lunch menu, brunch menu, kids' menu, no-gluten containing ingredients menu"
+fried-egg-v,Fried Egg (V),Brunch add-ons,,104,7.6,0.0,8.2,1.7,,0.2,0.0,,432,,,,,,vegetarian,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
+scrambled-egg-v,Scrambled Egg (V),Brunch add-ons,,372,17.3,1.1,33.3,17.0,,1.0,1.1,,1540,,,,,,vegetarian,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
+poached-egg-v,Poached Egg (V),Brunch add-ons,,101,9.0,0.0,7.2,2.0,,0.2,0.0,,420,,,,,,vegetarian,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
+hash-browns-vg,Hash Browns (VG),Brunch add-ons,,267,2.5,27.0,15.8,4.3,,0.6,0.7,,1110,,,,,,vegetarian,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
+back-bacon,Back Bacon,Brunch add-ons,,157,12.7,0.0,11.8,4.4,,1.9,0.0,,654,,,,,,contains_pork,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
+toast-and-butter-v,Toast & Butter (V),Brunch add-ons,,383,8.5,44.2,18.6,10.7,,1.1,1.0,,1612,,,,,,vegetarian,false,false,,,"On: lunch menu, brunch menu"
+plant-based-sausage-vg,Plant-Based Sausage (VG),Brunch add-ons,,84,5.2,2.7,5.4,0.5,,0.5,0.5,,350,,,,,,vegetarian,false,false,,,"On: lunch menu, brunch menu"
+pork-sausage,Pork Sausage,Brunch add-ons,,152,8.5,4.4,11.1,4.1,,0.8,0.7,,632,,,,,,contains_pork,false,false,,,"On: lunch menu, brunch menu, no-gluten containing ingredients menu"
+full-breakfast,Full Breakfast,Kids brunch,,539,27.2,30.4,33.1,10.1,,2.8,5.8,,2244,,,,,,contains_pork,false,true,,,On: kids' menu
+beans-on-toast-vg-m,Beans on Toast (VG-M),Kids brunch,,211,8.8,34.9,3.0,0.4,,1.5,6.6,,888,,,,,,,false,true,,,On: kids' menu
+egg-on-toast-v-excluding-egg-option-see-below,"Egg on Toast (V) (Excluding Egg Option, see below)",Kids brunch,,133,4.1,22.4,2.8,0.4,,0.9,1.9,,563,,,,,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: kids' menu
+pancakes,Pancakes,Kids brunch,,408,5.3,48.6,20.8,2.6,,1.1,11.6,,1698,,,,,,,false,true,,,On: kids' menu
+s-and-l-big-brunch-bagel-v,S&L Big Brunch Bagel (V),Bottomless brunch food,,927,37.1,94.3,41.3,7.6,,3.5,10.8,,3884,,,,,,vegetarian,false,true,,,On: bottomless daytime brunch menu
+s-and-l-big-brunch-bagel-vg,S&L Big Brunch Bagel (VG),Bottomless brunch food,,907,34.6,96.9,38.5,6.3,,3.9,11.3,,3802,,,,,,,false,true,,,page marks it vegetarian but its own text names pork: no diet tags given; On: bottomless daytime brunch menu
+shawarma-tofu-v-excluding-base-option-see-below,"Shawarma Tofu (V) (Excluding Base Option, see below)",Sandwiches,,750,18.0,71.0,41.6,7.6,,3.0,7.1,,3143,,,,,,vegetarian,false,true,,,Printed without the side or option named in its title; add that item. On: no-gluten containing ingredients menu
+steak,Steak,Sandwiches,,819,26.8,66.0,48.7,11.3,,2.5,5.7,,3422,,,,,,contains_beef,false,true,,,On: no-gluten containing ingredients menu
+chicken-bacon-and-avocado,"Chicken, Bacon & Avocado",Sandwiches,,1013,55.7,64.5,57.8,13.5,,5.3,3.1,,4250,,,,,,contains_pork,false,true,,,On: no-gluten containing ingredients menu
+tandoori-chicken,Tandoori Chicken,Sandwiches,,931,49.6,71.1,48.0,8.3,,4.0,9.0,,3877,,,,,,,false,true,,,On: no-gluten containing ingredients menu
+blt-roll,BLT Roll,Afternoon tea,,261,13.5,21.8,13.9,5.0,,2.2,3.4,,1087,,,,,,contains_pork,false,false,,,On: afternoon tea menu
+cheese-salad-focaccia-v,Cheese Salad Focaccia (V),Afternoon tea,,178,8.1,15.8,8.9,4.6,,1.1,2.0,,744,,,,,,vegetarian,false,false,,,On: afternoon tea menu
+tandoori-chicken-skewers-afternoon-tea,Tandoori Chicken Skewers (afternoon tea),Afternoon tea,,186,14.6,3.6,12.3,1.2,,0.8,2.7,,772,,,,,,,false,false,,,On: afternoon tea menu
+scone-v,Scone (V),Afternoon tea,,611,5.4,70.2,34.9,19.0,,0.6,35.0,,2549,,,,,,vegetarian,false,false,,,On: afternoon tea menu
+salted-caramel-chocolate-brownie-vg-afternoon-tea,Salted Caramel Chocolate Brownie (VG) (afternoon tea),Afternoon tea,,127,1.7,16.8,5.6,2.1,,0.2,13.9,,533,,,,,,vegetarian,false,false,,,On: afternoon tea menu
+lemon-drizzle-slice-v,Lemon Drizzle Slice (V),Afternoon tea,,95,1.0,12.9,4.3,1.5,,0.2,8.9,,399,,,,,,vegetarian,false,false,,,On: afternoon tea menu
+mini-red-velvet-cake-vg-m,Mini Red Velvet Cake (VG-M),Afternoon tea,,134,1.1,18.1,6.3,1.4,,0.2,9.4,,563,,,,,,,false,false,,,On: afternoon tea menu
+blt-roll-non-gluten-containing-afternoon-tea-selection,BLT Roll (Non-Gluten Containing Afternoon Tea Selection),Afternoon tea,,328,12.5,27.8,17.8,4.7,,2.3,2.1,,1370,,,,,,contains_pork,false,false,,,On: afternoon tea menu
+cheese-salad-roll-v,Cheese Salad Roll (V),Afternoon tea,,269,7.4,27.7,13.3,4.9,,1.0,2.3,,1121,,,,,,vegetarian,false,false,,,On: afternoon tea menu
+scone-v-non-gluten-containing-afternoon-tea-selection,Scone (V) (Non-Gluten Containing Afternoon Tea Selection),Afternoon tea,,618,5.0,68.6,35.3,21.2,,1.0,32.6,,2574,,,,,,vegetarian,false,false,,,On: afternoon tea menu

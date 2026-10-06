@@ -1,118 +1,118 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-cheese-pizza-17in-slice,Cheese Pizza 17in (slice),Pizza slices,1 slice (1/6 pizza),480.0,21.0,59.5,17.0,8.0,,2.6,4.0,,,false,true,,,"The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
-pulled-chicken-and-pepperoni-pizza-slice,Pulled Chicken & Pepperoni Pizza (slice),Pizza slices,1 slice,552.0,25.3,64.2,21.2,9.1,,3.6,4.4,,contains_pork,false,true,,,Pork from 'pepperoni' in the name; printed serving is 'Whole Slice'
-veggie-volcano-pizza-slice,Veggie Volcano Pizza (slice),Pizza slices,1 slice,529.3,21.0,68.5,18.4,8.0,,2.9,7.0,,,false,true,,,
-pepperoni-17in-slice,Pepperoni 17in (slice),Pizza slices,1 slice (1/6 pizza),650.0,26.0,66.2,30.0,13.0,,4.0,5.0,,contains_pork,false,true,,,"Pork from 'pepperoni' in the name. The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
-bbq-chicken-17in-slice,BBQ Chicken 17in (slice),Pizza slices,1 slice (1/6 pizza),660.0,27.0,96.0,17.0,7.0,,3.0,24.0,,,false,true,,,"The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
-firecracker-17in-slice,Firecracker 17in (slice),Pizza slices,1 slice (1/6 pizza),449.4,21.4,57.9,15.0,6.4,,2.9,4.3,,,false,true,,,"Printed twice with identical numbers; entered once. Meat content not stated. The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
-cheeseburger-classic-spicy-bbq-17in-slice,"Cheeseburger (Classic, Spicy, BBQ) 17in (slice)",Pizza slices,1 slice (1/6 pizza),615.0,22.1,64.2,29.5,9.8,,3.3,9.8,,,false,true,,,"One row covers the Classic, Spicy and BBQ cheeseburger pizzas. Meat type not stated. The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
-festive-pizza-slice,Festive Pizza (slice),Pizza slices,1 slice,510,27,62.26,16,7,,3,5,,,false,true,,,Meat content not stated
-stuffed-sausage-pepperoni-slice,Stuffed Sausage Pepperoni (slice),Pizza slices,1 slice (1/8 pizza),970.0,37.0,103.0,45.0,17.0,,5.4,5.0,,contains_pork,false,true,,,Pork from 'sausage' and 'pepperoni' in the name
-breakfast-pizza-slice,Breakfast Pizza (slice),Pizza slices,1 slice,564.3,28.3,61.5,22.1,9.3,,3.2,4.6,,,false,true,,,Meat content not stated. Per-serving values are about 5% above weight (273 g) x per-100 g (they equal 288 g x per-100 g); entered as printed
-ham-and-mushroom-12in,Ham & Mushroom 12in,Whole pizzas,Whole pizza,1500,66,182,54,22,,9,13,,contains_pork,false,true,,,Pork from 'ham' in the name
-ham-and-mushroom-14in,Ham & Mushroom 14in,Whole pizzas,Whole pizza,2040,91,241,76,31,,12,17,,contains_pork,false,true,,,Pork from 'ham' in the name
-ham-and-mushroom-17in,Ham & Mushroom 17in,Whole pizzas,Whole pizza,3050,136,364,112,47,,18,26,,contains_pork,false,true,,,Pork from 'ham' in the name
-meat-feast-12in,Meat Feast 12in,Whole pizzas,Whole pizza,1630,69,188,65,29,,10,14,,,false,true,,,Meat type not stated
-meat-feast-14in,Meat Feast 14in,Whole pizzas,Whole pizza,2240,96,249,93,42,,14,19,,,false,true,,,Meat type not stated
-meat-feast-17in,Meat Feast 17in,Whole pizzas,Whole pizza,3270,139,373,132,59,,19,27,,,false,true,,,Meat type not stated
-cheese-pizza-12in,Cheese Pizza 12in,Whole pizzas,Whole pizza,1400.0,60.0,172.7,50.0,24.0,,7.6,12.0,,,false,true,,,
-cheese-pizza-14in,Cheese Pizza 14in,Whole pizzas,Whole pizza,1870.0,81.0,228.8,68.0,32.0,,10.1,16.0,,,false,true,,,
-pulled-chicken-and-pepperoni-pizza-17in,Pulled Chicken & Pepperoni Pizza 17in,Whole pizzas,Whole pizza,3311.9,152.0,385.2,127.4,54.3,,21.9,26.6,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
-pulled-chicken-and-pepperoni-pizza-14in,Pulled Chicken & Pepperoni Pizza 14in,Whole pizzas,Whole pizza,2252.4,106.8,249.4,91.0,40.4,,14.6,18.2,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
-pulled-chicken-and-pepperoni-pizza-12in,Pulled Chicken & Pepperoni Pizza 12in,Whole pizzas,Whole pizza,1676.3,78.7,188.0,66.4,29.9,,10.4,13.6,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
-veggie-volcano-12in,Veggie Volcano 12in,Whole pizzas,Whole pizza,1298.2,50.8,171.6,43.3,17.9,,7.7,19.5,,,false,true,,,
-veggie-volcano-14in,Veggie Volcano 14in,Whole pizzas,Whole pizza,1866.0,73.1,241.0,64.5,26.2,,10.1,27.0,,,false,true,,,
-veggie-volcano-17in,Veggie Volcano 17in,Whole pizzas,Whole pizza,3176.0,126.1,410.8,110.5,48.2,,17.4,42.0,,,false,true,,,
-pepperoni-12in,Pepperoni 12in,Whole pizzas,Whole pizza,1730.0,70.0,177.8,80.0,35.0,,10.8,13.0,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
-pepperoni-14in,Pepperoni 14in,Whole pizzas,Whole pizza,2410.0,98.0,246.7,112.0,50.0,,15.0,18.0,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
-bbq-chicken-12in,BBQ Chicken 12in,Whole pizzas,Whole pizza,1590.0,67.0,228.0,42.0,19.0,,8.0,57.0,,,false,true,,,Per-serving saturates (19 g) are higher than weight x per-100 g (about 13.5 g; per-100 g is a whole number); entered as printed
-bbq-chicken-14in,BBQ Chicken 14in,Whole pizzas,Whole pizza,2290.0,97.0,327.0,61.0,28.0,,12.0,83.0,,,false,true,,,Per-serving saturates (28 g) are higher than weight x per-100 g (about 19.4 g; per-100 g is a whole number); entered as printed
-firecracker-12in,Firecracker 12in,Whole pizzas,Whole pizza,1327.2,63.2,171.3,44.2,19.0,,8.3,12.6,,,false,true,,,Meat content not stated
-firecracker-14in,Firecracker 14in,Whole pizzas,Whole pizza,1808.1,86.1,232.0,60.3,25.8,,11.5,17.2,,,false,true,,,Meat content not stated
-cheeseburger-classic-spicy-bbq-12in,"Cheeseburger (Classic, Spicy, BBQ) 12in",Whole pizzas,Whole pizza,2072.5,74.6,212.2,99.5,33.2,,11.4,33.2,,,false,true,,,"One row covers the Classic, Spicy and BBQ cheeseburger pizzas. Meat type not stated"
-cheeseburger-classic-spicy-bbq-14in,"Cheeseburger (Classic, Spicy, BBQ) 14in",Whole pizzas,Whole pizza,2537.5,91.4,261.8,121.8,40.6,,13.8,40.6,,,false,true,,,"One row covers the Classic, Spicy and BBQ cheeseburger pizzas. Meat type not stated"
-festive-pizza-12in,Festive Pizza 12in,Whole pizzas,Whole pizza,1520,80,186.96,47,21,,8.98,16,,,false,true,,,Meat content not stated
-festive-pizza-14in,Festive Pizza 14in,Whole pizzas,Whole pizza,2020,106,247.57,64,28,,11.95,21,,,false,true,,,Meat content not stated
-festive-pizza-17in,Festive Pizza 17in,Whole pizzas,Whole pizza,3050,161,373.56,96,42,,17.98,32,,,false,true,,,Meat content not stated
-breakfast-pizza-17in,Breakfast Pizza 17in,Whole pizzas,17in pizza,3386.1,169.8,369.2,132.5,56.0,,19.0,27.4,,,false,true,,,
-breakfast-pizza-14in,Breakfast Pizza 14in,Whole pizzas,14in pizza,2135.9,104.4,236.1,83.3,33.7,,11.8,17.8,,,false,true,,,
-breakfast-pizza-12in,Breakfast Pizza 12in,Whole pizzas,12in pizza,1121.3,58.0,103.5,52.0,16.1,,6.7,5.6,,,false,true,,,
-spinach-and-ricotta-stromboli,Spinach & Ricotta Stromboli,Stromboli,1 stromboli,726.7,28.4,76.2,33.2,13.7,,3.0,4.9,,,false,true,,,
-ham-and-cheese-stromboli,Ham & Cheese Stromboli,Stromboli,1 stromboli,716.2,34.7,74.7,30.8,11.4,,4.0,4.0,,contains_pork,false,true,,,Pork from 'ham' in the name
-chicken-and-cheese-stromboli,Chicken & Cheese Stromboli,Stromboli,1 stromboli,719.7,37.6,75.7,29.9,11.1,,3.7,3.5,,,false,true,,,
-pepperoni-and-cheese-stromboli,Pepperoni & Cheese Stromboli,Stromboli,1 stromboli,894.7,29.3,75.7,49.9,19.8,,5.0,3.4,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
-ham-egg-and-cheese-strombolini,"Ham, Egg & Cheese Strombolini",Stromboli,1 strombolini,714.2,30.6,74.2,32.7,11.4,,3.2,3.2,,contains_pork,false,true,,,Pork from 'ham' in the name
-sausage-egg-and-cheese-strombolini,"Sausage, Egg & Cheese Strombolini",Stromboli,1 strombolini,798.2,33.0,78.4,39.6,14.6,,3.6,3.6,,contains_pork,false,true,,,Pork from 'sausage' in the name
-nachos,Nachos,Sides,1 portion,503,10,79,23,6,,4,6,,,false,true,,,
-nachos-xl,Nachos XL,Sides,1 portion,704,19,80,32,9,,4,7,,,false,true,,,
-stuffed-breadstick,Stuffed Breadstick,Sides,1 breadstick,210.0,5.0,30.2,7.0,3.0,,1.0,1.0,,,false,false,,,"Per piece, so not suggested as a meal on its own. The cell text is 'Stuffed Breadstick' but the printout clips the first line and shows 'Breadstick'"
-hashbrown,Hashbrown,Sides,1 hashbrown,122.2,1.3,14.4,4.8,2.6,,0.3,0.6,,,false,false,,,"Per piece, so not suggested as a meal on its own"
-hashbrown-x2,Hashbrown x2,Sides,2 hashbrowns,244.5,2.6,28.8,9.6,5.1,,0.6,1.3,,,false,false,,,
-cheesy-bread,Cheesy Bread,Sides,1 order,1810.0,69.0,211.6,74.0,39.0,,8.3,6.0,,,false,true,,,
-cheesy-garlic-breadsticks,Cheesy Garlic Breadsticks,Sides,1 each,285.0,8.0,40.0,10.0,5.0,,1.0,1.0,,,false,false,,,"Per piece, so not suggested as a meal on its own"
-potato-wedges,Potato Wedges,Sides,1 serving,288,4.2,44,10,1,,1.24,1.8,,,false,true,,,
-cheesy-wedges,Cheesy Wedges,Sides,1 serving,465,19.8,44.3,23.2,9.04,,2.08,2.52,,,false,true,,,
-breaded-mozzarella-sticks,Breaded Mozzarella Sticks,Sides,4 fingers,292.7,11.2,27.5,15.6,5.9,,1.4,5.9,,,false,true,,,
-halal-chicken-nuggets-4,Halal Chicken Nuggets (4),Sides,4 nuggets,202.5,13.2,16.3,9.2,1.0,,0.6,1.1,,,false,true,,,
-halal-chicken-nuggets-6,Halal Chicken Nuggets (6),Sides,6 nuggets,301.5,19.7,24.3,13.7,1.5,,0.9,1.6,,,false,true,,,
-hot-and-kickin-chicken-wings,Hot & Kickin' Chicken Wings,Sides,4 wings,494.0,29.4,26.6,29.8,6.2,,2.2,1.0,,,false,true,,,
-chicken-strips,Chicken Strips,Sides,4 strips,409.9,33.7,21.8,19.8,8.7,,2.6,0.6,,,false,true,,,
-fries,Fries,Sides,250g,350.0,5.8,61.8,7.4,11.0,,0.9,0.5,,,false,true,,,
-loaded-fries-cheese,Loaded Fries - Cheese,Sides,1 portion,537.0,28.9,43.0,27.0,21.7,,2.1,1.4,,,false,true,,,
-loaded-fries-chicken-tikka,Loaded Fries - Chicken Tikka,Sides,1 portion,580.6,36.8,44.6,27.6,21.8,,2.7,1.8,,,false,true,,,
-loaded-fries-diced-pepperoni,Loaded Fries - Diced Pepperoni,Sides,1 portion,720.6,29.6,44.6,43.6,28.8,,3.7,1.7,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
-chicken-tikka-salad-no-sauce,Chicken Tikka Salad (no sauce),Salads,Whole salad,131.5,16.1,11.5,2.1,0.5,,1.1,6.6,,,false,true,,,
-diced-beef-pepperoni-salad-no-sauce,Diced Beef Pepperoni Salad (no sauce),Salads,Whole salad,383.5,14.9,11.6,30.9,13.1,,2.9,6.5,,contains_beef,false,true,,,"Printed 'Peperoni'; beef from the name, whether the pepperoni is pork is not stated"
-spicy-beef-sausage-salad-no-sauce,Spicy Beef Sausage Salad (no sauce),Salads,Whole salad,210.7,10.3,15.4,12.1,5.2,,1.3,7.1,,contains_beef,false,true,,,"Beef sausage per the name, so no pork tag"
-turkey-ham-salad-no-sauce,Turkey Ham Salad (no sauce),Salads,Whole salad,126.5,11.9,10.1,3.4,1.0,,1.5,7.3,,,false,true,,,"Turkey ham, so no pork tag"
-cheese-salad-no-sauce,Cheese Salad (no sauce),Salads,Whole salad,213.6,14.2,9.7,13.7,8.2,,0.8,5.9,,,false,true,,,
-side-salad,Side Salad,Salads,Whole side salad,31.5,1.2,4.9,0.7,0.1,,0.0,3.5,,,false,true,,,
-cinnamon-breadstick-2,Cinnamon Breadstick (2),Desserts,,1420.0,32.0,245.1,33.0,12.0,,5.7,27.0,,,false,false,,,Serving printed as just '2'; the count is kept in the name
-cookie-dough-milk-chocolate,Cookie Dough - Milk Chocolate,Desserts,1 portion,509.3,5.4,69.1,23.0,10.8,,0.3,36.2,,,false,false,,,
-cookie-dough-white-chocolate,Cookie Dough - White Chocolate,Desserts,1 portion,514.8,5.1,68.0,24.0,11.0,,0.3,32.0,,,false,false,,,
-pre-packaged-milk-chocolate-cookie,Pre-Packaged Milk Chocolate Cookie,Desserts,1 cookie,219.0,2.9,30.7,9.7,4.1,,0.4,16.2,,,false,false,,,
-salted-caramel-cookie-dough-and-ice-cream,Salted Caramel Cookie Dough & Ice Cream,Desserts,Whole entrée,800.0,10.0,104.5,39.0,22.0,,1.4,78.0,,,false,false,,,
-ice-cream,Ice Cream,Desserts,1 each,237.5,3.8,19.0,16.2,9.5,,0.2,18.1,,,false,false,,,
-nachos-add-on-chicken,Nachos add-on - Chicken,Sauces & extras,1 portion,44,8,1,0,0,,0,0,,,false,false,,,
-nachos-add-on-sausage,Nachos add-on - Sausage,Sauces & extras,1 portion,88,4,4,6,2,,0,0,,contains_pork,false,false,,,Pork from 'sausage' in the name
-nachos-add-on-pepperoni,Nachos add-on - Pepperoni,Sauces & extras,1 portion,184,7,2,16,7,,4,0,,contains_pork,false,false,,,Pork from 'pepperoni' in the name
-monin-caramel-syrup,Monin Caramel Syrup,Sauces & extras,1 portion,48.5,0.0,11.9,0.0,0.0,,0.0,11.9,,,false,false,,,
-monin-hazelnut-syrup,Monin Hazelnut Syrup,Sauces & extras,1 portion,47.3,0.0,11.8,0.0,0.0,,0.0,11.8,,,false,false,,,
-monin-vanilla-syrup,Monin Vanilla Syrup,Sauces & extras,1 portion,51.2,0.0,12.6,0.0,0.0,,0.0,12.6,,,false,false,,,
-caesar-dressing,Caesar Dressing,Sauces & extras,15 grams,61.1,0.3,0.8,6.3,0.5,,0.3,0.6,,,false,false,,,Printed twice (pages 4 and 5) with identical numbers; entered once
-balsamic-vinegar-glaze,Balsamic Vinegar Glaze,Sauces & extras,15 grams,30.2,0.1,6.0,0.0,0.0,,0.0,5.3,,,false,false,,,Printed twice (pages 4 and 5) with identical numbers; entered once
-garlic-and-herb-silbury,Garlic and Herb - Silbury,Sauces & extras,1 package,110.0,0.0,2.0,12.0,1.0,,0.0,2.0,,,false,false,,,Salt printed as 0.0 g per serving but 2.0 g per 100 g (a 25 g pot would be about 0.5 g); entered as printed
-heinz-mayonnaise-dip-pot,Heinz Mayonnaise Dip Pot,Sauces & extras,1 package,165.8,0.25,0.75,18.0,14.5,,0.30,0.06,,,false,false,,,Sugars printed as 0.06 g per serving but 2.90 g per 100 g (a 25 g pot would be about 0.7 g); entered as printed
-heinz-tomato-ketchup-dip-pot,Heinz Tomato Ketchup Dip Pot,Sauces & extras,1 package,25.50,0.30,5.80,0.03,0.02,,0.45,5.70,,,false,false,,,
-heinz-bbq-sauce-dip-pot,Heinz BBQ Sauce Dip Pot,Sauces & extras,1 package,35.3,0.3,7.8,0.1,0.0,,0.3,7.1,,,false,false,,,
-dip-pot-deluxe-bbq-sauce,Dip Pot - Deluxe BBQ Sauce,Sauces & extras,1 pot,43.3,0.3,10.2,0.1,0.0,,0.6,9.6,,,false,false,,,
-dip-pot-ketchup-with-a-kick-of-chilli,Dip Pot - Ketchup With a Kick of Chilli,Sauces & extras,1 pot,24.0,0.3,5.3,0.0,0.0,,0.4,4.5,,,false,false,,,
-dip-pot-spicy-fried-chicken-sauce,Dip Pot - Spicy Fried Chicken Sauce,Sauces & extras,1 pot,108.3,0.3,2.6,10.2,0.8,,0.4,2.6,,,false,false,,,
-dip-pot-garlic-and-herb,Dip Pot - Garlic & Herb,Sauces & extras,1 pot,117.8,0.3,0.7,12.6,1.0,,0.4,0.6,,,false,false,,,
-dip-pot-sweet-chilli-sauce,Dip Pot - Sweet Chilli Sauce,Sauces & extras,1 pot,30.3,0.1,7.0,0.0,0.0,,0.4,6.5,,,false,false,,,
-dip-pot-perinnaise,Dip Pot - Perinnaise,Sauces & extras,1 pot,89.0,0.1,0.8,9.3,0.7,,0.3,0.3,,,false,false,,,Name printed 'Perinnaise'
-latte-regular,Latte (Regular),Hot drinks,12oz,222.9,23.2,15.7,7.0,3.0,,0.9,14.1,,,false,false,,,
-latte-large,Latte (Large),Hot drinks,16oz,296.9,30.9,20.9,9.3,4.1,,1.2,18.8,,,false,false,,,
-cappuccino-regular,Cappuccino (Regular),Hot drinks,12oz,222.9,23.2,15.7,7.0,3.0,,0.9,14.1,,,false,false,,,Printed 'Regluar' (typo in the guide)
-cappuccino-large,Cappuccino (Large),Hot drinks,16oz,296.9,30.9,20.9,9.3,4.1,,1.2,18.8,,,false,false,,,
-white-americano-regular,White Americano (Regular),Hot drinks,12oz,222.9,23.2,15.7,7.0,3.0,,0.9,14.1,,,false,false,,,
-white-americano-large,White Americano (Large),Hot drinks,16oz,296.8,30.9,20.9,9.3,4.1,,1.2,18.8,,,false,false,,,
-black-americano-regular,Black Americano (Regular),Hot drinks,12oz,3.1,0.6,0.0,0.1,0.0,,0.0,0.0,,,false,false,,,
-black-americano-large,Black Americano (Large),Hot drinks,16oz,4.0,0.7,0.0,0.1,0.0,,0.0,0.0,,,false,false,,,
-flat-white,Flat White,Hot drinks,8oz,161.2,16.8,11.4,5.0,2.2,,0.7,10.2,,,false,false,,,
-hot-chocolate-regular,Hot Chocolate (Regular),Hot drinks,12oz,356.3,13.1,50.5,9.9,6.4,,0.4,48.0,,,false,false,,,
-hot-chocolate-large,Hot Chocolate (Large),Hot drinks,16oz,459.3,17.3,66.8,11.7,7.5,,0.5,63.5,,,false,false,,,
-classic-lemonade-cooler,Classic Lemonade Cooler,Cold drinks,16oz,84.0,0.0,18.9,0.0,0.0,,0.1,18.9,,,false,false,,,
-dragon-and-passion-fruit-cooler,Dragon & Passion Fruit Cooler,Cold drinks,16oz,68.5,0.0,16.5,0.0,0.0,,0.1,16.0,,,false,false,,,
-pepsi-max-cherry,Pepsi Max Cherry,Cold drinks,1 bottle (500ml),5.0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,Per-100 g printed as 0.0 kcal but 5.0 kcal per bottle; entered as printed
-pepsi-max,Pepsi Max,Cold drinks,1 bottle (500ml),0.0,0.0,0.0,0.0,0.0,,0.1,0.0,,,false,false,,,
-pepsi-regular,Pepsi Regular,Cold drinks,1 bottle (500ml),90.0,0.0,23.0,0.0,0.0,,0.1,23.0,,,false,false,,,
-tango-orange,Tango Orange,Cold drinks,1 bottle (500ml),5.0,0.0,0.0,0.0,0.0,,0.2,0.0,,,false,false,,,Per-100 g printed as 0.0 kcal but 5.0 kcal per bottle; entered as printed
-diet-pepsi,Diet Pepsi,Cold drinks,1 bottle (500ml),95.0,0.0,23.0,0.0,0.0,,0.2,23.0,,,false,false,,,
-7up,7Up,Cold drinks,1 bottle (500ml),0.0,0.0,0.0,0.0,0.0,,0.0,0.0,,,false,false,,,
-water,Water,Cold drinks,1 bottle (275ml),16.5,0.0,3.3,0.0,0.0,,0.1,3.3,,,false,false,,,Prints 16.5 kcal and 3.3 g sugars for a 275ml bottle of 'Water'; entered as printed (may be a flavoured water: the guide doesn't say)
-fruit-shoot-orange,Fruit Shoot - Orange,Cold drinks,1 bottle (275ml),13.8,0.0,2.2,0.0,0.0,,0.1,2.2,,,false,false,,,
-fruit-shoot-apple-and-blackcurrant,Fruit Shoot - Apple & Blackcurrant,Cold drinks,1 bottle (500ml),25.0,0.0,5.0,0.0,0.0,,0.1,5.0,,,false,false,,,
-robinsons-peach-and-mango,Robinsons Peach and Mango,Cold drinks,1 bottle (500ml),50.0,0.0,10.1,0.0,0.0,,0.2,10.0,,,false,false,,,"Pipeline warning explained: prints 50 kcal per bottle but 10.1 g carbohydrate (about 40 kcal); the guide's per-100 g columns say the same (10.0 kcal, 2.0 g carbohydrate), so it is the source's rounding, not a typo; entered as printed"
-robinsons-orange-and-mango,Robinsons - Orange and Mango,Cold drinks,1 bottle,45.0,0.0,9.5,0.0,0.0,,0.2,0.0,,,false,false,,,Bottle size printed as '500' (no unit); sugars printed as 0.0 with 9.5 g carbohydrate; entered as printed
-robinsons-blueberry-and-blackberry,Robinsons Blueberry & Blackberry,Cold drinks,1 bottle (500ml),45.0,0.0,9.0,0.0,0.0,,0.2,9.0,,,false,false,,,
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+cheese-pizza-17in-slice,Cheese Pizza 17in (slice),Pizza slices,1 slice (1/6 pizza),480.0,21.0,59.5,17.0,8.0,,2.6,4.0,,,206.0,,,,,,false,true,,,"The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
+pulled-chicken-and-pepperoni-pizza-slice,Pulled Chicken & Pepperoni Pizza (slice),Pizza slices,1 slice,552.0,25.3,64.2,21.2,9.1,,3.6,4.4,,,259.7,,,,,contains_pork,false,true,,,Pork from 'pepperoni' in the name; printed serving is 'Whole Slice'
+veggie-volcano-pizza-slice,Veggie Volcano Pizza (slice),Pizza slices,1 slice,529.3,21.0,68.5,18.4,8.0,,2.9,7.0,,,45.8,,,,,,false,true,,,
+pepperoni-17in-slice,Pepperoni 17in (slice),Pizza slices,1 slice (1/6 pizza),650.0,26.0,66.2,30.0,13.0,,4.0,5.0,,,248.0,,,,,contains_pork,false,true,,,"Pork from 'pepperoni' in the name. The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
+bbq-chicken-17in-slice,BBQ Chicken 17in (slice),Pizza slices,1 slice (1/6 pizza),660.0,27.0,96.0,17.0,7.0,,3.0,24.0,,,281.0,,,,,,false,true,,,"The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
+firecracker-17in-slice,Firecracker 17in (slice),Pizza slices,1 slice (1/6 pizza),449.4,21.4,57.9,15.0,6.4,,2.9,4.3,,,214.0,,,,,,false,true,,,"Printed twice with identical numbers; entered once. Meat content not stated. The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
+cheeseburger-classic-spicy-bbq-17in-slice,"Cheeseburger (Classic, Spicy, BBQ) 17in (slice)",Pizza slices,1 slice (1/6 pizza),615.0,22.1,64.2,29.5,9.8,,3.3,9.8,,,246.0,,,,,,false,true,,,"One row covers the Classic, Spicy and BBQ cheeseburger pizzas. Meat type not stated. The guide prints this 17in row per slice (1/6 pizza), unlike the 12in and 14in rows, which are whole pizzas."
+festive-pizza-slice,Festive Pizza (slice),Pizza slices,1 slice,510,27,62.26,16,7,,3,5,,,251,,,,,,false,true,,,Meat content not stated
+stuffed-sausage-pepperoni-slice,Stuffed Sausage Pepperoni (slice),Pizza slices,1 slice (1/8 pizza),970.0,37.0,103.0,45.0,17.0,,5.4,5.0,,,351.0,,,,,contains_pork,false,true,,,Pork from 'sausage' and 'pepperoni' in the name
+breakfast-pizza-slice,Breakfast Pizza (slice),Pizza slices,1 slice,564.3,28.3,61.5,22.1,9.3,,3.2,4.6,,,273.0,,,,,,false,true,,,Meat content not stated. Per-serving values are about 5% above weight (273 g) x per-100 g (they equal 288 g x per-100 g); entered as printed
+ham-and-mushroom-12in,Ham & Mushroom 12in,Whole pizzas,Whole pizza,1500,66,182,54,22,,9,13,,,734,,,,,contains_pork,false,true,,,Pork from 'ham' in the name
+ham-and-mushroom-14in,Ham & Mushroom 14in,Whole pizzas,Whole pizza,2040,91,241,76,31,,12,17,,,999,,,,,contains_pork,false,true,,,Pork from 'ham' in the name
+ham-and-mushroom-17in,Ham & Mushroom 17in,Whole pizzas,Whole pizza,3050,136,364,112,47,,18,26,,,1478,,,,,contains_pork,false,true,,,Pork from 'ham' in the name
+meat-feast-12in,Meat Feast 12in,Whole pizzas,Whole pizza,1630,69,188,65,29,,10,14,,,699,,,,,,false,true,,,Meat type not stated
+meat-feast-14in,Meat Feast 14in,Whole pizzas,Whole pizza,2240,96,249,93,42,,14,19,,,950,,,,,,false,true,,,Meat type not stated
+meat-feast-17in,Meat Feast 17in,Whole pizzas,Whole pizza,3270,139,373,132,59,,19,27,,,1389,,,,,,false,true,,,Meat type not stated
+cheese-pizza-12in,Cheese Pizza 12in,Whole pizzas,Whole pizza,1400.0,60.0,172.7,50.0,24.0,,7.6,12.0,,,600.0,,,,,,false,true,,,
+cheese-pizza-14in,Cheese Pizza 14in,Whole pizzas,Whole pizza,1870.0,81.0,228.8,68.0,32.0,,10.1,16.0,,,800.0,,,,,,false,true,,,
+pulled-chicken-and-pepperoni-pizza-17in,Pulled Chicken & Pepperoni Pizza 17in,Whole pizzas,Whole pizza,3311.9,152.0,385.2,127.4,54.3,,21.9,26.6,,,1558.0,,,,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
+pulled-chicken-and-pepperoni-pizza-14in,Pulled Chicken & Pepperoni Pizza 14in,Whole pizzas,Whole pizza,2252.4,106.8,249.4,91.0,40.4,,14.6,18.2,,,1059.0,,,,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
+pulled-chicken-and-pepperoni-pizza-12in,Pulled Chicken & Pepperoni Pizza 12in,Whole pizzas,Whole pizza,1676.3,78.7,188.0,66.4,29.9,,10.4,13.6,,,782.0,,,,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
+veggie-volcano-12in,Veggie Volcano 12in,Whole pizzas,Whole pizza,1298.2,50.8,171.6,43.3,17.9,,7.7,19.5,,,677.0,,,,,,false,true,,,
+veggie-volcano-14in,Veggie Volcano 14in,Whole pizzas,Whole pizza,1866.0,73.1,241.0,64.5,26.2,,10.1,27.0,,,960.0,,,,,,false,true,,,
+veggie-volcano-17in,Veggie Volcano 17in,Whole pizzas,Whole pizza,3176.0,126.1,410.8,110.5,48.2,,17.4,42.0,,,275.0,,,,,,false,true,,,
+pepperoni-12in,Pepperoni 12in,Whole pizzas,Whole pizza,1730.0,70.0,177.8,80.0,35.0,,10.8,13.0,,,666.0,,,,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
+pepperoni-14in,Pepperoni 14in,Whole pizzas,Whole pizza,2410.0,98.0,246.7,112.0,50.0,,15.0,18.0,,,930.0,,,,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
+bbq-chicken-12in,BBQ Chicken 12in,Whole pizzas,Whole pizza,1590.0,67.0,228.0,42.0,19.0,,8.0,57.0,,,676.0,,,,,,false,true,,,Per-serving saturates (19 g) are higher than weight x per-100 g (about 13.5 g; per-100 g is a whole number); entered as printed
+bbq-chicken-14in,BBQ Chicken 14in,Whole pizzas,Whole pizza,2290.0,97.0,327.0,61.0,28.0,,12.0,83.0,,,970.0,,,,,,false,true,,,Per-serving saturates (28 g) are higher than weight x per-100 g (about 19.4 g; per-100 g is a whole number); entered as printed
+firecracker-12in,Firecracker 12in,Whole pizzas,Whole pizza,1327.2,63.2,171.3,44.2,19.0,,8.3,12.6,,,632.0,,,,,,false,true,,,Meat content not stated
+firecracker-14in,Firecracker 14in,Whole pizzas,Whole pizza,1808.1,86.1,232.0,60.3,25.8,,11.5,17.2,,,861.0,,,,,,false,true,,,Meat content not stated
+cheeseburger-classic-spicy-bbq-12in,"Cheeseburger (Classic, Spicy, BBQ) 12in",Whole pizzas,Whole pizza,2072.5,74.6,212.2,99.5,33.2,,11.4,33.2,,,829.0,,,,,,false,true,,,"One row covers the Classic, Spicy and BBQ cheeseburger pizzas. Meat type not stated"
+cheeseburger-classic-spicy-bbq-14in,"Cheeseburger (Classic, Spicy, BBQ) 14in",Whole pizzas,Whole pizza,2537.5,91.4,261.8,121.8,40.6,,13.8,40.6,,,1015.0,,,,,,false,true,,,"One row covers the Classic, Spicy and BBQ cheeseburger pizzas. Meat type not stated"
+festive-pizza-12in,Festive Pizza 12in,Whole pizzas,Whole pizza,1520,80,186.96,47,21,,8.98,16,,,752,,,,,,false,true,,,Meat content not stated
+festive-pizza-14in,Festive Pizza 14in,Whole pizzas,Whole pizza,2020,106,247.57,64,28,,11.95,21,,,999,,,,,,false,true,,,Meat content not stated
+festive-pizza-17in,Festive Pizza 17in,Whole pizzas,Whole pizza,3050,161,373.56,96,42,,17.98,32,,,1504,,,,,,false,true,,,Meat content not stated
+breakfast-pizza-17in,Breakfast Pizza 17in,Whole pizzas,17in pizza,3386.1,169.8,369.2,132.5,56.0,,19.0,27.4,,,1638.0,,,,,,false,true,,,
+breakfast-pizza-14in,Breakfast Pizza 14in,Whole pizzas,14in pizza,2135.9,104.4,236.1,83.3,33.7,,11.8,17.8,,,1050.0,,,,,,false,true,,,
+breakfast-pizza-12in,Breakfast Pizza 12in,Whole pizzas,12in pizza,1121.3,58.0,103.5,52.0,16.1,,6.7,5.6,,,509.0,,,,,,false,true,,,
+spinach-and-ricotta-stromboli,Spinach & Ricotta Stromboli,Stromboli,1 stromboli,726.7,28.4,76.2,33.2,13.7,,3.0,4.9,,,288.0,,,,,,false,true,,,
+ham-and-cheese-stromboli,Ham & Cheese Stromboli,Stromboli,1 stromboli,716.2,34.7,74.7,30.8,11.4,,4.0,4.0,,,288.0,,,,,contains_pork,false,true,,,Pork from 'ham' in the name
+chicken-and-cheese-stromboli,Chicken & Cheese Stromboli,Stromboli,1 stromboli,719.7,37.6,75.7,29.9,11.1,,3.7,3.5,,,288.0,,,,,,false,true,,,
+pepperoni-and-cheese-stromboli,Pepperoni & Cheese Stromboli,Stromboli,1 stromboli,894.7,29.3,75.7,49.9,19.8,,5.0,3.4,,,288.0,,,,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
+ham-egg-and-cheese-strombolini,"Ham, Egg & Cheese Strombolini",Stromboli,1 strombolini,714.2,30.6,74.2,32.7,11.4,,3.2,3.2,,,233.7,,,,,contains_pork,false,true,,,Pork from 'ham' in the name
+sausage-egg-and-cheese-strombolini,"Sausage, Egg & Cheese Strombolini",Stromboli,1 strombolini,798.2,33.0,78.4,39.6,14.6,,3.6,3.6,,,258.7,,,,,contains_pork,false,true,,,Pork from 'sausage' in the name
+nachos,Nachos,Sides,1 portion,503,10,79,23,6,,4,6,,,240,,,,,,false,true,,,
+nachos-xl,Nachos XL,Sides,1 portion,704,19,80,32,9,,4,7,,,320,,,,,,false,true,,,
+stuffed-breadstick,Stuffed Breadstick,Sides,1 breadstick,210.0,5.0,30.2,7.0,3.0,,1.0,1.0,,,66.0,,,,,,false,false,,,"Per piece, so not suggested as a meal on its own. The cell text is 'Stuffed Breadstick' but the printout clips the first line and shows 'Breadstick'"
+hashbrown,Hashbrown,Sides,1 hashbrown,122.2,1.3,14.4,4.8,2.6,,0.3,0.6,,,64.0,,,,,,false,false,,,"Per piece, so not suggested as a meal on its own"
+hashbrown-x2,Hashbrown x2,Sides,2 hashbrowns,244.5,2.6,28.8,9.6,5.1,,0.6,1.3,,,128.0,,,,,,false,false,,,
+cheesy-bread,Cheesy Bread,Sides,1 order,1810.0,69.0,211.6,74.0,39.0,,8.3,6.0,,,586.0,,,,,,false,true,,,
+cheesy-garlic-breadsticks,Cheesy Garlic Breadsticks,Sides,1 each,285.0,8.0,40.0,10.0,5.0,,1.0,1.0,,,92.0,,,,,,false,false,,,"Per piece, so not suggested as a meal on its own"
+potato-wedges,Potato Wedges,Sides,1 serving,288,4.2,44,10,1,,1.24,1.8,,,200,,,,,,false,true,,,
+cheesy-wedges,Cheesy Wedges,Sides,1 serving,465,19.8,44.3,23.2,9.04,,2.08,2.52,,,260,,,,,,false,true,,,
+breaded-mozzarella-sticks,Breaded Mozzarella Sticks,Sides,4 fingers,292.7,11.2,27.5,15.6,5.9,,1.4,5.9,,,102.0,,,,,,false,true,,,
+halal-chicken-nuggets-4,Halal Chicken Nuggets (4),Sides,4 nuggets,202.5,13.2,16.3,9.2,1.0,,0.6,1.1,,,90.0,,,,,,false,true,,,
+halal-chicken-nuggets-6,Halal Chicken Nuggets (6),Sides,6 nuggets,301.5,19.7,24.3,13.7,1.5,,0.9,1.6,,,134.0,,,,,,false,true,,,
+hot-and-kickin-chicken-wings,Hot & Kickin' Chicken Wings,Sides,4 wings,494.0,29.4,26.6,29.8,6.2,,2.2,1.0,,,200.0,,,,,,false,true,,,
+chicken-strips,Chicken Strips,Sides,4 strips,409.9,33.7,21.8,19.8,8.7,,2.6,0.6,,,198.0,,,,,,false,true,,,
+fries,Fries,Sides,250g,350.0,5.8,61.8,7.4,11.0,,0.9,0.5,,,250.0,,,,,,false,true,,,
+loaded-fries-cheese,Loaded Fries - Cheese,Sides,1 portion,537.0,28.9,43.0,27.0,21.7,,2.1,1.4,,,270.0,,,,,,false,true,,,
+loaded-fries-chicken-tikka,Loaded Fries - Chicken Tikka,Sides,1 portion,580.6,36.8,44.6,27.6,21.8,,2.7,1.8,,,310.0,,,,,,false,true,,,
+loaded-fries-diced-pepperoni,Loaded Fries - Diced Pepperoni,Sides,1 portion,720.6,29.6,44.6,43.6,28.8,,3.7,1.7,,,310.0,,,,,contains_pork,false,true,,,Pork from 'pepperoni' in the name
+chicken-tikka-salad-no-sauce,Chicken Tikka Salad (no sauce),Salads,Whole salad,131.5,16.1,11.5,2.1,0.5,,1.1,6.6,,,224.0,,,,,,false,true,,,
+diced-beef-pepperoni-salad-no-sauce,Diced Beef Pepperoni Salad (no sauce),Salads,Whole salad,383.5,14.9,11.6,30.9,13.1,,2.9,6.5,,,224.0,,,,,contains_beef,false,true,,,"Printed 'Peperoni'; beef from the name, whether the pepperoni is pork is not stated"
+spicy-beef-sausage-salad-no-sauce,Spicy Beef Sausage Salad (no sauce),Salads,Whole salad,210.7,10.3,15.4,12.1,5.2,,1.3,7.1,,,224.0,,,,,contains_beef,false,true,,,"Beef sausage per the name, so no pork tag"
+turkey-ham-salad-no-sauce,Turkey Ham Salad (no sauce),Salads,Whole salad,126.5,11.9,10.1,3.4,1.0,,1.5,7.3,,,224.0,,,,,,false,true,,,"Turkey ham, so no pork tag"
+cheese-salad-no-sauce,Cheese Salad (no sauce),Salads,Whole salad,213.6,14.2,9.7,13.7,8.2,,0.8,5.9,,,207.0,,,,,,false,true,,,
+side-salad,Side Salad,Salads,Whole side salad,31.5,1.2,4.9,0.7,0.1,,0.0,3.5,,,107.0,,,,,,false,true,,,
+cinnamon-breadstick-2,Cinnamon Breadstick (2),Desserts,,1420.0,32.0,245.1,33.0,12.0,,5.7,27.0,,,476.0,,,,,,false,false,,,Serving printed as just '2'; the count is kept in the name
+cookie-dough-milk-chocolate,Cookie Dough - Milk Chocolate,Desserts,1 portion,509.3,5.4,69.1,23.0,10.8,,0.3,36.2,,,110.0,,,,,,false,false,,,
+cookie-dough-white-chocolate,Cookie Dough - White Chocolate,Desserts,1 portion,514.8,5.1,68.0,24.0,11.0,,0.3,32.0,,,110.0,,,,,,false,false,,,
+pre-packaged-milk-chocolate-cookie,Pre-Packaged Milk Chocolate Cookie,Desserts,1 cookie,219.0,2.9,30.7,9.7,4.1,,0.4,16.2,,,50,,,,,,false,false,,,
+salted-caramel-cookie-dough-and-ice-cream,Salted Caramel Cookie Dough & Ice Cream,Desserts,Whole entrée,800.0,10.0,104.5,39.0,22.0,,1.4,78.0,,,243.0,,,,,,false,false,,,
+ice-cream,Ice Cream,Desserts,1 each,237.5,3.8,19.0,16.2,9.5,,0.2,18.1,,,95.0,,,,,,false,false,,,
+nachos-add-on-chicken,Nachos add-on - Chicken,Sauces & extras,1 portion,44,8,1,0,0,,0,0,,,40,,,,,,false,false,,,
+nachos-add-on-sausage,Nachos add-on - Sausage,Sauces & extras,1 portion,88,4,4,6,2,,0,0,,,40,,,,,contains_pork,false,false,,,Pork from 'sausage' in the name
+nachos-add-on-pepperoni,Nachos add-on - Pepperoni,Sauces & extras,1 portion,184,7,2,16,7,,4,0,,,40,,,,,contains_pork,false,false,,,Pork from 'pepperoni' in the name
+monin-caramel-syrup,Monin Caramel Syrup,Sauces & extras,1 portion,48.5,0.0,11.9,0.0,0.0,,0.0,11.9,,,15.0,,,,,,false,false,,,
+monin-hazelnut-syrup,Monin Hazelnut Syrup,Sauces & extras,1 portion,47.3,0.0,11.8,0.0,0.0,,0.0,11.8,,,15.0,,,,,,false,false,,,
+monin-vanilla-syrup,Monin Vanilla Syrup,Sauces & extras,1 portion,51.2,0.0,12.6,0.0,0.0,,0.0,12.6,,,15.0,,,,,,false,false,,,
+caesar-dressing,Caesar Dressing,Sauces & extras,15 grams,61.1,0.3,0.8,6.3,0.5,,0.3,0.6,,,15.0,,,,,,false,false,,,Printed twice (pages 4 and 5) with identical numbers; entered once
+balsamic-vinegar-glaze,Balsamic Vinegar Glaze,Sauces & extras,15 grams,30.2,0.1,6.0,0.0,0.0,,0.0,5.3,,,15.0,,,,,,false,false,,,Printed twice (pages 4 and 5) with identical numbers; entered once
+garlic-and-herb-silbury,Garlic and Herb - Silbury,Sauces & extras,1 package,110.0,0.0,2.0,12.0,1.0,,0.0,2.0,,,25.0,,,,,,false,false,,,Salt printed as 0.0 g per serving but 2.0 g per 100 g (a 25 g pot would be about 0.5 g); entered as printed
+heinz-mayonnaise-dip-pot,Heinz Mayonnaise Dip Pot,Sauces & extras,1 package,165.8,0.25,0.75,18.0,14.5,,0.30,0.06,,,25.0,,,,,,false,false,,,Sugars printed as 0.06 g per serving but 2.90 g per 100 g (a 25 g pot would be about 0.7 g); entered as printed
+heinz-tomato-ketchup-dip-pot,Heinz Tomato Ketchup Dip Pot,Sauces & extras,1 package,25.50,0.30,5.80,0.03,0.02,,0.45,5.70,,,25.0,,,,,,false,false,,,
+heinz-bbq-sauce-dip-pot,Heinz BBQ Sauce Dip Pot,Sauces & extras,1 package,35.3,0.3,7.8,0.1,0.0,,0.3,7.1,,,25.0,,,,,,false,false,,,
+dip-pot-deluxe-bbq-sauce,Dip Pot - Deluxe BBQ Sauce,Sauces & extras,1 pot,43.3,0.3,10.2,0.1,0.0,,0.6,9.6,,,25.0,,,,,,false,false,,,
+dip-pot-ketchup-with-a-kick-of-chilli,Dip Pot - Ketchup With a Kick of Chilli,Sauces & extras,1 pot,24.0,0.3,5.3,0.0,0.0,,0.4,4.5,,,25.0,,,,,,false,false,,,
+dip-pot-spicy-fried-chicken-sauce,Dip Pot - Spicy Fried Chicken Sauce,Sauces & extras,1 pot,108.3,0.3,2.6,10.2,0.8,,0.4,2.6,,,25.0,,,,,,false,false,,,
+dip-pot-garlic-and-herb,Dip Pot - Garlic & Herb,Sauces & extras,1 pot,117.8,0.3,0.7,12.6,1.0,,0.4,0.6,,,25.0,,,,,,false,false,,,
+dip-pot-sweet-chilli-sauce,Dip Pot - Sweet Chilli Sauce,Sauces & extras,1 pot,30.3,0.1,7.0,0.0,0.0,,0.4,6.5,,,25.0,,,,,,false,false,,,
+dip-pot-perinnaise,Dip Pot - Perinnaise,Sauces & extras,1 pot,89.0,0.1,0.8,9.3,0.7,,0.3,0.3,,,25.0,,,,,,false,false,,,Name printed 'Perinnaise'
+latte-regular,Latte (Regular),Hot drinks,12oz,222.9,23.2,15.7,7.0,3.0,,0.9,14.1,,,,,,,,,false,false,,,
+latte-large,Latte (Large),Hot drinks,16oz,296.9,30.9,20.9,9.3,4.1,,1.2,18.8,,,,,,,,,false,false,,,
+cappuccino-regular,Cappuccino (Regular),Hot drinks,12oz,222.9,23.2,15.7,7.0,3.0,,0.9,14.1,,,,,,,,,false,false,,,Printed 'Regluar' (typo in the guide)
+cappuccino-large,Cappuccino (Large),Hot drinks,16oz,296.9,30.9,20.9,9.3,4.1,,1.2,18.8,,,,,,,,,false,false,,,
+white-americano-regular,White Americano (Regular),Hot drinks,12oz,222.9,23.2,15.7,7.0,3.0,,0.9,14.1,,,,,,,,,false,false,,,
+white-americano-large,White Americano (Large),Hot drinks,16oz,296.8,30.9,20.9,9.3,4.1,,1.2,18.8,,,,,,,,,false,false,,,
+black-americano-regular,Black Americano (Regular),Hot drinks,12oz,3.1,0.6,0.0,0.1,0.0,,0.0,0.0,,,,,,,,,false,false,,,
+black-americano-large,Black Americano (Large),Hot drinks,16oz,4.0,0.7,0.0,0.1,0.0,,0.0,0.0,,,,,,,,,false,false,,,
+flat-white,Flat White,Hot drinks,8oz,161.2,16.8,11.4,5.0,2.2,,0.7,10.2,,,,,,,,,false,false,,,
+hot-chocolate-regular,Hot Chocolate (Regular),Hot drinks,12oz,356.3,13.1,50.5,9.9,6.4,,0.4,48.0,,,,,,,,,false,false,,,
+hot-chocolate-large,Hot Chocolate (Large),Hot drinks,16oz,459.3,17.3,66.8,11.7,7.5,,0.5,63.5,,,,,,,,,false,false,,,
+classic-lemonade-cooler,Classic Lemonade Cooler,Cold drinks,16oz,84.0,0.0,18.9,0.0,0.0,,0.1,18.9,,,,,,,,,false,false,,,
+dragon-and-passion-fruit-cooler,Dragon & Passion Fruit Cooler,Cold drinks,16oz,68.5,0.0,16.5,0.0,0.0,,0.1,16.0,,,,,,,,,false,false,,,
+pepsi-max-cherry,Pepsi Max Cherry,Cold drinks,1 bottle (500ml),5.0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Per-100 g printed as 0.0 kcal but 5.0 kcal per bottle; entered as printed
+pepsi-max,Pepsi Max,Cold drinks,1 bottle (500ml),0.0,0.0,0.0,0.0,0.0,,0.1,0.0,,,,,,,,,false,false,,,
+pepsi-regular,Pepsi Regular,Cold drinks,1 bottle (500ml),90.0,0.0,23.0,0.0,0.0,,0.1,23.0,,,,,,,,,false,false,,,
+tango-orange,Tango Orange,Cold drinks,1 bottle (500ml),5.0,0.0,0.0,0.0,0.0,,0.2,0.0,,,,,,,,,false,false,,,Per-100 g printed as 0.0 kcal but 5.0 kcal per bottle; entered as printed
+diet-pepsi,Diet Pepsi,Cold drinks,1 bottle (500ml),95.0,0.0,23.0,0.0,0.0,,0.2,23.0,,,,,,,,,false,false,,,
+7up,7Up,Cold drinks,1 bottle (500ml),0.0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,
+water,Water,Cold drinks,1 bottle (275ml),16.5,0.0,3.3,0.0,0.0,,0.1,3.3,,,,,,,,,false,false,,,Prints 16.5 kcal and 3.3 g sugars for a 275ml bottle of 'Water'; entered as printed (may be a flavoured water: the guide doesn't say)
+fruit-shoot-orange,Fruit Shoot - Orange,Cold drinks,1 bottle (275ml),13.8,0.0,2.2,0.0,0.0,,0.1,2.2,,,,,,,,,false,false,,,
+fruit-shoot-apple-and-blackcurrant,Fruit Shoot - Apple & Blackcurrant,Cold drinks,1 bottle (500ml),25.0,0.0,5.0,0.0,0.0,,0.1,5.0,,,,,,,,,false,false,,,
+robinsons-peach-and-mango,Robinsons Peach and Mango,Cold drinks,1 bottle (500ml),50.0,0.0,10.1,0.0,0.0,,0.2,10.0,,,,,,,,,false,false,,,"Pipeline warning explained: prints 50 kcal per bottle but 10.1 g carbohydrate (about 40 kcal); the guide's per-100 g columns say the same (10.0 kcal, 2.0 g carbohydrate), so it is the source's rounding, not a typo; entered as printed"
+robinsons-orange-and-mango,Robinsons - Orange and Mango,Cold drinks,1 bottle,45.0,0.0,9.5,0.0,0.0,,0.2,0.0,,,,,,,,,false,false,,,Bottle size printed as '500' (no unit); sugars printed as 0.0 with 9.5 g carbohydrate; entered as printed
+robinsons-blueberry-and-blackberry,Robinsons Blueberry & Blackberry,Cold drinks,1 bottle (500ml),45.0,0.0,9.0,0.0,0.0,,0.2,9.0,,,,,,,,,false,false,,,

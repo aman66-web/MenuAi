@@ -14,6 +14,7 @@ Left out on purpose: the "Smokin' Deals" tab (bundles with drinks, wine and shar
 size is not stated and the printed kcal includes alcohol energy that is not in the macro columns), and drinks whose
 table is printed as "-".
 """
+from __future__ import annotations
 import argparse
 import re
 import sys
@@ -55,6 +56,10 @@ NOT_RANKABLE = {"Pot of Tennessee Bourbon Gravy": "a sauce", "The Southern Share
 NOTES = {"The Southern Sharer": "Described as a loaded tray to share",
          "The Smokehouse Platter": "Described as 'Ideal for 2 to share'",
          "Classic Corn Dogs": "Described as 'Minimum serve of 2'; chosen by number"}
+# The same pages print each dish's "Dietary Information" ("Contains: ..." naming the cereals and nuts, "May contain: ...")
+# and carry the label ids of the page's own allergen filter; tenkites_c.allergens_checked cross-checks the two.
+ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
+ALLERGEN_TITLE = "Hickory's Smokehouse menu Dietary Information (allergens): Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (Ten Kites page, no date printed; read 2026-10-06)"
 SOURCE_TITLE = "Hickory's Smokehouse menu with nutrition: Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (live page, no date printed; read 2026-10-06)"
 NOTE = ("Figures are per portion from Hickory's own menu page (hosted by Ten Kites), which prints no date. Alcoholic drinks and "
         "the Smokin' Deals bundles are not included; the Non-Gluten menu only adds dishes whose numbers differ.")
@@ -128,6 +133,10 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
                 name = qualify(name, "gluten free")
             elif key in by_numbers and by_numbers[key] == name:
                 report.append(f"dropped exact duplicate: {name} ({tab})")
+                kept = next(i for i in items if i["name"] == name and tuple(i[k] for k in tk.LABELS) == key)
+                if kept["allergens"] is not None and kept["allergens"] != tk.allergens_checked(r, f"{fname} {name}", ALLERGEN_EXTRA):
+                    report.append(f"allergens: {name!r} is printed twice with the same numbers but different allergens: not used")
+                    kept["allergens"] = None
                 continue
             if any(i["name"] == name for i in items) and tab == "kids":
                 name = qualify(name, "kids")
@@ -136,9 +145,10 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
                         and not (tab == "kids" and first in ("Desserts", "Drinks")))
             items.append({"id": slug(name), "name": name, "category": category, "serving": "", **nums,
                           "tags": "|".join((["vegetarian"] if vegetarian else []) + meat), "rankable": rankable,
-                          "notes": NOTES.get(r["dish"], "")})
+                          "notes": NOTES.get(r["dish"], ""), "allergens": tk.allergens_checked(r, f"{fname} {name}", ALLERGEN_EXTRA)})
     report.append(f"dropped {len(ng_dropped)} Non-Gluten rows whose numbers equal a row already kept (e.g. {'; '.join(ng_dropped[:3])})")
     report += [f"left out {n} {why}" for why, n in left_out.items() if n]
+    report += [f"allergens: no allergen information to read for {i['name']!r}" for i in items if i["allergens"] is None]
     report.append("left out the Smokin' Deals tab (6 bundles with drinks, wine and sharing trays)")
     names = [i["name"] for i in items]
     for it in items:
@@ -179,7 +189,9 @@ def main() -> int:
     out = write_chain_folder(chain_id=CHAIN_ID, name="Hickory's Smokehouse", cuisine="Barbecue", source_title=SOURCE_TITLE,
                              source_url=BASE, checked_on=args.checked_on, aliases=["hickorys", "hickory's", "hickorys smokehouse",
                                                                                    "hickory's smokehouse"],
-                             items=items, out=args.out, note=NOTE, holdback=holdback)
+                             items=items, out=args.out, note=NOTE, holdback=holdback,
+                             allergen_guide={"title": ALLERGEN_TITLE, "url": BASE, "checked_on": args.checked_on,
+                                             "may_contain_published": True})
     for fname, _, _ in PAGES.values():
         print(f"{fname} sha256 {tk.sha256_text_file(args.pages / fname)}")
     print("\n".join(report))

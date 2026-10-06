@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Per portion as printed in PizzaExpress's guide (no slice sizes or weights are given). Rows marked Dine Out are the guide's separate figures for that recipe. Excludes the airport breakfast menu and a few restaurants with their own guide.",
+ "allergenGuide": {
+  "title": "PizzaExpress Allergens: England, Wales & Scotland (PDF linked from pizzaexpress.com/allergens-and-nutritionals on 2026-10-06)",
+  "url": "https://content-cdn.pizzaexpress.com/files/lj3txstz/production/c93d88dbc7a9f0e6cdc6a0b0a6747eef60089d78.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Starters",
   "Sides",

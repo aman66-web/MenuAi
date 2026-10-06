@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Per product from Cooplands' March 2026 guide, the latest on its website: its seasonal (Easter) lines may no longer be sold. Bread, rolls and a few multipack rows aren't listed, and five items whose printed numbers contradict each other are held back.",
+ "allergenGuide": {
+  "title": "Cooplands 2026 March Allergen and Nutrition Information (PDF created 19 March 2026): Contains and May Contain columns",
+  "url": "https://cooplands-bakery.co.uk/wp-content/uploads/2026/03/Cooplands-Allergen-Nutrition-March-2026.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Sandwiches",
   "Savouries",
@@ -37,13 +44,34 @@
     "fat": 39,
     "saturatedFat": 4.3,
     "sugar": 6.8,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 2577,
+    "weight": 215
    },
    "tags": [],
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "loaded-chicken-fillet-sandwich",
@@ -57,13 +85,34 @@
     "fat": 26,
     "saturatedFat": 9.5,
     "sugar": 3.1,
-    "salt": 3.7
+    "salt": 3.7,
+    "energyKj": 2269,
+    "weight": 255
    },
    "tags": [],
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "blt-sub",
@@ -77,7 +126,9 @@
     "fat": 18,
     "saturatedFat": 5.4,
     "sugar": 3.5,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 1565,
+    "weight": 205
    },
    "tags": [
     "contains_pork"
@@ -85,7 +136,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "blt-white-sub",
@@ -99,7 +169,9 @@
     "fat": 17,
     "saturatedFat": 5.1,
     "sugar": 3,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 1507,
+    "weight": 200
    },
    "tags": [
     "contains_pork"
@@ -107,7 +179,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "cheese-and-ham-baguette",
@@ -121,7 +212,9 @@
     "fat": 19.2,
     "saturatedFat": 8.9,
     "sugar": 5.2,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 2287,
+    "weight": 215
    },
    "tags": [
     "contains_pork"
@@ -129,7 +222,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-savoury-sub",
@@ -143,7 +255,9 @@
     "fat": 21,
     "saturatedFat": 9.1,
     "sugar": 3.4,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1656,
+    "weight": 170
    },
    "tags": [
     "vegetarian"
@@ -151,7 +265,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "chicken-mayonnaise-and-bacon-sub",
@@ -165,7 +298,9 @@
     "fat": 44.1,
     "saturatedFat": 6.2,
     "sugar": 3.8,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 2763,
+    "weight": 275
    },
    "tags": [
     "contains_pork"
@@ -173,7 +308,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "corned-beef-sub",
@@ -187,7 +341,9 @@
     "fat": 12,
     "saturatedFat": 4.8,
     "sugar": 3,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1316,
+    "weight": 180
    },
    "tags": [
     "contains_beef"
@@ -195,7 +351,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "egg-mayonnaise-sub",
@@ -209,7 +384,9 @@
     "fat": 12,
     "saturatedFat": 2.9,
     "sugar": 3.1,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1422,
+    "weight": 160
    },
    "tags": [
     "vegetarian"
@@ -217,7 +394,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "egg-mayonnaise-white-sub",
@@ -231,7 +427,9 @@
     "fat": 11,
     "saturatedFat": 2.5,
     "sugar": 2,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1291,
+    "weight": 150
    },
    "tags": [
     "vegetarian"
@@ -239,7 +437,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "ham-and-pease-pudding-sub",
@@ -253,7 +470,9 @@
     "fat": 7.6,
     "saturatedFat": 2.3,
     "sugar": 0.9,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1187,
+    "weight": 140
    },
    "tags": [
     "contains_pork"
@@ -261,7 +480,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "ham-salad-sub",
@@ -275,7 +513,9 @@
     "fat": 8.3,
     "saturatedFat": 2.6,
     "sugar": 2.6,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1126,
+    "weight": 195
    },
    "tags": [
     "contains_pork"
@@ -283,7 +523,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "just-ham-sub",
@@ -297,7 +556,9 @@
     "fat": 11,
     "saturatedFat": 3.6,
     "sugar": 1,
-    "salt": 2.8
+    "salt": 2.8,
+    "energyKj": 1318,
+    "weight": 150
    },
    "tags": [
     "contains_pork"
@@ -305,7 +566,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "ploughmans-sub",
@@ -319,7 +599,9 @@
     "fat": 15,
     "saturatedFat": 7.9,
     "sugar": 7.9,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1544,
+    "weight": 215
    },
    "tags": [
     "vegetarian"
@@ -327,7 +609,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "roast-chicken-salad-sub",
@@ -341,13 +642,34 @@
     "fat": 8.4,
     "saturatedFat": 1.9,
     "sugar": 4.3,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1299,
+    "weight": 225
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "seafood-cocktail-sub",
@@ -361,13 +683,34 @@
     "fat": 24.7,
     "saturatedFat": 2.6,
     "sugar": 5.6,
-    "salt": 2.8
+    "salt": 2.8,
+    "energyKj": 1933,
+    "weight": 235
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard"
+    ],
+    "mayContain": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "tuna-mayonnaise-sub",
@@ -381,13 +724,34 @@
     "fat": 18,
     "saturatedFat": 2.1,
     "sugar": 2.4,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1618,
+    "weight": 215
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "bbq-chicken-and-cheese",
@@ -401,13 +765,33 @@
     "fat": 12.8,
     "saturatedFat": 7,
     "sugar": 13.6,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 2209,
+    "weight": 225
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bacon-brie-and-red-onion-chutney",
@@ -421,7 +805,9 @@
     "fat": 18.7,
     "saturatedFat": 8.4,
     "sugar": 8.9,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2170,
+    "weight": 205
    },
    "tags": [
     "contains_pork"
@@ -429,7 +815,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-and-ham",
@@ -443,7 +847,9 @@
     "fat": 19.2,
     "saturatedFat": 8.9,
     "sugar": 5.2,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 2287,
+    "weight": 215
    },
    "tags": [
     "contains_pork"
@@ -451,7 +857,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "meatball-and-cheese",
@@ -465,13 +890,33 @@
     "fat": 24,
     "saturatedFat": 8.3,
     "sugar": 17,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 2720,
+    "weight": 265
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "southern-fried-chicken-fillet-sandwich",
@@ -485,13 +930,34 @@
     "fat": 14,
     "saturatedFat": 5.1,
     "sugar": 2,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 1695,
+    "weight": 219
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "tuna-melt",
@@ -505,13 +971,34 @@
     "fat": 30,
     "saturatedFat": 10,
     "sugar": 6.1,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 3041,
+    "weight": 255
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "lamb-and-mint-pasty",
@@ -525,13 +1012,31 @@
     "fat": 19,
     "saturatedFat": 9.3,
     "sugar": 2.4,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1461,
+    "weight": 145
    },
    "tags": [],
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pork-and-cider-pie",
@@ -545,7 +1050,9 @@
     "fat": 12,
     "saturatedFat": 4.2,
     "sugar": 0.7,
-    "salt": 0.54
+    "salt": 0.54,
+    "energyKj": 823,
+    "weight": 65
    },
    "tags": [
     "contains_pork"
@@ -553,7 +1060,23 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "steak-and-stilton-pie",
@@ -567,7 +1090,9 @@
     "fat": 13,
     "saturatedFat": 5,
     "sugar": 0.6,
-    "salt": 0.43
+    "salt": 0.43,
+    "energyKj": 891,
+    "weight": 65
    },
    "tags": [
     "contains_beef"
@@ -575,7 +1100,23 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "wild-mushroom-and-garlic-pie",
@@ -589,7 +1130,9 @@
     "fat": 12,
     "saturatedFat": 4.3,
     "sugar": 1.8,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 810,
+    "weight": 65
    },
    "tags": [
     "vegetarian"
@@ -597,7 +1140,23 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bacon-and-cheese-wrap",
@@ -611,7 +1170,9 @@
     "fat": 19,
     "saturatedFat": 9.9,
     "sugar": 1,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1313,
+    "weight": 80
    },
    "tags": [
     "contains_pork"
@@ -619,7 +1180,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bacon-and-tomato-quiche",
@@ -633,7 +1209,9 @@
     "fat": 33,
     "saturatedFat": 15,
     "sugar": 2.3,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1829,
+    "weight": 124
    },
    "tags": [
     "contains_pork"
@@ -641,7 +1219,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-and-onion-pasty",
@@ -655,7 +1247,9 @@
     "fat": 23,
     "saturatedFat": 8.4,
     "sugar": 0.3,
-    "salt": 0.64
+    "salt": 0.64,
+    "energyKj": 1753,
+    "weight": 145
    },
    "tags": [
     "vegetarian"
@@ -663,7 +1257,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-and-onion-quiche",
@@ -677,7 +1286,9 @@
     "fat": 20,
     "saturatedFat": 9.9,
     "sugar": 3.8,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1571,
+    "weight": 140
    },
    "tags": [
     "vegetarian"
@@ -685,7 +1296,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-straws",
@@ -699,7 +1324,9 @@
     "fat": 6.1,
     "saturatedFat": 3.6,
     "sugar": 0.2,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 411,
+    "weight": 21
    },
    "tags": [
     "vegetarian"
@@ -707,7 +1334,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-bake",
@@ -721,13 +1362,30 @@
     "fat": 17,
     "saturatedFat": 8,
     "sugar": 1.9,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1468,
+    "weight": 145
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "corned-beef-and-potato-pasty",
@@ -741,7 +1399,9 @@
     "fat": 21,
     "saturatedFat": 10.2,
     "sugar": 2,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1594,
+    "weight": 145
    },
    "tags": [
     "contains_beef"
@@ -749,7 +1409,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mince-and-onion-pie",
@@ -763,7 +1438,9 @@
     "fat": 35,
     "saturatedFat": 12,
     "sugar": 0.7,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 2441,
+    "weight": 170
    },
    "tags": [
     "contains_beef"
@@ -771,7 +1448,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mushroom-and-cheese-wrap",
@@ -785,7 +1478,9 @@
     "fat": 21,
     "saturatedFat": 11,
     "sugar": 1,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1399,
+    "weight": 115
    },
    "tags": [
     "vegetarian"
@@ -793,7 +1488,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sausage-roll",
@@ -807,7 +1516,9 @@
     "fat": 8.3,
     "saturatedFat": 3.8,
     "sugar": 0.8,
-    "salt": 0.82
+    "salt": 0.82,
+    "energyKj": 689,
+    "weight": 58
    },
    "tags": [
     "contains_pork"
@@ -815,7 +1526,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sausage-cheese-and-beans-pasty",
@@ -829,7 +1556,9 @@
     "fat": 22,
     "saturatedFat": 11,
     "sugar": 5,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1734,
+    "weight": 145
    },
    "tags": [
     "contains_pork"
@@ -837,7 +1566,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "steak-bake",
@@ -851,7 +1596,9 @@
     "fat": 17,
     "saturatedFat": 8.3,
     "sugar": 1.7,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1436,
+    "weight": 145
    },
    "tags": [
     "contains_beef"
@@ -859,7 +1606,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "traditional-pasty",
@@ -873,7 +1636,9 @@
     "fat": 20,
     "saturatedFat": 8.8,
     "sugar": 1.2,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1681,
+    "weight": 155
    },
    "tags": [
     "contains_beef"
@@ -881,7 +1646,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-scone-from-4-pack",
@@ -895,7 +1676,8 @@
     "fat": 12,
     "saturatedFat": 2.7,
     "sugar": 1.9,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1121
    },
    "tags": [
     "vegetarian"
@@ -903,7 +1685,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-and-jalapeno-pizza",
@@ -917,13 +1714,30 @@
     "fat": 18,
     "saturatedFat": 7.9,
     "sugar": 6.9,
-    "salt": 3.4
+    "salt": 3.4,
+    "energyKj": 2215,
+    "weight": 240
    },
    "tags": [],
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "margherita-pizza",
@@ -937,7 +1751,9 @@
     "fat": 18,
     "saturatedFat": 8.2,
     "sugar": 6.6,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 2030,
+    "weight": 175
    },
    "tags": [
     "vegetarian"
@@ -945,7 +1761,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pepperoni-pizza",
@@ -959,7 +1790,9 @@
     "fat": 24,
     "saturatedFat": 11,
     "sugar": 6.6,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 2275,
+    "weight": 190
    },
    "tags": [
     "contains_pork"
@@ -967,7 +1800,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-chicken-pizza",
@@ -981,13 +1829,30 @@
     "fat": 19,
     "saturatedFat": 8.4,
     "sugar": 12,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 2345,
+    "weight": 235
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ham-salad",
@@ -1001,7 +1866,9 @@
     "fat": 13,
     "saturatedFat": 1.7,
     "sugar": 6.4,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 806,
+    "weight": 235
    },
    "tags": [
     "contains_pork"
@@ -1009,7 +1876,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "ham-and-egg-salad",
@@ -1023,7 +1905,9 @@
     "fat": 16,
     "saturatedFat": 2.8,
     "sugar": 6.4,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1044,
+    "weight": 275
    },
    "tags": [
     "contains_pork"
@@ -1031,7 +1915,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-salad",
@@ -1045,13 +1944,29 @@
     "fat": 11,
     "saturatedFat": 1,
     "sugar": 7.6,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 853
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "plain-salad",
@@ -1065,7 +1980,9 @@
     "fat": 0.9,
     "saturatedFat": 0.2,
     "sugar": 5.3,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 185,
+    "weight": 170
    },
    "tags": [
     "vegetarian"
@@ -1073,7 +1990,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "almond-tart",
@@ -1087,7 +2018,9 @@
     "fat": 9.4,
     "saturatedFat": 2.1,
     "sugar": 23,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 978,
+    "weight": 55
    },
    "tags": [
     "vegetarian"
@@ -1095,7 +2028,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cornflake-nest-with-chocolate-eggs",
@@ -1109,7 +2056,9 @@
     "fat": 11,
     "saturatedFat": 9,
     "sugar": 22,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 1156,
+    "weight": 60
    },
    "tags": [
     "vegetarian"
@@ -1117,7 +2066,22 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "easter-brownie",
@@ -1131,7 +2095,9 @@
     "fat": 17,
     "saturatedFat": 10,
     "sugar": 38,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 1443,
+    "weight": 80
    },
    "tags": [
     "vegetarian"
@@ -1139,7 +2105,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "easter-bun-from-4-pack",
@@ -1153,7 +2133,8 @@
     "fat": 6,
     "saturatedFat": 2.4,
     "sugar": 38,
-    "salt": 0.35
+    "salt": 0.35,
+    "energyKj": 1083
    },
    "tags": [
     "vegetarian"
@@ -1161,7 +2142,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "easter-bun-chocolate",
@@ -1175,7 +2170,9 @@
     "fat": 15,
     "saturatedFat": 4.7,
     "sugar": 38,
-    "salt": 0.48
+    "salt": 0.48,
+    "energyKj": 1376,
+    "weight": 75
    },
    "tags": [
     "vegetarian"
@@ -1183,7 +2180,20 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "easter-bun-vanilla",
@@ -1197,7 +2207,9 @@
     "fat": 15,
     "saturatedFat": 4.7,
     "sugar": 38,
-    "salt": 0.48
+    "salt": 0.48,
+    "energyKj": 1376,
+    "weight": 75
    },
    "tags": [
     "vegetarian"
@@ -1205,7 +2217,20 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "easter-bunny-biscuit",
@@ -1219,7 +2244,9 @@
     "fat": 16,
     "saturatedFat": 7.7,
     "sugar": 20,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1461,
+    "weight": 75
    },
    "tags": [
     "vegetarian"
@@ -1227,7 +2254,20 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "easter-chick-biscuit",
@@ -1241,7 +2281,9 @@
     "fat": 14,
     "saturatedFat": 7.8,
     "sugar": 20,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 1208,
+    "weight": 60
    },
    "tags": [
     "vegetarian"
@@ -1249,7 +2291,20 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "easter-cornflake-nest",
@@ -1263,7 +2318,8 @@
     "fat": 10,
     "saturatedFat": 8.8,
     "sugar": 19,
-    "salt": 0.15
+    "salt": 0.15,
+    "weight": 55
    },
    "tags": [
     "vegetarian"
@@ -1271,7 +2327,22 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "fun-gingerbread-biscuit",
@@ -1285,7 +2356,9 @@
     "fat": 6.3,
     "saturatedFat": 3,
     "sugar": 24,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 968,
+    "weight": 45
    },
    "tags": [
     "vegetarian"
@@ -1293,7 +2366,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "lemon-pie",
@@ -1307,7 +2394,9 @@
     "fat": 14,
     "saturatedFat": 5.9,
     "sugar": 27,
-    "salt": 0.45
+    "salt": 0.45,
+    "energyKj": 1454,
+    "weight": 90
    },
    "tags": [
     "vegetarian"
@@ -1315,7 +2404,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "rainbow-cookie",
@@ -1329,7 +2432,9 @@
     "fat": 21,
     "saturatedFat": 8.4,
     "sugar": 44,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 2091,
+    "weight": 100
    },
    "tags": [
     "vegetarian"
@@ -1337,7 +2442,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "raspberry-topped-doughnut",
@@ -1351,7 +2470,9 @@
     "fat": 7.9,
     "saturatedFat": 1.9,
     "sugar": 26,
-    "salt": 0.62
+    "salt": 0.62,
+    "energyKj": 1187,
+    "weight": 95
    },
    "tags": [
     "vegetarian"
@@ -1359,7 +2480,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "russian-slice",
@@ -1373,7 +2508,9 @@
     "fat": 12,
     "saturatedFat": 4.8,
     "sugar": 48,
-    "salt": 0.83
+    "salt": 0.83,
+    "energyKj": 1721,
+    "weight": 120
    },
    "tags": [
     "vegetarian"
@@ -1381,7 +2518,22 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "summer-fruit-flan",
@@ -1395,7 +2547,9 @@
     "fat": 24,
     "saturatedFat": 11,
     "sugar": 28,
-    "salt": 0.65
+    "salt": 0.65,
+    "energyKj": 1830,
+    "weight": 175
    },
    "tags": [
     "vegetarian"
@@ -1403,7 +2557,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "vanilla-sundae",
@@ -1417,7 +2585,9 @@
     "fat": 16,
     "saturatedFat": 7,
     "sugar": 34,
-    "salt": 0.63
+    "salt": 0.63,
+    "energyKj": 1347,
+    "weight": 70
    },
    "tags": [
     "vegetarian"
@@ -1425,7 +2595,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "victoria-sponge-muffin",
@@ -1439,7 +2623,9 @@
     "fat": 24,
     "saturatedFat": 4.8,
     "sugar": 46,
-    "salt": 0.92
+    "salt": 0.92,
+    "energyKj": 2051,
+    "weight": 120
    },
    "tags": [
     "vegetarian"
@@ -1447,7 +2633,21 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bakewell-slice",
@@ -1461,7 +2661,9 @@
     "fat": 32,
     "saturatedFat": 9,
     "sugar": 25,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 2138,
+    "weight": 110
    },
    "tags": [
     "vegetarian"
@@ -1469,7 +2671,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "brownie",
@@ -1483,7 +2700,9 @@
     "fat": 21.3,
     "saturatedFat": 12.8,
     "sugar": 38.3,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1641,
+    "weight": 85
    },
    "tags": [
     "vegetarian"
@@ -1491,7 +2710,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "caramel-crispie",
@@ -1505,7 +2739,9 @@
     "fat": 9.6,
     "saturatedFat": 6.2,
     "sugar": 18.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 904,
+    "weight": 48
    },
    "tags": [
     "vegetarian"
@@ -1513,7 +2749,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "caramel-shortbread",
@@ -1527,7 +2778,9 @@
     "fat": 15.1,
     "saturatedFat": 9.7,
     "sugar": 17.8,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 1091,
+    "weight": 54
    },
    "tags": [
     "vegetarian"
@@ -1535,7 +2788,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-flapjack",
@@ -1549,7 +2817,9 @@
     "fat": 21,
     "saturatedFat": 12,
     "sugar": 28,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1568,
+    "weight": 75
    },
    "tags": [
     "vegetarian"
@@ -1557,7 +2827,23 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
   },
   {
    "id": "chocolate-toffee-danish",
@@ -1571,7 +2857,9 @@
     "fat": 29.2,
     "saturatedFat": 13.6,
     "sugar": 33.4,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 2433,
+    "weight": 139
    },
    "tags": [
     "vegetarian"
@@ -1579,7 +2867,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cookie-monster",
@@ -1593,7 +2896,9 @@
     "fat": 18,
     "saturatedFat": 7,
     "sugar": 49,
-    "salt": 0.53
+    "salt": 0.53,
+    "energyKj": 1827,
+    "weight": 95
    },
    "tags": [
     "vegetarian"
@@ -1601,7 +2906,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cornflake-treacle-tart",
@@ -1615,7 +2935,9 @@
     "fat": 24,
     "saturatedFat": 10,
     "sugar": 58,
-    "salt": 0.79
+    "salt": 0.79,
+    "energyKj": 2557,
+    "weight": 140
    },
    "tags": [
     "vegetarian"
@@ -1623,7 +2945,23 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "danish-pastry",
@@ -1637,7 +2975,9 @@
     "fat": 20.9,
     "saturatedFat": 9.6,
     "sugar": 44.5,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 2141,
+    "weight": 139
    },
    "tags": [
     "vegetarian"
@@ -1645,7 +2985,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "double-chocolate-chip-cookie",
@@ -1659,7 +3014,9 @@
     "fat": 23,
     "saturatedFat": 10,
     "sugar": 43,
-    "salt": 0.74
+    "salt": 0.74,
+    "energyKj": 2093,
+    "weight": 100
    },
    "tags": [
     "vegetarian"
@@ -1667,7 +3024,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "gingerbread",
@@ -1681,7 +3053,9 @@
     "fat": 6.3,
     "saturatedFat": 3,
     "sugar": 24,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 968,
+    "weight": 45
    },
    "tags": [
     "vegetarian"
@@ -1689,7 +3063,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "iced-finger",
@@ -1703,7 +3091,9 @@
     "fat": 3.6,
     "saturatedFat": 1.7,
     "sugar": 18,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 951,
+    "weight": 80
    },
    "tags": [
     "vegetarian"
@@ -1711,7 +3101,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "jam-doughnut",
@@ -1725,7 +3129,9 @@
     "fat": 4.3,
     "saturatedFat": 1.8,
     "sugar": 9.2,
-    "salt": 0.83
+    "salt": 0.83,
+    "energyKj": 813,
+    "weight": 70
    },
    "tags": [
     "vegetarian"
@@ -1733,7 +3139,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "jam-tart",
@@ -1747,7 +3167,9 @@
     "fat": 8.9,
     "saturatedFat": 2.8,
     "sugar": 18,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 948,
+    "weight": 51
    },
    "tags": [
     "vegetarian"
@@ -1755,7 +3177,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "jumbo-jammy-biscuit",
@@ -1769,7 +3205,9 @@
     "fat": 17,
     "saturatedFat": 6.9,
     "sugar": 29,
-    "salt": 0.51
+    "salt": 0.51,
+    "energyKj": 1610,
+    "weight": 85
    },
    "tags": [
     "vegetarian"
@@ -1777,7 +3215,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "large-curd-tart",
@@ -1791,7 +3243,8 @@
     "fat": 16,
     "saturatedFat": 6.1,
     "sugar": 18.7,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 1281
    },
    "tags": [
     "vegetarian"
@@ -1799,7 +3252,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "large-custard-tart",
@@ -1813,7 +3280,8 @@
     "fat": 9,
     "saturatedFat": 2.6,
     "sugar": 4.2,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 784
    },
    "tags": [
     "vegetarian"
@@ -1821,7 +3289,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "lemon-tart",
@@ -1835,7 +3317,9 @@
     "fat": 10,
     "saturatedFat": 3.3,
     "sugar": 18,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 1002,
+    "weight": 51
    },
    "tags": [
     "vegetarian"
@@ -1843,7 +3327,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maid-of-honour",
@@ -1857,7 +3355,9 @@
     "fat": 11,
     "saturatedFat": 3.3,
     "sugar": 11,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 1065,
+    "weight": 85
    },
    "tags": [
     "vegetarian"
@@ -1865,7 +3365,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "small-curd-tart",
@@ -1879,7 +3394,9 @@
     "fat": 17.7,
     "saturatedFat": 6.4,
     "sugar": 18.6,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 1359,
+    "weight": 93
    },
    "tags": [
     "vegetarian"
@@ -1887,7 +3404,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "small-custard-tart",
@@ -1901,7 +3432,9 @@
     "fat": 10.4,
     "saturatedFat": 3.2,
     "sugar": 5,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 890,
+    "weight": 80
    },
    "tags": [
     "vegetarian"
@@ -1909,7 +3442,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "toffee-doughnut",
@@ -1923,7 +3470,9 @@
     "fat": 7.3,
     "saturatedFat": 3.5,
     "sugar": 23,
-    "salt": 0.76
+    "salt": 0.76,
+    "energyKj": 1153,
+    "weight": 95
    },
    "tags": [
     "vegetarian"
@@ -1931,7 +3480,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "triple-chocolate-muffin",
@@ -1945,7 +3509,9 @@
     "fat": 27,
     "saturatedFat": 6.5,
     "sugar": 38,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 2079,
+    "weight": 110
    },
    "tags": [
     "vegetarian"
@@ -1953,7 +3519,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "flapjack-from-4-pack",
@@ -1967,7 +3547,8 @@
     "fat": 12.5,
     "saturatedFat": 4.5,
     "sugar": 15,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 998
    },
    "tags": [
     "vegetarian"
@@ -1975,7 +3556,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "ginger-square-from-4-pack",
@@ -1989,7 +3585,8 @@
     "fat": 2.4,
     "saturatedFat": 0.9,
     "sugar": 24,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 850
    },
    "tags": [
     "vegetarian"
@@ -1997,7 +3594,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bright-iced-bun-from-4-pack",
@@ -2011,13 +3623,28 @@
     "fat": 6.5,
     "saturatedFat": 2.7,
     "sugar": 35,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 1042
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "melting-moments-biscuit-from-6-pack",
@@ -2031,7 +3658,8 @@
     "fat": 14,
     "saturatedFat": 8.9,
     "sugar": 6.7,
-    "salt": 0.47
+    "salt": 0.47,
+    "energyKj": 928
    },
    "tags": [
     "vegetarian"
@@ -2039,7 +3667,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "parkin-biscuit-from-6-pack",
@@ -2053,7 +3696,8 @@
     "fat": 4.1,
     "saturatedFat": 1.6,
     "sugar": 14,
-    "salt": 0.43
+    "salt": 0.43,
+    "energyKj": 638
    },
    "tags": [
     "vegetarian"
@@ -2061,7 +3705,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "school-cake-from-4-pack",
@@ -2075,7 +3734,8 @@
     "fat": 10,
     "saturatedFat": 4.2,
     "sugar": 42,
-    "salt": 0.73
+    "salt": 0.73,
+    "energyKj": 1437
    },
    "tags": [
     "vegetarian"
@@ -2083,7 +3743,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sultana-scone-from-4-pack",
@@ -2097,7 +3772,8 @@
     "fat": 8.1,
     "saturatedFat": 0.8,
     "sugar": 17,
-    "salt": 0.74
+    "salt": 0.74,
+    "energyKj": 1139
    },
    "tags": [
     "vegetarian"
@@ -2105,7 +3781,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "large-chocolate-cream-sponge",
@@ -2119,7 +3810,8 @@
     "fat": 11,
     "saturatedFat": 6.8,
     "sugar": 14,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 791
    },
    "tags": [
     "vegetarian"
@@ -2127,7 +3819,20 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "large-cream-sponge",
@@ -2141,7 +3846,8 @@
     "fat": 11,
     "saturatedFat": 6.9,
     "sugar": 11,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 712
    },
    "tags": [
     "vegetarian"
@@ -2149,7 +3855,20 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cream-doughnut",
@@ -2163,7 +3882,9 @@
     "fat": 16,
     "saturatedFat": 9.3,
     "sugar": 9.9,
-    "salt": 0.82
+    "salt": 0.82,
+    "energyKj": 1265,
+    "weight": 95
    },
    "tags": [
     "vegetarian"
@@ -2171,7 +3892,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cream-slice",
@@ -2185,7 +3919,9 @@
     "fat": 25,
     "saturatedFat": 16,
     "sugar": 19,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1650,
+    "weight": 105
    },
    "tags": [
     "vegetarian"
@@ -2193,7 +3929,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "eclair",
@@ -2207,7 +3958,9 @@
     "fat": 23,
     "saturatedFat": 13,
     "sugar": 27,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 1477,
+    "weight": 95
    },
    "tags": [
     "vegetarian"
@@ -2215,7 +3968,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mini-chocolate-cream-sponge",
@@ -2229,7 +3996,9 @@
     "fat": 19,
     "saturatedFat": 11,
     "sugar": 24,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 1360,
+    "weight": 95
    },
    "tags": [
     "vegetarian"
@@ -2237,7 +4006,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mini-cream-sponge",
@@ -2251,7 +4033,9 @@
     "fat": 19,
     "saturatedFat": 12.4,
     "sugar": 18.1,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1232,
+    "weight": 95
    },
    "tags": [
     "vegetarian"
@@ -2259,7 +4043,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "peach-melba",
@@ -2273,7 +4070,9 @@
     "fat": 14.1,
     "saturatedFat": 6.6,
     "sugar": 19.1,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1155,
+    "weight": 83
    },
    "tags": [
     "vegetarian"
@@ -2281,7 +4080,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "strawberry-tart",
@@ -2295,7 +4105,9 @@
     "fat": 11,
     "saturatedFat": 4.5,
     "sugar": 15,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 923,
+    "weight": 75
    },
    "tags": [
     "vegetarian"
@@ -2303,7 +4115,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "vanilla-slice",
@@ -2317,7 +4143,8 @@
     "fat": 10.2,
     "saturatedFat": 6.4,
     "sugar": 33.6,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 1386
    },
    "tags": [
     "vegetarian"
@@ -2325,7 +4152,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "devonshire-split",
@@ -2339,7 +4181,9 @@
     "fat": 18,
     "saturatedFat": 11,
     "sugar": 28,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1874,
+    "weight": 145
    },
    "tags": [
     "vegetarian"
@@ -2347,7 +4191,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   }
  ],
  "combinations": []

@@ -13,6 +13,7 @@ Some dishes are printed as a "core" plus choices: "Bacon Cheeseburger (Excluding
 Fries, Side Salad... each with its own numbers. The core is published as the chain prints it (its name keeps the "Excluding"
 wording) and each choice is its own item under "Options & add-ons", so a person can add them up; nothing is summed here.
 """
+from __future__ import annotations
 import argparse
 import re
 import sys
@@ -62,6 +63,11 @@ NOTES: dict[str, str] = {
     "Sweetcorn (VG)": "Calories (76) are about 20% higher than its macros allow (61). Entered as printed.",
     "Jack Daniel's Tennessee Honey": "A spirit: 60 kcal with no macros, which fits alcohol calories. Entered as printed.",
 }
+
+# Each dish's info box prints "Contains:" / "Dish ingredients may also contain:" (naming the cereals) and the dish carries label
+# ids; tenkites_b.allergens_from_rec checks they agree.
+ALLERGEN_TITLE = "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce, July 2026 menus, data correct as of 6 October 2026)"
+ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
 
 EXPECTED_ROWS = 841
 
@@ -115,7 +121,8 @@ def main() -> int:
 
     rows, excluded, skipped, total = tk.collect_rows(
         labels, paths, "items", lambda label, rec: rec["name"], category, veg_fn=veg_marked,
-        where_fn=lambda label, rec: f"with {base_of(rec['group'])}" if is_option(rec) else rec["course"][-1])
+        where_fn=lambda label, rec: f"with {base_of(rec['group'])}" if is_option(rec) else rec["course"][-1],
+        allergen_fn=lambda label, rec: tk.allergens_from_rec(rec, f"{label} {rec['name']}", ALLERGEN_WORDS))
     if total != EXPECTED_ROWS:
         print(f"The pages hold {total} rows but this script was written for {EXPECTED_ROWS}: re-check the menu list "
               "and the mappings against the pages, then update EXPECTED_ROWS.", file=sys.stderr)
@@ -148,6 +155,7 @@ def main() -> int:
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note="Values are per dish as served, with the standard garnishes and accompaniments on the menu. Dishes printed 'Excluding ...' leave "
              "out the topper or side named, which is listed under Options & add-ons.",
+        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in labels:
         print(f"{label:15} sha256 {sha256_file(paths[label])[:16]}  {tk.page_title(paths[label])}")
@@ -155,6 +163,7 @@ def main() -> int:
     for label, _, _ in excluded:
         by_menu[label] = by_menu.get(label, 0) + 1
     print("rows without calories/protein/carbs/fat, by menu:", by_menu)
+    print("\n".join(tk.ALLERGEN_NOTES))
     print(f"wrote {len(items)} items to {folder}; {len(excluded)} rows without the four required numbers; "
           f"{total - len(excluded) - len(skipped) - len(items)} duplicate rows dropped")
     return 0

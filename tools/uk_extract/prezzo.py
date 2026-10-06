@@ -17,7 +17,13 @@ categories, rankable flags and meat-word lists below are written by hand. The sc
 page's item set, categories or anomalies differ from the reviewed run of 2026-10-06: a human then re-checks the page
 and updates HOLDBACK / EXPLAINED / EXPECTED_* below. Held-back items are listed in holdback.csv beside items.csv,
 so a refresh never brings them back by accident.
+
+Allergens come from the same item records: 14 true/false "contains" fields and 14 "mayContain..." fields, which the page
+shows as "<allergens>. May contain: <allergens>." (or "Does not contain any allergens.") under the names in its own
+dontShowFilters / dontShowFiltersMayContain lists. The script checks those lists are unchanged and maps each field through
+its printed name (common.allergen_words). The page names no particular cereals or tree nuts, so none are recorded.
 """
+from __future__ import annotations
 import argparse
 import json
 import re
@@ -26,7 +32,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import sha256_file, slug, write_chain_folder  # noqa: E402
+from common import allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "prezzo"
 SOURCE_URL = "https://www.prezzo.co.uk/allergens/"
@@ -54,6 +60,18 @@ EXPECTED_ITEM_KEYS = {
     "saturatedFat", "sesame", "soya", "spicy", "sugars", "sulphites", "title", "vegan", "veganOption", "vegetarian",
     "vegetarianOption",
 }
+# The page's own allergen names for its fields, in the order of its dontShowFilters / dontShowFiltersMayContain lists.
+ALLERGEN_NAMES = [("Cereals (Gluten)", "gluten", "mayContainCerealsGluten"), ("Celery", "celery", "mayContainCelery"),
+                  ("Crustaceans", "crustaceans", "mayContainCrustaceans"), ("Eggs", "eggs", "mayContainEggs"),
+                  ("Fish", "fish", "mayContainFish"), ("Lupin", "lupin", "mayContainLupin"),
+                  ("Milk (Dairy)", "milk", "mayContainMilkDairy"), ("Molluscs", "molluscs", "mayContainMolluscs"),
+                  ("Mustard", "mustard", "mayContainMustard"), ("Nuts & tree nuts", "nuts", "mayContainNutsTreeNuts"),
+                  ("Peanuts", "peanuts", "mayContainPeanuts"), ("Sesame", "sesame", "mayContainSesame"),
+                  ("Soya", "soya", "mayContainSoya"),
+                  ("Sulphur dioxide & sulphites", "sulphites", "mayContainSulphurDioxideSulphites")]
+# Prezzo's printed names that common.allergen_words does not know ("Nuts & tree nuts" sits beside a separate "Peanuts").
+ALLERGEN_EXTRA = {"cereals (gluten)": ("gluten", None), "milk (dairy)": ("milk", None), "nuts & tree nuts": ("nuts", None)}
+ALLERGEN_TITLE = "Prezzo Allergen Guide: allergens page on prezzo.co.uk (retrieved {checked_on}; the page carries no version date)"
 NUTRIENT_FIELDS = {"calories": "calories", "protein": "protein_g", "carbohydrates": "carbs_g", "fat": "fat_g",
                    "saturatedFat": "sat_fat_g", "sugars": "sugar_g", "salt": "salt_g", "fibre": "fiber_g"}
 REQUIRED = ("calories", "protein", "carbohydrates", "fat")
@@ -154,8 +172,31 @@ def serving_from(desc: str) -> str:
     return ""
 
 
+def check_allergen_names(html: str) -> None:
+    """The page's two lists of allergen names must still be exactly ALLERGEN_NAMES (so each field means what we think)."""
+    want = [(n, f) for n, f, _ in ALLERGEN_NAMES] + [(n, m) for n, _, m in ALLERGEN_NAMES]
+    fields = {f for _, f in want}
+    pairs = [(n, f) for n, f in re.findall(r'\{name:\s*"([^"]+)",\s*filterValue:\s*"([^"]+)"\}', html) if f in fields]
+    if pairs != want:
+        raise SystemExit(f"The page's allergen name lists changed (found {pairs}): re-check what each field means, then update "
+                         "ALLERGEN_NAMES in prezzo.py.")
+
+
+def allergens_of(r: dict, where: str) -> dict:
+    """One item's allergens from its 28 true/false fields, mapped through the page's printed names."""
+    for _, f, m in ALLERGEN_NAMES:
+        if not isinstance(r[f], bool) or not isinstance(r[m], bool):
+            raise SystemExit(f"{where}: allergen field {f!r}/{m!r} is not true/false ({r[f]!r}, {r[m]!r}): re-check the page.")
+    contains, cereals, nuts = allergen_words([n for n, f, _ in ALLERGEN_NAMES if r[f]], where, ALLERGEN_EXTRA)
+    may, _, _ = allergen_words([n for n, _, m in ALLERGEN_NAMES if r[m]], where, ALLERGEN_EXTRA)
+    if contains & may:
+        raise SystemExit(f"{where}: marked both 'contains' and 'may contain' {sorted(contains & may)}: re-check the page.")
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}
+
+
 def read_page(path: Path) -> list[dict]:
     html = Path(path).read_text(encoding="utf-8")
+    check_allergen_names(html)
     if html.count(DATA_KEY) != 1:
         raise SystemExit(f"The page no longer has exactly one '{DATA_KEY.strip()}' block ({html.count(DATA_KEY)}): "
                          "the page layout changed, re-check how the data is embedded before running again.")
@@ -225,6 +266,11 @@ def classify(rows: list[dict]):
         c["name"] = RENAME.get((c["title"], c["cat"]), c["title"])
         prior = seen.setdefault(c["name"].lower(), [])
         if any(p["vals"] == c["vals"] for p in prior):
+            same = next(p for p in prior if p["vals"] == c["vals"])
+            where = f"{c['cat']} / {c['title']}"
+            if allergens_of(same["row"], where) != allergens_of(c["row"], where):
+                raise SystemExit(f"{where}: listed again with the same nutrition as in {same['cat']} but different allergens: "
+                                 "re-check by hand.")
             duplicates.append((c["cat"], c["title"]))
             continue
         if prior and (c["title"], len(prior) + 1) not in HOLDBACK:
@@ -304,6 +350,7 @@ def build_items(cands: list[dict]):
         }
         for src, dst in NUTRIENT_FIELDS.items():
             it[dst] = c["vals"][src]
+        it["allergens"] = allergens_of(r, f"{c['cat']} / {c['title']}")
         items.append(it)
         if key in HOLDBACK:
             held.append((it["id"], HOLDBACK[key]))
@@ -352,6 +399,8 @@ def main() -> int:
         items=items, out=args.out, holdback=held,
         note=("Prezzo's allergen page does not say what its figures are per; they look like one whole dish as served. "
               "Dishes the page gives no full nutrition for, and a few whose figures cannot be right, are not shown."),
+        allergen_guide={"title": ALLERGEN_TITLE.format(checked_on=args.checked_on), "url": SOURCE_URL,
+                        "checked_on": args.checked_on, "may_contain_published": True},
     )
     by_cat: dict[str, int] = {}
     for i in items:

@@ -4,11 +4,19 @@
     curl -sSL -A 'Mozilla/5.0 ...' -o menu.html https://www.wagamama.com/menu      # one request, no crawl
     python3 tools/uk_extract/wagamama.py menu.html --checked-on 2026-10-06
 
-Numbers are copied from the page's embedded menu data exactly as printed (kcal, protein, carbs, fat, saturates, sugars, fibre,
-salt, all PER SERVING; kJ, per-100g and the page's sodium are not used). Only names, categories and grouping are handled here.
+Numbers are copied from the page's embedded menu data exactly as printed (kcal, kJ, protein, carbs, fat, saturates, sugars,
+fibre, salt, all PER SERVING; per-100g values and the page's sodium are not used). Only names, categories and grouping are handled here.
 https://www.wagamama.com/menu is the Great Britain site (Northern Ireland has its own page, /menu-ni, which is not read).
 
 If Wagamama adds, removes or moves items the counts below no longer match and this script stops, so a human re-checks.
+
+Allergens come from the same page: every recipe carries the menu's own allergen flags (the 14 allergens, with the named
+cereals and tree nuts as sub-flags), each "yes" (shown on the site as contains) or "maybe" (shown as "may contain allergens").
+The flag names are read from the page and mapped with common.allergen_words; an unknown flag name or value stops the script.
+Wagamama's allergen table (ALLERGEN_TABLE, the same "17 June 2026" menu) prints the same flags for the food dishes and was
+used to cross-check them on 2026-10-06. Two of the page's notices are not allergens and are reported, not read:
+"for allergen information please check the label" (bottled soft drinks, beers, wines: the flags still list what the
+drink contains, e.g. gluten for beer) and "do not display the allergen/nutrition" (an item the site hides: held back).
 
 What is left out, and why (every rule is counted, so a change in any of them stops the script):
   * Items whose nutrition the page prints as "-" (all alcoholic drinks: cocktails, beer, cider, wine, sake). Not published.
@@ -25,10 +33,16 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import wagamama_page  # noqa: E402
-from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "wagamama"
 SOURCE_URL = "https://www.wagamama.com/menu"
+ALLERGEN_TABLE = "https://menus.tenkites.com/wagamamauk/wagamamainternalallergymatrix"  # linked from wagamama.com/allergen-information
+
+# The page's own flags that are not allergens (diet marks, badges, two notices). Every other flag name must be one of the 14
+# allergens or a named cereal / tree nut (common.allergen_words), otherwise the script stops.
+CHECK_LABEL, HIDDEN = "for allergen information please check the label", "do not display the allergen/nutrition"
+NOT_ALLERGEN_FLAGS = {"vegan", "vegetarian", "vegan hero", "new", "refreshed", "lighter", CHECK_LABEL, HIDDEN}
 
 # page section path -> (expected recipe count, category, rankable, limited_time, name prefix, name suffix)
 # rankable: false for drinks, desserts and extras (sauces, pickles, a single egg); true for everything else (the chain's sides
@@ -87,7 +101,7 @@ COLUMNS = {
     "energy (kcal)": "calories", "protein (g)": "protein_g", "carb (g)": "carbs_g", "fat (g)": "fat_g",
     "sat fat (g)": "sat_fat_g", "of which sugars (g)": "sugar_g", "fibre (g)": "fiber_g", "salt (g)": "salt_g",
 }
-IGNORED = {"Energy (kj)", "sodium (g)"}  # kJ is not used; sodium is printed in g (we never convert sodium to salt or the reverse)
+IGNORED = {"Energy (kj)", "sodium (g)"}  # kJ is read separately (energy_kj); sodium is printed in g (we never convert sodium to salt or the reverse)
 
 PORK = re.compile(r"\bpork\b|bacon|\bham\b|sausage|chorizo|salami|pepperoni|pancetta", re.I)
 BEEF = re.compile(r"\bbeef\b|brisket|steak", re.I)
@@ -138,6 +152,45 @@ def numbers(recipe: dict) -> dict | None:
     return {col: number(nutr[label], recipe["name"], label) for label, col in COLUMNS.items()}
 
 
+def allergen_flags(names: dict) -> dict:
+    """flag id -> (allergen key, named cereal / tree nut or None), from the flag names the page itself defines."""
+    flags = {}
+    for fid, desc in names.items():
+        if desc in NOT_ALLERGEN_FLAGS:
+            continue
+        keys, cereals, nuts = allergen_words([desc], f"Wagamama flag {fid}")
+        flags[fid] = (keys.pop(), next(iter(cereals | nuts), None))
+    tops = {k for k, spec in flags.values() if spec is None}
+    if len(tops) != 14:
+        raise SystemExit(f"The page defines {len(tops)} allergen flags, not 14: {sorted(tops)}. Re-check the reader.")
+    return flags
+
+
+def recipe_allergens(recipe: dict, flags: dict) -> dict:
+    """The recipe's flags as printed: "yes" -> contains, "maybe" -> may contain; a sub-flag (wheat, almond nuts...) marked
+    "yes" names the cereal or nut. Anything else (an unknown value, a sub-flag outside its group) stops the script."""
+    contains, may, cereals, nuts, seen = set(), set(), set(), set(), set()
+    for fid, val, children in recipe["intols"]:
+        if fid in seen:
+            raise SystemExit(f"{recipe['name']!r}: flag {fid} is listed twice.")
+        seen.add(fid)
+        if fid not in flags:
+            continue  # a diet mark or a notice
+        key, specific = flags[fid]
+        if specific is not None or val not in ("yes", "maybe"):
+            raise SystemExit(f"{recipe['name']!r}: flag {fid} = {val!r} where an allergen group was expected.")
+        (contains if val == "yes" else may).add(key)
+        for cid, cval in children:
+            ckey, cspec = flags.get(cid, (None, None))
+            if ckey != key or cspec is None or cval not in ("yes", "maybe"):
+                raise SystemExit(f"{recipe['name']!r}: sub-flag {cid} = {cval!r} under {key!r} is not one this script knows.")
+            if cval == "yes":
+                if val != "yes":
+                    raise SystemExit(f"{recipe['name']!r}: {cspec!r} is marked as contained but {key!r} only as 'may contain'.")
+                (cereals if key == "gluten" else nuts).add(cspec)
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("html", type=Path, help="the saved https://www.wagamama.com/menu page")
@@ -147,6 +200,8 @@ def main() -> int:
 
     menu = wagamama_page.read_menu(args.html)
     recipes = menu["recipes"]
+    flags = allergen_flags(menu["intol_names"])
+    notice_ids = {fid: desc for fid, desc in menu["intol_names"].items() if desc in (CHECK_LABEL, HIDDEN)}
     if "UK" not in menu["menu_name"]:
         raise SystemExit(f"The menu is now called {menu['menu_name']!r}, not a UK menu: check the page.")
 
@@ -202,13 +257,17 @@ def main() -> int:
         notes = [note] if note else []
         kcal, kj = float(nums["calories"]), float(number(r["nutr"]["Energy (kj)"], r["name"], "Energy (kj)"))
         if abs(kj - 4.184 * kcal) > 8 and abs(kj - 4.184 * kcal) / (4.184 * kcal) > 0.05:
-            notes.append(f"Printed kJ ({r['nutr']['Energy (kj)']}) and kcal ({r['nutr']['energy (kcal)']}) do not agree (kJ is not used)")
+            notes.append(f"Printed kJ ({r['nutr']['Energy (kj)']}) and kcal ({r['nutr']['energy (kcal)']}) do not agree")
         if float(nums["fiber_g"]) > float(nums["carbs_g"]):
             notes.append("Fibre is printed higher than carbohydrate")
+        notices = sorted(notice_ids[fid] for fid, _, _ in r["intols"] if fid in notice_ids)
         items.append({
             "name": display_name(r, prefix, suffix), "category": category, "serving": "", **nums, "sodium_mg": "",
+            "energy_kj": number(r["nutr"]["Energy (kj)"], r["name"], "Energy (kj)"),
             "tags": "|".join(tags), "limited_time": limited, "rankable": rankable, "notes": "; ".join(notes),
+            "allergens": recipe_allergens(r, flags),
             "_veg": bool(tags and tags[0] == "vegetarian"), "_text": text, "_modified": r["modified"], "_ident": short,
+            "_notices": notices,
         })
 
     # 2. The rules above must leave exactly what was reviewed.
@@ -234,6 +293,15 @@ def main() -> int:
             if others:
                 i["notes"] = "; ".join(filter(None, [i["notes"], "Printed with exactly the same numbers as " + " and ".join(others)]))
 
+    # Items the site itself hides ("do not display the allergen/nutrition") are held back; "check the label" items are reported.
+    holdback = HOLDBACK + [(slug(i["name"]), "Wagamama's own menu data marks this item 'do not display the allergen/nutrition'")
+                           for i in items if HIDDEN in i["_notices"]]
+    for i in items:
+        if CHECK_LABEL in i["_notices"]:
+            print(f"'check the label' notice (flags read as printed): {i['name']}", file=sys.stderr)
+    for item_id, why in holdback:
+        print(f"held back: {item_id}: {why}", file=sys.stderr)
+
     # Report what a human should look at (not written to the data).
     unstated = [i["name"] for i in items if not i["_veg"] and not ANIMAL.search(i["_text"])]
     print("meat type not stated:", unstated or "none", file=sys.stderr)
@@ -247,7 +315,9 @@ def main() -> int:
         chain_id=CHAIN_ID, name="Wagamama", cuisine="Japanese",
         source_title=f"Wagamama UK menu and nutrition information (wagamama.com/menu; item records last modified {modified_text})",
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["wagamama", "wagamamas"], items=items, out=args.out,
-        note=NOTE, holdback=HOLDBACK)
+        note=NOTE, holdback=holdback,
+        allergen_guide={"title": f"Wagamama UK menu allergen information (wagamama.com/menu, menu \"{menu['menu_name']}\")",
+                        "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} items to {args.out}; left out: {len(unpublished)} with no published nutrition, "
           f"{len(same_id)} repeated on the gluten free menu, {len(same_numbers)} gluten free with identical numbers; "
           f"{len(variants)} gluten free variants kept (page sha256 {sha256_file(args.html)})")

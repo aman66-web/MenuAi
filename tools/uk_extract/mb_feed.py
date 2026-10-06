@@ -17,6 +17,14 @@ ones, not their own values).
 Numbers are copied as the feed prints them ("744.9625"); the pipeline does the rounding for display. Nothing here converts,
 rounds, adds up or estimates. Fibre and sodium are not in the feed and are left blank.
 
+Allergens (docs/DATA.md "Allergens"): every menu item also carries `allergens`, a map of the feed's allergen keys to
+"contains" or "mayContain" (e.g. {"gluten": "contains", "wheat": "contains", "treeNut": "mayContain"}); the brand's menu page
+shows these when a dish is opened. As with the numbers, ONLY the dish's own top-level map is read: a side, sauce or topping
+chosen under `choices` is not added in. An empty map means the feed marks none of the 14 for that dish. Keys are mapped by
+common.allergen_words (plus FEED_ALLERGEN_WORDS below); an unknown key or value stops the run. Cereals (wheat, barley, rye,
+oats) are recorded only where the feed marks them "contains"; the feed names no individual tree nuts. If any published item
+has no `allergens` map at all, the chain gets only allergen_guide.csv (the app then links to the menu instead of listing them).
+
 What a chain script decides by hand (all in its own file): which section/sub-section becomes which category, which lines are
 not menu items (swap/upgrade differences, placeholders with no values), which items are held back as impossible, and notes.
 Anything the script has not been told about stops it (see `build`), so a human re-checks after a menu change.
@@ -34,7 +42,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug, write_chain_folder  # noqa: E402
 
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 API = "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic"
@@ -134,6 +142,30 @@ def printed_nutrition(entry: Entry) -> tuple[dict, str] | None:
             raise SystemExit(f"{entry.raw!r}: {key} is {val!r}, not a plain non-negative number (a swap line or a feed change?).")
         out[col] = val
     return out, str(nut.get("energyKjPerPortion", "")).strip()
+
+
+# The feed's own allergen keys that common.allergen_words does not already know (lower-cased): "treeNut".
+FEED_ALLERGEN_WORDS = {"treenut": ("nuts", None)}
+ALLERGEN_VALUES = ("contains", "mayContain")
+
+
+def printed_allergens(entry: Entry) -> dict | None:
+    """The dish's own allergens as the feed marks them: {"contains", "may_contain", "cereals", "nuts"}; None when the item
+    carries no allergen map at all (then the chain cannot be complete). Stops on an unknown key or value."""
+    marks = entry.item.get("allergens")
+    if marks is None:
+        return None
+    if not isinstance(marks, dict):
+        raise SystemExit(f"{entry.raw!r}: allergens is {marks!r}, not a map of allergen -> 'contains'/'mayContain'.")
+    words: dict[str, list[str]] = {v: [] for v in ALLERGEN_VALUES}
+    for key, value in marks.items():
+        if value not in words:
+            raise SystemExit(f"{entry.raw!r}: allergen {key!r} is marked {value!r}; this reader knows only {ALLERGEN_VALUES}.")
+        words[value].append(key)
+    where = f"{entry.raw!r} (feed allergens)"
+    contains, cereals, nuts = allergen_words(words["contains"], where, extra=FEED_ALLERGEN_WORDS)
+    may, _, _ = allergen_words(words["mayContain"], where, extra=FEED_ALLERGEN_WORDS)
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
 
 
 # ---------------------------------------------------------------- names and tags
@@ -299,17 +331,20 @@ def build(chain: Chain, menu: dict, *, checked_on: str, out: Path | None, source
             "rankable": chain.rankable[rk] if rk else place.rankable, "meat": place.meat,
             "tags": tags, "description": e.description, "nut": nut, "veg": veg, "vegan": vegan,
             "limited": name in chain.limited, "clean": name,
-            "auto_note": auto_note(e.item, nut, kj),
+            "auto_note": auto_note(e.item, nut, kj), "allergens": printed_allergens(e),
         })
 
     # Identical repeats (the same dish listed under several headings with the same numbers) are one item.
     kept: list[dict] = []
-    seen: set[tuple] = set()
+    seen: dict[tuple, dict | None] = {}
     for r in rows:
         k = (r["name"], tuple(r["nut"].values()))
         if k in seen:
+            if seen[k] != r["allergens"]:
+                raise SystemExit(f"{r['name']!r} is listed twice with the same numbers but different allergens "
+                                 f"({seen[k]} / {r['allergens']}): re-check the feed before publishing either.")
             continue
-        seen.add(k)
+        seen[k] = r["allergens"]
         kept.append(r)
     dropped_repeats = len(rows) - len(kept)
 
@@ -342,7 +377,8 @@ def build(chain: Chain, menu: dict, *, checked_on: str, out: Path | None, source
     for r, item_id in zip(kept, ids):
         it = {"id": item_id, "name": r["name"], "category": r["category"], "serving": r["serving"],
               "tags": "|".join(r["tags"]), "limited_time": r["limited"], "rankable": r["rankable"],
-              "notes": ". ".join(x for x in (chain.notes.get(r["name"], chain.notes.get(r["clean"], "")), r["auto_note"]) if x), **r["nut"]}
+              "notes": ". ".join(x for x in (chain.notes.get(r["name"], chain.notes.get(r["clean"], "")), r["auto_note"]) if x),
+              "allergens": r["allergens"], **r["nut"]}
         items.append(it)
         for k in (r["name"], f"{r['category']}|{r['name']}", r["clean"], f"{r['category']}|{r['clean']}"):
             if k in chain.holdback:
@@ -363,10 +399,16 @@ def build(chain: Chain, menu: dict, *, checked_on: str, out: Path | None, source
 
     date = (menu.get("lastModified") or "")[:10]
     source_title = f"{chain.source_title_prefix}: menu '{menu.get('name', '').strip()}', last modified {date}"
+    # The same feed is the brand's allergen information: the menu page shows each dish's allergens from it.
+    ing_date = (menu.get("lastIngredientsModified") or menu.get("lastModified") or "")[:10]
+    guide = {"title": f"{chain.name} allergens in its online menu (M&B menu feed): menu '{squash(menu.get('name'))}', "
+                      f"ingredients last modified {ing_date}",
+             "url": chain.source_url, "checked_on": checked_on,
+             "may_contain_published": any(v == "mayContain" for e in ents for v in (e.item.get("allergens") or {}).values())}
     folder = write_chain_folder(chain_id=chain.chain_id, name=chain.name, cuisine=chain.cuisine, source_title=source_title,
                                 source_url=chain.source_url, checked_on=checked_on, aliases=chain.aliases, items=items,
-                                out=out, note=chain.note_txt, holdback=holdback)
-    return {"folder": folder, "items": items, "holdback": holdback, "skipped": skipped, "rows": kept,
+                                out=out, note=chain.note_txt, holdback=holdback, allergen_guide=guide)
+    return {"folder": folder, "items": items, "holdback": holdback, "skipped": skipped, "rows": kept, "allergen_guide": guide,
             "repeats_dropped": dropped_repeats, "menu_name": menu.get("name"), "last_modified": menu.get("lastModified"),
             "source_sha256": hashlib.sha256(source_file.read_bytes()).hexdigest() if source_file else ""}
 
@@ -405,4 +447,10 @@ def run(chain: Chain, argv: list[str] | None = None) -> int:
         print(f"  left out: {raw!r}: {why}")
     for item_id, why in rep["holdback"]:
         print(f"  held back: {item_id}: {why}")
+    missing = [i["name"] for i in rep["items"] if i["allergens"] is None]
+    if missing:
+        print(f"  allergens: {len(missing)} items carry no allergen map ({missing[:5]}...): allergen_guide.csv only, no allergens.csv")
+    else:
+        print(f"  allergens: all {len(rep['items'])} items read; may-contain published: {rep['allergen_guide']['may_contain_published']}; "
+              f"guide: {rep['allergen_guide']['title']}")
     return 0

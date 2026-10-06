@@ -19,6 +19,7 @@ does.)
 Six pages hold the whole menu: all-day, breakfast, bits-in-between, coffee, drinks, kids. Save each one once (one request
 per second) into a folder as <menu>.html and give that folder to leon.py.
 """
+from __future__ import annotations
 import json
 import re
 from collections import OrderedDict

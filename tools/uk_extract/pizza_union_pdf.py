@@ -9,7 +9,14 @@ line. Some item names wrap onto a second line (gelato, one cheese), and allergen
 found by its numbers: each number is given to the column whose header it sits under (the header words are read from the page
 and must be where we expect them), the name is every word in the name column nearest to that row, and Yes/No is read from the
 Vegans / Vegetarians columns on the row's own line.
+
+Allergens ("Contains: Allergens, Alcohol" column, between Salt and Vegans): the cell's text is printed vertically centred on
+its row and wraps onto up to three lines 10 pt apart (rows are about 14 pt apart). The reader joins consecutive text lines of
+that column into one cell when they are less than ALLERGEN_WRAP apart, and gives the cell to the row whose centre is within
+ALLERGEN_REACH of the cell's centre; a cell that fits no row, or two cells for one row, stops the run. The text is returned
+exactly as printed (`allergen_text`, '' when the cell is blank); pizza_union.py turns it into allergen keys.
 """
+from __future__ import annotations
 import html
 import re
 import subprocess
@@ -21,6 +28,8 @@ KEYS = ("kcal", "kj", "fat", "sat", "carbs", "sugars", "protein", "salt")
 LINE_TOL = 1.5          # words whose yMin differs by less than this are on one line
 NAME_MAX_X = 118.0      # the name column ends here (the kcal column starts at about 120)
 NAME_REACH = 20.0       # a name word sits at most this far (in points) above or below the row it belongs to
+ALLERGEN_WRAP = 11.5    # wrapped lines of one allergen cell are 10 pt apart; separate rows are at least 13 pt apart
+ALLERGEN_REACH = 3.0    # an allergen cell is centred on its row: its centre is at most this far from the row's centre
 # header text that must sit over each numeric column, in order
 HEADER_TEXT = [("Energy", "(kcal)"), ("Energy", "(kJ)"), ("Fat", "(g)"), ("Saturated", "Fat"), ("Carbohydrates", "(g)"),
                ("Sugars", "(g)"), ("Protein", "(g)"), ("Salt", "(g)")]
@@ -71,6 +80,8 @@ def _columns(lines) -> tuple[list[tuple[float, float]], float, float, float]:
             veg = {w[4]: (w[0] + w[2]) / 2 for w in ln}
             if "Vegans" not in veg or "Vegeterians" not in veg:
                 raise PdfLayoutError("Vegans / Vegeterians header not found")
+            if "Allergens," not in veg:
+                raise PdfLayoutError("Allergens header not found")
             return spans, veg["Vegans"], veg["Vegeterians"], ln[0][1]
     raise PdfLayoutError("no table header on this page")
 
@@ -86,9 +97,36 @@ def renewed_dates(pdf: Path) -> list[str]:
     return out
 
 
+def _allergen_cells(page_rows: list[dict], words: list[tuple], pno: int) -> None:
+    """Join the allergen column's words into cells and give each cell to its row (see the module docstring)."""
+    lines: list[list] = []
+    for w in sorted(words, key=lambda w: (w[1], w[0])):
+        if lines and abs(lines[-1][0][1] - w[1]) < LINE_TOL:
+            lines[-1].append(w)
+        else:
+            lines.append([w])
+    cells: list[list[list]] = []
+    for ln in lines:
+        if cells and ln[0][1] - cells[-1][-1][0][1] < ALLERGEN_WRAP:
+            cells[-1].append(ln)
+        else:
+            cells.append([ln])
+    for r in page_rows:
+        r["allergen_text"] = ""
+    for cell in cells:
+        centre = sum((ln[0][1] + ln[0][3]) / 2 for ln in cell) / len(cell)
+        text = " ".join(" ".join(w[4] for w in sorted(ln, key=lambda w: w[0])) for ln in cell)
+        r = min(page_rows, key=lambda r: abs(r["y"] - centre))
+        if abs(r["y"] - centre) > ALLERGEN_REACH:
+            raise PdfLayoutError(f"page {pno}: allergen text {text!r} is not centred on any row")
+        if r["allergen_text"]:
+            raise PdfLayoutError(f"page {pno}: two allergen cells for one row: {r['allergen_text']!r} and {text!r}")
+        r["allergen_text"] = text
+
+
 def read_rows(pdf: Path) -> list[dict]:
     """Every table row of the guide in reading order: {section, name, kcal, kj, fat, sat, carbs, sugars, protein, salt,
-    vegan, vegetarian, page}. Cells are strings exactly as printed ('n.d.*' where the chain has no data)."""
+    vegan, vegetarian, allergen_text, page}. Cells are strings exactly as printed ('n.d.*' where the chain has no data)."""
     rows: list[dict] = []
     for pno, words in enumerate(_pages(pdf), 1):
         lines = _lines(words)
@@ -96,9 +134,12 @@ def read_rows(pdf: Path) -> list[dict]:
             continue  # page 1 (recipes), not a nutrition table
         spans, vegan_x, vegetarian_x, header_y = _columns(lines)
         centres = [(a + b) / 2 for a, b in spans]
+        vegans_left = next(w[0] for ln in lines if ln[0][1] == header_y for w in ln if w[4] == "Vegans")
+        allergen_x = (spans[-1][1], vegans_left)   # between the Salt column and the Vegans column
         section = None
         page_rows: list[dict] = []
         name_words: list[tuple[float, float, str]] = []   # (y centre, x, text) of everything in the name column
+        allergen_words: list[tuple] = []
         for ln in lines:
             if ln[0][1] <= header_y + 1:
                 continue  # title block and header line
@@ -128,6 +169,7 @@ def read_rows(pdf: Path) -> list[dict]:
                 page_rows.append({"section": section, "y": sum((w[1] + w[3]) / 2 for w in nums) / len(nums), **cells, **yes,
                                   "page": pno, "name_parts": []})
                 name_words.extend(((w[1] + w[3]) / 2, w[0], w[4]) for w in ln if w[2] < NAME_MAX_X)
+                allergen_words.extend(w for w in ln if allergen_x[0] < w[0] and w[2] < allergen_x[1])
                 continue
             left = [w for w in ln if w[2] < NAME_MAX_X]
             right = [w for w in ln if w[2] >= NAME_MAX_X]
@@ -135,6 +177,11 @@ def read_rows(pdf: Path) -> list[dict]:
                 name_words.extend(((w[1] + w[3]) / 2, w[0], w[4]) for w in ln)
             elif right and not left and ln[0][0] > NAME_MAX_X and ln[0][0] < 560 and texts.replace(" ", "").replace("-", "").replace("*", "").replace(".", "").replace("'", "").isupper() and not texts.startswith("*N.D"):
                 section = texts
+            elif right and not left:
+                inside = [w for w in ln if allergen_x[0] < w[0] and w[2] < allergen_x[1]]
+                if inside and len(inside) != len(ln):
+                    raise PdfLayoutError(f"page {pno}: a line is partly in the allergen column: {texts!r}")
+                allergen_words.extend(inside)
             elif left and right:
                 raise PdfLayoutError(f"page {pno}: an unexpected line mixes names and other text: {texts!r}")
         # names: the row's own words plus name-only words (wrapped names), each given to the nearest row
@@ -143,6 +190,7 @@ def read_rows(pdf: Path) -> list[dict]:
             if abs(r["y"] - y) > NAME_REACH:
                 raise PdfLayoutError(f"page {pno}: name text {t!r} is not near any row")
             r["name_parts"].append((y, x, t))
+        _allergen_cells(page_rows, allergen_words, pno)
         for r in page_rows:
             parts = sorted(r["name_parts"], key=lambda p: (round(p[0] / LINE_TOL), p[1]))
             r["name"] = " ".join(t for _, _, t in parts)

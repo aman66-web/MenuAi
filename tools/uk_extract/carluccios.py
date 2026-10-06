@@ -14,6 +14,7 @@ sugars, fat, saturates, fibre, salt; kJ is not used). The steak, its sides and t
 the same page embeds, which carries the same figures the page's own nutrition pop-up shows. Only names, categories and
 the choices below are typed by hand. If the page gains or loses dishes, or a new section appears, the run stops.
 """
+from __future__ import annotations
 import argparse
 import re
 import sys
@@ -42,6 +43,11 @@ NOTES = {"Sirloin 8oz": "The steak only: the side (fries or roasted potatoes, li
          "Antipasti Board (To Share)": "A sharing board",
          "Add Chicken": "Printed as an add-on to the Risotto ai Funghi", "Add Truffle Oil": "Printed as an add-on to the Risotto ai Funghi",
          "Add Extra Pancetta": "An add-on"}
+# The same page prints each dish's allergens in its pop-up ("Contains: ...", "May contain: ...", or "This dish contains none
+# of the listed allergens"; the steak, its sides and sauces in the dish data the page embeds) and carries the label ids of
+# its own allergen filter; tenkites_c.allergens_checked cross-checks the two.
+ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
+ALLERGEN_TITLE = "Carluccio's Allergen & Nutrition Information, All Day Menu (Ten Kites hub page, no date printed; read 2026-10-06)"
 SOURCE_TITLE = "Carluccio's Allergen & Nutrition Information, All Day Menu (hub page, no date printed; read 2026-10-06)"
 NOTE = ("Figures are per menu item from Carluccio's All Day Menu, calculated by the chain from typical weights and measures. "
         "Its separate Pizza, Kids, Dessert and other menus are not included; dishes marked * are on the set menu.")
@@ -73,7 +79,7 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
             raise SystemExit(f"new section {r['section']!r}: add it to SECTIONS (category, rankable).")
         category, rankable = SECTIONS[r["section"]]
         name, serving = tidy(r["name"])
-        nums, missing = tk.numbers(r["nutrients"], name)
+        nums, missing = tk.numbers(r["nutrients"], name, extras=True)
         if missing:
             report.append(f"skipped {name!r}: {missing} not printed")
             continue
@@ -88,7 +94,11 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
             report.append(f"meat type not stated: {name}")
         items.append({"id": slug(name), "name": name, "category": category, "serving": serving, **nums,
                       "tags": "|".join((["vegetarian"] if vegetarian else []) + meat),
-                      "rankable": rankable and name not in NOT_RANKABLE, "notes": NOTES.get(name, "")})
+                      "rankable": rankable and name not in NOT_RANKABLE, "notes": NOTES.get(name, ""),
+                      "allergens": tk.allergens_checked(r, f"{FILE} {name}", ALLERGEN_EXTRA)})
+    report += [f"allergens: {n!r} is printed twice with the same numbers but different allergens: not used"
+               for n in tk.allergen_conflicts(items)]
+    report += [f"allergens: no allergen information to read for {i['name']!r}" for i in items if i["allergens"] is None]
     kept, dropped = tk.dedupe_items(items)
     report += [f"dropped exact duplicate: {n}" for n in dropped]
     names = [i["name"] for i in kept]
@@ -114,7 +124,9 @@ def main() -> int:
     items, holdback, report = build(args.pages)
     out = write_chain_folder(chain_id=CHAIN_ID, name="Carluccio's", cuisine="Italian", source_title=SOURCE_TITLE, source_url=URL,
                              checked_on=args.checked_on, aliases=["carluccio's", "carluccios"], items=items, out=args.out,
-                             note=NOTE, holdback=holdback)
+                             note=NOTE, holdback=holdback,
+                             allergen_guide={"title": ALLERGEN_TITLE, "url": URL, "checked_on": args.checked_on,
+                                             "may_contain_published": True})
     print(f"{FILE} sha256 {tk.sha256_text_file(args.pages / FILE)}")
     print("\n".join(report))
     print(f"wrote {len(items)} items to {out}")

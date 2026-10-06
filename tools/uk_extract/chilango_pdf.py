@@ -8,11 +8,20 @@ protein, salt (g). The box pages end with a "TOTAL" row that holds one number (k
 numbers and is vertically centred on them, so a long name can wrap above and below the numbers; this reads word
 coordinates (`pdftotext -bbox-layout`) and gives each row the name words that sit in its own band of the page.
 Dietary codes (V / VE) sit right of the salt column in the same band.
+
+Allergens: the "Contains Allergens" and "May Contain" columns are read by tortilla_pdf.allergen_cells (Tortilla's guide, same
+group, same design): each row gets "contains_text", "may_text" (the printed words) and "allergen_problem" ('' when the cell was
+read cleanly).
 """
+from __future__ import annotations
 import html
 import re
 import subprocess
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from tortilla_pdf import allergen_cells  # noqa: E402
 
 WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>')
 NUMBER = re.compile(r"^\d+(?:\.\d+)?$")
@@ -108,4 +117,5 @@ def _read_page(words: list[tuple[float, float, float, float, str]]) -> list[dict
         else:
             printed["kcal"] = nums[0]
         out.append(printed)
+    allergen_cells(words, rows, out, min(headers), footer_y)
     return out

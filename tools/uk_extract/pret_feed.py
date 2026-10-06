@@ -8,7 +8,12 @@ https://www.pret.co.uk/_next/data/<buildId>/en-GB/products/categories/<slug>.jso
 
 Numbers are returned exactly as printed (strings such as "29.3", "<0.5") so nothing is converted or estimated here.
 Politeness: one request per category, at most one per second, a normal browser user-agent.
+
+Allergens: each product record carries an `allergens` list (labels such as "Wheat", "Milk", "Pine Nuts"); the barista-drink
+variants (milk / decaf) carry none of their own. `fetch()` also saves the site's Allergen Guide page (ALLERGEN_PAGE), which
+links the current Allergen Guide PDF, so pret.py can check that the guide it links to is still the current one.
 """
+from __future__ import annotations
 import json
 import re
 import time
@@ -18,6 +23,8 @@ from pathlib import Path
 BASE = "https://www.pret.co.uk"
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 ENTRY_PAGE = BASE + "/en-GB/products/categories/hot-drinks"
+ALLERGEN_PAGE = BASE + "/en-GB/allergenguide"
+ALLERGEN_PAGE_FILE = "allergenguide.html"
 
 # The site's top-level product categories at extraction time. If the live site lists different ones, pret.py stops.
 CATEGORY_SLUGS = [
@@ -58,7 +65,18 @@ def fetch(outdir: Path) -> dict[str, Path]:
         p = outdir / f"{slug}.json"
         p.write_bytes(data)
         paths[slug] = p
+    time.sleep(1.0)
+    (outdir / ALLERGEN_PAGE_FILE).write_bytes(_get(ALLERGEN_PAGE))
     return paths
+
+
+def allergen_guide_pdfs(rawdir: Path) -> list[str] | None:
+    """The Allergen Guide PDF links on the saved Allergen Guide page (None if the page was not saved)."""
+    p = rawdir / ALLERGEN_PAGE_FILE
+    if not p.exists():
+        return None
+    html = p.read_text(encoding="utf-8", errors="replace")
+    return sorted({"https:" + u for u in re.findall(r'"(?:https:)?(//assets\.ctfassets\.net/[^"]*Allergen_Guide[^"]*\.pdf)"', html)})
 
 
 def load(rawdir: Path) -> list[tuple[str, dict]]:

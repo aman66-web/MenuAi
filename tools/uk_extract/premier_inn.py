@@ -24,7 +24,13 @@ Rules applied when the same dish is printed more than once:
       - a version found only in the Hub guide -> its own item in "Hub by Premier Inn", named "... (Hub)";
       - two or more versions on the standard menus -> NONE is published (the guide does not say which applies): all are
         written to items.csv and listed in holdback.csv.
+
+Allergens come from the same guides: every table prints "Contains: ..." (naming the cereals and tree nuts in brackets) and
+"May Contain: ..." ("No major allergens" when none). A dish printed more than once must carry the same allergens every time;
+if two prints of one published dish disagree, the script stops (nothing is merged or chosen). energy_kj is the printed
+per-portion kJ.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import re
@@ -34,12 +40,18 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import premier_inn_pdf  # noqa: E402
-from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "premier-inn"
 SOURCE_URL = "https://www.premierinn.com/content/dam/global/restaurants/allergy-nutrition-info/allergy-nutrition-thyme-2.pdf"
 SOURCE_TITLE = ("Premier Inn allergy and nutrition guides: restaurant menus (published 8 April 2026), Unlimited Cooked "
                 "Breakfast (9 April 2026) and Hub by Premier Inn (20 April 2026)")
+ALLERGEN_TITLE = ("Premier Inn Allergy and dietary information guides: restaurant menus (published 8 April 2026), Unlimited Cooked "
+                  "Breakfast (9 April 2026) and Hub by Premier Inn (20 April 2026)")
+# Premier Inn's own printed spellings (common.allergen_words knows the rest). "Other Cereals containing (Oats)" is printed in the
+# May Contain column; "Brazil" inside "Tree Nuts (...)".
+ALLERGEN_EXTRA = {"other cereals containing": ("gluten", None), "brazil": ("nuts", "brazil nut")}
+NO_ALLERGENS = "No major allergens"
 ALIASES = ["premier inn", "premier inn hotel", "premier inn restaurant", "hub by premier inn"]
 NOTE = ("Values are per portion from Premier Inn's own guides for its restaurants, breakfast buffet and Hub by Premier Inn "
         "(its drinks menu lists allergens only). Menus differ by hotel, so not every item is served everywhere. Dishes the "
@@ -193,6 +205,50 @@ def meat_tags(base: str, diet: str) -> list[str]:
     return tags
 
 
+def _split_top(text: str) -> list[str]:
+    """'Cereals containing Gluten (Barley, Wheat), Milk' -> ['Cereals containing Gluten (Barley, Wheat)', 'Milk']."""
+    parts, depth, cur = [], 0, ""
+    for ch in text:
+        depth += (ch == "(") - (ch == ")")
+        if ch == "," and depth == 0:
+            parts.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    if depth != 0:
+        raise SystemExit(f"unbalanced brackets in the printed allergens {text!r}")
+    return [p.strip() for p in parts + [cur]]
+
+
+def _allergen_column(text: str, where: str) -> tuple[set, set, set]:
+    """One printed column ("Cereals containing Gluten (Wheat), Milk" or "No major allergens") -> (keys, cereals, nuts)."""
+    if text == NO_ALLERGENS:
+        return set(), set(), set()
+    keys, cereals, nuts = set(), set(), set()
+    for part in _split_top(text):
+        head, _, inner = part.partition("(")
+        k, _, _ = allergen_words([head], where, ALLERGEN_EXTRA)
+        if not head.strip() or len(k) != 1:
+            raise SystemExit(f"{where}: cannot read the printed allergen {part!r} in {text!r}")
+        if inner:
+            ki, ci, ni = allergen_words(inner.rstrip().rstrip(")").split(","), where, ALLERGEN_EXTRA)
+            if ki != k:
+                raise SystemExit(f"{where}: {part!r}: the bracketed words are not {sorted(k)}")
+            cereals |= ci
+            nuts |= ni
+        keys |= k
+    return keys, cereals, nuts
+
+
+def allergens_of(r: dict) -> dict:
+    """The printed Contains / May Contain columns of one table -> the allergens dict common.write_chain_folder expects.
+    Cereals and nuts are kept only from the Contains column (the May Contain brackets name cereals/nuts of a trace)."""
+    where = f"{r['source_label']} page {r['page']} {r['printed_name']!r}"
+    contains, cereals, nuts = _allergen_column(r["contains_text"], where + " Contains")
+    may, _, _ = _allergen_column(r["may_text"], where + " May Contain")
+    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+
+
 # ---- reading ---------------------------------------------------------------------------------------------------------
 def collect(restaurant: Path, breakfast: Path, hub: Path):
     """Read the three PDFs. Returns (rows, row counts per source/menu, hash of the printed headings and names).
@@ -314,9 +370,16 @@ def build(cands):
             pages = sorted({(c["source_label"], c["page"]) for c in cs})
             where = "; ".join(f"{lab} p{'/'.join(str(p) for l2, p in pages if l2 == lab)}" for lab in OrderedDict((l, 0) for l, _ in pages))
             c0 = cs[0]
+            prints = {repr(sorted((k, sorted(v)) for k, v in allergens_of(c).items())): c for c in cs}
+            if len(prints) > 1:
+                raise SystemExit(f"{name!r}: the guides print the same dish with different allergens "
+                                 + "; ".join(f"{c['source_label']} p{c['page']}: Contains {c['contains_text']!r} / May Contain {c['may_text']!r}"
+                                             for c in prints.values()) + ". Decide by hand how to treat it before publishing.")
+            kjs = {c["kj"] for c in cs}
             item = dict(name=name, category=cat, serving=serving_of(split_diet(raw)[0]),
                         calories=c0["kcal"], protein_g=c0["protein"], carbs_g=c0["carbs"], fat_g=c0["fat"], sat_fat_g=c0["sat"],
-                        sugar_g=c0["sugars"], salt_g=c0["salt"],
+                        sugar_g=c0["sugars"], salt_g=c0["salt"], energy_kj=c0["kj"] if len(kjs) == 1 else "",
+                        allergens=allergens_of(c0),
                         tags="|".join((["vegetarian"] if diet else []) + meat_tags(base, diet)),
                         rankable=all(c["rank"] for c in core), notes=where)
             if kind == "ngci":
@@ -378,7 +441,8 @@ def main() -> int:
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Premier Inn", cuisine="Hotel restaurant", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=ALIASES,
-        items=[{k: v for k, v in i.items() if not k.startswith("_")} for i in items], out=args.out, note=NOTE, holdback=held)
+        items=[{k: v for k, v in i.items() if not k.startswith("_")} for i in items], out=args.out, note=NOTE, holdback=held,
+        allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     published = len(items) - len(held)
     print(f"wrote {len(items)} items ({published} published, {len(held)} held back) to {out}")
     for label, pdf in (("restaurant", args.restaurant), ("breakfast", args.breakfast), ("hub", args.hub)):

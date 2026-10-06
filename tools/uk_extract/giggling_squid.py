@@ -59,6 +59,10 @@ PREFIX = {
 # Rows the guide itself prints impossibly: left out of the published menu (never corrected), listed in the check report.
 HOLDBACK: dict[str, str] = {}
 
+# The same pages print each dish's allergens three ways (the 14 yes/may/no columns, the card's "Contains:" / "May contain:"
+# lines naming the cereals and tree nuts, and the dish's label ids); tenkites_b.allergens_from_rec checks they agree.
+ALLERGEN_TITLE = "Giggling Squid allergens guide (viewthe.menu/kawv, files dated 6 October 2026)"
+
 EXPECTED_ROWS = 681
 
 
@@ -115,7 +119,8 @@ def main() -> int:
     short = {m[0]: m[2] for m in MENUS}
     long = {m[0]: m[3] for m in MENUS}
 
-    rows, excluded, skipped, total = tk.collect_rows(labels, paths, "table", name_of, category, skip_fn=skip, menu_fn=menu_of)
+    rows, excluded, skipped, total = tk.collect_rows(labels, paths, "table", name_of, category, skip_fn=skip, menu_fn=menu_of,
+                                                     allergen_fn=lambda label, rec: tk.allergens_from_rec(rec, f"{label} {rec['name']}"))
     if total != EXPECTED_ROWS:
         print(f"The pages hold {total} rows but this script was written for {EXPECTED_ROWS}: re-check the menu list "
               "and the mappings against the pages, then update EXPECTED_ROWS.", file=sys.stderr)
@@ -136,6 +141,7 @@ def main() -> int:
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note="Values are per dish as served. Dishes that differ on the non gluten, kids, click & collect or Deliveroo menus appear once per version; "
              "bundles for several people are not included.",
+        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in labels:
         print(f"{label:14} sha256 {sha256_file(paths[label])[:16]}  {tk.page_title(paths[label])}")
@@ -144,6 +150,7 @@ def main() -> int:
         by_menu[label] = by_menu.get(label, 0) + 1
     print("rows without calories/protein/carbs/fat, by menu:", by_menu)
     print(f"skipped (bundles): {len(skipped)}")
+    print("\n".join(tk.ALLERGEN_NOTES))
     print(f"wrote {len(items)} items to {folder}; {len(excluded)} rows without the four required numbers; "
           f"{total - len(excluded) - len(skipped) - len(items)} duplicate rows dropped")
     return 0

@@ -17,6 +17,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "The guide prints no ingredients, so the pork and beef filters only know what an item's name says (bacon, sausage, beef); its burgers and chili don't state their meat. The five dip pots are not listed because the guide prints them only as 100 g each.",
+ "allergenGuide": {
+  "title": "Wendy's UK National Nutrition Information, allergen columns (September 2026)",
+  "url": "https://www.wendys.com/sites/default/files/2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Burgers",
   "Chicken",
@@ -43,13 +50,28 @@
     "saturatedFat": 10,
     "sugar": 8.2,
     "fiber": 1.7,
-    "salt": 2.2
+    "salt": 2.2,
+    "weight": 213
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "wendys-double",
@@ -64,13 +86,28 @@
     "saturatedFat": 22,
     "sugar": 9.7,
     "fiber": 1.7,
-    "salt": 4.4
+    "salt": 4.4,
+    "weight": 324
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "wendys-triple",
@@ -85,13 +122,28 @@
     "saturatedFat": 33,
     "sugar": 10,
     "fiber": 1.7,
-    "salt": 6.1
+    "salt": 6.1,
+    "weight": 422
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "baconator",
@@ -106,7 +158,8 @@
     "saturatedFat": 26,
     "sugar": 8.5,
     "fiber": 1.7,
-    "salt": 5.8
+    "salt": 5.8,
+    "weight": 298
    },
    "tags": [
     "contains_pork"
@@ -114,7 +167,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "jr-cheeseburger-deluxe",
@@ -129,13 +196,28 @@
     "saturatedFat": 6.3,
     "sugar": 7.3,
     "fiber": 1.4,
-    "salt": 1.9
+    "salt": 1.9,
+    "weight": 151
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "jr-bacon-cheeseburger",
@@ -150,7 +232,8 @@
     "saturatedFat": 7.4,
     "sugar": 5.9,
     "fiber": 1.4,
-    "salt": 2.3
+    "salt": 2.3,
+    "weight": 143
    },
    "tags": [
     "contains_pork"
@@ -158,7 +241,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-bacon-melt-single-cheeseburger",
@@ -173,7 +270,8 @@
     "saturatedFat": 19,
     "sugar": 15,
     "fiber": 2.3,
-    "salt": 3.9
+    "salt": 3.9,
+    "weight": 266
    },
    "tags": [
     "contains_pork"
@@ -181,7 +279,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-bacon-melt-double-cheeseburger",
@@ -196,7 +307,8 @@
     "saturatedFat": 32,
     "sugar": 15,
     "fiber": 2.3,
-    "salt": 5.7
+    "salt": 5.7,
+    "weight": 393
    },
    "tags": [
     "contains_pork"
@@ -204,7 +316,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-bacon-melt-triple-cheeseburger",
@@ -219,7 +344,8 @@
     "saturatedFat": 46,
     "sugar": 16,
     "fiber": 2.3,
-    "salt": 7.4
+    "salt": 7.4,
+    "weight": 520
    },
    "tags": [
     "contains_pork"
@@ -227,7 +353,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spicy-chicken",
@@ -242,13 +381,28 @@
     "saturatedFat": 2.4,
     "sugar": 6.3,
     "fiber": 2.4,
-    "salt": 2.2
+    "salt": 2.2,
+    "weight": 177
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "classic-chicken",
@@ -263,13 +417,29 @@
     "saturatedFat": 2.5,
     "sugar": 6.4,
     "fiber": 2.5,
-    "salt": 2.5
+    "salt": 2.5,
+    "weight": 189
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "avocado-chicken-club",
@@ -284,13 +454,29 @@
     "saturatedFat": 8.7,
     "sugar": 6.5,
     "fiber": 2.4,
-    "salt": 3.4
+    "salt": 3.4,
+    "weight": 240
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "jr-crispy-chicken-sandwich",
@@ -305,13 +491,27 @@
     "saturatedFat": 1.7,
     "sugar": 4.5,
     "fiber": 1.4,
-    "salt": 1.3
+    "salt": 1.3,
+    "weight": 112
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-bacon-melt-classic-chicken",
@@ -326,7 +526,8 @@
     "saturatedFat": 7.9,
     "sugar": 15,
     "fiber": 3,
-    "salt": 4.1
+    "salt": 4.1,
+    "weight": 227
    },
    "tags": [
     "contains_pork"
@@ -334,7 +535,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "bbq-bacon-melt-spicy-chicken",
@@ -349,7 +565,8 @@
     "saturatedFat": 7.9,
     "sugar": 15,
     "fiber": 3,
-    "salt": 4.1
+    "salt": 4.1,
+    "weight": 227
    },
    "tags": [
     "contains_pork"
@@ -357,7 +574,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "4-pc-boneless-bites",
@@ -372,13 +603,25 @@
     "saturatedFat": 2,
     "sugar": 0,
     "fiber": 0,
-    "salt": 1.3
+    "salt": 1.3,
+    "weight": 72
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "8-pc-boneless-bites",
@@ -393,13 +636,25 @@
     "saturatedFat": 3.9,
     "sugar": 0,
     "fiber": 0,
-    "salt": 2.6
+    "salt": 2.6,
+    "weight": 144
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "11-pc-boneless-bites",
@@ -414,13 +669,25 @@
     "saturatedFat": 5.3,
     "sugar": 0,
     "fiber": 0,
-    "salt": 3.6
+    "salt": 3.6,
+    "weight": 198
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "12-pc-boneless-bites",
@@ -435,13 +702,25 @@
     "saturatedFat": 5.8,
     "sugar": 0,
     "fiber": 0,
-    "salt": 3.9
+    "salt": 3.9,
+    "weight": 216
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "20-pc-boneless-bites",
@@ -456,13 +735,25 @@
     "saturatedFat": 9.8,
     "sugar": 0,
     "fiber": 0,
-    "salt": 6.5
+    "salt": 6.5,
+    "weight": 360
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "4-pc-spicy-boneless-bites",
@@ -477,13 +768,25 @@
     "saturatedFat": 0.7,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.51
+    "salt": 0.51,
+    "weight": 72
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "8-pc-spicy-boneless-bites",
@@ -498,13 +801,25 @@
     "saturatedFat": 1.5,
     "sugar": 0,
     "fiber": 0,
-    "salt": 1
+    "salt": 1,
+    "weight": 144
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "11-pc-spicy-boneless-bites",
@@ -519,13 +834,25 @@
     "saturatedFat": 2,
     "sugar": 0,
     "fiber": 1,
-    "salt": 1.4
+    "salt": 1.4,
+    "weight": 198
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "12-pc-spicy-boneless-bites",
@@ -540,13 +867,25 @@
     "saturatedFat": 2.2,
     "sugar": 0,
     "fiber": 1,
-    "salt": 1.6
+    "salt": 1.6,
+    "weight": 216
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "20-pc-spicy-boneless-bites",
@@ -561,13 +900,25 @@
     "saturatedFat": 3.7,
     "sugar": 0,
     "fiber": 0,
-    "salt": 2.54
+    "salt": 2.54,
+    "weight": 360
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "8-pc-buffalo-saucy-boneless-bites",
@@ -582,13 +933,25 @@
     "saturatedFat": 4,
     "sugar": 0.5,
     "fiber": 0,
-    "salt": 5
+    "salt": 5,
+    "weight": 182
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "12-pc-buffalo-saucy-classic-boneless-bites",
@@ -603,13 +966,25 @@
     "saturatedFat": 6,
     "sugar": 0.8,
     "fiber": 0,
-    "salt": 7.5
+    "salt": 7.5,
+    "weight": 272
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "8-pc-buffalo-saucy-spicy-boneless-bites",
@@ -624,13 +999,25 @@
     "saturatedFat": 1.6,
     "sugar": 0.6,
     "fiber": 0.7,
-    "salt": 3.4
+    "salt": 3.4,
+    "weight": 182
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "12-pc-buffalo-saucy-spicy-boneless-bites",
@@ -645,13 +1032,25 @@
     "saturatedFat": 2.4,
     "sugar": 1,
     "fiber": 1,
-    "salt": 5.1
+    "salt": 5.1,
+    "weight": 272
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "8-pc-bbq-saucy-classic-boneless-bites",
@@ -666,13 +1065,25 @@
     "saturatedFat": 4,
     "sugar": 21,
     "fiber": 0,
-    "salt": 3.4
+    "salt": 3.4,
+    "weight": 205
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "12-pc-bbq-saucy-classic-boneless-bites",
@@ -687,13 +1098,25 @@
     "saturatedFat": 5.9,
     "sugar": 26,
     "fiber": 0,
-    "salt": 4.9
+    "salt": 4.9,
+    "weight": 294
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "8-pc-bbq-saucy-spicy-boneless-bites",
@@ -708,13 +1131,25 @@
     "saturatedFat": 1.6,
     "sugar": 21,
     "fiber": 0.7,
-    "salt": 1.8
+    "salt": 1.8,
+    "weight": 205
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "12-pc-bbq-saucy-spicy-boneless-bites",
@@ -729,13 +1164,25 @@
     "saturatedFat": 2.3,
     "sugar": 26,
     "fiber": 1,
-    "salt": 2.5
+    "salt": 2.5,
+    "weight": 294
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "3-pc-chicken-tenders",
@@ -750,13 +1197,24 @@
     "saturatedFat": 1.2,
     "sugar": 0.7,
     "fiber": 1.3,
-    "salt": 4
+    "salt": 4,
+    "weight": 134
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "4-pc-chicken-tenders",
@@ -771,13 +1229,24 @@
     "saturatedFat": 1.6,
     "sugar": 0.9,
     "fiber": 1.8,
-    "salt": 5.3
+    "salt": 5.3,
+    "weight": 178
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "5-pc-chicken-tenders",
@@ -792,13 +1261,24 @@
     "saturatedFat": 2,
     "sugar": 1.1,
     "fiber": 2.2,
-    "salt": 6.7
+    "salt": 6.7,
+    "weight": 223
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "6-pc-chicken-tenders",
@@ -813,13 +1293,24 @@
     "saturatedFat": 2.4,
     "sugar": 1.4,
     "fiber": 2.6,
-    "salt": 8
+    "salt": 8,
+    "weight": 267
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "avocado-wrap-w-chicken-tender",
@@ -834,13 +1325,24 @@
     "saturatedFat": 2.5,
     "sugar": 2.3,
     "fiber": 2.4,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 146
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "avocado-wrap-w-halloumi-fries",
@@ -855,13 +1357,24 @@
     "saturatedFat": 7.2,
     "sugar": 4.2,
     "fiber": 2.8,
-    "salt": 1.5
+    "salt": 1.5,
+    "weight": 152
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "avocado-wrap-w-halloumi-fries-duo-wrap",
@@ -876,13 +1389,24 @@
     "saturatedFat": 14,
     "sugar": 8.4,
     "fiber": 5.6,
-    "salt": 3
+    "salt": 3,
+    "weight": 304
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "signature-wrap-w-chicken-tender",
@@ -897,13 +1421,27 @@
     "saturatedFat": 4.5,
     "sugar": 1.8,
     "fiber": 2.4,
-    "salt": 2
+    "salt": 2,
+    "weight": 116
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "signature-wrap-w-halloumi-fries",
@@ -918,13 +1456,26 @@
     "saturatedFat": 9.2,
     "sugar": 3.6,
     "fiber": 2.8,
-    "salt": 1.8
+    "salt": 1.8,
+    "weight": 122
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "signature-wrap-w-halloumi-fries-duo-wrap",
@@ -939,13 +1490,26 @@
     "saturatedFat": 18,
     "sugar": 7.3,
     "fiber": 5.6,
-    "salt": 3.5
+    "salt": 3.5,
+    "weight": 244
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-wrap-w-chicken-tender",
@@ -960,13 +1524,25 @@
     "saturatedFat": 3.7,
     "sugar": 6.9,
     "fiber": 2.4,
-    "salt": 2
+    "salt": 2,
+    "weight": 117
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-wrap-w-halloumi-fries",
@@ -981,13 +1557,24 @@
     "saturatedFat": 8.4,
     "sugar": 7.9,
     "fiber": 2.8,
-    "salt": 1.8
+    "salt": 1.8,
+    "weight": 124
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bbq-wrap-w-halloumi-fries-duo-wrap",
@@ -1002,13 +1589,24 @@
     "saturatedFat": 17,
     "sugar": 16,
     "fiber": 5.6,
-    "salt": 3.6
+    "salt": 3.6,
+    "weight": 248
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "buffalo-wrap-w-chicken-tender",
@@ -1023,13 +1621,27 @@
     "saturatedFat": 4.5,
     "sugar": 1.9,
     "fiber": 2.4,
-    "salt": 2.6
+    "salt": 2.6,
+    "weight": 126
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "buffalo-wrap-w-halloumi-fries",
@@ -1044,13 +1656,26 @@
     "saturatedFat": 9.2,
     "sugar": 3.8,
     "fiber": 2.8,
-    "salt": 2.4
+    "salt": 2.4,
+    "weight": 132
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "caesar-salad",
@@ -1065,13 +1690,28 @@
     "saturatedFat": 6.2,
     "sugar": 2.7,
     "fiber": 1,
-    "salt": 1.4
+    "salt": 1.4,
+    "weight": 165
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "caesar-salad-w-classic-chicken",
@@ -1086,13 +1726,29 @@
     "saturatedFat": 8,
     "sugar": 2.7,
     "fiber": 1.7,
-    "salt": 2.8
+    "salt": 2.8,
+    "weight": 242
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "caesar-salad-w-spicy-chicken",
@@ -1107,13 +1763,29 @@
     "saturatedFat": 7.9,
     "sugar": 2.7,
     "fiber": 1.7,
-    "salt": 2.8
+    "salt": 2.8,
+    "weight": 242
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "caesar-salad-w-halloumi-fries",
@@ -1128,13 +1800,28 @@
     "saturatedFat": 12,
     "sugar": 5.6,
     "fiber": 2.3,
-    "salt": 2.3
+    "salt": 2.3,
+    "weight": 216
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "avocado-salad",
@@ -1149,13 +1836,21 @@
     "saturatedFat": 9.1,
     "sugar": 5,
     "fiber": 1,
-    "salt": 1.4
+    "salt": 1.4,
+    "weight": 284
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "avocado-salad-w-classic-chicken",
@@ -1170,13 +1865,27 @@
     "saturatedFat": 11,
     "sugar": 5,
     "fiber": 1.7,
-    "salt": 2.8
+    "salt": 2.8,
+    "weight": 362
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "avocado-salad-w-spicy-chicken",
@@ -1191,13 +1900,27 @@
     "saturatedFat": 11,
     "sugar": 5,
     "fiber": 1.8,
-    "salt": 2.8
+    "salt": 2.8,
+    "weight": 362
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "avocado-salad-w-halloumi-fries",
@@ -1212,13 +1935,25 @@
     "saturatedFat": 14,
     "sugar": 7.1,
     "fiber": 2.2,
-    "salt": 2.5
+    "salt": 2.5,
+    "weight": 336
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "small-fries",
@@ -1233,13 +1968,23 @@
     "saturatedFat": 0.5,
     "sugar": 3.5,
     "fiber": 1.5,
-    "salt": 2.1
+    "salt": 2.1,
+    "weight": 81
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk"
+    ]
+   }
   },
   {
    "id": "medium-fries",
@@ -1254,13 +1999,23 @@
     "saturatedFat": 0.6,
     "sugar": 3.7,
     "fiber": 1.9,
-    "salt": 2.1
+    "salt": 2.1,
+    "weight": 98
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk"
+    ]
+   }
   },
   {
    "id": "large-fries",
@@ -1275,13 +2030,23 @@
     "saturatedFat": 0.8,
     "sugar": 6.8,
     "fiber": 2.6,
-    "salt": 2.4
+    "salt": 2.4,
+    "weight": 138
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk"
+    ]
+   }
   },
   {
    "id": "baconator-fries",
@@ -1296,7 +2061,8 @@
     "saturatedFat": 9.3,
     "sugar": 2.6,
     "fiber": 2.3,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 169
    },
    "tags": [
     "contains_pork"
@@ -1304,7 +2070,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "cheesy-topped-fries",
@@ -1319,13 +2093,22 @@
     "saturatedFat": 7.1,
     "sugar": 2.5,
     "fiber": 2.3,
-    "salt": 2.6
+    "salt": 2.6,
+    "weight": 153
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "plain-potato",
@@ -1340,13 +2123,20 @@
     "saturatedFat": 3.4,
     "sugar": 2.4,
     "fiber": 4.7,
-    "salt": 1.9
+    "salt": 1.9,
+    "weight": 175
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bacon-and-cheese-potato",
@@ -1361,7 +2151,8 @@
     "saturatedFat": 8.4,
     "sugar": 3.8,
     "fiber": 4.3,
-    "salt": 1.6
+    "salt": 1.6,
+    "weight": 230
    },
    "tags": [
     "contains_pork"
@@ -1369,7 +2160,13 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sour-cream-and-chives-potato",
@@ -1384,13 +2181,20 @@
     "saturatedFat": 3.3,
     "sugar": 3.4,
     "fiber": 4.4,
-    "salt": 0.04
+    "salt": 0.04,
+    "weight": 193
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chili",
@@ -1405,13 +2209,21 @@
     "saturatedFat": 5.5,
     "sugar": 3.5,
     "fiber": 1.9,
-    "salt": 1.5
+    "salt": 1.5,
+    "weight": 245
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chili-cheese-fries",
@@ -1426,13 +2238,21 @@
     "saturatedFat": 9.8,
     "sugar": 4.2,
     "fiber": 3.2,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 271
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chili-cheese-baked-potato",
@@ -1447,13 +2267,21 @@
     "saturatedFat": 9,
     "sugar": 5.5,
     "fiber": 5.3,
-    "salt": 1.6
+    "salt": 1.6,
+    "weight": 324
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "halloumi-fries",
@@ -1468,13 +2296,24 @@
     "saturatedFat": 5.1,
     "sugar": 2.1,
     "fiber": 0.9,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 51
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "beef-chili-cheese-fries",
@@ -1489,7 +2328,8 @@
     "saturatedFat": 10,
     "sugar": 4.5,
     "fiber": 3.4,
-    "salt": 3.4
+    "salt": 3.4,
+    "weight": 291
    },
    "tags": [
     "contains_beef"
@@ -1497,7 +2337,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "small-hashbrown",
@@ -1512,13 +2361,21 @@
     "saturatedFat": 1.3,
     "sugar": 0,
     "fiber": 2,
-    "salt": 0.73
+    "salt": 0.73,
+    "weight": 87
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk"
+    ]
+   }
   },
   {
    "id": "regular-hashbrown",
@@ -1533,13 +2390,21 @@
     "saturatedFat": 1.8,
     "sugar": 0,
     "fiber": 3.1,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 129
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk"
+    ]
+   }
   },
   {
    "id": "large-hashbrown",
@@ -1554,13 +2419,21 @@
     "saturatedFat": 2.4,
     "sugar": 0,
     "fiber": 4,
-    "salt": 1.5
+    "salt": 1.5,
+    "weight": 170
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "milk"
+    ]
+   }
   },
   {
    "id": "apple-slices",
@@ -1575,13 +2448,18 @@
     "saturatedFat": 0,
     "sugar": 9.3,
     "fiber": 2.2,
-    "salt": 0
+    "salt": 0,
+    "weight": 80
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-cheeseburger",
@@ -1596,13 +2474,28 @@
     "saturatedFat": 5.8,
     "sugar": 6.3,
     "fiber": 1.4,
-    "salt": 1.8
+    "salt": 1.8,
+    "weight": 106
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "kids-hamburger",
@@ -1617,13 +2510,28 @@
     "saturatedFat": 4.3,
     "sugar": 5.5,
     "fiber": 1.4,
-    "salt": 1.3
+    "salt": 1.3,
+    "weight": 93
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "4-pc-chicken-nuggets",
@@ -1638,13 +2546,26 @@
     "saturatedFat": 1.4,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.93
+    "salt": 0.93,
+    "weight": 51
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "classic-egg-and-cheese-muffin",
@@ -1659,13 +2580,26 @@
     "saturatedFat": 4.5,
     "sugar": 2.5,
     "fiber": 5.5,
-    "salt": 1
+    "salt": 1,
+    "weight": 130
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "classic-sausage-and-cheese-muffin",
@@ -1680,7 +2614,8 @@
     "saturatedFat": 9.1,
     "sugar": 3.2,
     "fiber": 6,
-    "salt": 1.4
+    "salt": 1.4,
+    "weight": 177
    },
    "tags": [
     "contains_pork"
@@ -1688,7 +2623,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "classic-bacon-and-cheese-muffin",
@@ -1703,7 +2650,8 @@
     "saturatedFat": 6.3,
     "sugar": 2.6,
     "fiber": 5.5,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 143
    },
    "tags": [
     "contains_pork"
@@ -1711,7 +2659,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "breakfast-baconator-w-brown-sauce",
@@ -1726,7 +2686,8 @@
     "saturatedFat": 13,
     "sugar": 9.2,
     "fiber": 2.1,
-    "salt": 3.7
+    "salt": 3.7,
+    "weight": 216
    },
    "tags": [
     "contains_pork"
@@ -1734,7 +2695,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "breakfast-baconator-w-red-sauce",
@@ -1749,7 +2724,8 @@
     "saturatedFat": 13,
     "sugar": 9,
     "fiber": 2.1,
-    "salt": 3.8
+    "salt": 3.8,
+    "weight": 215
    },
    "tags": [
     "contains_pork"
@@ -1757,7 +2733,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "egg-double-stack",
@@ -1772,13 +2762,26 @@
     "saturatedFat": 6.2,
     "sugar": 5,
     "fiber": 1.4,
-    "salt": 3
+    "salt": 3,
+    "weight": 173
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sausage-breakfast-butty-w-brown-sauce",
@@ -1793,7 +2796,8 @@
     "saturatedFat": 4.8,
     "sugar": 6.7,
     "fiber": 1.8,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 104
    },
    "tags": [
     "contains_pork"
@@ -1801,7 +2805,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "bacon-breakfast-butty-w-brown-sauce",
@@ -1816,7 +2834,8 @@
     "saturatedFat": 2.6,
     "sugar": 6.1,
     "fiber": 1.4,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 74
    },
    "tags": [
     "contains_pork"
@@ -1824,7 +2843,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "sausage-breakfast-butty-w-red-sauce",
@@ -1839,7 +2872,8 @@
     "saturatedFat": 4.8,
     "sugar": 6.2,
     "fiber": 1.8,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 102
    },
    "tags": [
     "contains_pork"
@@ -1847,7 +2881,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bacon-breakfast-butty-w-red-sauce",
@@ -1862,7 +2910,8 @@
     "saturatedFat": 2.6,
     "sugar": 5.5,
     "fiber": 1.4,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 72
    },
    "tags": [
     "contains_pork"
@@ -1870,7 +2919,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "breakfast-wrap-bacon-w-red-sauce",
@@ -1885,7 +2948,8 @@
     "saturatedFat": 6.1,
     "sugar": 4.3,
     "fiber": 2.4,
-    "salt": 2
+    "salt": 2,
+    "weight": 150
    },
    "tags": [
     "contains_pork"
@@ -1893,7 +2957,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "breakfast-wrap-sausage-w-red-sauce",
@@ -1908,7 +2985,8 @@
     "saturatedFat": 9,
     "sugar": 4.9,
     "fiber": 2.9,
-    "salt": 1.6
+    "salt": 1.6,
+    "weight": 184
    },
    "tags": [
     "contains_pork"
@@ -1916,7 +2994,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "breakfast-wrap-egg-and-cheese-w-red-sauce",
@@ -1931,13 +3022,27 @@
     "saturatedFat": 4.4,
     "sugar": 4.3,
     "fiber": 2.4,
-    "salt": 1.3
+    "salt": 1.3,
+    "weight": 137
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "breakfast-wrap-bacon-w-brown-sauce",
@@ -1952,7 +3057,8 @@
     "saturatedFat": 6.1,
     "sugar": 4.3,
     "fiber": 2.4,
-    "salt": 1.9
+    "salt": 1.9,
+    "weight": 149
    },
    "tags": [
     "contains_pork"
@@ -1960,7 +3066,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "breakfast-wrap-sausage-w-brown-sauce",
@@ -1975,7 +3094,8 @@
     "saturatedFat": 9,
     "sugar": 4.9,
     "fiber": 2.9,
-    "salt": 1.6
+    "salt": 1.6,
+    "weight": 183
    },
    "tags": [
     "contains_pork"
@@ -1983,7 +3103,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "breakfast-wrap-egg-and-cheese-w-brown-sauce",
@@ -1998,13 +3131,27 @@
     "saturatedFat": 4.4,
     "sugar": 4.2,
     "fiber": 2.4,
-    "salt": 1.2
+    "salt": 1.2,
+    "weight": 137
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "chocolate-pop-dots",
@@ -2019,13 +3166,25 @@
     "saturatedFat": 12,
     "sugar": 20,
     "fiber": 2.3,
-    "salt": 0.74
+    "salt": 0.74,
+    "weight": 78
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "jr-vanilla-frosty",
@@ -2040,13 +3199,20 @@
     "saturatedFat": 5.5,
     "sugar": 19,
     "fiber": 0,
-    "salt": 0.34
+    "salt": 0.34,
+    "weight": 140
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "regular-vanilla-frosty",
@@ -2061,13 +3227,20 @@
     "saturatedFat": 6.6,
     "sugar": 23,
     "fiber": 0,
-    "salt": 0.41
+    "salt": 0.41,
+    "weight": 168
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-vanilla-frosty",
@@ -2082,13 +3255,20 @@
     "saturatedFat": 9.6,
     "sugar": 34,
     "fiber": 0,
-    "salt": 0.6
+    "salt": 0.6,
+    "weight": 244
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "x-large-vanilla-frosty",
@@ -2103,13 +3283,20 @@
     "saturatedFat": 13,
     "sugar": 45,
     "fiber": 0,
-    "salt": 0.8
+    "salt": 0.8,
+    "weight": 328
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "jr-chocolate-frosty",
@@ -2124,13 +3311,20 @@
     "saturatedFat": 3.6,
     "sugar": 23,
     "fiber": 0,
-    "salt": 0.29
+    "salt": 0.29,
+    "weight": 143
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "regular-chocolate-frosty",
@@ -2145,13 +3339,20 @@
     "saturatedFat": 4.2,
     "sugar": 26,
     "fiber": 0.6,
-    "salt": 0.34
+    "salt": 0.34,
+    "weight": 168
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-chocolate-frosty",
@@ -2166,13 +3367,20 @@
     "saturatedFat": 6.2,
     "sugar": 39,
     "fiber": 0.8,
-    "salt": 0.5
+    "salt": 0.5,
+    "weight": 247
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "x-large-chocolate-frosty",
@@ -2187,13 +3395,20 @@
     "saturatedFat": 8.5,
     "sugar": 53,
     "fiber": 1.1,
-    "salt": 0.69
+    "salt": 0.69,
+    "weight": 338
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "regular-vanilla-strawberries-and-cream-frosty",
@@ -2208,13 +3423,21 @@
     "saturatedFat": 8.6,
     "sugar": 35,
     "fiber": 0,
-    "salt": 0.42
+    "salt": 0.42,
+    "weight": 182
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-vanilla-strawberries-and-cream-frosty",
@@ -2229,13 +3452,21 @@
     "saturatedFat": 11,
     "sugar": 44,
     "fiber": 0,
-    "salt": 0.56
+    "salt": 0.56,
+    "weight": 243
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "regular-chocolate-strawberries-and-cream-frosty",
@@ -2250,13 +3481,21 @@
     "saturatedFat": 6.3,
     "sugar": 38,
     "fiber": 0.5,
-    "salt": 0.36
+    "salt": 0.36,
+    "weight": 182
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-chocolate-strawberries-and-cream-frosty",
@@ -2271,13 +3510,21 @@
     "saturatedFat": 7.8,
     "sugar": 48,
     "fiber": 0.7,
-    "salt": 0.47
+    "salt": 0.47,
+    "weight": 243
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "regular-vanilla-frostyccino",
@@ -2292,13 +3539,20 @@
     "saturatedFat": 5.8,
     "sugar": 20,
     "fiber": 0,
-    "salt": 0.36
+    "salt": 0.36,
+    "weight": 355
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-vanilla-frostyccino",
@@ -2313,13 +3567,20 @@
     "saturatedFat": 5.9,
     "sugar": 21,
     "fiber": 0,
-    "salt": 0.37
+    "salt": 0.37,
+    "weight": 421
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "regular-chocolate-frostyccino",
@@ -2334,13 +3595,20 @@
     "saturatedFat": 3.7,
     "sugar": 23,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 355
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-chocolate-frostyccino",
@@ -2355,13 +3623,20 @@
     "saturatedFat": 3.8,
     "sugar": 24,
     "fiber": 0.5,
-    "salt": 0.31
+    "salt": 0.31,
+    "weight": 421
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "6-pc-mini-donuts",
@@ -2376,13 +3651,26 @@
     "saturatedFat": 7.2,
     "sugar": 17,
     "fiber": 1.7,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 81
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "can-coke",
@@ -2397,13 +3685,18 @@
     "saturatedFat": 0,
     "sugar": 35,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 330
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "can-diet-coke",
@@ -2418,13 +3711,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 330
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "can-coke-zero",
@@ -2439,13 +3737,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.07
+    "salt": 0.07,
+    "weight": 330
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "can-sprite",
@@ -2460,13 +3763,18 @@
     "saturatedFat": 0,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "weight": 330
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coke-small-12-oz",
@@ -2481,13 +3789,18 @@
     "saturatedFat": 0,
     "sugar": 38,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 355
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke-small-12-oz",
@@ -2502,13 +3815,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 355
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coke-zero-small-12-oz",
@@ -2523,13 +3841,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.07
+    "salt": 0.07,
+    "weight": 355
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-fanta-small-12-oz",
@@ -2544,13 +3867,18 @@
     "saturatedFat": 0,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.07
+    "salt": 0.07,
+    "weight": 355
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sprite-zero-small-12-oz",
@@ -2565,13 +3893,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.25
+    "salt": 0.25,
+    "weight": 355
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coke-regular-16-oz",
@@ -2586,13 +3919,18 @@
     "saturatedFat": 0,
     "sugar": 50,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 473
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke-regular-16-oz",
@@ -2607,13 +3945,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 473
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coke-zero-regular-16-oz",
@@ -2628,13 +3971,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.09
+    "salt": 0.09,
+    "weight": 473
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-fanta-regular-16-oz",
@@ -2649,13 +3997,18 @@
     "saturatedFat": 0,
     "sugar": 21,
     "fiber": 0,
-    "salt": 0.09
+    "salt": 0.09,
+    "weight": 473
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sprite-zero-regular-16-oz",
@@ -2670,13 +4023,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.33
+    "salt": 0.33,
+    "weight": 473
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coke-large-20-oz",
@@ -2691,13 +4049,18 @@
     "saturatedFat": 0,
     "sugar": 63,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 591
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke-large-20-oz",
@@ -2712,13 +4075,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 591
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coke-zero-large-20-oz",
@@ -2733,13 +4101,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.12
+    "salt": 0.12,
+    "weight": 591
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-fanta-large-20-oz",
@@ -2754,13 +4127,18 @@
     "saturatedFat": 0,
     "sugar": 27,
     "fiber": 0,
-    "salt": 0.12
+    "salt": 0.12,
+    "weight": 591
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sprite-zero-large-20-oz",
@@ -2775,13 +4153,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.41
+    "salt": 0.41,
+    "weight": 591
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso",
@@ -2796,13 +4179,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 48
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "americano",
@@ -2817,13 +4205,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.02
+    "salt": 0.02,
+    "weight": 338
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white",
@@ -2838,13 +4231,20 @@
     "saturatedFat": 3.1,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.47
+    "salt": 0.47,
+    "weight": 390
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino",
@@ -2859,13 +4259,20 @@
     "saturatedFat": 2,
     "sugar": 9.9,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 276
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte",
@@ -2880,13 +4287,20 @@
     "saturatedFat": 3.1,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.47
+    "salt": 0.47,
+    "weight": 390
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha",
@@ -2901,13 +4315,20 @@
     "saturatedFat": 2.2,
     "sugar": 30,
     "fiber": 2.4,
-    "salt": 0.41
+    "salt": 0.41,
+    "weight": 335
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tea",
@@ -2922,13 +4343,18 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 31
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate",
@@ -2943,13 +4369,20 @@
     "saturatedFat": 2.7,
     "sugar": 39,
     "fiber": 3.2,
-    "salt": 0.51
+    "salt": 0.51,
+    "weight": 318
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

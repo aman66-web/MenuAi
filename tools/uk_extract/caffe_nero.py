@@ -1,24 +1,34 @@
 #!/usr/bin/env python3
 """Build data/source/caffe-nero/ from Caffe Nero UK's website nutrition pages (caffenero.com/uk/menu).
 
-    python3 tools/uk_extract/caffe_nero.py --fetch /tmp/cn-raw --checked-on 2026-10-06       # download once, then extract
-    python3 tools/uk_extract/caffe_nero.py --raw /tmp/cn-raw --checked-on 2026-10-06         # re-extract from saved pages
-    python3 tools/uk_extract/caffe_nero.py --raw /tmp/cn-raw --checked-on ... --guide guide-gb.pdf   # also cross-check
+    python3 tools/uk_extract/caffe_nero.py --fetch DIR --checked-on 2026-10-06 --guide guide-gb.pdf   # download pages, extract
+    python3 tools/uk_extract/caffe_nero.py --raw DIR --checked-on 2026-10-06 --guide guide-gb.pdf     # re-extract saved pages
 
 Each of the eight menu pages (breakfast, coffee, hot and iced drinks, panini/tostati/Nero Deli, salads/soups/hot pots,
 snacks, sweet treats) holds one server-rendered nutrition table per product, per milk option and per size, with a "per
-100g" and a "per product" column. Only the "per product" column is used (a per-serving value); kJ is used only to flag
-disagreements with kcal. Numbers are copied as printed. The site carries no date.
+100g" and a "per product" column. Only the "per product" column is used (a per-serving value); kJ flags
+disagreements with kcal and is also published as the item's energy_kj (the per-product kJ exactly as printed; the site prints no
+serving weight or caffeine). Numbers are copied as printed. The site carries no date.
 
 Scope (Great Britain menu only): products whose name ends "(NI)" are Northern Ireland only and are left out. The chain's
 own "Allergen, Nutritional & Ingredient Guide (GB)" PDF (https://caffenerowebsite.blob.core.windows.net/production/data/
 menus/caffenero_nutrition_allergens-en_GB.pdf, "Issued: 09/09/26") also marks a few products as selected-stores-only or
-airport-only; none of them is on the website pages. Pass `--guide guide.pdf` to compare every website number with that
-dated guide (nothing from the PDF is written to data/source).
+airport-only; none of them is on the website pages. `--guide guide.pdf` (that PDF, downloaded) compares every website
+number with the dated guide and reports differences (no number from the PDF is written to data/source).
+
+Allergens (docs/DATA.md "Allergens"): every nutrition table on the pages is followed by its own "Allergens:" list, so each
+product, milk option and size carries the allergens printed for exactly that variant, e.g. "Gluten (wheat, barley)",
+"Nuts (almond)", "Soy", "Sulphur Dioxide" (an empty list = the page names none of the 14). The site prints no "may contain"
+information. Those lists are cross-checked against the allergens the same dated guide prints (its counter-food tables and
+the ALLERGENS column of its drink tables) wherever the guide prints a row with exactly the same name ("<product> - <milk>"
+for drinks, normalised for case, punctuation and spacing). If any checked row disagrees, or one product is printed twice
+on the website with different allergens, allergens.csv is NOT written: the chain gets only allergen_guide.csv, a link to
+the dated guide (all or nothing), and the run lists every disagreement.
 
 Only names, categories, rankable flags and tags are decided by hand below. If a page gains, loses or renames a product
 or option the fingerprint no longer matches and this script stops, so a human re-checks (see EXPECTED_*).
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import re
@@ -30,10 +40,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "caffe-nero"
 SOURCE_URL = "https://www.caffenero.com/uk/menu"
+GUIDE_URL = "https://caffenerowebsite.blob.core.windows.net/production/data/menus/caffenero_nutrition_allergens-en_GB.pdf"
 BASE = "https://www.caffenero.com/uk/menu/"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 # page file name -> path under BASE. Order = display order of the pages.
@@ -72,6 +83,12 @@ MILKS = {"Semi Skimmed Milk": "semi skimmed milk", "Semi Skimmed": "semi skimmed
 MILK_ORDER = ["", "semi skimmed milk", "skimmed milk", "whole milk", "soya milk", "oat milk", "coconut milk", "almond milk",
               "Alpro soya milk", "Alpro oat milk", "Alpro coconut milk", "Alpro almond milk"]
 SIZE_ORDER = ["", "Single", "Double", "Regular", "Grande"]
+
+# Website milk option label -> the wording the dated guide prints after "<drink> - " (used only to find the guide's row
+# for the allergen cross-check; labels not listed here, e.g. "Alpro Soya", are simply not cross-checked).
+GUIDE_MILK = {"Semi Skimmed Milk": "Semi Skimmed Milk", "Semi Skimmed": "Semi Skimmed Milk", "Skimmed Milk": "Skimmed Milk",
+              "Whole Milk": "Whole Milk", "Soya": "Soya", "Oat": "Oat", "Coconut": "Coconut", "Almond": "Almond",
+              "Almond Milk": "Almond"}
 
 # One row, no milk option, but the product text names the milk: the site says "made with whole milk" (and the dated guide's
 # "Flat White - Whole Milk" row has the same numbers), so the milk is named in the item.
@@ -207,9 +224,40 @@ def read_page(page: str, path: Path) -> list[dict]:
                     values[key] = m.group(1)
                 badges = sorted(c.rsplit("--", 1)[1] for n in sz.walk() if n.tag == "img" for c in n.classes()
                                 if c.startswith("menu__product-badge--"))
+                dls = [n for n in sz.walk() if "menu__product-detail__allergens" in n.classes()]
+                if len(dls) != 1 or [n.text() for n in dls[0].children("dt")] != ["Allergens:"]:
+                    raise SystemExit(f"{page}/{pid}: no single 'Allergens:' list under the {milk or 'only'} {size} table.")
                 rows.append({"page": page, "pid": pid, "name": name, "desc": desc, "milk": milk, "size": size,
-                             "badges": badges, "values": values})
+                             "badges": badges, "values": values,
+                             "allergens": [_dd_text(dd) for dd in dls[0].children("dd")]})
     return rows
+
+
+def _dd_text(dd: Node) -> str:
+    """One printed allergen entry without the separating comma, e.g. 'Gluten (wheat, barley)'."""
+    parts = [k if isinstance(k, str) else ("" if "comma" in k.classes() else k.text()) for k in dd.kids]
+    return " ".join("".join(parts).split())
+
+
+def site_allergens(printed: list[str], where: str) -> dict:
+    """The website's printed list -> allergens dict. 'Gluten (wheat, rye)' names the cereals, 'Nuts (almond)' the nuts; the
+    words in brackets must be kinds of the word before them. Unknown words stop the run (common.allergen_words)."""
+    contains, cereals, nuts = set(), set(), set()
+    for entry in printed:
+        m = re.fullmatch(r"([^()]+?)\s*(?:\(([^()]*)\))?", entry)
+        if not m:
+            raise SystemExit(f"{where}: cannot read the allergen entry {entry!r}.")
+        keys, c, n = allergen_words([m.group(1)], where)
+        contains |= keys
+        cereals |= c
+        nuts |= n
+        if m.group(2):
+            inner, c, n = allergen_words(m.group(2).split(","), where)
+            if not inner <= keys:
+                raise SystemExit(f"{where}: {entry!r}: the words in brackets are not kinds of {m.group(1)!r}.")
+            cereals |= c
+            nuts |= n
+    return {"contains": contains, "may_contain": set(), "cereals": cereals, "nuts": nuts}
 
 
 def fetch(outdir: Path) -> dict[str, Path]:
@@ -260,7 +308,7 @@ def build(rows: list[dict]):
         sys.exit(f"The website has {len(rows)} nutrition tables (fingerprint {fingerprint}); this script expects {EXPECTED_ROWS} "
                  f"({EXPECTED_FINGERPRINT}). Tables per page: {per_page}. A product, milk option or size was added, removed or "
                  "renamed: re-check CATEGORY/EXTRAS/PASTRIES/HOLDBACK against the pages, then update EXPECTED_*.")
-    excluded_ni, repeats, items, seen = [], [], [], {}
+    excluded_ni, repeats, items, seen, conflicts = [], [], [], {}, []
     for r in rows:
         if r["name"].rstrip().endswith("(NI)"):
             excluded_ni.append(r["name"])
@@ -272,9 +320,13 @@ def build(rows: list[dict]):
         for need in ("calories", "protein_g", "carbs_g", "fat_g"):
             if need not in v:
                 sys.exit(f"{r['page']}/{r['pid']}: {name} has no {need}.")
+        allergens = site_allergens(r["allergens"], f"{r['page']}/{r['pid']} {name}")
         if name in seen:
             if seen[name]["values"] != v:
                 sys.exit(f"{name!r} appears twice with different numbers ({seen[name]['page']} vs {r['page']}): re-check.")
+            if seen[name]["allergens"] != allergens:
+                conflicts.append(f"{name}: the {seen[name]['page']} page prints allergens {r_list(seen[name]['allergens'])}, "
+                                 f"the {r['page']} page {r_list(allergens)}")
             repeats.append((name, r["page"]))
             continue
         category, rankable = category_of(r["page"], r["pid"])
@@ -294,9 +346,9 @@ def build(rows: list[dict]):
         item = {"id": slug(name), "name": name, "category": category, "serving": r["size"], "calories": v["calories"],
                 "protein_g": v["protein_g"], "carbs_g": v["carbs_g"], "fat_g": v["fat_g"], "sat_fat_g": v.get("sat_fat_g", ""),
                 "salt_g": v.get("salt_g", ""), "sugar_g": v.get("sugar_g", ""), "fiber_g": v.get("fiber_g", ""),
-                "tags": "|".join(tags), "rankable": rankable, "notes": "; ".join(notes),
-                "_milk": milk, "_text": text, "_pid": r["pid"]}
-        seen[name] = {"values": v, "page": r["page"]}
+                "energy_kj": v["kj"], "tags": "|".join(tags), "rankable": rankable, "notes": "; ".join(notes), "allergens": allergens,
+                "_milk": milk, "_text": text, "_pid": r["pid"], "_base": base, "_printed_allergens": r["allergens"]}
+        seen[name] = {"values": v, "page": r["page"], "allergens": allergens}
         items.append(item)
     ids = [i["id"] for i in items]
     if len(ids) != len(set(ids)):
@@ -312,7 +364,36 @@ def build(rows: list[dict]):
     items.sort(key=lambda i: (CATEGORY_ORDER.index(i["category"]), first[(i["category"], i["_pid"])],
                               MILK_ORDER.index(MILKS[i["_milk"]] if i["_milk"] else ""),
                               SIZE_ORDER.index(i["serving"])))
-    return items, excluded_ni, repeats
+    return items, excluded_ni, repeats, conflicts
+
+
+def r_list(a: dict) -> str:
+    return "[" + ", ".join(sorted(a["contains"])) + "]"
+
+
+def _norm(name: str) -> str:
+    return " ".join(re.sub(r"[^a-z0-9]+", " ", name.lower()).split())
+
+
+def check_allergens(items: list[dict], guide_rows: list[tuple[str, set[str]]]) -> tuple[int, list[str]]:
+    """Compare each item's website allergens with the dated guide's row of exactly the same name (normalised). The guide
+    prints some drinks twice (e.g. with and without whipped cream): the website must agree with one of them. Returns the
+    number of items checked and the disagreements."""
+    by_name: dict[str, list[set[str]]] = {}
+    for name, keys in guide_rows:
+        by_name.setdefault(_norm(name), []).append(keys)
+    checked, problems = 0, []
+    for it in items:
+        if it["_milk"] and it["_milk"] not in GUIDE_MILK:
+            continue
+        key = _norm(f"{it['_base']} - {GUIDE_MILK[it['_milk']]}" if it["_milk"] else it["_base"])
+        if key not in by_name:
+            continue
+        checked += 1
+        if it["allergens"]["contains"] not in by_name[key]:
+            problems.append(f"{it['name']}: website prints {it['_printed_allergens'] or 'none'}; the guide's "
+                            f"{key!r} row prints " + " / ".join(str(sorted(k)) for k in by_name[key]))
+    return checked, problems
 
 
 # --- optional cross-check against the dated PDF guide ---------------------------------------------------------------
@@ -353,7 +434,8 @@ def main() -> int:
     g.add_argument("--fetch", type=Path, help="download the eight pages into this folder, then extract")
     g.add_argument("--raw", type=Path, help="extract from pages saved earlier in this folder")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day the pages were read")
-    ap.add_argument("--guide", type=Path, help="optional: the GB nutrition guide PDF, to cross-check every number")
+    ap.add_argument("--guide", type=Path, required=True,
+                    help="the GB Allergen, Nutritional & Ingredient Guide PDF (GUIDE_URL), to cross-check numbers and allergens")
     ap.add_argument("--out", type=Path, default=ROOT / "data" / "source" / CHAIN_ID)
     args = ap.parse_args()
 
@@ -364,7 +446,7 @@ def main() -> int:
             sys.exit(f"missing {path}")
         print(f"{p:13} sha256 {sha256_file(path)}")
     rows = [r for p, path in paths.items() for r in read_page(p, path)]
-    items, excluded_ni, repeats = build(rows)
+    items, excluded_ni, repeats, conflicts = build(rows)
 
     held = [(slug(n), why) for n, why in HOLDBACK.items()]
     source_title = ("Caffè Nero UK website: product nutrition pages, GB menu (caffenero.com/uk/menu food, coffee, hot and iced "
@@ -372,11 +454,26 @@ def main() -> int:
                     "Nutritional & Ingredient Guide (GB) issued 09/09/26")
     note = ("Values are per product as the chain's website shows them. Drinks are listed by milk; where the chain prints one "
             "row with no cup size, none is shown. Plain Mocha and Hot Chocolate are without whipped cream, which is listed as an extra.")
+    import caffe_nero_pdf
+    issued = caffe_nero_pdf.issued(args.guide)
+    checked, problems = check_allergens(items, caffe_nero_pdf.read_allergens(args.guide))
+    problems = conflicts + problems
+    if problems:   # all or nothing: the website's lists are not published, the app links to the dated guide
+        guide = {"title": f"Caffè Nero Allergen, Nutritional & Ingredient Guide (GB), issued {issued}", "url": GUIDE_URL,
+                 "checked_on": args.checked_on, "may_contain_published": False}
+    else:
+        guide = {"title": ("Caffè Nero UK website: allergens printed with each product, milk and size (caffenero.com/uk/menu "
+                           f"pages, retrieved {args.checked_on}), cross-checked against the Allergen, Nutritional & Ingredient "
+                           f"Guide (GB) issued {issued}"),
+                 "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": False}
     public = [{k: v for k, v in i.items() if not k.startswith("_")} for i in items]
+    if problems:
+        for i in public:
+            i["allergens"] = None
     out = write_chain_folder(chain_id=CHAIN_ID, name="Caffè Nero", cuisine="Coffee", source_title=source_title,
                              source_url=SOURCE_URL, checked_on=args.checked_on,
                              aliases=["caffe nero", "caffè nero", "cafe nero"], items=public, out=args.out, note=note,
-                             holdback=held)
+                             holdback=held, allergen_guide=guide)
     from collections import Counter
     print(f"\nwrote {len(public)} items ({len(held)} held back) to {out}")
     for c, n in Counter(i["category"] for i in public).items():
@@ -388,8 +485,15 @@ def main() -> int:
           " vegetarian:", sum("vegetarian" in i["tags"] for i in public))
     print("meat type not stated:", sorted({i["name"] for i in items if MEAT_UNSPECIFIED.search(i["_text"])
                                            and "contains_pork" not in i["tags"] and "contains_beef" not in i["tags"]}))
-    if args.guide:
-        compare_with_guide(public, args.guide)
+    compare_with_guide(public, args.guide)
+    print(f"\nAllergens: {checked} of {len(items)} items have a guide row of the same name and were cross-checked.")
+    print("  printed with no allergens:", sorted(i["name"] for i in items if not i["_printed_allergens"]))
+    if problems:
+        print(f"  NOT PUBLISHED (allergen_guide.csv only, linking {GUIDE_URL}): {len(problems)} disagreement(s):")
+        for line in problems:
+            print("   ", line)
+    else:
+        print(f"  allergens.csv written for all {len(items)} items")
     return 0
 
 

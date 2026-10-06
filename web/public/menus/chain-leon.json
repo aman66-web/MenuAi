@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Per-portion values as shown on leon.co's menu pages, which carry no issue date. Milk drinks are the organic whole milk versions; other milks aren't shown on the menu pages. Three items the pages show without nutrition are left out.",
+ "allergenGuide": {
+  "title": "LEON allergen information and Foodie Fact Sheet (September 2026 v1)",
+  "url": "https://leon.co/allergens/",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "LEON Boxes",
   "Wraps",
@@ -46,7 +53,10 @@
     "saturatedFat": 5.3,
     "sugar": 5.8,
     "fiber": 6.3,
-    "salt": 4.47
+    "salt": 4.47,
+    "weight": 481,
+    "monounsaturatedFat": 15.4,
+    "polyunsaturatedFat": 15.4
    },
    "tags": [],
    "limitedTime": false,
@@ -67,7 +77,10 @@
     "saturatedFat": 2.7,
     "sugar": 8.3,
     "fiber": 7,
-    "salt": 2.66
+    "salt": 2.66,
+    "weight": 481,
+    "monounsaturatedFat": 13,
+    "polyunsaturatedFat": 13
    },
    "tags": [],
    "limitedTime": false,
@@ -88,7 +101,10 @@
     "saturatedFat": 4.8,
     "sugar": 4.9,
     "fiber": 6.1,
-    "salt": 1.72
+    "salt": 1.72,
+    "weight": 542,
+    "monounsaturatedFat": 6.1,
+    "polyunsaturatedFat": 6.1
    },
    "tags": [
     "contains_beef"
@@ -111,7 +127,10 @@
     "saturatedFat": 10,
     "sugar": 8.6,
     "fiber": 3.3,
-    "salt": 3.09
+    "salt": 3.09,
+    "weight": 400,
+    "monounsaturatedFat": 34,
+    "polyunsaturatedFat": 34
    },
    "tags": [],
    "limitedTime": false,
@@ -132,7 +151,10 @@
     "saturatedFat": 7.6,
     "sugar": 5.8,
     "fiber": 1.7,
-    "salt": 2.3
+    "salt": 2.3,
+    "weight": 383,
+    "monounsaturatedFat": 9.9,
+    "polyunsaturatedFat": 8.9
    },
    "tags": [],
    "limitedTime": false,
@@ -153,7 +175,10 @@
     "saturatedFat": 8.7,
     "sugar": 9.1,
     "fiber": 6,
-    "salt": 3.16
+    "salt": 3.16,
+    "weight": 507,
+    "monounsaturatedFat": 13.8,
+    "polyunsaturatedFat": 13.8
    },
    "tags": [],
    "limitedTime": false,
@@ -174,7 +199,10 @@
     "saturatedFat": 5.2,
     "sugar": 2.7,
     "fiber": 2.3,
-    "salt": 1.79
+    "salt": 1.79,
+    "weight": 281,
+    "monounsaturatedFat": 15.6,
+    "polyunsaturatedFat": 15.6
    },
    "tags": [],
    "limitedTime": false,
@@ -195,7 +223,10 @@
     "saturatedFat": 6,
     "sugar": 5.9,
     "fiber": 5.8,
-    "salt": 2.65
+    "salt": 2.65,
+    "weight": 481,
+    "monounsaturatedFat": 16.7,
+    "polyunsaturatedFat": 16.7
    },
    "tags": [],
    "limitedTime": false,
@@ -216,7 +247,10 @@
     "saturatedFat": 1.5,
     "sugar": 4.1,
     "fiber": 17,
-    "salt": 2.36
+    "salt": 2.36,
+    "weight": 384,
+    "monounsaturatedFat": 6.8,
+    "polyunsaturatedFat": 6.8
    },
    "tags": [
     "vegetarian"
@@ -239,7 +273,10 @@
     "saturatedFat": 8.7,
     "sugar": 8.4,
     "fiber": 3.7,
-    "salt": 1.75
+    "salt": 1.75,
+    "weight": 282,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [
     "contains_pork"
@@ -262,7 +299,10 @@
     "saturatedFat": 4.9,
     "sugar": 7.4,
     "fiber": 2.7,
-    "salt": 1.45
+    "salt": 1.45,
+    "weight": 266,
+    "monounsaturatedFat": 12.1,
+    "polyunsaturatedFat": 12.1
    },
    "tags": [],
    "limitedTime": false,
@@ -283,7 +323,10 @@
     "saturatedFat": 13,
     "sugar": 9.9,
     "fiber": 4,
-    "salt": 2.3
+    "salt": 2.3,
+    "weight": 265,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [
     "vegetarian"
@@ -306,7 +349,10 @@
     "saturatedFat": 2.8,
     "sugar": 11,
     "fiber": 5.7,
-    "salt": 2.32
+    "salt": 2.32,
+    "weight": 343,
+    "monounsaturatedFat": 13.6,
+    "polyunsaturatedFat": 13.6
    },
    "tags": [],
    "limitedTime": false,
@@ -327,7 +373,10 @@
     "saturatedFat": 4,
     "sugar": 9,
     "fiber": 6.4,
-    "salt": 2.5
+    "salt": 2.5,
+    "weight": 296,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -348,7 +397,10 @@
     "saturatedFat": 2.6,
     "sugar": 12,
     "fiber": 8.7,
-    "salt": 3.2
+    "salt": 3.2,
+    "weight": 260,
+    "monounsaturatedFat": 9.2,
+    "polyunsaturatedFat": 9.2
    },
    "tags": [
     "vegetarian"
@@ -371,7 +423,10 @@
     "saturatedFat": 8.3,
     "sugar": 6.2,
     "fiber": 12,
-    "salt": 1.45
+    "salt": 1.45,
+    "weight": 396,
+    "monounsaturatedFat": 10.9,
+    "polyunsaturatedFat": 10.9
    },
    "tags": [],
    "limitedTime": false,
@@ -392,7 +447,10 @@
     "saturatedFat": 7,
     "sugar": 11,
     "fiber": 8.1,
-    "salt": 1.3
+    "salt": 1.3,
+    "weight": 473,
+    "monounsaturatedFat": 16.2,
+    "polyunsaturatedFat": 16.2
    },
    "tags": [],
    "limitedTime": false,
@@ -413,7 +471,10 @@
     "saturatedFat": 3.9,
     "sugar": 5.9,
     "fiber": 6.8,
-    "salt": 3.48
+    "salt": 3.48,
+    "weight": 290,
+    "monounsaturatedFat": 12.6,
+    "polyunsaturatedFat": 12.6
    },
    "tags": [],
    "limitedTime": false,
@@ -434,7 +495,10 @@
     "saturatedFat": 2.7,
     "sugar": 4.2,
     "fiber": 1.9,
-    "salt": 2.1
+    "salt": 2.1,
+    "weight": 228,
+    "monounsaturatedFat": 8.2,
+    "polyunsaturatedFat": 8.2
    },
    "tags": [],
    "limitedTime": false,
@@ -455,7 +519,10 @@
     "saturatedFat": 3,
     "sugar": 3.8,
     "fiber": 5.6,
-    "salt": 1.22
+    "salt": 1.22,
+    "weight": 155,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [
     "vegetarian"
@@ -478,7 +545,10 @@
     "saturatedFat": 0.9,
     "sugar": 0.7,
     "fiber": 3.4,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 100,
+    "monounsaturatedFat": 3.6,
+    "polyunsaturatedFat": 3
    },
    "tags": [
     "vegetarian"
@@ -501,7 +571,10 @@
     "saturatedFat": 3.5,
     "sugar": 0.5,
     "fiber": 2.4,
-    "salt": 1.7
+    "salt": 1.7,
+    "weight": 185,
+    "monounsaturatedFat": 10,
+    "polyunsaturatedFat": 7.5
    },
    "tags": [],
    "limitedTime": false,
@@ -522,7 +595,10 @@
     "saturatedFat": 5.5,
     "sugar": 4,
     "fiber": 2.5,
-    "salt": 1.1
+    "salt": 1.1,
+    "weight": 112,
+    "monounsaturatedFat": 4.8,
+    "polyunsaturatedFat": 4.8
    },
    "tags": [
     "vegetarian"
@@ -545,7 +621,10 @@
     "saturatedFat": 1.1,
     "sugar": 3.6,
     "fiber": 2.7,
-    "salt": 0.43
+    "salt": 0.43,
+    "weight": 95,
+    "monounsaturatedFat": 3.8,
+    "polyunsaturatedFat": 3.8
    },
    "tags": [
     "vegetarian"
@@ -568,7 +647,10 @@
     "saturatedFat": 1,
     "sugar": 2,
     "fiber": 0,
-    "salt": 0.32
+    "salt": 0.32,
+    "weight": 20,
+    "monounsaturatedFat": 3,
+    "polyunsaturatedFat": 2
    },
    "tags": [
     "vegetarian"
@@ -591,7 +673,10 @@
     "saturatedFat": 0.8,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 25,
+    "monounsaturatedFat": 3.6,
+    "polyunsaturatedFat": 3.5
    },
    "tags": [
     "vegetarian"
@@ -614,7 +699,10 @@
     "saturatedFat": 0,
     "sugar": 2.6,
     "fiber": 0.5,
-    "salt": 0.55
+    "salt": 0.55,
+    "weight": 25,
+    "monounsaturatedFat": 0.3,
+    "polyunsaturatedFat": 0.2
    },
    "tags": [
     "vegetarian"
@@ -637,7 +725,10 @@
     "saturatedFat": 0,
     "sugar": 5.1,
     "fiber": 0.5,
-    "salt": 0.28
+    "salt": 0.28,
+    "weight": 25,
+    "monounsaturatedFat": 0.4,
+    "polyunsaturatedFat": 0.3
    },
    "tags": [
     "vegetarian"
@@ -660,7 +751,10 @@
     "saturatedFat": 16,
     "sugar": 7.9,
     "fiber": 3,
-    "salt": 2.9
+    "salt": 2.9,
+    "weight": 279,
+    "monounsaturatedFat": 10,
+    "polyunsaturatedFat": 10
    },
    "tags": [
     "vegetarian"
@@ -683,7 +777,10 @@
     "saturatedFat": 9.9,
     "sugar": 12,
     "fiber": 2.9,
-    "salt": 2.4
+    "salt": 2.4,
+    "weight": 319,
+    "monounsaturatedFat": 9.6,
+    "polyunsaturatedFat": 9.6
    },
    "tags": [
     "contains_pork"
@@ -706,7 +803,10 @@
     "saturatedFat": 7.1,
     "sugar": 1.6,
     "fiber": 3.7,
-    "salt": 1.88
+    "salt": 1.88,
+    "weight": 268,
+    "monounsaturatedFat": 12.5,
+    "polyunsaturatedFat": 12.5
    },
    "tags": [],
    "limitedTime": false,
@@ -727,7 +827,10 @@
     "saturatedFat": 13,
     "sugar": 6.7,
     "fiber": 4,
-    "salt": 3.5
+    "salt": 3.5,
+    "weight": 365,
+    "monounsaturatedFat": 13,
+    "polyunsaturatedFat": 12
    },
    "tags": [
     "contains_pork"
@@ -750,7 +853,10 @@
     "saturatedFat": 17,
     "sugar": 8.4,
     "fiber": 4.6,
-    "salt": 3.26
+    "salt": 3.26,
+    "weight": 389,
+    "monounsaturatedFat": 12,
+    "polyunsaturatedFat": 12
    },
    "tags": [
     "vegetarian"
@@ -773,7 +879,10 @@
     "saturatedFat": 8.6,
     "sugar": 1.8,
     "fiber": 1.3,
-    "salt": 1.62
+    "salt": 1.62,
+    "weight": 351,
+    "monounsaturatedFat": 9.2,
+    "polyunsaturatedFat": 9.2
    },
    "tags": [
     "vegetarian"
@@ -796,7 +905,10 @@
     "saturatedFat": 4.1,
     "sugar": 3.4,
     "fiber": 1.3,
-    "salt": 0.88
+    "salt": 0.88,
+    "weight": 225,
+    "monounsaturatedFat": 10,
+    "polyunsaturatedFat": 9
    },
    "tags": [
     "vegetarian"
@@ -819,7 +931,10 @@
     "saturatedFat": 2.1,
     "sugar": 4.6,
     "fiber": 3.1,
-    "salt": 0.78
+    "salt": 0.78,
+    "weight": 144,
+    "monounsaturatedFat": 4,
+    "polyunsaturatedFat": 3.6
    },
    "tags": [
     "vegetarian"
@@ -842,7 +957,10 @@
     "saturatedFat": 7.4,
     "sugar": 5.1,
     "fiber": 3.6,
-    "salt": 2.08
+    "salt": 2.08,
+    "weight": 238,
+    "monounsaturatedFat": 8.8,
+    "polyunsaturatedFat": 8.8
    },
    "tags": [
     "contains_pork"
@@ -865,7 +983,10 @@
     "saturatedFat": 6,
     "sugar": 3.8,
     "fiber": 1.7,
-    "salt": 1.64
+    "salt": 1.64,
+    "weight": 140,
+    "monounsaturatedFat": 4.5,
+    "polyunsaturatedFat": 4.5
    },
    "tags": [],
    "limitedTime": false,
@@ -886,7 +1007,10 @@
     "saturatedFat": 5,
     "sugar": 6.2,
     "fiber": 1,
-    "salt": 2
+    "salt": 2,
+    "weight": 160,
+    "monounsaturatedFat": 5.5,
+    "polyunsaturatedFat": 5.5
    },
    "tags": [
     "contains_pork"
@@ -909,7 +1033,10 @@
     "saturatedFat": 9.5,
     "sugar": 4.1,
     "fiber": 3.3,
-    "salt": 1.9
+    "salt": 1.9,
+    "weight": 165,
+    "monounsaturatedFat": 6.5,
+    "polyunsaturatedFat": 6
    },
    "tags": [
     "vegetarian"
@@ -932,7 +1059,10 @@
     "saturatedFat": 6.7,
     "sugar": 6.7,
     "fiber": 2.3,
-    "salt": 2.1
+    "salt": 2.1,
+    "weight": 217,
+    "monounsaturatedFat": 8,
+    "polyunsaturatedFat": 7.3
    },
    "tags": [
     "contains_pork"
@@ -955,7 +1085,10 @@
     "saturatedFat": 4.7,
     "sugar": 8,
     "fiber": 3.7,
-    "salt": 1.9
+    "salt": 1.9,
+    "weight": 147,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [
     "vegetarian"
@@ -978,7 +1111,10 @@
     "saturatedFat": 6.2,
     "sugar": 2.8,
     "fiber": 1.7,
-    "salt": 3.7
+    "salt": 3.7,
+    "weight": 224,
+    "monounsaturatedFat": 6.9,
+    "polyunsaturatedFat": 6.9
    },
    "tags": [
     "contains_pork"
@@ -1001,7 +1137,10 @@
     "saturatedFat": 4.5,
     "sugar": 6.2,
     "fiber": 1.6,
-    "salt": 1.83
+    "salt": 1.83,
+    "weight": 227,
+    "monounsaturatedFat": 4.8,
+    "polyunsaturatedFat": 4.8
    },
    "tags": [
     "contains_pork"
@@ -1024,7 +1163,10 @@
     "saturatedFat": 1.4,
     "sugar": 0.5,
     "fiber": 2.5,
-    "salt": 0.6
+    "salt": 0.6,
+    "weight": 96,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 2
    },
    "tags": [
     "vegetarian"
@@ -1047,7 +1189,10 @@
     "saturatedFat": 4,
     "sugar": 5,
     "fiber": 6,
-    "salt": 1.06
+    "salt": 1.06,
+    "weight": 92,
+    "monounsaturatedFat": 3,
+    "polyunsaturatedFat": 5.4
    },
    "tags": [
     "vegetarian"
@@ -1070,7 +1215,10 @@
     "saturatedFat": 5.2,
     "sugar": 10,
     "fiber": 5.5,
-    "salt": 0.18
+    "salt": 0.18,
+    "weight": 298,
+    "monounsaturatedFat": 3.4,
+    "polyunsaturatedFat": 3.4
    },
    "tags": [
     "vegetarian"
@@ -1093,7 +1241,10 @@
     "saturatedFat": 6.5,
     "sugar": 13,
     "fiber": 7.9,
-    "salt": 0.19
+    "salt": 0.19,
+    "weight": 282,
+    "monounsaturatedFat": 3.8,
+    "polyunsaturatedFat": 3.8
    },
    "tags": [
     "vegetarian"
@@ -1116,7 +1267,10 @@
     "saturatedFat": 4.8,
     "sugar": 27,
     "fiber": 5.7,
-    "salt": 0.19
+    "salt": 0.19,
+    "weight": 336,
+    "monounsaturatedFat": 1.9,
+    "polyunsaturatedFat": 1.9
    },
    "tags": [
     "vegetarian"
@@ -1139,7 +1293,10 @@
     "saturatedFat": 7.9,
     "sugar": 22,
     "fiber": 8.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 216,
+    "monounsaturatedFat": 5.6,
+    "polyunsaturatedFat": 5.6
    },
    "tags": [
     "vegetarian"
@@ -1162,7 +1319,10 @@
     "saturatedFat": 5.3,
     "sugar": 31,
     "fiber": 3.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 242,
+    "monounsaturatedFat": 3.4,
+    "polyunsaturatedFat": 2.4
    },
    "tags": [
     "vegetarian"
@@ -1185,7 +1345,10 @@
     "saturatedFat": 4.4,
     "sugar": 16,
     "fiber": 3.9,
-    "salt": 0.12
+    "salt": 0.12,
+    "weight": 196,
+    "monounsaturatedFat": 1.8,
+    "polyunsaturatedFat": 1.5
    },
    "tags": [
     "vegetarian"
@@ -1208,7 +1371,10 @@
     "saturatedFat": 2.1,
     "sugar": 4.6,
     "fiber": 3.1,
-    "salt": 0.78
+    "salt": 0.78,
+    "weight": 144,
+    "monounsaturatedFat": 4,
+    "polyunsaturatedFat": 3.6
    },
    "tags": [
     "vegetarian"
@@ -1231,7 +1397,10 @@
     "saturatedFat": 6.8,
     "sugar": 1.9,
     "fiber": 1.3,
-    "salt": 0.95
+    "salt": 0.95,
+    "weight": 134,
+    "monounsaturatedFat": 4.2,
+    "polyunsaturatedFat": 4
    },
    "tags": [
     "vegetarian"
@@ -1254,7 +1423,10 @@
     "saturatedFat": 2.9,
     "sugar": 9.2,
     "fiber": 6.9,
-    "salt": 2.2
+    "salt": 2.2,
+    "weight": 310,
+    "monounsaturatedFat": 8.1,
+    "polyunsaturatedFat": 8
    },
    "tags": [],
    "limitedTime": false,
@@ -1275,7 +1447,10 @@
     "saturatedFat": 1.7,
     "sugar": 9.2,
     "fiber": 3.6,
-    "salt": 1.41
+    "salt": 1.41,
+    "weight": 325,
+    "monounsaturatedFat": 3.3,
+    "polyunsaturatedFat": 3
    },
    "tags": [],
    "limitedTime": false,
@@ -1296,7 +1471,10 @@
     "saturatedFat": 1.2,
     "sugar": 6,
     "fiber": 11,
-    "salt": 1.6
+    "salt": 1.6,
+    "weight": 369,
+    "monounsaturatedFat": 5,
+    "polyunsaturatedFat": 4.8
    },
    "tags": [
     "vegetarian"
@@ -1319,7 +1497,10 @@
     "saturatedFat": 10,
     "sugar": 7,
     "fiber": 1.4,
-    "salt": 0.62
+    "salt": 0.62,
+    "weight": 66,
+    "monounsaturatedFat": 3,
+    "polyunsaturatedFat": 3
    },
    "tags": [
     "vegetarian"
@@ -1342,7 +1523,10 @@
     "saturatedFat": 9.1,
     "sugar": 3.8,
     "fiber": 1,
-    "salt": 0.63
+    "salt": 0.63,
+    "weight": 60,
+    "monounsaturatedFat": 2.4,
+    "polyunsaturatedFat": 2.5
    },
    "tags": [
     "vegetarian"
@@ -1365,7 +1549,10 @@
     "saturatedFat": 7.3,
     "sugar": 25,
     "fiber": 2.5,
-    "salt": 0.46
+    "salt": 0.46,
+    "weight": 68,
+    "monounsaturatedFat": 3.1,
+    "polyunsaturatedFat": 3.1
    },
    "tags": [
     "vegetarian"
@@ -1388,7 +1575,10 @@
     "saturatedFat": 3.6,
     "sugar": 39,
     "fiber": 2,
-    "salt": 0.78
+    "salt": 0.78,
+    "weight": 130,
+    "monounsaturatedFat": 12.5,
+    "polyunsaturatedFat": 12.5
    },
    "tags": [],
    "limitedTime": false,
@@ -1409,7 +1599,10 @@
     "saturatedFat": 9,
     "sugar": 21,
     "fiber": 0.5,
-    "salt": 0.47
+    "salt": 0.47,
+    "weight": 65,
+    "monounsaturatedFat": 3,
+    "polyunsaturatedFat": 3
    },
    "tags": [
     "vegetarian"
@@ -1432,7 +1625,10 @@
     "saturatedFat": 7.9,
     "sugar": 15.9,
     "fiber": 0.7,
-    "salt": 0.17
+    "salt": 0.17,
+    "weight": 58,
+    "monounsaturatedFat": 2.8,
+    "polyunsaturatedFat": 2
    },
    "tags": [
     "vegetarian"
@@ -1455,7 +1651,10 @@
     "saturatedFat": 6.3,
     "sugar": 22.7,
     "fiber": 3,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 75,
+    "monounsaturatedFat": 6.1,
+    "polyunsaturatedFat": 6
    },
    "tags": [
     "vegetarian"
@@ -1478,7 +1677,10 @@
     "saturatedFat": 1.7,
     "sugar": 17.1,
     "fiber": 1.3,
-    "salt": 0.43
+    "salt": 0.43,
+    "weight": 69,
+    "monounsaturatedFat": 6.7,
+    "polyunsaturatedFat": 6
    },
    "tags": [
     "vegetarian"
@@ -1501,7 +1703,10 @@
     "saturatedFat": 8.9,
     "sugar": 17.3,
     "fiber": 2.3,
-    "salt": 0.33
+    "salt": 0.33,
+    "weight": 54,
+    "monounsaturatedFat": 5.6,
+    "polyunsaturatedFat": 5
    },
    "tags": [
     "vegetarian"
@@ -1524,7 +1729,10 @@
     "saturatedFat": 11,
     "sugar": 22,
     "fiber": 3.3,
-    "salt": 0.26
+    "salt": 0.26,
+    "weight": 68,
+    "monounsaturatedFat": 6.5,
+    "polyunsaturatedFat": 6.5
    },
    "tags": [
     "vegetarian"
@@ -1547,7 +1755,10 @@
     "saturatedFat": 9,
     "sugar": 18,
     "fiber": 1.9,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 65,
+    "monounsaturatedFat": 8,
+    "polyunsaturatedFat": 4
    },
    "tags": [
     "vegetarian"
@@ -1570,7 +1781,10 @@
     "saturatedFat": 21,
     "sugar": 14,
     "fiber": 5.9,
-    "salt": 0.27
+    "salt": 0.27,
+    "weight": 70,
+    "monounsaturatedFat": 4,
+    "polyunsaturatedFat": 3
    },
    "tags": [
     "vegetarian"
@@ -1593,7 +1807,10 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 324,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1614,7 +1831,10 @@
     "saturatedFat": 13.8,
     "sugar": 33,
     "fiber": 4.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 337,
+    "monounsaturatedFat": 7,
+    "polyunsaturatedFat": 0.6
    },
    "tags": [],
    "limitedTime": false,
@@ -1635,7 +1855,10 @@
     "saturatedFat": 15.1,
     "sugar": 35.2,
     "fiber": 3.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 332,
+    "monounsaturatedFat": 7,
+    "polyunsaturatedFat": 0.7
    },
    "tags": [],
    "limitedTime": false,
@@ -1656,7 +1879,10 @@
     "saturatedFat": 5.2,
     "sugar": 9.6,
     "fiber": 0.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 208,
+    "monounsaturatedFat": 2,
+    "polyunsaturatedFat": 0.1
    },
    "tags": [],
    "limitedTime": false,
@@ -1677,7 +1903,10 @@
     "saturatedFat": 6.1,
     "sugar": 12.1,
     "fiber": 1,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 250,
+    "monounsaturatedFat": 1.3,
+    "polyunsaturatedFat": 1.3
    },
    "tags": [],
    "limitedTime": false,
@@ -1698,7 +1927,10 @@
     "saturatedFat": 7.3,
     "sugar": 13.4,
     "fiber": 0.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 325,
+    "monounsaturatedFat": 3,
+    "polyunsaturatedFat": 0.3
    },
    "tags": [],
    "limitedTime": false,
@@ -1719,7 +1951,10 @@
     "saturatedFat": 4.7,
     "sugar": 8.7,
     "fiber": 0.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 393,
+    "monounsaturatedFat": 3,
+    "polyunsaturatedFat": 0.4
    },
    "tags": [],
    "limitedTime": false,
@@ -1740,7 +1975,10 @@
     "saturatedFat": 0,
     "sugar": 0.2,
     "fiber": 0.6,
-    "salt": 0
+    "salt": 0,
+    "weight": 315,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1761,7 +1999,10 @@
     "saturatedFat": 0,
     "sugar": 0.2,
     "fiber": 0.6,
-    "salt": 0
+    "salt": 0,
+    "weight": 315,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1782,7 +2023,10 @@
     "saturatedFat": 7.3,
     "sugar": 27.4,
     "fiber": 0.8,
-    "salt": 0.3
+    "salt": 0.3,
+    "weight": 250,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1803,7 +2047,10 @@
     "saturatedFat": 4.7,
     "sugar": 22.7,
     "fiber": 0.8,
-    "salt": 0.2
+    "salt": 0.2,
+    "weight": 250,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1824,7 +2071,9 @@
     "saturatedFat": 7.3,
     "sugar": 13.2,
     "fiber": 0.8,
-    "salt": 0.3
+    "salt": 0.3,
+    "monounsaturatedFat": 1.7,
+    "polyunsaturatedFat": 1
    },
    "tags": [],
    "limitedTime": false,
@@ -1845,7 +2094,9 @@
     "saturatedFat": 4.7,
     "sugar": 8.5,
     "fiber": 0.8,
-    "salt": 0.2
+    "salt": 0.2,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 0.8
    },
    "tags": [],
    "limitedTime": false,
@@ -1866,7 +2117,10 @@
     "saturatedFat": 0,
     "sugar": 22,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "weight": 202,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1887,7 +2141,10 @@
     "saturatedFat": 0.5,
     "sugar": 35,
     "fiber": 1.2,
-    "salt": 0.02
+    "salt": 0.02,
+    "weight": 325,
+    "monounsaturatedFat": 3,
+    "polyunsaturatedFat": 1
    },
    "tags": [
     "vegetarian"
@@ -1910,7 +2167,10 @@
     "saturatedFat": 0.6,
     "sugar": 27,
     "fiber": 3.2,
-    "salt": 0.02
+    "salt": 0.02,
+    "weight": 275,
+    "monounsaturatedFat": 1,
+    "polyunsaturatedFat": 1
    },
    "tags": [
     "vegetarian"
@@ -1933,7 +2193,10 @@
     "saturatedFat": 0.1,
     "sugar": 21,
     "fiber": 0.1,
-    "salt": 0.1
+    "salt": 0.1,
+    "weight": 200,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1954,7 +2217,10 @@
     "saturatedFat": 0.1,
     "sugar": 17,
     "fiber": 0.2,
-    "salt": 0.01
+    "salt": 0.01,
+    "weight": 200,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1975,7 +2241,10 @@
     "saturatedFat": 0,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 250,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -1996,7 +2265,10 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 500,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -2017,7 +2289,10 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 500,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -2038,7 +2313,10 @@
     "saturatedFat": 0,
     "sugar": 12,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 250,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -2059,7 +2337,10 @@
     "saturatedFat": 0,
     "sugar": 12,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 250,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,
@@ -2080,7 +2361,10 @@
     "saturatedFat": 0,
     "sugar": 12.2,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "weight": 250,
+    "monounsaturatedFat": 0,
+    "polyunsaturatedFat": 0
    },
    "tags": [],
    "limitedTime": false,

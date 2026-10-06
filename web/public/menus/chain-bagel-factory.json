@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Values are for each bagel as made with a plain bagel bun; Bagel Factory lets you choose another bun, which changes the numbers. Minis and gluten-free boxes are as listed with their own bun. Drinks have no published nutrition.",
+ "allergenGuide": {
+  "title": "Bagel Factory Ingredient List, allergens in bold (Issue 22, 17/08/2026)",
+  "url": "https://bagelfactory.co.uk/wp-content/uploads/Full-Ingredient-List.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Breakfast",
   "Cream Cheese",
@@ -40,7 +47,8 @@
     "saturatedFat": 4.6,
     "sugar": 7.3,
     "fiber": 4.7,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1914
    },
    "tags": [
     "contains_pork"
@@ -48,7 +56,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/5b07e238333a.webp"
   },
   {
    "id": "veggie-breakfast",
@@ -63,13 +72,15 @@
     "saturatedFat": 7.8,
     "sugar": 8.8,
     "fiber": 4.9,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 2275
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/77d12fcafbeb.webp"
   },
   {
    "id": "bacon-mini",
@@ -84,7 +95,8 @@
     "saturatedFat": 2.9,
     "sugar": 2,
     "fiber": 1.2,
-    "salt": 0.77
+    "salt": 0.77,
+    "energyKj": 779
    },
    "tags": [
     "contains_pork"
@@ -92,7 +104,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/9949ecabfc51.webp"
   },
   {
    "id": "sausage-and-egg",
@@ -107,7 +120,8 @@
     "saturatedFat": 6.2,
     "sugar": 7.9,
     "fiber": 4.7,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 2256
    },
    "tags": [
     "contains_pork"
@@ -115,7 +129,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/a72a8db3be90.webp"
   },
   {
    "id": "bacon",
@@ -130,7 +145,8 @@
     "saturatedFat": 5.2,
     "sugar": 6.9,
     "fiber": 3.8,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1981
    },
    "tags": [
     "contains_pork"
@@ -138,7 +154,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/f71ad34e618d.webp"
   },
   {
    "id": "cream-cheese",
@@ -153,13 +170,15 @@
     "saturatedFat": 8.1,
     "sugar": 7.8,
     "fiber": 3.6,
-    "salt": 1.02
+    "salt": 1.02,
+    "energyKj": 1824
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/7d3805c76b6d.webp"
   },
   {
    "id": "garlic-and-herbs-cream-cheese",
@@ -174,13 +193,15 @@
     "saturatedFat": 8.1,
     "sugar": 7.8,
     "fiber": 3.6,
-    "salt": 1.02
+    "salt": 1.02,
+    "energyKj": 1824
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/ee3178eb13ac.webp"
   },
   {
    "id": "vegan-cream-cheese",
@@ -195,13 +216,15 @@
     "saturatedFat": 10.4,
     "sugar": 6.2,
     "fiber": 4.7,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1772
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/0f133f8faf2f.webp"
   },
   {
    "id": "smoky-pulled-pork",
@@ -216,7 +239,8 @@
     "saturatedFat": 12.8,
     "sugar": 10.2,
     "fiber": 5.3,
-    "salt": 3.1
+    "salt": 3.1,
+    "energyKj": 3022
    },
    "tags": [
     "contains_pork"
@@ -224,7 +248,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/273db6b7c914.webp"
   },
   {
    "id": "chicken-and-avocado",
@@ -239,13 +264,15 @@
     "saturatedFat": 3.4,
     "sugar": 6.6,
     "fiber": 4.9,
-    "salt": 1.39
+    "salt": 1.39,
+    "energyKj": 2367
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/4c49da7e90bb.webp"
   },
   {
    "id": "salt-beef-melt",
@@ -260,7 +287,8 @@
     "saturatedFat": 10.2,
     "sugar": 7.4,
     "fiber": 4.2,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 2361
    },
    "tags": [
     "contains_beef"
@@ -268,7 +296,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/064ee98329fa.webp"
   },
   {
    "id": "chicken-club",
@@ -283,7 +312,8 @@
     "saturatedFat": 8.4,
     "sugar": 8.4,
     "fiber": 4.2,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 2672
    },
    "tags": [
     "contains_pork"
@@ -291,7 +321,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/a4fddeb471fe.webp"
   },
   {
    "id": "gluten-free-bagel-box-with-avocado-and-vegan-cream-cheese",
@@ -306,13 +337,15 @@
     "saturatedFat": 13.9,
     "sugar": 4.2,
     "fiber": 5.8,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1706
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/e75d42fd09d9.webp"
   },
   {
    "id": "gluten-free-bagel-box-with-salmon-and-cream-cheese",
@@ -327,13 +360,15 @@
     "saturatedFat": 10.5,
     "sugar": 4.7,
     "fiber": 5,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 1770
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/e9f9ef354333.webp"
   },
   {
    "id": "the-new-yorker",
@@ -348,13 +383,15 @@
     "saturatedFat": 9,
     "sugar": 10.9,
     "fiber": 4.9,
-    "salt": 3.2
+    "salt": 3.2,
+    "energyKj": 2265
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/85fe440d461e.webp"
   },
   {
    "id": "tuna-melt-bagel",
@@ -369,13 +406,15 @@
     "saturatedFat": 10.2,
     "sugar": 7.9,
     "fiber": 4.1,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2790
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/37a0b1e8631e.webp"
   },
   {
    "id": "the-classic",
@@ -390,13 +429,15 @@
     "saturatedFat": 9,
     "sugar": 8,
     "fiber": 4.1,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2179
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/d4bd8efb3c3f.webp"
   },
   {
    "id": "salmon-and-avocado",
@@ -411,13 +452,15 @@
     "saturatedFat": 3.4,
     "sugar": 6.3,
     "fiber": 5.8,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 2127
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/52f2557b1f13.webp"
   },
   {
    "id": "the-classic-mini",
@@ -432,13 +475,15 @@
     "saturatedFat": 4.1,
     "sugar": 2.4,
     "fiber": 0.8,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 644
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/f161cca78c58.webp"
   },
   {
    "id": "nutella-bagel",
@@ -453,13 +498,15 @@
     "saturatedFat": 4.5,
     "sugar": 28.3,
     "fiber": 6.1,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 2151
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/e6830eaef8e1.webp"
   },
   {
    "id": "strawberry-jam",
@@ -474,13 +521,15 @@
     "saturatedFat": 0.3,
     "sugar": 7.2,
     "fiber": 3.6,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 1634
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/bed064211efd.webp"
   },
   {
    "id": "peanut-butter",
@@ -495,13 +544,15 @@
     "saturatedFat": 3,
     "sugar": 8.1,
     "fiber": 6.3,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 2295
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/c20f95bb8d6a.webp"
   },
   {
    "id": "honey-heat-halloumi",
@@ -516,7 +567,8 @@
     "saturatedFat": 13.9,
     "sugar": 16.5,
     "fiber": 6.6,
-    "salt": 3.9
+    "salt": 3.9,
+    "energyKj": 2870
    },
    "tags": [
     "vegetarian"
@@ -524,7 +576,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/d0d2823bf911.webp"
   },
   {
    "id": "halloumi-melt",
@@ -539,7 +592,8 @@
     "saturatedFat": 13.5,
     "sugar": 9.5,
     "fiber": 4.3,
-    "salt": 3.4
+    "salt": 3.4,
+    "energyKj": 2569
    },
    "tags": [
     "vegetarian"
@@ -547,7 +601,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/7320808cb207.webp"
   },
   {
    "id": "vegan-cream-cheese-stack-mini",
@@ -562,7 +617,8 @@
     "saturatedFat": 6.7,
     "sugar": 2,
     "fiber": 1.8,
-    "salt": 0.68
+    "salt": 0.68,
+    "energyKj": 941
    },
    "tags": [
     "vegetarian"
@@ -570,7 +626,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/694cceaed200.webp"
   },
   {
    "id": "vegan-cream-cheese-stack",
@@ -585,7 +642,8 @@
     "saturatedFat": 12.5,
     "sugar": 6.7,
     "fiber": 6,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 2300
    },
    "tags": [
     "vegetarian"
@@ -593,7 +651,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "bagel-factory/4e243a01b0b7.webp"
   }
  ],
  "combinations": []
