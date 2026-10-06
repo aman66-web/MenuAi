@@ -102,13 +102,17 @@ await step("Search: highlight, recent searches", async () => {
   expect((await page.getByRole("searchbox").inputValue()) === "halloumi", "recent search didn't refill the box");
 });
 
-await step("Item: allergens as the chain's guide prints them, with the guide and 'check with staff'", async () => {
+await step("Item: allergen table as the chain's guide prints it, with a link to the guide and 'check with staff'", async () => {
   await page.goto(BASE + "/app/item?chain=farmer-j&item=smashed-avo-preserved-lemon-toast");
   const section = page.getByRole("region", { name: "Allergens" });
   await section.waitFor();
-  await section.getByText("Cereals containing gluten (wheat, rye, barley)").waitFor();
-  await section.getByText("May contain", { exact: true }).waitFor();
-  await section.getByRole("link", { name: /Farmer J Allergen/ }).waitFor();
+  const table = section.getByRole("table");
+  const row = table.getByRole("row", { name: /Cereals containing gluten/ });
+  await row.getByText("wheat, rye, barley").waitFor();
+  await row.getByText("Contains", { exact: true }).waitFor();
+  await table.getByText("May contain", { exact: true }).first().waitFor();
+  expect((await table.getByRole("row").count()) === 15, "expected a header row and the 14 allergens");
+  await section.getByRole("link", { name: /Open Farmer J's allergen guide/ }).waitFor();
   await section.getByText(/always check with staff/).waitFor();
 });
 

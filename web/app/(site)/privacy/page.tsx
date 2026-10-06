@@ -35,9 +35,24 @@ export default function Privacy() {
 
       <h2>Location</h2>
       <p>
-        If you allow it, the iPhone app uses your location on your phone to list restaurant chains near you. The
-        search is handled by Apple Maps under Apple&apos;s privacy policy. We never store or receive your location. The
-        web app doesn&apos;t use your location.
+        The web app&apos;s Nearby screen can use your location, but only when you tap &ldquo;Use my location&rdquo; (or your
+        browser has already been allowed to share it with this site). Your position is used in your browser to work out
+        which restaurant branches are closest, using a list of branch positions that your browser downloads from us. We never
+        store or receive your location, and it is not remembered on your device.
+      </p>
+      <p>
+        Instead of sharing your location you can type a postcode or town. That text (not your location) is sent to
+        postcodes.io, a free UK postcode service, to find the place on the map. We remember the area you typed on your device
+        only, so Nearby opens there next time; &ldquo;Clear data on this device&rdquo; in Settings removes it.
+      </p>
+      <p>
+        The map is drawn with tiles from OpenFreeMap. Like any online map, its server can see which part of the map your browser
+        asks for and your IP address, but not your location from your device. Branch positions and map data come from
+        OpenStreetMap contributors (openstreetmap.org/copyright).
+      </p>
+      <p>
+        If you allow it, the iPhone app uses your location on your phone to list restaurant chains near you. The search is
+        handled by Apple Maps under Apple&apos;s privacy policy. We never store or receive your location.
       </p>
 
       <h2>Apple Health</h2>
@@ -86,6 +101,7 @@ export default function Privacy() {
         <li>Vercel hosts this website and the service that receives your messages.</li>
         <li>TelemetryDeck receives the iPhone app&apos;s anonymous usage statistics.</li>
         <li>Apple processes App Store purchases, Apple Maps searches and Apple Health storage for the iPhone app.</li>
+        <li>postcodes.io looks up the postcode or town you type on the web app&apos;s Nearby screen, and OpenFreeMap serves the map tiles there.</li>
       </ul>
       <p>We don&apos;t sell or share your data, show ads, or track you across other apps and websites.</p>
 

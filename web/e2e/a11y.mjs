@@ -7,6 +7,19 @@ const settings = (pro) => JSON.stringify({ v: 1, data: { goal: "buildMuscle", da
 const saved = JSON.stringify({ v: 1, data: [{ id: "s1", createdAt: "2026-10-05T12:00:00Z", chainId: "bowl-and-co", chainName: "Bowl & Co.", name: "Chicken bowl · double chicken", lines: [{ kind: "components", itemId: "chicken-bowl", components: [{ id: "white-rice", qty: 1 }, { id: "chicken", qty: 2 }, { id: "black-beans", qty: 1 }, { id: "tomato-salsa", qty: 1 }, { id: "cheese", qty: 1 }] }], nutrients: { calories: 835, protein: 82, carbs: 67, fat: 27.5 }, dataVersionAtSave: 1 }] });
 const log = JSON.stringify({ v: 1, data: [{ id: "l1", loggedAt: new Date().toISOString(), chainId: "bowl-and-co", chainName: "Bowl & Co.", name: "Chicken bowl", nutrients: { calories: 655, protein: 50, carbs: 67, fat: 20.5 }, source: "item" }] });
 
+// Nearby: a pretend location in Westminster, with the map tiles blocked (list only) or left alone (the real map canvas).
+async function nearby(p, blockTiles) {
+  const c = p.context();
+  await c.grantPermissions(["geolocation"]);
+  await c.setGeolocation({ latitude: 51.5007, longitude: -0.1246 });
+  if (blockTiles) await p.route("**/tiles.openfreemap.org/**", (r) => r.abort());
+  const locate = p.getByRole("button", { name: "Use my location" });
+  const change = p.getByRole("button", { name: "Change" }); // already located: the page shows this instead once permission is granted
+  await Promise.race([locate.waitFor(), change.waitFor()]);
+  if (await locate.isVisible()) await locate.click();
+  await p.getByRole("heading", { name: /(restaurants?|No restaurants here)$/ }).waitFor();
+}
+
 const pages = [
   ["welcome", "/app/welcome", false, async () => {}],
   ["home", "/app", true, async () => {}],
@@ -28,6 +41,8 @@ const pages = [
   ["menu search", "/app/chain?id=puccinos", false, async (p) => { await p.getByRole("searchbox").fill("latte oat"); await p.waitForTimeout(400); }],
   ["real item", "/app/item?chain=nandos&item=chicken-chorizo", false, async () => {}],
   ["allergens", "/app/item?chain=farmer-j&item=smashed-avo-preserved-lemon-toast", false, async () => {}],
+  ["nearby (list)", "/app/map", false, async (p) => { await nearby(p, true); }],
+  ["nearby (map)", "/app/map", false, async (p) => { await nearby(p, false); await p.waitForTimeout(4000); }],
   ["site", "/", false, async () => {}],
 ];
 

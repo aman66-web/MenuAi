@@ -3,7 +3,7 @@
  * Goal: after you've opened something once, it keeps working with a poor or no connection.
  *  - /_next/static/* and /icons/*: cache-first (Next.js names contain a content hash; icons do not, so bump VERSION when they change)
  *  - /menu-images/*: cache-first in their own capped cache (item photos are named by content hash, so they never go stale)
- *  - /menus/*, /menus-sample/* and /logos/*: network-first, falling back to the last copy
+ *  - /menus/*, /menus-sample/*, /branches/* and /logos/*: network-first, falling back to the last copy
  *  - /app/* pages (and their data requests): network-first, falling back to the last copy
  *  - /app/chain, /app/item and /app/builder are static shells that read their ids from the query string, so ONE cached
  *    copy (keyed without the query) opens every restaurant, item and order offline
@@ -17,7 +17,7 @@ const DATA = `${VERSION}-data`;
 const IMAGES = `${VERSION}-images`;
 const MAX_ENTRIES = { [PAGES]: 80, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150 };
 const NETWORK_TIMEOUT_MS = 5000;
-const SHELLS = ["/app", "/app/search", "/app/saved", "/app/today", "/app/settings", "/app/settings/numbers", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
+const SHELLS = ["/app", "/app/map", "/app/search", "/app/saved", "/app/today", "/app/settings", "/app/settings/numbers", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
 const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder"];
 
 /** Page navigations to the query-driven shells share one cache entry; everything else is keyed by its full URL. */
@@ -143,7 +143,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(cacheFirst(request));
   } else if (path.startsWith("/menu-images/")) {
     event.respondWith(cacheFirst(request, IMAGES));
-  } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/") || path.startsWith("/logos/")) {
+  } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/") || path.startsWith("/logos/") || path.startsWith("/branches/")) {
     event.respondWith(networkFirst(request, DATA));
   } else if (path === "/app" || path.startsWith("/app/")) {
     event.respondWith(networkFirst(request, PAGES));

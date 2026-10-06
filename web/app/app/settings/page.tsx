@@ -192,9 +192,9 @@ export default function SettingsPage() {
       </Sheet>
 
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title="Clear data on this device">
-        <p className="text-base">This removes your goal, targets, saved orders, log, favourites, recent searches and any messages not sent yet from this browser. It can&apos;t be undone.</p>
+        <p className="text-base">This removes your goal, targets, saved orders, log, favourites, recent searches, the area you typed on Nearby and any messages not sent yet from this browser. It can&apos;t be undone.</p>
         <div className="mt-4 space-y-2 pb-2">
-          <Button full onClick={() => { settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); } catch { /* storage blocked */ } setClearOpen(false); }}>Clear everything</Button>
+          <Button full onClick={() => { settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>Clear everything</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>Cancel</Button>
         </div>
       </Sheet>

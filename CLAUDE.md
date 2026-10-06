@@ -62,7 +62,7 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    or change production data without the founder's go-ahead; schema changes are new migration files.
    location used on device only, Health is write-only and never used for anything else.
 5. **Sample chains are fictional** (`sample: true`): visible in DEBUG only, never in Release.
-6. **No new third-party dependencies** without asking the founder (TelemetryDeck in M9 is pre-approved).
+6. **No new third-party dependencies** without asking the founder (TelemetryDeck in M9 and MapLibre GL for the web Nearby map, approved 2026-10-06, are pre-approved).
 7. Use the exact user-facing copy from `docs/SPEC.md` §8, §9, §12 when it's given.
 8. Don't change ranking constants, prices, limits or copy without asking; if the spec is unclear or
    wrong, ask, then log the decision in `docs/PROGRESS.md`.

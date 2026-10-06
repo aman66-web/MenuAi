@@ -38,3 +38,6 @@ export const TacoGlyph = (p: P) => (<svg {...base(p)}><path d="M3 19a9 9 0 0118 
 export const InfoIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="9" /><path d="M12 11v5.5M12 7.6v.2" /></svg>);
 export const ArrowUpIcon = (p: P) => (<svg {...base(p)}><path d="M12 19V5M6 11l6-6 6 6" /></svg>);
 export const ExternalIcon = (p: P) => (<svg {...base(p)}><path d="M14 4h6v6M20 4l-9 9" /><path d="M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5" /></svg>);
+export const PinIcon = (p: P) => (<svg {...base(p)}><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.4" /></svg>);
+export const LocateIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="3.2" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3" /><circle cx="12" cy="12" r="7.5" /></svg>);
+export const DirectionsIcon = (p: P) => (<svg {...base(p)}><path d="M12 3l9 9-9 9-9-9z" /><path d="M8.5 12.5V11a1.5 1.5 0 011.5-1.5h5m0 0l-1.8-1.8m1.8 1.8l-1.8 1.8" /></svg>);

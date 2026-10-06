@@ -132,6 +132,8 @@ export interface ManifestChain {
   sha256: string;
   contentHash: string;
   cuisine?: string; // older manifests don't have it
+  /** "full" = calories, protein, carbs and fat for every item; "calories" = the chain publishes calories only. Absent = full. */
+  nutritionLevel?: "full" | "calories";
   sample: boolean;
   itemCount: number;
   checkedOn: string;
