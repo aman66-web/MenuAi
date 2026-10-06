@@ -701,7 +701,7 @@ def main(argv=None) -> int:
         report += ["## Warnings (check these against the source)", ""] + [f"- {w}" for w in warnings] + [""]
     held = [(b.chain.get("name", b.folder.name), *h) for b in builds for h in b.held]
     if held:
-        report += ["## Held back (not published: the chain's own guide prints impossible numbers)", ""]
+        report += ["## Held back (not published: the chain's own numbers contradict themselves, or its own website disagrees)", ""]
         report += [f"- {chain}: {name} ({iid}): {reason}" for chain, iid, name, reason in held] + [""]
 
     out.mkdir(parents=True, exist_ok=True)

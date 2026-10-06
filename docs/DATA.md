@@ -110,7 +110,8 @@ sauces." It is its own file because extraction scripts rewrite `chain.csv` on ev
 ### holdback.csv (optional)
 
 `item_id, reason` — items listed here are **not published**: use it when the chain's own guide prints impossible
-numbers (e.g. 367 g of carbohydrate in a burger, 43 kcal with 18 g of fat). Nothing is corrected or guessed; the item is
+numbers (e.g. 367 g of carbohydrate in a burger, 43 kcal with 18 g of fat), or when the chain's own website prints a
+different figure for the same item (say so in the reason). Nothing is corrected or guessed; the item is
 left out of the menu and shown in the check report under "Held back" until the chain fixes its guide. It lives beside
 the extraction script's output, so a monthly re-extraction never brings the item back by accident. A line whose item no
 longer exists gives a warning.
