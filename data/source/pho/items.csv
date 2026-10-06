@@ -1,0 +1,98 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
+spring-rolls-veggie-cha-gio,Spring rolls - Veggie (Chả giò),Starters & sides,,318,4.5,49.1,11.5,1.1,,,3.1,<1,vegetarian,false,true,,,
+spring-rolls-pork-cha-gio,Spring rolls - Pork (Chả giò),Starters & sides,,377,13.02,39,19.61,4.22,,,5.9,3.9,contains_pork,false,true,,,
+summer-rolls-veggie-goi-cuon,Summer rolls - Veggie (Gỏi cuốn),Starters & sides,,185,1.7,36.6,3.8,<0.5,,,8.1,1.4,vegetarian,false,true,,,
+summer-rolls-chicken-goi-cuon,Summer rolls - Chicken (Gỏi cuốn),Starters & sides,,183,10.5,33.1,<1,<0.5,,,1.8,<1,,false,true,,,
+summer-rolls-this-isnt-chicken-goi-cuon,Summer rolls - THIS isn't chicken (Gỏi cuốn),Starters & sides,,196,8.5,33.6,3.6,<0.5,,,2.8,2.1,vegetarian,false,true,,,
+summer-rolls-prawn-goi-cuon,Summer rolls - Prawn (Gỏi cuốn),Starters & sides,,145,6.8,29.2,<0.5,<0.5,,,2.2,1,,false,true,,,
+chicken-wings-canh-ga,Chicken wings (Cánh gà),Starters & sides,,587,67.1,0.2,35.5,6.5,,,0.29,1.2,,false,true,,,"Sugar (0.29) is printed higher than carbohydrate (0.2), and fibre (1.2) higher than carbohydrate"
+pork-and-lemongrass-meatballs-nem-nuong,Pork & lemongrass meatballs (Nem nướng),Starters & sides,,349,27.5,7.6,22.8,5.4,,,1,1.6,contains_pork,false,true,,,
+baby-squid-muc-chien-gion,Baby squid (Mực chiên giòn),Starters & sides,,315,13.5,17.8,21.8,1.9,,,<0.5,2.9,,false,true,,,
+seafood-spring-roll-nem-hai-san,Seafood spring roll (Nem hải sản),Starters & sides,,208,12.7,20.4,9.1,2.2,,,1.4,3.3,contains_pork,false,true,,,"The guide's description says king prawn, crab and pork"
+beef-betel-bo-la-lot,Beef betel (Bò lá lốt),Starters & sides,,365,35,22.8,14.4,3.5,,,2,1,contains_beef,false,true,,,
+vietnamese-pancake-tofu-banh-xeo,Vietnamese pancake - Tofu (Bánh xèo),Starters & sides,,289,12.5,19.2,18.1,4.1,,,<0.5,1,vegetarian,false,true,,,
+vietnamese-pancake-this-isnt-chicken-banh-xeo,Vietnamese pancake - THIS isn't chicken (Bánh xèo),Starters & sides,,281,18.2,24.3,13.2,2.7,,,1.4,4.6,vegetarian,false,true,,,
+vietnamese-pancake-chicken-and-prawn-banh-xeo,Vietnamese pancake - Chicken & Prawn (Bánh xèo),Starters & sides,,226,20.4,16.1,8.7,2.7,,,<0.5,1,,false,true,,,
+beef-brisket-pho-chin,Beef brisket (Phở chín),Phở,,397,36.7,54.6,3.6,1.32,,,1,3,contains_beef,false,true,,,
+steak-pho-tai,Steak (Phở tái),Phở,,287,21.4,47.5,1.25,<0.5,,,1,3.1,contains_beef,false,true,,,
+steak-with-garlic-pho-tai-lan,Steak with garlic (Phở tái lăn),Phở,,468,32.6,50,14.9,2,,,1,3.2,contains_beef,false,true,,,
+beef-combo-pho-bo-combo,Beef combo (Phở bò combo),Phở,,396,39.2,46.1,5.8,2,,,1,3.2,contains_beef,false,true,,,"The guide's description says steak, brisket and meatballs"
+chicken-pho-ga,Chicken (Phở gà),Phở,,347,29.3,53,2,<1,,,<1,3.4,,false,true,,,
+king-prawns-pho-tom,King prawns (Phở tôm),Phở,,305,20.9,54.4,<1,<0.5,,,<1,3.4,,false,true,,,
+tofu-and-button-mushrooms-pho-chay,Tofu & button mushrooms (Phở chay),Phở,,356,14.9,56.1,7.9,<1,,,<1,3.3,vegetarian,false,true,,,
+3-mushrooms-pho-nam-rom,3 Mushrooms (Phở nấm rơm),Phở,,290,11.4,52.8,3.9,<1,,,<1,3.3,vegetarian,false,true,,,
+hot-and-spicy-chicken-bun-ga-hue,Hot & spicy chicken (Bún gà Huế),Hot & spicy soups,,353,26.9,55,3.1,<1,,,1.8,3.1,,false,true,,,Fat and fibre are printed as the same number (3.1)
+hot-and-spicy-beef-brisket-bun-bo-hue,Hot & spicy beef brisket (Bún bò Huế),Hot & spicy soups,,454,36.6,55.4,9.4,1.7,,,<1,2.9,contains_beef,false,true,,,
+hot-and-spicy-king-prawn-bun-tom-hue,Hot & spicy king prawn (Bún tôm Huế),Hot & spicy soups,,301,17.1,52.7,2.6,<1,,,2.3,2.9,,false,true,,,
+hot-and-spicy-this-isnt-chicken-bun-ga-chay-hue,Hot & spicy THIS isn't chicken (Bún gà chay Huế),Hot & spicy soups,,349,18.2,58,5.6,<1,,,3.5,4.6,vegetarian,false,true,,,
+hot-and-spicy-tofu-and-mushroom-bun-chay-hue,Hot & spicy tofu & mushroom (Bún chay Huế),Hot & spicy soups,,420,15.8,59.1,13.4,1.6,,,<1,3,vegetarian,false,true,,,
+hot-and-spicy-3-mushrooms-bun-nam-rom-hue,Hot & spicy 3 mushrooms (Bún nấm rơm Huế),Hot & spicy soups,,335,9,60.1,6.1,<1,,,4.8,3,vegetarian,false,true,,,
+super-green,Super Green,House specials,,399,11.13,85,2.55,0.94,,,11.1,5.1,vegetarian,false,true,,,
+spicy-green-chicken,Spicy Green - Chicken,House specials,,455,25.2,80.1,3.4,0.9,,,8.4,5.1,,false,true,,,
+spicy-green-this-isnt-chicken,Spicy Green - THIS isn't chicken,House specials,,556,32.02,84.3,12.5,1.61,,,8,12.5,vegetarian,false,true,,,Fat and fibre are printed as the same number (12.5)
+spicy-green-tofu,Spicy Green - Tofu,House specials,,448,18.9,70.6,10,0,,,1.2,4.2,vegetarian,false,true,,,
+brisket-and-mushroom-pho-bo-nam-trung,Brisket & mushroom (Phở bò nấm trúng),House specials,,374,24.4,46.9,9.5,2.1,,,<1,3.4,contains_beef,false,true,,,The guide's description says brisket in beef broth
+crab-noodle-soup-bun-rieu,Crab noodle soup (Bún riêu),House specials,,498,34.6,55.8,19.2,3.6,,,12.6,3.2,contains_beef,false,true,,,The guide's description says wafer thin steak and tofu
+pho-house-pho-dac-biet,Phở house (Phở đặc biệt),House specials,,351,32.4,41.6,5.8,1,,,<1,3.6,contains_beef,false,true,,,"The guide's description says king prawns, chicken and steak in beef broth"
+curry-noodle-soup-beef-brisket,Curry noodle soup - Beef brisket,Curry noodle soup,,637,39.37,71.6,23.6,16.41,,,2.6,7,contains_beef,false,true,,,
+curry-noodle-soup-chicken,Curry noodle soup - Chicken,Curry noodle soup,,582,30.3,74.6,18,13.94,,,6.72,4.1,,false,true,,,
+curry-noodle-soup-king-prawn,Curry noodle soup - King prawn,Curry noodle soup,,308,23,36.8,9.4,7.44,,,6,5.13,,false,true,,,
+curry-noodle-soup-this-isnt-chicken,Curry noodle soup - THIS isn't chicken,Curry noodle soup,,610,20.2,75.9,25.5,16.7,,,12,3.5,vegetarian,false,true,,,
+curry-noodle-soup-tofu-and-mushroom,Curry noodle soup - Tofu & mushroom,Curry noodle soup,,631,15.5,78.2,29.4,13.7,,,12.2,3.6,vegetarian,false,true,,,
+curry-noodle-soup-3-mushroom,Curry noodle soup - 3 Mushroom,Curry noodle soup,,559,10.8,76,22.8,13.3,,,9.1,3.3,vegetarian,false,true,,,
+classic-curry-chicken,Classic curry - Chicken,Curry,,587,23.1,19.2,39.2,22.1,,,15.8,4.5,,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+classic-curry-beef-brisket,Classic curry - Beef brisket,Curry,,682,31.4,17.7,45.1,25.5,,,15.5,2.2,contains_beef,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+classic-curry-king-prawn,Classic curry - King prawn,Curry,,464,19.8,19.65,39.7,28.5,,,16.5,3,,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+classic-curry-fish,Classic curry - Fish,Curry,,618,34.8,19.6,43.6,27.9,,,6.3,3.7,,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+classic-curry-tofu,Classic curry - Tofu,Curry,,769,14.3,24.2,60.4,31.3,,,19.1,3.1,vegetarian,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+classic-curry-this-isnt-chicken,Classic curry - THIS isn't chicken,Curry,,660,17.6,26.2,47.1,25.8,,,17.2,4.6,vegetarian,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+spicy-curry-chicken,Spicy curry - Chicken,Curry,,623,31,21.2,50.3,34.7,,,14.1,1.9,,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+spicy-curry-beef-brisket,Spicy curry - Beef brisket,Curry,,736,34.7,18.4,58,41.3,,,13.4,2,contains_beef,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+spicy-curry-king-prawn,Spicy curry - King prawn,Curry,,642,22.8,21.1,60,43.7,,,16.4,2.1,,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+spicy-curry-fish,Spicy curry - Fish,Curry,,521,36.1,13.9,35,26.8,,,8.9,2.9,,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+spicy-curry-tofu,Spicy curry - Tofu,Curry,,789,13.6,21.1,48.1,29.77,,,14.3,1.6,vegetarian,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you; Printed calories (789) are about 28% above what 4P+4C+9F gives (572); the classic tofu curry prints 769 kcal with 60.4 g fat"
+spicy-curry-this-isnt-chicken,Spicy curry - THIS isn't chicken,Curry,,674,25.8,26.2,52.8,35.8,,,16.6,3.9,vegetarian,false,false,,,"Fat is printed with a '*' footnote mark (the guide's footnote is about coconut milk in the sauce); the mark is dropped, the number is as printed. Printed without the rice it is served with (rice is a separate row); not suggested by Best for you"
+rice-bowl-chargrilled-chicken-thigh,Rice bowl - Chargrilled chicken thigh,Rice bowls,,239,31.4,17,11.4,3.1,,,3.8,3.8,,false,false,,,Printed without the rice it is served with (rice is a separate row); not suggested by Best for you; Printed calories (239) are about 24% below what 4P+4C+9F gives (296); fibre and sugar are printed as the same number (3.8)
+rice-bowl-beef-in-betel-leaf,Rice bowl - Beef in betel leaf,Rice bowls,,290,25.6,17,14.1,4.2,,,1.6,2,contains_beef,false,false,,,Printed without the rice it is served with (rice is a separate row); not suggested by Best for you
+rice-bowl-chargrilled-pork,Rice bowl - Chargrilled pork,Rice bowls,,281,25,15.9,6,<1,,,2.6,4.5,contains_pork,false,false,,,Printed without the rice it is served with (rice is a separate row); not suggested by Best for you; Printed calories (281) are about 23% above what 4P+4C+9F gives (218)
+rice-bowl-3-meat-combo,Rice bowl - 3 Meat combo,Rice bowls,,348,34.4,18.7,11.7,3.4,,,2.7,4.6,,false,false,,,Printed without the rice it is served with (rice is a separate row); not suggested by Best for you; meat types not stated
+rice-bowl-tofu-and-veg,Rice bowl - Tofu & veg,Rice bowls,,268,21.2,16.7,14.1,1.6,,,1.2,3.8,vegetarian,false,false,,,Printed without the rice it is served with (rice is a separate row); not suggested by Best for you
+rice-bowl-this-isnt-chicken-and-veg,Rice bowl - THIS isn't chicken & veg,Rice bowls,,205,21.8,27,8.1,<1,,,2.5,6.1,vegetarian,false,false,,,Printed without the rice it is served with (rice is a separate row); not suggested by Best for you; Printed calories (205) are about 31% below what 4P+4C+9F gives (268)
+wok-fried-rice-chicken-and-dried-shrimp-com-chien,Wok fried rice - Chicken & dried shrimp (Cơm chiên),Wok fried rice,,794,31.4,105,27.3,2.6,,,6.6,3.3,,false,true,,,
+wok-fried-rice-shiitake-and-thai-basil-com-chien,Wok fried rice - Shiitake & Thai basil (Cơm chiên),Wok fried rice,,796,14.7,126.5,27.2,2.4,,,5.8,0.2,vegetarian,false,true,,,
+wok-fried-rice-this-isnt-chicken-com-chien,Wok fried rice - THIS isn't chicken (Cơm chiên),Wok fried rice,,869,24.2,120.1,34.9,2.9,,,1.7,10.9,vegetarian,false,true,,,
+wok-fried-noodles-chicken-pho-xao,Wok fried noodles - Chicken (Phở xào),Wok fried noodles,,447,33.3,64.8,6.6,1,,,<0.5,2.4,,false,true,,,
+wok-fried-noodles-beef-pho-xao,Wok fried noodles - Beef (Phở xào),Wok fried noodles,,442,26.8,67.3,7.9,<1,,,<1,2.9,contains_beef,false,true,,,
+wok-fried-noodles-chicken-and-prawn-pho-xao,Wok fried noodles - Chicken & Prawn (Phở xào),Wok fried noodles,,446,29.2,55.5,11.2,<1,,,<1,1.5,,false,true,,,
+wok-fried-noodles-tofu-and-mushroom-pho-xao,Wok fried noodles - Tofu & Mushroom (Phở xào),Wok fried noodles,,527,16,99,14,1.5,,,<1,5.1,vegetarian,false,true,,,
+wok-fried-noodles-this-isnt-chicken-pho-xao,Wok fried noodles - THIS isn't chicken (Phở xào),Wok fried noodles,,419,19.5,79.8,3.9,<0.5,,,<0.5,7.3,vegetarian,false,true,,,
+wok-fried-bun-chicken,Wok-fried bún - Chicken,Vermicelli noodles (bún),,310,26.2,39.7,5.7,1.2,,,5.4,3.41,,false,true,,,
+wok-fried-bun-beef,Wok-fried bún - Beef,Vermicelli noodles (bún),,286,21.6,37.1,6.2,1.4,,,6.5,2.6,contains_beef,false,true,,,
+wok-fried-bun-king-prawn,Wok-fried bún - King Prawn,Vermicelli noodles (bún),,236,16.1,35.8,3.8,1,,,3.8,2.5,,false,true,,,Fat and sugar are printed as the same number (3.8)
+wok-fried-bun-nem-nuong-pork-balls,Wok-fried bún - Nem Nướng Pork Balls,Vermicelli noodles (bún),,441,23.1,43.7,19.9,5,,,5.9,3.5,contains_pork,false,true,,,
+wok-fried-bun-tofu-and-mushroom,Wok-fried bún - Tofu & Mushroom,Vermicelli noodles (bún),,303,10.5,41.5,11.9,1.7,,,5.9,2.6,vegetarian,false,true,,,
+wok-fried-bun-veggie-spring-rolls,Wok-fried bún - Veggie Spring Rolls,Vermicelli noodles (bún),,476,10.4,89.6,9.2,1.5,,,8.4,4.4,vegetarian,false,true,,,
+wok-fried-bun-this-isnt-chicken,Wok-fried bún - THIS isn't chicken,Vermicelli noodles (bún),,450,28.1,66.5,10,1.7,,,9,8.5,vegetarian,false,true,,,
+grilled-bun-chargrilled-chicken-thigh,Grilled bún - Chargrilled chicken thigh,Vermicelli noodles (bún),,444,34.19,44,15.5,4.15,,,3.8,5,,false,true,,,
+grilled-bun-chargrilled-pork-loin,Grilled bún - Chargrilled pork loin,Vermicelli noodles (bún),,474,35.19,55.8,12.27,3.55,,,15.2,<0.5,contains_pork,false,true,,,
+grilled-bun-beef-in-betel-leaf,Grilled bún - Beef in betel leaf,Vermicelli noodles (bún),,472,19.74,46.8,24.2,4.84,,,3.1,5.8,contains_beef,false,true,,,
+grilled-bun-3-meat-combo,Grilled bún - 3 meat combo,Vermicelli noodles (bún),,550,38.3,48.4,23.32,5.81,,,6.16,3.5,,false,true,,,Meat types not stated
+cha-ca-la-vong,Chả cá Lã Vọng,Vermicelli noodles (bún),,676,39.2,69.1,26.1,3.5,,,20.2,2.7,,false,true,,,
+chicken-salad-goi-ga,Chicken salad (Gỏi gà),Salads,,210,20,17.9,6.2,1.3,,,10.6,1.3,,false,true,,,Saturates and fibre are printed as the same number (1.3)
+this-isnt-chicken-salad-goi-ga,THIS isn't chicken salad (Gỏi gà),Salads,,233,17.5,26.5,7,1.4,,,13.5,3.8,vegetarian,false,true,,,
+veggie-salad-goi-chay,Veggie salad (Gỏi chay),Salads,,153,4.1,23.1,5.4,1.5,,,11.7,2,vegetarian,false,true,,,
+green-papaya-salad-chicken-goi-du-du,Green papaya salad - Chicken (Gỏi đu đủ),Salads,,189,28.8,13.2,3,<1,,,2.7,3.9,,false,true,,,
+green-papaya-salad-this-isnt-chicken-goi-du-du,Green papaya salad - THIS isn't chicken (Gỏi đu đủ),Salads,,203,17.6,19.6,7.7,<1,,,5.9,7.2,vegetarian,false,true,,,
+green-papaya-salad-prawn-goi-du-du,Green papaya salad - Prawn (Gỏi đu đủ),Salads,,129,10.7,14.5,3.7,<1,,,8.3,3,,false,true,,,
+mango-salad-goi-xoai,Mango salad (Gỏi xoài),Salads,,160,8.48,16.2,7.4,1.21,,,6.76,3.2,contains_pork,false,true,,,"The guide's description says topped with pork, dried shrimp and peanuts"
+prawn-and-pomelo-salad-goi-buoi,Prawn & pomelo salad (Gỏi bưởi),Salads,,182,10.2,15.6,8.0,5.7,,,9.2,3.9,,false,true,,,
+prawn-crackers-with-sweet-chilli-sauce-banh-phong-tom,Prawn crackers with sweet chilli sauce (Bánh phồng tôm),Crackers,,253,0,24,17.6,1.7,,,,0.43,,false,false,,,
+prawnless-crackers-with-sweet-chilli-sauce-banh-phong-chay,Prawnless crackers with sweet chilli sauce (Bánh phồng chay),Crackers,,320,0,24,17.6,1.7,,,,0.43,vegetarian,false,false,,,"Printed calories (320) are about 20% above what 4P+4C+9F gives (254); protein, carbs, fat, saturates and fibre are printed identical to the prawn crackers row, which prints 253 kcal"
+nuoc-cham,Nước chấm,Sauces,standard starter serving,22.2,0.26,5.19,0.03,0.02,,,5.49,<0.5,,false,false,,,Sugar (5.49) is printed higher than carbohydrate (5.19); calories printed to one decimal
+nuoc-cham-chay,Nước chấm chay,Sauces,standard starter serving,18.3,0.15,4.41,0.03,<0.01,,,4.5,<0.5,,false,false,,,Sugar (4.5) is printed higher than carbohydrate (4.41); calories printed to one decimal
+peanut-sauce,Peanut sauce,Sauces,standard starter serving,158,5.45,12.8,9.65,1.7,,,11.5,0.8,,false,false,,,
+ginger-soy-sauce,Ginger soy sauce,Sauces,standard starter serving,50.8,1.77,10.44,0.06,0.06,,,9.99,<0.5,,false,false,,,Calories printed to one decimal
+sweet-chilli-sauce,Sweet chilli sauce,Sauces,standard starter serving,69.3,0.18,16.6,0.2,0,,,10.6,0.48,,false,false,,,Calories printed to one decimal
+broken-rice-portion,Broken rice portion,Add-ons,1 portion,370,8.3,101,<0.5,<0.5,,,<0.5,2.8,,false,false,,,"Printed calories (370) are about 18% below what 4P+4C+9F gives (437). The guide prints this row twice (curry page and rice bowl page), identical both times"
+single-vegetarian-spring-roll,Single vegetarian spring roll,Add-ons,1 spring roll,79,1.1,12.2,2.8,<0.5,,,<1,<0.5,vegetarian,false,false,,,Tagged vegetarian because the guide's own item name says so (it has no 'vg' mark)
+prawn-cracker-portion-with-green-papaya-salad,Prawn cracker portion (with Green papaya salad),Add-ons,1 portion,59,0,5.6,4.1,0.4,,,0.2,0.1,,false,false,,,
