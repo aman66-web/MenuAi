@@ -50,7 +50,7 @@ export default function GroceriesPage() {
           {list.length > 0 && <span aria-hidden className="app-numbers absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 text-[11px] font-bold text-background">{list.length}</span>}
         </Link>
       </div>
-      <p className="mt-1 text-sm text-muted">Tesco, Sainsbury&apos;s, Asda, Waitrose, Lidl and Aldi: calories, protein, carbs, fat, allergens and the barcode for each product.</p>
+      <p className="mt-1 text-sm text-muted">Products from the UK&apos;s biggest supermarkets: calories, protein, carbs, fat, allergens and the barcode for each product.</p>
 
       <div className="mt-4 flex gap-2">
         <label className="relative flex-1">

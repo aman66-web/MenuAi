@@ -32,6 +32,12 @@ RETAILERS = {
     "waitrose": (["waitrose", "waitrose-partners", "essential-waitrose", "waitrose-1", "duchy-organic", "waitrose-love-life"], "waitrose"),
     "lidl": (["lidl", "milbona", "deluxe", "vemondo", "sondey", "cien"], "lidl"),
     "aldi": (["aldi", "specially-selected", "mamia", "the-fishmonger", "everyday-essentials", "brooklea", "nature-s-pick", "harvest-morn"], "aldi"),
+    # Added 2026-10-07 so the list covers the supermarkets behind about 97% of UK grocery spend (Worldpanel shares, 2026).
+    "morrisons": (["morrisons", "morrisons-the-best", "the-best", "savers", "morrisons-savers", "m-savers", "nutmeg", "eat-smart", "morrisons-eat-smart", "market-street", "morrisons-market-street"], "morrisons"),
+    "coop": (["co-op", "co-op-irresistible", "irresistible", "co-op-honest-value", "co-op-gro", "co-op-fairtrade"], "co-op"),
+    "marks-and-spencer": (["m-s", "marks-spencer", "marks-and-spencer", "marks-spencers", "m-s-food", "m-s-collection", "m-s-plant-kitchen", "m-s-count-on-us", "m-s-gastropub", "m-s-simply"], "marks-spencer"),
+    "iceland": (["iceland", "iceland-luxury", "iceland-power-greens", "iceland-slimming"], "iceland"),
+    "ocado": (["ocado", "ocado-organic"], "ocado"),
 }
 FIELDS = ",".join([
     "code", "product_name", "product_name_en", "brands", "brands_tags", "quantity", "product_quantity", "serving_size", "serving_quantity",

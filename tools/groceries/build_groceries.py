@@ -24,7 +24,8 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-RETAILERS = {"tesco": "Tesco", "sainsburys": "Sainsbury's", "asda": "Asda", "waitrose": "Waitrose", "lidl": "Lidl", "aldi": "Aldi"}
+RETAILERS = {"tesco": "Tesco", "sainsburys": "Sainsbury's", "asda": "Asda", "waitrose": "Waitrose", "lidl": "Lidl", "aldi": "Aldi",
+             "morrisons": "Morrisons", "coop": "Co-op", "marks-and-spencer": "M&S", "iceland": "Iceland", "ocado": "Ocado"}
 IMAGE_HOST = "https://images.openfoodfacts.org/images/products/"
 
 ALLERGEN_TAGS = {

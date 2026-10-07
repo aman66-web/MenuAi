@@ -12,6 +12,11 @@ export const RETAILERS = [
   { id: "waitrose", name: "Waitrose" },
   { id: "lidl", name: "Lidl" },
   { id: "aldi", name: "Aldi" },
+  { id: "morrisons", name: "Morrisons" },
+  { id: "coop", name: "Co-op" },
+  { id: "marks-and-spencer", name: "M&S" },
+  { id: "iceland", name: "Iceland" },
+  { id: "ocado", name: "Ocado" },
 ] as const;
 export type RetailerId = (typeof RETAILERS)[number]["id"];
 export const retailerName = (id: string) => RETAILERS.find((r) => r.id === id)?.name ?? id;

@@ -7,15 +7,15 @@
    "id": "tesco",
    "name": "Tesco",
    "file": "tesco.json",
-   "count": 3183,
-   "sha256": "f4eae153245183cc306fb9815881b66bc4c540105eeb522c7bad6b7aa51d5487"
+   "count": 4501,
+   "sha256": "169f87c166ead983eb82fb9d463bcb3fc266656e27e871a736627b1d1b0654c4"
   },
   {
    "id": "sainsburys",
    "name": "Sainsbury's",
    "file": "sainsburys.json",
-   "count": 0,
-   "sha256": "f06cc651797d09bcbaf83f99fdedbfc4813421c0cc88164596ef965089fbdb93"
+   "count": 1322,
+   "sha256": "2843083b404c15489607996474aac24fae9107a26fbb68f23e317cfd565025ce"
   },
   {
    "id": "asda",
@@ -44,6 +44,41 @@
    "file": "aldi.json",
    "count": 0,
    "sha256": "f0aaf02015b129397650691a8f75c266cba1273f4c86c4fc75482b8b0e64cbaf"
+  },
+  {
+   "id": "morrisons",
+   "name": "Morrisons",
+   "file": "morrisons.json",
+   "count": 0,
+   "sha256": "b9a613fddf5ae358ea6f789da177edb87f0904fd141cd7e7dcbc67b8b8b6fed3"
+  },
+  {
+   "id": "coop",
+   "name": "Co-op",
+   "file": "coop.json",
+   "count": 0,
+   "sha256": "2124184169c9e2c258c5c56b7fc28dbc8ff6bd9e28974e666e8b2fe7e9f0bab6"
+  },
+  {
+   "id": "marks-and-spencer",
+   "name": "M&S",
+   "file": "marks-and-spencer.json",
+   "count": 0,
+   "sha256": "dc50bb13273a070e63d8df2653dd2b741cc67b52c49fada99a2cf62bc29aa425"
+  },
+  {
+   "id": "iceland",
+   "name": "Iceland",
+   "file": "iceland.json",
+   "count": 0,
+   "sha256": "78d6b520df66cc94536aba72d0e370b2161817c87f6fd74790f081485c554d1e"
+  },
+  {
+   "id": "ocado",
+   "name": "Ocado",
+   "file": "ocado.json",
+   "count": 0,
+   "sha256": "7886672fa28a12fa17c0f2ea42600fb550204ac9e9b5a0f770b8ed218e66ca40"
   }
  ],
  "categories": [

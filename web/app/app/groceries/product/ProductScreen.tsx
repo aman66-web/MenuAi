@@ -20,6 +20,11 @@ const SEARCH_LINKS: Record<string, (code: string) => string> = {
   waitrose: (c) => `https://www.waitrose.com/ecom/shop/search?searchTerm=${c}`,
   aldi: (c) => `https://www.aldi.co.uk/results?q=${c}`,
   lidl: (c) => `https://www.lidl.co.uk/q/search?q=${c}`,
+  morrisons: (c) => `https://groceries.morrisons.com/search?entry=${c}`,
+  coop: (c) => `https://shop.coop.co.uk/search?term=${c}`,
+  "marks-and-spencer": (c) => `https://www.marksandspencer.com/search?searchTerm=${c}`,
+  iceland: (c) => `https://www.iceland.co.uk/search?q=${c}`,
+  ocado: (c) => `https://www.ocado.com/search?entry=${c}`,
 };
 
 type State = { status: "loading" } | { status: "missing" } | { status: "error" } | { status: "ready"; product: ListedProduct };
