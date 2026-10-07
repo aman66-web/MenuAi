@@ -66,6 +66,9 @@ SKIP_FILES: dict[str, str] = {                    # upload file name -> why it i
     "2017-09-06_SH64_Hotchocolate-208-2.jpg": "the Latte tile shows a file that Pure itself names 'Hotchocolate' (its Hot "
                                               "Chocolate tile uses another file): not confirmed to show a latte, so no photo",
 }
+# Items looked at after the first run and left without a photo (a rerun must not bring them back): the photo carries a
+# baked-in "NEW RECIPE" sticker, which could contradict our own numbers or allergens.
+DROP_ITEMS = {"high-protein-chilli-and-cheese", "prime-protein", "salmon-lovin"}
 # Files to look at by eye after the run (text overlays, design exports, odd names): printed, not excluded.
 LOOK_AT = re.compile(r"overlay|untitled|ezgif|credit|3rdparty|gif", re.I)
 SIZE_SUFFIX = re.compile(r"-(?:\d+x\d+|scaled)(?=\.[A-Za-z]+$)")
@@ -198,6 +201,9 @@ def main() -> int:
                 continue
             t = found[0]
             fname = t["photo"].rsplit("/", 1)[-1]
+            if item["id"] in DROP_ITEMS:
+                skipped.append(f"{item['id']}: dropped after looking: photo carries a 'NEW RECIPE' sticker")
+                continue
             if fname in SKIP_FILES:
                 skipped.append(f"{item['id']}: {fname} skipped: {SKIP_FILES[fname]}")
                 continue

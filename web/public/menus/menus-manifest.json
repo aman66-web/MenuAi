@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261007081442,
- "generatedAt": "2026-10-07T08:14:42Z",
+ "dataVersion": 20261007084500,
+ "generatedAt": "2026-10-07T08:45:00Z",
  "chains": [
   {
    "id": "abokado",
@@ -613,8 +613,8 @@
    "name": "Pure",
    "cuisine": "Cafe",
    "file": "chain-pure.json",
-   "sha256": "5df2cfeba23e22d80571352e7342e0829583164dd5b93b316defcf9a7a0c2135",
-   "contentHash": "d58232d4c5dcc80552e4d8a23e8eb839098515e23e9235918f5a1bddb623e847",
+   "sha256": "db0e43acc7bb41c27d47d74f3c06d2bb5312fc0d3eda2cf920258f8e2af67154",
+   "contentHash": "048f6d6fe1f013e281a186fb51f56a81697a148423067a8d068c81c2e49a28c3",
    "sample": false,
    "itemCount": 138,
    "checkedOn": "2026-10-06"
@@ -752,6 +752,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "wahaca",
+   "name": "Wahaca",
+   "cuisine": "Mexican",
+   "file": "chain-wahaca.json",
+   "sha256": "513750248c6ea86fb468bf76b7d55680be9fd928582f6d8bcc159912fb9c4130",
+   "contentHash": "2812f6eaf03d0e87ec69a9bf941de28cea02e609d2fc7da3424472d6e01307f5",
+   "sample": false,
+   "itemCount": 44,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "wendys",
    "name": "Wendy's",
    "cuisine": "Burgers",
@@ -798,6 +810,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "ec3facec90cfaf6699a8b82b25a512e71142c94e86099d94fcd57898c1aa69c0"
+  "sha256": "fbcd86dabd7f8f0fe5aa118fb5f92c416c7846080bccc42c20cbf4310c3ee5ed"
  }
 }
