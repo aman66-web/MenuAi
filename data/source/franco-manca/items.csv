@@ -1,0 +1,77 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+mixed-olives,Mixed olives,Aperitivo,,190,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Mixed Olives' [190kcal], marks: vg os"
+tarallini,Tarallini,Aperitivo,,219,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Tarallini' [219kcal], marks: vg"
+smoked-almonds,Smoked almonds,Aperitivo,,158,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Smoked Almonds' [158kcal], marks: vg; same printed value (158) as: Scotch bonnet chilli dip"
+nibbles-trio,Nibbles trio,Aperitivo,,413,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Nibbles Trio' [413kcal], marks: vg os"
+antipasti-platter,Antipasti platter,Aperitivo,,481,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'Antipasti Platter' [481kcal], marks: v"
+charcuterie-platter,Charcuterie platter,Aperitivo,,268,,,,,,,,,,,,,,,,false,true,,,"Printed 'Charcuterie Platter' [268kcal], marks: v os; vegetarian tag left off: page marks it v, but the allergen list says 'Veggie? no' (cured meats); Same printed value (268) as the Margherita's buffalo option; lower than the vegetarian Antipasti platter (481)"
+sourdough-pizza-bread,Sourdough pizza bread,Bites,,374,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Sourdough Pizza Bread' [374kcal], marks: vg"
+garlic-bread,Garlic bread,Bites,,492,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Garlic bread' [492kcal], marks: v"
+goats-cheese-bread,Goat's cheese bread,Bites,,649,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Goat's Cheese Bread' [649kcal], marks: v; same printed value (649) as: Four cheese fonduta"
+burrata,Burrata,Bites,,563,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Burrata' [563kcal]
+bruschetta-marinara,Bruschetta marinara,Bites,,172,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Bruschetta Marinara' [172kcal], marks: vg os"
+bruschetta-speck-and-whipped-goats-cheese,Bruschetta speck & whipped goat's cheese,Bites,,353,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Bruschetta Speck & Whipped Goat's Cheese' [353kcal]; same printed value (353) as: Oven-baked Tuscan sausage
+oven-baked-tuscan-sausage,Oven-baked Tuscan sausage,Bites,,353,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Oven-baked Tuscan Sausage' [353kcal]; same printed value (353) as: Bruschetta speck & whipped goat's cheese
+four-cheese-fonduta,Four cheese fonduta,Bites,,649,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Four Cheese Fonduta' [649kcal], marks: v; same printed value (649) as: Goat's cheese bread"
+marinara,Marinara,Sourdough pizza,,596,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'MARINARA' [596kcal], pizza no. 1, marks: vg"
+margherita,Margherita,Sourdough pizza,,784,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'MARGHERITA' [784kcal], pizza no. 2, marks: v; Page also prints 'Choose buffalo mozzarella instead [268kcal]': not a whole pizza (the allergen list FAQ gives the sourdough base alone as 518 kcal) and not explained, so not published as an item"
+francos-og-margherita,Franco's OG Margherita,Sourdough pizza,,1073,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'FRANCO'S OG MARGHERITA' [1073kcal], pizza no. 3, marks: v"
+prosciutto-and-funghi,Prosciutto & Funghi,Sourdough pizza,,864,,,,,,,,,,,,,,,contains_pork,false,true,,,"Printed 'PROSCIUTTO & FUNGHI' [864kcal], pizza no. 4"
+napoli,Napoli,Sourdough pizza,,852,,,,,,,,,,,,,,,,false,true,,,"Printed 'NAPOLI' [852kcal], pizza no. 5, marks: os bn"
+chorizo,Chorizo,Sourdough pizza,,802,,,,,,,,,,,,,,,contains_pork,false,true,,,"Printed 'CHORIZO' [802kcal], pizza no. 6"
+spicy-salami,Spicy Salami,Sourdough pizza,,1011,,,,,,,,,,,,,,,contains_pork,false,true,,,"Printed 'SPICY SALAMI' [1011kcal], pizza no. 7"
+mezzaluna,Mezzaluna,Sourdough pizza,,1178,,,,,,,,,,,,,,,contains_pork,false,true,,,"Printed 'MEZZALUNA' [1178kcal], pizza no. 8"
+tre-porcellini,Tre Porcellini,Sourdough pizza,,1358,,,,,,,,,,,,,,,contains_pork,false,true,,,"Printed 'TRE PORCELLINI' [1358kcal], pizza no. 9"
+truffle-and-burrata,Truffle & Burrata,Sourdough pizza,,1041,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'TRUFFLE & BURRATA' [1041kcal], pizza no. 10, marks: v"
+potato-and-gorgonzola,Potato and Gorgonzola,Sourdough pizza,,1017,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'POTATO AND GORGONZOLA' [1017kcal], pizza no. 11, marks: v"
+ragu-genovese,Ragù Genovese,Sourdough pizza,,1033,,,,,,,,,,,,,,,contains_beef,false,true,,,"Printed 'RAGÙ GENOVESE' [1033kcal], pizza no. 12"
+garlic-dip,Garlic dip,Dips,,290,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Garlic dip' [290kcal], marks: vg"
+scotch-bonnet-chilli-dip,Scotch bonnet chilli dip,Dips,,158,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Scotch bonnet chilli dip' [158kcal], marks: vg; same printed value (158) as: Smoked almonds"
+hot-honey-dip,Hot honey dip,Dips,,153,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Hot honey dip' [153kcal], marks: v; same printed value (153) as: Franco's grana and truffle dip"
+semi-dried-tomato-dip,Semi-dried tomato dip,Dips,,240,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Semi-dried tomato' [240kcal], marks: vg"
+francos-grana-and-truffle-dip,Franco's grana and truffle dip,Dips,,153,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Franco's grana and truffle' [153kcal], marks: v; same printed value (153) as: Hot honey dip"
+mediterranean-chicken-salad,Mediterranean chicken salad,Salads,,436,,,,,,,,,,,,,,,,false,true,,,"Printed 'MEDITERRANEAN CHICKEN SALAD' [436kcal], marks: os"
+mediterranean-artichoke-salad,Mediterranean artichoke salad,Salads,,478,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'MEDITERRANEAN ARTICHOKE SALAD' [478kcal], marks: vg os"
+caprese-salad,Caprese salad,Salads,,709,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'CAPRESE SALAD' [709kcal], marks: v"
+yellowfin-tuna-salad,Yellowfin tuna salad,Salads,,377,,,,,,,,,,,,,,,,false,true,,,"Printed 'YELLOWFIN TUNA' [377kcal], marks: os bn"
+rocket-side-salad,Rocket side salad,Sides,,133,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'ROCKET' [133kcal], marks: v"
+francos-side-salad,Franco's side salad,Sides,,140,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'FRANCO’S' [140kcal], marks: vg os"
+baked-potatoes,Baked potatoes,Sides,,339,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'BAKED POTATOES' [339kcal], marks: v"
+affogato,Affogato,Desserts,,138,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Affogato' [138kcal], marks: v"
+cheesecake,Cheesecake,Desserts,,546,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Cheesecake' [546kcal], marks: v"
+chocolate-mousse-cake,Chocolate mousse cake,Desserts,,307,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Chocolate Mousse Cake' [307kcal], marks: v"
+tiramisu,Tiramisu,Desserts,,400,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Tiramisu' [400kcal], marks: v"
+cannolo,Cannolo,Desserts,,557,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Cannolo' [557kcal], marks: vg; Page marks it vg although the description says ricotta and the allergen list says 'Vegan? no' (its 'Veggie? yes' agrees with the vegetarian tag)"
+madagascan-vanilla-ice-cream,Madagascan vanilla ice cream,Ice cream,,446,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Madagascan vanilla' [446kcal], marks: v"
+chocolate-ice-cream,Chocolate ice cream,Ice cream,,410,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Chocolate' [410kcal], marks: v"
+raspberry-sorbet,Raspberry sorbet,Sorbet,,200,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Raspberry' [200kcal], marks: vg"
+crodino-non-alcoholic-spritz,Crodino non-alcoholic spritz,Drinks,,107,,,,,,,,,,,,,,,,false,false,,,Printed 'Crodino Non-Alcoholic Spritz' [107kcal]
+lucky-saint-unfiltered-no-alcohol-lager-0-5,Lucky Saint unfiltered no alcohol lager 0.5%,Drinks,330ml,53,,,,,,,,,,,,,,,,false,false,,,Printed 'Lucky Saint Unfiltered No Alcohol Lager 0.5% 330ml' [53kcal]
+espresso,Espresso,Drinks,,3,,,,,,,,,,,,,,,,false,false,,,Printed 'Espresso' [3kcal]
+double-espresso,Double espresso,Drinks,,6,,,,,,,,,,,,,,,,false,false,,,Printed 'Double Espresso' [6kcal]
+macchiato,Macchiato,Drinks,,15,,,,,,,,,,,,,,,,false,false,,,Printed 'Macchiato' [15kcal]
+double-macchiato,Double macchiato,Drinks,,30,,,,,,,,,,,,,,,,false,false,,,Printed 'Double Macchiato' [30kcal]
+cappuccino,Cappuccino,Drinks,,54,,,,,,,,,,,,,,,,false,false,,,Printed 'Cappuccino' [54kcal]
+latte,Latte,Drinks,,67,,,,,,,,,,,,,,,,false,false,,,Printed 'Latte' [67kcal]; same printed value (67) as: Flat white; San Pellegrino Aranciata
+flat-white,Flat white,Drinks,,67,,,,,,,,,,,,,,,,false,false,,,Printed 'Flat white' [67kcal]; same printed value (67) as: Latte; San Pellegrino Aranciata
+americano,Americano,Drinks,,4,,,,,,,,,,,,,,,,false,false,,,Printed 'Americano' [4kcal]
+english-breakfast-tea,English breakfast tea,Drinks,,2,,,,,,,,,,,,,,,,false,false,,,Printed 'English breakfast tea' [2kcal]
+fresh-mint-tea,Fresh mint tea,Drinks,,8,,,,,,,,,,,,,,,,false,false,,,Printed 'Fresh mint tea' [8kcal]
+homemade-organic-lemonade,Homemade organic lemonade,Drinks,250ml,56,,,,,,,,,,,,,,,,false,false,,,Printed 'Homemade organic lemonade 250ml' [56kcal]; same printed value (56) as: Kids apple juice
+orange-juice,Orange juice,Drinks,250ml,85,,,,,,,,,,,,,,,,false,false,,,Printed 'Orange juice 250ml' [85kcal]
+apple-juice,Apple juice,Drinks,250ml,80,,,,,,,,,,,,,,,,false,false,,,Printed 'Apple juice 250ml' [80kcal]
+san-pellegrino-limonata,San Pellegrino Limonata,Drinks,330ml,68,,,,,,,,,,,,,,,,false,false,,,Printed 'San Pellegrino Limonata 330ml' [68kcal]; same printed value (68) as: Kids raspberry sorbet
+san-pellegrino-aranciata,San Pellegrino Aranciata,Drinks,330ml,67,,,,,,,,,,,,,,,,false,false,,,Printed 'San Pellegrino Aranciata 330ml' [67kcal]; same printed value (67) as: Latte; Flat white
+coke,Coke,Drinks,330ml,139,,,,,,,,,,,,,,,,false,false,,,Printed 'Coke 330ml' [139kcal]
+diet-coke,Diet Coke,Drinks,330ml,1,,,,,,,,,,,,,,,,false,false,,,Printed 'Diet Coke 330ml' [1kcal]; same printed value (1) as: Coke Zero
+coke-zero,Coke Zero,Drinks,330ml,1,,,,,,,,,,,,,,,,false,false,,,Printed 'Coke Zero 330ml' [1kcal]; same printed value (1) as: Diet Coke
+kids-pizza-100-italian-tomato-and-mozzarella,Kids pizza: 100% Italian tomato & mozzarella,Kids,,484,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed '100% Italian tomato & mozzarella' [484kcal], marks: v"
+kids-pizza-roasted-cured-ham-100-italian-tomato-and-mozzarella,"Kids pizza: Roasted cured ham, 100% Italian tomato & mozzarella",Kids,,508,,,,,,,,,,,,,,,contains_pork,false,true,,,"Printed 'Roasted cured ham, 100% Italian tomato & mozzarella' [508kcal]"
+kids-pizza-cured-chorizo-100-italian-tomato-and-mozzarella,"Kids pizza: Cured chorizo, 100% Italian tomato & mozzarella",Kids,,485,,,,,,,,,,,,,,,contains_pork,false,true,,,"Printed 'Cured chorizo, 100% Italian tomato & mozzarella' [485kcal]"
+kids-pizza-roasted-butternut-squash-100-italian-tomato-mixed-peppers-mozzarella-kalamata-olives,"Kids pizza: Roasted butternut squash, 100% Italian tomato, mixed peppers, mozzarella, Kalamata olives",Kids,,849,,,,,,,,,,,,,,,vegetarian,false,true,,,"Printed 'Roasted butternut squash, 100% Italian tomato, mixed peppers, mozzarella, Kalamata olives' [849kcal], marks: v"
+kids-apple-juice,Kids apple juice,Kids,,56,,,,,,,,,,,,,,,,false,false,,,Printed 'Apple juice' [56kcal]; same printed value (56) as: Homemade organic lemonade
+kids-orange-juice,Kids orange juice,Kids,,60,,,,,,,,,,,,,,,,false,false,,,Printed 'Orange juice' [60kcal]
+kids-homemade-lemonade,Kids homemade lemonade,Kids,,39,,,,,,,,,,,,,,,,false,false,,,Printed 'Homemade lemonade' [39kcal]
+kids-madagascan-vanilla-ice-cream,Kids Madagascan vanilla ice cream,Kids,,136,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Madagascan vanilla ice cream' [136kcal], marks: v"
+kids-chocolate-ice-cream,Kids chocolate ice cream,Kids,,205,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Chocolate ice cream' [205kcal], marks: v"
+kids-raspberry-sorbet,Kids raspberry sorbet,Kids,,68,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Raspberry sorbet' [68kcal], marks: vg; same printed value (68) as: San Pellegrino Limonata"

@@ -1,0 +1,2 @@
+id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample,nutrition_level
+benugo,Benugo,Sandwiches,standard,"Benugo online ordering menus: Lunch, Breakfast, Cakes & Snacks (api.getspoonfed.com, accessed 2026-10-07, no date shown)",https://api.getspoonfed.com/262/benugo,2026-10-07,benugo,,calories

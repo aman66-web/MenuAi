@@ -1,0 +1,63 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+large-green-olives,Large Green Olives,Bread & Nibbles,,203,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'LARGE GREEN OLIVES (VE) 5'
+italian-breads,Italian Breads,Bread & Nibbles,,1085,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'ITALIAN BREADS (VG) 7.5'
+aglio-flatbread,Aglio Flatbread,Bread & Nibbles,,652,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'AGLIO FLATBREAD (VE) 6'
+genovese-flatbread,Genovese Flatbread,Bread & Nibbles,,251,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'GENOVESE FLATBREAD (VE) 6.5'
+antipasti-11-50,Antipasti (£11.50),Antipasti,,1056,,,,,,,,,,,,,,,,false,false,,,"printed 'ANTIPASTI 11.5 / 21'; two sizes, printed 'ANTIPASTI 11.5 / 21 ... 1056 / 1648 KCAL', paired in the order printed; the menu does not label the sizes; description: 'Cured meats' (meat type not stated)"
+antipasti-21,Antipasti (£21),Antipasti,,1648,,,,,,,,,,,,,,,,false,false,,,printed 'ANTIPASTI 11.5 / 21'; second size: see the £11.50 row
+vegetable-antipasti-11,Vegetable Antipasti (£11),Antipasti,,1090,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed 'VEGETABLE ANTIPASTI (VG) 11 / 20'; two sizes, printed 'VEGETABLE ANTIPASTI ( VG) 11 / 20 ... 1090 / 1829 KCAL', paired in the order printed; the menu does not label the sizes"
+vegetable-antipasti-20,Vegetable Antipasti (£20),Antipasti,,1829,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'VEGETABLE ANTIPASTI (VG) 11 / 20'; second size: see the £11 row
+seared-king-prawns,Seared King Prawns,Antipasti,,526,,,,,,,,,,,,,,,,false,false,,,printed 'SEARED KING PRAWNS 10'
+bruschetta,Bruschetta,Antipasti,,354,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'BRUSCHETTA (VG) 6.5'
+crispy-squid,Crispy Squid,Antipasti,,506,,,,,,,,,,,,,,,,false,false,,,printed 'CRISPY SQUID 9'
+arancini-diavola,Arancini Diavola,Antipasti,,652,,,,,,,,,,,,,,,,false,false,,,printed 'ARANCINI DIAVOLA 8.5'; description gives only 'Garlic mayo': filling not stated
+caprese-salad,Caprese Salad,Antipasti,,486,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'CAPRESE SALAD (VG) 9.5'
+pappardelle-bolognese,Pappardelle Bolognese,Pasta and Risotto,,790,,,,,,,,,,,,,,,contains_beef,false,false,,,printed 'PAPPARDELLE BOLOGNESE 17'
+chicken-and-mushroom-strozzapreti,Chicken & Mushroom Strozzapreti,Pasta and Risotto,,1265,,,,,,,,,,,,,,,,false,false,,,printed 'CHICKEN & MUSHROOM STROZZAPRETI 17.5'
+penne-pomodoro,Penne Pomodoro,Pasta and Risotto,,800,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'PENNE POMODORO (VG) 13'
+risotto-alla-pescatora,Risotto alla Pescatora,Pasta and Risotto,,911,,,,,,,,,,,,,,,,false,false,,,printed 'RISOTTO ALLA PESCATORA 19'
+risotto-primavera,Risotto Primavera,Pasta and Risotto,,786,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'RISOTTO PRIMAVERA (VG) 14.5'
+seafood-linguine,Seafood Linguine,Pasta and Risotto,,1003,,,,,,,,,,,,,,,,false,false,,,printed 'SEAFOOD LINGUINE 19'
+rigatoni-ragu-pugliese,Rigatoni Ragu Pugliese,Pasta and Risotto,,1015,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'RIGATONI RAGU PUGLIESE 17.5'
+bucatini-carbonara,Bucatini Carbonara,Pasta and Risotto,,984,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'BUCATINI CARBONARA 17'
+spinach-and-ricotta-ravioli,Spinach & Ricotta Ravioli,Pasta and Risotto,,465,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'SPINACH & RICOTTA RAVIOLI (VG) 16.5'
+strada-burger,Strada Burger,Mains & Grills,,799,,,,,,,,,,,,,,,contains_beef,false,false,,,printed 'STRADA BURGER 18.5'; 'spianata piccante' in the description: meat type not stated
+pollo-funghi,Pollo Funghi,Mains & Grills,,625,,,,,,,,,,,,,,,,false,false,,,printed 'POLLO FUNGHI 17.5'
+chicken-milanese,Chicken Milanese,Mains & Grills,,1144,,,,,,,,,,,,,,,,false,false,,,printed 'CHICKEN MILANESE 19'
+italian-steak-frites,Italian Steak Frites,Mains & Grills,,752,,,,,,,,,,,,,,,contains_beef,false,false,,,printed 'ITALIAN STEAK FRITES 21'
+pan-fried-sea-bass,Pan Fried Sea Bass,Mains & Grills,,274,,,,,,,,,,,,,,,,false,false,,,printed 'PAN FRIED SEA BASS 22'
+8oz-british-sirloin-steak,8oz British Sirloin Steak,Mains & Grills,,895,,,,,,,,,,,,,,,contains_beef,false,false,,,printed '8oz BRITISH SIRLOIN STEAK 26'
+add-truffle-cream,Add truffle cream,Mains & Grills,,30,,,,,,,,,,,,,,,,false,false,,,printed '8oz BRITISH SIRLOIN STEAK 26'; printed under the sirloin steak: 'Add truffle cream 30 KCAL or peppercorn sauce 154 KCAL 2.5'; the extra's own calories
+add-peppercorn-sauce,Add peppercorn sauce,Mains & Grills,,154,,,,,,,,,,,,,,,,false,false,,,printed '8oz BRITISH SIRLOIN STEAK 26'; see 'Add truffle cream': the extra's own calories
+margherita,Margherita,Pizza,,873,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'MARGHERITA (VG) 14'
+add-buffalo-mozzarella-to-margherita,Add buffalo mozzarella (to Margherita),Pizza,,179,,,,,,,,,,,,,,,,false,false,,,printed 'MARGHERITA (VG) 14'; printed 'Add buffalo mozzarella 2 179 KCAL' under the Margherita (873 KCAL): the extra's own calories
+prosciutto-cotto-ham-and-funghi,Prosciutto Cotto Ham & Funghi,Pizza,,838,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'PROSCIUTTO COTTO HAM & FUNGHI 17.5'
+salsiccia-and-friarielli,Salsiccia & Friarielli,Pizza,,863,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'SALSICCIA & FRIARIELLI 16.5'
+parma,Parma,Pizza,,767,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'PARMA 18'
+vesuvio,Vesuvio,Pizza,,1303,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'VESUVIO 18'
+campagnola,Campagnola,Pizza,,828,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'CAMPAGNOLA (VG) 15.5'
+add-chicken-salads,Add chicken (salads),Salads,,241,,,,,,,,,,,,,,,,false,false,,,printed 'ADD CHICKEN 6.5'; printed under the SALADS heading: 'ADD CHICKEN 6.5 241 KCAL OR GOAT'S CHEESE 4 50 KCAL'; the extra's own calories
+add-goats-cheese-salads,Add goat’s cheese (salads),Salads,,50,,,,,,,,,,,,,,,,false,false,,,printed 'ADD CHICKEN 6.5'; see 'Add chicken': the extra's own calories
+caesar-salad,Caesar Salad,Salads,,537,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'CAESAR SALAD 12.5'
+supergreen-salad,Supergreen Salad,Salads,,451,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'SUPERGREEN SALAD (VE) 12'
+skinny-fries,Skinny Fries,Sides,,305,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'SKINNY FRIES (VE) 5'
+truffle-fries,Truffle Fries,Sides,,407,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'TRUFFLE FRIES (VG) 6.5'
+roasted-new-potatoes,Roasted New Potatoes,Sides,,287,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'ROASTED NEW POTATOES (VE) 6'
+tenderstem-broccoli,Tenderstem Broccoli,Sides,,159,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'TENDERSTEM BROCCOLI (VE) 5'
+green-beans,Green Beans,Sides,,280,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'GREEN BEANS (VE) 6'; no description line printed
+house-salad,House Salad,Sides,,58,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'HOUSE SALAD (VE) 5.5'
+sicilian-tomato-and-onion-salad,Sicilian Tomato & Onion Salad,Sides,,74,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'SICILIAN TOMATO & ONION SALAD (VE) 6'
+veggie-sticks-kids,Veggie Sticks (kids),Kids menu,,40,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu (image, read by OCR), printed 'VEGGIE STICKS (V) 40kcal'; Starters"
+grissini-kids,Grissini (kids),Kids menu,,109,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu (image, read by OCR), printed 'GRISSINI (V) 109kcal'; Starters"
+margherita-pizza-kids,Margherita Pizza (kids),Kids menu,,374,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu (image, read by OCR), printed 'MARGHERITA PIZZA (V) 374kcal'; Mains: 'all served with a fresh side salad'; the menu does not say whether the value includes it"
+penne-pomodoro-kids,Penne Pomodoro (kids),Kids menu,,384,,,,,,,,,,,,,,,,false,false,,,"Kids menu (image, read by OCR), printed 'PENNE POMODORO (VO) 384kcal'; Mains; marked (VO) 'can be made vegetarian', so not tagged vegetarian; see the Margherita note about the side salad"
+chargrilled-chicken-kids,Chargrilled Chicken (kids),Kids menu,,155,,,,,,,,,,,,,,,,false,false,,,"Kids menu (image, read by OCR), printed 'CHARGRILLED CHICKEN 155kcal'; Mains; see the Margherita note about the side salad"
+linguine-bolognese-kids,Linguine Bolognese (kids),Kids menu,,429,,,,,,,,,,,,,,,contains_beef,false,false,,,"Kids menu (image, read by OCR), printed 'LINGUINE BOLOGNESE 429kcal'; Mains: 'Slow cooked beef ragù with Parmesan'; see the Margherita note about the side salad"
+pasta-carbonara-kids,Pasta Carbonara (kids),Kids menu,,555,,,,,,,,,,,,,,,contains_pork,false,false,,,"Kids menu (image, read by OCR), printed 'PASTA CARBONARA 555kcal'; Mains: 'Ham, egg & Parmesan'; see the Margherita note about the side salad"
+fresh-fruit-kids,Fresh Fruit (kids),Kids menu,,97,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu (image, read by OCR), printed 'FRESH FRUIT (V) 97kcal'; Desserts"
+chocolate-and-hazelnut-pizzetta-kids,Chocolate & Hazelnut Pizzetta (kids),Kids menu,,224,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu (image, read by OCR), printed 'CHOCOLATE & HAZELNUT PIZZETTA (V) 224kcal'; Desserts"
+ice-lolly-kids,Ice Lolly (kids),Kids menu,,44,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu (image, read by OCR), printed 'ICE LOLLY (V) 44kcal'; Desserts: 'A choice of Pip Organic lollies in apple, berry or tropical'; one value for the choice"
+milk-kids,Milk (kids),Kids menu,,47,,,,,,,,,,,,,,,,false,false,,,"Kids menu (image, read by OCR), printed 'MILK 47kcal'; Drinks; no size printed"
+cawston-press-apple-and-pear-kids,Cawston Press Apple & Pear (kids),Kids menu,,54,,,,,,,,,,,,,,,,false,false,,,"Kids menu (image, read by OCR), printed 'APPLE & PEAR 54kcal'; Drinks; no size printed"
+cawston-press-apple-and-mango-kids,Cawston Press Apple & Mango (kids),Kids menu,,54,,,,,,,,,,,,,,,,false,false,,,"Kids menu (image, read by OCR), printed 'APPLE & MANGO 54kcal'; Drinks; no size printed"
+cawston-press-apple-and-summer-berries-kids,Cawston Press Apple & Summer Berries (kids),Kids menu,,50,,,,,,,,,,,,,,,,false,false,,,"Kids menu (image, read by OCR), printed 'APPLE & SUMMER BERRIES 50kcal'; Drinks; no size printed"

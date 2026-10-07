@@ -1,0 +1,226 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+seeded-sourdough-roll,Seeded Sourdough Roll,Rolls & Buns,,254,,,,,,,,,,,,,,,vegetarian,false,false,,,page 2
+salt-and-pepper-roll,Salt & Pepper Roll,Rolls & Buns,,246,,,,,,,,,,,,,,,vegetarian,false,false,,,page 2
+chia-rye-roll,Chia Rye Roll,Rolls & Buns,,323,,,,,,,,,,,,,,,vegetarian,false,false,,,page 2
+danish-sausage-roll-polsehorn,Danish Sausage Roll (Polsehorn),Rolls & Buns,,362,,,,,,,,,,,,,,,contains_pork,false,false,,,page 2
+sausage-roll,Sausage Roll,Rolls & Buns,,616,,,,,,,,,,,,,,,contains_pork,false,false,,,page 2
+cardamom-and-almond-bun,Cardamom & Almond Bun,Rolls & Buns,,361,,,,,,,,,,,,,,,vegetarian,false,false,,,page 2
+chocolate-bun,Chocolate Bun,Rolls & Buns,,352,,,,,,,,,,,,,,,vegetarian,false,false,,,page 2
+cardamom-bun,Cardamom Bun,Rolls & Buns,,384,,,,,,,,,,,,,,,vegetarian,false,false,,,page 2
+cinnamon-bun,Cinnamon Bun,Rolls & Buns,,414,,,,,,,,,,,,,,,vegetarian,false,false,,,page 2
+copenhagen-sourdough,Copenhagen Sourdough,Breads,1 loaf,1708,,,,,,,,,,,,,,,vegetarian,false,false,,,page 3
+seeded-sourdough-loaf,Seeded Sourdough Loaf,Breads,1 loaf,1776,,,,,,,,,,,,,,,vegetarian,false,false,,,page 3
+sourdough-loaf,Sourdough Loaf,Breads,1 loaf,1568,,,,,,,,,,,,,,,vegetarian,false,false,,,page 3
+chia-rye-loaf,Chia Rye Loaf,Breads,1 loaf,2180,,,,,,,,,,,,,,,vegetarian,false,false,,,page 3
+sourdough-rye-loaf,Sourdough Rye Loaf,Breads,1 loaf,2140,,,,,,,,,,,,,,,vegetarian,false,false,,,page 3
+blueberry-muffin,Blueberry Muffin,Dry Cakes,,347,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+chocolate-muffin,Chocolate Muffin,Dry Cakes,,417,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+banana-and-walnut-bread-slice,Banana & Walnut Bread Slice,Dry Cakes,,320,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+banana-and-walnut-bread,Banana & Walnut Bread,Dry Cakes,1 loaf,2880,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+chocolate-brownie,Chocolate Brownie,Dry Cakes,,466,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+half-chocolate-brownie,Half Chocolate Brownie,Dry Cakes,,233,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+chocolate-chip-and-hazelnut-cookie,Chocolate Chip & Hazelnut Cookie,Dry Cakes,,381,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+triple-chocolate-cookie,Triple Chocolate Cookie,Dry Cakes,,461,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+raspberry-and-white-chocolate-cookie,Raspberry & White Chocolate Cookie,Dry Cakes,,407,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+carrot-cake-bite,Carrot Cake Bite,Dry Cakes,,202,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+apple-tart,Apple Tart,Dry Cakes,,341,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4
+cinnamon-social-cake-small,Cinnamon Social Cake Small,Dry Cakes,,627,,,,,,,,,,,,,,,vegetarian,false,false,,,page 5
+lemon-cake,Lemon Cake,Dry Cakes,,385,,,,,,,,,,,,,,,vegetarian,false,false,,,page 5
+sticky-toffee-pudding,Sticky Toffee Pudding,Dry Cakes,,652,,,,,,,,,,,,,,,vegetarian,false,false,,,page 5
+passionfruit-cheesecake,Passionfruit Cheesecake,Cream Cakes,,496,,,,,,,,,,,,,,,vegetarian,false,false,,,page 6
+gateau-marcel,Gateau Marcel,Cream Cakes,,678,,,,,,,,,,,,,,,vegetarian,false,false,,,page 6
+strawberry-tart-small,Strawberry Tart Small,Cream Cakes,,303,,,,,,,,,,,,,,,vegetarian,false,false,,,page 6
+raspberry-and-pistachio-tart,Raspberry & Pistachio Tart,Cream Cakes,,467,,,,,,,,,,,,,,,vegetarian,false,false,,,page 6
+vanilla-cream-bun,Vanilla Cream Bun,Cream Cakes,,713,,,,,,,,,,,,,,,vegetarian,false,false,,,page 6
+creme-brulee-festival-bun,Crème Brulée Festival Bun,Cream Cakes,,869,,,,,,,,,,,,,,,vegetarian,false,false,,,page 6
+classic-strawberry-and-cream-cake,Classic Strawberry & Cream Cake,Cream Cakes,,363,,,,,,,,,,,,,,,vegetarian,false,false,,,page 6
+vanilla-and-strawberry-celebration-cake-whole-cake,Vanilla & Strawberry Celebration Cake (whole cake),Celebration Cakes,1 cake,4731,,,,,,,,,,,,,,,vegetarian,false,false,,,page 7
+vanilla-and-strawberry-celebration-cake-per-serving,Vanilla & Strawberry Celebration Cake (per serving),Celebration Cakes,1 serving,788,,,,,,,,,,,,,,,vegetarian,false,false,,,page 7
+double-chocolate-celebration-cake-whole-cake,Double Chocolate Celebration Cake (whole cake),Celebration Cakes,1 cake,4539,,,,,,,,,,,,,,,vegetarian,false,false,,,page 7
+double-chocolate-celebration-cake-per-serving,Double Chocolate Celebration Cake (per serving),Celebration Cakes,1 serving,756.5,,,,,,,,,,,,,,,vegetarian,false,false,,,page 7
+cinnamon-social-celebration-cake-whole-cake,Cinnamon Social Celebration Cake (whole cake),Celebration Cakes,1 cake,5420,,,,,,,,,,,,,,,vegetarian,false,false,,,page 7
+cinnamon-social-celebration-cake-per-serving,Cinnamon Social Celebration Cake (per serving),Celebration Cakes,1 serving,903,,,,,,,,,,,,,,,vegetarian,false,false,,,page 7
+lemon-cake-large,Lemon Cake Large,Celebration Cakes,,1814,,,,,,,,,,,,,,,vegetarian,false,false,,,page 7
+cinnamon-social-slice,Cinnamon Social Slice,Danish Pastries,,596,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+cinnamon-social-half,Cinnamon Social Half,Danish Pastries,,1784,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+cinnamon-social-whole,Cinnamon Social Whole,Danish Pastries,1 cake (serves 6),3569,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+maple-pecan-social-slice,Maple Pecan Social Slice,Danish Pastries,,671,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+maple-pecan-social-half,Maple Pecan Social Half,Danish Pastries,,2051,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+maple-pecan-social-whole,Maple Pecan Social Whole,Danish Pastries,1 cake (serves 6),4101,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+plant-based-social-slice,Plant Based Social Slice,Danish Pastries,,704,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+plant-based-social-half,Plant Based Social Half,Danish Pastries,,2112,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+plant-based-social-whole,Plant Based Social Whole,Danish Pastries,1 cake (serves 6),4227,,,,,,,,,,,,,,,vegetarian,false,false,,,page 8
+apple-crumble-social-whole,Apple Crumble Social Whole,Danish Pastries,1 cake (serves 6),3399,,,,,,,,,,,,,,,vegetarian,false,false,,,page 9
+apple-crumble-social-half,Apple Crumble Social Half,Danish Pastries,,1699,,,,,,,,,,,,,,,vegetarian,false,false,,,page 9
+apple-crumble-social-slice,Apple Crumble Social Slice,Danish Pastries,,564,,,,,,,,,,,,,,,vegetarian,false,false,,,page 9
+croissant,Croissant,Danish Pastries,,400,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+chocolate-and-hazelnut-croissant,Chocolate & Hazelnut Croissant,Danish Pastries,,483,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+almond-croissant,Almond Croissant,Danish Pastries,,757,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+custard-danish,Custard Danish,Danish Pastries,,608,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+cinnamon-swirl,Cinnamon Swirl,Danish Pastries,,454,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+chocolate-swirl,Chocolate Swirl,Danish Pastries,,633,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+apple-danish,Apple Danish,Danish Pastries,,559,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+feta-olive-and-spinach-roll,"Feta, Olive & Spinach Roll",Danish Pastries,,504,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+signature-cinnamon-sugar-cruffin,Signature Cinnamon Sugar Cruffin,Danish Pastries,,375,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+signature-pistachio-and-raspberry-cruffin,Signature Pistachio & Raspberry Cruffin,Danish Pastries,,452,,,,,,,,,,,,,,,vegetarian,false,false,,,page 10
+ham-and-cheese-toastie,Ham & Cheese Toastie,Hot Food,,623,,,,,,,,,,,,,,,contains_pork,false,false,,,page 11
+signature-chicken-club-toastie,Signature Chicken Club Toastie,Hot Food,,855,,,,,,,,,,,,,,,,false,false,,,page 11
+truffle-mushroom-toastie,Truffle Mushroom Toastie,Hot Food,,439,,,,,,,,,,,,,,,vegetarian,false,false,,,page 11
+tuna-melt-toastie,Tuna Melt Toastie,Hot Food,,612,,,,,,,,,,,,,,,,false,false,,,page 11
+mozzarella-tomato-pesto-toastie,Mozzarella Tomato Pesto Toastie,Hot Food,,544,,,,,,,,,,,,,,,vegetarian,false,false,,,page 11
+chicken-chorizo-and-jalapeno-focaccia-toastie,"Chicken, Chorizo & Jalapeno Focaccia Toastie",Hot Food,,591,,,,,,,,,,,,,,,contains_pork,false,false,,,page 11
+chicken-chorizo-and-jalapeno-sourdough-toastie,"Chicken, Chorizo & Jalapeno Sourdough Toastie",Hot Food,,505,,,,,,,,,,,,,,,contains_pork,false,false,,,page 11
+cheese-and-chutney-sourdough-toastie,Cheese & Chutney Sourdough Toastie,Hot Food,,502,,,,,,,,,,,,,,,vegetarian,false,false,,,page 11
+bacon-breakfast-roll,Bacon Breakfast Roll,Hot Food,,655,,,,,,,,,,,,,,,contains_pork,false,false,,,page 12
+tomato-breakfast-roll,Tomato Breakfast Roll,Hot Food,,499,,,,,,,,,,,,,,,vegetarian,false,false,,,page 12
+sausage-breakfast-roll,Sausage Breakfast Roll,Hot Food,,650,,,,,,,,,,,,,,,contains_pork,false,false,,,page 12
+croissant-with-gouda,Croissant with Gouda,Hot Food,,529,,,,,,,,,,,,,,,vegetarian,false,false,,,page 12
+croissant-with-ham-and-gouda,Croissant with Ham & Gouda,Hot Food,,519,,,,,,,,,,,,,,,contains_pork,false,false,,,page 12
+greek-yoghurt-with-blueberry-compote,Greek Yoghurt with Blueberry Compote,Cold Food,,371,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13
+apple-and-pecan-overnight-oats,Apple & Pecan Overnight Oats,Cold Food,,578,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13
+chocolate-cherry-and-almond-overnight-oats,"Chocolate, Cherry & Almond Overnight Oats",Cold Food,,634,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13
+seeded-sourdough-roll-with-gouda,Seeded Sourdough Roll with Gouda,Cold Food,,418,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13
+rye-roll-with-butter-cheese-and-ham,"Rye Roll with Butter, Cheese & Ham",Cold Food,,481,,,,,,,,,,,,,,,contains_pork,false,false,,,page 13
+beef-and-horseradish-open-rye,Beef & Horseradish Open Rye,Cold Food,,329,,,,,,,,,,,,,,,contains_beef,false,false,,,page 14
+prawn-open-rye,Prawn Open Rye,Cold Food,,446,,,,,,,,,,,,,,,,false,false,,,page 14
+smoked-salmon-and-herbed-cream-cheese-open-rye,Smoked Salmon & Herbed Cream Cheese Open Rye,Cold Food,,354,,,,,,,,,,,,,,,,false,false,,,page 14
+avocado-and-egg-open-rye,Avocado & Egg Open Rye,Cold Food,,336,,,,,,,,,,,,,,,vegetarian,false,false,,,page 14
+smoked-salmon-roll,Smoked Salmon Roll,Cold Food,,424,,,,,,,,,,,,,,,,false,false,,,page 14
+egg-mayo-roll,Egg Mayo Roll,Cold Food,,495,,,,,,,,,,,,,,,vegetarian,false,false,,,page 14
+chicken-caesar-baguette,Chicken Caesar Baguette,Cold Food,,531,,,,,,,,,,,,,,,,false,false,,,page 14
+prosciutto-and-mozzarella-baguette,Prosciutto & Mozzarella Baguette,Cold Food,,537,,,,,,,,,,,,,,,contains_pork,false,false,,,page 14
+ham-comte-and-cornichon-roll,"Ham, Comte & Cornichon Roll",Cold Food,,515,,,,,,,,,,,,,,,contains_pork,false,false,,,"the peanuts column prints 'MC Almond, hazelnut, pistachio nut': tree-nut words under Peanuts, read literally (may contain peanuts and tree nuts); page 14"
+sourdough-toast-with-butter,Sourdough Toast with Butter,Brunch,,512,,,,,,,,,,,,,,,vegetarian,false,false,,,page 15
+sourdough-rye-toast-with-butter,Sourdough Rye Toast with Butter,Brunch,,297,,,,,,,,,,,,,,,vegetarian,false,false,,,page 15
+sourdough-toast-with-poached-egg,Sourdough Toast with Poached Egg,Brunch,,418,,,,,,,,,,,,,,,vegetarian,false,false,,,page 15
+sourdough-rye-toast-with-poached-egg,Sourdough Rye Toast with Poached Egg,Brunch,,403,,,,,,,,,,,,,,,vegetarian,false,false,,,page 15
+sourdough-toast-with-smashed-avocado,Sourdough Toast with Smashed Avocado,Brunch,,397,,,,,,,,,,,,,,,vegetarian,false,false,,,page 15
+sourdough-rye-toast-with-smashed-avocado,Sourdough Rye Toast with Smashed Avocado,Brunch,,382,,,,,,,,,,,,,,,vegetarian,false,false,,,page 15
+sourdough-toast-with-avocado-and-eggs,Sourdough Toast with Avocado & Eggs,Brunch,,508,,,,,,,,,,,,,,,vegetarian,false,false,,,page 15
+sourdough-rye-toast-with-avocado-and-eggs,Sourdough Rye Toast with Avocado & Eggs,Brunch,,492,,,,,,,,,,,,,,,vegetarian,false,false,,,page 15
+sourdough-toast-with-avocado-eggs-and-salmon,"Sourdough Toast with Avocado, Eggs & Salmon",Brunch,,577,,,,,,,,,,,,,,,,false,false,,,page 15
+sourdough-rye-toast-with-avocado-eggs-and-salmon,"Sourdough Rye Toast with Avocado, Eggs & Salmon",Brunch,,562,,,,,,,,,,,,,,,,false,false,,,page 15
+ham,Ham,Additions,,32,,,,,,,,,,,,,,,contains_pork,false,false,,,page 16
+smoked-salmon,Smoked Salmon,Additions,,70,,,,,,,,,,,,,,,,false,false,,,page 16
+gouda-cheese,Gouda Cheese,Additions,,127,,,,,,,,,,,,,,,vegetarian,false,false,,,page 16
+butter,Butter,Additions,,127,,,,,,,,,,,,,,,vegetarian,false,false,,,page 16
+strawberry-jam,Strawberry Jam,Additions,,72,,,,,,,,,,,,,,,vegetarian,false,false,,,page 16
+poached-egg,Poached Egg,Additions,,110,,,,,,,,,,,,,,,vegetarian,false,false,,,page 16
+vanilla-syrup,Vanilla Syrup,Drinks Additions,,101,,,,,,,,,,,,,,,vegetarian,false,false,,,page 17
+salted-caramel-syrup,Salted Caramel Syrup,Drinks Additions,,79,,,,,,,,,,,,,,,vegetarian,false,false,,,page 17
+blueberry-syrup,Blueberry Syrup,Drinks Additions,,107,,,,,,,,,,,,,,,vegetarian,false,false,,,page 17
+white-chocolate-syrup,White Chocolate Syrup,Drinks Additions,,81,,,,,,,,,,,,,,,vegetarian,false,false,,,page 17
+pistachio-syrup,Pistachio Syrup,Drinks Additions,,76,,,,,,,,,,,,,,,vegetarian,false,false,,,page 17
+caramelised-almond-syrup,Caramelised Almond Syrup,Drinks Additions,,77,,,,,,,,,,,,,,,vegetarian,false,false,,,page 17
+pumpkin-spice-syrup,Pumpkin Spice Syrup,Drinks Additions,,106,,,,,,,,,,,,,,,vegetarian,false,false,,,page 17
+add-whipped-cream,Add Whipped Cream,Drinks Additions,,143,,,,,,,,,,,,,,,vegetarian,false,false,,,page 17
+honey,Honey,Drinks Additions,,61,,,,,,,,,,,,,,,,false,false,,,page 17
+add-whole-milk,Add Whole Milk,Drinks Additions,,25,,,,,,,,,,,,,,,vegetarian,false,false,,,page 18
+add-skimmed-milk,Add Skimmed Milk,Drinks Additions,,14,,,,,,,,,,,,,,,vegetarian,false,false,,,page 18
+add-almond-milk,Add Almond Milk,Drinks Additions,,25,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 18
+add-pistachio-milk,Add Pistachio Milk,Drinks Additions,,26,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 18
+espresso-no-milk,Espresso (No Milk),Hot Drinks,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,page 19
+double-espresso,Double Espresso,Hot Drinks,,3,,,,,,,,,,,,,,,vegetarian,false,false,,,page 19
+cortado-whole-milk,Cortado Whole Milk,Hot Drinks,,17,,,,,,,,,,,,,,,vegetarian,false,false,,,page 19
+cortado-skimmed-milk,Cortado Skimmed Milk,Hot Drinks,,11,,,,,,,,,,,,,,,vegetarian,false,false,,,page 19
+cortado-oat-milk,Cortado Oat Milk,Hot Drinks,,16,,,,,,,,,,,,,,,vegetarian,false,false,,,page 19
+cortado-almond-milk,Cortado Almond Milk,Hot Drinks,,17,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 19
+macchiato-whole-milk,Macchiato Whole Milk,Hot Drinks,,11,,,,,,,,,,,,,,,vegetarian,false,false,,,page 19
+macchiato-skimmed-milk,Macchiato Skimmed Milk,Hot Drinks,,8,,,,,,,,,,,,,,,vegetarian,false,false,,,page 19
+macchiato-oat-milk,Macchiato Oat Milk,Hot Drinks,,10,,,,,,,,,,,,,,,vegetarian,false,false,,,page 19
+macchiato-almond-milk,Macchiato Almond Milk,Hot Drinks,,10,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 19
+8oz-americano,8oz Americano,Hot Drinks,8 oz,4,,,,,,,,,,,,,,,vegetarian,false,false,,,page 20
+12oz-americano,12oz Americano,Hot Drinks,12 oz,7,,,,,,,,,,,,,,,vegetarian,false,false,,,page 20
+flat-white-whole-milk,Flat White Whole Milk,Hot Drinks,,119,,,,,,,,,,,,,,,vegetarian,false,false,,,page 20
+flat-white-skimmed-milk,Flat White Skimmed Milk,Hot Drinks,,68,,,,,,,,,,,,,,,vegetarian,false,false,,,page 20
+flat-white-oat-milk,Flat White Oat Milk,Hot Drinks,,147,,,,,,,,,,,,,,,vegetarian,false,false,,,page 20
+flat-white-almond-milk,Flat White Almond Milk,Hot Drinks,,148,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 20
+8oz-latte-whole-milk,8oz Latte Whole Milk,Hot Drinks,8 oz,107,,,,,,,,,,,,,,,vegetarian,false,false,,,page 20
+8oz-latte-skimmed-milk,8oz Latte Skimmed Milk,Hot Drinks,8 oz,81,,,,,,,,,,,,,,,vegetarian,false,false,,,"12oz Latte Skimmed Milk prints 69 kcal but 8oz Latte Skimmed Milk prints 81: the 12 oz figure is lower; printed as is, one of the two may be a typo; page 20"
+8oz-latte-oat-milk,8oz Latte Oat Milk,Hot Drinks,8 oz,104,,,,,,,,,,,,,,,vegetarian,false,false,,,page 20
+8oz-latte-almond-milk,8oz Latte Almond Milk,Hot Drinks,8 oz,105,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 20
+12oz-latte-whole-milk,12oz Latte Whole Milk,Hot Drinks,12 oz,121,,,,,,,,,,,,,,,vegetarian,false,false,,,page 21
+12oz-latte-skimmed-milk,12oz Latte Skimmed Milk,Hot Drinks,12 oz,69,,,,,,,,,,,,,,,vegetarian,false,false,,,"12oz Latte Skimmed Milk prints 69 kcal but 8oz Latte Skimmed Milk prints 81: the 12 oz figure is lower; printed as is, one of the two may be a typo; page 21"
+12oz-latte-oat-milk,12oz Latte Oat Milk,Hot Drinks,12 oz,118,,,,,,,,,,,,,,,vegetarian,false,false,,,page 21
+12oz-latte-almond-milk,12oz Latte Almond Milk,Hot Drinks,12 oz,120,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 21
+8oz-cappuccino-whole-milk,8oz Cappuccino Whole Milk,Hot Drinks,8 oz,86,,,,,,,,,,,,,,,vegetarian,false,false,,,page 21
+8oz-cappuccino-skimmed-milk,8oz Cappuccino Skimmed Milk,Hot Drinks,8 oz,52,,,,,,,,,,,,,,,vegetarian,false,false,,,page 21
+8oz-cappuccino-oat-milk,8oz Cappuccino Oat Milk,Hot Drinks,8 oz,83,,,,,,,,,,,,,,,vegetarian,false,false,,,page 21
+8oz-cappuccino-almond-milk,8oz Cappuccino Almond Milk,Hot Drinks,8 oz,85,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 21
+12oz-cappuccino-whole-milk,12oz Cappuccino Whole Milk,Hot Drinks,12 oz,105,,,,,,,,,,,,,,,vegetarian,false,false,,,page 21
+12oz-cappuccino-skimmed-milk,12oz Cappuccino Skimmed Milk,Hot Drinks,12 oz,62,,,,,,,,,,,,,,,vegetarian,false,false,,,page 21
+12oz-cappuccino-oat-milk,12oz Cappuccino Oat Milk,Hot Drinks,12 oz,102,,,,,,,,,,,,,,,vegetarian,false,false,,,page 21
+12oz-cappuccino-almond-milk,12oz Cappuccino Almond Milk,Hot Drinks,12 oz,103,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 21
+8oz-mocha-whole-milk,8oz Mocha Whole Milk,Hot Drinks,8 oz,184,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+8oz-mocha-skimmed-milk,8oz Mocha Skimmed Milk,Hot Drinks,8 oz,142,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+8oz-mocha-oat-milk,8oz Mocha Oat Milk,Hot Drinks,8 oz,182,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+8oz-mocha-almond-milk,8oz Mocha Almond Milk,Hot Drinks,8 oz,183,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 22
+12oz-mocha-whole-milk,12oz Mocha Whole Milk,Hot Drinks,12 oz,242,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+12oz-mocha-skimmed-milk,12oz Mocha Skimmed Milk,Hot Drinks,12 oz,173,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+12oz-mocha-oat-milk,12oz Mocha Oat Milk,Hot Drinks,12 oz,237,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+12oz-mocha-almond-milk,12oz Mocha Almond Milk,Hot Drinks,12 oz,239,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 22
+8oz-hot-chocolate-whole-milk,8oz Hot Chocolate Whole Milk,Hot Drinks,8 oz,232,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+8oz-hot-chocolate-skimmed-milk,8oz Hot Chocolate Skimmed Milk,Hot Drinks,8 oz,187,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+8oz-hot-chocolate-oat-milk,8oz Hot Chocolate Oat Milk,Hot Drinks,8 oz,229,,,,,,,,,,,,,,,vegetarian,false,false,,,page 22
+8oz-hot-chocolate-almond-milk,8oz Hot Chocolate Almond Milk,Hot Drinks,8 oz,231,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 22
+12oz-hot-chocolate-whole-milk,12oz Hot Chocolate Whole Milk,Hot Drinks,12 oz,349,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+12oz-hot-chocolate-skimmed-milk,12oz Hot Chocolate Skimmed Milk,Hot Drinks,12 oz,268,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+12oz-hot-chocolate-oat-milk,12oz Hot Chocolate Oat Milk,Hot Drinks,12 oz,343,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+12oz-hot-chocolate-almond-milk,12oz Hot Chocolate Almond Milk,Hot Drinks,12 oz,346,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 23
+8oz-chai-latte-whole-milk,8oz Chai Latte Whole Milk,Hot Drinks,8 oz,238,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+8oz-chai-latte-skimmed-milk,8oz Chai Latte Skimmed Milk,Hot Drinks,8 oz,212,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+8oz-chai-latte-oat-milk,8oz Chai Latte Oat Milk,Hot Drinks,8 oz,235,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+8oz-chai-latte-almond-milk,8oz Chai Latte Almond Milk,Hot Drinks,8 oz,237,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 23
+12oz-chai-latte-whole-milk,12oz Chai Latte Whole Milk,Hot Drinks,12 oz,253,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+12oz-chai-latte-skimmed-milk,12oz Chai Latte Skimmed Milk,Hot Drinks,12 oz,223,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+12oz-chai-latte-oat-milk,12oz Chai Latte Oat Milk,Hot Drinks,12 oz,249,,,,,,,,,,,,,,,vegetarian,false,false,,,page 23
+12oz-chai-latte-almond-milk,12oz Chai Latte Almond Milk,Hot Drinks,12 oz,251,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 23
+8oz-matcha-latte-whole-milk,8oz Matcha Latte Whole Milk,Hot Drinks,8 oz,112,,,,,,,,,,,,,,,vegetarian,false,false,,,page 24
+8oz-matcha-latte-skimmed-milk,8oz Matcha Latte Skimmed Milk,Hot Drinks,8 oz,67,,,,,,,,,,,,,,,vegetarian,false,false,,,page 24
+8oz-matcha-latte-oat-milk,8oz Matcha Latte Oat Milk,Hot Drinks,8 oz,109,,,,,,,,,,,,,,,vegetarian,false,false,,,page 24
+8oz-matcha-latte-almond-milk,8oz Matcha Latte Almond Milk,Hot Drinks,8 oz,111,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 24
+12oz-matcha-latte-whole-milk,12oz Matcha Latte Whole Milk,Hot Drinks,12 oz,131,,,,,,,,,,,,,,,vegetarian,false,false,,,page 24
+12oz-matcha-latte-skimmed-milk,12oz Matcha Latte Skimmed Milk,Hot Drinks,12 oz,79,,,,,,,,,,,,,,,vegetarian,false,false,,,page 24
+12oz-matcha-latte-oat-milk,12oz Matcha Latte Oat Milk,Hot Drinks,12 oz,127,,,,,,,,,,,,,,,vegetarian,false,false,,,page 24
+12oz-matcha-latte-almond-milk,12oz Matcha Latte Almond Milk,Hot Drinks,12 oz,129,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 24
+english-breakfast-tea-whole-milk,English Breakfast Tea Whole Milk,Hot Drinks,,25,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+english-breakfast-tea-skimmed-milk,English Breakfast Tea Skimmed Milk,Hot Drinks,,14,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+english-breakfast-tea-oat-milk,English Breakfast Tea Oat Milk,Hot Drinks,,25,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+english-breakfast-tea-almond-milk,English Breakfast Tea Almond Milk,Hot Drinks,,25,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 25
+earl-grey-tea-whole-milk,Earl Grey Tea Whole Milk,Hot Drinks,,25,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+earl-grey-tea-skimmed-milk,Earl Grey Tea Skimmed Milk,Hot Drinks,,14,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+earl-grey-tea-oat-milk,Earl Grey Tea Oat Milk,Hot Drinks,,25,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+earl-grey-tea-almond-milk,Earl Grey Tea Almond Milk,Hot Drinks,,25,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 25
+green-tea,Green Tea,Hot Drinks,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+peppermint-tea,Peppermint Tea,Hot Drinks,,4,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+camomile-tea,Camomile Tea,Hot Drinks,,2,,,,,,,,,,,,,,,vegetarian,false,false,,,page 25
+iced-americano,Iced Americano,Iced Drinks,,7,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-latte-whole-milk,Iced Latte Whole Milk,Iced Drinks,,132,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-latte-skimmed-milk,Iced Latte Skimmed Milk,Iced Drinks,,75,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-latte-oat-milk,Iced Latte Oat Milk,Iced Drinks,,128,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-latte-almond-milk,Iced Latte Almond Milk,Iced Drinks,,130,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 26
+iced-chai-latte-whole-milk,Iced Chai Latte Whole Milk,Iced Drinks,,251,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-chai-latte-skimmed-milk,Iced Chai Latte Skimmed Milk,Iced Drinks,,200,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-chai-latte-oat-milk,Iced Chai Latte Oat Milk,Iced Drinks,,248,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-chai-latte-almond-milk,Iced Chai Latte Almond Milk,Iced Drinks,,249,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 26
+iced-matcha-latte-whole-milk,Iced Matcha Latte Whole Milk,Iced Drinks,,129,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-matcha-latte-skimmed-milk,Iced Matcha Latte Skimmed Milk,Iced Drinks,,78,,,,,,,,,,,,,,,vegetarian,false,false,,,page 26
+iced-matcha-latte-oat-milk,Iced Matcha Latte Oat Milk,Iced Drinks,,126,,,,,,,,,,,,,,,vegetarian,false,false,,,page 27
+iced-matcha-latte-almond-milk,Iced Matcha Latte Almond Milk,Iced Drinks,,127,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 27
+iced-mocha-whole-milk,Iced Mocha Whole Milk,Iced Drinks,,213,,,,,,,,,,,,,,,vegetarian,false,false,,,page 27
+iced-mocha-skimmed-milk,Iced Mocha Skimmed Milk,Iced Drinks,,162,,,,,,,,,,,,,,,vegetarian,false,false,,,page 27
+iced-mocha-oat-milk,Iced Mocha Oat Milk,Iced Drinks,,210,,,,,,,,,,,,,,,vegetarian,false,false,,,page 27
+iced-mocha-almond-milk,Iced Mocha Almond Milk,Iced Drinks,,211,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 27
+iced-chocolate-whole-milk,Iced Chocolate Whole Milk,Iced Drinks,,282,,,,,,,,,,,,,,,vegetarian,false,false,,,page 27
+iced-chocolate-skimmed-milk,Iced Chocolate Skimmed Milk,Iced Drinks,,231,,,,,,,,,,,,,,,vegetarian,false,false,,,page 27
+iced-chocolate-oat-milk,Iced Chocolate Oat Milk,Iced Drinks,,279,,,,,,,,,,,,,,,vegetarian,false,false,,,page 27
+iced-chocolate-almond-milk,Iced Chocolate Almond Milk,Iced Drinks,,281,,,,,,,,,,,,,,,vegetarian,false,false,,,guide marks it suitable for non-gluten diets but ticks gluten; page 27
+iced-strawberry-matcha-whole-milk,Iced Strawberry Matcha Whole Milk,Iced Drinks,,205,,,,,,,,,,,,,,,vegetarian,false,false,,,page 27
+pistachio-latte-8-oz,Pistachio Latte 8 oz,Seasonal Drinks,8 oz,182,,,,,,,,,,,,,,,vegetarian,true,false,,,page 28
+pistachio-latte-12-oz,Pistachio Latte 12 oz,Seasonal Drinks,12 oz,197,,,,,,,,,,,,,,,vegetarian,true,false,,,page 28
+pistachio-matcha-8-oz,Pistachio Matcha 8 oz,Seasonal Drinks,8 oz,197,,,,,,,,,,,,,,,vegetarian,true,false,,,page 28
+pistachio-matcha-12-oz,Pistachio Matcha 12 oz,Seasonal Drinks,12 oz,219,,,,,,,,,,,,,,,vegetarian,true,false,,,page 28
+pumpkin-spice-latte-8-oz,Pumpkin Spice Latte 8 oz,Seasonal Drinks,8 oz,208,,,,,,,,,,,,,,,vegetarian,true,false,,,page 28
+pumpkin-spice-latte-12-oz,Pumpkin Spice Latte 12 oz,Seasonal Drinks,12 oz,223,,,,,,,,,,,,,,,vegetarian,true,false,,,page 28
+pumpkin-spice-matcha-8-oz,Pumpkin Spice Matcha 8 oz,Seasonal Drinks,8 oz,224,,,,,,,,,,,,,,,vegetarian,true,false,,,page 28
+pumpkin-spice-matcha-12-oz,Pumpkin Spice Matcha 12 oz,Seasonal Drinks,12 oz,244,,,,,,,,,,,,,,,vegetarian,true,false,,,page 28

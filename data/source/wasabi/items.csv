@@ -1,0 +1,215 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+avocado-and-edamame-onigiri,Avocado and Edamame Onigiri,Onigiri,,194,,,,,,,,,,121,,,,,vegetarian,false,false,,,Guide page 4
+bbq-chicken-onigiri,BBQ Chicken Onigiri,Onigiri,,197,,,,,,,,,,121,,,,,,false,false,,,Guide page 4
+spicy-tuna-onigiri,Spicy Tuna Onigiri,Onigiri,,186,,,,,,,,,,121,,,,,,false,false,,,Guide page 4
+teriyaki-salmon-onigiri,Teriyaki Salmon Onigiri,Onigiri,,207,,,,,,,,,,121,,,,,,false,false,,,Guide page 4
+harmony-set,Harmony set,Sushi set boxes,,620,,,,,,,,,,379,,,,,,false,false,,,Guide page 5
+harmony-set-excl-dressing,Harmony set (excl. dressing),Sushi set boxes,,609,,,,,,,,,,367,,,,,,false,false,,,Guide page 5
+salmon-sashimi,Salmon sashimi,Sushi set boxes,,182,,,,,,,,,,137,,,,,,false,false,,,Guide page 5
+salmon-sashimi-excl-dressing,Salmon sashimi (excl. dressing),Sushi set boxes,,170,,,,,,,,,,120,,,,,,false,false,,,Guide page 5
+mixed-maki-set,Mixed maki set,Sushi set boxes,,433,,,,,,,,,,266,,,,,,false,false,,,Guide page 5
+mixed-maki-set-excl-dressing,Mixed maki set (excl. dressing),Sushi set boxes,,422,,,,,,,,,,254,,,,,,false,false,,,Guide page 5
+rainbow-set,Rainbow set,Sushi set boxes,,554,,,,,,,,,,365,,,,,,false,false,,,Guide page 5
+rainbow-set-excl-dressing,Rainbow set (excl. dressing),Sushi set boxes,,542,,,,,,,,,,353,,,,,,false,false,,,Guide page 5
+tokyo-salmon-set,Tokyo salmon set,Sushi set boxes,,539,,,,,,,,,,349,,,,,,false,false,,,Guide page 6
+tokyo-salmon-set-excl-dressing,Tokyo salmon set (excl. dressing),Sushi set boxes,,530,,,,,,,,,,338,,,,,,false,false,,,Guide page 6
+mini-tokyo-salmon-set,Mini Tokyo salmon set,Sushi set boxes,,410,,,,,,,,,,236,,,,,,false,false,,,Guide page 6
+mini-tokyo-salmon-set-excl-dressing,Mini Tokyo salmon set (excl. dressing),Sushi set boxes,,399,,,,,,,,,,224,,,,,,false,false,,,Guide page 6
+spicy-salmon-handroll,Spicy salmon handroll,Sushi set boxes,,496,,,,,,,,,,280,,,,,,false,false,,,Guide page 6
+california-dragon-roll,California Dragon roll,Sushi set boxes,,576,,,,,,,,,,294,,,,,,false,false,,,Guide page 6
+prawn-crunch-dragon-roll,Prawn crunch dragon roll,Sushi set boxes,,440,,,,,,,,,,198,,,,,,false,false,,,Guide page 6
+bang-bang-chicken-dragon-roll,Bang bang chicken dragon roll,Sushi set boxes,,382,,,,,,,,,,193,,,,,,false,false,,,Guide page 6
+salmon-nigiri-set,Salmon nigiri set,Sushi set boxes,,292,,,,,,,,,,186,,,,,,false,false,,,Guide page 6
+salmon-nigiri-set-excl-dressing,Salmon nigiri set (excl. dressing),Sushi set boxes,,280,,,,,,,,,,169,,,,,,false,false,,,Guide page 6
+tuna-hosomaki,Tuna hosomaki,Sushi set boxes,,218,,,,,,,,,,151,,,,,,false,false,,,Guide page 6
+tuna-hosomaki-excl-dressing,Tuna hosomaki (excl. dressing),Sushi set boxes,,207,,,,,,,,,,139,,,,,,false,false,,,Guide page 6
+salmon-avocado-dragon-rolls,Salmon avocado dragon rolls,Sushi set boxes,,392,,,,,,,,,,188,,,,,,false,false,,,Guide page 7
+vegan-yasai-dragon-rolls,Vegan yasai dragon rolls,Sushi set boxes,,332,,,,,,,,,,195,,,,,vegetarian,false,false,,,Guide page 7
+salmon-hosomaki-set,Salmon hosomaki set,Sushi set boxes,,239,,,,,,,,,,150,,,,,,false,false,,,Guide page 7
+salmon-hosomaki-set-excl-dressing,Salmon hosomaki set (excl. dressing),Sushi set boxes,,228,,,,,,,,,,138,,,,,,false,false,,,Guide page 7
+vegan-avocado-hosomaki-set,Vegan avocado hosomaki set,Sushi set boxes,,242,,,,,,,,,,149,,,,,vegetarian,false,false,,,Guide page 7
+vegan-avocado-hosomaki-set-excl-dressing,Vegan avocado hosomaki set (excl. dressing),Sushi set boxes,,231,,,,,,,,,,137,,,,,vegetarian,false,false,,,Guide page 7
+vegan-cucumber-hosomaki-set,Vegan cucumber hosomaki set,Sushi set boxes,,192,,,,,,,,,,149,,,,,vegetarian,false,false,,,Guide page 7
+vegan-cucumber-hosomaki-set-excl-dressing,Vegan cucumber hosomaki set (excl. dressing),Sushi set boxes,,181,,,,,,,,,,137,,,,,vegetarian,false,false,,,Guide page 7
+vegan-yasai-set,Vegan yasai set,Sushi set boxes,,478,,,,,,,,,,351,,,,,vegetarian,false,false,,,Guide page 7
+vegan-yasai-set-excl-dressing,Vegan yasai set (excl. dressing),Sushi set boxes,,468,,,,,,,,,,340,,,,,vegetarian,false,false,,,Guide page 7
+salmon-matsuri-platter,Salmon Matsuri platter,Platters,1 portion (of 4),462,,,,,,,,,,286,,,,,,false,false,,,Guide page 8
+salmon-matsuri-platter-whole-platter,Salmon Matsuri platter (whole platter),Platters,Whole platter (4 portions),1844,,,,,,,,,,,,,,,,false,false,,,Guide page 8; energy per pack as printed; pack weight not printed
+salmon-matsuri-platter-excl-dressing,Salmon Matsuri platter (excl. dressing),Platters,1 portion (of 4),451,,,,,,,,,,274,,,,,,false,false,,,Guide page 8
+salmon-matsuri-platter-whole-platter-excl-dressing,"Salmon Matsuri platter (whole platter, excl. dressing)",Platters,Whole platter (4 portions),1803,,,,,,,,,,,,,,,,false,false,,,Guide page 8; energy per pack as printed; pack weight not printed
+tsudoi-platter,Tsudoi platter,Platters,1 portion (of 4),479,,,,,,,,,,299,,,,,,false,false,,,Guide page 8
+tsudoi-platter-whole-platter,Tsudoi platter (whole platter),Platters,Whole platter (4 portions),1917,,,,,,,,,,,,,,,,false,false,,,Guide page 8; energy per pack as printed; pack weight not printed
+tsudoi-platter-excl-dressing,Tsudoi platter (excl. dressing),Platters,1 portion (of 4),469,,,,,,,,,,288,,,,,,false,false,,,Guide page 8
+tsudoi-platter-whole-platter-excl-dressing,"Tsudoi platter (whole platter, excl. dressing)",Platters,Whole platter (4 portions),1876,,,,,,,,,,,,,,,,false,false,,,Guide page 8; energy per pack as printed; pack weight not printed
+spicy-korean-chicken-donburi,Spicy Korean chicken donburi,Salads and bowls,,568,,,,,,,,,,453,,,,,,false,false,,,Guide page 9
+spicy-korean-chicken-donburi-excl-dressing,Spicy Korean chicken donburi (excl. dressing),Salads and bowls,,491,,,,,,,,,,423,,,,,,false,false,,,Guide page 9
+chicken-katsu-tasting-box,Chicken katsu tasting box,Salads and bowls,,825,,,,,,,,,,508,,,,,,false,false,,,Guide page 9
+chicken-katsu-tasting-box-excl-dressing,Chicken katsu tasting box (excl. dressing),Salads and bowls,,817,,,,,,,,,,478,,,,,,false,false,,,Guide page 9
+salmon-donburi,Salmon donburi,Salads and bowls,,648,,,,,,,,,,450,,,,,,false,false,,,Guide page 9
+salmon-donburi-excl-dressing,Salmon donburi (excl. dressing),Salads and bowls,,556,,,,,,,,,,420,,,,,,false,false,,,Guide page 9
+salmon-teriyaki-tasting-box,Salmon teriyaki tasting box,Salads and bowls,,667,,,,,,,,,,505,,,,,,false,false,,,Guide page 9
+salmon-teriyaki-tasting-box-excl-dressing,Salmon teriyaki tasting box (excl. dressing),Salads and bowls,,616,,,,,,,,,,460,,,,,,false,false,,,Guide page 9
+salmon-and-tuna-donburi,Salmon & tuna donburi,Salads and bowls,,572,,,,,,,,,,405,,,,,,false,false,,,Guide page 10
+salmon-and-tuna-donburi-excl-dressing,Salmon & tuna donburi (excl. dressing),Salads and bowls,,488,,,,,,,,,,375,,,,,,false,false,,,Guide page 10
+salmon-teriyaki-potto,Salmon teriyaki potto,Potto salads and protein pots,,394,,,,,,,,,,225,,,,,,false,false,,,Guide page 11
+edamame-potto,Edamame potto,Potto salads and protein pots,,129,,,,,,,,,,153,,,,,vegetarian,false,false,,,Guide page 11
+california-potto,California potto,Potto salads and protein pots,,457,,,,,,,,,,242,,,,,,false,false,,,Guide page 11
+california-potto-excl-dressing,California potto (excl. dressing),Potto salads and protein pots,,451,,,,,,,,,,232,,,,,,false,false,,,Guide page 11
+kaiso-seaweed-salad,Kaiso seaweed salad,Potto salads and protein pots,,88,,,,,,,,,,125,,,,,vegetarian,false,false,,,Guide page 11
+salmon-and-avocado-potto,Salmon and avocado potto,Potto salads and protein pots,,414,,,,,,,,,,255,,,,,,false,false,,,Guide page 11
+salmon-and-avocado-potto-excl-dressing,Salmon and avocado potto (excl. dressing),Potto salads and protein pots,,407,,,,,,,,,,245,,,,,,false,false,,,Guide page 11
+tofu-tom-yum,Tofu tom yum,Tom yum,,581,,,,,,,,,,623,,,,,vegetarian,false,false,,,Guide page 12
+prawn-tom-yum,Prawn tom yum,Tom yum,,499,,,,,,,,,,622,,,,,,false,false,,,Guide page 12
+spicy-chicken-tom-yum,Spicy chicken tom yum,Tom yum,,518,,,,,,,,,,632,,,,,,false,false,,,Guide page 12
+korean-bbq-beef-ramen,Korean BBQ beef ramen,Ramen,,306,,,,,,,,,,729,,,,,contains_beef,false,false,,,Guide page 12
+vegetable-ramen-with-gyoza,Vegetable ramen with gyoza,Ramen,,342,,,,,,,,,,739,,,,,vegetarian,false,false,,,Guide page 12
+miso-soup,Miso soup,Miso,,37,,,,,,,,,,278,,,,,vegetarian,false,false,,,Guide page 12
+chicken-katsu-curry-bento-standard,Chicken katsu curry bento (standard),Bain marie,Standard,1103,,,,,,,,,,633,,,,,,false,false,,,Guide page 13
+chicken-katsu-curry-bento-large,Chicken katsu curry bento (large),Bain marie,Large,1556,,,,,,,,,,895,,,,,,false,false,,,Guide page 13
+chicken-katsu-curry-yakisoba-standard,Chicken katsu curry yakisoba (standard),Bain marie,Standard,937,,,,,,,,,,615,,,,,,false,false,,,Guide page 13
+chicken-katsu-curry-yakisoba-large,Chicken katsu curry yakisoba (large),Bain marie,Large,1397,,,,,,,,,,915,,,,,,false,false,,,Guide page 13
+chicken-katsu-yakisoba-standard,Chicken katsu yakisoba (standard),Bain marie,Standard,607,,,,,,,,,,420,,,,,,false,false,,,Guide page 13
+chicken-katsu-yakisoba-large,Chicken katsu yakisoba (large),Bain marie,Large,1018,,,,,,,,,,670,,,,,,false,false,,,Guide page 13
+sweet-chilli-chicken-bento-standard,Sweet chilli chicken bento (standard),Bain marie,Standard,855,,,,,,,,,,530,,,,,,false,false,,,Guide page 13
+sweet-chilli-chicken-bento-large,Sweet chilli chicken bento (large),Bain marie,Large,1282,,,,,,,,,,795,,,,,,false,false,,,Guide page 13
+sweet-chilli-chicken-yakisoba-standard,Sweet chilli chicken yakisoba (standard),Bain marie,Standard,723,,,,,,,,,,530,,,,,,false,false,,,Guide page 13
+sweet-chilli-chicken-yakisoba-large,Sweet chilli chicken yakisoba (large),Bain marie,Large,1084,,,,,,,,,,795,,,,,,false,false,,,Guide page 13
+vegetable-gyoza-yakisoba-bain-marie,Vegetable gyoza yakisoba (bain marie),Bain marie,,450,,,,,,,,,,350,,,,,vegetarian,false,false,,,Guide page 13; same name printed in another section
+vegetable-gyoza-yakisoba-fried-bain-marie,Vegetable gyoza yakisoba (fried) (bain marie),Bain marie,,569,,,,,,,,,,350,,,,,vegetarian,false,false,,,Guide page 13; same name printed in another section
+tofu-curry-bento-standard,Tofu curry bento (standard),Bain marie,Standard,711,,,,,,,,,,480,,,,,vegetarian,false,false,,,Guide page 13
+tofu-curry-bento-large,Tofu curry bento (large),Bain marie,Large,1015,,,,,,,,,,690,,,,,vegetarian,false,false,,,Guide page 13
+tofu-curry-yakisoba-bento-standard,Tofu curry yakisoba bento (standard),Bain marie,Standard,799,,,,,,,,,,465,,,,,vegetarian,false,false,,,Guide page 13
+tofu-curry-yakisoba-bento-large,Tofu curry yakisoba bento (large),Bain marie,Large,1204,,,,,,,,,,700,,,,,vegetarian,false,false,,,Guide page 13
+korean-bbq-chicken-bento-standard,Korean BBQ chicken bento (standard),Bain marie,Standard,846,,,,,,,,,,550,,,,,,false,false,,,Guide page 13
+korean-bbq-chicken-bento-large,Korean BBQ chicken bento (large),Bain marie,Large,1030,,,,,,,,,,670,,,,,,false,false,,,Guide page 13
+korean-bbq-chicken-yakisoba-standard,Korean BBQ chicken yakisoba (standard),Bain marie,Standard,714,,,,,,,,,,550,,,,,,false,false,,,Guide page 13
+korean-bbq-chicken-yakisoba-large,Korean BBQ chicken yakisoba (large),Bain marie,Large,870,,,,,,,,,,670,,,,,,false,false,,,Guide page 13
+pumpkin-katsu-curry-bento-standard,Pumpkin katsu curry bento (standard),Bain marie,Standard,913,,,,,,,,,,565,,,,,vegetarian,false,false,,,Guide page 13
+pumpkin-katsu-curry-bento-large,Pumpkin katsu curry bento (large),Bain marie,Large,1294,,,,,,,,,,780,,,,,vegetarian,false,false,,,Guide page 13
+pumpkin-katsu-curry-yakisoba-bento-standard,Pumpkin katsu curry yakisoba bento (standard),Bain marie,Standard,786,,,,,,,,,,565,,,,,vegetarian,false,false,,,Guide page 13
+pumpkin-katsu-curry-yakisoba-bento-large,Pumpkin katsu curry yakisoba bento (large),Bain marie,Large,1170,,,,,,,,,,840,,,,,vegetarian,false,false,,,Guide page 13
+chicken-katsu-1-piece,Chicken katsu (1 piece),Bain marie,,223,,,,,,,,,,85,,,,,,false,false,,,Guide page 14
+pumpkin-katsu-1-piece,Pumpkin katsu (1 piece),Bain marie,,142,,,,,,,,,,60,,,,,vegetarian,false,false,,,Guide page 14
+hot-chicken-gyoza-fried-2-pieces,Hot chicken gyoza (Fried - 2 pieces),Bain marie,,104,,,,,,,,,,40,,,,,,false,false,,,Guide page 14
+hot-chicken-gyoza-steamed-2-pieces,Hot chicken gyoza (Steamed - 2 pieces),Bain marie,,67,,,,,,,,,,40,,,,,,false,false,,,Guide page 14
+hot-vegetable-gyoza-fried-2-pieces,Hot vegetable gyoza (Fried - 2 pieces),Bain marie,,112,,,,,,,,,,40,,,,,vegetarian,false,false,,,Guide page 14; printed 'Hot vegetable gyoza (Fried- 2 pieces)'
+hot-vegetable-gyoza-steamed-2-pieces,Hot vegetable gyoza (Steamed - 2 pieces),Bain marie,,65,,,,,,,,,,40,,,,,vegetarian,false,false,,,Guide page 14
+plain-yakisoba-standard,Plain yakisoba (standard),Bain marie,Standard,262,,,,,,,,,,240,,,,,vegetarian,false,false,,,Guide page 14
+plain-yakisoba-large,Plain yakisoba (large),Bain marie,Large,392,,,,,,,,,,360,,,,,vegetarian,false,false,,,Guide page 14
+korean-bbq-chicken-pops-bain-marie,Korean BBQ chicken pops (bain marie),Bain marie,,362,,,,,,,,,,160,,,,,,false,false,,,Guide page 14; same name printed in another section
+steamed-rice,Steamed rice,Bain marie,,401,,,,,,,,,,240,,,,,vegetarian,false,false,,,Guide page 14
+spicy-korean-chicken-pops-bain-marie,Spicy Korean chicken pops (bain marie),Bain marie,,376,,,,,,,,,,160,,,,,,false,false,,,Guide page 14; same name printed in another section
+chicken-katsu-curry-curry-sauce-with-rice,Chicken katsu curry + Curry sauce (with rice),Mixed bento,,865,,,,,,,,,,541,,,,,,false,false,,,Guide page 15
+pumpkin-katsu-chicken-katsu-curry-with-rice,Pumpkin katsu + Chicken katsu curry (with rice),Mixed bento,,1022,,,,,,,,,,615,,,,,,false,false,,,Guide page 15
+pumpkin-katsu-sweet-chilli-chicken-with-rice,Pumpkin katsu + Sweet chilli chicken (with rice),Mixed bento,,967,,,,,,,,,,582,,,,,,false,false,,,Guide page 15
+pumpkin-katsu-curry-sauce-with-rice,Pumpkin katsu + Curry sauce (with rice),Mixed bento,,799,,,,,,,,,,530,,,,,,false,false,,,Guide page 15
+sweet-chilli-chicken-chicken-katsu-curry-with-rice,Sweet chilli chicken + Chicken katsu curry (with rice),Mixed bento,,973,,,,,,,,,,573,,,,,,false,false,,,Guide page 15
+sweet-chilli-chicken-curry-sauce-with-rice,Sweet chilli chicken + Curry sauce (with rice),Mixed bento,,752,,,,,,,,,,488,,,,,,false,false,,,Guide page 15
+korean-bbq-chicken-chicken-katsu-curry-with-rice,Korean BBQ chicken + Chicken katsu curry (with rice),Mixed bento,,972,,,,,,,,,,573,,,,,,false,false,,,Guide page 15
+korean-bbq-chicken-curry-sauce-with-rice,Korean BBQ chicken + Curry sauce (with rice),Mixed bento,,748,,,,,,,,,,488,,,,,,false,false,,,Guide page 15
+korean-bbq-chicken-sweet-chilli-chicken-with-rice,Korean BBQ chicken + Sweet chilli chicken (with rice),Mixed bento,,881,,,,,,,,,,538,,,,,,false,false,,,Guide page 15
+tofu-curry-curry-sauce-with-rice,Tofu curry + Curry sauce (with rice),Mixed bento,,675,,,,,,,,,,468,,,,,,false,false,,,Guide page 15
+tofu-curry-sweet-chilli-chicken-with-rice,Tofu curry + Sweet chilli chicken (with rice),Mixed bento,,901,,,,,,,,,,500,,,,,,false,false,,,Guide page 15
+tofu-curry-korean-bbq-chicken-with-rice,Tofu curry + Korean BBQ chicken (with rice),Mixed bento,,786,,,,,,,,,,502,,,,,,false,false,,,Guide page 15
+tofu-curry-chicken-katsu-curry-with-rice,Tofu curry + Chicken katsu curry (with rice),Mixed bento,,899,,,,,,,,,,553,,,,,,false,false,,,Guide page 15
+pumpkin-katsu-curry-korean-bbq-chicken-with-rice,Pumpkin katsu curry + Korean BBQ chicken (with rice),Mixed bento,,954,,,,,,,,,,578,,,,,,false,false,,,Guide page 16
+pumpkin-katsu-curry-tofu-curry-with-rice,Pumpkin katsu curry + Tofu curry (with rice),Mixed bento,,705,,,,,,,,,,528,,,,,,false,false,,,Guide page 16
+chicken-katsu-curry-curry-sauce-with-yakisoba-noodles,Chicken katsu curry + Curry sauce (with yakisoba noodles),Mixed bento,,720,,,,,,,,,,541,,,,,,false,false,,,Guide page 16; printed 'Chicken katsu curry+ Curry sauce'
+pumpkin-katsu-chicken-katsu-curry-with-yakisoba-noodles,Pumpkin katsu + Chicken katsu curry (with yakisoba noodles),Mixed bento,,877,,,,,,,,,,615,,,,,,false,false,,,Guide page 16
+sweet-chilli-chicken-chicken-katsu-curry-with-yakisoba-noodles,Sweet chilli chicken + Chicken katsu curry (with yakisoba noodles),Mixed bento,,841,,,,,,,,,,573,,,,,,false,false,,,Guide page 16
+sweet-chilli-chicken-curry-sauce-with-yakisoba-noodles,Sweet chilli chicken + Curry sauce (with yakisoba noodles),Mixed bento,,620,,,,,,,,,,488,,,,,,false,false,,,Guide page 16
+pumpkin-katsu-curry-sauce-with-yakisoba-noodles,Pumpkin katsu + Curry sauce (with yakisoba noodles),Mixed bento,,654,,,,,,,,,,530,,,,,,false,false,,,Guide page 16
+korean-bbq-chicken-chicken-katsu-curry-with-yakisoba-noodles,Korean BBQ chicken + Chicken katsu curry (with yakisoba noodles),Mixed bento,,827,,,,,,,,,,573,,,,,,false,false,,,Guide page 16
+korean-bbq-chicken-curry-sauce-with-yakisoba-noodles,Korean BBQ chicken + Curry sauce (with yakisoba noodles),Mixed bento,,603,,,,,,,,,,488,,,,,,false,false,,,Guide page 16
+korean-bbq-chicken-sweet-chilli-chicken-with-yakisoba-noodles,Korean BBQ chicken + Sweet chilli chicken (with yakisoba noodles),Mixed bento,,749,,,,,,,,,,538,,,,,,false,false,,,Guide page 16
+tofu-curry-curry-sauce-with-yakisoba-noodles,Tofu curry + Curry sauce (with yakisoba noodles),Mixed bento,,530,,,,,,,,,,468,,,,,,false,false,,,Guide page 16
+tofu-curry-sweet-chilli-chicken-with-yakisoba-noodles,Tofu curry + Sweet chilli chicken (with yakisoba noodles),Mixed bento,,769,,,,,,,,,,500,,,,,,false,false,,,Guide page 16
+tofu-curry-korean-bbq-chicken-with-yakisoba-noodles,Tofu curry + Korean BBQ chicken (with yakisoba noodles),Mixed bento,,637,,,,,,,,,,500,,,,,,false,false,,,Guide page 16
+tofu-curry-chicken-katsu-curry-with-yakisoba-noodles,Tofu curry + Chicken katsu curry (with yakisoba noodles),Mixed bento,,753,,,,,,,,,,553,,,,,,false,false,,,Guide page 17
+pumpkin-katsu-curry-korean-bbq-chicken-with-yakisoba-noodles,Pumpkin katsu curry + Korean BBQ chicken (with yakisoba noodles),Mixed bento,,898,,,,,,,,,,578,,,,,,false,false,,,Guide page 17
+pumpkin-katsu-curry-tofu-curry-with-yakisoba-noodles,Pumpkin katsu curry + Tofu curry (with yakisoba noodles),Mixed bento,,705,,,,,,,,,,528,,,,,,false,false,,,Guide page 17
+chicken-katsu-curry-bento,Chicken katsu curry bento,Hot cabinet,,1086,,,,,,,,,,635,,,,,,false,false,,,Guide page 18
+chicken-katsu-curry-yakisoba,Chicken katsu curry yakisoba,Hot cabinet,,954,,,,,,,,,,635,,,,,,false,false,,,Guide page 18
+chicken-katsu-yakisoba,Chicken katsu yakisoba,Hot cabinet,,624,,,,,,,,,,440,,,,,,false,false,,,Guide page 18
+sweet-chilli-chicken-bento,Sweet chilli chicken bento,Hot cabinet,,879,,,,,,,,,,550,,,,,,false,false,,,Guide page 18
+sweet-chilli-chicken-yakisoba,Sweet chilli chicken yakisoba,Hot cabinet,,747,,,,,,,,,,550,,,,,,false,false,,,Guide page 18
+tofu-curry-bento,Tofu curry bento,Hot cabinet,,726,,,,,,,,,,500,,,,,vegetarian,false,false,,,Guide page 18
+tofu-curry-yakisoba-bento,Tofu curry yakisoba bento,Hot cabinet,,796,,,,,,,,,,485,,,,,vegetarian,false,false,,,Guide page 18
+pumpkin-katsu-curry-bento,Pumpkin katsu curry bento,Hot cabinet,,928,,,,,,,,,,585,,,,,vegetarian,false,false,,,Guide page 18
+pumpkin-katsu-curry-yakisoba,Pumpkin katsu curry yakisoba,Hot cabinet,,802,,,,,,,,,,585,,,,,vegetarian,false,false,,,Guide page 18
+vegetable-gyoza-yakisoba-hot-cabinet,Vegetable gyoza yakisoba (hot cabinet),Hot cabinet,,466,,,,,,,,,,370,,,,,vegetarian,false,false,,,Guide page 19; same name printed in another section
+vegetable-gyoza-yakisoba-fried-hot-cabinet,Vegetable gyoza yakisoba (fried) (hot cabinet),Hot cabinet,,586,,,,,,,,,,370,,,,,vegetarian,false,false,,,Guide page 19; same name printed in another section
+korean-bbq-chicken-bento,Korean BBQ chicken bento,Hot cabinet,,846,,,,,,,,,,550,,,,,,false,false,,,Guide page 19
+korean-bbq-chicken-yakisoba,Korean BBQ chicken yakisoba,Hot cabinet,,714,,,,,,,,,,550,,,,,,false,false,,,Guide page 19
+mini-chicken-katsu-curry-bento,Mini chicken katsu curry bento,Hot cabinet,,582,,,,,,,,,,360,,,,,,false,false,,,Guide page 19
+mini-korean-bbq-chicken-bento,Mini Korean BBQ chicken bento,Hot cabinet,,532,,,,,,,,,,350,,,,,,false,false,,,Guide page 19
+mini-sweet-chilli-chicken-bento,Mini sweet chilli chicken bento,Hot cabinet,,556,,,,,,,,,,350,,,,,,false,false,,,Guide page 19
+mini-veggie-breakfast-bento,Mini veggie breakfast bento,Breakfast hot cabinet,,394,,,,,,,,,,291,,,,,vegetarian,false,false,,,Guide page 20
+mini-breakfast-bento,Mini breakfast bento,Breakfast hot cabinet,,474,,,,,,,,,,313,,,,,,false,false,,,Guide page 20
+veggie-breakfast-bento,Veggie breakfast bento,Breakfast hot cabinet,,697,,,,,,,,,,494,,,,,vegetarian,false,false,,,Guide page 20
+breakfast-bento,Breakfast bento,Breakfast hot cabinet,,754,,,,,,,,,,506,,,,,,false,false,,,Guide page 20
+sausage-sando-excl-dressing,Sausage sando (excl. dressing),Breakfast hot cabinet,,378,,,,,,,,,,140,,,,,contains_pork,false,false,,,Guide page 20
+bacon-sando-excl-dressing,Bacon sando (excl. dressing),Breakfast hot cabinet,,417,,,,,,,,,,138,,,,,contains_pork,false,false,,,Guide page 20
+porridge-pot-with-berry-compote,Porridge pot with berry compote,Breakfast hot cabinet,,295,,,,,,,,,,295,,,,,vegetarian,false,false,,,Guide page 20
+porridge-pot-with-honey,Porridge pot with honey,Breakfast hot cabinet,,330,,,,,,,,,,295,,,,,vegetarian,false,false,,,Guide page 20
+porridge-pot-excl-dressing,Porridge pot (excl. dressing),Breakfast hot cabinet,,265,,,,,,,,,,275,,,,,vegetarian,false,false,,,Guide page 20
+fruit-pot,Fruit pot,Breakfast pots,,48,,,,,,,,,,150,,,,,vegetarian,false,false,,,Guide page 21
+yoghurt-pot,Yoghurt pot,Breakfast pots,,336,,,,,,,,,,210,,,,,vegetarian,false,false,,,Guide page 21
+hot-chicken-gyoza-fried-with-gyoza-sauce,Hot chicken gyoza (fried) with gyoza sauce,Hot sides,,264,,,,,,,,,,115,,,,,,false,false,,,Guide page 22
+hot-chicken-gyoza-fried-excl-dressing,Hot chicken gyoza (fried) (excl. dressing),Hot sides,,260,,,,,,,,,,100,,,,,,false,false,,,Guide page 22
+hot-chicken-gyoza-with-gyoza-sauce,Hot chicken gyoza with gyoza sauce,Hot sides,,173,,,,,,,,,,115,,,,,,false,false,,,Guide page 22
+hot-chicken-gyoza-excl-dressing,Hot chicken gyoza (excl. dressing),Hot sides,,169,,,,,,,,,,100,,,,,,false,false,,,Guide page 22
+hot-vegetable-gyoza-fried-with-gyoza-sauce,Hot vegetable gyoza (fried) with gyoza sauce,Hot sides,,285,,,,,,,,,,115,,,,,vegetarian,false,false,,,Guide page 22
+hot-vegetable-gyoza-fried-excl-dressing,Hot vegetable gyoza (fried) (excl. dressing),Hot sides,,281,,,,,,,,,,100,,,,,vegetarian,false,false,,,Guide page 22
+hot-vegetable-gyoza-with-gyoza-sauce,Hot vegetable gyoza with gyoza sauce,Hot sides,,166,,,,,,,,,,115,,,,,vegetarian,false,false,,,Guide page 22
+hot-vegetable-gyoza-excl-dressing,Hot vegetable gyoza (excl. dressing),Hot sides,,162,,,,,,,,,,100,,,,,vegetarian,false,false,,,Guide page 22
+hot-duck-gyoza-with-gyoza-sauce,Hot duck gyoza with gyoza sauce,Hot sides,,231,,,,,,,,,,115,,,,,,false,false,,,Guide page 22
+hot-duck-gyoza-excl-dressing,Hot duck gyoza (excl. dressing),Hot sides,,224,,,,,,,,,,100,,,,,,false,false,,,Guide page 22
+spicy-korean-chicken-pops-hot-sides,Spicy Korean chicken pops (hot sides),Hot sides,,376,,,,,,,,,,160,,,,,,false,false,,,Guide page 23; same name printed in another section
+chicken-katsu-box,Chicken katsu box,Hot sides,,468,,,,,,,,,,180,,,,,,false,false,,,Guide page 23
+korean-bbq-chicken-pops-hot-sides,Korean BBQ chicken pops (hot sides),Hot sides,,362,,,,,,,,,,160,,,,,,false,false,,,Guide page 23; same name printed in another section
+korean-chicken-katsu-sando,Korean chicken katsu sando,Hot sides,,607,,,,,,,,,,255,,,,,,false,false,,,Guide page 23
+korean-bbq-bacon-sando,Korean BBQ bacon sando,Hot sides,,445,,,,,,,,,,163,,,,,contains_pork,false,false,,,Guide page 23
+katsu-pumpkin-and-mushroom-sando,Katsu pumpkin & mushroom sando,Hot sides,,527,,,,,,,,,,210,,,,,vegetarian,false,false,,,Guide page 23
+biang-biang-noodles,Biang biang noodles,Hot sides,,169,,,,,,,,,,180,,,,,vegetarian,false,false,,,Guide page 23
+espresso,Espresso,Coffee,,0,,,,,,,,,,40,,,,,vegetarian,false,false,,,Guide page 24
+double-espresso,Double espresso,Coffee,,0,,,,,,,,,,74,,,,,vegetarian,false,false,,,Guide page 24
+latte-12oz-semi-skimmed-milk,Latte 12oz (semi skimmed milk),Coffee,,137,,,,,,,,,,353,,,,,vegetarian,false,false,,,Guide page 24
+latte-16oz-semi-skimmed-milk,Latte 16oz (semi skimmed milk),Coffee,,206,,,,,,,,,,494,,,,,vegetarian,false,false,,,Guide page 24
+cappuccino-12oz-semi-skimmed-milk,Cappuccino 12oz (semi skimmed milk),Coffee,,80,,,,,,,,,,238,,,,,vegetarian,false,false,,,Guide page 24
+cappuccino-16oz-semi-skimmed-milk,Cappuccino 16oz (semi skimmed milk),Coffee,,157,,,,,,,,,,394,,,,,vegetarian,false,false,,,Guide page 24; printed 'Cappucino 16oz (semi skimmed milk)'
+americano-12oz,Americano 12oz,Coffee,,0,,,,,,,,,,314,,,,,vegetarian,false,false,,,Guide page 24
+americano-16oz,Americano 16oz,Coffee,,0,,,,,,,,,,394,,,,,vegetarian,false,false,,,Guide page 24
+white-americano-16oz-oat-milk,White Americano 16oz (oat milk),Coffee,,58,,,,,,,,,,412,,,,,vegetarian,false,false,,,Guide page 24; printed 'White Americano 16oz (oat mikl)'
+white-americano-12oz-oat-milk,White Americano 12oz (oat milk),Coffee,,58,,,,,,,,,,312,,,,,vegetarian,false,false,,,Guide page 24; printed 'White Americano 12oz (oat mikl)'
+white-americano-12-oz-semi-skimmed-milk,White Americano 12 oz (semi skimmed milk),Coffee,,48,,,,,,,,,,312,,,,,vegetarian,false,false,,,Guide page 24
+white-americano-16-oz-semi-skimmed-milk,White Americano 16 oz (semi skimmed milk),Coffee,,48,,,,,,,,,,412,,,,,vegetarian,false,false,,,Guide page 24
+flat-white-semi-skimmed-milk,Flat white (semi skimmed milk),Coffee,,89,,,,,,,,,,222,,,,,vegetarian,false,false,,,Guide page 24
+mocha-12oz,Mocha 12oz,Coffee,,184,,,,,,,,,,304,,,,,vegetarian,false,false,,,Guide page 24
+mocha-16oz,Mocha 16oz,Coffee,,237,,,,,,,,,,400,,,,,vegetarian,false,false,,,Guide page 24
+breakfast-tea-12oz,Breakfast tea 12oz,Tea,,3,,,,,,,,,,303,,,,,vegetarian,false,false,,,Guide page 25
+green-tea-twinings-12oz,Green tea - Twinings 12oz,Tea,,2,,,,,,,,,,302,,,,,vegetarian,false,false,,,Guide page 25
+lemongrass-citrus-and-ginger-12oz,Lemongrass citrus & ginger 12oz,Tea,,2,,,,,,,,,,302,,,,,vegetarian,false,false,,,Guide page 25
+breakfast-tea-16oz,Breakfast tea 16oz,Tea,,3,,,,,,,,,,443,,,,,vegetarian,false,false,,,Guide page 25
+green-tea-twinings-16-oz,Green tea - Twinings 16 oz,Tea,,2,,,,,,,,,,442,,,,,vegetarian,false,false,,,Guide page 25
+lemongrass-citrus-and-ginger-16oz,Lemongrass citrus & ginger 16oz,Tea,,2,,,,,,,,,,442,,,,,vegetarian,false,false,,,Guide page 25
+hot-chocolate-12oz,Hot chocolate 12oz,Other hot drinks,,184,,,,,,,,,,290,,,,,vegetarian,false,false,,,Guide page 25
+hot-chocolate-16oz,Hot chocolate 16oz,Other hot drinks,,237,,,,,,,,,,386,,,,,vegetarian,false,false,,,Guide page 25
+matcha-12oz,Matcha 12oz,Other hot drinks,,180,,,,,,,,,,292,,,,,vegetarian,false,false,,,Guide page 25
+babyccino,Babyccino,Other hot drinks,,206,,,,,,,,,,100,,,,,vegetarian,false,false,,,Guide page 25
+semi-skimmed-milk,Semi skimmed milk,Hot drink extras,,206,,,,,,,,,,100,,,,,vegetarian,false,false,,,Guide page 26
+oat-milk,Oat milk,Hot drink extras,,247,,,,,,,,,,100,,,,,vegetarian,false,false,,,Guide page 26
+vanilla-syrup,Vanilla syrup,Hot drink extras,,48,,,,,,,,,,15,,,,,vegetarian,false,false,,,Guide page 26
+ginger-sachet,Ginger sachet,Sauces and dressings for sushi,,1,,,,,,,,,,5,,,,,vegetarian,false,false,,,Guide page 27
+soy-sauce-sachet,Soy sauce sachet,Sauces and dressings for sushi,,7,,,,,,,,,,10,,,,,vegetarian,false,false,,,Guide page 27
+gluten-free-soy-sauce-sachet,Gluten free soy sauce sachet,Sauces and dressings for sushi,,5,,,,,,,,,,10,,,,,vegetarian,false,false,,,Guide page 27
+reduced-salt-soy-sauce-sachet,Reduced salt soy sauce sachet,Sauces and dressings for sushi,,7,,,,,,,,,,10,,,,,vegetarian,false,false,,,Guide page 27
+wasabi-sachet,Wasabi sachet,Sauces and dressings for sushi,,3,,,,,,,,,,1.5,,,,,vegetarian,false,false,,,Guide page 27
+ponzu-sauce-sachet,Ponzu sauce sachet,Sauces and dressings for sushi,,8,,,,,,,,,,30,,,,,vegetarian,false,false,,,Guide page 27
+tomato-ketchup-sauce-pot,Tomato ketchup sauce pot,Sauces and dressings for sushi,,41,,,,,,,,,,30,,,,,vegetarian,false,false,,,Guide page 27
+korean-bbq-sauce-pot,Korean BBQ sauce pot,Sauces and dressings for sushi,,33,,,,,,,,,,30,,,,,vegetarian,false,false,,,Guide page 27
+sweet-chilli-mayo-sauce,Sweet chilli mayo sauce,Sauces and dressings,,43,,,,,,,,,,20,,,,,vegetarian,false,false,,,Guide page 28
+teriyaki-sauce,Teriyaki sauce,Sauces and dressings,,43,,,,,,,,,,20,,,,,vegetarian,false,false,,,Guide page 28
+pok-dressing,Poké dressing,Sauces and dressings,,90,,,,,,,,,,30,,,,,vegetarian,false,false,,,Guide page 28
+gochujang-dressing,Gochujang dressing,Sauces and dressings,,91,,,,,,,,,,30,,,,,vegetarian,false,false,,,Guide page 28
+sesame-dressing,Sesame dressing,Sauces and dressings,,93,,,,,,,,,,30,,,,,vegetarian,false,false,,,Guide page 28

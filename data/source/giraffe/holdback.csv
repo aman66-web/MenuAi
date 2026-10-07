@@ -1,0 +1,16 @@
+item_id,reason
+giraffe-brunch-poached-egg,the same page prints 665 kcal for the same dish with no egg and more for the fried and scrambled egg versions
+bigger-giraffe-brunch-poached-egg,"the same page prints 1,150 kcal for the same dish with no egg and more for the fried and scrambled egg versions"
+veggie-brunch-poached-egg,the same page prints 515 kcal for the same dish with no egg and more for the fried and scrambled egg versions
+fully-loaded-nachos-with-pork,"the same page prints 982 kcal for Fully Loaded Nachos, and a dish 'with Pork' cannot be fewer calories"
+fully-loaded-nachos-with-beef,"the same page prints 982 kcal for Fully Loaded Nachos, and a dish 'with Beef' cannot be fewer calories"
+moroccan-caesar-salad-with-chicken,the same menu prints 459 kcal for Moroccan Caesar Salad; a salad 'with Chicken' cannot be fewer calories (looks like the add-on's own figure)
+moroccan-caesar-salad-with-halloumi,the same menu prints 459 kcal for Moroccan Caesar Salad; a salad 'with Halloumi' cannot be fewer calories (looks like the add-on's own figure)
+havana-3-year-old-rum-25ml,16 kcal per 25ml printed; the other spirits on the page print 55-63 kcal per 25ml
+havana-3-year-old-rum-50ml,32 kcal per 50ml printed; the other spirits on the page print 110-126 kcal per 50ml
+merlot-125ml,"0 kcal printed for a red wine, which contains alcohol (other wines print 120 kcal per 175ml)"
+merlot-175ml,"0 kcal printed for a red wine, which contains alcohol (other wines print 120 kcal per 175ml)"
+merlot-250ml,"0 kcal printed for a red wine, which contains alcohol (other wines print 171 kcal per 250ml)"
+merlot-bottle,"0 kcal printed for a red wine, which contains alcohol (the white bottle prints 513 kcal)"
+cranberry-juice-soft-drinks,720 kcal printed for a juice; every other juice on the page prints 71-123
+cranberry-juice-kids-drinks,360 kcal printed for a juice; every other juice on the page prints 71-123

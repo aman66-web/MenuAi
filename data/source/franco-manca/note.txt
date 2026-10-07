@@ -1,0 +1,1 @@
+Franco Manca prints calories only, beside each dish, so protein, carbs and fat are not published. Drinks without calories (wine, most cocktails and beers) are not listed. Pizzerias can differ slightly. Its allergen-list FAQ says swapping to a gluten-free base adds 53 kcal.

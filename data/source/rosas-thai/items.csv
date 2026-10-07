@@ -1,0 +1,155 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+classic-platter-for-2,Classic Platter for 2,Sharing platters & crackers,,1195,,,,,,,,,,,,,,,,false,false,,,allday: Sharing Platters & Crackers; printed 'Classic Platter for 2 (1195 kcal)'
+veggie-platter-for-2,Veggie Platter for 2,Sharing platters & crackers,,1048,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Sharing Platters & Crackers; printed 'Veggie Platter for 2 (1048 kcal)'
+prawn-crackers,Prawn Crackers,Sharing platters & crackers,,304,,,,,,,,,,,,,,,,false,false,,,allday: Sharing Platters & Crackers; printed 'Prawn Crackers (304 kcal)'
+pumpkin-crackers,Pumpkin Crackers,Sharing platters & crackers,,270,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Sharing Platters & Crackers; printed 'Pumpkin Crackers (270 kcal)'
+chicken-satay,Chicken Satay,Small plates,,535,,,,,,,,,,,,,,,,false,false,,,allday: Small Plates
+crispy-pad-cha-aubergine,Crispy Pad Cha Aubergine,Small plates,,353,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Small Plates
+crispy-prawn-doughnuts,Crispy Prawn Doughnuts,Small plates,,305,,,,,,,,,,,,,,,,false,false,,,allday: Small Plates
+summer-rolls,Summer Rolls,Small plates,,590,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Small Plates; printed 'Summer Rolls (590 kcal)'
+summer-rolls-prawns,Summer Rolls Prawns,Small plates,,615,,,,,,,,,,,,,,,,false,false,,,allday: Small Plates; printed 'Summer Rolls Prawns (615 kcal)'
+thai-fried-chicken-tfc,Thai Fried Chicken (TFC),Small plates,,534,,,,,,,,,,,,,,,,false,false,,,allday: Small Plates
+thai-calamari,Thai Calamari,Small plates,,276,,,,,,,,,,,,,,,,false,false,,,allday: Small Plates
+chargrilled-pork-skewers,Chargrilled Pork Skewers,Small plates,,448,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: Small Plates
+kale-tempura,Kale Tempura,Small plates,,197,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Small Plates
+veggie-spring-rolls,Veggie Spring Rolls,Small plates,,261,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Small Plates
+sweetcorn-fritter-bites,Sweetcorn Fritter Bites,Small plates,,354,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Small Plates
+tom-yum-soup,Tom Yum Soup,Small plates,,142,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Small Plates
+papaya-salad,Papaya Salad,Salads,,335,,,,,,,,,,,,,,,,false,false,,,allday: Salads; printed 'Papaya Salad (335 kcal)'
+small-papaya-salad,Small Papaya Salad,Salads,,202,,,,,,,,,,,,,,,,false,false,,,allday: Salads; printed 'Small Papaya Salad (202 kcal)'
+minced-chicken-salad,Minced Chicken Salad,Salads,,348,,,,,,,,,,,,,,,,false,false,,,allday: Salads; printed 'Minced Chicken Salad (348 kcal)'
+small-minced-chicken-salad,Small Minced Chicken Salad,Salads,,177,,,,,,,,,,,,,,,,false,false,,,allday: Salads; printed 'Small Minced Chicken Salad (177 kcal)'
+waterfall-beef,Waterfall Beef,One plate 'Jarn Diew',,939,,,,,,,,,,,,,,,contains_beef,false,false,,,allday: One Plate 'Jarn Diew'
+khao-mun-gai-steamed-chicken,Khao Mun Gai - Steamed Chicken,One plate 'Jarn Diew',,789,,,,,,,,,,,,,,,,false,false,,,allday: One Plate 'Jarn Diew'; printed 'Steamed Chicken (789 kcal)'
+khao-mun-gai-crispy-breadcrumbed-chicken,Khao Mun Gai - Crispy Breadcrumbed Chicken,One plate 'Jarn Diew',,1088,,,,,,,,,,,,,,,,false,false,,,allday: One Plate 'Jarn Diew'; printed 'Crispy Breadcrumbed Chicken (1088 kcal)'
+chilli-and-basil-stir-fry-veg-and-tofu,Chilli & Basil Stir-Fry - Veg & Tofu,One plate 'Jarn Diew',,920,,,,,,,,,,,,,,,,false,false,,,allday: One Plate 'Jarn Diew'; printed 'Veg & Tofu (920 kcal)'
+chilli-and-basil-stir-fry-chicken,Chilli & Basil Stir-Fry - Chicken,One plate 'Jarn Diew',,782,,,,,,,,,,,,,,,,false,false,,,allday: One Plate 'Jarn Diew'; printed 'Chicken (782 kcal)'
+chilli-and-basil-stir-fry-pork-belly,Chilli & Basil Stir-Fry - Pork Belly,One plate 'Jarn Diew',,1188,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: One Plate 'Jarn Diew'; printed 'Pork Belly (1188 kcal)'
+thai-spiced-pork-ribs,Thai-Spiced Pork Ribs,One plate 'Jarn Diew',,1486,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: One Plate 'Jarn Diew'
+red-duck-pineapple-curry,Red Duck Pineapple Curry,Signature curries,,1186,,,,,,,,,,,,,,,,false,false,,,allday: Curries > Signature Curries
+massaman-beef-curry,Massaman Beef Curry,Signature curries,,1206,,,,,,,,,,,,,,,contains_beef,false,false,,,allday: Curries > Signature Curries
+chu-chi-pla,Chu Chi Pla,Signature curries,,910,,,,,,,,,,,,,,,,false,false,,,allday: Curries > Signature Curries
+green-curry-veg-and-tofu,Green Curry - Veg & Tofu,Classic curries,,932,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Curries > Classic Curries; printed 'Veg & Tofu (932 kcal)'
+green-curry-chicken,Green Curry - Chicken,Classic curries,,912,,,,,,,,,,,,,,,,false,false,,,allday: Curries > Classic Curries; printed 'Chicken (912 kcal)'
+green-curry-slow-cooked-beef,Green Curry - Slow-Cooked Beef,Classic curries,,1137,,,,,,,,,,,,,,,contains_beef,false,false,,,allday: Curries > Classic Curries; printed 'Slow-Cooked Beef (1137 kcal)'
+green-curry-pork-belly,Green Curry - Pork Belly,Classic curries,,1384,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: Curries > Classic Curries; printed 'Pork Belly (1384 kcal)'
+green-curry-prawns,Green Curry - Prawns,Classic curries,,783,,,,,,,,,,,,,,,,false,false,,,allday: Curries > Classic Curries; printed 'Prawns (783 kcal)'
+red-curry-veg-and-tofu,Red Curry - Veg & Tofu,Classic curries,,829,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Curries > Classic Curries; printed 'Veg & Tofu (829 kcal)'
+red-curry-chicken,Red Curry - Chicken,Classic curries,,797,,,,,,,,,,,,,,,,false,false,,,allday: Curries > Classic Curries; printed 'Chicken (797 kcal)'
+red-curry-slow-cooked-beef,Red Curry - Slow-Cooked Beef,Classic curries,,1026,,,,,,,,,,,,,,,contains_beef,false,false,,,allday: Curries > Classic Curries; printed 'Slow-Cooked Beef (1026 kcal)'
+red-curry-pork-belly,Red Curry - Pork Belly,Classic curries,,1263,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: Curries > Classic Curries; printed 'Pork Belly (1263 kcal)'
+red-curry-prawns,Red Curry - Prawns,Classic curries,,672,,,,,,,,,,,,,,,,false,false,,,allday: Curries > Classic Curries; printed 'Prawns (672 kcal)'
+panang-curry-veg-and-tofu,Panang Curry - Veg & Tofu,Classic curries,,745,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Curries > Classic Curries; printed 'Veg & Tofu (745 kcal)'
+panang-curry-chicken,Panang Curry - Chicken,Classic curries,,712,,,,,,,,,,,,,,,,false,false,,,allday: Curries > Classic Curries; printed 'Chicken (712 kcal)'
+panang-curry-slow-cooked-beef,Panang Curry - Slow-Cooked Beef,Classic curries,,937,,,,,,,,,,,,,,,contains_beef,false,false,,,allday: Curries > Classic Curries; printed 'Slow-Cooked Beef (937 kcal)'
+panang-curry-pork-belly,Panang Curry - Pork Belly,Classic curries,,1183,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: Curries > Classic Curries; printed 'Pork Belly (1183 kcal)'
+panang-curry-prawns,Panang Curry - Prawns,Classic curries,,944,,,,,,,,,,,,,,,,false,false,,,allday: Curries > Classic Curries; printed 'Prawns (944 kcal)'
+tom-yum-seafood-hot-pot,Tom Yum Seafood Hot Pot,Noodle soups,,785,,,,,,,,,,,,,,,,false,false,,,allday: Noodle Soups
+khao-soi-noodle-soup-veg,Khao Soi Noodle Soup - Veg,Noodle soups,,753,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Noodle Soups; printed 'Veg (753 kcal)'
+khao-soi-noodle-soup-chicken,Khao Soi Noodle Soup - Chicken,Noodle soups,,750,,,,,,,,,,,,,,,,false,false,,,allday: Noodle Soups; printed 'Chicken (750 kcal)'
+khao-soi-noodle-soup-beef,Khao Soi Noodle Soup - Beef,Noodle soups,,1047,,,,,,,,,,,,,,,contains_beef,false,false,,,allday: Noodle Soups; printed 'Beef (1047 kcal)'
+tom-yum-noodle-soup-veg-and-tofu,Tom Yum Noodle Soup - Veg & Tofu,Noodle soups,,595,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Noodle Soups; printed 'Veg & Tofu (595 kcal)'
+tom-yum-noodle-soup-chicken,Tom Yum Noodle Soup - Chicken,Noodle soups,,497,,,,,,,,,,,,,,,,false,false,,,allday: Noodle Soups; printed 'Chicken (497 kcal)'
+tom-yum-noodle-soup-prawns,Tom Yum Noodle Soup - Prawns,Noodle soups,,445,,,,,,,,,,,,,,,,false,false,,,allday: Noodle Soups; printed 'Prawns (445 kcal)'
+stir-fried-aubergine,Stir-Fried Aubergine,Stir-fries,,639,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Stir-Fries
+rosas-fried-rice-veg-and-tofu,Rosa's Fried Rice - Veg & Tofu,Stir-fries,,805,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Stir-Fries; printed 'Veg & Tofu (805 kcal)'
+rosas-fried-rice-chicken,Rosa's Fried Rice - Chicken,Stir-fries,,756,,,,,,,,,,,,,,,,false,false,,,allday: Stir-Fries; printed 'Chicken (756 kcal)'
+rosas-fried-rice-king-prawns,Rosa's Fried Rice - King Prawns,Stir-fries,,634,,,,,,,,,,,,,,,,false,false,,,allday: Stir-Fries; printed 'King Prawns (634 kcal)'
+cashew-stir-fry-veg-and-tofu,Cashew Stir-Fry - Veg & Tofu,Stir-fries,,916,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Stir-Fries; printed 'Veg & Tofu (916 kcal)'
+cashew-stir-fry-chicken,Cashew Stir-Fry - Chicken,Stir-fries,,926,,,,,,,,,,,,,,,,false,false,,,allday: Stir-Fries; printed 'Chicken (926 kcal)'
+cashew-stir-fry-king-prawns,Cashew Stir-Fry - King Prawns,Stir-fries,,675,,,,,,,,,,,,,,,,false,false,,,allday: Stir-Fries; printed 'King Prawns (675 kcal)'
+pad-thai-veg-and-tofu,Pad Thai - Veg & Tofu,Noodles,,1247,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Noodles; printed 'Veg & Tofu (1247 kcal)'
+pad-thai-chicken,Pad Thai - Chicken,Noodles,,1216,,,,,,,,,,,,,,,,false,false,,,allday: Noodles; printed 'Chicken (1216 kcal)'
+pad-thai-prawns,Pad Thai - Prawns,Noodles,,1090,,,,,,,,,,,,,,,,false,false,,,allday: Noodles; printed 'Prawns (1090 kcal)'
+stir-fried-flat-noodles-veg-and-tofu,Stir-Fried Flat Noodles - Veg & Tofu,Noodles,,749,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Noodles; printed 'Veg & Tofu (749 kcal)'
+stir-fried-flat-noodles-chicken,Stir-Fried Flat Noodles - Chicken,Noodles,,700,,,,,,,,,,,,,,,,false,false,,,allday: Noodles; printed 'Chicken (700 kcal)'
+stir-fried-flat-noodles-pork-belly,Stir-Fried Flat Noodles - Pork Belly,Noodles,,1077,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: Noodles; printed 'Pork Belly (1077 kcal)'
+stir-fried-flat-noodles-prawns,Stir-Fried Flat Noodles - Prawns,Noodles,,747,,,,,,,,,,,,,,,,false,false,,,allday: Noodles; printed 'Prawns (747 kcal)'
+drunken-noodles-veg-and-tofu,Drunken Noodles - Veg & Tofu,Noodles,,717,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Noodles; printed 'Veg & Tofu (717 kcal)'
+drunken-noodles-minced-chicken,Drunken Noodles - Minced Chicken,Noodles,,658,,,,,,,,,,,,,,,,false,false,,,allday: Noodles; printed 'Minced Chicken (658 kcal)'
+drunken-noodles-pork-belly,Drunken Noodles - Pork Belly,Noodles,,1064,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: Noodles; printed 'Pork Belly (1064 kcal)'
+drunken-noodles-prawns,Drunken Noodles - Prawns,Noodles,,564,,,,,,,,,,,,,,,,false,false,,,allday: Noodles; printed 'Prawns (564 kcal)'
+steamed-jasmine-rice,Steamed Jasmine Rice,Rice,,333,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Rice
+sticky-rice,Sticky Rice,Rice,,301,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Rice
+coconut-rice,Coconut Rice,Rice,,498,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Rice
+egg-fried-rice,Egg Fried Rice,Rice,,358,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Rice
+brown-rice,Brown Rice,Rice,,208,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Rice
+stir-fried-vegetables,Stir-Fried Vegetables,Sides,,86,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Sides
+stir-fried-broccoli,Stir-Fried Broccoli,Sides,,142,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Sides
+morning-glory,Morning Glory,Sides,,160,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Sides
+roti-bread,Roti Bread,Sides,,279,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: Rice & sides > Sides
+traditional-thai-ice-cream-bun-coconut,Traditional Thai Ice Cream Bun - Coconut,Thai-inspired desserts,,448,,,,,,,,,,,,,,,vegetarian,false,false,,,desserts: Thai-inspired desserts; printed 'Coconut (448 kcal)'
+traditional-thai-ice-cream-bun-mango,Traditional Thai Ice Cream Bun - Mango,Thai-inspired desserts,,374,,,,,,,,,,,,,,,vegetarian,false,false,,,desserts: Thai-inspired desserts; printed 'Mango (374 kcal)'
+thai-tea-affogato,Thai Tea Affogato,Thai-inspired desserts,,84,,,,,,,,,,,,,,,vegetarian,false,false,,,desserts: Thai-inspired desserts
+mango-sticky-rice,Mango Sticky Rice,Thai-inspired desserts,,555,,,,,,,,,,,,,,,vegetarian,false,false,,,desserts: Thai-inspired desserts
+crispy-banoffee-roti,Crispy Banoffee Roti,Thai-inspired desserts,,510,,,,,,,,,,,,,,,vegetarian,false,false,,,desserts: Thai-inspired desserts
+coconut-ice-cream,Coconut Ice Cream,Thai-inspired desserts,,95,,,,,,,,,,,,,,,vegetarian,false,false,,,desserts: Thai-inspired desserts
+vanilla-ice-cream,Vanilla Ice Cream,Thai-inspired desserts,,84,,,,,,,,,,,,,,,vegetarian,false,false,,,desserts: Thai-inspired desserts
+mango-sorbet,Mango Sorbet,Thai-inspired desserts,,49,,,,,,,,,,,,,,,vegetarian,false,false,,,desserts: Thai-inspired desserts
+nam-dang-manao,Nam Dang Manao,Thai iced drinks,,135,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai Iced Drinks
+thai-iced-tea,Thai Iced Tea,Thai iced drinks,,67,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai Iced Drinks
+cha-manao-thai-lemon-iced-tea,'Cha Manao' Thai Lemon Iced Tea,Thai iced drinks,,122,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai Iced Drinks
+cha-nom-thai-milk-iced-tea,'Cha Nom' Thai Milk Iced Tea,Thai iced drinks,,100,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai Iced Drinks
+thai-iced-coffee,Thai Iced Coffee,Thai iced drinks,,56,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai Iced Drinks
+thai-iced-milk-coffee,Thai Iced Milk Coffee,Thai iced drinks,,201,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai Iced Drinks
+lemongrass-pandan-iced-tea,Lemongrass Pandan Iced Tea,Thai iced drinks,,99,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai Iced Drinks
+nam-manao,Nam Manao,Thai iced drinks,,99,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai Iced Drinks
+mango-sticky-rice-with-fresh-mango-and-mango-boba,Mango Sticky Rice with Fresh Mango and Mango Boba,Bubble tea,,273,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Bubble Tea
+lychee-with-mango-boba,Lychee with Mango Boba,Bubble tea,,240,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Bubble Tea
+milo-chocolate-milk-with-tapioca,Milo Chocolate Milk with Tapioca,Bubble tea,,402,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Bubble Tea
+ube-taro-with-tapioca,Ube-Taro with Tapioca,Bubble tea,,305,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Bubble Tea
+coconut-matcha-with-coconut-jelly,Coconut Matcha with Coconut Jelly,Bubble tea,,122,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Bubble Tea
+hot-thai-tea,Hot Thai Tea,Hot drinks,,211,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Hot Drinks
+cafetiere-coffee,Cafetière Coffee,Hot drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Hot Drinks
+make-it-thai-with-condensed-milk,Make it Thai with condensed milk,Hot drinks,,84,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Hot Drinks
+lemongrass-hot-tea,Lemongrass Hot Tea,Hot drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Hot Drinks
+ginger-tea,Ginger Tea,Hot drinks,,9,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Hot Drinks
+fresh-lemon-tea,Fresh Lemon Tea,Hot drinks,,15,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Hot Drinks
+fresh-mint-tea,Fresh Mint Tea,Hot drinks,,5,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Hot Drinks
+jasmine-green-tea,Jasmine Green Tea,Hot drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Hot Drinks
+singha-half-pint,Singha (half pint),Beers,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Beers
+singha-pint,Singha (pint),Beers,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Beers
+lucky-saint-lager-330ml,Lucky Saint Lager 330ml,Beers,,66,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Beers
+east-london-ipa-330ml,East London IPA 330ml,Beers,,132,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Beers
+coca-cola-330ml,Coca-Cola 330ml,Softs,,140,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Softs
+coca-cola-zero-330ml,Coca-Cola Zero 330ml,Softs,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Softs
+fanta-330ml,Fanta 330ml,Softs,,59,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Softs
+sprite-330ml,Sprite 330ml,Softs,,58,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Softs
+xoxo-soda-watermelon,XOXO Soda - Watermelon,Softs,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Softs
+xoxo-soda-lychee,XOXO Soda - Lychee,Softs,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Softs
+thai-coconut-water-350ml,Thai Coconut Water 350ml,Softs,,108,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Softs
+singha-ume-soda,Singha Ume Soda,Softs,,0,,,,,,,,,,,,,,,,false,false,,,drinks: Softs
+bangkok-spritz,Bangkok Spritz,Thai-inspired cocktails,,118,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai-Inspired Cocktails
+thai-tea-ni,Thai Tea-Ni,Thai-inspired cocktails,,170,,,,,,,,,,,,,,,,false,false,,,drinks: Thai-Inspired Cocktails
+salted-plum-dirty-martini,Salted Plum Dirty Martini,Thai-inspired cocktails,,31,,,,,,,,,,,,,,,,false,false,,,drinks: Thai-Inspired Cocktails
+thai-spicy-margarita,Thai Spicy Margarita,Thai-inspired cocktails,,102,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai-Inspired Cocktails
+tom-yum-collins,Tom Yum Collins,Thai-inspired cocktails,,217,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai-Inspired Cocktails
+mango-boba-colada,Mango Boba Colada,Thai-inspired cocktails,,200,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai-Inspired Cocktails
+toasted-rice-and-pandan-old-fashioned,Toasted Rice & Pandan Old Fashioned,Thai-inspired cocktails,,201,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai-Inspired Cocktails
+lychee-ume-spritz,Lychee Ume Spritz,Thai-inspired cocktails,,113,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Thai-Inspired Cocktails
+provence-rose-chateau-de-laumerade-france-12-5-175ml,Provence Rosé Chateau de l’Aumerade (France 12.5%) - 175ml,Wines: Rose,175ml,139,,,,,,,,,,,,,,,,false,false,,,drinks: Wines > Rose; printed '175ml (139 kcal)'
+provence-rose-chateau-de-laumerade-france-12-5-carafe,Provence Rosé Chateau de l’Aumerade (France 12.5%) - Carafe,Wines: Rose,Carafe,398,,,,,,,,,,,,,,,,false,false,,,drinks: Wines > Rose; printed 'Carafe (398 kcal)'
+provence-rose-chateau-de-laumerade-france-12-5-bottle,Provence Rosé Chateau de l’Aumerade (France 12.5%) - Bottle,Wines: Rose,Bottle,597,,,,,,,,,,,,,,,,false,false,,,drinks: Wines > Rose; printed 'Bottle (597 kcal)'
+novita-pinot-grigio-rose-italy-11-175ml,Novita Pinot Grigio Rosé (Italy 11%) - 175ml,Wines: Rose,175ml,139,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Rose; printed '175ml (139 kcal)'
+novita-pinot-grigio-rose-italy-11-carafe,Novita Pinot Grigio Rosé (Italy 11%) - Carafe,Wines: Rose,Carafe,398,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Rose; printed 'Carafe (398 kcal)'
+novita-pinot-grigio-rose-italy-11-bottle,Novita Pinot Grigio Rosé (Italy 11%) - Bottle,Wines: Rose,Bottle,597,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Rose; printed 'Bottle (597 kcal)'
+dr-loosen-riesling-germany-8-5-175ml,Dr Loosen Riesling (Germany 8.5%) - 175ml,Wines: White,175ml,168,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed '175ml (168 kcal)'
+dr-loosen-riesling-germany-8-5-carafe,Dr Loosen Riesling (Germany 8.5%) - Carafe,Wines: White,Carafe,479,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed 'Carafe (479 kcal)'
+dr-loosen-riesling-germany-8-5-bottle,Dr Loosen Riesling (Germany 8.5%) - Bottle,Wines: White,Bottle,718,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed 'Bottle (718 kcal)'
+bruce-jack-tumbleweed-sauvignon-blanc-south-africa-12-5-175ml,Bruce Jack Tumbleweed Sauvignon Blanc (South Africa 12.5%) - 175ml,Wines: White,175ml,133,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed '175ml (133 kcal)'
+bruce-jack-tumbleweed-sauvignon-blanc-south-africa-12-5-carafe,Bruce Jack Tumbleweed Sauvignon Blanc (South Africa 12.5%) - Carafe,Wines: White,Carafe,381,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed 'Carafe (381 kcal)'
+bruce-jack-tumbleweed-sauvignon-blanc-south-africa-12-5-bottle,Bruce Jack Tumbleweed Sauvignon Blanc (South Africa 12.5%) - Bottle,Wines: White,Bottle,572,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed 'Bottle (572 kcal)'
+grenache-viognier-chateau-de-campuget-france-12-5-175ml,"Grenache/Viognier, Château de Campuget (France 12.5%) - 175ml",Wines: White,175ml,131,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed '175ml (131 kcal)'
+grenache-viognier-chateau-de-campuget-france-12-5-carafe,"Grenache/Viognier, Château de Campuget (France 12.5%) - Carafe",Wines: White,Carafe,375,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed 'Carafe (375 kcal)'
+grenache-viognier-chateau-de-campuget-france-12-5-bottle,"Grenache/Viognier, Château de Campuget (France 12.5%) - Bottle",Wines: White,Bottle,563,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > White; printed 'Bottle (563 kcal)'
+malbec-cambalache-bodegas-salentein-argentina-13-175ml,"Malbec, Cambalache, Bodegas Salentein (Argentina 13%) - 175ml",Wines: Red,175ml,134,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed '175ml (134 kcal)'
+malbec-cambalache-bodegas-salentein-argentina-13-carafe,"Malbec, Cambalache, Bodegas Salentein (Argentina 13%) - Carafe",Wines: Red,Carafe,382,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed 'Carafe (382 kcal)'
+malbec-cambalache-bodegas-salentein-argentina-13-bottle,"Malbec, Cambalache, Bodegas Salentein (Argentina 13%) - Bottle",Wines: Red,Bottle,573,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed 'Bottle (573 kcal)'
+pinot-noir-monarch-france-8-5-175ml,Pinot Noir Monarch (France 8.5%) - 175ml,Wines: Red,175ml,134,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed '175ml (134 kcal)'
+pinot-noir-monarch-france-8-5-carafe,Pinot Noir Monarch (France 8.5%) - Carafe,Wines: Red,Carafe,382,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed 'Carafe (382 kcal)'
+pinot-noir-monarch-france-8-5-bottle,Pinot Noir Monarch (France 8.5%) - Bottle,Wines: Red,Bottle,573,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed 'Bottle (573 kcal)'
+tierra-antica-merlot-chile-11-175ml,Tierra Antica Merlot (Chile 11%) - 175ml,Wines: Red,175ml,134,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed '175ml (134 kcal)'
+tierra-antica-merlot-chile-11-carafe,Tierra Antica Merlot (Chile 11%) - Carafe,Wines: Red,Carafe,382,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed 'Carafe (382 kcal)'
+tierra-antica-merlot-chile-11-bottle,Tierra Antica Merlot (Chile 11%) - Bottle,Wines: Red,Bottle,573,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Red; printed 'Bottle (573 kcal)'
+prosecco-extra-dry-bosco-del-conte-italy-11-125ml,"Prosecco Extra Dry, Bosco del Conte (Italy 11%) - 125ml",Wines: Bubbly,125ml,81,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Bubbly; printed '125ml (81 kcal)'
+prosecco-extra-dry-bosco-del-conte-italy-11-bottle,"Prosecco Extra Dry, Bosco del Conte (Italy 11%) - Bottle",Wines: Bubbly,Bottle,483,,,,,,,,,,,,,,,vegetarian,false,false,,,drinks: Wines > Bubbly; printed 'Bottle (483 kcal)'

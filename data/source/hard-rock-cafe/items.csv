@@ -1,0 +1,114 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+classic-nachos,Classic Nachos,Starters & Shareables,,1947,,,,,,,,,,,,,,,vegetarian,false,false,,,menu p.6: printed '1947 cal' after 'CLASSIC NACHOS (V) Tortilla Chips | Black Beans | Queso | Pi'
+add-guacamole-to-classic-nachos,Add Guacamole (to Classic Nachos),Starters & Shareables,,198,,,,,,,,,,,,,,,vegetarian,false,false,,,menu p.6: printed '198 cal' after 'Add Guacamole (to Classic Nachos)'
+add-grilled-chicken-to-classic-nachos,Add Grilled Chicken (to Classic Nachos),Starters & Shareables,,168,,,,,,,,,,,,,,,,false,false,,,menu p.6: printed '168 cal' after 'Add Grilled Chicken (to Classic Nachos)'
+add-grilled-steak-to-classic-nachos,Add Grilled Steak (to Classic Nachos),Starters & Shareables,,176,,,,,,,,,,,,,,,contains_beef,false,false,,,menu p.6: printed '176 cal' after 'Add Grilled Steak (to Classic Nachos)'
+one-night-in-bangkok-spicy-shrimp,One Night in Bangkok Spicy Shrimp,Starters & Shareables,,449,,,,,,,,,,,,,,,,false,false,,,menu p.6: printed '449 cal' after 'ONE NIGHT IN BANGKOK SPICY SHRIMP™ Crispy Shrimp | Creamy Sp'
+house-made-crispy-chicken-dippers,House-Made Crispy Chicken Dippers,Starters & Shareables,,556,,,,,,,,,,,,,,,,false,false,,,menu p.6: printed '556 cal + sauces' after 'CHICKEN DIPPERS House Breaded Chicken Tenders Choice of Two '; Printed '(556 cal + sauces)': the figure excludes the two dipping sauces
+wings-with-stardust-dry-rub,Wings with Stardust Dry Rub,Wings,,1119,,,,,,,,,,,,,,,,false,false,,,menu p.6: printed '1119 cal' after 'WINGS Choice of Sauce: Stardust Dry Rub'; Wings £12.95; the number is beside the sauce choice
+wings-with-house-made-barbecue,Wings with House-Made Barbecue,Wings,,1194,,,,,,,,,,,,,,,,false,false,,,menu p.6: printed '1194 cal' after 'Wings with House-Made Barbecue'
+wings-with-sweet-and-tangy,Wings with Sweet & Tangy,Wings,,1215,,,,,,,,,,,,,,,,false,false,,,menu p.6: printed '1215 cal' after 'Wings with Sweet & Tangy'; Same printed value (1215) as Gochujang
+wings-with-classic-buffalo,Wings with Classic Buffalo,Wings,,1138,,,,,,,,,,,,,,,,false,false,,,menu p.6: printed '1138 cal' after 'Wings with Classic Buffalo'
+wings-with-gochujang,Wings with Gochujang,Wings,,1215,,,,,,,,,,,,,,,,false,false,,,menu p.6: printed '1215 cal' after 'Wings with Gochujang'; Marked † contains nuts or seeds; same printed value (1215) as Sweet & Tangy
+new-york-strip-steak,New York Strip Steak,Speciality Entrées,,1124,,,,,,,,,,,,,,,contains_beef,false,false,,,menu p.9: printed '1124 cal' after 'NEW YORK STRIP STEAK (GF) 10oz NY Strip Steak | Herb Butter '
+smokehouse-bbq-combo,Smokehouse BBQ Combo,Speciality Entrées,,1123,,,,,,,,,,,,,,,contains_pork,false,false,,,menu p.9: printed '1123 cal' after 'SMOKEHOUSE BBQ COMBO (GF-A) Pulled Pork | Barbecue Chicken H'
+add-a-half-rack-of-baby-back-ribs-to-smokehouse-bbq-combo,Add a Half Rack of Baby Back Ribs (to Smokehouse BBQ Combo),Speciality Entrées,,544,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '544 cal' after 'Add a Half Rack of Baby Back Ribs (to Smokehouse BBQ Combo)'; Same printed value (544) as 'Half Rack of Ribs' under Amplify Your Entrée; meat type not stated
+barbecue-chicken,Barbecue Chicken,Speciality Entrées,,1184,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '1184 cal' after 'BARBECUE CHICKEN (GF) Half Chicken | House-Made Barbecue Sau'
+mac-chicken-and-cheese,"Mac, Chicken & Cheese",Speciality Entrées,,1380,,,,,,,,,,,,,,,,false,false,,,"menu p.9: printed '1380 cal' after 'MAC, CHICKEN & CHEESE Grilled Chicken Breast | Cavatappi Pas'"
+grilled-salmon,Grilled Salmon,Speciality Entrées,,768,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '768 cal' after 'GRILLED SALMON (GF) Grilled Salmon | Sweet & Spicy Mustard G'
+famous-fajitas-with-grilled-chicken,Famous Fajitas with Grilled Chicken,Speciality Entrées,,1415,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '1415 cal' after 'Famous Fajitas with Grilled Chicken'
+famous-fajitas-with-grilled-steak,Famous Fajitas with Grilled Steak,Speciality Entrées,,1528,,,,,,,,,,,,,,,contains_beef,false,false,,,menu p.9: printed '1528 cal' after 'Famous Fajitas with Grilled Steak'
+famous-fajitas-duo-combo,Famous Fajitas Duo Combo,Speciality Entrées,,1849,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '1849 cal' after 'Famous Fajitas Duo Combo'; meat type not stated
+veggie-fajitas,Veggie Fajitas,Speciality Entrées,,1094,,,,,,,,,,,,,,,vegetarian,false,false,,,menu p.9: printed '1094 cal' after 'Veggie Fajitas'
+add-queso-to-famous-fajitas,Add Queso (to Famous Fajitas),Speciality Entrées,,396,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '396 cal' after 'Add Queso (to Famous Fajitas)'
+house-made-crispy-chicken-tender-plate,House-Made Crispy Chicken Tender Plate,Speciality Entrées,,1306,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '1306 cal' after 'CHICKEN TENDER PLATE Hand Breaded Chicken Tenders Seasoned F'
+baby-back-ribs,Baby Back Ribs,Speciality Entrées,,1655,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '1655 cal' after 'BABY BACK RIBS (GF) Signature Spice Blend | House-Made Barbe'; meat type not stated
+half-rack-of-ribs,Half Rack of Ribs,Amplify Your Entrée,,544,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '544 cal' after 'Half Rack of Ribs'; Same printed value (544) as the 'Add a half rack' line under Smokehouse BBQ Combo; meat type not stated
+one-night-in-bangkok-spicy-shrimp-add-on,One Night in Bangkok Spicy Shrimp (add-on),Amplify Your Entrée,,322,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '322 cal' after 'One Night in Bangkok Spicy Shrimp (add-on)'; The add-on portion (322) is smaller than the starter (449)
+classic-caesar-side-salad,Classic Caesar Side Salad,Amplify Your Entrée,,182,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '182 cal' after 'Classic Caesar Side Salad'; Same printed value (182) as 'Side Caesar Salad' under Add-On Sides
+house-side-salad,House Side Salad,Amplify Your Entrée,,120,,,,,,,,,,,,,,,,false,false,,,menu p.9: printed '120 cal' after 'House Side Salad'; Same printed value (120) as 'Side House Salad' under Add-On Sides
+original-legendary-burger,Original Legendary Burger,Steak Burgers,,1314,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,menu p.10: printed '1314 cal' after 'ORIGINAL LEGENDARY® BURGER (GF-A) Steak Burger | Smoked Baco'; Printed under 'Served with seasoned fries'
+bbq-bacon-burger,BBQ Bacon Burger,Steak Burgers,,1337,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,menu p.10: printed '1337 cal' after 'BBQ BACON BURGER (GF-A) Steak Burger | Signature Spice Blend'
+legendary-smashed-burger,Legendary Smashed Burger,Smashed & Stacked,,1454,,,,,,,,,,,,,,,contains_pork,false,false,,,menu p.10: printed '1454 cal' after 'LEGENDARY® SMASHED BURGER (GF-A) 2 Smashed Burgers | Cheddar'; meat type not stated
+the-classic-smashed-burger,The Classic Smashed Burger,Smashed & Stacked,,1339,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '1339 cal' after 'THE CLASSIC SMASHED BURGER (GF-A) 2 Smashed Burgers | Shaved'; meat type not stated
+spicy-diablo-smashed-burger,Spicy Diablo Smashed Burger,Smashed & Stacked,,1358,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '1358 cal' after 'SPICY DIABLO SMASHED BURGER (GF-A) 2 Smashed Burgers | Peppe'; meat type not stated
+bbq-pulled-pork-sandwich,BBQ Pulled Pork Sandwich,Sandwiches,,1111,,,,,,,,,,,,,,,contains_pork,false,false,,,menu p.10: printed '1111 cal' after 'BBQ PULLED PORK SANDWICH (GF-A) Smoked Pork | House-Made Bar'
+grilled-chicken-sandwich,Grilled Chicken Sandwich,Sandwiches,,1295,,,,,,,,,,,,,,,contains_pork,false,false,,,menu p.10: printed '1295 cal' after 'GRILLED CHICKEN SANDWICH (GF-A) Grilled Chicken Breast | Hon'
+messi-chicken-sandwich,Messi Chicken Sandwich,Sandwiches,,1192,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '1192 cal' after 'MESSI CHICKEN SANDWICH Milanese-Style Crispy Chicken Provolo'
+add-a-smashed-patty,Add a Smashed Patty,Turn It Up A Notch,,225,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '225 cal' after 'Add a Smashed Patty'; meat type not stated
+add-smoked-bacon,Add Smoked Bacon,Turn It Up A Notch,,86,,,,,,,,,,,,,,,contains_pork,false,false,,,menu p.10: printed '86 cal' after 'Add Smoked Bacon'
+upgrade-to-onion-rings,Upgrade to Onion Rings,Turn It Up A Notch,,623,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '623 cal' after 'Upgrade to Onion Rings'; Printed as given; the menu doesn't say whether it replaces the fries
+upgrade-to-loaded-cheese-and-bacon-fries,Upgrade to Loaded Cheese & Bacon Fries,Turn It Up A Notch,,679,,,,,,,,,,,,,,,contains_pork,false,false,,,menu p.10: printed '679 cal' after 'Upgrade to Loaded Cheese & Bacon Fries'; Same printed value (679) as the Loaded Cheese & Bacon Fries side
+ranch-french-fry-dip,Ranch (French fry dip),French Fry Dips,,198,,,,,,,,,,,,,,,,false,false,,,"menu p.10: printed '198 cal' after 'Ranch (French fry dip)'; Same printed value (198) as Legendary Sauce, Herb Aioli, Spicy Mayo"
+honey-mustard-french-fry-dip,Honey Mustard (French fry dip),French Fry Dips,,201,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '201 cal' after 'Honey Mustard (French fry dip)'
+legendary-sauce-french-fry-dip,Legendary Sauce (French fry dip),French Fry Dips,,198,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '198 cal' after 'Legendary Sauce (French fry dip)'
+buffalo-french-fry-dip,Buffalo (French fry dip),French Fry Dips,,129,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '129 cal' after 'Buffalo (French fry dip)'
+herb-aioli-french-fry-dip,Herb Aioli (French fry dip),French Fry Dips,,198,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '198 cal' after 'Herb Aioli (French fry dip)'
+spicy-mayo-french-fry-dip,Spicy Mayo (French fry dip),French Fry Dips,,198,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '198 cal' after 'Spicy Mayo (French fry dip)'
+house-made-barbecue-sauce-french-fry-dip,House-Made Barbecue Sauce (French fry dip),French Fry Dips,,99,,,,,,,,,,,,,,,,false,false,,,menu p.10: printed '99 cal' after 'House-Made Barbecue Sauce (French fry dip)'
+caesar-salad,Caesar Salad,Bowls & Salads,,398,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '398 cal' after 'CAESAR SALAD (GF-A) Romaine | Classic Caesar Dressing Parmes'
+cobb-salad,Cobb Salad,Bowls & Salads,,419,,,,,,,,,,,,,,,contains_pork,false,false,,,menu p.12: printed '419 cal' after 'COBB SALAD (GF-A) Mixed Greens | Ranch Dressing | Tomatoes A'
+southwestern-bowl,Southwestern Bowl,Bowls & Salads,,356,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '356 cal' after 'SOUTHWESTERN BOWL Quinoa Corn Salad | Pico De Gallo Black Be'
+add-guacamole-to-southwestern-bowl,Add Guacamole (to Southwestern Bowl),Bowls & Salads,,198,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '198 cal' after 'Add Guacamole (to Southwestern Bowl)'
+add-grilled-chicken,Add Grilled Chicken,Add Protein,,168,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '168 cal' after 'Add Grilled Chicken'; Same printed value (168) as the Classic Nachos add-on
+add-grilled-steak,Add Grilled Steak,Add Protein,,176,,,,,,,,,,,,,,,contains_beef,false,false,,,menu p.12: printed '176 cal' after 'Add Grilled Steak'; Same printed value (176) as the Classic Nachos add-on
+add-grilled-salmon,Add Grilled Salmon,Add Protein,,450,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '450 cal' after 'Add Grilled Salmon'
+seasoned-fries,Seasoned Fries,Add-On Sides,,317,,,,,,,,,,,,,,,vegetarian,false,false,,,menu p.12: printed '317 cal' after 'Seasoned Fries'
+loaded-cheese-and-bacon-fries,Loaded Cheese & Bacon Fries,Add-On Sides,,679,,,,,,,,,,,,,,,contains_pork,false,false,,,menu p.12: printed '679 cal' after 'Loaded Cheese & Bacon Fries'
+golden-onion-rings,Golden Onion Rings,Add-On Sides,,1149,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '1149 cal' after 'Golden Onion Rings'
+mac-and-cheese,Mac & Cheese,Add-On Sides,,677,,,,,,,,,,,,,,,vegetarian,false,false,,,menu p.12: printed '677 cal' after 'Mac & Cheese'
+market-vegetables,Market Vegetables,Add-On Sides,,125,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '125 cal' after 'Market Vegetables'
+mashed-potatoes,Mashed Potatoes,Add-On Sides,,404,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '404 cal' after 'Mashed Potatoes'
+side-caesar-salad,Side Caesar Salad,Add-On Sides,,182,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '182 cal' after 'Side Caesar Salad'
+side-house-salad,Side House Salad,Add-On Sides,,120,,,,,,,,,,,,,,,,false,false,,,menu p.12: printed '120 cal' after 'Side House Salad'
+hot-fudge-brownie,Hot Fudge Brownie,Desserts,,2009,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '2009 cal' after 'HOT FUDGE BROWNIE (GF-A) Warm Chocolate Brownie | Vanilla Be'
+new-york-cheesecake,New York Cheesecake,Desserts,,892,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '892 cal' after 'NEW YORK CHEESECAKE NY-Style Cheesecake | Strawberry Sauce W'
+seasonal-fruit-cobbler,Seasonal Fruit Cobbler,Desserts,,1003,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '1003 cal' after 'SEASONAL FRUIT COBBLER Seasonal Fruit Cobbler Vanilla Bean I'
+ice-cream,Ice Cream,Desserts,,529,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '529 cal' after 'Ice Cream'
+espresso,Espresso,Hot Drinks,,3,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '3 cal' after 'Espresso'
+cappuccino,Cappuccino,Hot Drinks,,71,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '71 cal' after 'Cappuccino'; Same printed value (71) as Latte
+latte,Latte,Hot Drinks,,71,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '71 cal' after 'Latte'
+americano,Americano,Hot Drinks,,3,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '3 cal' after 'Americano'; Same printed value (3) as Espresso
+iced-coffee,Iced Coffee,Hot Drinks,,3,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '3 cal / 71 cal with milk' after 'Iced Coffee'; Printed '(3 cal / 71 cal with milk)': this is the figure without milk
+iced-coffee-with-milk,Iced Coffee with milk,Hot Drinks,,71,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '3 cal / 71 cal with milk' after 'Iced Coffee'; second value
+hot-chocolate,Hot Chocolate,Hot Drinks,,306,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '306 cal' after 'Hot Chocolate'
+tea-with-milk,Tea with milk,Hot Drinks,,24,,,,,,,,,,,,,,,,false,false,,,menu p.14/28: printed '24 cal with milk' after 'Tea with milk'; Printed '(24 cal with milk)': no figure is printed without milk
+coca-cola,Coca-Cola,Sodas & More,330ml,139,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '139 cal' after 'Coca-Cola'
+coca-cola-zero-sugar,Coca-Cola Zero Sugar,Sodas & More,16oz,1.5,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '1.5 cal' after 'Coca-Cola Zero Sugar'; Printed 1.5 cal; the pipeline stores whole calories (2)
+diet-coke,Diet Coke,Sodas & More,16oz,2,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '2 cal' after 'Diet Coke'; Same printed value (2) as Dr Pepper Zero
+sprite-zero,Sprite Zero,Sodas & More,16oz,5,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '5 cal' after 'Sprite Zero'
+fanta-orange,Fanta Orange,Sodas & More,16oz,86,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '86 cal' after 'Fanta Orange'
+dr-pepper-zero,Dr Pepper Zero,Sodas & More,16oz,2,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '2 cal' after 'Dr Pepper Zero'
+orange-juice,Orange Juice,Sodas & More,12oz,127,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '127 cal' after 'Orange Juice'
+apple-juice,Apple Juice,Sodas & More,12oz,131,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '131 cal' after 'Apple Juice'
+cranberry-juice,Cranberry Juice,Sodas & More,12oz,25,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '25 cal' after 'Cranberry Juice'
+pineapple-juice,Pineapple Juice,Sodas & More,12oz,162,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '162 cal' after 'Pineapple Juice'
+still-water,Still Water,Sodas & More,330ml,0,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '0 cal' after 'Still Water'
+sparkling-water,Sparkling Water,Sodas & More,330ml,0,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '0 cal' after 'Sparkling Water'
+red-bull-energy-drink,Red Bull Energy Drink,Sodas & More,,116,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '116 cal' after 'Red Bull Energy Drink'; No size printed
+red-bull-sugarfree,Red Bull Sugarfree,Sodas & More,,8,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '8 cal' after 'Red Bull Sugarfree'; No size printed
+red-bull-special-editions,Red Bull Special Editions,Sodas & More,,116,,,,,,,,,,,,,,,,false,false,,,menu p.14/27: printed '116 cal' after 'Red Bull Special Editions'; No size printed; the menu says to ask the server which editions
+strawberry-basil-lemonade,Strawberry Basil Lemonade,Zero Proof Cocktails,,137,,,,,,,,,,,,,,,,false,false,,,menu p.2/27: printed '137 cal' after 'STRAWBERRY BASIL LEMONADE Lemonade | Muddled Strawberries | '
+mango-tango,Mango Tango,Zero Proof Cocktails,,127,,,,,,,,,,,,,,,,false,false,,,menu p.2/27: printed '127 cal' after 'MANGO TANGO Red Bull | Mango Purée | Orange Juice £9.25'
+mango-berry-cooler,Mango Berry Cooler,Zero Proof Cocktails,,205,,,,,,,,,,,,,,,,false,false,,,menu p.2/27: printed '205 cal' after 'MANGO BERRY COOLER Mango Purée | Strawberry | Pineapple | Or'
+chilli-pineapple,Chilli Pineapple,Zero Proof Cocktails,,121,,,,,,,,,,,,,,,,false,false,,,menu p.2/27: printed '121 cal' after 'CHILLI PINEAPPLE Pineapple | Fresh Lime | Simple Syrup | Fre'
+cucumber-lime-press,Cucumber Lime Press,Zero Proof Cocktails,,119,,,,,,,,,,,,,,,,false,false,,,menu p.2/27: printed '119 cal' after 'CUCUMBER LIME PRESS Fresh Lime | Fresh Mint | Simple Syrup |'
+corona-cero-non-alcoholic,Corona Cero (non-alcoholic),Bottled Beer,330ml,56,,,,,,,,,,,,,,,,false,false,,,menu p.5/23: printed '56 cal' after 'Corona Cero (non-alcoholic)'
+kids-messis-golden-chicken-sandwich,Kids Messi’s Golden Chicken Sandwich,Kids Meal: Entrées,,737,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '737 cal' after 'Kids Messi’s Golden Chicken Sandwich'
+kids-messis-burger,Kids Messi’s Burger,Kids Meal: Entrées,,767,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '767 cal' after 'Kids Messi’s Burger'; meat type not stated
+kids-pepperoni-pizza,Kids Pepperoni Pizza,Kids Meal: Entrées,,677,,,,,,,,,,,,,,,contains_pork,false,false,,,kids p.1: printed '677 cal' after 'Kids Pepperoni Pizza'
+kids-cheese-pizza,Kids Cheese Pizza,Kids Meal: Entrées,,547,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '547 cal' after 'Kids Cheese Pizza'
+kids-chicken-tenders,Kids Chicken Tenders,Kids Meal: Entrées,,814,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '814 cal' after 'Kids Chicken Tenders'
+kids-hot-dog,Kids Hot Dog,Kids Meal: Entrées,,706,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '706 cal' after 'Kids Hot Dog'; meat type not stated
+kids-bacon-cheeseburger,Kids Bacon Cheeseburger,Kids Meal: Entrées,,798,,,,,,,,,,,,,,,contains_pork,false,false,,,kids p.1: printed '798 cal' after 'Kids Bacon Cheeseburger'; meat type not stated
+kids-mac-and-cheese,Kids Mac & Cheese,Kids Meal: Entrées,,747,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '747 cal' after 'Kids Mac & Cheese'
+kids-grilled-chicken-breast,Kids Grilled Chicken Breast,Kids Meal: Entrées,,200,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '200 cal' after 'Kids Grilled Chicken Breast'
+kids-pasta-and-marinara-sauce,Kids Pasta and Marinara Sauce,Kids Meal: Entrées,,625,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '625 cal' after 'Kids Pasta and Marinara Sauce'
+kids-grilled-chicken-house-salad,Kids Grilled Chicken House Salad,Kids Meal: Entrées,,305,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '305 cal' after 'Kids Grilled Chicken House Salad'
+kids-fresh-fruit,Kids Fresh Fruit,Kids Meal: Sides,,46,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '46 cal' after 'Kids Fresh Fruit'
+kids-fries,Kids Fries,Kids Meal: Sides,,236,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '236 cal' after 'Kids Fries'
+kids-mashed-potatoes,Kids Mashed Potatoes,Kids Meal: Sides,,202,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '202 cal' after 'Kids Mashed Potatoes'
+kids-seasonal-vegetable,Kids Seasonal Vegetable,Kids Meal: Sides,,56,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '56 cal' after 'Kids Seasonal Vegetable'
+kids-hot-fudge-sundae,Kids Hot Fudge Sundae,Kids Meal: Desserts,,357,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '357 cal' after 'Kids Hot Fudge Sundae'; £2.50 extra on the kids menu
+kids-chocolate-milkshake,Kids Chocolate Milkshake,Kids Meal: Desserts,,349,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '349 cal' after 'Kids Chocolate Milkshake'; £1.75 extra on the kids menu; same printed value (349) as Vanilla
+kids-vanilla-milkshake,Kids Vanilla Milkshake,Kids Meal: Desserts,,349,,,,,,,,,,,,,,,,false,false,,,kids p.1: printed '349 cal' after 'Kids Vanilla Milkshake'; £1.75 extra on the kids menu; same printed value (349) as Chocolate

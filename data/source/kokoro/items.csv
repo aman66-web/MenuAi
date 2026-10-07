@@ -1,0 +1,82 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+veggie-kimbap,Veggie Kimbap,Korean Food,10 large pieces,396,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 396 Kcal
+tuna-mayo-kimbap,Tuna Mayo Kimbap,Korean Food,10 large pieces,543,,,,,,,,,,,,,,,,false,false,,,Printed: 543 Kcal
+kimchi-kimbap,Kimchi Kimbap,Korean Food,10 large pieces,473,,,,,,,,,,,,,,,,false,false,,,Printed: 473 Kcal
+bulgogi-kimbap,Bulgogi Kimbap,Korean Food,10 large pieces,587,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: 587 Kcal
+korean-galbi-jjim-topping-regular,Korean Galbi Jjim topping (regular),Korean Food,Regular,438,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Topping (438/584 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+korean-galbi-jjim-topping-large,Korean Galbi Jjim topping (large),Korean Food,Large,584,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Topping (438/584 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+korean-chilli-chicken-topping-regular,Korean Chilli Chicken topping (regular),Korean Food,Regular,170,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (170/234 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+korean-chilli-chicken-topping-large,Korean Chilli Chicken topping (large),Korean Food,Large,234,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (170/234 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+korean-chilli-pork-topping-regular,Korean Chilli Pork topping (regular),Korean Food,Regular,262,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Topping (262/360 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+korean-chilli-pork-topping-large,Korean Chilli Pork topping (large),Korean Food,Large,360,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Topping (262/360 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+beef-bulgogi-topping-regular,Beef Bulgogi topping (regular),Korean Food,Regular,368,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Topping (368/608 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+beef-bulgogi-topping-large,Beef Bulgogi topping (large),Korean Food,Large,608,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Topping (368/608 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+japchae,Japchae,Korean Food,,298,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 298 Kcal
+kimchi-fried-rice-regular,Kimchi Fried Rice (regular),Korean Food,Regular,798,,,,,,,,,,,,,,,,false,false,,,Printed: Regular 798 Kcal / Large 989 Kcal
+kimchi-fried-rice-large,Kimchi Fried Rice (large),Korean Food,Large,989,,,,,,,,,,,,,,,,false,false,,,Printed: Regular 798 Kcal / Large 989 Kcal
+chicken-katsu-curry-topping-regular,Chicken Katsu Curry topping (regular),Hearty Bowl,Regular,207,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (207/289 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+chicken-katsu-curry-topping-large,Chicken Katsu Curry topping (large),Hearty Bowl,Large,289,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (207/289 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+sweet-chilli-chicken-topping-regular,Sweet Chilli Chicken topping (regular),Hearty Bowl,Regular,438,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (438/559 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+sweet-chilli-chicken-topping-large,Sweet Chilli Chicken topping (large),Hearty Bowl,Large,559,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (438/559 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+sweet-sour-chicken-topping-regular,Sweet Sour Chicken topping (regular),Hearty Bowl,Regular,277,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (277/350 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+sweet-sour-chicken-topping-large,Sweet Sour Chicken topping (large),Hearty Bowl,Large,350,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (277/350 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+chicken-teriyaki-topping-regular,Chicken Teriyaki topping (regular),Hearty Bowl,Regular,224,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (224/284 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+chicken-teriyaki-topping-large,Chicken Teriyaki topping (large),Hearty Bowl,Large,284,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (224/284 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+salmon-teriyaki-topping-regular,Salmon Teriyaki topping (regular),Hearty Bowl,Regular,245,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (245/320 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+salmon-teriyaki-topping-large,Salmon Teriyaki topping (large),Hearty Bowl,Large,320,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (245/320 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+prawn-katsu-curry-topping-regular,Prawn Katsu Curry topping (regular),Hearty Bowl,Regular,95,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (95/127 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+prawn-katsu-curry-topping-large,Prawn Katsu Curry topping (large),Hearty Bowl,Large,127,,,,,,,,,,,,,,,,false,false,,,Printed: Topping (95/127 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+pumpkin-katsu-curry-topping-regular,Pumpkin Katsu Curry topping (regular),Hearty Bowl,Regular,290,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Topping (290/386 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+pumpkin-katsu-curry-topping-large,Pumpkin Katsu Curry topping (large),Hearty Bowl,Large,386,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Topping (290/386 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+potato-katsu-curry-topping-regular,Potato Katsu Curry topping (regular),Hearty Bowl,Regular,261,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Topping (261/348 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+potato-katsu-curry-topping-large,Potato Katsu Curry topping (large),Hearty Bowl,Large,348,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Topping (261/348 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+tofu-katsu-curry-topping-regular,Tofu Katsu Curry topping (regular),Hearty Bowl,Regular,226,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Topping (226/313 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+tofu-katsu-curry-topping-large,Tofu Katsu Curry topping (large),Hearty Bowl,Large,313,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Topping (226/313 Kcal) / Curry Sauce (187/228 Kcal) / ---------------------------- / Rice (360/500 Kcal) / Noodle (365/405 Kcal) / Egg Fried Rice (440/611 Kcal) / Kimchi Fried Rice (532/741 Kcal). Topping only: the base is chosen separately (see note.txt)
+kokoro-chicken-wings,Kokoro Chicken Wings,Hearty Bowl,Set of 3,701,,,,,,,,,,,,,,,,false,false,,,Printed: 701 Kcal
+soy-chicken-wings,Soy Chicken Wings,Hearty Bowl,Set of 3,606,,,,,,,,,,,,,,,,false,false,,,Printed: 606 Kcal
+chicken-katsu-udon,Chicken Katsu Udon,Hearty Bowl,,567,,,,,,,,,,,,,,,,false,false,,,Printed: 567 Kcal
+prawn-katsu-udon,Prawn Katsu Udon,Hearty Bowl,,301,,,,,,,,,,,,,,,,false,false,,,Printed: 301 Kcal
+kake-udon,Kake Udon,Hearty Bowl,,284,,,,,,,,,,,,,,,,false,false,,,Printed: 284 Kcal
+egg-fried-rice-regular,Egg Fried Rice (regular),Hearty Bowl,Regular,678,,,,,,,,,,,,,,,,false,false,,,Printed: Regular 678 Kcal / Large 837 Kcal
+egg-fried-rice-large,Egg Fried Rice (large),Hearty Bowl,Large,837,,,,,,,,,,,,,,,,false,false,,,Printed: Regular 678 Kcal / Large 837 Kcal
+kokoro-deluxe-sushi,Kokoro Deluxe Sushi,Fresh Roll,,648,,,,,,,,,,,,,,,,false,false,,,Printed: 648 Kcal
+deluxe-nigiri-and-roll,Deluxe Nigiri & Roll,Fresh Roll,,547,,,,,,,,,,,,,,,,false,false,,,Printed: 547 Kcal
+all-salmon-love,All Salmon Love,Fresh Roll,,617,,,,,,,,,,,,,,,,false,false,,,Printed: 617 Kcal
+sushi-and-katsu-combi,Sushi & Katsu Combi,Fresh Roll,,791,,,,,,,,,,,,,,,,false,false,,,Printed: 791 Kcal
+mini-maki-delight,Mini Maki Delight,Fresh Roll,12 pieces,475,,,,,,,,,,,,,,,,false,false,,,Printed: 475 Kcal
+salmon-and-avo-roll,Salmon & Avo Roll,Fresh Roll,8 pieces,341,,,,,,,,,,,,,,,,false,false,,,Printed: 341 Kcal
+crab-and-avo-roll,Crab & Avo Roll,Fresh Roll,8 pieces,423,,,,,,,,,,,,,,,,false,false,,,Printed: 423 Kcal
+crunchy-prawn-roll,Crunchy Prawn Roll,Fresh Roll,8 pieces,396,,,,,,,,,,,,,,,,false,false,,,Printed: 396 Kcal
+avocado-hosomaki,Avocado Hosomaki,Fresh Roll,8 pieces,216,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 216 Kcal
+cucumber-hosomaki,Cucumber Hosomaki,Fresh Roll,8 pieces,177,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 177 Kcal
+salmon-hosomaki,Salmon Hosomaki,Fresh Roll,8 pieces,196,,,,,,,,,,,,,,,,false,false,,,Printed: 196 Kcal
+mini-salmon,Mini Salmon,Fresh Roll,,109,,,,,,,,,,,,,,,,false,false,,,Printed: 109 Kcal
+inari-pocket,Inari Pocket,Fresh Roll,2 pockets,219,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 219 Kcal
+tobiko-delight-pocket,Tobiko Delight Pocket,Fresh Roll,,217,,,,,,,,,,,,,,,,false,false,,,Printed: 217 Kcal
+salmon-and-avo-harmony-inari,Salmon & Avo Harmony Inari,Fresh Roll,,263,,,,,,,,,,,,,,,,false,false,,,Printed: 263 Kcal
+chicken-katsu-salad,Chicken Katsu Salad,Salad,,449,,,,,,,,,,,,,,,,false,false,,,Printed: 449 Kcal
+kimchi,Kimchi,Salad,,56,,,,,,,,,,,,,,,,false,false,,,Printed: 56 Kcal
+seaweed-salad,Seaweed Salad,Salad,,149,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 149 Kcal
+edamame,Edamame,Salad,,191,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 191 Kcal
+mochi,Mochi,Dessert,,255,,,,,,,,,,,,,,,,false,false,,,Printed: 255 Kcal
+custard-dorayaki,Custard Dorayaki,Dessert,,199,,,,,,,,,,,,,,,,false,false,,,Printed: 199 Kcal
+chocolate-dorayaki,Chocolate Dorayaki,Dessert,,199,,,,,,,,,,,,,,,,false,false,,,Printed: 199 Kcal
+cheese-cake,Cheese Cake,Dessert,,150,,,,,,,,,,,,,,,,false,false,,,Printed: 150 Kcal
+tuna-tobiko-and-mayo-onigiri,"Tuna, Tobiko & Mayo Onigiri",Side,,212,,,,,,,,,,,,,,,,false,false,,,Printed: 212 Kcal
+chilli-chicken-onigiri,Chilli Chicken Onigiri,Side,,236,,,,,,,,,,,,,,,,false,false,,,Printed: 236 Kcal
+crabstick-tobiko-and-mayo-onigiri,"Crabstick, Tobiko & Mayo Onigiri",Side,,185,,,,,,,,,,,,,,,,false,false,,,Printed: 185 Kcal
+chilli-pork-and-egg-fried-rice-onigiri,Chilli Pork & Egg Fried Rice Onigiri,Side,,265,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: 265 Kcal
+kimchi-jeon,Kimchi Jeon,Side,3 pieces,175,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 175 Kcal
+buchu-chive-jeon,Buchu (Chive) Jeon,Side,3 pieces,158,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 158 Kcal
+chicken-gyoza,Chicken Gyoza,Side,5 gyoza,119,,,,,,,,,,,,,,,,false,false,,,Printed: 119 Kcal
+shrimp-gyoza,Shrimp Gyoza,Side,4 gyoza,132,,,,,,,,,,,,,,,,false,false,,,Printed: 132 Kcal
+vegetable-gyoza,Vegetable Gyoza,Side,4 gyoza,82,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 82 Kcal
+fried-chicken-gyoza,Fried Chicken Gyoza,Side,2 gyoza,58,,,,,,,,,,,,,,,,false,false,,,Printed: 58 Kcal
+vegetable-spring-roll,Vegetable Spring Roll,Side,3 spring rolls,270,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 270 Kcal
+prawn-katsu,Prawn Katsu,Side,3 pieces,95,,,,,,,,,,,,,,,,false,false,,,Printed: 95 Kcal
+chicken-katsu,Chicken Katsu,Side,,207,,,,,,,,,,,,,,,,false,false,,,Printed: 207 Kcal
+pumpkin-korokke,Pumpkin Korokke,Side,3 korokke,290,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 290 Kcal
+potato-korokke,Potato Korokke,Side,3 korokke,261,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 261 Kcal
+katsu-bun,Katsu Bun,Side,,239,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 239 Kcal
+curry-sauce,Curry Sauce,Side,,187,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: 187 Kcal
+curry-sauce-large,Curry Sauce (large),Side,Large,228,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed as 'Curry Sauce (187/228 Kcal)' in the katsu curry bowls; the Curry Sauce dish itself prints only 187 Kcal

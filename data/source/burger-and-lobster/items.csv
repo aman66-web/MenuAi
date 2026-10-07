@@ -1,0 +1,53 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+surf-and-turf-carpaccio,Surf & Turf Carpaccio,Surf & Turf set menu,,530,,,,,,,,,,,,,,,contains_beef,false,false,,,"Surf & Turf set menu, available Monday - Sunday, 12pm - 6pm"
+steak-and-b-and-l-fries,Steak & B&L Fries,Surf & Turf set menu,,1928,,,,,,,,,,,,,,,contains_beef,false,false,,,"page prints '£5 supplement charge'; Surf & Turf set menu, available Monday - Sunday, 12pm - 6pm"
+surf-and-turf-burger,Surf & Turf Burger,Surf & Turf set menu,,1780,,,,,,,,,,,,,,,contains_beef,false,false,,,"Surf & Turf set menu, available Monday - Sunday, 12pm - 6pm"
+prawn-caesar-salad,Prawn Caesar Salad,Surf & Turf set menu,,964,,,,,,,,,,,,,,,contains_pork,false,false,,,"Surf & Turf set menu, available Monday - Sunday, 12pm - 6pm"
+beyond-meat-burger-set-menu,Beyond Meat Burger (set menu),Surf & Turf set menu,,1211,,,,,,,,,,,,,,,,false,false,,,"Surf & Turf set menu, available Monday - Sunday, 12pm - 6pm"
+beef-or-lobster-croquettes-four-wagyu-and-cheddar-croquettes,Beef or Lobster Croquettes (Four wagyu and cheddar croquettes),Starters,,883,,,,,,,,,,,,,,,contains_beef,false,false,,,
+beef-or-lobster-croquettes-four-lobster-prawn-mozzarella-croquettes,"Beef or Lobster Croquettes (Four lobster, prawn, mozzarella croquettes)",Starters,,664,,,,,,,,,,,,,,,,false,false,,,
+calamari,Calamari,Starters,,588,,,,,,,,,,,,,,,,false,false,,,
+grilled-prawns,Grilled Prawns,Starters,,590,,,,,,,,,,,,,,,,false,false,,,
+grilled-greens-and-stracciatella,Grilled Greens & Stracciatella,Starters,,430,,,,,,,,,,,,,,,,false,false,,,
+oscietra-caviar-15g,Oscietra Caviar (15g),Oyster bar,15g,45,,,,,,,,,,,,,,,,false,false,,,
+oscietra-caviar-30g,Oscietra Caviar (30g),Oyster bar,30g,85,,,,,,,,,,,,,,,,false,false,,,
+7oz-original-burger-corn-fed-nebraskan-beef,7oz Original Burger (Corn-fed Nebraskan beef),Burgers,,1407,,,,,,,,,,,,,,,contains_beef,false,false,,,
+7oz-original-burger-grass-fed-irish-beef,7oz Original Burger (Grass-fed Irish beef),Burgers,,1307,,,,,,,,,,,,,,,contains_beef,false,false,,,
+5oz-original-burger-corn-fed-nebraskan-beef,5oz Original Burger (Corn-fed Nebraskan beef),Burgers,,1248,,,,,,,,,,,,,,,contains_beef,false,false,,,
+5oz-original-burger-grass-fed-irish-beef,5oz Original Burger (Grass-fed Irish beef),Burgers,,1178,,,,,,,,,,,,,,,contains_beef,false,false,,,
+oklahoma-smash-burger,Oklahoma Smash Burger,Burgers,,803,,,,,,,,,,,,,,,contains_beef,false,false,,,
+beyond-meat-burger,Beyond-Meat Burger,Burgers,,998,,,,,,,,,,,,,,,vegetarian,false,false,,,
+add-bacon,Add bacon,Burger add-ons,,72,,,,,,,,,,,,,,,contains_pork,false,false,,,
+original-lobster-roll,Original Lobster Roll,Lobster rolls,,1048,,,,,,,,,,,,,,,,false,false,,,calories printed on 9 of 10 UK pages (not on: brighton)
+connecticut-lobster-roll,Connecticut Lobster Roll,Lobster rolls,,1095,,,,,,,,,,,,,,,,false,false,,,
+lobster-and-prawn-roll,Lobster & Prawn Roll,Lobster rolls,,1108,,,,,,,,,,,,,,,,false,false,,,
+half-lobster-and-beef-burger-b-and-l-combo,Half Lobster & Beef Burger (B&L Combo),Combos,,1560,,,,,,,,,,,,,,,contains_beef,false,false,,,
+full-lobster-and-beef-burger-b-and-l-combo,Full Lobster & Beef Burger (B&L Combo),Combos,,1615,,,,,,,,,,,,,,,contains_beef,false,false,,,
+small-lobster-roll-and-beef-burger-roll-combo,Small Lobster Roll & Beef Burger (Roll Combo),Combos,,1640,,,,,,,,,,,,,,,contains_beef,false,false,,,
+original-lobster-roll-and-beef-burger-roll-combo,Original Lobster Roll & Beef Burger (Roll Combo),Combos,,1937,,,,,,,,,,,,,,,contains_beef,false,false,,,
+half-lobster-and-small-roll-lobster-combo,Half Lobster & Small Roll (Lobster Combo),Combos,,1264,,,,,,,,,,,,,,,,false,false,,,
+full-lobster-and-original-roll-lobster-combo,Full Lobster & Original Roll (Lobster Combo),Combos,,1643,,,,,,,,,,,,,,,,false,false,,,
+for-two-combo,Combo for Two,Combos,For two,2678,,,,,,,,,,,,,,,,false,false,,,
+half-lobster-mac-and-cheese,Half Lobster Mac & Cheese,Sides,For two,1115,,,,,,,,,,,,,,,,false,false,,,page prints 'For two (or for the very hungry...)'
+truffle-mac-and-cheese,Truffle Mac & Cheese,Sides,,1012,,,,,,,,,,,,,,,vegetarian,false,false,,,
+truffle-chunky-chips,Truffle Chunky Chips,Sides,,708,,,,,,,,,,,,,,,vegetarian,false,false,,,
+sweet-potato-wedges,Sweet Potato Wedges,Sides,,450,,,,,,,,,,,,,,,vegetarian,false,false,,,threadneedle street page names it Sweet Potato Chips (same figure)
+grilled-tenderstem-broccoli,Grilled Tenderstem Broccoli,Sides,,224,,,,,,,,,,,,,,,vegetarian,false,false,,,
+lemon-and-garlic-butter,Lemon & garlic butter,Sauces,,250,,,,,,,,,,,,,,,vegetarian,false,false,,,
+smoked-sriracha-butter,Smoked Sriracha Butter,Sauces,,250,,,,,,,,,,,,,,,,false,false,,,
+holy-fu-k-sauce,Holy Fu*k sauce,Sauces,,36,,,,,,,,,,,,,,,vegetarian,false,false,,,
+truffle-mayo,Truffle mayo,Sauces,,98,,,,,,,,,,,,,,,vegetarian,false,false,,,
+barbecue-sauce,Barbecue sauce,Sauces,,54,,,,,,,,,,,,,,,vegetarian,false,false,,,
+lobster-mayo,Lobster mayo,Sauces,,95,,,,,,,,,,,,,,,,false,false,,,
+japanese-mayo,Japanese mayo,Sauces,,120,,,,,,,,,,,,,,,,false,false,,,
+creme-brulee,Crème Brûlée,Desserts,,554,,,,,,,,,,,,,,,,false,false,,,
+b-and-l-ice-cream-sandwich,B&L Ice Cream Sandwich,Desserts,,949,,,,,,,,,,,,,,,,false,false,,,"brighton page lists a differently described dish at 928kcal ('Caramelised brioche, Boho Gelato vanilla, meringue, strawberry.'): not this recipe, not published"
+sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,725,,,,,,,,,,,,,,,,false,false,,,
+pistachio-matcha-tiramisu,Pistachio Matcha Tiramisu,Desserts,,352,,,,,,,,,,,,,,,,false,false,,,
+affogato,Affogato,Desserts,,178,,,,,,,,,,,,,,,,false,false,,,
+half-lobster,Half Lobster,Kids menu,,976,,,,,,,,,,,,,,,,false,false,,,
+the-beef-burger,The Beef Burger,Kids menu,,584,,,,,,,,,,,,,,,contains_beef,false,false,,,
+mac-and-cheese,Mac & Cheese,Kids menu,,940,,,,,,,,,,,,,,,,false,false,,,
+panko-chicken-strips,Panko Chicken Strips,Kids menu,,395,,,,,,,,,,,,,,,,false,false,,,
+b-and-l-fries-kids-sides,B&L Fries (Kid's Sides),Kids menu,,426,,,,,,,,,,,,,,,,false,false,,,
+sweet-potato-wedges-kids-sides,Sweet Potato Wedges (Kid's Sides),Kids menu,,346,,,,,,,,,,,,,,,,false,false,,,

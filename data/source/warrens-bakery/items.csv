@@ -1,0 +1,150 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+all-butter-croissant,All Butter Croissant,Breakfast (cold),,246,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Cold; tab Breakfast
+chocolate-twist,Chocolate Twist,Breakfast (cold),,273,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Cold; tab Breakfast
+pain-aux-chocolat,Pain Aux Chocolat,Breakfast (cold),,244,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Cold; tab Breakfast
+pain-aux-raisins,Pain Aux Raisins,Breakfast (cold),,319,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Cold; tab Breakfast
+almond-croissant,Almond Croissant,Breakfast (cold),,341,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Cold; tab Breakfast
+bacon,Bacon,Breakfast (hot),,134,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Breakfast Hot; tab Breakfast
+demi-baguette,Demi Baguette,Breakfast (hot),,385,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Hot; tab Breakfast
+granary-toast-slice,Granary Toast Slice,Breakfast (hot),,83,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Hot; tab Breakfast
+hash-brown,Hash Brown,Breakfast (hot),,67,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Hot; tab Breakfast
+malted-grain-roll,Malted Grain Roll,Breakfast (hot),,315,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Hot; tab Breakfast
+omelette,Omelette,Breakfast (hot),,87,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Hot; tab Breakfast
+sausage,Sausage,Breakfast (hot),,55,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Breakfast Hot; tab Breakfast
+white-roll,White Roll,Breakfast (hot),,223,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Hot; tab Breakfast
+white-toast-slice,White Toast Slice,Breakfast (hot),,85,,,,,,,,,,,,,,,,false,false,,,Dept Breakfast Hot; tab Breakfast
+iced-americano-no-milk,Iced Americano (no milk),Iced coffee,,3,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Iced Coffee; tab Drinks
+iced-americano-with-milk,Iced Americano (with milk),Iced coffee,,18,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Iced Coffee; tab Drinks
+iced-cappuccino,Iced Cappuccino,Iced coffee,,53,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Iced Coffee; tab Drinks
+iced-latte,Iced Latte,Iced coffee,,63,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Iced Coffee; tab Drinks
+iced-mocha,Iced Mocha,Iced coffee,,66,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Iced Coffee; tab Drinks
+green-iced-tea,Green Iced Tea,Iced tea,,2,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Iced Tea; tab Drinks
+raspberry-iced-tea,Raspberry Iced Tea,Iced tea,,28,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Iced Tea; tab Drinks
+berry-go-round,Berry Go Round,Smoothies,,54,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Smoothies; tab Drinks
+big-5,Big 5,Smoothies,,72,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Smoothies; tab Drinks
+cherry-poppins,Cherry Poppins,Smoothies,,70,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Smoothies; tab Drinks
+coco-loco,Coco Loco,Smoothies,,105,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Smoothies; tab Drinks
+pash-n-shoot,Pash N Shoot,Smoothies,,75,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Smoothies; tab Drinks
+strawberry-split,Strawberry Split,Smoothies,,89,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Smoothies; tab Drinks
+apple-juice,Apple Juice,Smoothie extras,,60,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Smoothies - Extras; tab Drinks
+protein-powder,Protein Powder,Smoothie extras,,116,,,,,,,,,,,,,,,,false,false,,,Dept Cold Drinks - Smoothies - Extras; tab Drinks
+americano-no-milk-large,"Americano (no milk, large)",Coffee,Large,6,,,,,,,,,,,,,,,,false,false,,,Printed 'AMERICANO (NO MILK) LARGE'; Dept Hot Drinks - Coffee; tab Drinks
+americano-no-milk-regular,"Americano (no milk, regular)",Coffee,Regular,3,,,,,,,,,,,,,,,,false,false,,,Printed 'AMERICANO (NO MILK) REGULAR'; Dept Hot Drinks - Coffee; tab Drinks
+americano-with-milk-large,"Americano (with milk, large)",Coffee,Large,45,,,,,,,,,,,,,,,,false,false,,,Printed 'AMERICANO (WITH MILK) LARGE'; Dept Hot Drinks - Coffee; tab Drinks
+americano-with-milk-regular,"Americano (with milk, regular)",Coffee,Regular,30,,,,,,,,,,,,,,,,false,false,,,Printed 'AMERICANO (WITH MILK) REGULAR'; Dept Hot Drinks - Coffee; tab Drinks
+cappuccino-large,Cappuccino (large),Coffee,Large,103,,,,,,,,,,,,,,,,false,false,,,Printed 'CAPPUCINO LARGE'; Dept Hot Drinks - Coffee; tab Drinks
+cappuccino-regular,Cappuccino (regular),Coffee,Regular,87,,,,,,,,,,,,,,,,false,false,,,Printed 'CAPPUCINO REGULAR'; Dept Hot Drinks - Coffee; tab Drinks
+double-espresso,Double Espresso,Coffee,,6,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Coffee; tab Drinks
+espresso,Espresso,Coffee,,3,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Coffee; tab Drinks
+flat-white,Flat White,Coffee,,86,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Coffee; tab Drinks
+latte-large,Latte (large),Coffee,Large,174,,,,,,,,,,,,,,,,false,false,,,Printed 'LATTE LARGE'; Dept Hot Drinks - Coffee; tab Drinks
+latte-regular,Latte (regular),Coffee,Regular,144,,,,,,,,,,,,,,,,false,false,,,Printed 'LATTE REGULAR'; Dept Hot Drinks - Coffee; tab Drinks
+mocha-large,Mocha (large),Coffee,Large,293,,,,,,,,,,,,,,,,false,false,,,Printed 'MOCHA LARGE'; Dept Hot Drinks - Coffee; tab Drinks
+mocha-regular,Mocha (regular),Coffee,Regular,264,,,,,,,,,,,,,,,,false,false,,,Printed 'MOCHA REGULAR'; Dept Hot Drinks - Coffee; tab Drinks
+syrups-per-serving,Syrups (per serving),Hot drink extras,,100,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Extras; tab Drinks
+whipped-cream-per-serving,Whipped Cream (per serving),Hot drink extras,,32,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Extras; tab Drinks
+hot-chocolate-large,Hot Chocolate (large),Hot chocolate,Large,215,,,,,,,,,,,,,,,,false,false,,,Printed 'HOT CHOCOLATE LARGE'; Dept Hot Drinks - Hot Chocolate; tab Drinks
+hot-chocolate-regular,Hot Chocolate (regular),Hot chocolate,Regular,207,,,,,,,,,,,,,,,,false,false,,,Printed 'HOT CHOCOLATE REGULAR'; Dept Hot Drinks - Hot Chocolate; tab Drinks
+chai-latte-large,Chai Latte (large),Speciality tea,Large,230,,,,,,,,,,,,,,,,false,false,,,Printed 'CHAI LATTE LARGE'; Dept Hot Drinks - Speciality Tea; tab Drinks
+chai-latte-regular,Chai Latte (regular),Speciality tea,Regular,200,,,,,,,,,,,,,,,,false,false,,,Printed 'CHAI LATTE REGULAR'; Dept Hot Drinks - Speciality Tea; tab Drinks
+earl-grey-tea,Earl Grey Tea,Speciality tea,,2,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Speciality Tea; tab Drinks
+green-tea,Green Tea,Speciality tea,,3,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Speciality Tea; tab Drinks
+matcha-latte-large,Matcha Latte (large),Speciality tea,Large,194,,,,,,,,,,,,,,,,false,false,,,Printed 'MATCHA LATTE LARGE'; Dept Hot Drinks - Speciality Tea; tab Drinks
+matcha-latte-regular,Matcha Latte (regular),Speciality tea,Regular,165,,,,,,,,,,,,,,,,false,false,,,Printed 'MATCHA LATTE REGULAR'; Dept Hot Drinks - Speciality Tea; tab Drinks
+peppermint-tea,Peppermint Tea,Speciality tea,,0,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Speciality Tea; tab Drinks
+raspberry-tea,Raspberry Tea,Speciality tea,,10,,,,,,,,,,,,,,,,false,false,,,Dept Hot Drinks - Speciality Tea; tab Drinks
+tea-no-milk-large,"Tea (no milk, large)",Tea,Large,2,,,,,,,,,,,,,,,,false,false,,,Printed 'TEA (NO MILK) LARGE'; Dept Hot Drinks - Tea; tab Drinks
+tea-no-milk-regular,"Tea (no milk, regular)",Tea,Regular,2,,,,,,,,,,,,,,,,false,false,,,Printed 'TEA (NO MILK) REGULAR'; Dept Hot Drinks - Tea; tab Drinks
+tea-with-milk-large,"Tea (with milk, large)",Tea,Large,30,,,,,,,,,,,,,,,,false,false,,,Printed 'TEA (WITH MILK) LARGE'; Dept Hot Drinks - Tea; tab Drinks
+tea-with-milk-regular,"Tea (with milk, regular)",Tea,Regular,25,,,,,,,,,,,,,,,,false,false,,,Printed 'TEA (WITH MILK) REGULAR'; Dept Hot Drinks - Tea; tab Drinks
+white-hot-chocolate-large,White Hot Chocolate (large),White hot chocolate,Large,215,,,,,,,,,,,,,,,,false,false,,,Printed 'HOT CHOCOLATE LARGE'; Dept Hot Drinks - White Hot Chocolate; tab Drinks
+white-hot-chocolate-regular,White Hot Chocolate (regular),White hot chocolate,Regular,207,,,,,,,,,,,,,,,,false,false,,,Printed 'HOT CHOCOLATE REGULAR'; Dept Hot Drinks - White Hot Chocolate; tab Drinks
+large-cheese-and-onion-pasty,Large Cheese & Onion Pasty,Pasties,Large,1347,,,,,,,,,,,,,,,,false,false,,,"Dept Pasties - Best Sellers Large; tab Pasties; Same printed value (1347) as the Large Creamy Chicken Pasty, while the medium sizes print 822 and 706"
+large-creamy-chicken-pasty,Large Creamy Chicken Pasty,Pasties,Large,1347,,,,,,,,,,,,,,,,false,false,,,"Dept Pasties - Best Sellers Large; tab Pasties; Same printed value (1347) as the Large Cheese & Onion Pasty, while the medium sizes print 822 and 706"
+large-traditional-steak-pasty,Large Traditional Steak Pasty,Pasties,Large,1271,,,,,,,,,,,,,,,contains_beef,false,false,,,Dept Pasties - Best Sellers Large; tab Pasties
+cheese-and-onion-pasty,Cheese & Onion Pasty,Pasties,Medium,822,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Best Sellers Medium; tab Pasties
+creamy-chicken-pasty,Creamy Chicken Pasty,Pasties,Medium,706,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Best Sellers Medium; tab Pasties
+traditional-steak-pasty,Traditional Steak Pasty,Pasties,Medium,790,,,,,,,,,,,,,,,contains_beef,false,false,,,Dept Pasties - Best Sellers Medium; tab Pasties
+cheese-and-vegetable-pasty-gluten-free,Cheese & Vegetable Pasty (gluten free),Pasties,,594,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Other; tab Pasties
+chunky-vegetable-pasty,Chunky Vegetable Pasty,Pasties,,633,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Other; tab Pasties
+peppered-steak-pasty,Peppered Steak Pasty,Pasties,,690,,,,,,,,,,,,,,,contains_beef,false,false,,,Dept Pasties - Other; tab Pasties
+steak-pasty-gluten-free,Steak Pasty (gluten free),Pasties,,644,,,,,,,,,,,,,,,contains_beef,false,false,,,Dept Pasties - Other; tab Pasties
+flaky-steak-pasty,Flaky Steak Pasty,Pasties,,780,,,,,,,,,,,,,,,contains_beef,false,false,,,Dept Pasties - Other; tab Pasties; printed 2 times
+ham-hock-pasty,Ham Hock Pasty,Pasties,,754,,,,,,,,,,,,,,,contains_pork,true,false,,,"Dept Pasties - Other; tab Pasties, Seasonal; printed 3 times"
+cheese-and-marmite-pasty,Cheese & Marmite Pasty,Pasties,,746,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Other; tab Last Chance Buys
+cheese-cocktail-pasty,Cheese Cocktail Pasty,Pasties,,330,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Other; tab Last Chance Buys
+cornish-cocktail-pasty,Cornish Cocktail Pasty,Pasties,,275,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Other; tab Last Chance Buys
+lamb-and-mint-pasty,Lamb & Mint Pasty,Pasties,,723,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Other; tab Last Chance Buys
+original-vegan-pasty,Original Vegan Pasty,Pasties,,649,,,,,,,,,,,,,,,vegetarian,false,false,,,Dept Pasties - Other; tab Last Chance Buys
+salt-and-pepper-chicken-pasty,Salt & Pepper Chicken Pasty,Pasties,,663,,,,,,,,,,,,,,,,false,false,,,Dept Pasties - Other; tab Last Chance Buys
+steak-and-cornish-blue-pasty,Steak & Cornish Blue Pasty,Pasties,,742,,,,,,,,,,,,,,,contains_beef,false,false,,,Dept Pasties - Other; tab Last Chance Buys
+large-sausage-roll,Large Sausage Roll,Savoury rolls,,458,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Savoury Rolls; tab Savouries
+vegan-roll,Vegan Roll,Savoury rolls,,316,,,,,,,,,,,,,,,vegetarian,false,false,,,Dept Savoury Rolls; tab Savouries
+honey-and-mustard-sausage-roll,Honey & Mustard Sausage Roll,Savoury rolls,,572,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Savoury Rolls; tab Savouries
+sweet-chilli-gourmet-sausage-roll,Sweet Chilli Gourmet Sausage Roll,Savoury rolls,,564,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Savoury Rolls; tab Savouries
+cheese-and-chutney-sausage-roll,Cheese & Chutney Sausage Roll,Savoury rolls,,569,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Savoury Rolls; tab Savouries
+black-pepper-and-herb-gourmet-sausage-roll,Black Pepper & Herb Gourmet Sausage Roll,Savoury rolls,,569,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Savoury Rolls; tab Last Chance Buys
+corned-beef-slice,Corned Beef Slice,Savoury slices,,434,,,,,,,,,,,,,,,contains_beef,false,false,,,Dept Savoury Slices; tab Savouries
+steak-slice,Steak Slice,Savoury slices,,361,,,,,,,,,,,,,,,contains_beef,false,false,,,Dept Savoury Slices; tab Savouries
+chicken-slice,Chicken Slice,Savoury slices,,376,,,,,,,,,,,,,,,,false,false,,,Dept Savoury Slices; tab Savouries
+cheese-and-onion-slice,Cheese & Onion Slice,Savoury slices,,490,,,,,,,,,,,,,,,,false,false,,,Dept Savoury Slices; tab Last Chance Buys
+cheese-and-bacon-turnover,Cheese & Bacon Turnover,Other savouries,,539,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Savouries - Other; tab Savouries
+cheese-and-tomato-pizza,Cheese & Tomato Pizza,Other savouries,,471,,,,,,,,,,,,,,,,false,false,,,Dept Savouries - Other; tab Savouries
+meat-pattie,Meat Pattie,Other savouries,,250,,,,,,,,,,,,,,,,false,false,,,Dept Savouries - Other; tab Savouries
+pepperoni-pizza,Pepperoni Pizza,Other savouries,,507,,,,,,,,,,,,,,,contains_pork,false,false,,,Dept Savouries - Other; tab Savouries
+potato-wedges,Potato Wedges,Other savouries,,312,,,,,,,,,,,,,,,,false,false,,,Dept Savouries - Other; tab Savouries
+spicy-chicken-pizza,Spicy Chicken Pizza,Other savouries,,533,,,,,,,,,,,,,,,,false,false,,,Dept Savouries - Other; tab Savouries
+breakfast-turnover,Breakfast Turnover,Other savouries,,519,,,,,,,,,,,,,,,,false,false,,,Dept Savouries - Other; tab Savouries; printed 2 times
+luxury-cheese-straw,Luxury Cheese Straw,Other savouries,,50,,,,,,,,,,,,,,,,false,false,,,Dept Savouries - Other; tab Last Chance Buys
+biscoff-cookie-pie,Biscoff Cookie Pie,Cakes,,587,,,,,,,,,,,,,,,,false,false,,,Dept Cakes; tab Sweet Bakery
+chocolate-egg-nest,Chocolate Egg Nest,Cakes,,396,,,,,,,,,,,,,,,,false,false,,,Dept Cakes; tab Sweet Bakery
+cornish-fruit-scone,Cornish Fruit Scone,Cakes,,219,,,,,,,,,,,,,,,,false,false,,,Dept Cakes; tab Sweet Bakery
+cornish-plain-scone,Cornish Plain Scone,Cakes,,220,,,,,,,,,,,,,,,,false,false,,,Dept Cakes; tab Sweet Bakery
+bueno-cookie-pie,Bueno Cookie Pie,Cakes,,729,,,,,,,,,,,,,,,,false,false,,,Dept Cakes; tab Sweet Bakery
+tiramisu-muffin,Tiramisu Muffin,Cakes,,615,,,,,,,,,,,,,,,,true,false,,,"Dept Cakes; tab Sweet Bakery, Seasonal; printed 2 times"
+blueberry-muffin,Blueberry Muffin,Cakes,,579,,,,,,,,,,,,,,,,true,false,,,"Dept Cakes; tab Sweet Bakery, Seasonal; printed 2 times"
+triple-choc-muffin,Triple Choc Muffin,Cakes,,606,,,,,,,,,,,,,,,,true,false,,,"Dept Cakes; tab Sweet Bakery, Seasonal; printed 2 times"
+99-vanilla-cupcake,99 Vanilla Cupcake,Cakes,,399,,,,,,,,,,,,,,,,true,false,,,"Dept Cakes; tab Sweet Bakery, Seasonal; printed 2 times"
+99-chocolate-cupcake,99 Chocolate Cupcake,Cakes,,443,,,,,,,,,,,,,,,,true,false,,,"Dept Cakes; tab Sweet Bakery, Seasonal; printed 2 times"
+belgian-bun,Belgian Bun,Cakes,,323,,,,,,,,,,,,,,,,false,false,,,Dept Cakes; tab Last Chance Buys
+caramel-crunch-muffin,Caramel Crunch Muffin,Cakes,,402,,,,,,,,,,,,,,,,false,false,,,Dept Cakes; tab Last Chance Buys
+lemon-drizzle-slice,Lemon Drizzle Slice,Cakes,,477,,,,,,,,,,,,,,,,false,false,,,Dept Cakes; tab Last Chance Buys
+choc-chunk-cookie,Choc Chunk Cookie,Cookies & biscuits,,393,,,,,,,,,,,,,,,,false,false,,,Dept Cookies & Biscuits; tab Sweet Bakery
+gingerbread-teddy,Gingerbread Teddy,Cookies & biscuits,,276,,,,,,,,,,,,,,,,false,false,,,Printed 'GINGERBREAD TEADY'; Dept Cookies & Biscuits; tab Sweet Bakery
+triple-choc-chunk-cookie,Triple Choc Chunk Cookie,Cookies & biscuits,,393,,,,,,,,,,,,,,,,false,false,,,Dept Cookies & Biscuits; tab Sweet Bakery
+white-choc-chunk-cookie,White Choc Chunk Cookie,Cookies & biscuits,,406,,,,,,,,,,,,,,,,false,false,,,Dept Cookies & Biscuits; tab Sweet Bakery; printed 2 times
+biscoff-filled-cookie,Biscoff Filled Cookie,Cookies & biscuits,,405,,,,,,,,,,,,,,,,true,false,,,"Dept Cookies & Biscuits; tab Sweet Bakery, Seasonal; printed 3 times"
+cookies-and-cream-filled-cookie,Cookies & Cream Filled Cookie,Cookies & biscuits,,401,,,,,,,,,,,,,,,,true,false,,,"Dept Cookies & Biscuits; tab Sweet Bakery, Seasonal; printed 3 times"
+mars-filled-cookie,Mars Filled Cookie,Cookies & biscuits,,393,,,,,,,,,,,,,,,,true,false,,,"Printed 'MARS FILLEDCOOKIE'; Dept Cookies & Biscuits; tab Sweet Bakery, Seasonal; printed 2 times"
+sprinkle-filled-cookie,Sprinkle Filled Cookie,Cookies & biscuits,,403,,,,,,,,,,,,,,,,true,false,,,"Dept Cookies & Biscuits; tab Sweet Bakery, Seasonal; printed 2 times"
+football-gingerbread,Football Gingerbread,Cookies & biscuits,,301,,,,,,,,,,,,,,,,true,false,,,"Dept Cookies & Biscuits; tab Sweet Bakery, Seasonal; printed 2 times"
+ladybird-gingerbread,Ladybird Gingerbread,Cookies & biscuits,,239,,,,,,,,,,,,,,,,true,false,,,"Dept Cookies & Biscuits; tab Sweet Bakery, Seasonal; printed 2 times"
+flower-gingerbread,Flower Gingerbread,Cookies & biscuits,,282,,,,,,,,,,,,,,,,true,false,,,"Dept Cookies & Biscuits; tab Sweet Bakery, Seasonal; printed 2 times"
+bumble-bee-shortbread,Bumble Bee Shortbread,Cookies & biscuits,,242,,,,,,,,,,,,,,,,true,false,,,"Dept Cookies & Biscuits; tab Sweet Bakery, Seasonal; printed 2 times"
+cream-doughnut,Cream Doughnut,Doughnuts,,280,,,,,,,,,,,,,,,,false,false,,,Dept Doughnuts; tab Sweet Bakery
+iced-finger-doughnut,Iced Finger Doughnut,Doughnuts,,346,,,,,,,,,,,,,,,,false,false,,,Dept Doughnuts; tab Sweet Bakery
+custard-doughnut,Custard Doughnut,Doughnuts,,329,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+twix-doughnut-pd,Twix Doughnut (PD),Doughnuts,,572,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+jammie-dodger-doughnut-pd,Jammie Dodger Doughnut (PD),Doughnuts,,628,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+classic-homer-doughnut-pd,Classic Homer Doughnut (PD),Doughnuts,,348,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+bueno-doughnut-pd,Bueno Doughnut (PD),Doughnuts,,514,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+twix-doughnut-db,Twix Doughnut (DB),Doughnuts,,654,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+jammie-dodger-doughnut-db,Jammie Dodger Doughnut (DB),Doughnuts,,614,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+classic-homer-doughnut-db,Classic Homer Doughnut (DB),Doughnuts,,590,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+bueno-doughnut-db,Bueno Doughnut (DB),Doughnuts,,673,,,,,,,,,,,,,,,,true,false,,,"Printed 'BUENO DOUGHNUT(DB)'; Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+lemon-meringue-doughnut-db,Lemon Meringue Doughnut (DB),Doughnuts,,624,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Sweet Bakery, Seasonal; printed 2 times"
+biscoff-doughnut-db,Biscoff Doughnut (DB),Doughnuts,,592,,,,,,,,,,,,,,,,false,false,,,Dept Doughnuts; tab Sweet Bakery
+jam-doughnut-3-pack,Jam Doughnut (3 pack),Doughnuts,,213,,,,,,,,,,,,,,,,false,false,,,"Dept Doughnuts; tab Sweet Bakery; The name says 3 pack and the guide states no basis, so it is not known whether 213 is for the pack or one doughnut"
+biscoff-doughnut,Biscoff Doughnut,Doughnuts,,592,,,,,,,,,,,,,,,,true,false,,,"Dept Doughnuts; tab Seasonal; Printed in the Seasonal tab without the (DB) suffix, with the same figures as Biscoff Doughnut (DB): kept as a separate item because the names differ"
+lemon-drizzle-meringue,Lemon Drizzle Meringue,Meringues,,253,,,,,,,,,,,,,,,,false,false,,,Dept Meringues; tab Sweet Bakery
+raspberry-eton-mess-meringue,Raspberry Eton Mess Meringue,Meringues,,259,,,,,,,,,,,,,,,,false,false,,,Dept Meringues; tab Sweet Bakery
+caramel-meringue,Caramel Meringue,Meringues,,251,,,,,,,,,,,,,,,,false,false,,,Dept Meringues; tab Sweet Bakery
+saffron-bun,Saffron Bun,Saffron,,220,,,,,,,,,,,,,,,,false,false,,,Dept Saffron; tab Sweet Bakery
+millionaires-slice,Millionaires Slice,Tray bakes,,418,,,,,,,,,,,,,,,,false,false,,,Dept Tray Bakes; tab Sweet Bakery
+rolo-brownie,Rolo Brownie,Tray bakes,,601,,,,,,,,,,,,,,,,false,false,,,Dept Tray Bakes; tab Sweet Bakery
+berry-bakewell-sweet-bakery,Berry Bakewell,Tray bakes,,381,,,,,,,,,,,,,,,,false,false,,,Dept Tray Bakes; tab Sweet Bakery
+fully-loaded-brownie,Fully Loaded Brownie,Tray bakes,,558,,,,,,,,,,,,,,,,false,false,,,Dept Tray Bakes; tab Sweet Bakery
+dubai-chocolate-brownie,Dubai Chocolate Brownie,Tray bakes,,452,,,,,,,,,,,,,,,,false,false,,,Printed 'DUBAI CHOOLATE BROWNIE'; Dept Tray Bakes; tab Sweet Bakery
+berry-bakewell-last-chance-buys,Berry Bakewell,Tray bakes,,501,,,,,,,,,,,,,,,,false,false,,,Dept Traybakes; tab Last Chance Buys
+apple,Apple,Fruit,,95,,,,,,,,,,,,,,,,false,false,,,Dept (none printed); tab Sweet Bakery
+banana,Banana,Fruit,,100,,,,,,,,,,,,,,,,false,false,,,Dept (none printed); tab Sweet Bakery

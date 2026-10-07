@@ -1,0 +1,173 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+freshly-baked-garlic-flat-bread-with-rosemary-and-sea-salt,Freshly Baked Garlic Flat Bread with Rosemary & Sea Salt,Bread & nibbles,,519,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+freshly-baked-garlic-flat-bread-with-tomato-and-herb,Freshly Baked Garlic Flat Bread with Tomato & Herb,Bread & nibbles,,550,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+freshly-baked-garlic-flat-bread-with-fior-di-latte-mozzarella,Freshly Baked Garlic Flat Bread with Fior di Latte Mozzarella,Bread & nibbles,,706,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+nocellara-olives,Nocellara Olives,Bread & nibbles,,178,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+dough-petals,Dough Petals,Bread & nibbles,,790,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+warm-rosemary-and-garlic-focaccia,Warm Rosemary & Garlic Focaccia,Bread & nibbles,,634,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+beef-fritto,Beef Fritto,To start,,256,,,,,,,,,,,,,,,contains_beef,false,false,,,menu: a-la-carte; Deep Fried column marked
+truffled-mushroom-arancini,Truffled Mushroom Arancini,To start,,599,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; Deep Fried column marked
+smashed-burrata,Smashed Burrata,To start,,635,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; printed as 'Smashed Buratta'; removable (Yes*): Gluten
+beef-carpaccio,Beef Carpaccio,To start,,238,,,,,,,,,,,,,,,contains_beef,false,false,,,menu: a-la-carte; printed as 'Beef Carpacio'
+lemon-and-pepper-calamari,Lemon & Pepper Calamari,To start,,500,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; Deep Fried column marked
+king-prawn-bruschetta,King Prawn Bruschetta,To start,,299,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+pan-seared-scallops,Pan-Seared Scallops,To start,,423,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; Deep Fried column marked
+slow-cooked-meatballs,Slow-Cooked Meatballs,To start,,427,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; Deep Fried column marked
+tomato-bruschetta,Tomato Bruschetta,To start,,333,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+tuscan-bean-soup,Tuscan Bean Soup,To start,,351,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+vodka-creste,Vodka Creste,Pasta & risotto,,947,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+carbonara-linguine-small,Carbonara Linguine (small),Pasta & risotto,Small,567,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+carbonara-linguine-large,Carbonara Linguine (large),Pasta & risotto,Large,1136,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+creamy-carbonara-as-per-previous-menu-small,"Creamy Carbonara (as per previous menu, small)",Pasta & risotto,Small,485,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+creamy-carbonara-as-per-previous-menu-large,"Creamy Carbonara (as per previous menu, large)",Pasta & risotto,Large,970,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+ragu-mafaldine-small,Ragù Mafaldine (small),Pasta & risotto,Small,532,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+ragu-mafaldine-large,Ragù Mafaldine (large),Pasta & risotto,Large,1068,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+truffled-mushroom-mafaldine-small,Truffled Mushroom Mafaldine (small),Pasta & risotto,Small,657,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+truffled-mushroom-mafaldine-large,Truffled Mushroom Mafaldine (large),Pasta & risotto,Large,1314,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+pollo-arrabbiata-gnocchetti-small,Pollo Arrabbiata Gnocchetti (small),Pasta & risotto,Small,610,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+pollo-arrabbiata-gnocchetti-large,Pollo Arrabbiata Gnocchetti (large),Pasta & risotto,Large,1220,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+arrabbiata-gnocchetti-small,Arrabbiata Gnocchetti (small),Pasta & risotto,Small,494,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+arrabbiata-gnocchetti-large,Arrabbiata Gnocchetti (large),Pasta & risotto,Large,987,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+fresh-crab-linguine,Fresh Crab Linguine,Pasta & risotto,,340,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+seafood-risotto,Seafood Risotto,Pasta & risotto,,808,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+casarecce-piccante,Casarecce Piccante,Pasta & risotto,,620,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+lasagne,Lasagne,Pasta & risotto,,709,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+add-grated-parmesan-10g-portion,Add Grated Parmesan (10g portion),Pasta & risotto,,37,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+pollo-milanese,Pollo Milanese,Mains,,1094,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; Deep Fried column marked
+duck-leg-confit,Duck Leg Confit,Mains,,1060,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Tree Nuts
+pollo-cacciatore,Pollo Cacciatore,Mains,,572,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+puccia-burger,Puccia Burger,Mains,,1098,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; Deep Fried column marked
+puccia-burger-with-pancetta,Puccia Burger with Pancetta,Mains,,1179,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte; Deep Fried column marked
+tagliata-di-manzo,Tagliata Di Manzo,Mains,,642,,,,,,,,,,,,,,,contains_beef,false,false,,,menu: a-la-carte
+chicken-caesar-salad,Chicken Caesar Salad,Mains,,742,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+caesar-salad-without-chicken,Caesar Salad without Chicken,Mains,,509,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+roasted-pepper-and-artichoke-salad,Roasted Pepper and Artichoke Salad,Mains,,407,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Tree Nuts
+roasted-pepper-and-artichoke-salad-with-goats-cheese,Roasted Pepper and Artichoke Salad with Goats Cheese,Mains,,483,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Tree Nuts
+seared-tuna-steak,Seared Tuna Steak,Mains,,584,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; category blank in the matrix; the website menu page lists it under Mains; Deep Fried column marked
+pan-fried-seabass-small,Pan-Fried Seabass (small),Mains,Small,426,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; category blank in the matrix; the website menu page lists it under Mains
+pan-fried-seabass-large,Pan-Fried Seabass (large),Mains,Large,673,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; category blank in the matrix; the website menu page lists it under Mains
+aubergine-parmigiana,Aubergine Parmigiana,Mains,,698,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; category blank in the matrix; the website menu page lists it under Mains
+200g-fillet-steak-steak-only-see-separate-listings-for-sides-and-sauces,200g Fillet Steak (Steak only - see separate listings for sides and sauces),Steak,,825,,,,,,,,,,,,,,,contains_beef,false,false,,,menu: a-la-carte; printed as '200g Fillet Steak (Steak only - see seperate listings for sides and sauces)'
+230g-rib-eye-steak-only-see-separate-listings-for-sides-and-sauces,230g Rib-Eye (Steak only - see separate listings for sides and sauces),Steak,,886,,,,,,,,,,,,,,,contains_beef,false,false,,,menu: a-la-carte; printed as '230g Rib-Eye (Steak only - see seperate listings for sides and sauces)'
+400g-chateaubriand-for-two-people,400g Chateaubriand (for two people),Steak,,1195,,,,,,,,,,,,,,,contains_beef,false,false,,,menu: a-la-carte
+peppercorn-sauce,Peppercorn Sauce,Steak,,121,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+red-wine-sauce,Red Wine Sauce,Steak,,19,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+aioli-30ml,Aioli (30ml),Steak,,200,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+garlic-butter-20g,Garlic Butter (20g),Steak,,124,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+margherita,Margherita,Pizza,,881,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+vegan-margherita,Vegan Margherita,Pizza,,1000,,,,,,,,,,,,,,,vegetarian,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+goats-cheese-and-caramelised-onion,Goat's Cheese & Caramelised Onion,Pizza,,1203,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+calabrian-pepperoni-salsiccia,Calabrian Pepperoni Salsiccia,Pizza,,967,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+calabrian-pepperoni-salsiccia-with-chili,Calabrian Pepperoni Salsiccia with Chili,Pizza,,979,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+pollo-al-pesto,Pollo al Pesto,Pizza,,1353,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+verdure,Verdure,Pizza,,1012,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+prosciutto-fennel-and-calabrian-salsiccia,"Prosciutto, Fennel & Calabrian Salsiccia",Pizza,,1170,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+nduja-and-smashed-burrata,Nduja & Smashed Burrata,Pizza,,1274,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte; removable (Yes*): Gluten
+gluten-free-cooked-pizza-base-only,Gluten Free Cooked Pizza Base Only,Pizza,,700,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+topping-ham,Topping: Ham,Pizza,,43,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte
+topping-wild-mushrooms,Topping: Wild Mushrooms,Pizza,,6,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+topping-fior-di-latte-mozzarella,Topping: Fior di Latte Mozzarella,Pizza,,186,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; printed as 'Topping: Fior de Latte Mozzarella'
+topping-anchovies,Topping: Anchovies,Pizza,,23,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+topping-calabrian-pepperoni,Topping: Calabrian Pepperoni,Pizza,,101,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte
+topping-chicken,Topping: Chicken,Pizza,,116,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+topping-burrata,Topping: Burrata,Pizza,,159,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+topping-nduja,Topping: 'Nduja,Pizza,,310,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte
+topping-prosciutto-ham,Topping: Prosciutto Ham,Pizza,,91,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: a-la-carte
+zucchine-fritte,Zucchine Fritte,Sides,,202,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; Deep Fried column marked
+seasonal-greens,Seasonal Greens,Sides,,161,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+mixed-salad,Mixed Salad,Sides,,86,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+skin-on-fries,Skin-On Fries,Sides,,240,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; printed as 'Skin-On Fries*'; Deep Fried column marked
+truffle-fries,Truffle Fries,Sides,,379,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte; Deep Fried column marked
+burnt-butter-roast-potatoes,Burnt Butter Roast Potatoes,Sides,,398,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+rocket-and-gran-moravia-salad,Rocket and Gran Moravia Salad,Salad,,205,,,,,,,,,,,,,,,,false,false,,,menu: a-la-carte
+homemade-tiramisu,Homemade Tiramisu,Desserts,,657,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+dark-chocolate-mousse,Dark Chocolate Mousse,Desserts,,556,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+creme-brulee,Crème Brûlée,Desserts,,686,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+classic-affogato,Classic Affogato,Desserts,,117,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+pistachio-panna-cotta,Pistachio Panna Cotta,Desserts,,492,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,972,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+biscoff-bombolini,Biscoff Bombolini,Desserts,,683,,,,,,,,,,,,,,,,false,false,,,menu: dessert; Deep Fried column marked
+italian-gelato-honeycomb,Italian Gelato: Honeycomb,Desserts,,141,,,,,,,,,,,,,,,,false,false,,,menu: dessert; printed as 'Italian Gelatto: Honeycomb'
+italian-gelato-cherry-and-custard,Italian Gelato: Cherry & Custard,Desserts,,114,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+italian-gelato-fior-di-panna,Italian Gelato: Fior di Panna,Desserts,,135,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+italian-gelato-madagascan-vanilla,Italian Gelato: Madagascan Vanilla,Desserts,,134,,,,,,,,,,,,,,,,false,false,,,menu: dessert; printed as 'Italian Gelato: Madagscan Vanilla'
+italian-gelato-dark-chocolate,Italian Gelato: Dark Chocolate,Desserts,,93,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+sorbet-lemon,Sorbet: Lemon,Desserts,,68,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+sorbet-mandarin,Sorbet: Mandarin,Desserts,,67,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+cannoli-shell-only-small,"Cannoli (shell only, small)",Desserts,Small,34,,,,,,,,,,,,,,,,false,false,,,menu: dessert; printed as 'Cannoli (shell onlly)'
+cannoli-shell-only-large,"Cannoli (shell only, large)",Desserts,Large,80,,,,,,,,,,,,,,,,false,false,,,menu: dessert; printed as 'Cannoli (shell onlly)'
+ricotta-filling-small,Ricotta Filling (small),Desserts,Small,132,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+ricotta-filling-large,Ricotta Filling (large),Desserts,Large,263,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+chocolate-topping,Chocolate Topping,Desserts,,33,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+pistachio-topping,Pistachio Topping,Desserts,,6,,,,,,,,,,,,,,,,false,false,,,menu: dessert
+frozen-virgin-strawberry-daiquiri,Frozen Virgin Strawberry Daiquiri,Alcohol-free drinks,,90,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+tutti-frutti,Tutti Frutti,Alcohol-free drinks,,114,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+virgin-passion-fruit-martini,Virgin Passion Fruit Martini,Alcohol-free drinks,,107,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+italian-orange-spritz,Italian Orange Spritz,Alcohol-free drinks,,112,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+no-jito,No-Jito,Alcohol-free drinks,,109,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fresh-juice-orange,Fresh Juice: Orange,Soft drinks,,72,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fresh-juice-apple,Fresh Juice: Apple,Soft drinks,,76,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fresh-juice-cranberry,Fresh Juice: Cranberry,Soft drinks,,112,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fresh-juice-pineapple,Fresh Juice: Pineapple,Soft drinks,,82,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fever-tree-sparkling-raspberry-and-rose,Fever-Tree Sparkling Raspberry & Rose,Soft drinks,,52,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fever-tree-ginger-beer,Fever-Tree Ginger Beer,Soft drinks,,52,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fever-tree-sicilian-lemonade,Fever-Tree Sicilian Lemonade,Soft drinks,,47,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fever-tree-refreshingly-light-elderflower-tonic,Fever-Tree Refreshingly Light Elderflower Tonic,Soft drinks,,36,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fever-tree-refreshingly-light-mediterranean-tonic,Fever-Tree Refreshingly Light Mediterranean Tonic,Soft drinks,,34,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fever-tree-refreshingly-light-tonic,Fever-Tree Refreshingly Light Tonic,Soft drinks,,30,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+fever-tree-refreshingly-light-ginger-ale,Fever-Tree Refreshingly Light Ginger Ale,Soft drinks,,36,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+schweppes-lemonade,Schweppes Lemonade,Soft drinks,,4,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+cawston-press-apple-and-mango,Cawston Press: Apple & Mango,Soft drinks,,54,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks; printed as 'Cawstons Press: Apple & Mango'
+cawston-press-apple-and-summer-berries,Cawston Press: Apple & Summer Berries,Soft drinks,,50,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks; printed as 'Cawstons Press: Apple & Summer Berries'
+cawston-press-sunshine-orange,Cawston Press: Sunshine Orange,Soft drinks,,138,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks; printed as 'Cawstons Press: Sunshine Orange'
+espresso,Espresso,Hot drinks,,3,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+macchiato,Macchiato,Hot drinks,,36,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+americano,Americano,Hot drinks,,3,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks; printed as 'Americanno'
+flat-white,Flat White,Hot drinks,,108,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+cappuccino,Cappuccino,Hot drinks,,139,,,,,,,,,,,,,,,,false,false,,,"menu: soft-drinks; removable (Yes*): Soya, Tree Nuts"
+cafe-latte,Café Latte,Hot drinks,,135,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+ice-latte,Ice Latte,Hot drinks,,183,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+mocha-topped-with-whipped-cream,Mocha Topped with Whipped Cream,Hot drinks,,328,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+vanilla-syrup,Vanilla Syrup,Hot drinks,,34,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+caramel-syrup,Caramel Syrup,Hot drinks,,25,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+cinnamon-syrup,Cinnamon Syrup,Hot drinks,,33,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+hazelnut-syrup,Hazelnut Syrup,Hot drinks,,32,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+earl-grey-tea,Earl Grey Tea,Hot drinks,,1,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+breakfast-tea,Breakfast Tea,Hot drinks,,1,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+peppermint-tea,Peppermint Tea,Hot drinks,,1,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+green-tea,Green Tea,Hot drinks,,1,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+chamomile-tea,Chamomile Tea,Hot drinks,,1,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+lemongrass-and-ginger-tea,Lemongrass & Ginger Tea,Hot drinks,,1,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+red-berry-and-flower-tea,Red Berry & Flower Tea,Hot drinks,,1,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+hot-chocolate,Hot Chocolate,Hot drinks,,335,,,,,,,,,,,,,,,,false,false,,,menu: soft-drinks
+freshly-baked-garlic-flat-bread,Freshly Baked Garlic Flat Bread,Kids: To start,,318,,,,,,,,,,,,,,,,false,false,,,menu: kids
+make-your-own-pizza-base-only,Make Your Own Pizza: Base Only,Kids: Mains,,280,,,,,,,,,,,,,,,,false,false,,,menu: kids
+make-your-own-pizza-sauce-only,Make Your Own Pizza: Sauce Only,Kids: Mains,,54,,,,,,,,,,,,,,,,false,false,,,menu: kids
+make-your-own-pizza-mozzarella-only,Make Your Own Pizza: Mozzarella Only,Kids: Mains,,106,,,,,,,,,,,,,,,,false,false,,,menu: kids
+make-your-own-pizza-ham-only,Make Your Own Pizza: Ham Only,Kids: Mains,,43,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: kids
+make-your-own-pizza-chicken-only,Make Your Own Pizza: Chicken Only,Kids: Mains,,60,,,,,,,,,,,,,,,,false,false,,,menu: kids
+make-your-own-pizza-sweetcorn-only,Make Your Own Pizza: Sweetcorn Only,Kids: Mains,,39,,,,,,,,,,,,,,,,false,false,,,menu: kids
+make-your-own-pizza-pepperoni-only,Make Your Own Pizza: Pepperoni Only,Kids: Mains,,130,,,,,,,,,,,,,,,contains_pork,false,false,,,menu: kids
+pasta-with-meatballs,Pasta with Meatballs,Kids: Mains,,381,,,,,,,,,,,,,,,,false,false,,,menu: kids; removable (Yes*): Gluten
+pasta-with-carbonara,Pasta with Carbonara,Kids: Mains,,459,,,,,,,,,,,,,,,,false,false,,,menu: kids; removable (Yes*): Gluten
+pasta-with-tomato,Pasta with Tomato,Kids: Mains,,216,,,,,,,,,,,,,,,,false,false,,,menu: kids; removable (Yes*): Gluten
+pasta-with-ragu,Pasta with Ragù,Kids: Mains,,357,,,,,,,,,,,,,,,,false,false,,,menu: kids; removable (Yes*): Gluten
+pasta-plain,Pasta plain,Kids: Mains,,215,,,,,,,,,,,,,,,,false,false,,,menu: kids; removable (Yes*): Gluten
+breaded-chicken-strips,Breaded Chicken Strips,Kids: Mains,,538,,,,,,,,,,,,,,,,false,false,,,menu: kids; Deep Fried column marked
+italian-gelato-madagascan-vanilla-kids-menu,Italian Gelato: Madagascan Vanilla (Kids menu),Kids: Desserts,,134,,,,,,,,,,,,,,,,false,false,,,menu: kids; printed as 'Italian Gelato: Madagscan Vanilla'
+sorbet-lemon-kids-menu,Sorbet: Lemon (Kids menu),Kids: Desserts,,62,,,,,,,,,,,,,,,,false,false,,,menu: kids
+strawberry-and-vanilla-cooler,Strawberry and Vanilla Cooler,Kids: Soft drinks,,61,,,,,,,,,,,,,,,,false,false,,,menu: kids
+passionfruit-and-elderflower-cooler,Passionfruit and Elderflower Cooler,Kids: Soft drinks,,66,,,,,,,,,,,,,,,,false,false,,,menu: kids
+truffle-mushroom-mafaldine-small,Truffle Mushroom Mafaldine (small),Brunch: Mains,Small,657,,,,,,,,,,,,,,,,false,false,,,menu: bottomless-brunch
+truffle-mushroom-mafaldine-large,Truffle Mushroom Mafaldine (large),Brunch: Mains,Large,1314,,,,,,,,,,,,,,,,false,false,,,menu: bottomless-brunch
+arrabbiata-conchiglioni-small,Arrabbiata Conchiglioni (small),Brunch: Mains,Small,494,,,,,,,,,,,,,,,,false,false,,,menu: bottomless-brunch; removable (Yes*): Gluten
+arrabbiata-conchiglioni-large,Arrabbiata Conchiglioni (large),Brunch: Mains,Large,987,,,,,,,,,,,,,,,,false,false,,,menu: bottomless-brunch; removable (Yes*): Gluten
+puccia-burger-brunch-menu,Puccia Burger (Brunch menu),Brunch: Mains,,1098,,,,,,,,,,,,,,,,false,false,,,menu: bottomless-brunch; Deep Fried column marked
+chicken-caesar-salad-brunch-menu,Chicken Caesar Salad (Brunch menu),Brunch: Mains,,913,,,,,,,,,,,,,,,,false,false,,,menu: bottomless-brunch; Deep Fried column marked
+margherita-brunch-menu,Margherita (Brunch menu),Brunch: Mains,,881,,,,,,,,,,,,,,,,false,false,,,menu: bottomless-brunch; removable (Yes*): Gluten
+vanilla-panna-cotta,Vanilla Panna Cotta,Menu Fisso: Desserts,,398,,,,,,,,,,,,,,,,false,false,,,menu: menu-fisso
+slow-cooked-meatballs-gold-set-menu,Slow-Cooked Meatballs (Gold set menu),Gold set menu: To start,,427,,,,,,,,,,,,,,,,false,false,,,menu: gold-set-menu; Deep Fried column marked
+smashed-burrata-gold-set-menu,Smashed Burrata (Gold set menu),Gold set menu: To start,,635,,,,,,,,,,,,,,,,false,false,,,menu: gold-set-menu; printed as 'Smashed Buratta'; removable (Yes*): Gluten
+bavette-steak,Bavette Steak,Gold set menu: Mains,,886,,,,,,,,,,,,,,,contains_beef,false,false,,,menu: gold-set-menu
+salmon-panzanella,Salmon Panzanella,Gold set menu: Mains,,733,,,,,,,,,,,,,,,,false,false,,,menu: gold-set-menu
+aubergine-parmigiana-gold-set-menu,Aubergine Parmigiana (Gold set menu),Gold set menu: Mains,,698,,,,,,,,,,,,,,,,false,false,,,menu: gold-set-menu

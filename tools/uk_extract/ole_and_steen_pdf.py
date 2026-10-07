@@ -27,7 +27,7 @@ from collections import Counter
 from pathlib import Path
 
 WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>')
-PATH = re.compile(r'<path fill-rule="evenodd" fill="rgb\(([\d.]+)%, ([\d.]+)%, ([\d.]+)%\)" fill-opacity="1" d="M ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) Z M [\d. ]+"/>')
+PATH = re.compile(r'<path fill-rule="evenodd" fill="rgb\(([\d.]+)%, ([\d.]+)%, ([\d.]+)%\)" fill-opacity="1" d="M ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) Z M [\d. ]+"/>')
 
 # Column order and the printed header words that make each one (rotated, one word per line).
 COLUMNS = [

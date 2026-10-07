@@ -1,0 +1,1 @@
+Giraffe prints calories only, so protein, carbs and fat are not published. Figures use "typical weights and measures" and can vary a little. Drinks with no calorie figure on the page (most wines, some cocktails) are not listed, and a few rows that contradict the same page are held back.

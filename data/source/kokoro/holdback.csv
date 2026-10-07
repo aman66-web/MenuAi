@@ -1,0 +1,13 @@
+item_id,reason
+kokoro-deluxe-sushi,the popup shows 648 kcal but the page's own hidden calorie field says 605
+deluxe-nigiri-and-roll,the popup shows 547 kcal but the page's own hidden calorie field says 498; the page shows an 'under 500 kcal' icon but the popup shows 547 kcal
+all-salmon-love,the popup shows 617 kcal but the page's own hidden calorie field says 577; the page shows an 'under 600 kcal' icon but the popup shows 617 kcal
+sushi-and-katsu-combi,the popup shows 791 kcal but the page's own hidden calorie field says 799
+mini-maki-delight,the popup shows 475 kcal but the page's own hidden calorie field says 408
+salmon-and-avo-roll,the popup shows 341 kcal but the page's own hidden calorie field says 395
+crab-and-avo-roll,the popup shows 423 kcal but the page's own hidden calorie field says 455
+crunchy-prawn-roll,the popup shows 396 kcal but the page's own hidden calorie field says 422
+avocado-hosomaki,the popup shows 216 kcal but the page's own hidden calorie field says 160
+cucumber-hosomaki,the popup shows 177 kcal but the page's own hidden calorie field says 148
+salmon-hosomaki,the popup shows 196 kcal but the page's own hidden calorie field says 185
+inari-pocket,the popup shows 219 kcal but the page's own hidden calorie field says 314
