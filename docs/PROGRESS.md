@@ -246,6 +246,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   barcode exists; products found by the discovery pass without nutrition are not in the app until their page has been read. Automatic refresh (weekly job on the
   founder's Mac, Open Food Facts changes-since fetch, old-price warning) is planned, not built: see the chat decisions of 2026-10-07.
 
+- 2026-10-07 — **Recovered from the Mac** after its windows were closed: `data/source/wahaca/` (calories-only, 44 items, builds with 0 errors; it was
+  already published but its source folder had never been committed) and `data/groceries/discovery/` (partial product lists read from the shops' own
+  category pages: Tesco 1,412 products in 8 of 20 top categories, Sainsbury's 3,823 across about 210 category pages; each category's "shown vs collected"
+  counts are in the `*-coverage.csv`). Helpers for Asda and Morrisons were stopped before saving anything. Grocery prices: 30 Tesco prices saved so far.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
