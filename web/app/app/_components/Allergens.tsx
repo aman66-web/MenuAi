@@ -33,34 +33,15 @@ function statusOf(a: Allergens, key: AllergenKey): { kind: "contains" | "may" | 
   return { kind: "none" };
 }
 
-export function AllergenSection({ chain, allergens, changesNotCovered, title = "Allergens", itemName }: { chain: Chain; allergens: Allergens | undefined | null; changesNotCovered?: boolean; title?: string; itemName?: string }) {
-  const guide = chain.allergenGuide;
-  const link = guide?.url ?? chain.source.url;
-  if (!allergens || !guide?.complete) {
-    return (
-      <section aria-labelledby="allergens-heading" className="glass rounded-3xl p-5">
-        <h2 id="allergens-heading" className="text-lg font-bold tracking-tight">{title}</h2>
-        <p className="mt-1 text-sm text-muted">We don&apos;t show allergens for {chain.name} yet. {chain.name}&apos;s own guide lists them. {CHECK_WITH_STAFF}</p>
-        <div className="mt-3"><GuideLink chain={chain} href={link} /></div>
-      </section>
-    );
-  }
-  const containsCount = allergens.contains.length;
+/** The 14 allergens UK law names, one row each: Contains (with the cereal or nut when named), May contain, or Not listed. */
+export function AllergenTable({ allergens, caption, columnLabel }: { allergens: Allergens; caption: string; columnLabel: string }) {
   return (
-    <section aria-labelledby="allergens-heading" className="glass overflow-hidden rounded-3xl">
-      <div className="px-5 pt-5">
-        <h2 id="allergens-heading" className="text-lg font-bold tracking-tight">{title}</h2>
-        <p className="mt-1 text-sm text-muted">
-          {containsCount === 0 ? "None of the 14 main allergens listed as an ingredient." : `Contains ${containsCount} of the 14 main allergens.`}
-          {!guide.mayContainPublished && ` ${chain.name}'s guide doesn't say what may be present in traces.`}
-        </p>
-      </div>
-      <table className="mt-3 w-full text-left text-[15px]">
-        <caption className="sr-only">{`Allergens in ${itemName ?? "this order"}, from ${guide.title}`}</caption>
+    <table className="mt-3 w-full text-left text-[15px]">
+        <caption className="sr-only">{caption}</caption>
         <thead>
           <tr className="border-y border-line text-xs font-bold uppercase tracking-[0.12em] text-muted">
             <th scope="col" className="px-5 py-2 font-bold">Allergen</th>
-            <th scope="col" className="px-5 py-2 text-right font-bold">{itemName ? "This item" : "This order"}</th>
+            <th scope="col" className="px-5 py-2 text-right font-bold">{columnLabel}</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-line">
@@ -85,7 +66,33 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title = "
             );
           })}
         </tbody>
-      </table>
+    </table>
+  );
+}
+
+export function AllergenSection({ chain, allergens, changesNotCovered, title = "Allergens", itemName }: { chain: Chain; allergens: Allergens | undefined | null; changesNotCovered?: boolean; title?: string; itemName?: string }) {
+  const guide = chain.allergenGuide;
+  const link = guide?.url ?? chain.source.url;
+  if (!allergens || !guide?.complete) {
+    return (
+      <section aria-labelledby="allergens-heading" className="glass rounded-3xl p-5">
+        <h2 id="allergens-heading" className="text-lg font-bold tracking-tight">{title}</h2>
+        <p className="mt-1 text-sm text-muted">We don&apos;t show allergens for {chain.name} yet. {chain.name}&apos;s own guide lists them. {CHECK_WITH_STAFF}</p>
+        <div className="mt-3"><GuideLink chain={chain} href={link} /></div>
+      </section>
+    );
+  }
+  const containsCount = allergens.contains.length;
+  return (
+    <section aria-labelledby="allergens-heading" className="glass overflow-hidden rounded-3xl">
+      <div className="px-5 pt-5">
+        <h2 id="allergens-heading" className="text-lg font-bold tracking-tight">{title}</h2>
+        <p className="mt-1 text-sm text-muted">
+          {containsCount === 0 ? "None of the 14 main allergens listed as an ingredient." : `Contains ${containsCount} of the 14 main allergens.`}
+          {!guide.mayContainPublished && ` ${chain.name}'s guide doesn't say what may be present in traces.`}
+        </p>
+      </div>
+      <AllergenTable allergens={allergens} caption={`Allergens in ${itemName ?? "this order"}, from ${guide.title}`} columnLabel={itemName ? "This item" : "This order"} />
       <div className="space-y-3 border-t border-line px-5 py-4">
         {changesNotCovered && <p className="text-sm text-muted">Your changes aren&apos;t reflected: the guide lists allergens for the standard item only.</p>}
         <p className="flex gap-2 text-xs text-muted">

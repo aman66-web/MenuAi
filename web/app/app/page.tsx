@@ -11,7 +11,7 @@ import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
 import { ChainRow } from "./_components/ChainRow";
 import { Ring } from "./_components/Ring";
-import { PinIcon, SearchIcon } from "./_components/icons";
+import { BasketIcon, PinIcon, SearchIcon } from "./_components/icons";
 import { RequestChainSheet } from "./_components/Submit";
 import { Button, Card, Chip, EmptyState, ErrorBox, SectionTitle, Spinner } from "./_components/ui";
 import { menuClient } from "./_lib/menu";
@@ -64,6 +64,10 @@ export default function HomePage() {
       <Link href="/app/map" className="mt-2.5 flex min-h-12 items-center gap-3 rounded-full px-5 text-[15px] font-semibold text-accent transition active:scale-[0.99] hover:bg-accent-soft">
         <PinIcon className="h-5 w-5" />
         Find restaurants near you
+      </Link>
+      <Link href="/app/groceries" className="flex min-h-12 items-center gap-3 rounded-full px-5 text-[15px] font-semibold text-accent transition active:scale-[0.99] hover:bg-accent-soft">
+        <BasketIcon className="h-5 w-5" />
+        Browse supermarket groceries
       </Link>
 
       {SAMPLES_ENABLED && menu.chains.some((c) => c.sample) && (

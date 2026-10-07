@@ -41,3 +41,6 @@ export const ExternalIcon = (p: P) => (<svg {...base(p)}><path d="M14 4h6v6M20 4
 export const PinIcon = (p: P) => (<svg {...base(p)}><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.4" /></svg>);
 export const LocateIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="3.2" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3" /><circle cx="12" cy="12" r="7.5" /></svg>);
 export const DirectionsIcon = (p: P) => (<svg {...base(p)}><path d="M12 3l9 9-9 9-9-9z" /><path d="M8.5 12.5V11a1.5 1.5 0 011.5-1.5h5m0 0l-1.8-1.8m1.8 1.8l-1.8 1.8" /></svg>);
+export const BasketIcon = (p: P) => (<svg {...base(p)}><path d="M3.5 9.5h17l-1.6 9a1.6 1.6 0 01-1.6 1.3H6.7a1.6 1.6 0 01-1.6-1.3z" /><path d="M8 9.5L11 4M16 9.5L13 4" /><path d="M9.5 13v3.5M14.5 13v3.5" /></svg>);
+export const ScanIcon = (p: P) => (<svg {...base(p)}><path d="M4 8V5.5A1.5 1.5 0 015.5 4H8M16 4h2.5A1.5 1.5 0 0120 5.5V8M20 16v2.5a1.5 1.5 0 01-1.5 1.5H16M8 20H5.5A1.5 1.5 0 014 18.5V16" /><path d="M8 8v8M11 8v8M14 8v8M17 8v8" /></svg>);
+export const CopyIcon = (p: P) => (<svg {...base(p)}><rect x="8.5" y="8.5" width="11" height="11" rx="2" /><path d="M5.5 15.5V6.5a2 2 0 012-2h9" /></svg>);

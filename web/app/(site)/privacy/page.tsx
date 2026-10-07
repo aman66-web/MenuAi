@@ -55,6 +55,13 @@ export default function Privacy() {
         handled by Apple Maps under Apple&apos;s privacy policy. We never store or receive your location.
       </p>
 
+      <h2>Groceries and barcodes</h2>
+      <p>
+        The web app&apos;s Groceries screen lists supermarket products using the open Open Food Facts database, which is community data and can be
+        wrong or out of date. Product photos are loaded from Open Food Facts&apos; image server, which can see your IP address and which photos your browser asks for.
+        Your shopping list stays on your device. If you scan a barcode, the camera picture is read inside your browser and is never sent anywhere.
+      </p>
+
       <h2>Apple Health</h2>
       <p>
         If you turn it on, the app writes the meals you log (calories, protein, carbs, fat and other published
@@ -101,6 +108,7 @@ export default function Privacy() {
         <li>Vercel hosts this website and the service that receives your messages.</li>
         <li>TelemetryDeck receives the iPhone app&apos;s anonymous usage statistics.</li>
         <li>Apple processes App Store purchases, Apple Maps searches and Apple Health storage for the iPhone app.</li>
+        <li>Open Food Facts serves the product photos on the Groceries screen.</li>
         <li>postcodes.io looks up the postcode or town you type on the web app&apos;s Nearby screen, and OpenFreeMap serves the map tiles there.</li>
       </ul>
       <p>We don&apos;t sell or share your data, show ads, or track you across other apps and websites.</p>

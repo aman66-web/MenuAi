@@ -1,4 +1,4 @@
-# Groceries: Sainsbury's, Tesco, Asda, Lidl, Aldi (plan and what is possible)
+# Groceries: Sainsbury's, Tesco, Asda, Waitrose, Lidl, Aldi (plan and what is possible)
 
 Founder's request (2026-10-07): add supermarket groceries to the app, as well as restaurants: for each product the image, macros,
 price, allergens and, if possible, the barcode number, so people can shop with it, and so recipes can later be generated from the

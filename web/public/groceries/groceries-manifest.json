@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "generatedOn": "2026-10-07",
+ "source": "Open Food Facts contributors (ODbL); photos CC BY-SA",
+ "retailers": [
+  {
+   "id": "tesco",
+   "name": "Tesco",
+   "file": "tesco.json",
+   "count": 892,
+   "sha256": "7c2aefcbd98c8a5592d8750b3cbfb677a322f674d79cfa062a9404f44c3345d6"
+  },
+  {
+   "id": "sainsburys",
+   "name": "Sainsbury's",
+   "file": "sainsburys.json",
+   "count": 0,
+   "sha256": "f06cc651797d09bcbaf83f99fdedbfc4813421c0cc88164596ef965089fbdb93"
+  },
+  {
+   "id": "asda",
+   "name": "Asda",
+   "file": "asda.json",
+   "count": 0,
+   "sha256": "64a7ea665531950ec4f4d67ae20bf2a1f55dfe18fb3968a6c098987e542c479f"
+  },
+  {
+   "id": "waitrose",
+   "name": "Waitrose",
+   "file": "waitrose.json",
+   "count": 0,
+   "sha256": "fabbddcf8d36edc00a4aac3fac5875b7f694be77430576c757b2258edd7c7b09"
+  },
+  {
+   "id": "lidl",
+   "name": "Lidl",
+   "file": "lidl.json",
+   "count": 0,
+   "sha256": "5faaaf510a49044c25eaec373dd3656ca0be5e08d70560901fea9989a953b92a"
+  },
+  {
+   "id": "aldi",
+   "name": "Aldi",
+   "file": "aldi.json",
+   "count": 0,
+   "sha256": "f0aaf02015b129397650691a8f75c266cba1273f4c86c4fc75482b8b0e64cbaf"
+  }
+ ],
+ "categories": [
+  {
+   "id": "dairy-eggs",
+   "label": "Dairy and eggs"
+  },
+  {
+   "id": "meat",
+   "label": "Meat"
+  },
+  {
+   "id": "fish",
+   "label": "Fish and seafood"
+  },
+  {
+   "id": "bakery",
+   "label": "Bakery"
+  },
+  {
+   "id": "breakfast",
+   "label": "Breakfast"
+  },
+  {
+   "id": "fruit-veg",
+   "label": "Fruit and veg"
+  },
+  {
+   "id": "snacks-sweets",
+   "label": "Snacks and sweets"
+  },
+  {
+   "id": "drinks",
+   "label": "Drinks"
+  },
+  {
+   "id": "ready-meals",
+   "label": "Ready meals"
+  },
+  {
+   "id": "cupboard",
+   "label": "Cupboard"
+  },
+  {
+   "id": "frozen",
+   "label": "Frozen"
+  },
+  {
+   "id": "other",
+   "label": "Other"
+  }
+ ]
+}

@@ -1,3 +1,4 @@
+import { sanitizeShoppingList, type ShoppingItem } from "./groceries";
 import { createStore, requestPersistentStorage } from "./persist";
 import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
 import { indexedDbPhotos } from "./photo-store";
@@ -14,6 +15,8 @@ export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { s
 export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitize: sanitizeSavedOrders });
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });
 export const outboxStore = createStore<OutboxItem[]>("mm.v1.outbox", [], { sanitize: sanitizeOutbox });
+/** Groceries the user wants to buy (barcode, retailer, name, quantity). On this device only. */
+export const shoppingStore = createStore<ShoppingItem[]>("mm.v1.shopping", [], { sanitize: sanitizeShoppingList });
 
 export function newId(): string {
   return typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
