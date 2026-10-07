@@ -13,18 +13,18 @@ Fetched 2026-10-07 (see tools/branches/fetch_osm_branches.py). Review any count 
 | baskin-robbins | 14 |  |
 | be-at-one | 32 |  |
 | bella-italia | 75 |  |
-| birds-bakery | 0 |  FAILED this run (Overpass kept refusing; try again later (never loop faster).); rerun to retry |
+| birds-bakery | 7 | only places whose OSM website is birdsbakery.com (the name 'Birds' alone is ambiguous) |
 | browns | 32 |  |
 | burger-king | 563 |  |
 | cafe-rouge | 10 |  |
-| caffe-nero | 593 |  FAILED this run (Overpass kept refusing; try again later (never loop faster).); rerun to retry |
+| caffe-nero | 593 |  |
 | carluccios | 29 |  |
 | chilango | 5 |  |
 | chipotle | 20 |  |
 | chiquito | 19 |  |
 | chopstix | 98 |  |
 | coco-di-mama | 17 |  |
-| coffee-1 | 2 |  FAILED this run (Overpass kept refusing; try again later (never loop faster).); rerun to retry |
+| coffee-1 | 121 |  |
 | cooplands | 146 |  |
 | cote-brasserie | 72 |  |
 | ember-inns | 147 |  |
@@ -55,7 +55,7 @@ Fetched 2026-10-07 (see tools/branches/fetch_osm_branches.py). Review any count 
 | pizza-hut | 410 |  |
 | pizza-union | 5 |  |
 | popeyes | 99 |  |
-| premier-inn | 839 | hotel locations (the menu data is for the restaurants at its hotels) |
+| premier-inn | 839 |  |
 | pret | 442 |  |
 | prezzo | 112 |  |
 | puccinos | 28 |  |

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261007073857,
- "generatedAt": "2026-10-07T07:38:57Z",
+ "dataVersion": 20261007074528,
+ "generatedAt": "2026-10-07T07:45:28Z",
  "chains": [
   {
    "id": "abokado",
@@ -283,8 +283,8 @@
    "name": "Fat Hippo",
    "cuisine": "Burgers",
    "file": "chain-fat-hippo.json",
-   "sha256": "720e9789e74100267392c4322e2bdf735f910e6ca67888fa276030faa9869263",
-   "contentHash": "61d8faaf1c4130305038d17553767dc425420815eefecf5ce3c0e63c40d05ab7",
+   "sha256": "e054f687e4fa280b488d64dc979ef623772acb8abe49e39be40d2210d2f4a737",
+   "contentHash": "e10f1e480da1d6fdf204115e14fa729298e49e7ed37e0008791f18c0ca40f5b5",
    "sample": false,
    "itemCount": 102,
    "checkedOn": "2026-10-06"
@@ -492,8 +492,8 @@
    "name": "Pepe's Piri Piri",
    "cuisine": "Chicken",
    "file": "chain-pepes-piri-piri.json",
-   "sha256": "f53c1a5b1e1462b27c824e23e65953a599b2a358a30aa8b388cd19a436b08601",
-   "contentHash": "d24a3a634d8c5502eb41f974c3e076ac8c10dc27870feaef4e4497f32083f276",
+   "sha256": "3d0557317aa86d2bedaf0d28df3ab4f9450f7bdc298684acce7f210e4a08ed5e",
+   "contentHash": "2b6f079d6a996e4fc3a7d66df643231104534946a9bcd3079f04cefc37899598",
    "sample": false,
    "itemCount": 109,
    "checkedOn": "2026-10-06"

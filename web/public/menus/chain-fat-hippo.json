@@ -65,7 +65,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/8befe267fad7.webp"
   },
   {
    "id": "cheeseballs",
@@ -88,7 +89,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/1d1c33d50819.webp"
   },
   {
    "id": "freddies-fingers-buffalo",
@@ -109,7 +111,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/8dec0df81707.webp"
   },
   {
    "id": "freddies-fingers-crack",
@@ -130,7 +133,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/5a75f1d88360.webp"
   },
   {
    "id": "freddies-fingers-white-rabbit",
@@ -151,7 +155,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/6b511c2b1c2a.webp"
   },
   {
    "id": "plain-ayli-beef",
@@ -174,7 +179,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/cf2c57ef3b32.webp"
   },
   {
    "id": "big-poppa",
@@ -197,7 +203,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/0e03b0db80f0.webp"
   },
   {
    "id": "american",
@@ -220,7 +227,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/78c10813cb43.webp"
   },
   {
    "id": "wild-bill",
@@ -244,7 +252,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/be8cc799e7ff.webp"
   },
   {
    "id": "uncle-phil",
@@ -267,7 +276,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/7ec9d5d8a4ec.webp"
   },
   {
    "id": "fat-hippo",
@@ -291,7 +301,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/690adcb465bf.webp"
   },
   {
    "id": "born-slippy",
@@ -315,7 +326,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/58aeea8f1426.webp"
   },
   {
    "id": "plain-ayli-chicken",
@@ -336,7 +348,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/e8424e1908de.webp"
   },
   {
    "id": "triple-g",
@@ -357,7 +370,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/cee6dab1c7e9.webp"
   },
   {
    "id": "white-rabbit",
@@ -378,7 +392,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/cc4c531f02be.webp"
   },
   {
    "id": "hangover-iii",
@@ -401,7 +416,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/0f04cb7f8629.webp"
   },
   {
    "id": "bruce-almighty",
@@ -422,7 +438,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/fcaceb2ef334.webp"
   },
   {
    "id": "harlem-fake",
@@ -445,7 +462,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/0ea713e2e69e.webp"
   },
   {
    "id": "notorious-vfc-2-0",
@@ -468,7 +486,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/f220e600332b.webp"
   },
   {
    "id": "hand-cut-fries-upgrade",
@@ -491,7 +510,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/ffc4bfbfe2a8.webp"
   },
   {
    "id": "tater-tots-upgrade",
@@ -514,7 +534,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/074074c3baac.webp"
   },
   {
    "id": "superfries-me-upgrade",
@@ -537,7 +558,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/9e93736e7ae4.webp"
   },
   {
    "id": "dirty-hand-cut-fries-upgrade",
@@ -560,7 +582,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/e94db08c9833.webp"
   },
   {
    "id": "vegan-dirty-hand-cut-fries-upgrade",
@@ -583,7 +606,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/e94db08c9833.webp"
   },
   {
    "id": "dirty-tater-tots-upgrade",
@@ -606,7 +630,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/823b2a68e556.webp"
   },
   {
    "id": "vegan-dirty-tots-upgrade",
@@ -629,7 +654,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/823b2a68e556.webp"
   },
   {
    "id": "5oz-beef-patty-upgrade",
@@ -825,7 +851,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/ffc4bfbfe2a8.webp"
   },
   {
    "id": "tater-tots",
@@ -846,7 +873,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/074074c3baac.webp"
   },
   {
    "id": "purple-slaw-side",
@@ -867,7 +895,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/faeec3cd7772.webp"
   },
   {
    "id": "dirty-handcut-fries",
@@ -890,7 +919,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/e94db08c9833.webp"
   },
   {
    "id": "dirty-tots",
@@ -913,7 +943,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/823b2a68e556.webp"
   },
   {
    "id": "vegan-dirty-tots",
@@ -936,7 +967,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/823b2a68e556.webp"
   },
   {
    "id": "3x-onion-rings",
@@ -957,7 +989,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/92b0f7f09fb6.webp"
   },
   {
    "id": "5x-onion-rings",
@@ -1156,7 +1189,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/d305461ae90f.webp"
   },
   {
    "id": "gimme-smore",
@@ -1177,7 +1211,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/b84618b894f7.webp"
   },
   {
    "id": "big-poppa-special-menu",
@@ -1201,7 +1236,8 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/8e77924b7efe.webp"
   },
   {
    "id": "hypnotize-fries-special-menu",
@@ -1224,7 +1260,8 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/ab24b00a992e.webp"
   },
   {
    "id": "kids-beef-burger",
@@ -1247,7 +1284,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/fb3445fd75b6.webp"
   },
   {
    "id": "kids-chicken-burger",
@@ -1268,7 +1306,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/8a45723cc55a.webp"
   },
   {
    "id": "kids-vfc-burger",
@@ -1291,7 +1330,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/e1bb394995b8.webp"
   },
   {
    "id": "kids-vegan-burger",
@@ -1314,7 +1354,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/94d36b52a064.webp"
   },
   {
    "id": "kids-chicken-fingers",
@@ -1335,7 +1376,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/abd0d0f09156.webp"
   },
   {
    "id": "bacon-kids-burger-topping",
@@ -1517,7 +1559,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/ffc4bfbfe2a8.webp"
   },
   {
    "id": "kids-tater-tots",
@@ -1540,7 +1583,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/074074c3baac.webp"
   },
   {
    "id": "kids-orange-cordial",
@@ -1678,7 +1722,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/2f22e1a8313e.webp"
   },
   {
    "id": "vanilla-oreo-cookie-crunch-milkshake-kids-upgrade",
@@ -1701,7 +1746,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/f8a306041801.webp"
   },
   {
    "id": "espresso-shortini",
@@ -1722,7 +1768,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/37b99f9f6c93.webp"
   },
   {
    "id": "homer-shot",
@@ -1743,7 +1790,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/c8db537c87e7.webp"
   },
   {
    "id": "baby-shaft-shot",
@@ -1764,7 +1812,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/9996e2d8e357.webp"
   },
   {
    "id": "hugo-spritz",
@@ -1785,7 +1834,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/908a3d6ce1a0.webp"
   },
   {
    "id": "pb-jack-hard-shake",
@@ -1808,7 +1858,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/a6a3523d02f8.webp"
   },
   {
    "id": "milky-bar-hard-shake",
@@ -1831,7 +1882,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/b0c35da41134.webp"
   },
   {
    "id": "the-irish-one-hard-shake",
@@ -1854,7 +1906,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/070dcf44dfca.webp"
   },
   {
    "id": "butterbeer-hard-shake",
@@ -1877,7 +1930,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/66e926e1a8d3.webp"
   },
   {
    "id": "mars-attack",
@@ -1900,7 +1954,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/07a843a465cd.webp"
   },
   {
    "id": "meet-joe-crack",
@@ -1923,7 +1978,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/c756bd21c25a.webp"
   },
   {
    "id": "love-me-blender",
@@ -1946,7 +2002,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/f58324cf13ea.webp"
   },
   {
    "id": "wellaye-dubai",
@@ -1967,7 +2024,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/cdea0ad557ae.webp"
   },
   {
    "id": "biscoffy",
@@ -1988,7 +2046,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/0af769d846e9.webp"
   },
   {
    "id": "draught-pint-pepsi",
@@ -2218,7 +2277,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/5c51a5df215c.webp"
   },
   {
    "id": "diet-coke",
@@ -2241,7 +2301,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/978c079f92a9.webp"
   },
   {
    "id": "sprite-zero",
@@ -2264,7 +2325,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/b9b4b98568e1.webp"
   },
   {
    "id": "lemon-san-pellegrino",
@@ -2287,7 +2349,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/2745da95d650.webp"
   },
   {
    "id": "blood-orange-san-pellegrino",
@@ -2310,7 +2373,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/e5b65a152076.webp"
   },
   {
    "id": "orange-pomegranate-san-pellegrino",
@@ -2333,7 +2397,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "fat-hippo/fa1ea4a2a17c.webp"
   }
  ],
  "combinations": []
