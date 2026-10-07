@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { barcodeQuery, formatPrice, imageUrl, perLabel, RETAILERS, retailerName, type GroceryFile, type ListedProduct, mergeProducts } from "@/lib/mm/groceries";
+import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, imageUrl, mergeProducts, perLabel, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import type { Allergens } from "@/lib/mm/types";
 import { addToList } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { AllergenTable } from "../../_components/Allergens";
-import { ChevronLeftIcon, CopyIcon, ExternalIcon, InfoIcon } from "../../_components/icons";
+import { ChevronLeftIcon, CopyIcon, InfoIcon } from "../../_components/icons";
 import { Button, ErrorBox, Spinner } from "../../_components/ui";
 import { loadManifest, loadRetailer } from "../../_lib/groceries";
 
@@ -27,7 +27,7 @@ const SEARCH_LINKS: Record<string, (code: string) => string> = {
   ocado: (c) => `https://www.ocado.com/search?entry=${c}`,
 };
 
-type State = { status: "loading" } | { status: "missing" } | { status: "error" } | { status: "ready"; product: ListedProduct };
+type State = { status: "loading" } | { status: "missing" } | { status: "error" } | { status: "ready"; product: ListedProduct; all: ListedProduct[] };
 
 export function ProductScreen({ code, retailerHint }: { code: string; retailerHint: string | null }) {
   const wanted = barcodeQuery(code);
@@ -47,8 +47,9 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
           files.push(await loadRetailer(id));
           // keep going: the same barcode may be sold by other retailers, which we list too
         }
-        const found = mergeProducts(files).find((p) => p.gtin.replace(/^0+/, "") === wanted);
-        if (!cancelled) setState(found ? { status: "ready", product: found } : { status: "missing" });
+        const all = mergeProducts(files);
+        const found = all.find((p) => p.gtin.replace(/^0+/, "") === wanted);
+        if (!cancelled) setState(found ? { status: "ready", product: found, all } : { status: "missing" });
       } catch {
         if (!cancelled) setState({ status: "error" });
       }
@@ -61,10 +62,21 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message="Couldn't load this product. Check your connection." /></div></div>);
   if (state.status === "missing") return (<div>{back}<div className="mt-4"><ErrorBox message="That barcode isn't in our list yet." /></div></div>);
 
-  const p = state.product;
+  const listed = state.product;
+  // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
+  const selected = retailerHint && listed.retailers.includes(retailerHint) ? retailerHint : listed.retailers[0]!;
+  const p = forRetailer(listed, selected);
   const photo = imageUrl(p.image, 400);
   const per = perLabel(p);
-  const priceEntries = Object.entries(p.prices);
+  const sizes = sizeVariants(state.all, listed);
+  const rating = priceRating(state.all, listed, selected);
+  const cheapest = cheapestRetailer(listed);
+  const pricedCount = Object.keys(listed.prices).length;
+  const here = listed.prices[selected];
+  const otherShops = listed.retailers
+    .filter((r) => r !== selected)
+    .sort((a, b) => (listed.prices[a]?.amount ?? Number.POSITIVE_INFINITY) - (listed.prices[b]?.amount ?? Number.POSITIVE_INFINITY));
+  const typeLabel = (listed.type ?? "").replace(/-/g, " ");
   const allergens: Allergens | null = p.allergens ? { contains: p.allergens.contains, mayContain: p.allergens.mayContain } : null;
   const rows: Array<[string, string]> = [
     ...(p.kj !== undefined ? [["Energy", `${p.kj.toLocaleString("en-GB")} kJ`] as [string, string]] : []),
@@ -119,30 +131,126 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         </dl>
       )}
 
-      <section aria-labelledby="price-heading" className="glass mt-3 rounded-3xl p-5">
-        <h2 id="price-heading" className="text-lg font-bold tracking-tight">Price</h2>
-        {priceEntries.length > 0 ? (
-          <ul className="mt-2 space-y-3">
-            {priceEntries.map(([r, price]) => (
-              <li key={r}>
-                <p className="app-numbers"><span className="text-2xl font-extrabold">{formatPrice(price.amount)}</span> <span className="text-muted">at {retailerName(r)}{price.perUnit ? ` · ${formatPrice(price.perUnit.amount)} ${price.perUnit.unit}` : ""}</span></p>
-                <p className="text-xs text-muted">From <a className="underline underline-offset-2" href={price.url} target="_blank" rel="noopener noreferrer">{retailerName(r)}&apos;s website<span className="sr-only"> (opens in a new tab)</span></a>, checked {formatDate(price.checkedOn)}. Prices and offers vary by store and by loyalty card.</p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="mt-1 text-sm text-muted">We haven&apos;t read a price for this product yet. Check the supermarket&apos;s own page:</p>
-        )}
-        <ul className="mt-3 flex flex-wrap gap-2">
-          {p.retailers.map((r) => (
-            <li key={r}>
-              <a href={SEARCH_LINKS[r]?.(p.gtin) ?? "#"} target="_blank" rel="noopener noreferrer" className="glass inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-sm font-semibold text-accent">
-                {retailerName(r)} <ExternalIcon className="h-4 w-4" /><span className="sr-only">: search for this barcode (opens in a new tab)</span>
-              </a>
-            </li>
+      {p.other && (
+        <section aria-labelledby="more-label-heading" className="glass mt-3 rounded-3xl p-5">
+          <h2 id="more-label-heading" className="text-lg font-bold tracking-tight">More from the label</h2>
+          <dl className="app-numbers mt-2 divide-y divide-line">
+            {p.other.split(";").map((x) => x.trim()).filter(Boolean).map((x) => {
+              const i = x.indexOf(":");
+              return (
+                <div key={x} className="flex min-h-11 items-center justify-between gap-4 py-1.5 text-sm">
+                  <dt>{i > 0 ? x.slice(0, i).trim() : x}</dt>
+                  {i > 0 && <dd className="font-semibold">{x.slice(i + 1).trim()}</dd>}
+                </div>
+              );
+            })}
+          </dl>
+        </section>
+      )}
+
+      {p.portion && (
+        <section aria-labelledby="portion-heading" className="glass mt-3 rounded-3xl p-5">
+          <h2 id="portion-heading" className="text-lg font-bold tracking-tight">Per portion</h2>
+          <p className="app-numbers mt-1 text-sm">{p.portion}</p>
+        </section>
+      )}
+
+      <p className="mt-2 px-1 text-xs text-muted">
+        {p.source === "retailer"
+          ? <>Numbers from <a className="underline underline-offset-2" href={p.pageUrl} target="_blank" rel="noopener noreferrer">{retailerName(selected)}&apos;s own product page<span className="sr-only"> (opens in a new tab)</span></a>{p.checkedOn ? `, checked ${formatDate(p.checkedOn)}` : ""}.</>
+          : <>Numbers from Open Food Facts contributors (community data), not the supermarket.</>}
+      </p>
+
+      {p.ingredients && (
+        <section aria-labelledby="ingredients-heading" className="glass mt-3 rounded-3xl p-5">
+          <h2 id="ingredients-heading" className="text-lg font-bold tracking-tight">Ingredients</h2>
+          <p className="mt-1 text-sm leading-relaxed">{p.ingredients}</p>
+          <p className="mt-2 text-xs text-muted">As printed on {retailerName(selected)}&apos;s website{p.checkedOn ? `, checked ${formatDate(p.checkedOn)}` : ""}. Recipes change, so check the pack.</p>
+        </section>
+      )}
+
+      {listed.retailers.length > 1 && (
+        <nav aria-label="Supermarket" className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
+          {listed.retailers.map((r) => (
+            <Link key={r} href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} aria-current={r === selected ? "page" : undefined}
+              className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border px-4 text-sm font-semibold transition active:scale-[0.97] ${r === selected ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft hover:bg-soft-strong"}`}>
+              {retailerName(r)}
+            </Link>
           ))}
-        </ul>
+        </nav>
+      )}
+
+      {sizes.length > 1 && (
+        <section aria-labelledby="sizes-heading" className="mt-3">
+          <h2 id="sizes-heading" className="text-xs font-bold uppercase tracking-[0.14em] text-muted">Other sizes</h2>
+          <div className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
+            {sizes.map((v) => (
+              <Link key={v.gtin} href={`/app/groceries/product?code=${v.gtin}${v.retailers.includes(selected) ? `&r=${selected}` : ""}`} replace prefetch={false} aria-current={v.gtin === listed.gtin ? "page" : undefined}
+                className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border px-4 text-sm font-semibold transition active:scale-[0.97] ${v.gtin === listed.gtin ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft hover:bg-soft-strong"}`}>
+                {forRetailer(v, selected).size || "Size not stated"}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section aria-labelledby="price-heading" className="glass mt-3 rounded-3xl p-5">
+        <h2 id="price-heading" className="text-lg font-bold tracking-tight">Price at {retailerName(selected)}</h2>
+        {here ? (
+          <div className="mt-2">
+            <p className="app-numbers"><span className="text-3xl font-extrabold">{formatPrice(here.amount)}</span> {here.perUnit && <span className="text-muted">{formatPrice(here.perUnit.amount)} {here.perUnit.unit}</span>}</p>
+            {pricedCount > 1 && cheapest === selected && <p className="mt-1 inline-flex rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">Lowest price of the supermarkets we&apos;ve checked</p>}
+            <p className="mt-1 text-xs text-muted">From <a className="underline underline-offset-2" href={here.url} target="_blank" rel="noopener noreferrer">{retailerName(selected)}&apos;s website<span className="sr-only"> (opens in a new tab)</span></a>, checked {formatDate(here.checkedOn)}. Prices and offers vary by store and by loyalty card.</p>
+          </div>
+        ) : (
+          <p className="mt-1 text-sm text-muted">We haven&apos;t read a price at {retailerName(selected)} yet. <a className="font-semibold text-accent underline underline-offset-2" href={SEARCH_LINKS[selected]?.(listed.gtin) ?? "#"} target="_blank" rel="noopener noreferrer">Check it on their site<span className="sr-only"> (opens in a new tab)</span></a></p>
+        )}
+        {otherShops.length > 0 && (
+          <div className="mt-4 border-t border-line pt-3">
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-muted">At other supermarkets</h3>
+            <ul className="mt-2 divide-y divide-line">
+              {otherShops.map((r) => {
+                const price = listed.prices[r];
+                const diff = price && here ? price.amount - here.amount : null;
+                return (
+                  <li key={r} className="flex min-h-12 items-center justify-between gap-3 py-2">
+                    <span className="min-w-0">
+                      <Link href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} className="font-semibold underline-offset-2 hover:underline">{retailerName(r)}</Link>
+                      {price && cheapest === r && pricedCount > 1 && <span className="ml-2 rounded-full bg-accent-soft px-2 py-0.5 text-xs font-bold text-accent">Lowest</span>}
+                      <span className="block text-xs text-muted">{price ? `checked ${formatDate(price.checkedOn)}` : "price not read yet"}</span>
+                    </span>
+                    <span className="app-numbers shrink-0 text-right">
+                      {price ? (
+                        <>
+                          <a className="font-bold underline underline-offset-2" href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<span className="sr-only"> at {retailerName(r)} (opens in a new tab)</span></a>
+                          {diff !== null && diff !== 0 && <span className="block text-xs text-muted">{formatPrice(Math.abs(diff))} {diff < 0 ? "cheaper" : "more"}</span>}
+                          {diff === 0 && <span className="block text-xs text-muted">same price</span>}
+                        </>
+                      ) : (
+                        <a className="text-sm font-semibold text-accent underline underline-offset-2" href={SEARCH_LINKS[r]?.(listed.gtin) ?? "#"} target="_blank" rel="noopener noreferrer">Check<span className="sr-only"> at {retailerName(r)} (opens in a new tab)</span></a>
+                      )}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </section>
+
+      {rating && (
+        <section aria-labelledby="rating-heading" className="glass mt-3 rounded-3xl p-5">
+          <h2 id="rating-heading" className="text-lg font-bold tracking-tight">Price check</h2>
+          <p className="mt-1 text-base font-semibold">
+            {rating.band === "lower" ? "Lower price than most similar products" : rating.band === "middle" ? "Around the middle for price" : "Higher price than most similar products"}
+          </p>
+          <p className="app-numbers mt-1 text-sm text-muted">
+            Costs less per {rating.unit === "kg" ? "kg" : "litre"} than {rating.cheaperThanPct}% of {rating.n} similar products. {formatPrice(rating.mine)} per {rating.unit === "kg" ? "kg" : "litre"} here; the middle is {formatPrice(rating.median)}.
+          </p>
+          {rating.proteinPerPound > 0 && <p className="app-numbers mt-1 text-sm text-muted">{rating.proteinPerPound}g of protein for every £1.</p>}
+          <p className="mt-2 text-xs text-muted">Compared with other {typeLabel || "similar"} products we have prices for, using the lowest price we&apos;ve read for each. This is about price only.</p>
+        </section>
+      )}
 
       <section aria-labelledby="allergens-heading" className="glass mt-3 overflow-hidden rounded-3xl">
         <div className="px-5 pt-5">
@@ -155,6 +263,11 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
                 : `Contains ${containsCount} of the 14 main allergens.`}
           </p>
         </div>
+        {p.advice && (
+          <p className="mx-5 mt-3 rounded-2xl bg-accent-soft px-4 py-3 text-sm">
+            <span className="font-bold">{retailerName(selected)}&apos;s allergy advice: </span>{p.advice}
+          </p>
+        )}
         {allergens && <AllergenTable allergens={allergens} caption={`Allergens in ${p.name}, from Open Food Facts contributors`} columnLabel="This product" />}
         <p className="flex gap-2 border-t border-line px-5 py-4 text-xs text-muted">
           <InfoIcon className="mt-px h-4 w-4 shrink-0 text-accent" />
@@ -174,7 +287,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Add to your shopping list</p>
         <div className="flex flex-wrap gap-2">
           {p.retailers.map((r) => (
-            <Button key={r} onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: p.gtin, retailer: r, name: p.name, brand: p.brand, size: p.size })); setAdded(`Added to your list for ${retailerName(r)}.`); }}>
+            <Button key={r} onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size })); setAdded(`Added to your list for ${retailerName(r)}.`); }}>
               Add · {retailerName(r)}
             </Button>
           ))}

@@ -48,8 +48,24 @@ export interface GroceryProduct {
   allergens: { contains: AllergenKey[]; mayContain: AllergenKey[] } | null;
   image?: string;
   category: string;
+  /** The database's most specific category ("semi-skimmed-milks"): what "similar products" means for the price rating. */
+  type?: string;
   updated?: string;
   price?: GroceryPrice;
+  // Read from the supermarket's own product page (docs/GROCERIES_PLAN.md), copied as printed; present only where that was done.
+  ingredients?: string;
+  /** The shop's own allergy wording ("may contain nuts"). */
+  advice?: string;
+  /** Every other row of the shop's nutrition table, "Label: value; Label: value". */
+  other?: string;
+  /** The per-portion column as printed, "Label: value; ...". */
+  portion?: string;
+  /** The numbers above are the shop's own (not Open Food Facts'). */
+  source?: "retailer";
+  inStock?: boolean;
+  /** The product page those details came from, and when. */
+  pageUrl?: string;
+  checkedOn?: string;
 }
 
 export interface GroceryFile {
@@ -73,6 +89,8 @@ export interface GroceryManifest {
 export interface ListedProduct extends GroceryProduct {
   retailers: string[];
   prices: Record<string, GroceryPrice>;
+  /** Each supermarket's own record of the product (its exact name, size, numbers and details). */
+  byRetailer: Record<string, GroceryProduct>;
 }
 
 export function isGroceryFile(x: unknown): x is GroceryFile {
@@ -80,21 +98,30 @@ export function isGroceryFile(x: unknown): x is GroceryFile {
   return !!f && f.v === 1 && typeof f.retailer === "string" && Array.isArray(f.products);
 }
 
-/** Merge per-retailer files into one list by barcode (first file's details win; every retailer and price is kept). */
+/** Merge per-retailer files into one list by barcode (first file's details are the default; every retailer's own record and price is kept). */
 export function mergeProducts(files: readonly GroceryFile[]): ListedProduct[] {
   const byCode = new Map<string, ListedProduct>();
   for (const f of files) {
     for (const p of f.products) {
       const existing = byCode.get(p.gtin);
-      if (!existing) byCode.set(p.gtin, { ...p, retailers: [f.retailer], prices: p.price ? { [f.retailer]: p.price } : {} });
+      if (!existing) byCode.set(p.gtin, { ...p, retailers: [f.retailer], prices: p.price ? { [f.retailer]: p.price } : {}, byRetailer: { [f.retailer]: p } });
       else {
         if (!existing.retailers.includes(f.retailer)) existing.retailers.push(f.retailer);
         if (p.price) existing.prices[f.retailer] = p.price;
+        existing.byRetailer[f.retailer] = p;
         if (!existing.image && p.image) existing.image = p.image;
+        if (!existing.type && p.type) existing.type = p.type;
       }
     }
   }
   return [...byCode.values()];
+}
+
+/** The product as one supermarket lists it (its own name, size, numbers and details); the shared prices and retailers are kept. */
+export function forRetailer(p: ListedProduct, retailer: string | null | undefined): ListedProduct {
+  const own = retailer ? p.byRetailer[retailer] : undefined;
+  if (!own) return p;
+  return { ...p, ...own, image: own.image ?? p.image, type: own.type ?? p.type, retailers: p.retailers, prices: p.prices, byRetailer: p.byRetailer };
 }
 
 const IMAGE_HOST = "https://images.openfoodfacts.org/images/products/";
@@ -134,7 +161,8 @@ const haystack = new WeakMap<object, string>();
 const hay = (p: GroceryProduct) => {
   let h = haystack.get(p);
   if (h === undefined) {
-    h = ` ${normalizeForSearch(`${p.name} ${p.brand}`)}`;
+    const names = "byRetailer" in p ? Object.values((p as ListedProduct).byRetailer).map((x) => x.name).join(" ") : "";
+    h = ` ${normalizeForSearch(`${p.name} ${names} ${p.brand}`)}`;
     haystack.set(p, h);
   }
   return h;
@@ -171,6 +199,116 @@ export const perLabel = (p: Pick<GroceryProduct, "per">): string => `per 100 ${p
 export function productLine(p: Pick<GroceryProduct, "kcal" | "protein" | "carbs" | "fat">): string {
   const g = (v: number) => `${v >= 10 ? Math.round(v) : Math.round(v * 10) / 10}g`;
   return `${Math.round(p.kcal)} kcal · ${g(p.protein)} protein · ${g(p.carbs)} carbs · ${g(p.fat)} fat`;
+}
+
+// ---------------------------------------------------------------- sizes, unit prices and the price rating
+
+/** A pack size in grams or millilitres: "400g", "1.5 kg", "2 L", "4 x 125g", "6 x 330ml". null when it isn't a weight or a volume ("6 pack"). */
+export function sizeAmount(size: string): { amount: number; unit: "g" | "ml" } | null {
+  const m = /(?:(\d+(?:\.\d+)?)\s*x\s*)?(\d+(?:\.\d+)?)\s*(kg|g|ml|cl|l|ltr|litres?|liters?)\b/i.exec(size.replace(/,/g, ""));
+  if (!m) return null;
+  const count = m[1] ? Number(m[1]) : 1;
+  const n = Number(m[2]) * count;
+  const u = m[3].toLowerCase();
+  if (!Number.isFinite(n) || n <= 0) return null;
+  if (u === "kg") return { amount: n * 1000, unit: "g" };
+  if (u === "g") return { amount: n, unit: "g" };
+  if (u === "ml") return { amount: n, unit: "ml" };
+  if (u === "cl") return { amount: n * 10, unit: "ml" };
+  return { amount: n * 1000, unit: "ml" };
+}
+
+const SIZE_TOKENS = /\b\d+(?:\.\d+)?\s*(?:x\s*\d+(?:\.\d+)?\s*)?(?:kg|g|ml|cl|l|ltr|litres?|liters?|pack|pk|pints?|oz)\b/gi;
+
+/** Same product in different sizes shares this key: brand and name with the size words and a leading count ("6 Crumpets") taken out. */
+export function familyKey(p: Pick<GroceryProduct, "brand" | "name">): string {
+  const name = p.name.toLowerCase().replace(SIZE_TOKENS, " ").replace(/^\s*\d+\s+(?=[a-z])/, "");
+  return normalizeForSearch(`${p.brand} ${name}`).replace(/\s+/g, " ").trim();
+}
+
+/** The other sizes of this product (including itself), smallest first. Empty when it comes in one size only. */
+export function sizeVariants(all: readonly ListedProduct[], p: ListedProduct): ListedProduct[] {
+  const key = familyKey(p);
+  if (!key) return [];
+  const same = all.filter((x) => familyKey(x) === key);
+  if (same.length < 2) return [];
+  const amount = (x: ListedProduct) => sizeAmount(x.size)?.amount ?? Number.POSITIVE_INFINITY;
+  return same.sort((a, b) => amount(a) - amount(b) || a.gtin.localeCompare(b.gtin));
+}
+
+/** Price per kilogram or per litre, from the shop's own unit price when it gave one, otherwise from the price and the pack size. */
+export function unitPrice(price: GroceryPrice, p: Pick<GroceryProduct, "size" | "per">): { amount: number; unit: "kg" | "l" } | null {
+  const u = price.perUnit;
+  if (u && u.amount > 0 && !/dr\.?\s*wt|drain/i.test(u.unit)) {
+    const t = u.unit.toLowerCase().replace(/\s+/g, " ");
+    if (/\b(kg|kilo)/.test(t)) return { amount: u.amount, unit: "kg" };
+    if (/100\s?g\b/.test(t)) return { amount: u.amount * 10, unit: "kg" };
+    if (/100\s?ml\b/.test(t)) return { amount: u.amount * 10, unit: "l" };
+    if (/\b(litre|liter|ltr)\b|\bl\b/.test(t)) return { amount: u.amount, unit: "l" };
+  }
+  const s = sizeAmount(p.size);
+  if (!s || price.amount <= 0) return null;
+  return { amount: price.amount / (s.amount / 1000), unit: s.unit === "g" ? "kg" : "l" };
+}
+
+export interface PriceRating {
+  /** Products compared (not counting this one). */
+  n: number;
+  /** Share of the others that cost MORE per kg or litre, 0-100. */
+  cheaperThanPct: number;
+  band: "lower" | "middle" | "higher";
+  unit: "kg" | "l";
+  mine: number;
+  median: number;
+  /** Grams of protein per £1 spent (from the price per kg/litre and the protein per 100 g/ml). */
+  proteinPerPound: number;
+}
+
+export const MIN_RATING_PEERS = 5;
+
+/**
+ * Where this product's price per kg/litre sits among similar products (same database category, same unit), using each one's cheapest
+ * price. About PRICE only: it says nothing about whether a food is good or bad for anyone. null until at least MIN_RATING_PEERS others
+ * have a price.
+ */
+export function priceRating(all: readonly ListedProduct[], p: ListedProduct, retailer?: string | null): PriceRating | null {
+  if (!p.type) return null;
+  const best = (x: ListedProduct): { amount: number; unit: "kg" | "l" } | null => {
+    let out: { amount: number; unit: "kg" | "l" } | null = null;
+    for (const [r, price] of Object.entries(x.prices)) {
+      const own = x.byRetailer[r] ?? x;
+      const up = unitPrice(price, own);
+      if (up && (!out || up.amount < out.amount)) out = up;
+    }
+    return out;
+  };
+  let mineP: { amount: number; unit: "kg" | "l" } | null = null;
+  const chosen = retailer ? p.prices[retailer] : undefined;
+  if (chosen) mineP = unitPrice(chosen, p.byRetailer[retailer as string] ?? p);
+  mineP ??= best(p);
+  if (!mineP) return null;
+  const peers: number[] = [];
+  for (const x of all) {
+    if (x.gtin === p.gtin || x.type !== p.type || familyKey(x) === familyKey(p)) continue;
+    const b = best(x);
+    if (b && b.unit === mineP.unit) peers.push(b.amount);
+  }
+  if (peers.length < MIN_RATING_PEERS) return null;
+  peers.sort((a, b) => a - b);
+  const cheaperThanPct = Math.round((peers.filter((v) => v > mineP.amount).length / peers.length) * 100);
+  const median = peers.length % 2 ? peers[(peers.length - 1) / 2] : (peers[peers.length / 2 - 1] + peers[peers.length / 2]) / 2;
+  const per100 = mineP.amount / 10;
+  return {
+    n: peers.length, cheaperThanPct, band: cheaperThanPct >= 67 ? "lower" : cheaperThanPct >= 34 ? "middle" : "higher",
+    unit: mineP.unit, mine: mineP.amount, median, proteinPerPound: per100 > 0 ? Math.round((p.protein / per100) * 10) / 10 : 0,
+  };
+}
+
+/** The retailer with the lowest shelf price for this product (null when no price is known). */
+export function cheapestRetailer(p: Pick<ListedProduct, "prices">): string | null {
+  let best: [string, number] | null = null;
+  for (const [r, price] of Object.entries(p.prices)) if (!best || price.amount < best[1]) best = [r, price.amount];
+  return best ? best[0] : null;
 }
 
 // ---------------------------------------------------------------- shopping list

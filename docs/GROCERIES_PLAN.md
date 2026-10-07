@@ -1,4 +1,6 @@
-# Groceries: Sainsbury's, Tesco, Asda, Waitrose, Lidl, Aldi (what is built, what is possible)
+# Groceries: the eleven biggest UK supermarkets (what is built, what is possible)
+
+Supermarkets: Tesco, Sainsbury's, Asda, Aldi, Morrisons, Lidl, Co-op, Waitrose, M&S, Iceland, Ocado (see docs/PROGRESS.md for the share figures).
 
 Founder's request (2026-10-07): add supermarket groceries to the app, as well as restaurants: for each product the image, macros,
 price, allergens and, if possible, the barcode number, so people can shop with it, and so recipes can later be generated from the

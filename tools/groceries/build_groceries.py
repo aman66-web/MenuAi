@@ -140,6 +140,25 @@ def image_base(p: dict):
     return None
 
 
+def implausible(kcal: float, protein: float, carbs: float, fat: float) -> str | None:
+    """Why four per-100 g numbers can't be right (None when they can): used for community data and for the shops' own pages alike."""
+    if min(kcal, protein, carbs, fat) < 0 or max(protein, carbs, fat) > 100 or protein + carbs + fat > 101 or kcal > 950:
+        return "implausible numbers"
+    est = 4 * protein + 4 * carbs + 9 * fat
+    if kcal >= 40 and abs(kcal - est) / kcal > 0.4 and abs(kcal - est) > 50:
+        return "energy doesn't match macros (check)"
+    return None
+
+
+def type_for(tags: list[str]) -> str | None:
+    """The most specific category tag ('semi-skimmed-milks'): what 'similar products' means for the price rating."""
+    for t in reversed(tags or []):
+        slug = t.split(":", 1)[-1].strip()
+        if re.fullmatch(r"[a-z0-9-]{3,60}", slug):
+            return slug
+    return None
+
+
 def convert(p: dict, reasons: dict) -> dict | None:
     def skip(why: str):
         reasons[why] = reasons.get(why, 0) + 1
@@ -155,11 +174,9 @@ def convert(p: dict, reasons: dict) -> dict | None:
     kcal, protein, carbs, fat = (num(n.get(k)) for k in ("energy-kcal_100g", "proteins_100g", "carbohydrates_100g", "fat_100g"))
     if None in (kcal, protein, carbs, fat):
         return skip("kcal, protein, carbs or fat missing")
-    if min(kcal, protein, carbs, fat) < 0 or max(protein, carbs, fat) > 100 or protein + carbs + fat > 101 or kcal > 950:
-        return skip("implausible numbers")
-    est = 4 * protein + 4 * carbs + 9 * fat
-    if kcal >= 40 and abs(kcal - est) / kcal > 0.4 and abs(kcal - est) > 50:
-        return skip("energy doesn't match macros (check)")
+    bad = implausible(kcal, protein, carbs, fat)
+    if bad:
+        return skip(bad)
     qty = " ".join((p.get("quantity") or "").split())
     per = "ml" if re.search(r"\b\d+(\.\d+)?\s*(ml|cl|l|litres?)\b", qty, re.I) else "g"
     out: dict = {"gtin": code, "name": name, "brand": tidy(" ".join((p.get("brands") or "").split())), "size": qty, "per": per,
@@ -178,6 +195,9 @@ def convert(p: dict, reasons: dict) -> dict | None:
     if img:
         out["image"] = img
     out["category"] = category_for(p.get("categories_tags") or [])
+    kind = type_for(p.get("categories_tags") or [])
+    if kind:
+        out["type"] = kind
     t = num(p.get("last_modified_t"))
     if t:
         out["updated"] = datetime.fromtimestamp(t, timezone.utc).date().isoformat()
@@ -204,6 +224,90 @@ def read_prices(retailer: str, problems: list) -> dict:
     return prices
 
 
+def printed_num(x):
+    """A number as a shop's page prints it ("365kJ", "87 kcal", "0.5g", "1,982", "<0.1g") -> float; None when it isn't one. A "<" value counts as 0:
+    the same rule as the restaurant pipeline (docs/DATA.md), so a trace is never turned into an invented figure."""
+    t = str(x or "").strip().lower().replace(",", "").replace("\u00b5", "u")
+    if not t:
+        return None
+    if t.startswith("<"):
+        return 0.0 if re.fullmatch(r"<\s*\d+(\.\d+)?\s*(kj|kcal|g|mg|ug|ml)?", t) else None
+    m = re.fullmatch(r"(\d+(?:\.\d+)?)\s*(kj|kcal|g|mg|ug|ml)?", t)
+    return float(m.group(1)) if m else None
+
+
+def clean_text(x, limit: int) -> str:
+    """Whitespace collapsed, nothing else changed (the shop's words are shown as printed); too long = left out, never cut mid-sentence."""
+    t = " ".join(str(x or "").split())
+    return t if len(t) <= limit else ""
+
+
+def read_details(retailer: str, problems: list) -> dict:
+    """data/groceries/details/<retailer>.csv: what the shop's own product page prints (copied as printed in the founder's Chrome)."""
+    path = ROOT / "data" / "groceries" / "details" / f"{retailer}.csv"
+    out: dict = {}
+    if not path.exists():
+        return out
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        for line, r in enumerate(csv.DictReader(f), start=2):
+            code = (r.get("gtin") or "").strip()
+            url, checked = (r.get("page_url") or "").strip(), (r.get("checked_on") or "").strip()
+            if not gtin_ok(code) or not url.startswith("https://") or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", checked):
+                problems.append(f"details/{path.name} line {line}: bad row (gtin, https page_url and checked_on are required)")
+                continue
+            out[code] = r
+    return out
+
+
+def apply_details(item: dict, d: dict, notes: dict) -> None:
+    """Put one product's own-page details on it. The shop's numbers replace Open Food Facts' only when they are per 100 g/ml in the same
+    unit as the listing and pass the same plausibility checks; they are never mixed with the community numbers."""
+    name = " ".join((d.get("name_on_page") or "").split())
+    if 2 <= len(name) <= 140:
+        item["name"] = name  # exactly as the website prints it
+    size = clean_text(d.get("pack_size"), 40)
+    if size:
+        item["size"] = size
+    for key, field, limit in (("ingredients", "ingredients", 2500), ("advice", "allergy_advice", 700), ("other", "other_nutrients", 1500), ("portion", "per_portion_text", 800)):
+        t = clean_text(d.get(field), limit)
+        if key == "ingredients":
+            t = re.sub(r"^ingredients\s*:\s*", "", t, flags=re.I)  # the page heading, not part of the list (the app has its own heading)
+        if t:
+            item[key] = t
+    stock = (d.get("in_stock") or "").strip().lower()
+    if stock in ("yes", "no"):
+        item["inStock"] = stock == "yes"
+    item["pageUrl"], item["checkedOn"] = d["page_url"].strip(), d["checked_on"].strip()
+    basis = " ".join((d.get("nutrition_basis") or "").lower().split()).replace("per 100 g", "per 100g").replace("per 100 ml", "per 100ml")
+    if basis != f"per 100{item['per']}":
+        if basis:
+            notes["basis"] = notes.get("basis", 0) + 1
+        return
+    kcal, protein, carbs, fat = (printed_num(d.get(k)) for k in ("energy_kcal", "protein_g", "carbs_g", "fat_g"))
+    if carbs is None:
+        # Some labels print the row as "Available Carbohydrate" (the same figure UK labels call carbohydrate): it lands in other_nutrients
+        m = re.search(r"available carbohydrates?\s*:\s*([^;]+)", d.get("other_nutrients") or "", re.I)
+        carbs = printed_num(m.group(1)) if m else None
+    if None in (kcal, protein, carbs, fat):
+        notes["incomplete"] = notes.get("incomplete", 0) + 1
+        return
+    if implausible(kcal, protein, carbs, fat):
+        notes["implausible"] = notes.get("implausible", 0) + 1
+        return
+    if item["kcal"] and abs(kcal - item["kcal"]) / max(item["kcal"], 1) > 0.2 and abs(kcal - item["kcal"]) > 15:
+        notes["differs"] = notes.get("differs", 0) + 1  # the shop's own number wins; counted so the report shows how often the community data was off
+    item.update({"kcal": r1(kcal), "protein": r1(protein), "carbs": r1(carbs), "fat": r1(fat)})
+    for key in ("saturates", "sugars", "fibre", "salt", "kj"):
+        item.pop(key, None)
+    item.pop("serving", None)
+    for key, field, dec in (("saturates", "saturates_g", r1), ("sugars", "sugars_g", r1), ("fibre", "fibre_g", r1), ("salt", "salt_g", r2), ("kj", "energy_kj", lambda v: int(round(v)))):
+        v = printed_num(d.get(field))
+        if v is not None and v >= 0:
+            item[key] = dec(v)
+    item["source"] = "retailer"
+    notes["own"] = notes.get("own", 0) + 1
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", type=Path, default=Path("/private/tmp/off-cache"))
@@ -215,6 +319,7 @@ def main() -> int:
     report = ["# Groceries build report", "", f"Built {today} from the Open Food Facts cache ({args.cache}).", "", "| retailer | products | with photo | allergens known | with price |", "|---|---|---|---|---|"]
     reasons_total: dict = {}
     problems: list = []
+    detail_notes: dict = {}
     for rid, label in RETAILERS.items():
         pages = sorted(args.cache.glob(f"{rid}-*.json"))
         seen: dict = {}
@@ -228,10 +333,15 @@ def main() -> int:
                 if item:
                     seen[code] = item
         prices = read_prices(rid, problems)
+        details = read_details(rid, problems)
         products = list(seen.values())
+        notes: dict = {}
         for it in products:
             if it["gtin"] in prices:
                 it["price"] = prices[it["gtin"]]
+            if it["gtin"] in details:
+                apply_details(it, details[it["gtin"]], notes)
+        detail_notes[rid] = (sum(1 for it in products if "pageUrl" in it), notes)
         for k, v in reasons.items():
             reasons_total[(rid, k)] = v
         doc = {"v": 1, "retailer": rid, "name": label, "generatedOn": today, "source": manifest["source"], "products": products}
@@ -242,6 +352,12 @@ def main() -> int:
         report.append(f"| {label} | {len(products)} | {sum(1 for p in products if 'image' in p)} | {sum(1 for p in products if p['allergens'] is not None)} | {sum(1 for p in products if 'price' in p)} |")
         print(f"{rid}: {len(products)} products")
     (args.out / "groceries-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
+    if any(n for n, _ in detail_notes.values()):
+        report += ["", "## Details read from the supermarkets' own pages", ""]
+        for rid, (n, notes) in detail_notes.items():
+            if n:
+                extra = {"own": "use the shop's own numbers", "differs": "of those, kcal differs from Open Food Facts by over 20%", "basis": "numbers not per 100 g/ml in our unit (kept Open Food Facts')", "incomplete": "own numbers incomplete (kept Open Food Facts')", "implausible": "own numbers failed the checks (kept Open Food Facts')"}
+                report.append(f"- {RETAILERS[rid]}: {n} products with details; " + "; ".join(f"{notes[k]} {v}" for k, v in extra.items() if notes.get(k)))
     report += ["", "## Left out (and why)", ""] + [f"- {rid}: {why}: {n}" for (rid, why), n in sorted(reasons_total.items())] + (["", "## Problems with price files", ""] + [f"- {p}" for p in problems] if problems else [])
     (ROOT / "data" / "groceries" / "REPORT.md").write_text("\n".join(report) + "\n")
     return 0

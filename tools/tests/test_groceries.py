@@ -123,5 +123,98 @@ class GroceryTests(unittest.TestCase):
         self.assertEqual(len(problems), 3)
 
 
+class DetailsTests(unittest.TestCase):
+    def item(self, **over):
+        item = {"gtin": "5012345678900", "name": "Greek Style Yogurt", "brand": "Mamia", "size": "500 g", "per": "g", "kcal": 97, "protein": 9, "carbs": 4.2, "fat": 5,
+                "saturates": 3.4, "sugars": 4.1, "salt": 0.1, "kj": 406, "serving": {"size": "100 g", "kcal": 97, "protein": 9, "carbs": 4.2, "fat": 5}}
+        item.update(over)
+        return item
+
+    def row(self, **over):
+        d = {"gtin": "5012345678900", "name_on_page": "Sainsbury's Mini Potatoes 750g", "pack_size": "750g", "ingredients": "Potatoes", "allergy_advice": "None",
+             "nutrition_basis": "per 100g", "energy_kj": "300kJ", "energy_kcal": "72kcal", "fat_g": "0.2g", "saturates_g": "<0.1g", "carbs_g": "15.5g", "sugars_g": "1.1g", "fibre_g": "2.0g",
+             "protein_g": "2.0g", "salt_g": "0.01g", "other_nutrients": "Starch: 14g", "per_portion_text": "Serving 175g: 126 kcal", "in_stock": "yes",
+             "page_url": "https://www.sainsburys.co.uk/gol-ui/product/x", "checked_on": "2026-10-07"}
+        d.update(over)
+        return d
+
+    def test_the_shops_exact_name_and_its_own_numbers_win(self):
+        it, notes = self.item(), {}
+        bg.apply_details(it, self.row(), notes)
+        self.assertEqual(it["name"], "Sainsbury's Mini Potatoes 750g")
+        self.assertEqual(it["size"], "750g")
+        self.assertEqual((it["kcal"], it["protein"], it["carbs"], it["fat"]), (72, 2, 15.5, 0.2))
+        self.assertEqual(it["source"], "retailer")
+        self.assertEqual(it["ingredients"], "Potatoes")
+        self.assertEqual(it["advice"], "None")
+        self.assertEqual(it["other"], "Starch: 14g")
+        self.assertEqual(it["portion"], "Serving 175g: 126 kcal")
+        self.assertTrue(it["inStock"])
+        self.assertEqual((it["pageUrl"], it["checkedOn"]), ("https://www.sainsburys.co.uk/gol-ui/product/x", "2026-10-07"))
+        self.assertNotIn("serving", it)  # the community per-serving numbers are not mixed in
+        self.assertEqual(it["kj"], 300)
+        self.assertEqual(notes["differs"], 1)  # 97 kcal in the community data vs 72 on the shop's page
+
+    def test_optional_numbers_the_shop_does_not_print_are_dropped_not_kept_from_the_community_data(self):
+        it, notes = self.item(), {}
+        bg.apply_details(it, self.row(saturates_g="", sugars_g="", salt_g="", energy_kj=""), notes)
+        for k in ("saturates", "sugars", "salt", "kj"):
+            self.assertNotIn(k, it)
+
+    def test_numbers_are_replaced_only_when_per_100_in_the_same_unit_complete_and_plausible(self):
+        for change, key in (({"nutrition_basis": "per portion only"}, None), ({"nutrition_basis": "per 100ml"}, "basis"), ({"protein_g": ""}, "incomplete"), ({"energy_kcal": "900", "fat_g": "1"}, "implausible")):
+            it, notes = self.item(), {}
+            bg.apply_details(it, self.row(**change), notes)
+            self.assertEqual(it["kcal"], 97, change)       # the community numbers stay
+            self.assertNotIn("source", it)
+            self.assertEqual(it["name"], "Sainsbury's Mini Potatoes 750g")  # but the shop's name and text still apply
+            if key:
+                self.assertEqual(notes[key], 1)
+
+    def test_text_that_is_too_long_is_left_out_not_cut(self):
+        it = self.item()
+        bg.apply_details(it, self.row(ingredients="x " * 2000), {})
+        self.assertNotIn("ingredients", it)
+
+    def test_details_rows_need_a_valid_barcode_https_page_and_date(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "data" / "groceries" / "details").mkdir(parents=True)
+            cols = ["gtin", "name_on_page", "page_url", "checked_on"]
+            rows = ["5012345678900,Good,https://x.example/a,2026-10-07", "5012345678901,Bad barcode,https://x.example/b,2026-10-07", "5012345678900,No https,http://x.example/c,2026-10-07", "5012345678900,Bad date,https://x.example/d,07/10/2026"]
+            (root / "data" / "groceries" / "details" / "tesco.csv").write_text(",".join(cols) + "\n" + "\n".join(rows) + "\n")
+            old = bg.ROOT
+            bg.ROOT = root
+            try:
+                problems: list = []
+                got = bg.read_details("tesco", problems)
+            finally:
+                bg.ROOT = old
+        self.assertEqual(list(got), ["5012345678900"])
+        self.assertEqual(len(problems), 3)
+
+    def test_available_carbohydrate_printed_in_the_other_rows_is_the_carbohydrate(self):
+        it, notes = self.item(), {}
+        bg.apply_details(it, self.row(energy_kcal="473kcal", protein_g="6.1g", fat_g="20.5g", carbs_g="", other_nutrients="Available Carbohydrate: 62.9g; * Reference intake"), notes)
+        self.assertEqual(it["carbs"], 62.9)
+        self.assertEqual(it["source"], "retailer")
+
+    def test_numbers_are_read_as_the_page_prints_them(self):
+        for raw, want in (("365kJ", 365), ("87 kcal", 87), ("0.5g", 0.5), ("1,982", 1982), ("12mg", 12), ("<0.1g", 0), ("< 0.5", 0), ("4.4", 4.4), ("", None), ("trace", None), ("n/a", None), ("12 apples", None)):
+            self.assertEqual(bg.printed_num(raw), want, raw)
+
+    def test_a_less_than_value_counts_as_zero_and_the_ingredients_heading_is_dropped(self):
+        it = self.item()
+        bg.apply_details(it, self.row(), {})
+        self.assertEqual(it["saturates"], 0)
+        it2 = self.item()
+        bg.apply_details(it2, self.row(ingredients="INGREDIENTS: Potatoes, Salt."), {})
+        self.assertEqual(it2["ingredients"], "Potatoes, Salt.")
+
+    def test_the_most_specific_category_is_the_type(self):
+        self.assertEqual(bg.type_for(["en:dairies", "en:milks", "en:semi-skimmed-milks"]), "semi-skimmed-milks")
+        self.assertIsNone(bg.type_for([]))
+
+
 if __name__ == "__main__":
     unittest.main()

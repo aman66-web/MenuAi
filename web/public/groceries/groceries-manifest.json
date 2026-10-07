@@ -8,14 +8,14 @@
    "name": "Tesco",
    "file": "tesco.json",
    "count": 4501,
-   "sha256": "169f87c166ead983eb82fb9d463bcb3fc266656e27e871a736627b1d1b0654c4"
+   "sha256": "5ee21d056325bd504469958d9ead8c8ed2815a33fc05d8196479628656989297"
   },
   {
    "id": "sainsburys",
    "name": "Sainsbury's",
    "file": "sainsburys.json",
-   "count": 1322,
-   "sha256": "2843083b404c15489607996474aac24fae9107a26fbb68f23e317cfd565025ce"
+   "count": 1873,
+   "sha256": "8ae5c285a46f22a715d0a52531fc967eea81febdde76c6a995365a3a946bb47f"
   },
   {
    "id": "asda",

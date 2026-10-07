@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { formatPrice, imageUrl, perLabel, productLine, retailerName, type ListedProduct } from "@/lib/mm/groceries";
+import { forRetailer, formatPrice, imageUrl, perLabel, productLine, retailerName, type ListedProduct } from "@/lib/mm/groceries";
 import { ChevronRightIcon } from "../_components/icons";
 
 /** A product in a list: photo (Open Food Facts, decorative), name, size, per-100 g numbers, price when we have one. */
-export function ProductRow({ product, retailer }: { product: ListedProduct; retailer: string | null }) {
+export function ProductRow({ product: listed, retailer }: { product: ListedProduct; retailer: string | null }) {
+  // Under a supermarket filter the row reads as that supermarket lists it (its own name, size and numbers).
+  const product = forRetailer(listed, retailer);
   const src = imageUrl(product.image, 100);
   const shown = retailer && product.prices[retailer] ? product.prices[retailer] : Object.values(product.prices)[0];
   const priceFrom = shown ? Object.entries(product.prices).find(([, v]) => v === shown)?.[0] : undefined;
