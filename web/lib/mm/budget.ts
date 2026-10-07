@@ -36,9 +36,10 @@ export function loggedToday(entries: ReadonlyArray<{ loggedAt: string; nutrients
   for (const e of entries) {
     if (!isSameLocalDay(new Date(e.loggedAt), now)) continue;
     total.calories += e.nutrients.calories;
-    total.protein += e.nutrients.protein;
-    total.carbs += e.nutrients.carbs;
-    total.fat += e.nutrients.fat;
+    // Logging is offered only for items that publish protein, carbs and fat; the fallback just satisfies the types.
+    total.protein += e.nutrients.protein ?? 0;
+    total.carbs += e.nutrients.carbs ?? 0;
+    total.fat += e.nutrients.fat ?? 0;
   }
   return total;
 }

@@ -24,7 +24,7 @@ export function sortItems(items: readonly MenuItem[], kind: SortKind): MenuItem[
     case "menu":
       return list;
     case "protein":
-      return list.sort((a, b) => b.nutrients.protein - a.nutrients.protein || byName(a, b));
+      return list.sort((a, b) => (b.nutrients.protein ?? 0) - (a.nutrients.protein ?? 0) || byName(a, b));
     case "calories":
       return list.sort((a, b) => a.nutrients.calories - b.nutrients.calories || byName(a, b));
     case "density":

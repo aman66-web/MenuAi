@@ -31,13 +31,16 @@ export default function HomePage() {
   const now = useNow();
   const [requesting, setRequesting] = useState(false);
   const [type, setType] = useBrowseType();
+  const [fullOnly, setFullOnly] = useState(false);
 
-  const { popular, rest } = useMemo(() => splitChains(menu.chains), [menu.chains]);
+  const shownChains = useMemo(() => (fullOnly ? menu.chains.filter((c) => (c.nutritionLevel ?? "full") === "full") : menu.chains), [menu.chains, fullOnly]);
+  const { popular, rest } = useMemo(() => splitChains(shownChains), [shownChains]);
   const restGroups = useMemo(() => groupByInitial(rest), [rest]);
-  const types = useMemo(() => cuisineGroups(menu.chains), [menu.chains]);
+  const types = useMemo(() => cuisineGroups(shownChains), [shownChains]);
   const activeType = types.find((t) => t.id === type);
-  const typeChains = useMemo(() => (activeType ? chainsInGroup(menu.chains, activeType.id) : []), [menu.chains, activeType]);
-  const realCount = menu.chains.filter((c) => !c.sample).length;
+  const typeChains = useMemo(() => (activeType ? chainsInGroup(shownChains, activeType.id) : []), [shownChains, activeType]);
+  const realCount = shownChains.filter((c) => !c.sample).length;
+  const hasCaloriesOnly = menu.chains.some((c) => c.nutritionLevel === "calories");
   const favoriteChains = useMemo(() => {
     const ids = new Set(favorites.map((f) => f.chainId));
     return menu.chains.filter((c) => ids.has(c.id));
@@ -122,6 +125,7 @@ export default function HomePage() {
           {types.length > 1 && (
             <div role="group" aria-label="Browse by type" className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5 pb-1">
               <Chip selected={!activeType} onClick={() => setType(null)}>All</Chip>
+              {hasCaloriesOnly && <Chip selected={fullOnly} onClick={() => setFullOnly((v) => !v)}>Full nutrition only</Chip>}
               {types.map((t) => (
                 <Chip key={t.id} selected={activeType?.id === t.id} onClick={() => setType(activeType?.id === t.id ? null : t.id)}>
                   {t.label} <span className="app-numbers ml-1.5 text-xs font-medium opacity-70">{t.count}</span>

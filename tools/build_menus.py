@@ -58,7 +58,7 @@ NUTRIENT_COLUMNS = {  # CSV column -> JSON key
     "caffeine_mg": "caffeine",
 }
 # Columns a CSV may leave out entirely (older files); when present they are read like any other nutrient column.
-OPTIONAL_COLUMNS = {"salt_g", "energy_kj", "weight_g", "mono_fat_g", "poly_fat_g", "trans_fat_g", "caffeine_mg"}
+OPTIONAL_COLUMNS = {"salt_g", "energy_kj", "weight_g", "mono_fat_g", "poly_fat_g", "trans_fat_g", "caffeine_mg", "nutrition_level"}
 SEARCH_FILE = "menus-search.json"
 # Item photos (docs/DATA.md "images.csv"): the chain's own photo, resized and stored here by tools/uk_extract/images_common.py.
 DEFAULT_IMAGES_DIR = ROOT / "web" / "public" / "menu-images"
@@ -71,7 +71,7 @@ _N = list(NUTRIENT_COLUMNS)
 
 # Exact headers per file (order doesn't matter; every column must be present, no extras).
 HEADERS = {
-    "chain.csv": ["id", "name", "cuisine", "builder_type", "source_title", "source_url", "checked_on", "aliases", "sample"],
+    "chain.csv": ["id", "name", "cuisine", "builder_type", "source_title", "source_url", "checked_on", "aliases", "sample", "nutrition_level"],
     "components.csv": ["id", "group", "name", "portion", *_N, "tags", "removable", "allow_double"],
     "items.csv": ["id", "name", "category", "serving", *_N, "tags", "limited_time", "rankable", "components", "added_on", "notes"],
     "modifiers.csv": ["item_id", "id", "label", "kind", *_N, "tags"],
@@ -119,7 +119,7 @@ def round_nutrient(key: str, val: float):
     return int(r) if r == int(r) else r
 
 
-def nutrients_from_row(row: dict, where: str, errors: list, *, allow_blank_required=False):
+def nutrients_from_row(row: dict, where: str, errors: list, *, allow_blank_required=False, calories_only=False):
     """Parse nutrient columns. Returns dict (missing optional keys omitted) or None if all required blank.
 
     '<1' style values (as printed in nutrition guides) are stored as 0; see docs/DATA.md."""
@@ -128,8 +128,8 @@ def nutrients_from_row(row: dict, where: str, errors: list, *, allow_blank_requi
     for col, key in NUTRIENT_COLUMNS.items():
         raw = (row.get(col) or "").strip()
         if raw == "":
-            if key in REQUIRED_NUTRIENTS:
-                blanks.append(col)
+            if key in REQUIRED_NUTRIENTS and not (calories_only and key != "calories"):
+                blanks.append(col)  # a calories-only chain (docs/DATA.md) leaves protein, carbs and fat blank: never filled in
             continue
         if LESS_THAN_RE.match(raw):
             out[key] = 0
@@ -311,6 +311,7 @@ class ChainBuild:
     items: dict = field(default_factory=dict)        # id -> item dict (insertion-ordered)
     combinations: list = field(default_factory=list)
     held: list = field(default_factory=list)         # (item id, name, reason): rows left out of the published menu
+    calories_only: bool = False                       # nutrition_level "calories": the chain publishes calories only
 
 
 def load_chain(folder: Path) -> ChainBuild:
@@ -338,6 +339,13 @@ def load_chain(folder: Path) -> ChainBuild:
         E.append(f"{w}: source_url must start with https://")
     if r["checked_on"]:
         parse_date(r["checked_on"], "checked_on", w, E)
+    level = (r.get("nutrition_level") or "full").strip().lower()
+    if level not in {"full", "calories"}:
+        E.append(f"{w}: nutrition_level must be 'full' or 'calories', got {level!r}")
+        level = "full"
+    b.calories_only = level == "calories"
+    if b.calories_only and r["builder_type"] == "build_your_own":
+        E.append(f"{w}: a calories-only chain can't be build_your_own (components need protein, carbs and fat)")
     b.chain = {
         "id": cid,
         "name": r["name"],
@@ -346,6 +354,7 @@ def load_chain(folder: Path) -> ChainBuild:
         "aliases": [a.strip().lower() for a in r["aliases"].split("|") if a.strip()],
         "sample": parse_bool(r["sample"], False, w, E),
         "source": {"title": r["source_title"], "url": r["source_url"], "checkedOn": r["checked_on"]},
+        **({"nutritionLevel": "calories"} if b.calories_only else {}),
     }
     # note.txt (optional): a limit of the published data that users should know. Its own file, not a chain.csv column,
     # because the extraction scripts rewrite chain.csv on every refresh and would drop it.
@@ -434,7 +443,7 @@ def load_chain(folder: Path) -> ChainBuild:
                 E.append(f"{w}: component {comp_id!r} has quantity 2 but allow_double is false")
             comps.append({"id": comp_id, "qty": qty})
 
-        typed = nutrients_from_row(r, w, E, allow_blank_required=bool(comps))
+        typed = nutrients_from_row(r, w, E, allow_blank_required=bool(comps), calories_only=b.calories_only)
         if comps:
             n = add_nutrients([(b.components[c["id"]]["nutrients"], c["qty"]) for c in comps])
             if typed:
@@ -457,7 +466,7 @@ def load_chain(folder: Path) -> ChainBuild:
             "nutrients": n,
             "tags": tags,
             "limitedTime": parse_bool(r["limited_time"], False, w, E),
-            "rankable": parse_bool(r["rankable"], True, w, E),
+            "rankable": parse_bool(r["rankable"], True, w, E) and not b.calories_only,  # never suggested without protein, carbs and fat
             "components": comps,
             "modifiers": [],
         }
@@ -831,6 +840,7 @@ def main(argv=None) -> int:
             "id": b.chain["id"], "name": b.chain["name"], "cuisine": b.chain["cuisine"], "file": fname,
             "sha256": file_sha256(out / fname), "contentHash": content_hash(doc), "sample": b.chain["sample"],
             "itemCount": len(doc["items"]), "checkedOn": b.chain["source"]["checkedOn"],
+            **({"nutritionLevel": "calories"} if b.calories_only else {}),
         })
         report.append(f"| {b.chain['name']} | {'yes' if b.chain['sample'] else 'no'} | {len(doc['items'])} | {len(doc['components'])} | {len(doc['combinations'])} | {b.chain['source']['checkedOn']} |")
 

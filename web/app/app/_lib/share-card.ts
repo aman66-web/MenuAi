@@ -49,14 +49,14 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
 
   ctx.fillStyle = "#047857";
   ctx.font = font(330, 800);
-  const protein = String(Math.round(Number(formatGrams(input.nutrients.protein).replace("g", ""))));
+  const protein = String(Math.round(Number(formatGrams(input.nutrients.protein ?? 0).replace("g", ""))));
   ctx.fillText(protein, PAD, 560);
   const proteinWidth = ctx.measureText(protein).width;
   ctx.font = font(84, 700);
   ctx.fillText("g protein", PAD + proteinWidth + 24, 560);
 
   ctx.fillStyle = "#0b1a12";
-  const sub = `${formatCalories(input.nutrients.calories).replace(" kcal", " calories")} · ${formatGrams(input.nutrients.carbs)} carbs · ${formatGrams(input.nutrients.fat)} fat`;
+  const sub = `${formatCalories(input.nutrients.calories).replace(" kcal", " calories")} · ${formatGrams(input.nutrients.carbs ?? 0)} carbs · ${formatGrams(input.nutrients.fat ?? 0)} fat`;
   let subSize = 54;
   ctx.font = font(subSize, 700);
   while (subSize > 34 && ctx.measureText(sub).width > W - PAD * 2) ctx.font = font(--subSize, 700); // keep it on one line
@@ -84,7 +84,7 @@ export type ShareResult = "shared" | "downloaded" | "cancelled";
 export async function shareOrderCard(input: ShareCardInput): Promise<ShareResult> {
   const blob = await renderShareCard(input);
   const file = new File([blob], "my-order.png", { type: "image/png" });
-  const text = `${input.orderName} — ${formatCalories(input.nutrients.calories)}, ${formatGrams(input.nutrients.protein)} protein`;
+  const text = `${input.orderName} — ${formatCalories(input.nutrients.calories)}, ${formatGrams(input.nutrients.protein ?? 0)} protein`;
   try {
     if (navigator.canShare?.({ files: [file] })) {
       await navigator.share({ files: [file], title: `My order at ${input.chainName}`, text });

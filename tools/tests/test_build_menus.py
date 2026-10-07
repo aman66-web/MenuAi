@@ -588,3 +588,56 @@ class ExtraNutrientTests(unittest.TestCase):
             self.assertEqual((n["energyKj"], n["weight"], n["monounsaturatedFat"], n["polyunsaturatedFat"], n["transFat"], n["caffeine"]), (418, 120, 1.2, 0.8, 0, 75))
         finally:
             shutil.rmtree(tmp)
+
+
+class CaloriesOnlyTests(unittest.TestCase):
+    """nutrition_level=calories: only calories required, macros stay absent, nothing rankable."""
+
+    def build(self, chain_row, items_text, builder="standard"):
+        tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, tmp)
+        src, out = tmp / "s", tmp / "o"
+        f = write_chain(src, builder=builder, items="")
+        (f / "chain.csv").write_text("id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample,nutrition_level\n" + chain_row + "\n")
+        (f / "items.csv").write_text(f"id,name,category,serving,{NUT},tags,limited_time,rankable,components,added_on,notes\n" + items_text)
+        with contextlib.redirect_stderr(io.StringIO()):
+            code = bm.main(["--source", str(src), "--out", str(out), "--quiet"])
+        report = (out / "check-report.md").read_text()
+        doc = json.loads((out / "chain-test-chain.json").read_text()) if code == 0 else None
+        manifest = json.loads((out / "menus-manifest.json").read_text())["chains"][0] if code == 0 else None
+        return code, report, doc, manifest
+
+    ROW = "test-chain,Test Chain,Test,standard,Guide,https://example.com,2026-10-01,test chain,true,calories"
+
+    def test_calories_only_items_build_without_macros_and_are_never_rankable(self):
+        code, report, doc, manifest = self.build(self.ROW, "a,Cod & chips,Mains,1,900,,,,,,,,,,true,,2026-10-01,\nb,Garden salad,Sides,1,150,,,,,,,,,,,,2026-10-01,\n")
+        self.assertEqual(code, 0, report)
+        self.assertEqual(doc["nutritionLevel"], "calories")
+        self.assertEqual(manifest["nutritionLevel"], "calories")
+        for item in doc["items"]:
+            self.assertEqual(list(item["nutrients"]), ["calories"])  # protein, carbs and fat are absent, not 0
+            self.assertFalse(item["rankable"])
+        self.assertEqual(doc["combinations"], [])
+
+    def test_a_full_chain_still_needs_every_macro(self):
+        row = "test-chain,Test Chain,Test,standard,Guide,https://example.com,2026-10-01,test chain,true,"
+        code, report, _, _ = self.build(row, "a,Cod,Mains,1,900,,,,,,,,,,,,2026-10-01,\n")
+        self.assertEqual(code, 1)
+        self.assertIn("missing required nutrient column", report)
+
+    def test_bad_level_and_build_your_own_are_errors(self):
+        code, report, _, _ = self.build(self.ROW.replace(",calories", ",lots"), "a,Cod,Mains,1,900,,,,,,,,,,,,2026-10-01,\n")
+        self.assertEqual(code, 1)
+        self.assertIn("nutrition_level must be", report)
+        code, report, _, _ = self.build(self.ROW.replace("standard", "build_your_own"), "a,Cod,Mains,1,900,,,,,,,,,,,,2026-10-01,\n", builder="build_your_own")
+        self.assertEqual(code, 1)
+        self.assertIn("can't be build_your_own", report)
+
+    def test_schema(self):
+        try:
+            import jsonschema
+        except ImportError:
+            self.skipTest("pip install jsonschema")
+        _, _, doc, manifest = self.build(self.ROW, "a,Cod,Mains,1,900,,,,,,,,,,,,2026-10-01,\n")
+        jsonschema.validate(doc, json.loads((ROOT / "data/schema/chain.schema.json").read_text()))
+        self.assertEqual(manifest["nutritionLevel"], "calories")

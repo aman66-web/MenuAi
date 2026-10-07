@@ -130,6 +130,13 @@
           "type": "boolean"
         }
       }
+    },
+    "nutritionLevel": {
+      "type": "string",
+      "enum": [
+        "calories"
+      ],
+      "description": "Absent = the chain publishes full nutrition. 'calories' = calories only: protein, carbs and fat are absent from every item, and nothing is rankable."
     }
   },
   "$defs": {
@@ -154,12 +161,9 @@
     },
     "nutrients": {
       "type": "object",
-      "description": "calories in kcal; protein/carbs/fat/saturatedFat/sugar/fiber in grams; sodium in mg, salt in g (UK guides publish salt, not sodium). Optional keys are OMITTED when not published (never estimated).",
+      "description": "calories in kcal; protein/carbs/fat/saturatedFat/sugar/fiber in grams; sodium in mg, salt in g (UK guides publish salt, not sodium). Optional keys are OMITTED when not published (never estimated). protein, carbs and fat are present for every chain with full nutrition; chains with nutritionLevel 'calories' publish calories only (never defaulted to 0).",
       "required": [
-        "calories",
-        "protein",
-        "carbs",
-        "fat"
+        "calories"
       ],
       "additionalProperties": false,
       "properties": {

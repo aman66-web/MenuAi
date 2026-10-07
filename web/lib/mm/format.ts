@@ -47,12 +47,13 @@ export function formatSalt(value: number | undefined): string {
 
 /** "520 kcal · 32g protein · 55g carbs · 18g fat" — same order everywhere (SPEC §15). */
 export function macroLine(n: Nutrients): string {
+  if (n.protein === undefined || n.carbs === undefined || n.fat === undefined) return formatCalories(n.calories); // calories-only chain
   return `${formatCalories(n.calories)} · ${formatGrams(n.protein)} protein · ${formatGrams(n.carbs)} carbs · ${formatGrams(n.fat)} fat`;
 }
 
 /** "58g protein · 610 kcal · 9.5g per 100 kcal" — the "Best for you" reason line (SPEC §6.4). */
 export function reasonLine(n: Nutrients): string {
-  return `${formatGrams(n.protein)} protein · ${formatCalories(n.calories)} · ${formatDensity(n)}`;
+  return `${formatGrams(n.protein ?? 0)} protein · ${formatCalories(n.calories)} · ${formatDensity(n)}`;
 }
 
 /** Screen-reader label with the same rounding as the display (SPEC §7). */
@@ -62,6 +63,7 @@ export function nutrientAriaLabel(name: string, n: Nutrients): string {
 
 /** The four main numbers as a screen reader should say them: "520 calories, 32 grams protein, 55 grams carbs, 18 grams fat". */
 export function nutrientsSpoken(n: Nutrients): string {
+  if (n.protein === undefined || n.carbs === undefined || n.fat === undefined) return `${formatInt(n.calories)} calories`; // calories-only chain
   return `${formatInt(n.calories)} calories, ${halfUp(n.protein)} grams protein, ${halfUp(n.carbs)} grams carbs, ${halfUp(n.fat)} grams fat`;
 }
 

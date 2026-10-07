@@ -106,7 +106,8 @@ def write_allergens(out: Path, chain_id: str, rows: list[tuple[str, dict]], guid
 
 def write_chain_folder(*, chain_id: str, name: str, cuisine: str, source_title: str, source_url: str, checked_on: str,
                        aliases: list[str], items: list[dict], out: Path | None = None, note: str = "",
-                       holdback: list[tuple[str, str]] | None = None, allergen_guide: dict | None = None) -> Path:
+                       holdback: list[tuple[str, str]] | None = None, allergen_guide: dict | None = None,
+                       nutrition_level: str = "full") -> Path:
     """Write data/source/<chain_id>/ (or `out`). Each item dict needs name, category and the four required numbers
     (calories, protein_g, carbs_g, fat_g); every other key is optional ('' = not published). Items keep their order
     inside a category and categories keep first-seen order. Ids come from the name; clashes get a numeric suffix
@@ -116,7 +117,8 @@ def write_chain_folder(*, chain_id: str, name: str, cuisine: str, source_title: 
     seen: dict[str, int] = {}
     rows = []
     for it in items:
-        for key in ("name", "category", "calories", "protein_g", "carbs_g", "fat_g"):
+        required = ("name", "category", "calories") if nutrition_level == "calories" else ("name", "category", "calories", "protein_g", "carbs_g", "fat_g")
+        for key in required:
             if str(it.get(key, "")).strip() == "":
                 raise ValueError(f"{chain_id}: item {it.get('name')!r} is missing {key}")
         base = it.get("id") or slug(it["name"])
@@ -141,8 +143,9 @@ def write_chain_folder(*, chain_id: str, name: str, cuisine: str, source_title: 
         w.writerows(rows)
     with open(out / "chain.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["id", "name", "cuisine", "builder_type", "source_title", "source_url", "checked_on", "aliases", "sample"])
-        w.writerow([chain_id, name, cuisine, "standard", source_title, source_url, checked_on, "|".join(aliases), ""])
+        calories_only = nutrition_level == "calories"  # docs/DATA.md: the chain publishes calories only
+        w.writerow(["id", "name", "cuisine", "builder_type", "source_title", "source_url", "checked_on", "aliases", "sample", *(["nutrition_level"] if calories_only else [])])
+        w.writerow([chain_id, name, cuisine, "standard", source_title, source_url, checked_on, "|".join(aliases), "", *(["calories"] if calories_only else [])])
     (out / "components.csv").write_text("id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,removable,allow_double\n", encoding="utf-8")
     (out / "modifiers.csv").write_text("item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")

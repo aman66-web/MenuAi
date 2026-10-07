@@ -9,9 +9,11 @@ export type Tag = "vegetarian" | "contains_pork" | "contains_beef";
  */
 export interface Nutrients {
   calories: number;
-  protein: number;
-  carbs: number;
-  fat: number;
+  // protein, carbs and fat are always present for chains that publish full nutrition. Chains with
+  // `nutritionLevel: "calories"` (docs/DATA.md) publish calories only, so these are absent there: never defaulted to 0.
+  protein?: number;
+  carbs?: number;
+  fat?: number;
   saturatedFat?: number;
   sodium?: number;
   sugar?: number;
@@ -119,6 +121,8 @@ export interface Chain {
   source: { title: string; url: string; checkedOn: string };
   note?: string; // a limit of the published data (docs/DATA.md note.txt), shown under the source
   allergenGuide?: AllergenGuide;
+  /** "calories": the chain publishes calories only (docs/DATA.md); absent = full nutrition. */
+  nutritionLevel?: "calories";
   categories: string[];
   components: MenuComponent[];
   items: MenuItem[];

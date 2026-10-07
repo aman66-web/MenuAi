@@ -11,7 +11,7 @@ describe("sorting (SPEC §7.4)", () => {
   });
   it("most protein first, ties by name", () => {
     const sorted = sortItems(items, "protein");
-    const proteins = sorted.map((i) => i.nutrients.protein);
+    const proteins = sorted.map((i) => i.nutrients.protein ?? 0);
     expect(proteins).toEqual([...proteins].sort((a, b) => b - a));
     expect(sorted[0]!.id).toBe("nuggets-12"); // 40 g
   });

@@ -26,12 +26,20 @@
     },
     "search": {
       "type": "object",
-      "required": ["file", "sha256"],
+      "required": [
+        "file",
+        "sha256"
+      ],
       "additionalProperties": false,
       "description": "The compact search index (chain names plus [item id, name, calories] per item), so the app can search every menu without downloading them all. Optional so older manifests stay valid.",
       "properties": {
-        "file": { "type": "string" },
-        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
       }
     },
     "chains": {
@@ -85,6 +93,13 @@
           "cuisine": {
             "type": "string",
             "description": "Same as the chain file's cuisine (Burgers, Chicken, Pizza...). Lets the lists choose an icon without loading every chain. Optional so older manifests stay valid."
+          },
+          "nutritionLevel": {
+            "type": "string",
+            "enum": [
+              "calories"
+            ],
+            "description": "Absent = full nutrition; 'calories' = the chain publishes calories only."
           }
         }
       }

@@ -38,9 +38,14 @@ export function scaleNutrients(n: Nutrients, factor: number): Nutrients {
   return sumNutrients([[n, factor]]);
 }
 
-/** Protein grams per 100 calories (0 when calories is 0). */
+/** Protein grams per 100 calories (0 when calories is 0). Only ever asked of items from chains with full nutrition. */
 export function proteinPer100Cal(n: Pick<Nutrients, "calories" | "protein">): number {
-  return n.calories > 0 ? (n.protein / n.calories) * 100 : 0;
+  return n.calories > 0 ? ((n.protein ?? 0) / n.calories) * 100 : 0;
+}
+
+/** True when protein, carbs and fat are all published (always, except for chains with `nutritionLevel: "calories"`). */
+export function hasMacros(n: Nutrients): boolean {
+  return n.protein !== undefined && n.carbs !== undefined && n.fat !== undefined;
 }
 
 export const ZERO_NUTRIENTS: Nutrients = { calories: 0, protein: 0, carbs: 0, fat: 0 };

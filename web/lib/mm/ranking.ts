@@ -84,7 +84,7 @@ export function passesPreferences(tags: readonly Tag[], prefs: Preferences): boo
 function score(n: Nutrients, goal: Profile["goal"], budget: number, config: RankingConfig): number {
   const d = proteinPer100Cal(n);
   if (goal === "lose" || goal === "glp1") return d + config.underBudgetBonus * (1 - n.calories / budget);
-  if (goal === "buildMuscle") return d + config.totalProteinBonus * n.protein;
+  if (goal === "buildMuscle") return d + config.totalProteinBonus * (n.protein ?? 0);
   return d; // maintain
 }
 
@@ -104,11 +104,11 @@ export function rank({ chain, profile, loggedCalories, meal, preferences, config
 
   if (remaining < config.outOfBudgetThreshold) {
     const picks = pool
-      .filter((c) => c.nutrients.protein >= config.outOfBudgetMinProtein)
+      .filter((c) => (c.nutrients.protein ?? 0) >= config.outOfBudgetMinProtein)
       .sort(
         (a, b) =>
           a.nutrients.calories - b.nutrients.calories ||
-          b.nutrients.protein - a.nutrients.protein ||
+          (b.nutrients.protein ?? 0) - (a.nutrients.protein ?? 0) ||
           compareStrings(a.name, b.name),
       )
       .slice(0, config.resultCount)
@@ -126,7 +126,7 @@ export function rank({ chain, profile, loggedCalories, meal, preferences, config
   }
 
   const sortKey = (c: Candidate) => {
-    const primary = profile.goal === "glp1" ? (c.nutrients.protein >= config.glp1ProteinFirst ? 0 : 1) : 0;
+    const primary = profile.goal === "glp1" ? ((c.nutrients.protein ?? 0) >= config.glp1ProteinFirst ? 0 : 1) : 0;
     return { primary, score: halfUp(score(c.nutrients, profile.goal, budget, config), 6) };
   };
   const ordered = fits

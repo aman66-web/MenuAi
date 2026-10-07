@@ -22,6 +22,7 @@ node a11y.mjs                                     # axe-core on every screen, li
 node largetext.mjs                                # no horizontal overflow at 100/150/200% text
 node share.mjs                                    # share card downloads as a 1080×1350 PNG
 node browse.mjs                                   # Home browse by type + A-Z jump, long-menu search/section chips, filter caution, recent searches
+node calories.mjs                                  # chains that publish calories only: badge, filter, "not published", no ordering tools (stubbed chain)
 node map.mjs                                      # Nearby: location, typed postcode/town, filters, list; checks the location never appears in a request
 node offline.mjs                                  # stops and restarts the server: real offline (takes ~1.5 min)
 node shoot.mjs home=/app "chain=/app/chain?id=kfc" # screenshots for review (THEME=light, WIDTH=360, FULL=1, PRO=1)

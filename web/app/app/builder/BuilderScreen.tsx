@@ -79,6 +79,15 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   }
   if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ?? "Couldn't load this menu."} onRetry={retry} /></div>);
 
+  if (index.chain.nutritionLevel === "calories") {
+    return (
+      <div>
+        {back}
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tight">Order builder</h1>
+        <p className="mt-2 text-sm text-muted">{index.chain.name} publishes calories only, so there are no protein, carbs or fat totals to build an order from.</p>
+      </div>
+    );
+  }
   const start = resolveStart(index, props, saved);
   if (start.kind === "error") return (<div>{back}<ErrorBox message={start.message} /></div>);
   if (start.kind === "unavailable") {
@@ -208,7 +217,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       <div ref={summaryRef} className={`z-10 -mx-5 mt-4 rounded-t-3xl border-t border-line bg-background/92 px-5 pb-3 pt-4 shadow-[0_-12px_30px_-18px_rgba(0,0,0,0.5)] backdrop-blur-xl ${pinned ? "sticky bottom-[calc(5.25rem+env(safe-area-inset-bottom))]" : ""}`}>
         {total && valid.ok ? (
           <>
-            <div aria-live="polite"><MacroSummary compact nutrients={total} label={`Order total: ${formatCalories(total.calories)}, ${Math.round(total.protein)} grams protein`} /></div>
+            <div aria-live="polite"><MacroSummary compact nutrients={total} label={`Order total: ${formatCalories(total.calories)}, ${Math.round(total.protein ?? 0)} grams protein`} /></div>
             <p className="app-numbers mt-1 text-sm text-muted">{after}</p>
             <div className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(5.5rem,1fr))] gap-2">
               <Button

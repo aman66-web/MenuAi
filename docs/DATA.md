@@ -66,6 +66,19 @@ Folder name = chain id (lowercase, hyphens: `chick-fil-a`). Copy `data/source/_t
 | aliases | no | Lower-case names Apple Maps may use: `chick fil a\|chick-fil-a\|chickfila` |
 | sample | no | `true` only for fictional test data |
 
+### Calories-only chains (`nutrition_level` in chain.csv)
+
+Founder's decision 2026-10-06: restaurants that publish **calories only** are included too, so people can see them, and the app can
+filter to "full nutrition only". In `chain.csv` add the optional column `nutrition_level` with the value `calories` (blank or `full` = the
+normal case). For such a chain:
+
+- `items.csv` needs only `calories`; `protein_g`, `carbs_g` and `fat_g` stay **blank** (never 0, never estimated, never converted from
+  per-100g): the app shows "not published". The energy check (4P+4C+9F) is skipped. Salt, sat fat etc. are still copied when printed.
+- Every item is forced `rankable = false`: "Best for you" needs protein, carbs and fat, so a calories-only chain has no suggestions.
+- `builder_type` must be `standard` (no components or modifiers).
+- Output: `chain.nutritionLevel = "calories"` and the same on the manifest entry; items' `nutrients` have no protein/carbs/fat keys.
+- Not for guides that print per-100g macros only ("per 100g only" is a NO-MACROS verdict: we never convert per 100g into a serving).
+
 ### components.csv (build-your-own chains)
 
 | Column | Required | Notes |

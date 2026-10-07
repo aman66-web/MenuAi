@@ -357,7 +357,7 @@ export interface AfterThis {
 export function afterThis(remaining: Remaining, total: Nutrients): AfterThis {
   return {
     calories: remaining.calories - total.calories,
-    ...(remaining.protein !== undefined ? { protein: remaining.protein - total.protein } : {}),
+    ...(remaining.protein !== undefined ? { protein: remaining.protein - (total.protein ?? 0) } : {}),
   };
 }
 

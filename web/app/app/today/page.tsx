@@ -87,7 +87,7 @@ export default function TodayPage() {
               <div className="min-w-0">
                 <p className="text-sm text-muted">{timeFormat.format(new Date(e.loggedAt))} · {e.chainName}</p>
                 <p className="font-bold leading-snug tracking-tight">{e.name}</p>
-                <p className="app-numbers text-sm text-muted" aria-label={`${Math.round(e.nutrients.calories)} calories, ${Math.round(e.nutrients.protein)} grams protein`}>{formatCalories(e.nutrients.calories)} · {formatGrams(e.nutrients.protein)} protein</p>
+                <p className="app-numbers text-sm text-muted" aria-label={`${Math.round(e.nutrients.calories)} calories, ${Math.round(e.nutrients.protein ?? 0)} grams protein`}>{formatCalories(e.nutrients.calories)} · {formatGrams(e.nutrients.protein ?? 0)} protein</p>
               </div>
               <button type="button" aria-label={`Delete ${e.name}`} onClick={() => remove(e)} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft-strong">
                 <TrashIcon className="h-5 w-5" />

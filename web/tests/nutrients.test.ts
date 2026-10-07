@@ -115,3 +115,16 @@ describe("extra published figures (kJ, weight, fats, caffeine)", () => {
     expect(t.caffeine).toBeUndefined(); // b doesn't publish caffeine
   });
 });
+
+describe("calories-only items (chains that publish calories only)", () => {
+  it("never show protein, carbs or fat as 0: lines and spoken labels use calories alone", async () => {
+    const { macroLine, nutrientsSpoken } = await import("../lib/mm/format");
+    const { hasMacros } = await import("../lib/mm/nutrients");
+    const calOnly = { calories: 910 };
+    expect(hasMacros(calOnly)).toBe(false);
+    expect(hasMacros({ calories: 100, protein: 0, carbs: 0, fat: 0 })).toBe(true); // a published zero is still published
+    expect(macroLine(calOnly)).toBe("910 kcal");
+    expect(nutrientsSpoken(calOnly)).toBe("910 calories");
+    expect(macroLine({ calories: 520, protein: 32, carbs: 55, fat: 18 })).toBe("520 kcal · 32g protein · 55g carbs · 18g fat");
+  });
+});

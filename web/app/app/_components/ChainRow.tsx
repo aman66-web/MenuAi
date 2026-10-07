@@ -6,7 +6,7 @@ import { ChevronRightIcon } from "./icons";
 import { SampleBadge } from "./ui";
 
 /** A chain in a list: our own cuisine glyph and the name in plain text. No logos, brand colours or imagery (CLAUDE.md rule 2). */
-export function ChainRow({ chain, onOpen, compact }: { chain: Pick<CatalogChain, "id" | "name" | "sample" | "itemCount" | "cuisine">; onOpen?: () => void; compact?: boolean }) {
+export function ChainRow({ chain, onOpen, compact }: { chain: Pick<CatalogChain, "id" | "name" | "sample" | "itemCount" | "cuisine" | "nutritionLevel">; onOpen?: () => void; compact?: boolean }) {
   return (
     <Link
       href={chainHref(chain.id)}
@@ -17,7 +17,7 @@ export function ChainRow({ chain, onOpen, compact }: { chain: Pick<CatalogChain,
       <span className="min-w-0 flex-1">
         <span className={`block truncate font-bold tracking-tight ${compact ? "text-[15px]" : "text-base"}`}>{chain.name}</span>
         <span className="app-numbers block text-sm text-muted [overflow-wrap:anywhere]">
-          {chain.cuisine ? `${chain.cuisine} · ` : ""}{chain.itemCount} items{chain.sample && <> <SampleBadge /></>}
+          {chain.cuisine ? `${chain.cuisine} · ` : ""}{chain.itemCount} items{chain.nutritionLevel === "calories" && <> · calories only</>}{chain.sample && <> <SampleBadge /></>}
         </span>
       </span>
       <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />

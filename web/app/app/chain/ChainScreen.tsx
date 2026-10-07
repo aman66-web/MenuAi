@@ -60,6 +60,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const grouped = sort === "menu";
   const sections = useMemo(() => (grouped ? groupByCategory(chain, visible) : [{ category: "", items: visible }]), [chain, visible, grouped]);
   const large = chain.items.length > LARGE_MENU_ITEMS;
+  const caloriesOnly = chain.nutritionLevel === "calories";
   const clearFilters = () => setPrefs({ vegetarianOnly: false, noPork: false, noBeef: false });
   const anyFilter = prefs.vegetarianOnly || prefs.noPork || prefs.noBeef;
   const caution = filterCaution(prefs);
@@ -110,6 +111,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
         <div className="min-w-0 space-y-1.5">
           {chain.note && <p>{chain.note}</p>}
+          {caloriesOnly && <p className="font-semibold">{chain.name} publishes calories only: protein, carbs and fat aren&apos;t published, so there are no best-for-you picks, order builder or logging for this restaurant.</p>}
           <p className="app-numbers text-muted">
             <span className="font-semibold text-foreground">{chain.items.length} items</span> from{" "}
             <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{chain.source.title}</a>, checked {formatDate(chain.source.checkedOn)}.
@@ -117,11 +119,13 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         </div>
       </div>
 
-      <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Meal">
-        {MEALS.map((m) => (
-          <Chip key={m} selected={meal === m} onClick={() => setMeal(m)}>{MEAL_LABEL[m]}</Chip>
-        ))}
-      </div>
+      {!caloriesOnly && (
+        <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Meal">
+          {MEALS.map((m) => (
+            <Chip key={m} selected={meal === m} onClick={() => setMeal(m)}>{MEAL_LABEL[m]}</Chip>
+          ))}
+        </div>
+      )}
       <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Filters">
         <Chip selected={prefs.vegetarianOnly} onClick={() => setPref("vegetarianOnly")}>Vegetarian</Chip>
         <Chip selected={prefs.noPork} onClick={() => setPref("noPork")}>No pork</Chip>
@@ -130,7 +134,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       {caution && <p className="mt-2 text-sm text-muted">{caution}</p>}
 
       <div ref={bestRef}>
-        <BestForYou index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} />
+        {!caloriesOnly && <BestForYou index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} />}
       </div>
 
       <div className="mb-2 mt-10 flex items-center justify-between gap-3">
@@ -146,7 +150,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
               analytics.track({ name: "menuSorted", kind: e.target.value });
             }}
           >
-            {SORT_OPTIONS.map((o) => (<option key={o.value} value={o.value}>{o.label}</option>))}
+            {SORT_OPTIONS.filter((o) => !caloriesOnly || o.value === "menu" || o.value === "calories").map((o) => (<option key={o.value} value={o.value}>{o.label}</option>))}
           </select>
         </label>
       </div>

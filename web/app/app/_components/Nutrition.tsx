@@ -1,8 +1,11 @@
+import { hasMacros } from "@/lib/mm/nutrients";
 import { formatCalories, formatFineGrams, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel, nutrientsSpoken } from "@/lib/mm/format";
 import type { Nutrients } from "@/lib/mm/types";
 
 /** Big calories + protein, then carbs and fat (SPEC §15: same order everywhere). */
-export function MacroSummary({ nutrients, label, compact }: { nutrients: Nutrients; label?: string; compact?: boolean }) {
+export function MacroSummary({ nutrients: n, label, compact }: { nutrients: Nutrients; label?: string; compact?: boolean }) {
+  // Orders are only built from chains that publish full nutrition, so these are always present; 0 is just the type fallback.
+  const nutrients = { ...n, protein: n.protein ?? 0, carbs: n.carbs ?? 0, fat: n.fat ?? 0 };
   if (compact) {
     return (
       <div className="app-numbers flex flex-wrap items-end justify-between gap-x-4 gap-y-2" role="group" aria-label={label ?? nutrientAriaLabel("Totals", nutrients)}>
@@ -39,9 +42,13 @@ export function MacroSummary({ nutrients, label, compact }: { nutrients: Nutrien
 
 /** One-line numbers under an item name: "520 kcal · 32g protein · 55g carbs · 18g fat" (spoken in full words). Inline-safe inside links. */
 export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
+  if (!hasMacros(nutrients)) {
+    // a calories-only chain: protein, carbs and fat are not published, and the chain page says so
+    return <span className="app-numbers block text-sm text-muted">{formatCalories(nutrients.calories)}</span>;
+  }
   return (
     <span className="app-numbers block text-sm text-muted">
-      <span aria-hidden>{formatCalories(nutrients.calories)} · {formatGrams(nutrients.protein)} protein · {formatGrams(nutrients.carbs)} carbs · {formatGrams(nutrients.fat)} fat</span>
+      <span aria-hidden>{formatCalories(nutrients.calories)} · {formatGrams(nutrients.protein!)} protein · {formatGrams(nutrients.carbs!)} carbs · {formatGrams(nutrients.fat!)} fat</span>
       <span className="sr-only">, {nutrientsSpoken(nutrients)}</span>
     </span>
   );
@@ -52,7 +59,7 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
  * calories, then protein, carbs and fat. The numbers are one group so a screen reader hears them as one line.
  */
 export function ItemHero({ nutrients, name, children }: { nutrients: Nutrients; name: string; children?: React.ReactNode }) {
-  const macros: Array<[string, number, boolean]> = [["Protein", nutrients.protein, true], ["Carbs", nutrients.carbs, false], ["Fat", nutrients.fat, false]];
+  const macros: Array<[string, number | undefined, boolean]> = [["Protein", nutrients.protein, true], ["Carbs", nutrients.carbs, false], ["Fat", nutrients.fat, false]];
   return (
     <div className="hero-card overflow-hidden rounded-[2rem] p-6">
       {children}
@@ -66,7 +73,7 @@ export function ItemHero({ nutrients, name, children }: { nutrients: Nutrients; 
           {macros.map(([label, grams, lead]) => (
             <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft" : "inset-card"}`}>
               <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{label}</dt>
-              <dd className={`text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{formatGrams(grams)}</dd>
+              <dd className={grams === undefined ? "text-base font-semibold italic text-muted" : `text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{grams === undefined ? "not published" : formatGrams(grams)}</dd>
             </div>
           ))}
         </dl>

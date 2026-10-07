@@ -26,7 +26,7 @@ describe("Bowl & Co. maths (BUILD_PLAN M5)", () => {
     expect(n.calories).toBe(655);
     expect(n.protein).toBe(50);
     expect(n.fat).toBe(20.5);
-    expect(formatGrams(n.fat)).toBe("21g");
+    expect(formatGrams(n.fat!)).toBe("21g");
     expect(orderName(ix, [line])).toBe("Chicken bowl");
   });
   it("double chicken = 835 kcal / 82 g protein", () => {

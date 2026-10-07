@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
+import { hasMacros } from "@/lib/mm/nutrients";
 import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm/order";
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction } from "@/lib/mm/stores";
@@ -64,50 +65,56 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
         </p>
       )}
 
+      {hasMacros(item.nutrients) ? (
+        <>
       <div className="mt-6 grid grid-cols-2 gap-3">
-        <Button
-          full
-          onClick={() =>
-            gate("orderBuilder", () => {
-              analytics.track({ name: "builderOpened", origin: "item" });
-              router.push(builderHref({ chain: chain.id, item: item.id }));
-            })
-          }
-        >
-          Customise
-        </Button>
-        <Button
-          variant="secondary"
-          full
-          onClick={() =>
-            gate("log", () => {
-              addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
-              analytics.track({ name: "mealLogged" });
-              countProAction();
-              setMessage("Logged to Today.");
-            })
-          }
-        >
-          Log
-        </Button>
-        <Button
-          variant="secondary"
-          full
-          onClick={() =>
-            gate("saveLimit", () => {
-              const total = orderNutrients(index, lines) ?? item.nutrients;
-              addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
-              analytics.track({ name: "orderSaved" });
-              countProAction();
-              setMessage("Saved.");
-            })
-          }
-        >
-          Save
-        </Button>
-        <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
-      </div>
-      <p role="status" aria-live="polite" className="mt-3 min-h-5 text-center text-sm font-medium text-accent">{message}</p>
+          <Button
+            full
+            onClick={() =>
+              gate("orderBuilder", () => {
+                analytics.track({ name: "builderOpened", origin: "item" });
+                router.push(builderHref({ chain: chain.id, item: item.id }));
+              })
+            }
+          >
+            Customise
+          </Button>
+          <Button
+            variant="secondary"
+            full
+            onClick={() =>
+              gate("log", () => {
+                addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
+                analytics.track({ name: "mealLogged" });
+                countProAction();
+                setMessage("Logged to Today.");
+              })
+            }
+          >
+            Log
+          </Button>
+          <Button
+            variant="secondary"
+            full
+            onClick={() =>
+              gate("saveLimit", () => {
+                const total = orderNutrients(index, lines) ?? item.nutrients;
+                addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
+                analytics.track({ name: "orderSaved" });
+                countProAction();
+                setMessage("Saved.");
+              })
+            }
+          >
+            Save
+          </Button>
+          <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
+        </div>
+        <p role="status" aria-live="polite" className="mt-3 min-h-5 text-center text-sm font-medium text-accent">{message}</p>
+        </>
+      ) : (
+        <p className="mt-6 text-sm text-muted">{chain.name} publishes calories only, so ordering, saving, logging and sharing aren&apos;t available for this item (they need protein, carbs and fat).</p>
+      )}
 
       <p className="mt-4 text-sm text-muted">
         Not affiliated with {chain.name}.{" "}
