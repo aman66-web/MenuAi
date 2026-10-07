@@ -18,7 +18,7 @@ export function ItemThumb({ image }: { image: string | undefined }) {
   );
 }
 
-/** The large photo on the item page, with where it comes from. */
+/** The large photo on the item page, shown whole (never cropped by the layout), with where it comes from. */
 export function ItemPhotoHero({ image, chainName }: { image: string | undefined; chainName: string }) {
   const [failed, setFailed] = useState(false);
   const src = failed ? undefined : itemImageUrl(image);
@@ -26,7 +26,7 @@ export function ItemPhotoHero({ image, chainName }: { image: string | undefined;
   return (
     <figure className="glass mt-5 overflow-hidden rounded-3xl">
       {/* eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py */}
-      <img src={src} alt="" width={640} height={480} decoding="async" onError={() => setFailed(true)} className="aspect-[4/3] w-full bg-soft-strong object-cover" />
+      <img src={src} alt="" width={640} height={480} decoding="async" onError={() => setFailed(true)} className="mx-auto h-auto max-h-[28rem] w-full bg-soft-strong object-contain" />
       <figcaption className="px-4 py-2 text-xs text-muted">Photo from the {chainName} website</figcaption>
     </figure>
   );

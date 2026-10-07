@@ -1,0 +1,11 @@
+{
+  "premier-inn": {"names": ["Premier Inn"], "kinds": {"tourism": "hotel"}, "note": "hotel locations (the menu data is for the restaurants at its hotels)"},
+  "coffee-1": {"names": ["Coffee #1", "Coffee#1", "COFFEE #1", "Coffee Number 1"]},
+  "yo-sushi": {"names": ["YO! Sushi", "Yo! Sushi", "YO Sushi", "Yo Sushi", "YO!Sushi"]},
+  "pure": {"names": ["Pure", "Pure."]},
+  "birds-bakery": {"names": ["Birds", "Birds Bakery", "Birds of Derby"], "websites": ["birdsbakery"], "note": "only places whose OSM website is birdsbakery.com (the name 'Birds' alone is ambiguous)"},
+  "pizza-hut": {"names": ["Pizza Hut", "Pizza Hut Delivery", "Pizza Hut Restaurant", "Pizza Hut Express"]},
+  "tim-hortons": {"names": ["Tim Hortons", "Tim Horton's", "Tim Hortons Cafe", "Tim Hortons Café"]},
+  "caffe-nero": {"names": ["Caffè Nero", "Caffe Nero", "Café Nero", "Caffe Nero Coffee"]},
+  "jamies-italian": {"names": ["Jamie's Italian", "Jamie’s Italian", "Jamie's Italian Restaurant"]}
+}
