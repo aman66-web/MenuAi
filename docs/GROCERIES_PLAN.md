@@ -1,66 +1,67 @@
-# Groceries: Sainsbury's, Tesco, Asda, Waitrose, Lidl, Aldi (plan and what is possible)
+# Groceries: Sainsbury's, Tesco, Asda, Waitrose, Lidl, Aldi (what is built, what is possible)
 
 Founder's request (2026-10-07): add supermarket groceries to the app, as well as restaurants: for each product the image, macros,
 price, allergens and, if possible, the barcode number, so people can shop with it, and so recipes can later be generated from the
-products with AI. "Pull images and all the information from the stores' websites", using as many agents as needed.
+products with AI. "Pull images and all the information from the stores' websites", using as many agents as needed. Waitrose was
+added the same day. Later the founder said "you can do it all for me": the options below were decided by Claude (the hybrid, C).
 
-Nothing is built yet. This page is what a one-request-per-site check found on 2026-10-07 (from the founder's Mac), what that means,
-and the decisions needed before building. No site was crawled.
+## Status
 
-## What the check found
+Built and in the app (web): Groceries tab, search by name or barcode, supermarket and type filters, sort by protein per 100 kcal,
+product page (photo, per-100 g macros, the 14 allergens, barcode, price where known, links to each supermarket's own search),
+shopping list, barcode entry and camera scanning. Catalogue = Open Food Facts (see below); it fills as `tools/groceries/fetch_off.py`
+runs (the counts per supermarket are in `data/groceries/REPORT.md` and `web/public/groceries/groceries-manifest.json`).
+
+Not done, and why:
+- **Prices.** Open Food Facts has none, and the supermarkets' websites refuse automated visits. They need a person's browser:
+  `docs/NEXT_GROCERIES_PROMPT.md` is the prompt for a Claude Code session with Chrome (`claude --chrome`) that writes
+  `data/groceries/prices/<retailer>.csv`; `tools/groceries/build_groceries.py` validates and merges it. `tools/groceries/make_wanted.py`
+  lists which barcodes to look up first (own-brand and high-protein products).
+- **Official photos and nutrition from the retailers.** Same blocker, same route.
+- **AI recipes.** Later; the catalogue (barcode, macros per 100 g, allergens, size) is the base for it.
+
+## What the check found (2026-10-07, from the founder's Mac, one request per site)
 
 | Source | Result |
 |---|---|
 | tesco.com (groceries) | **403**: refuses automated visits |
-| sainsburys.co.uk | **403**: refuses automated visits |
-| groceries.asda.com | **403**: refuses automated visits |
-| aldi.co.uk | **403**: refuses automated visits |
-| lidl.co.uk | 200 (reachable), but Lidl GB's website mostly shows weekly specials, not its everyday range with prices and nutrition: unverified |
-| Open Food Facts (open database, world.openfoodfacts.org) | answered; had about 5,800 UK products tagged Tesco and about 1,900 tagged Lidl (its API said "temporarily unavailable" part-way, so the other retailers' counts were not read). It has barcode, nutrition per 100 g, allergens and photos, but **no prices** (its price project is separate and sparse) |
-| Claude in Chrome | not connected to this session |
+| sainsburys.co.uk | **403** |
+| groceries.asda.com | **403** |
+| aldi.co.uk | **403** |
+| lidl.co.uk | 200, but mostly weekly specials, not the everyday range with prices and nutrition |
+| Open Food Facts (world.openfoodfacts.org) | works: barcode, per-100 g nutrition, allergens, photos; **no prices** |
+| Claude in Chrome | not connected to the build session |
 
-The 403s are bot protection. We never work round a block (CLAUDE.md, docs/UK_DATA_PLAYBOOK.md). A person in a normal browser is let in,
-which is why Claude in Chrome (in the founder's own Chrome) is the route for the retailer sites themselves.
+The 403s are bot protection. We never work round a block (CLAUDE.md, docs/UK_DATA_PLAYBOOK.md). A person in a normal browser is
+let in, which is why Claude in Chrome / `claude --chrome` in the founder's own Chrome is the route for the retailer sites.
 
-## Why this is much bigger than restaurants
+## Rules for this data
 
-- **Scale:** each supermarket sells tens of thousands of products (restaurants: about 13,000 items across 72 chains in total).
-- **Prices differ** by store, by online vs in store, and by loyalty price (Clubcard, Nectar, Aldi Price Match). Whatever we show has to be labelled
-  "price checked on {date} at {retailer} online; may differ in your store".
-- **Barcodes are rarely on retailer pages.** The usual source of GTIN/EAN numbers is Open Food Facts or a barcode database.
-- **Allergens are safety information.** The standard we set for restaurants (copied from the chain's own guide, all or nothing, "check the pack") still applies:
-  community data (Open Food Facts) can be wrong or out of date, so it would carry a plain "community data: always check the pack" label.
-- **Terms:** supermarkets' terms restrict copying their product data, prices and photos. That is the same kind of risk the founder accepted for restaurant photos
-  and logos, but at a much larger scale, and for prices (databases) it is a bigger exposure. Needs the founder's explicit call.
-- **Usage:** the agent swarm used for restaurants ran into the founder's Claude usage limit; a catalogue of 100,000+ products cannot be crawled by agents at all.
-  Anything at that scale has to be done by plain scripts that read published product data, not by agents reading pages.
+- **Community data, not official.** Open Food Facts is edited by volunteers: the app says so on the product page and the privacy page,
+  credits "Open Food Facts contributors" (data ODbL, photos CC BY-SA, hotlinked from images.openfoodfacts.org, nothing copied).
+- Only products with a valid barcode (GTIN check digit), a name and complete, plausible per-100 g kcal, protein, carbs and fat are kept.
+- **Allergens:** an unknown stays "unknown" and is never shown as "none". Always "check the pack".
+- **Prices** (when they arrive) are labelled "price checked on {date} at {retailer} online; may differ in your store" (Clubcard, Nectar and
+  Aldi Price Match prices are not the shelf price).
+- Scale: the fetcher is deliberately slow (Open Food Facts allows about 10 searches a minute and caps a query at 1,000 results, so big
+  queries are sliced by an internal nutrition-grade tag). It is resumable (`/private/tmp/off-cache`), and `--skip-unknown` leaves out the
+  heavy "no nutrition grade" slice on a first pass.
 
-## Options
+## Terms
 
-**A. Open Food Facts first (fastest, no scraping of the stores).** Build the product catalogue from Open Food Facts for products sold by the five retailers (own brands
-and big brands): barcode, name, brand, size, nutrition per 100 g (and per serving where given), allergens, photo. Credit "© Open Food Facts contributors" (data ODbL,
-photos CC BY-SA). No prices in v1; the product page links to the retailer's search for the barcode. Not an official source, so labelled as community data.
+Supermarkets' terms restrict copying their product data, prices and photos. The founder accepted the same kind of risk for restaurant
+photos and logos. Open Food Facts avoids it for the catalogue; the exposure comes with prices and retailer photos, which is why those go
+through the founder's own browser session and only for the products people look at.
 
-**B. The retailers' own websites, through Claude in Chrome, for a chosen subset.** Official prices, photos, nutrition and allergens, but only as fast as a
-browser agent reads pages: realistic for a few hundred products per retailer (for example the own-brand protein range), not whole catalogues.
+## Data layer
 
-**C. Hybrid (recommended).** A for the whole catalogue (barcodes, macros, allergens, photos), then B to add retailer prices and official photos for the products
-people actually look at (own-brand and high-protein ranges first), keyed by barcode. Ask each retailer's affiliate or partner programme whether a product
-data feed is available: that is the legitimate way to get whole-catalogue prices.
+`web/public/groceries/<retailer>.json` (sharded by retailer so the app downloads only what it needs) plus `groceries-manifest.json` with
+a SHA-256 per file; each product: `gtin, name, brand, size, per-100 g nutrition, serving where given, allergens, image, category,
+prices[{retailer, amount, per, channel, checkedOn}]`. Built by the checked pipeline in `tools/groceries/` (tests in
+`tools/tests/test_groceries.py`, `web/tests/groceries.test.ts`).
 
-## What it would add to the app
+## Still to decide with the founder
 
-- A "Groceries" tab beside Restaurants: search by name or barcode, filter by retailer, protein per 100 kcal, allergens (display first, filter later), price.
-- Product page: photo, per 100 g and per serving, allergens table (same 14), price with retailer, date and "may differ in your store", the barcode number.
-- **Barcode scan** in the web app (camera, on the phone, nothing sent anywhere): scan a pack, open the product.
-- A basket/shopping list with totals (calories, protein, price), and the product list as the base for the later AI recipe feature.
-- Data layer: new `products` catalogue separate from restaurant menus: `retailer, gtin, name, brand, size, nutrition (per 100 g, per serving),
-  allergens, image, prices[{retailer, amount, per, channel, checkedOn}]`, built by the same kind of checked pipeline (`tools/build_menus.py` style),
-  sharded by retailer so the app downloads only what it needs.
-
-## Decisions needed from the founder
-
-1. Is Open Food Facts (community data, labelled as such) acceptable as the main source for macros, allergens and barcodes, with retailer sites for prices and photos where we can get them?
-2. Scope for v1: all five retailers' own brands and protein-relevant ranges (my suggestion), or everything we can get?
-3. Prices: are you happy to show retailer online prices with a "may differ in your store" label, taken through Claude in Chrome in your own browser?
-4. Are you willing to ask the retailers (or an affiliate network) about product data feeds? That is the only clean route to complete, current prices.
+1. Whether to ask the retailers (or an affiliate network such as Awin or Impact) for a product data feed: the only clean route to
+   complete, current prices.
+2. How far to take prices through the browser route (a few hundred own-brand and protein products per retailer is realistic).

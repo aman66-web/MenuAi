@@ -116,14 +116,22 @@ def polite_get(url: str, cache_dir: Path, *, delay: float = 1.0, referer: str | 
     headers = {"User-Agent": UA, "Accept": accept}
     if referer:
         headers["Referer"] = referer
-    try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
-            data = r.read()
-    except urllib.error.HTTPError as e:
-        _last_request[host] = time.monotonic()
-        if e.code in (401, 403, 429):
-            raise Blocked(f"HTTP {e.code} from {url}") from e
-        raise
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
+                data = r.read()
+            break
+        except urllib.error.HTTPError as e:
+            _last_request[host] = time.monotonic()
+            if e.code in (401, 403, 429):
+                raise Blocked(f"HTTP {e.code} from {url}") from e
+            raise
+        except (urllib.error.URLError, OSError):
+            # a dropped connection (reset, TLS EOF, timeout), not a refusal: wait and ask again, twice at most, same pace
+            _last_request[host] = time.monotonic()
+            if attempt == 2:
+                raise
+            time.sleep(10 * (attempt + 1))
     _last_request[host] = time.monotonic()
     cached.write_bytes(data)
     return data

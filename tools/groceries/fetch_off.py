@@ -89,6 +89,8 @@ def main() -> int:
     ap.add_argument("--only", default="")
     ap.add_argument("--cache", type=Path, default=Path("/private/tmp/off-cache"))
     ap.add_argument("--delay", type=float, default=7.0)
+    ap.add_argument("--skip-unknown", action="store_true", help="first pass: leave out the 'no nutrition grade' slice (heavy for the server, and many of "
+                    "those products have no complete nutrition anyway); run again without the flag to add it")
     args = ap.parse_args()
     only = {x for x in args.only.split(",") if x}
     args.cache.mkdir(parents=True, exist_ok=True)
@@ -100,6 +102,8 @@ def main() -> int:
             total = run_query(rid, qname, filt, args)
             if total > CAP_PAGES * PAGE_SIZE:
                 for g in GRADE_SLICES:
+                    if g == "unknown" and args.skip_unknown:
+                        continue
                     run_query(rid, f"{qname}-grade-{g}", {**filt, "nutrition_grades_tags": g}, args)
     print("done; cache:", args.cache)
     return 0
