@@ -1,0 +1,128 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+edamame-beans-grilled-supreme-soy-and-soya-sesame,"Edamame Beans (Grilled, supreme soy & soya sesame)",À la carte,,198,,,,,,,,,,,,,,,,false,false,,,"Printed 'Grilled, supreme soy & soya sesame | 198 kcal' on page 3"
+edamame-beans-spicy-miso-and-sesame,Edamame Beans (Spicy miso & sesame),À la carte,,150,,,,,,,,,,,,,,,,false,false,,,Printed 'Spicy miso & sesame | 150 kcal' on page 3
+edamame-beans-sea-salt-and-lemon,Edamame Beans (Sea salt & lemon),À la carte,,99,,,,,,,,,,,,,,,,false,false,,,Printed 'Sea salt & lemon | 99 kcal' on page 3
+shake-tataki,Shake Tataki,À la carte,,151,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE TATAKI | 151 kcal' on page 3
+kinoko-korokke,Kinoko Korokke,À la carte,,339,,,,,,,,,,,,,,,,false,false,,,Printed 'KINOKO KOROKKE | 339 kcal' on page 3
+tuna-tartare-bites,Tuna Tartare Bites,À la carte,,240,,,,,,,,,,,,,,,,false,false,,,Printed 'TUNA TARTARE BITES | 240 kcal' on page 3
+lobster-and-ikura-temaki,Lobster & Ikura Temaki,À la carte,,151,,,,,,,,,,,,,,,,false,false,,,Printed 'LOBSTER & IKURA TEMAKI | 151 kcal' on page 3
+broccoli,Broccoli,À la carte,,258,,,,,,,,,,,,,,,,false,false,,,Printed 'BROCCOLI | 258 kcal' on page 3
+karaage,Karaage,À la carte,,533,,,,,,,,,,,,,,,,false,false,,,Printed 'KARAAGE | 533 kcal' on page 3
+hotate-kataifi,Hotate Kataifi,À la carte,,402,,,,,,,,,,,,,,,,false,false,,,Printed 'HOTATE KATAIFI | 402 kcal' on page 3
+hiramasa-ceviche,Hiramasa Ceviche,À la carte,,201,,,,,,,,,,,,,,,,false,false,,,Printed 'HIRAMASA CEVICHE | 201 kcal' on page 4
+come-for-a-swim,Come for a Swim,À la carte,,804,,,,,,,,,,,,,,,,false,false,,,Printed 'COME FOR A SWIM | 804 kcal' on page 4; Six small dishes listed under it; price 45; no serving stated
+gyoza,Gyoza,À la carte,,331,,,,,,,,,,,,,,,,false,false,,,Printed 'GYOZA | 331 kcal' on page 5
+kani-korokke,Kani Korokke,À la carte,,417,,,,,,,,,,,,,,,,false,false,,,Printed 'KANI KOROKKE | 417 kcal' on page 5
+hiramasa-kataifi,Hiramasa Kataifi,À la carte,,182,,,,,,,,,,,,,,,,false,false,,,Printed 'HIRAMASA KATAIFI | 182 kcal' on page 5
+cauliflower,Cauliflower,À la carte,,266,,,,,,,,,,,,,,,,false,false,,,Printed 'CAULIFLOWER | 266 kcal' on page 5
+hiramasa-kama,Hiramasa Kama,À la carte,,373,,,,,,,,,,,,,,,,false,false,,,Printed 'HIRAMASA KAMA | 373 kcal' on page 6; Printed '[Limited availability]': not a limited-time label
+miso-soup,Miso Soup,À la carte,,41,,,,,,,,,,,,,,,,false,false,,,Printed 'MISO SOUP | 41 kcal' on page 6
+rice-paper-shake,Rice Paper Shake,À la carte,,273,,,,,,,,,,,,,,,,false,false,,,Printed 'RICE PAPER SHAKE | 273 kcal' on page 6
+ebi-bites,Ebi Bites,À la carte,,378,,,,,,,,,,,,,,,,false,false,,,Printed 'EBI BITES | 378 kcal' on page 6
+seaweed-salad,Seaweed Salad,À la carte,,280,,,,,,,,,,,,,,,,false,false,,,Printed 'SEAWEED SALAD | 280 kcal' on page 6
+wagyu-bites,Wagyu Bites,À la carte,,138,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'WAGYU BITES | 138 kcal' on page 6
+beef-tataki,Beef Tataki,À la carte,,167,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'BEEF TATAKI | 167 kcal' on page 6
+exmoor-caviar,Exmoor Caviar,À la carte,10 g,26,,,,,,,,,,10,,,,,,false,false,,,"Printed 'EXMOOR CAVIAR | 26 kcal' on page 6; Royal Beluski [10 g]; printed three times (here, 'Spoil Yourself' on the Temaki page and the set-menu page), 26 kcal each time"
+temaki-setto,Temaki Setto,À la carte,,706,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'TEMAKI SETTO | 706 kcal' on page 9; Printed on the Maki spread; 'Temaki means handroll. Create your own small bites'; price 38
+maguro-sashimi,Maguro Sashimi,Sashimi,,115,,,,,,,,,,,,,,,,false,false,,,Printed 'MAGURO | 115 kcal' on page 7
+shake-sashimi,Shake Sashimi,Sashimi,,143,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE | 143 kcal' on page 7
+hiramasa-sashimi,Hiramasa Sashimi,Sashimi,,193,,,,,,,,,,,,,,,,false,false,,,Printed 'HIRAMASA | 193 kcal' on page 7
+sashimi-deluxe,Sashimi Deluxe,Sashimi,,500,,,,,,,,,,,,,,,,false,false,,,Printed 'SASHIMI DELUXE | 500 kcal' on page 7
+inari-ikura-nigiri-1-pc,Inari Ikura Nigiri (1 pc),Nigiri,1 pc,81,,,,,,,,,,,,,,,,false,false,,,Printed 'INARI IKURA | 81 / 154 kcal' on page 8
+inari-ikura-nigiri-2-pcs,Inari Ikura Nigiri (2 pcs),Nigiri,2 pcs,154,,,,,,,,,,,,,,,,false,false,,,Printed 'INARI IKURA | 81 / 154 kcal' on page 8
+tamago-nigiri-1-pc,Tamago Nigiri (1 pc),Nigiri,1 pc,41,,,,,,,,,,,,,,,,false,false,,,Printed 'TAMAGO | 41 / 73 kcal' on page 8
+tamago-nigiri-2-pcs,Tamago Nigiri (2 pcs),Nigiri,2 pcs,73,,,,,,,,,,,,,,,,false,false,,,Printed 'TAMAGO | 41 / 73 kcal' on page 8
+ebi-nigiri-1-pc,Ebi Nigiri (1 pc),Nigiri,1 pc,44,,,,,,,,,,,,,,,,false,false,,,Printed 'EBI | 44 / 80 kcal' on page 8
+ebi-nigiri-2-pcs,Ebi Nigiri (2 pcs),Nigiri,2 pcs,80,,,,,,,,,,,,,,,,false,false,,,Printed 'EBI | 44 / 80 kcal' on page 8
+abokado-nigiri-1-pc,Abokado Nigiri (1 pc),Nigiri,1 pc,87,,,,,,,,,,,,,,,,false,false,,,Printed 'ABOKADO | 87 / 166 kcal' on page 8
+abokado-nigiri-2-pcs,Abokado Nigiri (2 pcs),Nigiri,2 pcs,166,,,,,,,,,,,,,,,,false,false,,,Printed 'ABOKADO | 87 / 166 kcal' on page 8
+maguro-nigiri-1-pc,Maguro Nigiri (1 pc),Nigiri,1 pc,49,,,,,,,,,,,,,,,,false,false,,,Printed 'MAGURO | 49 / 90 kcal' on page 8
+maguro-nigiri-2-pcs,Maguro Nigiri (2 pcs),Nigiri,2 pcs,90,,,,,,,,,,,,,,,,false,false,,,Printed 'MAGURO | 49 / 90 kcal' on page 8
+shake-nigiri-1-pc,Shake Nigiri (1 pc),Nigiri,1 pc,54,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE | 54 / 100 kcal' on page 8
+shake-nigiri-2-pcs,Shake Nigiri (2 pcs),Nigiri,2 pcs,100,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE | 54 / 100 kcal' on page 8
+shake-yaki-nigiri-1-pc,Shake Yaki Nigiri (1 pc),Nigiri,1 pc,59,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE YAKI | 59 / 111 kcal' on page 8
+shake-yaki-nigiri-2-pcs,Shake Yaki Nigiri (2 pcs),Nigiri,2 pcs,111,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE YAKI | 59 / 111 kcal' on page 8
+kinoko-nigiri-1-pc,Kinoko Nigiri (1 pc),Nigiri,1 pc,74,,,,,,,,,,,,,,,,false,false,,,Printed 'KINOKO | 74 / 140 kcal' on page 8
+kinoko-nigiri-2-pcs,Kinoko Nigiri (2 pcs),Nigiri,2 pcs,140,,,,,,,,,,,,,,,,false,false,,,Printed 'KINOKO | 74 / 140 kcal' on page 8
+hiramasa-nigiri-1-pc,Hiramasa Nigiri (1 pc),Nigiri,1 pc,62,,,,,,,,,,,,,,,,false,false,,,Printed 'HIRAMASA | 62 / 115 kcal' on page 8
+hiramasa-nigiri-2-pcs,Hiramasa Nigiri (2 pcs),Nigiri,2 pcs,115,,,,,,,,,,,,,,,,false,false,,,Printed 'HIRAMASA | 62 / 115 kcal' on page 8
+nasu-aburi-nigiri-1-pc,Nasu Aburi Nigiri (1 pc),Nigiri,1 pc,72,,,,,,,,,,,,,,,,false,false,,,Printed 'NASU ABURI | 72 / 135 kcal' on page 8
+nasu-aburi-nigiri-2-pcs,Nasu Aburi Nigiri (2 pcs),Nigiri,2 pcs,135,,,,,,,,,,,,,,,,false,false,,,Printed 'NASU ABURI | 72 / 135 kcal' on page 8
+aka-piman-nigiri-1-pc,Aka Piman Nigiri (1 pc),Nigiri,1 pc,50,,,,,,,,,,,,,,,,false,false,,,Printed 'AKA PIMAN | 50 / 92 kcal' on page 8
+aka-piman-nigiri-2-pcs,Aka Piman Nigiri (2 pcs),Nigiri,2 pcs,92,,,,,,,,,,,,,,,,false,false,,,Printed 'AKA PIMAN | 50 / 92 kcal' on page 8
+hiramasa-yaki-nigiri-1-pc,Hiramasa Yaki Nigiri (1 pc),Nigiri,1 pc,65,,,,,,,,,,,,,,,,false,false,,,Printed 'HIRAMASA YAKI | 65 / 121 kcal' on page 8
+hiramasa-yaki-nigiri-2-pcs,Hiramasa Yaki Nigiri (2 pcs),Nigiri,2 pcs,121,,,,,,,,,,,,,,,,false,false,,,Printed 'HIRAMASA YAKI | 65 / 121 kcal' on page 8
+shake-new-york-nigiri-1-pc,Shake New York Nigiri (1 pc),Nigiri,1 pc,54,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE NEW YORK | 54 / 100 kcal' on page 8
+shake-new-york-nigiri-2-pcs,Shake New York Nigiri (2 pcs),Nigiri,2 pcs,100,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE NEW YORK | 54 / 100 kcal' on page 8
+inari-nigiri-1-pc,Inari Nigiri (1 pc),Nigiri,1 pc,77,,,,,,,,,,,,,,,,false,false,,,Printed 'INARI | 77 / 146 kcal' on page 8
+inari-nigiri-2-pcs,Inari Nigiri (2 pcs),Nigiri,2 pcs,146,,,,,,,,,,,,,,,,false,false,,,Printed 'INARI | 77 / 146 kcal' on page 8
+kyoto-non-stop,Kyoto Non-Stop,Nigiri,,326,,,,,,,,,,,,,,,,false,false,,,"Printed 'KYOTO NON-STOP | 326 kcal' on page 8; Nigiri set (tofu, grilled red pepper, seared aubergine, avocado, portobello); price 12.6"
+tokyo-non-stop,Tokyo Non-Stop,Nigiri,,286,,,,,,,,,,,,,,,,false,false,,,Printed 'TOKYO NON-STOP | 286 kcal' on page 8; Nigiri set topped with Exmoor Caviar [10 gr]; price 32
+wagyu-house-roll,Wagyu House Roll,House rolls,4 pcs,243,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Wagyu. Wagyu tartare with kizami wasabi & crispy kataifi | 243 kcal' on page 9
+aka-ebi-house-roll,Aka Ebi House Roll,House rolls,4 pcs,189,,,,,,,,,,,,,,,,false,false,,,"Printed 'Aka Ebi. Shrimp, spicy gochujang, avocado, snow peas, miso aïoli & trout roe | 189 kcal' on page 9"
+black-cod-house-roll,Black Cod House Roll,House rolls,4 pcs,275,,,,,,,,,,,,,,,,false,false,,,Printed 'Black Cod. Miso-marinated black cod with artichoke chips & pickled red onion | 275 kcal' on page 9
+redngreen-house-roll,Red’n’Green House Roll,House rolls,4 pcs,153,,,,,,,,,,,,,,,,false,false,,,"Printed 'Red’n’Green. Roasted pepper, avocado, cucumber, yuzu-kosho, shiso & tsume | 153 kcal' on page 9"
+soft-shell-house-roll,Soft Shell House Roll,House rolls,4 pcs,255,,,,,,,,,,,,,,,,false,false,,,Printed 'Soft Shell. Softshell crab with masago & spicy sauce | 255 kcal' on page 9
+lobster-abokado-house-roll,Lobster Abokado House Roll,House rolls,4 pcs,181,,,,,,,,,,,,,,,,false,false,,,"Printed 'Lobster Abokado. Lobster, avocado, cucumber, soya sesame, chives & coriander | 181 kcal' on page 9"
+full-house,Full House,House rolls,All 6 House Rolls (4 pcs of each roll),1296,,,,,,,,,,,,,,,,false,false,,,Printed 'All 6 House Rolls | 1296 kcal' on page 9; Printed 'FULL HOUSE | Menu'; price 80
+nanban,Nanban,Uramaki,8 pcs,506,,,,,,,,,,,,,,,,false,false,,,Printed 'NANBAN | 506 kcal' on page 10
+crispy-ebi,Crispy Ebi,Uramaki,8 pcs,395,,,,,,,,,,,,,,,,false,false,,,Printed 'CRISPY EBI | 395 kcal' on page 10
+california,California,Uramaki,8 pcs,314,,,,,,,,,,,,,,,,false,false,,,Printed 'CALIFORNIA | 314 kcal' on page 10
+mamma-mia,Mamma Mia,Uramaki,8 pcs,288,,,,,,,,,,,,,,,,false,false,,,Printed 'MAMMA MIA | 288 kcal' on page 10
+pink-alaska,Pink Alaska,Uramaki,8 pcs,336,,,,,,,,,,,,,,,,false,false,,,Printed 'PINK ALASKA | 336 kcal' on page 10
+spicy-tuna,Spicy Tuna,Uramaki,8 pcs,379,,,,,,,,,,,,,,,,false,false,,,Printed 'SPICY TUNA | 379 kcal' on page 10
+new-york-subway,New York Subway,Kaburimaki,8 pcs,466,,,,,,,,,,,,,,,,false,false,,,Printed 'NEW YORK SUBWAY | 466 kcal' on page 10
+ebi-panko,Ebi Panko,Kaburimaki,8 pcs,390,,,,,,,,,,,,,,,,false,false,,,Printed 'EBI PANKO | 390 kcal' on page 10
+hells-kitchen,Hell’s Kitchen,Kaburimaki,8 pcs,503,,,,,,,,,,,,,,,,false,false,,,Printed 'HELL’S KITCHEN | 503 kcal' on page 10
+shake-aioli,Shake Aïoli,Kaburimaki,8 pcs,409,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE AÏOLI | 409 kcal' on page 10
+ceviche,Ceviche,Kaburimaki,8 pcs,309,,,,,,,,,,,,,,,,false,false,,,Printed 'CEVICHE | 309 kcal' on page 10
+chirashi-maki,Chirashi Maki,Kaburimaki,8 pcs,289,,,,,,,,,,,,,,,,false,false,,,Printed 'CHIRASHI MAKI | 289 kcal' on page 10
+maki-maki,Maki Maki,Kaburimaki,8 pcs of each roll,1570,,,,,,,,,,,,,,,,false,false,,,"Printed 'MAKI MAKI | 1570 kcal' on page 10; Printed 'MAKI MAKI | 1570 kcal', 'Kaburimaki. Ceviche, Hell’s Kitchen, Ebi Panko and Shake Aïoli, 8 pcs of each roll 58'"
+mini-maki-maki,Mini Maki Maki,Kaburimaki,4 pcs of each roll,792,,,,,,,,,,,,,,,,false,false,,,Printed 'MINI MAKI MAKI | 792 kcal' on page 10; Printed '4 pcs of each roll 29'
+imo-yaki-1-pc,Imo Yaki (1 pc),Sticks,1 pc,56,,,,,,,,,,,,,,,,false,false,,,Printed 'IMO YAKI | 56 / 112 kcal' on page 11
+imo-yaki-2-pcs,Imo Yaki (2 pcs),Sticks,2 pcs,112,,,,,,,,,,,,,,,,false,false,,,Printed 'IMO YAKI | 56 / 112 kcal' on page 11
+shishito-yaki-1-pc,Shishito Yaki (1 pc),Sticks,1 pc,72,,,,,,,,,,,,,,,,false,false,,,Printed 'SHISHITO YAKI | 72 / 144 kcal' on page 11
+shishito-yaki-2-pcs,Shishito Yaki (2 pcs),Sticks,2 pcs,144,,,,,,,,,,,,,,,,false,false,,,Printed 'SHISHITO YAKI | 72 / 144 kcal' on page 11
+wagyu-yaki-1-pc,Wagyu Yaki (1 pc),Sticks,1 pc,159,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'WAGYU YAKI | 159 / 318 kcal' on page 11
+wagyu-yaki-2-pcs,Wagyu Yaki (2 pcs),Sticks,2 pcs,318,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'WAGYU YAKI | 159 / 318 kcal' on page 11
+shake-teriyaki-1-pc,Shake Teriyaki (1 pc),Sticks,1 pc,78,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE TERIYAKI | 78 / 156 kcal' on page 11
+shake-teriyaki-2-pcs,Shake Teriyaki (2 pcs),Sticks,2 pcs,156,,,,,,,,,,,,,,,,false,false,,,Printed 'SHAKE TERIYAKI | 78 / 156 kcal' on page 11
+gindara-no-miso-1-pc,Gindara No Miso (1 pc),Sticks,1 pc,114,,,,,,,,,,,,,,,,false,false,,,"Printed 'GINDARA NO MISO | 114 / 224 kcal' on page 11; Printed on two lines, 'GINDARA / NO MISO'"
+gindara-no-miso-2-pcs,Gindara No Miso (2 pcs),Sticks,2 pcs,224,,,,,,,,,,,,,,,,false,false,,,"Printed 'GINDARA NO MISO | 114 / 224 kcal' on page 11; Printed on two lines, 'GINDARA / NO MISO'"
+aka-ebi-1-pc,Aka Ebi (1 pc),Sticks,1 pc,70,,,,,,,,,,,,,,,,false,false,,,Printed 'AKA EBI | 70 / 140 kcal' on page 11
+aka-ebi-2-pcs,Aka Ebi (2 pcs),Sticks,2 pcs,140,,,,,,,,,,,,,,,,false,false,,,Printed 'AKA EBI | 70 / 140 kcal' on page 11
+hotate-bacon-1-pc,Hotate Bacon (1 pc),Sticks,1 pc,145,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'HOTATE BACON | 145 / 290 kcal' on page 11
+hotate-bacon-2-pcs,Hotate Bacon (2 pcs),Sticks,2 pcs,290,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'HOTATE BACON | 145 / 290 kcal' on page 11
+yaki-yagi-1-pc,Yaki Yagi (1 pc),Sticks,1 pc,110,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'YAKI YAGI | 110 / 220 kcal' on page 11
+yaki-yagi-2-pcs,Yaki Yagi (2 pcs),Sticks,2 pcs,220,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'YAKI YAGI | 110 / 220 kcal' on page 11
+chiizu-maki-1-pc,Chiizu Maki (1 pc),Sticks,1 pc,188,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'CHIIZU MAKI | 188 / 376 kcal' on page 11
+chiizu-maki-2-pcs,Chiizu Maki (2 pcs),Sticks,2 pcs,376,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'CHIIZU MAKI | 188 / 376 kcal' on page 11
+buta-yaki-1-pc,Buta Yaki (1 pc),Sticks,1 pc,143,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'BUTA YAKI | 143 / 286 kcal' on page 11
+buta-yaki-2-pcs,Buta Yaki (2 pcs),Sticks,2 pcs,286,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'BUTA YAKI | 143 / 286 kcal' on page 11
+iberico-secreto-1-pc,Iberico Secreto (1 pc),Sticks,1 pc,136,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'IBERICO SECRETO | 136 / 272 kcal' on page 11
+iberico-secreto-2-pcs,Iberico Secreto (2 pcs),Sticks,2 pcs,272,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'IBERICO SECRETO | 136 / 272 kcal' on page 11
+gyu-habu-1-pc,Gyu Habu (1 pc),Sticks,1 pc,96,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'GYU HABU | 96 / 192 kcal' on page 11
+gyu-habu-2-pcs,Gyu Habu (2 pcs),Sticks,2 pcs,192,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'GYU HABU | 96 / 192 kcal' on page 11
+eringi-yaki-1-pc,Eringi Yaki (1 pc),Sticks,1 pc,88,,,,,,,,,,,,,,,,false,false,,,Printed 'ERINGI YAKI | 88 / 179 kcal' on page 11
+eringi-yaki-2-pcs,Eringi Yaki (2 pcs),Sticks,2 pcs,179,,,,,,,,,,,,,,,,false,false,,,Printed 'ERINGI YAKI | 88 / 179 kcal' on page 11
+momo-nanban-1-pc,Momo Nanban (1 pc),Sticks,1 pc,146,,,,,,,,,,,,,,,,false,false,,,Printed 'MOMO NANBAN | 146 / 292 kcal' on page 11
+momo-nanban-2-pcs,Momo Nanban (2 pcs),Sticks,2 pcs,292,,,,,,,,,,,,,,,,false,false,,,Printed 'MOMO NANBAN | 146 / 292 kcal' on page 11
+shoyu-tebasaki-1-pc,Shōyu Tebasaki (1 pc),Sticks,1 pc,140,,,,,,,,,,,,,,,,false,false,,,Printed 'SHŌYU TEBASAKI | 140 / 280 kcal' on page 11
+shoyu-tebasaki-2-pcs,Shōyu Tebasaki (2 pcs),Sticks,2 pcs,280,,,,,,,,,,,,,,,,false,false,,,Printed 'SHŌYU TEBASAKI | 140 / 280 kcal' on page 11
+tsukune-1-pc,Tsukune (1 pc),Sticks,1 pc,139,,,,,,,,,,,,,,,,false,false,,,Printed 'TSUKUNE | 139 / 278 kcal' on page 11
+tsukune-2-pcs,Tsukune (2 pcs),Sticks,2 pcs,278,,,,,,,,,,,,,,,,false,false,,,Printed 'TSUKUNE | 139 / 278 kcal' on page 11
+tsukune-chili-1-pc,Tsukune Chili (1 pc),Sticks,1 pc,170,,,,,,,,,,,,,,,,false,false,,,Printed 'TSUKUNE CHILI | 170 / 340 kcal' on page 11
+tsukune-chili-2-pcs,Tsukune Chili (2 pcs),Sticks,2 pcs,340,,,,,,,,,,,,,,,,false,false,,,Printed 'TSUKUNE CHILI | 170 / 340 kcal' on page 11
+ramu-niku-1-pc,Ramu Niku (1 pc),Sticks,1 pc,163,,,,,,,,,,,,,,,,false,false,,,Printed 'RAMU NIKU | 163 / 326 kcal' on page 11
+ramu-niku-2-pcs,Ramu Niku (2 pcs),Sticks,2 pcs,326,,,,,,,,,,,,,,,,false,false,,,Printed 'RAMU NIKU | 163 / 326 kcal' on page 11
+aigamo-tsukune-1-pc,Aigamo Tsukune (1 pc),Sticks,1 pc,126,,,,,,,,,,,,,,,,false,false,,,Printed 'AIGAMO TSUKUNE | 126 / 247 kcal' on page 11
+aigamo-tsukune-2-pcs,Aigamo Tsukune (2 pcs),Sticks,2 pcs,247,,,,,,,,,,,,,,,,false,false,,,Printed 'AIGAMO TSUKUNE | 126 / 247 kcal' on page 11
+gyu-katzu-1-pc,Gyu Katzu (1 pc),Sticks,1 pc,163,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'GYU KATZU | 163 / 326 kcal' on page 11
+gyu-katzu-2-pcs,Gyu Katzu (2 pcs),Sticks,2 pcs,326,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'GYU KATZU | 163 / 326 kcal' on page 11
+rice,Rice,Sticks,,162,,,,,,,,,,,,,,,,false,false,,,Printed 'RICE | 162 kcal' on page 11; Printed 'RICE 2.6 | 162 kcal'
+rice-with-crunchy-chilli,Rice with crunchy chilli,Sticks,,348,,,,,,,,,,,,,,,,false,false,,,Printed 'With crunchy chilli | 348 kcal' on page 11; Printed under RICE at 3.9
+rice-with-teriyaki,Rice with teriyaki,Sticks,,221,,,,,,,,,,,,,,,,false,false,,,Printed 'teriyaki | 221 kcal' on page 11; Printed under RICE at 3.9
+rice-with-chilli-dip,Rice with chilli dip,Sticks,,337,,,,,,,,,,,,,,,,false,false,,,Printed 'chilli dip | 337 kcal' on page 11; Printed under RICE at 3.9
+as-good-as-it-gets,As Good As It Gets,Set menus,per person,1878,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,Printed 'AS GOOD AS IT GETS | 1878 kcal' on page 13; Printed 'Price per person 60 | 1878 kcal per person [Minimum two people]'
+set-for-success,Set For Success,Set menus,per person,1476,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'SET FOR SUCCESS | 1476 kcal' on page 14; Printed 'Price per person 50 | 1476 kcal per person [Minimum two people]'
+perfect-day,Perfect Day,Set menus,per person,1194,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'PERFECT DAY | 1194 kcal' on page 15; Printed 'Price per person 45 | 1194 kcal per person [Minimum two people]'
