@@ -1,0 +1,1 @@
+Tesco Cafe publishes calories only (kcal per serving), so protein, carbs and fat are not published. Drinks print Small / Medium values. Not listed: condiments that print no calories (sugar, salt, pepper, some sauces) and the Hot Food Counter (3 venues only). The cafe says shared equipment means any item can carry traces.
