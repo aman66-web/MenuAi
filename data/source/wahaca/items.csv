@@ -1,0 +1,45 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+butter-bean-and-confit-garlic-dip-with-jalapeno-oil,Butter Bean & Confit Garlic Dip with Jalapeño oil,Entradas,,574,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Jalapeño oil 6.75', marks: vg; Printed as an option with its own full price; the dip alone has no price or calories"
+butter-bean-and-confit-garlic-dip-with-trealy-farm-sobrasada-chorizo,Butter Bean & Confit Garlic Dip with Trealy Farm sobrasada chorizo,Entradas,,634,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Trealy Farm sobrasada chorizo 7.25'; Printed as an option with its own full price; the dip alone has no price or calories
+guacamole,Guacamole,Entradas,,542,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Guacamole 7.25', marks: vg"
+add-chilli-oil-to-guacamole,Add chilli oil (to Guacamole),Entradas,,49,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Add chilli oil +25p', marks: vg; Printed +25p under Guacamole: the oil's own calories, not a Guacamole total"
+chorizo-nachos,Chorizo Nachos,Entradas,,799,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Chorizo Nachos 11.95'
+house-nachos,House Nachos,Entradas,,620,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'House Nachos 10.95', marks: v vgo"
+pork-pibil-tacos,Pork Pibil Tacos,Tacos,,279,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Pork Pibil 7.95'; Printed 'Pork Pibil 7.95'; the same dish name is also a burrito
+roast-ancho-mushroom-tacos,Roast Ancho Mushroom Tacos,Tacos,,310,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Roast Ancho Mushroom 7.75', marks: vg n; Same printed value (310) as the Sweet Potato side"
+beef-gringa-tacos,Beef Gringa Tacos,Tacos,,343,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Beef Gringa 8.95'
+plantain-tacos,Plantain Tacos,Tacos,,496,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Plantain 7.25', marks: v vgo"
+halloumi-al-pastor-tacos,‘Halloumi’ Al Pastor Tacos,Tacos,,418,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '‘Halloumi’ Al Pastor 8.25', marks: v"
+grilled-chicken-and-avocado-tacos,Grilled Chicken & Avocado Tacos,Tacos,,326,,,,,,,,,,,,,,,,false,false,,,Printed 'Grilled Chicken & Avocado 8.25'
+buttermilk-chicken-tacos,Buttermilk Chicken Tacos,Tacos,,444,,,,,,,,,,,,,,,,false,false,,,Printed 'Buttermilk Chicken 8.95'
+baja-fish-tacos,Baja Fish Tacos,Tacos,,463,,,,,,,,,,,,,,,,false,false,,,Printed 'Baja Fish 8.95'
+grilled-seabass-taco-board,Grilled Seabass Taco Board,Tacos,,793,,,,,,,,,,,,,,,,false,false,,,"Printed 'Fillet of Achiote Marinated Seabass 18.95', marks: n; Printed 'Ideal for one, or to share 793kcal'; same printed value as the Warm Chocolate & Pecan Cake"
+grilled-ajillo-chicken-club-quesadilla,Grilled Ajillo Chicken Club Quesadilla,Quesadillas,,524,,,,,,,,,,,,,,,,false,false,,,Printed 'Grilled Ajillo Chicken Club 8.95'
+black-bean-and-three-cheese-quesadilla,Black Bean & Three Cheese Quesadilla,Quesadillas,,400,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Black Bean & Three Cheese 7.25', marks: v vgo"
+grilled-brindisa-chorizo-quesadilla,Grilled Brindisa Chorizo Quesadilla,Quesadillas,,570,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Grilled Brindisa Chorizo 8.25'
+sweet-potato-and-feta-taquito,Sweet Potato & Feta Taquito,Platitos,,385,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Sweet Potato & Feta Taquito 7.75', marks: v"
+crispy-cauliflower-bites,Crispy Cauliflower Bites,Platitos,,642,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Crispy Cauliflower Bites 7.25', marks: v; Same printed value (642) as the Churros with chocolate sauce and the Sweet Potato 'Bravas'"
+smoky-pork-belly-skewer,Smoky Pork Belly Skewer,Platitos,,493,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Smoky Pork Belly Skewer 8.95'
+yellowfin-tuna-tostadas,Yellowfin Tuna Tostadas,Platitos,,373,,,,,,,,,,,,,,,,false,false,,,"Printed 'Yellowfin Tuna Tostadas 10.50' NEW, marks: n; Marked NEW on the menu"
+chipotle-glazed-aubergine,Chipotle Glazed Aubergine,Platitos,,296,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Chipotle Glazed Aubergine 7.75' NEW, marks: v vgo n; Marked NEW on the menu"
+corn-bean-and-feta-tostadas,"Corn, Bean & Feta Tostadas",Platitos,,336,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Corn, Bean & Feta Tostadas 6.95', marks: v vgo n"
+sunshine-bowl,Sunshine Bowl,Sunshine Bowls,,547,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Sunshine Bowl 11.95' NEW, marks: vg n; Marked NEW on the menu"
+sunshine-bowl-with-halloumi-al-pastor,Sunshine Bowl with ‘Halloumi’ Al Pastor,Sunshine Bowls,,770,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '‘Halloumi’ Al Pastor 14.95', marks: v n; Printed under 'With:' with the bowl's full price, so the value is for the whole bowl"
+sunshine-bowl-with-garlic-sweet-potato,Sunshine Bowl with Garlic Sweet Potato,Sunshine Bowls,,735,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Garlic Sweet Potato 13.95', marks: vg n; Printed under 'With:' with the bowl's full price, so the value is for the whole bowl"
+sunshine-bowl-with-grilled-chicken,Sunshine Bowl with Grilled Chicken,Sunshine Bowls,,691,,,,,,,,,,,,,,,,false,false,,,"Printed 'Grilled Chicken 14.95', marks: n; Printed under 'With:' with the bowl's full price, so the value is for the whole bowl"
+roast-ancho-mushroom-burrito,Roast Ancho Mushroom Burrito,Burritos,,962,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Roast Ancho Mushroom 15.95', marks: v vgo"
+grilled-chicken-burrito,Grilled Chicken Burrito,Burritos,,1065,,,,,,,,,,,,,,,,false,false,,,Printed 'Grilled Chicken 16.95'
+pork-pibil-burrito,Pork Pibil Burrito,Burritos,,1100,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Pork Pibil 16.25'
+slow-cooked-beef-burrito,Slow-Cooked Beef Burrito,Burritos,,1048,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Slow-Cooked Beef 16.95'
+sweet-potato,Sweet Potato,Sides,,310,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Sweet Potato 5.75', marks: vg; Same printed value (310) as the Roast Ancho Mushroom Tacos"
+sweet-potato-bravas,Sweet Potato ‘Bravas’,Sides,,642,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Sweet Potato ‘Bravas’ 6.75', marks: v; Same printed value (642) as the Crispy Cauliflower Bites"
+frijoles-crema,Frijoles Crema,Sides,,137,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Frijoles Crema 4.75', marks: v vgo"
+frijoles-chorizo,Frijoles Chorizo,Sides,,240,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Frijoles Chorizo 5.25'
+grilled-tenderstem-broccoli,Grilled Tenderstem Broccoli,Sides,,254,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Grilled Tenderstem Broccoli 6.25', marks: vg n"
+avocado-cos-and-rocket-salad,"Avocado, Cos & Rocket Salad",Sides,,251,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Avocado, Cos & Rocket Salad 6.25', marks: vg n"
+trio-of-fresh-salsas,Trio of Fresh Salsas,Salsas,,430,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Trio of Fresh Salsas 2.50', marks: vg n; One value for the trio (Tomatillo, Habanero, Macha)"
+house-hot-sauce,House Hot Sauce,Salsas,,11,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'House Hot Sauce 1.00', marks: vg"
+churros-with-chocolate-sauce,Churros with chocolate sauce,Desserts,,642,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Churros 6.95', marks: v vgo; two sauces, two printed values (line: 'Crisp Mexican doughnuts with a rich chocolate sauce 642kcal')"
+churros-with-dulce-de-leche-caramel,Churros with dulce de leche caramel,Desserts,,584,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Churros 6.95', marks: v vgo; two sauces, two printed values (line: 'or dulce de leche caramel 584kcal')"
+ice-cream-sundae,Ice Cream Sundae,Desserts,,386,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Ice Cream Sundae 7.25', marks: v n"
+warm-chocolate-and-pecan-cake,Warm Chocolate & Pecan Cake,Desserts,,793,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Warm Chocolate & Pecan Cake 7.95', marks: v n; Same printed value (793) as the Grilled Seabass Taco Board"
