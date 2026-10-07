@@ -1,0 +1,1 @@
+The Lounge menu page hides calories by default behind a "Hide Calories" switch (set it to No to show them). Calories only: protein, carbs and fat are not published. GF, EF and MF are the chain's gluten, egg and milk free dishes. Cocktails, shots and a few dishes show no calories and are not listed. Not Cosy Club or Brightside.
