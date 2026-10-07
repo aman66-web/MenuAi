@@ -1,0 +1,92 @@
+batch,id,name,cuisine,parent_hint,site
+,odeon,Odeon Cinemas,Cinema,AMC Entertainment,https://www.odeon.co.uk
+,cineworld,Cineworld,Cinema,Cineworld Group,https://www.cineworld.co.uk
+,vue,Vue Cinemas,Cinema,Vue International,https://www.myvue.com
+,national-trust,National Trust,Attraction,National Trust,https://www.nationaltrust.org.uk
+,hollywood-bowl,Hollywood Bowl,Bowling,Hollywood Bowl Group,https://www.hollywoodbowl.co.uk
+,dobbies,Dobbies Garden Centres,Garden Centre,,https://www.dobbies.com
+,dunelm,Dunelm Pausa Cafe,Cafe,Dunelm Group,https://www.dunelm.com
+,tenpin,Tenpin,Bowling,Ten Entertainment Group,https://www.tenpin.co.uk
+,haven,Haven,Holiday Park,Bourne Leisure,https://www.haven.com
+,parkdean-resorts,Parkdean Resorts,Holiday Park,,https://www.parkdeanresorts.co.uk
+,brunning-and-price,Brunning & Price,Pub,The Restaurant Group,https://www.brunningandprice.co.uk
+,british-garden-centres,British Garden Centres,Garden Centre,,https://www.britishgardencentres.com
+,holiday-inn,Holiday Inn,Hotel,IHG Hotels & Resorts,https://www.ihg.com/holidayinn
+,hilton,Hilton Hotels,Hotel,Hilton,https://www.hilton.com
+,the-ivy-collection,The Ivy Collection,British,,https://theivycollection.com
+,chaiiwala,Chaiiwala,Indian,,https://www.chaiiwala.co.uk
+,britannia-hotels,Britannia Hotels,Hotel,,https://www.britanniahotels.com
+,merlin-entertainments,Merlin Entertainments,Attraction,,https://www.merlinentertainments.biz
+,english-heritage,English Heritage,Attraction,English Heritage Trust,https://www.english-heritage.org.uk
+,mercure,Mercure Hotels,Hotel,Accor,https://www.mercure.com
+,village-hotels,Village Hotels,Hotel,Blackstone,https://www.village-hotels.co.uk
+,everyman,Everyman Cinemas,Cinema,Everyman Media Group,https://www.everymancinema.com
+,rudys-pizza-napoletana,Rudy's Pizza Napoletana,Pizza,,https://rudyspizza.co.uk
+,hall-and-woodhouse,Hall & Woodhouse,Pub,,https://www.hall-woodhouse.co.uk
+,st-austell-brewery,St Austell Brewery Pubs,Pub,,https://staustellbrewery.co.uk
+,shepherd-neame,Shepherd Neame,Pub,,https://www.shepherdneame.co.uk
+,robinsons,Robinsons Pubs,Pub,Frederic Robinson Ltd,https://www.robinsonsbrewery.com
+,joseph-holt,Joseph Holt,Pub,,https://www.joseph-holt.com
+,everards,Everards,Pub,,https://www.everards.co.uk
+,jw-lees,JW Lees,Pub,,https://www.jwlees.co.uk
+,leonardo-hotels,Leonardo Hotels,Hotel,Fattal Hotel Group,https://www.leonardohotels.co.uk
+,marriott-hotels,Marriott Hotels,Hotel,Marriott International,https://www.marriott.com
+,best-western,Best Western,Hotel,Best Western Hotels & Resorts,https://www.bestwestern.co.uk
+,crowne-plaza,Crowne Plaza,Hotel,IHG Hotels & Resorts,https://www.ihg.com/crowneplaza
+,picturehouse,Picturehouse Cinemas,Cinema,Cineworld Group,https://www.picturehouses.com
+,gordon-ramsay-restaurants,Gordon Ramsay Restaurants,British,,https://www.gordonramsayrestaurants.com
+,david-lloyd-clubs,David Lloyd Clubs,Leisure,,https://www.davidlloyd.co.uk
+,booths,Booths Cafe,Cafe,Booths,https://www.booths.co.uk
+,park-holidays-uk,Park Holidays UK,Holiday Park,,https://www.parkholidays.com
+,away-resorts,Away Resorts,Holiday Park,,https://www.awayresorts.co.uk
+,san-carlo,San Carlo,Italian,San Carlo Group,https://sancarlo.co.uk
+,piccolino,Piccolino,Italian,Heritage Restaurant Group,https://www.piccolinorestaurants.com
+,cosmo,Cosmo World Buffet,Buffet,,https://www.cosmo-restaurants.co.uk
+,the-botanist,The Botanist,Bar,New World Trading Company,https://www.thebotanist.uk.com
+,the-alchemist,The Alchemist,Bar,,https://thealchemistbars.com
+,brewhouse-and-kitchen,Brewhouse & Kitchen,Pub,,https://www.brewhouseandkitchen.com
+,brewdog,BrewDog Bars,Bar,Tilray Brands,https://www.brewdog.com
+,boston-tea-party,Boston Tea Party,Cafe,,https://www.bostonteaparty.co.uk
+,flight-club,Flight Club,Bar,,https://flightclubdarts.com
+,lane7,Lane7,Bowling,,https://www.lane7.com
+,rileys,Rileys,Bar,,https://www.rileys.co.uk
+,iro-sushi,IRO Sushi,Japanese,,https://irosushi.com
+,the-breakfast-club,The Breakfast Club,Brunch,,https://thebreakfastclubcafes.com
+,yard-sale-pizza,Yard Sale Pizza,Pizza,,https://www.yardsalepizza.com
+,zia-lucia,Zia Lucia,Pizza,,https://zialucia.com
+,afrikana,Afrikana,African,,https://www.afrikanakitchen.com
+,zambrero,Zambrero,Mexican,,https://www.zambrero.co.uk
+,thai-square,Thai Square,Thai,,https://www.thaisq.com
+,akbars,Akbar's,Indian,,https://www.akbars.co.uk
+,maki-and-ramen,Maki & Ramen,Japanese,,https://www.makiramen.com
+,six-by-nico,Six by Nico,British,Sixco Group,https://sixbynico.co.uk
+,bistrot-pierre,Bistrot Pierre,French,,https://www.bistrotpierre.co.uk
+,hotel-du-vin,Hotel du Vin,Hotel,Frasers Hospitality,https://www.hotelduvin.com
+,malmaison,Malmaison,Hotel,Frasers Hospitality,https://www.malmaison.com
+,warner-hotels,Warner Hotels,Hotel,Bourne Leisure,https://www.warnerhotels.co.uk
+,showcase-cinemas,Showcase Cinemas,Cinema,,https://www.showcasecinemas.co.uk
+,reel-cinemas,Reel Cinemas,Cinema,,https://reelcinemas.co.uk
+,omniplex-cinemas,Omniplex Cinemas,Cinema,,https://www.omniplex.ie
+,the-light-cinemas,The Light Cinemas,Cinema,Risk Capital Partners,https://www.thelight.co.uk
+,curzon,Curzon Cinemas,Cinema,,https://www.curzon.com
+,blue-diamond,Blue Diamond Garden Centres,Garden Centre,,https://www.bluediamond.gg
+,hillier,Hillier Garden Centres,Garden Centre,,https://www.hillier.co.uk
+,notcutts,Notcutts,Garden Centre,,https://www.notcutts.co.uk
+,squires,Squire's Garden Centres,Garden Centre,,https://www.squiresgardencentres.co.uk
+,rspb,RSPB Cafes,Attraction,RSPB,https://www.rspb.org.uk
+,samuel-smiths,Samuel Smith's Pubs,Pub,,https://www.samuelsmithsbrewery.co.uk
+,brakspear,Brakspear,Pub,,https://brakspear.co.uk
+,wadworth,Wadworth,Pub,,https://www.wadworth.co.uk
+,adnams,Adnams Inns and Pubs,Pub,,https://www.adnams.co.uk
+,mcmullens,McMullens,Pub,,https://mcmullens.co.uk
+,city-pub-group,City Pub Group,Pub,,https://www.citypubgroup.com
+,heartwood-inns,Heartwood Inns,Pub,Heartwood Collection,https://www.heartwoodcollection.com
+,hydes,Hydes,Pub,Hydes Brewery,https://www.hydesbrewery.com
+,wells-and-co,Wells & Co,Pub,Charles Wells,https://wellsandco.com
+,arkells,Arkell's,Pub,,https://www.arkells.com
+,hook-norton,Hook Norton Pubs,Pub,,https://www.hooky.co.uk
+,harveys-brewery,Harvey's Pubs,Pub,,https://www.harveys.org.uk
+,castle-rock,Castle Rock Pubs,Pub,,https://www.castlerockbrewery.co.uk
+,peach-pubs,Peach Pubs,Pub,Revolution Bars Group,https://www.peachpubs.co.uk
+,chestnut-group,Chestnut Group,Pub,,https://www.chestnutgroup.co.uk
+,house-of-daniel-thwaites,House of Daniel Thwaites,Pub,Daniel Thwaites,https://www.houseofdanielthwaites.co.uk
