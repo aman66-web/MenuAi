@@ -1,0 +1,55 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+bacon-bap,Bacon Bap,Fresh food,,514,,,,,,,,,,,,,,,contains_pork,false,false,,,
+cumberland-sausage-bap,Cumberland Sausage Bap,Fresh food,,660,,,,,,,,,,,,,,,contains_pork,false,false,,,
+ultimate-avo-with-egg-and-bacon,Ultimate Avo with egg & bacon,Fresh food,,499,,,,,,,,,,,,,,,contains_pork,false,false,,,
+smashed-avo,Smashed Avo,Fresh food,,372,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (VE)
+ultimate-avo-with-egg-and-halloumi,Ultimate Avo with egg & halloumi,Fresh food,,630,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed with the mark (VE); Printed (VE) although the description lists a poached egg and halloumi; tagged vegetarian only, as the chain marks it"
+eggs-benedict,Eggs Benedict,Fresh food,,705,,,,,,,,,,,,,,,contains_pork,false,false,,,
+eggs-royale,Eggs Royale,Fresh food,,824,,,,,,,,,,,,,,,,false,false,,,
+eggs-florentine,Eggs Florentine,Fresh food,,612,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+poached-eggs-on-sourdough,Poached Eggs on Sourdough,Fresh food,,409,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+scrambled-eggs-on-sourdough,Scrambled Eggs On Sourdough,Fresh food,,490,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+beans-on-sourdough,Beans On Sourdough,Fresh food,,452,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+esquires-full-english,Esquires Full English,Fresh food,,823,,,,,,,,,,,,,,,contains_pork,false,false,,,
+esquires-full-vegetarian,Esquires Full Vegetarian,Fresh food,,824,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+mixed-berry-porridge,Mixed Berry Porridge,Fresh food,,532,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+maple-bacon-pancakes,Maple Bacon Pancakes,Fresh food,,718,,,,,,,,,,,,,,,contains_pork,false,false,,,
+very-berry-pancakes,Very Berry Pancakes,Fresh food,,516,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (VE)
+chicken-blt-bagel,Chicken BLT Bagel,Fresh food,,414,,,,,,,,,,,,,,,contains_pork,false,false,,,
+smoked-salmon-bagel,Smoked Salmon Bagel,Fresh food,,330,,,,,,,,,,,,,,,,false,false,,,
+halloumi-and-avocado-sourdough,Halloumi & Avocado Sourdough,Fresh food,,568,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+pesto-chicken-and-nduja-sourdough,Pesto Chicken & Nduja Sourdough,Fresh food,,718,,,,,,,,,,,,,,,contains_pork,false,false,,,
+ham-and-cheese-sourdough,Ham & Cheese Sourdough,Fresh food,,494,,,,,,,,,,,,,,,contains_pork,false,false,,,
+avocado-and-halloumi-jacket-potato,Avocado & Halloumi Jacket Potato,Fresh food,,692,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+pesto-chicken-jacket-potato,Pesto Chicken Jacket Potato,Fresh food,,613,,,,,,,,,,,,,,,,false,false,,,
+tuna-mayonnaise-jacket-potato,Tuna Mayonnaise Jacket Potato,Fresh food,,540,,,,,,,,,,,,,,,,false,false,,,
+chicken-tikka-jacket-potato,Chicken Tikka Jacket Potato,Fresh food,,519,,,,,,,,,,,,,,,,false,false,,,
+ham-and-cheese-melt,Ham & Cheese Melt,Fresh food,,643,,,,,,,,,,,,,,,contains_pork,false,false,,,
+mushroom-melt,Mushroom Melt,Fresh food,,534,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed with the mark (V)
+cortado,Cortado,Drinks,,72,,,,,,,,,,,,,,,,false,false,,,
+flat-white,Flat White,Drinks,,107,,,,,,,,,,,,,,,,false,false,,,
+latte-frappe,Latte Frappé,Drinks,,261,,,,,,,,,,,,,,,,false,false,,,
+mocha-frappe,Mocha Frappé,Drinks,,360,,,,,,,,,,,,,,,,false,false,,,
+mango-and-dragon-fruit-smoothie,Mango & Dragon Fruit Smoothie,Drinks,,222,,,,,,,,,,,,,,,,false,false,,,
+pineapple-mango-and-passion-fruit-smoothie,"Pineapple, Mango & Passion Fruit Smoothie",Drinks,,217,,,,,,,,,,,,,,,,false,false,,,
+strawberry-and-banana-smoothie,Strawberry & Banana Smoothie,Drinks,,219,,,,,,,,,,,,,,,,false,false,,,
+super-green-smoothie,Super Green Smoothie,Drinks,,231,,,,,,,,,,,,,,,,false,false,,,
+super-berry-smoothie,Super Berry Smoothie,Drinks,,230,,,,,,,,,,,,,,,,false,false,,,
+mug-of-english-breakfast-tea,Mug of English Breakfast Tea,Drinks,,0,,,,,,,,,,,,,,,,false,false,,,
+pot-of-peppermint-tea,Pot of Peppermint Tea,Drinks,,0,,,,,,,,,,,,,,,,false,false,,,
+pot-of-red-berry-tea,Pot of Red Berry Tea,Drinks,,0,,,,,,,,,,,,,,,,false,false,,,
+pot-of-apple-loves-mint-tea,Pot of Apple Loves Mint Tea,Drinks,,0,,,,,,,,,,,,,,,,false,false,,,
+pot-of-chamomile-tea,Pot of Chamomile Tea,Drinks,,0,,,,,,,,,,,,,,,,false,false,,,
+pot-of-earl-grey-tea,Pot of Earl Grey Tea,Drinks,,0,,,,,,,,,,,,,,,,false,false,,,
+pot-of-breakfast-tea,Pot of Breakfast Tea,Drinks,,0,,,,,,,,,,,,,,,,false,false,,,
+pot-of-green-sencha-tea,Pot of Green Sencha Tea,Drinks,,0,,,,,,,,,,,,,,,,false,false,,,
+vanilla-milkshake,Vanilla Milkshake,Drinks,,353,,,,,,,,,,,,,,,,false,false,,,
+chocolate-milkshake,Chocolate Milkshake,Drinks,,452,,,,,,,,,,,,,,,,false,false,,,
+strawberry-milkshake,Strawberry Milkshake,Drinks,,395,,,,,,,,,,,,,,,,false,false,,,
+vanilla-matcha-protein-shake,Vanilla Matcha Protein Shake,Drinks,,240,,,,,,,,,,,,,,,,false,false,,,
+mixed-berry-protein-shake,Mixed Berry Protein Shake,Drinks,,209,,,,,,,,,,,,,,,,false,false,,,
+chocolate-and-peanut-butter-protein-shake,Chocolate & Peanut Butter Protein Shake,Drinks,,311,,,,,,,,,,,,,,,,false,false,,,
+buffalo-chicken-brioche,Buffalo Chicken Brioche,Seasonal specials,,948,,,,,,,,,,,,,,,,true,false,,,
+caramelised-beef-brioche,Caramelised Beef Brioche,Seasonal specials,,617,,,,,,,,,,,,,,,contains_beef,true,false,,,
+brie-and-chilli-jam-brioche,Brie & Chilli Jam Brioche,Seasonal specials,,820,,,,,,,,,,,,,,,,true,false,,,
+cinnamon-swirl-shake,Cinnamon Swirl Shake,Seasonal specials,,281,,,,,,,,,,,,,,,,true,false,,,
