@@ -1,0 +1,1 @@
+Calories only, as printed beside each dish on Mowgli's Food menu page (the page shows them when you tick 'Calorie information'). No serving sizes, protein, carbs or fat are published. Drinks are not on that page.

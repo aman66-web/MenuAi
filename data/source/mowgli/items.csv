@@ -1,0 +1,47 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+chicken-frankie-wrap,Chicken Frankie Wrap,The Light Kitchen,,575,,,,,,,,,,,,,,,,false,false,,,marks: none
+rainbow-frankie-wrap,Rainbow Frankie Wrap,The Light Kitchen,,534,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg*
+mowgli-chicken-salad,Mowgli Chicken Salad,The Light Kitchen,,406,,,,,,,,,,,,,,,,false,false,,,marks: Ng*
+mowgli-tenderstem-salad,Mowgli Tenderstem Salad,The Light Kitchen,,316,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg* Ng*
+yoghurt-chat-bombs,Yoghurt Chat Bombs,Street Plates,,302,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg*
+onion-bhajis,Onion Bhajis,Street Plates,,642,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+himalayan-cheese-toast,Himalayan Cheese Toast,Street Plates,,564,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V
+fenugreek-kissed-fries,Fenugreek Kissed Fries,Street Plates,,940,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+treacle-tamarind-fries,Treacle Tamarind Fries,Street Plates,,1153,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+mowgli-chip-butty,Mowgli Chip Butty,Street Plates,,1082,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg
+diwali-cauliflower,Diwali Cauliflower,Street Plates,,559,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Ng Vg*
+mowgli-crispy-wings,Mowgli Crispy Wings,Street Plates,,590,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+monkey-tandoor-roti,Monkey Tandoor Roti,Street Plates,,682,,,,,,,,,,,,,,,,false,false,,,marks: none
+angry-bird,Angry Bird,Street Plates,,840,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+gunpowder-chicken,Gunpowder Chicken,Street Plates,,467,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+sticky-chicken,Sticky Chicken,Street Plates,,601,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+maas-lamb-chops,Maa’s Lamb Chops,Street Plates,,802,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+mother-butter-chicken,Mother Butter Chicken,The House Kitchen,,388,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+house-chicken-curry,House Chicken Curry,The House Kitchen,,481,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+house-lamb-curry,House Lamb Curry,The House Kitchen,,465,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+mowgli-chicken-biryani,Mowgli Chicken Biryani,The House Kitchen,,933,,,,,,,,,,,,,,,,false,false,,,marks: none
+goan-fish-curry,Goan Fish Curry,The House Kitchen,,288,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+aunty-geetas-prawn-curry,Aunty Geeta’s Prawn Curry,The House Kitchen,,195,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+mowgli-paneer,Mowgli Paneer,The House Kitchen,,516,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Ng
+mowgli-black-dahl,Mowgli Black Dahl,The House Kitchen,,608,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Ng
+temple-dahl,Temple Dahl,The House Kitchen,,361,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+tea-steeped-chickpeas,Tea Steeped Chickpeas,The House Kitchen,,293,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+picnic-potato-curry,Picnic Potato Curry,The House Kitchen,,262,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+homestyle-cumin-rice,Homestyle Cumin Rice,Curry Companions,,315,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+garlic-butter-paratha,Garlic Butter Paratha,Curry Companions,,453,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V
+puffed-puri-bread,Puffed Puri Bread,Curry Companions,,168,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg
+roti-breads,Roti Breads,Curry Companions,,439,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg*
+mini-poppadoms,Mini Poppadoms,Curry Companions,,110,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Ng Vg*
+mowgli-slaw,Mowgli Slaw,Curry Companions,,430,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+kids-gunpowder-chicken-and-fries,Kids Gunpowder Chicken & Fries,Kids Menu,,469,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+kids-mother-butter-chicken-and-rice,Kids Mother Butter Chicken & Rice,Kids Menu,,345,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+kids-house-chicken-curry-and-rice,Kids House Chicken Curry & Rice,Kids Menu,,404,,,,,,,,,,,,,,,,false,false,,,marks: Ng
+kids-mowgli-paneer-and-rice,Kids Mowgli Paneer & Rice,Kids Menu,,394,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Ng
+kids-temple-dahl-and-rice,Kids Temple Dahl & Rice,Kids Menu,,334,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng
+kids-mowgli-chocolate-brownie,Kids Mowgli Chocolate Brownie,Kids Menu,,243,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V
+ice-cream-cone-vanilla,Ice Cream Cone – Vanilla,Sweet,,244,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Ng*; also listed under Kids Menu with the same value
+ice-cream-cone-salted-caramel,Ice Cream Cone – Salted Caramel,Sweet,,244,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Ng*; also listed under Kids Menu with the same value
+ice-cream-cone-coconut,Ice Cream Cone – Coconut,Sweet,,235,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng*; also listed under Kids Menu with the same value
+ice-cream-cone-mango-sorbet,Ice Cream Cone – Mango Sorbet,Sweet,,176,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V Vg Ng*; also listed under Kids Menu with the same value
+gulab-jamun,Gulab Jamun,Sweet,,431,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V
+the-mowgli-chocolate-brownie,The Mowgli Chocolate Brownie,Sweet,,681,,,,,,,,,,,,,,,vegetarian,false,false,,,marks: V
