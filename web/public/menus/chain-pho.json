@@ -659,7 +659,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/93aaab6e03cb.webp"
   },
   {
    "id": "spicy-green-chicken",
@@ -937,7 +938,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/d0c57e6ccef3.webp"
   },
   {
    "id": "classic-curry-beef-brisket",
@@ -959,7 +961,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/6ed19e8071dc.webp"
   },
   {
    "id": "classic-curry-king-prawn",
@@ -979,7 +982,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/1865630d6dbd.webp"
   },
   {
    "id": "classic-curry-fish",
@@ -999,7 +1003,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/c77440a65fda.webp"
   },
   {
    "id": "classic-curry-tofu",
@@ -1021,7 +1026,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/f2cf23b77ab8.webp"
   },
   {
    "id": "classic-curry-this-isnt-chicken",
@@ -1085,7 +1091,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/d6cb2ad3e63e.webp"
   },
   {
    "id": "spicy-curry-king-prawn",
@@ -1125,7 +1132,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/faae9f7a7888.webp"
   },
   {
    "id": "spicy-curry-tofu",
@@ -1147,7 +1155,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/deb554b4698b.webp"
   },
   {
    "id": "spicy-curry-this-isnt-chicken",
@@ -1189,7 +1198,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/5143d59ae46b.webp"
   },
   {
    "id": "rice-bowl-beef-in-betel-leaf",
@@ -1233,7 +1243,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/9ab849209f74.webp"
   },
   {
    "id": "rice-bowl-3-meat-combo",
@@ -1253,7 +1264,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/3955217862e4.webp"
   },
   {
    "id": "rice-bowl-tofu-and-veg",
@@ -1275,7 +1287,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/de0cef7c58bb.webp"
   },
   {
    "id": "rice-bowl-this-isnt-chicken-and-veg",
@@ -1701,7 +1714,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/3c6ab7400c3e.webp"
   },
   {
    "id": "cha-ca-la-vong",
@@ -1721,7 +1735,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "pho/9ff4d77f607a.webp"
   },
   {
    "id": "chicken-salad-goi-ga",

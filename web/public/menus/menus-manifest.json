@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261006193906,
- "generatedAt": "2026-10-06T19:39:06Z",
+ "dataVersion": 20261007073857,
+ "generatedAt": "2026-10-07T07:38:57Z",
  "chains": [
   {
    "id": "abokado",
@@ -294,8 +294,8 @@
    "name": "Five Guys",
    "cuisine": "Burgers",
    "file": "chain-five-guys.json",
-   "sha256": "1cdc5e4003980e1e592ff90a347eb04fd59d21022f2ea2ad69e82b4ec2254f23",
-   "contentHash": "1bb776c1733a9181fb7710f2a1c36bfcbf917eb7c88bb330b166c8ba44e3eb7a",
+   "sha256": "523c3b01af6d0f66e5129bc4c90fb8e27264b42520ace7236b0a6298d1390128",
+   "contentHash": "13a41402d5bd8ffdf583253c8fa87f9de3fe2daa98a21ed0cb29ee89e5bee199",
    "sample": false,
    "itemCount": 69,
    "checkedOn": "2026-10-05"
@@ -349,8 +349,8 @@
    "name": "Greggs",
    "cuisine": "Bakery",
    "file": "chain-greggs.json",
-   "sha256": "4a9f3bbb1eed1180c61c80d5f6606aa86c400956fd088ee0e5064e74ee5ecb27",
-   "contentHash": "6d456a38798a73ace48410c1a0d23da0c5ac6f09f658bb0d6d2330c44c8136fe",
+   "sha256": "3ea653d8828698890489754a35a68c6bf20b7e31e6cb5a285f0ab9cbd6bbfcea",
+   "contentHash": "843bd6bbf7c63dedb037ec276ebc261051c9fab456c39901be780fd1b59e65a6",
    "sample": false,
    "itemCount": 263,
    "checkedOn": "2026-10-06"
@@ -437,8 +437,8 @@
    "name": "LEON",
    "cuisine": "Wraps & bowls",
    "file": "chain-leon.json",
-   "sha256": "4145401cf2f22b4e396cd47f60aa3e679f9d88d08a721d74dc8fe3fe09c48b68",
-   "contentHash": "ca6612e6bdbf17aad8b890ead7347f6ce142776aad542b5bd2b2e1edc017d0e1",
+   "sha256": "45a41145cd3b04b52a41639fbfe509b42dc3b7ff1882ad850f877e00975efcd1",
+   "contentHash": "f17b3a2ab41839db4269634ea574541f306667a83919b423991ec34652f8507e",
    "sample": false,
    "itemCount": 93,
    "checkedOn": "2026-10-06"
@@ -503,8 +503,8 @@
    "name": "Pho",
    "cuisine": "Vietnamese",
    "file": "chain-pho.json",
-   "sha256": "7d951213d03a519d64a0334df249c251d9132d9b502881d535d0acecb53655f3",
-   "contentHash": "ae9585397a62416bbd74eb76c0b0ae4b2f4ddd203f146f4db8a0e61fcb31eaf0",
+   "sha256": "75eabf6964c3b727799faa15ceaf7fdb57feb2a29978fe4d137fa8ec9d199e2d",
+   "contentHash": "2f35c578cc76a5024503c25df3100e8ecd5f76fac36f5527e42a24d09daf7b1e",
    "sample": false,
    "itemCount": 97,
    "checkedOn": "2026-10-06"
@@ -558,8 +558,8 @@
    "name": "Popeyes",
    "cuisine": "Chicken",
    "file": "chain-popeyes.json",
-   "sha256": "4540b87f4e3ab90d1f68280f4bb6efa950a73c2c290dbac5d8a7571b720b5b94",
-   "contentHash": "040e034fab0bce0b944d74691838a534802794b1c533de05ec6d31fbfd9647cd",
+   "sha256": "d727991ea8af2679805d9ba8b2901e758e1bca46211856e4989c7af7d9a8480d",
+   "contentHash": "258bed45c1965d17e3bf981d3c14c95d5e8f3d4ae27ca044ee694bf99c91f79d",
    "sample": false,
    "itemCount": 187,
    "checkedOn": "2026-10-06"
@@ -580,8 +580,8 @@
    "name": "Pret A Manger",
    "cuisine": "Sandwiches",
    "file": "chain-pret.json",
-   "sha256": "ca770981b0910d80e6d4988ca4b5dd9d130a4c156538c3f575b32f57a417dce6",
-   "contentHash": "badd6b2022e1e24d056c7a15749eb575eb562839574e594b4a3c3e2d13d01663",
+   "sha256": "fbede97eccb18a2a9c3677346a7a8960e1c6e191170acc3adf0751e9382bc8e4",
+   "contentHash": "54f1b0239a2ea357c571a3748cee00df673905d256345f08363f37725a7f2093",
    "sample": false,
    "itemCount": 329,
    "checkedOn": "2026-10-06"
@@ -657,8 +657,8 @@
    "name": "Starbucks",
    "cuisine": "Coffee",
    "file": "chain-starbucks.json",
-   "sha256": "d49afa4c0d278fecbac9c7d3f526d74f989bbf430d0836e6059e4974ca24d928",
-   "contentHash": "2af19b85240cbd1d7931d2b4902bc7e66a2861eb0fa231e3ac7e3b46729da749",
+   "sha256": "db0652832e1dd69d6019c1b25d42c4d40e76ca440c93efc503ba6b0aceec0681",
+   "contentHash": "b53cbfa1b9cf041f33adc03e5aa7d6472c6dc8fe40d36aa5a032ad4577341fa8",
    "sample": false,
    "itemCount": 347,
    "checkedOn": "2026-10-05"
@@ -756,8 +756,8 @@
    "name": "Wendy's",
    "cuisine": "Burgers",
    "file": "chain-wendys.json",
-   "sha256": "7fbdbc8b5c468a3435ceef2763f33bc93eb75e01515244f3aeeea975765bd9a7",
-   "contentHash": "7709023da760331325596c78fc12df28206df3a7a12ca65cfe068ac4b287a167",
+   "sha256": "b3918eec38611f08c771dfdf5ebe44b6dbb8df299e4fd7f946c31c6df962d055",
+   "contentHash": "771160e9f446e2bcfc82b0bf02b8fe027972c07df6fd5184b894841d20f21942",
    "sample": false,
    "itemCount": 137,
    "checkedOn": "2026-10-06"
@@ -767,8 +767,8 @@
    "name": "Wimpy",
    "cuisine": "Burgers",
    "file": "chain-wimpy.json",
-   "sha256": "81be4913b07c9659e5d47f8bebd6d09d67eb3490ac1dc20352829233cebcf81a",
-   "contentHash": "280f786e1122cee8ff42f16274b109c6920ca4541d3c1aeee25b25a07c426053",
+   "sha256": "439f30a2bc31771dbeeffe25f16fd29d65c3a7239687114737c849c39deb23cf",
+   "contentHash": "f3deefe79d9d4d86ccb2d46acdbeee2a137110ca47b5c85366183a3692ff7e68",
    "sample": false,
    "itemCount": 183,
    "checkedOn": "2026-10-06"

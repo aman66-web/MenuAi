@@ -58,6 +58,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/0a23b872709d.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -94,6 +95,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/dcbcab48ad8d.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -130,6 +132,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/1432ab2944c0.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -168,6 +171,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/6521278fb24c.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -242,6 +246,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/e10d0e0080b5.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -280,6 +285,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/6d8b0b07d4d7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -317,6 +323,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/655b100d9368.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -354,6 +361,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/978c532772af.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -389,6 +397,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/7c963bd3f7b0.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -425,6 +434,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/22f934de8c8e.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -462,6 +472,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/91efff598adb.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -499,6 +510,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/7d507c3c5c3c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1205,6 +1217,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/dd233d3f39db.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1269,6 +1282,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/0199810dc8d6.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1365,6 +1379,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/c957ca654b89.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1464,6 +1479,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/6efd75ffa74c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1565,6 +1581,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/4b92792668ec.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1976,6 +1993,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/a7040b9c0ee4.webp",
    "allergens": {
     "contains": [
      "celery"
@@ -2007,6 +2025,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/07dc72c86870.webp",
    "allergens": {
     "contains": [
      "celery"
@@ -2038,6 +2057,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/c41eed759b8f.webp",
    "allergens": {
     "contains": [
      "celery"
@@ -2071,6 +2091,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/d14208b1d1bc.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2101,6 +2122,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/a86d6b3a30f2.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2131,6 +2153,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/750da6da5289.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2161,6 +2184,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/8e78945be8a0.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2189,6 +2213,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/26e218c68ba4.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2217,6 +2242,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/16eb9e57bb6e.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2246,6 +2272,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/1edd94a9acbb.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2275,6 +2302,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/05ef97a727b5.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2304,6 +2332,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/abf2236b63a3.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2369,6 +2398,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/401637a8a17e.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -2398,6 +2428,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/65389c7b82ac.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -2427,6 +2458,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/dbcea6283aeb.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -2456,6 +2488,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/2d33cfb77c91.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2588,6 +2621,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/63761e3da2c8.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2696,6 +2730,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/0bc4deaee15f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2734,6 +2769,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/1e4e2004a8c4.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2770,6 +2806,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/1dfd64ba601c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2806,6 +2843,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/e51fbd21dc41.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2844,6 +2882,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/a745c3ffd3bd.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2882,6 +2921,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/531aa40933c6.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2920,6 +2960,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/bee0a307d1cd.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2958,6 +2999,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/ee9c6c582aba.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2995,6 +3037,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/2ad53b9d0099.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -3030,6 +3073,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/e29d2d2f1d1e.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -3067,6 +3111,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/69de2ef99e3a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3104,6 +3149,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/4cfd71e3b4b7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3139,6 +3185,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "wendys/e5e75279c7d7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3235,6 +3282,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/80153024a989.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3263,6 +3311,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/07abf66740b7.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3291,6 +3340,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/148609cbde25.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3319,6 +3369,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/ec4ff7f85bf0.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3347,6 +3398,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/a25cdcd5fdc6.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3375,6 +3427,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/6b3e77d4b39f.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3403,6 +3456,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/c7d4aee85a19.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3431,6 +3485,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/d3f6340cd8bf.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -3460,6 +3515,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/d3f6340cd8bf.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -3489,6 +3545,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/1e8825f84f05.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -3518,6 +3575,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/1e8825f84f05.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -3659,6 +3717,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/fbc8a5b97f29.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3849,6 +3908,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/c521f21bcf3e.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3875,6 +3935,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/278d0cb5fe5b.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3901,6 +3962,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/ffe0e75613a3.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3953,6 +4015,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/51036be7d3f1.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3979,6 +4042,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/c521f21bcf3e.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4005,6 +4069,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/278d0cb5fe5b.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4031,6 +4096,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/ffe0e75613a3.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4109,6 +4175,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/c521f21bcf3e.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4135,6 +4202,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/278d0cb5fe5b.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4161,6 +4229,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/ffe0e75613a3.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4187,6 +4256,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/831e32d12893.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4213,6 +4283,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/c87191772afd.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4239,6 +4310,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/89ddc976f13d.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4267,6 +4339,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/935ad0def7c6.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4295,6 +4368,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/9d7aa0efd4e2.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4323,6 +4397,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/6da7f3b3e620.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -4351,6 +4426,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/3fb0efad7df6.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -4377,6 +4453,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "wendys/ddcc07b4f72a.webp",
    "allergens": {
     "contains": [
      "milk"

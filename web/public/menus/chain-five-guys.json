@@ -49,7 +49,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/5f725da33e97.webp"
   },
   {
    "id": "little-hamburger",
@@ -72,7 +73,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/9462f599c1c7.webp"
   },
   {
    "id": "cheeseburger",
@@ -95,7 +97,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/c0a877ceb889.webp"
   },
   {
    "id": "little-cheeseburger",
@@ -118,7 +121,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/6f7ecd429600.webp"
   },
   {
    "id": "bacon-burger",
@@ -142,7 +146,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/350a4775ad2b.webp"
   },
   {
    "id": "bacon-cheeseburger",
@@ -166,7 +171,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/566dbca46818.webp"
   },
   {
    "id": "little-bacon-cheeseburger",
@@ -190,7 +196,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/f233198033fb.webp"
   },
   {
    "id": "hot-dog",
@@ -213,7 +220,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/2385199d90f1.webp"
   },
   {
    "id": "cheese-dog",
@@ -236,7 +244,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/b1dc7908b3e7.webp"
   },
   {
    "id": "bacon-dog",
@@ -260,7 +269,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/3878854d8602.webp"
   },
   {
    "id": "bacon-cheese-dog",
@@ -284,7 +294,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/7eb93c603a5b.webp"
   },
   {
    "id": "veggie-sandwich",
@@ -305,7 +316,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/b36048ed7050.webp"
   },
   {
    "id": "cheese-veggie-sandwich",
@@ -326,7 +338,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/17dd43a14196.webp"
   },
   {
    "id": "grilled-cheese",
@@ -347,7 +360,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/85517c32b70e.webp"
   },
   {
    "id": "blt-bacon-lettuce-and-tomato",
@@ -1044,7 +1058,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/1f4b8a91f196.webp"
   },
   {
    "id": "cheese-pasteurised",
@@ -1086,7 +1101,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/cf6865d10f21.webp"
   },
   {
    "id": "grilled-mushrooms",
@@ -1107,7 +1123,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/ecdd10793b7d.webp"
   },
   {
    "id": "hot-sauce",
@@ -1128,7 +1145,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/c3ec8504e41f.webp"
   },
   {
    "id": "hp-brown-sauce",
@@ -1170,7 +1188,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/6c6aa82dd282.webp"
   },
   {
    "id": "tomato-ketchup",
@@ -1212,7 +1231,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/60184ad7d28f.webp"
   },
   {
    "id": "mayonnaise",
@@ -1254,7 +1274,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/c0604d77e736.webp"
   },
   {
    "id": "fresh-onions",
@@ -1296,7 +1317,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/7f5f8842702a.webp"
   },
   {
    "id": "pickles",
@@ -1317,7 +1339,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/3b111d2a8855.webp"
   },
   {
    "id": "relish",
@@ -1338,7 +1361,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/446e876a082b.webp"
   },
   {
    "id": "tomatoes",
@@ -1359,7 +1383,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "five-guys/c190e7bc237e.webp"
   },
   {
    "id": "crispy-fried-onions",
