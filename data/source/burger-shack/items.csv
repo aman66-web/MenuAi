@@ -1,0 +1,7 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+the-original,The Original,Burgers,,757,,,,,,,,,,,,,,,contains_beef,false,false,,,"Printed: Double beef patty, melted cheese, pink onions, burger sauce, sesame bun (757Kcal)"
+chilli-cheese,Chilli Cheese,Burgers,,771,,,,,,,,,,,,,,,contains_beef,false,false,,,"Printed: Double beef patty, melted cheese, Jalapeños, pickled chillies, hot sauce, pink onions, burger sauce, sesame bun (771Kcal)"
+bacon-chilli-cheese,"Bacon, Chilli Cheese",Burgers,,1028,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"Printed: Double beef patty, melted cheese, pink onions, Jalapeños, chillies, burger sauce, smoked streaky bacon, sesame bun (1028Kcal)"
+loaded-plant,Loaded Plant,Burgers,,467,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Vegan patty, soya yoghurt, watercress, heritage tomato salsa, vegan sesame bun (467Kcal)"
+hot-chick,Hot Chick,Burgers,,842,,,,,,,,,,,,,,,,false,false,,,"Printed: Southern fried chicken thigh, harissa mayo, Louisiana hot sauce, blue sauce, sesame bun (842Kcal)"
+bratwurst-dog,Bratwurst Dog,Hot dog,,630,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: Bratwurst sausage, sauerkraut, mustard, ketchup & crispy buns (630Kcal). The page says 'sausage' without naming the meat: contains_pork comes from the playbook's sausage rule"
