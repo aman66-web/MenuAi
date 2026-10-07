@@ -194,6 +194,10 @@ def main() -> int:
                 if it["id"] in matches or " - " not in it["name"]:
                     continue
                 base, filling = it["name"].rsplit(" - ", 1)
+                if ic.norm_name(filling) != "beef":
+                    # looked at after the first run: the product's photo shows the beef filling, so the other fillings get no photo
+                    skipped.append(f"{it['id']}: the product photo shows the beef filling, not {filling!r}; no photo")
+                    continue
                 paths = by_name.get(ic.norm_name(base), [])
                 if len(paths) != 1:
                     continue

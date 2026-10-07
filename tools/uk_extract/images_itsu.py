@@ -61,6 +61,10 @@ PHOTO_HOST = "itsu-production-assets.s3.eu-west-2.amazonaws.com"
 
 # itsu.py spells this one itsu typo correctly in the published name (only the name changes).
 NAME_FIXES = {"cappucino": "cappuccino"}
+# Items looked at after the first run and left without a photo (a rerun must not bring them back): the photo carries a baked-in
+# "allergen update" or "tastier recipe" sticker, which could contradict our own allergen table or numbers.
+DROP_ITEMS = {"the-veggie-selection", "the-salmon-dragon", "the-spicy-tuna-dragon", "the-salmon-full-house", "the-super-salmon-light",
+              "the-best-of-itsu", "the-california-rolls"}
 # File-name words that mean "not a photo of this dish" (logo, placeholder, banner...).
 PLACEHOLDER_WORDS = re.compile(r"placeholder|coming[-_ ]?soon|default|no[-_ ]?image|logo|banner|dr[-_ ]?emma|\.gif", re.I)
 # itsu's "blobby" product shots carry a sticker (e.g. a protein claim): not used. Its own "no blobby" versions are plain photos.
@@ -161,6 +165,9 @@ def main() -> int:
             skipped.append(f"{k}: {len(its)} published items share this name")
             continue
         item = its[0]
+        if item["id"] in DROP_ITEMS:
+            skipped.append(f"{item['id']}: dropped after looking: photo carries an allergen/recipe-update sticker")
+            continue
         paths = by_page_key.get(k, [])
         if len(paths) != 1:
             skipped.append(f"{item['id']}: {len(paths)} dish pages named {item['name']!r}")

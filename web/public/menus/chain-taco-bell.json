@@ -52,7 +52,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/ba2fc86c58a1.webp"
   },
   {
    "id": "crunchy-taco-beef",
@@ -75,7 +76,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/0b458a230a78.webp"
   },
   {
    "id": "crunchy-taco-black-beans",
@@ -140,7 +142,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/5960a4add388.webp"
   },
   {
    "id": "crunchy-taco-supreme-black-beans",
@@ -205,7 +208,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/d44ad7d46a5e.webp"
   },
   {
    "id": "soft-taco-black-beans",
@@ -270,7 +274,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/b93422b684a0.webp"
   },
   {
    "id": "soft-taco-supreme-black-beans",
@@ -335,7 +340,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/068728353efa.webp"
   },
   {
    "id": "grilled-cheese-volcano-burrito-beef",
@@ -486,7 +492,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/a2c6ad2e42db.webp"
   },
   {
    "id": "beefy-nacho-cravings-burrito",
@@ -509,7 +516,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/0a1261ecc1e3.webp"
   },
   {
    "id": "crispy-chicken-burrito",
@@ -530,7 +538,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/05a70f21056c.webp"
   },
   {
    "id": "double-cheesy-black-bean-cravings-burrito",
@@ -551,7 +560,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/31a30e651eaf.webp"
   },
   {
    "id": "spicy-chicken-cravings-burrito",
@@ -572,7 +582,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/bcbc89d44289.webp"
   },
   {
    "id": "volcano-burrito-beef",
@@ -595,7 +606,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/a2b28a09b880.webp"
   },
   {
    "id": "volcano-burrito-black-beans",
@@ -723,7 +735,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/cec64f664cb4.webp"
   },
   {
    "id": "baby-quesadilla",
@@ -767,7 +780,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/3f40cf67f166.webp"
   },
   {
    "id": "chalupa-supreme-black-bean",
@@ -830,7 +844,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/a1121e2ef65f.webp"
   },
   {
    "id": "cheesy-gordita-crunch-black-beans",
@@ -895,7 +910,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/0d7fde55f828.webp"
   },
   {
    "id": "crunchwrap-supreme-black-beans",
@@ -958,7 +974,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/28c35af4eff0.webp"
   },
   {
    "id": "chicken-bite-1",
@@ -1399,7 +1416,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/6c48be6e6f98.webp"
   },
   {
    "id": "fries-bell-grande",
@@ -1420,7 +1438,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/9e87fa595fec.webp"
   },
   {
    "id": "fries-supreme",
@@ -1441,7 +1460,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/7331a764f210.webp"
   },
   {
    "id": "nacho-chips-large",
@@ -1546,7 +1566,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/6a98aaba995f.webp"
   },
   {
    "id": "seasoned-fries-large",
@@ -1672,7 +1693,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/d7416263d43a.webp"
   },
   {
    "id": "3x-salted-caramel-churro-bites",
@@ -1756,7 +1778,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/b4aea43f50f6.webp"
   },
   {
    "id": "churros",
@@ -1840,7 +1863,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/ec656e2bbf9b.webp"
   },
   {
    "id": "grande-cinnamon-twists",
@@ -1861,7 +1885,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/5eee6d8d0e8a.webp"
   },
   {
    "id": "dip-pot-cali-ranch-sauce",
@@ -1966,7 +1991,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/ab5246ac2825.webp"
   },
   {
    "id": "jalape-os",
@@ -1987,7 +2013,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/8df029bc6b61.webp"
   },
   {
    "id": "nacho-cheese-sauce",
@@ -2008,7 +2035,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/d679d6f3f3ee.webp"
   },
   {
    "id": "sour-cream",
@@ -2029,7 +2057,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "taco-bell/cdcd97d9d6ad.webp"
   },
   {
    "id": "extra-black-beans",

@@ -47,7 +47,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/4a98ac9b0bef.webp"
   },
   {
    "id": "veggie-balls-teriyaki",
@@ -70,7 +71,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/f21a48075f37.webp"
   },
   {
    "id": "little-veggie-balls-teriyaki",
@@ -91,7 +93,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/19791eb32f1b.webp"
   },
   {
    "id": "thai-chicken-curry",
@@ -112,7 +115,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/b018846a7484.webp"
   },
   {
    "id": "little-thai-chicken-curry",
@@ -133,7 +137,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/f53119f6f74c.webp"
   },
   {
    "id": "thai-king-prawn-curry",
@@ -154,7 +159,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/c20e86965bb3.webp"
   },
   {
    "id": "double-chicken-teriyaki",
@@ -175,7 +181,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/00d2738b5eb3.webp"
   },
   {
    "id": "little-chicken-teriyaki",
@@ -196,7 +203,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/bb65fc99d333.webp"
   },
   {
    "id": "chicken-teriyaki",
@@ -217,7 +225,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/2c874622c499.webp"
   },
   {
    "id": "spicy-chicken-teriyaki",
@@ -238,7 +247,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/26358d8d03b9.webp"
   },
   {
    "id": "thai-veggie-balls-curry",
@@ -259,7 +269,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/ada3c8a00553.webp"
   },
   {
    "id": "little-thai-veggie-balls-curry",
@@ -280,7 +291,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/db51caeda0fb.webp"
   },
   {
    "id": "grilled-katsu-chicken-curry",
@@ -301,7 +313,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/13ad645bc123.webp"
   },
   {
    "id": "little-grilled-katsu-chicken-curry",
@@ -322,7 +335,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/f916028278e3.webp"
   },
   {
    "id": "thai-salmon-curry",
@@ -343,7 +357,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/599514dfa45a.webp"
   },
   {
    "id": "little-rice-and-greens",
@@ -364,7 +379,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/1559cd0b42b5.webp"
   },
   {
    "id": "chicken-gyoza-noodle-bowl",
@@ -385,7 +401,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/feb22c54ae88.webp"
   },
   {
    "id": "chilli-chicken-gyoza-noodle-bowl",
@@ -406,7 +423,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/f254651595fb.webp"
   },
   {
    "id": "veggie-gyoza-noodle-bowl",
@@ -427,7 +445,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/3726ab7fcc77.webp"
   },
   {
    "id": "katsu-curry-noodles",
@@ -448,7 +467,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/f061772fa5da.webp"
   },
   {
    "id": "korean-spicy-noodles",
@@ -469,7 +489,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/abee41420eae.webp"
   },
   {
    "id": "thai-noodles",
@@ -490,7 +511,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/e8785e044ab4.webp"
   },
   {
    "id": "miso-soup",
@@ -511,7 +533,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/62c0b5092727.webp"
   },
   {
    "id": "loaded-chicken-miso-soup",
@@ -532,7 +555,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/f4876add2a4f.webp"
   },
   {
    "id": "king-prawn-miso-soup",
@@ -553,7 +577,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/817e45208ad0.webp"
   },
   {
    "id": "spicy-miso-soup",
@@ -574,7 +599,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/432b59f0ccf4.webp"
   },
   {
    "id": "famous-coconut-chicken-soup",
@@ -595,7 +621,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/2d2f0b72f1c0.webp"
   },
   {
    "id": "veggie-balls-and-coconut-soup",
@@ -618,7 +645,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/2c79adab2787.webp"
   },
   {
    "id": "chicken-noodle-soup",
@@ -639,7 +667,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/31ab326f4c87.webp"
   },
   {
    "id": "detox-miso-noodle-soup",
@@ -660,7 +689,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/18ad5617755a.webp"
   },
   {
    "id": "the-salmon-dragon",
@@ -723,7 +753,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/9f81d90ee641.webp"
   },
   {
    "id": "the-avo-baby-rolls",
@@ -744,7 +775,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/2dfafbba092d.webp"
   },
   {
    "id": "the-sushi-festival",
@@ -765,7 +797,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/04092e9e519f.webp"
   },
   {
    "id": "the-super-salmon-light",
@@ -807,7 +840,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/6c9692c71e42.webp"
   },
   {
    "id": "the-california-rolls",
@@ -849,7 +883,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/3c3e2507622e.webp"
   },
   {
    "id": "the-salmon-and-avo-rolls",
@@ -870,7 +905,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/6fd8656c7a9e.webp"
   },
   {
    "id": "the-salmon-full-house",
@@ -954,7 +990,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/edac98755cdc.webp"
   },
   {
    "id": "the-salmon-bento-salad",
@@ -975,7 +1012,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/9980696c05d0.webp"
   },
   {
    "id": "tuna-salmon-bento-salad",
@@ -996,7 +1034,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/65a1fc1e4fc3.webp"
   },
   {
    "id": "edamame",
@@ -1019,7 +1058,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/0d47adfee930.webp"
   },
   {
    "id": "king-prawn-gyoza",
@@ -1040,7 +1080,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/e365dc349428.webp"
   },
   {
    "id": "chicken-and-spring-onion-gyoza",
@@ -1061,7 +1102,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/46842e7c6dc6.webp"
   },
   {
    "id": "vegetable-fusion-gyoza",
@@ -1082,7 +1124,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/e9b45f6a9030.webp"
   },
   {
    "id": "pineapple-and-coconut-twist",
@@ -1103,7 +1146,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/f4410f5fe16a.webp"
   },
   {
    "id": "wild-berry-knot",
@@ -1124,7 +1168,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/4fb56db62f42.webp"
   },
   {
    "id": "the-egg-bun",
@@ -1145,7 +1190,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/5e763cbf3970.webp"
   },
   {
    "id": "the-bacon-and-egg-bun",
@@ -1168,7 +1214,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/7bffbf7cf3df.webp"
   },
   {
    "id": "smoked-salmon-and-egg-bun",
@@ -1189,7 +1236,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/0e5db17874fb.webp"
   },
   {
    "id": "smoked-salmon-and-avo-egg-pot",
@@ -1210,7 +1258,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/a8238f6c2155.webp"
   },
   {
    "id": "roasted-bacon-egg-pot",
@@ -1233,7 +1282,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/90b4911d4a13.webp"
   },
   {
    "id": "little-sausages-egg-pot",
@@ -1256,7 +1306,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/d7de453ea79c.webp"
   },
   {
    "id": "spinach-and-seeds-egg-pot",
@@ -1277,7 +1328,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/098e959bc0bf.webp"
   },
   {
    "id": "spinach-and-avo-egg-pot",
@@ -1298,7 +1350,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/d404d7193a5e.webp"
   },
   {
    "id": "soy-roasted-seeds-egg-pot",
@@ -1319,7 +1372,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/176987a101c8.webp"
   },
   {
    "id": "porridge-with-fresh-blueberries",
@@ -1340,7 +1394,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/8595e10a303f.webp"
   },
   {
    "id": "porridge-with-fresh-blueberries-and-superseeds",
@@ -1361,7 +1416,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/df4dae618dfb.webp"
   },
   {
    "id": "porridge-with-agave",
@@ -1382,7 +1438,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/db49d2336905.webp"
   },
   {
    "id": "raspberry-yoghurt-pot",
@@ -1403,7 +1460,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/a91a1f8c0e21.webp"
   },
   {
    "id": "mango-yoghurt-pot",
@@ -1424,7 +1482,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/8dc83d13212c.webp"
   },
   {
    "id": "original-prawn-crackers",
@@ -1445,7 +1504,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/05de3d083815.webp"
   },
   {
    "id": "chinese-prawn-crackers",
@@ -1466,7 +1526,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/a1a7f69716d4.webp"
   },
   {
    "id": "thai-prawn-crackers",
@@ -1487,7 +1548,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/5cb2031aa166.webp"
   },
   {
    "id": "japanese-prawn-crackers",
@@ -1508,7 +1570,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/386445c6538b.webp"
   },
   {
    "id": "salted-caramel-protein-balls",
@@ -1529,7 +1592,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/86ca664b1c88.webp"
   },
   {
    "id": "about-half-a-mango",
@@ -1550,7 +1614,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/5d888c5d5a96.webp"
   },
   {
    "id": "sweet-chilli-toasted-cashews",
@@ -1571,7 +1636,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/512bcefde2ab.webp"
   },
   {
    "id": "chocolate-edamame",
@@ -1592,7 +1658,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/9473c98cbc1a.webp"
   },
   {
    "id": "60-dark-chocolate-moons",
@@ -1613,7 +1680,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/ec34e1c03323.webp"
   },
   {
    "id": "angelic-almonds",
@@ -1634,7 +1702,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/dc05ca49415a.webp"
   },
   {
    "id": "umami-roasted-almonds",
@@ -1655,7 +1724,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/348413991bec.webp"
   },
   {
    "id": "sushi-style-nori-crunch",
@@ -1676,7 +1746,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/bbe2c5d5688e.webp"
   },
   {
    "id": "lemon-baked-pistachios",
@@ -1697,7 +1768,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/9bb7fa32e7e7.webp"
   },
   {
    "id": "crispy-seaweed-thins-sea-salt",
@@ -1720,7 +1792,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/54dedc3dff41.webp"
   },
   {
    "id": "crispy-seaweed-thins-sweet-soy",
@@ -1743,7 +1816,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/fd13f9f2034f.webp"
   },
   {
    "id": "crispy-seaweed-thins-wasabi",
@@ -1766,7 +1840,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/d34fa953c88e.webp"
   },
   {
    "id": "dark-chocolate-corn-cakes",
@@ -1787,7 +1862,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/48c43968466d.webp"
   },
   {
    "id": "milk-chocolate-corn-cakes",
@@ -1808,7 +1884,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/a90d728b36bf.webp"
   },
   {
    "id": "salted-caramel-corn-cakes",
@@ -1829,7 +1906,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/4004fc03015a.webp"
   },
   {
    "id": "yuzu-cheesecake-mochi",
@@ -1850,7 +1928,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/e5877fe6e37d.webp"
   },
   {
    "id": "iced-matcha-latte",
@@ -1871,7 +1950,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/321d4050faec.webp"
   },
   {
    "id": "iced-vanilla-matcha-latte",
@@ -1892,7 +1972,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/7e28dee2b28c.webp"
   },
   {
    "id": "iced-blueberry-matcha-latte",
@@ -1913,7 +1994,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/35ceac17995d.webp"
   },
   {
    "id": "iced-salted-caramel-matcha-latte",
@@ -1934,7 +2016,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/af30b92b249d.webp"
   },
   {
    "id": "matcha-latte",
@@ -1955,7 +2038,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/abbcbf2df9b1.webp"
   },
   {
    "id": "vanilla-matcha-latte",
@@ -1976,7 +2060,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/abbcbf2df9b1.webp"
   },
   {
    "id": "salted-caramel-matcha-latte",
@@ -1997,7 +2082,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/d65d6a2d5552.webp"
   },
   {
    "id": "blueberry-matcha-latte",
@@ -2018,7 +2104,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/dcd1d3d861d6.webp"
   },
   {
    "id": "iced-latte",
@@ -2039,7 +2126,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/522a97106a83.webp"
   },
   {
    "id": "iced-vanilla-latte",
@@ -2060,7 +2148,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/7def589da216.webp"
   },
   {
    "id": "iced-salted-caramel-latte",
@@ -2081,7 +2170,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/bc1175ee9bfd.webp"
   },
   {
    "id": "iced-blueberry-latte",
@@ -2102,7 +2192,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/7ab4e4cee17e.webp"
   },
   {
    "id": "iced-americano",
@@ -2123,7 +2214,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/64aac5d74e97.webp"
   },
   {
    "id": "latte",
@@ -2144,7 +2236,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/3699af6279a5.webp"
   },
   {
    "id": "vanilla-latte",
@@ -2165,7 +2258,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/3699af6279a5.webp"
   },
   {
    "id": "salted-caramel-latte",
@@ -2186,7 +2280,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/3699af6279a5.webp"
   },
   {
    "id": "flat-white",
@@ -2207,7 +2302,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/fdfc00b4a468.webp"
   },
   {
    "id": "cappuccino",
@@ -2228,7 +2324,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/e645a1ad8c36.webp"
   },
   {
    "id": "vanilla-cappuccino",
@@ -2249,7 +2346,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/bf392d6bf810.webp"
   },
   {
    "id": "salted-caramel-cappuccino",
@@ -2270,7 +2368,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/bf392d6bf810.webp"
   },
   {
    "id": "americano",
@@ -2291,7 +2390,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/a2448156e269.webp"
   },
   {
    "id": "espresso",
@@ -2312,7 +2412,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/d108787b1d19.webp"
   },
   {
    "id": "english-breakfast-tea",
@@ -2333,7 +2434,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/d860b4927dfd.webp"
   },
   {
    "id": "green-tea",
@@ -2354,7 +2456,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/dcb47e5cabe7.webp"
   },
   {
    "id": "jasmine-green-tea",
@@ -2375,7 +2478,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/c959ae387521.webp"
   },
   {
    "id": "peppermint-tea",
@@ -2396,7 +2500,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/0f35143728e0.webp"
   },
   {
    "id": "mango-passionfruit-bubble-tea",
@@ -2417,7 +2522,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/d89719df202d.webp"
   },
   {
    "id": "lychee-rose-bubble-tea",
@@ -2438,7 +2544,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/b9f804ed83e3.webp"
   },
   {
    "id": "lemon-bubble-tea",
@@ -2459,7 +2566,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/34d0f2af12b1.webp"
   },
   {
    "id": "itsu-still-water",
@@ -2480,7 +2588,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/dbfcbe97ea79.webp"
   },
   {
    "id": "itsu-sparkling-water",
@@ -2501,7 +2610,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/ec7d71ce3241.webp"
   },
   {
    "id": "still-water-refill-flask",
@@ -2522,7 +2632,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/2db2d14945d6.webp"
   },
   {
    "id": "sparkling-refill-flask",
@@ -2543,7 +2654,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/71157a02e458.webp"
   },
   {
    "id": "raspberry-and-dragon-fruit-zen-water-can",
@@ -2564,7 +2676,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/151179694daf.webp"
   },
   {
    "id": "cucumber-and-mint-zen-water-can",
@@ -2585,7 +2698,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/dde8df690f51.webp"
   },
   {
    "id": "peach-and-lychee-zen-water-can",
@@ -2606,7 +2720,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/70cae347bbfd.webp"
   },
   {
    "id": "ginger-and-lime-zen-water-can",
@@ -2627,7 +2742,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/302c343096e9.webp"
   },
   {
    "id": "lemon-and-yuzu-zen-water-can",
@@ -2648,7 +2764,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/d7e2a43d2c8c.webp"
   },
   {
    "id": "hot-mango-shot",
@@ -2669,7 +2786,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/e7e0aa216b6d.webp"
   },
   {
    "id": "ginger-shot",
@@ -2690,7 +2808,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/441866ea9eb0.webp"
   },
   {
    "id": "raspberry-and-elderflower-kombucha",
@@ -2711,7 +2830,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/b3b4dd4533dd.webp"
   },
   {
    "id": "fiery-ginger-kombucha",
@@ -2732,7 +2852,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/7bb22638cd33.webp"
   },
   {
    "id": "coca-cola-zero-sugar",
@@ -2753,7 +2874,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/da0db9f1e22b.webp"
   },
   {
    "id": "diet-coke",
@@ -2774,7 +2896,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/e80bb3753f49.webp"
   },
   {
    "id": "coca-cola",
@@ -2795,7 +2918,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/3370ea22c06d.webp"
   },
   {
    "id": "asahi",
@@ -2816,7 +2940,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "itsu/11554de52778.webp"
   }
  ],
  "combinations": []

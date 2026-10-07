@@ -50,7 +50,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/789b2077fd6c.webp"
   },
   {
    "id": "bacon-roll-loin",
@@ -73,7 +74,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/2d61e2a6191b.webp"
   },
   {
    "id": "original-breakfast-wrap",
@@ -94,7 +96,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/518693e59004.webp"
   },
   {
    "id": "big-breakfast-wrap",
@@ -115,7 +118,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/9c25733590f4.webp"
   },
   {
    "id": "loaded-veggie-wrap",
@@ -138,7 +142,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/898444f38892.webp"
   },
   {
    "id": "egg-and-cheese-muffin",
@@ -161,7 +166,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d37ab528a70a.webp"
   },
   {
    "id": "bacon-egg-and-cheese-muffin-streaky-bacon",
@@ -184,7 +190,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/0b3a6a46c6cc.webp"
   },
   {
    "id": "bacon-egg-and-cheese-muffin-stack-streaky-bacon",
@@ -207,7 +214,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3c4b1c57591f.webp"
   },
   {
    "id": "double-bacon-egg-and-cheese-muffin-streaky-bacon",
@@ -230,7 +238,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6d603bd74a7c.webp"
   },
   {
    "id": "double-bacon-and-egg-muffin-stack-streaky-bacon",
@@ -253,7 +262,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/192e9626d0f1.webp"
   },
   {
    "id": "sausage-and-egg-with-cheese-muffin",
@@ -276,7 +286,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/64685cbcc9ec.webp"
   },
   {
    "id": "sausage-and-egg-with-cheese-muffin-stack",
@@ -299,7 +310,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/7b3d924fe835.webp"
   },
   {
    "id": "double-sausage-and-egg-with-cheese-muffin",
@@ -322,7 +334,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/65f39d77ebda.webp"
   },
   {
    "id": "double-sausage-and-egg-with-cheese-muffin-stack",
@@ -345,7 +358,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/245eaee82f02.webp"
   },
   {
    "id": "veggie-egg-with-cheese-muffin",
@@ -368,7 +382,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/323dbb3d37db.webp"
   },
   {
    "id": "veggie-egg-with-cheese-muffin-stack",
@@ -391,7 +406,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/71e4e6f8d0db.webp"
   },
   {
    "id": "grilled-breakfast-bagel-with-sausage",
@@ -414,7 +430,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/8845edb43fd7.webp"
   },
   {
    "id": "grilled-breakfast-bagel-with-bacon-streaky-bacon",
@@ -437,7 +454,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/1214735bbfe5.webp"
   },
   {
    "id": "grilled-breakfast-bagel-with-veggie-sausage",
@@ -460,7 +478,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f5a80841cb02.webp"
   },
   {
    "id": "plain-bagel",
@@ -483,7 +502,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/17282a7c0437.webp"
   },
   {
    "id": "bagel-with-butter",
@@ -506,7 +526,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/70d32bbd7e5e.webp"
   },
   {
    "id": "bagel-with-cream-cheese",
@@ -529,7 +550,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/ea5185257054.webp"
   },
   {
    "id": "bacon-and-maple-pancakes",
@@ -552,7 +574,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/7c8e7c154696.webp"
   },
   {
    "id": "maple-syrup-pancakes",
@@ -575,7 +598,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/08ddc4f9b8b9.webp"
   },
   {
    "id": "chocolate-hazelnut-and-cookie-pancakes",
@@ -598,7 +622,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/31937f08c253.webp"
   },
   {
    "id": "hash-brown",
@@ -621,7 +646,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/1adf16383a26.webp"
   },
   {
    "id": "bacon-and-cheese-breakfast-snack-wrap",
@@ -644,7 +670,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/455f9600a8db.webp"
   },
   {
    "id": "sausage-and-cheese-breakfast-snack-wrap",
@@ -667,7 +694,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/58b49f23e973.webp"
   },
   {
    "id": "veggie-breakfast-snack-wrap",
@@ -690,7 +718,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/dabfbc1dd82c.webp"
   },
   {
    "id": "egg-and-cheese-breakfast-snack-wrap",
@@ -713,7 +742,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/425283152cd2.webp"
   },
   {
    "id": "bacon-and-cheese-muffin-streaky-bacon",
@@ -736,7 +766,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/b2f1227650a2.webp"
   },
   {
    "id": "big-breakfast-wrap-streaky-bacon",
@@ -759,7 +790,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/8ab51d3794ec.webp"
   },
   {
    "id": "tims-double-cheeseburger",
@@ -780,7 +812,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/938ca3ec9782.webp"
   },
   {
    "id": "nacho-double-cheeseburger",
@@ -801,7 +834,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/9f2f81c028bc.webp"
   },
   {
    "id": "tims-bacon-double-cheeseburger",
@@ -824,7 +858,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4dc75c17aace.webp"
   },
   {
    "id": "tims-triple-cheeseburger",
@@ -845,7 +880,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/caa48ff3f73e.webp"
   },
   {
    "id": "nacho-chicken-sandwich",
@@ -866,7 +902,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/8ea697b89b85.webp"
   },
   {
    "id": "tims-crispy-chicken-sandwich",
@@ -887,7 +924,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/91b20a10103a.webp"
   },
   {
    "id": "nacho-chicken-stack",
@@ -908,7 +946,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c760490097a1.webp"
   },
   {
    "id": "tims-crispy-chicken-stack",
@@ -929,7 +968,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/a29bb921956e.webp"
   },
   {
    "id": "crispy-meatless-sandwich",
@@ -952,7 +992,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d48a89fdb864.webp"
   },
   {
    "id": "nacho-cheese-melt",
@@ -975,7 +1016,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/12abec554e76.webp"
   },
   {
    "id": "cheese-and-herb-melt",
@@ -998,7 +1040,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/67581cbfdb06.webp"
   },
   {
    "id": "ham-hock-and-cheese-melt",
@@ -1021,7 +1064,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/18ca48e957c6.webp"
   },
   {
    "id": "maple-bbq-chicken-melt",
@@ -1042,7 +1086,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/97bbdeb91d6b.webp"
   },
   {
    "id": "tims-savers-hamburger",
@@ -1063,7 +1108,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d4d135595d92.webp"
   },
   {
    "id": "tims-savers-cheeseburger",
@@ -1084,7 +1130,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/fe8278753a7e.webp"
   },
   {
    "id": "blt-chicken-wrap",
@@ -1107,7 +1154,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/73b9730cb99b.webp"
   },
   {
    "id": "maple-bbq-chicken-wrap",
@@ -1128,7 +1176,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6882e770d7b7.webp"
   },
   {
    "id": "sweet-chilli-mayo-chicken-wrap",
@@ -1149,7 +1198,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/5284f59207f2.webp"
   },
   {
    "id": "nacho-chicken-wrap",
@@ -1170,7 +1220,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/9fc0ed02b555.webp"
   },
   {
    "id": "smoky-chipotle-chicken-wrap",
@@ -1191,7 +1242,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/923f2b8b008a.webp"
   },
   {
    "id": "vlt-vegan-wrap",
@@ -1214,7 +1266,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/669802b56b18.webp"
   },
   {
    "id": "tims-savers-crispy-chicken-snack-wrap",
@@ -1235,7 +1288,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4e8c4aff9c16.webp"
   },
   {
    "id": "5-piece-tims-chicken-tenders",
@@ -1256,7 +1310,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c6b521b0612b.webp"
   },
   {
    "id": "3-piece-tims-chicken-tenders",
@@ -1277,7 +1332,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/bbc155db2cc4.webp"
   },
   {
    "id": "tims-savers-2-chicken-tenders-and-dip",
@@ -1298,7 +1354,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/49734493321b.webp"
   },
   {
    "id": "nacho-chicken-loaded-fries",
@@ -1319,7 +1376,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/feea2b4fdad9.webp"
   },
   {
    "id": "maple-bbq-loaded-lattice-fries",
@@ -1342,7 +1400,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/277db31cdb16.webp"
   },
   {
    "id": "5-fajita-spiced-chicken-tenders",
@@ -1363,7 +1422,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/68d4cf9a3c7f.webp"
   },
   {
    "id": "3-fajita-spiced-chicken-tenders",
@@ -1384,7 +1444,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/7485f453f607.webp"
   },
   {
    "id": "nacho-chilli-cheese-bites-8pc",
@@ -1407,7 +1468,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/adbd17995396.webp"
   },
   {
    "id": "nacho-chilli-cheese-bites-4pc",
@@ -1430,7 +1492,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/aa370f7698b6.webp"
   },
   {
    "id": "lattice-fries",
@@ -1453,7 +1516,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/10d0842ab454.webp"
   },
   {
    "id": "timmies-minis-chicken-mayo-sandwich",
@@ -1474,7 +1538,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f5ac08bb3331.webp"
   },
   {
    "id": "timmies-minis-cheeseburger",
@@ -1495,7 +1560,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4bae5cbb3305.webp"
   },
   {
    "id": "timmies-minis-2-chicken-tenders",
@@ -1516,7 +1582,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/1ee4ffe03315.webp"
   },
   {
    "id": "timmies-minis-cheese-melt",
@@ -1539,7 +1606,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/64edaf3ce32e.webp"
   },
   {
    "id": "timmies-minis-lattice-fries",
@@ -1562,7 +1630,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/8e677c8b8649.webp"
   },
   {
    "id": "stanley-spider-deluxe-donut",
@@ -1585,7 +1654,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/2dd5b41bc5c3.webp"
   },
   {
    "id": "maple-syrup-caramel-and-fudge-pancakes",
@@ -1608,7 +1678,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/16169c79056e.webp"
   },
   {
    "id": "chocolate-hazelnut-pancakes-made-with-oreo",
@@ -1631,7 +1702,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/32983f7017bf.webp"
   },
   {
    "id": "monty-the-moose-deluxe-donut",
@@ -1654,7 +1726,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/8234c06da5a6.webp"
   },
   {
    "id": "maple-caramel-smores-deluxe-donut",
@@ -1677,7 +1750,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/b1a9280123fd.webp"
   },
   {
    "id": "chocolate-brownie-donut",
@@ -1700,7 +1774,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/9b6a5894390f.webp"
   },
   {
    "id": "pumpkin-spice-deluxe-donut",
@@ -1723,7 +1798,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/8ee4f2eb53fd.webp"
   },
   {
    "id": "maple-and-caramel-donut",
@@ -1746,7 +1822,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6fd4a01bae85.webp"
   },
   {
    "id": "caramel-apple-fritter",
@@ -1769,7 +1846,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c79958d20cc7.webp"
   },
   {
    "id": "boston-cream-donut",
@@ -1792,7 +1870,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/b3c5662978ce.webp"
   },
   {
    "id": "canadian-maple-donut",
@@ -1815,7 +1894,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/0d9e3930644b.webp"
   },
   {
    "id": "maple-dip-donut",
@@ -1838,7 +1918,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/b001befc1088.webp"
   },
   {
    "id": "vanilla-dip-donut",
@@ -1861,7 +1942,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4a3fe5981218.webp"
   },
   {
    "id": "chocolate-dip-donut",
@@ -1884,7 +1966,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/a0d3ed897dc0.webp"
   },
   {
    "id": "old-fashioned-glazed-donut",
@@ -1907,7 +1990,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6f76ab1bb97e.webp"
   },
   {
    "id": "apple-fritter-donut",
@@ -1930,7 +2014,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6e6eb78e47f3.webp"
   },
   {
    "id": "honey-cruller",
@@ -1953,7 +2038,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/83a29c28662b.webp"
   },
   {
    "id": "old-fashioned-glazed-timbits",
@@ -1976,7 +2062,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/95bd0cab5527.webp"
   },
   {
    "id": "chocolate-glazed-timbits",
@@ -1999,7 +2086,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/219e9ee2a9df.webp"
   },
   {
    "id": "honey-dip-timbits",
@@ -2022,7 +2110,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/de95c1fcf6fb.webp"
   },
   {
    "id": "apple-pie-timbits",
@@ -2045,7 +2134,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/1ff3c4c8ebbb.webp"
   },
   {
    "id": "honey-cruller-timbits",
@@ -2068,7 +2158,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/932e004dc1b1.webp"
   },
   {
    "id": "white-birthday-cake-timbits",
@@ -2091,7 +2182,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c441ce0e56f0.webp"
   },
   {
    "id": "apple-fritter-timbits",
@@ -2114,7 +2206,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/19c4cf8a14d6.webp"
   },
   {
    "id": "raspberry-donut",
@@ -2137,7 +2230,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/088341ea6129.webp"
   },
   {
    "id": "raspberry-vanilla-donut",
@@ -2160,7 +2254,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/7c897d2b9049.webp"
   },
   {
    "id": "americano-small",
@@ -2183,7 +2278,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp"
   },
   {
    "id": "americano-medium",
@@ -2206,7 +2302,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp"
   },
   {
    "id": "americano-large",
@@ -2229,7 +2326,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp"
   },
   {
    "id": "original-blend-coffee-small",
@@ -2252,7 +2350,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp"
   },
   {
    "id": "original-blend-coffee-medium",
@@ -2275,7 +2374,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp"
   },
   {
    "id": "original-blend-coffee-large",
@@ -2298,7 +2398,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp"
   },
   {
    "id": "dark-roast-coffee-small",
@@ -2321,7 +2422,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp"
   },
   {
    "id": "dark-roast-coffee-medium",
@@ -2344,7 +2446,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f3fcb4109644.webp"
   },
   {
    "id": "caramel-macchiato-small",
@@ -2367,7 +2470,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/557020d7c528.webp"
   },
   {
    "id": "caramel-macchiato-medium",
@@ -2390,7 +2494,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/557020d7c528.webp"
   },
   {
    "id": "caramel-macchiato-large",
@@ -2413,7 +2518,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/557020d7c528.webp"
   },
   {
    "id": "cappuccino-small",
@@ -2436,7 +2542,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6b5930a11394.webp"
   },
   {
    "id": "cappuccino-medium",
@@ -2459,7 +2566,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6b5930a11394.webp"
   },
   {
    "id": "cappuccino-large",
@@ -2482,7 +2590,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6b5930a11394.webp"
   },
   {
    "id": "flat-white",
@@ -2505,7 +2614,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/e830ecdae905.webp"
   },
   {
    "id": "pumpkin-spice-latte-small",
@@ -2528,7 +2638,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/744b97a18939.webp"
   },
   {
    "id": "pumpkin-spice-latte-medium",
@@ -2551,7 +2662,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/744b97a18939.webp"
   },
   {
    "id": "pumpkin-spice-latte-large",
@@ -2574,7 +2686,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/744b97a18939.webp"
   },
   {
    "id": "maple-caramel-smores-latte-small",
@@ -2597,7 +2710,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/620322ff837a.webp"
   },
   {
    "id": "maple-caramel-smores-latte-medium",
@@ -2620,7 +2734,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/620322ff837a.webp"
   },
   {
    "id": "maple-caramel-smores-latte-large",
@@ -2643,7 +2758,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/620322ff837a.webp"
   },
   {
    "id": "matcha-latte-small",
@@ -2666,7 +2782,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d626cdc070fb.webp"
   },
   {
    "id": "matcha-latte-medium",
@@ -2689,7 +2806,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d626cdc070fb.webp"
   },
   {
    "id": "matcha-latte-large",
@@ -2712,7 +2830,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d626cdc070fb.webp"
   },
   {
    "id": "latte-small",
@@ -2735,7 +2854,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/82ab50d093a2.webp"
   },
   {
    "id": "latte-medium",
@@ -2758,7 +2878,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/82ab50d093a2.webp"
   },
   {
    "id": "latte-large",
@@ -2781,7 +2902,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/82ab50d093a2.webp"
   },
   {
    "id": "pumpkin-spice-french-vanilla-small",
@@ -2804,7 +2926,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/77a6f47182e0.webp"
   },
   {
    "id": "pumpkin-spice-french-vanilla-medium",
@@ -2827,7 +2950,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/77a6f47182e0.webp"
   },
   {
    "id": "pumpkin-spice-french-vanilla-large",
@@ -2850,7 +2974,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/77a6f47182e0.webp"
   },
   {
    "id": "french-vanilla-latte-small",
@@ -2873,7 +2998,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d6aa76a24d52.webp"
   },
   {
    "id": "french-vanilla-latte-medium",
@@ -2896,7 +3022,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d6aa76a24d52.webp"
   },
   {
    "id": "french-vanilla-latte-large",
@@ -2919,7 +3046,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d6aa76a24d52.webp"
   },
   {
    "id": "french-vanilla-small",
@@ -2942,7 +3070,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c0213188a187.webp"
   },
   {
    "id": "french-vanilla-medium",
@@ -2965,7 +3094,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c0213188a187.webp"
   },
   {
    "id": "french-vanilla-large",
@@ -2988,7 +3118,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c0213188a187.webp"
   },
   {
    "id": "mocha-small",
@@ -3011,7 +3142,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/0f774d412b3c.webp"
   },
   {
    "id": "mocha-medium",
@@ -3034,7 +3166,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/0f774d412b3c.webp"
   },
   {
    "id": "mocha-large",
@@ -3057,7 +3190,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/0f774d412b3c.webp"
   },
   {
    "id": "hot-chocolate-small",
@@ -3080,7 +3214,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/33c8f3808821.webp"
   },
   {
    "id": "hot-chocolate-medium",
@@ -3103,7 +3238,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/33c8f3808821.webp"
   },
   {
    "id": "hot-chocolate-large",
@@ -3126,7 +3262,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/33c8f3808821.webp"
   },
   {
    "id": "espresso",
@@ -3149,7 +3286,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/91d7e7a21ba5.webp"
   },
   {
    "id": "breakfast-tea-small",
@@ -3241,7 +3379,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f8d48f83cad3.webp"
   },
   {
    "id": "green-tea-medium",
@@ -3264,7 +3403,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f8d48f83cad3.webp"
   },
   {
    "id": "green-tea-large",
@@ -3287,7 +3427,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f8d48f83cad3.webp"
   },
   {
    "id": "peppermint-tea-small",
@@ -3310,7 +3451,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f326a180c202.webp"
   },
   {
    "id": "peppermint-tea-medium",
@@ -3333,7 +3475,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f326a180c202.webp"
   },
   {
    "id": "peppermint-tea-large",
@@ -3356,7 +3499,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f326a180c202.webp"
   },
   {
    "id": "matcha-iced-latte-small",
@@ -3379,7 +3523,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/412095275275.webp"
   },
   {
    "id": "matcha-iced-latte-medium",
@@ -3402,7 +3547,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/412095275275.webp"
   },
   {
    "id": "matcha-iced-latte-large",
@@ -3425,7 +3571,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/412095275275.webp"
   },
   {
    "id": "iced-latte-medium",
@@ -3448,7 +3595,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp"
   },
   {
    "id": "iced-latte-large",
@@ -3471,7 +3619,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp"
   },
   {
    "id": "iced-caramel-latte-small",
@@ -3494,7 +3643,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp"
   },
   {
    "id": "iced-caramel-latte-medium",
@@ -3517,7 +3667,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp"
   },
   {
    "id": "iced-caramel-latte-large",
@@ -3540,7 +3691,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp"
   },
   {
    "id": "iced-vanilla-latte-medium",
@@ -3563,7 +3715,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp"
   },
   {
    "id": "iced-vanilla-latte-large",
@@ -3586,7 +3739,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/5e8ec5e73def.webp"
   },
   {
    "id": "iced-french-vanilla-small",
@@ -3609,7 +3763,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d98de901b251.webp"
   },
   {
    "id": "iced-french-vanilla-medium",
@@ -3632,7 +3787,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d98de901b251.webp"
   },
   {
    "id": "iced-french-vanilla-large",
@@ -3655,7 +3811,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d98de901b251.webp"
   },
   {
    "id": "iced-french-vanilla-latte-small",
@@ -3678,7 +3835,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/7b46c58a074a.webp"
   },
   {
    "id": "iced-french-vanilla-latte-medium",
@@ -3701,7 +3859,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/7b46c58a074a.webp"
   },
   {
    "id": "iced-french-vanilla-latte-large",
@@ -3724,7 +3883,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/7b46c58a074a.webp"
   },
   {
    "id": "iced-caramel-macchiato-small",
@@ -3747,7 +3907,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4d0376c1e6ef.webp"
   },
   {
    "id": "iced-caramel-macchiato-medium",
@@ -3770,7 +3931,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4d0376c1e6ef.webp"
   },
   {
    "id": "iced-caramel-macchiato-large",
@@ -3793,7 +3955,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4d0376c1e6ef.webp"
   },
   {
    "id": "maple-caramel-smores-frapp-small",
@@ -3816,7 +3979,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6369ecaec1f5.webp"
   },
   {
    "id": "maple-caramel-smores-frapp-medium",
@@ -3839,7 +4003,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6369ecaec1f5.webp"
   },
   {
    "id": "maple-caramel-smores-frapp-large",
@@ -3862,7 +4027,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6369ecaec1f5.webp"
   },
   {
    "id": "matcha-frapp-small",
@@ -3885,7 +4051,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c5a55302fba3.webp"
   },
   {
    "id": "matcha-frapp-medium",
@@ -3908,7 +4075,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c5a55302fba3.webp"
   },
   {
    "id": "matcha-frapp-large",
@@ -3931,7 +4099,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c5a55302fba3.webp"
   },
   {
    "id": "caramel-cream-frapp-small",
@@ -3954,7 +4123,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/210dfdada58a.webp"
   },
   {
    "id": "caramel-cream-frapp-medium",
@@ -3977,7 +4147,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/210dfdada58a.webp"
   },
   {
    "id": "caramel-cream-frapp-large",
@@ -4000,7 +4171,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/210dfdada58a.webp"
   },
   {
    "id": "chocolate-cream-frapp-small",
@@ -4023,7 +4195,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/e6ecbace7829.webp"
   },
   {
    "id": "chocolate-cream-frapp-medium",
@@ -4046,7 +4219,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/e6ecbace7829.webp"
   },
   {
    "id": "chocolate-cream-frapp-large",
@@ -4069,7 +4243,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/e6ecbace7829.webp"
   },
   {
    "id": "maple-caramel-smores-iced-capp-small",
@@ -4092,7 +4267,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/168acb34db76.webp"
   },
   {
    "id": "maple-caramel-smores-iced-capp-medium",
@@ -4115,7 +4291,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/168acb34db76.webp"
   },
   {
    "id": "maple-caramel-smores-iced-capp-large",
@@ -4138,7 +4315,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/168acb34db76.webp"
   },
   {
    "id": "strawberries-and-cream-frapp-small",
@@ -4161,7 +4339,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/906ed34958d6.webp"
   },
   {
    "id": "strawberries-and-cream-frapp-medium",
@@ -4184,7 +4363,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/906ed34958d6.webp"
   },
   {
    "id": "strawberries-and-cream-frapp-large",
@@ -4207,7 +4387,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/906ed34958d6.webp"
   },
   {
    "id": "cookies-and-cream-frapp-small",
@@ -4230,7 +4411,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/fe3138b376f7.webp"
   },
   {
    "id": "cookies-and-cream-frapp-medium",
@@ -4253,7 +4435,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/fe3138b376f7.webp"
   },
   {
    "id": "cookies-and-cream-frapp-large",
@@ -4276,7 +4459,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/fe3138b376f7.webp"
   },
   {
    "id": "caramel-iced-capp-small",
@@ -4299,7 +4483,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/173d8acbb30e.webp"
   },
   {
    "id": "caramel-iced-capp-medium",
@@ -4322,7 +4507,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/173d8acbb30e.webp"
   },
   {
    "id": "caramel-iced-capp-large",
@@ -4345,7 +4531,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/173d8acbb30e.webp"
   },
   {
    "id": "cookies-and-cream-iced-capp-small",
@@ -4368,7 +4555,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/ee0fd5de921f.webp"
   },
   {
    "id": "cookies-and-cream-iced-capp-medium",
@@ -4391,7 +4579,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/ee0fd5de921f.webp"
   },
   {
    "id": "cookies-and-cream-iced-capp-large",
@@ -4414,7 +4603,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/ee0fd5de921f.webp"
   },
   {
    "id": "original-iced-capp-small",
@@ -4437,7 +4627,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "original-iced-capp-medium",
@@ -4460,7 +4651,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "original-iced-capp-large",
@@ -4483,7 +4675,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "light-iced-capp-small",
@@ -4506,7 +4699,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "light-iced-capp-medium",
@@ -4529,7 +4723,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "light-iced-capp-large",
@@ -4552,7 +4747,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "coconut-iced-capp-small",
@@ -4575,7 +4771,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "coconut-iced-capp-medium",
@@ -4598,7 +4795,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "coconut-iced-capp-large",
@@ -4621,7 +4819,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/d85d1158e427.webp"
   },
   {
    "id": "lemonade-refresher-small",
@@ -4644,7 +4843,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/459f9b8eaba9.webp"
   },
   {
    "id": "lemonade-refresher-medium",
@@ -4667,7 +4867,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/459f9b8eaba9.webp"
   },
   {
    "id": "lemonade-refresher-large",
@@ -4690,7 +4891,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/459f9b8eaba9.webp"
   },
   {
    "id": "strawberry-lemonade-refresher-small",
@@ -4713,7 +4915,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3bddf6349824.webp"
   },
   {
    "id": "strawberry-lemonade-refresher-medium",
@@ -4736,7 +4939,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3bddf6349824.webp"
   },
   {
    "id": "cherry-crush-cooler-small",
@@ -4759,7 +4963,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c30b46c0e553.webp"
   },
   {
    "id": "cherry-crush-cooler-medium",
@@ -4782,7 +4987,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c30b46c0e553.webp"
   },
   {
    "id": "cherry-crush-cooler-large",
@@ -4805,7 +5011,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/c30b46c0e553.webp"
   },
   {
    "id": "tropical-cooler-small",
@@ -4828,7 +5035,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/eef4a1ee856c.webp"
   },
   {
    "id": "tropical-cooler-medium",
@@ -4851,7 +5059,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/eef4a1ee856c.webp"
   },
   {
    "id": "tropical-cooler-large",
@@ -4874,7 +5083,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/eef4a1ee856c.webp"
   },
   {
    "id": "tims-shake-brownie-small",
@@ -4897,7 +5107,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3363bb89ef75.webp"
   },
   {
    "id": "tims-shake-brownie-medium",
@@ -4920,7 +5131,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3363bb89ef75.webp"
   },
   {
    "id": "tims-shake-brownie-large",
@@ -4943,7 +5155,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3363bb89ef75.webp"
   },
   {
    "id": "tims-shake-chocolate-small",
@@ -4966,7 +5179,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/de513c74c6f0.webp"
   },
   {
    "id": "tims-shake-chocolate-medium",
@@ -4989,7 +5203,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/de513c74c6f0.webp"
   },
   {
    "id": "tims-shake-chocolate-large",
@@ -5012,7 +5227,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/de513c74c6f0.webp"
   },
   {
    "id": "tims-shake-strawberry-small",
@@ -5035,7 +5251,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6e726c43dff0.webp"
   },
   {
    "id": "tims-shake-strawberry-medium",
@@ -5058,7 +5275,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6e726c43dff0.webp"
   },
   {
    "id": "tims-shake-strawberry-large",
@@ -5081,7 +5299,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6e726c43dff0.webp"
   },
   {
    "id": "coca-cola-medium",
@@ -5104,7 +5323,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/8bf2ffc0d0c2.webp"
   },
   {
    "id": "coca-cola-large",
@@ -5127,7 +5347,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/8bf2ffc0d0c2.webp"
   },
   {
    "id": "coca-cola-zero-sugar-medium",
@@ -5150,7 +5371,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3198c5466e54.webp"
   },
   {
    "id": "coca-cola-zero-sugar-large",
@@ -5173,7 +5395,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3198c5466e54.webp"
   },
   {
    "id": "diet-coke-medium",
@@ -5196,7 +5419,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3382e5645017.webp"
   },
   {
    "id": "diet-coke-large",
@@ -5219,7 +5443,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/3382e5645017.webp"
   },
   {
    "id": "fanta-orange-zero-medium",
@@ -5242,7 +5467,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4aa595ef276a.webp"
   },
   {
    "id": "fanta-orange-zero-large",
@@ -5265,7 +5491,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/4aa595ef276a.webp"
   },
   {
    "id": "sprite-zero-medium",
@@ -5288,7 +5515,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/1933b4dd94f5.webp"
   },
   {
    "id": "sprite-zero-large",
@@ -5311,7 +5539,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/1933b4dd94f5.webp"
   },
   {
    "id": "dr-pepper-zero-medium",
@@ -5334,7 +5563,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6b87bd98c675.webp"
   },
   {
    "id": "dr-pepper-zero-large",
@@ -5357,7 +5587,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6b87bd98c675.webp"
   },
   {
    "id": "vegan-mayo",
@@ -5380,7 +5611,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/2499cd9f3e5c.webp"
   },
   {
    "id": "chipotle-mayonnaise",
@@ -5403,7 +5635,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/6d2048780788.webp"
   },
   {
    "id": "sweet-chilli-sauce",
@@ -5426,7 +5659,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/15d594b9b247.webp"
   },
   {
    "id": "maple-bbq-sauce",
@@ -5449,7 +5683,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/491bbebdbf05.webp"
   },
   {
    "id": "tomato-ketchup",
@@ -5472,7 +5707,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/f637cb354502.webp"
   },
   {
    "id": "oat-milk",
@@ -5541,7 +5777,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/fd7378fede4a.webp"
   },
   {
    "id": "semi-skimmed-milk-medium",
@@ -5564,7 +5801,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/fd7378fede4a.webp"
   },
   {
    "id": "semi-skimmed-milk-large",
@@ -5587,7 +5825,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "tim-hortons/fd7378fede4a.webp"
   }
  ],
  "combinations": []

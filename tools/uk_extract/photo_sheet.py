@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Contact sheet for checking a chain's item photos by eye: every photo with its item name beneath it.
 
-    python3 tools/uk_extract/photo_sheet.py <chain-id> [--out sheet.png] [--part N] [--per 24]
+    python3 tools/uk_extract/photo_sheet.py <chain-id> [--out sheet.png] [--part N] [--per 24] [--cols 4]
 
 Prints the path of the PNG. Look at it: the photo must plausibly show the item named under it, and must not be a banner,
 logo, placeholder or a picture that prints nutrition numbers. A wrong photo is worse than none: remove it with
@@ -26,6 +26,7 @@ def main() -> int:
     ap.add_argument("--out", type=Path)
     ap.add_argument("--part", type=int, default=0)
     ap.add_argument("--per", type=int, default=24)
+    ap.add_argument("--cols", type=int, default=4, help="columns (6 with --per 36 gives a denser sheet)")
     a = ap.parse_args()
     folder = ROOT / "data" / "source" / a.chain
     names = {r["id"]: r["name"] for r in csv.DictReader(open(folder / "items.csv", newline="", encoding="utf-8-sig"))}
@@ -33,7 +34,7 @@ def main() -> int:
     rows = rows[a.part * a.per:(a.part + 1) * a.per]
     if not rows:
         raise SystemExit("no photos in that part")
-    cols, cell_w, cell_h = 4, 230, 215
+    cols, cell_w, cell_h = a.cols, 230, 215
     sheet = Image.new("RGB", (cols * cell_w, ((len(rows) + cols - 1) // cols) * cell_h), "white")
     draw = ImageDraw.Draw(sheet)
     try:

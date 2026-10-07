@@ -176,7 +176,14 @@ def main() -> int:
 
     # One photo per item: an item that two pages give different photos has none.
     chosen: dict[str, tuple[str, str]] = {}   # item id -> (photo url, page url)
+    # Items looked at after the first run and left without a photo (a rerun must not bring them back).
+    drop = {"coconut-milk": "the photo is the Alpro logo", "oat-milk": "the photo is the Alpro logo",
+            "breakfast-tea-large": "the photo shows a pale yellow drink, not tea", "breakfast-tea-medium": "same photo as the large",
+            "breakfast-tea-small": "same photo as the large"}
     for item_id, pairs in sorted(found.items()):
+        if item_id in drop:
+            skipped.append(f"{item_id}: dropped after looking: {drop[item_id]}")
+            continue
         photos = {p for p, _ in pairs}
         if len(photos) > 1:
             skipped.append(f"{item_id}: {len(photos)} different photos on the site; ambiguous, no photo")

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261007074528,
- "generatedAt": "2026-10-07T07:45:28Z",
+ "dataVersion": 20261007081442,
+ "generatedAt": "2026-10-07T08:14:42Z",
  "chains": [
   {
    "id": "abokado",
@@ -151,8 +151,8 @@
    "name": "Caffè Nero",
    "cuisine": "Coffee",
    "file": "chain-caffe-nero.json",
-   "sha256": "01d6776075333bf5bef39cb391d7f7e5fabed9877e35e1136afb09476f7aa2be",
-   "contentHash": "8524fe81fa4f8e970765711eaeedb335e16ab66bd90d7539da1c638df2371cd6",
+   "sha256": "bf08430010b7511dd484cb3bc7d8d642efb9aa3c79f7b7aa48c866c9279a9e4e",
+   "contentHash": "466733eaf9ab934e09eacc069a6d2ce0811ea1cdd891ade36a1964846f0c5be7",
    "sample": false,
    "itemCount": 373,
    "checkedOn": "2026-10-06"
@@ -239,8 +239,8 @@
    "name": "Cooplands",
    "cuisine": "Bakery",
    "file": "chain-cooplands.json",
-   "sha256": "ef535ea7eb30b6bdcbdbddc73e460843ae58b64c11051bc9ab5a3be94a65cf5f",
-   "contentHash": "63e19be6619fb2d5570485b26639968b0e17be2c9e26d2a337d714f5cbdd95b1",
+   "sha256": "eb54c577f75522eb62a8906195cead8b88ae9f441e575a6ce0a621306e2fa44f",
+   "contentHash": "5daec8ef851422b0a64e6e47afd027b1a6c4a9b1d4605ef329d6dfab0d9bebf3",
    "sample": false,
    "itemCount": 107,
    "checkedOn": "2026-10-06"
@@ -393,8 +393,8 @@
    "name": "itsu",
    "cuisine": "Japanese",
    "file": "chain-itsu.json",
-   "sha256": "f4c0624b5a3e604c7728ff155e1b41b87900f2fb987e3355c4086a0433ae323f",
-   "contentHash": "fdb22a64ae58e2f01b6d8f181a866222b475ed099384a7ce9b63ecf5611b048c",
+   "sha256": "693981df12e527c579eb3d3aac2c93c05cd3664767260ce452697ebf9d95f20a",
+   "contentHash": "bbe5aaa5c6b22fe99cb7e86c7f14758b28bfe498b1237192287c15590b945c53",
    "sample": false,
    "itemCount": 132,
    "checkedOn": "2026-10-06"
@@ -690,8 +690,8 @@
    "name": "Taco Bell",
    "cuisine": "Mexican",
    "file": "chain-taco-bell.json",
-   "sha256": "12422ca67cf928f2c3fcbfcf980113eda3d7771a51c4ef0b84e996c26c5c315a",
-   "contentHash": "4a5457a950153af9ce266c50e938bab7ca178347283284ecd54c3a7e9dc4bb89",
+   "sha256": "14469cca5432bda55281fe7e30374aaa930fb1bc90e5416a424588a8aadabd39",
+   "contentHash": "1e02b191f83869f5b5ce82ce003ac78811c94518c940c594817545d5c364ebf8",
    "sample": false,
    "itemCount": 102,
    "checkedOn": "2026-10-05"
@@ -701,8 +701,8 @@
    "name": "Tim Hortons",
    "cuisine": "Coffee",
    "file": "chain-tim-hortons.json",
-   "sha256": "14fa8fc7bb84eb67c92725b34738caa1923a8d1f1692714e5b07416229d69161",
-   "contentHash": "7bf12d20f9a84688f5b34bf6a0a3b2f977af18ead977aa91dd0b191dccfcfc1b",
+   "sha256": "c2fd10891d21dcd0e16ed104f072962205c065ea2b99c6f9bf4493e70231681f",
+   "contentHash": "e03e6b815eed707dffb140b2fef1e41630a3253a53268d88432b0f7064e7d13c",
    "sample": false,
    "itemCount": 244,
    "checkedOn": "2026-10-06"

@@ -51,7 +51,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/90549d198538.webp"
   },
   {
    "id": "bacon-ciabatta",
@@ -74,7 +75,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/99cce7f838c0.webp"
   },
   {
    "id": "butchers-sausage-ciabatta",
@@ -97,7 +99,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/6eada3273d25.webp"
   },
   {
    "id": "berry-granola",
@@ -120,7 +123,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/415818cb7ca0.webp"
   },
   {
    "id": "fruit-salad",
@@ -166,7 +170,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d8a96bb4d515.webp"
   },
   {
    "id": "porridge-skimmed-milk",
@@ -189,7 +194,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d8a96bb4d515.webp"
   },
   {
    "id": "porridge-whole-milk",
@@ -212,7 +218,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d8a96bb4d515.webp"
   },
   {
    "id": "porridge-soya-milk",
@@ -235,7 +242,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d8a96bb4d515.webp"
   },
   {
    "id": "porridge-oat-milk",
@@ -258,7 +266,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d8a96bb4d515.webp"
   },
   {
    "id": "porridge-coconut-milk",
@@ -281,7 +290,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d8a96bb4d515.webp"
   },
   {
    "id": "porridge-almond-milk",
@@ -304,7 +314,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d8a96bb4d515.webp"
   },
   {
    "id": "pastel-de-nata",
@@ -327,7 +338,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4a8df5fbcc5c.webp"
   },
   {
    "id": "pistachio-croissant",
@@ -350,7 +362,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/8cc662b926ad.webp"
   },
   {
    "id": "almond-croissant",
@@ -373,7 +386,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bdeb417c44b2.webp"
   },
   {
    "id": "apricot-croissant",
@@ -396,7 +410,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/983b0aa85daf.webp"
   },
   {
    "id": "butter-croissant",
@@ -419,7 +434,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/274f58fb997c.webp"
   },
   {
    "id": "cinnamon-swirl",
@@ -442,7 +458,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bff1d38efc49.webp"
   },
   {
    "id": "pain-aux-raisin",
@@ -465,7 +482,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/606536472227.webp"
   },
   {
    "id": "pain-au-chocolat",
@@ -488,7 +506,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/79e1090226c9.webp"
   },
   {
    "id": "raspberry-croissant",
@@ -511,7 +530,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/218af8d0d7ab.webp"
   },
   {
    "id": "cinnamon-bun",
@@ -534,7 +554,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a466ceb1d8d7.webp"
   },
   {
    "id": "butternut-squash-and-pesto-seeded-panini",
@@ -557,7 +578,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ec06bbd606ec.webp"
   },
   {
    "id": "spicy-chicken-and-red-pepper-focaccia",
@@ -578,7 +600,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bcfd89bca55c.webp"
   },
   {
    "id": "ham-and-mozzarella-panini",
@@ -601,7 +624,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a12fb1fd479f.webp"
   },
   {
    "id": "brie-and-bacon-panini",
@@ -624,7 +648,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a2131d5a0d66.webp"
   },
   {
    "id": "mozzarella-and-tomato-panini",
@@ -647,7 +672,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/288260ebc45d.webp"
   },
   {
    "id": "plant-based-mushroom-and-tomato-ragu-panini",
@@ -670,7 +696,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ade8cb38fc28.webp"
   },
   {
    "id": "tuna-melt-panini",
@@ -691,7 +718,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/7dc3b34591c8.webp"
   },
   {
    "id": "chicken-and-pesto-tostati",
@@ -712,7 +740,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/84358c294c90.webp"
   },
   {
    "id": "four-cheese-and-balsamic-onion-chutney-tostati-melt",
@@ -735,7 +764,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a1ca69fa9d57.webp"
   },
   {
    "id": "gluten-free-mozzarella-tomato-and-pesto-tostati",
@@ -758,7 +788,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d618b8cbe326.webp"
   },
   {
    "id": "cheese-and-tomato-tostati",
@@ -781,7 +812,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f21d4ee94360.webp"
   },
   {
    "id": "chicken-and-bacon-tostati-melt",
@@ -804,7 +836,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/54c7a9e0ddeb.webp"
   },
   {
    "id": "ham-and-cheese-tostati-melt",
@@ -827,7 +860,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/8ce0fb8f11e5.webp"
   },
   {
    "id": "mozzarella-and-roasted-tomato-tostati-melt",
@@ -850,7 +884,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/68a88bbf9143.webp"
   },
   {
    "id": "italian-prosciutto-and-yellow-datterini-tomato-flatbread",
@@ -873,7 +908,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e237b404fdfa.webp"
   },
   {
    "id": "nero-deli-italian-fennel-salami-cotto-ham-and-mozzarella-focaccia",
@@ -896,7 +932,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/6c4e75e44783.webp"
   },
   {
    "id": "nero-deli-italian-mozzarella-pesto-and-tomato-pizzetta",
@@ -919,7 +956,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/7ff9270d1793.webp"
   },
   {
    "id": "chicken-and-bacon-caesar-wrap",
@@ -942,7 +980,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/7ee4faa2c5b3.webp"
   },
   {
    "id": "pork-and-pancetta-sausage-roll",
@@ -965,7 +1004,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/cce6739a480d.webp"
   },
   {
    "id": "roasted-vegetable-plant-based-savoury-roll",
@@ -988,7 +1028,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/df693cd9017f.webp"
   },
   {
    "id": "blt-sandwich",
@@ -1011,7 +1052,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3e69ce7418b3.webp"
   },
   {
    "id": "tuna-and-cucumber-sandwich",
@@ -1032,7 +1074,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/666ee66c688e.webp"
   },
   {
    "id": "free-range-egg-mayo-sandwich",
@@ -1055,7 +1098,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e3fdcd1d9fd5.webp"
   },
   {
    "id": "feta-and-grain-salad",
@@ -1101,7 +1145,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e306b8f611e3.webp"
   },
   {
    "id": "arrabbiata-meatball-pasta",
@@ -1124,7 +1169,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/67f29c225336.webp"
   },
   {
    "id": "sourdough-bread-roll",
@@ -1147,7 +1193,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/6d6e1a8d697f.webp"
   },
   {
    "id": "forest-feast-matcha-chocolate-almonds",
@@ -1170,7 +1217,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/5a8b233a371d.webp"
   },
   {
    "id": "lindor-pistachio-bar",
@@ -1191,7 +1239,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/200dbab6e9c2.webp"
   },
   {
    "id": "lindt-lindor-salted-caramel-chocolate-bar",
@@ -1213,7 +1262,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/458f5852fc59.webp"
   },
   {
    "id": "lindt-lindor-milk-chocolate-bar",
@@ -1235,7 +1285,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/02b3ba951578.webp"
   },
   {
    "id": "forest-feast-dark-chocolate-cherries",
@@ -1258,7 +1309,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/6fa241ed30f4.webp"
   },
   {
    "id": "forest-feast-dried-mango-slices",
@@ -1281,7 +1333,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/417b2ca3bf5f.webp"
   },
   {
    "id": "forest-feast-salted-dark-chocolate-almonds",
@@ -1302,7 +1355,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/474fc33ea781.webp"
   },
   {
    "id": "deliciously-ella-cacao-and-almond-oat-bar",
@@ -1325,7 +1379,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f7cda8a750de.webp"
   },
   {
    "id": "deliciously-ella-apple-and-raisin-oat-bar",
@@ -1348,7 +1403,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0822849887d9.webp"
   },
   {
    "id": "lemon-and-pistachio-protein-balls",
@@ -1371,7 +1427,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/242d90eae942.webp"
   },
   {
    "id": "blueberry-oat-muffin-protein-balls",
@@ -1394,7 +1451,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/8fbf8af0c20a.webp"
   },
   {
    "id": "almond-biscotti",
@@ -1417,7 +1475,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/485dbf3c67ca.webp"
   },
   {
    "id": "gingerbread-biscuit",
@@ -1440,7 +1499,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ce5b9094f661.webp"
   },
   {
    "id": "shortbread",
@@ -1463,7 +1523,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/785e2c6fa5bf.webp"
   },
   {
    "id": "stem-ginger-biscuits",
@@ -1486,7 +1547,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/5c37382b4954.webp"
   },
   {
    "id": "caramel-waffles",
@@ -1509,7 +1571,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3debb2beaf10.webp"
   },
   {
    "id": "sea-salted-popcorn",
@@ -1532,7 +1595,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/33448a928651.webp"
   },
   {
    "id": "sweet-and-salty-popcorn",
@@ -1555,7 +1619,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c4652c0cfd58.webp"
   },
   {
    "id": "lightly-salted-kettle-chips",
@@ -1647,7 +1712,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a6757e8b7f2d.webp"
   },
   {
    "id": "banana-and-walnut-loaf-cake",
@@ -1670,7 +1736,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/44f906825129.webp"
   },
   {
    "id": "belgian-chocolate-fudge-cake",
@@ -1693,7 +1760,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/69c1807d1374.webp"
   },
   {
    "id": "cappuccino-cake",
@@ -1716,7 +1784,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/36ded0a23627.webp"
   },
   {
    "id": "carrot-cake",
@@ -1739,7 +1808,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/970af37feb02.webp"
   },
   {
    "id": "lemon-drizzle-loaf-cake",
@@ -1762,7 +1832,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e9d4a3b0ef61.webp"
   },
   {
    "id": "honeycomb-cheesecake",
@@ -1785,7 +1856,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/19d579a9c777.webp"
   },
   {
    "id": "plant-based-apple-crumble-and-custard-tart",
@@ -1808,7 +1880,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/22e0d16a785c.webp"
   },
   {
    "id": "italian-cream-bun-maritozzo",
@@ -1831,7 +1904,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0dff872ae865.webp"
   },
   {
    "id": "sicilian-lemon-meringue-cheesecake",
@@ -1854,7 +1928,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c1350876d5b.webp"
   },
   {
    "id": "italian-tiramisu",
@@ -1877,7 +1952,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/50f4c4574944.webp"
   },
   {
    "id": "pistachio-and-chocolate-mousse-cake",
@@ -1898,7 +1974,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/8d076f40278e.webp"
   },
   {
    "id": "ultimate-chocolate-muffin",
@@ -1921,7 +1998,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e8ad7acddc5e.webp"
   },
   {
    "id": "sicilian-lemon-muffin",
@@ -1944,7 +2022,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/94854aebc26e.webp"
   },
   {
    "id": "blueberry-muffin",
@@ -1967,7 +2046,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9330765ca63d.webp"
   },
   {
    "id": "fruit-scone",
@@ -1990,7 +2070,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a7bc8917376e.webp"
   },
   {
    "id": "rocky-road",
@@ -2013,7 +2094,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/89568c126ce2.webp"
   },
   {
    "id": "granola-flapjack",
@@ -2036,7 +2118,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/6df342c1151b.webp"
   },
   {
    "id": "belgian-chocolate-brownie",
@@ -2059,7 +2142,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9fb506b721a4.webp"
   },
   {
    "id": "caramel-shortbread",
@@ -2082,7 +2166,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d8f7bedeb76a.webp"
   },
   {
    "id": "fruit-teacake",
@@ -2105,7 +2190,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/7b279b47a9bd.webp"
   },
   {
    "id": "wrapped-flapjack",
@@ -2128,7 +2214,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f106fe99ed22.webp"
   },
   {
    "id": "wrapped-chocolate-brownie",
@@ -2151,7 +2238,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/212bd183c050.webp"
   },
   {
    "id": "milk-chocolate-chunk-cookie",
@@ -2174,7 +2262,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/32c71661d96e.webp"
   },
   {
    "id": "triple-chocolate-chunk-cookie",
@@ -2197,7 +2286,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/577dd85702c9.webp"
   },
   {
    "id": "cinnamon-roll-latte-semi-skimmed-milk",
@@ -2220,7 +2310,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3a019c8f46bf.webp"
   },
   {
    "id": "cinnamon-roll-latte-skimmed-milk",
@@ -2243,7 +2334,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3a019c8f46bf.webp"
   },
   {
    "id": "cinnamon-roll-latte-whole-milk",
@@ -2266,7 +2358,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3a019c8f46bf.webp"
   },
   {
    "id": "cinnamon-roll-latte-soya-milk",
@@ -2289,7 +2382,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3a019c8f46bf.webp"
   },
   {
    "id": "cinnamon-roll-latte-oat-milk",
@@ -2312,7 +2406,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3a019c8f46bf.webp"
   },
   {
    "id": "cinnamon-roll-latte-coconut-milk",
@@ -2335,7 +2430,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3a019c8f46bf.webp"
   },
   {
    "id": "cinnamon-roll-latte-almond-milk",
@@ -2358,7 +2454,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3a019c8f46bf.webp"
   },
   {
    "id": "spiced-pecan-latte-semi-skimmed-milk",
@@ -2381,7 +2478,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3410e6f902c.webp"
   },
   {
    "id": "spiced-pecan-latte-skimmed-milk",
@@ -2404,7 +2502,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3410e6f902c.webp"
   },
   {
    "id": "spiced-pecan-latte-whole-milk",
@@ -2427,7 +2526,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3410e6f902c.webp"
   },
   {
    "id": "spiced-pecan-latte-soya-milk",
@@ -2450,7 +2550,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3410e6f902c.webp"
   },
   {
    "id": "spiced-pecan-latte-oat-milk",
@@ -2473,7 +2574,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3410e6f902c.webp"
   },
   {
    "id": "spiced-pecan-latte-coconut-milk",
@@ -2496,7 +2598,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3410e6f902c.webp"
   },
   {
    "id": "spiced-pecan-latte-almond-milk",
@@ -2519,7 +2622,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3410e6f902c.webp"
   },
   {
    "id": "banoffee-matcha-latte-semi-skimmed-milk",
@@ -2542,7 +2646,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/25c57520594a.webp"
   },
   {
    "id": "banoffee-matcha-latte-skimmed-milk",
@@ -2565,7 +2670,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/25c57520594a.webp"
   },
   {
    "id": "banoffee-matcha-latte-whole-milk",
@@ -2588,7 +2694,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/25c57520594a.webp"
   },
   {
    "id": "banoffee-matcha-latte-soya-milk",
@@ -2611,7 +2718,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/25c57520594a.webp"
   },
   {
    "id": "banoffee-matcha-latte-coconut-milk",
@@ -2634,7 +2742,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/25c57520594a.webp"
   },
   {
    "id": "banoffee-matcha-latte-almond-milk",
@@ -2657,7 +2766,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/25c57520594a.webp"
   },
   {
    "id": "espresso-single",
@@ -2680,7 +2790,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2b36bcb9e135.webp"
   },
   {
    "id": "espresso-double",
@@ -2703,7 +2814,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2b36bcb9e135.webp"
   },
   {
    "id": "americano-regular",
@@ -2726,7 +2838,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ce5f737dfbeb.webp"
   },
   {
    "id": "americano-grande",
@@ -2749,7 +2862,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ce5f737dfbeb.webp"
   },
   {
    "id": "cortado-semi-skimmed-milk",
@@ -2772,7 +2886,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0eb0142daeef.webp"
   },
   {
    "id": "cortado-skimmed-milk",
@@ -2795,7 +2910,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0eb0142daeef.webp"
   },
   {
    "id": "cortado-whole-milk",
@@ -2818,7 +2934,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0eb0142daeef.webp"
   },
   {
    "id": "cortado-soya-milk",
@@ -2841,7 +2958,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0eb0142daeef.webp"
   },
   {
    "id": "cortado-oat-milk",
@@ -2864,7 +2982,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0eb0142daeef.webp"
   },
   {
    "id": "cortado-coconut-milk",
@@ -2887,7 +3006,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0eb0142daeef.webp"
   },
   {
    "id": "cortado-almond-milk",
@@ -2910,7 +3030,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0eb0142daeef.webp"
   },
   {
    "id": "macchiato-semi-skimmed-milk-single",
@@ -2933,7 +3054,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-semi-skimmed-milk-double",
@@ -2956,7 +3078,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-skimmed-milk-single",
@@ -2979,7 +3102,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-skimmed-milk-double",
@@ -3002,7 +3126,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-whole-milk-single",
@@ -3025,7 +3150,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-whole-milk-double",
@@ -3048,7 +3174,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-soya-milk-single",
@@ -3071,7 +3198,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-soya-milk-double",
@@ -3094,7 +3222,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-oat-milk-single",
@@ -3117,7 +3246,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-oat-milk-double",
@@ -3140,7 +3270,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-coconut-milk-single",
@@ -3163,7 +3294,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-coconut-milk-double",
@@ -3186,7 +3318,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-almond-milk-single",
@@ -3209,7 +3342,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "macchiato-almond-milk-double",
@@ -3232,7 +3366,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4d71082ee28f.webp"
   },
   {
    "id": "cappuccino-semi-skimmed-milk-regular",
@@ -3255,7 +3390,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-semi-skimmed-milk-grande",
@@ -3278,7 +3414,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-skimmed-milk-regular",
@@ -3301,7 +3438,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-skimmed-milk-grande",
@@ -3324,7 +3462,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-whole-milk-regular",
@@ -3347,7 +3486,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-whole-milk-grande",
@@ -3370,7 +3510,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-soya-milk-regular",
@@ -3393,7 +3534,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-soya-milk-grande",
@@ -3416,7 +3558,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-oat-milk-regular",
@@ -3439,7 +3582,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-oat-milk-grande",
@@ -3462,7 +3606,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-coconut-milk-regular",
@@ -3485,7 +3630,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-coconut-milk-grande",
@@ -3508,7 +3654,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-almond-milk-regular",
@@ -3531,7 +3678,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "cappuccino-almond-milk-grande",
@@ -3554,7 +3702,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/c277239cd23d.webp"
   },
   {
    "id": "latte-semi-skimmed-milk-regular",
@@ -3577,7 +3726,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-semi-skimmed-milk-grande",
@@ -3600,7 +3750,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-skimmed-milk-regular",
@@ -3623,7 +3774,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-skimmed-milk-grande",
@@ -3646,7 +3798,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-whole-milk-regular",
@@ -3669,7 +3822,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-whole-milk-grande",
@@ -3692,7 +3846,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-soya-milk-regular",
@@ -3715,7 +3870,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-soya-milk-grande",
@@ -3738,7 +3894,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-oat-milk-regular",
@@ -3761,7 +3918,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-oat-milk-grande",
@@ -3784,7 +3942,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-coconut-milk-regular",
@@ -3807,7 +3966,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-coconut-milk-grande",
@@ -3830,7 +3990,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-almond-milk-regular",
@@ -3853,7 +4014,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "latte-almond-milk-grande",
@@ -3876,7 +4038,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ba0c0f2deca1.webp"
   },
   {
    "id": "flat-white-whole-milk",
@@ -3899,7 +4062,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/60e94df1ae8e.webp"
   },
   {
    "id": "espresso-con-panna",
@@ -3922,7 +4086,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/72f60e5ab8e0.webp"
   },
   {
    "id": "mocha-semi-skimmed-milk-regular",
@@ -3945,7 +4110,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-semi-skimmed-milk-grande",
@@ -3968,7 +4134,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-skimmed-milk-regular",
@@ -3991,7 +4158,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-skimmed-milk-grande",
@@ -4014,7 +4182,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-whole-milk-regular",
@@ -4037,7 +4206,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-whole-milk-grande",
@@ -4060,7 +4230,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-soya-milk-regular",
@@ -4083,7 +4254,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-soya-milk-grande",
@@ -4106,7 +4278,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-oat-milk-regular",
@@ -4129,7 +4302,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-oat-milk-grande",
@@ -4152,7 +4326,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-coconut-milk-regular",
@@ -4175,7 +4350,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-coconut-milk-grande",
@@ -4198,7 +4374,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-almond-milk-regular",
@@ -4221,7 +4398,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "mocha-almond-milk-grande",
@@ -4244,7 +4422,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3f65cd1aa956.webp"
   },
   {
    "id": "white-chocolate-mocha-semi-skimmed-milk",
@@ -4267,7 +4446,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/69c6992f246b.webp"
   },
   {
    "id": "white-chocolate-mocha-skimmed-milk",
@@ -4290,7 +4470,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/69c6992f246b.webp"
   },
   {
    "id": "white-chocolate-mocha-whole-milk",
@@ -4313,7 +4494,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/69c6992f246b.webp"
   },
   {
    "id": "white-chocolate-mocha-soya-milk",
@@ -4336,7 +4518,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/69c6992f246b.webp"
   },
   {
    "id": "white-chocolate-mocha-oat-milk",
@@ -4359,7 +4542,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/69c6992f246b.webp"
   },
   {
    "id": "white-chocolate-mocha-coconut-milk",
@@ -4382,7 +4566,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/69c6992f246b.webp"
   },
   {
    "id": "white-chocolate-mocha-almond-milk",
@@ -4405,7 +4590,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/69c6992f246b.webp"
   },
   {
    "id": "luxury-mocha",
@@ -4428,7 +4614,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e26c8ffa3484.webp"
   },
   {
    "id": "luxury-hot-chocolate",
@@ -4451,7 +4638,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/48d8e18a191f.webp"
   },
   {
    "id": "luxury-caramelatte-semi-skimmed-milk",
@@ -4474,7 +4662,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3d48673f6a0.webp"
   },
   {
    "id": "luxury-caramelatte-skimmed-milk",
@@ -4497,7 +4686,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3d48673f6a0.webp"
   },
   {
    "id": "luxury-caramelatte-whole-milk",
@@ -4520,7 +4710,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3d48673f6a0.webp"
   },
   {
    "id": "luxury-caramelatte-soya-milk",
@@ -4543,7 +4734,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3d48673f6a0.webp"
   },
   {
    "id": "luxury-caramelatte-oat-milk",
@@ -4566,7 +4758,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3d48673f6a0.webp"
   },
   {
    "id": "luxury-caramelatte-coconut-milk",
@@ -4589,7 +4782,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3d48673f6a0.webp"
   },
   {
    "id": "luxury-caramelatte-almond-milk",
@@ -4612,7 +4806,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a3d48673f6a0.webp"
   },
   {
    "id": "matcha-latte-semi-skimmed-milk-regular",
@@ -4635,7 +4830,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-semi-skimmed-milk-grande",
@@ -4658,7 +4854,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-skimmed-milk-regular",
@@ -4681,7 +4878,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-skimmed-milk-grande",
@@ -4704,7 +4902,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-whole-milk-regular",
@@ -4727,7 +4926,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-whole-milk-grande",
@@ -4750,7 +4950,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-soya-milk-regular",
@@ -4773,7 +4974,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-soya-milk-grande",
@@ -4796,7 +4998,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-oat-milk-regular",
@@ -4819,7 +5022,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-oat-milk-grande",
@@ -4842,7 +5046,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-coconut-milk-regular",
@@ -4865,7 +5070,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-coconut-milk-grande",
@@ -4888,7 +5094,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-almond-milk-regular",
@@ -4911,7 +5118,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "matcha-latte-almond-milk-grande",
@@ -4934,7 +5142,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9c95e150e9b8.webp"
   },
   {
    "id": "hot-chocolate-semi-skimmed-milk-regular",
@@ -4957,7 +5166,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-semi-skimmed-milk-grande",
@@ -4980,7 +5190,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-skimmed-milk-regular",
@@ -5003,7 +5214,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-skimmed-milk-grande",
@@ -5026,7 +5238,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-whole-milk-regular",
@@ -5049,7 +5262,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-whole-milk-grande",
@@ -5072,7 +5286,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-soya-milk-regular",
@@ -5095,7 +5310,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-soya-milk-grande",
@@ -5118,7 +5334,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-oat-milk-regular",
@@ -5141,7 +5358,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-oat-milk-grande",
@@ -5164,7 +5382,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-coconut-milk-regular",
@@ -5187,7 +5406,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-coconut-milk-grande",
@@ -5210,7 +5430,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-almond-milk-regular",
@@ -5233,7 +5454,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "hot-chocolate-almond-milk-grande",
@@ -5256,7 +5478,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/2db63ec3ce7e.webp"
   },
   {
    "id": "chai-latte-semi-skimmed-milk",
@@ -5279,7 +5502,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3c963295fd40.webp"
   },
   {
    "id": "chai-latte-skimmed-milk",
@@ -5302,7 +5526,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3c963295fd40.webp"
   },
   {
    "id": "chai-latte-whole-milk",
@@ -5325,7 +5550,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3c963295fd40.webp"
   },
   {
    "id": "chai-latte-soya-milk",
@@ -5348,7 +5574,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3c963295fd40.webp"
   },
   {
    "id": "chai-latte-oat-milk",
@@ -5371,7 +5598,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3c963295fd40.webp"
   },
   {
    "id": "chai-latte-coconut-milk",
@@ -5394,7 +5622,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3c963295fd40.webp"
   },
   {
    "id": "chai-latte-almond-milk",
@@ -5417,7 +5646,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3c963295fd40.webp"
   },
   {
    "id": "iced-americano",
@@ -5440,7 +5670,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/be69678c5120.webp"
   },
   {
    "id": "iced-latte-semi-skimmed-milk",
@@ -5463,7 +5694,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/1ddb5b51fe9b.webp"
   },
   {
    "id": "iced-latte-skimmed-milk",
@@ -5486,7 +5718,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/1ddb5b51fe9b.webp"
   },
   {
    "id": "iced-latte-whole-milk",
@@ -5509,7 +5742,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/1ddb5b51fe9b.webp"
   },
   {
    "id": "iced-latte-soya-milk",
@@ -5532,7 +5766,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/1ddb5b51fe9b.webp"
   },
   {
    "id": "iced-latte-oat-milk",
@@ -5555,7 +5790,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/1ddb5b51fe9b.webp"
   },
   {
    "id": "iced-latte-coconut-milk",
@@ -5578,7 +5814,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/1ddb5b51fe9b.webp"
   },
   {
    "id": "iced-latte-almond-milk",
@@ -5601,7 +5838,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/1ddb5b51fe9b.webp"
   },
   {
    "id": "iced-flat-white-whole-milk",
@@ -5624,7 +5862,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e577e9036596.webp"
   },
   {
    "id": "iced-cappuccino-skimmed-milk",
@@ -5647,7 +5886,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/a569e8bbc71d.webp"
   },
   {
    "id": "iced-spiced-pecan-latte-semi-skimmed-milk",
@@ -5670,7 +5910,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/15e7f8b002d3.webp"
   },
   {
    "id": "iced-spiced-pecan-latte-skimmed-milk",
@@ -5693,7 +5934,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/15e7f8b002d3.webp"
   },
   {
    "id": "iced-spiced-pecan-latte-whole-milk",
@@ -5716,7 +5958,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/15e7f8b002d3.webp"
   },
   {
    "id": "iced-spiced-pecan-latte-soya-milk",
@@ -5739,7 +5982,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/15e7f8b002d3.webp"
   },
   {
    "id": "iced-spiced-pecan-latte-oat-milk",
@@ -5762,7 +6006,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/15e7f8b002d3.webp"
   },
   {
    "id": "iced-spiced-pecan-latte-coconut-milk",
@@ -5785,7 +6030,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/15e7f8b002d3.webp"
   },
   {
    "id": "iced-spiced-pecan-latte-almond-milk",
@@ -5808,7 +6054,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/15e7f8b002d3.webp"
   },
   {
    "id": "iced-honey-foamed-americano",
@@ -5831,7 +6078,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/ecf9da62e3ac.webp"
   },
   {
    "id": "iced-banoffee-matcha-latte-semi-skimmed-milk",
@@ -5854,7 +6102,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/636ddfcdf00f.webp"
   },
   {
    "id": "iced-banoffee-matcha-latte-skimmed-milk",
@@ -5877,7 +6126,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/636ddfcdf00f.webp"
   },
   {
    "id": "iced-banoffee-matcha-latte-whole-milk",
@@ -5900,7 +6150,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/636ddfcdf00f.webp"
   },
   {
    "id": "iced-banoffee-matcha-latte-soya-milk",
@@ -5923,7 +6174,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/636ddfcdf00f.webp"
   },
   {
    "id": "iced-banoffee-matcha-latte-oat-milk",
@@ -5946,7 +6198,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/636ddfcdf00f.webp"
   },
   {
    "id": "iced-banoffee-matcha-latte-coconut-milk",
@@ -5969,7 +6222,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/636ddfcdf00f.webp"
   },
   {
    "id": "iced-banoffee-matcha-latte-almond-milk",
@@ -5992,7 +6246,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/636ddfcdf00f.webp"
   },
   {
    "id": "honeycomb-iced-matcha-latte-semi-skimmed-milk",
@@ -6015,7 +6270,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bf56bff598de.webp"
   },
   {
    "id": "honeycomb-iced-matcha-latte-skimmed-milk",
@@ -6038,7 +6294,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bf56bff598de.webp"
   },
   {
    "id": "honeycomb-iced-matcha-latte-whole-milk",
@@ -6061,7 +6318,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bf56bff598de.webp"
   },
   {
    "id": "honeycomb-iced-matcha-latte-alpro-soya-milk",
@@ -6084,7 +6342,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bf56bff598de.webp"
   },
   {
    "id": "honeycomb-iced-matcha-latte-alpro-oat-milk",
@@ -6107,7 +6366,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bf56bff598de.webp"
   },
   {
    "id": "honeycomb-iced-matcha-latte-alpro-coconut-milk",
@@ -6130,7 +6390,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bf56bff598de.webp"
   },
   {
    "id": "honeycomb-iced-matcha-latte-alpro-almond-milk",
@@ -6153,7 +6414,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/bf56bff598de.webp"
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-semi-skimmed-milk",
@@ -6176,7 +6438,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3b2ccdf9fba9.webp"
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-skimmed-milk",
@@ -6199,7 +6462,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3b2ccdf9fba9.webp"
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-whole-milk",
@@ -6222,7 +6486,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3b2ccdf9fba9.webp"
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-soya-milk",
@@ -6245,7 +6510,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3b2ccdf9fba9.webp"
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-oat-milk",
@@ -6268,7 +6534,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3b2ccdf9fba9.webp"
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-coconut-milk",
@@ -6291,7 +6558,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3b2ccdf9fba9.webp"
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-almond-milk",
@@ -6314,7 +6582,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/3b2ccdf9fba9.webp"
   },
   {
    "id": "vanilla-iced-matcha-latte-semi-skimmed-milk",
@@ -6337,7 +6606,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/12e6818194a3.webp"
   },
   {
    "id": "vanilla-iced-matcha-latte-skimmed-milk",
@@ -6360,7 +6630,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/12e6818194a3.webp"
   },
   {
    "id": "vanilla-iced-matcha-latte-whole-milk",
@@ -6383,7 +6654,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/12e6818194a3.webp"
   },
   {
    "id": "vanilla-iced-matcha-latte-soya-milk",
@@ -6406,7 +6678,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/12e6818194a3.webp"
   },
   {
    "id": "vanilla-iced-matcha-latte-oat-milk",
@@ -6429,7 +6702,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/12e6818194a3.webp"
   },
   {
    "id": "vanilla-iced-matcha-latte-coconut-milk",
@@ -6452,7 +6726,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/12e6818194a3.webp"
   },
   {
    "id": "vanilla-iced-matcha-latte-almond-milk",
@@ -6475,7 +6750,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/12e6818194a3.webp"
   },
   {
    "id": "iced-blueberry-muffin-matcha-semi-skimmed-milk",
@@ -6498,7 +6774,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/098be627be8b.webp"
   },
   {
    "id": "iced-blueberry-muffin-matcha-skimmed-milk",
@@ -6521,7 +6798,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/098be627be8b.webp"
   },
   {
    "id": "iced-blueberry-muffin-matcha-whole-milk",
@@ -6544,7 +6822,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/098be627be8b.webp"
   },
   {
    "id": "iced-blueberry-muffin-matcha-soya-milk",
@@ -6567,7 +6846,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/098be627be8b.webp"
   },
   {
    "id": "iced-blueberry-muffin-matcha-oat-milk",
@@ -6590,7 +6870,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/098be627be8b.webp"
   },
   {
    "id": "iced-blueberry-muffin-matcha-coconut-milk",
@@ -6613,7 +6894,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/098be627be8b.webp"
   },
   {
    "id": "iced-blueberry-muffin-matcha-almond-milk",
@@ -6636,7 +6918,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/098be627be8b.webp"
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-semi-skimmed-milk",
@@ -6659,7 +6942,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/05de240857f0.webp"
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-skimmed-milk",
@@ -6682,7 +6966,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/05de240857f0.webp"
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-whole-milk",
@@ -6705,7 +6990,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/05de240857f0.webp"
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-soya-milk",
@@ -6728,7 +7014,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/05de240857f0.webp"
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-oat-milk",
@@ -6751,7 +7038,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/05de240857f0.webp"
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-coconut-milk",
@@ -6774,7 +7062,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/05de240857f0.webp"
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-almond-milk",
@@ -6797,7 +7086,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/05de240857f0.webp"
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-semi-skimmed-milk",
@@ -6820,7 +7110,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/39047fb4e35d.webp"
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-skimmed-milk",
@@ -6843,7 +7134,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/39047fb4e35d.webp"
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-whole-milk",
@@ -6866,7 +7158,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/39047fb4e35d.webp"
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-soya-milk",
@@ -6889,7 +7182,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/39047fb4e35d.webp"
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-oat-milk",
@@ -6912,7 +7206,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/39047fb4e35d.webp"
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-coconut-milk",
@@ -6935,7 +7230,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/39047fb4e35d.webp"
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-almond-milk",
@@ -6958,7 +7254,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/39047fb4e35d.webp"
   },
   {
    "id": "frappe-latte-semi-skimmed-milk",
@@ -6981,7 +7278,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9cf191685496.webp"
   },
   {
    "id": "frappe-latte-skimmed-milk",
@@ -7004,7 +7302,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9cf191685496.webp"
   },
   {
    "id": "frappe-latte-whole-milk",
@@ -7027,7 +7326,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9cf191685496.webp"
   },
   {
    "id": "frappe-latte-soya-milk",
@@ -7050,7 +7350,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9cf191685496.webp"
   },
   {
    "id": "frappe-latte-oat-milk",
@@ -7073,7 +7374,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9cf191685496.webp"
   },
   {
    "id": "frappe-latte-coconut-milk",
@@ -7096,7 +7398,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9cf191685496.webp"
   },
   {
    "id": "frappe-latte-almond-milk",
@@ -7119,7 +7422,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/9cf191685496.webp"
   },
   {
    "id": "mocha-frappe-semi-skimmed-milk",
@@ -7142,7 +7446,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e995d0f0733f.webp"
   },
   {
    "id": "mocha-frappe-skimmed-milk",
@@ -7165,7 +7470,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e995d0f0733f.webp"
   },
   {
    "id": "mocha-frappe-whole-milk",
@@ -7188,7 +7494,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e995d0f0733f.webp"
   },
   {
    "id": "mocha-frappe-soya-milk",
@@ -7211,7 +7518,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e995d0f0733f.webp"
   },
   {
    "id": "mocha-frappe-oat-milk",
@@ -7234,7 +7542,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e995d0f0733f.webp"
   },
   {
    "id": "mocha-frappe-coconut-milk",
@@ -7257,7 +7566,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e995d0f0733f.webp"
   },
   {
    "id": "mocha-frappe-almond-milk",
@@ -7280,7 +7590,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/e995d0f0733f.webp"
   },
   {
    "id": "iced-brown-sugar-oat-latte-semi-skimmed-milk",
@@ -7303,7 +7614,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/305192bf7378.webp"
   },
   {
    "id": "iced-brown-sugar-oat-latte-skimmed-milk",
@@ -7326,7 +7638,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/305192bf7378.webp"
   },
   {
    "id": "iced-brown-sugar-oat-latte-whole-milk",
@@ -7349,7 +7662,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/305192bf7378.webp"
   },
   {
    "id": "iced-brown-sugar-oat-latte-soya-milk",
@@ -7372,7 +7686,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/305192bf7378.webp"
   },
   {
    "id": "iced-brown-sugar-oat-latte-oat-milk",
@@ -7395,7 +7710,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/305192bf7378.webp"
   },
   {
    "id": "iced-brown-sugar-oat-latte-coconut-milk",
@@ -7418,7 +7734,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/305192bf7378.webp"
   },
   {
    "id": "iced-brown-sugar-oat-latte-almond-milk",
@@ -7441,7 +7758,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/305192bf7378.webp"
   },
   {
    "id": "pistachio-iced-latte-semi-skimmed-milk",
@@ -7464,7 +7782,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d73f91e172b8.webp"
   },
   {
    "id": "pistachio-iced-latte-skimmed-milk",
@@ -7487,7 +7806,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d73f91e172b8.webp"
   },
   {
    "id": "pistachio-iced-latte-whole-milk",
@@ -7510,7 +7830,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d73f91e172b8.webp"
   },
   {
    "id": "pistachio-iced-latte-soya-milk",
@@ -7533,7 +7854,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d73f91e172b8.webp"
   },
   {
    "id": "pistachio-iced-latte-oat-milk",
@@ -7556,7 +7878,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d73f91e172b8.webp"
   },
   {
    "id": "pistachio-iced-latte-coconut-milk",
@@ -7579,7 +7902,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d73f91e172b8.webp"
   },
   {
    "id": "pistachio-iced-latte-almond-milk",
@@ -7602,7 +7926,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/d73f91e172b8.webp"
   },
   {
    "id": "vanilla-iced-latte-semi-skimmed-milk",
@@ -7625,7 +7950,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0b08fd566f45.webp"
   },
   {
    "id": "vanilla-iced-latte-skimmed-milk",
@@ -7648,7 +7974,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0b08fd566f45.webp"
   },
   {
    "id": "vanilla-iced-latte-whole-milk",
@@ -7671,7 +7998,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0b08fd566f45.webp"
   },
   {
    "id": "vanilla-iced-latte-soya-milk",
@@ -7694,7 +8022,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0b08fd566f45.webp"
   },
   {
    "id": "vanilla-iced-latte-oat-milk",
@@ -7717,7 +8046,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0b08fd566f45.webp"
   },
   {
    "id": "vanilla-iced-latte-coconut-milk",
@@ -7740,7 +8070,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0b08fd566f45.webp"
   },
   {
    "id": "vanilla-iced-latte-almond-milk",
@@ -7763,7 +8094,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/0b08fd566f45.webp"
   },
   {
    "id": "caramel-iced-latte-semi-skimmed-milk",
@@ -7786,7 +8118,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4c33976e7c7e.webp"
   },
   {
    "id": "caramel-iced-latte-skimmed-milk",
@@ -7809,7 +8142,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4c33976e7c7e.webp"
   },
   {
    "id": "caramel-iced-latte-whole-milk",
@@ -7832,7 +8166,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4c33976e7c7e.webp"
   },
   {
    "id": "caramel-iced-latte-soya-milk",
@@ -7855,7 +8190,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4c33976e7c7e.webp"
   },
   {
    "id": "caramel-iced-latte-oat-milk",
@@ -7878,7 +8214,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4c33976e7c7e.webp"
   },
   {
    "id": "caramel-iced-latte-coconut-milk",
@@ -7901,7 +8238,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4c33976e7c7e.webp"
   },
   {
    "id": "caramel-iced-latte-almond-milk",
@@ -7924,7 +8262,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/4c33976e7c7e.webp"
   },
   {
    "id": "vanilla-milkshake-semi-skimmed-milk",
@@ -7947,7 +8286,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/749a129f8774.webp"
   },
   {
    "id": "vanilla-milkshake-skimmed-milk",
@@ -7970,7 +8310,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/749a129f8774.webp"
   },
   {
    "id": "vanilla-milkshake-whole-milk",
@@ -7993,7 +8334,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/749a129f8774.webp"
   },
   {
    "id": "vanilla-milkshake-soya-milk",
@@ -8016,7 +8358,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/749a129f8774.webp"
   },
   {
    "id": "vanilla-milkshake-oat-milk",
@@ -8039,7 +8382,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/749a129f8774.webp"
   },
   {
    "id": "vanilla-milkshake-coconut-milk",
@@ -8062,7 +8406,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/749a129f8774.webp"
   },
   {
    "id": "vanilla-milkshake-almond-milk",
@@ -8085,7 +8430,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/749a129f8774.webp"
   },
   {
    "id": "strawberry-milkshake-semi-skimmed-milk",
@@ -8108,7 +8454,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f6a630af6350.webp"
   },
   {
    "id": "strawberry-milkshake-skimmed-milk",
@@ -8131,7 +8478,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f6a630af6350.webp"
   },
   {
    "id": "strawberry-milkshake-whole-milk",
@@ -8154,7 +8502,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f6a630af6350.webp"
   },
   {
    "id": "strawberry-milkshake-soya-milk",
@@ -8177,7 +8526,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f6a630af6350.webp"
   },
   {
    "id": "strawberry-milkshake-oat-milk",
@@ -8200,7 +8550,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f6a630af6350.webp"
   },
   {
    "id": "strawberry-milkshake-coconut-milk",
@@ -8223,7 +8574,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f6a630af6350.webp"
   },
   {
    "id": "strawberry-milkshake-almond-milk",
@@ -8246,7 +8598,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/f6a630af6350.webp"
   },
   {
    "id": "chocolate-milkshake-semi-skimmed-milk",
@@ -8269,7 +8622,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/dba050191190.webp"
   },
   {
    "id": "chocolate-milkshake-skimmed-milk",
@@ -8292,7 +8646,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/dba050191190.webp"
   },
   {
    "id": "chocolate-milkshake-whole-milk",
@@ -8315,7 +8670,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/dba050191190.webp"
   },
   {
    "id": "chocolate-milkshake-soya-milk",
@@ -8338,7 +8694,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/dba050191190.webp"
   },
   {
    "id": "chocolate-milkshake-oat-milk",
@@ -8361,7 +8718,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/dba050191190.webp"
   },
   {
    "id": "chocolate-milkshake-coconut-milk",
@@ -8384,7 +8742,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/dba050191190.webp"
   },
   {
    "id": "chocolate-milkshake-almond-milk",
@@ -8407,7 +8766,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/dba050191190.webp"
   },
   {
    "id": "mango-and-passionfruit-fruit-booster",
@@ -8430,7 +8790,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "caffe-nero/993b5d23636d.webp"
   },
   {
    "id": "honey",
