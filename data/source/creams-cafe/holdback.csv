@@ -1,0 +1,8 @@
+item_id,reason
+creams-soft-vanilla-ice-cream,The same page prints 'Trial Creams Soft Vanilla Ice Cream' at 80 kcal for what is the same product: the guide contradicts itself
+trial-creams-soft-vanilla-ice-cream,The same page prints 'Creams Soft Vanilla Ice Cream' at 135 kcal for what is the same product: the guide contradicts itself
+creams-wafer,The matrix's own allergen cells for this row can't be read exactly (the milk cell reads 'Contains' but is coloured as 'May Contain'): not published
+red-velvet-chocolate-fudge-cake-pre-cut-aulds,The matrix's own allergen cells for this row can't be read exactly (the peanuts cell reads 'May Contain' but is coloured as 'Contains'): not published
+basque-cheesecake-cake-upgrade,"The matrix's own allergen cells for this row can't be read exactly (the eggs cell also prints 'WHEAT', which is not a word for that allergen, so the cell contradicts itself): not published"
+dubai-choc-crepe,"The matrix's own allergen cells for this row can't be read exactly (the eggs cell also prints 'WHEAT', which is not a word for that allergen, so the cell contradicts itself): not published"
+choc-banana-crunch-froffle-toast,"The matrix's own allergen cells for this row can't be read exactly (the nuts cell names 'HAZLENUTS', a word that is not a standard allergen spelling (allergen words are never guessed)): not published"
