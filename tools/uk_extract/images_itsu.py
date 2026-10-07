@@ -13,10 +13,12 @@ only downsizes to <= 640 px WebP.
 
 Match rule (exact, nothing fuzzy): a photo is attached to a published item only when the item's own dish page names it
 (the page's <h1>, tidied the way itsu.py tidied it: itsu's joining apostrophe in "egg'pot" becomes a space and the one known
-typo "Cappucino" is spelt "Cappuccino", exactly as the published names were made) and that name equals the published item
-name (images_common.norm_name), and the menu card that links to that page shows the same photo as the page. A name that two
-dish pages share, or a published item that no page (or two pages) names, gets no photo. A photo whose file name says it is a
-placeholder or logo is not used (PLACEHOLDER_WORDS). Nothing is matched by slug, file name or similarity.
+typo "Cappucino" is spelt "Cappuccino", exactly as the published names were made), that name equals the published item
+name (images_common.norm_name), and the menu card that links to that page carries the same title. A name that two dish
+pages share, or a published item that no page (or two pages) names, gets no photo. The photo is the dish page's own main
+photo. If that file is a "protein blobby" shot (itsu's product shots with a claim sticker; its "no blobby" versions are
+plain) the same dish's menu-card photo is used instead (source page = the menu page that shows it); a file name saying
+placeholder/logo/banner/GIF is never used (BADGE, PLACEHOLDER_WORDS). Nothing is matched by slug, file name or similarity.
 
 Terms and robots, read 2026-10-07:
 - https://www.itsu.com/robots.txt is "User-agent: * / Disallow:" (nothing is disallowed on www.itsu.com).
@@ -61,6 +63,8 @@ PHOTO_HOST = "itsu-production-assets.s3.eu-west-2.amazonaws.com"
 NAME_FIXES = {"cappucino": "cappuccino"}
 # File-name words that mean "not a photo of this dish" (logo, placeholder, banner...).
 PLACEHOLDER_WORDS = re.compile(r"placeholder|coming[-_ ]?soon|default|no[-_ ]?image|logo|banner|dr[-_ ]?emma|\.gif", re.I)
+# itsu's "blobby" product shots carry a sticker (e.g. a protein claim): not used. Its own "no blobby" versions are plain photos.
+BADGE = re.compile(r"(?<!no)(?<!no_)(?<!no-)(?<!no )blobby", re.I)
 
 CARD = re.compile(r'<a href="(?P<path>/menu/[^"]*)" class="base-lined-card product-listing-card"[^>]*>(?P<body>.*?)</a>', re.S)
 CARD_IMG = re.compile(r'<img\b[^>]*?\bsrc="(?P<src>https://[^"]+)"', re.S)
@@ -114,45 +118,42 @@ def main() -> int:
         by_key.setdefault(ic.norm_name(it["name"]), []).append(it)
 
     skipped: list[str] = []
-    pages: dict[str, tuple[str, str, str]] = {}   # dish path -> (name key, photo url, page url)
+    pages: dict[str, dict] = {}   # dish path -> {key, page_photo, card_photo, page_url}
     try:
         menu = get_page(MENU_URL, args.cache, "product-listing-card")
-        cards: dict[str, str | None] = {}          # dish path -> photo the menu card shows
+        cards: dict[str, tuple[str | None, str]] = {}   # dish path -> (photo the menu card shows, the card's title)
         for m in CARD.finditer(menu):
-            img = CARD_IMG.search(m.group("body"))
+            img, title = CARD_IMG.search(m.group("body")), CARD_TITLE.search(m.group("body"))
             if m.group("path") in cards:
                 skipped.append(f"{m.group('path')}: listed twice on the menu page")
-            cards[m.group("path")] = html.unescape(img.group("src")) if img else None
+            cards[m.group("path")] = (html.unescape(img.group("src")) if img else None, title.group("t") if title else "")
         print(f"{len(cards)} dish cards on {MENU_URL}")
 
-        for path, card_photo in cards.items():
+        for path, (card_photo, card_title) in cards.items():
             page_url = BASE + path
             try:
                 page = get_page(page_url, args.cache, "secondary-name")
             except urllib.error.HTTPError as e:   # itsu's page for one dish answers HTTP 500 (see itsu.py UNREADABLE)
                 skipped.append(f"{path}: page returned HTTP {e.code}")
                 continue
-            h1 = H1.findall(page)
-            tags = MAIN_IMG.findall(page)
-            if len(h1) != 1 or len(tags) != 1:
+            h1, tags = H1.findall(page), MAIN_IMG.findall(page)
+            if len(h1) != 1 or len(tags) > 1:
                 skipped.append(f"{path}: {len(h1)} titles and {len(tags)} main photos on the page")
                 continue
-            src = SRC.search(tags[0])
-            if not src:
-                skipped.append(f"{path}: main photo has no https src")
+            key = key_of(h1[0])
+            if key_of(card_title) != key:
+                skipped.append(f"{path}: menu card is titled {tidy(card_title)!r} but the page {tidy(h1[0])!r}")
                 continue
-            photo = html.unescape(src.group(1))
-            if card_photo != photo:
-                skipped.append(f"{path}: page photo {photo} differs from the menu card's {card_photo}")
-                continue
-            pages[path] = (key_of(h1[0]), photo, page_url)
+            src = SRC.search(tags[0]) if tags else None
+            pages[path] = {"key": key, "page_photo": html.unescape(src.group(1)) if src else None,
+                           "card_photo": card_photo, "page_url": page_url}
     except ic.Blocked as e:
         print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 1
 
     by_page_key: dict[str, list[str]] = {}
-    for path, (k, _, _) in pages.items():
-        by_page_key.setdefault(k, []).append(path)
+    for path, pg in pages.items():
+        by_page_key.setdefault(pg["key"], []).append(path)
 
     found: dict[str, tuple[str, str, str]] = {}   # item id -> (photo url, page url, item name)
     for k, its in sorted(by_key.items()):
@@ -164,12 +165,23 @@ def main() -> int:
         if len(paths) != 1:
             skipped.append(f"{item['id']}: {len(paths)} dish pages named {item['name']!r}")
             continue
-        _, photo, page_url = pages[paths[0]]
-        fname = urllib.parse.unquote(photo.rsplit("/", 1)[-1])
-        if PLACEHOLDER_WORDS.search(fname):
-            skipped.append(f"{item['id']}: {fname} looks like a placeholder or logo")
+        pg = pages[paths[0]]
+        # The dish page's own photo first; the menu card's photo (same dish, linked to that page) only when the page's is
+        # missing or unusable. The card photo's source page is the menu page that shows it.
+        candidates = [(pg["page_photo"], pg["page_url"]), (pg["card_photo"], MENU_URL)]
+        usable, why = None, []
+        for photo, src_url in candidates:
+            if not photo:
+                continue
+            fname = urllib.parse.unquote(photo.rsplit("/", 1)[-1])
+            if PLACEHOLDER_WORDS.search(fname) or BADGE.search(fname):
+                why.append(f"{fname} is a placeholder, logo or claim-sticker shot")
+            elif usable is None:
+                usable = (photo, src_url, item["name"])
+        if usable is None:
+            skipped.append(f"{item['id']}: no usable photo ({'; '.join(why) or 'none on its page or card'})")
             continue
-        found[item["id"]] = (photo, page_url, item["name"])
+        found[item["id"]] = usable
 
     rows: dict[str, tuple[str, str]] = {}
     try:

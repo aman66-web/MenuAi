@@ -53,6 +53,13 @@ CHAIN = "popeyes"
 PAGE_URL = "https://popeyesuk.com/menu"
 FEED_URL = "https://pe-uk-ordering-api-fd-eecsdkg6btfeg0cc.z01.azurefd.net/en/restaurants/generic/menus/generic"
 PHOTO_HOST = "cdn-pe-uk-ordering.azureedge.net"
+# Items looked at after the first run and left without a photo (a rerun must not bring them back).
+DROP_ITEMS: dict[str, str] = {
+    "white-americano": "the menu reuses the Black Americano photo, which shows a black coffee",
+    "chocolate-shake": "the photo carries an 'Allergen Update' badge that could contradict our own allergen table",
+    "large-chocolate-shake": "same photo and badge as the Chocolate Shake",
+    "the-chicken-cruncher": "the photo carries a 'Recipe Update' badge",
+}
 SKIP_FILES: dict[str, str] = {}   # photo file name -> why it is not used (nutrition text, placeholder...), after looking
 MIN_PRODUCTS = 150                # the feed had 265 entries on 2026-10-07; far fewer means the feed changed
 KCAL_TOLERANCE = (25.0, 0.05)     # calories may differ by up to max(25 kcal, 5 percent) between nutrition table and menu
@@ -126,6 +133,9 @@ def main() -> int:
             skipped.append(f"'{key}': {len(its)} published items share this name")
             continue
         item = its[0]
+        if item["id"] in DROP_ITEMS:
+            skipped.append(f"{item['id']}: dropped after looking: {DROP_ITEMS[item['id']]}")
+            continue
         photos = {(p.get("imageUrl") or "").strip() for p in found}
         if "" in photos:
             skipped.append(f"{item['id']}: a menu entry named {item['name']!r} has no photo")

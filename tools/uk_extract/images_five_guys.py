@@ -65,6 +65,8 @@ PAGES: list[tuple[str, set[str]]] = [
     ("/menu/toppings/", {"Toppings & sauces"}),
 ]
 SKIP_FILES: dict[str, str] = {}   # uploaded file name -> why it is not used (prints nutrition numbers/claims, placeholder...)
+# Items looked at after the first run and left without a photo (a rerun must not bring them back).
+DROP_ITEMS: dict[str, str] = {"lettuce-wrap": "the photo has printed numbers on it, which could contradict our own table"}
 
 CARD_SPLIT = re.compile(r'<div class="card-menu-item"')
 H3 = re.compile(r"<h3[^>]*>(.*?)</h3>", re.S)
@@ -130,6 +132,9 @@ def main() -> int:
                     skipped.append(f"{path}: {c['name']!r} is the name of {len(its)} published items")
                     continue
                 item = its[0]
+                if item["id"] in DROP_ITEMS:
+                    skipped.append(f"{item['id']}: dropped after looking: {DROP_ITEMS[item['id']]}")
+                    continue
                 if c["label"] is not None and ic.norm_name(c["label"]) != key:
                     skipped.append(f"{item['id']}: card heading {c['name']!r} but order button names {c['label']!r}")
                     continue

@@ -22,7 +22,8 @@ one photo under that <h1> in the product's own folder /assets/img/products/. No 
 position. Two items with the same name, a name on two pages with different photos, a page with no photo, and the
 "NI Only" / "selected stores only" products (their names differ from every published name) get no photo.
 A photo that two or more different products share (the chain's own pages decide that) is attached to each of them only
-because each page names its product; the run prints those groups ("SHARED PHOTO") so they are looked at by eye.
+because each page names its product; the run prints those groups ("SHARED PHOTO ACROSS PRODUCTS") so they are looked at by
+eye. (Sizes of one drink share their product's photo by design and are not reported.)
 
 Terms (https://timhortons.co.uk/legal, "Terms of Use" of Tim Hortons UK & Ireland, read 2026-10-07): "You may use the
 Services and print copies of THUKI Content only for noncommercial, informational, personal use, without modification, and
@@ -120,6 +121,7 @@ def main() -> int:
         by_key.setdefault(ic.norm_name(it["name"]), []).append(it)
 
     found: dict[str, set[tuple[str, str]]] = {}   # item id -> {(photo url, page url)}
+    product_of: dict[str, str] = {}               # item id -> the product page id it was read from
     skipped: list[str] = []
 
     def record(item_name: str, photo: str | None, page_url: str, what: str) -> None:
@@ -134,6 +136,7 @@ def main() -> int:
             skipped.append(f"{what}: page {page_url} has no usable photo under its title")
             return
         found.setdefault(its[0]["id"], set()).add((photo, page_url))
+        product_of[its[0]["id"]] = what.split("/")[0]
 
     try:
         index = read_index(ic.polite_get(INFO + INDEX_ID, args.cache, accept=HTML_ACCEPT).decode("utf-8", "replace"))
@@ -151,10 +154,11 @@ def main() -> int:
                 record(base["h1"], base["photo"], base_url, f"{pid}")
                 continue
             # Sized drink: one product record, three pages. Read each size page and check it is the size it claims.
+            # (Fountain drinks have only Medium and Large; every drink has the Medium page, which is the one without a suffix.)
             labels = [s[0] for s in base["sizes"]]
             actives = [s for s in base["sizes"] if s[2]]
-            if sorted(labels) != sorted(SIZE_LABELS) or len(set(labels)) != 3 or actives != [("Medium", "", True)] \
-                    or any(SIZE_LABELS[lab] != suffix for lab, suffix, _ in base["sizes"]):
+            if len(set(labels)) != len(labels) or "Medium" not in labels or actives != [("Medium", "", True)] \
+                    or any(lab not in SIZE_LABELS or SIZE_LABELS[lab] != suffix for lab, suffix, _ in base["sizes"]):
                 skipped.append(f"{pid} {index_name!r}: unexpected size switch {base['sizes']}")
                 continue
             for label, suffix, _ in base["sizes"]:
@@ -208,8 +212,8 @@ def main() -> int:
     for s in skipped:
         print("  no photo:", s)
     for photo, ids in sorted(by_photo.items()):
-        if len(ids) > 1:
-            print(f"  SHARED PHOTO ({len(ids)} items, look by eye): {photo}: {', '.join(sorted(ids))}")
+        if len({product_of[i] for i in ids}) > 1:   # sizes of one drink share a photo by design; two products sharing one do not
+            print(f"  SHARED PHOTO ACROSS PRODUCTS (look by eye): {photo}: {', '.join(sorted(ids))}")
 
     if args.dry_run:
         print(f"{len(chosen)} of {len(items)} published items matched (dry run: nothing downloaded or written)")

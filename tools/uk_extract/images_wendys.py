@@ -15,15 +15,18 @@ Match rule (nothing fuzzy; an item with no unambiguous match gets no photo). The
      in the CURRENT items.csv) -- tier "exact" -- or, in the few cases where the chain words the same product slightly
      differently from its own nutrition PDF, the page's <h3> must equal the title written next to that item in ALIASES /
      drink_title() below (reviewed by hand, one line per item) -- tier "alias" (turn these off with --exact-only);
-  2. show the same energy as the published item: |page kcal - items.csv calories| <= 10 kcal or 5% for "exact", identical
-     for "alias" (the PDF and the website sometimes describe different portions: e.g. the website's "Caesar Salad" has the
-     chicken that the PDF lists as "Caesar Salad w/ Classic Chicken"; those are NOT matched);
-  3. be unambiguous: one item with that name, one product page with that title, and the page's photo is the same upload as
-     the category tile's photo;
-  4. not contradict itself: the photo's own caption/alt text and its file name must not name another size, count or flavour
-     than the page title (e.g. the "12 Pc Boneless Bites" page shows a photo captioned "10 Pc Chicken Nuggets", the
-     "Junior Vanilla Frosty" page one captioned "Junior Chocolate Frosty": both skipped).
+  2. show the same energy as the published item (the product page's own nutrition table): |page kcal - items.csv calories|
+     <= 10 kcal or 5% for "exact", identical for "alias" (the PDF and the website sometimes describe different portions: e.g.
+     the website's "Caesar Salad" has the chicken that the PDF lists as "Caesar Salad w/ Classic Chicken"; those are NOT matched);
+  3. be unambiguous: one item with that name and one product page with that title. The photo is the one the product page
+     shows; when a page shows none, the one on the category tile for that product (same <h3> title, alt text) is used;
+  4. not contradict itself: the photo's own caption/alt text and its file name must not name another count, size, flavour,
+     sauce or drink than the page title (e.g. the "12 Pc Boneless Bites" page shows a photo captioned "10 Pc Chicken
+     Nuggets", the "Junior Vanilla Frosty" page one captioned "Junior Chocolate Frosty": both skipped).
 Promotional images (Biggie Bag / Halloween / app banners) are never used: they are not on product pages of published items.
+Reviewed exclusions are in SKIP (with the reason). After downloading, items whose photo file is byte-identical to the photo of
+a different variant (e.g. Coke vs Diet Coke) are dropped, and a "CHECK BY EYE" line names families of variants whose uploads
+share a file name (the chain clones product records, so a copy may still show the original product).
 
 Terms (https://www.wendys.com/en-gb/terms-and-conditions, text served through OneTrust, read 2026-10-07): "You may access
 and display Material and all other content displayed on this Site for non-commercial, personal, entertainment use on a
@@ -113,6 +116,15 @@ ALIASES: dict[str, str] = {
 }
 DRINK = re.compile(r"^(?P<base>.+) \((?P<size>small|regular|large), (?P<oz>\d+) oz\)$")
 DRINK_SIZE = {"small": "Small", "regular": "Medium", "large": "Large"}   # the chain calls the 16 oz cup "Medium"
+# Items whose page matches but whose photo is not used (reviewed by hand, with the reason).
+SKIP: dict[str, str] = {
+    "kids-cheeseburger": "looked at after the first run: the photo is the whole kids' meal (milk and apple slices too), not the item",
+    "kids-hamburger": "looked at after the first run: the photo is the whole kids' meal (milk and apple slices too), not the item",
+    "avocado-salad-w-halloumi-fries": "its photo is a copy of the base salad's upload (same file name, 1920x1080_Delivery-3b850e0e...), "
+                                      "and the base Avocado Salad page is the chicken version (574 kcal = the guide's 'w/ Classic Chicken')",
+    "caesar-salad-w-halloumi-fries": "its photo is a copy of the base salad's upload (same file name, 1920x1080_Delivery-9522e58e...), "
+                                     "and the base Caesar Salad page is the chicken version (493 kcal = the guide's 'w/ Classic Chicken')",
+}
 
 
 def drink_title(item_name: str) -> str | None:
@@ -134,6 +146,12 @@ def upload_stem(src: str) -> str:
     return re.sub(r"(_\d+)+$", "", name)
 
 
+def upload_path(src: str) -> str:
+    """The exact upload (folder and file name, no image-style or token): two items with the same value show the same file."""
+    path = urllib.parse.unquote(urllib.parse.urlsplit(html.unescape(src)).path)
+    return path.split("/public/", 1)[-1]
+
+
 def parse_tiles(page: str) -> list[dict]:
     """Product tiles of a category page: href, <h3> title, kcal text, photo (alt, src)."""
     out = []
@@ -149,48 +167,73 @@ def parse_tiles(page: str) -> list[dict]:
 
 
 def parse_product(page: str) -> dict | None:
-    """The product page's own title, energy and header photo (alt, caption, src)."""
+    """The product page's own title, energy and header photo (alt, caption, src; src None when the page shows no photo)."""
     name = re.search(r'food-menu--menu-item--summary">\s*<h3>(.*?)</h3>', page, re.S)
     kc = re.search(r"field--name-nutrition-energy.*?field__item\">\s*([0-9.]+)", page, re.S)
+    if not (name and kc):
+        return None
     hdr = re.search(r'media--view-mode-food-menu-header">(.*?)</article>', page, re.S)
-    if not (name and kc and hdr):
-        return None
-    img = re.search(r'<img alt="([^"]*)"[^>]*data-src="([^"]+)"', hdr.group(1))
-    cap = re.search(r'blazy__caption--description">(.*?)</div>', hdr.group(1), re.S)
-    if not img:
-        return None
-    return {"title": clean(name.group(1)), "kcal": float(kc.group(1)), "alt": html.unescape(img.group(1)),
-            "caption": clean(cap.group(1)) if cap else "", "src": html.unescape(img.group(2))}
+    img = re.search(r'<img alt="([^"]*)"[^>]*data-src="([^"]+)"', hdr.group(1)) if hdr else None
+    cap = re.search(r'blazy__caption--description">(.*?)</div>', hdr.group(1), re.S) if hdr else None
+    return {"title": clean(name.group(1)), "kcal": float(kc.group(1)),
+            "alt": html.unescape(img.group(1)) if img else "", "caption": clean(cap.group(1)) if cap else "",
+            "src": html.unescape(img.group(2)) if img else None}
 
 
 # ---------------------------------------------------------------- "does the photo's own text contradict the title?"
 
-KEYWORDS = {"small", "medium", "large", "xlarge", "junior", "kids", "vanilla", "chocolate", "strawberries", "kitkat",
-            "spicy", "classic", "buffalo", "bbq", "ketchup", "brown", "halloumi", "avocado", "signature", "caesar",
-            "sausage", "bacon", "egg", "chicken", "beef", "cheese", "single", "double", "triple", "coke", "zero", "diet",
-            "sprite", "fanta", "orange"}
+CATEGORIES = {   # words that say WHICH variant a photo/title is about; two texts contradict when one category disagrees
+    "size": {"small", "medium", "large", "xlarge", "junior", "kids"},
+    "stack": {"single", "double", "triple"},
+    "base": {"vanilla", "chocolate"},
+    "mix": {"strawberries", "kitkat"},
+    "heat": {"spicy", "classic"},
+    "style": {"bbq", "buffalo"},
+    "sauce": {"ketchup", "brown"},
+    "protein": {"sausage", "bacon", "egg", "chicken", "beef", "halloumi"},
+    "variant": {"avocado", "signature", "caesar"},
+    "brand": {"coke", "sprite", "fanta"},
+    "zero": {"zero", "diet"},
+}
 
 
-def keys(text: str, file_name: bool = False) -> set[str]:
+def keys(text: str, file_name: bool = False) -> dict[str, set[str]]:
     t = ic.norm_name(text)
     t = re.sub(r"\b(extra large|x large|xl)\b", "xlarge", t)
     t = re.sub(r"\bjr\b", "junior", t)
     t = re.sub(r"\bregular\b", "medium", t)
     t = re.sub(r"\b(heinz|red)\b", "ketchup", t)
     t = re.sub(r"\bhp\b", "brown", t)
-    words = {w for w in t.split() if w in KEYWORDS}
+    words = set(t.split())
+    out = {cat: words & vocab for cat, vocab in CATEGORIES.items()}
     if file_name:   # file names carry hashes and sizes ("600x400"): only counts written as "10 Nuggets" / "3 PC Tenders"
-        nums = set(re.findall(r"(\d+)\s*(?:pc|pcs|piece|nugget|nuggets|tender|tenders)\b", t))
+        out["count"] = set(re.findall(r"(\d+)\s*(?:pc|pcs|piece|nugget|nuggets|tender|tenders)\b", t))
     else:
-        nums = set(re.findall(r"\d+", t))
-    return words | nums
+        out["count"] = set(re.findall(r"\d+", t))
+    return out
 
 
 def contradicts(title: str, other: str, file_name: bool = False) -> bool:
-    """True when `other` names something the title doesn't AND the title names something `other` doesn't (a different
-    count, size or flavour). One side merely saying less ('Hash Brown Bites' vs 'Medium Hash Brown Bites') is fine."""
+    """True when, in some category (count, size, flavour, sauce, drink...), both texts name something and they name
+    different things ('12 Pc' vs '10 Pc', 'Vanilla' vs 'Chocolate'). One side merely saying less ('Hash Brown Bites' vs
+    'Medium Hash Brown Bites') is not a contradiction."""
     a, b = keys(title), keys(other, file_name)
-    return bool(a - b) and bool(b - a)
+    return any(a[c] and b[c] and not (a[c] & b[c]) for c in a)
+
+
+def variant_sig(title: str) -> tuple:
+    """Which variant a title is (flavour, sauce, protein, drink...) with sizes and counts left out."""
+    k = keys(title)
+    return tuple(sorted((c, tuple(sorted(v))) for c, v in k.items() if v and c not in ("size", "stack", "count")))
+
+
+def mixed_families(groups: dict[str, list[str]], titles: dict[str, str]) -> list[list[str]]:
+    """Item ids that share one photo (or one upload name) although their titles are different variants."""
+    out = []
+    for ids in groups.values():
+        if len(ids) > 1 and len({variant_sig(titles[i]) for i in ids}) > 1:
+            out.append(sorted(ids))
+    return out
 
 
 # ---------------------------------------------------------------- main
@@ -231,6 +274,9 @@ def main() -> int:
         matches: dict[str, dict] = {}
         for it in sorted(items, key=lambda r: r["id"]):
             iid, name = it["id"], it["name"]
+            if iid in SKIP:
+                skipped.append(f"{iid}: {SKIP[iid]}")
+                continue
             key = ic.norm_name(name)
             tier = "exact"
             want = key
@@ -259,37 +305,60 @@ def main() -> int:
             if ic.norm_name(p["title"]) != want:
                 skipped.append(f"{iid}: page {href} is titled {p['title']!r}, not {name!r}")
                 continue
-            if ours is None or p["kcal"] != tile["kcal"]:
-                skipped.append(f"{iid}: page energy {p['kcal']:g} kcal differs from its tile ({tile['kcal']}) or our calories are missing")
+            if ours is None:
+                skipped.append(f"{iid}: our calories are missing")
                 continue
             diff = abs(p["kcal"] - ours)
             if (diff > 0) if tier == "alias" else (diff > max(10, 0.05 * ours)):
                 skipped.append(f"{iid}: page {href} says {p['kcal']:g} kcal, our published row {ours:g}: not the same portion, no photo")
                 continue
-            if upload_stem(p["src"]) != upload_stem(tile["src"]):
-                skipped.append(f"{iid}: page photo {upload_stem(p['src'])!r} differs from the menu tile's {upload_stem(tile['src'])!r}")
-                continue
-            bad = [what for what, other, fn in (("alt text", p["alt"], False), ("caption", p["caption"], False),
-                                                ("file name", upload_stem(p["src"]), True))
+            notes = []
+            if p["src"]:
+                src, alt, cap, shown_on = p["src"], p["alt"], p["caption"], "page"
+                if upload_stem(src) != upload_stem(tile["src"]):
+                    notes.append(f"the category tile shows another upload ({upload_stem(tile['src'])!r}); the page's own photo is used")
+            else:
+                src, alt, cap, shown_on = tile["src"], tile["alt"], "", "tile"
+                notes.append("the product page shows no photo; the one on its category tile is used")
+            if tile["kcal"] is not None and tile["kcal"] != p["kcal"]:
+                notes.append(f"the tile says {tile['kcal']} kcal, the page's nutrition table {p['kcal']:g}")
+            bad = [what for what, other, fn in (("alt text", alt, False), ("caption", cap, False),
+                                                ("file name", upload_stem(src), True))
                    if other and contradicts(p["title"], other, fn)]
             if bad:
-                skipped.append(f"{iid}: the photo's own {' and '.join(bad)} ({p['alt']!r}, file {upload_stem(p['src'])!r}) "
+                skipped.append(f"{iid}: the photo's own {' and '.join(bad)} ({alt!r}, file {upload_stem(src)!r}) "
                                f"names another size/count/flavour than the title {p['title']!r}, no photo")
                 continue
-            matches[iid] = {"photo": urllib.parse.urljoin(SITE, p["src"]), "page": SITE + href, "tier": tier,
-                            "title": p["title"], "kcal": p["kcal"], "ours": ours}
+            matches[iid] = {"photo": urllib.parse.urljoin(SITE, src), "page": SITE + href, "tier": tier, "stem": upload_path(src), "family": upload_stem(src),
+                            "title": p["title"], "kcal": p["kcal"], "ours": ours, "alt": alt, "notes": notes, "on": shown_on}
     except ic.Blocked as e:
         print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 2
 
+    by_stem: dict[str, list[str]] = {}
+    for iid, m in matches.items():
+        by_stem.setdefault(m["stem"], []).append(iid)
     for iid, m in matches.items():
         print(f"  {iid:52} [{m['tier']}] page title {m['title']!r}  {m['kcal']:g} kcal (ours {m['ours']:g})")
-        print(f"      photo {m['photo']}")
+        print(f"      photo {m['photo']}  (on the {m['on']}, alt {m['alt']!r})")
         print(f"      page  {m['page']}")
+        for n in m["notes"]:
+            print(f"      note: {n}")
+        if len(by_stem[m["stem"]]) > 1:
+            print(f"      note: the same upload is used by {', '.join(i for i in by_stem[m['stem']] if i != iid)}")
+    titles = {i: m["title"] for i, m in matches.items()}
+    stems: dict[str, list[str]] = {}
+    for iid, m in matches.items():
+        stems.setdefault(m["family"], []).append(iid)
+    for fam in mixed_families(stems, titles):
+        print(f"  CHECK BY EYE: the chain gave these different variants uploads with the same file name: {', '.join(fam)}")
     exact = sum(1 for m in matches.values() if m["tier"] == "exact")
+    mentioned = {s.split(":", 1)[0] for s in skipped}
+    unnamed = [it["id"] for it in items if it["id"] not in matches and it["id"] not in mentioned]
     if args.dry_run:
         for s in skipped:
             print("  no photo:", s)
+        print(f"  no product page on the site is titled like these {len(unnamed)} items: {', '.join(unnamed)}")
         print(f"{len(matches)} of {len(items)} published items matched ({exact} exact, {len(matches) - exact} alias)")
         return 0
 
@@ -306,8 +375,16 @@ def main() -> int:
     except ic.Blocked as e:
         print(f"BLOCKED, stopping (nothing written): {e}", file=sys.stderr)
         return 2
+    by_file: dict[str, list[str]] = {}
+    for iid, (fname, _) in rows.items():
+        by_file.setdefault(fname, []).append(iid)
+    for fam in mixed_families(by_file, titles):   # byte-identical photo on different variants: we cannot tell which it shows
+        for iid in fam:
+            rows.pop(iid, None)
+            skipped.append(f"{iid}: its photo is byte-identical to the photo of a different variant ({', '.join(fam)}), no photo")
     for s in skipped:
         print("  no photo:", s)
+    print(f"  no product page on the site is titled like these {len(unnamed)} items: {', '.join(unnamed)}")
     csv_path = ic.ROOT / "data" / "source" / CHAIN / "images.csv"
     if rows:
         ic.write_images_csv(CHAIN, rows)
@@ -316,8 +393,8 @@ def main() -> int:
             csv_path.unlink()
         d = ic.IMAGES_ROOT / CHAIN
         if d.is_dir():
-            for p in d.iterdir():
-                p.unlink()
+            for f in d.iterdir():
+                f.unlink()
             d.rmdir()
     print(f"{len(rows)} of {len(items)} published items have a photo")
     for f, ids in ic.suspected_placeholders(rows).items():

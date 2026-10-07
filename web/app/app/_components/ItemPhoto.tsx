@@ -14,7 +14,7 @@ export function ItemThumb({ image }: { image: string | undefined }) {
   if (!src) return null;
   return (
     // eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py
-    <img src={src} alt="" width={56} height={56} loading="lazy" decoding="async" onError={() => setFailed(true)} className="h-14 w-14 shrink-0 rounded-xl border border-line bg-soft-strong object-cover" />
+    <img src={src} alt="" width={56} height={56} loading="lazy" decoding="async" onError={() => setFailed(true)} className="h-14 w-14 shrink-0 rounded-xl border border-line bg-white object-cover" />
   );
 }
 
@@ -26,7 +26,7 @@ export function ItemPhotoHero({ image, chainName }: { image: string | undefined;
   return (
     <figure className="glass mt-5 overflow-hidden rounded-3xl">
       {/* eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py */}
-      <img src={src} alt="" width={640} height={480} decoding="async" onError={() => setFailed(true)} className="mx-auto h-auto max-h-[28rem] w-full bg-soft-strong object-contain" />
+      <img src={src} alt="" width={640} height={480} decoding="async" onError={() => setFailed(true)} className="mx-auto h-auto max-h-[28rem] w-full bg-white object-contain" />
       <figcaption className="px-4 py-2 text-xs text-muted">Photo from the {chainName} website</figcaption>
     </figure>
   );

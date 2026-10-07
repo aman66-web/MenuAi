@@ -42,7 +42,9 @@ def main() -> int:
         font = ImageFont.load_default()
     for i, r in enumerate(rows):
         x, y = (i % cols) * cell_w, (i // cols) * cell_h
-        im = Image.open(ROOT / "web" / "public" / "menu-images" / a.chain / r["file"]).convert("RGB")
+        raw = Image.open(ROOT / "web" / "public" / "menu-images" / a.chain / r["file"]).convert("RGBA")
+        im = Image.new("RGB", raw.size, "white")   # the app shows photos on white, so transparent cut-outs are judged on white
+        im.paste(raw, mask=raw.getchannel("A"))
         im.thumbnail((cell_w - 10, 150))
         sheet.paste(im, (x + (cell_w - im.width) // 2, y + 4))
         label = names.get(r["item_id"], r["item_id"])

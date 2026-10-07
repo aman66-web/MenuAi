@@ -58,6 +58,10 @@ BASE = "https://wimpy.uk.com"
 PAGES = ["/menus/breakfast", "/menus/anytime-meals", "/menus/desserts", "/menus/drinks", "/menus/kids"]
 HTML_ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
 DEFAULT_CACHE = Path("/tmp/menumacros-images-wimpy")
+DROP_ITEMS: dict[str, str] = {   # items looked at after the first run and left without a photo (a rerun must not bring them back)
+    "kids-pepsi-max": "the photo is the Pepsi Max logo, not the drink",
+    "pepsi-max-cherry": "the photo is the Pepsi Max Cherry logo, not the drink",
+}
 SKIP_FILES: dict[str, str] = {}   # upload file name -> why it is not used (nutrition text, placeholder...)
 
 CARD = re.compile(r'<div class="menu-dish [^"]*"[^>]*>(?P<body>.*?)</article>', re.S)
@@ -130,6 +134,9 @@ def main() -> int:
                     skipped.append(f"{path}: {c['title']!r} is the name of {len(its)} published items")
                     continue
                 item = its[0]
+                if item["id"] in DROP_ITEMS:
+                    skipped.append(f"{item['id']}: dropped after looking: {DROP_ITEMS[item['id']]}")
+                    continue
                 if c["file"] in SKIP_FILES:
                     skipped.append(f"{path}: {c['file']} skipped: {SKIP_FILES[c['file']]}")
                     continue
