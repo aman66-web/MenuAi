@@ -22,10 +22,13 @@ export type RetailerId = (typeof RETAILERS)[number]["id"];
 export const retailerName = (id: string) => RETAILERS.find((r) => r.id === id)?.name ?? id;
 
 export interface GroceryPrice {
+  /** The regular shelf price (before any loyalty-card price). */
   amount: number;
   url: string;
   checkedOn: string;
   perUnit?: { amount: number; unit: string };
+  /** The loyalty-card price shown beside it ("Clubcard Price", "Nectar Price"): lower than `amount`, needs the shop's card. */
+  member?: { amount: number; scheme: string; ends?: string };
 }
 
 export interface GroceryProduct {
@@ -304,10 +307,13 @@ export function priceRating(all: readonly ListedProduct[], p: ListedProduct, ret
   };
 }
 
-/** The retailer with the lowest shelf price for this product (null when no price is known). */
-export function cheapestRetailer(p: Pick<ListedProduct, "prices">): string | null {
+/** The retailer with the lowest price for this product (null when none is known). Regular prices by default; with `withCard`, a loyalty-card price counts where there is one. */
+export function cheapestRetailer(p: Pick<ListedProduct, "prices">, withCard = false): string | null {
   let best: [string, number] | null = null;
-  for (const [r, price] of Object.entries(p.prices)) if (!best || price.amount < best[1]) best = [r, price.amount];
+  for (const [r, price] of Object.entries(p.prices)) {
+    const amount = withCard && price.member ? price.member.amount : price.amount;
+    if (!best || amount < best[1]) best = [r, amount];
+  }
   return best ? best[0] : null;
 }
 

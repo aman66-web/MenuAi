@@ -5,7 +5,7 @@
 
 Inputs
   * the cache written by tools/groceries/fetch_off.py (barcode, name, brand, size, per-100 g nutrition, allergens, photo): COMMUNITY data
-  * data/groceries/prices/<retailer>.csv (optional): `gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on` from the retailer's own
+  * data/groceries/prices/<retailer>.csv (optional): `gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on` (+ optional `member_price_gbp,member_scheme,member_offer_ends`: the loyalty-card price beside the regular one) from the retailer's own
     website (collected in the founder's own Chrome: docs/NEXT_GROCERIES_PROMPT.md). Never estimated; a product without a row has no price.
 
 Rules (docs/GROCERIES_PLAN.md, CLAUDE.md rule 1): numbers are copied, never invented or converted; a product is published only with a valid
@@ -220,6 +220,16 @@ def read_prices(retailer: str, problems: list) -> dict:
             unit_price, unit = num(r.get("unit_price_gbp")), (r.get("unit") or "").strip()
             if unit_price is not None and unit_price > 0 and unit:
                 entry["perUnit"] = {"amount": r2(unit_price), "unit": unit}
+            # The loyalty-card price (Clubcard, Nectar, ...) shown beside the regular one: kept next to it, never instead of it.
+            member, scheme = num(r.get("member_price_gbp")), " ".join((r.get("member_scheme") or "").split())[:40]
+            if member is not None:
+                if 0 < member < price and scheme:
+                    entry["member"] = {"amount": r2(member), "scheme": scheme}
+                    ends = " ".join((r.get("member_offer_ends") or "").split())[:40]
+                    if ends:
+                        entry["member"]["ends"] = ends
+                else:
+                    problems.append(f"{path.name} line {line}: member price ignored (it must be above 0, below the regular price, and name the card)")
             prices[code] = entry
     return prices
 

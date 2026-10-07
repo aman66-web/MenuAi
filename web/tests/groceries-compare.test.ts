@@ -79,6 +79,12 @@ describe("one product at several supermarkets", () => {
     expect(cheapestRetailer(milk)).toBe("aldi");
     expect(cheapestRetailer({ prices: {} })).toBeNull();
   });
+  it("counts a loyalty-card price only when asked, and never instead of the regular price", () => {
+    const withCard = { prices: { aldi: pr(1.4), tesco: { ...pr(1.6), member: { amount: 1.2, scheme: "Clubcard Price" } } } };
+    expect(cheapestRetailer(withCard)).toBe("aldi"); // regular prices: Aldi
+    expect(cheapestRetailer(withCard, true)).toBe("tesco"); // with the card: Tesco
+    expect(withCard.prices.tesco.amount).toBe(1.6); // the regular price is still there
+  });
 });
 
 describe("price rating", () => {

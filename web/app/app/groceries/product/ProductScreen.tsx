@@ -71,6 +71,8 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   const sizes = sizeVariants(state.all, listed);
   const rating = priceRating(state.all, listed, selected);
   const cheapest = cheapestRetailer(listed);
+  const cheapestCard = cheapestRetailer(listed, true);
+  const cardLowest = (r: string) => pricedCount > 1 && cheapestCard === r && !!listed.prices[r]?.member && cheapestCard !== cheapest;
   const pricedCount = Object.keys(listed.prices).length;
   const here = listed.prices[selected];
   const otherShops = listed.retailers
@@ -199,7 +201,14 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         {here ? (
           <div className="mt-2">
             <p className="app-numbers"><span className="text-3xl font-extrabold">{formatPrice(here.amount)}</span> {here.perUnit && <span className="text-muted">{formatPrice(here.perUnit.amount)} {here.perUnit.unit}</span>}</p>
-            {pricedCount > 1 && cheapest === selected && <p className="mt-1 inline-flex rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">Lowest price of the supermarkets we&apos;ve checked</p>}
+            {here.member && (
+              <p className="app-numbers mt-1 text-base">
+                <span className="font-extrabold text-accent">{formatPrice(here.member.amount)}</span> <span className="font-semibold">with {here.member.scheme.replace(/ price$/i, "")}</span>
+                <span className="block text-xs text-muted">Needs {retailerName(selected)}&apos;s loyalty card{here.member.ends ? `, ${here.member.ends}` : ""}. The regular price above is what everyone pays.</span>
+              </p>
+            )}
+            {pricedCount > 1 && cheapest === selected && <p className="mt-1 inline-flex rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">Lowest regular price of the supermarkets we&apos;ve checked</p>}
+            {cardLowest(selected) && <p className="mt-1 inline-flex rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">Lowest price with a loyalty card</p>}
             <p className="mt-1 text-xs text-muted">From <a className="underline underline-offset-2" href={here.url} target="_blank" rel="noopener noreferrer">{retailerName(selected)}&apos;s website<span className="sr-only"> (opens in a new tab)</span></a>, checked {formatDate(here.checkedOn)}. Prices and offers vary by store and by loyalty card.</p>
           </div>
         ) : (
@@ -217,6 +226,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
                     <span className="min-w-0">
                       <Link href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} className="font-semibold underline-offset-2 hover:underline">{retailerName(r)}</Link>
                       {price && cheapest === r && pricedCount > 1 && <span className="ml-2 rounded-full bg-accent-soft px-2 py-0.5 text-xs font-bold text-accent">Lowest</span>}
+                      {price && cardLowest(r) && <span className="ml-2 rounded-full bg-accent-soft px-2 py-0.5 text-xs font-bold text-accent">Lowest with card</span>}
                       <span className="block text-xs text-muted">{price ? `checked ${formatDate(price.checkedOn)}` : "price not read yet"}</span>
                     </span>
                     <span className="app-numbers shrink-0 text-right">
@@ -225,6 +235,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
                           <a className="font-bold underline underline-offset-2" href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<span className="sr-only"> at {retailerName(r)} (opens in a new tab)</span></a>
                           {diff !== null && diff !== 0 && <span className="block text-xs text-muted">{formatPrice(Math.abs(diff))} {diff < 0 ? "cheaper" : "more"}</span>}
                           {diff === 0 && <span className="block text-xs text-muted">same price</span>}
+                          {price.member && <span className="block text-xs font-semibold text-accent">{formatPrice(price.member.amount)} with {price.member.scheme.replace(/ price$/i, "")}</span>}
                         </>
                       ) : (
                         <a className="text-sm font-semibold text-accent underline underline-offset-2" href={SEARCH_LINKS[r]?.(listed.gtin) ?? "#"} target="_blank" rel="noopener noreferrer">Check<span className="sr-only"> at {retailerName(r)} (opens in a new tab)</span></a>

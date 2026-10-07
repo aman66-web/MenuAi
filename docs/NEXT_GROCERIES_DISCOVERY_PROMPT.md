@@ -11,7 +11,9 @@ each supermarket sells is in the app; the name is **exactly** what that supermar
   time (at most 3 tabs open). Never two tabs on the same site.
 - A "verify you are human" page, a block, a CAPTCHA or a login wall: **stop that site and tell the user.** Never work round it.
 - Copy exactly what the page prints. Never calculate, convert, round, guess or fill a gap (blank if the page doesn't show it).
-- Shelf price only: leave out Clubcard / Nectar / multi-buy / "was" prices.
+- Prices: the regular price in `price_gbp`, and when the page also shows a lower loyalty-card price (Clubcard, Nectar, Sparks, More Card, Plus...)
+  record it too: `member_price_gbp`, the card's name as printed in `member_scheme`, and any "until ..." text in `member_offer_ends`. Never put a card
+  price in `price_gbp`. Leave out multi-buy deals ("2 for £3") and "was" prices.
 - Write files as you go (append every ~25 products or every category page, whichever comes first), so nothing lives only in the tab.
   A restart must skip what is already on disk.
 - No `git commit` / `git push`: only write the files named here. Send one line of progress to the session "menu ai - terminal" after each
@@ -23,7 +25,7 @@ For each supermarket: start at its groceries home, walk the **whole category tre
 page of every leaf category. From the listing cards (no need to open each product):
 
 `data/groceries/discovery/<retailer>.csv`, columns exactly:
-`product_id,name_on_page,price_gbp,unit_price_gbp,unit,category_path,page_url,image_url,in_stock,checked_on`
+`product_id,name_on_page,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,member_offer_ends,category_path,page_url,image_url,in_stock,checked_on`
 
 - `product_id`: the shop's own id for the product (the number or code in its product URL). One row per product id (de-duplicate:
   a product appears in several categories, keep the first, remember all category paths separated by " | ").
@@ -55,8 +57,8 @@ milk, eggs, bread, meat, fish, cheese, yoghurt, rice, pasta, cereal, fruit and v
   blank if absent). If the table's row is called "Available Carbohydrate" (or "Total Carbohydrate"), that figure goes in `carbs_g`.
 - `other_nutrients`: every OTHER row of the nutrition table (vitamins, minerals, polyunsaturates, starch, polyols...) as
   "Label: value; Label: value". `per_portion_text`: the per-portion column and its %RI values as "Label: value; Label: value", serving size first.
-- Price rows for the same products also go to `data/groceries/prices/<retailer>.csv` as before (see `docs/NEXT_GROCERIES_PROMPT.md`) when the
-  product has a barcode and is in stock.
+- Price rows for the same products also go to `data/groceries/prices/<retailer>.csv` as before (see `docs/NEXT_GROCERIES_PROMPT.md`, including its
+  card-price columns) when the product has a barcode and is in stock.
 - Never skip a product because its page is missing a field: write the row with blanks.
 
 ## How the app uses it

@@ -26,7 +26,7 @@ export function ProductRow({ product: listed, retailer }: { product: ListedProdu
         </span>
         {shown && (
           <span className="app-numbers mt-0.5 block text-sm font-semibold text-accent">
-            {formatPrice(shown.amount)} <span className="font-normal text-muted">at {retailerName(priceFrom ?? "")}</span>
+            {formatPrice(shown.amount)} <span className="font-normal text-muted">at {retailerName(priceFrom ?? "")}{shown.member ? ` · ${formatPrice(shown.member.amount)} with ${shown.member.scheme.replace(/ price$/i, "")}` : ""}</span>
           </span>
         )}
       </span>

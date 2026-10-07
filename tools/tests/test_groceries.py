@@ -216,5 +216,38 @@ class DetailsTests(unittest.TestCase):
         self.assertIsNone(bg.type_for([]))
 
 
+class PriceFileTests(unittest.TestCase):
+    def read(self, body: str):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "data" / "groceries" / "prices").mkdir(parents=True)
+            (root / "data" / "groceries" / "prices" / "tesco.csv").write_text(body)
+            old = bg.ROOT
+            bg.ROOT = root
+            try:
+                problems: list = []
+                return bg.read_prices("tesco", problems), problems
+            finally:
+                bg.ROOT = old
+
+    HEAD = "gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on,member_price_gbp,member_scheme,member_offer_ends\n"
+
+    def test_the_regular_price_and_the_card_price_are_both_kept(self):
+        prices, problems = self.read(self.HEAD + "5012345678900,1.50,3.00,per kg,https://www.tesco.com/p/1,2026-10-07,1.20,Clubcard Price,until 13 Oct\n")
+        self.assertEqual(problems, [])
+        self.assertEqual(prices["5012345678900"]["amount"], 1.5)
+        self.assertEqual(prices["5012345678900"]["member"], {"amount": 1.2, "scheme": "Clubcard Price", "ends": "until 13 Oct"})
+
+    def test_a_card_price_that_is_not_below_the_regular_price_or_has_no_card_name_is_ignored_and_reported(self):
+        prices, problems = self.read(self.HEAD + "5012345678900,1.50,,,https://www.tesco.com/p/1,2026-10-07,1.60,Clubcard Price,\n5012345678900,1.50,,,https://www.tesco.com/p/1,2026-10-07,1.20,,\n")
+        self.assertNotIn("member", prices["5012345678900"])
+        self.assertEqual(len(problems), 2)
+
+    def test_files_without_card_columns_still_work(self):
+        prices, problems = self.read("gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on\n5012345678900,1.50,3.00,per kg,https://www.tesco.com/p/1,2026-10-07\n")
+        self.assertEqual(problems, [])
+        self.assertNotIn("member", prices["5012345678900"])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -8,13 +8,13 @@ const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 const settings = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true } });
 
-const px = (amount, perUnit) => ({ amount, url: "https://shop.example/p", checkedOn: "2026-10-07", ...(perUnit ? { perUnit } : {}) });
+const px = (amount, perUnit, member) => ({ amount, url: "https://shop.example/p", checkedOn: "2026-10-07", ...(perUnit ? { perUnit } : {}), ...(member ? { member } : {}) });
 const base = { brand: "Cowbelle", per: "ml", kcal: 50, protein: 3.4, carbs: 4.8, fat: 1.7, allergens: { contains: ["milk"], mayContain: [] }, category: "dairy-eggs", type: "semi-skimmed-milks" };
 const milk2 = "5011111111111", milk1 = "5011111111128";
 const peers = [0.85, 0.95, 1.05, 1.15, 1.25, 1.35].map((v, i) => ({ ...base, gtin: `50222222222${String(i).padStart(2, "0")}`, name: `Peer Milk ${i + 1}`, brand: `Peer ${i + 1}`, size: "1L", price: px(v) }));
 const files = {
   tesco: { v: 1, retailer: "tesco", name: "Tesco", generatedOn: "2026-10-07", source: "t", products: [
-    { ...base, gtin: milk2, name: "Cowbelle Semi Skimmed Milk 2 Litres", size: "2 litres", price: px(1.6, { amount: 0.8, unit: "per litre" }),
+    { ...base, gtin: milk2, name: "Cowbelle Semi Skimmed Milk 2 Litres", size: "2 litres", price: px(1.6, { amount: 0.8, unit: "per litre" }, { amount: 1.2, scheme: "Clubcard Price", ends: "until 13 Oct" }),
       source: "retailer", ingredients: "Semi skimmed milk.", advice: "For allergens, including cereals containing gluten, see ingredients in bold.", other: "Calcium: 120mg; Vitamin B12: 0.4µg",
       portion: "Serving 200ml: 100 kcal", pageUrl: "https://www.tesco.com/groceries/en-GB/products/1", checkedOn: "2026-10-07" },
     { ...base, gtin: milk1, name: "Cowbelle Semi Skimmed Milk 1 Litre", size: "1 litre", price: px(1.1) }, ...peers] },
@@ -50,6 +50,23 @@ await step("opened from Tesco: Tesco's own name and price lead, the others are l
   await others.getByText("£0.15 cheaper").waitFor();
   await others.getByText("Lowest", { exact: true }).waitFor();
   await others.getByText("price not read yet").waitFor(); // Aldi lists it but has no price
+  await ctx.close();
+});
+
+await step("a loyalty-card price sits beside the regular price, never instead of it, with its own 'lowest' label", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(`${BASE}/app/groceries/product?code=${milk2}&r=tesco`);
+  await page.getByRole("heading", { name: "Price at Tesco" }).waitFor();
+  await page.getByText("£1.60").first().waitFor(); // the regular price is still the big one
+  await page.getByText("£1.20").first().waitFor();
+  await page.getByText("with Clubcard", { exact: true }).waitFor();
+  await page.getByText(/Needs Tesco's loyalty card, until 13 Oct/).waitFor();
+  await page.getByText("Lowest price with a loyalty card").waitFor(); // £1.20 with the card beats Sainsbury's £1.45
+  // from Sainsbury's page the other shop's card price is listed under its regular price
+  await page.goto(`${BASE}/app/groceries/product?code=${milk2}&r=sainsburys`);
+  await page.getByRole("heading", { name: "Price at Sainsbury's" }).waitFor();
+  await page.getByText("£1.20 with Clubcard", { exact: true }).waitFor();
+  await page.getByText("Lowest with card", { exact: true }).waitFor();
   await ctx.close();
 });
 

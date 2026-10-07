@@ -22,11 +22,15 @@ You are adding supermarket PRICES to Menu Math (repo `~/MenuAi`, branch `claude/
 2. For each wanted product, open the supermarket's own website in Chrome, search for the product (by barcode if the site supports it, otherwise by
    its name and brand), and open the matching product page. **Match exactly**: same brand, same product name and the same pack size as the wanted row.
    If the page shows a different size, a different flavour, or you are unsure, skip it: a wrong price is worse than none.
-3. Record the **regular shelf price in pounds** and the unit price the page shows ("£0.25 per 100g" → `unit_price_gbp=0.25`, `unit=per 100g`).
-   Never record a loyalty-only price (Clubcard, Nectar, Aldi Price Match, "Plus"), a multi-buy price, a delivery fee or a price for another pack size.
+3. Record the **regular price in pounds** (the price before any card) and the unit price the page shows ("£0.25 per 100g" → `unit_price_gbp=0.25`, `unit=per 100g`).
+   **Loyalty-card prices (founder's decision 2026-10-07):** when the page also shows a lower price with the shop's card (Tesco Clubcard Price, Sainsbury's
+   Nectar Price, Co-op member price, Morrisons More Card, Asda Rewards, Iceland Bonus Card, M&S Sparks, myWaitrose, Lidl Plus), record BOTH: the regular
+   price in `price_gbp`, the card price in `member_price_gbp`, the card's name as the page prints it in `member_scheme` ("Clubcard Price") and, if the
+   page says when it ends, that text in `member_offer_ends` ("until 13 Oct"). The card price must be lower than the regular price; never put it in
+   `price_gbp`. Still leave out multi-buy deals ("2 for £3"), "was £x" prices, delivery fees and prices for another pack size.
    If the site asks you to pick a store or enter a postcode, use the online/delivery price for the founder's area (or the default shown) and say which.
 4. Append one row per product to `data/groceries/prices/<retailer>.csv` with the header
-   `gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on` (create the file with the header first): `gtin` exactly as in the wanted file,
+   `gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on,member_price_gbp,member_scheme,member_offer_ends` (create the file with the header first; leave the last three blank when there is no card price): `gtin` exactly as in the wanted file,
    `page_url` = the product page's https address, `checked_on` = today (YYYY-MM-DD). Write rows in batches of about 25 as you go so nothing is lost.
 5. If the site shows a "verify you are human" check, stop and ask the founder to do it; never try to get round it. If a site refuses to load even in
    Chrome, say so and move on to the next supermarket.
