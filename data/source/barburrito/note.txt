@@ -1,0 +1,1 @@
+BarBurrito prints calories only, and none for a finished burrito, bowl or nachos: each part (wrap, rice, protein, salsa...) is listed with its own calories, so add up your build. Breakfast (airport stores only) is not included. Menus can differ between restaurants.
