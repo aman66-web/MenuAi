@@ -1,13 +1,19 @@
 "use client";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-import { useEffect, useRef } from "react";
-import type { GeoJSONSource, Map as MapLibreMap } from "maplibre-gl";
+import { useCallback, useEffect, useRef } from "react";
+import type { FilterSpecification, GeoJSONSource, Map as MapLibreMap } from "maplibre-gl";
 import type { LatLng } from "@/lib/mm/geo";
+import { fitContain } from "@/lib/mm/logoFit";
+import { logoFor } from "@/lib/mm/logos";
 
 // The map itself: MapLibre drawing free OpenFreeMap tiles (founder's decision 2026-10-06). Pins are a GeoJSON layer, so a few
 // hundred branches cost nothing. Our own colours only: no restaurant brand colours (CLAUDE.md rule 2). The tile server sees
 // which area is on screen, like any map website; it never sees where the user is (that stays in this browser).
+//
+// Logos: where a chain has an official logo file (lib/mm/logos.ts), its pin shows that file unmodified on the plain tile the
+// file names, scaled to fit and never cropped or stretched; chains without one keep the green dot. Logos are drawn to small
+// canvas images and handed to the map as icons, so they cost no more than the dots did.
 
 export interface MapPin {
   id: string;
@@ -26,6 +32,47 @@ function boundsFor(c: LatLng, miles: number): [[number, number], [number, number
 
 const reduced = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const TILE = 34; // css px: the plain tile a logo sits on
+const CANVAS = 40; // css px: the tile plus room for its soft shadow
+const PAD = 5; // css px between the tile edge and the logo
+const PIXEL_RATIO = 2; // the stored icon is drawn at 2x so it stays sharp on phones
+
+function loadImage(src: string): Promise<HTMLImageElement | null> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+}
+
+/** The chain's logo file on its plain tile, as map icon pixels; null if the file can't be loaded (the green dot stays). */
+async function drawLogoTile(src: string, darkTile: boolean): Promise<ImageData | null> {
+  const img = await loadImage(src);
+  if (!img) return null;
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = CANVAS * PIXEL_RATIO;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return null;
+  ctx.scale(PIXEL_RATIO, PIXEL_RATIO);
+  const x0 = (CANVAS - TILE) / 2;
+  ctx.shadowColor = "rgba(0,0,0,0.3)";
+  ctx.shadowBlur = 4;
+  ctx.shadowOffsetY = 1.5;
+  ctx.fillStyle = darkTile ? "#0b0b0b" : "#ffffff";
+  ctx.beginPath();
+  ctx.roundRect(x0, x0, TILE, TILE, 9);
+  ctx.fill();
+  ctx.shadowColor = "transparent";
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = darkTile ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.16)";
+  ctx.stroke();
+  const box = TILE - 2 * PAD;
+  const fit = fitContain(img.naturalWidth, img.naturalHeight, box, box);
+  ctx.drawImage(img, x0 + PAD + fit.x, x0 + PAD + fit.y, fit.w, fit.h);
+  return ctx.getImageData(0, 0, canvas.width, canvas.height);
+}
+
 export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark, onFailed }: {
   center: LatLng;
   radiusMiles: number;
@@ -41,6 +88,34 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
   // Latest props, read by map event handlers that were created once.
   const latest = useRef({ center, radiusMiles, pins, selectedId, onSelect, onFailed });
   useEffect(() => { latest.current = { center, radiusMiles, pins, selectedId, onSelect, onFailed }; });
+  // Chains whose logo icon is loaded in the CURRENT map (a theme change builds a new map, so these are reset with it).
+  const logoIds = useRef<Set<string>>(new Set());
+  const logoTried = useRef<Set<string>>(new Set());
+
+  // Pins of chains with a loaded logo are drawn as logos, the rest as dots; the selected pin gets a ring either way.
+  const applyLogoState = useCallback((map: MapLibreMap) => {
+    const single: FilterSpecification = ["!", ["has", "point_count"]];
+    const hasLogo: FilterSpecification = ["in", ["get", "chainId"], ["literal", [...logoIds.current]]];
+    const isSelected: FilterSpecification = ["==", ["get", "id"], latest.current.selectedId ?? ""];
+    if (map.getLayer("pins")) map.setFilter("pins", ["all", single, ["!", hasLogo]]);
+    if (map.getLayer("pin-logos")) map.setFilter("pin-logos", ["all", single, hasLogo]);
+    if (map.getLayer("selected")) map.setFilter("selected", ["all", isSelected, ["!", hasLogo]]);
+    if (map.getLayer("selected-logo")) map.setFilter("selected-logo", ["all", isSelected, hasLogo]);
+  }, []);
+
+  const loadLogos = useCallback(async (map: MapLibreMap, list: readonly MapPin[]) => {
+    const wanted = [...new Set(list.map((p) => p.chainId))].filter((id) => logoFor(id) && !logoTried.current.has(id));
+    for (const id of wanted) {
+      const logo = logoFor(id);
+      if (!logo) continue;
+      logoTried.current.add(id);
+      const data = await drawLogoTile(logo.src, logo.tile === "dark");
+      if (mapRef.current !== map || !data) continue; // the map was replaced meanwhile, or the file didn't load: the dot stays
+      if (!map.hasImage(`logo-${id}`)) map.addImage(`logo-${id}`, data, { pixelRatio: PIXEL_RATIO });
+      logoIds.current.add(id);
+      applyLogoState(map);
+    }
+  }, [applyLogoState]);
 
   const collection = (list: readonly MapPin[]) => ({
     type: "FeatureCollection" as const,
@@ -52,6 +127,8 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
     let cancelled = false;
     let map: MapLibreMap | null = null;
     ready.current = false;
+    logoIds.current = new Set();
+    logoTried.current = new Set();
     (async () => {
       try {
         const ml = (await import("maplibre-gl")).default;
@@ -83,12 +160,16 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
           map.addLayer({ id: "cluster-count", type: "symbol", source: "branches", filter: ["has", "point_count"], layout: { "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 13, "text-allow-overlap": true }, paint: { "text-color": dark ? "#04100a" : "#ffffff" } });
           map.addLayer({ id: "pins", type: "circle", source: "branches", filter: ["!", ["has", "point_count"]], paint: { "circle-color": accent, "circle-stroke-color": ink, "circle-stroke-width": 2, "circle-radius": 8 } });
           map.addLayer({ id: "selected", type: "circle", source: "branches", filter: ["==", ["get", "id"], latest.current.selectedId ?? ""], paint: { "circle-color": dark ? "#ffffff" : "#0b1a12", "circle-stroke-color": accent, "circle-stroke-width": 4, "circle-radius": 11 } });
+          map.addLayer({ id: "selected-logo", type: "circle", source: "branches", filter: ["==", ["get", "id"], ""], paint: { "circle-color": accent, "circle-radius": 21 } });
+          map.addLayer({ id: "pin-logos", type: "symbol", source: "branches", filter: ["==", ["get", "chainId"], ""], layout: { "icon-image": ["concat", "logo-", ["get", "chainId"]], "icon-size": 1, "icon-allow-overlap": true, "icon-ignore-placement": true } });
           map.addLayer({ id: "you-halo", type: "circle", source: "you", paint: { "circle-color": "#3b82f6", "circle-opacity": 0.2, "circle-radius": 18 } });
           map.addLayer({ id: "you-dot", type: "circle", source: "you", paint: { "circle-color": "#3b82f6", "circle-stroke-color": "#ffffff", "circle-stroke-width": 3, "circle-radius": 7 } });
-          map.on("click", "pins", (e) => {
-            const id = e.features?.[0]?.properties?.id;
-            if (typeof id === "string") latest.current.onSelect(id);
-          });
+          for (const layer of ["pins", "pin-logos"]) {
+            map.on("click", layer, (e) => {
+              const id = e.features?.[0]?.properties?.id;
+              if (typeof id === "string") latest.current.onSelect(id);
+            });
+          }
           map.on("click", "clusters", async (e) => {
             const f = e.features?.[0];
             if (!f || !map) return;
@@ -96,11 +177,13 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
             const zoom = await src.getClusterExpansionZoom(f.properties.cluster_id as number);
             map.easeTo({ center: (f.geometry as GeoJSON.Point).coordinates as [number, number], zoom: zoom + 0.5, duration: reduced() ? 0 : 400 });
           });
-          for (const layer of ["pins", "clusters"]) {
+          for (const layer of ["pins", "pin-logos", "clusters"]) {
             map.on("mouseenter", layer, () => { if (map) map.getCanvas().style.cursor = "pointer"; });
             map.on("mouseleave", layer, () => { if (map) map.getCanvas().style.cursor = ""; });
           }
           ready.current = true;
+          applyLogoState(map);
+          void loadLogos(map, latest.current.pins);
         });
       } catch {
         if (!cancelled) latest.current.onFailed(); // no WebGL, or the library couldn't load
@@ -112,14 +195,15 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
       map?.remove();
       mapRef.current = null;
     };
-  }, [dark]);
+  }, [dark, applyLogoState, loadLogos]); // both are stable (refs only), so this still builds the map once per theme
 
   // New pins (filters or radius changed).
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !ready.current) return;
     (map.getSource("branches") as GeoJSONSource | undefined)?.setData(collection(pins));
-  }, [pins]);
+    void loadLogos(map, pins);
+  }, [pins, loadLogos]);
 
   // New origin or radius: show the whole circle.
   useEffect(() => {
@@ -133,10 +217,10 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !ready.current) return;
-    if (map.getLayer("selected")) map.setFilter("selected", ["==", ["get", "id"], selectedId ?? ""]);
+    applyLogoState(map);
     const pin = selectedId ? latest.current.pins.find((p) => p.id === selectedId) : undefined;
     if (pin) map.easeTo({ center: [pin.lng, pin.lat], zoom: Math.max(map.getZoom(), 15), duration: reduced() ? 0 : 400 });
-  }, [selectedId]);
+  }, [selectedId, applyLogoState]);
 
   return <div ref={box} role="region" aria-label="Map of nearby restaurants. The list below has the same restaurants." className="h-full w-full" />;
 }
