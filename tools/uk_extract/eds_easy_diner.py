@@ -142,8 +142,20 @@ def check_page(text: str, key: str) -> None:
         raise SystemExit(f"{key}: the page no longer says 'Nutrition values per serving': check the basis before running again.")
 
 
+# Dishes whose allergen row contradicts the dish's own name (found by the independent accuracy check, 2026-10-08). A pretzel is
+# wheat, but the page marks no cereals with gluten for this shake and lists no pretzel among its ingredients (milk, squirty
+# cream, vanilla ice cream, peanut butter: their kcal add up to exactly the printed 1,040), so the page's row cannot be trusted.
+HOLDBACK_ALLERGEN = {
+    "Peanut Butter Pretzel Shake": ("allergen row contradicts the dish name/ingredients: the dish is called a Pretzel shake but the "
+                                    "page marks no cereals with gluten and lists no pretzel among its ingredients (semi skimmed milk, "
+                                    "squirty cream, vanilla ice cream, peanut butter)"),
+}
+
+
 def holdback_reason(it: dict) -> str:
     """Rows whose own numbers contradict each other: kJ and kcal must agree (1 kcal = 4.184 kJ) once the energy is not tiny."""
+    if it["name"] in HOLDBACK_ALLERGEN:
+        return HOLDBACK_ALLERGEN[it["name"]]
     kcal, kj = float(it["calories"]), float(it["energy_kj"] or 0)
     if kcal >= 20 and kj and not 3.9 <= kj / kcal <= 4.5:
         return (f"Printed {it['calories']} kcal but {it['energy_kj']} kJ ({kj / kcal:.2f} kJ per kcal, not 4.18): the page's energy "

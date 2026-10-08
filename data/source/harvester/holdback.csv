@@ -1,3 +1,7 @@
 item_id,reason
 crispy-calamari,The feed prints 354 kcal; its own macros add up to about 237 kcal (and its kJ to about 261 kcal).
+rotisserie-flavour-mayo,allergen row contradicts the dish name/ingredients: the feed marks milk and mustard but no eggs for a mayonnaise (Peri-Mayo marks eggs) and prints no ingredients.
 wholetail-whitby-scampi,"The feed prints 1,052 kcal; its own macros add up to about 854 kcal (and its kJ to about 761 kcal)."
+chocolate-fudge-cake,allergen row contradicts the dish name: a fudge cake with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).
+apple-and-blackberry-crumble-dessert,allergen row contradicts the dish name: a crumble with a crumble topping and no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).
+apple-and-blackberry-crumble-mini-dessert,allergen row contradicts the dish name: a crumble with a crumble topping and no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).

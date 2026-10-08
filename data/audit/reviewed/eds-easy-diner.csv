@@ -1,0 +1,5 @@
+item,code,verdict,evidence
+peanut-butter,name-implies-milk,ok,"Breakfast Menu page, section JUNIOR BREAKFAST, 'Peanut Butter' (ingredient 'Peanut Butter Smooth'): Contains Peanuts, May contain Tree Nuts, no milk marked; peanut butter, not dairy butter"
+ketchup,salt-very-high,ok,"Main Menu page, CONDIMENTS, 'Ketchup' (single ingredient Heinz Tomato Ketchup): 1,488 kJ / 349 kcal, carbs 79.3 g (sugars 78.0), salt 6.2 g per serving as printed; kJ and kcal agree and the macros fit, so the page's serving is simply large (serving size is not stated)"
+nashville-hot,salt-very-high,ok,"Main Menu page, CHICKEN BURGERS, 'Nashville Hot': 4,102 kJ / 980 kcal, protein 34.6, carbs 64.7 (sugars 9.5), fat 62.7 (sat 15.4), fibre 5.9, salt 10.1 g as printed; energy agrees with the macros and the sub-recipes list Franks Buffalo Sauce (5.1 g salt) among the ingredients"
+mud-pie-freak-shake,sugar-implausible,ok,"Drinks Menu page, FREAK SHAKES, 'Mud Pie Freak Shake': 6,563 kJ / 1,572 kcal, carbs 154.8 g of which sugars 133.8 g as printed; ingredients milk, ice cream, cream, brownie, Oreo biscuit and crumb, Nutella, chocolate sauce, so the figure fits the dish"

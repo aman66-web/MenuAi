@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build data/source/be-at-one/ from Be At One's own "Allergen & Nutritional Data" menus (hosted by Ten Kites).
 
-    python3 tools/uk_extract/be_at_one.py --pages DIR --checked-on 2026-10-06 [--fetch]
+    python3 tools/uk_extract/be_at_one.py --pages DIR --checked-on 2026-10-08 [--fetch]
 
 DIR holds the saved pages beatone_snacks.html (Bar Snacks), beatone_drinks.html (Drinks Menu) and
 beatone_cocktailweek.html (Cocktail Week); --fetch downloads them first (one request per second). The pages are
@@ -45,9 +45,19 @@ NOTES = {"Cucumber Tom Collins 0%": "Printed kJ (584) agrees with the 140 kcal; 
 # The same pages print each item's "Dietary info" ("Contains: ..." naming the cereals and nuts, "Dish ingredients may also
 # contain: ...") and carry the label ids of the page's own allergen filter; tenkites_c.allergens_checked cross-checks the two.
 ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
+# The pages print "data correct as of: <the day they are served>" (2026-10-06 when first read, 2026-10-08 at the re-read), so that line is
+# not a publication date and the title says only when the pages were read.
 ALLERGEN_TITLE = ("Be At One Allergen & Nutritional Data: Bar Snacks (March 2026), Drinks Menu (March 2026) and Cocktail Week "
-                  "(October 2026), data correct as of 06 October 2026")
+                  "(October 2026); accessed {checked}, the page's 'data correct as of' date is the day it is served")
 SOURCE_TITLE = "Be At One Allergen & Nutritional Data: Bar Snacks (March 2026), Drinks Menu (March 2026) and Cocktail Week (October 2026)"
+# Held back after the independent re-read of 2026-10-08 (data/audit/verified/be-at-one.json): the page's own figures or allergen row
+# contradict the item, so neither is published (nothing is corrected).
+HOLDBACK = {
+    "Peach Tom Collins 0%": "The page prints sugars 27.4 g but carbohydrate 25.3 g, and sugars cannot exceed carbohydrate; its 121 kcal is also "
+                            "about 13% above what its protein, carbs and fat give.",
+    "Double Chocolate Brownie & Marshmallows": "allergen row contradicts the dish name/ingredients: the page marks no gluten for a brownie "
+                                               "(Contains: Eggs, Milk, Soya) and prints nothing that says it is gluten-free.",
+}
 NOTE = ("Only items with calories, protein, carbs and fat all printed are included: the bar snacks and the non-alcoholic drinks. "
         "Be At One prints no macros for its alcoholic cocktails, wine or beer, nor a total for items with a choice (dips, fruit).")
 
@@ -99,7 +109,11 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
         if extra:
             it["notes"] = "; ".join(filter(None, [it["notes"], *extra]))
             report += [f"{it['name']}: {n}" for n in extra]
-    return kept, [], report
+    names = {i["name"] for i in kept}
+    missing = sorted(set(HOLDBACK) - names)
+    if missing:
+        raise SystemExit(f"HOLDBACK names items that are not on the pages any more: {missing}")
+    return kept, [(slug(n), why) for n, why in HOLDBACK.items()], report
 
 
 def main() -> int:
@@ -116,7 +130,7 @@ def main() -> int:
     out = write_chain_folder(chain_id=CHAIN_ID, name="Be At One", cuisine="Cocktail bar", source_title=SOURCE_TITLE,
                              source_url=BASE, checked_on=args.checked_on, aliases=["be at one", "beatone", "be-at-one"],
                              items=items, out=args.out, note=NOTE, holdback=holdback,
-                             allergen_guide={"title": ALLERGEN_TITLE, "url": BASE, "checked_on": args.checked_on,
+                             allergen_guide={"title": ALLERGEN_TITLE.format(checked=args.checked_on), "url": BASE, "checked_on": args.checked_on,
                                              "may_contain_published": True})
     for fname, _, _, _ in PAGES.values():
         print(f"{fname} sha256 {tk.sha256_text_file(args.pages / fname)}")

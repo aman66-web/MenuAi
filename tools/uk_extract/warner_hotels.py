@@ -55,6 +55,15 @@ CHAIN_ID = "warner-hotels"
 INDEX_URL = "https://www.warnerhotels.co.uk/discover-warner-breaks/menus"
 PAGE_BASE = "https://menus.tenkites.com/warnerhotels/"
 
+# Dishes whose allergen row cannot be right for what they are, and which the page does not explain (no "gluten free" wording, no free-from
+# menu): held back, never corrected (docs/UK_DATA_PLAYBOOK.md Rules; allergen information is safety information). Read 2026-10-08.
+ALLERGEN_CONTRADICTS = {
+    "Carrot Cake": "allergen row contradicts the dish name/ingredients: the page prints Contains: Eggs, Milk, Tree Nuts (Hazelnuts) and no gluten for a cake, "
+                   "and does not say it is a gluten-free recipe.",
+    "Fruit scone with clotted cream and strawberry jam": "allergen row contradicts the dish name/ingredients: the page prints Contains: Eggs, Milk and no "
+                   "gluten for a scone (the other five scones on the same menu print wheat), and does not say it is a gluten-free recipe.",
+}
+
 # The index as read on 2026-10-08: hotel -> {page number: label the index prints}. The run stops if the index changes.
 INDEX = {
     "alvastonhall": {"02": "Market Kitchen", "03": "The Cheshire Barn", "04": "Lunch Favourites", "05": "Afternoon Tea"},
@@ -350,6 +359,19 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
     names = [it["name"].lower() for it in kept]
     if len(set(names)) != len(names):
         raise SystemExit("Item names are not unique: " + ", ".join(sorted({n for n in names if names.count(n) > 1})))
+    # Held back by the 8 Oct 2026 accuracy check (the page contradicts itself; nothing is corrected or chosen between)
+    by_name = {it["name"]: it for it in kept}
+    for name, reason in ALLERGEN_CONTRADICTS.items():
+        if name not in by_name:
+            raise SystemExit(f"ALLERGEN_CONTRADICTS names {name!r}, which is not on the menu any more: update the list")
+        by_name[name]["_hold"].append(reason)
+    for name, big in by_name.items():
+        regular = by_name.get(name[:-len(" Large")] + " Regular") if name.endswith(" Large") else None
+        if regular is not None and float(big["calories"]) < float(regular["calories"]):
+            reason = (f"the page prints {big['calories']} kcal for the Large but {regular['calories']} kcal for the Regular: the larger size has "
+                      "fewer calories, so one of the two figures cannot be right.")
+            big["_hold"].append(reason)
+            regular["_hold"].append(reason)
     kept.sort(key=lambda it: CATEGORY_ORDER.index(it["category"]))
     from common import slug
     for it in kept:

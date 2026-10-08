@@ -1,0 +1,7 @@
+item_id,reason
+carrot-cake,"allergen row contradicts the dish name/ingredients: the page prints Contains: Eggs, Milk, Tree Nuts (Hazelnuts) and no gluten for a cake, and does not say it is a gluten-free recipe."
+fruit-scone-with-clotted-cream-and-strawberry-jam,"allergen row contradicts the dish name/ingredients: the page prints Contains: Eggs, Milk and no gluten for a scone (the other five scones on the same menu print wheat), and does not say it is a gluten-free recipe."
+cappuccino-large,"the page prints 89 kcal for the Large but 93 kcal for the Regular: the larger size has fewer calories, so one of the two figures cannot be right."
+cappuccino-regular,"the page prints 89 kcal for the Large but 93 kcal for the Regular: the larger size has fewer calories, so one of the two figures cannot be right."
+latte-large,"the page prints 108 kcal for the Large but 117 kcal for the Regular: the larger size has fewer calories, so one of the two figures cannot be right."
+latte-regular,"the page prints 108 kcal for the Large but 117 kcal for the Regular: the larger size has fewer calories, so one of the two figures cannot be right."

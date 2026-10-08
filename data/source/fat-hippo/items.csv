@@ -91,7 +91,7 @@ pickles-kids-burger-garnish,Pickles (kids burger garnish),Kids toppings & sauces
 kids-hand-cut-fries,Kids Hand Cut Fries,Kids sides,,424,7,68,14,0,,0,1,7,,,,,,,vegetarian,false,false,,,
 kids-tater-tots,Kids Tater Tots,Kids sides,,351,0,42,16,1,,0,0,5,,,,,,,vegetarian,false,false,,,
 kids-purple-slaw,Kids Purple 'Slaw,Kids sides,,345,1,7,18,1,,0,5,3,,,,,,,vegetarian,false,false,,,
-kids-orange-cordial,Kids Orange Cordial,Kids drinks,,165,0,32,0,0,,0,32,0,,,,,,,vegetarian,false,false,,,
+kids-orange-cordial,Kids Orange Cordial,Kids drinks,,165,0,32,0,0,,0,32,0,,,,,,,vegetarian,false,false,,,Printed 165 kcal vs 128 kcal from its own macros (22% off); entered as printed.
 kids-blackcurrant-cordial,Kids Blackcurrant Cordial,Kids drinks,,110,0,16,0,0,,0,16,0,,,,,,,vegetarian,false,false,,,
 kids-milk,Kids Milk,Kids drinks,,189,10,13,10,6,,0,13,0,,,,,,,vegetarian,false,false,,,
 kids-hippo-juice,Kids Hippo Juice,Kids drinks,,140,0,33,0,0,,0,33,0,,,,,,,vegetarian,false,false,,,
@@ -118,10 +118,10 @@ draught-pint-diet-lemonade,Draught Pint: Diet Lemonade,Soft drinks,,4,0,0,0,0,,0
 draught-pint-orange,Draught Pint: Orange,Soft drinks,,140,0,33,0,0,,0,33,0,,,,,,,vegetarian,false,false,,,
 draught-pint-irn-bru,Draught Pint: Irn Bru,Soft drinks,,239,0,0,0,0,,0,0,0,,,,,,,vegetarian,false,false,,,
 orange-fruit-juice,Orange Fruit Juice,Soft drinks,,105,1,22,0,0,,0,22,0,,,,,,,vegetarian,false,false,,,
-apple-fruit-juice,Apple Fruit Juice,Soft drinks,,105,0,20,0,0,,0,20,0,,,,,,,vegetarian,false,false,,,
+apple-fruit-juice,Apple Fruit Juice,Soft drinks,,105,0,20,0,0,,0,20,0,,,,,,,vegetarian,false,false,,,Printed 105 kcal vs 80 kcal from its own macros (24% off); entered as printed.
 cranberry-fruit-juice,Cranberry Fruit Juice,Soft drinks,,55,0,12,0,0,,0,12,0,,,,,,,vegetarian,false,false,,,
 pint-blackcurrant-cordial,Pint: Blackcurrant Cordial,Soft drinks,,110,0,16,0,0,,0,16,0,,,,,,,vegetarian,false,false,,,
-pint-orange-cordial,Pint: Orange Cordial,Soft drinks,,165,0,32,0,0,,0,32,0,,,,,,,vegetarian,false,false,,,
+pint-orange-cordial,Pint: Orange Cordial,Soft drinks,,165,0,32,0,0,,0,32,0,,,,,,,vegetarian,false,false,,,Printed 165 kcal vs 128 kcal from its own macros (22% off); entered as printed.
 pint-lime-cordial,Pint: Lime Cordial,Soft drinks,,106,0,24,0,0,,0,24,0,,,,,,,vegetarian,false,false,,,
 pint-elderflower-cordial,Pint: Elderflower Cordial,Soft drinks,,200,0,46,0,0,,0,46,0,,,,,,,vegetarian,false,false,,,
 coca-cola,Coca Cola,Soft drinks,,138,0,34,0,0,,0,34,0,,,,,,,vegetarian,false,false,,,

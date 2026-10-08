@@ -278,6 +278,16 @@ BEEF = re.compile(r"\b(beef|steak)\b", re.I)
 # The Special menu page calls the Cheesy Garlic Crumb a "cheesy garlic bacon crumb" (the main menu names the same component, with the
 # same allergen list, without saying bacon): found in the 8 Oct 2026 accuracy check, so every dish with the component is tagged contains_pork.
 CRUMB = re.compile(r"\bcheesy garlic crumb\b", re.I)
+# Held back by the 8 Oct 2026 accuracy check although just inside the 25% rule above: the panel's kcal equals the sum of the kcal of its
+# own listed parts, but its printed fat is more than those parts can supply, so the macros and the kcal cannot both be right.
+PARTS_CONTRADICT = {
+    "dirty-handcut-fries": "The page prints 234 kcal, which is the sum of its listed parts (Bacon Bits 48 + Fat Hippo Sauce 74 + Handcut Fries 113 = 235), "
+                           "but its own protein, carbohydrate and fat (6 g, 31 g, 16 g) add up to about 292 kcal; 16 g of fat is more than "
+                           "the 0 g fat of the fries plus 122 kcal of toppings can supply.",
+    "vegan-dirty-tots-upgrade": "The page prints 514 kcal, which is the sum of its listed parts (Cajun Fakon Bits 71 + Tater Tots 374 + Vegan Fat Hippo "
+                                "Sauce 69 = 514), but its own protein, carbohydrate and fat (7 g, 56 g, 41 g) add up to about 621 kcal; 41 g of fat is "
+                                "more than the Tater Tots' 21 g plus 140 kcal of toppings can supply.",
+}
 CRUMB_NOTE = ("Contains the Cheesy Garlic Crumb, which the Special menu page calls a 'cheesy garlic bacon crumb'; "
               "tagged contains_pork.")
 
@@ -387,7 +397,7 @@ def impossible(n: dict, alcoholic: bool) -> str | None:
 
     - saturates above total fat, or sugars above carbohydrate (as printed, whole grams);
     - fat alone (9 kcal/g) above the printed calories;
-    - printed calories more than 20% (and 15 kcal) away from 4 x protein + 4 x carbohydrate + 9 x fat. Whole-gram rounding,
+    - printed calories more than 25% (and 15 kcal) away from 4 x protein + 4 x carbohydrate + 9 x fat. Whole-gram rounding,
       fibre and sweeteners explain small gaps (those stay published with a warning); alcohol adds energy the macros don't show,
       so for alcoholic drinks only a gap in the other direction (macros above the calories) counts."""
     cal, p, c, f = (float(n[k]) for k in ("calories", "protein_g", "carbs_g", "fat_g"))
@@ -399,7 +409,7 @@ def impossible(n: dict, alcoholic: bool) -> str | None:
         return f"The page prints {n['calories']} kcal with {n['fat_g']} g of fat; the fat alone would be about {9 * f:.0f} kcal."
     est = 4 * p + 4 * c + 9 * f
     gap = est - cal if alcoholic else abs(est - cal)
-    if gap > 0.20 * cal and gap > 15:      # was 25%; lowered 8 Oct 2026: two panels (24.8%, 21% off) have a kcal equal to the sum of their parts' kcal but fat the parts cannot supply
+    if gap > 0.25 * cal and gap > 15:
         return (f"The page prints {n['calories']} kcal; its own protein, carbohydrate and fat ({n['protein_g']} g, {n['carbs_g']} g, "
                 f"{n['fat_g']} g) add up to about {est:.0f} kcal.")
     return None
@@ -482,7 +492,7 @@ def main() -> int:
         if row["_alcohol"]:
             notes.append("Alcoholic: the calories include alcohol, so they are higher than 4P+4C+9F.")
         cal, est = float(row["calories"]), 4 * float(row["protein_g"]) + 4 * float(row["carbs_g"]) + 9 * float(row["fat_g"])
-        reason = impossible(row["_panel"], row["_alcohol"])
+        reason = impossible(row["_panel"], row["_alcohol"]) or PARTS_CONTRADICT.get(row["id"])
         if reason:
             holdback.append((row["id"], reason))
         elif not row["_alcohol"] and ((cal >= 50 and abs(est - cal) / cal > 0.15) or (cal < 50 and est > cal + 25)):

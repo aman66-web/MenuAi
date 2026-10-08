@@ -1,84 +1,86 @@
 batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
-,simmons-bakers,Simmons Bakers,Bakery,,https://www.simmonsbakers.com/,https://www.simmonsbakers.com/nutritional-information,web,"per-product pages with kJ, kcal, fat etc per 100 g and per serving, plus allergens (read); OpenStreetMap shows 12-29 sites in Midlands/East"
-,yakinori,Yakinori,Japanese,,https://www.yakinori.co.uk/,https://www.yakinori.co.uk/how-many-calories-are-in-yakinoris-most-popular-dishes/,web,calorie article for popular dishes (menu-wide data not confirmed); OpenStreetMap shows 3-6 sites in Midlands/East
-,plan-burrito,Plan Burrito,Mexican,,https://planburrito.co.uk/,https://planburrito.co.uk/kcal,web,"page named kcal, JS-rendered so contents not read; OpenStreetMap shows 4-8 sites in Midlands/East"
-,bewiched-coffee,Bewiched Coffee,Coffee,,https://www.bewiched.co.uk/,https://www.bewiched.co.uk/nutritionalinfo,web,"nutritional info page, JS or image so not read; OpenStreetMap shows 3-17 sites in Midlands/East"
-,cake-inn,Cake Inn,Eggless cakes,,https://www.cakeinn.com/,https://www.cakeinn.com/allergen-and-ingredients,web,allergen and ingredients page with some nutrition wording (part read); OpenStreetMap shows 5-10 sites in Midlands/East
-,staceys-bakery,Stacey's Bakery,Bakery,,https://www.staceysbakery.co.uk/,https://www.staceysbakery.co.uk/product-category/under-400-calories/,web,"online shop with under-400-calories category, no nutrition table seen; OpenStreetMap shows 3-8 sites in Midlands/East"
-,deep-blue-fish-and-chips,Deep Blue,Fish and chips,,https://deepbluerestaurants.com/,https://www.deepbluerestaurants.com/allergens,web,allergens page; its nutritional-information page says coming soon; OpenStreetMap shows 3-4 sites in Midlands/East
-,burger-and-sauce,Burger & Sauce,Burgers,,https://burgerandsauce.com/,https://burgerandsauce.com/wp-content/uploads/2025/12/Allergen-sheet-2025-1.pdf,pdf,"allergen sheet PDF (read, no calories); franchise; OpenStreetMap shows 5-16 sites in Midlands/East"
-,cluckd,Cluck'd,Chicken,Sahota family,https://cluckd.co.uk/,https://cluckd.co.uk/wp-content/uploads/2026/04/allergens-feb-2026x-1.pdf,pdf,"allergen matrix PDF Feb 2026 (read, no calories); Norwich, Leicester, Milton Keynes and more; OpenStreetMap shows 3-4 sites in Midlands/East"
-,big-johns-takeaway,Big John's,Burgers takeaway,,https://www.mybigjohns.com/,https://www.mybigjohns.com/wp-content/uploads/2026/08/allergens-matric-template-june-2026-.pdf,pdf,allergen matrix PDF June 2026 linked from allergen-matrix page; OpenStreetMap shows 7-22 sites in Midlands/East
-,favorite-chicken-and-ribs,Favorite Chicken & Ribs,Chicken,,https://favorite.co.uk/,https://favorite.co.uk/allergens,web,allergens page lists the 14 allergens (read); OpenStreetMap shows 10-11 sites in Midlands/East
-,burger-boi,Burger Boi,Burgers,,https://burgerboi.co.uk/,https://burgerboi.co.uk/allergens,web,"allergens page (JS, not read); OpenStreetMap shows 6-10 sites in Midlands/East"
-,the-ladz-flame-grilled,The Ladz,Peri peri chicken,,https://theladz.co.uk/,https://theladz.co.uk/menu/Allergen_Poster.pdf,pdf,allergen poster PDF is an image (no text layer); OpenStreetMap shows 3-5 sites in Midlands/East
-,sobe-burger,SoBe Burger,Burgers,,https://www.sobeburger.co.uk/,https://www.sobeburger.co.uk/allergens,web,"allergens page (JS, not read); OpenStreetMap shows 4-5 sites in Midlands/East"
-,libertine-burger,Libertine Burger,Burgers,,https://www.libertineburger.com/,https://www.libertineburger.com/pages/allergens,web,allergens page with the 14 allergens (read); Midlands sites incl. Leamington Spa; OpenStreetMap shows 4-6 sites in Midlands/East
-,smokeworks,Smokeworks,BBQ smokehouse,,https://www.smokeworks.co.uk/,https://www.smokeworks.co.uk/fsl-ta-allergens/,web,allergen table page (read); OpenStreetMap shows 3-5 sites in Midlands/East
-,indian-brewery,Indian Brewery,Indian,,https://www.indianbrewery.com/,https://www.indianbrewery.com/allergens,web,allergens page (part read); OpenStreetMap shows 3-6 sites in Midlands/East
-,bunk-wings,Bunk,Wings and cocktails,,https://www.bunkwings.com/,https://www.bunkwings.com/allergen-guide/,web,allergen guide page; OpenStreetMap shows 14-24 sites in Midlands/East
-,tikka-nation,Tikka Nation,Indian,,https://tikkanation.com/,https://tikkanation.com/pdf-view/allergy/Allergen.pdf,pdf,allergen PDF is image-only (no text layer); OpenStreetMap shows 3-4 sites in Midlands/East
-,grounded-kitchen,Grounded Kitchen,Korean,,https://www.groundedkitchen.com/,https://www.groundedkitchen.com/allergen-chart,web,"allergen chart page (JS or image, not read); OpenStreetMap shows 6-9 sites in Midlands/East"
-,the-coconut-tree,The Coconut Tree,Sri Lankan,,https://www.thecoconut-tree.com/,https://www.thecoconut-tree.com/allergens/,web,allergens page; OpenStreetMap shows 2-3 sites in Midlands/East
-,fish-n-chickn,Fish 'n' Chickn,Fish and chicken,,https://fishnchickn.co.uk/,https://fishnchickn.co.uk/allergens/,web,allergens page (read); mapped sites in Midlands; OpenStreetMap shows 7 sites in Midlands/East
-,wingwah,Wingwah,Chinese buffet,,https://www.wingwah.net/,https://www.wingwah.net/wwb-allergy-table,web,"allergy table page (JS, not read); OpenStreetMap shows 4-11 sites in Midlands/East"
-,middletons-steakhouse,Middletons Steakhouse & Grill,Steakhouse,,https://www.middletons-shg.co.uk/,https://www.middletons-shg.co.uk/allergens-list/,web,"allergens list page (JS, not read); OpenStreetMap shows 4-5 sites in Midlands/East"
-,rolling-smoke,Rolling Smoke,BBQ takeaway,,https://rolling-smoke.co.uk/about,https://rolling-smoke.co.uk/allergens,web,allergens page found by path; OpenStreetMap shows 3-6 sites in Midlands/East
-,aromi,Aromi,Sicilian pizza and bakery,,https://www.aromi.co.uk/,https://www.aromi.co.uk/allergens,web,"allergens page (images, not read) Cambridge/Sheffield/Birmingham; OpenStreetMap shows 2-6 sites in Midlands/East"
-,jacks-gelato,Jack's Gelato,Ice cream,,https://www.jacksgelato.com/,https://www.jacksgelato.com/allergy-information,web,allergy information page lists the 14 allergens (read); OpenStreetMap shows 1-4 sites in Midlands/East
-,doughnotts,Doughnotts,Doughnuts,,https://doughnottsofficial.com/,https://doughnottsofficial.com/pages/allergens,web,allergens page (read); OpenStreetMap shows 3-5 sites in Midlands/East
-,days-bakery,Days Bakery & Food Hall,Bakery,,https://daysbakery.com/,https://daysbakery.com/allergens-information-days-bakery/,web,"allergens information page (JS, not read); OpenStreetMap shows 6-8 sites in Midlands/East"
-,dorringtons,Dorringtons,Bakery,,https://dorringtons.com/,https://dorringtons.com/allergens/,web,allergens page (part read); OpenStreetMap shows 5-12 sites in Midlands/East
-,boswell-and-son,Boswell & Son,Bakery,,https://boswellandson.co.uk/,https://boswellandson.co.uk/ingredients-and-allergens/,web,ingredients and allergens page; OpenStreetMap shows 8-13 sites in Midlands/East
-,bakers-and-baristas,Bakers + Baristas,Bakery cafe,,https://www.bakersbaristas.com/,https://www.bakersbaristas.com/pages/allergen-information,web,allergen information page; OpenStreetMap shows 3-10 sites in Midlands/East
-,nafees-bakers,Nafees,Bakery,,https://www.nafees-bakers.com/,https://www.nafees-bakers.com/pages/allergens-information,web,allergens information page; OpenStreetMap shows 6-12 sites in Midlands/East
-,hot-numbers-coffee,Hot Numbers Coffee,Coffee,,https://www.hotnumberscoffee.co.uk/,https://www.hotnumberscoffee.co.uk/allergens,web,allergens page is short (menu link only); Cambridge cafes; OpenStreetMap shows 2-4 sites in Midlands/East
+,simmons-bakers,Simmons Bakers,Bakery,,https://www.simmonsbakers.com/,https://www.simmonsbakers.com/nutritional-information,web,"per-product pages with kJ, kcal, fat etc per 100 g and per serving, plus allergens (read); OSM maps 12-29 sites"
+,yakinori,Yakinori,Japanese,,https://www.yakinori.co.uk/,https://www.yakinori.co.uk/how-many-calories-are-in-yakinoris-most-popular-dishes/,web,calorie article for popular dishes (menu-wide data not confirmed); OSM maps 3-6 sites
+,plan-burrito,Plan Burrito,Mexican,,https://planburrito.co.uk/,https://planburrito.co.uk/kcal,web,"page named kcal, JS-rendered so contents not read; OSM maps 4-8 sites"
+,bewiched-coffee,Bewiched Coffee,Coffee,,https://www.bewiched.co.uk/,https://www.bewiched.co.uk/nutritionalinfo,web,"nutritional info page, JS or image so not read; OSM maps 3-17 sites"
+,cake-inn,Cake Inn,Eggless cakes,,https://www.cakeinn.com/,https://www.cakeinn.com/allergen-and-ingredients,web,allergen and ingredients page with some nutrition wording (part read); OSM maps 5-10 sites
+,staceys-bakery,Stacey's Bakery,Bakery,,https://www.staceysbakery.co.uk/,https://www.staceysbakery.co.uk/product-category/under-400-calories/,web,"online shop with under-400-calories category, no nutrition table seen; OSM maps 3-8 sites"
+,deep-blue-fish-and-chips,Deep Blue,Fish and chips,,https://deepbluerestaurants.com/,https://www.deepbluerestaurants.com/allergens,web,allergens page; its nutritional-information page says coming soon; OSM maps 3-4 sites
+,burger-and-sauce,Burger & Sauce,Burgers,,https://burgerandsauce.com/,https://burgerandsauce.com/wp-content/uploads/2025/12/Allergen-sheet-2025-1.pdf,pdf,"allergen sheet PDF (read, no calories); franchise; OSM maps 5-16 sites"
+,cluckd,Cluck'd,Chicken,Sahota family,https://cluckd.co.uk/,https://cluckd.co.uk/wp-content/uploads/2026/04/allergens-feb-2026x-1.pdf,pdf,"allergen matrix PDF Feb 2026 (read, no calories); Norwich, Leicester, Milton Keynes and more; OSM maps 3-4 sites"
+,big-johns-takeaway,Big John's,Burgers takeaway,,https://www.mybigjohns.com/,https://www.mybigjohns.com/wp-content/uploads/2026/08/allergens-matric-template-june-2026-.pdf,pdf,allergen matrix PDF June 2026 linked from allergen-matrix page; OSM maps 7-22 sites
+,favorite-chicken-and-ribs,Favorite Chicken & Ribs,Chicken,,https://favorite.co.uk/,https://favorite.co.uk/allergens,web,allergens page lists the 14 allergens (read); OSM maps 10-11 sites
+,burger-boi,Burger Boi,Burgers,,https://burgerboi.co.uk/,https://burgerboi.co.uk/allergens,web,"allergens page (JS, not read); OSM maps 6-10 sites"
+,the-ladz-flame-grilled,The Ladz,Peri peri chicken,,https://theladz.co.uk/,https://theladz.co.uk/menu/Allergen_Poster.pdf,pdf,allergen poster PDF is an image (no text layer); OSM maps 3-5 sites
+,sobe-burger,SoBe Burger,Burgers,,https://www.sobeburger.co.uk/,https://www.sobeburger.co.uk/allergens,web,"allergens page (JS, not read); OSM maps 4-5 sites"
+,libertine-burger,Libertine Burger,Burgers,,https://www.libertineburger.com/,https://www.libertineburger.com/pages/allergens,web,allergens page with the 14 allergens (read); Midlands sites incl. Leamington Spa; OSM maps 4-6 sites
+,smokeworks,Smokeworks,BBQ smokehouse,,https://www.smokeworks.co.uk/,https://www.smokeworks.co.uk/fsl-ta-allergens/,web,allergen table page (read); OSM maps 3-5 sites
+,indian-brewery,Indian Brewery,Indian,,https://www.indianbrewery.com/,https://www.indianbrewery.com/allergens,web,allergens page (part read); OSM maps 3-6 sites
+,bunk-wings,Bunk,Wings and cocktails,,https://www.bunkwings.com/,https://www.bunkwings.com/allergen-guide/,web,allergen guide page; OSM maps 14-24 sites
+,tikka-nation,Tikka Nation,Indian,,https://tikkanation.com/,https://tikkanation.com/pdf-view/allergy/Allergen.pdf,pdf,allergen PDF is image-only (no text layer); OSM maps 3-4 sites
+,grounded-kitchen,Grounded Kitchen,Korean,,https://www.groundedkitchen.com/,https://www.groundedkitchen.com/allergen-chart,web,"allergen chart page (JS or image, not read); OSM maps 6-9 sites"
+,the-coconut-tree,The Coconut Tree,Sri Lankan,,https://www.thecoconut-tree.com/,https://www.thecoconut-tree.com/allergens/,web,allergens page; OSM maps 2-3 sites
+,fish-n-chickn,Fish 'n' Chickn,Fish and chicken,,https://fishnchickn.co.uk/,https://fishnchickn.co.uk/allergens/,web,allergens page (read); mapped sites in Midlands; OSM maps 7 sites
+,wingwah,Wingwah,Chinese buffet,,https://www.wingwah.net/,https://www.wingwah.net/wwb-allergy-table,web,"allergy table page (JS, not read); OSM maps 4-11 sites"
+,middletons-steakhouse,Middletons Steakhouse & Grill,Steakhouse,,https://www.middletons-shg.co.uk/,https://www.middletons-shg.co.uk/allergens-list/,web,"allergens list page (JS, not read); OSM maps 4-5 sites"
+,rolling-smoke,Rolling Smoke,BBQ takeaway,,https://rolling-smoke.co.uk/about,https://rolling-smoke.co.uk/allergens,web,allergens page found by path; OSM maps 3-6 sites
+,aromi,Aromi,Sicilian pizza and bakery,,https://www.aromi.co.uk/,https://www.aromi.co.uk/allergens,web,"allergens page (images, not read) Cambridge/Sheffield/Birmingham; OSM maps 2-6 sites"
+,jacks-gelato,Jack's Gelato,Ice cream,,https://www.jacksgelato.com/,https://www.jacksgelato.com/allergy-information,web,allergy information page lists the 14 allergens (read); OSM maps 1-4 sites
+,doughnotts,Doughnotts,Doughnuts,,https://doughnottsofficial.com/,https://doughnottsofficial.com/pages/allergens,web,allergens page (read); OSM maps 3-5 sites
+,days-bakery,Days Bakery & Food Hall,Bakery,,https://daysbakery.com/,https://daysbakery.com/allergens-information-days-bakery/,web,"allergens information page (JS, not read); OSM maps 6-8 sites"
+,dorringtons,Dorringtons,Bakery,,https://dorringtons.com/,https://dorringtons.com/allergens/,web,allergens page (part read); OSM maps 5-12 sites
+,boswell-and-son,Boswell & Son,Bakery,,https://boswellandson.co.uk/,https://boswellandson.co.uk/ingredients-and-allergens/,web,ingredients and allergens page; OSM maps 8-13 sites
+,bakers-and-baristas,Bakers + Baristas,Bakery cafe,,https://www.bakersbaristas.com/,https://www.bakersbaristas.com/pages/allergen-information,web,allergen information page; OSM maps 3-10 sites
+,nafees-bakers,Nafees,Bakery,,https://www.nafees-bakers.com/,https://www.nafees-bakers.com/pages/allergens-information,web,allergens information page; OSM maps 6-12 sites
+,hot-numbers-coffee,Hot Numbers Coffee,Coffee,,https://www.hotnumberscoffee.co.uk/,https://www.hotnumberscoffee.co.uk/allergens,web,allergens page is short (menu link only); Cambridge cafes; OSM maps 2-4 sites
 ,alton-towers-resort,Alton Towers Resort,Theme park,Merlin Entertainments,https://www.altontowers.com/,https://www.altontowers.com/plan-your-visit/resort-information/shops-restaurants/allergy-information/,web,"allergy information page for resort restaurants (read, lists the 14 allergens); single large resort"
-,curtis-of-lincoln,Curtis of Lincoln,Bakery,,https://www.curtisbakery.co.uk/,,none,site blocked (403); OpenStreetMap shows 5-16 sites in Midlands/East
-,caspian-pizza,Caspian Pizza,Pizza takeaway,,https://www.caspianpizzacorp.co.uk/,,none,site blocked (403); OpenStreetMap shows 5-29 sites in Midlands/East
-,roys-of-wroxham,Roys of Wroxham,Department store cafes,,https://www.roys.co.uk/,,none,site blocked (403); Norfolk store group; OpenStreetMap shows 6 sites in Midlands/East
-,sabai-sabai,Sabai Sabai,Thai,,https://sabaisabai.com/,,none,site blocked (403); OpenStreetMap shows 4-11 sites in Midlands/East
-,chicken-dot-com,chicken.com,Fried chicken takeaway,,https://www.chicken-dot-com.co.uk/,,none,site blocked (403); OpenStreetMap shows 2-20 sites in Midlands/East
-,truly-scrumptious-cafe,Truly Scrumptious,Deli cafe,,https://www.tscafe.co.uk/,,none,site blocked (403); OpenStreetMap shows 5-10 sites in Midlands/East
+,curtis-of-lincoln,Curtis of Lincoln,Bakery,,https://www.curtisbakery.co.uk/,,none,site blocked (403); OSM maps 5-16 sites
+,caspian-pizza,Caspian Pizza,Pizza takeaway,,https://www.caspianpizzacorp.co.uk/,,none,site blocked (403); OSM maps 5-29 sites
+,roys-of-wroxham,Roys of Wroxham,Department store cafes,,https://www.roys.co.uk/,,none,site blocked (403); Norfolk store group; OSM maps 6 sites
+,sabai-sabai,Sabai Sabai,Thai,,https://sabaisabai.com/,,none,site blocked (403); OSM maps 4-11 sites
+,chicken-dot-com,chicken.com,Fried chicken takeaway,,https://www.chicken-dot-com.co.uk/,,none,site blocked (403); OSM maps 2-20 sites
+,truly-scrumptious-cafe,Truly Scrumptious,Deli cafe,,https://www.tscafe.co.uk/,,none,site blocked (403); OSM maps 5-10 sites
 ,ever-so-sensible,Ever So Sensible,Pubs and bars,,https://www.eversosensible.com/,,none,"site shows bot verification, not worked round; Nottingham group"
-,two-magpies-bakery,Two Magpies Bakery,Bakery cafe,,https://www.twomagpiesbakery.co.uk/,,none,no allergen or nutrition link found Norfolk and Suffolk; OpenStreetMap shows 10 sites in Midlands/East
-,hambleton-bakery,Hambleton Bakery,Bakery,,https://www.hambletonbakery.co.uk/,,none,no allergen or nutrition link found on home page or sitemap; OpenStreetMap shows 7-12 sites in Midlands/East
-,flour-and-bean,Flour & Bean,Bakery,,https://flourandbean.com/,,none,no allergen or nutrition link found; Norfolk; OpenStreetMap shows 5-7 sites in Midlands/East
-,bread-source,Bread Source,Bakery,,https://www.bread-source.co.uk/,,none,no allergen or nutrition link found; OpenStreetMap shows 5-7 sites in Midlands/East
-,medicine-bakery,Medicine Bakery,Bakery cafe,,https://medicinebakery.co.uk/,,none,no allergen or nutrition link found; site says 8 venues; OpenStreetMap shows 1-6 sites in Midlands/East
-,bismillah-bakery,Bismillah Bakery,Halal bakery,,https://bbakery.co.uk/,,none,no allergen or nutrition link found; Birmingham; OpenStreetMap shows 5-14 sites in Midlands/East
-,honey-and-harvey,Honey + Harvey,Coffee and bakery,,https://www.honeyandharvey.co.uk/,,none,no allergen or nutrition link found; OpenStreetMap shows 3 sites in Midlands/East
-,stokes-coffee,Stokes Coffee & Tea,Coffee cafes,,https://stokescoffee.com/,,none,no allergen or nutrition link found; Lincoln cafes; OpenStreetMap shows 6-10 sites in Midlands/East
-,strangers-coffee,Strangers Coffee,Coffee,,https://strangerscoffee.com/,,none,no allergen or nutrition link found; Norwich cafes; OpenStreetMap shows 5 sites in Midlands/East
-,coffeelink,Coffeelink,Coffee,,https://coffeelink.com/,,none,no allergen or nutrition link found; OpenStreetMap shows 6-11 sites in Midlands/East
-,brew-twenty-three,Brew Twenty Three,Coffee,,https://www.brewtwentythree.com/,,none,no allergen or nutrition link found; OpenStreetMap shows 3-6 sites in Midlands/East
-,cafe-local,Cafe Local,Cafe,,https://cafelocal.co.uk/,,none,no allergen or nutrition link found; OpenStreetMap shows 4-11 sites in Midlands/East
-,littles-als-kitchen,Little Al's Kitchen,Coffee shops,,https://littlealskitchen.co.uk/,,none,no allergen or nutrition link found; Midlands community cafes; OpenStreetMap shows 4-6 sites in Midlands/East
-,rising-cafe,Rising Cafe,Cafe,,https://www.risingcafe.co.uk/,,none,"no allergen or nutrition link found; Birmingham, Lincoln, Hexham; OpenStreetMap shows 3-6 sites in Midlands/East"
-,brown-bear-coffee,The Brown Bear Coffee Shop,Coffee,,https://www.thebrownbearcoffeeshop.co.uk/,,none,no allergen or nutrition link found; OpenStreetMap shows 4-6 sites in Midlands/East
-,harriets-cafe-tearooms,Harriet's Cafe Tearooms,Tea rooms,,https://harrietscafetearooms.co.uk/,,none,no allergen or nutrition link found; East Anglian city tea rooms; OpenStreetMap shows 4 sites in Midlands/East
+,two-magpies-bakery,Two Magpies Bakery,Bakery cafe,,https://www.twomagpiesbakery.co.uk/,,none,no allergen or nutrition link found; Suffolk and Norfolk bakery cafes; OSM maps 10 sites
+,hambleton-bakery,Hambleton Bakery,Bakery,,https://www.hambletonbakery.co.uk/,,none,no allergen or nutrition link found on home page or sitemap; OSM maps 7-12 sites
+,flour-and-bean,Flour & Bean,Bakery,,https://flourandbean.com/,,none,no allergen or nutrition link found; Norfolk; OSM maps 5-7 sites
+,bread-source,Bread Source,Bakery,,https://www.bread-source.co.uk/,,none,no allergen or nutrition link found; OSM maps 5-7 sites
+,medicine-bakery,Medicine Bakery,Bakery cafe,,https://medicinebakery.co.uk/,,none,no allergen or nutrition link found; site says 8 venues; OSM maps 1-6 sites
+,bismillah-bakery,Bismillah Bakery,Halal bakery,,https://bbakery.co.uk/,,none,no allergen or nutrition link found; Birmingham; OSM maps 5-14 sites
+,honey-and-harvey,Honey + Harvey,Coffee and bakery,,https://www.honeyandharvey.co.uk/,,none,no allergen or nutrition link found; OSM maps 3 sites
+,stokes-coffee,Stokes Coffee & Tea,Coffee cafes,,https://stokescoffee.com/,,none,no allergen or nutrition link found; Lincoln cafes; OSM maps 6-10 sites
+,strangers-coffee,Strangers Coffee,Coffee,,https://strangerscoffee.com/,,none,no allergen or nutrition link found; Norwich cafes; OSM maps 5 sites
+,coffeelink,Coffeelink,Coffee,,https://coffeelink.com/,,none,no allergen or nutrition link found; OSM maps 6-11 sites
+,brew-twenty-three,Brew Twenty Three,Coffee,,https://www.brewtwentythree.com/,,none,no allergen or nutrition link found; OSM maps 3-6 sites
+,cafe-local,Cafe Local,Cafe,,https://cafelocal.co.uk/,,none,no allergen or nutrition link found; OSM maps 4-11 sites
+,littles-als-kitchen,Little Al's Kitchen,Coffee shops,,https://littlealskitchen.co.uk/,,none,no allergen or nutrition link found; Midlands community cafes; OSM maps 4-6 sites
+,rising-cafe,Rising Cafe,Cafe,,https://www.risingcafe.co.uk/,,none,"no allergen or nutrition link found; Birmingham, Lincoln, Hexham; OSM maps 3-6 sites"
+,brown-bear-coffee,The Brown Bear Coffee Shop,Coffee,,https://www.thebrownbearcoffeeshop.co.uk/,,none,no allergen or nutrition link found; OSM maps 4-6 sites
+,harriets-cafe-tearooms,Harriet's Cafe Tearooms,Tea rooms,,https://harrietscafetearooms.co.uk/,,none,no allergen or nutrition link found; East Anglian city tea rooms; OSM maps 4 sites
 ,tea-and-the-gang,Tea and the Gang,Tea cafes,,https://www.teaandthegang.com/,,none,"no allergen or nutrition link found; King's Lynn, Peterborough, Newmarket"
 ,tipsy-teapot,Tipsy Teapot,Tea rooms,,https://tipsyteapot.co.uk/,,none,"FAQ pages only; Lincoln, King's Lynn and others"
-,the-steamhouse,The Steamhouse,Steamed buns,,https://thesteamhouse.co/,,none,no allergen or nutrition link found; OpenStreetMap shows 9-12 sites in Midlands/East
-,fitzbillies,Fitzbillies,Bakery cafe,,https://www.fitzbillies.com/,,none,no allergen or nutrition link found; Cambridge bakery cafes; OpenStreetMap shows 3-6 sites in Midlands/East
-,rassams-creamery,Rassam's Creamery,Ice cream,,https://www.rassams.co.uk/,,none,no allergen or nutrition link found; Nottingham; OpenStreetMap shows 4-6 sites in Midlands/East
-,cenu-cacao,Cenu Cacao,Chocolate cafe,,https://cenucacao.co.uk/,,none,no allergen or nutrition link found; OpenStreetMap shows 3-6 sites in Midlands/East
-,sushimania,Sushimania,Sushi buffet,,https://sushimania.co.uk/,,none,menu page only; OpenStreetMap shows 3-4 sites in Midlands/East
-,monsoon-restaurant,Monsoon,Indian,,https://monsoon.restaurant/,,none,no allergen or nutrition link found; OpenStreetMap shows 6-9 sites in Midlands/East
-,shimla-palace,The Shimla Palace,Indian,,https://www.shimlapalace.com/,,none,no allergen or nutrition link found; OpenStreetMap shows 8-15 sites in Midlands/East
+,the-steamhouse,The Steamhouse,Steamed buns,,https://thesteamhouse.co/,,none,no allergen or nutrition link found; OSM maps 9-12 sites
+,fitzbillies,Fitzbillies,Bakery cafe,,https://www.fitzbillies.com/,,none,no allergen or nutrition link found; Cambridge bakery cafes; OSM maps 3-6 sites
+,rassams-creamery,Rassam's Creamery,Ice cream,,https://www.rassams.co.uk/,,none,no allergen or nutrition link found; Nottingham; OSM maps 4-6 sites
+,cenu-cacao,Cenu Cacao,Chocolate cafe,,https://cenucacao.co.uk/,,none,no allergen or nutrition link found; OSM maps 3-6 sites
+,sushimania,Sushimania,Sushi buffet,,https://sushimania.co.uk/,,none,menu page only; OSM maps 3-4 sites
+,monsoon-restaurant,Monsoon,Indian,,https://monsoon.restaurant/,,none,no allergen or nutrition link found; OSM maps 6-9 sites
+,shimla-palace,The Shimla Palace,Indian,,https://www.shimlapalace.com/,,none,no allergen or nutrition link found; OSM maps 8-15 sites
 ,willow-restaurants,Willow Restaurants,Cafe restaurants,,https://willowrestaurants.co.uk/,,none,menu page only; cafe restaurants incl. Mere Green and Trentham Gardens
-,george-s-tradition,George's Tradition,Fish and chips,,https://www.georgestradition.co.uk/,,none,FAQ page only; Derbyshire; OpenStreetMap shows 8-14 sites in Midlands/East
-,zanfish,Zanfish,Fish and chips,,https://www.zanfish.co.uk/,,none,menu page only; Derbyshire; OpenStreetMap shows 5-10 sites in Midlands/East
-,oh-my-cod,Oh My Cod,Fish and chips,,https://ohmycod.co.uk/,,none,no allergen or nutrition link found on home page; OpenStreetMap shows 4-12 sites in Midlands/East
-,rumbles-fish-bar,Rumbles Fish Bar,Fish and chips,,https://www.rumblessutton.co.uk/,,none,franchise with a separate site per shop; OpenStreetMap shows 15-40 sites in Midlands/East
-,snappy-tomato-pizza,Snappy Tomato Pizza,Pizza,,https://snappytomatopizza.co.uk/,,none,no allergen or nutrition link found; OpenStreetMap shows 6-10 sites in Midlands/East
+,george-s-tradition,George's Tradition,Fish and chips,,https://www.georgestradition.co.uk/,,none,FAQ page only; Derbyshire; OSM maps 8-14 sites
+,zanfish,Zanfish,Fish and chips,,https://www.zanfish.co.uk/,,none,menu page only; Derbyshire; OSM maps 5-10 sites
+,oh-my-cod,Oh My Cod,Fish and chips,,https://ohmycod.co.uk/,,none,no allergen or nutrition link found on home page; OSM maps 4-12 sites
+,rumbles-fish-bar,Rumbles Fish Bar,Fish and chips,,https://www.rumblessutton.co.uk/,,none,franchise with a separate site per shop; OSM maps 15-40 sites
+,snappy-tomato-pizza,Snappy Tomato Pizza,Pizza,,https://snappytomatopizza.co.uk/,,none,no allergen or nutrition link found; OSM maps 6-10 sites
 ,oakman-inns,Oakman Inns,Pub restaurants,,https://www.oakmaninns.com/,,none,no allergen or nutrition link found; pub restaurant group
 ,elgoods-brewery-pubs,Elgood's,Brewery pubs,,https://www.elgoods-brewery.co.uk/,,none,no allergen or nutrition link found
 ,bespoke-inns,Bespoke Inns,Pubs,,https://bespokeinns.co.uk/,,none,no allergen or nutrition link found
-,lincolnshire-co-op,Lincolnshire Co-op,Food retail and cafes,,https://www.lincolnshire.coop/,,none,no allergen or nutrition link found on home page; OpenStreetMap shows 3-5 sites in Midlands/East
+,lincolnshire-co-op,Lincolnshire Co-op,Food retail and cafes,,https://www.lincolnshire.coop/,,none,no allergen or nutrition link found on home page; OSM maps 3-5 sites
 ,jarrolds,Jarrolds,Department store cafes,,https://www.jarrolds.co.uk/,,none,no allergen or nutrition link found; Norwich store
 ,percy-ingle,Percy Ingle,Bakery,,https://www.percyingle.com/,,none,no allergen or nutrition link found; bakery shop chain
-,perrywood-garden-centres,Perrywood Garden Centres,Garden centre cafes,,https://perrywood.co.uk/,,none,no allergen or nutrition link found; garden centre cafes; OpenStreetMap shows 4 sites in Midlands/East
+,perrywood-garden-centres,Perrywood Garden Centres,Garden centre cafes,,https://perrywood.co.uk/,,none,no allergen or nutrition link found; garden centre cafes; OSM maps 4 sites
 ,meadow-brown-restaurants,Meadow Brown Restaurants,Cafe contract caterer,,https://www.meadowbrown.co.uk/,,none,"no allergen or nutrition link found; Lincoln Cathedral, Ferry Meadows and others"
-,gullivers-theme-parks,Gulliver's Theme Parks,Theme parks,,https://www.gulliversfun.co.uk/,,none,"no allergen or nutrition link found; theme parks incl. Matlock Bath, Milton Keynes, Warrington; OpenStreetMap shows 4-5 sites in Midlands/East"
-,cherry-lane-garden-centres,Cherry Lane Garden Centres,Garden centre cafes,,https://www.cherry-lane.co.uk/,,none,no allergen or nutrition link found; OpenStreetMap shows 6-9 sites in Midlands/East
+,gullivers-theme-parks,Gulliver's Theme Parks,Theme parks,,https://www.gulliversfun.co.uk/,,none,"no allergen or nutrition link found; theme parks incl. Matlock Bath, Milton Keynes, Warrington; OSM maps 4-5 sites"
+,cherry-lane-garden-centres,Cherry Lane Garden Centres,Garden centre cafes,,https://www.cherry-lane.co.uk/,,none,no allergen or nutrition link found; OSM maps 6-9 sites
+,mellors-catering,Mellors Catering,Contract caterer (schools),,https://mellorscatering.co.uk/,https://mellorscatering.co.uk/our-food/nutrition-inclusive-menus/,web,"nutrition and inclusive menus page plus allergen policy; school meals caterer, not a public restaurant (not read in detail)"
+,aldeburgh-fish-and-chips,Aldeburgh Fish & Chips,Fish and chips,,https://www.aldeburghfishandchips.co.uk/,,none,no allergen or nutrition link found; Suffolk shops incl. The Golden Galleon
