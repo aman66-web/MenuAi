@@ -296,6 +296,18 @@ def main() -> int:
     # Items the site itself hides ("do not display the allergen/nutrition") are held back; "check the label" items are reported.
     holdback = HOLDBACK + [(slug(i["name"]), "Wagamama's own menu data marks this item 'do not display the allergen/nutrition'")
                            for i in items if HIDDEN in i["_notices"]]
+    # Independent accuracy check, 8 Oct 2026: (1) the page prints Energy (kj) and Energy (kcal) side by side and for some dishes
+    # they disagree by more than 7% (same gate as tools/audit/accuracy_audit.py); the page's own figures contradict each other,
+    # so the dish is held back, nothing is chosen or corrected. (2) STALE_ON_LIVE_PAGE, see below.
+    for i in items:
+        kcal, kj = float(i["calories"]), float(i["energy_kj"])
+        if kcal >= 20 and not 0.93 <= kj / (kcal * 4.184) <= 1.07:
+            holdback.append((slug(i["name"]), f"The page prints {kj:g} kJ and {kcal:g} kcal for this dish, which disagree "
+                                              f"({kcal:g} kcal is about {kcal * 4.184:.0f} kJ), so its energy cannot be trusted."))
+    for i in items:
+        if i["_ident"] in STALE_ON_LIVE_PAGE:
+            holdback.append((slug(i["name"]), STALE_ON_LIVE_PAGE[i["_ident"]]))
+    holdback = list({hid: why for hid, why in reversed(holdback)}.items())[::-1]   # one row per item (the first reason given is kept)
     for i in items:
         if CHECK_LABEL in i["_notices"]:
             print(f"'check the label' notice (flags read as printed): {i['name']}", file=sys.stderr)
@@ -327,6 +339,26 @@ def main() -> int:
 NOTE = ("Alcoholic drinks are not listed because Wagamama publishes no nutrition for them. "
         "Gluten free menu dishes appear only where their numbers differ from the standard dish.")
 HOLDBACK: list[tuple[str, str]] = []
+
+# The data in data/source/wagamama was read from the page saved on 6 Oct 2026 (menu "17/06/2026 - UK - main website"). On 8 Oct the live
+# page serves a new menu ("07/10/2026 - UK - main website": 10 recipes gone, 22 new, 10 changed, 3 of those with different allergens).
+# Until the script's section table (S, GF_SAME_AS, the expected counts) is updated and the new page extracted, every dish that the
+# live page no longer prints, or prints with other numbers or allergens, is held back so out-of-date figures are not shown.
+# ident (first 8 characters) -> reason. Remove this table when the new page has been extracted.
+_GONE = "wagamama.com no longer lists this dish (removed in the 7 Oct 2026 menu update), so the saved page's figures are out of date."
+def _changed(old: str, new: str, allergens: bool) -> str:
+    energy = f"{old} kcal in the saved page, {new} kcal live" if old != new else f"{old} kcal in both, other figures differ"
+    return (f"wagamama.com now prints different figures for this dish ({energy})"
+            + (" and different allergens" if allergens else "") + ", so the saved page's figures are out of date.")
+STALE_ON_LIVE_PAGE = {
+    "d20b2add": _GONE, "79e48b98": _GONE, "51b6580b": _GONE, "f9b8205f": _GONE, "319717a5": _GONE, "87b34af5": _GONE,
+    "e2650438": _GONE, "643623a4": _GONE, "eebd1e74": _GONE, "a97719a3": _GONE,
+    "0e44a062": _changed("521", "521", False), "0f108188": _changed("1,223", "1,216", False),
+    "b2bf6f93": _changed("1,350", "1,343", False), "bc268c77": _changed("713", "632", True),
+    "ff5794ba": _changed("456", "498", True), "853dfc7e": _changed("541", "589", False),
+    "ca11c46a": _changed("949", "920", True), "b9d63ef2": _changed("539", "600", False),
+    "4b9c6627": _changed("517", "578", False), "71355b8a": _changed("1,003", "950", False),
+}
 
 if __name__ == "__main__":
     sys.exit(main())

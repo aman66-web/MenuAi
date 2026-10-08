@@ -16,6 +16,22 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import tenkites_a as t  # noqa: E402
 
+# tenkites_a leaves its "current section" at "suitable" after the "Suitable for:" line, so the next `section-values` element
+# on the page (the line "This dish contains none of the listed allergens", which has no section class of its own) replaced the
+# dish's Suitable-for list and the vegetarian tag was lost for every dish without allergens (found by the independent check,
+# 2026-10-08). Ignoring that line as a value fixes it here; tenkites_a is shared by other chains, so it is not edited.
+_NONE_LINE = "This dish contains none of the listed allergens"
+_captured = t._Parser._captured
+
+
+def _captured_ignoring_none_line(self, key, text):
+    if key == "sect_suitable" and text == _NONE_LINE:
+        return
+    _captured(self, key, text)
+
+
+t._Parser._captured = _captured_ignoring_none_line
+
 URL = "https://menus.tenkites.com/thebigtg/lasiguanas202507"
 TABS = {
     "Main Menu": "use",
@@ -159,6 +175,8 @@ HOLDBACK = {
     "Orange Juice (kids)": "The table prints 38.0 g of protein (and 168 kcal) for a glass of orange juice.",
     "Fruit Shoot: Orange (kids)": "The table prints 52 kcal with only 2.4 g of carbohydrate and no protein or fat.",
     "Juices: Orange": "The table prints 26.0 g of protein and 115 kcal for orange juice; its own macros add up to about 206 kcal.",
+    "Iguana Bomb": "The page prints all 14 allergens, every cereal and every tree nut as 'Contains' for a 131 kcal shot: allergen row contradicts the dish name/ingredients.",
+    "Quesadilla: Pork & Cheese (Bottomless Tapas)": "The page prints no milk for a pork and cheese quesadilla, while the Main Menu and Bottomless Brunch rows for the same dish print Milk: allergen row contradicts the dish name/ingredients.",
 }
 NOTE = ("Per portion as printed on the chain's menu pages. Each part of a meal is listed on its own: the side served with a "
         "burger or steak, fajita and taco fillings, nacho toppings and extras are separate rows, so add the parts you order. "

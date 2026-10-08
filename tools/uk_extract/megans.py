@@ -122,6 +122,7 @@ def venue_only(name: str, desc: str) -> "str | None":
 
 # Rows kept in items.csv but not published (holdback.csv): reason per printed name. Nothing is corrected or estimated.
 ZERO = "every value is printed as 0"
+ALLERGEN_ROW = "the chain's allergen row contradicts the dish, so it is not published"
 HOLDBACK = {
     "Gluten Free Flatbread": f"{ZERO}: a flatbread cannot have no energy, so the row is a placeholder",
     "Latte | Flat White | Cappuccino | Macchiato": f"{ZERO} and its section says the milk choice is not included, so it does not describe the drink as sold",
@@ -139,6 +140,16 @@ HOLDBACK = {
     "Olmeca Gold": f"tequila: {ZERO}, which cannot include the alcohol's energy",
     "Baileys": "cream liqueur printed as 4 kcal: the figure cannot include the alcohol's energy",
     "Round Stone Sauvignon Blanc": f"listed under Wine: {ZERO}; not clear whether it is alcohol-free, so not published",
+    # Allergen rows that contradict the dish (independent accuracy check, 8 October 2026). The guide marks eggs, milk and soya for the
+    # one "Brownie" recipe but never gluten (not even as "may contain"), and gives no ingredient text or gluten-free wording; a
+    # hazelnut syrup is listed with no tree nut mark. Not corrected, not guessed: held back so nobody is shown "no gluten" / "no nuts"
+    # for them on the strength of an unexplained row.
+    "Baileys Tiramisu Brownie": ALLERGEN_ROW + " (a brownie with no gluten marked and no gluten-free wording)",
+    "Brownie & Ice Cream": ALLERGEN_ROW + " (a brownie with no gluten marked and no gluten-free wording)",
+    "Chocolate Brownie": ALLERGEN_ROW + " (a brownie with no gluten marked and no gluten-free wording)",
+    "Ice Cream Topping - Brownie Pieces": ALLERGEN_ROW + " (brownie with no gluten marked and no gluten-free wording)",
+    "Kids Chocolate Brownie Bite & Ice Cream": ALLERGEN_ROW + " (a brownie with no gluten marked and no gluten-free wording)",
+    "Hazelnut Syrup": ALLERGEN_ROW + " (a hazelnut syrup with no tree nut marked and no ingredient text)",
 }
 ALL_ONLY = ("printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages "
             "disagree on whether it is on the menu")

@@ -11,7 +11,7 @@ nachos-for-two-gluten-free-and-vegan,Nachos for Two (Gluten-Free & Vegan),Sharin
 cheesy-peru-fondue,Cheesy Peru Fondue,Sharing,,1033,23.9,89.9,62.1,19.7,,5.4,7.2,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Sharing Section
 p-o-de-queijo,Páo De Queijo,Tapas & starters,,488,3.7,38.4,34.2,15.4,,5.0,1.0,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Tapas & Starters
 padr-n-peppers,Padrón Peppers,Tapas & starters,,30,1.5,2.0,1.0,0.1,,3.0,1.9,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Tapas & Starters
-padr-n-peppers-vegan-and-gluten-free,Padrón Peppers (Vegan & Gluten-Free),Tapas & starters,,27,1.4,1.8,0.9,0.1,,3.0,1.7,,,,,,,,,false,true,,,Source: Main Menu > Tapas & Starters
+padr-n-peppers-vegan-and-gluten-free,Padrón Peppers (Vegan & Gluten-Free),Tapas & starters,,27,1.4,1.8,0.9,0.1,,3.0,1.7,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Tapas & Starters
 calamares,Calamares,Tapas & starters,,633,30.1,41.2,36.4,2.6,,3.3,1.4,,,,,,,,,false,true,,,Source: Main Menu > Tapas & Starters
 lemon-and-chilli-butter-prawns,Lemon & Chilli Butter Prawns,Tapas & starters,,490,19.4,18.9,37.2,4.7,,1.8,0.9,,,,,,,,,false,true,,,Source: Main Menu > Tapas & Starters
 chicken-wings-cholula-hot-sauce,Chicken Wings: Cholula® Hot Sauce,Tapas & starters,,547,60.2,6.9,30.3,6.5,,5.2,1.6,,,,,,,,,false,true,,,Source: Main Menu > Tapas & Starters
@@ -27,7 +27,7 @@ quesadilla-black-bean-and-cheese-main-menu,Quesadilla: Black Bean & Cheese (Main
 hot-honey-fried-halloumi,Hot Honey Fried Halloumi,Tapas & starters,,657,23.4,25.9,50.4,16.5,,2.5,25.4,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Tapas & Starters
 hot-honey-fried-halloumi-gluten-free,Hot Honey Fried Halloumi (Gluten-Free),Tapas & starters,,600,23.4,25.9,44.0,16.0,,2.5,25.4,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Tapas & Starters
 soft-taco,Soft Taco,Tapas & starters,,67,1.8,11.8,1.3,0.4,,0.2,1.1,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Tapas & Starters
-lettuce-taco,Lettuce Taco,Tapas & starters,,5,0.3,0.6,0.1,0.0,,0.0,0.6,,,,,,,,,false,false,,,Source: Main Menu > Tapas & Starters
+lettuce-taco,Lettuce Taco,Tapas & starters,,5,0.3,0.6,0.1,0.0,,0.0,0.6,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Tapas & Starters
 quesadilla-pork-and-cheese-bottomless-tapas,Quesadilla: Pork & Cheese (Bottomless Tapas),Tapas & starters,,535,26.6,39.1,30.4,7.1,,2.5,11.5,,,,,,,,contains_pork,false,true,,,Source: Bottomless Tapas > Tapas & Starters
 popcorn-squid,Popcorn Squid,Tapas & starters,,617,7.6,41.1,44.7,5.5,,1.3,11.9,,,,,,,,,false,true,,,Source: Bottomless Tapas > Tapas & Starters
 ximxim,XimXim,Curries,,1501,60.8,89.5,98.4,38.3,,7.8,12.4,,,,,,,,,false,true,,,Source: Main Menu > Curries
@@ -91,13 +91,13 @@ dirty-bbq-cheese-fries,Dirty BBQ Cheese Fries,Sides,,611,11.6,67.1,31.8,7.8,,3.1
 onion-rings,Onion Rings,Sides,,487,2.8,23.7,41.5,3.6,,1.7,3.2,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Sides
 corn-on-the-cob,Corn on the Cob,Sides,,103,2.7,12.6,4.4,1.0,,0.1,1.8,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Sides
 mac-and-cheese,Mac & Cheese,Sides,,274,12.2,25.6,13.4,8.2,,1.3,2.7,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Sides
-guacamole,Guacamole,Sides,,52,0.8,2.3,4.5,1.2,,0.4,0.8,,,,,,,,,false,true,,,Source: Main Menu > Sides
-aji-salsa,Aji Salsa,Dips & sauces,,22,0.4,4.7,0.1,0.0,,0.8,4.4,,,,,,,,,false,false,,,Source: Main Menu > Dips
+guacamole,Guacamole,Sides,,52,0.8,2.3,4.5,1.2,,0.4,0.8,,,,,,,,vegetarian,false,true,,,Source: Main Menu > Sides
+aji-salsa,Aji Salsa,Dips & sauces,,22,0.4,4.7,0.1,0.0,,0.8,4.4,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Dips
 sour-cream,Sour Cream,Dips & sauces,,49,1.4,1.8,4.0,2.5,,0.0,1.8,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Dips
 tomato-salsa,Tomato Salsa,Dips & sauces,,10,0.5,1.7,0.1,0.0,,0.2,1.4,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Dips
 agave-aioli,Agave Aioli,Dips & sauces,,189,0.2,5.5,16.7,1.1,,0.1,3.5,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Dips
 cowboy-pineapple-salsa,Cowboy Pineapple Salsa,Dips & sauces,,22,0.2,5.4,0.1,0.0,,0.4,5.3,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Dips
-bbq-dip,BBQ Dip,Dips & sauces,,63,0.2,15.4,0.0,0.0,,0.5,14.0,,,,,,,,,false,false,,,Source: Main Menu > Dips
+bbq-dip,BBQ Dip,Dips & sauces,,63,0.2,15.4,0.0,0.0,,0.5,14.0,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Dips
 honey-peri-peri,Honey Peri-Peri,Dips & sauces,,34,0.3,6.9,0.6,0.1,,0.4,6.3,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Dips
 four-churros,Four Churros,Desserts,,398,5.8,57.7,15.9,1.3,,0.9,22.0,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Desserts
 ten-churros,Ten Churros,Desserts,,976,19.8,169.7,24.3,5.7,,2.5,79.7,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Desserts
@@ -117,7 +117,7 @@ chilli-con-carne-nacho-topping,Chilli Con Carne (nacho topping),Add-ons & extras
 shredded-chipotle-beef-nacho-topping,Shredded Chipotle Beef (nacho topping),Add-ons & extras,,199,9.2,8.2,13.9,3.6,,1.6,5.6,,,,,,,,contains_beef,false,false,,,Source: Main Menu > Sharing Section
 smoky-chipotle-chicken-nacho-topping,Smoky Chipotle Chicken (nacho topping),Add-ons & extras,,125,14.9,4.7,4.8,1.2,,1.4,1.9,,,,,,,,,false,false,,,Source: Main Menu > Sharing Section
 pulled-pork-and-pineapple-nacho-topping,Pulled Pork & Pineapple (nacho topping),Add-ons & extras,,283,21.6,1.4,21.6,5.3,,1.3,1.4,,,,,,,,contains_pork,false,false,,,Source: Main Menu > Sharing Section
-veggie-chilli-nacho-topping,Veggie Chilli (nacho topping),Add-ons & extras,,85,4.3,12.7,1.7,0.2,,0.8,4.7,,,,,,,,,false,false,,,Source: Main Menu > Sharing Section
+veggie-chilli-nacho-topping,Veggie Chilli (nacho topping),Add-ons & extras,,85,4.3,12.7,1.7,0.2,,0.8,4.7,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Sharing Section
 smoky-chipotle-chicken-taco-filling,Smoky Chipotle Chicken (taco filling),Add-ons & extras,,77,8.0,5.2,2.5,0.6,,1.1,3.4,,,,,,,,,false,false,,,Source: Main Menu > Tapas & Starters
 slow-cooked-chipotle-beef-brisket-taco-filling,Slow-Cooked Chipotle Beef Brisket (taco filling),Add-ons & extras,,118,4.2,10.2,6.5,1.6,,1.1,7.4,,,,,,,,contains_beef,false,false,,,Source: Main Menu > Tapas & Starters
 lemon-and-chilli-prawns-taco-filling,Lemon & Chilli Prawns (taco filling),Add-ons & extras,,309,12.2,3.0,26.9,3.7,,1.1,2.1,,,,,,,,,false,false,,,Source: Main Menu > Tapas & Starters
@@ -136,8 +136,8 @@ smoky-chipotle-chicken-burger-add-on,Smoky Chipotle Chicken (burger add-on),Add-
 streaky-bacon-burger-add-on,Streaky Bacon (burger add-on),Add-ons & extras,,69,6.1,0.2,5.0,1.9,,1.1,0.0,,,,,,,,contains_pork,false,false,,,Source: Main Menu > Burgers > VIP your burger
 onion-rings-burger-add-on,Onion Rings (burger add-on),Add-ons & extras,,227,1.7,14.3,17.6,1.6,,1.3,2.1,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Burgers > VIP your burger
 halloumi-burger-add-on,Halloumi (burger add-on),Add-ons & extras,,227,11.5,1.3,19.5,7.8,,1.3,1.3,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Burgers > VIP your burger
-jalapenos-burger-add-on,Jalapenos (burger add-on),Add-ons & extras,,6,0.0,1.2,0.0,0.0,,1.0,0.3,,,,,,,,,false,false,,,Source: Main Menu > Burgers > VIP your burger
-guacamole-burger-add-on,Guacamole (burger add-on),Add-ons & extras,,52,0.8,2.3,4.5,1.2,,0.4,0.8,,,,,,,,,false,false,,,Source: Main Menu > Burgers > VIP your burger
+jalapenos-burger-add-on,Jalapenos (burger add-on),Add-ons & extras,,6,0.0,1.2,0.0,0.0,,1.0,0.3,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Burgers > VIP your burger
+guacamole-burger-add-on,Guacamole (burger add-on),Add-ons & extras,,52,0.8,2.3,4.5,1.2,,0.4,0.8,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Burgers > VIP your burger
 warm-cheese-sauce-burger-add-on,Warm Cheese Sauce (burger add-on),Add-ons & extras,,181,8.7,5.2,13.9,8.6,,1.4,1.9,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Burgers > VIP your burger
 cheese-slice-burger-add-on,Cheese Slice (burger add-on),Add-ons & extras,,74,4.6,0.0,6.2,3.8,,0.4,0.0,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Burgers > VIP your burger
 chocolate-ganache-churro-dip,Chocolate Ganache (churro dip),Add-ons & extras,,90,0.5,19.2,2.0,1.2,,0.0,17.9,,,,,,,,vegetarian,false,false,,,Source: Main Menu > Desserts
@@ -158,44 +158,44 @@ straight-fries-kids-side,Straight Fries (kids side),Kids: Sides,,291,2.5,25.0,19
 curly-fries-kids-side,Curly Fries (kids side),Kids: Sides,,315,2.6,23.0,23.2,1.9,,1.2,0.6,,,,,,,,vegetarian,false,false,,,Source: Kids > Sides
 mixed-salad-kids-side,Mixed Salad (kids side),Kids: Sides,,20,0.6,3.8,0.2,0.0,,0.2,3.4,,,,,,,,vegetarian,false,false,,,Source: Kids > Sides
 garlic-and-spring-onion-rice-kids-side,Garlic & Spring Onion Rice (kids side),Kids: Sides,,80,1.8,17.1,0.4,0.1,,0.7,0.3,,,,,,,,vegetarian,false,false,,,Source: Kids > Sides
-baked-beans-no-added-sugar-kids-side,Baked Beans (No added sugar) (kids side),Kids: Sides,,66,4.6,9.5,0.2,0.1,,0.4,1.9,,,,,,,,,false,false,,,Source: Kids > Sides
-pepper-and-cucumber-strips-with-fresh-guacamole-kids-side,Pepper & Cucumber Strips with Fresh Guacamole (kids side),Kids: Sides,,125,1.5,3.0,11.8,2.5,,0.0,2.1,,,,,,,,,false,false,,,Source: Kids > Sides
-sweetcorn-kids-side,Sweetcorn (kids side),Kids: Sides,,65,3.4,7.5,1.8,0.2,,0.0,2.0,,,,,,,,,false,false,,,Source: Kids > Sides
+baked-beans-no-added-sugar-kids-side,Baked Beans (No added sugar) (kids side),Kids: Sides,,66,4.6,9.5,0.2,0.1,,0.4,1.9,,,,,,,,vegetarian,false,false,,,Source: Kids > Sides
+pepper-and-cucumber-strips-with-fresh-guacamole-kids-side,Pepper & Cucumber Strips with Fresh Guacamole (kids side),Kids: Sides,,125,1.5,3.0,11.8,2.5,,0.0,2.1,,,,,,,,vegetarian,false,false,,,Source: Kids > Sides
+sweetcorn-kids-side,Sweetcorn (kids side),Kids: Sides,,65,3.4,7.5,1.8,0.2,,0.0,2.0,,,,,,,,vegetarian,false,false,,,Source: Kids > Sides
 churro,Churro,Kids: Desserts,,177,1.8,31.3,5.5,1.1,,0.2,21.5,,,,,,,,vegetarian,false,false,,,Source: Kids > Dessert
 chocolate-brownie,Chocolate Brownie,Kids: Desserts,,319,4.7,33.7,18.2,10.7,,0.2,30.1,,,,,,,,vegetarian,false,false,,,Source: Kids > Dessert
-pip-organic-ice-lolly-tropical,Pip Organic Ice Lolly: Tropical,Kids: Desserts,,39,0.4,9.0,0.4,0.0,,0.0,8.3,,,,,,,,,false,false,,,Source: Kids > Dessert
-pip-organic-ice-lolly-berry,Pip Organic Ice Lolly: Berry,Kids: Desserts,,31,0.2,7.3,0.1,0.0,,0.0,7.0,,,,,,,,,false,false,,,Source: Kids > Dessert
+pip-organic-ice-lolly-tropical,Pip Organic Ice Lolly: Tropical,Kids: Desserts,,39,0.4,9.0,0.4,0.0,,0.0,8.3,,,,,,,,vegetarian,false,false,,,Source: Kids > Dessert
+pip-organic-ice-lolly-berry,Pip Organic Ice Lolly: Berry,Kids: Desserts,,31,0.2,7.3,0.1,0.0,,0.0,7.0,,,,,,,,vegetarian,false,false,,,Source: Kids > Dessert
 whole-milk,Whole Milk,Kids: Drinks,,155,8.8,10.8,8.8,5.5,,0.0,10.8,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
-still-water,Still Water,Kids: Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Kids > Drinks
-apple-juice-kids,Apple Juice (kids),Kids: Drinks,,126,0.0,30.0,0.0,0.0,,0.0,30.0,,,,,,,,,false,false,,,Source: Kids > Drinks
-pineapple-juice-kids,Pineapple Juice (kids),Kids: Drinks,,120,0.8,27.5,0.3,0.0,,0.0,27.5,,,,,,,,,false,false,,,Source: Kids > Drinks
-orange-juice-kids,Orange Juice (kids),Kids: Drinks,,168,38.0,36.4,0.4,0.0,,0.0,36.4,,,,,,,,,false,false,,,Source: Kids > Drinks
+still-water,Still Water,Kids: Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
+apple-juice-kids,Apple Juice (kids),Kids: Drinks,,126,0.0,30.0,0.0,0.0,,0.0,30.0,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
+pineapple-juice-kids,Pineapple Juice (kids),Kids: Drinks,,120,0.8,27.5,0.3,0.0,,0.0,27.5,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
+orange-juice-kids,Orange Juice (kids),Kids: Drinks,,168,38.0,36.4,0.4,0.0,,0.0,36.4,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
 blackcurrant-squash,Blackcurrant Squash,Kids: Drinks,,3,0.0,0.3,0.0,0.0,,0.1,0.3,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
 orange-squash,Orange Squash,Kids: Drinks,,10,0.0,1.9,0.0,0.0,,0.1,1.9,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
-fruit-shoot-orange-kids,Fruit Shoot: Orange (kids),Kids: Drinks,,52,0.0,2.4,0.0,0.0,,0.0,2.4,,,,,,,,,false,false,,,Source: Kids > Drinks
-fruit-shoot-apple-and-blackcurrant-kids,Fruit Shoot: Apple & Blackcurrant (kids),Kids: Drinks,,8,0.0,1.6,0.0,0.0,,0.0,1.4,,,,,,,,,false,false,,,Source: Kids > Drinks
+fruit-shoot-orange-kids,Fruit Shoot: Orange (kids),Kids: Drinks,,52,0.0,2.4,0.0,0.0,,0.0,2.4,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
+fruit-shoot-apple-and-blackcurrant-kids,Fruit Shoot: Apple & Blackcurrant (kids),Kids: Drinks,,8,0.0,1.6,0.0,0.0,,0.0,1.4,,,,,,,,vegetarian,false,false,,,Source: Kids > Drinks
 coconut-cooler,Coconut Cooler,Drinks: Mocktails,,113,0.9,21.5,2.6,2.3,,0.0,21.0,,,,,,,,vegetarian,false,false,,,Source: Bottomless Brunch > Alcohol-Free Brunch
-popstar-martini,Popstar Martini,Drinks: Mocktails,,62,0.5,12.7,0.2,0.0,,0.0,12.7,,,,,,,,,false,false,,,Source: Bottomless Brunch > Alcohol-Free Brunch
+popstar-martini,Popstar Martini,Drinks: Mocktails,,62,0.5,12.7,0.2,0.0,,0.0,12.7,,,,,,,,vegetarian,false,false,,,Source: Bottomless Brunch > Alcohol-Free Brunch
 cocoa-caramel,Cocoa Caramel,Drinks: Mocktails,,202,1.6,33.9,6.8,2.9,,2.1,30.4,,,,,,,,vegetarian,false,false,,,Source: Drinks > Virgin Mocktails
 iguana-bomb,Iguana Bomb,Drinks: Shots,,131,0.5,6.0,0.3,0.1,,0.0,5.9,,,,,,,,,false,false,,,"Source: Drinks > Shots, Shorts & Sippers; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
 pacifico-clara-4-5,Pacifico Clara (4.5%),Drinks: Beer & cider,,178,3.2,12.4,0.0,0.0,,0.0,12.4,,,,,,,,,false,false,,,"Source: Drinks > Beer & Cider > Bottles & Cans; energy includes alcohol (kcal is higher than protein, carbs and fat explain)"
 kopparberg-strawberry-and-lime-0-500ml,Kopparberg Strawberry & Lime 0% 500ml,Drinks: Beer & cider,500ml,205,2.5,50.5,2.5,2.5,,0.1,50.5,,,,,,,,vegetarian,false,false,,,Source: Drinks > Beer & Cider > Non-Alcoholic
-coca-cola,Coca-Cola,Drinks: Soft drinks,,140,0.0,35.4,0.0,0.0,,0.0,35.4,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-diet-coke,Diet Coke,Drinks: Soft drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-fanta-orange-zero,Fanta Orange Zero,Drinks: Soft drinks,,10,0.0,1.3,0.0,0.0,,0.0,1.3,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-schweppes-slimline-lemonade,Schweppes Slimline Lemonade,Drinks: Soft drinks,,7,0.0,0.0,0.0,0.0,,0.1,0.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-jarritos-pineapple,Jarritos: Pineapple,Drinks: Soft drinks,,130,0.0,32.4,0.0,0.0,,0.0,32.4,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-jarritos-mango,Jarritos: Mango,Drinks: Soft drinks,,130,0.0,32.4,0.0,0.0,,0.0,32.4,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
+coca-cola,Coca-Cola,Drinks: Soft drinks,,140,0.0,35.4,0.0,0.0,,0.0,35.4,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+diet-coke,Diet Coke,Drinks: Soft drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+fanta-orange-zero,Fanta Orange Zero,Drinks: Soft drinks,,10,0.0,1.3,0.0,0.0,,0.0,1.3,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+schweppes-slimline-lemonade,Schweppes Slimline Lemonade,Drinks: Soft drinks,,7,0.0,0.0,0.0,0.0,,0.1,0.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+jarritos-pineapple,Jarritos: Pineapple,Drinks: Soft drinks,,130,0.0,32.4,0.0,0.0,,0.0,32.4,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+jarritos-mango,Jarritos: Mango,Drinks: Soft drinks,,130,0.0,32.4,0.0,0.0,,0.0,32.4,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
 trip-15mg-cbd-elderflower-and-mint,Trip (15mg CBD): Elderflower & Mint,Drinks: Soft drinks,,20,0.0,4.8,0.0,0.0,,0.0,3.8,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
 trip-15mg-cbd-peach-and-ginger,Trip (15mg CBD): Peach & Ginger,Drinks: Soft drinks,,20,0.0,5.3,0.0,0.0,,0.0,4.5,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
-red-bull-original,Red Bull Original,Drinks: Soft drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-red-bull-sugar-free,Red Bull Sugar-Free,Drinks: Soft drinks,,8,0.0,0.0,0.0,0.0,,0.3,0.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
+red-bull-original,Red Bull Original,Drinks: Soft drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+red-bull-sugar-free,Red Bull Sugar-Free,Drinks: Soft drinks,,8,0.0,0.0,0.0,0.0,,0.3,0.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
 red-bull-white-peach,Red Bull White Peach,Drinks: Soft drinks,,8,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-still-water-small,Still Water (Small),Drinks: Soft drinks,Small,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-sparkling-water-small,Sparkling Water (Small),Drinks: Soft drinks,Small,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-sparkling-water-large,Sparkling Water (Large),Drinks: Soft drinks,Large,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-juices-pineapple,Juices: Pineapple,Drinks: Soft drinks,,144,0.9,33.0,0.3,0.0,,0.0,33.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-juices-cranberry,Juices: Cranberry,Drinks: Soft drinks,,142,0.3,34.0,0.0,0.0,,0.0,34.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-juices-mango,Juices: Mango,Drinks: Soft drinks,,148,0.5,36.2,0.0,0.0,,0.0,34.5,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-juices-orange,Juices: Orange,Drinks: Soft drinks,,115,26.0,24.9,0.3,0.0,,0.0,24.9,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
-juices-apple,Juices: Apple,Drinks: Soft drinks,,94,0.0,22.0,0.0,0.0,,0.0,22.0,,,,,,,,,false,false,,,Source: Drinks > Soft Drinks
+still-water-small,Still Water (Small),Drinks: Soft drinks,Small,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+sparkling-water-small,Sparkling Water (Small),Drinks: Soft drinks,Small,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+sparkling-water-large,Sparkling Water (Large),Drinks: Soft drinks,Large,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+juices-pineapple,Juices: Pineapple,Drinks: Soft drinks,,144,0.9,33.0,0.3,0.0,,0.0,33.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+juices-cranberry,Juices: Cranberry,Drinks: Soft drinks,,142,0.3,34.0,0.0,0.0,,0.0,34.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+juices-mango,Juices: Mango,Drinks: Soft drinks,,148,0.5,36.2,0.0,0.0,,0.0,34.5,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+juices-orange,Juices: Orange,Drinks: Soft drinks,,115,26.0,24.9,0.3,0.0,,0.0,24.9,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks
+juices-apple,Juices: Apple,Drinks: Soft drinks,,94,0.0,22.0,0.0,0.0,,0.0,22.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Soft Drinks

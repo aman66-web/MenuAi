@@ -2,3 +2,5 @@ item_id,reason
 orange-juice-kids,The table prints 38.0 g of protein (and 168 kcal) for a glass of orange juice.
 fruit-shoot-orange-kids,The table prints 52 kcal with only 2.4 g of carbohydrate and no protein or fat.
 juices-orange,The table prints 26.0 g of protein and 115 kcal for orange juice; its own macros add up to about 206 kcal.
+iguana-bomb,"The page prints all 14 allergens, every cereal and every tree nut as 'Contains' for a 131 kcal shot: allergen row contradicts the dish name/ingredients."
+quesadilla-pork-and-cheese-bottomless-tapas,"The page prints no milk for a pork and cheese quesadilla, while the Main Menu and Bottomless Brunch rows for the same dish print Milk: allergen row contradicts the dish name/ingredients."
