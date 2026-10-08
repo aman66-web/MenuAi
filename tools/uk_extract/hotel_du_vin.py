@@ -8,7 +8,13 @@ Source: https://menus.tenkites.com/mhdv/hotelduvin, the page hotelduvin.com link
 ?mguid=<menu id>, the ids being listed in the page's own menu selector). The pages show no date ("HdVCore-<Menu>_<day>.pdf" is the
 day they were served), so the source title says "(accessed <date>, no date shown)". --fetch downloads the 20 pages and the 8 PDF
 menus used for the cross-check below, one request per second, into DIR/pages and DIR/pdf; without it DIR must already hold them.
-Readers: hotel_du_vin_pages.py (+ tenkites_c.py).
+Every URL is checked against its host's robots.txt first (tools/uk_extract/robots_rfc.py; menus.tenkites.com only disallows /fonts/,
+/views/ and /*.less$, www.hotelduvin.com only /book/*) and the run stops on a Disallow. Readers: hotel_du_vin_pages.py (+ tenkites_c.py).
+
+REFRESHED 2026-10-08 (second download the same day): the page renamed "FISH PIE Topped with ..." to "TRADITIONAL FISH PIE Topped with ..."
+(new item id, still held back: 803 kcal here, 521 in the printed menu) and three Torres crisps rows moved (fried egg 93 -> 733, black truffle
+and Brie 178 -> 907, olive oil 84 -> 781 kcal). The printed bar menu prints 720, 907 and 793, so only the black truffle and Brie row now agrees
+and is published; the other two stay held back (any difference counts). The tab lists and dish counts were unchanged.
 
 WHAT IS PRINTED. Each dish prints ONE number, its calories in brackets beside the name ("(437 kcal)"). There is no nutrition table
 anywhere on the pages, not even a hidden one (the row's expander arrow reveals only the ingredient list and the "Dietary Information"
@@ -55,9 +61,11 @@ import subprocess
 import sys
 import unicodedata
 from pathlib import Path
+from urllib.parse import urlsplit
 
 sys.path.insert(0, str(Path(__file__).parent))
 import hotel_du_vin_pages as hp  # noqa: E402
+import robots_rfc  # noqa: E402
 import tenkites_c as tk  # noqa: E402
 from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
@@ -163,7 +171,7 @@ CHECKS = [
     (re.compile(r"^BLANC DE POULET NOURRI AU MAÏS"), [("A", "Corn-fed chicken breast, wild mushrooms, burnt leeks, chicken velouté"), ("R", "Corn-fed chicken breast, wild mushrooms, burnt leeks, chicken velouté"), ("PF", "Corn-fed chicken breast, wild mushrooms, burnt leeks, chicken velouté")]),
     ("ROASTED PORK BELLY Braised Butter Beans and Wild Mushrooms", [("A", "Roasted pork belly, braised butter beans and wild mushrooms"), ("R", "Roasted pork belly, braised butter beans and wild mushrooms")]),
     (re.compile(r"^PAVÉ OF COD"), [("A", "Pavé of cod, curried cauliflower purée, vinaigrette of pomegranate, golden raisins, red onion and lime"), ("S", "Pavé of cod, curried cauliflower purée, vinaigrette of pomegranate, golden raisins, red onion and lime"), ("PF", "Pavé of cod, curried cauliflower purée, vinaigrette of pomegranate, golden raisins, red onion and lime")]),
-    ("FISH PIE Topped with Whole Grain Mustard Pommes Purée", [("A", "Traditional fish pie topped with mashed potato")]),
+    ("TRADITIONAL FISH PIE Topped with Whole Grain Mustard Pommes Purée", [("A", "Traditional fish pie topped with mashed potato")]),
     (re.compile(r"^CARAMELISED ONION, SQUASH & SPINACH PITHIVIER"), [(k, "Caramelised onion, squash and spinach pithivier, celeriac purée, vegan jus") for k in ("A", "R", "S", "PF")]),
     ("Additonal chicken", [("A", "Chicken"), ("R", "Additions £6.00: Chicken"), ("S", "Chicken")]),
     ("Add Tiger Prawns (Salade Maison)", [("A", "Tiger prawns"), ("R", "Tiger prawns"), ("S", "Tiger prawns")]),
@@ -309,19 +317,39 @@ def tidy_name(printed: str) -> str:
 
 
 # ------------------------------------------------------------------------------------------------ fetching and reading
+_ROBOTS: dict = {}
+
+
+def _robots_check(url: str) -> None:
+    """Stop the run when the host's robots.txt (RFC 9309 matching) disallows this URL for `User-agent: *`; never work round it."""
+    host = urlsplit(url)
+    if host.netloc not in _ROBOTS:
+        txt = subprocess.run(["curl", "-sS", "--fail", "--compressed", "-A", tk.USER_AGENT, f"https://{host.netloc}/robots.txt"],
+                             check=True, capture_output=True, text=True).stdout
+        _ROBOTS[host.netloc] = robots_rfc.parse(txt)
+    path = host.path + (f"?{host.query}" if host.query else "")
+    if not robots_rfc.allowed(_ROBOTS[host.netloc], path):
+        raise SystemExit(f"robots.txt of {host.netloc} disallows {path}: not downloading it")
+
+
+def _fetch(url: str, dest: Path) -> None:
+    _robots_check(url)
+    tk.fetch(url, dest)
+
+
 def fetch_all(work: Path) -> None:
     (work / "pages").mkdir(parents=True, exist_ok=True)
     (work / "pdf").mkdir(parents=True, exist_ok=True)
     first = work / "pages" / PAGE_FILE.format(0)
-    tk.fetch(BASE, first)
+    _fetch(BASE, first)
     tabs = hp.menu_tabs(first.read_text(encoding="utf-8"))
     if [t[0] for t in tabs] != [t[1] for t in TABS]:
         raise SystemExit(f"The page's menu selector changed: {[t[0] for t in tabs]}, expected {[t[1] for t in TABS]}")
     for i, (name, mid) in enumerate(tabs):
         if i:
-            tk.fetch(f"{BASE}?mguid={mid}", work / "pages" / PAGE_FILE.format(i))
+            _fetch(f"{BASE}?mguid={mid}", work / "pages" / PAGE_FILE.format(i))
     for fname, url in PDFS.values():
-        tk.fetch(url, work / "pdf" / fname)
+        _fetch(url, work / "pdf" / fname)
 
 
 def read_pages(work: Path) -> list[dict]:
