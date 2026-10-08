@@ -1,0 +1,5 @@
+item,code,verdict,evidence
+garlic-aioli-dip,name-implies-eggs,ok,"Botanist Allergen Matrix (menus.tenkites.com/nwtc/thebotanist, A La Carte > Garden Sides 'Garlic Aioli Dip', 333 kcal, read 2026-10-08): 'Suitable for: Vegan, Vegetarian', 'May contain: Celery' only; the Vegan column is ticked, so this is a vegan aioli with no egg"
+garlic-aioli,name-implies-eggs,ok,"Botanist Allergen Matrix (Pizza menu > Christmas Specials - Dips 'Garlic Aioli', 222 kcal, read 2026-10-08): 'Suitable for: Vegan, Vegetarian', 'May contain: Celery' only; the Vegan column is ticked, so no egg"
+mayonnaise,name-implies-eggs,ok,"Botanist Allergen Matrix (Condiments menu 'Mayonnaise', 61 kcal, read 2026-10-08): 'Suitable for: Vegan, Vegetarian' and no allergen marked at all; the Vegan column is ticked, so a vegan mayonnaise"
+vanilla-cheesecake,name-implies-milk,ok,"Botanist Allergen Matrix (A La Carte > Puddings 'Vanilla Cheesecake', 410 kcal, read 2026-10-08): 'Suitable for: Vegan, Vegetarian', 'Contains: Soya, Cereals with Gluten', 'May contain: Tree Nuts'; the Vegan column is ticked, so a vegan cheesecake with no milk"
