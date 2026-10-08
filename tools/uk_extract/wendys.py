@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-from __future__ import annotationsBuild data/source/wendys/ from Wendy's UK's official "Nutrition Information" PDF (UK national menu).
+"""Build data/source/wendys/ from Wendy's UK's official "Nutrition Information" PDF (UK national menu).
 
     python3 tools/uk_extract/wendys.py path/to/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf --checked-on 2026-10-06
 
@@ -20,6 +19,7 @@ guide marks for no item. Gluten cereals are named as the guide names them (barle
 Left out on purpose (see the `None` rows): the five dip pots, whose weight is printed as 100 g (values are per 100 g of sauce,
 not per pot), and the second copy of the Jr. Crispy Chicken Sandwich (identical numbers, listed again under Kid's Meal).
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import sys
