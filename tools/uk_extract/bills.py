@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build data/source/bills/ from Bill's own allergen & nutrition pages (hosted by Ten Kites).
 
-    python3 tools/uk_extract/bills.py --pages DIR --checked-on 2026-10-07 [--fetch]
+    python3 tools/uk_extract/bills.py --pages DIR --checked-on 2026-10-08 [--fetch]
 
 DIR holds the 12 saved menu pages (bills_m00.html ... bills_m11.html); --fetch downloads them first (one request per page, one
 second apart). The pages are the "Allergen & Nutritional" menus Bill's links from https://www.bills-website.co.uk/menus:
@@ -61,9 +61,9 @@ MENUS = [
     ("bills_m11.html", "GF Christmas Set Menu", "9b5db779-bcbe-4a62-b033-d32a7768dae9", 14),
 ]
 SOURCE_TITLE = ("Bill's Allergen & Nutritional menus, all 12 menu tabs (Ten Kites pages linked from bills-website.co.uk/menus; "
-                "accessed 2026-10-07, no date shown)")
+                "accessed 2026-10-08, no date shown)")
 ALLERGEN_TITLE = ("Bill's Allergen & Nutritional menus (Ten Kites): per-dish allergens and 'may contain' on the same pages "
-                  "(accessed 2026-10-07, no date shown)")
+                  "(accessed 2026-10-08, no date shown)")
 NOTE = ("Bill's prints calories only, per portion, so protein, carbs and fat are not published. Menu items may vary per location. "
         "Alcoholic drinks (and one juice) print no calories and are not listed; Sunday roasts and the Kids pancake parlour are on "
         "selected sites only and are left out.")
@@ -76,6 +76,12 @@ EXCLUDE_PATH = {"SUNDAY ROASTS": "page says 'Available in selected trial sites o
 EXCLUDE_NAME = {("CROISSANT", "Lewes"): "printed '(Available in Lewes only)'",
                 ("(VG Optiotn available)", ""): "not a dish name: an option label with no dish to attach it to"}
 LIMIT_WORDS = re.compile(r"\b(only|selected)\b", re.I)
+# held back after the independent accuracy re-read of 2026-10-08 (data/audit/verified/bills.json): the page's allergen row
+# contradicts the dish's own name and we can't tell which is right, so neither is published (nothing is corrected)
+ALLERGEN_HOLDBACK = {
+    "Hazelnut Syrup": ("allergen row contradicts the dish name/ingredients: the page prints 'This dish contains none of the listed "
+                       "allergens' (no tree nuts) for a hazelnut-named syrup and nothing on the page says the name is only a flavour"),
+}
 
 # ---------------------------------------------------------------- names and categories
 ACRONYMS = {"BBQ", "GF", "VG", "SMK", "AVO", "G&T", "CBD", "IPA", "UK"}
@@ -88,9 +94,8 @@ OVERRIDES = {
     ("SEMI-SKIMMED", "143"): "Iced Berry Matcha with Semi-Skimmed Milk", ("SKIMMED", "135"): "Iced Berry Matcha with Skimmed Milk",
     ("Coconut", "200"): "Iced Berry Matcha with Coconut Milk", ("OAT", "181"): "Iced Berry Matcha with Oat Milk",
     ("SOYA", "134"): "Iced Berry Matcha with Soya Milk", ("With Cream +40p", "331"): "Hot Chocolate with Cream",
-    # the same name twice in one section, told apart by the page's own description line
-    ("ICE CREAMS & SORBETS", "235"): "Ice Creams & Sorbets (Salted caramel, chocolate, strawberry, vanilla)",
-    ("ICE CREAMS & SORBETS", "157"): "Ice Creams & Sorbets (Coconut ice cream, lemon sorbet)",
+    # (until 2026-10-07 the page printed "ICE CREAMS & SORBETS" twice, told apart here by the description line; since the 2026-10-08
+    # re-read it prints "GLUTEN FREE ..." and "VEGAN & GLUTEN FREE ICE CREAMS & SORBETS (no wafer)", so no override is needed)
 }
 CATEGORY_NAMES = {"Mini Dessert & a Hot Drink £7.50": "Mini desserts & a hot drink", "BILL'S SHAWARMAS": "Shawarmas"}
 KIDS_MENUS = {5, 6}
@@ -352,6 +357,8 @@ def hold_back_and_clean(items: list, rows: list, report: list) -> tuple:
     holdback = []
     for it in items:
         r = it.pop("_row")
+        if it["name"] in ALLERGEN_HOLDBACK:
+            holdback.append((slug(it["name"]), ALLERGEN_HOLDBACK[it["name"]]))
         if it.pop("_unspecified"):
             report.append(f"meat type not stated: {it['name']}")
         if r["kind"] == "option" and r["name"].upper().startswith("ADD ") and r["group"] in base_kcal:

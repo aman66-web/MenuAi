@@ -102,6 +102,11 @@ def classify(rec: dict):
 
 HOLDBACK = {
     "Green Olives": "The table prints 284 kcal; its own macros (2.0 g protein, 1.2 g carbs, 4.9 g fat) add up to about 57 kcal.",
+    # independent accuracy check, 8 Oct 2026 (re-read the five tabs of the Ten Kites page, parsed again with a different reader)
+    "Peroni Nastro Azzurro Gluten Free": "The page marks this beer 'Suitable for: Gluten Free' but also 'Contains: Cereals (Barley)', so what it says about gluten conflicts with itself.",
+    "Macchiato (Regular)": "Printed as 0 kcal and 0 g of everything, no allergens, and 'Suitable for: Vegan', although a macchiato is espresso with milk and the same page marks its decaf version 'May contain: Milk' (12 kcal); its menu card shows no figure at all.",
+    "Gelato: Hazelnut": "The page prints 'Contains: Tree Nuts (Hazelnuts)' and 'May contain: Tree Nuts (Pistachios)'; the allergen file cannot hold tree nuts as both contains and may contain, so the pistachio warning would be lost.",
+    "Gelato: Pistachio": "The page prints 'Contains: Tree Nuts (Pistachios)' and 'May contain: Peanuts, Tree Nuts (Hazelnuts)'; the allergen file cannot hold tree nuts as both contains and may contain, so the hazelnut warning would be lost.",
 }
 NOTE = ("Per portion as printed on the chain's menu pages. Wines, many cocktails and some drinks print no numbers and are not "
         "listed; the build-your-own pasta is not listed because only its ingredients are given. Extras (toppings, dips, "

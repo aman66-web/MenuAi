@@ -102,6 +102,21 @@ HOLDBACK = {
     "Florentine (Eggs Hollandaise)": "The menu prints 718 kcal (the same as Benedict) but its own macros add up to about 553 kcal.",
     "Leek & Potato Soup (gluten free)": "The menu prints 225 kcal; its own macros add up to about 319 kcal (50 g of carbohydrate alone is about 200 kcal).",
     "Kids Salted Caramel Ice Cream with Wafer": "The menu prints 112 kcal; its own macros add up to about 60 kcal.",
+    # Added after the independent re-read of 2026-10-08 (the numbers below are exactly as printed; the menu contradicts itself):
+    "Risotto Vert - Vegan (weekday gluten free menu)": "The menu prints 46.7 g of saturates for 19.6 g of fat.",
+    "Risotto Vert - Vegan (weekend gluten free menu)": "The menu prints 46.7 g of saturates for 19.6 g of fat, and marks no allergen at all although its own "
+                                                       "ingredient list names sulphites (wine vinegar).",
+    "Risotto Vert (weekend gluten free menu)": "The menu marks no allergen at all, but its own ingredient list names cow's milk (cheese) and sulphites "
+                                               "(wine vinegar); the weekday gluten free version marks them.",
+    "Half Poulet Breton (gluten free)": "The menu marks no allergen at all, but its own ingredient list names butter (milk); the weekday gluten free "
+                                        "version marks milk.",
+    "Whole Poulet Breton (gluten free)": "The menu marks no allergen at all, but its own ingredient list names butter (milk); the weekday gluten free "
+                                         "version marks milk.",
+    "Veggie French Onion Soup": "The menu marks no celery, but its own ingredient list names celery (vegetable stock and celery root powder).",
+    "Andrea's Pasta": "The menu marks no egg, but its own ingredient list names egg (the pasta); the vegan version has none.",
+    "Botivo Elderflower Spritz": "The menu prints 10.6 g of sugars for 6 g of carbohydrate.",
+    "Chocolate Mousse for One": "The menu prints 23.9 g of sugars for 22 g of carbohydrate.",
+    "Poulet Grille": "The menu prints 6.2 g of sugars for 2 g of carbohydrate.",
 }
 
 # The same pages print each dish's allergens three ways (the 14 yes/may/no columns, the card's "Contains:" / "May contain:"
@@ -112,6 +127,25 @@ ALLERGEN_TITLE = "Côte Brasserie allergen and nutrition menus (June 2026 menus,
 EXPECTED_ROWS = 541
 
 
+# A page that ticks "Vegetarian" for a dish whose own allergen marks say it contains fish, crustaceans or molluscs contradicts itself
+# (Caesar Salad, gluten free: anchovy): no vegetarian tag is given (the allergens are published as printed). Found 2026-10-08.
+SEAFOOD = {"fish", "crustaceans", "molluscs"}
+VEG_DROPPED: dict = {}
+_last_name: dict[str, str] = {}
+
+
+def veg_of(rec: dict) -> bool:
+    page = bool({"Vegetarian", "Vegan"} & set(rec["yes_labels"]))
+    if not page:
+        return False
+    a = tk.allergens_from_rec(rec, f"vegetarian check {rec['name']}")
+    if a and a["contains"] & SEAFOOD:
+        VEG_DROPPED[(_last_name["name"], frozenset(a["contains"]))] = ("page marks it vegetarian but its own allergens say it contains "
+                                           + " and ".join(sorted(a["contains"] & SEAFOOD)) + ": no vegetarian tag given")
+        return False
+    return True
+
+
 def name_of(label: str, rec: dict) -> str:
     name = rec["name"]
     if rec["course"][-1] == "+ Upgrade your breakfast":
@@ -119,6 +153,7 @@ def name_of(label: str, rec: dict) -> str:
     sect = [c for c in rec["course"] if c in VARIANT_SECTIONS]
     if sect:
         name = f"{name} ({'Eggs Hollandaise' if 'Hollaind' in sect[0] or 'Hollandaise' in sect[0] else sect[0]})"
+    _last_name["name"] = name
     return name
 
 
@@ -137,7 +172,11 @@ def main() -> int:
 
     rows, excluded, _, total = tk.collect_rows(
         labels, paths, "table", name_of, lambda label, rec, name: category(label, rec["course"], rec["name"]),
-        allergen_fn=lambda label, rec: tk.allergens_from_rec(rec, f"{label} {rec['name']}"))
+        veg_fn=veg_of, allergen_fn=lambda label, rec: tk.allergens_from_rec(rec, f"{label} {rec['name']}"))
+    for r in rows:
+        key = (r["name"], frozenset(r["allergens"]["contains"])) if r["allergens"] else None
+        if key in VEG_DROPPED:
+            r["note"] = VEG_DROPPED[key]
     if total != EXPECTED_ROWS:
         print(f"The pages hold {total} rows but this script was written for {EXPECTED_ROWS}: re-check the menu list "
               "and category() against the pages, then update EXPECTED_ROWS.", file=sys.stderr)
@@ -157,7 +196,8 @@ def main() -> int:
         aliases=["cote brasserie", "côte brasserie", "cote", "côte", "cote restaurant"], items=items, out=args.out,
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note="Carbohydrate is the menu's 'Available Carb' column, and the menu prints salt for only some dishes. Dishes that differ "
-             "on the gluten free, weekend or kids menus appear once per version.",
+             "on the gluten free, weekend or kids menus appear once per version. Where a dish contains one kind of tree nut or cereal the menu "
+             "may also list other kinds as 'may contain'; the app shows only what the dish contains.",
         allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in labels:

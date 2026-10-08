@@ -1,0 +1,43 @@
+item,code,verdict,evidence
+1-2-chicken,huge-protein,ok,"half chicken, 922 kcal; 4P+4C+9F = 919 kcal; page (fh_main) prints 131.2 g protein and none of the listed allergens"
+boneless-chicken-platter-serves-2,huge-protein,ok,"sharing platter for 2; page prints 146.1 g protein, 2030 kcal (fh_main Sharing platters)"
+family-chicken-platter-serves-3-4,huge-protein,ok,"family platter for 3-4; page prints 459.9 g protein, 4899 kcal, 16.4 g salt (fh_main Sharing platters)"
+custard,name-implies-eggs,ok,"page row 'Custard' (Beachcomber Inn main menu, Desserts): Suitable for Vegetarian; Contains: Milk. A custard can be egg-free; the page prints no egg mark"
+jacket-potato-with-tuna-mayo,name-implies-eggs,ok,"page row prints Contains: Fish, Milk (bc_light). The same page's 'Tuna Mayo Melt', made with 'our classic tuna mayo filling', lists Eggs only under May contain, so the filling is egg-free by the chain's own data"
+piri-piri-mayo,name-implies-eggs,ok,"page row 'Piri-Piri Mayo' (fh_main): Suitable for Vegetarian, Vegan; none of the listed allergens - a vegan mayo"
+toasted-brioche-style-bun,name-implies-eggs,ok,"page row (fh_main): Suitable for Vegetarian, Vegan; Contains: Mustard, Cereals containing Gluten (Wheat, Rye) - vegan brioche-style bun, no egg"
+tuna-mayo-and-cucumber,name-implies-eggs,ok,page row (bc_light): 'our classic tuna mayo filling with sliced cucumber'; Contains: Fish. Same filling in Tuna Mayo Melt lists Eggs only under May contain
+caesar-dressing-v,name-implies-fish,ok,"page row (papa) Caesar Dressing (V): Suitable for Vegetarian; Contains: Eggs, Milk - a vegetarian Caesar dressing has no anchovy"
+caesar-salad-beachcomber-inn-salad,name-implies-fish,ok,"page row Caesar Salad (bc_main): Suitable for Vegetarian; Contains Eggs, Milk, Gluten (Wheat) - vegetarian Caesar, no fish"
+caesar-salad-the-diner-choose-your-main,name-implies-fish,ok,"page row Caesar Salad (diner_main): Suitable for Vegetarian; Contains Eggs, Milk, Gluten (Wheat)"
+caesar-salad-the-diner-mac-n-cheese,name-implies-fish,ok,"page row Caesar Salad (diner_brunch): Suitable for Vegetarian; Contains Eggs, Milk, Gluten (Wheat)"
+gravy-fish-and-chips,name-implies-fish,ok,"page row Gravy on the Fish & Chips menu (fish): Suitable for Vegetarian, Vegan; none of the listed allergens. 'Fish & Chips' is the restaurant name, not an ingredient"
+jalapenos-ve-ngci-fish-and-chips,name-implies-fish,ok,"page row Jalapenos (VE NGCI) on the Fish & Chips menu: vegan, non-gluten-containing, none of the listed allergens. 'Fish & Chips' is the restaurant name"
+ngci-caesar-salad,name-implies-fish,ok,"page row NGCI Caesar Salad (diner_brunch): Suitable for Vegetarian; Contains Eggs, Milk; 'Without the croutons'"
+onion-rings-fish-and-chips-sides,name-implies-fish,ok,"page row Onion Rings on the Fish & Chips menu (fish): Suitable for Vegetarian, Vegan; Contains Gluten (Wheat). 'Fish' is the restaurant name"
+cheesy-pasta-beachcomber-inn,name-implies-gluten,ok,page row (bc_kids) Cheesy Pasta: 'NGCI penne pasta in a creamy cheese sauce' - gluten-free pasta
+cheesy-pasta-firehouse-grill,name-implies-gluten,ok,"page row Cheesy Pasta (fh_kids): 'NGCI pasta tubes in a cheesy sauce' - gluten-free pasta; Contains Milk, Soya"
+gravy-fish-and-chips,name-implies-gluten,ok,"page row Gravy on the Fish & Chips menu (fish): Suitable for Vegetarian, Vegan; none of the listed allergens. 'Fish & Chips' is the restaurant name, not an ingredient"
+jalapenos-ve-ngci-fish-and-chips,name-implies-gluten,ok,"page row Jalapenos (VE NGCI) on the Fish & Chips menu: vegan, non-gluten-containing, none of the listed allergens. 'Fish & Chips' is the restaurant name"
+ngci-cheesy-pasta,name-implies-gluten,ok,page row NGCI Cheesy Pasta (diner_brunch): NGCI = non-gluten-containing ingredients
+ngci-tomato-pasta-the-diner-kids-juniors,name-implies-gluten,ok,page row NGCI Tomato Pasta (diner_kids): 'Non-gluten containing pasta tubes'
+ngci-tomato-pasta-the-diner-kids-tots,name-implies-gluten,ok,page row NGCI Tomato Pasta (diner_kids): 'Non-gluten containing pasta tubes'
+non-gluten-containing-cheesy-pasta-ngci,name-implies-gluten,ok,page row 'Non-Gluten Containing Cheesy Pasta (NGCI)' (bc_main): 'Non-gluten containing pasta in a creamy cheese sauce'
+non-gluten-containing-white-bread-ve-ngci,name-implies-gluten,ok,page row 'Non-Gluten Containing White Bread (VE NGCI)' (buffet): none of the listed allergens
+vegan-non-gluten-containing-mushroom-bourguignon-pie,name-implies-gluten,ok,"page row names itself 'Vegan Non-Gluten Containing Mushroom Bourguignon Pie' (bc_carvery): Contains Soya, Sulphites"
+waffle-fries-the-diner,name-implies-gluten,ok,"page row Waffle Fries (diner_kids / diner_main): potato fries, none of the listed allergens"
+waffle-fries-the-diner-kids,name-implies-gluten,ok,"page row Waffle Fries (diner_kids): potato fries, none of the listed allergens"
+add-quorntm-buttermilk-style-fillet,name-implies-milk,ok,"page row 'Add Quorn Buttermilk-Style Fillet' (fh_main): Suitable for Vegetarian, Vegan; Contains Gluten (Wheat) - a vegan Quorn fillet, buttermilk-style is a flavour name"
+bbq-pulled-pork-the-diner-mac-n-cheese,name-implies-milk,ok,"page row BBQ Pulled Pork (diner_brunch); 'Mac n cheese' is the section it is listed under, not an ingredient; Contains Soya"
+buttermilk-style-quorntm-fillet-firehouse-grill,name-implies-milk,ok,"page row (fh_main): Suitable for Vegetarian, Vegan; Contains Gluten (Wheat) - vegan Quorn fillet"
+buttermilk-style-quorntm-fillet-firehouse-grill-kids,name-implies-milk,ok,page row (fh_kids): 'Crispy coated Quorn vegan fillet'
+buttermilk-style-quorntm-fillet-wrap,name-implies-milk,ok,page row (fh_main): 'Crispy coated Quorn vegan fillet ... and vegan mayo'
+orange-soft-whip-ice-cream-ve-ngci,name-implies-milk,ok,"page row (papa) Orange Soft Whip Ice Cream (VE NGCI): vegan, none of the listed allergens"
+plain-ice-cream-sundae-beachcomber-inn,name-implies-milk,ok,"page row Plain Ice Cream Sundae (bc_kids): 'Soft whip ice cream' only; the page's Soft Whip Ice Cream is (VE NGCI), none of the listed allergens"
+plain-ice-cream-sundae-beachcomber-inn-kids,name-implies-milk,ok,"page row Plain Ice Cream Sundae (bc_kids): 'Soft whip ice cream' only; the page's Soft Whip Ice Cream is (VE NGCI), none of the listed allergens"
+soft-whip-ice-cream-ve-ngci,name-implies-milk,ok,"page row Soft Whip Ice Cream (VE NGCI) (bc_main): vegan, none of the listed allergens"
+family-chicken-platter-serves-3-4,salt-very-high,ok,"family platter for 3-4; page prints 459.9 g protein, 4899 kcal, 16.4 g salt (fh_main Sharing platters)"
+mega-mountain,salt-very-high,ok,"page prints 2209 kcal, 11.4 g salt for the whole sharing plate (fh_main)"
+sticky-glazed-roast-gammon,salt-very-high,ok,page prints 6.1 g salt with 342 kcal (bc_carvery); gammon is cured meat
+the-vegetarian-cheese-meltdown-v,salt-very-high,ok,page prints 10.7 g salt with 2087 kcal (diner_main)
+ultimate-mega-stack-burger,salt-very-high,ok,page prints 10.5 g salt with 1984 kcal (fh_main)

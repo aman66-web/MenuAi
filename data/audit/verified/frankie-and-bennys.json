@@ -1,0 +1,13 @@
+{
+ "chain": "frankie-and-bennys",
+ "date": "2026-10-08",
+ "source_read": "https://menus.tenkites.com/thebigtg/frankiebennys02 (7 tab pages re-downloaded 2026-10-08; script re-run gave byte-identical CSVs)",
+ "compared_items": 268,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 4,
+ "marked_ok": 17,
+ "not_verifiable": "",
+ "notes": "All 268 rows matched the 435 independently parsed modals on kcal, protein, carbs, sugars, fat, sat fat, salt and contains/may/cereals/nuts; held back four Strathmore waters whose allergen row lists all 14 allergens; kids' squash/Apple Twilight/Brooklyn Boba list peanuts+tree nuts as printed (over-marking, kept)."
+}

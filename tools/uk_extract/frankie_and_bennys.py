@@ -136,6 +136,12 @@ HOLDBACK = {
     "Peroni 0.0% 330ml": "The table prints 139 kcal for an alcohol-free beer whose own macros (10.6 g carbs) add up to about 42 kcal.",
     "Jack Daniels (25ml)": "The table prints 605 kcal for a 25 ml measure of whiskey (0 g of everything else).",
     "Jack Daniels (50ml)": "The table prints 1,211 kcal for a 50 ml measure of whiskey (0 g of everything else).",
+    # accuracy check 2026-10-08: the dietary section of each bottled water prints all 14 allergens, every gluten cereal and every tree nut
+    # (a placeholder, not an allergen statement): allergen row contradicts the item's name, so it is not shown.
+    "Strathmore Water (Still)": "Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled still water.",
+    "Strathmore Water (Still Large)": "Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled still water.",
+    "Strathmore Water (Sparkling Regular)": "Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled sparkling water.",
+    "Strathmore Water (Sparkling Large)": "Allergen row contradicts the item's name: the page marks all 14 allergens, every cereal and every tree nut for bottled sparkling water.",
 }
 NOTE = ("Per portion as printed on the chain's menu pages; the Breakfast menu (selected sites only) is not listed. Wines, many "
         "cocktails and some drinks print no numbers and are not listed. Sauces, toppings, extras and upgrade sides are separate "

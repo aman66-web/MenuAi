@@ -1,1 +1,1 @@
-Carbohydrate is the menu's 'Available Carb' column, and the menu prints salt for only some dishes. Dishes that differ on the gluten free, weekend or kids menus appear once per version.
+Carbohydrate is the menu's 'Available Carb' column, and the menu prints salt for only some dishes. Dishes that differ on the gluten free, weekend or kids menus appear once per version. Where a dish contains one kind of tree nut or cereal the menu may also list other kinds as 'may contain'; the app shows only what the dish contains.

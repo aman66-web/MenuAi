@@ -1,0 +1,20 @@
+item,code,verdict,evidence
+plant-based-big-breakfast-v,vegan-contains-animal,ok,"nogluten menu box 'Plant-Based Big Breakfast (V)': Contains: Eggs, Soya, Sulphur Dioxide/ Sulphites. Marked (V) = vegetarian, not (VG); the (VG) version on the lunch/brunch menus has no egg"
+egg-on-toast-v-excluding-egg-option-see-below,name-implies-eggs,ok,"kids menu box 'Egg on Toast (V) (Excluding Egg Option, see below)': the egg is the separate option; the core (toast) Contains: Cereals with Gluten (Wheat, Barley)"
+caesar-salad-bowl-v,name-implies-fish,ok,"main menu box 'Caesar Salad Bowl (V)': vegetarian dish; Contains: Eggs, Milk, Cereals with Gluten (Wheat, Barley); no fish printed and a (V) dish cannot carry anchovy"
+caesar-salad-bowl-v-no-gluten-menu,name-implies-fish,ok,"no-gluten menu box 'Caesar Salad Bowl (V)': Contains: Eggs, Milk; vegetarian dish"
+crispy-smoked-tofu-vg-with-katsu-curry,name-implies-gluten,ok,"option row (topper) offered with the Katsu Curry core: 'Crispy Smoked Tofu (VG)' 431 kcal, Contains: Soya; the sauce's wheat is on the core row"
+crispy-smoked-tofu-vg-with-katsu-fries,name-implies-gluten,ok,"option row (topper) offered with the Katsu Fries core: 'Crispy Smoked Tofu (VG)' 145 kcal, Contains: Soya; the sauce's wheat is on the core row"
+crispy-smoked-tofu-vg-with-katsu-loaded-fries,name-implies-gluten,ok,"option row (topper) offered with the Katsu Loaded Fries core: 'Crispy Smoked Tofu (VG)' 286 kcal, Contains: Soya; the sauce's wheat is on the core row"
+salted-caramel-chocolate-brownie-bites-vg,name-implies-gluten,ok,main menu box: Contains: Soya; the same Brownie Bites (VG) is on the chain's own 'No-Gluten Containing Ingredients Menu' (same numbers and marks)
+salted-caramel-chocolate-brownie-vg,name-implies-gluten,ok,kids menu box 'Salted Caramel Chocolate Brownie (VG)': Contains: Soya; the same recipe is on the no-gluten menu as Brownie Bites
+salted-caramel-chocolate-brownie-vg-afternoon-tea,name-implies-gluten,ok,afternoon tea box 'Salted Caramel Chocolate Brownie (VG)' 127 kcal: Contains: none; listed in both the standard and the Non-Gluten Containing Afternoon Tea Selection
+scone-v-non-gluten-containing-afternoon-tea-selection,name-implies-gluten,ok,"afternoon tea box 'Scone (V)' 618 kcal in the 'Non-Gluten Containing Afternoon Tea Selection': Contains: Eggs, Milk (the wheat scone is the separate 611 kcal row)"
+veggie-burger-v-excluding-cheese-and-accompaniment-options-see-below,name-implies-milk,ok,"kids menu box: the cheese is the separate option ('Excluding Cheese & Accompaniment options'); core Contains: Soya, Celery, Cereals with Gluten (Wheat)"
+crispy-shredded-chicken-with-katsu-fries,name-implies-soya,ok,"option row (topper) offered with the Katsu Fries core: 'Crispy Shredded Chicken' 172 kcal, Contains: Cereals with Gluten (Wheat); the sauce is on the core row"
+crispy-shredded-chicken-with-katsu-loaded-fries,name-implies-soya,ok,"option row (topper) offered with the Katsu Loaded Fries core: 'Crispy Shredded Chicken' 343 kcal, Contains: Cereals with Gluten (Wheat); the sauce is on the core row"
+katsu-curry-excluding-topper-option-see-below,name-implies-soya,ok,"main menu box: Katsu is a curry sauce here; the chain's row prints Contains: Mustard, Cereals with Gluten (Wheat); May contain Tree Nuts, Peanuts, Sesame Seeds, Celery. No soya printed, and a curry sauce need not contain soya"
+katsu-fries-excluding-topper-choice-see-below,name-implies-soya,ok,"main menu box: Katsu sauce on fries; Contains: Mustard, Cereals with Gluten (Wheat); no soya printed"
+katsu-loaded-fries-excluding-topper-choice-see-below,name-implies-soya,ok,"main menu box: Katsu sauce on loaded fries; Contains: Mustard, Cereals with Gluten (Wheat); no soya printed"
+s-and-l-meat-feast,salt-very-high,ok,"main menu sharers box 'S&L Meat Feast': 1,848 kcal, Salt (g) 12.1 as printed (a sharing platter)"
+s-and-l-sharer-for-two,salt-very-high,ok,"main menu sharers box 'S&L Sharer For Two': 2,511 kcal, Salt (g) 14.2 as printed (a sharer for two)"

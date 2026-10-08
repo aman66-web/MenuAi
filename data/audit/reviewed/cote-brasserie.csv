@@ -1,0 +1,9 @@
+item,code,verdict,evidence
+kids-vegan-vanilla-ice-cream-with-wafer,vegan-contains-animal,ok,"kids page 'Suitable for: Under 700 kcal, Vegetarian' (not Vegan); the milk comes from the wafer: ingredients 'Concentrated Pastry Butter (Milk), Lactose and Milk Proteins (Milk)'; the ice cream itself is coconut oil and soya"
+whole-poulet-breton,huge-protein,ok,"weekday page: whole corn-fed chicken with frites, 2,769 kcal / 162.1 g protein / 200.4 g fat printed (4P+4C+9F = 2744 kcal, consistent)"
+caesar-salad,name-implies-fish,ok,"weekday and weekend pages: ingredient list has no anchovy (egg, cow's milk cheese, mustard, wheat croutons); only the gluten free Caesar lists 'Anchovy (FISH)' and marks fish"
+avocado-on-toast,name-implies-gluten,ok,"breakfast gluten free page: toast is gluten free bread (rice flour, buckwheat flour, millet; 'Suitable for: Gluten Free'); the allergen columns mark no gluten"
+bread-and-butter,name-implies-gluten,ok,"weekday/weekend gluten free pages: gluten free bread (maize, potato, rice and buckwheat flour; 'Suitable for: Gluten Free'); the wheat Baguette is a separate item"
+creamed-potato-puree,name-implies-milk,ok,"kids page ingredients: soya base (Soya), coconut milk, vegan cream, no dairy; the allergen columns mark soya only"
+creamy-tomato-mafalde,name-implies-milk,ok,"weekday/prix fixe pages ingredients: soya base (Soya), coconut milk, no dairy; the allergen columns mark gluten and soya"
+fruit-and-yogurt-bowl,name-implies-milk,ok,"kids pages ingredients: soya base (Soya), coconut milk and coconut cream, no dairy; the allergen columns mark soya only"

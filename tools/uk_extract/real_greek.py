@@ -21,7 +21,10 @@ What is and is not published (all of it written to the check report and the chai
   more than 30% above or more than 25% below 4P+4C+9F, found by this script); rows whose figure the chain's own lunch page (page 2)
   prints differently by more than 10% for the same dish (Tzatziki, Rice, Grilled Aubergine, the Chicken Gyros wrap with tzatziki, the
   Pork Gyros wrap; the Tzatziki 50 g row is exactly 5/7 of the Tzatziki row so it goes with it); the four "Dip Trio" rows, which print
-  exactly the numbers of the single dip although a trio is served with flat bread, so their serving is unclear.
+  exactly the numbers of the single dip although a trio is served with flat bread, so their serving is unclear; the three "(50 g)"
+  dip rows whose printed protein + carbs + fat weigh more than the 50 g they claim to be (Houmous 57.9 g, Taramasalata 67.9 g,
+  Whipped Spicy Feta 55.7 g; found by this script, independent re-check 2026-10-08: every "50G" row's protein, carbs and fat are exactly 5/7 of the dip's
+  own row above it, so the chain scaled the wrong base and the figures are not per 50 g).
 - "Warm Greek Flatbread" (506 kcal) is 533 kcal as "Greek Flatbread" on the lunch page (5% apart): published, noted in `notes`.
 
 Allergens (docs/DATA.md "Allergens") are complete: every published row carries its own letter codes in the same table. Codes are
@@ -141,6 +144,9 @@ ENERGY_HIGH, ENERGY_LOW = 1.30, 0.75
 EXPECTED_ENERGY_HELD = {"HALLOUMI POPCORN*", "KING PRAWNS SKEWER", "GRILLED AUBERGINE VEGAN", "FRIED KALAMARI*", "SPINACH PIE*", "MEAT PLATTER*",
                         "FISH PLATTER*", "VEG PLATTER*", "HALLOUMI FRIES*", "VEGAN GREEK SALAD SMALL", "VEGAN GREEK SALAD LARGE", "BAKLAVA",
                         "RASPBERRY SORBET"}
+# A row that states its weight must not print protein + carbs + fat above it. The set found on this guide (the script stops if a new guide
+# gives another set, so a human looks again). Tzatziki 50 g (27.9 g) passes this test and is held back by the lunch-page conflict below.
+EXPECTED_WEIGHT_HELD = {"HOUMOUS 50G", "TARAMASALATA 50G", "WHIPPED SPICY FETA 50G"}
 # Same dish, different figure on the chain's own lunch page (page 2): printed text that must be on page 2, and how far apart.
 LUNCH_CONFLICTS = {
     "TZATZIKI": ("TZATZIKI D SD V 71kcal", "Tzatziki prints 311 kcal here and 71 kcal on the chain's own lunch page (page 2)"),
@@ -233,7 +239,7 @@ def build(pdf: Path) -> tuple:
         if phrase not in page2:
             raise SystemExit(f"Page 2 no longer prints {phrase!r} (needed for {printed_name}): re-read the lunch page")
     items, holdback, report, unexplained_seen = [], [], [], []
-    energy_held = set()
+    energy_held, weight_held = set(), set()
     for r in rows:
         name = r["name"]
         if name in NO_NUMBERS or name in DELIVERY_ONLY:
@@ -266,6 +272,13 @@ def build(pdf: Path) -> tuple:
             energy_held.add(name)
             reason = (f"Printed {c['calories']} kcal but its own protein ({c['protein_g']} g), carbs ({c['carbs_g']} g) and fat ({c['fat_g']} g) "
                       f"add up to about {implied:.0f} kcal: the energy and the macros cannot both be right")
+        if weight:
+            heavy = fnum(c["protein_g"]) + fnum(c["carbs_g"]) + fnum(c["fat_g"])
+            if heavy > fnum(weight):
+                weight_held.add(name)
+                reason = (reason + "; " if reason else "") + (
+                    f"Printed protein ({c['protein_g']} g), carbs ({c['carbs_g']} g) and fat ({c['fat_g']} g) add up to {heavy:.1f} g, more than "
+                    f"the {weight} g serving it claims, so the figures cannot be per {weight} g (its protein, carbs and fat are exactly 5/7 of the dip's own row above it)")
         if name in LUNCH_CONFLICTS:
             reason = (reason + "; " if reason else "") + LUNCH_CONFLICTS[name][1] + ": neither can be chosen"
         if name in TRIOS:
@@ -280,6 +293,9 @@ def build(pdf: Path) -> tuple:
     if energy_held != EXPECTED_ENERGY_HELD:
         raise SystemExit(f"Rows whose kcal contradict their macros changed: now {sorted(energy_held)}, expected {sorted(EXPECTED_ENERGY_HELD)}. "
                          "Re-read the table and update EXPECTED_ENERGY_HELD.")
+    if weight_held != EXPECTED_WEIGHT_HELD:
+        raise SystemExit(f"Rows whose macros outweigh their stated serving changed: now {sorted(weight_held)}, expected {sorted(EXPECTED_WEIGHT_HELD)}. "
+                         "Re-read the table and update EXPECTED_WEIGHT_HELD.")
     report.insert(0, "left out, no numbers printed: " + ", ".join(NO_NUMBERS))
     report.insert(1, "left out, delivery only: " + ", ".join(DELIVERY_ONLY))
     report += [f"unexplained mark (not in the page's key, not an allergen): {u}" for u in unexplained_seen]

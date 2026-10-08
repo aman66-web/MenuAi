@@ -209,6 +209,15 @@ EXTRAS = {
 }
 # Signature burgers: the page describes each as "Your favourite filling topped with ...", so the figures may not be a whole burger.
 SIGNATURE_NOTE = "described as 'Your favourite filling topped with ...': the printed figures may not include the filling, so not suggested as an order"
+# Accuracy audit 2026-10-08: dishes whose allergen row cannot be reconciled with the dish itself and where nothing on the page says why
+# (the chain labels its gluten-free dishes "NGCI" or "Non-Gluten Containing"; these carry no such label and no cereal mark).
+# Held back, never corrected: the page prints no gluten mark for a brownie / a bun.
+ALLERGEN_HOLD = {
+    "vegan-brownie": "allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no NGCI / non-gluten-containing label",
+    "vegan-warm-chocolate-brownie-beachcomber-inn": "allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no NGCI / non-gluten-containing label",
+    "vegan-warm-chocolate-brownie-firehouse-grill-the-diner": "allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no NGCI / non-gluten-containing label",
+    "poppy-seed-bun": "allergen row contradicts the dish name: a bun with no cereal (gluten) marked and no NGCI / non-gluten-containing label",
+}
 ENERGY_TOLERANCE = 0.15   # the pipeline's own tolerance (tools/build_menus.py) between kcal and 4P+4C+9F
 ALCOHOL_SECTIONS = {"Draught Beer & Cider", "Spirits", "Wine", "Bottled Beer", "Cocktails"}
 
@@ -287,7 +296,10 @@ def hold_reason(label: str, rec: dict, vals: dict):
         return f"sugars ({vals['sugar_g']} g) are printed higher than carbohydrate ({vals['carbs_g']} g)"
     if kj is not None:
         from_kj = kj / 4.184
-        if abs(from_kj - cal) >= 8 and abs(from_kj - cal) / max(cal, from_kj) >= 0.25:
+        # 25% apart (kJ/4.184 against kcal) or, from kcal >= 20, a kJ figure outside 0.85-1.15 x (kcal x 4.184): the accuracy audit's
+        # "high" band (tools/audit/accuracy_audit.py), found 2026-10-08 on Cranberry Juice (203 kJ, 60 kcal) and Mushy Peas (440 kJ, 125 kcal)
+        if abs(from_kj - cal) >= 8 and (abs(from_kj - cal) / max(cal, from_kj) >= 0.25
+                                        or (cal >= 20 and not 0.85 <= kj / (cal * 4.184) <= 1.15)):
             return f"the page prints {vals['calories']} kcal but {vals['energy_kj']} kJ (about {from_kj:.0f} kcal)"
     est = 4 * p + 4 * c + 9 * f
     if not (label == "drinks" and rec["course"][0] in ALCOHOL_SECTIONS) and cal >= 50:
@@ -453,7 +465,7 @@ def build(pages: Path):
                 gap = [g + " (the printed kJ agrees with the printed kcal)" if "Printed calories" in g else g for g in gap]
         note_bits += gap
         it["notes"] = "; ".join(b for b in note_bits if b)
-        why = hold_reason(primary["label"], r["rec"], r["vals"])
+        why = hold_reason(primary["label"], r["rec"], r["vals"]) or ALLERGEN_HOLD.get(it["id"])
         if why:
             holdback.append((it["id"], why))
         report += [f"{r['name']}: {g}" for g in gap]

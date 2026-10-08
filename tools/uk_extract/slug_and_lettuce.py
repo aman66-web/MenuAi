@@ -57,7 +57,20 @@ SECTIONS = {
 UNRANKABLE = {"Extra toppings", "Desserts", "Drinks", "Options & add-ons", "Brunch add-ons", "Burger add-ons", "Afternoon tea"}
 
 # Rows the menu itself prints impossibly: left out of the published menu (never corrected), listed in the check report.
-HOLDBACK: dict[str, str] = {}
+HOLDBACK: dict[str, str] = {
+    # accuracy check 2026-10-08: the page prints kJ and kcal that cannot both be right (kJ = 4.184 x kcal within 2%), so neither is chosen
+    "Crodino Spritz": "The page prints 1330 kJ with 41 kcal: 1330 kJ is about 318 kcal, so kJ and kcal contradict. Restore by deleting this "
+                      "line once the chain corrects the page.",
+    "Crodino Spritz - 175ml": "The page prints 1285 kJ with 30 kcal: 1285 kJ is about 307 kcal, so kJ and kcal contradict. Restore by deleting "
+                              "this line once the chain corrects the page.",
+    "Crispy Tofu (VG)": "The page prints 1489 kJ with 387 kcal: 1489 kJ is about 356 kcal (and protein, carbs and fat add to about 352 kcal), so "
+                        "kJ and kcal contradict. Restore by deleting this line once the chain corrects the page.",
+    # the dish is 'Hand-battered fish with skin-on fries, tartare sauce' but the guide marks only fish and mustard: no gluten for the batter
+    # and no egg or milk for the tartare sauce. The chain's no-gluten menu does not list it either. Safety information: not shown.
+    "Fish & Chips (Excluding Your Pea Option, see below)": "Allergen row contradicts the dish name/ingredients: the dish is hand-battered fish with "
+                                                          "tartare sauce, but the guide marks only fish and mustard (no gluten, egg or milk). "
+                                                          "Restore by deleting this line once the chain confirms the allergens.",
+}
 # Notes for rows the check report flags or that look odd: entered as printed, explained here
 NOTES: dict[str, str] = {
     "Sweetcorn (VG)": "Calories (76) are about 20% higher than its macros allow (61). Entered as printed.",

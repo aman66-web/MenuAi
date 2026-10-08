@@ -1,11 +1,17 @@
 item_id,reason
+poppy-seed-bun,allergen row contradicts the dish name: a bun with no cereal (gluten) marked and no NGCI / non-gluten-containing label
+vegan-warm-chocolate-brownie-firehouse-grill-the-diner,allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no NGCI / non-gluten-containing label
+vegan-warm-chocolate-brownie-beachcomber-inn,allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no NGCI / non-gluten-containing label
 mini-danish-pastries-v,"the page prints 165 kcal; its own protein, carbohydrate and fat (2.5 g, 35.4 g, 10.9 g) add up to about 250 kcal"
 buffalo-cauliflower-bites-the-diner-grazers,the page prints 1484 kcal but 1369 kJ (about 327 kcal)
 buffalo-cauliflower-bites-the-diner-mac-n-cheese,the page prints 697 kcal but 296 kJ (about 71 kcal)
 vegan-mountain-ve,"the page prints 2210 kcal; its own protein, carbohydrate and fat (41.0 g, 189.1 g, 104.4 g) add up to about 1860 kcal, and its 7907 kJ is about 1890 kcal"
 buffalo-cauliflower-sub,the page prints 1532 kcal but 3782 kJ (about 904 kcal)
 quesadilla,the page prints 1871 kcal but 5202 kJ (about 1243 kcal)
+vegan-brownie,allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no NGCI / non-gluten-containing label
+mushy-peas,the page prints 125 kcal but 440 kJ (about 105 kcal)
 cherry-tomatoes-ve-ngci,saturates (0.4 g) are printed higher than total fat (0.2 g)
+cranberry-juice,the page prints 60 kcal but 203 kJ (about 49 kcal)
 vk-tropical-fruit-275ml,the page prints 0 kcal but 127 kJ (about 30 kcal)
 oasis-summer-fruits-500ml-bottle,the page prints 380 kcal but 90 kJ (about 22 kcal)
 powerade-berry-and-tropical-500ml,the page prints 385 kcal but 90 kJ (about 22 kcal)

@@ -1,0 +1,13 @@
+{
+ "chain": "coffee-1",
+ "date": "2026-10-08",
+ "source_read": "https://www.coffee1.co.uk/allergy-advice/ (re-downloaded the food guide v57, core and autumn beverage PDFs on 8 Oct: byte-identical to the saved copies)",
+ "compared_items": 41,
+ "nutrition_mismatches": 1,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 42,
+ "marked_ok": 19,
+ "not_verifiable": "",
+ "notes": "12 random + 29 flagged items compared on rendered pages, and all 595 published items' per-portion numbers matched a printed source row by an independent parse (594 exact, Cinnamon Bun rounded from 2 dp). Held back (42 new, tools/uk_extract/coffee_1.py): Banana & Chocolate Loaf Cake (printed kJ and kcal contradict), GF Caramel Jewel Bar (guide labels it GF but marks Oat, a gluten cereal) and 40 pistachio/praline drink rows (Dubai Style Iced Mocha, Dubai Style Mocha Frappe, Praline Iced Latte, Caramel Praline Milkshake: 5 milks x 2 sizes each) whose recipe line names a nut but whose ALLERGENS column marks no tree nut (restore if Coffee #1 confirms nut-free syrups)."
+}

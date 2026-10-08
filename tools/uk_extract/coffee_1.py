@@ -485,6 +485,24 @@ HOLDBACK: dict[str, str] = {
     "hot-chocolate-deluxe-soya-milk-large": "Per-product values (529 kcal, 22 g protein) and per-100 ml values (82 kcal) imply a cup of about 640 ml, against about 370 ml for the other milks and 396 kcal for the Regular row.",
     "hot-chocolate-deluxe-coconut-milk-large": "Per-product values (505 kcal, 17 g protein) and per-100 ml values (77 kcal) imply a cup of about 650 ml, against about 370 ml for the other milks and 375 kcal for the Regular row.",
     "iced-white-chocolate-matcha-soya-milk-regular": "The per-product block is a copy of the per-100 ml block (251 kJ, 59 kcal), so it is not the values for a regular cup (the Large row is 156 kcal).",
+    # independent accuracy check, 8 Oct 2026: the printed kJ and kcal of the same row disagree (kJ/kcal = 4.50, kcal x 4.184 = 1,514 kJ),
+    # and 4P+4C+9F = 395 kcal sides with the kJ, so the guide's own figures contradict each other and none can be trusted
+    # independent accuracy check, 8 Oct 2026: the guide's key defines (GF) as tested below the legal gluten threshold and prints (V/GF)
+    # on this bar, yet its allergen matrix (p7) and declaration (p21) mark OAT, a cereal containing gluten: two statements about gluten
+    "gf-caramel-jewel-bar": "The guide labels this bar (V/GF), and its key says GF products are tested below the legal gluten threshold, but its allergen matrix and ingredient declaration mark OATS (a cereal containing gluten), so what it says about gluten conflicts with itself.",
+    "banana-and-chocolate-loaf-cake": "Printed energy contradicts itself: 1,629 kJ (1,662 kJ per 100 g) is about 389 kcal, but the same row prints 362 kcal (369 kcal per 100 g); the printed macros (4.7 g protein, 54.4 g carbs, 17.6 g fat) also give about 395 kcal.",
+}
+
+# Drinks whose printed recipe line names a tree-nut flavour but whose ALLERGENS column marks no tree nut (independent accuracy check,
+# 8 Oct 2026). The guide may mean a nut-free flavouring syrup, but a person avoiding nuts must not be told "no tree nuts" for a
+# drink described as pistachio or praline (praline is a nut confection), so these are held back rather than shown with a guess either
+# way. Not an extraction error: the guide's ALLERGENS cells are read exactly as printed (pages 20-25 of the core guide). If Coffee #1
+# confirms these syrups are nut-free (or marks the nut), delete the line. id prefix -> (expected rows, reason).
+NUT_NAMED_DRINKS: dict[str, tuple[int, str]] = {
+    "dubai-style-iced-mocha-": (10, "The guide's recipe line says 'pistachio syrup' but its ALLERGENS column marks no tree nut (milk or soya only), so its allergens cannot be trusted."),
+    "dubai-style-mocha-frappe-": (10, "The guide's recipe line says 'blended with chocolate and pistachio' but its ALLERGENS column marks no tree nut (milk or soya only), so its allergens cannot be trusted."),
+    "praline-iced-latte-": (10, "The guide's recipe line says 'praline syrup' (praline is a nut confection) but its ALLERGENS column marks no tree nut, so its allergens cannot be trusted."),
+    "caramel-praline-milkshake-": (10, "The guide's recipe line says 'praline syrup' (praline is a nut confection) but its ALLERGENS column marks no tree nut, so its allergens cannot be trusted."),
 }
 
 NOTE = ("Each milk and size is its own row, as the guide prints it. Extra syrups, shots and toppings aren't included. "
@@ -515,6 +533,11 @@ def main() -> int:
     if dupes:
         raise SystemExit(f"duplicate item names (ids): {dupes}")
     conflicts = {k: v[1] for k, v in ALLERGEN_CONFLICTS.items()}
+    for prefix, (expected, reason) in NUT_NAMED_DRINKS.items():
+        matched = [x for x in ids if x.startswith(prefix)]
+        if len(matched) != expected:
+            raise SystemExit(f"NUT_NAMED_DRINKS {prefix!r}: expected {expected} rows, found {len(matched)}: the drink list changed")
+        conflicts.update({x: reason for x in matched})
     for hid in {**HOLDBACK, **conflicts}:
         if hid not in ids:
             raise SystemExit(f"HOLDBACK / ALLERGEN_CONFLICTS names {hid!r}, which is not an item: the names changed")
@@ -524,7 +547,7 @@ def main() -> int:
                        holdback=sorted({**HOLDBACK, **conflicts}.items()),
                        allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on})
     print(f"wrote {len(items)} items to {args.out}: {len(food)} food, {len(core)} core drinks and add-ons, {len(autumn)} autumn drinks; "
-          f"{len(HOLDBACK) + len(ALLERGEN_CONFLICTS)} held back ({len(ALLERGEN_CONFLICTS)} for contradictory allergen lists)")
+          f"{len(HOLDBACK) + len(conflicts)} held back ({len(conflicts)} for contradictory or doubtful allergen lists)")
     for name, path in (("food", args.food), ("core beverages", args.core_drinks), ("autumn beverages", args.autumn_drinks)):
         print(f"  {name}: sha256 {sha256_file(path)}")
     print(f"left out of core beverages p32 (per 100 ml only / per 15 ml-22.5 ml measures): {len(c_skipped)} rows")

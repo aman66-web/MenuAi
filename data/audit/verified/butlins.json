@@ -1,0 +1,13 @@
+{
+ "chain": "butlins",
+ "date": "2026-10-08",
+ "source_read": "https://viewthe.menu/nzsv, /nzwv, /nzpv, /nzev, /nz7a (14 menus, downloaded fresh 2026-10-08; linked from https://www.butlins.com/discover-butlins/food-and-drink/restaurants)",
+ "compared_items": 618,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 6,
+ "marked_ok": 42,
+ "not_verifiable": "",
+ "notes": "All 618 items matched on all 9 printed nutrients (incl. kJ) and on Contains/May contain by an independent regex read of the fresh pages; fresh re-run of the script reproduced data/source exactly. Held back 2 kJ-vs-kcal contradictions (Cranberry Juice, Mushy Peas: script threshold aligned with the audit's 15% band) and 4 gluten-free-looking items without an NGCI label (3 vegan brownies, Poppy Seed Bun)."
+}

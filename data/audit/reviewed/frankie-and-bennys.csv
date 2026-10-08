@@ -1,0 +1,18 @@
+item,code,verdict,evidence
+brooklyn-boba,energy-gap,ok,"Drinks tab 'Brooklyn Boba': Energy 70 kCal, Carb 22.7 g, Fat 0.0, Protein 0.2, Sugars and Salt printed '-'. The page prints the kcal; carbohydrate may include polyols/fibre that carry fewer kcal, so the gap is not a contradiction in itself. Entered as printed"
+peroni-nastro-azzurro-gluten-free,free-from-gluten-contains,ok,"Drinks tab: 'Suitable for: Gluten Free, Vegan, Vegetarian' and 'Contains: Cereals (Barley)' both printed by the page; we show the allergen (barley), not a gluten-free claim"
+vegan-salted-caramel-shake-go-gluten-free,free-from-gluten-contains,ok,"Desserts tab: 'Suitable for: Gluten Free, Vegan, Vegetarian' and 'Contains: Soya, Cereals (Oats)' both printed by the page; we show the allergen (oats), not a gluten-free claim"
+bbq-platter,huge-protein,ok,"Main Menu 'BBQ Platter': Energy 1,787 kCal, Protein 133.9 g, Carb 86.1 g, Fat 101.8 g, Salt 10.4 g as printed (a platter of ribs and chicken)"
+bbq-platter,salt-very-high,ok,Main Menu 'BBQ Platter': Salt (g) 10.4 as printed
+calizza,salt-very-high,ok,"Main Menu 'Calizza': Energy 1,670 kCal, Salt (g) 10.0 as printed; Contains Eggs, Milk, Mustard, Soya, Sulphites, Cereals (Rye, Wheat)"
+classic-caesar,name-implies-fish,ok,"Main Menu 'Classic Caesar': Suitable for: Vegetarian (so no anchovy); Contains: Eggs, Milk, Mustard, Cereals (Barley, Rye, Wheat)"
+nduja-add-on-main-menu-pasta,name-implies-gluten,ok,"Main Menu ''Nduja' add-on shown under Pasta: Suitable for: Gluten Free, 251 kcal; 'pasta' is only where the add-on is offered"
+kids-brownie-and-ice-cream,name-implies-gluten,ok,"Kids tab 'Kids Brownie & Ice Cream': 'Suitable for: Gluten Free, Vegetarian'; Contains: Eggs, Milk, Soya (the page itself calls it gluten free)"
+broccolini-kids-pizza-topping,name-implies-gluten,ok,"Kids tab pizza topping row: 'Suitable for: Gluten Free', 'contains none of the listed allergens' (a topping, not the pizza base)"
+cherry-tomato-kids-pizza-topping,name-implies-gluten,ok,"Kids tab pizza topping row: 'Suitable for: Gluten Free', 'contains none of the listed allergens' (a topping, not the pizza base)"
+chicken-kids-pizza-topping,name-implies-gluten,ok,"Kids tab pizza topping row: 'Suitable for: Gluten Free', 'contains none of the listed allergens' (a topping, not the pizza base)"
+courgette-kids-pizza-topping,name-implies-gluten,ok,"Kids tab pizza topping row: 'Suitable for: Gluten Free', 'contains none of the listed allergens' (a topping, not the pizza base)"
+ham-kids-pizza-topping,name-implies-gluten,ok,"Kids tab pizza topping row: 'Suitable for: Gluten Free', 'contains none of the listed allergens' (a topping, not the pizza base)"
+mushroom-kids-pizza-topping,name-implies-gluten,ok,"Kids tab pizza topping row: 'Suitable for: Gluten Free', 'contains none of the listed allergens' (a topping, not the pizza base)"
+pepperoni-kids-pizza-topping,name-implies-gluten,ok,"Kids tab pizza topping row: 'Suitable for: Gluten Free', 'contains none of the listed allergens' (a topping, not the pizza base)"
+red-pepper-kids-pizza-topping,name-implies-gluten,ok,"Kids tab pizza topping row: 'Suitable for: Gluten Free', 'contains none of the listed allergens' (a topping, not the pizza base)"
