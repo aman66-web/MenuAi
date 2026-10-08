@@ -1150,7 +1150,8 @@
     "saturatedFat": 18,
     "sugar": 3.1,
     "salt": 2.5,
-    "energyKj": 2865
+    "energyKj": 2865,
+    "weight": 283
    },
    "tags": [],
    "limitedTime": false,
@@ -5731,30 +5732,6 @@
     "cereals": [
      "wheat"
     ]
-   }
-  },
-  {
-   "id": "cottage-pie",
-   "name": "Cottage Pie",
-   "category": "Main Meals",
-   "serving": "",
-   "nutrients": {
-    "calories": 879,
-    "saturatedFat": 19,
-    "sugar": 18,
-    "salt": 6.7,
-    "energyKj": 3679
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -11598,7 +11575,8 @@
     "saturatedFat": 3.9,
     "sugar": 49,
     "salt": 1,
-    "energyKj": 1979
+    "energyKj": 1979,
+    "weight": 131
    },
    "tags": [],
    "limitedTime": false,
@@ -11636,7 +11614,8 @@
     "saturatedFat": 17,
     "sugar": 36,
     "salt": 0.26,
-    "energyKj": 2013
+    "energyKj": 2013,
+    "weight": 100
    },
    "tags": [],
    "limitedTime": false,
@@ -11670,7 +11649,8 @@
     "saturatedFat": 4.9,
     "sugar": 28,
     "salt": 0.49,
-    "energyKj": 1304
+    "energyKj": 1304,
+    "weight": 145
    },
    "tags": [],
    "limitedTime": false,

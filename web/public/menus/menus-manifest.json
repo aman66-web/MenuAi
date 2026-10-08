@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261008100140,
- "generatedAt": "2026-10-08T10:01:40Z",
+ "dataVersion": 20261008100918,
+ "generatedAt": "2026-10-08T10:09:18Z",
  "chains": [
   {
    "id": "abokado",
@@ -510,10 +510,10 @@
    "name": "English Heritage Cafes",
    "cuisine": "Cafe",
    "file": "chain-english-heritage.json",
-   "sha256": "ef4d5a3b83cd8776faafc7a1cdf612582e252ad39d8cf1e1a0b30e24f355811d",
-   "contentHash": "a098e552701cbfe4eaa9d0a15af1727d18b43421e866a753c03993081a7b3d49",
+   "sha256": "8c7f9b8c10ba44baa58f2ff7fec7959646825a56710ee2b3c9c4fd3b89bf54f8",
+   "contentHash": "48946aabf683c78cad7b328be6188175da5e3dfa485f5054bb5a0a85e8be3aed",
    "sample": false,
-   "itemCount": 499,
+   "itemCount": 498,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
   },
@@ -1555,6 +1555,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "c87afee53ef7d7a54848576099a979b7b7f83692c73e9da952ee8b7a634e8a66"
+  "sha256": "72c7cbc8a344056f4b3c1031225dd8d53f808c3a3005f0e2268a641705a2efa6"
  }
 }
