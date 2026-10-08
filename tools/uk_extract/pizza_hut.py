@@ -21,6 +21,14 @@ pizza rows must add the chosen base ("Allergen Information for Pizza Combination
 booklet prints two Handcrafted bases (with / without garlic sprinkle, different milk marks) while the nutrition rows don't say
 which; pasta, kids' pizzas, sides, drinks and desserts and several salad-station rows have no row of their own; and one column
 is "Fish / shellfish" (fish and crustaceans not told apart). So the app links to the booklet instead (all or nothing).
+
+Re-checked 2026-10-08 (allergen pass, data/audit/verified/pizza-hut-allergens.json): same answer. The booklet is per COMPONENT for pizzas (base,
+sauce, cheese, topping and finisher tables; "Pizza Combinations" rows exclude the base, so a pizza needs two rows). Of 237 published items, 108
+are pizzas (none has one row of its own; 8 Hot Honey Sriracha pizzas have no combination row at all), and kids' pizzas, Lasagne, Classic and
+Take Away Mac 'N' Cheese and the kids' sides, drinks and desserts have no row under their own names, so well over a third would be held back
+under the all-or-nothing rule. Only the Handcrafted rows marked "WITHOUT Garlic Sprinkle" say which Handcrafted base they use. The
+booklet is on assets.ctfassets.net (no robots.txt there, 404) and the page that links it (pizzahut.co.uk, robots allow) names no other
+allergen document for the dine-in menu.
 """
 from __future__ import annotations
 import argparse

@@ -14,6 +14,12 @@ voting, arithmetic alarms). Only NAMES, categories and flags are typed by hand (
 It never changes a printed number except through OVERRIDES: cells where the OCR was wrong and a human read the page
 image instead. Each override says what the page prints.
 
+Allergens: LINK ONLY. https://www.burgerking.co.uk/allergy-info is a JavaScript app that redirects the browser to the allergen PDF on
+cdn.sanity.io (checked 2026-10-08: /files/czqk28jt/staging_bk_gb/075d7152e5f4b71a666cba32288083c39ed0681a.pdf), and that host's robots.txt says
+"Disallow: /*.pdf" (only /files/cgnmnbqj/ is allowed), so the PDF must not be downloaded by a script. The only other source of per-product
+allergens is the ordering app's private API (euc1-prod-bk.rbictg.com, needs a token), which is not a published document. If the founder
+saves the PDF from their own browser, read it from disk (tools/uk_extract/five_guys_pdf.py is the model for a matrix PDF).
+
 Setup:  python3 -m venv venv && venv/bin/pip install rapidocr-onnxruntime pillow numpy   (poppler must be installed)
 """
 import argparse
