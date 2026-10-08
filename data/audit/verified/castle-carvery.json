@@ -1,0 +1,13 @@
+{
+ "chain": "castle-carvery",
+ "date": "2026-10-08",
+ "source_read": "https://menus.tenkites.com/redcat/castlecarvery (all 5 tabs re-downloaded 8 Oct; robots.txt allows; re-running tools/uk_extract/castle_carvery.py on them reproduces data/source byte for byte, so no drift since the earlier run)",
+ "compared_items": 84,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 5,
+ "marked_ok": 4,
+ "not_verifiable": "",
+ "notes": "All 84 rows in items.csv (80 published before this pass) match an independent parse of the 89 pop-ups on the three used tabs (7 nutrients + the Contains line; the page prints no May contain). Newly held back (5, in castle_carvery.py HOLDBACK): Chicken Wings 500g and 1kg (5.0 / 9.9 g protein, 92.5 / 185 g carbs, 16 / 32 g salt for 500 g / 1 kg of wings: cannot be the wings; no milk/egg although served with ranch) and three mayonnaise dishes with no egg marked (Crispy Squid, BLT Turkey Baguette, Tuna & Sweetcorn Mayonnaise jacket). Menu pages are headed SS25 (spring/summer 2025) menus, so the dishes may be out of date. The castle-carvery script does not use mb_guide.py."
+}

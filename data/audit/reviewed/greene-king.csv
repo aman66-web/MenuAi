@@ -1,0 +1,5 @@
+item,code,verdict,evidence
+extra-sauce-merlot-and-beef-dripping-gravy,energy-gap,ok,"Page 10 'Extra Sauce - Merlot & Beef Dripping Gravy' (page image read): 220 kJ, 53 kcal, fat 2.1, sat 1.1, carbs 4.1, sugars 1.8, protein 1.1, salt 0.83; kJ agrees with kcal (220 kJ = 52.6 kcal), copied as printed"
+kilo-chicken-wings,huge-protein,ok,"Page 3 'Get Sharing - Kilo Chicken Wings' (page image read): 9492 kJ, 2263 kcal, fat 101.6, sat 33.9, carbs 54.2, sugars 19.6, protein 278.4, salt 14.80; 4P+4C+9F = 2,245 kcal matches 2,263; a kilo of wings"
+kilo-chicken-wings,salt-very-high,ok,"Page 3 'Get Sharing - Kilo Chicken Wings' (page image read): Salt 14.80 g (247% RI printed), kJ and kcal agree (9492 kJ = 2,269 kcal), copied as printed"
+ultimate-sharer,salt-very-high,ok,"Page 3 'Get Sharing - Ultimate Sharer' (printed 'Ulitmate Sharer', page image read): 7491 kJ, 1789 kcal, Salt 10.66 g (178% RI printed); kJ and kcal agree, a sharing platter, copied as printed"

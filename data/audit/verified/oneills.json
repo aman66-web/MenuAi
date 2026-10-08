@@ -1,0 +1,13 @@
+{
+ "chain": "oneills",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.mbplc.io/AllergenGuideHighSteetEstate.html (live page stamped 2026-10-08 06:24, downloaded fresh 2026-10-08 with curl; host robots.txt is a 404). Provenance re-checked: oneills.co.uk/lunchanddrink and /breakfastmenu (robots.txt allows) both link this same guide as their smart-chef allergen & nutrition source",
+ "compared_items": 63,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 1,
+ "marked_ok": 0,
+ "not_verifiable": "allergens: none are published for this chain (the guide's allergen markup is not extracted, link to the guide only), so none were compared",
+ "notes": "Fresh page identical to data/source in every published number (re-run of oneills.py changed only the page stamp). An independent regex parse found every one of the 63 rows (calories, fat, saturates, carbs, sugars, protein, salt) under the same dish name in the Meal & A Drink / Breakfast Menu cards; vegetarian tags match the guide's V/VE marks. 1 more dish held back by a wrapper added to oneills.py (mb_guide.py untouched): Scampi & Chips prints 952 kcal but its own macros give 780 and its 2939 kJ is 702 kcal. 19 dishes whose kJ disagrees with kcal but whose kcal agrees with their macros stay (kJ is not published). Note: Seasoned Chunky Chips prints sat fat 0 g and salt 0 g (copied as printed; Nicholson's chunky chips print the same pattern)."
+}

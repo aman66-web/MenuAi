@@ -1,0 +1,9 @@
+item,code,verdict,evidence
+chai-latte-excluding-milk,name-implies-milk,ok,"menus.tenkites.com/caravan/caravanlondon05 DRINKS tab, row 'Chai latte (excluding milk)' 23 kcal: no milk mark, 'Suitable for Plant-Based' and 'Vegetarian'; the dish name says it excludes the milk (the page: coffees exclude milk)"
+charred-hispi-cabbage-den-miso-macadamia-cheese-mint-basil-spring-onion,name-implies-milk,ok,"London ALL DAY, 'Charred hispi cabbage, den miso, macadamia cheese ...' 254 kcal: Contains Celery, Mustard, Soya, Tree Nuts (Cashew, Macadamia, Pecan, Pistachio, Walnut), 'Suitable for Plant-Based'; 'cheese' is a macadamia nut cheese, no dairy"
+dirty-chai-latte-excluding-milk,name-implies-milk,ok,"London DRINKS, 'Dirty chai latte (excluding milk)' 26 kcal: no milk mark, Plant-Based and Vegetarian; the name says it excludes the milk"
+focus-flat-white-excluding-milk,name-implies-milk,ok,"London DRINKS, 'Focus flat white (excluding milk)' 7 kcal: no milk mark, Plant-Based and Vegetarian; the name says it excludes the milk"
+islands-hot-chocolate-excluding-milk,name-implies-milk,ok,"London DRINKS, 'Island's hot chocolate (excluding milk)' 65 kcal: no milk mark, Plant-Based and Vegetarian; the name says it excludes the milk"
+matcha-iced-latte-excluding-milk,name-implies-milk,ok,"London DRINKS, 'Matcha iced latte (excluding milk)' 7 kcal: no milk mark, Plant-Based and Vegetarian; the name says it excludes the milk"
+matcha-latte-excluding-milk,name-implies-milk,ok,"London DRINKS, 'Matcha latte (excluding milk)' 7 kcal: no milk mark, Plant-Based and Vegetarian; the name says it excludes the milk"
+mocha-excluding-milk,name-implies-milk,ok,"London DRINKS, 'Mocha (excluding milk)' 49 kcal: no milk mark, Plant-Based and Vegetarian; the name says it excludes the milk"

@@ -55,9 +55,9 @@ vegan-chips,Vegan Chips,Sides,,424,6.3,75.6,12.6,2.1,,1.05,0.0,,1789,,,,,,vegeta
 lunch-chips,Lunch Chips,Extras,,428,6.3,69.3,12.6,0.0,,0.21,0.0,,1806,,,,,,,false,false,,,
 bloomer-bread-and-butter,Bloomer Bread & Butter,Extras,,58,0.0,0.0,6.4,4.2,,0.16,0.0,,242,,,,,,,false,false,,,Printed without the choice listed under it (White Bloomer / Malted Bloomer); the guide says to add the choice's values to the dish (they are this item's add-ons). Not rankable because its numbers are incomplete.
 extra-custard,Extra Custard,Extras,,156,4.5,24.0,4.5,3.0,,0.15,16.5,,653,,,,,,,false,false,,,
-steak-double-up-8oz-rump,Steak Double Up (8oz Rump),Extras,,319,34.1,2.1,19.3,7.2,,1.54,0.8,,1335,,,,,,,false,false,,,
+steak-double-up-8oz-rump,Steak Double Up (8oz Rump),Extras,,319,34.1,2.1,19.3,7.2,,1.54,0.8,,1335,,,,,,contains_beef,false,false,,,Tagged because the name says steak
 steak-double-up-8oz-sirloin,Steak Double Up (8oz Sirloin),Extras,,363,35.6,2.1,23.5,9.3,,1.56,0.8,,1520,,,,,,contains_beef,false,false,,,Tagged because the name says steak
-extra-grated-cheese,Extra Grated Cheese,Extras,,164,13.0,0.5,12.5,8.0,,0.80,0.0,,684,,,,,,contains_beef,false,false,,,Tagged because the name says steak
+extra-grated-cheese,Extra Grated Cheese,Extras,,164,13.0,0.5,12.5,8.0,,0.80,0.0,,684,,,,,,,false,false,,,
 extra-burger-cheese-slice,Extra Burger Cheese Slice,Extras,,39,2.4,0.4,3.1,2.0,,0.40,0.4,,165,,,,,,,false,false,,,
 extra-vegan-cheese-slice,Extra Vegan Cheese Slice,Extras,,57,0.0,4.0,4.6,4.2,,0.46,0.0,,240,,,,,,vegetarian,false,false,,,Marked vegan in its name
 extra-yorkshire-pudding,Extra Yorkshire Pudding,Extras,,115,5.5,16.8,2.5,0.5,,0.30,1.0,,479,,,,,,,false,false,,,

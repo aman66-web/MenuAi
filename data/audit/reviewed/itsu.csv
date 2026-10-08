@@ -1,0 +1,6 @@
+item,code,verdict,evidence
+edamame,energy-gap,ok,"itsu.com/menu/sushi-and-salads/side-edamame-cup/ (live page rendered 2026-10-08): energy 132 kcal, fat 4.9, protein 10, carbohydrates 3.4, fibre 17.4, salt 2.35 as printed; the 17.4 g of fibre is not in the printed carbohydrate, so 4P+4C+9F (98) is below the printed 132"
+sweet-chilli-toasted-cashews,name-implies-gluten,ok,"Dish page + embedded data (2026-10-08): ingredients are cashews (93%), dextrose, salt, yeast extract, sugar, spices ... no cereal; 'Toasted' is the cooking word; contains: nuts; may contain: peanuts, sesame"
+dark-chocolate-corn-cakes,name-implies-gluten,ok,"Dish page + embedded data (2026-10-08): dark chocolate (60%), corn cake (40%) (corn, sea salt, corn oil): no wheat/gluten ingredient; contains: soya"
+milk-chocolate-corn-cakes,name-implies-gluten,ok,"Dish page + embedded data (2026-10-08): milk chocolate (60%), corn cake (40%) (corn, sea salt, corn oil): no wheat/gluten ingredient; contains: milk, soya"
+salted-caramel-corn-cakes,name-implies-gluten,ok,"Dish page + embedded data (2026-10-08): salted caramel milk chocolate (60%), corn cake (40%) (corn, sea salt, corn oil): no wheat/gluten ingredient; contains: milk, soya"

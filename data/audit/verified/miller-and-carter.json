@@ -1,0 +1,13 @@
+{
+ "chain": "miller-and-carter",
+ "date": "2026-10-08",
+ "source_read": "M&B menu feed https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=34879ecd-629a-5b27-8072-c2097a9fa610&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus (downloaded fresh 2026-10-08 ~19:20, menu last modified 2026-10-08T19:03:17; the host has no robots.txt, www.millerandcarter.co.uk's robots.txt does not disallow the menu)",
+ "compared_items": 106,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 2,
+ "marked_ok": 4,
+ "not_verifiable": "the feed carries no ingredient lists (only a short description, claims and the allergen map), so allergen marks were cross-checked against names, descriptions and the feed's own claims (noGlutenContainingIngs, vegan/vegetarian), not ingredients",
+ "notes": "LIVE FEED DRIFT: the feed was edited at 19:03 on 8 Oct, after data/source (6 Oct). Re-ran the script on the fresh feed: 5 dishes changed (Porterhouse 35oz salt 24.83 -> 31.82 g and protein/fat, Angus Sirloin 8oz, Sauteed Greens, Miller's Deluxe Fish Pie), everything else identical; data/source rebuilt (checked_on 2026-10-08). Independent walk of the raw JSON compared all 128 feed entries with items.csv and allergens.csv (contains, may-contain, cereals): 0 differences. Held back: Porterhouse 35oz (31.8 g salt for one steak, feed changed twice in two days) and Butternut Squash & Goat's Cheese Arancini (crispy breaded arancini with aioli: no gluten or egg marked). The feed's kJ disagrees with kcal for 4 dishes (seasoned fries, triple-cooked chips, cheese & bacon burger, beef patty) but kcal agrees with macros and we publish no kJ, so kept (policy 1). Kept with a caveat: Fish Pie's white wine cream sauce has no sulphites marked; Risotto's pine nuts only 'may contain' tree nuts."
+}

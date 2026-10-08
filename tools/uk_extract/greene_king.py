@@ -163,9 +163,9 @@ ROWS: list[tuple] = [
     ('Extras', 'White Bloomer', 'option'),  # 80
     ('Extras', 'Malted Bloomer', 'option'),  # 81
     ('Extras', 'Extra Custard', 'item'),  # 82
-    ('Extras', 'Steak Double Up (8oz Rump)', 'item'),  # 83
+    ('Extras', 'Steak Double Up (8oz Rump)', 'item', dict(tags='contains_beef', notes='Tagged because the name says steak')),  # 83
     ('Extras', 'Steak Double Up (8oz Sirloin)', 'item', dict(tags='contains_beef', notes='Tagged because the name says steak')),  # 84
-    ('Extras', 'Extra Grated Cheese', 'item', dict(tags='contains_beef', notes='Tagged because the name says steak')),  # 85
+    ('Extras', 'Extra Grated Cheese', 'item'),  # 85
     ('Extras', 'Extra Burger Cheese Slice', 'item'),  # 86
     ('Extras', 'Extra Vegan Cheese Slice', 'item', dict(tags='vegetarian', notes='Marked vegan in its name')),  # 87
     ('Extras', 'Extra Yorkshire Pudding', 'item'),  # 88
