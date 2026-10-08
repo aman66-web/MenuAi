@@ -1,0 +1,7 @@
+item,code,verdict,evidence
+add-crispy-prawns-x-5,energy-gap,ok,"Restaurant guide p21 (rendered): Add Crispy Prawns x 5 prints 865 kJ / 208 kcal, fat 11.0, sat 1.0, carbs 6.4, sugars 0.8, protein 7.3, salt 0.46; the kJ agrees with the kcal; printed as is (26% from 4P+4C+9F)"
+add-custard,name-implies-eggs,ok,"Restaurant guide p16 / 32: Add Custard - V prints Contains: Milk, May contain: no major allergens; a custard can be egg-free"
+add-non-gluten-containing-ingredient-burger-bun,name-implies-gluten,ok,"Restaurant guide p41 (rendered): the item is the Non Gluten Containing Ingredient bun (under 'Add NGCI Bun or Salad'); Contains: Egg only, 701 kJ / 167 kcal"
+prawn-cocktail-with-non-gluten-containing-ingredient-bread,name-implies-gluten,ok,"Restaurant guide (Non Gluten Containing Ingredients menu): the dish is named with non gluten containing ingredient bread; Contains: Crustaceans, Egg, Milk, Mustard"
+tomato-soup-with-non-gluten-containing-ingredient-bread,name-implies-gluten,ok,Restaurant guide (Non Gluten Containing Ingredients menu): 'TOMATO SOUP WITH NON GLUTEN CONTAINING INGREDIENT BREAD - VE'; Contains: no major allergens
+peanut-butter-portions-per-each,name-implies-milk,ok,Breakfast guide p5-6: PEANUT BUTTER PORTIONS (per each) - VE prints Contains: Peanut; a vegan peanut butter has no milk

@@ -1,0 +1,7 @@
+item,code,verdict,evidence
+kids-vegan-breakfast-with-fried-egg,vegan-contains-animal,ok,"Kids menu > KIDS BREAKFAST: icons vegan_no + vegetarian_yes (the page itself says not vegan); Contains: Eggs, Soya, Cereals with Gluten (Barley, Rye, Wheat); could also include Milk. Only the base is vegan, a fried egg is added"
+kids-vegan-breakfast-with-scrambled-egg,vegan-contains-animal,ok,"Kids menu > KIDS BREAKFAST: icons vegan_no + vegetarian_yes; Contains: Eggs, Milk, Soya, Cereals with Gluten (Barley, Rye, Wheat). The page does not label the dish vegan"
+vegan-classic-cheeseburger,vegan-contains-animal,ok,"Main menu > Burgers: icons vegan_no + vegetarian_yes (the page itself says not vegan); Contains: Celery, Milk, Mustard, Soya, Cereals with Gluten (Barley, Oats, Wheat)"
+vegan-giraffe-burger,vegan-contains-animal,ok,"Main menu > Burgers: icons vegan_no + vegetarian_yes (the page itself says not vegan); Contains: Eggs, Mustard, Soya, Cereals with Gluten (Barley, Kamut, Oats, Spelt, Wheat)"
+warm-chocolate-brownie-desserts,name-implies-gluten,ok,"Dessert menu prints Contains: Eggs, Milk, Soya (no gluten); giraffe.net lists 'Warm Chocolate Brownie (V)' under both 'Puddings' and 'GF Puddings'; the Gluten Free menu copy (640 kcal) also prints no gluten"
+brownie,name-implies-gluten,ok,"Kids menu > Desserts prints Contains: Eggs, Milk, Soya (no gluten); giraffe.net lists 'Chocolate Brownie (VG)' under 'Kids GF Main Menu' desserts"

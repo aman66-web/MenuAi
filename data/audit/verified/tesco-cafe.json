@@ -1,0 +1,13 @@
+{
+ "chain": "tesco-cafe",
+ "date": "2026-10-08",
+ "source_read": "https://digitalcontent.api.tesco.com/v2/media/homepage/3e74ec75-f288-46a3-90a6-5db01d5db09f/Summer+2026+GB+Allergen+Matrix+V5.pdf (re-downloaded 2026-10-08, byte-identical to the 2026-10-07 copy, sha256 786b1d38...)",
+ "compared_items": 380,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 9,
+ "not_verifiable": "",
+ "notes": "All 380 rows (kcal, Small/Medium split, contains/may/cereals/nuts) matched an independent pdftotext -bbox coordinate read of all 374 table rows; 6 pages rendered and read by eye (2 of 380 rows in items.csv are the previously held-back 'Peas'; no new holdbacks). Note: the host's robots.txt answers 403 (treated as unavailable per RFC 9309); one GET of the PDF succeeded."
+}

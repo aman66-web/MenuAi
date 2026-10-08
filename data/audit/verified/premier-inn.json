@@ -1,0 +1,13 @@
+{
+ "chain": "premier-inn",
+ "date": "2026-10-08",
+ "source_read": "https://www.premierinn.com/content/dam/global/restaurants/allergy-nutrition-info/ (allergy-nutrition-thyme-2.pdf, -breakfast.pdf, -hub.pdf, downloaded fresh 2026-10-08, identical sha256 to the earlier copies)",
+ "compared_items": 273,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 1,
+ "marked_ok": 6,
+ "not_verifiable": "",
+ "notes": "All 273 items in items.csv (incl. the 6 already held for conflicting duplicates) matched an independent pdftotext parse on all 8 printed values (kJ, kcal, fat, sat, carbs, sugars, protein, salt) and on Contains/May Contain; pages 3, 17, 21, 41 (restaurants), 5 (breakfast), 15 (hub) rendered and read by eye. Held back Add Corn Ribs (59 kcal / 246 kJ but its own macros add to about 90 kcal)."
+}

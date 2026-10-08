@@ -1,0 +1,23 @@
+item,code,verdict,evidence
+sea-bass-samun-prai,huge-protein,ok,Page prints Protein (g) 129 / 124 with 1431 / 1279 kcal for a whole sea bass dish; macros agree with the printed kcal (4P+4C+9F = 1408 / 1268); independent re-read of the nutrition cells matches.
+whole-sea-bass-green-curry,huge-protein,ok,Page prints Protein (g) 129 / 124 with 1431 / 1279 kcal for a whole sea bass dish; macros agree with the printed kcal (4P+4C+9F = 1408 / 1268); independent re-read of the nutrition cells matches.
+chicken-and-prawn-glass-noodles,name-implies-gluten,ok,"All-day/Non Gluten menu card: glass noodles are not wheat; ingredients list bold only Crustaceans, Fish, Peanuts."
+drunken-noodles-chicken,name-implies-gluten,ok,"All-day/Non Gluten menu card: ingredients: flat rice noodle, 'Gluten Free Dark Soy Sauce' / 'Gluten Free Soy Sauce'; no wheat in the list; bold only Soy."
+drunken-noodles-chicken-and-prawns,name-implies-gluten,ok,"All-day/Non Gluten menu card: ingredients: flat rice noodle, 'Gluten Free Dark Soy Sauce'; no wheat; bold Soy, Crustaceans."
+drunken-noodles-prawn,name-implies-gluten,ok,"All-day/Non Gluten menu card: ingredients: flat rice noodle, 'Gluten Free Dark Soy Sauce'; no wheat; bold Soy, Crustaceans."
+drunken-noodles-vegetable,name-implies-gluten,ok,"All-day/Non Gluten menu card: ingredients: flat rice noodle, 'Gluten Free Dark Soy Sauce'; no wheat; bold Soy."
+garlic-steamed-noodles,name-implies-gluten,ok,All-day/Non Gluten menu card: ingredients: 'Benjamas Rice Noodles 3mm' and 'Gluten Free Dark Soy Sauce'; bold only Soy.
+jasmine-and-toasted-rice-ice-cream,name-implies-gluten,ok,"All-day/Non Gluten menu card: 'Toasted' rice is rice (no gluten cereal); row marks Milk only, ingredients list no wheat."
+chicken-satay-big-squids-menu,name-implies-molluscs,ok,"'Squid' comes from the menu name 'Big Squids' (the chain's kids menu), added to the item name by our script; the dish is not squid."
+cookies-and-cream-ice-cream-kids-menu-big-squids-menu,name-implies-molluscs,ok,"'Squid' comes from the menu name 'Big Squids' (the chain's kids menu), added to the item name by our script; the dish is not squid."
+thai-green-curry-vegetable-big-squids-menu,name-implies-molluscs,ok,"'Squid' comes from the menu name 'Big Squids' (the chain's kids menu), added to the item name by our script; the dish is not squid."
+thai-red-curry-chicken-big-squids-menu,name-implies-molluscs,ok,"'Squid' comes from the menu name 'Big Squids' (the chain's kids menu), added to the item name by our script; the dish is not squid."
+thai-red-curry-vegetable-big-squids-menu,name-implies-molluscs,ok,"'Squid' comes from the menu name 'Big Squids' (the chain's kids menu), added to the item name by our script; the dish is not squid."
+thai-salted-caramel-ice-cream-kids-menu-big-squids-menu,name-implies-molluscs,ok,"'Squid' comes from the menu name 'Big Squids' (the chain's kids menu), added to the item name by our script; the dish is not squid."
+chilli-and-basil-gra-pao-chicken,salt-very-high,ok,Allergens/nutrition page prints this Salt (g) value for the dish exactly (independent re-read of the 7 nutrition cells matches the published row).
+chilli-and-basil-gra-pao-prawn,salt-very-high,ok,Allergens/nutrition page prints this Salt (g) value for the dish exactly (independent re-read of the 7 nutrition cells matches the published row).
+chilli-and-basil-gra-pao-slow-cooked-beef,salt-very-high,ok,Allergens/nutrition page prints this Salt (g) value for the dish exactly (independent re-read of the 7 nutrition cells matches the published row).
+chilli-and-basil-gra-pao-vegetable,salt-very-high,ok,Allergens/nutrition page prints this Salt (g) value for the dish exactly (independent re-read of the 7 nutrition cells matches the published row).
+chilli-lime-sea-bass,salt-very-high,ok,Allergens/nutrition page prints this Salt (g) value for the dish exactly (independent re-read of the 7 nutrition cells matches the published row).
+morning-glory,salt-very-high,ok,Allergens/nutrition page prints this Salt (g) value for the dish exactly (independent re-read of the 7 nutrition cells matches the published row).
+steamed-seafood-feast,salt-very-high,ok,Allergens/nutrition page prints this Salt (g) value for the dish exactly (independent re-read of the 7 nutrition cells matches the published row).

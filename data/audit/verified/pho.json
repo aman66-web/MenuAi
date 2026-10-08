@@ -1,0 +1,13 @@
+{
+ "chain": "pho",
+ "date": "2026-10-08",
+ "source_read": "https://pho-media.sp.works/wp-content/uploads/2026/04/Pho-Nutritional-Guidelines-2026_web.pdf (downloaded fresh 2026-10-08, identical sha256 to the earlier copy)",
+ "compared_items": 97,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 1,
+ "marked_ok": 4,
+ "not_verifiable": "allergens: Pho publishes none in the app (its separate Allergen Guide PDF prints symbols and does not match this guide's dish names), so none could be compared; the chain links to the guide",
+ "notes": "All 97 items matched on all 7 printed values by an independent pdftotext parse; pages 2, 5, 6, 7, 8 rendered and read by eye. Held back 1 whose kcal is 31% off its own macros (Rice bowl - THIS isn't chicken & veg); policy now holds back kcal more than 30% from 4P+4C+9F."
+}

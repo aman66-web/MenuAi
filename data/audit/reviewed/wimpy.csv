@@ -1,0 +1,4 @@
+item,code,verdict,evidence
+plant-based-salad-basket,vegan-contains-animal,ok,"allergen table (page 1, Crispy Chicken & Plant-Based): red dots for milk and egg (plus wheat, celery, mustard, soya) on the Plant-Based Salad Basket row, read by pixel sampling and by eye; 'plant-based' describes the strips, the guide does not call the basket vegan and we give no vegan tag"
+plant-based-wrap-excl-sauce,vegan-contains-animal,ok,"allergen table (page 1, Crispy Chicken & Plant-Based): red dots for milk and egg (plus wheat, celery, mustard, soya) on the Plant-Based Wrap row; the guide does not call it vegan and we give no vegan tag"
+chocolate-brownie-excl-cream-or-ice-cream,name-implies-milk,ok,"page 2 Desserts row 'Chocolate Brownie (Figures exclude choice of cream or ice cream side)': 'cream' names the excluded side; the row's red dots are wheat, egg, soya and amber/brown dots peanuts, nuts; no milk dot"

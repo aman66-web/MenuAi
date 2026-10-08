@@ -1,0 +1,13 @@
+item,code,verdict,evidence
+12-garlic-parmesan-hot-wings,huge-protein,ok,"allergensandnutritions.popeyesuk.com/nutritional-information (rendered 2026-10-08), Hot Wings: '12 Garlic Parmesan Hot Wings' 1879 kcal, protein 121.3 g; 6 = 60.6 g and 8 = 80.9 g, so 12 is exactly double the 6"
+20-hot-wings,huge-protein,ok,"Hot Wings table: '20 Hot Wings' 1848 kcal, protein 190.0 g (12 wings = 114.0 g, 10 = 95.0 g, 9.5 g a wing); kcal matches 4P+4C+9F"
+6-piece-signature-louisiana-chicken,huge-protein,ok,"Signature Louisiana Chicken table: '6 Piece' 1420 kcal, protein 210.0 g = 6 x the 1 Piece row (35.0 g); 2 Piece 70.0 g, 3 Piece 105.0 g"
+12-cajun-citrus-hot-wings,salt-very-high,ok,"Hot Wings table: '12 Cajun Citrus Hot Wings' salt 11.9 (feed 11.95); 6 wings 6.0, 8 wings 8.0, consistent; 12 wings in one order"
+12-garlic-parmesan-hot-wings,salt-very-high,ok,"Hot Wings table: '12 Garlic Parmesan Hot Wings' salt 15.9 (feed 15.88); 6 wings 7.9, 8 wings 10.6, so 12 is double the 6-wing row"
+12-ghost-pepper-hot-wings,salt-very-high,ok,"Hot Wings table: '12 Ghost Pepper Hot Wings' salt 12.3; 6 wings 6.2, 8 wings 8.3, consistent"
+12-honey-bbq-hot-wings,salt-very-high,ok,"Hot Wings table: '12 Honey BBQ Hot Wings' salt 13.1; 6 wings 6.5, 8 wings 8.7, consistent"
+12-hot-wings,salt-very-high,ok,"Hot Wings table: '12 Hot Wings' salt 11.3; 6 wings 5.7, 8 wings 7.5, consistent"
+20-hot-wings,salt-very-high,ok,"Hot Wings table: '20 Hot Wings' salt 18.9 (feed 18.88); 12 wings 11.3, 10 wings 9.4, consistent per wing"
+6-piece-signature-louisiana-chicken,salt-very-high,ok,Signature Louisiana Chicken table: '6 Piece' salt 13.1 = 6 x the 1 Piece row (2.2)
+8-garlic-parmesan-hot-wings,salt-very-high,ok,"Hot Wings table: '8 Garlic Parmesan Hot Wings' salt 10.6 (feed 10.59); 6 wings 7.9, 12 wings 15.9, consistent"
+ghost-pepper-big-dip,salt-very-high,ok,"Dips table: 'Ghost Pepper Big Dip' 274 kcal, protein 0.8, carbs 64.5, fat 0.5, saturates '-', salt 5.3 (feed 5.28); printed as is (kcal matches 4P+4C+9F), other dips print 0.5-2.7 g but the row itself is clear"

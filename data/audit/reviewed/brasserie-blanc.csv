@@ -1,0 +1,15 @@
+item,code,verdict,evidence
+chorizo-ketchup-burger-add-on,energy-gap,ok,"À la carte Evening add-on 'chorizo ketchup': Energy 102 kCal, Protein 3.5, Carb 3.8, Fat 4.7 as printed; Contains Celery, Sulphur Dioxide/Sulphites. Gap to 4P+4C+9F (72 kcal) is below the 30% hold line; copied as printed"
+escargots-baguette,energy-gap,ok,"À la carte Evening Escargots (baguette choice): Energy 351 kCal, Protein 13.6, Carb 28.0, Fat 30.0 as printed. Gap (24%) is below the 30% hold line; copied as printed"
+galette-de-courgette,energy-gap,ok,"À la carte Evening 'GALETTE de COURGETTE': Energy 728 kCal, Protein 48.6, Carb 46.0, Fat 56.5 as printed. Gap (22%) is below the 30% hold line; copied as printed"
+salade-dendives-et-de-bleu-st-agur,energy-gap,ok,"À la carte Evening 'SALADE D'ENDIVES et de BLEU ST AGUR': Energy 587 kCal, Protein 10.4, Carb 14.1, Fat 40.5 as printed. Gap (21%) is below the 30% hold line; copied as printed"
+tarte-tatin,energy-gap,ok,"À la carte Evening 'TARTE TATIN': Energy 432 kCal, Protein 4.4, Carb 74.8, Sugars 52.4, Fat 23.9 as printed. Gap (23%) is below the 30% hold line; copied as printed"
+travers-de-boeuf-confits,huge-protein,ok,"À la carte Evening 'TRAVERS de BOEUF CONFITS': Energy 1,575 kCal, Protein 141.0 g, Carb 33.6, Fat 95.3 as printed; kcal agrees with 4P+4C+9F (1556), a large beef-rib dish"
+chateaubriand-pour-deux,salt-very-high,ok,"À la carte Evening 'CHATEAUBRIAND POUR DEUX' (for two): Energy 1,591 kCal, Salt 13.4 g as printed, below the 15 g hold line"
+kir-royale,name-implies-eggs,ok,Drinks list 'KIR ROYALE': a cocktail of champagne and cassis; page prints Contains Sulphur Dioxide/Sulphites only. 'Royale' is not egg
+harveys-bristol-cream,name-implies-milk,ok,"Drinks list 'Harvey's Bristol Cream': a sherry brand; page prints Contains Sulphur Dioxide/Sulphites only. 'Cream' is the brand name, not milk"
+ice-cream-chocolate,name-implies-milk,ok,"À la carte Evening SELECTION DE GLACES > Ice cream: chocolate: page prints 'Suitable for: Vegan, Vegetarian' and 'This dish contains none of the listed allergens' (a vegan ice cream)"
+ice-cream-honeycomb,name-implies-milk,ok,"À la carte Evening SELECTION DE GLACES > Ice cream: honeycomb: page prints 'Suitable for: Vegan, Vegetarian', Contains: Soya (a vegan ice cream)"
+ice-cream-salted-caramel,name-implies-milk,ok,"À la carte Evening SELECTION DE GLACES > Ice cream: salted caramel: page prints 'Suitable for: Vegan, Vegetarian', Contains: Soya (a vegan ice cream)"
+ice-cream-strawberry,name-implies-milk,ok,"À la carte Evening SELECTION DE GLACES > Ice cream: strawberry: page prints 'Suitable for: Vegan, Vegetarian', Contains: Soya (a vegan ice cream)"
+ice-cream-vanilla,name-implies-milk,ok,"À la carte Evening SELECTION DE GLACES > Ice cream: vanilla: page prints 'Suitable for: Vegan, Vegetarian', Contains: Soya (a vegan ice cream)"

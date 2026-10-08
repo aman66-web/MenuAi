@@ -1,0 +1,13 @@
+{
+ "chain": "heritage-pubs",
+ "date": "2026-10-08",
+ "source_read": "https://menus.tenkites.com/heritage (14 menu pages ?mguid=..., downloaded afresh 8 Oct 2026; robots.txt of menus.tenkites.com does not disallow them)",
+ "compared_items": 311,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 5,
+ "marked_ok": 25,
+ "not_verifiable": "",
+ "notes": "All 311 rows re-read with an independent regex parser (calories, protein, carbs, fat, sat fat, sugars, salt, kJ + contains/may/cereals/nuts) and cross-checked with the pages' JSON-LD: 0 mismatches. 5 dishes held back because the chain's allergen row marks no gluten for fish fingers, two vegan brownies, a cookie and a stuffing with no ingredient text; crumbles kept (on the chain's own no-gluten-ingredients menu)."
+}

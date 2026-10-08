@@ -1,0 +1,13 @@
+{
+ "chain": "kfc",
+ "date": "2026-10-08",
+ "source_read": "https://brand-uk.assets.kfc.co.uk/nutrition-allergens.pdf (re-downloaded 2026-10-08, Last-Modified 5 Oct 2026; re-running the script on it gives byte-identical CSVs; robots.txt allows /)",
+ "compared_items": 108,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 4,
+ "marked_ok": 3,
+ "not_verifiable": "",
+ "notes": "All 108 items matched an independent pdftotext -bbox read of all 128 printed rows (kJ, kcal, fat, sat, carbs, sugars, protein, salt as printed text; contains/may/cereals; vegetarian mark); 6 crops of the pages read by eye. Held back Apple Tango regular+large (kJ contradicts kcal: 30 kJ/12 kcal, 68 kJ/18 kcal) and Lipton Ice Tea regular+large (salt 0.90 g vs 0.13 g). Popcorn Chicken prints protein=carbs=fat (kept, as printed)."
+}

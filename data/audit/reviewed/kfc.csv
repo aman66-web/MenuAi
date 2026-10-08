@@ -1,0 +1,4 @@
+item,code,verdict,evidence
+bottle-of-still-water,zero-kcal,ok,"Page 2 left, 'Drink' table, Bottle of Still Water (page image read): kJ 0, kcal 0, Fat 0.5, Sat Fat 0.1, Carbs 0.5, Sugars 0.5, Protein 0.5, Salt 0.01 as printed (each macro is the printed rounding of a trace; the kcal is printed 0)"
+iced-tiramisu-latte,name-implies-eggs,ok,"Page 1 right, KWENCH-Iced Coffee & Shakes table (page image read): Iced Tiramisu Latte 215 kcal, Contains Allergens: milk; no egg printed (a tiramisu-flavoured latte, not the dessert)"
+oatly-iced-tiramisu-latte,name-implies-eggs,ok,"Page 1 right, KWENCH table (page image read): Oatly Iced Tiramisu Latte 175 kcal, Contains: oat gluten; may contain wheat/barley/rye/spelt gluten; no egg printed (a tiramisu-flavoured latte, not the dessert)"
