@@ -34,11 +34,24 @@ How the pages are read (each rule stops the run if the page stops fitting it):
   Pie ("hazlenut-pie", the chain's sitemap has /hazelnut-pie) and Glazed Munchkins ("strawberry-sprinkle-munchkins"; the in-store range page
   links /glazed-munchkins); a corrected page is used only when its <title> is the allergen page's product name exactly (SLUG_FIX).
 
-Allergens (docs/DATA.md "Allergens") are link-only. The allergen pages do list allergens for most products, but not completely: eight
-drinks have no allergen line (or an empty one), Espresso is listed with Milk on the allergen page and with no allergens on its product page,
-two print a bare "Milk", eleven print "Dairy in Milk Choice", two print text that is not a list of the 14 ("Milk (May Contain: Cereals
-(Gluten), Eggs, Nuts"), and no drink has the separate "May Contain" line the donut pages have. Allergens are safety information: no
-guessing and no reading silence as "none", so the pages' link is published and allergens.csv is not (all or nothing).
+Allergens (docs/DATA.md "Allergens", added 2026-10-08). Every product has TWO official statements of its allergens: the line on the
+allergen page ("Allergens: ...", donuts/cookies/bakery also "May Contain: ...") and the "Allergens" block plus the "may contain" line inside
+the Nutrition block of its own product page. A product's row is published only when BOTH pages print a list and the two lists are the
+same (contains and may-contain, as sets of the 14 allergens). Nothing is inferred and silence is never read as "none":
+- no allergen line at all (Blackberry Lemonade, Blush Spritz, Starlight Lemonade, Atlantic Ice, Strawberry Lemonade), an empty one (Iced
+  Green Tea, Shaken Iced Tea) or two pages that disagree (Espresso: Milk on the allergen page, no allergen block on the product page)
+  -> the product is held back (holdback.csv), with the reason;
+- the chain's own spellings are read as follows and each only counts when the other page agrees: "Cereals (Gluten)", "Gluten (Cereals)" and
+  "Cereals" = gluten (no cereal is named), "Dairy in Milk Choice" = milk (the product page prints "Milk"), a lone "Milk" printed without a
+  label under a drink's name (Iced Shaken Espresso, Iced Caramel Macchiato) = its allergen line (the product page prints "Allergens: Milk"),
+  "Milk (May Contain: ...)" = contains milk and may contain the rest (the product page prints them as two lines), and a missing comma
+  ("Milk Peanuts", "Eggs Nuts") is read as two allergens;
+- drinks print no "may contain" line (except Coffee Frappe and Strawberry & White Chocolate Iced Matcha), and the product pages say that
+  "May Contain" information, where there is any, sits in the Nutrition block; so a drink without that line has no traces listed (the app
+  shows every unlisted allergen as "Not listed", never "free from");
+- Hazelnut Pie and Glazed Munchkins stay held back for their calories (two figures on the chain's website).
+Self-checks: every published item has a row; both pages agree for every published product; an unknown allergen word stops the run.
+Set PUBLISH_ALLERGENS = False to go back to the link only (and drop the allergen hold-backs).
 """
 from __future__ import annotations
 import argparse
@@ -48,7 +61,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import dunkin_pages as dp  # noqa: E402
-from common import sha256_file, slug, write_chain_folder  # noqa: E402
+from common import _A, allergen_words, sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "dunkin"
 SOURCE_URL = "https://dunkin.co.uk/allergens"
@@ -56,9 +69,15 @@ SOURCE_TITLE = ("Dunkin' UK allergens & nutrition pages: donuts, Munchkins, cook
                 "(dunkin.co.uk/allergens-*, (c) 2026 DD IP Holder LLC; accessed {checked}, no date shown)")
 ALLERGEN_GUIDE_TITLE = "Dunkin' UK allergens pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot and cold drinks (no date shown)"
 ALIASES = ["dunkin", "dunkin'", "dunkin’", "dunkin donuts", "dunkin' donuts", "dunkin’ donuts", "dunkin uk"]
-NOTE = ("Dunkin' publishes calories only, so protein, carbs, fat and other nutrients are not published. Drinks whose calories are printed "
-        "as a range (it depends on the milk chosen, e.g. Latte), or without a size, are left out. Sizes are Small, Medium and Large as "
-        "printed (no ml given). Items whose calories differ between Dunkin's allergen page and product page are not shown.")
+NOTE = ("Calories only: no protein, carbs or fat. Drinks printed as a range (it depends on the milk) or without a size are left out; sizes "
+        "as printed (no ml). Items with no allergen list, or whose calories or allergen lists differ between Dunkin's allergen page and "
+        "product page, are not shown. Drinks list no traces, so those read Not listed, not free from.")
+assert len(NOTE) < 400
+PUBLISH_ALLERGENS = True
+# The chain's own spellings, on top of common._A (all lower case, whitespace-normalised).
+DUNKIN_WORDS = {"cereals (gluten)": ("gluten", None), "gluten (cereals)": ("gluten", None), "dairy in milk choice": ("milk", None)}
+_TABLE = {**_A, **DUNKIN_WORDS}
+_INLINE_MAY = re.compile(r"^(?P<a>[^()]*?)\s*\(\s*may contain\s*:\s*(?P<m>.*?)\)?\s*$", re.I)
 
 # allergen page -> (category, limited_time, products expected on it, is a drink page)
 PAGES = {
@@ -77,6 +96,12 @@ BOTH_PAGES = {"Pumpkin Spiced Latte", "Maple Pecan Pie Latte", "Dubai Chocolate 
 NO_CALORIES = {"Filter Coffee"}
 # Allergen-page links that answer 404 -> the live page of the same product (its <title> must equal the product's name on the allergen page).
 SLUG_FIX = {"hazlenut-pie": "hazelnut-pie", "strawberry-sprinkle-munchkins": "glazed-munchkins"}
+# Drinks whose NAME names a food (pecan, pie, churro) while both pages print milk only: the row contradicts the dish's own name
+# (docs/ACCURACY_AUDIT.md policy 3), so the drink is held back, not shown with a "safe" row.
+NAME_CONTRADICTS = {
+    "Maple Pecan Pie Latte": "the name says pecan and pie but both pages print milk only (no nuts, no gluten)",
+    "Churro Iced Matcha": "the name says churro but both pages print milk only (no gluten)",
+}
 # Left out on purpose: printed without a size on both the allergen page and the product page.
 NO_SIZE_EVERYWHERE = {"Red Bull Strawberry Infusion"}
 
@@ -101,6 +126,91 @@ def serving_word(nutrition_text: str) -> str:
     """'222 kcal per donut' -> '1 donut'; '' when the page prints no unit."""
     m = re.search(r"kcal\s+per\s+([A-Za-z]+)", nutrition_text or "", re.I)
     return f"1 {m.group(1).lower()}" if m else ""
+
+
+def words_of(text: str, where: str) -> list[str]:
+    """A printed allergen list -> the chain's allergen phrases, each of which must be a known one (common._A + DUNKIN_WORDS).
+    Split on commas and 'and'; a comma the chain forgot ('Milk Peanuts', 'Eggs Nuts') is read as two phrases, longest known phrase first.
+    Any word that is not a known allergen stops the run."""
+    t = re.sub(r"\s+", " ", text.strip().strip(".")).lower()
+    t = re.sub(r"\band\b", ",", t)
+    out: list[str] = []
+    for part in t.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        if part in _TABLE:
+            out.append(part)
+            continue
+        toks, i = part.split(" "), 0
+        while i < len(toks):
+            for j in range(len(toks), i, -1):
+                if " ".join(toks[i:j]) in _TABLE:
+                    out.append(" ".join(toks[i:j]))
+                    i = j
+                    break
+            else:
+                raise SystemExit(f"{where}: unknown allergen word {toks[i]!r} in {text!r}: check the page, then add it to DUNKIN_WORDS if it is one of the 14")
+    return out
+
+
+def _sets(contains_text: str | None, may_text: str | None, where: str) -> tuple[frozenset, frozenset, frozenset, frozenset]:
+    c, cer, nuts = allergen_words(words_of(contains_text or "", where), where, DUNKIN_WORDS)
+    m, _, _ = allergen_words(words_of(may_text or "", where), where, DUNKIN_WORDS)
+    return frozenset(c), frozenset(m - c), frozenset(cer), frozenset(nuts)
+
+
+def page_allergens(r: dict) -> tuple[tuple | None, str]:
+    """What the ALLERGEN PAGE prints for one product -> ((contains, may, cereals, nuts), '') or (None, why it is not a list)."""
+    text = r["allergens"]
+    if text is None and r["bare"] == ["Milk"]:
+        text = "Milk"  # a lone 'Milk' under the drink's name, with no label
+    if text is None:
+        return None, "the allergen page prints no allergen list for it"
+    if text == "":
+        return None, "the allergen page prints an empty 'Allergens:' line"
+    may = r["may_contain"]
+    m = _INLINE_MAY.match(text)
+    if m:
+        if may:
+            raise SystemExit(f"{r['name']!r}: a 'May Contain' line and an inline '(May Contain: ...)'")
+        text, may = m.group("a"), m.group("m")
+    return _sets(text, may, f"allergen page {r['name']!r}"), ""
+
+
+def product_allergens(prod: dict | None, name: str) -> tuple[tuple | None, str]:
+    """What the PRODUCT PAGE prints -> same shape."""
+    if prod is None:
+        return None, "its product page could not be read"
+    if not prod.get("allergens"):
+        return None, "its product page prints no allergen list"
+    return _sets(prod["allergens"], prod.get("may_contain"), f"product page {name!r}"), ""
+
+
+def _printed(r: dict, prod: dict | None) -> str:
+    """What the two pages print, for a hold-back reason."""
+    on_page = r["allergens"] if r["allergens"] is not None else (r["bare"][0] + " (no label)" if r["bare"] else "no allergen line")
+    if r["may_contain"]:
+        on_page = f"{on_page}; may contain {r['may_contain']}"
+    if prod is None:
+        return f"the allergen page prints {on_page!r} and its product page could not be read"
+    on_prod = prod["allergens"] if prod.get("allergens") else "no allergen block"
+    if prod.get("may_contain"):
+        on_prod = f"{on_prod}; may contain {prod['may_contain']}"
+    return f"the allergen page prints {on_page!r} and the product page prints {on_prod!r}"
+
+
+def record_allergens(r: dict, prod: dict | None) -> tuple[dict | None, str]:
+    """The row to publish for one product, or (None, the reason it is held back). Both pages must print a list and the two must be equal."""
+    a, why_a = page_allergens(r)
+    b, why_b = product_allergens(prod, r["name"])
+    if a is None or b is None:
+        return None, f"Allergens not published: {_printed(r, prod)}. A missing list is not read as 'none'."
+    if a != b:
+        def show(x):
+            return f"contains {sorted(x[0]) or 'none'}, may contain {sorted(x[1]) or 'none'}"
+        return None, f"Allergens not published: {_printed(r, prod)}: the pages disagree ({show(a)} against {show(b)}), so neither is chosen"
+    return {"contains": set(a[0]), "may_contain": set(a[1]), "cereals": set(a[2]), "nuts": set(a[3])}, ""
 
 
 def load_products(products_dir: Path, records: list[dict]) -> dict[str, dict]:
@@ -130,7 +240,7 @@ def build(pages_dir: Path, products_dir: Path) -> tuple[list[dict], list[tuple[s
     holdback: list[tuple[str, str]] = []
     report: list[str] = []
     stats = {"records": 0, "cross_checked": 0, "cross_checked_ranges": 0, "no_product_page": [], "allergen_lines_missing": [],
-             "sized_from_product_page": []}
+             "sized_from_product_page": [], "allergen_rows": 0, "allergen_held": []}
     records_by_page = {}
     for page, (category, limited, expected, is_drink) in PAGES.items():
         text = (pages_dir / f"{page}.html").read_text(encoding="utf-8")
@@ -207,6 +317,7 @@ def build(pages_dir: Path, products_dir: Path) -> tuple[list[dict], list[tuple[s
                     made.append((item, t))
                     _cross_check(item, t, pfigs, variant, prod, stats, holdback, report)
                 _check_sizes_agree(display, made, holdback, report)
+                _attach_allergens([m[0] for m in made], r, prod, holdback, report, stats)
             else:
                 if len(tokens) != 1 or tokens[0]["size"] is not None or tokens[0]["is_range"]:
                     raise SystemExit(f"{r['name']!r}: expected one plain calorie figure, got {r['nutrition']!r}")
@@ -218,12 +329,37 @@ def build(pages_dir: Path, products_dir: Path) -> tuple[list[dict], list[tuple[s
                             limited_time=limited, rankable=False, notes=printed_note + (f"; product page: {prod['nutrition']}" if prod else ""))
                 items.append(item)
                 _cross_check(item, t, pfigs, None, prod, stats, holdback, report)
+                _attach_allergens([item], r, prod, holdback, report, stats)
     names = [i["name"] for i in items]
     if len(set(names)) != len(names):
         raise SystemExit("Item names are not unique: " + ", ".join(sorted({n for n in names if names.count(n) > 1})))
     if len(items) != EXPECTED_ITEMS:
         raise SystemExit(f"{len(items)} items built, expected {EXPECTED_ITEMS}: the menu changed; re-read the report and update EXPECTED_ITEMS")
     return items, holdback, report, stats
+
+
+def _attach_allergens(made: list[dict], r: dict, prod: dict | None, holdback: list[tuple[str, str]], report: list[str], stats: dict) -> None:
+    """Give every item made from one product its allergen row, or hold the items back with the reason (never an empty row)."""
+    if not PUBLISH_ALLERGENS:
+        return
+    row, why = record_allergens(r, prod)
+    contradiction = NAME_CONTRADICTS.get(clean_name(r["name"])[0])
+    if row is not None and contradiction:
+        row, why = None, f"Allergens not published: the row contradicts the dish's own name: {contradiction}."
+    held_ids = {h[0] for h in holdback}
+    for item in made:
+        item["allergens"] = row
+        if row is None:
+            iid = slug(item["name"])
+            stats["allergen_held"].append(item["name"])
+            if iid in held_ids:
+                report.append(f"allergens: {item['name']} was already held back (calories); allergens would also be held: {why}")
+            else:
+                holdback.append((iid, why))
+                held_ids.add(iid)
+                report.append(f"HELD BACK {item['name']}: {why}")
+        else:
+            stats["allergen_rows"] += 1
 
 
 def _candidates(pfigs: list[dict], size: str | None, variant: str | None) -> list[dict]:
@@ -301,7 +437,17 @@ def main() -> int:
     guide = {"title": ALLERGEN_GUIDE_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Dunkin'", cuisine="Bakery", source_title=SOURCE_TITLE.format(checked=args.checked_on),
                              source_url=SOURCE_URL, checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE,
-                             holdback=holdback, allergen_guide=guide, nutrition_level="calories")
+                             holdback=holdback, allergen_guide=None if PUBLISH_ALLERGENS else guide, nutrition_level="calories")
+    if PUBLISH_ALLERGENS:
+        # Held-back items get no row (the build ignores rows for them anyway); every published item must have one.
+        held = {h[0] for h in holdback}
+        rows = [(slug(i["name"]), i["allergens"]) for i in items if slug(i["name"]) not in held]
+        missing = [i["name"] for i in items if slug(i["name"]) not in held and i.get("allergens") is None]
+        if missing or not rows:
+            raise SystemExit(f"published items without an allergen row: {missing}")
+        write_allergens(out, CHAIN_ID, rows, guide)
+        print(f"allergens: {len(rows)} published items each have a row on which the allergen page and the product page agree; "
+              f"{len(stats['allergen_held'])} items held back for allergens or calories")
     print("\n".join(report))
     by_cat: dict[str, int] = {}
     for i in items:

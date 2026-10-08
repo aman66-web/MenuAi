@@ -12,8 +12,8 @@ croquette-de-crabe-du-devon-et-mais,crustaceans|eggs|gluten|milk|mustard|soya|su
 fondant-de-celeri-rave,celery|mustard|nuts|peanuts|sesame|sulphites,gluten,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 escargots-baguette,gluten|milk|molluscs|nuts|peanuts|sulphites,eggs|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 escargots-gluten-free-bread,eggs|milk|molluscs|sulphites,,,
-steak-tartare,celery|eggs|fish|gluten|mustard|nuts|sulphites,sesame|soya,barley|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-soupe-a-loignon,gluten|milk|nuts|peanuts|sulphites,celery|eggs|mustard|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+steak-tartare,celery|eggs|fish|gluten|mustard|nuts|sulphites,sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+soupe-a-loignon,gluten|milk|nuts|peanuts|sulphites,celery|eggs|mustard|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 feuillete-croustillant-au-fromage-de-chevre-et-olives-noires,eggs|gluten|milk|mustard|sulphites,soya,barley|oats|rye|wheat,
 plateau-de-charcuterie-saint-marcellin-au-four,gluten|milk|nuts|peanuts|sulphites,eggs|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 soupe-de-courge-muscat-au-kirsch,nuts|sulphites,gluten|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
@@ -24,7 +24,7 @@ filet-de-boeuf,milk|mustard|sulphites,,,
 chateaubriand-pour-deux,milk|mustard|sulphites,,,
 ballotine-de-poulet,celery|eggs|milk|sulphites,,,
 cuisse-de-lapin-confite,celery|milk|mustard|peanuts|sulphites,,,
-le-burger-sesame-brioche-bun,eggs|gluten|milk|mustard|nuts|sesame|soya,,wheat,walnut
+le-burger-sesame-brioche-bun,eggs|gluten|milk|mustard|nuts|sesame|soya,,,walnut
 le-burger-gluten-free-bun,eggs|mustard,,,
 cabillaud-a-la-grenobloise,fish|gluten|milk|nuts|peanuts|sulphites,eggs|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 moules-mariniere,milk|molluscs|sulphites,crustaceans,,
@@ -86,21 +86,21 @@ balsamic-with-fig-leaf-oil-salad-dressing,sulphites,,,
 crunchy-pickles-burger-add-on,mustard,,,
 assiette-de-fruits,milk|sulphites,,,
 granola,gluten|milk|nuts,,barley|oats|wheat,
-muesli,gluten|milk|nuts|peanuts|sulphites,,barley|oats|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+muesli,gluten|milk|nuts|peanuts|sulphites,,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 croissant-with-butter-and-preserve,eggs|gluten|milk|nuts|sesame|soya,,wheat,almond|hazelnut|walnut
 pain-au-chocolat-with-butter-and-preserve,eggs|gluten|milk|nuts|sesame|soya,,wheat,almond|hazelnut|walnut
 pain-aux-raisins-with-butter-and-preserve,eggs|gluten|milk|nuts|sesame|soya,,wheat,almond|hazelnut|walnut
 toast-et-confiture-white,gluten|milk,,barley|oats|rye|wheat,
 toast-et-confiture-brown,gluten|milk,,barley|oats|rye|wheat,
-toast-et-confiture-sourdough,gluten|milk|nuts,eggs|sesame|soya,rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-breakfast-porridge,gluten,soya,oats,
-petit-dejeuner-a-langlaise,eggs|gluten|milk|nuts|sulphites,sesame|soya,rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-petit-dejeuner-vegetarien,eggs|gluten|milk|nuts|sulphites,sesame|soya,rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+toast-et-confiture-sourdough,gluten|milk|nuts,eggs|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+breakfast-porridge,gluten,soya,,
+petit-dejeuner-a-langlaise,eggs|gluten|milk|nuts|sulphites,sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+petit-dejeuner-vegetarien,eggs|gluten|milk|nuts|sulphites,sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 benedict-with-english-ham-ufs,eggs|gluten|milk|soya|sulphites,celery|mustard,wheat,
 royale-with-smoked-salmon-ufs,eggs|fish|gluten|milk|soya|sulphites,celery|mustard,wheat,
 florentine-with-spinach-ufs,eggs|gluten|milk|soya|sulphites,celery|mustard,wheat,
-saumon-fume-et-ufs-brouilles,eggs|fish|gluten|milk|nuts,sesame|soya,rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-tartine-a-lavocat,eggs|gluten|nuts|sulphites,celery|mustard|sesame|soya,rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+saumon-fume-et-ufs-brouilles,eggs|fish|gluten|milk|nuts,sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+tartine-a-lavocat,eggs|gluten|nuts|sulphites,celery|mustard|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 pain-perdu-a-la-cannelle,eggs|gluten|milk|mustard|nuts|peanuts|sesame|soya,,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 buffet,celery|eggs|gluten|lupin|milk|nuts|peanuts|sesame|soya|sulphites,,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 petit-dejeuner-continental,eggs|gluten|milk|nuts|peanuts|soya|sulphites,sesame,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
@@ -116,14 +116,14 @@ banana-porridge-add-on,,,,
 berries-porridge-add-on,,,,
 crudites-and-houmous,celery|lupin|sesame|sulphites,,,
 breadsticks-and-houmous,gluten|milk|sesame|soya|sulphites,,barley|wheat,
-veggie-bolognese,celery|gluten|lupin|milk|sulphites,soya,wheat,
+veggie-bolognese,celery|gluten|lupin|milk|sulphites,soya,,
 grilled-chalkstream-trout,celery|fish|lupin,,,
 chicken-roulade,eggs|gluten|milk|soya,mustard,barley|oats|rye|wheat,
-le-petit-burger,eggs|gluten|milk|nuts|sesame|soya,mustard,wheat,walnut
+le-petit-burger,eggs|gluten|milk|nuts|sesame|soya,mustard,,walnut
 pork-sausage-mash-and-gravy,milk|sulphites,,,
 watermelon-and-pineapple-fruit-salad,,,,
 fruit-twist,nuts,eggs|milk,,
-strawberry-knickerbocker-glory,eggs|gluten|milk|nuts|soya,sulphites,wheat,almond
+strawberry-knickerbocker-glory,eggs|gluten|milk|nuts|soya,sulphites,,almond
 judes-chocolate-milk,milk,gluten,,
 cawston-press-juices-apple-and-pear,,,,
 cawston-press-juices-apple-and-summer-berries,,,,

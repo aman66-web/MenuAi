@@ -28,10 +28,11 @@ is quoted in source_title.
 
 Allergens (docs/DATA.md "Allergens"): the same pages have an "Allergens" tab, one set per option like the numbers (variantData[i]
 .allergens; the tab shown is the default option's, checked). It prints an icon and a label for each allergen the item contains
-("Contains Gluten" / "Gluten"), or the word "None". It prints no "may contain" information and names no cereal or nut. An option
-whose allergen data is empty or missing (e.g. two and three scoops of gelato, some dips) has NO allergens published: nothing is
-copied from another option or page, so the chain then gets only the guide link (allergen_guide.csv, no allergens.csv) and the
-script lists every such item.
+("Contains Gluten" / "Gluten"), or the word "None". It prints no "may contain" information and names no cereal or nut. Nothing is
+inferred and nothing is copied from another option or page: an item is published only with the allergens its OWN option prints. The
+two- and three-scoop options of every gelato print NO allergens (the data is empty; only "One Scoop" has them), so those 40 items are
+held back (holdback.csv; ALLERGEN_HOLDBACK_LABELS below) and the other items get allergens.csv + allergen_guide.csv. The script stops if
+any other option lacks allergens, if a held-back option starts printing them, or if a published item has no row.
 """
 from __future__ import annotations
 import argparse
@@ -46,7 +47,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, allergen_words, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "aunties-anne"
 BASE = "https://www.auntieannes.co.uk"
@@ -218,6 +219,11 @@ HOLDBACK: dict[str, str] = {
     "mini-pretzel-dogs-halal-chicken": "The page prints 5.7 g protein and 4.7 g fat (same protein-to-carbohydrate ratio as the plain nuggets, so dough only) against 19.2 g and 22.7 g with halal beef: the chicken sausage adds nothing.",
     "mini-pretzel-dogs-original": "The page prints 545 kcal but its own protein, carbs, fat and fibre add up to about 644 kcal, and 43.2 g protein / 31.1 g fat against 19.2 g / 22.7 g for the halal beef version.",
 }
+
+# Options whose Allergens tab is empty on the site (checked every run): the item is held back, never given another option's allergens.
+ALLERGEN_HOLDBACK_LABELS = ("Two Scoops", "Three Scoops")
+ALLERGEN_HOLDBACK_REASON = ("The page's Allergens tab prints nothing for the {label} option (only One Scoop has allergens), and allergens are never "
+                            "copied from another option, so this size is not published.")
 
 # Odd values worth a human look (notes are not exported). Nothing here changes a number.
 ITEM_NOTES = {
@@ -413,6 +419,7 @@ def main() -> int:
     excluded: list[tuple[str, str]] = []
     meat_log: list[str] = []
     seen_ids: dict[str, str] = {}
+    allergen_held: dict[str, str] = {}
     sums = [("menu-sitemap.xml", hashlib.sha256((raw / "menu-sitemap.xml").read_bytes()).hexdigest()),
             ("menu.html", hashlib.sha256((raw / "menu.html").read_bytes()).hexdigest())]
     for s in sorted(site):
@@ -449,6 +456,14 @@ def main() -> int:
             if item_id in seen_ids:
                 raise SystemExit(f"Two items get the id {item_id!r} ({seen_ids[item_id]} and {s}).")
             seen_ids[item_id] = s
+            if allergens is None:
+                if label not in ALLERGEN_HOLDBACK_LABELS:
+                    raise SystemExit(f"{s} ({label or 'single'}): the page prints no allergens for this option and it is not one of the expected "
+                                     f"{ALLERGEN_HOLDBACK_LABELS}: re-check the page, then update ALLERGEN_HOLDBACK_LABELS.")
+                allergen_held[item_id] = ALLERGEN_HOLDBACK_REASON.format(label=label)
+            elif label in ALLERGEN_HOLDBACK_LABELS:
+                raise SystemExit(f"{s} ({label}): the page now prints allergens for an option the script holds back: re-check and update "
+                                 "ALLERGEN_HOLDBACK_LABELS.")
             halal = label.startswith("Halal")
             tag_text = f"{name} {label}"
             tags = []
@@ -493,31 +508,36 @@ def main() -> int:
 
     note = ("Values are for the item or size each page shows (pizza 8 or 14 inch, one to three scoops, regular or large). The pages give no weights "
             "and don't say how many nuggets or mini dogs are in a portion, nor which milk is used. Some items print identical values "
-            "(e.g. Margherita, Farmhouse and Vegetarian pizza).")
+            "(e.g. Margherita, Farmhouse and Vegetarian pizza). Two- and three-scoop gelato are not listed: the pages print allergens "
+            "only for one scoop.")
     lastmods = re.findall(r"<lastmod>(\d{4}-\d\d-\d\d)T", (raw / "menu-sitemap.xml").read_text(encoding="utf-8", errors="replace"))
     if not lastmods:
         raise SystemExit("The menu sitemap carries no lastmod dates: re-check how source_title dates the pages.")
-    no_allergens = [i["name"] for i in items if i["allergens"] is None]
+    guide = {"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": False}
+    holdback = [(i, HOLDBACK[i]) for i in ids if i in HOLDBACK] + [(i, allergen_held[i]) for i in ids if i in allergen_held]
     write_chain_folder(
         chain_id=CHAIN_ID, name="Auntie Anne's", cuisine="Bakery",
         source_title=SOURCE_TITLE.format(checked_on=args.checked_on, sitemap_date=max(lastmods)),
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["auntie annes", "auntie anne's", "auntie annes pretzels"],
-        items=items, out=args.out, note=note, holdback=[(i, HOLDBACK[i]) for i in ids if i in HOLDBACK],
-        allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": False})
+        items=items, out=args.out, note=note, holdback=holdback, allergen_guide=guide)
+    # write_chain_folder cannot write allergens.csv while any item (here the ones held back for their allergens) has none, so the files
+    # are written again without those items (the pipeline ignores rows of held-back items). Every other item must have a row: all or nothing.
+    rows = [(i["id"], i["allergens"]) for i in items if i["id"] not in allergen_held]
+    if any(a is None for _, a in rows) or len(rows) + len(allergen_held) != len(items):
+        raise SystemExit("an item without allergens is not in the allergen holdback list")
+    write_allergens(args.out, CHAIN_ID, rows, guide)
     combined = hashlib.sha256("".join(f"{h}  {n}\n" for n, h in sums).encode()).hexdigest()
     (raw / "SHA256SUMS").write_text("".join(f"{h}  {n}\n" for n, h in sums), encoding="utf-8")
-    print(f"wrote {len(items)} items ({len(HOLDBACK)} held back, {len(excluded)} pages left out) to {args.out}; combined SHA-256 of the "
-          f"{len(site)} item pages, the sitemap and the menu page: {combined}")
+    print(f"wrote {len(items)} items ({len(HOLDBACK)} held back for their numbers, {len(allergen_held)} for missing allergens, "
+          f"{len(excluded)} pages left out) to {args.out}; combined SHA-256 of the {len(site)} item pages, the sitemap and the menu page: {combined}")
     print("Pages left out:")
     for n, why in excluded:
         print(f"  {n}: {why}")
     print("Identical value sets on different items:", "; ".join(", ".join(g) for g in twin_groups))
     print("Meat type not stated:", "; ".join(meat_log))
-    if no_allergens:
-        print(f"Allergens: INCOMPLETE, guide link only (no allergens.csv). {len(no_allergens)} of {len(items)} items have no allergens "
-              f"published for their option: {'; '.join(no_allergens)}")
-    else:
-        print(f"Allergens: all {len(items)} items have them (allergens.csv written)")
+    with_rows = len(rows)
+    print(f"Allergens: allergens.csv has {with_rows} rows (every item not held back for its allergens); {len(allergen_held)} items are held back "
+          f"because the page prints no allergens for their option ({', '.join(ALLERGEN_HOLDBACK_LABELS)} of every gelato).")
     return 0
 
 

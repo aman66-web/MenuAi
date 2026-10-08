@@ -1,3 +1,38 @@
 item_id,reason
 hazelnut-pie,"The allergen page prints 510 kcal but the same product's page prints 515 kcal ('(May contain traces of Egg, Peanuts, Sulphur Dioxide, Mustard) / 515 kcal per donut'); two figures on the chain's own website, so neither is published"
 glazed-munchkins,"The allergen page prints 73 kcal but the same product's page prints 63 kcal ('(May contain traces of Peanuts, Nuts, Sulphur Dioxide, Mustard, Lupin) / 63 kcal per Munchkin®'); two figures on the chain's own website, so neither is published"
+toffee-apple,"Allergens not published: the allergen page prints 'Soya, Cereals (Gluten), Milk; may contain Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard' and the product page prints 'Nuts, Milk, Soya, Cereals (Gluten); may contain Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide': the pages disagree (contains ['gluten', 'milk', 'soya'], may contain ['eggs', 'mustard', 'nuts', 'peanuts', 'sulphites'] against contains ['gluten', 'milk', 'nuts', 'soya'], may contain ['eggs', 'mustard', 'peanuts', 'sulphites']), so neither is chosen"
+churro,"Allergens not published: the allergen page prints 'Soya, Cereals (Gluten), Milk; may contain Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard' and the product page prints 'Nuts, Milk, Soya, Cereals (Gluten); may contain Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide': the pages disagree (contains ['gluten', 'milk', 'soya'], may contain ['eggs', 'mustard', 'nuts', 'peanuts', 'sulphites'] against contains ['gluten', 'milk', 'nuts', 'soya'], may contain ['eggs', 'mustard', 'peanuts', 'sulphites']), so neither is chosen"
+speculoos-caramel-crumb,"Allergens not published: the allergen page prints 'Soya, Cereals (Gluten), Milk; may contain Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard' and the product page prints 'Nuts, Milk, Soya, Cereals (Gluten); may contain Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide': the pages disagree (contains ['gluten', 'milk', 'soya'], may contain ['eggs', 'mustard', 'nuts', 'peanuts', 'sulphites'] against contains ['gluten', 'milk', 'nuts', 'soya'], may contain ['eggs', 'mustard', 'peanuts', 'sulphites']), so neither is chosen"
+espresso-small,Allergens not published: the allergen page prints 'Milk' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+espresso-medium,Allergens not published: the allergen page prints 'Milk' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+maple-pecan-pie-latte-hot-small,"Allergens not published: the row contradicts the dish's own name: the name says pecan and pie but both pages print milk only (no nuts, no gluten)."
+maple-pecan-pie-latte-hot-medium,"Allergens not published: the row contradicts the dish's own name: the name says pecan and pie but both pages print milk only (no nuts, no gluten)."
+maple-pecan-pie-latte-hot-large,"Allergens not published: the row contradicts the dish's own name: the name says pecan and pie but both pages print milk only (no nuts, no gluten)."
+iced-green-tea-small,Allergens not published: the allergen page prints '' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+iced-green-tea-medium,Allergens not published: the allergen page prints '' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+iced-green-tea-large,Allergens not published: the allergen page prints '' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+blackberry-lemonade-small,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+blackberry-lemonade-medium,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+blackberry-lemonade-large,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+blush-spritz-small,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+blush-spritz-medium,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+blush-spritz-large,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+maple-pecan-pie-latte-cold-small,"Allergens not published: the row contradicts the dish's own name: the name says pecan and pie but both pages print milk only (no nuts, no gluten)."
+maple-pecan-pie-latte-cold-medium,"Allergens not published: the row contradicts the dish's own name: the name says pecan and pie but both pages print milk only (no nuts, no gluten)."
+maple-pecan-pie-latte-cold-large,"Allergens not published: the row contradicts the dish's own name: the name says pecan and pie but both pages print milk only (no nuts, no gluten)."
+starlight-lemonade-small,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+starlight-lemonade-medium,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+starlight-lemonade-large,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+atlantic-ice-small,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+atlantic-ice-medium,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+atlantic-ice-large,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+shaken-iced-tea-small,Allergens not published: the allergen page prints '' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+shaken-iced-tea-medium,Allergens not published: the allergen page prints '' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+shaken-iced-tea-large,Allergens not published: the allergen page prints '' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+strawberry-lemonade-small,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+strawberry-lemonade-medium,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+strawberry-lemonade-large,Allergens not published: the allergen page prints 'no allergen line' and the product page prints 'no allergen block'. A missing list is not read as 'none'.
+churro-iced-matcha-small,Allergens not published: the row contradicts the dish's own name: the name says churro but both pages print milk only (no gluten).
+churro-iced-matcha-medium,Allergens not published: the row contradicts the dish's own name: the name says churro but both pages print milk only (no gluten).
+churro-iced-matcha-large,Allergens not published: the row contradicts the dish's own name: the name says churro but both pages print milk only (no gluten).

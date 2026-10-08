@@ -140,6 +140,8 @@ TAKEAWAY = [
 HOLD_NAME_CONFLICT = {
     "Halloumi, sriracha mayonnaise and chips": "the name says mayonnaise but the guide marks no egg for the dish (the same guide calls its egg-free "
                                                "one 'Vegan mayonnaise'): not published until Rockfish confirms the egg marks",
+    "Oyster drizzle": "allergen row contradicts the dish name: the name says oyster but the guide marks no molluscs for it (the guide does not say whether "
+                      "it is made with oyster): not published until Rockfish confirms the molluscs mark",
 }
 EXPECTED_EATIN, EXPECTED_TAKEAWAY = 74, 14      # dishes read from each PDF (the restaurant count has both oyster sizes)
 

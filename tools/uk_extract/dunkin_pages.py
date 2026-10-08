@@ -140,8 +140,28 @@ def read_product_page(text: str) -> dict:
     allergens = None
     if "\nAllergens\n" in head:
         allergens = head.split("\nAllergens\n", 1)[1].split("\n", 1)[0].strip()
-    return {"ok": True, "title": page_title(text), "allergens": allergens, "nutrition": nut[1].strip() if len(nut) == 2 else None,
-            "head": head[-700:]}
+    nutrition = nut[1].strip() if len(nut) == 2 else None
+    return {"ok": True, "title": page_title(text), "allergens": allergens, "nutrition": nutrition,
+            "may_contain": product_may_contain(nutrition), "head": head[-700:]}
+
+
+_MAY_TRACES = re.compile(r"^\(\s*may contain traces of\s*(.*?)\)?\s*$", re.I)
+_MAY_LINE = re.compile(r"^may contain\s*:\s*(.*?)\s*$", re.I)
+
+
+def product_may_contain(nutrition: str | None) -> str | None:
+    """The 'may contain' text a product page prints inside its Nutrition block: '(May contain traces of Egg, Peanuts)' on donuts,
+    'May Contain: Cereals, Soya, Eggs and Nuts' on two drinks. None when the page prints no such line (the page says: 'There may be
+    "May Contain" allergen information in the Nutritional section below'). Two such lines stop the run."""
+    found = []
+    for line in (nutrition or "").split("\n"):
+        line = line.strip()
+        m = _MAY_TRACES.match(line) or _MAY_LINE.match(line)
+        if m:
+            found.append(m.group(1).strip())
+    if len(found) > 1:
+        raise SystemExit(f"a product page prints two 'may contain' lines: {found}")
+    return found[0] if found else None
 
 
 def _clean_keep_lines(s: str) -> str:
