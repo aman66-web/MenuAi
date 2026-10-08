@@ -5,7 +5,7 @@
 export const POPULAR_ORDER: readonly string[] = [
   "mcdonalds", "kfc", "burger-king", "subway", "greggs", "dominos", "pizza-hut", "papa-johns", "nandos", "five-guys",
   "wagamama", "pizza-express", "starbucks", "costa", "pret", "caffe-nero", "taco-bell", "popeyes", "krispy-kreme",
-  "jd-wetherspoon", "wimpy", "leon", "itsu", "wasabi", "tim-hortons",
+  "wetherspoon", "wimpy", "leon", "itsu", "wasabi", "tim-hortons",
 ];
 
 const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name, "en-US");

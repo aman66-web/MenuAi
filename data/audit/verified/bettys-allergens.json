@@ -1,0 +1,9 @@
+{
+ "chain": "bettys",
+ "date": "2026-10-08",
+ "source_read": "https://www.bettys.co.uk/robots.txt (allows everything except Magento admin/checkout/search paths; /allergens is not disallowed), https://www.bettys.co.uk/sitemaps/sitemap.xml (lists /allergens, /menus, /our-menus, /cafes, /cafe-tea-rooms, /tea-rooms-faq; no PDF), and ONE request to https://www.bettys.co.uk/allergens",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "notes": "SKIPPED, blocked: https://www.bettys.co.uk/allergens (the page the menu's QR code https://qrco.de/bev1J4 opens) answers HTTP 200 with a 212-byte Imperva/Incapsula bot-challenge stub (<script src=/_Incapsula_Resource?...>) instead of the page; nothing was done to get round it (no browser automation, no further requests). Whether that page lists allergens per dish is therefore unknown. The founder can open https://www.bettys.co.uk/allergens (and https://www.bettys.co.uk/menus and https://www.bettys.co.uk/our-menus) in a normal browser, save each as a PDF or HTML file, and send them; if they list the 14 allergens per dish, bettys.py can read them. The chain keeps its existing link-only allergen_guide.csv. No data/source or script files were changed."
+}

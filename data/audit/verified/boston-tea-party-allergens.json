@@ -1,0 +1,9 @@
+{
+ "chain": "boston-tea-party",
+ "date": "2026-10-08",
+ "source_read": "https://bostonteaparty.co.uk/robots.txt (Disallow only /App_Data, /App_Plugins, /umbraco, /uSync), sitemap.xml (520 URLs, no allergen/dietary/nutrition page), /our-menus/, /faqs/, and the main and kids' menu PDFs (autumn-2026-menu_1a.pdf, kids-menu_0926_1.pdf), one request each, browser User-Agent",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "notes": "SKIPPED, no per-dish allergen data exists to copy, so the chain stays without allergens.csv and without an allergen_guide.csv (nothing to link). The menu PDFs print only the notice 'speak to a member of the team before you order, every time you visit ... we cannot list every ingredient', the marks V, VE, NGO (non-gluten option available) and a legend entry 'N Contains nuts' that no dish line uses; the FAQ (/faqs/) says to ask staff for 'our current allergen information'; the site has no allergen page or file (nothing in the sitemap, no link on /our-menus/ or /faqs/). No data/source or script files were changed."
+}
