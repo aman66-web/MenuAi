@@ -1,0 +1,9 @@
+status: skipped-blocked
+file: none
+page: https://www.forestholidays.co.uk/
+source_url: https://assets.forestholidays.co.uk/damprodblob/assets/siteassets/-images/header/fh_white_150_0a420d6724.svg
+why: The header logo is served only from assets.forestholidays.co.uk, whose robots.txt answers 403 Access Denied (treated as disallow), so the file was not fetched; to install it, save the logo from the header of https://www.forestholidays.co.uk/ in your browser (right-click, Save Image) and send it.
+terms_url: not reviewed
+terms_summary: not reviewed
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); assets.forestholidays.co.uk/robots.txt answered 403 Access Denied (treated as Disallow), so nothing was fetched from that host
+retrieved: 2026-10-08

@@ -1,0 +1,10 @@
+status: installed
+file: megans.svg
+tile: light
+source_url: https://megans.co.uk/wp-content/themes/megans/library/images/icons/logo-blue.svg
+page: https://megans.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://megans.co.uk/, the blue wordmark the header shows on small screens; the desktop header file is white); saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt (RFC 9309 matcher) allowed the page and the file
+retrieved: 2026-10-08

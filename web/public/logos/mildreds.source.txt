@@ -1,0 +1,10 @@
+status: installed
+file: mildreds.png
+tile: light
+source_url: https://images.getbento.com/accounts/e2fb5c6326b80b895f7411e60cc25964/media/images/31948wordmark_brush_stroke_BLUE.png
+page: https://www.mildreds.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.mildreds.com/): the blue brush-stroke "Mildreds" wordmark its header <img> serves (hosted on the site's Bento image host); original 1800x514 px, scaled down proportionally to 600x171 px and nothing else.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt (RFC 9309 matcher) of mildreds.com has no rules and images.getbento.com allows all (empty Disallow)
+retrieved: 2026-10-08

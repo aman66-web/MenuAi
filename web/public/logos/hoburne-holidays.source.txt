@@ -1,0 +1,10 @@
+status: installed
+file: hoburne-holidays.svg
+tile: dark
+source_url: https://www.hoburne.com/images/logo-hoburne-white-mobile.svg
+page: https://www.hoburne.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.hoburne.com/), the "Hoburne Holidays" lockup the header shows on mobile (cream-white artwork #FEFBF7, so dark tile); saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt (RFC 9309 matcher) disallows only /*? and /my-account/*, so /images/ is allowed
+retrieved: 2026-10-08

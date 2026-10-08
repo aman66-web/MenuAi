@@ -1,0 +1,10 @@
+status: installed
+file: brasserie-blanc.svg
+tile: dark
+source_url: https://brasserieblanc.com/images/monogram-white.svg
+page: https://brasserieblanc.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website (https://brasserieblanc.com/): the stacked "BB" sign its page footer shows with alt text "Brasserie Blanc" (cream with coral, so dark tile); saved as served. It is a monogram, not the full name: the header's real wordmark is a 39:1 strip (symbol wordmark-bb-logo in https://brasserieblanc.com/images/icon.svg) that would be about 1 px tall in a tile, and the oval logo file (cms.heartwoodcollection.com/.../BB_Oval-Logo_RGB_2025.svg) is on a host whose robots.txt disallows everything.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt (RFC 9309 matcher) of brasserieblanc.com is Allow: /; www.brasserieblanc.com redirects (308) to brasserieblanc.com
+retrieved: 2026-10-08

@@ -1,0 +1,10 @@
+status: installed
+file: westmorland-services.svg
+tile: dark
+source_url: https://westmorlandfamily.com/ (inline SVG in the page header, <div class="navbar-logo">; the site serves no standalone file for it)
+page: https://westmorlandfamily.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: The Westmorland Family (the group that runs Tebay, Gloucester, Cairn Lodge and Rheged) own website header (https://westmorlandfamily.com/): its "WESTMORLAND FAMILY" wordmark as inline SVG, paths saved unchanged (white as served; the site's stylesheet colours it green on its solid navbar, so dark tile). Not the Tebay or Gloucester site logos.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt (RFC 9309 matcher) of westmorlandfamily.com has no rules; the logo is read from the page itself
+retrieved: 2026-10-08

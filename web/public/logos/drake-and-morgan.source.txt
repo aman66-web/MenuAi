@@ -1,0 +1,8 @@
+status: skipped-unavailable
+file: none
+page: https://www.drakeandmorgan.co.uk/
+why: The chain's own site shows its name in the header as plain styled text (an <h1> set in the "agenda-condensed" font, no image or SVG file) and serves only favicons and app icons, which are not allowed; to install a logo, save one from the chain's own press or brand material (or the logo on its printed menus) and send it.
+terms_url: not reviewed
+terms_summary: not reviewed
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt of drakeandmorgan.co.uk and its CDN host allow everything (empty Disallow), nothing blocked
+retrieved: 2026-10-08

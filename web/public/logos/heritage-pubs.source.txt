@@ -1,0 +1,10 @@
+status: installed
+file: heritage-pubs.svg
+tile: dark
+source_url: https://24-social.com/stonegate/1790419848-heritage-pubs
+page: https://www.heritagepubs.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.heritagepubs.co.uk/): the white diamond logo its header <img> serves (file hosted on 24-social.com, Stonegate's image host); saved as served; the site's footer serves a pink variant (https://24-social.com/stonegate/1790419837-heritage-pubs-colour) if a coloured one is preferred.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt checked with the RFC 9309 matcher: heritagepubs.co.uk disallows only /home, 24-social.com has no robots.txt rules
+retrieved: 2026-10-08

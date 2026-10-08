@@ -1,0 +1,10 @@
+status: installed
+file: third-space.svg
+tile: light
+source_url: https://www.thirdspace.london/wp-content/uploads/2024/08/art_1.svg
+page: https://www.thirdspace.london/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.thirdspace.london/): the black "THIRD SPACE" wordmark its header uses on a light bar (class nav-logo--dark); saved as served. A wide wordmark (about 10:1), so small in a tile; the site's own mobile "III" mark is https://www.thirdspace.london/wp-content/uploads/2024/09/mobile-logo-dark.svg if a squarer one is preferred.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt (RFC 9309 matcher) of thirdspace.london disallows only /wp-admin/ (admin-ajax.php allowed), so /wp-content/uploads/ is allowed
+retrieved: 2026-10-08

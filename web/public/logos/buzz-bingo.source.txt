@@ -1,0 +1,10 @@
+status: installed
+file: buzz-bingo.png
+tile: light
+source_url: https://www.buzzbingo.com/library/logo.png
+page: https://www.buzzbingo.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website's company logo file (named as "companyLogo" in the home page's own configuration, https://www.buzzbingo.com/); saved as served, 512 x 512 px.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt (RFC 9309 matcher) allowed the page and the file
+retrieved: 2026-10-08

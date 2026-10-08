@@ -1,0 +1,10 @@
+status: installed
+file: castle-carvery.png
+tile: light
+source_url: https://castlecarvery.com/wp-content/uploads/2026/05/03c72911-0e26-458f-a81c-ab5682758cc2-1.png
+page: https://castlecarvery.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://castlecarvery.com/, the "custom-logo" image); the file as served is 1024 x 1024 px and 1.8 MB so it was scaled down proportionally to 360 x 360 px (nothing else changed) to fit the size limit.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); original downloaded from the chain's own website, robots.txt (RFC 9309 matcher) allowed the page and the file; proportional downscale only
+retrieved: 2026-10-08

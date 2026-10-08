@@ -1,0 +1,10 @@
+status: installed
+file: social-pub-and-kitchen.svg
+tile: light
+source_url: https://24-social.com/stonegate/1790757360-spk-logo-colour
+page: https://www.socialpubandkitchen.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website's colour logo (the footer image and the "logo" in the home page's own structured data, https://www.socialpubandkitchen.co.uk/; the file sits on the site's image host 24-social.com, whose robots.txt has no Disallow rules); saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt (RFC 9309 matcher) allowed the page and the file
+retrieved: 2026-10-08

@@ -1,0 +1,10 @@
+status: installed
+file: places-leisure.svg
+tile: dark
+source_url: https://www.placesleisure.org/
+page: https://www.placesleisure.org/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.placesleisure.org/): the logo is an inline SVG in the page header, copied out verbatim as served (no separate file URL exists); white wordmark for a dark header, so shown on a dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); inline SVG copied unchanged from the chain's own home page, robots.txt (RFC 9309 matcher) allowed the page
+retrieved: 2026-10-08

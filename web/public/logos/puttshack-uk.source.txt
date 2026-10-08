@@ -1,0 +1,10 @@
+status: installed
+file: puttshack-uk.svg
+tile: light
+source_url: https://www.puttshack.com/wp-content/uploads/2025/01/Logo-Horizontal.svg
+page: https://www.puttshack.com/uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header on the UK site (https://www.puttshack.com/uk/): the black "Puttshack" wordmark its header <img> serves (also the logo named in the site's schema.org data); saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt (RFC 9309 matcher) of puttshack.com disallows only /wp-admin/, /wp-includes/, /wp-json/, /wp-login.php, /xmlrpc.php, /?s=, /search/, /book-golf/, /leaderboard/, so /uk/ and /wp-content/uploads/ are allowed
+retrieved: 2026-10-08
