@@ -1,0 +1,47 @@
+item_id,reason
+the-big-dog,"a component has no ingredients recorded ('Rolllover 90g Bockwurst hot dog sausage ()'), so the allergen list may be incomplete"
+upgrade-fries-to-curly-fries,the standard menu lists this name twice with different figures or allergens; figures or allergens differ on other Tenpin menus (the standard menu: 415.80 kcal; Halal 334.80 kcal); Tenpin's printed menu shows 71 kcal; the menu data shows 415.80
+add-a-side-of-onion-rings,Tenpin's printed menu shows 371 kcal; the menu data shows 470.16
+kids-hot-dog,"a component has no ingredients recorded ('er 50g Kids reduced salt hot dog sausage ()'), so the allergen list may be incomplete"
+upgrade-fries-to-curly-fries-kids,the standard menu lists this name twice with different figures or allergens; Tenpin's printed menu shows 65 kcal; the menu data shows 334.80
+margherita,figures or allergens differ on other Tenpin menus (the standard menu: 945.70 kcal; Clydebank 874.40 kcal)
+pepperoni,figures or allergens differ on other Tenpin menus (the standard menu: 1278.34 kcal; Clydebank 1105.40 kcal; Fountain Park & Leeds 961.60 kcal; Printworks 961.60 kcal); Tenpin's printed menu shows 1162 kcal; the menu data shows 1278.34
+meat-feast,figures or allergens differ on other Tenpin menus (the standard menu: 1494.64 kcal; Fountain Park & Leeds 1162.00 kcal; Printworks 1162.00 kcal); Tenpin's printed menu shows 1266 kcal; the menu data shows 1494.64
+switch-from-tomato-sauce-base-to-bbq-sauce,Tenpin's printed menu shows 124 kcal; the menu data shows 194.40
+hot-n-kickin-chicken-wings-and-fries,Tenpin's printed menu shows 983 kcal; the menu data shows 1303.68
+onion-rings,the standard menu lists this name twice with different figures or allergens; figures or allergens differ on other Tenpin menus (the standard menu: 1051.20 kcal; Clydebank 322.80 kcal); Tenpin's printed menu shows 803 kcal; the menu data shows 1051.20
+beastie-box,figures or allergens differ on other Tenpin menus (the standard menu: 2829.70 kcal; Clydebank 2201.59 kcal)
+mozzarella-pesto-and-sun-dried-tomato,the ingredient text marks 'Nuts' but the allergen lists do not
+mozzarella-pesto-and-sun-dried-tomato-with-fries,the ingredient text marks 'Nuts' but the allergen lists do not
+mozzarella-pesto-and-sun-dried-tomato-with-curly-fries,the ingredient text marks 'Nuts' but the allergen lists do not
+standard-cappuccino,Tenpin's printed menu shows 103 kcal; the menu data shows 162.97
+large-cappuccino,Tenpin's printed menu shows 126 kcal; the menu data shows 190.85
+standard-latte,Tenpin's printed menu shows 119 kcal; the menu data shows 168.30
+large-latte,Tenpin's printed menu shows 149 kcal; the menu data shows 212.93
+flat-white,Tenpin's printed menu shows 65 kcal; the menu data shows 127.09
+standard-white-americano,Tenpin's printed menu shows 39 kcal; the menu data shows 102.25
+large-white-americano,Tenpin's printed menu shows 46 kcal; the menu data shows 113.57
+standard-americano,figures or allergens differ on other Tenpin menus (the standard menu: 53.76 kcal; Fountain Park & Leeds 76.03 kcal; Printworks 76.03 kcal); Tenpin's printed menu shows 11 kcal; the menu data shows 53.76
+large-americano,Tenpin's printed menu shows 12 kcal; the menu data shows 82.75
+standard-mocha,Tenpin's printed menu shows 172 kcal; the menu data shows 228.78
+large-mocha,Tenpin's printed menu shows 219 kcal; the menu data shows 278.86
+espresso,Tenpin's printed menu shows 8 kcal; the menu data shows 61.21
+double-espresso,Tenpin's printed menu shows 12 kcal; the menu data shows 81.37
+standard-hot-chocolate,Tenpin's printed menu shows 167 kcal; the menu data shows 165.41
+large-hot-chocolate,Tenpin's printed menu shows 219 kcal; the menu data shows 217.28
+tea,figures or allergens differ on other Tenpin menus (the standard menu: 37.99 kcal; Clydebank 14.76 kcal); Tenpin's printed menu shows 14 kcal; the menu data shows 37.99
+iced-americano,Tenpin's printed menu shows 11 kcal; the menu data shows 74.65
+iced-espresso,Tenpin's printed menu shows 12 kcal; the menu data shows 81.37
+iced-latte,Tenpin's printed menu shows 119 kcal; the menu data shows 178.61
+iced-cappuccino,"same figures as the Large Cappuccino, which Tenpin's printed menu contradicts (126 kcal printed)"
+iced-mocha,"same figures as the Large Mocha, which Tenpin's printed menu contradicts (219 kcal printed)"
+galaxy-caramel-syrup,every nutrient is 0 although the dish lists milk: no figures recorded
+twix-syrup,every nutrient is 0 although the dish lists milk: no figures recorded
+chilli-coated-peanuts,"the figures are for a 1 g portion, not a serving as sold"
+smoked-paprika-coated-peanuts,"the figures are for a 1 g portion, not a serving as sold"
+tikka-masala-coated-peanuts,"the figures are for a 100 g portion (a per-100 g basis), not a serving as sold"
+squash-drinks,"every nutrient is 0, portion 0 g and no ingredients recorded: no figures"
+slush,Tenpin's printed menu shows 70 / 91 kcal; the menu data shows 220.00
+onion-rings-pick-n-dip,the standard menu lists this name twice with different figures or allergens; figures or allergens differ on other Tenpin menus (the standard menu: 322.80 kcal; Halal 1051.20 kcal)
+hot-dog-and-tater-tots,"a component has no ingredients recorded ('Rolllover 90g Bockwurst hot dog sausage ()'), so the allergen list may be incomplete"
+turkey-burger,figures or allergens differ on other Tenpin menus (the standard menu: 798.95 kcal; Clydebank 884.95 kcal)

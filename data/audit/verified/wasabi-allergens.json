@@ -1,0 +1,9 @@
+{
+ "chain": "wasabi",
+ "date": "2026-10-08",
+ "source_read": "https://www.wasabi.uk.com/wp-content/uploads/2026/09/WAS_Nutritional_Guide_210926v3.pdf (fresh download 2026-10-08, sha256 f583a9ee...e8e5, Version 34, 28 pages; robots.txt allows it, Crawl-delay 10, one download). Allergen columns 'Allergens product' and 'Allergens condiments only' of every table page except mixed bento.",
+ "compared_items": 143,
+ "allergen_mismatches": 0,
+ "held_back": 36,
+ "notes": "Every allergen table page except 18 and 28 (text dump compared) rendered at 100 dpi and read by eye against the parser's raw cell text (pages 4-14, 19-27): about 143 rows, 0 mismatches, including the wrapped cells, the 'Condiments only' text inside the hot-sides cell, 'n/a', 'WG (not suitable for soy allergy)', 'Mi, Oats (may contain nuts, peanuts, wheat gluten)', 'May contain milk' and 'May contain gluten from oats & milk'. Page 15 confirmed to have no allergen or dietary columns. 178 published items each have a row (contains = product cell + condiments cell, may contain only as printed); the 29 mixed bento items are held back for allergens (no allergen row in the guide), 36 held back in all (7 earlier number holdbacks, 1 overlaps). The same name printed in two sections (Vegetable gyoza yakisoba bain marie 350 g vs hot cabinet 370 g differ in sulphites; the two Korean chicken pops rows agree exactly) is kept as separate items because the rows are different portions with their own figures. 'WG (not suitable for soy allergy)' (Chicken katsu 1 piece) is stored as contains gluten and may contain soya (the safe reading, from the earlier extraction). Sweet chilli mayo sauce prints Vegan Y and no allergens: logged in data/audit/reviewed/wasabi.csv, not held back."
+}

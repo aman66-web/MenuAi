@@ -1,0 +1,2 @@
+id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample,nutrition_level
+tenpin,Tenpin,Bowling diner,standard,"Tenpin menu allergen & nutrition data (CaterCloud QR menu 'Menu Allergen Information', no date shown, read 8 October 2026) and Tenpin Food & Drinks menu (PDF created 29 June 2026)",https://app.catercloud.com/menu/780DA69A-2F7F-4D47-A156-477D40CBF049,2026-10-08,tenpin|tenpin bowling|tenpin ltd,,mixed

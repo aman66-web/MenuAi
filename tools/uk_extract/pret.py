@@ -475,6 +475,7 @@ def main() -> int:
         print(f"The guide's matrix has {len(matrix)} product rows, expected {EXPECTED_MATRIX_ROWS}: the guide changed. Re-check the join in "
               "pret.py (MILK_LABELS, GUIDE_DRINK_NAME) against the new guide, then update EXPECTED_MATRIX_ROWS.", file=sys.stderr)
         return 1
+    print(f"allergen guide PDF sha256 {hashlib.sha256(guide_pdf.read_bytes()).hexdigest()}  {guide_pdf.name}")
     stats = {"checked_against_guide": 0, "record_only": 0, "from_guide_row": 0}
     items, excluded, notes_log, allergens = build_items(rawdir, guide_index(matrix), stats)
     if args.expect and len(items) != args.expect:
@@ -548,7 +549,6 @@ def main() -> int:
         by_why.setdefault(why, []).append(item_id)
     for why, ids in sorted(by_why.items(), key=lambda kv: -len(kv[1])):
         print(f"  {len(ids)} {why[:170]}: {', '.join(ids)}")
-    used = {r["name"] for r in matrix}
     print(f"guide matrix: {len(matrix)} product rows from {pret_allergen_pdf.LAST_TABLE_PAGE - pret_allergen_pdf.FIRST_TABLE_PAGE + 1} table pages")
     print("sha256 of each saved category file:")
     for k, v in digests.items():
