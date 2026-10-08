@@ -25,8 +25,13 @@ cell printed "yes" or "-" (Cereals containing Gluten, Wheat, Spelt (Wheat), Kamu
 Eggs, Fish, Peanuts, Soybeans, Milk, Tree Nuts, Celery, Mustard, Sesame, Sulphur dioxide/sulphites, Lupin, Molluscs). The
 gluten column is cross-checked against the cereal columns. The guide prints no "may contain" per dish (only a general
 warning) and names no tree nut. Rows are matched to the nutrition rows by exact name (case, punctuation and spacing
-ignored), never by similarity. All or nothing: if any published dish has no row of its own in the allergen guide, no
-allergens are published and the chain only links to the guide (the run says which dishes are missing).
+ignored), never by similarity and never by a hand-made map. All or nothing per chain: every PUBLISHED dish needs a row of its own in
+the allergen guide. A dish with no row of that exact name is not published (ALLERGEN_HOLDBACK below, written to holdback.csv with
+the reason, and its nutrition numbers stay in items.csv exactly as printed), and so is a dish whose row contradicts its own name
+(ALLERGEN_CONTRADICTS: policy 3 of docs/ACCURACY_AUDIT.md). The run stops if the set of such dishes changes, or if
+more than a third of the dishes would be held back (then only the guide link would be published). Self-checks: the allergen PDF's
+header is the expected 20 columns on every page, every line has 20 yes/- cells, a name printed twice stops the run, a cereal column
+without the gluten column stops the run, and every published dish is tied to exactly one row.
 """
 from __future__ import annotations
 
@@ -37,7 +42,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "abokado"
 SOURCE_URL = "https://abokado.com/user/pages/nutrition/NutritionalsAbokadoAugust26.pdf"
@@ -46,6 +51,27 @@ ALLERGEN_URL = "https://abokado.com/user/pages/nutrition/AllergensAbokadoAugust2
 ALLERGEN_TITLE = "Abokado Allergens (August 2026, AllergensAbokadoAugust26.pdf)"
 NOTE = ("Dishes exclude any dressing pot, which is listed separately. Abokado says these values are a guide and does not "
         "print serving sizes (soft drinks included).")
+
+_NOSIZE = ("The allergen guide prints one row for this dish with no size ('{row}'); the nutrition guide prints Regular and Large as separate "
+           "rows, and no allergen row is tied to this exact size, so its allergens are not published (and, all or nothing, neither is the dish).")
+_NOROW = "The allergen guide has no row with this exact name ({why}), so the dish's allergens cannot be published (and, all or nothing, neither is the dish)."
+# Printed nutrition names with no allergen row of exactly that name -> reason. Checked on every run against what the guide really lacks.
+ALLERGEN_HOLDBACK = {
+    **{f"Brown Rice Bowl - {d} {sz}": _NOSIZE.format(row=f"Brown Rice Bowl - {d}")
+       for d in ("Sweet Chilli Dumplings", "Teriyaki Chicken", "Teriyaki Salmon", "Thai Green Curry", "Thai Red Curry")
+       for sz in ("Reg", "Lge")},
+    "Exotic Fruit Salad": _NOROW.format(why="it prints 'Exotic Fruit Salad Pot'"),
+    "Pot - Pumpkin Seeds": _NOROW.format(why="it prints 'Topping - Pumpkin Seeds', a different row from 'Pot - Pumpkin Seeds'"),
+    "Sparkling Water": _NOROW.format(why="Sparkling Water is not listed at all"),
+}
+
+# Dishes whose allergen row (read and verified as printed) contradicts the dish's own name or the guide's own other row: not published
+# (docs/ACCURACY_AUDIT.md policy 3), never corrected. Printed nutrition name -> reason. Each must have a row in the allergen guide.
+ALLERGEN_CONTRADICTS = {
+    "Bagel - Buttered": "The allergen guide marks no milk for this buttered bagel (it prints gluten only), but butter is milk: the row contradicts the dish's name.",
+    "White Americano - Large": ("The allergen guide marks no allergen at all for this large white Americano, but prints milk for 'White Americano - Reg', "
+                                "and a white coffee is made with milk: the row contradicts the dish's name and the guide's own regular row."),
+}
 
 BOWLS, RICE, SALAD, UDON, SUSHI, BANH, BAGEL, BRK, SIDE, EXTRA, HOT, COLD = (
     "Poke & nourish bowls", "Rice bowls", "Salads", "Yaki udon", "Sushi", "Banh mi", "Bagels", "Breakfast",
@@ -299,32 +325,55 @@ def main() -> int:
         if a is None:
             unmatched.append(printed)
         items.append({
-            "id": slug(name), "name": name, "category": category, "serving": serving,
+            "id": slug(name), "name": name, "category": category, "serving": serving, "printed": printed,
             "calories": nums["kcal"], "protein_g": nums["protein"], "carbs_g": nums["carbs"], "fat_g": nums["fat"],
             "sat_fat_g": "" if nums["sat"] == "-" else nums["sat"], "sodium_mg": "", "salt_g": "" if nums["salt"] == "-" else nums["salt"],
             "sugar_g": "" if nums["sugars"] == "-" else nums["sugars"], "fiber_g": "" if nums["fibre"] == "-" else nums["fibre"],
             "energy_kj": "" if nums["kj"] == "-" else nums["kj"],
-            "allergens": None if a is None else {k: v for k, v in a.items() if k != "printed"},
             "tags": tags, "limited_time": False, "rankable": rankable, "notes": note,
         })
     ids = [i["id"] for i in items]
     assert len(ids) == len(set(ids)), "duplicate ids"
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))
-    if unmatched:  # all or nothing: the chain links to the guide but lists no allergens
-        for it in items:
-            it["allergens"] = None
+
+    # All or nothing per chain, as a stop rather than a quiet fallback: the dishes with no allergen row of their own must be exactly
+    # the ones reviewed in ALLERGEN_HOLDBACK, and few enough (at most a third) that the chain still has an allergen list worth showing.
+    if set(unmatched) != set(ALLERGEN_HOLDBACK):
+        print("The dishes without an allergen row of their own changed.\n"
+              f"  now without a row, not in ALLERGEN_HOLDBACK: {sorted(set(unmatched) - set(ALLERGEN_HOLDBACK)) or '-'}\n"
+              f"  in ALLERGEN_HOLDBACK, now with a row or gone: {sorted(set(ALLERGEN_HOLDBACK) - set(unmatched)) or '-'}\n"
+              "Decide for each (publish it or hold it back with a reason) before running again.", file=sys.stderr)
+        return 1
+    gone = [n for n in ALLERGEN_CONTRADICTS if norm(n) not in allergens or n not in {i["printed"] for i in items}]
+    if gone:
+        print(f"ALLERGEN_CONTRADICTS names dishes that are no longer published or have no allergen row: {gone}", file=sys.stderr)
+        return 1
+    held = {**ALLERGEN_HOLDBACK, **ALLERGEN_CONTRADICTS}
+    if len(held) * 3 > len(items):
+        print(f"{len(held)} of {len(items)} dishes would be held back: link-only is better. Stopping.", file=sys.stderr)
+        return 1
+    held_ids = {i["id"] for i in items if i["printed"] in held}
+    holdback = [(i["id"], held[i["printed"]]) for i in items if i["printed"] in held]
+    allergen_rows = []
+    for it in items:
+        if it["id"] in held_ids:
+            continue
+        a = allergens[norm(it["printed"])]
+        allergen_rows.append((it["id"], {k: v for k, v in a.items() if k != "printed"}))
+    assert len(allergen_rows) == len(items) - len(held_ids), "every published dish must have exactly one allergen row"
+    for it in items:
+        it.pop("printed")
+        it["allergens"] = None  # write_chain_folder writes the guide link only; allergens.csv is written below for the published dishes
     guide = {"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": False}
 
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Abokado", cuisine="Japanese", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-        checked_on=args.checked_on, aliases=["abokado"], items=items, out=args.out, note=NOTE, allergen_guide=guide)
+        checked_on=args.checked_on, aliases=["abokado"], items=items, out=args.out, note=NOTE, allergen_guide=guide, holdback=holdback)
+    write_allergens(out, CHAIN_ID, allergen_rows, guide)
     print(f"wrote {len(items)} items to {out} ({len(rows) - len(items)} printed rows left out; PDF sha256 {sha256_file(args.pdf)})")
     print(f"allergen PDF: {len(allergens)} rows, sha256 {sha256_file(args.allergens)}")
-    if unmatched:
-        print(f"allergens NOT published (link to the guide only): {len(unmatched)} published rows have no row of their own "
-              f"in the allergen PDF: {unmatched}")
-    else:
-        print(f"allergens published for all {len(items)} items")
+    print(f"allergens published for {len(allergen_rows)} dishes; {len(holdback)} held back ({len(ALLERGEN_HOLDBACK)} with no allergen row of that exact name, "
+          f"{len(ALLERGEN_CONTRADICTS)} whose row contradicts the dish's name; holdback.csv)")
     used = {norm(p) for p, _ in rows}
     print(f"allergen rows with no published nutrition row: {[a['printed'] for k, a in allergens.items() if k not in used] or '-'}")
     return 0

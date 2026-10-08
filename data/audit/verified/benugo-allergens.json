@@ -1,0 +1,21 @@
+{
+ "chain": "benugo",
+ "date": "2026-10-08",
+ "source_read": "Benugo's own online ordering menus (https://api.getspoonfed.com/262/benugo/menus/?c=1310 Lunch, ?c=1309 Breakfast, ?c=1315 Cakes & Snacks), saved copies dated 2026-10-08 19:08 (file times; not fetched again by this check because robots.txt there says Crawl-delay: 2200). sha256 lunch 7050d93ad03acdcb2115779450e75cfdbbd0a2bc9e56c3d7513d0e493fcab213, breakfast 52f1c24a4a8d9b79981f1099ce09ceaa12e296e916f18b91421ba0d1ae5cc894, cakes & snacks 9f386e0d863ad6a571fa0b26c90514622a752a7c2ad0e26d06f1eb4cd92335de. The committed items.csv of 7 Oct is reproduced byte for byte from them. Cross-check source only: Benugo's own sample 'Autumn Delivery menu' PDF (benugo.com/app/uploads/2026/09/Benugo_AW26_Delivery_Menu.pdf, created 27 Aug 2026, robots allow), downloaded 2026-10-08.",
+ "method": "Chromium (Playwright, JavaScript off) opened the three saved pages and every .mod-item card's own 'Allergens:' text was compared with allergens.csv through a separately written word table (153 cards rendered): all 68 published products match on contains, cereals, tree nuts and may contain (none printed); 26 rows read side by side by eye. Cross-check: 26 products that also appear (same name) in the sample delivery menu have identical allergen sets in both documents once spellings are mapped (the page's 'Sulphur' is the PDF's 'sulphites' on 5 products); 0 differences. A description scan of all 80 products (cheese, mayonnaise/aioli, bread, cake, nuts, egg, fish, sesame, soya words) against the lines found the aioli and brownie rows below.",
+ "compared_items": 68,
+ "random_sample_of_40_mismatches": 0,
+ "allergen_mismatches": 0,
+ "published_with_allergens": 68,
+ "published_items_total": 80,
+ "held_back": 12,
+ "held_back_no_allergens_line": 7,
+ "held_back_allergen_row_contradicts_description": 4,
+ "held_back_nutrition_reason": 1,
+ "held_back_detail": "No 'Allergens:' line on the page (7): Cut Fruit Box (lunch and breakfast), Benugo Fruit Pot, Grape Pot, Pipers Longhorn Beef Crisps, Benugo Yoghurt Cranberries (its own sample menu lists milk, so absence is not 'none'), Benugo Jelly Beans. Line contradicts the page's own description (4): Chicken & Avocado Bloomer, Harissa Chicken Wrap and Mortadella, Mozarella & Green Pesto Focaccia (each described with 'lemon aioli', no egg marked, nothing says egg-free; both Benugo documents agree on no egg, but policy 3 holds aioli-with-no-egg back), Dark Chocolate Brownie (no gluten marked; another page calls the Bites Box brownie 'made without wheat' but nothing ties this slice to it). Nutrition reason (1, unchanged): Whole Pumpkin, Almond & Pecan Streusel Loaf Cake.",
+ "judgement_call": "Kept as printed although the audit's name rules would not catch them: the three Golden Millet roll rows (Golden Millet & Rice Rolls Box, two individual rolls) mark no gluten, which both Benugo documents print and which the millet-and-rice name explains; the vegan aioli items (a 'vegan sriracha aioli' and the Harissa roasted vegetables & tahini bloomer, which the page's Vegan Box lists as (vg)). Chicken Caesar and Katsu Roast Cauliflower Wrap are logged as printed in data/audit/reviewed/benugo.csv (no fish / no soya marked; both documents agree).",
+ "audit": "check_chain.py benugo --fail-on-high: 0 errors, 0 warnings, 0 high, 0 medium after the 2 reviewed rows.",
+ "not_verifiable": "Whether the page's allergen lines are complete for every product: the page is the chain's own data, the only per-dish source; the 26-product cross-check against the sample menu found no omission, but the sample menu is itself 'subject to change'.",
+ "notes": "The pages print contains lists only (no 'may contain'); 'Sulphur' is mapped to sulphites through the chain-specific word table in benugo.py (the sample menu prints 'sulphites' for the same products). Cereals are named in the line ('Wheat (Gluten)'); 'Gluten' alone is generic; tree nuts are named ('Almond Nut', 'Pecan Nuts' ...). The three menu pages repeat some products: a dish printed twice must have identical allergen text or the run stops.",
+ "nutrition_checked": "not by this check; see data/audit/verified/benugo.json"
+}

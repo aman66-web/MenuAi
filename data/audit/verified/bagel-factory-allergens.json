@@ -1,0 +1,11 @@
+{
+ "chain": "bagel-factory",
+ "date": "2026-10-08",
+ "source_read": "https://bagelfactory.co.uk/wp-content/uploads/Full-Ingredient-List.pdf (Issue 22, 17/08/2026; created 24 Aug 2026; downloaded fresh 2026-10-08, robots.txt allows) and cached bagel pages from 2026-10-06 (every bagel page repeats the ingredient text).",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "decision": "NOT PUBLISHED: link-only stays (all-or-nothing rule). The guide is per ingredient/component, not per dish, and 18 of 26 published bagels (69%) have no entry under exactly their own name. No allergens.csv was written and no data changed.",
+ "notes": "31 of the guide's entries start 'BAGEL BUN OF CUSTOMER CHOICE', so they never name the bun's allergens (the buns' own entries differ: plain bun wheat/barley; multigrain adds sesame, rye, oat, soya, spelt; cheese & jalapeno adds milk), while our numbers are for a bagel made with the plain bun; the allergens are the CAPITALISED words inside ingredient prose ('For allergens, see ingredients in BOLD'), with no per-dish row. Exact-name entries exist for only 8 of the 26 published bagels (Sausage Bagel, Smoky Pulled Pork, Salt Beef Melt, Chicken Club, The New Yorker, The Classic, Nutella Bagel, Honey Heat Halloumi); the rest differ ('Cream Cheese' vs 'Cream Cheese Bagel', 'Chicken & Avocado' vs 'Chicken & Avo', 'Bacon Mini' vs 'Mini Bacon Bagel', peanut butter has Crunchy and Smooth entries, the two gluten-free boxes are named differently). Founder option, not done: accept 'plain bun entry + the bagel's own entry' as the dish's allergens, which is an inference the guide does not state.",
+ "nutrition_checked": "not by this check"
+}

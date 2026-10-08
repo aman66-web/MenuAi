@@ -1,0 +1,2 @@
+item,code,verdict,evidence
+ice-cream-sorbet-mango-sorbet,name-implies-milk,ok,"Allergen matrix (Ping_Pong_Allergen_Matrix_Free_From_Menus_100625.pdf p1, rendered at 170 dpi and pixel-sampled) row 'mango sorbet vg gf' has no mark in any of its 30 columns, so no Milk is marked; the 'Ice Cream' in our item name comes from the nutrition guide's own 'ice cream / sorbet' heading, and the dish is the sorbet (0.18 g protein, 0.12 g fat in the nutrition guide)."

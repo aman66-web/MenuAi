@@ -25,10 +25,15 @@ Sources (the nutrition PDF is "June V1", created 2026-06-17; the allergen menu i
   file   https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf               (vegetarian marks only)
 Requires `pdftotext` (poppler). Nothing is converted, rounded or estimated here.
 
-Allergens: LINK ONLY (allergen_guide.csv, no allergens.csv). The Allergen Menu (Sept V1) is a later menu than the nutrition PDF
-(June V1): four published dishes are not on it at all (San Danielle Salad Large, Pork Milanese, Amalfi Coast Trout, Steak
-Tagliata) and two are printed under other names (Antipasto Plank for 2 / Antipasto Plank, Giardiniera / Giardiniera Pickles),
-and allergens are matched by exact name only, so the app links to the allergen menu instead (all or nothing).
+Allergens (docs/DATA.md "Allergens", all or nothing): copied by script from the grid of the chain's own Allergen Menu PDF (Sept V1,
+`jamies_italian_allergens.py`): "Contains" = contains, "MC" = may contain (the guide's own find-and-replace of "may contain"; its
+fryer sentence reads "Foods cooked in our fryers MC traces of allergens"), blank = not listed; it names no cereal and no tree nut.
+A dish is tied to a row only when its printed name is EXACTLY the row's name: three June dishes are not on the September menu at all
+(Pork Milanese, Amalfi Coast Trout, Steak Tagliata), three are printed under another name or without a size (Antipasto Plank for 2 /
+Antipasto Plank, Giardiniera / Giardiniera Pickles, San Danielle Salad Large / San Danielle Salad), and one's row contradicts its own name
+(the 'Nduja hot honey mayo dip lists no egg): those seven are held back (ALLERGEN_HOLDBACK, holdback.csv), never matched by guess.
+The two dishes the menu prints in two places (Garlic Bread, Garlic Bread with Nduja Hot Honey: starters and sides) must have identical rows
+or the run stops. The allergen menu is three months newer than the nutrition PDF: allergens are those of the September recipes.
 """
 from __future__ import annotations
 import argparse
@@ -40,16 +45,17 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import sha256_file, write_chain_folder  # noqa: E402
+import jamies_italian_allergens as allergen_reader  # noqa: E402
+from common import sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "jamies-italian"
 SOURCE_URL = "https://www.jamiesitalian.co.uk/media/qmqjxvyt/jamies-italian-nutrition-menu-1506.pdf"
-SOURCE_TITLE = ("Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks from the "
+SOURCE_TITLE = ("Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks and allergens from the "
                 "Allergen Menu (Sept V1, PDF dated 8 September 2026)")
 ALLERGEN_URL = "https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf"
 ALLERGEN_TITLE = "Jamie's Italian Allergen Menu (Sept V1, PDF dated 8 September 2026)"
-NOTE = ("Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Its September 2026 "
-        "allergen menu lists a different set of dishes, so some dishes here may have changed or gone.")
+NOTE = ("Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Allergens come from the "
+        "chain's September 2026 allergen menu, which lists a different set of dishes: a dish it does not list under the same name is left out.")
 
 NUM = r"<?\d+(?:\.\d+)?"
 # A nutrition row is a name, a wide gap, then 18 numbers (9 per 100g, 9 per serving). The one row split by a page break has its
@@ -178,6 +184,25 @@ NOTES = {
 # per-serving vs per-100g columns), and the build reports no warnings.
 HOLDBACK: list[tuple[str, str]] = []
 
+# Dishes whose allergens cannot be published, so (all or nothing) neither can the dish: no allergen row of EXACTLY this name, or a row that
+# contradicts the dish's own name (docs/ACCURACY_AUDIT.md policy 3). name as printed -> reason. Checked on every run: a dish listed here that
+# now has an exact row, or a dish with no row that is not listed here, stops the run so a person decides.
+_NOROW = "The September 2026 allergen menu has no row named exactly '{name}'{why}, so its allergens cannot be published (and, all or nothing, neither is the dish)."
+ALLERGEN_HOLDBACK = {
+    "Antipasto Plank for 2": _NOROW.format(name="Antipasto Plank for 2", why=" (it prints 'Antipasto Plank', with no size)"),
+    "Giardiniera": _NOROW.format(name="Giardiniera", why=" (it prints 'Giardiniera Pickles')"),
+    "San Danielle Salad Large": _NOROW.format(name="San Danielle Salad Large", why=" (it prints one 'San Danielle Salad' row with no size)"),
+    "Pork Milanese": _NOROW.format(name="Pork Milanese", why=" (the dish is not on that menu)"),
+    "Amalfi Coast Trout": _NOROW.format(name="Amalfi Coast Trout", why=" (the dish is not on that menu)"),
+    "Steak Tagliata": _NOROW.format(name="Steak Tagliata", why=" (the dish is not on that menu)"),
+}
+# The row exists but contradicts the dish's own name (policy 3): held back, not shown with a "safe" row.
+ALLERGEN_CONTRADICTS = {
+    "Crust Dipper - 'Nduja Hot Honey Mayo": "The allergen menu's row for this mayonnaise dip marks no egg (it marks mustard and sulphites only) and neither Vegetarian nor "
+                                            "Vegan, so the row contradicts the dish's own name; held back rather than shown with a possibly wrong 'no egg' row "
+                                            "(docs/ACCURACY_AUDIT.md policy 3).",
+}
+
 
 def _text(pdf: Path) -> str:
     return subprocess.run(["pdftotext", "-layout", str(pdf), "-"], check=True, capture_output=True, text=True).stdout
@@ -269,6 +294,29 @@ def read_vegetarian(pdf: Path) -> dict[str, set[str] | None]:
     return out
 
 
+def build_allergens(matrix: list[dict], names: list[str]) -> tuple[dict[str, dict], list[str]]:
+    """printed dish name -> {"contains", "may_contain"} for every name in `names` that has an exact row; the report lines.
+    A name printed in two places must carry identical rows (contains, may contain, vegetarian, vegan) or the run stops."""
+    by_name: dict[str, list[dict]] = {}
+    for r in matrix:
+        by_name.setdefault(r["label"], []).append(r)
+    found: dict[str, dict] = {}
+    report: list[str] = []
+    for name in names:
+        rows = by_name.get(name)
+        if not rows:
+            continue
+        first = rows[0]
+        for other in rows[1:]:
+            same = all(first[k] == other[k] for k in ("contains", "may_contain", "vegetarian", "vegan"))
+            if not same:
+                raise SystemExit(f"{name!r} is printed {len(rows)} times in the allergen menu with different rows: not published (hold it back).")
+        if len(rows) > 1:
+            report.append(f"{name!r} is printed {len(rows)} times in the allergen menu (pages {[r['page'] for r in rows]}) with identical rows")
+        found[name] = {"contains": set(first["contains"]), "may_contain": set(first["may_contain"])}
+    return found, report
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf", type=Path, help="the nutrition PDF")
@@ -318,14 +366,53 @@ def main() -> int:
         item["sodium_mg"] = ""
         items.append(item)
 
+    # ---- allergens: exact-name rows only (see the module docstring)
+    matrix = allergen_reader.read_matrix(args.allergen_pdf)
+    names = [it["name"] for it in items]
+    found, allergen_report = build_allergens(matrix, names)
+    no_row = {n for n in names if n not in found}
+    if no_row != set(ALLERGEN_HOLDBACK):
+        print("The dishes without an exact allergen row changed.\n"
+              f"  now without a row, not in ALLERGEN_HOLDBACK: {sorted(no_row - set(ALLERGEN_HOLDBACK)) or '-'}\n"
+              f"  in ALLERGEN_HOLDBACK, now with a row or gone: {sorted(set(ALLERGEN_HOLDBACK) - no_row) or '-'}\n"
+              "Decide for each (publish it or hold it back with a reason) before running again.", file=sys.stderr)
+        return 1
+    gone = [n for n in ALLERGEN_CONTRADICTS if n not in found]
+    if gone:
+        print(f"ALLERGEN_CONTRADICTS names dishes that are no longer published or have no allergen row: {gone}", file=sys.stderr)
+        return 1
+    held = {**ALLERGEN_HOLDBACK, **ALLERGEN_CONTRADICTS}
+    if len(held) * 3 > len(items):
+        print(f"{len(held)} of {len(items)} dishes would be held back: link-only is better. Stopping.", file=sys.stderr)
+        return 1
+    # cross-check of two independent readings of the same PDF: the vegetarian / vegan marks (read_vegetarian, by name and row height)
+    # against the grid reader's Vegetarian / Vegan columns, for every dish tied to a row
+    matrix_marks = {r["label"]: {m for m, on in (("vegetarian", r["vegetarian"]), ("vegan", r["vegan"])) if on} for r in matrix}
+    for n in found:
+        if marks.get(n) != matrix_marks[n]:
+            raise SystemExit(f"{n!r}: the vegetarian/vegan marks read two ways disagree ({marks.get(n)} vs {matrix_marks[n]}): the layout changed.")
+    ids = [slug(i["name"]) for i in items]
+    assert len(ids) == len(set(ids)), "duplicate ids"
+    holdback = HOLDBACK + [(slug(n), why) for n, why in held.items()]
+    allergen_rows = [(slug(n), found[n]) for n in names if n not in held]
+    assert len(allergen_rows) == len(items) - len(held), "every published dish must have exactly one allergen row"
+    for it in items:
+        it["id"] = slug(it["name"])
+        it["allergens"] = None  # write_chain_folder writes the guide link only; allergens.csv is written below for the published dishes
+    guide = {"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True}
+
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Jamie's Italian", cuisine="Italian", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=["jamies italian", "jamie's italian"], items=items, note=NOTE,
-        out=args.out, holdback=HOLDBACK or None,
-        # link only: items carry no allergens (see the module docstring); the allergen menu prints "MC" (may contain)
-        allergen_guide={"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True})
-    print(f"wrote {len(items)} items ({len(HOLDBACK)} held back) to {out} (nutrition PDF sha256 {sha256_file(args.pdf)}, "
+        out=args.out, holdback=holdback or None, allergen_guide=guide)
+    write_allergens(out, CHAIN_ID, allergen_rows, guide)
+    print(f"wrote {len(items)} items ({len(holdback)} held back) to {out} (nutrition PDF sha256 {sha256_file(args.pdf)}, "
           f"allergen PDF sha256 {sha256_file(args.allergen_pdf)})")
+    print(f"allergens published for {len(allergen_rows)} dishes ({len(matrix)} grid rows read; {len(ALLERGEN_HOLDBACK)} dishes with no exact row, "
+          f"{len(ALLERGEN_CONTRADICTS)} whose row contradicts its name)")
+    print("\n".join(allergen_report))
+    used = set(names)
+    print(f"allergen-menu rows with no published dish: {[r['label'] for r in matrix if r['label'] not in used][:60]}")
     print(f"not found on the allergen menu (no vegetarian mark): {no_mark}")
     print(f"no vegetarian mark and no pork/beef tag ({len(meat_unstated)}): {meat_unstated}")
     return 0

@@ -1,0 +1,21 @@
+{
+ "chain": "abokado",
+ "date": "2026-10-08",
+ "source_read": "https://abokado.com/user/pages/nutrition/AllergensAbokadoAugust26.pdf (3 pages, Excel-made, created 7 Aug 2026; downloaded fresh 2026-10-08, sha256 398a9aa4f43e034d109f3e12066bc2b7a593e03f8706109b75eaa73106868e8b) and the nutrition PDF NutritionalsAbokadoAugust26.pdf (sha256 b61d5eb3914ff7fd4ec8de08f050d60e33d5d763d127e0b70f3dc294b0413d7e; a re-run reproduces items.csv byte for byte). robots.txt allows /user/pages/ (RFC 9309 matcher: Allow /user/pages/ beats Disallow /user/).",
+ "method": "Three independent reads of the allergen table: (1) tools/uk_extract/abokado.py (pdftotext -layout, 20 yes/- cells per line, header checked on every page); (2) a separate script that reads pdftotext -bbox word positions and assigns each yes/- token to the column whose header x-centre (129 + 33*i pt) it sits on, all 122 rows, no regex shared with the parser; (3) the three pages rendered at 130 dpi and read by eye against the published rows.",
+ "compared_items": 103,
+ "compared_rows": 122,
+ "random_sample_of_40_mismatches": 0,
+ "allergen_mismatches": 0,
+ "published_with_allergens": 103,
+ "published_items_total": 118,
+ "held_back": 15,
+ "held_back_no_exact_row": 13,
+ "held_back_allergen_row_contradicts_dish": 2,
+ "held_back_detail": "No row of that exact name (13): the 10 Brown Rice Bowl Reg/Lge items (the guide prints ONE row per bowl with no size, the nutrition guide prints Reg and Lge separately; same treatment as Greggs' drinks), Exotic Fruit Salad (guide: 'Exotic Fruit Salad Pot'), Pot - Pumpkin Seeds (guide: 'Topping - Pumpkin Seeds'), Sparkling Water (not in the allergen guide). Row contradicts the dish (2): Bagel - Buttered (no milk marked for a buttered bagel) and White Americano - Large (no allergen at all, while 'White Americano - Reg' prints milk). Both rows were confirmed as printed on the rendered page; they are held back, not corrected.",
+ "judgement_call": "The 10 Brown Rice Bowl Reg/Lge items would publish (same allergens as the guide's one bowl row) if the founder accepts that a size does not change a recipe's allergens: delete their lines in ALLERGEN_HOLDBACK in tools/uk_extract/abokado.py and map them to the size-less row; not done because the guide does not state it.",
+ "audit": "check_chain.py abokado --fail-on-high: 0 errors, 0 high, 0 medium after 8 flags were resolved: 2 held back (above), 6 logged as printed with evidence in data/audit/reviewed/abokado.csv (Scrambled Eggs - Vegan \"Bacon\": the eggs mark is the scrambled eggs, same as the other four Scrambled Eggs rows; five chicken/seaweed/unnamed 'Sushi' rows with no fish; Bagel - Peanut Butter has no milk).",
+ "not_verifiable": "",
+ "notes": "The guide prints no per-dish 'may contain' (a general red warning on every page says suppliers and kitchens handle numerous allergens), so may_contain_published = no. Tree nuts are never named (generic nuts); the cereals columns are copied (wheat, barley, oats, rye) with the gluten column cross-checked. No row anywhere marks lupin or molluscs. 'Black Americano- - Reg' (stray hyphen in the guide) is the same name as 'Black Americano - Reg' (punctuation ignored). Unusual but printed and kept: Sushi Roll - Tonkatsu BBQ Chicken prints gluten/wheat only (its dressing pot prints barley, soya and mustard).",
+ "nutrition_checked": "not by this check; see data/audit/verified/abokado.json"
+}

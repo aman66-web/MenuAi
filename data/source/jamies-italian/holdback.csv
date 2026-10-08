@@ -1,0 +1,8 @@
+item_id,reason
+antipasto-plank-for-2,"The September 2026 allergen menu has no row named exactly 'Antipasto Plank for 2' (it prints 'Antipasto Plank', with no size), so its allergens cannot be published (and, all or nothing, neither is the dish)."
+giardiniera,"The September 2026 allergen menu has no row named exactly 'Giardiniera' (it prints 'Giardiniera Pickles'), so its allergens cannot be published (and, all or nothing, neither is the dish)."
+san-danielle-salad-large,"The September 2026 allergen menu has no row named exactly 'San Danielle Salad Large' (it prints one 'San Danielle Salad' row with no size), so its allergens cannot be published (and, all or nothing, neither is the dish)."
+pork-milanese,"The September 2026 allergen menu has no row named exactly 'Pork Milanese' (the dish is not on that menu), so its allergens cannot be published (and, all or nothing, neither is the dish)."
+amalfi-coast-trout,"The September 2026 allergen menu has no row named exactly 'Amalfi Coast Trout' (the dish is not on that menu), so its allergens cannot be published (and, all or nothing, neither is the dish)."
+steak-tagliata,"The September 2026 allergen menu has no row named exactly 'Steak Tagliata' (the dish is not on that menu), so its allergens cannot be published (and, all or nothing, neither is the dish)."
+crust-dipper-nduja-hot-honey-mayo,"The allergen menu's row for this mayonnaise dip marks no egg (it marks mustard and sulphites only) and neither Vegetarian nor Vegan, so the row contradicts the dish's own name; held back rather than shown with a possibly wrong 'no egg' row (docs/ACCURACY_AUDIT.md policy 3)."

@@ -1,0 +1,4 @@
+item,code,verdict,evidence
+large-white-sourdough,salt-very-high,ok,"Large-White-Sourdough-260726.pdf p1 (text and rendered page): per Each Loaf 7430kJ/1754kcal, salt 10.9g; per 100g 915kJ/216kcal, salt 1.3g; the front-of-pack panel (red, 182%) prints Each Loaf 10.9g salt. The figures are for a whole loaf, as printed; not a slip"
+malted-wheat-loaf,salt-very-high,ok,"Malted-Wheat-Loaf-260726.pdf p1 (text and rendered page): per 938g 9254kJ/2180kcal, salt 10.8g; per 100g 987kJ/232kcal, salt 1.2g; front-of-pack 'A 938g serving contains' 10.8g salt (181%). Whole loaf as printed, weight 938 g stated"
+split-tin-loaf,salt-very-high,ok,"Split-Tin-Loaf-260726.pdf p1 (text and rendered page): per Per Loaf 9306kJ/2191kcal, salt 11.0g; per 100g 1023kJ/241kcal, salt 1.2g; front-of-pack 'Per Loaf contains' 11.0g salt (184%). Whole loaf as printed"

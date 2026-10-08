@@ -32,10 +32,16 @@ Reading rules (every one is visible in the code):
 - Names are as printed; a trailing "(v)", "(vg)" or stray "v)" marker is removed from the name and becomes the vegetarian tag.
   vegetarian = the page's Vegetarian or Vegan flag, or that marker. contains_pork / contains_beef only from the item's name and
   description (shared word lists in tenkites_c); nothing is inferred beyond that.
-- Allergens are LINK-ONLY: the pages print an "Allergens:" line per item but have no line at all for items with none, and the live
-  page leaves it off at least one item whose own sample PDF lists milk (Yoghurt Cranberries), so an absent line cannot be read as
-  "none". All or nothing (docs/DATA.md): allergen_guide.csv only.
-
+- Allergens (docs/DATA.md "Allergens"): each product record prints one "Allergens: Wheat (Gluten), Milk, ..." line (a list of the allergens
+  it contains; the pages print no "may contain" at all, so may_contain_published = no). The line is copied word for word through
+  common.allergen_words with Benugo's own spellings (ALLERGEN_WORDS below: "Wheat (Gluten)", "Almond Nut", and "Sulphur", which the
+  chain's own sample delivery menu prints as "sulphites" on the same dishes). The pages have NO line at all for products with none, and
+  the live page leaves it off at least one product whose own sample PDF lists milk (Yoghurt Cranberries), so an absent line cannot be read
+  as "none": those products have no row of their own and are NOT published (NO_ALLERGEN_LINE, written to holdback.csv, run stops if the set
+  changes). A dish printed twice must have identical allergen text or the run stops. A product whose line contradicts its own
+  Vegetarian / Vegan / Dairy Free flag stops the run (none do). Chain-level all or nothing: stops if more than a third would be held back.
+  ALLERGEN_CONTRADICTS lists the products held back because the line contradicts the product's own description or name (policy 3 of
+  docs/ACCURACY_AUDIT.md: aioli with no egg, brownie with no gluten).
 If a page gains or loses rows, a new menu/section appears, or a kcal line has a form this script doesn't know, the run stops.
 """
 from __future__ import annotations
@@ -47,7 +53,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import tenkites_c as tk  # noqa: E402
-from common import write_chain_folder  # noqa: E402
+from common import allergen_words, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "benugo"
 ENTRY_URL = "https://api.getspoonfed.com/262/benugo"
@@ -105,6 +111,35 @@ HOLDBACK = {
         "Printed '4612 Kcal per slice' on the whole 12-slice cake, but the same page prints 384 Kcal per slice of the same cake; "
         "4612 is about 12 slices, so the basis is wrong on the page. Not corrected."),
 }
+# Benugo's own spellings in the "Allergens:" line (lower-case printed word -> (key, specific)); common._A holds the rest.
+ALLERGEN_WORDS = {
+    "wheat (gluten)": ("gluten", "wheat"), "barley (gluten)": ("gluten", "barley"), "rye (gluten)": ("gluten", "rye"),
+    "oats (gluten)": ("gluten", "oats"), "almond nut": ("nuts", "almond"), "pistachio nut": ("nuts", "pistachio"),
+    "cashew nut": ("nuts", "cashew"),
+    "sulphur": ("sulphites", None),  # the sample delivery menu prints "sulphites" for these same dishes (Focaccia Lunch Box, Bloomer Box, Vegan Box ...)
+}
+# Published products with NO "Allergens:" line on the pages: no allergen row of their own, so (all or nothing) they are not published.
+_NOLINE = ("The ordering page prints no 'Allergens:' line for this product, and an absent line cannot be read as 'none' (the same page "
+           "leaves the line off Benugo Yoghurt Cranberries, whose sample delivery menu lists milk), so its allergens are not published "
+           "(and, all or nothing, neither is the product).")
+NO_ALLERGEN_LINE = {n: _NOLINE for n in (
+    "Cut Fruit Box (lunch)", "Benugo Fruit Pot", "Grape Pot", "Cut Fruit Box (breakfast)", "Pipers Longhorn Beef Crisps",
+    "Benugo Yoghurt Cranberries", "Benugo Jelly Beans")}
+# Products whose allergen line (read and verified as printed) contradicts the product's own name or flags: not published (policy 3,
+# docs/ACCURACY_AUDIT.md). Product name as published -> reason.
+_AIOLI = ("The ordering page's own description names a lemon aioli, but the allergen line lists no egg and nothing on the page says the aioli is "
+          "vegan or egg-free (the vegan items name a 'vegan' aioli): the line contradicts the description, so its allergens are not published "
+          "(and, all or nothing, neither is the product).")
+ALLERGEN_CONTRADICTS: dict = {
+    "Chicken & Avocado Bloomer": _AIOLI,
+    "Harissa Chicken Wrap": _AIOLI,
+    "Mortadella, Mozarella & Green Pesto Focaccia": _AIOLI,
+    "Dark Chocolate Brownie": ("The allergen line lists no gluten for this brownie slice (eggs and soybeans only). Another Benugo page says the chocolate brownie "
+                               "in its Bites Box is 'made without wheat', but nothing ties this slice to that recipe, and a brownie with no gluten marked is "
+                               "held back (docs/ACCURACY_AUDIT.md policy 3), so its allergens are not published (and, all or nothing, neither is the product)."),
+}
+FLAG_CONFLICTS = {"Vegan": {"milk", "eggs", "fish", "crustaceans", "molluscs"}, "Vegetarian": {"fish", "crustaceans", "molluscs"},
+                  "Dairy Free": {"milk"}, "Gluten Free": {"gluten"}}
 KCAL = re.compile(r"^(\d+)\s*kcal(?:\s+per\s+(box|pot|portion|slice|cake))?$", re.I)
 PEOPLE = re.compile(r"SUITABLE FOR\s+(\d+(?:\s*-\s*\d+)?)\s+PEOPLE", re.I)
 SERVES = re.compile(r"Serves\s+(\d+\s*-\s*\d+)", re.I)
@@ -218,8 +253,17 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
         pork_words = {w.lower() for w in tk.PORK.findall(name + " " + r["desc"])}
         if "contains_pork" in tags and pork_words == {"mortadella"}:
             notes.append("tagged pork only because the item names mortadella (shared word list); the page does not say the meat")
+        parsed = None
+        if r["allergens"]:
+            words = [w.strip() for w in re.sub(r"^Allergens:\s*", "", r["allergens"]).split(",")]
+            keys, cereals, nuts = allergen_words(words, f"{name!r} allergens", ALLERGEN_WORDS)
+            for flag in r["flags"]:
+                clash = FLAG_CONFLICTS.get(flag, set()) & keys
+                if clash and name not in ALLERGEN_CONTRADICTS:
+                    raise SystemExit(f"{name!r} is flagged {flag!r} but its allergen line lists {sorted(clash)}: decide (ALLERGEN_CONTRADICTS) before running again.")
+            parsed = {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}
         rec = {"name": name, "category": category, "serving": serving, "calories": kcal, "tags": "|".join((["vegetarian"] if (marker or flagged) else []) + tags),
-               "rankable": False, "notes": "; ".join(notes), "allergens": None, "printed": printed, "where": f"{r['menu']} / {r['section']}",
+               "rankable": False, "notes": "; ".join(notes), "allergens": None, "parsed_allergens": parsed, "printed": printed, "where": f"{r['menu']} / {r['section']}",
                "allergen_text": r["allergens"], "flags": r["flags"]}
         seen[dup_key] = {"allergens": r["allergens"], "where": rec["where"]}
         published.append(rec)
@@ -240,8 +284,27 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
             held.append((p["name"], HOLDBACK[p["printed"]]))
     if len(held) != len(HOLDBACK):
         raise SystemExit("A HOLDBACK row is no longer on the pages: re-check")
-    no_allergen_line = [p["name"] for p in published if not p["allergen_text"]]
-    report.append(f"published items without an 'Allergens:' line (why allergens are link-only): {no_allergen_line}")
+    no_line = {p["name"] for p in published if not p["allergen_text"]}
+    if no_line != set(NO_ALLERGEN_LINE):
+        raise SystemExit("The products without an 'Allergens:' line changed.\n"
+                         f"  now without a line, not in NO_ALLERGEN_LINE: {sorted(no_line - set(NO_ALLERGEN_LINE)) or '-'}\n"
+                         f"  in NO_ALLERGEN_LINE, now with a line or gone: {sorted(set(NO_ALLERGEN_LINE) - no_line) or '-'}\n"
+                         "Decide for each (publish it or hold it back with a reason) before running again.")
+    gone = [n for n in ALLERGEN_CONTRADICTS if n not in names]
+    if gone:
+        raise SystemExit(f"ALLERGEN_CONTRADICTS names products no longer published: {gone}")
+    nutrition_held = {n for n, _ in held}
+    allergen_held = {**NO_ALLERGEN_LINE, **ALLERGEN_CONTRADICTS}
+    if len(set(allergen_held) | nutrition_held) * 3 > len(published):
+        raise SystemExit("More than a third of the products would be held back: allergens would be link-only. Stopping.")
+    for n, why in allergen_held.items():
+        held.append((n, why))
+    held_names = {n for n, _ in held}
+    for p in published:
+        p["allergens"] = None if p["name"] in held_names else p["parsed_allergens"]
+    assert all(p["parsed_allergens"] is not None for p in published if p["name"] not in held_names), "every published product needs an allergen row"
+    report.append(f"allergens: {sum(1 for p in published if p['name'] not in held_names)} products published with the allergen line copied; "
+                  f"{len(allergen_held)} held back for allergen reasons; {len(nutrition_held)} held back for a nutrition reason")
     return published, held, report
 
 
@@ -257,7 +320,6 @@ def main() -> int:
             tk.fetch(url, args.pages / fname, delay=5.0)
     items, held, report = build(args.pages)
     # holdback ids come from the writer's id rule: slug of the name (clashes are rejected above, so no suffixes)
-    from common import slug
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Benugo", cuisine="Sandwiches",
         source_title=f"Benugo online ordering menus: Lunch, Breakfast, Cakes & Snacks (api.getspoonfed.com, accessed {args.checked_on}, no date shown)",
@@ -266,6 +328,11 @@ def main() -> int:
         allergen_guide={"title": f"Benugo online ordering menus with an allergens line per item (api.getspoonfed.com, accessed {args.checked_on}, no date shown)",
                         "url": ENTRY_URL, "checked_on": args.checked_on, "may_contain_published": False},
         nutrition_level="calories")
+    held_ids = {slug(n) for n, _ in held}
+    guide = {"title": f"Benugo online ordering menus with an allergens line per item (api.getspoonfed.com, accessed {args.checked_on}, no date shown)",
+             "url": ENTRY_URL, "checked_on": args.checked_on, "may_contain_published": False}
+    rows = [(slug(it["name"]), it["allergens"]) for it in items if slug(it["name"]) not in held_ids]
+    write_allergens(out, CHAIN_ID, rows, guide)  # allergens.csv holds the published products only (held-back ones have no row)
     for fname in PAGES:
         print(f"{fname} sha256 {tk.sha256_text_file(args.pages / fname)}")
     print("\n".join(report))

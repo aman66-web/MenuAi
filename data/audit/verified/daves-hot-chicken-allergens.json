@@ -1,0 +1,15 @@
+{
+ "chain": "daves-hot-chicken",
+ "date": "2026-10-08",
+ "source_read": "https://www.daveshotchicken.co.uk/allergen-uk and /menus (rendered in Chromium, saved 2026-10-08; robots.txt Allow: /), the PDF links on them, and https://cdn.sanity.io/robots.txt (Disallow: /*.pdf; Allow only /files/cgnmnbqj/).",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "decision": "NOT PUBLISHED: link-only stays. The chain's per-dish allergen data is a downloadable matrix PDF on a host whose robots.txt disallows PDFs, so it was not downloaded; the page's own data holds lists for 54 items but the page never displays them, so there is no rendered source to verify against. No allergens.csv was written and no data changed.",
+ "urls_for_the_founder": [
+  "https://cdn.sanity.io/files/ysupxjc9/production/21121fc3b19d288f62d68fc3991d14980ea18bd2.pdf/Allergens-matrix-JUNE-26.pdf (linked from /allergen-uk)",
+  "https://cdn.sanity.io/files/ysupxjc9/production/757647cb94baf991d0eaa8cbc50e4bda9a8f8999.pdf/Allergens-matrix-JUL-26.pdf (linked from /menus and /menus/drinks)"
+ ],
+ "notes": "The two matrices are different issues (June and July 2026), so even the chain's own links disagree on which is current. Download both in a browser and send them; they would be read as the source and the page data compared with them. The page says it gives no 'may contain' information and that all equipment and fryers are shared. daves_hot_chicken.py --allergens-from-page-data still writes the page-data version for a founder who accepts it (not done).",
+ "nutrition_checked": "not by this check"
+}
