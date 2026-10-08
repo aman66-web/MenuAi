@@ -1,0 +1,107 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+nacho-sharer,Nacho Sharer,Snacks & sharers,Per serving (dish serves 2),795,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '(795 kcal per serving)'; Printed '(795 kcal per serving)' on a dish that 'serves 2'; whether a serving is the whole sharer or half is not stated
+nachos,Nachos,Snacks & sharers,Perfect for one,272,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Perfect for one (272 kcal)'
+chicken-tenders,Chicken Tenders,Snacks & sharers,,412,,,,,,,,,,,,,,,,false,false,,,Printed 'fillets (412 kcal)'
+chilli-cheese-bites,Chilli Cheese Bites,Snacks & sharers,,651,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'crumb (651 kcal)'
+chicken-wings,Chicken Wings,Snacks & sharers,,395,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken wings (395 kcal)'
+popcorn-chicken,Popcorn Chicken,Snacks & sharers,,575,,,,,,,,,,,,,,,,false,false,,,Printed 'Crispy popcorn chicken (575 kcal)'
+margherita-pizza-twist,Margherita Pizza Twist,Snacks & sharers,,386,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'with a twist (386 kcal)'
+mozzarella-sticks,Mozzarella Sticks,Snacks & sharers,,572,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'served with chilli jam (572 kcal)'; Printed 'served with chilli jam (572 kcal)'
+onion-rings,Onion Rings,Snacks & sharers,,390,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'breadcrumbs (390 kcal)'
+corn-ribs,Corn Ribs,Snacks & sharers,,303,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'lime (303 kcal)'; Marked NEW and VE on the menu
+loaded-fries,Loaded Fries,Snacks & sharers,,1011,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'BBQ sauce (1011 kcal)'
+hot-loaded-fries,Hot Loaded Fries,Snacks & sharers,,981,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'sauce (981 kcal)'
+add-chicken-tenders-to-loaded-fries,Add Chicken Tenders to Loaded Fries,Snacks & sharers,,224,,,,,,,,,,,,,,,,false,false,,,Printed '(+224 kcal)'; Printed 'for £2.00 extra (+224 kcal)'; the menu's footnote says the upgrade is not a full portion of tenders
+fries-regular,Fries (regular),Snacks & sharers,Regular,380,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'FRIES (380 kcal)'
+large-fries,Large Fries,Snacks & sharers,Large,603,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'LARGE FRIES (603 kcal)'
+add-cheese-to-fries,Add Cheese to Fries,Snacks & sharers,,248,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '(+248 kcal)'; Printed '+N kcal': the item's own calories, added to the dish"
+seasoned-fries,Seasoned Fries,Snacks & sharers,,610,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'flavour (610 kcal)'; Printed 'Our classic large fries, dusted with seasoning'"
+the-hollywood-burger-beef,The Hollywood Burger (beef),Burgers & dogs,,1330,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"Printed '(Beef 1330 kcal, Chicken 1221 kcal)'; Printed '(Beef 1330 kcal, Chicken 1221 kcal)', served with fries"
+the-hollywood-burger-chicken,The Hollywood Burger (chicken),Burgers & dogs,,1221,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed '(Beef 1330 kcal, Chicken 1221 kcal)'; Printed '(Beef 1330 kcal, Chicken 1221 kcal)', served with fries"
+chicken-burger,Chicken Burger,Burgers & dogs,,1039,,,,,,,,,,,,,,,,false,false,,,Printed 'side of fries (1039 kcal)'
+beef-burger,Beef Burger,Burgers & dogs,,1161,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'side of fries (1161 kcal)'
+plant-based-burger,Plant-Based Burger,Burgers & dogs,,909,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'side of fries (909 kcal)'
+hot-dog,Hot Dog,Burgers & dogs,,1048,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'side of fries (1048 kcal)'
+non-gluten-containing-bun-bun-only,Non-Gluten-Containing Bun (bun only),Burgers & dogs,Bun only,175,,,,,,,,,,,,,,,,false,false,,,"Printed '(175 kcal, bun only)'; Printed '(175 kcal, bun only)' for beef and plant-based burgers, extra £0.75"
+chicken-wrap,Chicken Wrap,Wraps,,1198,,,,,,,,,,,,,,,,false,false,,,Printed 'chips (1198 kcal)'; Marked NEW
+plant-based-wrap,Plant-Based Wrap,Wraps,,1048,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'chips (1048 kcal)'; Marked NEW
+franks-redhot-sauce,Frank's RedHot Sauce,Sauces & add-ons,,6,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Frank’s® RedHot® sauce (+6 kcal), chilli jam (+60 kcal) or BBQ dip (+33 kcal)'; Printed '+N kcal': the item's own calories, added to the dish; printed beside every dish that offers it"
+chilli-jam,Chilli Jam,Sauces & add-ons,,60,,,,,,,,,,,,,,,,false,false,,,"Printed 'Frank’s® RedHot® sauce (+6 kcal), chilli jam (+60 kcal) or BBQ dip (+33 kcal)'; Printed '+N kcal': the item's own calories, added to the dish; printed beside every dish that offers it; the Make it yours panel shows a V mark but the chain's allergy page says Chilli Jam is not vegetarian, so it is not tagged"
+bbq-dip,BBQ Dip,Sauces & add-ons,,33,,,,,,,,,,,,,,,,false,false,,,"Printed 'Frank’s® RedHot® sauce (+6 kcal), chilli jam (+60 kcal) or BBQ dip (+33 kcal)'; Printed '+N kcal': the item's own calories, added to the dish; a sauce choice only, not in the Make it yours panel"
+cheese-slice,Cheese Slice,Sauces & add-ons,,74,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '(+74 kcal)'; Printed '+N kcal': the item's own calories, added to the dish"
+crispy-onions,Crispy Onions,Sauces & add-ons,,119,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '(+119 kcal)'; Printed '+N kcal': the item's own calories, added to the dish"
+bacon,Bacon,Sauces & add-ons,,93,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed '(+93 kcal)'; Printed '+N kcal': the item's own calories, added to the dish"
+3-onion-rings,3 Onion Rings,Sauces & add-ons,,117,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '(+117 kcal)'; Printed '+N kcal': the item's own calories, added to the dish"
+double-your-burger-from,Double Your Burger (from),Sauces & add-ons,,212,,,,,,,,,,,,,,,,false,false,,,"Printed '(from +212 kcal)'; Printed '(from +212 kcal)': a minimum, the figure for other burgers is not printed"
+upgrade-to-seasoned-fries,Upgrade to Seasoned Fries,Sauces & add-ons,,10,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '(+10 kcal)'; Printed '+N kcal': the item's own calories, added to the dish"
+beef-burger-kids,Beef Burger (kids),Kids,,502,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'side of fries (502 kcal)'
+add-bacon-kids,Add Bacon (kids),Kids,,49,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed 'Add bacon (+49 kcal)'; Printed '+N kcal': the item's own calories, added to the dish"
+add-cheese-kids,Add Cheese (kids),Kids,,37,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Add cheese (+37 kcal)'; Printed '+N kcal': the item's own calories, added to the dish"
+chicken-burger-kids,Chicken Burger (kids),Kids,,528,,,,,,,,,,,,,,,,false,false,,,Printed 'side of fries (528 kcal)'
+plant-based-nuggets-kids,Plant-Based Nuggets (kids),Kids,,501,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'side of fries (501 kcal)'
+hot-dog-kids,Hot Dog (kids),Kids,,483,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'side of fries (483 kcal)'
+margherita-pizza-twist-kids,Margherita Pizza Twist (kids),Kids,,386,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'with a twist (386 kcal)'
+chicken-nuggets-kids,Chicken Nuggets (kids),Kids,,373,,,,,,,,,,,,,,,,false,false,,,Printed 'side of fries (373 kcal)'
+chicken-nuggets-and-fries-big-kids,Chicken Nuggets & Fries (big kids),Big kids,,662,,,,,,,,,,,,,,,,false,false,,,Printed 'side of fries (662 kcal)'
+chilli-cheese-bites-and-fries-big-kids,Chilli Cheese Bites & Fries (big kids),Big kids,,1031,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'side of fries (1031 kcal)'
+chicken-wings-and-fries-big-kids,Chicken Wings & Fries (big kids),Big kids,,775,,,,,,,,,,,,,,,,false,false,,,Printed 'side of fries (775 kcal)'
+mozzarella-sticks-and-fries-big-kids,Mozzarella Sticks & Fries (big kids),Big kids,,952,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'side of fries (952 kcal)'; Printed 'served with chilli jam and a side of fries (952 kcal)'
+chicken-tenders-and-fries-big-kids,Chicken Tenders & Fries (big kids),Big kids,,792,,,,,,,,,,,,,,,,false,false,,,Printed 'side of fries (792 kcal)'
+ice-cream-tub-vanilla,Ice Cream Tub: Vanilla,Something sweet,140ml,294,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vanilla Strawberries & Cream 140ml (294 kcal) 140ml (280 kcal) Chocolate Vegan Vanilla Ice Cream 140ml (339 kcal) 140ml (252 kcal)'
+ice-cream-tub-strawberries-and-cream,Ice Cream Tub: Strawberries & Cream,Something sweet,140ml,280,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vanilla Strawberries & Cream 140ml (294 kcal) 140ml (280 kcal) Chocolate Vegan Vanilla Ice Cream 140ml (339 kcal) 140ml (252 kcal)'
+ice-cream-tub-chocolate,Ice Cream Tub: Chocolate,Something sweet,140ml,339,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vanilla Strawberries & Cream 140ml (294 kcal) 140ml (280 kcal) Chocolate Vegan Vanilla Ice Cream 140ml (339 kcal) 140ml (252 kcal)'
+ice-cream-tub-vegan-vanilla,Ice Cream Tub: Vegan Vanilla,Something sweet,140ml,252,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vanilla Strawberries & Cream 140ml (294 kcal) 140ml (280 kcal) Chocolate Vegan Vanilla Ice Cream 140ml (339 kcal) 140ml (252 kcal)'; Marked VE
+slushy-jacks-slushie-small,Slushy Jack's Slushie (small),Slushies,Small,75,,,,,,,,,,,,,,,,false,false,,,Printed 'Small (75 kcal) £3.00 Regular (68 kcal) £4.00 Regular (100 kcal) £3.30 Large (119 kcal) £4.85 Jug serves four children £8.25 (94 kcal per se'
+slushy-jacks-slushie-regular,Slushy Jack's Slushie (regular),Slushies,Regular,100,,,,,,,,,,,,,,,,false,false,,,Printed 'Small (75 kcal) £3.00 Regular (68 kcal) £4.00 Regular (100 kcal) £3.30 Large (119 kcal) £4.85 Jug serves four children £8.25 (94 kcal per se'
+slushy-jacks-slushie-jug,Slushy Jack's Slushie Jug,Slushies,Per serving (jug serves four children),94,,,,,,,,,,,,,,,,false,false,,,Printed 'Small (75 kcal) £3.00 Regular (68 kcal) £4.00 Regular (100 kcal) £3.30 Large (119 kcal) £4.85 Jug serves four children £8.25 (94 kcal per se'; Printed '(94 kcal per serving)'
+slushie-second-range-regular,"Slushie, second range (regular)",Slushies,Regular,68,,,,,,,,,,,,,,,,false,false,,,Printed 'Small (75 kcal) £3.00 Regular (68 kcal) £4.00 Regular (100 kcal) £3.30 Large (119 kcal) £4.85 Jug serves four children £8.25 (94 kcal per se'; Right-hand price list; its logo is a graphic whose name is not legible in the file
+slushie-second-range-large,"Slushie, second range (large)",Slushies,Large,119,,,,,,,,,,,,,,,,false,false,,,Printed 'Small (75 kcal) £3.00 Regular (68 kcal) £4.00 Regular (100 kcal) £3.30 Large (119 kcal) £4.85 Jug serves four children £8.25 (94 kcal per se'; Right-hand price list; its logo is a graphic whose name is not legible in the file
+milkshake-vanilla,Milkshake: Vanilla,Shakes,,313,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'vanilla (313 kcal) | chocolate (338 kcal) strawberry (266 kcal) | banana (295 kcal)'; Printed under the Milkshakes heading, which carries the V mark; no size is printed"
+milkshake-chocolate,Milkshake: Chocolate,Shakes,,338,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'vanilla (313 kcal) | chocolate (338 kcal) strawberry (266 kcal) | banana (295 kcal)'; Printed under the Milkshakes heading, which carries the V mark; no size is printed"
+milkshake-strawberry,Milkshake: Strawberry,Shakes,,266,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'vanilla (313 kcal) | chocolate (338 kcal) strawberry (266 kcal) | banana (295 kcal)'; Printed under the Milkshakes heading, which carries the V mark; no size is printed"
+milkshake-banana,Milkshake: Banana,Shakes,,295,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'vanilla (313 kcal) | chocolate (338 kcal) strawberry (266 kcal) | banana (295 kcal)'; Printed under the Milkshakes heading, which carries the V mark; no size is printed"
+pepsi-regular,Pepsi (regular),Soft drinks,Regular,191,,,,,,,,,,,,,,,,false,false,,,Printed '£3.05 (191 kcal) £3.45 (262 kcal)'
+pepsi-large,Pepsi (large),Soft drinks,Large,262,,,,,,,,,,,,,,,,false,false,,,Printed '£3.05 (191 kcal) £3.45 (262 kcal)'
+diet-pepsi-regular,Diet Pepsi (regular),Soft drinks,Regular,2,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (2 kcal) £3.35 (3 kcal)'
+diet-pepsi-large,Diet Pepsi (large),Soft drinks,Large,3,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (2 kcal) £3.35 (3 kcal)'
+pepsi-max-regular,Pepsi Max (regular),Soft drinks,Regular,1,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (1 kcal) £3.35 (2 kcal)'
+pepsi-max-large,Pepsi Max (large),Soft drinks,Large,2,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (1 kcal) £3.35 (2 kcal)'
+pepsi-max-cherry-regular,Pepsi Max Cherry (regular),Soft drinks,Regular,2,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (2 kcal) £3.35 (3 kcal)'
+pepsi-max-cherry-large,Pepsi Max Cherry (large),Soft drinks,Large,3,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (2 kcal) £3.35 (3 kcal)'
+tango-orange-sugar-free-regular,Tango Orange Sugar Free (regular),Soft drinks,Regular,5,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (5 kcal) £3.35 (6 kcal)'
+tango-orange-sugar-free-large,Tango Orange Sugar Free (large),Soft drinks,Large,6,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (5 kcal) £3.35 (6 kcal)'
+7up-sugar-free-regular,7UP Sugar Free (regular),Soft drinks,Regular,9,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (9 kcal) £3.35 (12 kcal)'
+7up-sugar-free-large,7UP Sugar Free (large),Soft drinks,Large,12,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (9 kcal) £3.35 (12 kcal)'
+r-whites-lemonade-regular,R. White's Lemonade (regular),Soft drinks,Regular,9,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (9 kcal) £3.35 (12 kcal)'
+r-whites-lemonade-large,R. White's Lemonade (large),Soft drinks,Large,12,,,,,,,,,,,,,,,,false,false,,,Printed '£2.95 (9 kcal) £3.35 (12 kcal)'
+raspberry-refresher,Raspberry Refresher,Soft drinks,,85,,,,,,,,,,,,,,,,false,false,,,"Printed '£3.15 (85 kcal)'; One price and figure, printed in the Large column; no size is stated"
+poppi,Poppi,Soft drinks,,24,,,,,,,,,,,,,,,,false,false,,,"Printed 'flavours. (24 kcal)'; One figure for the product; flavours Wild Berry, Raspberry Rose, Strawberry Lemon"
+pepsi-330ml,Pepsi 330ml,Bottled drinks,330ml,61,,,,,,,,,,,,,,,,false,false,,,Printed 'Pepsi 330ml (61 kcal)'
+pepsi-max-330ml,Pepsi Max 330ml,Bottled drinks,330ml,2,,,,,,,,,,,,,,,,false,false,,,Printed '330ml (2 kcal)'; Printed 'Pepsi Max / Diet Pepsi 330ml (2 kcal)': one figure for both drinks
+diet-pepsi-330ml,Diet Pepsi 330ml,Bottled drinks,330ml,2,,,,,,,,,,,,,,,,false,false,,,Printed '330ml (2 kcal)'; Printed 'Pepsi Max / Diet Pepsi 330ml (2 kcal)': one figure for both drinks
+appletiser-275ml,Appletiser 275ml,Bottled drinks,275ml,129,,,,,,,,,,,,,,,,false,false,,,Printed '275ml (129 kcal)'
+britvic-ginger-beer-200ml,Britvic Ginger Beer 200ml,Bottled drinks,200ml,70,,,,,,,,,,,,,,,,false,false,,,Printed '200ml (70 kcal)'
+lipton-peach-iced-tea-500ml,Lipton Peach Iced Tea 500ml,Bottled drinks,500ml,65,,,,,,,,,,,,,,,,false,false,,,Printed '500ml (65 kcal)'
+aqua-libra-still-or-sparkling-water-330ml-can,Aqua Libra Still or Sparkling Water 330ml can,Bottled drinks,330ml can,0,,,,,,,,,,,,,,,,false,false,,,Printed 'can (0 kcal)'; Printed '(0 kcal)'
+espresso-solo,Espresso (solo),Hot drinks,Solo,6,,,,,,,,,,,,,,,,false,false,,,Printed '£2.50 (6 kcal) £2.90 (12 kcal)'; Size names as printed
+espresso-doppio,Espresso (doppio),Hot drinks,Doppio,12,,,,,,,,,,,,,,,,false,false,,,Printed '£2.50 (6 kcal) £2.90 (12 kcal)'; Size names as printed
+americano-primo,Americano (primo),Hot drinks,Primo,12,,,,,,,,,,,,,,,,false,false,,,Printed '£3.10 (12 kcal) £3.40 (18 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano; the menu also offers it iced ('Make me iced') with no calories printed
+americano-medio,Americano (medio),Hot drinks,Medio,18,,,,,,,,,,,,,,,,false,false,,,Printed '£3.10 (12 kcal) £3.40 (18 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano; the menu also offers it iced ('Make me iced') with no calories printed
+cappuccino-primo,Cappuccino (primo),Hot drinks,Primo,123,,,,,,,,,,,,,,,,false,false,,,Printed '£3.60 (123 kcal) £3.90 (154 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano
+cappuccino-medio,Cappuccino (medio),Hot drinks,Medio,154,,,,,,,,,,,,,,,,false,false,,,Printed '£3.60 (123 kcal) £3.90 (154 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano
+latte-primo,Latte (primo),Hot drinks,Primo,111,,,,,,,,,,,,,,,,false,false,,,Printed '£3.60 (111 kcal) £3.90 (151 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano; the menu also offers it iced ('Make me iced') with no calories printed
+latte-medio,Latte (medio),Hot drinks,Medio,151,,,,,,,,,,,,,,,,false,false,,,Printed '£3.60 (111 kcal) £3.90 (151 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano; the menu also offers it iced ('Make me iced') with no calories printed
+mocha-primo,Mocha (primo),Hot drinks,Primo,182,,,,,,,,,,,,,,,,false,false,,,Printed '£3.75 (182 kcal) £4.05 (231 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano
+mocha-medio,Mocha (medio),Hot drinks,Medio,231,,,,,,,,,,,,,,,,false,false,,,Printed '£3.75 (182 kcal) £4.05 (231 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano
+hot-chocolate-primo,Hot Chocolate (primo),Hot drinks,Primo,231,,,,,,,,,,,,,,,,false,false,,,Printed '£3.65 (231 kcal) £3.95 (324 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano
+hot-chocolate-medio,Hot Chocolate (medio),Hot drinks,Medio,324,,,,,,,,,,,,,,,,false,false,,,Printed '£3.65 (231 kcal) £3.95 (324 kcal)'; Size names as printed; Primo and Medio headings are printed once above Americano
+english-breakfast-tea,English Breakfast Tea,Hot drinks,,1,,,,,,,,,,,,,,,,false,false,,,"Printed '£2.85 (1 kcal)'; One price and figure, printed in the right-hand size column; no size is stated"
+cranberry-and-raspberry-or-peppermint-tea,Cranberry & Raspberry or Peppermint Tea,Hot drinks,,6,,,,,,,,,,,,,,,,false,false,,,"Printed '£2.85 (6 kcal)'; One figure printed for the two teas; one price, no size stated"
+corona-cero-0-0,Corona Cero 0.0%,Low & no alcohol,330ml,56,,,,,,,,,,,,,,,,false,false,,,Printed '330ml 0.0% ABV (56 kcal)'
+madri-excepcional-zero,Madrí Excepcional Zero,Low & no alcohol,330ml,66,,,,,,,,,,,,,,,,false,false,,,Printed '330ml 0.0% ABV (66 kcal)'
+becks-blue,Beck's Blue,Low & no alcohol,275ml,39,,,,,,,,,,,,,,,,false,false,,,Printed '275ml 0.05% ABV (39 kcal)'; Printed '0.05% ABV'
+rekorderlig-alcohol-free-strawberry-and-lime,Rekorderlig Alcohol Free Strawberry & Lime,Low & no alcohol,500ml,196,,,,,,,,,,,,,,,,false,false,,,Printed 'Strawberry & Lime 500ml 0% ABV (196 kcal)'
+fever-tree-indian-tonic-water,Fever-Tree Indian Tonic Water,Mixers,200ml,60,,,,,,,,,,,,,,,,false,false,,,Printed 'Indian Tonic Water £3.10 200ml (60 kcal)'
+fever-tree-refreshingly-light-tonic-water,Fever-Tree Refreshingly Light Tonic Water,Mixers,200ml,30,,,,,,,,,,,,,,,,false,false,,,Printed 'Tonic Water 200ml (30 kcal)'; Printed under the Fever-Tree heading
+red-bull,Red Bull,Mixers,250ml,115,,,,,,,,,,,,,,,,false,false,,,Printed '250ml (115 kcal)'
+red-bull-the-peach-edition,Red Bull The Peach Edition,Mixers,250ml,8,,,,,,,,,,,,,,,,false,false,,,Printed '250ml (8 kcal)'
