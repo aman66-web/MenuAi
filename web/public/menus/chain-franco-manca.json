@@ -1,0 +1,1206 @@
+{
+ "schemaVersion": 1,
+ "id": "franco-manca",
+ "name": "Franco Manca",
+ "cuisine": "Pizza",
+ "builderType": "standard",
+ "aliases": [
+  "franco manca",
+  "franco manca pizza",
+  "francomanca"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Franco Manca menu with calories, francomanca.co.uk/menu (accessed 2026-10-07, no date shown)",
+  "url": "https://www.francomanca.co.uk/menu/",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Franco Manca prints calories only, beside each dish, so protein, carbs and fat are not published. Drinks without calories (wine, most cocktails and beers) are not listed. Pizzerias can differ slightly. Its allergen-list FAQ says swapping to a gluten-free base adds 53 kcal.",
+ "allergenGuide": {
+  "title": "Franco Manca allergen list, July 2026 v2 (FM-ALLERGEN-LIST-JULY-2026-v2.pdf, 18 pages)",
+  "url": "https://www.francomanca.co.uk/wp-content/uploads/2026/08/FM-ALLERGEN-LIST-JULY-2026-v2.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Aperitivo",
+  "Bites",
+  "Sourdough pizza",
+  "Dips",
+  "Salads",
+  "Sides",
+  "Desserts",
+  "Ice cream",
+  "Sorbet",
+  "Drinks",
+  "Kids"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "mixed-olives",
+   "name": "Mixed olives",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tarallini",
+   "name": "Tarallini",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 219
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-almonds",
+   "name": "Smoked almonds",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nibbles-trio",
+   "name": "Nibbles trio",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "antipasti-platter",
+   "name": "Antipasti platter",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "charcuterie-platter",
+   "name": "Charcuterie platter",
+   "category": "Aperitivo",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sourdough-pizza-bread",
+   "name": "Sourdough pizza bread",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic bread",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "goats-cheese-bread",
+   "name": "Goat's cheese bread",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 649
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata",
+   "name": "Burrata",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 563
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-marinara",
+   "name": "Bruschetta marinara",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-speck-and-whipped-goats-cheese",
+   "name": "Bruschetta speck & whipped goat's cheese",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oven-baked-tuscan-sausage",
+   "name": "Oven-baked Tuscan sausage",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "four-cheese-fonduta",
+   "name": "Four cheese fonduta",
+   "category": "Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 649
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "marinara",
+   "name": "Marinara",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 596
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita",
+   "name": "Margherita",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 784
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "francos-og-margherita",
+   "name": "Franco's OG Margherita",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1073
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prosciutto-and-funghi",
+   "name": "Prosciutto & Funghi",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 864
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "napoli",
+   "name": "Napoli",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 852
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo",
+   "name": "Chorizo",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 802
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-salami",
+   "name": "Spicy Salami",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1011
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mezzaluna",
+   "name": "Mezzaluna",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1178
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tre-porcellini",
+   "name": "Tre Porcellini",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1358
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-and-burrata",
+   "name": "Truffle & Burrata",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1041
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-and-gorgonzola",
+   "name": "Potato and Gorgonzola",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1017
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ragu-genovese",
+   "name": "Ragù Genovese",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1033
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-dip",
+   "name": "Garlic dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scotch-bonnet-chilli-dip",
+   "name": "Scotch bonnet chilli dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-dip",
+   "name": "Hot honey dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "semi-dried-tomato-dip",
+   "name": "Semi-dried tomato dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "francos-grana-and-truffle-dip",
+   "name": "Franco's grana and truffle dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-chicken-salad",
+   "name": "Mediterranean chicken salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-artichoke-salad",
+   "name": "Mediterranean artichoke salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 478
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caprese-salad",
+   "name": "Caprese salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 709
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellowfin-tuna-salad",
+   "name": "Yellowfin tuna salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocket-side-salad",
+   "name": "Rocket side salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "francos-side-salad",
+   "name": "Franco's side salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potatoes",
+   "name": "Baked potatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "affogato",
+   "name": "Affogato",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake",
+   "name": "Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-mousse-cake",
+   "name": "Chocolate mousse cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 307
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cannolo",
+   "name": "Cannolo",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 557
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "madagascan-vanilla-ice-cream",
+   "name": "Madagascan vanilla ice cream",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 446
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-ice-cream",
+   "name": "Chocolate ice cream",
+   "category": "Ice cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet",
+   "name": "Raspberry sorbet",
+   "category": "Sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crodino-non-alcoholic-spritz",
+   "name": "Crodino non-alcoholic spritz",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-saint-unfiltered-no-alcohol-lager-0-5",
+   "name": "Lucky Saint unfiltered no alcohol lager 0.5%",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double espresso",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato",
+   "name": "Macchiato",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-macchiato",
+   "name": "Double macchiato",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat white",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea",
+   "name": "English breakfast tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-mint-tea",
+   "name": "Fresh mint tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-organic-lemonade",
+   "name": "Homemade organic lemonade",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange juice",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple juice",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-limonata",
+   "name": "San Pellegrino Limonata",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-aranciata",
+   "name": "San Pellegrino Aranciata",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke",
+   "name": "Coke",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero",
+   "name": "Coke Zero",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pizza-100-italian-tomato-and-mozzarella",
+   "name": "Kids pizza: 100% Italian tomato & mozzarella",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 484
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pizza-roasted-cured-ham-100-italian-tomato-and-mozzarella",
+   "name": "Kids pizza: Roasted cured ham, 100% Italian tomato & mozzarella",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 508
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pizza-cured-chorizo-100-italian-tomato-and-mozzarella",
+   "name": "Kids pizza: Cured chorizo, 100% Italian tomato & mozzarella",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 485
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pizza-roasted-butternut-squash-100-italian-tomato-mixed-peppers-mozzarella-kalamata-olives",
+   "name": "Kids pizza: Roasted butternut squash, 100% Italian tomato, mixed peppers, mozzarella, Kalamata olives",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 849
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-apple-juice",
+   "name": "Kids apple juice",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-orange-juice",
+   "name": "Kids orange juice",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-homemade-lemonade",
+   "name": "Kids homemade lemonade",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-madagascan-vanilla-ice-cream",
+   "name": "Kids Madagascan vanilla ice cream",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chocolate-ice-cream",
+   "name": "Kids chocolate ice cream",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-raspberry-sorbet",
+   "name": "Kids raspberry sorbet",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

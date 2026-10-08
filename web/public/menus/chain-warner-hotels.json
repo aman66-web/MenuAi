@@ -1,0 +1,4185 @@
+{
+ "schemaVersion": 1,
+ "id": "warner-hotels",
+ "name": "Warner Hotels",
+ "cuisine": "Hotel restaurant",
+ "builderType": "standard",
+ "aliases": [
+  "warner hotels",
+  "warner",
+  "warner leisure hotels",
+  "warner breaks"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Warner Hotels menus with calories and allergens: Market Kitchen breakfast, Lunch Favourites and Afternoon Tea (Ten Kites pages linked from warnerhotels.co.uk/discover-warner-breaks/menus; no date shown; read 2026-10-08)",
+  "url": "https://www.warnerhotels.co.uk/discover-warner-breaks/menus",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per portion as each Warner Hotels menu page prints it (many items are per spoon, slice or each). Shows the Market Kitchen breakfast, Lunch Favourites and Afternoon Tea (Summer) dishes the hotels share; Reserve hotels and single-hotel menus differ and are not included. Not every hotel serves every dish.",
+ "allergenGuide": {
+  "title": "Warner Hotels menu pages, Dietary Information per dish (Contains / May contain; Ten Kites pages linked from warnerhotels.co.uk/discover-warner-breaks/menus; no date shown; read 2026-10-08)",
+  "url": "https://www.warnerhotels.co.uk/discover-warner-breaks/menus",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Breakfast - To start",
+  "Breakfast - Continental table",
+  "Breakfast - Full English",
+  "Breakfast - Omelettes",
+  "Breakfast - Porridge and toppings",
+  "Breakfast - Pancakes",
+  "Breakfast - Vegetarian full breakfast",
+  "Breakfast - Chef's specials",
+  "Breakfast - Non-gluten containing ingredients (not suitable for coeliacs)",
+  "Lunch - Sandwiches, wraps and toasties",
+  "Lunch - Soups and sides",
+  "Lunch - Salads",
+  "Lunch - Cakes",
+  "Lunch - Scones",
+  "Lunch - Pastries",
+  "Afternoon tea - Sandwiches",
+  "Afternoon tea - Sweet treats",
+  "Hot drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Breakfast - To start",
+   "serving": "per 80ml glass",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "guava-carrot-and-melon-smoothie-per-80ml-glass",
+   "name": "Guava, carrot & melon smoothie (per 80ml glass)",
+   "category": "Breakfast - To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "elderflower-flavour-hydration-drink-per-80ml-glass",
+   "name": "Elderflower flavour hydration drink (per 80ml glass)",
+   "category": "Breakfast - To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Breakfast - To start",
+   "serving": "per 80ml glass",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pg-tips-tea-for-one",
+   "name": "PG Tips tea for one",
+   "category": "Breakfast - To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pg-tips-tea-serves-two",
+   "name": "PG Tips tea serves two",
+   "category": "Breakfast - To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "apricot-jam-per-spoon",
+   "name": "Apricot Jam (per spoon)",
+   "category": "Breakfast - To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "raspberry-jam-per-spoon",
+   "name": "Raspberry Jam (per spoon)",
+   "category": "Breakfast - To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-jam-per-spoon",
+   "name": "Strawberry jam (per spoon)",
+   "category": "Breakfast - To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marmalade-per-spoon",
+   "name": "Marmalade (per spoon)",
+   "category": "Breakfast - To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-toast",
+   "name": "White toast",
+   "category": "Breakfast - To start",
+   "serving": "per slice",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "brown-toast",
+   "name": "Brown toast",
+   "category": "Breakfast - To start",
+   "serving": "per slice",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "bran-flakes-served-with-semi-skimmed-milk-per-spoon-of-cereal-and-portion-of-milk",
+   "name": "Bran Flakes served with semi skimmed milk (per spoon of cereal & portion of milk)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 317
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "bran-flakes-served-with-almond-drink",
+   "name": "Bran Flakes served with almond drink",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "bran-flakes-served-with-soya-drink",
+   "name": "Bran Flakes served with soya drink",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 302
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "corn-flakes-per-spoon",
+   "name": "Corn Flakes ® (per spoon)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "corn-flakes-served-with-almond-drink",
+   "name": "Corn Flakes ® served with almond drink",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "corn-flakes-served-with-soya-drink",
+   "name": "Corn Flakes ® served with soya drink",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "muesli-served-with-almond-drink",
+   "name": "Muesli served with almond drink",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 281
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "muesli-served-with-soya-drink",
+   "name": "Muesli served with soya drink",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 301
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "weetabix-served-with-semi-skimmed-milk-per-two-weetabix-and-portion-of-milk",
+   "name": "Weetabix ® served with semi skimmed milk (per two Weetabix & portion of milk)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 323
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "weetabix-served-with-almond-drink",
+   "name": "Weetabix ® served with almond drink",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "weetabix-served-with-soya-drink",
+   "name": "Weetabix ® served with soya drink",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 308
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "bakery-chocolate-and-fruit-pastries-per-each",
+   "name": "Bakery - Chocolate & fruit pastries (per each)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "butter-per-each",
+   "name": "Butter (per each)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "preserves-per-each",
+   "name": "Preserves (per each)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "banana-per-each",
+   "name": "Banana (per each)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prunes-in-juice-per-pot",
+   "name": "Prunes in juice (per pot)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "croissant-per-each",
+   "name": "Croissant (per each)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "three-berry-smoothie-per-60ml-glass",
+   "name": "Three berry smoothie (per 60ml glass)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bircher-muesli-per-spoon",
+   "name": "Bircher muesli (per spoon)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "greek-style-yoghurt-per-spoon",
+   "name": "Greek-style yoghurt (per spoon)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "homemade-fruity-granola-per-spoon",
+   "name": "Homemade fruity granola (per spoon)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 293
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "berry-compote-per-spoon",
+   "name": "Berry compote (per spoon)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-fruit-salad-per-spoon",
+   "name": "Fresh fruit salad (per spoon)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-pink-grapefruit-per-spoon",
+   "name": "Fresh pink grapefruit (per spoon)",
+   "category": "Breakfast - Continental table",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cumberland-sausage-per-sausage",
+   "name": "Cumberland sausage (per sausage)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "baked-beans-per-spoon",
+   "name": "Baked beans (per spoon)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hash-brown-per-two-hash-browns",
+   "name": "Hash brown (per two hash browns)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 569
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fried-eggs-per-2-eggs",
+   "name": "Fried eggs (per 2 eggs)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 242
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scrambled-eggs-per-spoon",
+   "name": "Scrambled eggs (per spoon)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poached-eggs-per-each",
+   "name": "Poached eggs (per each)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bacon-per-two-rashers",
+   "name": "Bacon (per two rashers)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sauted-mushrooms-seasoned-with-rosemary-salt-per-spoon",
+   "name": "Sauted mushrooms seasoned with rosemary salt (per spoon)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fried-bread-per-each",
+   "name": "Fried bread (per each)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 236
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "black-pudding-per-slice",
+   "name": "Black pudding (per slice)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "roasted-tomato-seasoned-with-rosemary-salt-per-each",
+   "name": "Roasted tomato seasoned with rosemary salt (per each)",
+   "category": "Breakfast - Full English",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "freshly-cooked-plain-omelette-per-serving",
+   "name": "Freshly cooked plain omelette (per serving)",
+   "category": "Breakfast - Omelettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "freshly-cooked-omelette-with-cheese-per-serving",
+   "name": "Freshly cooked omelette with cheese (per serving)",
+   "category": "Breakfast - Omelettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "freshly-cooked-omelette-with-ham-per-serving",
+   "name": "Freshly cooked omelette with ham (per serving)",
+   "category": "Breakfast - Omelettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "freshly-cooked-omelette-with-tomato-per-serving",
+   "name": "Freshly cooked omelette with tomato (per serving)",
+   "category": "Breakfast - Omelettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "freshly-cooked-omelette-with-mushroom-per-serving",
+   "name": "Freshly cooked omelette with mushroom (per serving)",
+   "category": "Breakfast - Omelettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "plain-porridge-per-serving",
+   "name": "Plain porridge (per serving)",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 301
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "porridge-with-banana-chips-and-maple-flavoured-syrup-per-serving",
+   "name": "Porridge with banana chips & maple flavoured syrup (per serving)",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 470
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "porridge-with-chocolate-drizzle-and-fresh-berries-per-serving",
+   "name": "Porridge with chocolate drizzle & fresh berries (per serving)",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "brown-sugar",
+   "name": "Brown sugar",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "per spoon",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flaked-almonds",
+   "name": "Flaked almonds",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "per spoon",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "blueberries-and-raspberries",
+   "name": "Blueberries & Raspberries",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "per spoon",
+   "nutrients": {
+    "calories": 13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "banana-chips",
+   "name": "Banana chips",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "per spoon",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cinnamon-per-spoon",
+   "name": "Cinnamon (Per spoon)",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sultanas",
+   "name": "Sultanas",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "per spoon",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemons-per-wedge",
+   "name": "Lemons (per wedge)",
+   "category": "Breakfast - Porridge and toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "two-plain-pancakes",
+   "name": "Two plain pancakes",
+   "category": "Breakfast - Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "two-pancakes-with-fruit-compote",
+   "name": "Two pancakes with fruit compote",
+   "category": "Breakfast - Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 236
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "two-pancakes-with-lemon",
+   "name": "Two pancakes with lemon",
+   "category": "Breakfast - Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "two-pancakes-with-sugar",
+   "name": "Two pancakes with sugar",
+   "category": "Breakfast - Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "two-pancakes-with-cinnamon",
+   "name": "Two pancakes with cinnamon",
+   "category": "Breakfast - Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "vegetarian-breakfast-with-fried-egg",
+   "name": "Vegetarian breakfast with fried egg",
+   "category": "Breakfast - Vegetarian full breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "vegetarian-breakfast-with-poached-egg",
+   "name": "Vegetarian breakfast with poached egg",
+   "category": "Breakfast - Vegetarian full breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 971
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "vegetarian-breakfast-with-scrambled-egg",
+   "name": "Vegetarian breakfast with scrambled egg",
+   "category": "Breakfast - Vegetarian full breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1241
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-and-scrambled-eggs-per-portion",
+   "name": "Smoked salmon & scrambled eggs (per portion)",
+   "category": "Breakfast - Chef's specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "eggs-benedict",
+   "name": "Eggs Benedict",
+   "category": "Breakfast - Chef's specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 560
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "smoked-haddock-and-poached-eggs-per-piece",
+   "name": "Smoked haddock & poached eggs (per piece)",
+   "category": "Breakfast - Chef's specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 448
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "eggs-royale",
+   "name": "Eggs Royale",
+   "category": "Breakfast - Chef's specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 510
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "grilled-kippers-parsley-butter-and-lemon",
+   "name": "Grilled kippers, parsley butter & lemon",
+   "category": "Breakfast - Chef's specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 363
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sausage-non-gluten-containing-ingredients",
+   "name": "Sausage (non-gluten containing ingredients)",
+   "category": "Breakfast - Non-gluten containing ingredients (not suitable for coeliacs)",
+   "serving": "",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cornflakes-non-gluten-containing-ingredients",
+   "name": "Cornflakes (non-gluten containing ingredients)",
+   "category": "Breakfast - Non-gluten containing ingredients (not suitable for coeliacs)",
+   "serving": "",
+   "nutrients": {
+    "calories": 478
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "brown-seeded-roll-non-gluten-containing-ingredients",
+   "name": "Brown seeded roll (non-gluten containing ingredients)",
+   "category": "Breakfast - Non-gluten containing ingredients (not suitable for coeliacs)",
+   "serving": "",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-sliced-bread-non-gluten-containing-ingredients",
+   "name": "White sliced bread (non-gluten containing ingredients)",
+   "category": "Breakfast - Non-gluten containing ingredients (not suitable for coeliacs)",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ham-salad-on-brown",
+   "name": "Ham salad on brown",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 664
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "ham-salad-on-white",
+   "name": "Ham salad on white",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "roasted-cauliflower-and-curried-red-pepper-on-malted",
+   "name": "Roasted cauliflower & curried red pepper (on malted)",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "roasted-cauliflower-and-curried-red-pepper-on-white",
+   "name": "Roasted cauliflower & curried red pepper (on white)",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 719
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chicken-caesar-salad-sandwich-on-brown-bread",
+   "name": "Chicken Caesar salad sandwich on Brown bread",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chicken-caesar-salad-sandwich-on-white-bread",
+   "name": "Chicken Caesar salad sandwich on white bread",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "prawn-marie-rose-wrap",
+   "name": "Prawn Marie Rose wrap",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 721
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "roasted-vegetable-grilled-wrap",
+   "name": "Roasted vegetable grilled wrap",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "ham-cheese-and-wholegrain-mustard-toastie-on-malted",
+   "name": "Ham, cheese & wholegrain mustard toastie (on malted)",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 806
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "ham-cheese-and-wholegrain-mustard-toastie-on-white",
+   "name": "Ham, cheese & wholegrain mustard toastie (on white)",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 802
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "double-cheese-and-tomato-toastie-on-malted",
+   "name": "Double cheese & tomato toastie (on malted)",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 697
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "double-cheese-and-tomato-toastie-on-white",
+   "name": "Double cheese & tomato toastie (on white)",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 693
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "brie-and-bacon-toastie-on-malted",
+   "name": "Brie & bacon toastie (on malted)",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 857
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "brie-and-bacon-toastie-on-white",
+   "name": "Brie & bacon toastie (on white)",
+   "category": "Lunch - Sandwiches, wraps and toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 853
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "butternut-squash-soup",
+   "name": "Butternut squash soup",
+   "category": "Lunch - Soups and sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 508
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "carrot-and-coriander-soup",
+   "name": "Carrot and coriander soup",
+   "category": "Lunch - Soups and sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "creamy-cauliflower-and-blue-cheese-soup",
+   "name": "Creamy cauliflower & blue cheese soup",
+   "category": "Lunch - Soups and sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 347
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "creamy-tomato-and-basil-soup",
+   "name": "Creamy tomato and basil soup",
+   "category": "Lunch - Soups and sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "leek-and-potato-soup",
+   "name": "Leek & potato soup",
+   "category": "Lunch - Soups and sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 472
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "skin-on-fries-and-sea-salt",
+   "name": "Skin-on fries & sea salt",
+   "category": "Lunch - Soups and sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-onion-fries",
+   "name": "Cheese & onion fries",
+   "category": "Lunch - Soups and sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 830
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "caesar-salad",
+   "name": "Caesar Salad",
+   "category": "Lunch - Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 921
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "caesar-salad-pulled-chicken",
+   "name": "Caesar Salad - Pulled Chicken",
+   "category": "Lunch - Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1035
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "lemon-and-elderflower",
+   "name": "Lemon & Elderflower",
+   "category": "Lunch - Cakes",
+   "serving": "per slice",
+   "nutrients": {
+    "calories": 763
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "mini-mocha-loaf-cake",
+   "name": "Mini Mocha Loaf Cake",
+   "category": "Lunch - Cakes",
+   "serving": "per each",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "coffee-and-walnut-cake",
+   "name": "Coffee & walnut cake",
+   "category": "Lunch - Cakes",
+   "serving": "per slice",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "carrot-cake",
+   "name": "Carrot Cake",
+   "category": "Lunch - Cakes",
+   "serving": "per slice",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-caramel-tart",
+   "name": "Chocolate & caramel tart",
+   "category": "Lunch - Cakes",
+   "serving": "per each",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "billionaires-shortbread",
+   "name": "Billionaires' Shortbread",
+   "category": "Lunch - Cakes",
+   "serving": "per each",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "toasted-teacake",
+   "name": "Toasted teacake",
+   "category": "Lunch - Cakes",
+   "serving": "per portion",
+   "nutrients": {
+    "calories": 329
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-victoria-sponge",
+   "name": "Raspberry Victoria sponge",
+   "category": "Lunch - Cakes",
+   "serving": "per slice",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "plain-scone-jam-and-clotted-cream",
+   "name": "Plain Scone, Jam & Clotted Cream",
+   "category": "Lunch - Scones",
+   "serving": "per each",
+   "nutrients": {
+    "calories": 567
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "sultana-scone-jam-and-clotted-cream",
+   "name": "Sultana Scone, Jam & Clotted Cream",
+   "category": "Lunch - Scones",
+   "serving": "per each",
+   "nutrients": {
+    "calories": 598
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "cheddar-cheese-scone-and-butter",
+   "name": "Cheddar Cheese Scone & Butter",
+   "category": "Lunch - Scones",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "cream-tea-for-two-fruit-scone",
+   "name": "Cream Tea for two - fruit scone",
+   "category": "Lunch - Scones",
+   "serving": "serves two",
+   "nutrients": {
+    "calories": 1292
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "cream-tea-for-two-plain-scone",
+   "name": "Cream Tea for two - plain scone",
+   "category": "Lunch - Scones",
+   "serving": "",
+   "nutrients": {
+    "calories": 1228
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "fruit-scone-with-clotted-cream-and-strawberry-jam",
+   "name": "Fruit scone with clotted cream and strawberry jam",
+   "category": "Lunch - Scones",
+   "serving": "per scone",
+   "nutrients": {
+    "calories": 676
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-swirl",
+   "name": "Cinnamon Swirl",
+   "category": "Lunch - Pastries",
+   "serving": "per each",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-hazelnut-twist",
+   "name": "Chocolate & hazelnut twist",
+   "category": "Lunch - Pastries",
+   "serving": "per each",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "cheese-twist",
+   "name": "Cheese twist",
+   "category": "Lunch - Pastries",
+   "serving": "per each",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "roasted-cauliflower-and-curried-red-pepper-afternoon-tea-on-white",
+   "name": "Roasted cauliflower & curried red pepper (afternoon tea, on white)",
+   "category": "Afternoon tea - Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-tarragon-mayonnaise",
+   "name": "Chicken & tarragon mayonnaise",
+   "category": "Afternoon tea - Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "egg-and-chive-mayonnaise",
+   "name": "Egg & chive mayonnaise",
+   "category": "Afternoon tea - Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "poached-trout-smoked-salmon-lemon-and-dill-cream-cheese",
+   "name": "Poached trout, smoked salmon, lemon & dill cream cheese",
+   "category": "Afternoon tea - Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "assorted-macarons-per-each",
+   "name": "Assorted macarons (per each)",
+   "category": "Afternoon tea - Sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "lemon-and-berry-choux-bun",
+   "name": "Lemon & berry choux bun",
+   "category": "Afternoon tea - Sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 184
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-with-sour-cherry-compote",
+   "name": "Chocolate brownie with sour cherry compote",
+   "category": "Afternoon tea - Sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "caramel-flavour-syrup",
+   "name": "Caramel flavour syrup",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hazelnut-flavour-syrup",
+   "name": "Hazelnut Flavour Syrup",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-flavour-syrup",
+   "name": "Vanilla flavour syrup",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-large",
+   "name": "Americano Large",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-regular",
+   "name": "Americano Regular",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino Large",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino Regular",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte Large",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte Regular",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "almond-drink",
+   "name": "Almond Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "soya-drink",
+   "name": "Soya drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oat-drink",
+   "name": "Oat Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "semi-skimmed-milk",
+   "name": "Semi Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-flavour-latte",
+   "name": "Caramel Flavour Latte",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-large",
+   "name": "Hot Chocolate Large",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "afternoon-earl-grey",
+   "name": "Afternoon Earl Grey",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "full-english-breakfast-tea",
+   "name": "Full English Breakfast (tea)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemongrass-and-ginger",
+   "name": "Lemongrass & ginger",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "masala-chai",
+   "name": "Masala Chai",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "moroccan-mint",
+   "name": "Moroccan Mint",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sencha-green",
+   "name": "Sencha Green",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sri-lanka-decaffeinated",
+   "name": "Sri Lanka Decaffeinated",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-large",
+   "name": "Iced Latte large",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "wild-fruit-melody",
+   "name": "Wild Fruit Melody",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-latte",
+   "name": "Caramel Latte",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-flavoured-hot-chocolate",
+   "name": "Caramel flavoured hot chocolate",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 517
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "liquorice-limey",
+   "name": "Liquorice Limey",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sencha-green-fields",
+   "name": "Sencha Green Fields",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spiced-blueberry-pie",
+   "name": "Spiced Blueberry Pie",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-large",
+   "name": "Espresso Large",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-regular",
+   "name": "Espresso Regular",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "macchiato",
+   "name": "Macchiato",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

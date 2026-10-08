@@ -1,0 +1,9400 @@
+{
+ "schemaVersion": 1,
+ "id": "tesco-cafe",
+ "name": "Tesco Cafe",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "tesco cafe",
+  "tesco café",
+  "tesco the cafe",
+  "the cafe tesco",
+  "tesco's cafe"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Tesco Cafe Summer 2026 GB Allergen Matrix, Version 5 (kcal per serving; PDF created 30 July 2026)",
+  "url": "https://digitalcontent.api.tesco.com/v2/media/homepage/3e74ec75-f288-46a3-90a6-5db01d5db09f/Summer+2026+GB+Allergen+Matrix+V5.pdf",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Tesco Cafe publishes calories only (kcal per serving), so protein, carbs and fat are not published. Drinks print Small / Medium values. Not listed: condiments that print no calories (sugar, salt, pepper, some sauces) and the Hot Food Counter (3 venues only). The cafe says shared equipment means any item can carry traces.",
+ "allergenGuide": {
+  "title": "Tesco Cafe GB Allergen Matrix, Summer 2026, Version 5 (20 pages)",
+  "url": "https://digitalcontent.api.tesco.com/v2/media/homepage/3e74ec75-f288-46a3-90a6-5db01d5db09f/Summer+2026+GB+Allergen+Matrix+V5.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Drinks",
+  "Breakfast",
+  "Breakfast extras",
+  "Mains",
+  "Kids",
+  "Snacks & bakery",
+  "Sides & condiments"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "americano-black",
+   "name": "Americano (Black)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-with-semi-skimmed-cows-milk",
+   "name": "Americano with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-with-skimmed-cows-milk",
+   "name": "Americano with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-with-coconut",
+   "name": "Americano with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "americano-with-oat",
+   "name": "Americano with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "americano-with-soya",
+   "name": "Americano with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "babyccino-with-semi-skimmed-cows-milk",
+   "name": "Babyccino with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "babyccino-with-skimmed-cows-milk",
+   "name": "Babyccino with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "babyccino-with-coconut-no-cocoa",
+   "name": "Babyccino with Coconut (no cocoa)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "babyccino-with-oat-no-cocoa",
+   "name": "Babyccino with Oat (no cocoa)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "babyccino-with-soya-no-cocoa",
+   "name": "Babyccino with Soya (no cocoa)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-black",
+   "name": "Breakfast Tea (Black)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-with-semi-skimmed-cows-milk",
+   "name": "Breakfast Tea with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-with-skimmed-cows-milk",
+   "name": "Breakfast Tea with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-with-coconut",
+   "name": "Breakfast Tea with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-tea-with-oat",
+   "name": "Breakfast Tea with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-tea-with-soya",
+   "name": "Breakfast Tea with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-with-semi-skimmed-cows-milk-small",
+   "name": "Cappuccino with Semi Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-with-semi-skimmed-cows-milk-medium",
+   "name": "Cappuccino with Semi Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-with-skimmed-cows-milk-small",
+   "name": "Cappuccino with Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-with-skimmed-cows-milk-medium",
+   "name": "Cappuccino with Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-with-coconut-small",
+   "name": "Cappuccino with Coconut (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-with-coconut-medium",
+   "name": "Cappuccino with Coconut (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-with-oat-small",
+   "name": "Cappuccino with Oat (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-with-oat-medium",
+   "name": "Cappuccino with Oat (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-with-soya-small",
+   "name": "Cappuccino with Soya (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-with-soya-medium",
+   "name": "Cappuccino with Soya (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "caramel-syrup-small",
+   "name": "Caramel Syrup (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-syrup-medium",
+   "name": "Caramel Syrup (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-semi-skimmed-cows-milk-small",
+   "name": "Chai Latte with Semi Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-semi-skimmed-cows-milk-medium",
+   "name": "Chai Latte with Semi Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-skimmed-cows-milk-small",
+   "name": "Chai Latte with Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-skimmed-cows-milk-medium",
+   "name": "Chai Latte with Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-coconut-small",
+   "name": "Chai Latte with Coconut (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-with-coconut-medium",
+   "name": "Chai Latte with Coconut (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-with-oat-small",
+   "name": "Chai Latte with Oat (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-with-oat-medium",
+   "name": "Chai Latte with Oat (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-with-soya-small",
+   "name": "Chai Latte with Soya (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-soya-medium",
+   "name": "Chai Latte with Soya (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 235
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cocoa-dusting",
+   "name": "Cocoa Dusting",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-tea-black",
+   "name": "Decaf Tea (Black)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-tea-with-semi-skimmed-cows-milk",
+   "name": "Decaf Tea with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-tea-with-skimmed-cows-milk",
+   "name": "Decaf Tea with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-tea-with-coconut",
+   "name": "Decaf Tea with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "decaf-tea-with-oat",
+   "name": "Decaf Tea with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-tea-with-soya",
+   "name": "Decaf Tea with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-choc-shake-cannot-be-made-dairy-free",
+   "name": "Double Choc Shake (cannot be made dairy free)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 285
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "dragon-fruit-and-mango-cooler",
+   "name": "Dragon Fruit & Mango Cooler",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-black",
+   "name": "Earl Grey (Black)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-with-semi-skimmed-cows-milk",
+   "name": "Earl Grey with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-with-skimmed-cows-milk",
+   "name": "Earl Grey with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-with-coconut",
+   "name": "Earl Grey with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "earl-grey-with-oat",
+   "name": "Earl Grey with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "earl-grey-with-soya",
+   "name": "Earl Grey with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-with-semi-skimmed-cows-milk",
+   "name": "Espresso with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-with-skimmed-cows-milk",
+   "name": "Espresso with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-with-coconut",
+   "name": "Espresso with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "espresso-with-oat",
+   "name": "Espresso with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "espresso-with-soya",
+   "name": "Espresso with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-with-semi-skimmed-cows-milk",
+   "name": "Flat White with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-with-skimmed-cows-milk",
+   "name": "Flat White with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-with-coconut",
+   "name": "Flat White with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-with-oat",
+   "name": "Flat White with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-with-soya",
+   "name": "Flat White with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-vanilla-syrup-small",
+   "name": "French Vanilla Syrup (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-vanilla-syrup-medium",
+   "name": "French Vanilla Syrup (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hazelnut-syrup-syrup-is-free-from-nuts-small",
+   "name": "Hazelnut Syrup (syrup is free from nuts) (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hazelnut-syrup-syrup-is-free-from-nuts-medium",
+   "name": "Hazelnut Syrup (syrup is free from nuts) (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-with-semi-skimmed-cows-milk-small",
+   "name": "Hot Chocolate with Semi Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 265
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-with-semi-skimmed-cows-milk-medium",
+   "name": "Hot Chocolate with Semi Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-with-skimmed-cows-milk-small",
+   "name": "Hot Chocolate with Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-with-skimmed-cows-milk-medium",
+   "name": "Hot Chocolate with Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-with-coconut-small",
+   "name": "Hot Chocolate with Coconut (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-with-coconut-medium",
+   "name": "Hot Chocolate with Coconut (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-with-oat-small",
+   "name": "Hot Chocolate with Oat (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 285
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-with-oat-medium",
+   "name": "Hot Chocolate with Oat (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-with-soya-small",
+   "name": "Hot Chocolate with Soya (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 245
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-with-soya-medium",
+   "name": "Hot Chocolate with Soya (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "iced-americano-black",
+   "name": "Iced Americano (black)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-americano-with-semi-skimmed-cows-milk",
+   "name": "Iced Americano with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-americano-with-skimmed-cows-milk",
+   "name": "Iced Americano with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-americano-with-coconut",
+   "name": "Iced Americano with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-americano-with-oat",
+   "name": "Iced Americano with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-americano-with-soya",
+   "name": "Iced Americano with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-cappuccino-with-semi-skimmed-cows-milk",
+   "name": "Iced Cappuccino with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-coconut-matcha-with-semi-skimmed-milk",
+   "name": "Iced Coconut Matcha with Semi Skimmed Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-coconut-matcha-with-skimmed-milk",
+   "name": "Iced Coconut Matcha with Skimmed Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-coconut-matcha-with-coconut",
+   "name": "Iced Coconut Matcha with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-coconut-matcha-with-oat",
+   "name": "Iced Coconut Matcha with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-coconut-matcha-with-soya",
+   "name": "Iced Coconut Matcha with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-coconut-and-pineapple-matcha-with-semi-skimmed-cows-milk",
+   "name": "Iced Coconut & Pineapple Matcha with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-coconut-and-pineapple-matcha-with-skimmed-cows-milk",
+   "name": "Iced Coconut & Pineapple Matcha with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-coconut-and-pineapple-matcha-with-coconut",
+   "name": "Iced Coconut & Pineapple Matcha with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-coconut-and-pineapple-matcha-with-oat",
+   "name": "Iced Coconut & Pineapple Matcha with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-coconut-and-pineapple-matcha-with-soya",
+   "name": "Iced Coconut & Pineapple Matcha with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-with-semi-skimmed-cows-milk",
+   "name": "Iced Flat White with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-with-skimmed-cows-milk",
+   "name": "Iced Flat White with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-with-coconut",
+   "name": "Iced Flat White with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-flat-white-with-oat",
+   "name": "Iced Flat White with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-flat-white-with-soya",
+   "name": "Iced Flat White with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-with-semi-skimmed-cows-milk",
+   "name": "Iced Latte with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-with-skimmed-cows-milk",
+   "name": "Iced Latte with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-with-coconut",
+   "name": "Iced Latte with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-latte-with-oat",
+   "name": "Iced Latte with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-latte-with-soya",
+   "name": "Iced Latte with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-with-semi-skimmed-milk",
+   "name": "Iced Matcha Latte with Semi Skimmed Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-with-skimmed-milk",
+   "name": "Iced Matcha Latte with Skimmed Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-with-coconut",
+   "name": "Iced Matcha Latte with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-matcha-latte-with-oat",
+   "name": "Iced Matcha Latte with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-matcha-latte-with-soya",
+   "name": "Iced Matcha Latte with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-mocha-with-semi-skimmed-cows-milk",
+   "name": "Iced Mocha with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-mocha-with-skimmed-cows-milk",
+   "name": "Iced Mocha with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-mocha-with-coconut",
+   "name": "Iced Mocha with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-mocha-with-oat",
+   "name": "Iced Mocha with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-mocha-with-soya",
+   "name": "Iced Mocha with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "iced-strawberry-matcha-latte-with-semi-skimmed-milk",
+   "name": "Iced Strawberry Matcha Latte with Semi Skimmed Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-strawberry-matcha-latte-with-skimmed-milk",
+   "name": "Iced Strawberry Matcha Latte with Skimmed Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-strawberry-matcha-latte-with-coconut",
+   "name": "Iced Strawberry Matcha Latte with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-strawberry-matcha-latte-with-oat",
+   "name": "Iced Strawberry Matcha Latte with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-strawberry-matcha-latte-with-soya",
+   "name": "Iced Strawberry Matcha Latte with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-with-semi-skimmed-cows-milk-small",
+   "name": "Latte with Semi Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-with-semi-skimmed-cows-milk-medium",
+   "name": "Latte with Semi Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-with-skimmed-cows-milk-small",
+   "name": "Latte with Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-with-skimmed-cows-milk-medium",
+   "name": "Latte with Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-with-coconut-small",
+   "name": "Latte with Coconut (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "latte-with-coconut-medium",
+   "name": "Latte with Coconut (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "latte-with-oat-small",
+   "name": "Latte with Oat (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-with-oat-medium",
+   "name": "Latte with Oat (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-with-soya-small",
+   "name": "Latte with Soya (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-with-soya-medium",
+   "name": "Latte with Soya (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-crush",
+   "name": "Mango Crush",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-with-semi-skimmed-cows-milk",
+   "name": "Matcha Latte with Semi Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-with-skimmed-cows-milk",
+   "name": "Matcha Latte with Skimmed Cow's Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-with-coconut",
+   "name": "Matcha Latte with Coconut",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "matcha-latte-with-oat",
+   "name": "Matcha Latte with Oat",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "matcha-latte-with-soya",
+   "name": "Matcha Latte with Soya",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marshmallows",
+   "name": "Marshmallows",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-with-semi-skimmed-cows-milk-small",
+   "name": "Mocha with Semi Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-with-semi-skimmed-cows-milk-medium",
+   "name": "Mocha with Semi Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 355
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-with-skimmed-cows-milk-small",
+   "name": "Mocha with Skimmed Cow's Milk (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-with-skimmed-cows-milk-medium",
+   "name": "Mocha with Skimmed Cow's Milk (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-with-coconut-small",
+   "name": "Mocha with Coconut (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mocha-with-coconut-medium",
+   "name": "Mocha with Coconut (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mocha-with-oat-small",
+   "name": "Mocha with Oat (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-with-oat-medium",
+   "name": "Mocha with Oat (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-with-soya-small",
+   "name": "Mocha with Soya (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "mocha-with-soya-medium",
+   "name": "Mocha with Soya (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "peach-iced-tea",
+   "name": "Peach Iced Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peach-and-pineapple-iced-tea",
+   "name": "Peach & Pineapple Iced Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peppermint-tea",
+   "name": "Peppermint Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pistachio-syrup-syrup-is-free-from-nuts-small",
+   "name": "Pistachio Syrup (syrup is free from nuts) (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pistachio-syrup-syrup-is-free-from-nuts-medium",
+   "name": "Pistachio Syrup (syrup is free from nuts) (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "raspberry-iced-chocolate-with-semi-skimmed-milk",
+   "name": "Raspberry Iced Chocolate with Semi Skimmed Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "raspberry-iced-chocolate-with-skimmed-milk",
+   "name": "Raspberry Iced Chocolate with Skimmed Milk",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "raspberry-iced-chocolate-with-coconut-no-cream-or-toppings",
+   "name": "Raspberry Iced Chocolate with Coconut (no cream or toppings)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-iced-chocolate-with-oat-no-cream-or-toppings",
+   "name": "Raspberry Iced Chocolate with Oat (no cream or toppings)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-iced-chocolate-with-soya-no-cream-or-toppings",
+   "name": "Raspberry Iced Chocolate with Soya (no cream or toppings)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "red-berry-tea",
+   "name": "Red Berry Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-syrup-small",
+   "name": "Salted Caramel Syrup (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-syrup-medium",
+   "name": "Salted Caramel Syrup (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-cream-for-coffee",
+   "name": "Single cream for coffee",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spray-dairy-cream",
+   "name": "Spray Dairy Cream",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-shortcake-shake-cannot-be-made-dairy-free",
+   "name": "Strawberry Shortcake Shake (cannot be made dairy free)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sugar-free-caramel-syrup-small",
+   "name": "Sugar Free Caramel Syrup (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-caramel-syrup-medium",
+   "name": "Sugar Free Caramel Syrup (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-french-vanilla-syrup-small",
+   "name": "Sugar Free French Vanilla Syrup (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-french-vanilla-syrup-medium",
+   "name": "Sugar Free French Vanilla Syrup (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-hazelnut-syrup-syrup-is-free-from-nuts-small",
+   "name": "Sugar Free Hazelnut Syrup (syrup is free from nuts) (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-hazelnut-syrup-syrup-is-free-from-nuts-medium",
+   "name": "Sugar Free Hazelnut Syrup (syrup is free from nuts) (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-salted-caramel-syrup-small",
+   "name": "Sugar Free Salted Caramel Syrup (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-salted-caramel-syrup-medium",
+   "name": "Sugar Free Salted Caramel Syrup (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-vanilla-syrup-small",
+   "name": "Sugar Free Vanilla Syrup (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-vanilla-syrup-medium",
+   "name": "Sugar Free Vanilla Syrup (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "topped-hot-chocolate-with-semi-skimmed-milk-cannot-be-made-dairy-free",
+   "name": "Topped Hot Chocolate with Semi Skimmed Milk (cannot be made dairy free)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-syrup-small",
+   "name": "Vanilla Syrup (Small)",
+   "category": "Drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-syrup-medium",
+   "name": "Vanilla Syrup (Medium)",
+   "category": "Drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "watermelon-and-lime-soda",
+   "name": "Watermelon & Lime Soda",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacon-bap",
+   "name": "Bacon Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 495
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bacon-sandwich-on-multiseed-bread",
+   "name": "Bacon Sandwich on Multiseed Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bacon-sandwich-on-white-bread",
+   "name": "Bacon Sandwich on White Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bacon-sandwich-on-wholemeal-bread",
+   "name": "Bacon Sandwich on Wholemeal Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "berry-and-granola-bowl",
+   "name": "Berry & Granola Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 445
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "black-pudding",
+   "name": "Black Pudding",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bap-and-butter",
+   "name": "Bap & Butter",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bread-and-butter-multiseed-bread",
+   "name": "Bread & Butter - Multiseed Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bread-and-butter-sourdough-bread",
+   "name": "Bread & Butter - Sourdough Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bread-and-butter-white-bread",
+   "name": "Bread & Butter - White Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bread-and-butter-wholemeal-bread",
+   "name": "Bread & Butter - Wholemeal Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-wrap",
+   "name": "Breakfast Wrap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 635
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butter-portion",
+   "name": "Butter Portion",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "buttered-mushrooms-on-sourdough",
+   "name": "Buttered Mushrooms on Sourdough",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 495
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-egg-bap",
+   "name": "Fried Egg Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-egg-sandwich-on-multiseed-bread",
+   "name": "Fried Egg Sandwich on Multiseed Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-egg-sandwich-on-white-bread",
+   "name": "Fried Egg Sandwich on White Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 355
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-egg-sandwich-on-wholemeal-bread",
+   "name": "Fried Egg Sandwich on Wholemeal Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 350
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-eggs-on-white-toast",
+   "name": "Fried Eggs on White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-eggs-on-sourdough-toast",
+   "name": "Fried Eggs on Sourdough Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-eggs-on-multiseed-toast",
+   "name": "Fried Eggs on Multiseed Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-eggs-on-wholemeal-toast",
+   "name": "Fried Eggs on Wholemeal Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fried-white-bread",
+   "name": "Fried White Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 425
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "gluten-free-bread-and-butter",
+   "name": "Gluten-Free Bread & Butter",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lorne-sausage",
+   "name": "Lorne Sausage",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 245
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lorne-sausage-bap",
+   "name": "Lorne Sausage Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 560
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "lorne-sausage-sandwich-on-multiseed-bread",
+   "name": "Lorne Sausage Sandwich on Multiseed Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "lorne-sausage-sandwich-on-white-bread",
+   "name": "Lorne Sausage Sandwich on White Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 555
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "lorne-sausage-sandwich-on-wholemeal-bread",
+   "name": "Lorne Sausage Sandwich on Wholemeal Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 525
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "poached-eggs-on-white-toast",
+   "name": "Poached Eggs on White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 440
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "poached-eggs-on-sourdough-toast",
+   "name": "Poached Eggs on Sourdough Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "poached-eggs-on-multiseed-toast",
+   "name": "Poached Eggs on Multiseed Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "poached-eggs-on-wholemeal-toast",
+   "name": "Poached Eggs on Wholemeal Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pod-bacon-bap",
+   "name": "POD Bacon Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 405
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pod-extra-bacon",
+   "name": "POD Extra Bacon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pod-sausage-bap",
+   "name": "POD Sausage Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pod-extra-sausage",
+   "name": "POD Extra Sausage",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pork-sausage-bap",
+   "name": "Pork Sausage Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 510
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pork-sausage-sandwich-on-multiseed-bread",
+   "name": "Pork Sausage Sandwich on Multiseed Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 530
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pork-sausage-sandwich-on-white-bread",
+   "name": "Pork Sausage Sandwich on White Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pork-sausage-sandwich-on-wholemeal-bread",
+   "name": "Pork Sausage Sandwich on Wholemeal Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 470
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "scrambled-eggs-on-white-toast",
+   "name": "Scrambled Eggs on White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "scrambled-eggs-on-sourdough-toast",
+   "name": "Scrambled Eggs on Sourdough Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "scrambled-eggs-on-multiseed-toast",
+   "name": "Scrambled Eggs on Multiseed Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "scrambled-eggs-on-wholemeal-toast",
+   "name": "Scrambled Eggs on Wholemeal Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "smashed-avo-on-sourdough-toast-with-tomato-chilli-and-lime",
+   "name": "Smashed Avo on Sourdough Toast With Tomato, Chilli & Lime",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "smashed-avo-on-sourdough-with-feta-and-sundried-tomatoes",
+   "name": "Smashed Avo on Sourdough with Feta & Sundried Tomatoes",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "smashed-avo-on-sourdough-with-fried-egg-and-streaky-bacon",
+   "name": "Smashed Avo on Sourdough with Fried Egg & Streaky Bacon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "summer-berry-french-toast",
+   "name": "Summer Berry French Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 485
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-breakfast-with-white-toast",
+   "name": "The Breakfast With White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 750
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-breakfast-with-multiseed-toast",
+   "name": "The Breakfast With Multiseed Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 740
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-breakfast-with-sourdough-toast",
+   "name": "The Breakfast With Sourdough Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 810
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-breakfast-with-wholemeal-toast",
+   "name": "The Breakfast With Wholemeal Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-breakfast-with-fried-bread",
+   "name": "The Breakfast With Fried Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 965
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-breakfast-with-tattie-scone-scotland",
+   "name": "The Breakfast with Tattie Scone (Scotland)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 665
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-breakfast-with-gluten-free-bread",
+   "name": "The Breakfast With Gluten-Free Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 530
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "the-big-breakfast-with-white-toast",
+   "name": "The Big Breakfast With White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-big-breakfast-with-multiseed-toast",
+   "name": "The Big Breakfast With Multiseed Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-big-breakfast-with-sourdough-toast",
+   "name": "The Big Breakfast With Sourdough Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-big-breakfast-with-wholemeal-toast",
+   "name": "The Big Breakfast With Wholemeal Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1080
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-big-breakfast-with-fried-bread",
+   "name": "The Big Breakfast With Fried Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "the-big-breakfast-with-tattie-scone-scotland",
+   "name": "The Big Breakfast with Tattie Scone (Scotland)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1030
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-big-breakfast-with-gluten-free-bread",
+   "name": "The Big Breakfast With Gluten-Free Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tiramisu-french-toast",
+   "name": "Tiramisu French Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "toast-and-butter-white-toast",
+   "name": "Toast & Butter - White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "toast-and-butter-multiseed-toast",
+   "name": "Toast & Butter - Multiseed Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "toast-and-butter-wholemeal-toast",
+   "name": "Toast & Butter - Wholemeal Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "toast-and-butter-sourdough-toast",
+   "name": "Toast & Butter - Sourdough Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "toasted-teacake-with-butter-and-jam",
+   "name": "Toasted Teacake with Butter & Jam",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "turkish-style-eggs",
+   "name": "Turkish-Style Eggs",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 620
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "ultimate-breakfast-bap",
+   "name": "Ultimate Breakfast Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 860
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "vegan-breakfast-with-multiseed-toast",
+   "name": "Vegan Breakfast with Multiseed Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "vegan-breakfast-with-sourdough-toast",
+   "name": "Vegan Breakfast with Sourdough Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 550
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "vegan-breakfast-with-gluten-free-bread",
+   "name": "Vegan Breakfast with Gluten-Free Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "veggie-sausage-bap",
+   "name": "Veggie Sausage Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 485
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast-with-fried-bread",
+   "name": "Veggie Breakfast with Fried Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 950
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast-with-multiseed-toast",
+   "name": "Veggie Breakfast with Multiseed Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 720
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast-with-sourdough-toast",
+   "name": "Veggie Breakfast with Sourdough Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 795
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast-with-tattie-scone-scotland",
+   "name": "Veggie Breakfast with Tattie Scone (Scotland)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 650
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast-with-white-toast",
+   "name": "Veggie Breakfast with White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 735
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast-with-wholemeal-toast",
+   "name": "Veggie Breakfast with Wholemeal Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast-with-gluten-free-bread",
+   "name": "Veggie Breakfast with Gluten-Free Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vegetarian-sausage-sandwich-on-multiseed-bread",
+   "name": "Vegetarian Sausage Sandwich on Multiseed Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "vegetarian-sausage-sandwich-on-white-bread",
+   "name": "Vegetarian Sausage Sandwich on White Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 480
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "vegetarian-sausage-sandwich-on-wholemeal-bread",
+   "name": "Vegetarian Sausage Sandwich on Wholemeal Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacon",
+   "name": "Bacon",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "baked-beans",
+   "name": "Baked Beans",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chorizo",
+   "name": "Chorizo",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fried-egg",
+   "name": "Fried Egg",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hash-browns",
+   "name": "Hash Browns",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "halloumi",
+   "name": "Halloumi",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jam-portion",
+   "name": "Jam Portion",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marmalade",
+   "name": "Marmalade",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-mushroom",
+   "name": "Flat Mushroom",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poached-egg",
+   "name": "Poached Egg",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pork-sausage",
+   "name": "Pork Sausage",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "plum-tomatoes",
+   "name": "Plum Tomatoes",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-tomato",
+   "name": "Roast Tomato",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-salmon",
+   "name": "Smoked Salmon",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scrambled-eggs",
+   "name": "Scrambled Eggs",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sliced-mushrooms",
+   "name": "Sliced Mushrooms",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "streaky-bacon",
+   "name": "Streaky Bacon",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tattie-scone",
+   "name": "Tattie Scone",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-sausage",
+   "name": "Vegan Sausage",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "vegan-spread-portion",
+   "name": "Vegan Spread Portion",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "beans-jacket-potato",
+   "name": "Beans Jacket Potato",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 420
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-jacket-potato",
+   "name": "Cheese Jacket Potato",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 680
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-beans-jacket-potato",
+   "name": "Cheese & Beans Jacket Potato",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheddar-and-spring-onion-toastie",
+   "name": "Cheddar & Spring Onion Toastie",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-bacon-club-with-seasoned-fries",
+   "name": "Chicken & Bacon Club with Seasoned Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1140
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "coronation-chicken-jacket-potato",
+   "name": "Coronation Chicken Jacket Potato",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 845
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-chicken-and-bacon-caesar-salad",
+   "name": "Crispy Chicken & Bacon Caesar Salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 615
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "fried-chicken-and-crumpets",
+   "name": "Fried Chicken & Crumpets",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 520
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-and-grain-bowl",
+   "name": "Halloumi & Grain Bowl",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "hand-battered-fish-and-chips-with-peas-and-tartare-sauce",
+   "name": "Hand-Battered Fish & Chips with Peas and Tartare Sauce",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 805
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hand-battered-fish-and-seasoned-fries-with-peas-and-tartare-sauce",
+   "name": "Hand-Battered Fish & Seasoned Fries with Peas and Tartare Sauce",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 910
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "harissa-halloumi-flatbread",
+   "name": "Harissa Halloumi Flatbread",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 560
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "honey-roast-ham-and-cheddar-toastie",
+   "name": "Honey Roast Ham & Cheddar Toastie",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-honey-fried-chicken-wrap",
+   "name": "Hot Honey Fried Chicken Wrap",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "korean-crispy-chicken-burger-and-seasoned-fries",
+   "name": "Korean Crispy Chicken Burger & Seasoned Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 935
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "molluscs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "korean-chicken-sticky-rice-bowl",
+   "name": "Korean Chicken Sticky Rice Bowl",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 555
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "molluscs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "loaded-bacon-mac-and-cheese",
+   "name": "Loaded Bacon Mac & Cheese",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 770
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "new-york-deli-focaccia",
+   "name": "New York Deli Focaccia",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "plain-jacket-potato",
+   "name": "Plain Jacket Potato",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 350
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "slow-roasted-cherry-tomato-tart",
+   "name": "Slow-Roasted Cherry Tomato Tart",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 870
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-bagel-plate",
+   "name": "Smoked Salmon Bagel Plate",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-chicken-and-cheese-wrap",
+   "name": "Southern Fried Chicken & Cheese Wrap",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "streaky-bacon-add-on",
+   "name": "Streaky Bacon Add On",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tuna-mayo-and-spring-onion-jacket-potato",
+   "name": "Tuna Mayo & Spring Onion Jacket Potato",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 525
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "extra-tuna-mayo-and-spring-onion",
+   "name": "Extra Tuna, Mayo & Spring Onion",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tuna-mayo-cheddar-and-spring-onion-toastie",
+   "name": "Tuna Mayo, Cheddar & Spring Onion Toastie",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "ultimate-fish-finger-focaccia",
+   "name": "Ultimate Fish Finger Focaccia",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 805
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "baked-chicken-strips",
+   "name": "Baked Chicken Strips",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beans-and-soldiers",
+   "name": "Beans and Soldiers",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "broccoli",
+   "name": "Broccoli",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-tomato-pizza",
+   "name": "Cheese & Tomato Pizza",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-sandwich-made-in-house",
+   "name": "Cheese Sandwich (Made In-House)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "egg-and-soldiers",
+   "name": "Egg and Soldiers",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-side",
+   "name": "Garlic Bread Side",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ham-sandwich-made-in-house",
+   "name": "Ham Sandwich (Made In-House)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "little-breakfast-with-bacon",
+   "name": "Little Breakfast with Bacon",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "little-breakfast-with-sausage",
+   "name": "Little Breakfast with Sausage",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mashed-potato",
+   "name": "Mashed Potato",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "milk-drink-cows-milk",
+   "name": "Milk Drink (cow's milk)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "omega-3-fish-fingers",
+   "name": "Omega 3 Fish Fingers",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pancakes-with-banana",
+   "name": "Pancakes with Banana",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pancakes-with-blueberries",
+   "name": "Pancakes with Blueberries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pork-sausages",
+   "name": "Pork Sausages",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweetcorn",
+   "name": "Sweetcorn",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tomato-pasta-shells",
+   "name": "Tomato Pasta Shells",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "veg-sticks",
+   "name": "Veg Sticks",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "veggie-sausages",
+   "name": "Veggie Sausages",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yoghurt-with-banana",
+   "name": "Yoghurt with Banana",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yoghurt-with-blueberries",
+   "name": "Yoghurt with Blueberries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blueberry-muffin",
+   "name": "Blueberry Muffin",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "caramel-shortbread",
+   "name": "Caramel Shortbread",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "carrot-cake",
+   "name": "Carrot Cake",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "cherry-bakewell-mini-loaf",
+   "name": "Cherry Bakewell Mini Loaf",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-marbled-brioche-with-pistachio-dip",
+   "name": "Chocolate Marbled Brioche with Pistachio Dip",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 350
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "clotted-cream",
+   "name": "Clotted Cream",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cream",
+   "name": "Cream",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "finest-cheese-scone-with-butter",
+   "name": "Finest Cheese Scone with Butter",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 435
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "finest-fruit-scone-with-butter-and-jam",
+   "name": "Finest Fruit Scone with Butter & Jam",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fruit-toast-with-butter",
+   "name": "Fruit Toast with Butter",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "honey",
+   "name": "Honey",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jammie-shortbread-biscuit",
+   "name": "Jammie Shortbread Biscuit",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain Au Chocolat",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pecan-pie-slice",
+   "name": "Pecan Pie Slice",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 420
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-creme-cookie",
+   "name": "Pistachio Créme Cookie",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-ripple-round-cake",
+   "name": "Raspberry Ripple Round Cake",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sicilian-lemon-curd-muffin",
+   "name": "Sicilian Lemon Curd Muffin",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tunnocks-teacake",
+   "name": "Tunnocks Teacake",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ultimate-brownie",
+   "name": "Ultimate Brownie",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "welsh-cakes",
+   "name": "Welsh Cakes",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "whipped-cream-spray-cream-for-bakery",
+   "name": "Whipped Cream (Spray Cream for Bakery)",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-and-hazelnut-creme-cookie",
+   "name": "White Chocolate & Hazelnut Créme Cookie",
+   "category": "Snacks & bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "caesar-sauce",
+   "name": "Caesar Sauce",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chilli-jam",
+   "name": "Chilli Jam",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chunky-chips",
+   "name": "Chunky Chips",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 295
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coleslaw",
+   "name": "Coleslaw",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grated-cheese",
+   "name": "Grated Cheese",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gravy",
+   "name": "Gravy",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-style-fries-and-chilli-jam",
+   "name": "Halloumi-Style Fries & Chilli Jam",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 350
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "houmous",
+   "name": "Houmous",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mac-and-cheese-bites-and-chilli-jam",
+   "name": "Mac & Cheese Bites & Chilli Jam",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-hash-browns",
+   "name": "Mini Hash Browns",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 360
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "korean-bbq-sauce",
+   "name": "Korean BBQ Sauce",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "molluscs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mushy-peas",
+   "name": "Mushy Peas",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "parmesan-fries",
+   "name": "Parmesan Fries",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 425
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "seasoned-fries",
+   "name": "Seasoned Fries",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "side-salad",
+   "name": "Side Salad",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sriracha-mayo",
+   "name": "Sriracha Mayo",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tartare-sauce",
+   "name": "Tartare Sauce",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tomato-chutney",
+   "name": "Tomato Chutney",
+   "category": "Sides & condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

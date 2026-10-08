@@ -1,0 +1,3329 @@
+{
+ "schemaVersion": 1,
+ "id": "wasabi",
+ "name": "Wasabi",
+ "cuisine": "Japanese",
+ "builderType": "standard",
+ "aliases": [
+  "wasabi",
+  "wasabi sushi & bento",
+  "wasabi sushi and bento",
+  "wasabi sushi bento"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Wasabi nutritional information guide, Version 34 (released 17 September 2026)",
+  "url": "https://www.wasabi.uk.com/wp-content/uploads/2026/09/WAS_Nutritional_Guide_210926v3.pdf",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Wasabi prints calories per portion, but protein, carbs, fat, sugar and salt only per 100 g, so only calories and the portion weight are published. Rows marked (excl. dressing) leave the sachet or dressing out; sachets and sauces are listed separately.",
+ "allergenGuide": {
+  "title": "Wasabi nutritional information guide, Version 34 (released 17 September 2026): allergen columns and key",
+  "url": "https://www.wasabi.uk.com/wp-content/uploads/2026/09/WAS_Nutritional_Guide_210926v3.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Onigiri",
+  "Sushi set boxes",
+  "Platters",
+  "Salads and bowls",
+  "Potto salads and protein pots",
+  "Tom yum",
+  "Ramen",
+  "Miso",
+  "Bain marie",
+  "Mixed bento",
+  "Hot cabinet",
+  "Breakfast hot cabinet",
+  "Breakfast pots",
+  "Hot sides",
+  "Coffee",
+  "Tea",
+  "Other hot drinks",
+  "Hot drink extras",
+  "Sauces and dressings for sushi",
+  "Sauces and dressings"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "avocado-and-edamame-onigiri",
+   "name": "Avocado and Edamame Onigiri",
+   "category": "Onigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 194,
+    "weight": 121
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-onigiri",
+   "name": "BBQ Chicken Onigiri",
+   "category": "Onigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 197,
+    "weight": 121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-tuna-onigiri",
+   "name": "Spicy Tuna Onigiri",
+   "category": "Onigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 186,
+    "weight": 121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-salmon-onigiri",
+   "name": "Teriyaki Salmon Onigiri",
+   "category": "Onigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 207,
+    "weight": 121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harmony-set",
+   "name": "Harmony set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 620,
+    "weight": 379
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harmony-set-excl-dressing",
+   "name": "Harmony set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 609,
+    "weight": 367
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-sashimi",
+   "name": "Salmon sashimi",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 182,
+    "weight": 137
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-sashimi-excl-dressing",
+   "name": "Salmon sashimi (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 170,
+    "weight": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-maki-set",
+   "name": "Mixed maki set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 433,
+    "weight": 266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-maki-set-excl-dressing",
+   "name": "Mixed maki set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 422,
+    "weight": 254
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-set",
+   "name": "Rainbow set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 554,
+    "weight": 365
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-set-excl-dressing",
+   "name": "Rainbow set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 542,
+    "weight": 353
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tokyo-salmon-set",
+   "name": "Tokyo salmon set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 539,
+    "weight": 349
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tokyo-salmon-set-excl-dressing",
+   "name": "Tokyo salmon set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 530,
+    "weight": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-tokyo-salmon-set",
+   "name": "Mini Tokyo salmon set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 410,
+    "weight": 236
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-tokyo-salmon-set-excl-dressing",
+   "name": "Mini Tokyo salmon set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 399,
+    "weight": 224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-salmon-handroll",
+   "name": "Spicy salmon handroll",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 496,
+    "weight": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california-dragon-roll",
+   "name": "California Dragon roll",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 576,
+    "weight": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-crunch-dragon-roll",
+   "name": "Prawn crunch dragon roll",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 440,
+    "weight": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bang-bang-chicken-dragon-roll",
+   "name": "Bang bang chicken dragon roll",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 382,
+    "weight": 193
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-nigiri-set",
+   "name": "Salmon nigiri set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 292,
+    "weight": 186
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-nigiri-set-excl-dressing",
+   "name": "Salmon nigiri set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 280,
+    "weight": 169
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-hosomaki",
+   "name": "Tuna hosomaki",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 218,
+    "weight": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-hosomaki-excl-dressing",
+   "name": "Tuna hosomaki (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 207,
+    "weight": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-avocado-dragon-rolls",
+   "name": "Salmon avocado dragon rolls",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 392,
+    "weight": 188
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-yasai-dragon-rolls",
+   "name": "Vegan yasai dragon rolls",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 332,
+    "weight": 195
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-hosomaki-set",
+   "name": "Salmon hosomaki set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 239,
+    "weight": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-hosomaki-set-excl-dressing",
+   "name": "Salmon hosomaki set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 228,
+    "weight": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-avocado-hosomaki-set",
+   "name": "Vegan avocado hosomaki set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 242,
+    "weight": 149
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-avocado-hosomaki-set-excl-dressing",
+   "name": "Vegan avocado hosomaki set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 231,
+    "weight": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-cucumber-hosomaki-set",
+   "name": "Vegan cucumber hosomaki set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 192,
+    "weight": 149
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-cucumber-hosomaki-set-excl-dressing",
+   "name": "Vegan cucumber hosomaki set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 181,
+    "weight": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-yasai-set",
+   "name": "Vegan yasai set",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 478,
+    "weight": 351
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-yasai-set-excl-dressing",
+   "name": "Vegan yasai set (excl. dressing)",
+   "category": "Sushi set boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 468,
+    "weight": 340
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-matsuri-platter",
+   "name": "Salmon Matsuri platter",
+   "category": "Platters",
+   "serving": "1 portion (of 4)",
+   "nutrients": {
+    "calories": 462,
+    "weight": 286
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-matsuri-platter-whole-platter",
+   "name": "Salmon Matsuri platter (whole platter)",
+   "category": "Platters",
+   "serving": "Whole platter (4 portions)",
+   "nutrients": {
+    "calories": 1844
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-matsuri-platter-excl-dressing",
+   "name": "Salmon Matsuri platter (excl. dressing)",
+   "category": "Platters",
+   "serving": "1 portion (of 4)",
+   "nutrients": {
+    "calories": 451,
+    "weight": 274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-matsuri-platter-whole-platter-excl-dressing",
+   "name": "Salmon Matsuri platter (whole platter, excl. dressing)",
+   "category": "Platters",
+   "serving": "Whole platter (4 portions)",
+   "nutrients": {
+    "calories": 1803
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsudoi-platter",
+   "name": "Tsudoi platter",
+   "category": "Platters",
+   "serving": "1 portion (of 4)",
+   "nutrients": {
+    "calories": 479,
+    "weight": 299
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsudoi-platter-whole-platter",
+   "name": "Tsudoi platter (whole platter)",
+   "category": "Platters",
+   "serving": "Whole platter (4 portions)",
+   "nutrients": {
+    "calories": 1917
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsudoi-platter-excl-dressing",
+   "name": "Tsudoi platter (excl. dressing)",
+   "category": "Platters",
+   "serving": "1 portion (of 4)",
+   "nutrients": {
+    "calories": 469,
+    "weight": 288
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsudoi-platter-whole-platter-excl-dressing",
+   "name": "Tsudoi platter (whole platter, excl. dressing)",
+   "category": "Platters",
+   "serving": "Whole platter (4 portions)",
+   "nutrients": {
+    "calories": 1876
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-korean-chicken-donburi",
+   "name": "Spicy Korean chicken donburi",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 568,
+    "weight": 453
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-korean-chicken-donburi-excl-dressing",
+   "name": "Spicy Korean chicken donburi (excl. dressing)",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 491,
+    "weight": 423
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-tasting-box",
+   "name": "Chicken katsu tasting box",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 825,
+    "weight": 508
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-donburi",
+   "name": "Salmon donburi",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 648,
+    "weight": 450
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-donburi-excl-dressing",
+   "name": "Salmon donburi (excl. dressing)",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 556,
+    "weight": 420
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-teriyaki-tasting-box",
+   "name": "Salmon teriyaki tasting box",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 667,
+    "weight": 505
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-teriyaki-tasting-box-excl-dressing",
+   "name": "Salmon teriyaki tasting box (excl. dressing)",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 616,
+    "weight": 460
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-tuna-donburi",
+   "name": "Salmon & tuna donburi",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 572,
+    "weight": 405
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-tuna-donburi-excl-dressing",
+   "name": "Salmon & tuna donburi (excl. dressing)",
+   "category": "Salads and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 488,
+    "weight": 375
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-teriyaki-potto",
+   "name": "Salmon teriyaki potto",
+   "category": "Potto salads and protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 394,
+    "weight": 225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame-potto",
+   "name": "Edamame potto",
+   "category": "Potto salads and protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 129,
+    "weight": 153
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california-potto",
+   "name": "California potto",
+   "category": "Potto salads and protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 457,
+    "weight": 242
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california-potto-excl-dressing",
+   "name": "California potto (excl. dressing)",
+   "category": "Potto salads and protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 451,
+    "weight": 232
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kaiso-seaweed-salad",
+   "name": "Kaiso seaweed salad",
+   "category": "Potto salads and protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "weight": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-avocado-potto",
+   "name": "Salmon and avocado potto",
+   "category": "Potto salads and protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 414,
+    "weight": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-avocado-potto-excl-dressing",
+   "name": "Salmon and avocado potto (excl. dressing)",
+   "category": "Potto salads and protein pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 407,
+    "weight": 245
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-tom-yum",
+   "name": "Tofu tom yum",
+   "category": "Tom yum",
+   "serving": "",
+   "nutrients": {
+    "calories": 581,
+    "weight": 623
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-tom-yum",
+   "name": "Prawn tom yum",
+   "category": "Tom yum",
+   "serving": "",
+   "nutrients": {
+    "calories": 499,
+    "weight": 622
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-chicken-tom-yum",
+   "name": "Spicy chicken tom yum",
+   "category": "Tom yum",
+   "serving": "",
+   "nutrients": {
+    "calories": 518,
+    "weight": 632
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-beef-ramen",
+   "name": "Korean BBQ beef ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 306,
+    "weight": 729
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-ramen-with-gyoza",
+   "name": "Vegetable ramen with gyoza",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 342,
+    "weight": 739
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-soup",
+   "name": "Miso soup",
+   "category": "Miso",
+   "serving": "",
+   "nutrients": {
+    "calories": 37,
+    "weight": 278
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-bento-standard",
+   "name": "Chicken katsu curry bento (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 1103,
+    "weight": 633
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-bento-large",
+   "name": "Chicken katsu curry bento (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1556,
+    "weight": 895
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-yakisoba-standard",
+   "name": "Chicken katsu curry yakisoba (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 937,
+    "weight": 615
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-yakisoba-large",
+   "name": "Chicken katsu curry yakisoba (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1397,
+    "weight": 915
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-yakisoba-standard",
+   "name": "Chicken katsu yakisoba (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 607,
+    "weight": 420
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-yakisoba-large",
+   "name": "Chicken katsu yakisoba (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1018,
+    "weight": 670
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-bento-standard",
+   "name": "Sweet chilli chicken bento (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 855,
+    "weight": 530
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-bento-large",
+   "name": "Sweet chilli chicken bento (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1282,
+    "weight": 795
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-yakisoba-standard",
+   "name": "Sweet chilli chicken yakisoba (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 723,
+    "weight": 530
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-yakisoba-large",
+   "name": "Sweet chilli chicken yakisoba (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1084,
+    "weight": 795
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-gyoza-yakisoba-bain-marie",
+   "name": "Vegetable gyoza yakisoba (bain marie)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "weight": 350
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-gyoza-yakisoba-fried-bain-marie",
+   "name": "Vegetable gyoza yakisoba (fried) (bain marie)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 569,
+    "weight": 350
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-bento-standard",
+   "name": "Tofu curry bento (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 711,
+    "weight": 480
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-bento-large",
+   "name": "Tofu curry bento (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1015,
+    "weight": 690
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-bento-standard",
+   "name": "Korean BBQ chicken bento (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 846,
+    "weight": 550
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-bento-large",
+   "name": "Korean BBQ chicken bento (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1030,
+    "weight": 670
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-yakisoba-standard",
+   "name": "Korean BBQ chicken yakisoba (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 714,
+    "weight": 550
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-yakisoba-large",
+   "name": "Korean BBQ chicken yakisoba (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 870,
+    "weight": 670
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-bento-standard",
+   "name": "Pumpkin katsu curry bento (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 913,
+    "weight": 565
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-bento-large",
+   "name": "Pumpkin katsu curry bento (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1294,
+    "weight": 780
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-yakisoba-bento-standard",
+   "name": "Pumpkin katsu curry yakisoba bento (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 786,
+    "weight": 565
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-yakisoba-bento-large",
+   "name": "Pumpkin katsu curry yakisoba bento (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1170,
+    "weight": 840
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-1-piece",
+   "name": "Chicken katsu (1 piece)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 223,
+    "weight": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-1-piece",
+   "name": "Pumpkin katsu (1 piece)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 142,
+    "weight": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chicken-gyoza-fried-2-pieces",
+   "name": "Hot chicken gyoza (Fried - 2 pieces)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 104,
+    "weight": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chicken-gyoza-steamed-2-pieces",
+   "name": "Hot chicken gyoza (Steamed - 2 pieces)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 67,
+    "weight": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-vegetable-gyoza-fried-2-pieces",
+   "name": "Hot vegetable gyoza (Fried - 2 pieces)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "weight": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-vegetable-gyoza-steamed-2-pieces",
+   "name": "Hot vegetable gyoza (Steamed - 2 pieces)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 65,
+    "weight": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-yakisoba-standard",
+   "name": "Plain yakisoba (standard)",
+   "category": "Bain marie",
+   "serving": "Standard",
+   "nutrients": {
+    "calories": 262,
+    "weight": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-yakisoba-large",
+   "name": "Plain yakisoba (large)",
+   "category": "Bain marie",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 392,
+    "weight": 360
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-pops-bain-marie",
+   "name": "Korean BBQ chicken pops (bain marie)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 362,
+    "weight": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-rice",
+   "name": "Steamed rice",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 401,
+    "weight": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-korean-chicken-pops-bain-marie",
+   "name": "Spicy Korean chicken pops (bain marie)",
+   "category": "Bain marie",
+   "serving": "",
+   "nutrients": {
+    "calories": 376,
+    "weight": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-curry-sauce-with-rice",
+   "name": "Chicken katsu curry + Curry sauce (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 865,
+    "weight": 541
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-chicken-katsu-curry-with-rice",
+   "name": "Pumpkin katsu + Chicken katsu curry (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 1022,
+    "weight": 615
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-sweet-chilli-chicken-with-rice",
+   "name": "Pumpkin katsu + Sweet chilli chicken (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 967,
+    "weight": 582
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-sauce-with-rice",
+   "name": "Pumpkin katsu + Curry sauce (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 799,
+    "weight": 530
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-chicken-katsu-curry-with-rice",
+   "name": "Sweet chilli chicken + Chicken katsu curry (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 973,
+    "weight": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-curry-sauce-with-rice",
+   "name": "Sweet chilli chicken + Curry sauce (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 752,
+    "weight": 488
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-chicken-katsu-curry-with-rice",
+   "name": "Korean BBQ chicken + Chicken katsu curry (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 972,
+    "weight": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-curry-sauce-with-rice",
+   "name": "Korean BBQ chicken + Curry sauce (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 748,
+    "weight": 488
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-sweet-chilli-chicken-with-rice",
+   "name": "Korean BBQ chicken + Sweet chilli chicken (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 881,
+    "weight": 538
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-curry-sauce-with-rice",
+   "name": "Tofu curry + Curry sauce (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 675,
+    "weight": 468
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-sweet-chilli-chicken-with-rice",
+   "name": "Tofu curry + Sweet chilli chicken (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 901,
+    "weight": 500
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-korean-bbq-chicken-with-rice",
+   "name": "Tofu curry + Korean BBQ chicken (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 786,
+    "weight": 502
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-chicken-katsu-curry-with-rice",
+   "name": "Tofu curry + Chicken katsu curry (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 899,
+    "weight": 553
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-korean-bbq-chicken-with-rice",
+   "name": "Pumpkin katsu curry + Korean BBQ chicken (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 954,
+    "weight": 578
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-tofu-curry-with-rice",
+   "name": "Pumpkin katsu curry + Tofu curry (with rice)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 705,
+    "weight": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-curry-sauce-with-yakisoba-noodles",
+   "name": "Chicken katsu curry + Curry sauce (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 720,
+    "weight": 541
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-chicken-katsu-curry-with-yakisoba-noodles",
+   "name": "Pumpkin katsu + Chicken katsu curry (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 877,
+    "weight": 615
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-chicken-katsu-curry-with-yakisoba-noodles",
+   "name": "Sweet chilli chicken + Chicken katsu curry (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 841,
+    "weight": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-curry-sauce-with-yakisoba-noodles",
+   "name": "Sweet chilli chicken + Curry sauce (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 620,
+    "weight": 488
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-sauce-with-yakisoba-noodles",
+   "name": "Pumpkin katsu + Curry sauce (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 654,
+    "weight": 530
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-chicken-katsu-curry-with-yakisoba-noodles",
+   "name": "Korean BBQ chicken + Chicken katsu curry (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 827,
+    "weight": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-curry-sauce-with-yakisoba-noodles",
+   "name": "Korean BBQ chicken + Curry sauce (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 603,
+    "weight": 488
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-sweet-chilli-chicken-with-yakisoba-noodles",
+   "name": "Korean BBQ chicken + Sweet chilli chicken (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 749,
+    "weight": 538
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-curry-sauce-with-yakisoba-noodles",
+   "name": "Tofu curry + Curry sauce (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 530,
+    "weight": 468
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-sweet-chilli-chicken-with-yakisoba-noodles",
+   "name": "Tofu curry + Sweet chilli chicken (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 769,
+    "weight": 500
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-korean-bbq-chicken-with-yakisoba-noodles",
+   "name": "Tofu curry + Korean BBQ chicken (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 637,
+    "weight": 500
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-chicken-katsu-curry-with-yakisoba-noodles",
+   "name": "Tofu curry + Chicken katsu curry (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 753,
+    "weight": 553
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-korean-bbq-chicken-with-yakisoba-noodles",
+   "name": "Pumpkin katsu curry + Korean BBQ chicken (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 898,
+    "weight": 578
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-tofu-curry-with-yakisoba-noodles",
+   "name": "Pumpkin katsu curry + Tofu curry (with yakisoba noodles)",
+   "category": "Mixed bento",
+   "serving": "",
+   "nutrients": {
+    "calories": 705,
+    "weight": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-bento",
+   "name": "Chicken katsu curry bento",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 1086,
+    "weight": 635
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-yakisoba",
+   "name": "Chicken katsu curry yakisoba",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 954,
+    "weight": 635
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-yakisoba",
+   "name": "Chicken katsu yakisoba",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 624,
+    "weight": 440
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-bento",
+   "name": "Sweet chilli chicken bento",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 879,
+    "weight": 550
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-yakisoba",
+   "name": "Sweet chilli chicken yakisoba",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 747,
+    "weight": 550
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-curry-bento",
+   "name": "Tofu curry bento",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 726,
+    "weight": 500
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-bento",
+   "name": "Pumpkin katsu curry bento",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 928,
+    "weight": 585
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-yakisoba",
+   "name": "Pumpkin katsu curry yakisoba",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 802,
+    "weight": 585
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-gyoza-yakisoba-hot-cabinet",
+   "name": "Vegetable gyoza yakisoba (hot cabinet)",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 466,
+    "weight": 370
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-gyoza-yakisoba-fried-hot-cabinet",
+   "name": "Vegetable gyoza yakisoba (fried) (hot cabinet)",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 586,
+    "weight": 370
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-bento",
+   "name": "Korean BBQ chicken bento",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 846,
+    "weight": 550
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-yakisoba",
+   "name": "Korean BBQ chicken yakisoba",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 714,
+    "weight": 550
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-chicken-katsu-curry-bento",
+   "name": "Mini chicken katsu curry bento",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 582,
+    "weight": 360
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-korean-bbq-chicken-bento",
+   "name": "Mini Korean BBQ chicken bento",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 532,
+    "weight": 350
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-sweet-chilli-chicken-bento",
+   "name": "Mini sweet chilli chicken bento",
+   "category": "Hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 556,
+    "weight": 350
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-veggie-breakfast-bento",
+   "name": "Mini veggie breakfast bento",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 394,
+    "weight": 291
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-breakfast-bento",
+   "name": "Mini breakfast bento",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 474,
+    "weight": 313
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-breakfast-bento",
+   "name": "Veggie breakfast bento",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 697,
+    "weight": 494
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-bento",
+   "name": "Breakfast bento",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 754,
+    "weight": 506
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-sando-excl-dressing",
+   "name": "Sausage sando (excl. dressing)",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 378,
+    "weight": 140
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-sando-excl-dressing",
+   "name": "Bacon sando (excl. dressing)",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 417,
+    "weight": 138
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge-pot-with-berry-compote",
+   "name": "Porridge pot with berry compote",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 295,
+    "weight": 295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge-pot-with-honey",
+   "name": "Porridge pot with honey",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 330,
+    "weight": 295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge-pot-excl-dressing",
+   "name": "Porridge pot (excl. dressing)",
+   "category": "Breakfast hot cabinet",
+   "serving": "",
+   "nutrients": {
+    "calories": 265,
+    "weight": 275
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-pot",
+   "name": "Fruit pot",
+   "category": "Breakfast pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "weight": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yoghurt-pot",
+   "name": "Yoghurt pot",
+   "category": "Breakfast pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 336,
+    "weight": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chicken-gyoza-fried-with-gyoza-sauce",
+   "name": "Hot chicken gyoza (fried) with gyoza sauce",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 264,
+    "weight": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chicken-gyoza-fried-excl-dressing",
+   "name": "Hot chicken gyoza (fried) (excl. dressing)",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 260,
+    "weight": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chicken-gyoza-with-gyoza-sauce",
+   "name": "Hot chicken gyoza with gyoza sauce",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 173,
+    "weight": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chicken-gyoza-excl-dressing",
+   "name": "Hot chicken gyoza (excl. dressing)",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 169,
+    "weight": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-vegetable-gyoza-fried-with-gyoza-sauce",
+   "name": "Hot vegetable gyoza (fried) with gyoza sauce",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 285,
+    "weight": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-vegetable-gyoza-fried-excl-dressing",
+   "name": "Hot vegetable gyoza (fried) (excl. dressing)",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 281,
+    "weight": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-vegetable-gyoza-with-gyoza-sauce",
+   "name": "Hot vegetable gyoza with gyoza sauce",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "weight": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-vegetable-gyoza-excl-dressing",
+   "name": "Hot vegetable gyoza (excl. dressing)",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "weight": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-duck-gyoza-with-gyoza-sauce",
+   "name": "Hot duck gyoza with gyoza sauce",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 231,
+    "weight": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-duck-gyoza-excl-dressing",
+   "name": "Hot duck gyoza (excl. dressing)",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 224,
+    "weight": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-korean-chicken-pops-hot-sides",
+   "name": "Spicy Korean chicken pops (hot sides)",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 376,
+    "weight": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-box",
+   "name": "Chicken katsu box",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 468,
+    "weight": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-chicken-pops-hot-sides",
+   "name": "Korean BBQ chicken pops (hot sides)",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 362,
+    "weight": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chicken-katsu-sando",
+   "name": "Korean chicken katsu sando",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 607,
+    "weight": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-bacon-sando",
+   "name": "Korean BBQ bacon sando",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 445,
+    "weight": 163
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-pumpkin-and-mushroom-sando",
+   "name": "Katsu pumpkin & mushroom sando",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 527,
+    "weight": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biang-biang-noodles",
+   "name": "Biang biang noodles",
+   "category": "Hot sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 169,
+    "weight": 180
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "weight": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double espresso",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "weight": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-12oz-semi-skimmed-milk",
+   "name": "Latte 12oz (semi skimmed milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 137,
+    "weight": 353
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-16oz-semi-skimmed-milk",
+   "name": "Latte 16oz (semi skimmed milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 206,
+    "weight": 494
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-12oz-semi-skimmed-milk",
+   "name": "Cappuccino 12oz (semi skimmed milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 80,
+    "weight": 238
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-16oz-semi-skimmed-milk",
+   "name": "Cappuccino 16oz (semi skimmed milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "weight": 394
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-12oz",
+   "name": "Americano 12oz",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "weight": 314
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-16oz",
+   "name": "Americano 16oz",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "weight": 394
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-americano-16oz-oat-milk",
+   "name": "White Americano 16oz (oat milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "weight": 412
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-americano-12oz-oat-milk",
+   "name": "White Americano 12oz (oat milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "weight": 312
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-americano-12-oz-semi-skimmed-milk",
+   "name": "White Americano 12 oz (semi skimmed milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "weight": 312
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-americano-16-oz-semi-skimmed-milk",
+   "name": "White Americano 16 oz (semi skimmed milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "weight": 412
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-semi-skimmed-milk",
+   "name": "Flat white (semi skimmed milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 89,
+    "weight": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-12oz",
+   "name": "Mocha 12oz",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 184,
+    "weight": 304
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-16oz",
+   "name": "Mocha 16oz",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 237,
+    "weight": 400
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-tea-12oz",
+   "name": "Breakfast tea 12oz",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "weight": 303
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea-twinings-12oz",
+   "name": "Green tea - Twinings 12oz",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "weight": 302
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemongrass-citrus-and-ginger-12oz",
+   "name": "Lemongrass citrus & ginger 12oz",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "weight": 302
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-tea-16oz",
+   "name": "Breakfast tea 16oz",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "weight": 443
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea-twinings-16-oz",
+   "name": "Green tea - Twinings 16 oz",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "weight": 442
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemongrass-citrus-and-ginger-16oz",
+   "name": "Lemongrass citrus & ginger 16oz",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "weight": 442
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-12oz",
+   "name": "Hot chocolate 12oz",
+   "category": "Other hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 184,
+    "weight": 290
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-16oz",
+   "name": "Hot chocolate 16oz",
+   "category": "Other hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 237,
+    "weight": 386
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-12oz",
+   "name": "Matcha 12oz",
+   "category": "Other hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 180,
+    "weight": 292
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-syrup",
+   "name": "Vanilla syrup",
+   "category": "Hot drink extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "weight": 15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-sachet",
+   "name": "Ginger sachet",
+   "category": "Sauces and dressings for sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "weight": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soy-sauce-sachet",
+   "name": "Soy sauce sachet",
+   "category": "Sauces and dressings for sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 7,
+    "weight": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-soy-sauce-sachet",
+   "name": "Gluten free soy sauce sachet",
+   "category": "Sauces and dressings for sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 5,
+    "weight": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "reduced-salt-soy-sauce-sachet",
+   "name": "Reduced salt soy sauce sachet",
+   "category": "Sauces and dressings for sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 7,
+    "weight": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wasabi-sachet",
+   "name": "Wasabi sachet",
+   "category": "Sauces and dressings for sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "weight": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ponzu-sauce-sachet",
+   "name": "Ponzu sauce sachet",
+   "category": "Sauces and dressings for sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "weight": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-ketchup-sauce-pot",
+   "name": "Tomato ketchup sauce pot",
+   "category": "Sauces and dressings for sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 41,
+    "weight": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-sauce-pot",
+   "name": "Korean BBQ sauce pot",
+   "category": "Sauces and dressings for sushi",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "weight": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-mayo-sauce",
+   "name": "Sweet chilli mayo sauce",
+   "category": "Sauces and dressings",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "weight": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-sauce",
+   "name": "Teriyaki sauce",
+   "category": "Sauces and dressings",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "weight": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pok-dressing",
+   "name": "Poké dressing",
+   "category": "Sauces and dressings",
+   "serving": "",
+   "nutrients": {
+    "calories": 90,
+    "weight": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gochujang-dressing",
+   "name": "Gochujang dressing",
+   "category": "Sauces and dressings",
+   "serving": "",
+   "nutrients": {
+    "calories": 91,
+    "weight": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sesame-dressing",
+   "name": "Sesame dressing",
+   "category": "Sauces and dressings",
+   "serving": "",
+   "nutrients": {
+    "calories": 93,
+    "weight": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

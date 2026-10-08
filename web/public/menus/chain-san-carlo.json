@@ -1,0 +1,10446 @@
+{
+ "schemaVersion": 1,
+ "id": "san-carlo",
+ "name": "San Carlo",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "san carlo",
+  "san carlo restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "San Carlo allergen and calorie information, Web Menu pages of 10 restaurants and the Bristol Allergen Page (menus.tenkites.com, live menus; no date shown)",
+  "url": "https://sancarlo.co.uk/menus/",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Per portion, from San Carlo's own calorie and allergen pages for its 10 restaurants. A dish is listed only when every restaurant prints the same figures for it; dishes that differ between restaurants are left out. Menus vary by restaurant, so not every dish is served everywhere. Wine, bar and spirits lists are not included.",
+ "allergenGuide": {
+  "title": "San Carlo allergen and calorie information (menus.tenkites.com, live menus; no date shown)",
+  "url": "https://sancarlo.co.uk/menus/",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "To start",
+  "Bruschette e pane",
+  "Antipasti",
+  "Zuppe",
+  "Formaggi",
+  "Pizza",
+  "Pasta e risotto",
+  "Carne",
+  "Macelleria",
+  "Pesci",
+  "Specials",
+  "Contorni",
+  "Dolci",
+  "Gelato",
+  "Condiments",
+  "Toppings",
+  "Seasonal specials",
+  "Wimbledon specials",
+  "1996 menu: Starters",
+  "1996 menu: Mains",
+  "1996 menu: Desserts",
+  "Lunch menu: Starters",
+  "Lunch menu: Mains",
+  "Lunch menu: Desserts",
+  "Lunch menu: Pizza",
+  "Sunday roast",
+  "Children's menu: Little starters",
+  "Children's menu: Main event",
+  "Children's menu: Little sides",
+  "Children's menu: Something sweet",
+  "Children's menu: Gelati & toppings",
+  "Children's menu: Gelati extras",
+  "Christmas menu: Starters",
+  "Christmas menu: Mains",
+  "Christmas menu: Desserts",
+  "Seasonal cocktails"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "green-olives",
+   "name": "Green Olives",
+   "category": "To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 269,
+    "protein": 0.9,
+    "carbs": 3.7,
+    "fat": 26.7,
+    "saturatedFat": 3.7,
+    "sugar": 0.4,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "arancini",
+   "name": "Arancini",
+   "category": "To start",
+   "serving": "",
+   "nutrients": {
+    "calories": 1500,
+    "protein": 28.2,
+    "carbs": 105.8,
+    "fat": 104.4,
+    "saturatedFat": 38.4,
+    "sugar": 3.5,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ostriche-nine",
+   "name": "Ostriche (nine)",
+   "category": "To start",
+   "serving": "Nine",
+   "nutrients": {
+    "calories": 105,
+    "protein": 9.6,
+    "carbs": 7,
+    "fat": 3.3,
+    "saturatedFat": 1,
+    "sugar": 1.9,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ostriche-six",
+   "name": "Ostriche (six)",
+   "category": "To start",
+   "serving": "Six",
+   "nutrients": {
+    "calories": 74,
+    "protein": 6.6,
+    "carbs": 5.3,
+    "fat": 2.3,
+    "saturatedFat": 0.7,
+    "sugar": 1.9,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "focaccia",
+   "name": "Focaccia",
+   "category": "Bruschette e pane",
+   "serving": "",
+   "nutrients": {
+    "calories": 690,
+    "protein": 22,
+    "carbs": 115.3,
+    "fat": 18.6,
+    "saturatedFat": 2.9,
+    "sugar": 0.5,
+    "salt": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-with-garlic-and-sea-salt",
+   "name": "Garlic Bread with Garlic and Sea Salt",
+   "category": "Bruschette e pane",
+   "serving": "",
+   "nutrients": {
+    "calories": 1015,
+    "protein": 22.3,
+    "carbs": 116.4,
+    "fat": 54.5,
+    "saturatedFat": 7,
+    "sugar": 0.5,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-with-tomato",
+   "name": "Garlic Bread with Tomato",
+   "category": "Bruschette e pane",
+   "serving": "",
+   "nutrients": {
+    "calories": 915,
+    "protein": 24.4,
+    "carbs": 124.8,
+    "fat": 38.9,
+    "saturatedFat": 5.2,
+    "sugar": 8.2,
+    "salt": 4.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-with-cheese",
+   "name": "Garlic Bread with Cheese",
+   "category": "Bruschette e pane",
+   "serving": "",
+   "nutrients": {
+    "calories": 1159,
+    "protein": 45.6,
+    "carbs": 118.2,
+    "fat": 60.8,
+    "saturatedFat": 20.8,
+    "sugar": 1.7,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-with-tomato-and-cheese",
+   "name": "Garlic Bread with Tomato and Cheese",
+   "category": "Bruschette e pane",
+   "serving": "",
+   "nutrients": {
+    "calories": 1213,
+    "protein": 47.3,
+    "carbs": 125.3,
+    "fat": 63,
+    "saturatedFat": 21.1,
+    "sugar": 7.9,
+    "salt": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bruschetta-romana",
+   "name": "Bruschetta Romana",
+   "category": "Bruschette e pane",
+   "serving": "",
+   "nutrients": {
+    "calories": 415,
+    "protein": 9.5,
+    "carbs": 37.4,
+    "fat": 24.6,
+    "saturatedFat": 3.7,
+    "sugar": 4.8,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cocktail-di-gamberetti",
+   "name": "Cocktail di Gamberetti",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 397,
+    "protein": 31.3,
+    "carbs": 5.1,
+    "fat": 28.3,
+    "saturatedFat": 2.2,
+    "sugar": 3.8,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "minestrone",
+   "name": "Minestrone",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 3,
+    "carbs": 10.4,
+    "fat": 30.5,
+    "saturatedFat": 4.4,
+    "sugar": 3.1,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-liver-pate",
+   "name": "Chicken Liver Pate",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 918,
+    "protein": 26.4,
+    "carbs": 26.6,
+    "fat": 77.3,
+    "saturatedFat": 20.1,
+    "sugar": 9.4,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cozze-all-arrabbiata",
+   "name": "Cozze all Arrabbiata",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 547,
+    "protein": 41,
+    "carbs": 40.5,
+    "fat": 9.4,
+    "saturatedFat": 1.6,
+    "sugar": 10.2,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cozze-all-marini-re",
+   "name": "Cozze all Marinière",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 857,
+    "protein": 39.8,
+    "carbs": 30.2,
+    "fat": 66.1,
+    "saturatedFat": 38.2,
+    "sugar": 4.7,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "funghi-piemontese",
+   "name": "Funghi Piemontese",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 244,
+    "protein": 5,
+    "carbs": 6.8,
+    "fat": 23.1,
+    "saturatedFat": 2.6,
+    "sugar": 2.6,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gamberoni-fritti",
+   "name": "Gamberoni Fritti",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 682,
+    "protein": 16.7,
+    "carbs": 50.8,
+    "fat": 44.7,
+    "saturatedFat": 3.1,
+    "sugar": 2.3,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mozzarella-in-carrozza",
+   "name": "Mozzarella in Carrozza",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 648,
+    "protein": 25.6,
+    "carbs": 48.1,
+    "fat": 31.8,
+    "saturatedFat": 10,
+    "sugar": 5.8,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "avocado-bernardo",
+   "name": "Avocado Bernardo",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 29.7,
+    "carbs": 6.7,
+    "fat": 34.1,
+    "saturatedFat": 3.4,
+    "sugar": 3.6,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "gamberoni-alla-diavola",
+   "name": "Gamberoni alla Diavola",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 400,
+    "protein": 17,
+    "carbs": 24.3,
+    "fat": 25.2,
+    "saturatedFat": 15.6,
+    "sugar": 2,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "costine-di-maiale-orientale",
+   "name": "Costine di Maiale Orientale",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 1158,
+    "protein": 71.5,
+    "carbs": 31.6,
+    "fat": 84.1,
+    "saturatedFat": 29.4,
+    "sugar": 26.3,
+    "salt": 7.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salmone-affumicato",
+   "name": "Salmone Affumicato",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 522,
+    "protein": 41,
+    "carbs": 24.1,
+    "fat": 23.9,
+    "saturatedFat": 4.7,
+    "sugar": 2.8,
+    "salt": 5.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "burrata-e-pomodoro",
+   "name": "Burrata e Pomodoro",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 704,
+    "protein": 10.5,
+    "carbs": 10.5,
+    "fat": 51.6,
+    "saturatedFat": 14.5,
+    "sugar": 9.8,
+    "salt": 3.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-caesar-salad-main",
+   "name": "Chicken Caesar Salad (main)",
+   "category": "Antipasti",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 809,
+    "protein": 85.4,
+    "carbs": 15.8,
+    "fat": 41.4,
+    "saturatedFat": 10.9,
+    "sugar": 2.8,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chicken-caesar-salad-starter",
+   "name": "Chicken Caesar Salad (starter)",
+   "category": "Antipasti",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 495,
+    "protein": 46.7,
+    "carbs": 15.4,
+    "fat": 25.4,
+    "saturatedFat": 6.6,
+    "sugar": 2.5,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "melanzane-al-forno-main",
+   "name": "Melanzane Al Forno (main)",
+   "category": "Antipasti",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 977,
+    "protein": 31,
+    "carbs": 66,
+    "fat": 45.8,
+    "saturatedFat": 12.5,
+    "sugar": 12.1,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "melanzane-al-forno-starter",
+   "name": "Melanzane Al Forno (starter)",
+   "category": "Antipasti",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 733,
+    "protein": 22.6,
+    "carbs": 49.9,
+    "fat": 33.7,
+    "saturatedFat": 8.9,
+    "sugar": 9.5,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "insalata-di-bufala-and-parma-ham",
+   "name": "Insalata di Bufala & Parma ham",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 988,
+    "protein": 46,
+    "carbs": 51.3,
+    "fat": 64.1,
+    "saturatedFat": 21.7,
+    "sugar": 8.8,
+    "salt": 5.5
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut",
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "insalata-gamberi-and-avocado",
+   "name": "Insalata Gamberi & Avocado",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 536,
+    "protein": 28.6,
+    "carbs": 12.9,
+    "fat": 38.9,
+    "saturatedFat": 5,
+    "sugar": 9.3,
+    "salt": 6.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "lupin",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "prosciutto-e-melone",
+   "name": "Prosciutto E Melone",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 416,
+    "protein": 36.2,
+    "carbs": 10.5,
+    "fat": 24.3,
+    "saturatedFat": 8.2,
+    "sugar": 10.5,
+    "salt": 5.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "parmigiana-al-forno",
+   "name": "Parmigiana al Forno",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 753,
+    "protein": 25.6,
+    "carbs": 49,
+    "fat": 36.4,
+    "saturatedFat": 10.7,
+    "sugar": 8.7,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tricolore-salad",
+   "name": "Tricolore Salad",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 468,
+    "protein": 24.6,
+    "carbs": 6.8,
+    "fat": 37,
+    "saturatedFat": 15.9,
+    "sugar": 6,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cozze-allarrabbiata-or-mariniere-a-spicy-tomato-sauce-with-chilli-and-garlic",
+   "name": "Cozze all'Arrabbiata or Mariniere (a spicy tomato sauce with chilli & garlic)",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 831,
+    "protein": 32.2,
+    "carbs": 24.4,
+    "fat": 41.9,
+    "saturatedFat": 6,
+    "sugar": 12.9,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cozze-allarrabbiata-or-mariniere-white-wine-shallots-cream-and-parsley",
+   "name": "Cozze all'Arrabbiata or Mariniere (white wine, shallots, cream & parsley)",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 857,
+    "protein": 39.8,
+    "carbs": 30.2,
+    "fat": 66.1,
+    "saturatedFat": 38.2,
+    "sugar": 4.7,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-minestrone",
+   "name": "Classic Minestrone",
+   "category": "Zuppe",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 3,
+    "carbs": 10.4,
+    "fat": 30.5,
+    "saturatedFat": 4.4,
+    "sugar": 3.1,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "formaggi",
+   "name": "Formaggi",
+   "category": "Formaggi",
+   "serving": "",
+   "nutrients": {
+    "calories": 993,
+    "protein": 53,
+    "carbs": 50,
+    "fat": 50,
+    "saturatedFat": 27.5,
+    "sugar": 35,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "quattro-stagioni",
+   "name": "Quattro Stagioni",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 2069,
+    "protein": 55.8,
+    "carbs": 134.8,
+    "fat": 89,
+    "saturatedFat": 24.5,
+    "sugar": 12.8,
+    "salt": 15.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "pollo-e-rosmarino",
+   "name": "Pollo e Rosmarino",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1354,
+    "protein": 83,
+    "carbs": 129.2,
+    "fat": 59.6,
+    "saturatedFat": 21.7,
+    "sugar": 11.2,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "calzone-salsiccia-piccante",
+   "name": "Calzone Salsiccia Piccante",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1434,
+    "protein": 62.3,
+    "carbs": 125.9,
+    "fat": 65.9,
+    "saturatedFat": 24.5,
+    "sugar": 8.9,
+    "salt": 7.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tartufo",
+   "name": "Tartufo",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1399,
+    "protein": 57,
+    "carbs": 116.3,
+    "fat": 78.3,
+    "saturatedFat": 30,
+    "sugar": 5.1,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegetali",
+   "name": "Vegetali",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1589,
+    "protein": 46.5,
+    "carbs": 116.5,
+    "fat": 68.2,
+    "saturatedFat": 22.1,
+    "sugar": 4,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "risotto-gamberi-and-asparagi",
+   "name": "Risotto Gamberi & Asparagi",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 898,
+    "protein": 33.8,
+    "carbs": 63.1,
+    "fat": 56.6,
+    "saturatedFat": 32.1,
+    "sugar": 6.5,
+    "salt": 10.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tagliolini-crab",
+   "name": "Tagliolini Crab",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1418,
+    "protein": 29.9,
+    "carbs": 84.7,
+    "fat": 109.7,
+    "saturatedFat": 62.3,
+    "sugar": 10.8,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zitoni-toscanini",
+   "name": "Zitoni Toscanini",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1351,
+    "protein": 52.5,
+    "carbs": 100.9,
+    "fat": 53.7,
+    "saturatedFat": 21,
+    "sugar": 16.6,
+    "salt": 6.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "penne-pollo-e-gamberetti",
+   "name": "Penne Pollo e Gamberetti",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1786,
+    "protein": 61.4,
+    "carbs": 74.8,
+    "fat": 142.7,
+    "saturatedFat": 77.4,
+    "sugar": 8.1,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tortellini-panna-e-prosciutto",
+   "name": "Tortellini Panna e Prosciutto",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 2031,
+    "protein": 38.7,
+    "carbs": 73.1,
+    "fat": 161.5,
+    "saturatedFat": 83.4,
+    "sugar": 10.4,
+    "salt": 2.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliatelle-montecarlo",
+   "name": "Tagliatelle Montecarlo",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1082,
+    "protein": 42,
+    "carbs": 78,
+    "fat": 60.2,
+    "saturatedFat": 25.2,
+    "sugar": 8.6,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-gamberoni-piccanti",
+   "name": "Spaghetti Gamberoni Piccanti",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 860,
+    "protein": 28.8,
+    "carbs": 82.3,
+    "fat": 32.7,
+    "saturatedFat": 4.4,
+    "sugar": 9,
+    "salt": 4.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "our-famous-spaghetti-frutti-di-mare",
+   "name": "Our Famous Spaghetti Frutti di Mare",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 993,
+    "protein": 56.9,
+    "carbs": 89.2,
+    "fat": 31.6,
+    "saturatedFat": 4.5,
+    "sugar": 9.1,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mafaldine-con-rag-di-manzo",
+   "name": "Mafaldine con Ragú di Manzo",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1054,
+    "protein": 33.3,
+    "carbs": 105.6,
+    "fat": 32.3,
+    "saturatedFat": 10,
+    "sugar": 13.5,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "penne-salmone",
+   "name": "Penne Salmone",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1077,
+    "protein": 36.4,
+    "carbs": 79.2,
+    "fat": 61,
+    "saturatedFat": 23.7,
+    "sugar": 8.2,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliolini-allaragosta",
+   "name": "Tagliolini all’Aragosta",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 994,
+    "protein": 97.1,
+    "carbs": 87.7,
+    "fat": 51.4,
+    "saturatedFat": 19.8,
+    "sugar": 9.2,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "risotto-san-carlo",
+   "name": "Risotto San Carlo",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1093,
+    "protein": 28.8,
+    "carbs": 58,
+    "fat": 87.9,
+    "saturatedFat": 46.9,
+    "sugar": 5.7,
+    "salt": 5.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pipette-piccanti",
+   "name": "Pipette Piccanti",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1752,
+    "protein": 34.9,
+    "carbs": 116.6,
+    "fat": 130.7,
+    "saturatedFat": 79.6,
+    "sugar": 19.7,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ravioli-tartufo-main",
+   "name": "Ravioli Tartufo (main)",
+   "category": "Pasta e risotto",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 1849,
+    "protein": 46.9,
+    "carbs": 55.9,
+    "fat": 166.1,
+    "saturatedFat": 92.7,
+    "sugar": 7.5,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ravioli-tartufo-starter",
+   "name": "Ravioli Tartufo (starter)",
+   "category": "Pasta e risotto",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 1004,
+    "protein": 25.1,
+    "carbs": 33,
+    "fat": 88.8,
+    "saturatedFat": 47.2,
+    "sugar": 4.1,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "penne-arrabbiata-main",
+   "name": "Penne Arrabbiata (main)",
+   "category": "Pasta e risotto",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 1086,
+    "protein": 22.7,
+    "carbs": 101,
+    "fat": 31.9,
+    "saturatedFat": 3.9,
+    "sugar": 19.9,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "penne-arrabbiata-starter",
+   "name": "Penne Arrabbiata (starter)",
+   "category": "Pasta e risotto",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 544,
+    "protein": 11.4,
+    "carbs": 50.6,
+    "fat": 15.9,
+    "saturatedFat": 1.9,
+    "sugar": 10,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rigatoni-alla-norma-main",
+   "name": "Rigatoni alla Norma (main)",
+   "category": "Pasta e risotto",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 1195,
+    "protein": 24.7,
+    "carbs": 94.8,
+    "fat": 46.6,
+    "saturatedFat": 6.9,
+    "sugar": 20.2,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rigatoni-alla-norma-starter",
+   "name": "Rigatoni alla Norma (starter)",
+   "category": "Pasta e risotto",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 580,
+    "protein": 12.5,
+    "carbs": 48.4,
+    "fat": 20.9,
+    "saturatedFat": 3.3,
+    "sugar": 10.2,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-puttanesca-main",
+   "name": "Spaghetti Puttanesca (main)",
+   "category": "Pasta e risotto",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 1200,
+    "protein": 22.8,
+    "carbs": 99.2,
+    "fat": 51.4,
+    "saturatedFat": 6.4,
+    "sugar": 16.9,
+    "salt": 5.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-puttanesca-starter",
+   "name": "Spaghetti Puttanesca (starter)",
+   "category": "Pasta e risotto",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 684,
+    "protein": 12.9,
+    "carbs": 56.4,
+    "fat": 31.7,
+    "saturatedFat": 4,
+    "sugar": 8.5,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliatelle-bolognese-main",
+   "name": "Tagliatelle Bolognese (main)",
+   "category": "Pasta e risotto",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 1067,
+    "protein": 36,
+    "carbs": 82.7,
+    "fat": 46.6,
+    "saturatedFat": 12.5,
+    "sugar": 14.6,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliatelle-bolognese-starter",
+   "name": "Tagliatelle Bolognese (starter)",
+   "category": "Pasta e risotto",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 533,
+    "protein": 18,
+    "carbs": 41.4,
+    "fat": 23.3,
+    "saturatedFat": 6.2,
+    "sugar": 7.3,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pappardelle-allanatra-main",
+   "name": "Pappardelle all’Anatra (main)",
+   "category": "Pasta e risotto",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 963,
+    "protein": 41.5,
+    "carbs": 74.7,
+    "fat": 54.1,
+    "saturatedFat": 12.9,
+    "sugar": 7.7,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pappardelle-allanatra-starter",
+   "name": "Pappardelle all’Anatra (starter)",
+   "category": "Pasta e risotto",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 630,
+    "protein": 27.2,
+    "carbs": 47.8,
+    "fat": 35.9,
+    "saturatedFat": 8.5,
+    "sugar": 5,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lasagne-emiliane-main",
+   "name": "Lasagne Emiliane (main)",
+   "category": "Pasta e risotto",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 1331,
+    "protein": 72.6,
+    "carbs": 48.3,
+    "fat": 75.2,
+    "saturatedFat": 41.1,
+    "sugar": 19.4,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lasagne-emiliane-starter",
+   "name": "Lasagne Emiliane (starter)",
+   "category": "Pasta e risotto",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 967,
+    "protein": 52.6,
+    "carbs": 35.7,
+    "fat": 54.6,
+    "saturatedFat": 29.7,
+    "sugar": 14.2,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ravioli-allastice-main",
+   "name": "Ravioli all'Astice (main)",
+   "category": "Pasta e risotto",
+   "serving": "Main",
+   "nutrients": {
+    "calories": 689,
+    "protein": 30.2,
+    "carbs": 57.3,
+    "fat": 29.9,
+    "saturatedFat": 13.2,
+    "sugar": 8.4,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ravioli-allastice-starter",
+   "name": "Ravioli all'Astice (starter)",
+   "category": "Pasta e risotto",
+   "serving": "Starter",
+   "nutrients": {
+    "calories": 584,
+    "protein": 18.1,
+    "carbs": 35.6,
+    "fat": 37.2,
+    "saturatedFat": 19.9,
+    "sugar": 5.9,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "trofie-pesto-and-stracciatella",
+   "name": "Trofie pesto & stracciatella",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 764,
+    "protein": 19.4,
+    "carbs": 90.4,
+    "fat": 35.4,
+    "saturatedFat": 5.5,
+    "sugar": 2.8,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut",
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "gnocchi-sorrentina",
+   "name": "Gnocchi Sorrentina",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1222,
+    "protein": 22.1,
+    "carbs": 94.3,
+    "fat": 47,
+    "saturatedFat": 13.1,
+    "sugar": 26.7,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ravioli-lobster",
+   "name": "Ravioli Lobster",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 689,
+    "protein": 30.2,
+    "carbs": 57.3,
+    "fat": 29.9,
+    "saturatedFat": 13.2,
+    "sugar": 8.4,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fettuccine-alfredo",
+   "name": "Fettuccine Alfredo",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1551,
+    "protein": 38.7,
+    "carbs": 85.7,
+    "fat": 121.2,
+    "saturatedFat": 74.3,
+    "sugar": 6.1,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "risotto-ai-porcini-and-tartufo",
+   "name": "Risotto ai Porcini & Tartufo",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 788,
+    "protein": 25.2,
+    "carbs": 44.9,
+    "fat": 56.9,
+    "saturatedFat": 31.2,
+    "sugar": 3.2,
+    "salt": 5.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mafaldine-con-ragu-di-manzo",
+   "name": "Mafaldine con Ragu di Manzo",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1054,
+    "protein": 33.3,
+    "carbs": 105.6,
+    "fat": 32.3,
+    "saturatedFat": 10,
+    "sugar": 13.5,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ravioli-aragosta",
+   "name": "Ravioli Aragosta",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 806,
+    "protein": 30.6,
+    "carbs": 57.7,
+    "fat": 43.4,
+    "saturatedFat": 21.6,
+    "sugar": 8.9,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-al-pesce",
+   "name": "Spaghetti al Pesce",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 928,
+    "protein": 48.4,
+    "carbs": 68.7,
+    "fat": 37.1,
+    "saturatedFat": 5.3,
+    "sugar": 8.7,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-alle-vongole-veraci",
+   "name": "Spaghetti alle Vongole Veraci",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 841,
+    "protein": 36.2,
+    "carbs": 67.7,
+    "fat": 34.6,
+    "saturatedFat": 4.5,
+    "sugar": 8.3,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-pomodoro-e-basilico",
+   "name": "Spaghetti Pomodoro e Basilico",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 820,
+    "protein": 21.4,
+    "carbs": 97.4,
+    "fat": 9.3,
+    "saturatedFat": 1.4,
+    "sugar": 16.8,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghettini-aragosta",
+   "name": "Spaghettini Aragosta",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 996,
+    "protein": 94.9,
+    "carbs": 87.6,
+    "fat": 37.3,
+    "saturatedFat": 5.4,
+    "sugar": 12.6,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tortellini-crema-e-pollo",
+   "name": "Tortellini Crema E Pollo",
+   "category": "Pasta e risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1195,
+    "protein": 43.2,
+    "carbs": 70.7,
+    "fat": 83.9,
+    "saturatedFat": 46.1,
+    "sugar": 4.3,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "suprema-di-pollo-principessa",
+   "name": "Suprema di Pollo Principessa",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 867,
+    "protein": 72,
+    "carbs": 8.6,
+    "fat": 60.8,
+    "saturatedFat": 24.5,
+    "sugar": 4.4,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "pollo-milanese",
+   "name": "Pollo Milanese",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1296,
+    "protein": 87.1,
+    "carbs": 80.5,
+    "fat": 60.2,
+    "saturatedFat": 9.1,
+    "sugar": 6.5,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "lupin",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pollo-diavola",
+   "name": "Pollo Diavola",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 745,
+    "protein": 71.6,
+    "carbs": 9.4,
+    "fat": 31.9,
+    "saturatedFat": 5,
+    "sugar": 7.1,
+    "salt": 2.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "classic-saltimbocca-alla-romana",
+   "name": "Classic Saltimbocca alla Romana",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 792,
+    "protein": 62.7,
+    "carbs": 25.7,
+    "fat": 48.5,
+    "saturatedFat": 20.6,
+    "sugar": 3.2,
+    "salt": 3.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "scaloppa-alla-milanese",
+   "name": "Scaloppa alla Milanese",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1085,
+    "protein": 58.4,
+    "carbs": 80.7,
+    "fat": 51.7,
+    "saturatedFat": 8.1,
+    "sugar": 5.6,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "lupin",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "scaloppine-signor-sassi",
+   "name": "Scaloppine Signor Sassi",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 910,
+    "protein": 45.8,
+    "carbs": 27.7,
+    "fat": 70.6,
+    "saturatedFat": 30.8,
+    "sugar": 4.1,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "agnello-toscana",
+   "name": "Agnello Toscana",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1164,
+    "protein": 83.7,
+    "carbs": 8.4,
+    "fat": 89.4,
+    "saturatedFat": 37.5,
+    "sugar": 3.6,
+    "salt": 4.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "filetto-al-tartufo",
+   "name": "Filetto al Tartufo",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1109,
+    "protein": 64,
+    "carbs": 3.9,
+    "fat": 119.8,
+    "saturatedFat": 44.7,
+    "sugar": 2.3,
+    "salt": 4.8
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pollo-parmigiana",
+   "name": "Pollo Parmigiana",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1498,
+    "protein": 96.6,
+    "carbs": 83.6,
+    "fat": 70.7,
+    "saturatedFat": 15.4,
+    "sugar": 8.8,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pollo-funghi-e-tartufo",
+   "name": "Pollo Funghi e Tartufo",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 901,
+    "protein": 70.7,
+    "carbs": 6.4,
+    "fat": 65.7,
+    "saturatedFat": 25.2,
+    "sugar": 3.3,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "scaloppina-limone",
+   "name": "Scaloppina Limone",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1138,
+    "protein": 47.6,
+    "carbs": 17.9,
+    "fat": 97.6,
+    "saturatedFat": 37.4,
+    "sugar": 3.6,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "costata-reale-milanese",
+   "name": "Costata Reale Milanese",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1188,
+    "protein": 95.6,
+    "carbs": 30.1,
+    "fat": 68.1,
+    "saturatedFat": 29.7,
+    "sugar": 2.4,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "lupin",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "saltimbocca-alla-romana",
+   "name": "Saltimbocca alla Romana",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 744,
+    "protein": 69.4,
+    "carbs": 26.1,
+    "fat": 39.8,
+    "saturatedFat": 15.9,
+    "sugar": 3.7,
+    "salt": 6.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "scaloppine-al-limone",
+   "name": "Scaloppine al Limone",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1138,
+    "protein": 47.6,
+    "carbs": 17.9,
+    "fat": 97.6,
+    "saturatedFat": 37.4,
+    "sugar": 3.6,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "suprema-di-pollo-san-carlo",
+   "name": "Suprema di Pollo San Carlo",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 867,
+    "protein": 72,
+    "carbs": 8.6,
+    "fat": 60.8,
+    "saturatedFat": 24.5,
+    "sugar": 4.4,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "nodino-di-vitello-butter-and-sage",
+   "name": "Nodino di Vitello (butter & sage)",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1492,
+    "protein": 89.3,
+    "carbs": 30.1,
+    "fat": 115.3,
+    "saturatedFat": 44.8,
+    "sugar": 1.6,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "nodino-di-vitello-fresh-italian-black-truffle",
+   "name": "Nodino di Vitello (fresh Italian black truffle)",
+   "category": "Carne",
+   "serving": "",
+   "nutrients": {
+    "calories": 1384,
+    "protein": 93.3,
+    "carbs": 6.5,
+    "fat": 112.9,
+    "saturatedFat": 42.5,
+    "sugar": 1.5,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "san-carlo-mixed-grill",
+   "name": "San Carlo Mixed Grill",
+   "category": "Macelleria",
+   "serving": "",
+   "nutrients": {
+    "calories": 1350,
+    "protein": 97.2,
+    "carbs": 12.9,
+    "fat": 99.2,
+    "saturatedFat": 19.4,
+    "sugar": 3.2,
+    "salt": 5.5
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tagliata-di-filetto-di-manzo",
+   "name": "Tagliata Di Filetto Di Manzo",
+   "category": "Macelleria",
+   "serving": "",
+   "nutrients": {
+    "calories": 887,
+    "protein": 53.8,
+    "carbs": 2.4,
+    "fat": 98.1,
+    "saturatedFat": 27.3,
+    "sugar": 2,
+    "salt": 2.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "pollo-marinato",
+   "name": "Pollo Marinato",
+   "category": "Macelleria",
+   "serving": "",
+   "nutrients": {
+    "calories": 675,
+    "protein": 68.1,
+    "carbs": 3.4,
+    "fat": 40.9,
+    "saturatedFat": 14.2,
+    "sugar": 2.9,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "tomahawk",
+   "name": "Tomahawk",
+   "category": "Macelleria",
+   "serving": "",
+   "nutrients": {
+    "calories": 3036,
+    "protein": 200.8,
+    "carbs": 2.6,
+    "fat": 217.5,
+    "saturatedFat": 81.5,
+    "sugar": 2.3,
+    "salt": 4.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chateaubriand",
+   "name": "Chateaubriand",
+   "category": "Macelleria",
+   "serving": "",
+   "nutrients": {
+    "calories": 952,
+    "protein": 115.7,
+    "carbs": 3,
+    "fat": 53.6,
+    "saturatedFat": 20.9,
+    "sugar": 1.1,
+    "salt": 3.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "agnello",
+   "name": "Agnello",
+   "category": "Macelleria",
+   "serving": "",
+   "nutrients": {
+    "calories": 1267,
+    "protein": 72.9,
+    "carbs": 3.3,
+    "fat": 107.9,
+    "saturatedFat": 39.4,
+    "sugar": 2.4,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "filetto-alla-griglia",
+   "name": "Filetto alla Griglia",
+   "category": "Macelleria",
+   "serving": "",
+   "nutrients": {
+    "calories": 749,
+    "protein": 49.1,
+    "carbs": 3.8,
+    "fat": 85,
+    "saturatedFat": 26.7,
+    "sugar": 1.7,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "north-pacific-halibut",
+   "name": "North Pacific Halibut",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 747,
+    "protein": 54.9,
+    "carbs": 2.5,
+    "fat": 57.7,
+    "saturatedFat": 7.8,
+    "sugar": 2,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "north-pacific-halibut-with-lobster-sauce",
+   "name": "North Pacific Halibut with lobster sauce",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 624,
+    "protein": 74.4,
+    "carbs": 19.2,
+    "fat": 33.6,
+    "saturatedFat": 4.9,
+    "sugar": 2.4,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gamberi-sicilia",
+   "name": "Gamberi Sicilia",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 720,
+    "protein": 69.6,
+    "carbs": 5.9,
+    "fat": 46.4,
+    "saturatedFat": 5.8,
+    "sugar": 3.1,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coda-di-rospo-aurora-2",
+   "name": "Coda di Rospo 'Aurora'",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 928,
+    "protein": 68.8,
+    "carbs": 37,
+    "fat": 41.8,
+    "saturatedFat": 22,
+    "sugar": 10.8,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grigliata-mista-di-pesce",
+   "name": "Grigliata Mista di Pesce",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 1160,
+    "protein": 143.9,
+    "carbs": 3.9,
+    "fat": 61.6,
+    "saturatedFat": 9.9,
+    "sugar": 1.8,
+    "salt": 5.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "halibut",
+   "name": "Halibut",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 601,
+    "protein": 70.8,
+    "carbs": 2.4,
+    "fat": 40.2,
+    "saturatedFat": 9.2,
+    "sugar": 1.1,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-sole-carlo",
+   "name": "Lemon Sole Carlo",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 945,
+    "protein": 87.1,
+    "carbs": 23.6,
+    "fat": 56.9,
+    "saturatedFat": 19.7,
+    "sugar": 3.9,
+    "salt": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salmone-alla-griglia",
+   "name": "Salmone alla Griglia",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 1075,
+    "protein": 61,
+    "carbs": 3.7,
+    "fat": 92.7,
+    "saturatedFat": 42.2,
+    "sugar": 1.9,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "san-carlo-special-shellfish",
+   "name": "San Carlo Special Shellfish",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 1675,
+    "protein": 166.8,
+    "carbs": 15.7,
+    "fat": 102.8,
+    "saturatedFat": 33.8,
+    "sugar": 1.6,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dover-sole-served-with-capers-and-lemon-butter-sauce",
+   "name": "Dover Sole (served with capers & lemon butter sauce)",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 1053,
+    "protein": 139.3,
+    "carbs": 11.2,
+    "fat": 49.6,
+    "saturatedFat": 15.3,
+    "sugar": 3.4,
+    "salt": 11.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "dover-sole-whole-grilled-dover-sole",
+   "name": "Dover Sole (whole grilled Dover sole)",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 843,
+    "protein": 136.2,
+    "carbs": 1.7,
+    "fat": 32.1,
+    "saturatedFat": 4.5,
+    "sugar": 1.6,
+    "salt": 5.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spigola-alla-griglia-o-al-sale-grilled-whole-sea-bass",
+   "name": "Spigola alla Griglia o al Sale (grilled whole sea bass)",
+   "category": "Pesci",
+   "serving": "",
+   "nutrients": {
+    "calories": 687,
+    "protein": 50.7,
+    "carbs": 2.5,
+    "fat": 51.2,
+    "saturatedFat": 8.1,
+    "sugar": 2,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemon-sole-with-clams-and-asparagus",
+   "name": "Lemon Sole with Clams and Asparagus",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 2243,
+    "protein": 102.1,
+    "carbs": 30.6,
+    "fat": 188.9,
+    "saturatedFat": 45.4,
+    "sugar": 1.6,
+    "salt": 7.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coda-di-rospo-aurora",
+   "name": "Coda di Rospo “Aurora”",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 865,
+    "protein": 56.8,
+    "carbs": 37,
+    "fat": 40.5,
+    "saturatedFat": 21.7,
+    "sugar": 10.8,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tonno-e-lenticchie",
+   "name": "Tonno e Lenticchie",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 824,
+    "protein": 71.3,
+    "carbs": 43.5,
+    "fat": 26.8,
+    "saturatedFat": 3.8,
+    "sugar": 9.7,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "capesante-san-carlo",
+   "name": "Capesante San Carlo",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 560,
+    "protein": 42.4,
+    "carbs": 19.2,
+    "fat": 36.9,
+    "saturatedFat": 7.2,
+    "sugar": 2.2,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "seafood-mixed-grill",
+   "name": "Seafood Mixed Grill",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 968,
+    "protein": 136.2,
+    "carbs": 5.3,
+    "fat": 43.3,
+    "saturatedFat": 7.7,
+    "sugar": 2,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mixed-roasted-shellfish",
+   "name": "Mixed Roasted Shellfish",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1675,
+    "protein": 166.8,
+    "carbs": 15.7,
+    "fat": 102.8,
+    "saturatedFat": 33.8,
+    "sugar": 1.6,
+    "salt": 5.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sogliola",
+   "name": "Sogliola",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1095,
+    "protein": 136.5,
+    "carbs": 2.9,
+    "fat": 58.4,
+    "saturatedFat": 8.2,
+    "sugar": 2,
+    "salt": 4.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "branzino-grigliato",
+   "name": "Branzino Grigliato",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 687,
+    "protein": 50.7,
+    "carbs": 2.5,
+    "fat": 51.2,
+    "saturatedFat": 8.1,
+    "sugar": 2,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gambero-gigante-e-capesante",
+   "name": "Gambero Gigante e Capesante",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1075,
+    "protein": 92,
+    "carbs": 5.3,
+    "fat": 76.8,
+    "saturatedFat": 37.5,
+    "sugar": 2.1,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salmone-prosecco-e-gamberetti",
+   "name": "Salmone Prosecco e Gamberetti",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 806,
+    "protein": 70,
+    "carbs": 19.8,
+    "fat": 43.9,
+    "saturatedFat": 7,
+    "sugar": 1.9,
+    "salt": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zucchine-fritte",
+   "name": "Zucchine Fritte",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 562,
+    "protein": 12.6,
+    "carbs": 42.8,
+    "fat": 37.2,
+    "saturatedFat": 3.4,
+    "sugar": 7.2,
+    "salt": 0.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "piselli-con-pancetta",
+   "name": "Piselli con Pancetta",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 570,
+    "protein": 15.4,
+    "carbs": 19.8,
+    "fat": 47.4,
+    "saturatedFat": 25.4,
+    "sugar": 7.5,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fagiolini",
+   "name": "Fagiolini",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 295,
+    "protein": 2.3,
+    "carbs": 4.8,
+    "fat": 28.9,
+    "saturatedFat": 18,
+    "sugar": 2.4,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tenderstem-broccoli",
+   "name": "Tenderstem Broccoli",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 5.6,
+    "carbs": 4.7,
+    "fat": 10.3,
+    "saturatedFat": 1.6,
+    "sugar": 2.9,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "insalata-di-pomodori-siciliani-e-cipolla",
+   "name": "Insalata di Pomodori Siciliani e Cipolla",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 204,
+    "protein": 2.3,
+    "carbs": 10.8,
+    "fat": 15.8,
+    "saturatedFat": 2.4,
+    "sugar": 8.9,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rucola-e-grana-padano",
+   "name": "Rucola e Grana Padano",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 198,
+    "protein": 8.6,
+    "carbs": 0.7,
+    "fat": 17.5,
+    "saturatedFat": 5.9,
+    "sugar": 0.2,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "insalata-mista",
+   "name": "Insalata Mista",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 167,
+    "protein": 1.9,
+    "carbs": 3.4,
+    "fat": 15.7,
+    "saturatedFat": 2.2,
+    "sugar": 2.2,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mashed-potato",
+   "name": "Mashed Potato",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 294,
+    "protein": 5.6,
+    "carbs": 38.5,
+    "fat": 12.4,
+    "saturatedFat": 6,
+    "sugar": 2,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mashed-potato-with-truffle",
+   "name": "Mashed Potato with Truffle",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 294,
+    "protein": 5.6,
+    "carbs": 38.5,
+    "fat": 12.4,
+    "saturatedFat": 6,
+    "sugar": 2,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patate-fritte",
+   "name": "Patate Fritte",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 638,
+    "protein": 5.3,
+    "carbs": 50.8,
+    "fat": 44,
+    "saturatedFat": 7.8,
+    "sugar": 2.6,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patate-fritte-with-fresh-truffle-and-grana-padano",
+   "name": "Patate Fritte with fresh truffle and Grana Padano",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 759,
+    "protein": 11.1,
+    "carbs": 69.9,
+    "fat": 45.6,
+    "saturatedFat": 11.5,
+    "sugar": 4,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patate-arrosto-with-bacon-onion-and-rosemary",
+   "name": "Patate Arrosto with bacon, onion and rosemary",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 528,
+    "protein": 11,
+    "carbs": 44,
+    "fat": 33.4,
+    "saturatedFat": 8.9,
+    "sugar": 2.9,
+    "salt": 2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "insalata-di-pomodori-siciliani-and-cipolla",
+   "name": "Insalata di Pomodori Siciliani and Cipolla",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 204,
+    "protein": 2.3,
+    "carbs": 10.8,
+    "fat": 15.8,
+    "saturatedFat": 2.4,
+    "sugar": 8.9,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "longstem-broccoli",
+   "name": "Longstem Broccoli",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 240,
+    "protein": 5.6,
+    "carbs": 4.8,
+    "fat": 20.3,
+    "saturatedFat": 3,
+    "sugar": 3,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "piselli-e-pancetta",
+   "name": "Piselli e Pancetta",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 798,
+    "protein": 15.9,
+    "carbs": 21.9,
+    "fat": 72.2,
+    "saturatedFat": 40.9,
+    "sugar": 8.2,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rucola-and-grana-padano",
+   "name": "Rucola & Grana Padano",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 9.5,
+    "carbs": 4.2,
+    "fat": 17.7,
+    "saturatedFat": 6,
+    "sugar": 2.2,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patatine-fritte-french-fries",
+   "name": "Patatine Fritte (french fries)",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 638,
+    "protein": 5.3,
+    "carbs": 50.8,
+    "fat": 44,
+    "saturatedFat": 7.8,
+    "sugar": 2.6,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patatine-fritte-with-fresh-truffle-and-grana-padano",
+   "name": "Patatine Fritte (with fresh truffle & Grana Padano)",
+   "category": "Contorni",
+   "serving": "",
+   "nutrients": {
+    "calories": 828,
+    "protein": 11.1,
+    "carbs": 69.9,
+    "fat": 53.3,
+    "saturatedFat": 12,
+    "sugar": 4,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "torta-pistacchio",
+   "name": "Torta Pistacchio",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 847,
+    "protein": 13.9,
+    "carbs": 41.7,
+    "fat": 66.2,
+    "saturatedFat": 34.4,
+    "sugar": 37.7,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "mantecato-alla-nocciola",
+   "name": "Mantecato Alla Nocciola",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 996,
+    "protein": 17.7,
+    "carbs": 93.4,
+    "fat": 59.4,
+    "saturatedFat": 22.6,
+    "sugar": 91.4,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "torta-caprese",
+   "name": "Torta Caprese",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 882,
+    "protein": 38.7,
+    "carbs": 71.9,
+    "fat": 61,
+    "saturatedFat": 28.6,
+    "sugar": 61.3,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "meringata-alle-fragole",
+   "name": "Meringata alle Fragole",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 588,
+    "protein": 23,
+    "carbs": 74.6,
+    "fat": 30.3,
+    "saturatedFat": 19.4,
+    "sugar": 72.5,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "millefoglie",
+   "name": "Millefoglie",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 572,
+    "protein": 5.7,
+    "carbs": 48.9,
+    "fat": 38.6,
+    "saturatedFat": 22.2,
+    "sugar": 29.6,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cr-me-br-l-e",
+   "name": "Crème Brûlée",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 839,
+    "protein": 7.8,
+    "carbs": 43.5,
+    "fat": 74.3,
+    "saturatedFat": 42.4,
+    "sugar": 43.5,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheesecake",
+   "name": "Cheesecake",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 795,
+    "protein": 14.7,
+    "carbs": 68,
+    "fat": 52,
+    "saturatedFat": 31.1,
+    "sugar": 54.8,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-tart",
+   "name": "Lemon Tart",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 424,
+    "protein": 6.5,
+    "carbs": 55.6,
+    "fat": 19.8,
+    "saturatedFat": 11.4,
+    "sugar": 35.9,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "arancia-di-cioccolato",
+   "name": "Arancia Di Cioccolato",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 163,
+    "protein": 1.9,
+    "carbs": 10.9,
+    "fat": 12.3,
+    "saturatedFat": 8.7,
+    "sugar": 10,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "birthday-plate",
+   "name": "Birthday Plate",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 453,
+    "protein": 6.1,
+    "carbs": 46.8,
+    "fat": 26.4,
+    "saturatedFat": 16,
+    "sugar": 32.7,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "panna-cotta",
+   "name": "Panna Cotta",
+   "category": "Dolci",
+   "serving": "",
+   "nutrients": {
+    "calories": 790,
+    "protein": 7.6,
+    "carbs": 48.2,
+    "fat": 67.1,
+    "saturatedFat": 41.5,
+    "sugar": 41.7,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "affogato",
+   "name": "Affogato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 162,
+    "protein": 3.3,
+    "carbs": 21.6,
+    "fat": 7.3,
+    "saturatedFat": 4.6,
+    "sugar": 20.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coppa-san-carlo",
+   "name": "Coppa San Carlo",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 623,
+    "protein": 10.9,
+    "carbs": 95.4,
+    "fat": 22.8,
+    "saturatedFat": 14.4,
+    "sugar": 87.2,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coppa-di-fragole",
+   "name": "Coppa di Fragole",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 388,
+    "protein": 5.1,
+    "carbs": 38.6,
+    "fat": 21.6,
+    "saturatedFat": 14.7,
+    "sugar": 35,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "extra-english-mustard",
+   "name": "Extra English Mustard",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 3.3,
+    "carbs": 8,
+    "fat": 5,
+    "saturatedFat": 0.4,
+    "sugar": 5.5,
+    "salt": 4.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "extra-french-mustard",
+   "name": "Extra French Mustard",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 59,
+    "protein": 2.3,
+    "carbs": 1.7,
+    "fat": 3.6,
+    "saturatedFat": 0.2,
+    "sugar": 1.2,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-gravy",
+   "name": "Extra Gravy",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 79,
+    "protein": 8.7,
+    "carbs": 2,
+    "fat": 4.1,
+    "saturatedFat": 0.5,
+    "sugar": 1.2,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-horseradish",
+   "name": "Extra Horseradish",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.7,
+    "carbs": 4.3,
+    "fat": 3.3,
+    "saturatedFat": 0.3,
+    "sugar": 3.4,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-ketchup",
+   "name": "Extra Ketchup",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.6,
+    "carbs": 11.6,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 11.4,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-mayonnaise",
+   "name": "Extra Mayonnaise",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 295,
+    "protein": 0.2,
+    "carbs": 0.9,
+    "fat": 32.1,
+    "saturatedFat": 2.2,
+    "sugar": 0.5,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-mint-sauce",
+   "name": "Extra Mint Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 0.9,
+    "carbs": 1.7,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-tartare-sauce",
+   "name": "Extra Tartare Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 218,
+    "protein": 0.5,
+    "carbs": 3,
+    "fat": 19.9,
+    "saturatedFat": 1.4,
+    "sugar": 2,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "extra-wholegrain-mustard",
+   "name": "Extra Wholegrain Mustard",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 83,
+    "protein": 3.4,
+    "carbs": 3.8,
+    "fat": 4.8,
+    "saturatedFat": 0.3,
+    "sugar": 3.6,
+    "salt": 1.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-anchovies",
+   "name": "Add Anchovies",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 186,
+    "protein": 4.9,
+    "carbs": 0,
+    "fat": 18.8,
+    "saturatedFat": 1.9,
+    "sugar": 0,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-artichoke",
+   "name": "Add Artichoke",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 93,
+    "protein": 1.1,
+    "carbs": 2.9,
+    "fat": 7.9,
+    "saturatedFat": 0.8,
+    "sugar": 0.8,
+    "salt": 3.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-asparagus",
+   "name": "Add Asparagus",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 14,
+    "protein": 1.6,
+    "carbs": 2.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-aubergine",
+   "name": "Add Aubergine",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 1.1,
+    "carbs": 6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-baby-prawns",
+   "name": "Add Baby Prawns",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 54,
+    "protein": 12.2,
+    "carbs": 0,
+    "fat": 0.8,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-blue-cheese",
+   "name": "Add Blue Cheese",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 153,
+    "protein": 9.5,
+    "carbs": 0.9,
+    "fat": 12.5,
+    "saturatedFat": 0.9,
+    "sugar": 0,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-broccoli",
+   "name": "Add Broccoli",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 21,
+    "protein": 2.3,
+    "carbs": 1.6,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 1.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-buffalo-mozzarella",
+   "name": "Add Buffalo Mozzarella",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 147,
+    "protein": 11.3,
+    "carbs": 0.2,
+    "fat": 11.3,
+    "saturatedFat": 6.9,
+    "sugar": 0.2,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-cherry-tomato",
+   "name": "Add Cherry tomato",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0.6,
+    "carbs": 2.4,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 1.6,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-chicken",
+   "name": "Add Chicken",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 173,
+    "protein": 33.5,
+    "carbs": 0,
+    "fat": 3,
+    "saturatedFat": 0.9,
+    "sugar": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-chilli-flakes",
+   "name": "Add Chilli Flakes",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 0.4,
+    "carbs": 0.6,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 0.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-chilli-fresh",
+   "name": "Add Chilli Fresh",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.4,
+    "carbs": 2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-clams",
+   "name": "Add Clams",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 87,
+    "protein": 15.1,
+    "carbs": 3.1,
+    "fat": 1.2,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "molluscs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-egg",
+   "name": "Add Egg",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 66,
+    "protein": 6.3,
+    "carbs": 0,
+    "fat": 4.5,
+    "saturatedFat": 3.7,
+    "sugar": 0,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-garlic",
+   "name": "Add Garlic",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0.6,
+    "carbs": 3.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-goat-cheese",
+   "name": "Add Goat Cheese",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 10,
+    "carbs": 0.5,
+    "fat": 11.5,
+    "saturatedFat": 8.1,
+    "sugar": 0,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-king-prawns",
+   "name": "Add King Prawns",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 25,
+    "protein": 5.5,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "molluscs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-fresh-sausage",
+   "name": "Add Fresh Sausage",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 12.3,
+    "carbs": 5.4,
+    "fat": 13.8,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 1.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-mozzarella",
+   "name": "Add Mozzarella",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 144,
+    "protein": 10.8,
+    "carbs": 1.1,
+    "fat": 11.4,
+    "saturatedFat": 7.4,
+    "sugar": 0.5,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-mushrooms",
+   "name": "Add Mushrooms",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 1.5,
+    "carbs": 1.6,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-mussels",
+   "name": "Add Mussels",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 90,
+    "protein": 12.6,
+    "carbs": 3.9,
+    "fat": 2.4,
+    "saturatedFat": 0.5,
+    "sugar": 0,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "molluscs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-nduja",
+   "name": "Add Nduja",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 221,
+    "protein": 8.8,
+    "carbs": 0.3,
+    "fat": 20.4,
+    "saturatedFat": 9.6,
+    "sugar": 0,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "add-olives",
+   "name": "Add Olives",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 110,
+    "protein": 0.8,
+    "carbs": 0.5,
+    "fat": 11.6,
+    "saturatedFat": 1.4,
+    "sugar": 0.5,
+    "salt": 2.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "add-onions",
+   "name": "Add Onions",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 26,
+    "protein": 0.5,
+    "carbs": 6.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 2.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-pancetta",
+   "name": "Add Pancetta",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 227,
+    "protein": 8.3,
+    "carbs": 0.2,
+    "fat": 21.5,
+    "saturatedFat": 8.9,
+    "sugar": 0,
+    "salt": 2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-parma-ham",
+   "name": "Add Parma Ham",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 178,
+    "protein": 17.3,
+    "carbs": 0,
+    "fat": 12,
+    "saturatedFat": 4.1,
+    "sugar": 0,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-grana-padano",
+   "name": "Add Grana Padano",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 13.2,
+    "carbs": 0,
+    "fat": 11.6,
+    "saturatedFat": 7.2,
+    "sugar": 0,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-pizza-sauce",
+   "name": "Add Pizza Sauce",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "protein": 1.2,
+    "carbs": 4.8,
+    "fat": 1.5,
+    "saturatedFat": 0.2,
+    "sugar": 4.1,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-porcini-mushrooms",
+   "name": "Add Porcini Mushrooms",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "protein": 12,
+    "carbs": 10.4,
+    "fat": 1.8,
+    "saturatedFat": 0.2,
+    "sugar": 2.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "add-rocket",
+   "name": "Add Rocket",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.2,
+    "carbs": 0.5,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-salame",
+   "name": "Add Salame",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 180,
+    "protein": 13,
+    "carbs": 0.5,
+    "fat": 14,
+    "saturatedFat": 5.5,
+    "sugar": 0.5,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-spicy-sausage",
+   "name": "Add Spicy Sausage",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 149,
+    "protein": 14.3,
+    "carbs": 0.3,
+    "fat": 10,
+    "saturatedFat": 3.9,
+    "sugar": 0.1,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-spinach",
+   "name": "Add Spinach",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 2.9,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 0.4,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-taleggio",
+   "name": "Add Taleggio",
+   "category": "Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 158,
+    "protein": 9.5,
+    "carbs": 0.5,
+    "fat": 13.1,
+    "saturatedFat": 8.4,
+    "sugar": 0.5,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "carpaccio-di-barbabietola",
+   "name": "Carpaccio di Barbabietola",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 729,
+    "protein": 14.7,
+    "carbs": 24.2,
+    "fat": 62.6,
+    "saturatedFat": 15.4,
+    "sugar": 11.1,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "carpaccio-di-vitello",
+   "name": "Carpaccio di Vitello",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 817,
+    "protein": 75.6,
+    "carbs": 5.5,
+    "fat": 54.4,
+    "saturatedFat": 12,
+    "sugar": 2,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "insalata-di-zucca",
+   "name": "Insalata di Zucca",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 736,
+    "protein": 11.1,
+    "carbs": 50.8,
+    "fat": 57.2,
+    "saturatedFat": 8.1,
+    "sugar": 11.4,
+    "salt": 4.6
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "rigatoro-affumicato-and-monkfish",
+   "name": "Rigatoro Affumicato & Monkfish",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1234,
+    "protein": 34.9,
+    "carbs": 100.4,
+    "fat": 74.5,
+    "saturatedFat": 19.1,
+    "sugar": 5.7,
+    "salt": 11.5
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rigatoro-affumicato-and-ragu-di-maiale",
+   "name": "Rigatoro Affumicato & Ragu di Maiale",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1624,
+    "protein": 53.6,
+    "carbs": 103.2,
+    "fat": 90.2,
+    "saturatedFat": 24,
+    "sugar": 14.1,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "risotto-zucca-and-tartufo",
+   "name": "Risotto Zucca & Tartufo",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 990,
+    "protein": 47.2,
+    "carbs": 74.8,
+    "fat": 57.5,
+    "saturatedFat": 30.5,
+    "sugar": 3,
+    "salt": 5.1
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tagliatelle-castagne",
+   "name": "Tagliatelle Castagne",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1651,
+    "protein": 45.4,
+    "carbs": 134.3,
+    "fat": 111.1,
+    "saturatedFat": 60.5,
+    "sugar": 10.8,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-cheek",
+   "name": "Beef Cheek",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 990,
+    "protein": 72.9,
+    "carbs": 61.4,
+    "fat": 38.6,
+    "saturatedFat": 10.4,
+    "sugar": 10.8,
+    "salt": 4.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zuppetta-di-mare",
+   "name": "Zuppetta di Mare",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1226,
+    "protein": 94.9,
+    "carbs": 44.9,
+    "fat": 69.6,
+    "saturatedFat": 11.5,
+    "sugar": 3.5,
+    "salt": 6
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "monkfish-in-salsa-verde",
+   "name": "Monkfish in Salsa Verde",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 717,
+    "protein": 1.6,
+    "carbs": 3.5,
+    "fat": 78.1,
+    "saturatedFat": 20.5,
+    "sugar": 1.5,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "affogato-al-tiramisu",
+   "name": "Affogato al Tiramisu",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 480,
+    "protein": 8.5,
+    "carbs": 70.1,
+    "fat": 18.9,
+    "saturatedFat": 11.2,
+    "sugar": 59,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "centre-court-cocktail",
+   "name": "Centre Court Cocktail",
+   "category": "Wimbledon specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 165,
+    "protein": 0.3,
+    "carbs": 17.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 17.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "the-grand-slam-dessert",
+   "name": "The Grand Slam Dessert",
+   "category": "Wimbledon specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 487,
+    "protein": 7,
+    "carbs": 97.5,
+    "fat": 7,
+    "saturatedFat": 4.3,
+    "sugar": 95,
+    "salt": 0.7
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "avocado-diverso",
+   "name": "Avocado Diverso",
+   "category": "1996 menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 708,
+    "protein": 25.9,
+    "carbs": 5.8,
+    "fat": 63,
+    "saturatedFat": 7.4,
+    "sugar": 4.5,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "penne-romana",
+   "name": "Penne Romana",
+   "category": "1996 menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1332,
+    "protein": 38.5,
+    "carbs": 101.4,
+    "fat": 58.4,
+    "saturatedFat": 17,
+    "sugar": 18.5,
+    "salt": 3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliolini-san-daniele",
+   "name": "Tagliolini San Daniele",
+   "category": "1996 menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1098,
+    "protein": 49.7,
+    "carbs": 72,
+    "fat": 67.4,
+    "saturatedFat": 36.5,
+    "sugar": 6,
+    "salt": 5.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "steak-diane",
+   "name": "Steak Diane",
+   "category": "1996 menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 410,
+    "protein": 35.7,
+    "carbs": 4.5,
+    "fat": 40.6,
+    "saturatedFat": 16.4,
+    "sugar": 2.5,
+    "salt": 3.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chicken-kiev",
+   "name": "Chicken Kiev",
+   "category": "1996 menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1796,
+    "protein": 87.4,
+    "carbs": 80.8,
+    "fat": 116.6,
+    "saturatedFat": 38,
+    "sugar": 4.9,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "branzino-pizzaiola",
+   "name": "Branzino Pizzaiola",
+   "category": "1996 menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1093,
+    "protein": 78.7,
+    "carbs": 19.3,
+    "fat": 44.4,
+    "saturatedFat": 7.1,
+    "sugar": 17.6,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "milk",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "tiramis",
+   "name": "Tiramisù",
+   "category": "1996 menu: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 592,
+    "protein": 7.2,
+    "carbs": 40.6,
+    "fat": 45.5,
+    "saturatedFat": 28.6,
+    "sugar": 27.7,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "selection-of-ice-creams-and-sorbets-3-scoops",
+   "name": "Selection of Ice Creams & Sorbets (3 scoops)",
+   "category": "1996 menu: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.1,
+    "carbs": 1.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cozze-all-arrabbiata-lunch-menu",
+   "name": "Cozze all Arrabbiata (lunch menu)",
+   "category": "Lunch menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 547,
+    "protein": 41,
+    "carbs": 40.5,
+    "fat": 9.4,
+    "saturatedFat": 1.6,
+    "sugar": 10.2,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mozzarella-in-carrozza-lunch-menu",
+   "name": "Mozzarella in Carrozza (lunch menu)",
+   "category": "Lunch menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 513,
+    "protein": 25.6,
+    "carbs": 48.1,
+    "fat": 16.8,
+    "saturatedFat": 9,
+    "sugar": 5.8,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "melanzane-alla-parmigiana",
+   "name": "Melanzane alla Parmigiana",
+   "category": "Lunch menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 791,
+    "protein": 26.1,
+    "carbs": 50.7,
+    "fat": 36.9,
+    "saturatedFat": 10.8,
+    "sugar": 10.2,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "burrata-pomodoro",
+   "name": "Burrata Pomodoro",
+   "category": "Lunch menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 704,
+    "protein": 10.5,
+    "carbs": 10.5,
+    "fat": 51.6,
+    "saturatedFat": 14.5,
+    "sugar": 9.8,
+    "salt": 3.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "insalata-cesare",
+   "name": "Insalata Cesare",
+   "category": "Lunch menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 495,
+    "protein": 46.7,
+    "carbs": 15.4,
+    "fat": 25.4,
+    "saturatedFat": 6.6,
+    "sugar": 2.5,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "calmari-fritti",
+   "name": "Calmari Fritti",
+   "category": "Lunch menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 8.4,
+    "carbs": 43.8,
+    "fat": 14.2,
+    "saturatedFat": 1.9,
+    "sugar": 5,
+    "salt": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "insalata-gamberi-and-avocado-lunch-menu",
+   "name": "Insalata Gamberi & Avocado (lunch menu)",
+   "category": "Lunch menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 470,
+    "protein": 3.8,
+    "carbs": 21.3,
+    "fat": 38.5,
+    "saturatedFat": 5.6,
+    "sugar": 15.7,
+    "salt": 0.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "insalata-di-cesare",
+   "name": "Insalata di Cesare",
+   "category": "Lunch menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 809,
+    "protein": 85.4,
+    "carbs": 15.8,
+    "fat": 41.4,
+    "saturatedFat": 10.9,
+    "sugar": 2.8,
+    "salt": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tortellini-panna-e-prosciutto-lunch-menu",
+   "name": "Tortellini Panna e Prosciutto (lunch menu)",
+   "category": "Lunch menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1973,
+    "protein": 37.2,
+    "carbs": 62.7,
+    "fat": 160.4,
+    "saturatedFat": 83.9,
+    "sugar": 9.6,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pollo-milanese-lunch-menu",
+   "name": "Pollo Milanese (lunch menu)",
+   "category": "Lunch menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1934,
+    "protein": 92.4,
+    "carbs": 131.3,
+    "fat": 104.2,
+    "saturatedFat": 17,
+    "sugar": 9.1,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "lupin",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rump-steak-and-fries",
+   "name": "Rump Steak & Fries",
+   "category": "Lunch menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 452,
+    "protein": 37.7,
+    "carbs": 23.3,
+    "fat": 22.2,
+    "saturatedFat": 9.8,
+    "sugar": 1.2,
+    "salt": 0.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rigatoni-norma",
+   "name": "Rigatoni Norma",
+   "category": "Lunch menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1087,
+    "protein": 24.7,
+    "carbs": 94.8,
+    "fat": 34.6,
+    "saturatedFat": 6,
+    "sugar": 20.2,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "branzino-spinaci",
+   "name": "Branzino Spinaci",
+   "category": "Lunch menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 629,
+    "protein": 43.7,
+    "carbs": 11.5,
+    "fat": 45.8,
+    "saturatedFat": 7.1,
+    "sugar": 3,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salmone-prosecco",
+   "name": "Salmone Prosecco",
+   "category": "Lunch menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 934,
+    "protein": 74.6,
+    "carbs": 23.8,
+    "fat": 53.4,
+    "saturatedFat": 8.2,
+    "sugar": 4.3,
+    "salt": 5.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "branzino-e-spinaci",
+   "name": "Branzino e Spinaci",
+   "category": "Lunch menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 609,
+    "protein": 42.1,
+    "carbs": 8.5,
+    "fat": 45.5,
+    "saturatedFat": 7,
+    "sugar": 1.2,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "selection-of-ice-creams-and-sorbets",
+   "name": "Selection of Ice Creams & Sorbets",
+   "category": "Lunch menu: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.1,
+    "carbs": 1.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "selection-of-homemade-ice-creams-and-sorbets",
+   "name": "Selection of Homemade Ice creams & Sorbets",
+   "category": "Lunch menu: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.1,
+    "carbs": 1.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pizza-tartufo",
+   "name": "Pizza Tartufo",
+   "category": "Lunch menu: Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1399,
+    "protein": 57,
+    "carbs": 116.3,
+    "fat": 78.3,
+    "saturatedFat": 30,
+    "sugar": 5.1,
+    "salt": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pizza-prosciutto-e-funghi",
+   "name": "Pizza Prosciutto e Funghi",
+   "category": "Lunch menu: Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1672,
+    "protein": 60.9,
+    "carbs": 122.1,
+    "fat": 59,
+    "saturatedFat": 23,
+    "sugar": 12.9,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roast-chicken",
+   "name": "Roast Chicken",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1931,
+    "protein": 131.6,
+    "carbs": 47,
+    "fat": 142.1,
+    "saturatedFat": 38.2,
+    "sugar": 8.5,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roast-rump-of-lamb",
+   "name": "Roast Rump of Lamb",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 775,
+    "protein": 20.9,
+    "carbs": 45.4,
+    "fat": 54.1,
+    "saturatedFat": 9.7,
+    "sugar": 6.9,
+    "salt": 2.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roast-rib-of-beef",
+   "name": "Roast Rib of Beef",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1392,
+    "protein": 68.7,
+    "carbs": 47,
+    "fat": 103.4,
+    "saturatedFat": 29.5,
+    "sugar": 8.5,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "t-bone-steak-two-people",
+   "name": "T-Bone Steak (Two People)",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 3366,
+    "protein": 252.6,
+    "carbs": 47.1,
+    "fat": 232.1,
+    "saturatedFat": 85.3,
+    "sugar": 7.5,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cauliflower-cheese",
+   "name": "Cauliflower Cheese",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 495,
+    "protein": 28.3,
+    "carbs": 26.4,
+    "fat": 31.9,
+    "saturatedFat": 19,
+    "sugar": 12.6,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "arancini-childrens-menu",
+   "name": "Arancini (children's menu)",
+   "category": "Children's menu: Little starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 651,
+    "protein": 20.1,
+    "carbs": 53.9,
+    "fat": 38.1,
+    "saturatedFat": 15.3,
+    "sugar": 1.8,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-plain",
+   "name": "Garlic Bread (plain)",
+   "category": "Children's menu: Little starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 597,
+    "protein": 16,
+    "carbs": 83.4,
+    "fat": 24.5,
+    "saturatedFat": 3.3,
+    "sugar": 0.4,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-with-cheese-2",
+   "name": "Garlic Bread (with cheese)",
+   "category": "Children's menu: Little starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 765,
+    "protein": 28.6,
+    "carbs": 84.6,
+    "fat": 37.8,
+    "saturatedFat": 11.9,
+    "sugar": 1,
+    "salt": 3.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "garlic-bread-with-tomato-2",
+   "name": "Garlic Bread (with tomato)",
+   "category": "Children's menu: Little starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 468,
+    "protein": 16.9,
+    "carbs": 87,
+    "fat": 8.3,
+    "saturatedFat": 1.4,
+    "sugar": 4,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mozzarella-fritters",
+   "name": "Mozzarella Fritters",
+   "category": "Children's menu: Little starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 445,
+    "protein": 11.2,
+    "carbs": 25.7,
+    "fat": 24.2,
+    "saturatedFat": 7.1,
+    "sugar": 8.7,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegetable-sticks",
+   "name": "Vegetable Sticks",
+   "category": "Children's menu: Little starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 81,
+    "protein": 3.2,
+    "carbs": 12.8,
+    "fat": 1.7,
+    "saturatedFat": 0,
+    "sugar": 10.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemon-sole-goujons",
+   "name": "Lemon Sole Goujons",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 865,
+    "protein": 32.9,
+    "carbs": 14.6,
+    "fat": 55.8,
+    "saturatedFat": 5.2,
+    "sugar": 5.3,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-milanese",
+   "name": "Mini Milanese",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 558,
+    "protein": 37.1,
+    "carbs": 2.6,
+    "fat": 42.4,
+    "saturatedFat": 4.2,
+    "sugar": 1.9,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-salmon",
+   "name": "Grilled Salmon",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 31.9,
+    "carbs": 12.1,
+    "fat": 26.4,
+    "saturatedFat": 3.9,
+    "sugar": 8.7,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lasagne",
+   "name": "Lasagne",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 967,
+    "protein": 52.6,
+    "carbs": 35.7,
+    "fat": 54.6,
+    "saturatedFat": 29.7,
+    "sugar": 14.2,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "build-your-own-pasta-bolognese-sauce",
+   "name": "Build Your Own Pasta (Bolognese Sauce)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 202,
+    "protein": 10.4,
+    "carbs": 4.1,
+    "fat": 11.6,
+    "saturatedFat": 4.6,
+    "sugar": 3.3,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "build-your-own-pasta-butter-and-parmesan-sauce",
+   "name": "Build Your Own Pasta (Butter & Parmesan Sauce)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 589,
+    "protein": 13.7,
+    "carbs": 0,
+    "fat": 60.3,
+    "saturatedFat": 38,
+    "sugar": 0,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "build-your-own-pasta-rigatoni",
+   "name": "Build Your Own Pasta (Rigatoni)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 8.4,
+    "carbs": 41.8,
+    "fat": 1.2,
+    "saturatedFat": 0.2,
+    "sugar": 2.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "build-your-own-pasta-spaghetti",
+   "name": "Build Your Own Pasta (Spaghetti)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 8.4,
+    "carbs": 41.8,
+    "fat": 0.2,
+    "saturatedFat": 0.2,
+    "sugar": 2.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "build-your-own-pizza-chicken",
+   "name": "Build Your Own Pizza (Chicken)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 173,
+    "protein": 33.5,
+    "carbs": 0,
+    "fat": 3,
+    "saturatedFat": 0.9,
+    "sugar": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "build-your-own-pizza-mozarrella",
+   "name": "Build Your Own Pizza (Mozarrella)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 144,
+    "protein": 10.8,
+    "carbs": 1.1,
+    "fat": 11.4,
+    "saturatedFat": 7.4,
+    "sugar": 0.5,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "build-your-own-pizza-mushrooms",
+   "name": "Build Your Own Pizza (Mushrooms)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 1.5,
+    "carbs": 1.6,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 0.8,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "build-your-own-pizza-pizza-base",
+   "name": "Build Your Own Pizza (Pizza Base)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 15.8,
+    "carbs": 82.8,
+    "fat": 6.1,
+    "saturatedFat": 1.1,
+    "sugar": 0.4,
+    "salt": 2.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "build-your-own-pizza-pizza-sauce",
+   "name": "Build Your Own Pizza (Pizza Sauce)",
+   "category": "Children's menu: Main event",
+   "serving": "",
+   "nutrients": {
+    "calories": 36,
+    "protein": 1.2,
+    "carbs": 4.8,
+    "fat": 1.5,
+    "saturatedFat": 0.2,
+    "sugar": 4.1,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Children's menu: Little sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 171,
+    "protein": 2.6,
+    "carbs": 25.4,
+    "fat": 5.5,
+    "saturatedFat": 2.8,
+    "sugar": 1.3,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "potatoes",
+   "name": "Potatoes",
+   "category": "Children's menu: Little sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 90,
+    "protein": 1.6,
+    "carbs": 14.4,
+    "fat": 2.5,
+    "saturatedFat": 0.4,
+    "sugar": 0.5,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheesecake-childrens-menu",
+   "name": "Cheesecake (children's menu)",
+   "category": "Children's menu: Something sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 327,
+    "protein": 5.9,
+    "carbs": 24.7,
+    "fat": 22.8,
+    "saturatedFat": 13.5,
+    "sugar": 17.9,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fruit-salad",
+   "name": "Fruit Salad",
+   "category": "Children's menu: Something sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 1.6,
+    "carbs": 24.9,
+    "fat": 0.6,
+    "saturatedFat": 0,
+    "sugar": 20.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ice-cream",
+   "name": "Ice Cream",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.1,
+    "carbs": 1.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-bueno",
+   "name": "Chocolate Bueno",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 3.7,
+    "carbs": 16.5,
+    "fat": 10.2,
+    "saturatedFat": 4.3,
+    "sugar": 16.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "chocolate",
+   "name": "Chocolate",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 179,
+    "protein": 4.5,
+    "carbs": 18.4,
+    "fat": 8.8,
+    "saturatedFat": 5.6,
+    "sugar": 18.2,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-popcorn",
+   "name": "Salted Caramel Popcorn",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 2.8,
+    "carbs": 20.2,
+    "fat": 8,
+    "saturatedFat": 4.1,
+    "sugar": 19.4,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "strawberry",
+   "name": "Strawberry",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 173,
+    "protein": 3.1,
+    "carbs": 22.9,
+    "fat": 7.2,
+    "saturatedFat": 4.6,
+    "sugar": 22.8,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "lemon-sorbet",
+   "name": "Lemon Sorbet",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 96,
+    "protein": 0.1,
+    "carbs": 23.1,
+    "fat": 0.2,
+    "saturatedFat": 0.2,
+    "sugar": 22.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mango",
+   "name": "Mango",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 96,
+    "protein": 0.1,
+    "carbs": 23.1,
+    "fat": 0.2,
+    "saturatedFat": 0.2,
+    "sugar": 22.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "wafer-curls",
+   "name": "Wafer Curls",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0.1,
+    "carbs": 1.5,
+    "fat": 0.3,
+    "saturatedFat": 0.3,
+    "sugar": 0.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blue-bubble-crunch",
+   "name": "Blue Bubble Crunch",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 40,
+    "protein": 0,
+    "carbs": 9.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-crunch",
+   "name": "Strawberry Crunch",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 41,
+    "protein": 0,
+    "carbs": 10,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "nonpareille",
+   "name": "Nonpareille",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 38,
+    "protein": 0,
+    "carbs": 9.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-mini-fudge",
+   "name": "Chocolate Mini Fudge",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.3,
+    "carbs": 7.1,
+    "fat": 1.5,
+    "saturatedFat": 1.1,
+    "sugar": 5.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "popping-candy",
+   "name": "Popping Candy",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 0.4,
+    "carbs": 7.5,
+    "fat": 1.8,
+    "saturatedFat": 1.2,
+    "sugar": 6.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "oreo-crumb",
+   "name": "Oreo Crumb",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 0.5,
+    "carbs": 6.8,
+    "fat": 2,
+    "saturatedFat": 0.5,
+    "sugar": 3.7,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-marshmallow",
+   "name": "Mini Marshmallow",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0.3,
+    "carbs": 7.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cookie-sauce",
+   "name": "Cookie Sauce",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 31,
+    "protein": 0.2,
+    "carbs": 6.6,
+    "fat": 0.4,
+    "saturatedFat": 0.3,
+    "sugar": 6,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bueno-sauce",
+   "name": "Bueno Sauce",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.5,
+    "carbs": 5.5,
+    "fat": 3.6,
+    "saturatedFat": 0.3,
+    "sugar": 5.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-sauce",
+   "name": "Chocolate Sauce",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 30,
+    "protein": 0.2,
+    "carbs": 7.1,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 6.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-sauce",
+   "name": "White Chocolate Sauce",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.1,
+    "carbs": 5.5,
+    "fat": 3.7,
+    "saturatedFat": 1.1,
+    "sugar": 4.6,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-sauce",
+   "name": "Strawberry Sauce",
+   "category": "Children's menu: Gelati & toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 0,
+    "carbs": 5.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 5.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "biscotto",
+   "name": "Biscotto",
+   "category": "Children's menu: Gelati extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 76,
+    "protein": 1.2,
+    "carbs": 10.2,
+    "fat": 3.3,
+    "saturatedFat": 2.1,
+    "sugar": 3.9,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lollipop",
+   "name": "Lollipop",
+   "category": "Children's menu: Gelati extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 2.6,
+    "carbs": 21.7,
+    "fat": 3.8,
+    "saturatedFat": 1.9,
+    "sugar": 2.6,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tartufo-cioccolato",
+   "name": "Tartufo Cioccolato",
+   "category": "Children's menu: Gelati extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 155,
+    "protein": 2.5,
+    "carbs": 17.9,
+    "fat": 8,
+    "saturatedFat": 4.1,
+    "sugar": 7.7,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "garlic-mushrooms-and-truffle",
+   "name": "Garlic Mushrooms & Truffle",
+   "category": "Christmas menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 550,
+    "protein": 26.4,
+    "carbs": 40.8,
+    "fat": 30.7,
+    "saturatedFat": 8.3,
+    "sugar": 4.7,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tuscan-p-t",
+   "name": "Tuscan Pâté",
+   "category": "Christmas menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1010,
+    "protein": 26.6,
+    "carbs": 47.6,
+    "fat": 77.4,
+    "saturatedFat": 20.1,
+    "sugar": 30,
+    "salt": 1.7
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "burrata-e-pomodoro-christmas-lunch",
+   "name": "Burrata e Pomodoro (Christmas lunch)",
+   "category": "Christmas menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 703,
+    "protein": 10.4,
+    "carbs": 10.4,
+    "fat": 51.6,
+    "saturatedFat": 14.5,
+    "sugar": 9.8,
+    "salt": 3.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "zuppa-di-funghi",
+   "name": "Zuppa di Funghi",
+   "category": "Christmas menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1142,
+    "protein": 12.5,
+    "carbs": 25.1,
+    "fat": 112.4,
+    "saturatedFat": 35.8,
+    "sugar": 6.1,
+    "salt": 6.9
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zuppa-di-aragosta",
+   "name": "Zuppa di Aragosta",
+   "category": "Christmas menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 500,
+    "protein": 21,
+    "carbs": 8.5,
+    "fat": 46.3,
+    "saturatedFat": 28.4,
+    "sugar": 2.1,
+    "salt": 2.2
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "champagne-sorbet",
+   "name": "Champagne Sorbet",
+   "category": "Christmas menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 137,
+    "protein": 0.1,
+    "carbs": 23.9,
+    "fat": 0.2,
+    "saturatedFat": 0.2,
+    "sugar": 22.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "scaloppine-signor-sassi-christmas-day",
+   "name": "Scaloppine Signor Sassi (Christmas Day)",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 907,
+    "protein": 45.7,
+    "carbs": 27.7,
+    "fat": 70.6,
+    "saturatedFat": 30.8,
+    "sugar": 4.1,
+    "salt": 2.3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sogliola-christmas-day",
+   "name": "Sogliola (Christmas Day)",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 687,
+    "protein": 84,
+    "carbs": 22.4,
+    "fat": 28.6,
+    "saturatedFat": 16.3,
+    "sugar": 1,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salmone-prosecco-e-gamberetti-christmas-lunch",
+   "name": "Salmone Prosecco e Gamberetti (Christmas lunch)",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 841,
+    "protein": 71.2,
+    "carbs": 27,
+    "fat": 44,
+    "saturatedFat": 7,
+    "sugar": 2,
+    "salt": 5
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "branzino",
+   "name": "Branzino",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1004,
+    "protein": 73.6,
+    "carbs": 3.5,
+    "fat": 77.5,
+    "saturatedFat": 32,
+    "sugar": 3.3,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tacchino-con-ripieno-di-castagne",
+   "name": "Tacchino con Ripieno di Castagne",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 890,
+    "protein": 3.9,
+    "carbs": 11.4,
+    "fat": 92.2,
+    "saturatedFat": 11.1,
+    "sugar": 3.6,
+    "salt": 2.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "medaglioni-al-pepe",
+   "name": "Medaglioni al Pepe",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 857,
+    "protein": 54.5,
+    "carbs": 5.5,
+    "fat": 68,
+    "saturatedFat": 20.2,
+    "sugar": 1.9,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-supreme",
+   "name": "Chicken Supreme",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 867,
+    "protein": 72,
+    "carbs": 8.6,
+    "fat": 60.8,
+    "saturatedFat": 24.5,
+    "sugar": 4.4,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "roasted-cauliflower",
+   "name": "Roasted Cauliflower",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 704,
+    "protein": 15.5,
+    "carbs": 29,
+    "fat": 62.8,
+    "saturatedFat": 4.9,
+    "sugar": 9,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "mafaldine-con-rag-di-manzo-2",
+   "name": "Mafaldine con Ragù di Manzo",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1054,
+    "protein": 33.3,
+    "carbs": 105.6,
+    "fat": 32.3,
+    "saturatedFat": 10,
+    "sugar": 13.5,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ravioli-spinaci",
+   "name": "Ravioli Spinaci",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 961,
+    "protein": 22.5,
+    "carbs": 77.6,
+    "fat": 47.3,
+    "saturatedFat": 7.7,
+    "sugar": 14.4,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "seasonal-vegetables-and-rosemary-potatoes",
+   "name": "Seasonal Vegetables & Rosemary Potatoes",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 470,
+    "protein": 3.9,
+    "carbs": 16.6,
+    "fat": 40.7,
+    "saturatedFat": 5.8,
+    "sugar": 6.1,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spaghetti-frutti-di-mare",
+   "name": "Spaghetti frutti di Mare",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 993,
+    "protein": 56.9,
+    "carbs": 89.2,
+    "fat": 31.6,
+    "saturatedFat": 4.5,
+    "sugar": 9.1,
+    "salt": 3.3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tournedos-rossini",
+   "name": "Tournedos Rossini",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 836,
+    "protein": 67.3,
+    "carbs": 18.5,
+    "fat": 78.4,
+    "saturatedFat": 24.3,
+    "sugar": 3.4,
+    "salt": 4.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliolini-con-aragosta",
+   "name": "Tagliolini con Aragosta",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 994,
+    "protein": 97.1,
+    "carbs": 87.7,
+    "fat": 51.4,
+    "saturatedFat": 19.8,
+    "sugar": 9.2,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-cheek-and-spinach",
+   "name": "Beef Cheek & Spinach",
+   "category": "Christmas menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1017,
+    "protein": 92.1,
+    "carbs": 52.4,
+    "fat": 36,
+    "saturatedFat": 7.9,
+    "sugar": 12.6,
+    "salt": 4.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "panettone-bread-and-butter-pudding",
+   "name": "Panettone Bread & Butter Pudding",
+   "category": "Christmas menu: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1051,
+    "protein": 16.4,
+    "carbs": 103.5,
+    "fat": 65.1,
+    "saturatedFat": 40.5,
+    "sugar": 64.4,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pere-al-chianti",
+   "name": "Pere al Chianti",
+   "category": "Christmas menu: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 515,
+    "protein": 4.5,
+    "carbs": 104.8,
+    "fat": 8.2,
+    "saturatedFat": 4.7,
+    "sugar": 99.4,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "petit-fours",
+   "name": "Petit Fours",
+   "category": "Christmas menu: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 2.2,
+    "carbs": 11.3,
+    "fat": 10.7,
+    "saturatedFat": 6.5,
+    "sugar": 11,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "fireside-negroni",
+   "name": "Fireside Negroni",
+   "category": "Seasonal cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 223,
+    "protein": 0,
+    "carbs": 14.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14.2,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bellini-festivo",
+   "name": "Bellini Festivo",
+   "category": "Seasonal cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 182,
+    "protein": 0.3,
+    "carbs": 7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "amalfi-in-winter",
+   "name": "Amalfi in Winter",
+   "category": "Seasonal cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 0.1,
+    "carbs": 11.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "winter-rose",
+   "name": "Winter Rose",
+   "category": "Seasonal cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 165,
+    "protein": 0.1,
+    "carbs": 16.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

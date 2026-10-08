@@ -1,0 +1,1058 @@
+{
+ "schemaVersion": 1,
+ "id": "kokoro",
+ "name": "Kokoro",
+ "cuisine": "Japanese",
+ "builderType": "standard",
+ "aliases": [
+  "kokoro",
+  "kokoro sushi"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Kokoro UK website menu with calories (kokorouk.com/menu, accessed 2026-10-07, no date shown)",
+  "url": "https://www.kokorouk.com/menu",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Kokoro prints calories only. For bowl dishes each row is the topping (and curry sauce) without the base: add the base you choose, regular/large kcal: Rice 360/500, Noodle 365/405, Egg Fried Rice 440/611, Kimchi Fried Rice 532/741. Kokoro says its menu may differ across branches.",
+ "allergenGuide": {
+  "title": "Kokoro allergen chart V3 AUG 2026 (22nd edition)",
+  "url": "https://cdn.prod.website-files.com/67a6072523ff621bc008dd6a/6a8711faebbfbfb136d5d4c7_Allergen%20chart%20V3%20AUG%202026.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Korean Food",
+  "Hearty Bowl",
+  "Fresh Roll",
+  "Salad",
+  "Dessert",
+  "Side"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "veggie-kimbap",
+   "name": "Veggie Kimbap",
+   "category": "Korean Food",
+   "serving": "10 large pieces",
+   "nutrients": {
+    "calories": 396
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayo-kimbap",
+   "name": "Tuna Mayo Kimbap",
+   "category": "Korean Food",
+   "serving": "10 large pieces",
+   "nutrients": {
+    "calories": 543
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi-kimbap",
+   "name": "Kimchi Kimbap",
+   "category": "Korean Food",
+   "serving": "10 large pieces",
+   "nutrients": {
+    "calories": 473
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bulgogi-kimbap",
+   "name": "Bulgogi Kimbap",
+   "category": "Korean Food",
+   "serving": "10 large pieces",
+   "nutrients": {
+    "calories": 587
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-galbi-jjim-topping-regular",
+   "name": "Korean Galbi Jjim topping (regular)",
+   "category": "Korean Food",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 438
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-galbi-jjim-topping-large",
+   "name": "Korean Galbi Jjim topping (large)",
+   "category": "Korean Food",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chilli-chicken-topping-regular",
+   "name": "Korean Chilli Chicken topping (regular)",
+   "category": "Korean Food",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chilli-chicken-topping-large",
+   "name": "Korean Chilli Chicken topping (large)",
+   "category": "Korean Food",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chilli-pork-topping-regular",
+   "name": "Korean Chilli Pork topping (regular)",
+   "category": "Korean Food",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 262
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chilli-pork-topping-large",
+   "name": "Korean Chilli Pork topping (large)",
+   "category": "Korean Food",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 360
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-bulgogi-topping-regular",
+   "name": "Beef Bulgogi topping (regular)",
+   "category": "Korean Food",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 368
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-bulgogi-topping-large",
+   "name": "Beef Bulgogi topping (large)",
+   "category": "Korean Food",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 608
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "japchae",
+   "name": "Japchae",
+   "category": "Korean Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 298
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi-fried-rice-regular",
+   "name": "Kimchi Fried Rice (regular)",
+   "category": "Korean Food",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 798
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi-fried-rice-large",
+   "name": "Kimchi Fried Rice (large)",
+   "category": "Korean Food",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 989
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-topping-regular",
+   "name": "Chicken Katsu Curry topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-topping-large",
+   "name": "Chicken Katsu Curry topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-topping-regular",
+   "name": "Sweet Chilli Chicken topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 438
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-chicken-topping-large",
+   "name": "Sweet Chilli Chicken topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 559
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-sour-chicken-topping-regular",
+   "name": "Sweet Sour Chicken topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 277
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-sour-chicken-topping-large",
+   "name": "Sweet Sour Chicken topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 350
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-teriyaki-topping-regular",
+   "name": "Chicken Teriyaki topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-teriyaki-topping-large",
+   "name": "Chicken Teriyaki topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-teriyaki-topping-regular",
+   "name": "Salmon Teriyaki topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 245
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-teriyaki-topping-large",
+   "name": "Salmon Teriyaki topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-katsu-curry-topping-regular",
+   "name": "Prawn Katsu Curry topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-katsu-curry-topping-large",
+   "name": "Prawn Katsu Curry topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-topping-regular",
+   "name": "Pumpkin Katsu Curry topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-katsu-curry-topping-large",
+   "name": "Pumpkin Katsu Curry topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-katsu-curry-topping-regular",
+   "name": "Potato Katsu Curry topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-katsu-curry-topping-large",
+   "name": "Potato Katsu Curry topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-katsu-curry-topping-regular",
+   "name": "Tofu Katsu Curry topping (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-katsu-curry-topping-large",
+   "name": "Tofu Katsu Curry topping (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 313
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kokoro-chicken-wings",
+   "name": "Kokoro Chicken Wings",
+   "category": "Hearty Bowl",
+   "serving": "Set of 3",
+   "nutrients": {
+    "calories": 701
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soy-chicken-wings",
+   "name": "Soy Chicken Wings",
+   "category": "Hearty Bowl",
+   "serving": "Set of 3",
+   "nutrients": {
+    "calories": 606
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-udon",
+   "name": "Chicken Katsu Udon",
+   "category": "Hearty Bowl",
+   "serving": "",
+   "nutrients": {
+    "calories": 567
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-katsu-udon",
+   "name": "Prawn Katsu Udon",
+   "category": "Hearty Bowl",
+   "serving": "",
+   "nutrients": {
+    "calories": 301
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kake-udon",
+   "name": "Kake Udon",
+   "category": "Hearty Bowl",
+   "serving": "",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-fried-rice-regular",
+   "name": "Egg Fried Rice (regular)",
+   "category": "Hearty Bowl",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-fried-rice-large",
+   "name": "Egg Fried Rice (large)",
+   "category": "Hearty Bowl",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 837
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-salmon",
+   "name": "Mini Salmon",
+   "category": "Fresh Roll",
+   "serving": "",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tobiko-delight-pocket",
+   "name": "Tobiko Delight Pocket",
+   "category": "Fresh Roll",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-avo-harmony-inari",
+   "name": "Salmon & Avo Harmony Inari",
+   "category": "Fresh Roll",
+   "serving": "",
+   "nutrients": {
+    "calories": 263
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-salad",
+   "name": "Chicken Katsu Salad",
+   "category": "Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 449
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi",
+   "name": "Kimchi",
+   "category": "Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seaweed-salad",
+   "name": "Seaweed Salad",
+   "category": "Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 149
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame",
+   "name": "Edamame",
+   "category": "Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 191
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mochi",
+   "name": "Mochi",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "custard-dorayaki",
+   "name": "Custard Dorayaki",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-dorayaki",
+   "name": "Chocolate Dorayaki",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-cake",
+   "name": "Cheese Cake",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-tobiko-and-mayo-onigiri",
+   "name": "Tuna, Tobiko & Mayo Onigiri",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-chicken-onigiri",
+   "name": "Chilli Chicken Onigiri",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 236
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crabstick-tobiko-and-mayo-onigiri",
+   "name": "Crabstick, Tobiko & Mayo Onigiri",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-pork-and-egg-fried-rice-onigiri",
+   "name": "Chilli Pork & Egg Fried Rice Onigiri",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 265
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kimchi-jeon",
+   "name": "Kimchi Jeon",
+   "category": "Side",
+   "serving": "3 pieces",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buchu-chive-jeon",
+   "name": "Buchu (Chive) Jeon",
+   "category": "Side",
+   "serving": "3 pieces",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-gyoza",
+   "name": "Chicken Gyoza",
+   "category": "Side",
+   "serving": "5 gyoza",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shrimp-gyoza",
+   "name": "Shrimp Gyoza",
+   "category": "Side",
+   "serving": "4 gyoza",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-gyoza",
+   "name": "Vegetable Gyoza",
+   "category": "Side",
+   "serving": "4 gyoza",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-chicken-gyoza",
+   "name": "Fried Chicken Gyoza",
+   "category": "Side",
+   "serving": "2 gyoza",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-spring-roll",
+   "name": "Vegetable Spring Roll",
+   "category": "Side",
+   "serving": "3 spring rolls",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-katsu",
+   "name": "Prawn Katsu",
+   "category": "Side",
+   "serving": "3 pieces",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu",
+   "name": "Chicken Katsu",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-korokke",
+   "name": "Pumpkin Korokke",
+   "category": "Side",
+   "serving": "3 korokke",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-korokke",
+   "name": "Potato Korokke",
+   "category": "Side",
+   "serving": "3 korokke",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-bun",
+   "name": "Katsu Bun",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 239
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-sauce",
+   "name": "Curry Sauce",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-sauce-large",
+   "name": "Curry Sauce (large)",
+   "category": "Side",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

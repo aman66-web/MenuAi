@@ -1,0 +1,816 @@
+{
+ "schemaVersion": 1,
+ "id": "burger-and-lobster",
+ "name": "Burger & Lobster",
+ "cuisine": "Burgers & lobster",
+ "builderType": "standard",
+ "aliases": [
+  "burger and lobster",
+  "burger & lobster",
+  "burger lobster",
+  "b&l"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Burger & Lobster menu pages with calories, Bond Street reference page compared with the other nine UK restaurants' pages (accessed 2026-10-07, no date shown)",
+  "url": "https://www.burgerandlobster.com/locations/london/bond-street/menu/",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Burger & Lobster prints calories only, beside each dish, so protein, carbs and fat are not published. Figures are the ones on its London pages (Brighton makes its ice cream sandwich differently: 928 kcal there). Drinks, whole lobsters and some add-ons print no usable calories and are not listed. No allergen guide is published.",
+ "categories": [
+  "Surf & Turf set menu",
+  "Starters",
+  "Oyster bar",
+  "Burgers",
+  "Burger add-ons",
+  "Lobster rolls",
+  "Combos",
+  "Sides",
+  "Sauces",
+  "Desserts",
+  "Kids menu"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "surf-and-turf-carpaccio",
+   "name": "Surf & Turf Carpaccio",
+   "category": "Surf & Turf set menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 530
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-b-and-l-fries",
+   "name": "Steak & B&L Fries",
+   "category": "Surf & Turf set menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1928
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "surf-and-turf-burger",
+   "name": "Surf & Turf Burger",
+   "category": "Surf & Turf set menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1780
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-caesar-salad",
+   "name": "Prawn Caesar Salad",
+   "category": "Surf & Turf set menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 964
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beyond-meat-burger-set-menu",
+   "name": "Beyond Meat Burger (set menu)",
+   "category": "Surf & Turf set menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1211
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-or-lobster-croquettes-four-wagyu-and-cheddar-croquettes",
+   "name": "Beef or Lobster Croquettes (Four wagyu and cheddar croquettes)",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 883
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-or-lobster-croquettes-four-lobster-prawn-mozzarella-croquettes",
+   "name": "Beef or Lobster Croquettes (Four lobster, prawn, mozzarella croquettes)",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 664
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari",
+   "name": "Calamari",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 588
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-prawns",
+   "name": "Grilled Prawns",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-greens-and-stracciatella",
+   "name": "Grilled Greens & Stracciatella",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oscietra-caviar-15g",
+   "name": "Oscietra Caviar (15g)",
+   "category": "Oyster bar",
+   "serving": "15g",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oscietra-caviar-30g",
+   "name": "Oscietra Caviar (30g)",
+   "category": "Oyster bar",
+   "serving": "30g",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7oz-original-burger-corn-fed-nebraskan-beef",
+   "name": "7oz Original Burger (Corn-fed Nebraskan beef)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1407
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7oz-original-burger-grass-fed-irish-beef",
+   "name": "7oz Original Burger (Grass-fed Irish beef)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1307
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5oz-original-burger-corn-fed-nebraskan-beef",
+   "name": "5oz Original Burger (Corn-fed Nebraskan beef)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1248
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5oz-original-burger-grass-fed-irish-beef",
+   "name": "5oz Original Burger (Grass-fed Irish beef)",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1178
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oklahoma-smash-burger",
+   "name": "Oklahoma Smash Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 803
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beyond-meat-burger",
+   "name": "Beyond-Meat Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 998
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-bacon",
+   "name": "Add bacon",
+   "category": "Burger add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-lobster-roll",
+   "name": "Original Lobster Roll",
+   "category": "Lobster rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1048
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "connecticut-lobster-roll",
+   "name": "Connecticut Lobster Roll",
+   "category": "Lobster rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1095
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lobster-and-prawn-roll",
+   "name": "Lobster & Prawn Roll",
+   "category": "Lobster rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "half-lobster-and-beef-burger-b-and-l-combo",
+   "name": "Half Lobster & Beef Burger (B&L Combo)",
+   "category": "Combos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1560
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "full-lobster-and-beef-burger-b-and-l-combo",
+   "name": "Full Lobster & Beef Burger (B&L Combo)",
+   "category": "Combos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1615
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-lobster-roll-and-beef-burger-roll-combo",
+   "name": "Small Lobster Roll & Beef Burger (Roll Combo)",
+   "category": "Combos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1640
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-lobster-roll-and-beef-burger-roll-combo",
+   "name": "Original Lobster Roll & Beef Burger (Roll Combo)",
+   "category": "Combos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1937
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "half-lobster-and-small-roll-lobster-combo",
+   "name": "Half Lobster & Small Roll (Lobster Combo)",
+   "category": "Combos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "full-lobster-and-original-roll-lobster-combo",
+   "name": "Full Lobster & Original Roll (Lobster Combo)",
+   "category": "Combos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1643
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "for-two-combo",
+   "name": "Combo for Two",
+   "category": "Combos",
+   "serving": "For two",
+   "nutrients": {
+    "calories": 2678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "half-lobster-mac-and-cheese",
+   "name": "Half Lobster Mac & Cheese",
+   "category": "Sides",
+   "serving": "For two",
+   "nutrients": {
+    "calories": 1115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-mac-and-cheese",
+   "name": "Truffle Mac & Cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1012
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-chunky-chips",
+   "name": "Truffle Chunky Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 708
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-wedges",
+   "name": "Sweet Potato Wedges",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-tenderstem-broccoli",
+   "name": "Grilled Tenderstem Broccoli",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-and-garlic-butter",
+   "name": "Lemon & garlic butter",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-sriracha-butter",
+   "name": "Smoked Sriracha Butter",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "holy-fu-k-sauce",
+   "name": "Holy Fu*k sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-mayo",
+   "name": "Truffle mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "barbecue-sauce",
+   "name": "Barbecue sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lobster-mayo",
+   "name": "Lobster mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "japanese-mayo",
+   "name": "Japanese mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creme-brulee",
+   "name": "Crème Brûlée",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 554
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "b-and-l-ice-cream-sandwich",
+   "name": "B&L Ice Cream Sandwich",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 949
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky Toffee Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 725
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-matcha-tiramisu",
+   "name": "Pistachio Matcha Tiramisu",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "affogato",
+   "name": "Affogato",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 178
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "half-lobster",
+   "name": "Half Lobster",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 976
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-beef-burger",
+   "name": "The Beef Burger",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 940
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "panko-chicken-strips",
+   "name": "Panko Chicken Strips",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "b-and-l-fries-kids-sides",
+   "name": "B&L Fries (Kid's Sides)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-wedges-kids-sides",
+   "name": "Sweet Potato Wedges (Kid's Sides)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 346
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

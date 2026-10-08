@@ -1,0 +1,1680 @@
+{
+ "schemaVersion": 1,
+ "id": "hard-rock-cafe",
+ "name": "Hard Rock Cafe",
+ "cuisine": "Burgers",
+ "builderType": "standard",
+ "aliases": [
+  "hard rock cafe",
+  "hard rock",
+  "hard rock cafe london",
+  "hrc"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Hard Rock Cafe London menu with calories (Drinks & Eats, footer 2/26 - London, Feb 2026) and Messi kids meal menu (footer MAY 26), as linked from the cafe's own London page",
+  "url": "https://cafe.hardrock.com/london/",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Hard Rock Cafe prints calories only, beside each dish, on its London menus (food and soft drinks 2/26, kids meal 5/26): no protein, carbs, fat or salt. Cocktails, beer, wine and brunch print none and are not listed. Figures are for the London cafe; other UK cafes may differ. Chicken Dippers exclude their sauces.",
+ "allergenGuide": {
+  "title": "Hard Rock Cafe London Old Park Lane allergen list, 'Food & Beverage Allergens' PDF linked from cafe.hardrock.com/london (20 pages, file dated 7 October 2026)",
+  "url": "https://cafe.hardrock.com/london/files/5330/Food_menu_allergen_sheet_HardRockCafeLondon.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Starters & Shareables",
+  "Wings",
+  "Speciality Entrées",
+  "Amplify Your Entrée",
+  "Steak Burgers",
+  "Smashed & Stacked",
+  "Sandwiches",
+  "Turn It Up A Notch",
+  "French Fry Dips",
+  "Bowls & Salads",
+  "Add Protein",
+  "Add-On Sides",
+  "Desserts",
+  "Hot Drinks",
+  "Sodas & More",
+  "Zero Proof Cocktails",
+  "Bottled Beer",
+  "Kids Meal: Entrées",
+  "Kids Meal: Sides",
+  "Kids Meal: Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "classic-nachos",
+   "name": "Classic Nachos",
+   "category": "Starters & Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 1947
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-guacamole-to-classic-nachos",
+   "name": "Add Guacamole (to Classic Nachos)",
+   "category": "Starters & Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-grilled-chicken-to-classic-nachos",
+   "name": "Add Grilled Chicken (to Classic Nachos)",
+   "category": "Starters & Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-grilled-steak-to-classic-nachos",
+   "name": "Add Grilled Steak (to Classic Nachos)",
+   "category": "Starters & Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "one-night-in-bangkok-spicy-shrimp",
+   "name": "One Night in Bangkok Spicy Shrimp",
+   "category": "Starters & Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 449
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-made-crispy-chicken-dippers",
+   "name": "House-Made Crispy Chicken Dippers",
+   "category": "Starters & Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 556
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-stardust-dry-rub",
+   "name": "Wings with Stardust Dry Rub",
+   "category": "Wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1119
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-house-made-barbecue",
+   "name": "Wings with House-Made Barbecue",
+   "category": "Wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1194
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-sweet-and-tangy",
+   "name": "Wings with Sweet & Tangy",
+   "category": "Wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-classic-buffalo",
+   "name": "Wings with Classic Buffalo",
+   "category": "Wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-gochujang",
+   "name": "Wings with Gochujang",
+   "category": "Wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "new-york-strip-steak",
+   "name": "New York Strip Steak",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1124
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smokehouse-bbq-combo",
+   "name": "Smokehouse BBQ Combo",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1123
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-a-half-rack-of-baby-back-ribs-to-smokehouse-bbq-combo",
+   "name": "Add a Half Rack of Baby Back Ribs (to Smokehouse BBQ Combo)",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "barbecue-chicken",
+   "name": "Barbecue Chicken",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1184
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-chicken-and-cheese",
+   "name": "Mac, Chicken & Cheese",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-salmon",
+   "name": "Grilled Salmon",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 768
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "famous-fajitas-with-grilled-chicken",
+   "name": "Famous Fajitas with Grilled Chicken",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "famous-fajitas-with-grilled-steak",
+   "name": "Famous Fajitas with Grilled Steak",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1528
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "famous-fajitas-duo-combo",
+   "name": "Famous Fajitas Duo Combo",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1849
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-fajitas",
+   "name": "Veggie Fajitas",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1094
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-queso-to-famous-fajitas",
+   "name": "Add Queso (to Famous Fajitas)",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 396
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-made-crispy-chicken-tender-plate",
+   "name": "House-Made Crispy Chicken Tender Plate",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baby-back-ribs",
+   "name": "Baby Back Ribs",
+   "category": "Speciality Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 1655
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "half-rack-of-ribs",
+   "name": "Half Rack of Ribs",
+   "category": "Amplify Your Entrée",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "one-night-in-bangkok-spicy-shrimp-add-on",
+   "name": "One Night in Bangkok Spicy Shrimp (add-on)",
+   "category": "Amplify Your Entrée",
+   "serving": "",
+   "nutrients": {
+    "calories": 322
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-caesar-side-salad",
+   "name": "Classic Caesar Side Salad",
+   "category": "Amplify Your Entrée",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-side-salad",
+   "name": "House Side Salad",
+   "category": "Amplify Your Entrée",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-legendary-burger",
+   "name": "Original Legendary Burger",
+   "category": "Steak Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1314
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-bacon-burger",
+   "name": "BBQ Bacon Burger",
+   "category": "Steak Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1337
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "legendary-smashed-burger",
+   "name": "Legendary Smashed Burger",
+   "category": "Smashed & Stacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 1454
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-classic-smashed-burger",
+   "name": "The Classic Smashed Burger",
+   "category": "Smashed & Stacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 1339
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-diablo-smashed-burger",
+   "name": "Spicy Diablo Smashed Burger",
+   "category": "Smashed & Stacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 1358
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-pulled-pork-sandwich",
+   "name": "BBQ Pulled Pork Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1111
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-sandwich",
+   "name": "Grilled Chicken Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1295
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "messi-chicken-sandwich",
+   "name": "Messi Chicken Sandwich",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1192
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-a-smashed-patty",
+   "name": "Add a Smashed Patty",
+   "category": "Turn It Up A Notch",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-smoked-bacon",
+   "name": "Add Smoked Bacon",
+   "category": "Turn It Up A Notch",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "upgrade-to-onion-rings",
+   "name": "Upgrade to Onion Rings",
+   "category": "Turn It Up A Notch",
+   "serving": "",
+   "nutrients": {
+    "calories": 623
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "upgrade-to-loaded-cheese-and-bacon-fries",
+   "name": "Upgrade to Loaded Cheese & Bacon Fries",
+   "category": "Turn It Up A Notch",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ranch-french-fry-dip",
+   "name": "Ranch (French fry dip)",
+   "category": "French Fry Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-mustard-french-fry-dip",
+   "name": "Honey Mustard (French fry dip)",
+   "category": "French Fry Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "legendary-sauce-french-fry-dip",
+   "name": "Legendary Sauce (French fry dip)",
+   "category": "French Fry Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-french-fry-dip",
+   "name": "Buffalo (French fry dip)",
+   "category": "French Fry Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "herb-aioli-french-fry-dip",
+   "name": "Herb Aioli (French fry dip)",
+   "category": "French Fry Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-mayo-french-fry-dip",
+   "name": "Spicy Mayo (French fry dip)",
+   "category": "French Fry Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-made-barbecue-sauce-french-fry-dip",
+   "name": "House-Made Barbecue Sauce (French fry dip)",
+   "category": "French Fry Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad",
+   "name": "Caesar Salad",
+   "category": "Bowls & Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 398
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cobb-salad",
+   "name": "Cobb Salad",
+   "category": "Bowls & Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 419
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "southwestern-bowl",
+   "name": "Southwestern Bowl",
+   "category": "Bowls & Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 356
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-guacamole-to-southwestern-bowl",
+   "name": "Add Guacamole (to Southwestern Bowl)",
+   "category": "Bowls & Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-grilled-chicken",
+   "name": "Add Grilled Chicken",
+   "category": "Add Protein",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-grilled-steak",
+   "name": "Add Grilled Steak",
+   "category": "Add Protein",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-grilled-salmon",
+   "name": "Add Grilled Salmon",
+   "category": "Add Protein",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasoned-fries",
+   "name": "Seasoned Fries",
+   "category": "Add-On Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 317
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-cheese-and-bacon-fries",
+   "name": "Loaded Cheese & Bacon Fries",
+   "category": "Add-On Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golden-onion-rings",
+   "name": "Golden Onion Rings",
+   "category": "Add-On Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1149
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Add-On Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 677
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "market-vegetables",
+   "name": "Market Vegetables",
+   "category": "Add-On Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mashed-potatoes",
+   "name": "Mashed Potatoes",
+   "category": "Add-On Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 404
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "side-caesar-salad",
+   "name": "Side Caesar Salad",
+   "category": "Add-On Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "side-house-salad",
+   "name": "Side House Salad",
+   "category": "Add-On Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-fudge-brownie",
+   "name": "Hot Fudge Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 2009
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "new-york-cheesecake",
+   "name": "New York Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 892
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasonal-fruit-cobbler",
+   "name": "Seasonal Fruit Cobbler",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1003
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream",
+   "name": "Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 529
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-coffee",
+   "name": "Iced Coffee",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-coffee-with-milk",
+   "name": "Iced Coffee with milk",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-with-milk",
+   "name": "Tea with milk",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola",
+   "name": "Coca-Cola",
+   "category": "Sodas & More",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-zero-sugar",
+   "name": "Coca-Cola Zero Sugar",
+   "category": "Sodas & More",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Sodas & More",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero",
+   "name": "Sprite Zero",
+   "category": "Sodas & More",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta-orange",
+   "name": "Fanta Orange",
+   "category": "Sodas & More",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dr-pepper-zero",
+   "name": "Dr Pepper Zero",
+   "category": "Sodas & More",
+   "serving": "16oz",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Sodas & More",
+   "serving": "12oz",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Sodas & More",
+   "serving": "12oz",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-juice",
+   "name": "Cranberry Juice",
+   "category": "Sodas & More",
+   "serving": "12oz",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-juice",
+   "name": "Pineapple Juice",
+   "category": "Sodas & More",
+   "serving": "12oz",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "still-water",
+   "name": "Still Water",
+   "category": "Sodas & More",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-water",
+   "name": "Sparkling Water",
+   "category": "Sodas & More",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-energy-drink",
+   "name": "Red Bull Energy Drink",
+   "category": "Sodas & More",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-sugarfree",
+   "name": "Red Bull Sugarfree",
+   "category": "Sodas & More",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-special-editions",
+   "name": "Red Bull Special Editions",
+   "category": "Sodas & More",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-basil-lemonade",
+   "name": "Strawberry Basil Lemonade",
+   "category": "Zero Proof Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-tango",
+   "name": "Mango Tango",
+   "category": "Zero Proof Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-berry-cooler",
+   "name": "Mango Berry Cooler",
+   "category": "Zero Proof Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-pineapple",
+   "name": "Chilli Pineapple",
+   "category": "Zero Proof Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber-lime-press",
+   "name": "Cucumber Lime Press",
+   "category": "Zero Proof Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corona-cero-non-alcoholic",
+   "name": "Corona Cero (non-alcoholic)",
+   "category": "Bottled Beer",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-messis-golden-chicken-sandwich",
+   "name": "Kids Messi’s Golden Chicken Sandwich",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 737
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-messis-burger",
+   "name": "Kids Messi’s Burger",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 767
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pepperoni-pizza",
+   "name": "Kids Pepperoni Pizza",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 677
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cheese-pizza",
+   "name": "Kids Cheese Pizza",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 547
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-tenders",
+   "name": "Kids Chicken Tenders",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 814
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hot-dog",
+   "name": "Kids Hot Dog",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 706
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-bacon-cheeseburger",
+   "name": "Kids Bacon Cheeseburger",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 798
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mac-and-cheese",
+   "name": "Kids Mac & Cheese",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-grilled-chicken-breast",
+   "name": "Kids Grilled Chicken Breast",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pasta-and-marinara-sauce",
+   "name": "Kids Pasta and Marinara Sauce",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-grilled-chicken-house-salad",
+   "name": "Kids Grilled Chicken House Salad",
+   "category": "Kids Meal: Entrées",
+   "serving": "",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fresh-fruit",
+   "name": "Kids Fresh Fruit",
+   "category": "Kids Meal: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fries",
+   "name": "Kids Fries",
+   "category": "Kids Meal: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 236
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mashed-potatoes",
+   "name": "Kids Mashed Potatoes",
+   "category": "Kids Meal: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-seasonal-vegetable",
+   "name": "Kids Seasonal Vegetable",
+   "category": "Kids Meal: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hot-fudge-sundae",
+   "name": "Kids Hot Fudge Sundae",
+   "category": "Kids Meal: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 357
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chocolate-milkshake",
+   "name": "Kids Chocolate Milkshake",
+   "category": "Kids Meal: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 349
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vanilla-milkshake",
+   "name": "Kids Vanilla Milkshake",
+   "category": "Kids Meal: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 349
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

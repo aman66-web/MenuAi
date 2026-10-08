@@ -1,0 +1,4819 @@
+{
+ "schemaVersion": 1,
+ "id": "the-botanist",
+ "name": "The Botanist",
+ "cuisine": "Bar",
+ "builderType": "standard",
+ "aliases": [
+  "the botanist",
+  "botanist"
+ ],
+ "sample": false,
+ "source": {
+  "title": "The Botanist Allergen Matrix with calories, 16 menus (Ten Kites page; no date printed, read 2026-10-08)",
+  "url": "https://menus.tenkites.com/nwtc/thebotanist",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only (kcal beside each dish); the page prints no protein, carbs or fat. Choices and add-ons are listed as their own items; the page does not say whether a dish's kcal includes the side offered with it. Drinks are left out: the page prints no calories for them.",
+ "allergenGuide": {
+  "title": "The Botanist Allergen Matrix (Ten Kites page; no date printed, read 2026-10-08)",
+  "url": "https://menus.tenkites.com/nwtc/thebotanist",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "A La Carte",
+  "Nibbles",
+  "Small Plates & Sharing Boards",
+  "Main Event",
+  "Main Event options",
+  "Our Famous Hanging Kebabs™: Kebab",
+  "Our Famous Hanging Kebabs™: Sauce",
+  "Our Famous Hanging Kebabs™: Side",
+  "Signature Kebabs",
+  "Sharing Kebabs",
+  "Kebab Add-Ons",
+  "Bowls Of Goodness",
+  "Bowls Of Goodness options",
+  "Garden Sides",
+  "Puddings",
+  "Sunday Roast: The Centrepiece",
+  "Sunday Roast: Children's",
+  "Sunday Roast: Sharing Sides",
+  "Sunday Roast: Extras",
+  "Sunday Roast: Non Gluten",
+  "£8.95 Lunch Menu: Lunch Kebabs",
+  "£8.95 Lunch Menu: Add-ons",
+  "Kids Menu: Starter",
+  "Kids Menu: Step 1: Pick a main",
+  "Kids Menu: Step 2: Pick your first side",
+  "Kids Menu: Step 3: Pick your second side",
+  "Kids Menu: Add a pud!",
+  "Botanista Brunch: Brunch Dishes",
+  "Botanista Brunch: Brunch Dishes options",
+  "Botanista Brunch: Pastries",
+  "Group Dining Celebration Menu: The Main Event",
+  "Group Dining Celebration Menu: The Main Event options",
+  "Group Dining Celebration Menu: Our Famous Hanging Kebabs ™",
+  "Gardener's Table Finger Food: Mix & Match",
+  "Gardener's Table Finger Food: Boards",
+  "Gardener's Table Finger Food: Sandwiches",
+  "Gardener's Table Finger Food: Condiments",
+  "Pizza",
+  "Condiments: Sauces",
+  "Christmas Menu: Starters",
+  "Christmas Menu: Mains",
+  "Christmas Menu: Puddings",
+  "Christmas Menu: Alcohol Free",
+  "Christmas Nibbles",
+  "Festive Finger Food: Mix & Match"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "popcorn",
+   "name": "Popcorn",
+   "category": "A La Carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "mixed-olives",
+   "name": "Mixed Olives",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ham-and-cheese-croquettes-nibbles",
+   "name": "Ham & Cheese Croquettes",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 433
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "green-garlic-flatbread",
+   "name": "Green Garlic Flatbread",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "lupin",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "spring-arancini-small-plates-and-sharing-boards",
+   "name": "Spring Arancini",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 579
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "salt-and-pepper-calamari-small-plates-and-sharing-boards",
+   "name": "Salt & Pepper Calamari",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 694
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "molluscs",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "asian-pork-belly-bites-small-plates-and-sharing-boards",
+   "name": "Asian Pork Belly Bites",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 928
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "garlic-and-chilli-prawns",
+   "name": "Garlic & Chilli Prawns",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 647
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "crispy-panko-halloumi-small-plates-and-sharing-boards",
+   "name": "Crispy Panko Halloumi",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "korean-fried-chicken-small-plates-and-sharing-boards",
+   "name": "Korean Fried Chicken",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 863
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "crispy-hoisin-tofu-bites-small-plates-and-sharing-boards",
+   "name": "Crispy Hoisin Tofu Bites",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "charred-tenderstem-broccoli",
+   "name": "Charred Tenderstem Broccoli",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "houmous",
+   "name": "Houmous",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 561
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "non-gluten-houmous-small-plates-and-sharing-boards",
+   "name": "Non-Gluten Houmous",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "burrata",
+   "name": "Burrata",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 754
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mezze-board-small-plates-and-sharing-boards",
+   "name": "Mezze Board",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 1002
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "allotment-board",
+   "name": "Allotment Board",
+   "category": "Small Plates & Sharing Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "pan-fried-salmon-main-event",
+   "name": "Pan Fried Salmon",
+   "category": "Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 894
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "slow-cooked-pork-belly-and-herby-mash",
+   "name": "Slow-Cooked Pork Belly & Herby Mash",
+   "category": "Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 1659
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "haddock-and-chips-contains-gluten-free-barley",
+   "name": "Haddock & Chips *contains Gluten Free Barley",
+   "category": "Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 1427
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "gardeners-pie",
+   "name": "Gardener's Pie",
+   "category": "Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 997
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "signature-beef-burger",
+   "name": "Signature Beef Burger",
+   "category": "Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 1274
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "buttermilk-fried-chicken-burger",
+   "name": "Buttermilk Fried Chicken Burger",
+   "category": "Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 1572
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "foragers-feast-burger",
+   "name": "Forager's Feast Burger",
+   "category": "Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 969
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "add-sliced-avocado",
+   "name": "Add Sliced Avocado",
+   "category": "Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-herby-mash",
+   "name": "Add Herby Mash",
+   "category": "Main Event options",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "crispy-panko-halloumi-our-famous-hanging-kebabs-kebab",
+   "name": "Crispy Panko Halloumi",
+   "category": "Our Famous Hanging Kebabs™: Kebab",
+   "serving": "",
+   "nutrients": {
+    "calories": 945
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "garlic-oil",
+   "name": "Garlic Oil",
+   "category": "Our Famous Hanging Kebabs™: Sauce",
+   "serving": "",
+   "nutrients": {
+    "calories": 48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "soy-sweet-chilli",
+   "name": "Soy Sweet Chilli",
+   "category": "Our Famous Hanging Kebabs™: Sauce",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "rosemary-sweet-potato-fries-our-famous-hanging-kebabs-side",
+   "name": "Rosemary Sweet Potato Fries",
+   "category": "Our Famous Hanging Kebabs™: Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 424
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "pomegranate-couscous-salad",
+   "name": "Pomegranate Couscous Salad",
+   "category": "Our Famous Hanging Kebabs™: Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "slow-marinated-steak-kebab",
+   "name": "Slow Marinated Steak Kebab",
+   "category": "Signature Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 727
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "harissa-spiced-chicken-and-chorizo-kebab",
+   "name": "Harissa Spiced Chicken & Chorizo Kebab",
+   "category": "Signature Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 608
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tumeric-spiced-tofu-signature-kebabs",
+   "name": "Tumeric Spiced Tofu",
+   "category": "Signature Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 432
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "the-great-sharing-kebab",
+   "name": "The Great Sharing Kebab",
+   "category": "Sharing Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 2260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "surf-and-turf-sharing-kebab",
+   "name": "Surf & Turf Sharing Kebab",
+   "category": "Sharing Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 2389
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "garlic-flatbread",
+   "name": "Garlic Flatbread",
+   "category": "Kebab Add-Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "the-botanist-bowl-bowls-of-goodness",
+   "name": "The Botanist Bowl",
+   "category": "Bowls Of Goodness",
+   "serving": "",
+   "nutrients": {
+    "calories": 1041
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "chicken-bacon-and-avocado-salad",
+   "name": "Chicken, Bacon & Avocado Salad",
+   "category": "Bowls Of Goodness",
+   "serving": "",
+   "nutrients": {
+    "calories": 799
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "feta-beetroot-salad",
+   "name": "Feta Beetroot Salad",
+   "category": "Bowls Of Goodness",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "add-harissa-halloumi-bowls-of-goodness-options",
+   "name": "Add Harissa Halloumi",
+   "category": "Bowls Of Goodness options",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "properly-seasoned-fries-garden-sides",
+   "name": "Properly Seasoned Fries",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chunky-chips",
+   "name": "Chunky Chips",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "rosemary-sweet-potato-fries-garden-sides",
+   "name": "Rosemary Sweet Potato Fries",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 493
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-fries",
+   "name": "Halloumi Fries",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "beer-battered-onion-rings",
+   "name": "Beer Battered Onion Rings",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 587
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tenderstem-broccoli",
+   "name": "Tenderstem Broccoli",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "mediterranean-roasted-veg",
+   "name": "Mediterranean Roasted Veg",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 271
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "couscous-salad",
+   "name": "Couscous Salad",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "celeriac-and-apple-slaw",
+   "name": "Celeriac & Apple Slaw",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rainbow-salad",
+   "name": "Rainbow Salad",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-aioli-dip",
+   "name": "Garlic Aioli Dip",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "green-goddess-dip",
+   "name": "Green Goddess Dip",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "hot-honey-bbq-dip",
+   "name": "Hot Honey BBQ Dip",
+   "category": "Garden Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "the-botanist-plant-pot-pud",
+   "name": "The Botanist Plant Pot Pud",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "lemon-verbena-tart",
+   "name": "Lemon Verbena Tart",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "sticky-toffee-pudding-puddings",
+   "name": "Sticky Toffee Pudding",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-cheesecake",
+   "name": "Vanilla Cheesecake",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-puddings",
+   "name": "Chocolate Brownie",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "mini-chocolate-brownie",
+   "name": "Mini Chocolate Brownie",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 677
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-chip-cookie-dough",
+   "name": "Chocolate Chip Cookie Dough",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 780
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "millionaires-cookie-dough",
+   "name": "Millionaire's Cookie Dough",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "roast-rump-of-beef",
+   "name": "Roast Rump of Beef",
+   "category": "Sunday Roast: The Centrepiece",
+   "serving": "",
+   "nutrients": {
+    "calories": 1053
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "roast-shropshire-half-chicken",
+   "name": "Roast Shropshire Half Chicken",
+   "category": "Sunday Roast: The Centrepiece",
+   "serving": "",
+   "nutrients": {
+    "calories": 1383
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "honey-glazed-pork-belly",
+   "name": "Honey Glazed Pork Belly",
+   "category": "Sunday Roast: The Centrepiece",
+   "serving": "",
+   "nutrients": {
+    "calories": 1768
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chestnut-mushroom-bourguignon-pie",
+   "name": "Chestnut Mushroom Bourguignon Pie",
+   "category": "Sunday Roast: The Centrepiece",
+   "serving": "",
+   "nutrients": {
+    "calories": 1018
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "roast-trio",
+   "name": "Roast Trio",
+   "category": "Sunday Roast: The Centrepiece",
+   "serving": "",
+   "nutrients": {
+    "calories": 1966
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "roast-beef",
+   "name": "Roast Beef",
+   "category": "Sunday Roast: Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 578
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "roast-chicken",
+   "name": "Roast Chicken",
+   "category": "Sunday Roast: Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 1188
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "garlic-and-herb-roast-potatoes",
+   "name": "Garlic & Herb Roast Potatoes",
+   "category": "Sunday Roast: Sharing Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 540
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "cauliflower-cheese",
+   "name": "Cauliflower Cheese",
+   "category": "Sunday Roast: Sharing Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "sage-and-onion-stuffing-balls",
+   "name": "Sage & Onion Stuffing Balls",
+   "category": "Sunday Roast: Sharing Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 483
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "proper-pigs-in-blankets",
+   "name": "Proper Pigs In Blankets",
+   "category": "Sunday Roast: Sharing Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 381
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "gravy",
+   "name": "Gravy",
+   "category": "Sunday Roast: Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "yorkshire-pudding",
+   "name": "Yorkshire Pudding",
+   "category": "Sunday Roast: Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ng-roast-shropshire-half-chicken",
+   "name": "NG Roast Shropshire Half Chicken",
+   "category": "Sunday Roast: Non Gluten",
+   "serving": "",
+   "nutrients": {
+    "calories": 1264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "ng-roast-rump-of-beef",
+   "name": "NG Roast Rump Of Beef",
+   "category": "Sunday Roast: Non Gluten",
+   "serving": "",
+   "nutrients": {
+    "calories": 934
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "ng-honey-glazed-pork-belly",
+   "name": "NG Honey Glazed Pork Belly",
+   "category": "Sunday Roast: Non Gluten",
+   "serving": "",
+   "nutrients": {
+    "calories": 1649
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "ng-roast-trio",
+   "name": "NG Roast Trio",
+   "category": "Sunday Roast: Non Gluten",
+   "serving": "",
+   "nutrients": {
+    "calories": 1848
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "lamb-kofta",
+   "name": "Lamb Kofta",
+   "category": "£8.95 Lunch Menu: Lunch Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "tumeric-spiced-tofu-8-95-lunch-menu-lunch-kebabs",
+   "name": "Tumeric Spiced Tofu",
+   "category": "£8.95 Lunch Menu: Lunch Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 563
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "original-chicken-8-95-lunch-menu-lunch-kebabs",
+   "name": "Original Chicken",
+   "category": "£8.95 Lunch Menu: Lunch Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 671
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "crispy-panko-halloumi-8-95-lunch-menu-lunch-kebabs",
+   "name": "Crispy Panko Halloumi",
+   "category": "£8.95 Lunch Menu: Lunch Kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1017
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "properly-seasoned-fries-8-95-lunch-menu-add-ons",
+   "name": "Properly Seasoned Fries",
+   "category": "£8.95 Lunch Menu: Add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 293
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "rosemary-sweet-potato-fries-8-95-lunch-menu-add-ons",
+   "name": "Rosemary Sweet Potato Fries",
+   "category": "£8.95 Lunch Menu: Add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 265
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "houmous-snack-pot",
+   "name": "Houmous Snack Pot",
+   "category": "Kids Menu: Starter",
+   "serving": "",
+   "nutrients": {
+    "calories": 223
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "fish-fingers",
+   "name": "Fish Fingers",
+   "category": "Kids Menu: Step 1: Pick a main",
+   "serving": "",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tenders",
+   "name": "Chicken Tenders",
+   "category": "Kids Menu: Step 1: Pick a main",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "falafel-bites",
+   "name": "Falafel Bites",
+   "category": "Kids Menu: Step 1: Pick a main",
+   "serving": "",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-bites",
+   "name": "Halloumi Bites",
+   "category": "Kids Menu: Step 1: Pick a main",
+   "serving": "",
+   "nutrients": {
+    "calories": 283
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Kids Menu: Step 2: Pick your first side",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "mash",
+   "name": "Mash",
+   "category": "Kids Menu: Step 2: Pick your first side",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Kids Menu: Step 2: Pick your first side",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "couscous",
+   "name": "Couscous",
+   "category": "Kids Menu: Step 2: Pick your first side",
+   "serving": "",
+   "nutrients": {
+    "calories": 128
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-veg",
+   "name": "Roasted Veg",
+   "category": "Kids Menu: Step 2: Pick your first side",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "baked-beans",
+   "name": "Baked Beans",
+   "category": "Kids Menu: Step 3: Pick your second side",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garden-peas",
+   "name": "Garden Peas",
+   "category": "Kids Menu: Step 3: Pick your second side",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "veg-sticks",
+   "name": "Veg Sticks",
+   "category": "Kids Menu: Step 3: Pick your second side",
+   "serving": "",
+   "nutrients": {
+    "calories": 13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-fruit-pot",
+   "name": "Kids Fruit Pot",
+   "category": "Kids Menu: Step 3: Pick your second side",
+   "serving": "",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-ice-cream",
+   "name": "Vanilla Ice Cream",
+   "category": "Kids Menu: Add a pud!",
+   "serving": "",
+   "nutrients": {
+    "calories": 257
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "raspberry-ripple-ice-cream",
+   "name": "Raspberry Ripple Ice Cream",
+   "category": "Kids Menu: Add a pud!",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "banana-brownie-sundae",
+   "name": "Banana Brownie Sundae",
+   "category": "Kids Menu: Add a pud!",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "rainbow-fruit-ice-lolly",
+   "name": "Rainbow Fruit Ice Lolly",
+   "category": "Kids Menu: Add a pud!",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-butty-with-ketchup",
+   "name": "Breakfast Butty with Ketchup",
+   "category": "Botanista Brunch: Brunch Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 840
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-butty-with-hp",
+   "name": "Breakfast Butty with HP",
+   "category": "Botanista Brunch: Brunch Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 845
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "avocado-toast",
+   "name": "Avocado Toast",
+   "category": "Botanista Brunch: Brunch Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "banoffee-pancake-stack",
+   "name": "Banoffee Pancake Stack",
+   "category": "Botanista Brunch: Brunch Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1678
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "the-botanist-blt",
+   "name": "The Botanist BLT",
+   "category": "Botanista Brunch: Brunch Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1556
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "the-botanist-bowl-botanista-brunch-brunch-dishes",
+   "name": "The Botanist Bowl",
+   "category": "Botanista Brunch: Brunch Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1056
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "our-famous-chicken-hanging-kebab",
+   "name": "Our Famous Chicken Hanging Kebab",
+   "category": "Botanista Brunch: Brunch Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 537
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "add-2-poached-eggs",
+   "name": "Add 2 Poached Eggs",
+   "category": "Botanista Brunch: Brunch Dishes options",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-harissa-halloumi-botanista-brunch-brunch-dishes-options",
+   "name": "Add Harissa Halloumi",
+   "category": "Botanista Brunch: Brunch Dishes options",
+   "serving": "",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-tumeric-spiced-tofu",
+   "name": "Add Tumeric-spiced Tofu",
+   "category": "Botanista Brunch: Brunch Dishes options",
+   "serving": "",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "add-harissa-halloumi-botanista-brunch-brunch-dishes-options-the-botanist-bowl",
+   "name": "Add Harissa Halloumi",
+   "category": "Botanista Brunch: Brunch Dishes options",
+   "serving": "",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Botanista Brunch: Pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-chocolate",
+   "name": "Pain Au Chocolate",
+   "category": "Botanista Brunch: Pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chicken-schnitzel",
+   "name": "Chicken Schnitzel",
+   "category": "Group Dining Celebration Menu: The Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 869
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "house-burger",
+   "name": "House Burger",
+   "category": "Group Dining Celebration Menu: The Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 728
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "add-harissa-halloumi-group-dining-celebration-menu-the-main-event-options",
+   "name": "Add Harissa Halloumi",
+   "category": "Group Dining Celebration Menu: The Main Event options",
+   "serving": "",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "original-chicken-group-dining-celebration-menu-our-famous-hanging-kebabs",
+   "name": "Original Chicken",
+   "category": "Group Dining Celebration Menu: Our Famous Hanging Kebabs ™",
+   "serving": "",
+   "nutrients": {
+    "calories": 537
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "harissa-lamb-kofta",
+   "name": "Harissa Lamb Kofta",
+   "category": "Group Dining Celebration Menu: Our Famous Hanging Kebabs ™",
+   "serving": "",
+   "nutrients": {
+    "calories": 517
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "slow-marinated-steak",
+   "name": "Slow Marinated Steak",
+   "category": "Group Dining Celebration Menu: Our Famous Hanging Kebabs ™",
+   "serving": "",
+   "nutrients": {
+    "calories": 702
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "korean-fried-chicken-gardeners-table-finger-food-mix-and-match",
+   "name": "Korean Fried Chicken",
+   "category": "Gardener's Table Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 993
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "spring-arancini-gardeners-table-finger-food-mix-and-match",
+   "name": "Spring Arancini",
+   "category": "Gardener's Table Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 905
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chicken-kebab",
+   "name": "Chicken Kebab",
+   "category": "Gardener's Table Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 681
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "panko-halloumi-kebab",
+   "name": "Panko Halloumi Kebab",
+   "category": "Gardener's Table Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 1268
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "harissa-lamb-kofta-kebab",
+   "name": "Harissa Lamb Kofta Kebab",
+   "category": "Gardener's Table Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "turmeric-spiced-tofu-kebab",
+   "name": "Turmeric Spiced Tofu Kebab",
+   "category": "Gardener's Table Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 441
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "salt-and-pepper-calamari-gardeners-table-finger-food-mix-and-match",
+   "name": "Salt & Pepper Calamari",
+   "category": "Gardener's Table Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 733
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "molluscs",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-cheese-croquettes-gardeners-table-finger-food-mix-and-match",
+   "name": "Ham & Cheese Croquettes",
+   "category": "Gardener's Table Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 566
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-gardeners-table-finger-food-boards",
+   "name": "Chocolate Brownie",
+   "category": "Gardener's Table Finger Food: Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 1922
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "mezze-board-gardeners-table-finger-food-boards",
+   "name": "Mezze Board",
+   "category": "Gardener's Table Finger Food: Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 2000
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "properly-seasoned-fries-gardeners-table-finger-food-boards",
+   "name": "Properly Seasoned Fries",
+   "category": "Gardener's Table Finger Food: Boards",
+   "serving": "",
+   "nutrients": {
+    "calories": 1569
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "sausage-sandwich",
+   "name": "Sausage Sandwich",
+   "category": "Gardener's Table Finger Food: Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1232
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bacon-sandwich",
+   "name": "Bacon Sandwich",
+   "category": "Gardener's Table Finger Food: Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 995
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tomato-ketchup-dip",
+   "name": "Tomato Ketchup Dip",
+   "category": "Gardener's Table Finger Food: Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hp-dip",
+   "name": "HP Dip",
+   "category": "Gardener's Table Finger Food: Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "margherita",
+   "name": "Margherita",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 545
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "vegan-roasted-vegetable",
+   "name": "Vegan Roasted Vegetable",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "goats-cheese-and-pesto",
+   "name": "Goats Cheese & Pesto",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 780
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pepperoni",
+   "name": "Pepperoni",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 671
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-mushroom",
+   "name": "Ham & Mushroom",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 619
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tomato-ketchup",
+   "name": "Tomato Ketchup",
+   "category": "Condiments: Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mayonnaise",
+   "name": "Mayonnaise",
+   "category": "Condiments: Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "christmas-sharing-starter",
+   "name": "Christmas Sharing Starter",
+   "category": "Christmas Menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 722
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "non-gluten-houmous-christmas-menu-starters",
+   "name": "Non-Gluten Houmous",
+   "category": "Christmas Menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "mushroom-bourguignon-pie",
+   "name": "Mushroom Bourguignon Pie",
+   "category": "Christmas Menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 974
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "christmas-dinner-hanging-kebab",
+   "name": "Christmas Dinner Hanging Kebab",
+   "category": "Christmas Menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1142
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "8oz-sirloin-steak",
+   "name": "8oz Sirloin Steak",
+   "category": "Christmas Menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1346
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "pan-fried-salmon-christmas-menu-mains",
+   "name": "Pan-Fried Salmon",
+   "category": "Christmas Menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1058
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "millionaires-brownie",
+   "name": "Millionaire's Brownie",
+   "category": "Christmas Menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 896
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "sticky-toffee-pudding-christmas-menu-puddings",
+   "name": "Sticky Toffee Pudding",
+   "category": "Christmas Menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "vegan-festive-cheesecake",
+   "name": "Vegan Festive Cheesecake",
+   "category": "Christmas Menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 496
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "no-alcohol-butternut-wellington",
+   "name": "No Alcohol Butternut Wellington",
+   "category": "Christmas Menu: Alcohol Free",
+   "serving": "",
+   "nutrients": {
+    "calories": 925
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "arancini",
+   "name": "Arancini",
+   "category": "Christmas Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1839
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-cheese-croquettes-christmas-nibbles",
+   "name": "Ham & Cheese Croquettes",
+   "category": "Christmas Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1697
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "asian-pork-belly-bites-christmas-nibbles",
+   "name": "Asian Pork Belly Bites",
+   "category": "Christmas Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 2748
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "crispy-hoisin-tofu-bites-christmas-nibbles",
+   "name": "Crispy Hoisin Tofu Bites",
+   "category": "Christmas Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 2234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "butternut-arancini",
+   "name": "Butternut Arancini",
+   "category": "Festive Finger Food: Mix & Match",
+   "serving": "",
+   "nutrients": {
+    "calories": 704
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

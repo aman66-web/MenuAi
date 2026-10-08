@@ -259,6 +259,19 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   build: either set Production Branch to `claude/menumacros-kit` in Vercel or promote the newest deployment (this cloud session's Vercel
   connection sees a different account, `aman-moneysave`, and cannot see the `menumacros` project, so I could not do or check it).
 
+- 2026-10-08 — **More chains: 128 now published (19,156 items in the 117 added since the first 11).** Banked this stretch by helpers working in
+  parallel (each re-runnable script in `tools/uk_extract/`, spot-checked against the rendered source): calories-only Notcutts, Bistrot Pierre,
+  The Breakfast Club, Boston Tea Party, Hotel du Vin, Malmaison, Warner Hotels, Heartwood Inns, J W Lees, Joseph Holt, Haven, The Botanist,
+  Chaiiwala, Blank Street, Cornish Bakery, Little Dessert Shop, Dave's Hot Chicken; full-nutrition Flight Club, McMullens, Rudy's, San Carlo,
+  Vue, Baynes, Wild Bean Café, Soho Coffee Co (drinks). Decisions (all conservative, rule 8 not touched): see "Added 7-8 October" in
+  `docs/UK_DATA_STATUS.md` (conflicting sources are held back, never chosen between; hidden-by-the-chain nutrition is not published;
+  allergens stay all-or-nothing and link-only where a guide can't cover every item). Home browse-by-type gained four groups (American & diner,
+  Seafood, World food, Hotels & days out) so "More" stays small. Verified on a production build: 236 unit tests, tsc, lint, e2e smoke/extra/a11y
+  (axe 0)/largetext/share/browse/calories/offline/prodmode all pass; the Nearby "location refused" step times out only because this container's
+  headless Chromium never answers an ungranted geolocation request (checked with a bare probe), not because of the app. 49 more candidate
+  chains were discovered and triaged (`data/candidates/triage2/b-*.csv`); next extraction wave and the large per-site menus are listed in
+  UK_DATA_STATUS.md. **Xcode preview shell** added (`ios/PreviewSources/`, `docs/XCODE_PREVIEW_SHELL.md`).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

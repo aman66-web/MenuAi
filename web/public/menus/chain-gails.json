@@ -1,0 +1,5827 @@
+{
+ "schemaVersion": 1,
+ "id": "gails",
+ "name": "GAIL's Bakery",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "gails",
+  "gail's",
+  "gails bakery",
+  "gail's bakery",
+  "gail"
+ ],
+ "sample": false,
+ "source": {
+  "title": "GAIL's Beverages Nutrition & Allergen Guide, Autumn 2026 (file CoffeeMatrix_Autumn_26.pdf, PDF created 10 September 2026; no date printed in the guide)",
+  "url": "https://cdn.shopify.com/s/files/1/0717/9658/8827/files/CoffeeMatrix_Autumn_26.pdf",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Hot and cold drinks only, from GAIL's drinks guide: calories per portion (the guide doesn't state portion sizes). GAIL's doesn't say whether the nutrition on its food pages is per portion or per 100 g, so no food is listed. Drinks with no figure (N/A) are left out.",
+ "allergenGuide": {
+  "title": "GAIL's Beverages Nutrition & Allergen Guide, Autumn 2026 (file CoffeeMatrix_Autumn_26.pdf, PDF created 10 September 2026; no date printed in the guide)",
+  "url": "https://cdn.shopify.com/s/files/1/0717/9658/8827/files/CoffeeMatrix_Autumn_26.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": false,
+  "complete": true
+ },
+ "categories": [
+  "Coffee",
+  "Tea",
+  "Matcha",
+  "Hot and iced chocolate",
+  "Sproud drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "flat-white-cows-milk",
+   "name": "Flat White, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-semi-skimmed-milk",
+   "name": "Flat White, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-oat-drink",
+   "name": "Flat White, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-soya-drink",
+   "name": "Flat White, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-decaf-cows-milk",
+   "name": "Flat White, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-decaf-semi-skimmed-milk",
+   "name": "Flat White, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-decaf-oat-drink",
+   "name": "Flat White, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-decaf-soya-drink",
+   "name": "Flat White, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-cows-milk",
+   "name": "Iced Flat White, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-semi-skimmed-milk",
+   "name": "Iced Flat White, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-oat-drink",
+   "name": "Iced Flat White, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-soya-drink",
+   "name": "Iced Flat White, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-decaf-cows-milk",
+   "name": "Iced Flat White, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-decaf-semi-skimmed-milk",
+   "name": "Iced Flat White, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-decaf-oat-drink",
+   "name": "Iced Flat White, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-decaf-soya-drink",
+   "name": "Iced Flat White, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-cows-milk",
+   "name": "Regular Cappuccino, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-semi-skimmed-milk",
+   "name": "Regular Cappuccino, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-oat-drink",
+   "name": "Regular Cappuccino, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-soya-drink",
+   "name": "Regular Cappuccino, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-decaf-cows-milk",
+   "name": "Regular Cappuccino, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-decaf-semi-skimmed-milk",
+   "name": "Regular Cappuccino, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-decaf-oat-drink",
+   "name": "Regular Cappuccino, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-decaf-soya-drink",
+   "name": "Regular Cappuccino, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-cappuccino-cows-milk",
+   "name": "Small Cappuccino, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-cappuccino-semi-skimmed-milk",
+   "name": "Small Cappuccino, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-cappuccino-oat-drink",
+   "name": "Small Cappuccino, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-cappuccino-soya-drink",
+   "name": "Small Cappuccino, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-cows-milk",
+   "name": "Decaf Cow’s Milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-cappuccino-decaf-semi-skimmed-milk",
+   "name": "Small Cappuccino, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-cappuccino-decaf-oat-drink",
+   "name": "Small Cappuccino, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-cappuccino-decaf-soya-drink",
+   "name": "Small Cappuccino, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-cows-milk",
+   "name": "Regular Latte, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-semi-skimmed-milk",
+   "name": "Regular Latte, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-oat-drink",
+   "name": "Regular Latte, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 171
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-soya-drink",
+   "name": "Regular Latte, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-decaf-cows-milk",
+   "name": "Regular Latte, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-decaf-semi-skimmed-milk",
+   "name": "Regular Latte, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-decaf-oat-drink",
+   "name": "Regular Latte, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 171
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-decaf-soya-drink",
+   "name": "Regular Latte, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-cows-milk",
+   "name": "Small Latte, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-semi-skimmed-milk",
+   "name": "Small Latte, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-oat-drink",
+   "name": "Small Latte, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-soya-drink",
+   "name": "Small Latte, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-decaf-cows-milk",
+   "name": "Small Latte, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-decaf-semi-skimmed-milk",
+   "name": "Small Latte, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-decaf-oat-drink",
+   "name": "Small Latte, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-decaf-soya-drink",
+   "name": "Small Latte, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-cows-milk",
+   "name": "Iced Latte, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-semi-skimmed-milk",
+   "name": "Iced Latte, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-oat-drink",
+   "name": "Iced Latte, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-soya-drink",
+   "name": "Iced Latte, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-decaf-cows-milk",
+   "name": "Iced Latte, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-decaf-semi-skimmed-milk",
+   "name": "Iced Latte, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-decaf-oat-drink",
+   "name": "Iced Latte, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-decaf-soya-drink",
+   "name": "Iced Latte, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-cows-milk",
+   "name": "Muscovado Iced Latte, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 184
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-semi-skimmed-milk",
+   "name": "Muscovado Iced Latte, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 149
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-oat-drink",
+   "name": "Muscovado Iced Latte, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-soya-drink",
+   "name": "Muscovado Iced Latte, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 169
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-decaf-cows-milk",
+   "name": "Muscovado Iced Latte, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 184
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-decaf-semi-skimmed-milk",
+   "name": "Muscovado Iced Latte, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 149
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-decaf-oat-drink",
+   "name": "Muscovado Iced Latte, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-decaf-soya-drink",
+   "name": "Muscovado Iced Latte, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 169
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black",
+   "name": "Long Black",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black",
+   "name": "Short Black",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-black",
+   "name": "Iced Black",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-black-decaf",
+   "name": "Iced Black, decaf",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-filter-coffee",
+   "name": "Regular Filter Coffee",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-filter-coffee-cows-milk",
+   "name": "Regular Filter Coffee, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-filter-coffee-semi-skimmed-milk",
+   "name": "Regular Filter Coffee, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-filter-coffee-oat-drink",
+   "name": "Regular Filter Coffee, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-filter-coffee-soya-drink",
+   "name": "Regular Filter Coffee, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-filter-coffee",
+   "name": "Small Filter Coffee",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-filter-coffee-cows-milk",
+   "name": "Small Filter Coffee, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-filter-coffee-semi-skimmed-milk",
+   "name": "Small Filter Coffee, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-filter-coffee-oat-drink",
+   "name": "Small Filter Coffee, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-filter-coffee-soya-drink",
+   "name": "Small Filter Coffee, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-cows-milk",
+   "name": "Small Mocha, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-semi-skimmed-milk",
+   "name": "Small Mocha, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-oat-drink",
+   "name": "Small Mocha, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-soya-drink",
+   "name": "Small Mocha, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-decaf-cows-milk",
+   "name": "Small Mocha, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-decaf-semi-skimmed-milk",
+   "name": "Small Mocha, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-decaf-oat-drink",
+   "name": "Small Mocha, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-decaf-soya-drink",
+   "name": "Small Mocha, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-cows-milk",
+   "name": "Regular Mocha, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 263
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-semi-skimmed-milk",
+   "name": "Regular Mocha, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-oat-drink",
+   "name": "Regular Mocha, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-soya-drink",
+   "name": "Regular Mocha, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-decaf-cows-milk",
+   "name": "Regular Mocha, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 263
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-decaf-semi-skimmed-milk",
+   "name": "Regular Mocha, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-decaf-oat-drink",
+   "name": "Regular Mocha, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-decaf-soya-drink",
+   "name": "Regular Mocha, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-cows-milk",
+   "name": "Small Iced Mocha, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-semi-skimmed-milk",
+   "name": "Small Iced Mocha, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-oat-drink",
+   "name": "Small Iced Mocha, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-soya-drink",
+   "name": "Small Iced Mocha, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-decaf-cows-milk",
+   "name": "Small Iced Mocha, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-decaf-semi-skimmed-milk",
+   "name": "Small Iced Mocha, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-decaf-oat-drink",
+   "name": "Small Iced Mocha, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-decaf-soya-drink",
+   "name": "Small Iced Mocha, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-mocha-cows-milk",
+   "name": "Regular Iced Mocha, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 253
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-mocha-semi-skimmed-milk",
+   "name": "Regular Iced Mocha, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-mocha-oat-drink",
+   "name": "Regular Iced Mocha, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 242
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-mocha-soya-drink",
+   "name": "Regular Iced Mocha, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 237
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-mocha-decaf-cows-milk",
+   "name": "Regular Iced Mocha, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 253
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-mocha-decaf-semi-skimmed-milk",
+   "name": "Regular Iced Mocha, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-espresso",
+   "name": "Single Espresso",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-espresso-decaf",
+   "name": "Single Espresso, decaf",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double Espresso",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-espresso-decaf",
+   "name": "Double Espresso, decaf",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-cows-milk",
+   "name": "Single Macchiato, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-semi-skimmed-milk",
+   "name": "Single Macchiato, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-oat-drink",
+   "name": "Single Macchiato, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-soya-drink",
+   "name": "Single Macchiato, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-decaf-cows-milk",
+   "name": "Single Macchiato, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-decaf-semi-skimmed-milk",
+   "name": "Single Macchiato, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-decaf-oat-drink",
+   "name": "Single Macchiato, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-decaf-soya-drink",
+   "name": "Single Macchiato, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-cows-milk",
+   "name": "Double Macchiato, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-semi-skimmed-milk",
+   "name": "Double Macchiato, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-oat-drink",
+   "name": "Double Macchiato, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-soya-drink",
+   "name": "Double Macchiato, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-decaf-cows-milk",
+   "name": "Double Macchiato, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-decaf-semi-skimmed-milk",
+   "name": "Double Macchiato, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-decaf-oat-drink",
+   "name": "Double Macchiato, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-decaf-soya-drink",
+   "name": "Double Macchiato, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-cows-milk",
+   "name": "Cortado, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-semi-skimmed-milk",
+   "name": "Cortado, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-oat-drink",
+   "name": "Cortado, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-soya-drink",
+   "name": "Cortado, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-decaf-cows-milk",
+   "name": "Cortado, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-decaf-semi-skimmed-milk",
+   "name": "Cortado, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-decaf-oat-drink",
+   "name": "Cortado, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-decaf-soya-drink",
+   "name": "Cortado, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-cows-milk",
+   "name": "Long Black, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-semi-skimmed-milk",
+   "name": "Long Black, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-oat-drink",
+   "name": "Long Black, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-soya-drink",
+   "name": "Long Black, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-decaf-cows-milk",
+   "name": "Long Black, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-decaf-semi-skimmed-milk",
+   "name": "Long Black, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-decaf-oat-drink",
+   "name": "Long Black, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-decaf-soya-drink",
+   "name": "Long Black, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-cows-milk",
+   "name": "Short Black, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-semi-skimmed-milk",
+   "name": "Short Black, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-oat-drink",
+   "name": "Short Black, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-soya-drink",
+   "name": "Short Black, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-decaf-cows-milk",
+   "name": "Short Black, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-decaf-semi-skimmed-milk",
+   "name": "Short Black, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-decaf-oat-drink",
+   "name": "Short Black, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-decaf-soya-drink",
+   "name": "Short Black, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cold-brew-black",
+   "name": "Cold Brew - Black",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-cold-brew",
+   "name": "Muscovado Cold Brew",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 52
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tiramisu-cold-brew",
+   "name": "Tiramisu Cold Brew",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tiramisu-cold-brew-decaf-cows-milk",
+   "name": "Tiramisu Cold Brew, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-cows-milk",
+   "name": "Pumpkin Spice Latte, cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-semi-skimmed-milk",
+   "name": "Pumpkin Spice Latte, semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-oat-drink",
+   "name": "Pumpkin Spice Latte, oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 196
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-soya-drink",
+   "name": "Pumpkin Spice Latte, soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-decaf-cows-milk",
+   "name": "Pumpkin Spice Latte, decaf cow’s milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-decaf-semi-skimmed-milk",
+   "name": "Pumpkin Spice Latte, decaf semi skimmed milk",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-decaf-oat-drink",
+   "name": "Pumpkin Spice Latte, decaf oat drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 196
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-decaf-soya-drink",
+   "name": "Pumpkin Spice Latte, decaf soya drink",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea",
+   "name": "English Breakfast Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea-cows-milk",
+   "name": "English Breakfast Tea, cow’s milk",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea-semi-skimmed-milk",
+   "name": "English Breakfast Tea, semi skimmed milk",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea-oat-drink",
+   "name": "English Breakfast Tea, oat drink",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea-soya-drink",
+   "name": "English Breakfast Tea, soya drink",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-tea",
+   "name": "Earl Grey Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-tea-cows-milk",
+   "name": "Earl Grey Tea, cow’s milk",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-tea-semi-skimmed-milk",
+   "name": "Earl Grey Tea, semi skimmed milk",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-tea-oat-drink",
+   "name": "Earl Grey Tea, oat drink",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-tea-soya-drink",
+   "name": "Earl Grey Tea, soya drink",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peppermint-tea",
+   "name": "Peppermint Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chamomile-tea",
+   "name": "Chamomile Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rooibos-tea",
+   "name": "Rooibos Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemongrass-and-ginger-tea",
+   "name": "Lemongrass & Ginger Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jasmine-tea",
+   "name": "Jasmine Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "darjeeling-2nd-flush-tea",
+   "name": "Darjeeling 2nd Flush Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blackcurrant-and-hibiscus-tea",
+   "name": "Blackcurrant & Hibiscus Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-cows-milk",
+   "name": "Chai Latte, cow’s milk",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-semi-skimmed-milk",
+   "name": "Chai Latte, semi skimmed milk",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-oat-drink",
+   "name": "Chai Latte, oat drink",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 231
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-soya-drink",
+   "name": "Chai Latte, soya drink",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-cows-milk",
+   "name": "Iced Chai Latte, cow’s milk",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-semi-skimmed-milk",
+   "name": "Iced Chai Latte, semi skimmed milk",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-oat-drink",
+   "name": "Iced Chai Latte, oat drink",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-soya-drink",
+   "name": "Iced Chai Latte, soya drink",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-matcha-latte-cows-milk",
+   "name": "Regular Matcha Latte, cow’s milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 183
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-matcha-latte-semi-skimmed-milk",
+   "name": "Regular Matcha Latte, semi skimmed milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-matcha-latte-oat-drink",
+   "name": "Regular Matcha Latte, oat drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-matcha-latte-soya-drink",
+   "name": "Regular Matcha Latte, soya drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-matcha-latte-cows-milk",
+   "name": "Small Matcha Latte, cow’s milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-matcha-latte-semi-skimmed-milk",
+   "name": "Small Matcha Latte, semi skimmed milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-matcha-latte-oat-drink",
+   "name": "Small Matcha Latte, oat drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-matcha-latte-soya-drink",
+   "name": "Small Matcha Latte, soya drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-matcha-latte-cows-milk",
+   "name": "Regular Iced Matcha Latte, cow’s milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-matcha-latte-semi-skimmed-milk",
+   "name": "Regular Iced Matcha Latte, semi skimmed milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-matcha-latte-oat-drink",
+   "name": "Regular Iced Matcha Latte, oat drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-matcha-latte-soya-drink",
+   "name": "Regular Iced Matcha Latte, soya drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-matcha-latte-cows-milk",
+   "name": "Small Iced Matcha Latte, cow’s milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-matcha-latte-semi-skimmed-milk",
+   "name": "Small Iced Matcha Latte, semi skimmed milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 103
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-matcha-latte-oat-drink",
+   "name": "Small Iced Matcha Latte, oat drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-matcha-latte-soya-drink",
+   "name": "Small Iced Matcha Latte, soya drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-iced-matcha-cows-milk",
+   "name": "Black Sesame Iced Matcha, cow’s milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 245
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-iced-matcha-semi-skimmed-milk",
+   "name": "Black Sesame Iced Matcha, semi skimmed milk",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-iced-matcha-oat-drink",
+   "name": "Black Sesame Iced Matcha, oat drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-iced-matcha-soya-drink",
+   "name": "Black Sesame Iced Matcha, soya drink",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 229
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "apple-and-cinnamon-iced-matcha",
+   "name": "Apple & Cinnamon Iced Matcha",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-hot-cocoa-cows-milk",
+   "name": "Small Hot Cocoa, cow’s milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-hot-cocoa-semi-skimmed-milk",
+   "name": "Small Hot Cocoa, semi skimmed milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-hot-cocoa-oat-drink",
+   "name": "Small Hot Cocoa, oat drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-hot-cocoa-soya-drink",
+   "name": "Small Hot Cocoa, soya drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-hot-cocoa-cows-milk",
+   "name": "Regular Hot Cocoa, cow’s milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-hot-cocoa-semi-skimmed-milk",
+   "name": "Regular Hot Cocoa, semi skimmed milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-hot-cocoa-oat-drink",
+   "name": "Regular Hot Cocoa, oat drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 256
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-hot-cocoa-soya-drink",
+   "name": "Regular Hot Cocoa, soya drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-chocolate-cows-milk",
+   "name": "Small Iced Chocolate, cow’s milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 192
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-chocolate-semi-skimmed-milk",
+   "name": "Small Iced Chocolate, semi skimmed milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-chocolate-oat-drink",
+   "name": "Small Iced Chocolate, oat drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-chocolate-soya-drink",
+   "name": "Small Iced Chocolate, soya drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chocolate-cows-milk",
+   "name": "Iced Chocolate, cow’s milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chocolate-semi-skimmed-milk",
+   "name": "Iced Chocolate, semi skimmed milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chocolate-oat-drink",
+   "name": "Iced Chocolate, oat drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 242
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chocolate-soya-drink",
+   "name": "Iced Chocolate, soya drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 237
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "70-dark-hot-chocolate-cows-milk",
+   "name": "70% Dark Hot Chocolate, cow’s milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 277
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "70-dark-hot-chocolate-semi-skimmed-milk",
+   "name": "70% Dark Hot Chocolate, semi skimmed milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 253
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "70-dark-hot-chocolate-oat-drink",
+   "name": "70% Dark Hot Chocolate, oat drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "70-dark-hot-chocolate-soya-drink",
+   "name": "70% Dark Hot Chocolate, soya drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "48-milk-hot-chocolate-cows-milk",
+   "name": "48% Milk Hot Chocolate, cow’s milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "48-milk-hot-chocolate-semi-skimmed-milk",
+   "name": "48% Milk Hot Chocolate, semi skimmed milk",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 248
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "48-milk-hot-chocolate-oat-drink",
+   "name": "48% Milk Hot Chocolate, oat drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "48-milk-hot-chocolate-soya-drink",
+   "name": "48% Milk Hot Chocolate, soya drink",
+   "category": "Hot and iced chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-sproud",
+   "name": "Cortado, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-sproud",
+   "name": "Flat White, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-sproud",
+   "name": "Iced Flat White, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "short-black-sproud",
+   "name": "Short Black, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "long-black-sproud",
+   "name": "Long Black, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-cappuccino-sproud",
+   "name": "Small Cappuccino, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-cappuccino-sproud",
+   "name": "Regular Cappuccino, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-macchiato-sproud",
+   "name": "Single Macchiato, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-macchiato-sproud",
+   "name": "Double Macchiato, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-black-sproud",
+   "name": "Iced Black, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-latte-sproud",
+   "name": "Small Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte-sproud",
+   "name": "Regular Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-latte-sproud",
+   "name": "Regular Iced Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muscovado-iced-latte-sproud",
+   "name": "Muscovado Iced Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-mocha-sproud",
+   "name": "Small Mocha, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-mocha-sproud",
+   "name": "Regular Mocha, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-mocha-sproud",
+   "name": "Small Iced Mocha, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-iced-mocha-sproud",
+   "name": "Regular Iced Mocha, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-hot-cocoa-sproud",
+   "name": "Small Hot Cocoa, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-hot-cocoa-sproud",
+   "name": "Regular Hot Cocoa, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "48-milk-hot-chocolate-sproud",
+   "name": "48% Milk Hot Chocolate, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "70-dark-hot-chocolate-sproud",
+   "name": "70% Dark Hot Chocolate, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 227
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-chocolate-sproud",
+   "name": "Small Iced Chocolate, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chocolate-sproud",
+   "name": "Iced Chocolate, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-sproud",
+   "name": "Chai Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-sproud",
+   "name": "Iced Chai Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-matcha-latte-sproud",
+   "name": "Small Matcha Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-sproud",
+   "name": "Matcha Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 87
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-iced-matcha-latte-sproud",
+   "name": "Small Iced Matcha Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-sproud",
+   "name": "Iced Matcha Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-sesame-iced-matcha-sproud",
+   "name": "Black Sesame Iced Matcha, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pumpkin-spice-latte-sproud",
+   "name": "Pumpkin Spice Latte, Sproud",
+   "category": "Sproud drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

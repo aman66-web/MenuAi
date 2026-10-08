@@ -1,0 +1,3885 @@
+{
+ "schemaVersion": 1,
+ "id": "barburrito",
+ "name": "BarBurrito",
+ "cuisine": "Mexican",
+ "builderType": "standard",
+ "aliases": [
+  "barburrito",
+  "bar burrito",
+  "bar burrito uk"
+ ],
+ "sample": false,
+ "source": {
+  "title": "BarBurrito allergen & nutritional information (tkmenus.com/barburrito: Burritos, Bowls, Main Menu Extras, Nachos, Sides, Dessert Menu, Kids Menu and Drinks Menu; accessed 2026-10-07, no date shown)",
+  "url": "https://tkmenus.com/barburrito",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "BarBurrito prints calories only, and none for a finished burrito, bowl or nachos: each part (wrap, rice, protein, salsa...) is listed with its own calories, so add up your build. Breakfast (airport stores only) is not included. Menus can differ between restaurants.",
+ "allergenGuide": {
+  "title": "BarBurrito allergen information (tkmenus.com/barburrito, accessed 2026-10-07, no date shown)",
+  "url": "https://tkmenus.com/barburrito",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Build your own: bases",
+  "Build your own: rice",
+  "Build your own: proteins",
+  "Build your own: second proteins",
+  "Build your own: veg and beans",
+  "Build your own: salsas",
+  "Build your own: toppings",
+  "Build your own: cheese and extras",
+  "Build your own: sauces",
+  "Sides",
+  "Loaded fries",
+  "Dips",
+  "Tortilla & dips",
+  "Extras and pots",
+  "Desserts",
+  "Kids (Bambino)",
+  "Soft drinks",
+  "Alcohol"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "regular-burrito-base",
+   "name": "Regular Burrito (base)",
+   "category": "Build your own: bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mexican-fries-base",
+   "name": "Mexican Fries (base)",
+   "category": "Build your own: bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "the-beast-two-tortilla-wraps-base",
+   "name": "The Beast Two Tortilla Wraps (base)",
+   "category": "Build your own: bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 578
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-classic-burrito-base",
+   "name": "Lil' Classic Burrito (base)",
+   "category": "Build your own: bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salad-base",
+   "name": "Salad Base",
+   "category": "Build your own: bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 538
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "tortilla-chips-nachos-base",
+   "name": "Tortilla Chips (nachos base)",
+   "category": "Build your own: bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tortilla-and-dips-base",
+   "name": "Tortilla & Dips (base)",
+   "category": "Build your own: bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "tortilla-chips-bambino-nachos-base",
+   "name": "Tortilla Chips (Bambino nachos base)",
+   "category": "Build your own: bases",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "garlic-white",
+   "name": "Garlic - White",
+   "category": "Build your own: rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mexican-brown",
+   "name": "Mexican - Brown",
+   "category": "Build your own: rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-mexican-brown-rice",
+   "name": "Lil' Mexican Brown Rice",
+   "category": "Build your own: rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-garlic-rice",
+   "name": "Lil' Garlic Rice",
+   "category": "Build your own: rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "mexican-veg-and-guacamole",
+   "name": "Mexican Veg & Guacamole",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 149
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chorizo-protein",
+   "name": "Chorizo (protein)",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pork",
+   "name": "Pork",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 206
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "beef",
+   "name": "Beef",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chipotle-bbq-vegan-steak",
+   "name": "Chipotle BBQ Vegan Steak",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-in-hot-honey-protein",
+   "name": "Halloumi in Hot Honey (protein)",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 273
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cholula-sweet-lime-chicken",
+   "name": "Cholula Sweet Lime Chicken",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "lil-chicken",
+   "name": "Lil' Chicken",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "lil-veg-and-guac",
+   "name": "Lil' Veg & Guac",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-chorizo",
+   "name": "Lil' Chorizo",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-pork",
+   "name": "Lil' Pork",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-beef",
+   "name": "Lil' Beef",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-vegan-steak",
+   "name": "Lil' Vegan Steak",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "lil-halloumi-in-hot-honey",
+   "name": "Lil' Halloumi in Hot Honey",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 171
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-cholula-sweet-lime-chicken",
+   "name": "Lil' Cholula Sweet Lime Chicken",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chicken-bambino-nachos",
+   "name": "Chicken (Bambino nachos)",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "pork-bambino-nachos",
+   "name": "Pork (Bambino nachos)",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chipotle-bbq-vegan-steak-bambino-nachos",
+   "name": "Chipotle BBQ Vegan Steak (Bambino nachos)",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "onions-and-peppers-and-mushrooms",
+   "name": "Onions & Peppers & Mushrooms",
+   "category": "Build your own: proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "loaded-chicken",
+   "name": "Loaded Chicken",
+   "category": "Build your own: second proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "loaded-veg-and-guac",
+   "name": "Loaded Veg & Guac",
+   "category": "Build your own: second proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-chorizo",
+   "name": "Loaded Chorizo",
+   "category": "Build your own: second proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-pork",
+   "name": "Loaded Pork",
+   "category": "Build your own: second proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 103
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-beef",
+   "name": "Loaded Beef",
+   "category": "Build your own: second proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-chipotle-bbq-vegan-steak",
+   "name": "Loaded Chipotle BBQ Vegan Steak",
+   "category": "Build your own: second proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "loaded-halloumi-in-hot-honey",
+   "name": "Loaded Halloumi in Hot Honey",
+   "category": "Build your own: second proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-cholula-sweet-lime-chicken",
+   "name": "Loaded Cholula Sweet Lime Chicken",
+   "category": "Build your own: second proteins",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "black-beans",
+   "name": "Black Beans",
+   "category": "Build your own: veg and beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mexican-veg",
+   "name": "Mexican Veg",
+   "category": "Build your own: veg and beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms",
+   "category": "Build your own: veg and beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "paprika-corn",
+   "name": "Paprika Corn",
+   "category": "Build your own: veg and beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-black-beans",
+   "name": "Lil' Black Beans",
+   "category": "Build your own: veg and beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-mexican-veg",
+   "name": "Lil' Mexican Veg",
+   "category": "Build your own: veg and beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-mushrooms",
+   "name": "Lil' Mushrooms",
+   "category": "Build your own: veg and beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-paprika-corn",
+   "name": "Lil' Paprika Corn",
+   "category": "Build your own: veg and beans",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pico-de-gallo",
+   "name": "Pico de Gallo",
+   "category": "Build your own: salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoky-chipotle",
+   "name": "Smoky Chipotle",
+   "category": "Build your own: salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-and-habanero",
+   "name": "Mango & Habanero",
+   "category": "Build your own: salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "carolina-reaper",
+   "name": "Carolina Reaper",
+   "category": "Build your own: salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-pico-de-gallo",
+   "name": "Lil' Pico De Gallo",
+   "category": "Build your own: salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-smoky-chipotle",
+   "name": "Lil' Smoky Chipotle",
+   "category": "Build your own: salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-mango-and-habanero",
+   "name": "Lil' Mango & Habanero",
+   "category": "Build your own: salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-carolina-reaper",
+   "name": "Lil' Carolina Reaper",
+   "category": "Build your own: salsas",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "naked-slaw",
+   "name": "Naked Slaw",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pink-onion",
+   "name": "Pink Onion",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lettuce",
+   "name": "Lettuce",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jalapenos-red",
+   "name": "Jalapenos Red",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheddar-cheese",
+   "name": "Cheddar Cheese",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vegan-feta",
+   "name": "Vegan Feta",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nacho-crunch",
+   "name": "Nacho Crunch",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "slaw-superfood-burrito",
+   "name": "Slaw (Superfood burrito)",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "slaw",
+   "name": "Slaw",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-jalapenos",
+   "name": "Lil' Jalapenos",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-lettuce",
+   "name": "Lil' Lettuce",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-pink-onions",
+   "name": "Lil' Pink Onions",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-sauce-classic-nachos-loaded-nachos",
+   "name": "Cheese Sauce (Classic nachos / Loaded nachos)",
+   "category": "Build your own: toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chorizo-extra",
+   "name": "Chorizo (extra)",
+   "category": "Build your own: cheese and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-sauce",
+   "name": "Cheese Sauce",
+   "category": "Build your own: cheese and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "guacamole",
+   "name": "Guacamole",
+   "category": "Build your own: cheese and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "halloumi-in-hot-honey-extra",
+   "name": "Halloumi in Hot Honey (extra)",
+   "category": "Build your own: cheese and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-monterey-jack-cheese",
+   "name": "Lil' Monterey Jack Cheese",
+   "category": "Build your own: cheese and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 42
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-vegan-feta",
+   "name": "Lil' Vegan Feta",
+   "category": "Build your own: cheese and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheddar-cheese-superfood-bowl",
+   "name": "Cheddar Cheese (Superfood bowl)",
+   "category": "Build your own: cheese and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 104
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese",
+   "name": "Cheese",
+   "category": "Build your own: cheese and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-lime-mayo",
+   "name": "Garlic Lime Mayo",
+   "category": "Build your own: sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chipotle-mayo",
+   "name": "Chipotle Mayo",
+   "category": "Build your own: sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sour-cream",
+   "name": "Sour Cream",
+   "category": "Build your own: sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 34
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-sour-cream",
+   "name": "Lil' Sour Cream",
+   "category": "Build your own: sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-chipotle-mayo",
+   "name": "Lil' Chipotle Mayo",
+   "category": "Build your own: sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lil-garlic-lime-mayo",
+   "name": "Lil' Garlic Lime Mayo",
+   "category": "Build your own: sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sour-cream-superfood-bowl",
+   "name": "Sour Cream (Superfood bowl)",
+   "category": "Build your own: sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-mayo",
+   "name": "Garlic Mayo",
+   "category": "Build your own: sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "big-pot-sauce",
+   "name": "Big Pot Sauce",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 527
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chicken-bites",
+   "name": "Chicken Bites",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "side-mexican-fries",
+   "name": "Side - Mexican Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "side-mexican-cheesy-fries",
+   "name": "Side - Mexican Cheesy Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 453
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "side-tortilla-chips-plain",
+   "name": "Side - Tortilla Chips Plain",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "loaded-fries-chicken",
+   "name": "Loaded Fries - Chicken",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 778
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "loaded-fries-veg-and-guac",
+   "name": "Loaded Fries - Veg & Guac",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 817
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-fries-chorizo",
+   "name": "Loaded Fries - Chorizo",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 787
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-fries-pork",
+   "name": "Loaded Fries - Pork",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 874
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-fries-beef",
+   "name": "Loaded Fries - Beef",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 811
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-fries-vg-steak",
+   "name": "Loaded Fries - VG Steak",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 797
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "loaded-fries-halloumi-in-hot-honey",
+   "name": "Loaded Fries - Halloumi in Hot Honey",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 941
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-fries-veg-and-guac-vg",
+   "name": "Loaded Fries - Veg & Guac VG",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 734
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-fries-vg-steak-vegan-loaded-fries",
+   "name": "Loaded Fries - VG Steak (Vegan loaded fries)",
+   "category": "Loaded fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 714
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "dips-pico-de-gallo-salsa",
+   "name": "Dips - Pico de Gallo Salsa",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-mango-habanero-salsa",
+   "name": "Dips - Mango Habanero Salsa",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-smoky-chipotle-salsa",
+   "name": "Dips - Smoky Chipotle Salsa",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-carolina-reaper-salsa",
+   "name": "Dips - Carolina Reaper Salsa",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-chorizo",
+   "name": "Dips - Chorizo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-guacamole",
+   "name": "Dips - Guacamole",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-cheese-sauce",
+   "name": "Dips - Cheese Sauce",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-chipotle-mayo",
+   "name": "Dips - Chipotle Mayo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-garlic-lime-mayo",
+   "name": "Dips - Garlic Lime Mayo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-sour-cream",
+   "name": "Dips - Sour Cream",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salsa-dip",
+   "name": "Salsa Dip",
+   "category": "Tortilla & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "chipotle-mayo-dip",
+   "name": "Chipotle Mayo Dip",
+   "category": "Tortilla & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sour-cream-dip",
+   "name": "Sour Cream Dip",
+   "category": "Tortilla & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "guacamole-dip",
+   "name": "Guacamole Dip",
+   "category": "Tortilla & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "queso-dip",
+   "name": "Queso Dip",
+   "category": "Tortilla & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-mayo-dip",
+   "name": "Garlic Mayo Dip",
+   "category": "Tortilla & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "extra-chicken",
+   "name": "Extra Chicken",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "extra-veg-and-guac",
+   "name": "Extra Veg & Guac",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 149
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-chorizo",
+   "name": "Extra Chorizo",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-pork",
+   "name": "Extra Pork",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 206
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-beef",
+   "name": "Extra Beef",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-vg-steak",
+   "name": "Extra VG Steak",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "sides-sour-cream",
+   "name": "Sides - Sour Cream",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-garlic-lime-mayo",
+   "name": "Sides - Garlic Lime Mayo",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-chipotle-mayo",
+   "name": "Sides - Chipotle Mayo",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-pico-de-gallo-salsa",
+   "name": "Sides - Pico de Gallo Salsa",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-mango-habanero-salsa",
+   "name": "Sides - Mango Habanero Salsa",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-smoky-chipotle-salsa",
+   "name": "Sides - Smoky Chipotle Salsa",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-carolina-reaper-salsa",
+   "name": "Sides - Carolina Reaper Salsa",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-chorizo",
+   "name": "Sides - Chorizo",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-guacamole",
+   "name": "Sides - Guacamole",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sides-cheese-sauce",
+   "name": "Sides - Cheese Sauce",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-mexican-veg",
+   "name": "Extra Mexican Veg",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-cheese-sauce",
+   "name": "Extra Cheese Sauce",
+   "category": "Extras and pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "4-churros-with-dulce-de-leche",
+   "name": "4 Churros with Dulce De Leche",
+   "category": "Desserts",
+   "serving": "4 churros",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "6-churros-with-dulce-de-leche",
+   "name": "6 Churros with Dulce De Leche",
+   "category": "Desserts",
+   "serving": "6 churros",
+   "nutrients": {
+    "calories": 483
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "4-churros-with-chocolate-sauce",
+   "name": "4 Churros with Chocolate Sauce",
+   "category": "Desserts",
+   "serving": "4 churros",
+   "nutrients": {
+    "calories": 363
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "6-churros-with-chocolate-sauce",
+   "name": "6 Churros with Chocolate Sauce",
+   "category": "Desserts",
+   "serving": "6 churros",
+   "nutrients": {
+    "calories": 468
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "dips-chocolate",
+   "name": "Dips - Chocolate",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-dulce-de-leche",
+   "name": "Dips - Dulce de Leche",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pico-de-gallo-mild",
+   "name": "Pico de Gallo (Mild)",
+   "category": "Kids (Bambino)",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "churros-and-dulce-de-leche-sauce",
+   "name": "Churros & Dulce de Leche Sauce",
+   "category": "Kids (Bambino)",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cawston-apple-and-summer-berries",
+   "name": "Cawston Apple & Summer Berries",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-juice-smooth",
+   "name": "Orange Juice Smooth",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-juice-with-bits",
+   "name": "Orange Juice with bits",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lipton-ice-tea-peach",
+   "name": "Lipton Ice Tea - Peach",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lipton-ice-tea-tropical",
+   "name": "Lipton Ice Tea - Tropical",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bottle-coca-cola-0-5l",
+   "name": "Bottle Coca Cola 0.5L",
+   "category": "Soft drinks",
+   "serving": "0.5L",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bottle-dr-pepper-0-5l",
+   "name": "Bottle Dr Pepper 0.5L",
+   "category": "Soft drinks",
+   "serving": "0.5L",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bottle-coke-zero-0-5l",
+   "name": "Bottle Coke Zero 0.5L",
+   "category": "Soft drinks",
+   "serving": "0.5L",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bottle-diet-coke-0-5l",
+   "name": "Bottle Diet Coke 0.5L",
+   "category": "Soft drinks",
+   "serving": "0.5L",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bottle-fanta-0-5l",
+   "name": "Bottle Fanta 0.5L",
+   "category": "Soft drinks",
+   "serving": "0.5L",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bottle-sprite-0-5l",
+   "name": "Bottle Sprite 0.5L",
+   "category": "Soft drinks",
+   "serving": "0.5L",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-appletiser",
+   "name": "Can Appletiser",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-coca-cola",
+   "name": "Can Coca Cola",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-coke-zero",
+   "name": "Can Coke Zero",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-diet-coke",
+   "name": "Can Diet Coke",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-sprite",
+   "name": "Can Sprite",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-fanta",
+   "name": "Can Fanta",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-irn-bru",
+   "name": "Can Irn Bru",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-irn-bru-diet",
+   "name": "Can Irn Bru Diet",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "water-sparkling",
+   "name": "Water - Sparkling",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "water-still",
+   "name": "Water - Still",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "trip-cbd-peach-ginger-250ml",
+   "name": "Trip CBD Peach Ginger 250ml",
+   "category": "Soft drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-trip-wild-strawberry-250ml",
+   "name": "Can Trip Wild Strawberry 250ml",
+   "category": "Soft drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "can-trip-sicilian-lemon-250ml",
+   "name": "Can Trip Sicilian Lemon 250ml",
+   "category": "Soft drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jarritos-pineapple-soda-bottle-370ml",
+   "name": "Jarritos Pineapple Soda Bottle 370ml",
+   "category": "Soft drinks",
+   "serving": "370ml",
+   "nutrients": {
+    "calories": 141
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jarritos-mexican-cola-bottle-370ml",
+   "name": "Jarritos Mexican Cola Bottle 370ml",
+   "category": "Soft drinks",
+   "serving": "370ml",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jarritos-mango-bottle-370ml",
+   "name": "Jarritos Mango Bottle 370ml",
+   "category": "Soft drinks",
+   "serving": "370ml",
+   "nutrients": {
+    "calories": 141
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "beer-corona",
+   "name": "Beer - Corona",
+   "category": "Alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cider-rekorderlig-strawberry-and-lime",
+   "name": "Cider - Rekorderlig Strawberry & Lime",
+   "category": "Alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cider-rekorderlig-wild-berries",
+   "name": "Cider - Rekorderlig Wild Berries",
+   "category": "Alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

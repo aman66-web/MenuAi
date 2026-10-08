@@ -1,0 +1,3966 @@
+{
+ "schemaVersion": 1,
+ "id": "baynes",
+ "name": "Baynes",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "baynes",
+  "baynes bakery",
+  "baynes bakers",
+  "baynes the bakers",
+  "baynes the family bakers",
+  "bayne's",
+  "bayne's the family bakers"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Baynes Nutritional Information (MASTER Nutritional.xlsx, version 108, date of issue 06.10.26, PDF created 6 October 2026)",
+  "url": "https://baynes.co.uk/wp-content/uploads/2026/10/Nutritional-Website-1.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Baynes' own per-product figures, a guideline only (the bakery says its products are hand-crafted and vary). Loaves, large pies, gateaux and celebration cakes print very large totals, so check the size. No fibre or weights are published. Allergens: see the guide.",
+ "allergenGuide": {
+  "title": "Baynes Allergen Information (MASTER Allergens.xlsx, version 108, date of issue 06.10.26)",
+  "url": "https://docs.baynes.co.uk/Allergens-Website.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Halloween range 2026",
+  "Rolls & breads",
+  "Freshly baked savouries",
+  "Small cream cakes",
+  "Large cream cakes",
+  "Tea breads",
+  "Seasonal tea bread",
+  "Iced tea breads",
+  "Small cakes",
+  "Large cakes",
+  "Components of hot filled rolls",
+  "Rolls with butter",
+  "Hot rolls",
+  "Soup",
+  "Tea & hot chocolate",
+  "Freshly ground coffee",
+  "Iced drinks",
+  "Celebration cakes",
+  "Filled morning rolls",
+  "Filled rye rolls",
+  "Simply morning roll range",
+  "Filled dark fired rolls",
+  "Filled granary rolls",
+  "Filled baguettes",
+  "Filled batons"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "halloween-french-cake",
+   "name": "Halloween French Cake",
+   "category": "Halloween range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 306,
+    "protein": 2.3,
+    "carbs": 59.9,
+    "fat": 6.1,
+    "saturatedFat": 2.3,
+    "sugar": 45.8,
+    "salt": 0.6,
+    "energyKj": 1280
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloween-cupcake",
+   "name": "Halloween Cupcake",
+   "category": "Halloween range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 402,
+    "protein": 4,
+    "carbs": 50.2,
+    "fat": 20.8,
+    "saturatedFat": 5.5,
+    "sugar": 38.6,
+    "salt": 0.7,
+    "energyKj": 1681
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "alien-biscuit",
+   "name": "Alien Biscuit",
+   "category": "Halloween range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 306,
+    "protein": 2.5,
+    "carbs": 46.2,
+    "fat": 12.2,
+    "saturatedFat": 4.5,
+    "sugar": 27.3,
+    "salt": 0.3,
+    "energyKj": 1282
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gingerbread-muffin",
+   "name": "Gingerbread Muffin",
+   "category": "Halloween range 2026",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 4.1,
+    "carbs": 62.7,
+    "fat": 20.2,
+    "saturatedFat": 6.4,
+    "sugar": 48.3,
+    "salt": 0.8,
+    "energyKj": 1881
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bran-roll",
+   "name": "Bran Roll",
+   "category": "Rolls & breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 213,
+    "protein": 6.4,
+    "carbs": 36.2,
+    "fat": 4.1,
+    "saturatedFat": 1.7,
+    "sugar": 3.3,
+    "salt": 0.6,
+    "energyKj": 890
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cabin-roll",
+   "name": "Cabin Roll",
+   "category": "Rolls & breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 280,
+    "protein": 8.3,
+    "carbs": 50.9,
+    "fat": 4.4,
+    "saturatedFat": 2.1,
+    "sugar": 6.1,
+    "salt": 1.3,
+    "energyKj": 1171
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dark-fired-morning-roll",
+   "name": "Dark Fired Morning Roll",
+   "category": "Rolls & breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 207,
+    "protein": 7.1,
+    "carbs": 38.8,
+    "fat": 2.2,
+    "saturatedFat": 0.9,
+    "sugar": 0.3,
+    "salt": 0.8,
+    "energyKj": 865
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "multiseed-loaf",
+   "name": "Multiseed Loaf",
+   "category": "Rolls & breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1446,
+    "protein": 58.1,
+    "carbs": 197.8,
+    "fat": 44.4,
+    "saturatedFat": 6.7,
+    "sugar": 8.1,
+    "salt": 3.9,
+    "energyKj": 6048
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "softie-roll",
+   "name": "Softie Roll",
+   "category": "Rolls & breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 227,
+    "protein": 6.8,
+    "carbs": 40.3,
+    "fat": 4,
+    "saturatedFat": 1.8,
+    "sugar": 3.9,
+    "salt": 0.6,
+    "energyKj": 950
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-morning-loaf",
+   "name": "Traditional Morning Loaf",
+   "category": "Rolls & breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1379,
+    "protein": 47.5,
+    "carbs": 259,
+    "fat": 14.8,
+    "saturatedFat": 5.7,
+    "sugar": 2.2,
+    "salt": 5.2,
+    "energyKj": 5769
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-morning-roll",
+   "name": "Traditional Morning Roll",
+   "category": "Rolls & breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 210,
+    "protein": 7.2,
+    "carbs": 39.4,
+    "fat": 2.3,
+    "saturatedFat": 0.9,
+    "sugar": 0.3,
+    "salt": 0.8,
+    "energyKj": 878
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rye-roll",
+   "name": "Rye Roll",
+   "category": "Rolls & breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 196,
+    "protein": 6.8,
+    "carbs": 38.2,
+    "fat": 1.4,
+    "saturatedFat": 0.5,
+    "sugar": 1.3,
+    "salt": 1,
+    "energyKj": 821
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-sausage-roll",
+   "name": "Beef Sausage Roll",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 402,
+    "protein": 8.7,
+    "carbs": 36,
+    "fat": 24.5,
+    "saturatedFat": 12.3,
+    "sugar": 0.6,
+    "salt": 2.5,
+    "energyKj": 1684
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-onion-pasty",
+   "name": "Cheese & Onion Pasty",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 505,
+    "protein": 9.7,
+    "carbs": 45.4,
+    "fat": 31.3,
+    "saturatedFat": 17.1,
+    "sugar": 3,
+    "salt": 1.8,
+    "energyKj": 2112
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-pie",
+   "name": "Chicken Pie",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 370,
+    "protein": 11.3,
+    "carbs": 42,
+    "fat": 16.1,
+    "saturatedFat": 7.7,
+    "sugar": 3.2,
+    "salt": 2,
+    "energyKj": 1548
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-steak-pie",
+   "name": "Large Steak Pie",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 3123,
+    "protein": 172.2,
+    "carbs": 209.6,
+    "fat": 175.8,
+    "saturatedFat": 84.2,
+    "sugar": 2.2,
+    "salt": 17.1,
+    "energyKj": 13067
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macaroni-pie",
+   "name": "Macaroni Pie",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 332,
+    "protein": 10.7,
+    "carbs": 37,
+    "fat": 15.5,
+    "saturatedFat": 8.3,
+    "sugar": 3.9,
+    "salt": 1.9,
+    "energyKj": 1390
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-slice",
+   "name": "Margherita Pizza Slice",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 435,
+    "protein": 22,
+    "carbs": 42.4,
+    "fat": 19.2,
+    "saturatedFat": 11.2,
+    "sugar": 7.2,
+    "salt": 2.3,
+    "energyKj": 1818
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza-slice",
+   "name": "Pepperoni Pizza Slice",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 461,
+    "protein": 23,
+    "carbs": 40.8,
+    "fat": 22.5,
+    "saturatedFat": 12.3,
+    "sugar": 7,
+    "salt": 2.5,
+    "energyKj": 1931
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "medium-steak-pie",
+   "name": "Medium Steak Pie",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1749,
+    "protein": 87,
+    "carbs": 122.6,
+    "fat": 100.2,
+    "saturatedFat": 48.2,
+    "sugar": 1.3,
+    "salt": 8.6,
+    "energyKj": 7319
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mince-and-onion-bridie",
+   "name": "Mince & Onion Bridie",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 565,
+    "protein": 11.9,
+    "carbs": 49.9,
+    "fat": 35.1,
+    "saturatedFat": 17.8,
+    "sugar": 2.4,
+    "salt": 2.4,
+    "energyKj": 2364
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-sausage-roll",
+   "name": "Pork Sausage Roll",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 258,
+    "protein": 5.3,
+    "carbs": 24.4,
+    "fat": 15.3,
+    "saturatedFat": 7.7,
+    "sugar": 0.4,
+    "salt": 1.3,
+    "energyKj": 1079
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scotch-pie",
+   "name": "Scotch Pie",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 370,
+    "protein": 13.3,
+    "carbs": 40.1,
+    "fat": 17.1,
+    "saturatedFat": 6.7,
+    "sugar": 0.5,
+    "salt": 2.4,
+    "energyKj": 1548
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-bake",
+   "name": "Steak Bake",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 524,
+    "protein": 14.9,
+    "carbs": 45.2,
+    "fat": 31.2,
+    "saturatedFat": 15.9,
+    "sugar": 1.9,
+    "salt": 2.2,
+    "energyKj": 2194
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shell-steak-pie",
+   "name": "Shell Steak Pie",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 382,
+    "protein": 16.4,
+    "carbs": 41,
+    "fat": 16.6,
+    "saturatedFat": 7,
+    "sugar": 2.3,
+    "salt": 2,
+    "energyKj": 1598
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-spicy-chicken-pasty",
+   "name": "Sweet & Spicy Chicken Pasty",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 522,
+    "protein": 13.6,
+    "carbs": 47,
+    "fat": 29.3,
+    "saturatedFat": 15.7,
+    "sugar": 4.2,
+    "salt": 2,
+    "energyKj": 2184
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-haggis-pie",
+   "name": "Chicken & Haggis Pie",
+   "category": "Freshly baked savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 525,
+    "protein": 15.4,
+    "carbs": 48.9,
+    "fat": 27.2,
+    "saturatedFat": 13,
+    "sugar": 4,
+    "salt": 3,
+    "energyKj": 2195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-puff",
+   "name": "Apple Puff",
+   "category": "Small cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 558,
+    "protein": 6,
+    "carbs": 50,
+    "fat": 36.3,
+    "saturatedFat": 20.3,
+    "sugar": 13.6,
+    "salt": 1.2,
+    "energyKj": 2334
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-eclair",
+   "name": "Chocolate Éclair",
+   "category": "Small cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 293,
+    "protein": 3.3,
+    "carbs": 25.1,
+    "fat": 19.9,
+    "saturatedFat": 10.9,
+    "sugar": 13.4,
+    "salt": 0.3,
+    "energyKj": 1226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-pancake",
+   "name": "Cream Pancake",
+   "category": "Small cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 451,
+    "protein": 6.4,
+    "carbs": 48.4,
+    "fat": 25.7,
+    "saturatedFat": 12.3,
+    "sugar": 19.2,
+    "salt": 0.7,
+    "energyKj": 1889
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fudge-cream-doughnut",
+   "name": "Fudge Cream Doughnut",
+   "category": "Small cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 455,
+    "protein": 7.9,
+    "carbs": 57.3,
+    "fat": 21.3,
+    "saturatedFat": 10.6,
+    "sugar": 17.3,
+    "salt": 1.4,
+    "energyKj": 1902
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-tart",
+   "name": "Strawberry Tart",
+   "category": "Small cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 2.4,
+    "carbs": 34.3,
+    "fat": 11.9,
+    "saturatedFat": 5.2,
+    "sugar": 13.6,
+    "salt": 0.2,
+    "energyKj": 1069
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-turnover",
+   "name": "Strawberry Turnover",
+   "category": "Small cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 482,
+    "protein": 5.5,
+    "carbs": 41.9,
+    "fat": 32.3,
+    "saturatedFat": 18.2,
+    "sugar": 13.5,
+    "salt": 1,
+    "energyKj": 2016
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "individual-trifle",
+   "name": "Individual Trifle",
+   "category": "Small cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 433,
+    "protein": 3.9,
+    "carbs": 53.1,
+    "fat": 22.7,
+    "saturatedFat": 12.5,
+    "sugar": 38,
+    "salt": 0.8,
+    "energyKj": 1811
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-strawberry-torten",
+   "name": "Large Strawberry Torten",
+   "category": "Large cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 3201,
+    "protein": 32.9,
+    "carbs": 325,
+    "fat": 196.4,
+    "saturatedFat": 102.9,
+    "sugar": 194.8,
+    "salt": 6.7,
+    "energyKj": 13394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-trifle",
+   "name": "Large Trifle",
+   "category": "Large cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 2540,
+    "protein": 23.5,
+    "carbs": 312.8,
+    "fat": 131.7,
+    "saturatedFat": 71.8,
+    "sugar": 221.3,
+    "salt": 4.8,
+    "energyKj": 10627
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "medium-strawberry-torten",
+   "name": "Medium Strawberry Torten",
+   "category": "Large cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1830,
+    "protein": 20.4,
+    "carbs": 202.9,
+    "fat": 106.2,
+    "saturatedFat": 65.2,
+    "sugar": 122.9,
+    "salt": 2.3,
+    "energyKj": 7658
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "medium-trifle",
+   "name": "Medium Trifle",
+   "category": "Large cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1335,
+    "protein": 12.3,
+    "carbs": 164.7,
+    "fat": 69.1,
+    "saturatedFat": 37.7,
+    "sugar": 116.7,
+    "salt": 2.5,
+    "energyKj": 5584
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-flan",
+   "name": "Strawberry Flan",
+   "category": "Large cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1559,
+    "protein": 12.6,
+    "carbs": 199.7,
+    "fat": 77.9,
+    "saturatedFat": 37.3,
+    "sugar": 87.1,
+    "salt": 0.9,
+    "energyKj": 6525
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-sponge",
+   "name": "Strawberry Sponge",
+   "category": "Large cream cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1209,
+    "protein": 14.3,
+    "carbs": 202.3,
+    "fat": 39.4,
+    "saturatedFat": 23.3,
+    "sugar": 124,
+    "salt": 1.8,
+    "energyKj": 5058
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crumpet",
+   "name": "Crumpet",
+   "category": "Tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 193,
+    "protein": 4.6,
+    "carbs": 32.1,
+    "fat": 5,
+    "saturatedFat": 0.6,
+    "sugar": 9.8,
+    "salt": 0.6,
+    "energyKj": 807
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-scone",
+   "name": "Fruit Scone",
+   "category": "Tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 239,
+    "protein": 4.6,
+    "carbs": 41.2,
+    "fat": 5.9,
+    "saturatedFat": 2.7,
+    "sugar": 15,
+    "salt": 0.7,
+    "energyKj": 1001
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-girdle-scone",
+   "name": "Small Girdle Scone",
+   "category": "Tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 247,
+    "protein": 4.8,
+    "carbs": 36.1,
+    "fat": 8.9,
+    "saturatedFat": 0.8,
+    "sugar": 1.4,
+    "salt": 1.5,
+    "energyKj": 1035
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wheaten-scone",
+   "name": "Wheaten Scone",
+   "category": "Tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 262,
+    "protein": 6.7,
+    "carbs": 43.2,
+    "fat": 6.2,
+    "saturatedFat": 0.7,
+    "sugar": 7.8,
+    "salt": 0.9,
+    "energyKj": 1096
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "treacle-scone",
+   "name": "Treacle Scone",
+   "category": "Seasonal tea bread",
+   "serving": "",
+   "nutrients": {
+    "calories": 223,
+    "protein": 4.2,
+    "carbs": 30.1,
+    "fat": 9.2,
+    "saturatedFat": 1.7,
+    "sugar": 8.2,
+    "salt": 1,
+    "energyKj": 934
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-yum-yum",
+   "name": "Caramel Yum Yum",
+   "category": "Iced tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 474,
+    "protein": 6.4,
+    "carbs": 60.5,
+    "fat": 22.7,
+    "saturatedFat": 11.1,
+    "sugar": 24.4,
+    "salt": 1.2,
+    "energyKj": 1981
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fudge-custard-doughnut",
+   "name": "Fudge Custard Doughnut",
+   "category": "Iced tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 359,
+    "protein": 6.7,
+    "carbs": 54.7,
+    "fat": 12.4,
+    "saturatedFat": 6.4,
+    "sugar": 21.1,
+    "salt": 1.2,
+    "energyKj": 1503
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-iced-doughring",
+   "name": "Pink Iced Doughring",
+   "category": "Iced tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 230,
+    "protein": 3.5,
+    "carbs": 34.8,
+    "fat": 8.1,
+    "saturatedFat": 0.9,
+    "sugar": 16.6,
+    "salt": 1,
+    "energyKj": 961
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sugar-doughring",
+   "name": "Sugar Doughring",
+   "category": "Iced tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 3.5,
+    "carbs": 40.9,
+    "fat": 8.2,
+    "saturatedFat": 0.9,
+    "sugar": 23.4,
+    "salt": 1,
+    "energyKj": 1068
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-iced-doughring",
+   "name": "White Iced Doughring",
+   "category": "Iced tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 230,
+    "protein": 3.5,
+    "carbs": 34.8,
+    "fat": 8.1,
+    "saturatedFat": 0.9,
+    "sugar": 16.6,
+    "salt": 1,
+    "energyKj": 962
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yum-yum",
+   "name": "Yum Yum",
+   "category": "Iced tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 342,
+    "protein": 6.1,
+    "carbs": 43.8,
+    "fat": 15.6,
+    "saturatedFat": 7.3,
+    "sugar": 9.2,
+    "salt": 1,
+    "energyKj": 1430
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belgian-bun",
+   "name": "Belgian Bun",
+   "category": "Iced tea breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 520,
+    "protein": 10.2,
+    "carbs": 89.6,
+    "fat": 13,
+    "saturatedFat": 4.7,
+    "sugar": 45.6,
+    "salt": 0.9,
+    "energyKj": 2176
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-crisp",
+   "name": "Chocolate Crisp",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 302,
+    "protein": 2.8,
+    "carbs": 37,
+    "fat": 15.6,
+    "saturatedFat": 9.5,
+    "sugar": 28.6,
+    "salt": 0.2,
+    "energyKj": 1265
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "custard-slice",
+   "name": "Custard Slice",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 390,
+    "protein": 5.2,
+    "carbs": 57.8,
+    "fat": 15.1,
+    "saturatedFat": 8.1,
+    "sugar": 33.2,
+    "salt": 1,
+    "energyKj": 1631
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "empire-biscuit-with-jelly-sweet",
+   "name": "Empire Biscuit with Jelly Sweet",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 373,
+    "protein": 3.2,
+    "carbs": 53.7,
+    "fat": 15.9,
+    "saturatedFat": 5.8,
+    "sugar": 28,
+    "salt": 0.4,
+    "energyKj": 1592
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-french-cake-with-lilac-drizzle",
+   "name": "White French Cake with Lilac Drizzle",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 304,
+    "protein": 2.3,
+    "carbs": 60,
+    "fat": 6,
+    "saturatedFat": 2.3,
+    "sugar": 46.4,
+    "salt": 0.6,
+    "energyKj": 1273
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-slice",
+   "name": "Fruit Slice",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 202,
+    "protein": 2.6,
+    "carbs": 31.8,
+    "fat": 7.3,
+    "saturatedFat": 3.7,
+    "sugar": 19.6,
+    "salt": 0.4,
+    "energyKj": 843
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "millionaire-shortbread",
+   "name": "Millionaire Shortbread",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 3.5,
+    "carbs": 54.5,
+    "fat": 21.2,
+    "saturatedFat": 13.2,
+    "sugar": 33.9,
+    "salt": 0.4,
+    "energyKj": 1792
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mr-blobby-biscuit",
+   "name": "Mr Blobby Biscuit",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 297,
+    "protein": 2.2,
+    "carbs": 47.3,
+    "fat": 10.8,
+    "saturatedFat": 4.3,
+    "sugar": 29.7,
+    "salt": 0.3,
+    "energyKj": 1241
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-cup-cake",
+   "name": "Original Cup Cake",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 4.1,
+    "carbs": 48.2,
+    "fat": 15.4,
+    "saturatedFat": 2.6,
+    "sugar": 34.4,
+    "salt": 0.7,
+    "energyKj": 1456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-cake",
+   "name": "Pineapple Cake",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 309,
+    "protein": 2.2,
+    "carbs": 46.4,
+    "fat": 12.4,
+    "saturatedFat": 6.5,
+    "sugar": 26.9,
+    "salt": 0.2,
+    "energyKj": 1294
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "snowball",
+   "name": "Snowball",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 353,
+    "protein": 3.7,
+    "carbs": 62.1,
+    "fat": 9.6,
+    "saturatedFat": 2.1,
+    "sugar": 41.2,
+    "salt": 0.6,
+    "energyKj": 1476
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sous-lug",
+   "name": "Sous Lug",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "protein": 2.1,
+    "carbs": 41,
+    "fat": 6.6,
+    "saturatedFat": 2.6,
+    "sugar": 26,
+    "salt": 0.4,
+    "energyKj": 975
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-chocolate-muffin",
+   "name": "Triple Chocolate Muffin",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 411,
+    "protein": 5.2,
+    "carbs": 50.4,
+    "fat": 19.7,
+    "saturatedFat": 3.5,
+    "sugar": 34.1,
+    "salt": 0.8,
+    "energyKj": 1721
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle",
+   "name": "Truffle",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 269,
+    "protein": 2.9,
+    "carbs": 36.4,
+    "fat": 12.5,
+    "saturatedFat": 7.5,
+    "sugar": 25.2,
+    "salt": 0.5,
+    "energyKj": 1126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belgian-milk-chocolate-cookies",
+   "name": "Belgian Milk Chocolate Cookies",
+   "category": "Small cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 323,
+    "protein": 3.9,
+    "carbs": 45.8,
+    "fat": 13.7,
+    "saturatedFat": 7.9,
+    "sugar": 27.6,
+    "salt": 0.4,
+    "energyKj": 1353
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-flan",
+   "name": "Apple Flan",
+   "category": "Large cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1657,
+    "protein": 17.2,
+    "carbs": 227.2,
+    "fat": 74.2,
+    "saturatedFat": 28.7,
+    "sugar": 93.3,
+    "salt": 1.2,
+    "energyKj": 6934
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gingerbread",
+   "name": "Gingerbread",
+   "category": "Large cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1393,
+    "protein": 19.8,
+    "carbs": 216.2,
+    "fat": 49.2,
+    "saturatedFat": 6.9,
+    "sugar": 113.5,
+    "salt": 1,
+    "energyKj": 5829
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon",
+   "name": "Bacon",
+   "category": "Components of hot filled rolls",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 46,
+    "protein": 5.3,
+    "carbs": 0.5,
+    "fat": 3.2,
+    "saturatedFat": 0.7,
+    "sugar": 0.1,
+    "salt": 0.9,
+    "energyKj": 192
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-link-sausage",
+   "name": "Pork Link Sausage",
+   "category": "Components of hot filled rolls",
+   "serving": "1 sausage",
+   "nutrients": {
+    "calories": 85,
+    "protein": 6.2,
+    "carbs": 1.7,
+    "fat": 6,
+    "saturatedFat": 2.2,
+    "sugar": 0,
+    "salt": 0.8,
+    "energyKj": 357
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-pudding",
+   "name": "Black Pudding",
+   "category": "Components of hot filled rolls",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 229,
+    "protein": 4.5,
+    "carbs": 8.4,
+    "fat": 19.9,
+    "saturatedFat": 9.9,
+    "sugar": 0.7,
+    "salt": 0.9,
+    "energyKj": 957
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sliced-sausage",
+   "name": "Sliced Sausage",
+   "category": "Components of hot filled rolls",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 223,
+    "protein": 16.4,
+    "carbs": 10.6,
+    "fat": 12.5,
+    "saturatedFat": 5.2,
+    "sugar": 0.3,
+    "salt": 2.2,
+    "energyKj": 932
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "omelette",
+   "name": "Omelette",
+   "category": "Components of hot filled rolls",
+   "serving": "1 piece",
+   "nutrients": {
+    "calories": 47,
+    "protein": 4.3,
+    "carbs": 0.4,
+    "fat": 3.1,
+    "saturatedFat": 0.9,
+    "sugar": 0.4,
+    "salt": 0.3,
+    "energyKj": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bran-roll-with-butter",
+   "name": "Bran Roll with Butter",
+   "category": "Rolls with butter",
+   "serving": "",
+   "nutrients": {
+    "calories": 293,
+    "protein": 6.7,
+    "carbs": 37.6,
+    "fat": 12.4,
+    "saturatedFat": 5.7,
+    "sugar": 3.5,
+    "salt": 0.7,
+    "energyKj": 1226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cabin-roll-with-butter",
+   "name": "Cabin Roll with Butter",
+   "category": "Rolls with butter",
+   "serving": "",
+   "nutrients": {
+    "calories": 354,
+    "protein": 8.4,
+    "carbs": 51.2,
+    "fat": 12.6,
+    "saturatedFat": 6,
+    "sugar": 6.2,
+    "salt": 1.4,
+    "energyKj": 1481
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dark-fired-morning-roll-with-butter",
+   "name": "Dark Fired Morning Roll with Butter",
+   "category": "Rolls with butter",
+   "serving": "",
+   "nutrients": {
+    "calories": 290,
+    "protein": 7.5,
+    "carbs": 40.9,
+    "fat": 10.5,
+    "saturatedFat": 4.8,
+    "sugar": 0.4,
+    "salt": 0.9,
+    "energyKj": 1215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "softie-roll-with-butter",
+   "name": "Softie Roll with Butter",
+   "category": "Rolls with butter",
+   "serving": "",
+   "nutrients": {
+    "calories": 301,
+    "protein": 6.8,
+    "carbs": 40.6,
+    "fat": 12.2,
+    "saturatedFat": 5.7,
+    "sugar": 4,
+    "salt": 0.7,
+    "energyKj": 1259
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-morning-roll-with-butter",
+   "name": "Traditional Morning Roll with Butter",
+   "category": "Rolls with butter",
+   "serving": "",
+   "nutrients": {
+    "calories": 290,
+    "protein": 7.5,
+    "carbs": 40.9,
+    "fat": 10.5,
+    "saturatedFat": 4.8,
+    "sugar": 0.4,
+    "salt": 0.9,
+    "energyKj": 1215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rye-roll-with-butter",
+   "name": "Rye Roll with Butter",
+   "category": "Rolls with butter",
+   "serving": "",
+   "nutrients": {
+    "calories": 279,
+    "protein": 7.1,
+    "carbs": 40.3,
+    "fat": 9.6,
+    "saturatedFat": 4.4,
+    "sugar": 1.5,
+    "salt": 1.1,
+    "energyKj": 1165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-baguette-melt",
+   "name": "Ham & Cheese Baguette Melt",
+   "category": "Hot rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 580,
+    "protein": 24.6,
+    "carbs": 65.2,
+    "fat": 24.8,
+    "saturatedFat": 12.6,
+    "sugar": 1.9,
+    "salt": 3.1,
+    "energyKj": 2425
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-roll-melt",
+   "name": "Ham & Cheese Roll Melt",
+   "category": "Hot rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 475,
+    "protein": 24.4,
+    "carbs": 35.6,
+    "fat": 25.7,
+    "saturatedFat": 14.1,
+    "sugar": 0.5,
+    "salt": 2.4,
+    "energyKj": 1988
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-roll-melt",
+   "name": "Tuna Roll Melt",
+   "category": "Hot rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 459,
+    "protein": 23,
+    "carbs": 43.8,
+    "fat": 20.6,
+    "saturatedFat": 6.3,
+    "sugar": 7,
+    "salt": 2.3,
+    "energyKj": 1920
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-and-mozzarella-roll-melt",
+   "name": "Pepperoni & Mozzarella Roll Melt",
+   "category": "Hot rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 394,
+    "protein": 18,
+    "carbs": 44,
+    "fat": 15.8,
+    "saturatedFat": 7.2,
+    "sugar": 7.2,
+    "salt": 1.8,
+    "energyKj": 1650
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lentil-soup",
+   "name": "Lentil Soup",
+   "category": "Soup",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 6.1,
+    "carbs": 10.9,
+    "fat": 2.4,
+    "saturatedFat": 0.7,
+    "sugar": 2.4,
+    "salt": 1.3,
+    "energyKj": 417
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-soup",
+   "name": "Tomato Soup",
+   "category": "Soup",
+   "serving": "",
+   "nutrients": {
+    "calories": 123,
+    "protein": 1.8,
+    "carbs": 15.5,
+    "fat": 4.8,
+    "saturatedFat": 0.5,
+    "sugar": 10.9,
+    "salt": 1.1,
+    "energyKj": 515
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 8.4,
+    "carbs": 29.9,
+    "fat": 4,
+    "saturatedFat": 2.6,
+    "sugar": 28.3,
+    "salt": 0.3,
+    "energyKj": 815
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-with-cream",
+   "name": "Hot Chocolate with Cream",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 252,
+    "protein": 8.9,
+    "carbs": 31.6,
+    "fat": 9.4,
+    "saturatedFat": 6.2,
+    "sugar": 29.9,
+    "salt": 0.3,
+    "energyKj": 1054
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hazelnut-hot-chocolate-with-cream",
+   "name": "Hazelnut Hot Chocolate with Cream",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 316,
+    "protein": 8.9,
+    "carbs": 47.6,
+    "fat": 9.4,
+    "saturatedFat": 6.2,
+    "sugar": 45.3,
+    "salt": 0.3,
+    "energyKj": 1323
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burnt-orange-hot-chocolate-with-mallows-and-cream",
+   "name": "Burnt Orange Hot Chocolate with Mallows & Cream",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 318,
+    "protein": 9,
+    "carbs": 47.1,
+    "fat": 9.4,
+    "saturatedFat": 6.2,
+    "sugar": 45.1,
+    "salt": 0.3,
+    "energyKj": 1332
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tetley-tea-large-black",
+   "name": "Tetley Tea Large (Black)",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tetley-tea-regular-black",
+   "name": "Tetley Tea Regular (Black)",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-with-oat-drink",
+   "name": "Tea with Oat Drink",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0.2,
+    "carbs": 1.4,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 0.7,
+    "salt": 0,
+    "energyKj": 51
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twinings-tea-large-black",
+   "name": "Twining's Tea Large (Black)",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twinings-tea-regular-black",
+   "name": "Twining's Tea Regular (Black)",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-and-ginger-tea",
+   "name": "Lemon and Ginger Tea",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tea",
+   "name": "Peppermint Tea",
+   "category": "Tea & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-coffee-large",
+   "name": "Black Coffee Large",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-coffee-regular",
+   "name": "Black Coffee Regular",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino Large",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 119,
+    "protein": 8.7,
+    "carbs": 11.6,
+    "fat": 4.2,
+    "saturatedFat": 2.7,
+    "sugar": 11.6,
+    "salt": 0.3,
+    "energyKj": 496
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino Regular",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 85,
+    "protein": 6.2,
+    "carbs": 8.3,
+    "fat": 3,
+    "saturatedFat": 2,
+    "sugar": 8.3,
+    "salt": 0.2,
+    "energyKj": 357
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular-oat-drink",
+   "name": "Cappuccino Regular Oat Drink",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 105,
+    "protein": 1.4,
+    "carbs": 11.9,
+    "fat": 5.3,
+    "saturatedFat": 0.5,
+    "sugar": 5.9,
+    "salt": 0.2,
+    "energyKj": 439
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double Espresso",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Freshly ground coffee",
+   "serving": "8 oz",
+   "nutrients": {
+    "calories": 67,
+    "protein": 4.9,
+    "carbs": 6.5,
+    "fat": 2.4,
+    "saturatedFat": 1.5,
+    "sugar": 6.5,
+    "salt": 0.2,
+    "energyKj": 279
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-oat-drink",
+   "name": "Flat White Oat Drink",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 82,
+    "protein": 1.1,
+    "carbs": 9.3,
+    "fat": 4.2,
+    "saturatedFat": 0.4,
+    "sugar": 4.6,
+    "salt": 0.2,
+    "energyKj": 343
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte Large",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 141,
+    "protein": 10.3,
+    "carbs": 13.8,
+    "fat": 5,
+    "saturatedFat": 3.2,
+    "sugar": 13.8,
+    "salt": 0.3,
+    "energyKj": 592
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte Regular",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 91,
+    "protein": 6.6,
+    "carbs": 8.9,
+    "fat": 3.2,
+    "saturatedFat": 2.1,
+    "sugar": 8.9,
+    "salt": 0.2,
+    "energyKj": 381
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-regular-oat-drink",
+   "name": "Latte Regular Oat Drink",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 1.5,
+    "carbs": 12.7,
+    "fat": 5.7,
+    "saturatedFat": 0.6,
+    "sugar": 6.3,
+    "salt": 0.3,
+    "energyKj": 468
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gingerbread-latte-with-cream-and-sprinkles",
+   "name": "Gingerbread Latte with Cream & Sprinkles",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 273,
+    "protein": 9.2,
+    "carbs": 37,
+    "fat": 9.8,
+    "saturatedFat": 6.3,
+    "sugar": 36.2,
+    "salt": 0.3,
+    "energyKj": 1144
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Freshly ground coffee",
+   "serving": "12 oz",
+   "nutrients": {
+    "calories": 231,
+    "protein": 10.8,
+    "carbs": 34.1,
+    "fat": 5.1,
+    "saturatedFat": 3.3,
+    "sugar": 32.3,
+    "salt": 0.3,
+    "energyKj": 967
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-oat-drink",
+   "name": "Mocha Oat Drink",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 258,
+    "protein": 4.1,
+    "carbs": 39,
+    "fat": 8.3,
+    "saturatedFat": 1.3,
+    "sugar": 28.8,
+    "salt": 0.4,
+    "energyKj": 1081
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-coffee-large",
+   "name": "White Coffee Large",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 3.9,
+    "carbs": 5.2,
+    "fat": 1.9,
+    "saturatedFat": 1.2,
+    "sugar": 5.2,
+    "salt": 0.1,
+    "energyKj": 221
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-coffee-regular",
+   "name": "White Coffee Regular",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 35,
+    "protein": 2.6,
+    "carbs": 3.4,
+    "fat": 1.3,
+    "saturatedFat": 0.8,
+    "sugar": 3.4,
+    "salt": 0.1,
+    "energyKj": 147
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-coffee-oat-drink",
+   "name": "White Coffee Oat Drink",
+   "category": "Freshly ground coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.6,
+    "carbs": 4.9,
+    "fat": 2.2,
+    "saturatedFat": 0.2,
+    "sugar": 2.4,
+    "salt": 0.1,
+    "energyKj": 181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-twist",
+   "name": "Pineapple Twist",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 85,
+    "protein": 0,
+    "carbs": 21,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20.9,
+    "salt": 0,
+    "energyKj": 356
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-twist",
+   "name": "Strawberry Twist",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 0,
+    "carbs": 24.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 24.5,
+    "salt": 0.1,
+    "energyKj": 425
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80,
+    "protein": 5.8,
+    "carbs": 7.8,
+    "fat": 2.8,
+    "saturatedFat": 1.8,
+    "sugar": 7.8,
+    "salt": 0.2,
+    "energyKj": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-vanilla-latte",
+   "name": "Iced Vanilla Latte",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 5.8,
+    "carbs": 21.7,
+    "fat": 2.8,
+    "saturatedFat": 1.8,
+    "sugar": 21.7,
+    "salt": 0.2,
+    "energyKj": 568
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-crown-w-coffee",
+   "name": "Iced Caramel Crown w/ Coffee",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 226,
+    "protein": 6.6,
+    "carbs": 33.5,
+    "fat": 7.1,
+    "saturatedFat": 4.7,
+    "sugar": 31.9,
+    "salt": 0.3,
+    "energyKj": 947
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-crown",
+   "name": "Iced Caramel Crown",
+   "category": "Iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "protein": 6.8,
+    "carbs": 34.6,
+    "fat": 7.3,
+    "saturatedFat": 4.8,
+    "sugar": 32.9,
+    "salt": 0.3,
+    "energyKj": 976
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-8-round",
+   "name": "Chocolate 8\" Round",
+   "category": "Celebration cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 9088,
+    "protein": 66.1,
+    "carbs": 1065,
+    "fat": 485.4,
+    "saturatedFat": 168.8,
+    "sugar": 865.2,
+    "salt": 10.3,
+    "energyKj": 38023
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-8-square",
+   "name": "Chocolate 8\" Square",
+   "category": "Celebration cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 9792,
+    "protein": 72.9,
+    "carbs": 1151,
+    "fat": 531.3,
+    "saturatedFat": 180.2,
+    "sugar": 930.4,
+    "salt": 11,
+    "energyKj": 40969
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sponge-sugar-paste-8-round",
+   "name": "Sponge Sugar Paste 8\" Round",
+   "category": "Celebration cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 8682,
+    "protein": 56.6,
+    "carbs": 1632,
+    "fat": 213.9,
+    "saturatedFat": 74.7,
+    "sugar": 1396,
+    "salt": 16.2,
+    "energyKj": 36325
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-salad-filled-morning-rolls",
+   "name": "Ham Salad (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 318,
+    "protein": 13.9,
+    "carbs": 39.7,
+    "fat": 11.4,
+    "saturatedFat": 5,
+    "sugar": 1.8,
+    "salt": 1.5,
+    "energyKj": 1331
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-salad-filled-morning-rolls",
+   "name": "Cheese Salad (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 467,
+    "protein": 18.2,
+    "carbs": 42.7,
+    "fat": 24.7,
+    "saturatedFat": 13.6,
+    "sugar": 2,
+    "salt": 1.6,
+    "energyKj": 1953
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-savoury-salad-filled-morning-rolls",
+   "name": "Cheese Savoury Salad (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 455,
+    "protein": 14.5,
+    "carbs": 44.3,
+    "fat": 23.5,
+    "saturatedFat": 7.3,
+    "sugar": 3.6,
+    "salt": 1.8,
+    "energyKj": 1902
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-mayonnaise-salad-filled-morning-rolls",
+   "name": "Chicken Mayonnaise Salad (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 18.9,
+    "carbs": 44,
+    "fat": 17.7,
+    "saturatedFat": 2.3,
+    "sugar": 3.2,
+    "salt": 1.5,
+    "energyKj": 1751
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-salad-filled-morning-rolls",
+   "name": "Chicken Tikka Salad (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 396,
+    "protein": 18.9,
+    "carbs": 43.9,
+    "fat": 15.3,
+    "saturatedFat": 2.1,
+    "sugar": 3.2,
+    "salt": 1.3,
+    "energyKj": 1656
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-filled-morning-rolls",
+   "name": "Egg Mayonnaise (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 415,
+    "protein": 13.8,
+    "carbs": 42.1,
+    "fat": 20.8,
+    "saturatedFat": 3.2,
+    "sugar": 2.2,
+    "salt": 1.5,
+    "energyKj": 1735
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-salad-filled-morning-rolls",
+   "name": "Tuna Mayonnaise Salad (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 368,
+    "protein": 18.3,
+    "carbs": 43,
+    "fat": 12.9,
+    "saturatedFat": 1.7,
+    "sugar": 2.8,
+    "salt": 1.6,
+    "energyKj": 1538
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corned-beef-salad-filled-morning-rolls",
+   "name": "Corned Beef Salad (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 368,
+    "protein": 16,
+    "carbs": 42.7,
+    "fat": 14.8,
+    "saturatedFat": 6.9,
+    "sugar": 2.2,
+    "salt": 1.7,
+    "energyKj": 1540
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-chicken-mayo-salad-filled-morning-rolls",
+   "name": "Mexican Chicken Mayo Salad (Filled Morning Rolls)",
+   "category": "Filled morning rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 413,
+    "protein": 22.7,
+    "carbs": 46.9,
+    "fat": 13.2,
+    "saturatedFat": 1.9,
+    "sugar": 4.2,
+    "salt": 1.6,
+    "energyKj": 1728
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-salad-filled-rye-rolls",
+   "name": "Ham Salad (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 309,
+    "protein": 13.6,
+    "carbs": 39.4,
+    "fat": 10.6,
+    "saturatedFat": 4.7,
+    "sugar": 2.8,
+    "salt": 1.7,
+    "energyKj": 1294
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-salad-filled-rye-rolls",
+   "name": "Cheese Salad (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 456,
+    "protein": 17.8,
+    "carbs": 42.4,
+    "fat": 23.7,
+    "saturatedFat": 13.1,
+    "sugar": 3,
+    "salt": 1.8,
+    "energyKj": 1908
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-savoury-salad-filled-rye-rolls",
+   "name": "Cheese Savoury Salad (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 449,
+    "protein": 14.3,
+    "carbs": 44.5,
+    "fat": 22.9,
+    "saturatedFat": 7,
+    "sugar": 4.6,
+    "salt": 2,
+    "energyKj": 1879
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-mayonnaise-salad-filled-rye-rolls",
+   "name": "Chicken Mayonnaise Salad (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 408,
+    "protein": 18.5,
+    "carbs": 43.7,
+    "fat": 16.8,
+    "saturatedFat": 2,
+    "sugar": 4.2,
+    "salt": 1.7,
+    "energyKj": 1709
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-salad-filled-rye-rolls",
+   "name": "Chicken Tikka Salad (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 384,
+    "protein": 18.1,
+    "carbs": 43.4,
+    "fat": 14.4,
+    "saturatedFat": 1.8,
+    "sugar": 4.2,
+    "salt": 1.5,
+    "energyKj": 1606
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-filled-rye-rolls",
+   "name": "Egg Mayonnaise (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 405,
+    "protein": 13.4,
+    "carbs": 41.8,
+    "fat": 19.9,
+    "saturatedFat": 2.8,
+    "sugar": 3.2,
+    "salt": 1.7,
+    "energyKj": 1693
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-salad-filled-rye-rolls",
+   "name": "Tuna Mayonnaise Salad (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 362,
+    "protein": 18.1,
+    "carbs": 43.1,
+    "fat": 12.2,
+    "saturatedFat": 1.4,
+    "sugar": 3.8,
+    "salt": 1.8,
+    "energyKj": 1513
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corned-beef-salad-filled-rye-rolls",
+   "name": "Corned Beef Salad (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "protein": 15.6,
+    "carbs": 42.1,
+    "fat": 13.8,
+    "saturatedFat": 6.5,
+    "sugar": 3.2,
+    "salt": 1.9,
+    "energyKj": 1490
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-chicken-mayo-salad-filled-rye-rolls",
+   "name": "Mexican Chicken Mayo Salad (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 403,
+    "protein": 22.3,
+    "carbs": 46.6,
+    "fat": 12.3,
+    "saturatedFat": 1.6,
+    "sugar": 5.2,
+    "salt": 1.8,
+    "energyKj": 1686
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salad-no-filling",
+   "name": "Salad (no filling)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 290,
+    "protein": 7.8,
+    "carbs": 42.3,
+    "fat": 9.8,
+    "saturatedFat": 4.5,
+    "sugar": 2.9,
+    "salt": 1.1,
+    "energyKj": 1214
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-filled-rye-rolls",
+   "name": "Ham & Cheese (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 405,
+    "protein": 19,
+    "carbs": 40.7,
+    "fat": 18.1,
+    "saturatedFat": 9.3,
+    "sugar": 1.5,
+    "salt": 2.2,
+    "energyKj": 1695
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "simply-ham-filled-rye-rolls",
+   "name": "Simply Ham (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 322,
+    "protein": 14,
+    "carbs": 40.6,
+    "fat": 11.2,
+    "saturatedFat": 5,
+    "sugar": 1.5,
+    "salt": 1.8,
+    "energyKj": 1348
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "simply-cheese-filled-rye-rolls",
+   "name": "Simply Cheese (Filled Rye Rolls)",
+   "category": "Filled rye rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 486,
+    "protein": 19.6,
+    "carbs": 40.6,
+    "fat": 26.9,
+    "saturatedFat": 15.2,
+    "sugar": 1.5,
+    "salt": 2,
+    "energyKj": 2034
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-mayonnaise-simply-morning-roll-range",
+   "name": "Chicken Mayonnaise (Simply Morning Roll Range)",
+   "category": "Simply morning roll range",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 18.4,
+    "carbs": 42.5,
+    "fat": 17.5,
+    "saturatedFat": 2.3,
+    "sugar": 1.8,
+    "salt": 1.5,
+    "energyKj": 1712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-simply-morning-roll-range",
+   "name": "Egg Mayonnaise (Simply Morning Roll Range)",
+   "category": "Simply morning roll range",
+   "serving": "",
+   "nutrients": {
+    "calories": 410,
+    "protein": 13.5,
+    "carbs": 41.1,
+    "fat": 20.8,
+    "saturatedFat": 3.1,
+    "sugar": 0.8,
+    "salt": 1.5,
+    "energyKj": 1714
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-simply-morning-roll-range",
+   "name": "Tuna Mayonnaise (Simply Morning Roll Range)",
+   "category": "Simply morning roll range",
+   "serving": "",
+   "nutrients": {
+    "calories": 362,
+    "protein": 18.1,
+    "carbs": 41.9,
+    "fat": 12.8,
+    "saturatedFat": 1.7,
+    "sugar": 1.3,
+    "salt": 1.6,
+    "energyKj": 1515
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-ham",
+   "name": "Cheese and Ham",
+   "category": "Simply morning roll range",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 19.6,
+    "carbs": 41.3,
+    "fat": 19.2,
+    "saturatedFat": 9.8,
+    "sugar": 0.5,
+    "salt": 2,
+    "energyKj": 1754
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "simply-ham-simply-morning-roll-range",
+   "name": "Simply Ham (Simply Morning Roll Range)",
+   "category": "Simply morning roll range",
+   "serving": "",
+   "nutrients": {
+    "calories": 336,
+    "protein": 14.5,
+    "carbs": 41.4,
+    "fat": 12.1,
+    "saturatedFat": 5.4,
+    "sugar": 0.5,
+    "salt": 1.7,
+    "energyKj": 1405
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "simply-cheese-simply-morning-roll-range",
+   "name": "Simply Cheese (Simply Morning Roll Range)",
+   "category": "Simply morning roll range",
+   "serving": "",
+   "nutrients": {
+    "calories": 461,
+    "protein": 17.7,
+    "carbs": 41.3,
+    "fat": 24.7,
+    "saturatedFat": 13.6,
+    "sugar": 0.5,
+    "salt": 1.7,
+    "energyKj": 1927
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-salad-filled-dark-fired-rolls",
+   "name": "Ham Salad (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 330,
+    "protein": 14.4,
+    "carbs": 41.1,
+    "fat": 11.8,
+    "saturatedFat": 5.2,
+    "sugar": 1.9,
+    "salt": 1.6,
+    "energyKj": 1379
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-salad-filled-dark-fired-rolls",
+   "name": "Cheese Salad (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 437,
+    "protein": 18.1,
+    "carbs": 42.5,
+    "fat": 21.4,
+    "saturatedFat": 12,
+    "sugar": 1.9,
+    "salt": 1.6,
+    "energyKj": 1829
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-savoury-salad-filled-dark-fired-rolls",
+   "name": "Cheese Savoury Salad (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 459,
+    "protein": 14.6,
+    "carbs": 44.8,
+    "fat": 23.8,
+    "saturatedFat": 7.4,
+    "sugar": 3.6,
+    "salt": 1.8,
+    "energyKj": 1922
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-mayonnaise-salad-filled-dark-fired-rolls",
+   "name": "Chicken Mayonnaise Salad (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 18.9,
+    "carbs": 44,
+    "fat": 17.7,
+    "saturatedFat": 2.3,
+    "sugar": 3.2,
+    "salt": 1.5,
+    "energyKj": 1751
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-salad-filled-dark-fired-rolls",
+   "name": "Chicken Tikka Salad (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 400,
+    "protein": 18.8,
+    "carbs": 44.4,
+    "fat": 15.5,
+    "saturatedFat": 2.2,
+    "sugar": 3.3,
+    "salt": 1.4,
+    "energyKj": 1674
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-filled-dark-fired-rolls",
+   "name": "Egg Mayonnaise (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 13.9,
+    "carbs": 42.5,
+    "fat": 21,
+    "saturatedFat": 3.2,
+    "sugar": 2.2,
+    "salt": 1.5,
+    "energyKj": 1754
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-salad-filled-dark-fired-rolls",
+   "name": "Tuna Mayonnaise Salad (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 372,
+    "protein": 18.5,
+    "carbs": 43.4,
+    "fat": 13,
+    "saturatedFat": 1.8,
+    "sugar": 2.8,
+    "salt": 1.6,
+    "energyKj": 1554
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corned-beef-salad-filled-dark-fired-rolls",
+   "name": "Corned Beef Salad (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 368,
+    "protein": 16,
+    "carbs": 42.7,
+    "fat": 14.8,
+    "saturatedFat": 6.9,
+    "sugar": 2.2,
+    "salt": 1.7,
+    "energyKj": 1540
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-chicken-mayo-salad-filled-dark-fired-rolls",
+   "name": "Mexican Chicken Mayo Salad (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 413,
+    "protein": 22.7,
+    "carbs": 46.9,
+    "fat": 13.2,
+    "saturatedFat": 1.9,
+    "sugar": 4.2,
+    "salt": 1.6,
+    "energyKj": 1728
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "simply-ham-filled-dark-fired-rolls",
+   "name": "Simply Ham (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 336,
+    "protein": 14.5,
+    "carbs": 41.4,
+    "fat": 12.1,
+    "saturatedFat": 5.4,
+    "sugar": 0.5,
+    "salt": 1.7,
+    "energyKj": 1405
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "simply-cheese-filled-dark-fired-rolls",
+   "name": "Simply Cheese (Filled Dark Fired Rolls)",
+   "category": "Filled dark fired rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 461,
+    "protein": 17.7,
+    "carbs": 41.3,
+    "fat": 24.7,
+    "saturatedFat": 13.6,
+    "sugar": 0.4,
+    "salt": 1.7,
+    "energyKj": 1927
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-egg-mayonnaise-and-tomato",
+   "name": "Ham, Egg Mayonnaise & Tomato",
+   "category": "Filled granary rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 442,
+    "protein": 17.6,
+    "carbs": 40.2,
+    "fat": 23.3,
+    "saturatedFat": 4.7,
+    "sugar": 4.1,
+    "salt": 1.7,
+    "energyKj": 1850
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-bacon",
+   "name": "Chicken & Bacon",
+   "category": "Filled granary rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 467,
+    "protein": 22.5,
+    "carbs": 39.6,
+    "fat": 24.7,
+    "saturatedFat": 4.6,
+    "sugar": 4.1,
+    "salt": 1.8,
+    "energyKj": 1956
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ploughmans",
+   "name": "Ploughmans",
+   "category": "Filled granary rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 549,
+    "protein": 20.4,
+    "carbs": 46,
+    "fat": 30.9,
+    "saturatedFat": 17.1,
+    "sugar": 8.8,
+    "salt": 2.4,
+    "energyKj": 2295
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-red-onion-and-tomato-chutney",
+   "name": "Tuna Mayonnaise, Red Onion & Tomato Chutney",
+   "category": "Filled granary rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 401,
+    "protein": 17.8,
+    "carbs": 44.3,
+    "fat": 16.1,
+    "saturatedFat": 2.8,
+    "sugar": 7.4,
+    "salt": 1.5,
+    "energyKj": 1677
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-filled-baguettes",
+   "name": "Ham & Cheese (Filled Baguettes)",
+   "category": "Filled baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 536,
+    "protein": 24.4,
+    "carbs": 62.7,
+    "fat": 21.1,
+    "saturatedFat": 10.8,
+    "sugar": 1.8,
+    "salt": 3,
+    "energyKj": 2244
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-mayonnaise-filled-baguettes",
+   "name": "Chicken Mayonnaise (Filled Baguettes)",
+   "category": "Filled baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 583,
+    "protein": 25,
+    "carbs": 66.2,
+    "fat": 23.1,
+    "saturatedFat": 2.5,
+    "sugar": 5.6,
+    "salt": 2.4,
+    "energyKj": 2440
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-tuna",
+   "name": "Mexican Tuna",
+   "category": "Filled baguettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 571,
+    "protein": 26.2,
+    "carbs": 65.3,
+    "fat": 21.6,
+    "saturatedFat": 2,
+    "sugar": 3.8,
+    "salt": 3.1,
+    "energyKj": 2389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-mayonnaise-filled-batons",
+   "name": "Chicken Mayonnaise (Filled Batons)",
+   "category": "Filled batons",
+   "serving": "",
+   "nutrients": {
+    "calories": 624,
+    "protein": 27,
+    "carbs": 53.2,
+    "fat": 32.3,
+    "saturatedFat": 4.5,
+    "sugar": 4.9,
+    "salt": 1.8,
+    "energyKj": 2613
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka",
+   "name": "Chicken Tikka",
+   "category": "Filled batons",
+   "serving": "",
+   "nutrients": {
+    "calories": 594,
+    "protein": 26.9,
+    "carbs": 53.9,
+    "fat": 28.7,
+    "saturatedFat": 4.2,
+    "sugar": 5,
+    "salt": 1.7,
+    "energyKj": 2487
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-filled-batons",
+   "name": "Tuna Mayonnaise (Filled Batons)",
+   "category": "Filled batons",
+   "serving": "",
+   "nutrients": {
+    "calories": 548,
+    "protein": 26.4,
+    "carbs": 52.3,
+    "fat": 24.8,
+    "saturatedFat": 3.6,
+    "sugar": 4.2,
+    "salt": 2,
+    "energyKj": 2293
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-savoury",
+   "name": "Cheese Savoury",
+   "category": "Filled batons",
+   "serving": "",
+   "nutrients": {
+    "calories": 697,
+    "protein": 20.3,
+    "carbs": 55,
+    "fat": 42.7,
+    "saturatedFat": 12.8,
+    "sugar": 5.5,
+    "salt": 2.5,
+    "energyKj": 2916
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-filled-batons",
+   "name": "Egg Mayonnaise (Filled Batons)",
+   "category": "Filled batons",
+   "serving": "",
+   "nutrients": {
+    "calories": 631,
+    "protein": 19.2,
+    "carbs": 51.3,
+    "fat": 38.1,
+    "saturatedFat": 5.9,
+    "sugar": 3.3,
+    "salt": 1.9,
+    "energyKj": 2640
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,831 @@
+{
+ "schemaVersion": 1,
+ "id": "esquires",
+ "name": "Esquires Coffee",
+ "cuisine": "Coffee",
+ "builderType": "standard",
+ "aliases": [
+  "esquires",
+  "esquires coffee",
+  "esquires coffee uk"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Esquires Coffee Food & Drink menu page and Seasonal Specials page (accessed 2026-10-07, no date shown)",
+  "url": "https://esquirescoffee.co.uk/food-drink/",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Esquires prints calories only, as one figure per item; protein, carbs and fat are not published. Coffees, hot chocolates and lattes that print two unlabelled figures (no sizes stated) are not listed. Autumn specials come from its Seasonal Specials page. Its website publishes no allergen guide, so none is shown.",
+ "categories": [
+  "Fresh food",
+  "Drinks",
+  "Seasonal specials"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "bacon-bap",
+   "name": "Bacon Bap",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 514
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cumberland-sausage-bap",
+   "name": "Cumberland Sausage Bap",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ultimate-avo-with-egg-and-bacon",
+   "name": "Ultimate Avo with egg & bacon",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 499
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-avo",
+   "name": "Smashed Avo",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ultimate-avo-with-egg-and-halloumi",
+   "name": "Ultimate Avo with egg & halloumi",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 630
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-benedict",
+   "name": "Eggs Benedict",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 705
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-royale",
+   "name": "Eggs Royale",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 824
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-florentine",
+   "name": "Eggs Florentine",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 612
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poached-eggs-on-sourdough",
+   "name": "Poached Eggs on Sourdough",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-eggs-on-sourdough",
+   "name": "Scrambled Eggs On Sourdough",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beans-on-sourdough",
+   "name": "Beans On Sourdough",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "esquires-full-english",
+   "name": "Esquires Full English",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 823
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "esquires-full-vegetarian",
+   "name": "Esquires Full Vegetarian",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 824
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-berry-porridge",
+   "name": "Mixed Berry Porridge",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 532
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-bacon-pancakes",
+   "name": "Maple Bacon Pancakes",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "very-berry-pancakes",
+   "name": "Very Berry Pancakes",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-blt-bagel",
+   "name": "Chicken BLT Bagel",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 414
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-salmon-bagel",
+   "name": "Smoked Salmon Bagel",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-and-avocado-sourdough",
+   "name": "Halloumi & Avocado Sourdough",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pesto-chicken-and-nduja-sourdough",
+   "name": "Pesto Chicken & Nduja Sourdough",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-sourdough",
+   "name": "Ham & Cheese Sourdough",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 494
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-and-halloumi-jacket-potato",
+   "name": "Avocado & Halloumi Jacket Potato",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 692
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pesto-chicken-jacket-potato",
+   "name": "Pesto Chicken Jacket Potato",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 613
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-jacket-potato",
+   "name": "Tuna Mayonnaise Jacket Potato",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 540
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-jacket-potato",
+   "name": "Chicken Tikka Jacket Potato",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-melt",
+   "name": "Ham & Cheese Melt",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 643
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-melt",
+   "name": "Mushroom Melt",
+   "category": "Fresh food",
+   "serving": "",
+   "nutrients": {
+    "calories": 534
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cortado",
+   "name": "Cortado",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-frappe",
+   "name": "Latte Frappé",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha-frappe",
+   "name": "Mocha Frappé",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 360
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-and-dragon-fruit-smoothie",
+   "name": "Mango & Dragon Fruit Smoothie",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-mango-and-passion-fruit-smoothie",
+   "name": "Pineapple, Mango & Passion Fruit Smoothie",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-and-banana-smoothie",
+   "name": "Strawberry & Banana Smoothie",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 219
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-green-smoothie",
+   "name": "Super Green Smoothie",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 231
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-berry-smoothie",
+   "name": "Super Berry Smoothie",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mug-of-english-breakfast-tea",
+   "name": "Mug of English Breakfast Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-peppermint-tea",
+   "name": "Pot of Peppermint Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-red-berry-tea",
+   "name": "Pot of Red Berry Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-apple-loves-mint-tea",
+   "name": "Pot of Apple Loves Mint Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-chamomile-tea",
+   "name": "Pot of Chamomile Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-earl-grey-tea",
+   "name": "Pot of Earl Grey Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-breakfast-tea",
+   "name": "Pot of Breakfast Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-green-sencha-tea",
+   "name": "Pot of Green Sencha Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake",
+   "name": "Vanilla Milkshake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake",
+   "name": "Chocolate Milkshake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake",
+   "name": "Strawberry Milkshake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-protein-shake",
+   "name": "Vanilla Matcha Protein Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-berry-protein-shake",
+   "name": "Mixed Berry Protein Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-and-peanut-butter-protein-shake",
+   "name": "Chocolate & Peanut Butter Protein Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 311
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-brioche",
+   "name": "Buffalo Chicken Brioche",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 948
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramelised-beef-brioche",
+   "name": "Caramelised Beef Brioche",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 617
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brie-and-chilli-jam-brioche",
+   "name": "Brie & Chilli Jam Brioche",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 820
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-swirl-shake",
+   "name": "Cinnamon Swirl Shake",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 281
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

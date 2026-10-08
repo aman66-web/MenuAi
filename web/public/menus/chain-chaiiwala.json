@@ -1,0 +1,1953 @@
+{
+ "schemaVersion": 1,
+ "id": "chaiiwala",
+ "name": "Chaiiwala",
+ "cuisine": "Indian",
+ "builderType": "standard",
+ "aliases": [
+  "chaiiwala"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Chaiiwala website menu pages with calories (accessed 2026-10-08, no date shown); allergens from Allergen Information V15, October 2026",
+  "url": "https://www.chaiiwala.co.uk/menu",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only: Chaiiwala prints kcal on its menu pages (drinks for Regular and Large), no protein, carbs or fat. Dishes with no kcal printed (fridge drinks, Grab & Go, a few others) are not listed. Some dishes are sold in select stores only. The allergen matrix has no fish, crustacean or mollusc columns, so those read Not listed, not free from.",
+ "allergenGuide": {
+  "title": "Chaiiwala allergen matrix, Allergen Information V15 (October 2026)",
+  "url": "https://www.chaiiwala.co.uk/allergens",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Hot drinks",
+  "Wala bundles",
+  "Cold drinks",
+  "All day breakfast",
+  "Wala wraps",
+  "Lunch & dinner bowls",
+  "Bombay toasties",
+  "Street food",
+  "Wala kids",
+  "Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "our-famous-karak-chaii-regular",
+   "name": "Our Famous Karak Chaii (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "our-famous-karak-chaii-large",
+   "name": "Our Famous Karak Chaii (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 216
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "karak-chaii-no-added-sugar-regular",
+   "name": "Karak Chaii (no added sugar) (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "karak-chaii-no-added-sugar-large",
+   "name": "Karak Chaii (no added sugar) (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-chaii-regular",
+   "name": "Vegan Chaii (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-chaii-large",
+   "name": "Vegan Chaii (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-chaii-regular",
+   "name": "Pink Chaii (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-chaii-large",
+   "name": "Pink Chaii (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "karak-coffee-regular",
+   "name": "Karak Coffee (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "karak-coffee-large",
+   "name": "Karak Coffee (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chaii-flask",
+   "name": "Chaii Flask",
+   "category": "Hot drinks",
+   "serving": "Flask, 6 cups",
+   "nutrients": {
+    "calories": 864
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chaii-latte-regular",
+   "name": "Chaii Latte (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chaii-latte-large",
+   "name": "Chaii Latte (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 327
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garam-chocolate-regular",
+   "name": "Garam Chocolate (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garam-chocolate-large",
+   "name": "Garam Chocolate (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-chaii-regular",
+   "name": "Caramel Chaii (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-chaii-large",
+   "name": "Caramel Chaii (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 292
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-regular",
+   "name": "Flat White (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-large",
+   "name": "Flat White (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-regular",
+   "name": "Espresso (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-large",
+   "name": "Espresso (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-regular",
+   "name": "Americano (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-large",
+   "name": "Americano (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-tea-regular",
+   "name": "Cinnamon Tea (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-tea-large",
+   "name": "Cinnamon Tea (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-tea-regular",
+   "name": "English Tea (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-tea-large",
+   "name": "English Tea (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arabic-tea-regular",
+   "name": "Arabic tea (Regular)",
+   "category": "Hot drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arabic-tea-large",
+   "name": "Arabic tea (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-wala-box",
+   "name": "The Wala Box",
+   "category": "Wala bundles",
+   "serving": "Perfect for 1",
+   "nutrients": {
+    "calories": 1502
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-family-platter",
+   "name": "The Family platter",
+   "category": "Wala bundles",
+   "serving": "Feast for 4",
+   "nutrients": {
+    "calories": 4324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-wala-box-veg",
+   "name": "The Wala Box - veg",
+   "category": "Wala bundles",
+   "serving": "Perfect for 1",
+   "nutrients": {
+    "calories": 1464
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-family-platter-veg",
+   "name": "The Family platter - veg",
+   "category": "Wala bundles",
+   "serving": "Feast for 4",
+   "nutrients": {
+    "calories": 4204
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "badam-milk-shake",
+   "name": "Badam Milk-Shake",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 560
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "desi-cold-coffee",
+   "name": "Desi Cold Coffee",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 458
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-karak-coffee-regular",
+   "name": "Iced Karak Coffee (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-karak-coffee-large",
+   "name": "Iced Karak Coffee (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-lassi-regular",
+   "name": "Mango Lassi (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 381
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-lassi-large",
+   "name": "Mango Lassi (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 495
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falooda-mango-milkshake-regular",
+   "name": "Falooda Mango Milkshake (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 474
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falooda-mango-milkshake-large",
+   "name": "Falooda Mango Milkshake (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 578
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falooda-rose-milkshake-regular",
+   "name": "Falooda Rose Milkshake (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falooda-rose-milkshake-large",
+   "name": "Falooda Rose Milkshake (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-cinnamon-and-vanilla-matcha-regular",
+   "name": "Toasted Cinnamon & Vanilla Matcha (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-cinnamon-and-vanilla-matcha-large",
+   "name": "Toasted Cinnamon & Vanilla Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-and-white-chocolate-matcha-regular",
+   "name": "Blueberry & White Chocolate Matcha (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-and-white-chocolate-matcha-large",
+   "name": "Blueberry & White Chocolate Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 364
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-mojito-regular",
+   "name": "Mango Mojito (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-mojito-large",
+   "name": "Mango Mojito (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "watermelon-spritz-regular",
+   "name": "Watermelon Spritz (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "watermelon-spritz-large",
+   "name": "Watermelon Spritz (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-mocktail-regular",
+   "name": "Blueberry Mocktail (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-mocktail-large",
+   "name": "Blueberry Mocktail (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 229
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tahitian-lime-mocktail-regular",
+   "name": "Tahitian Lime Mocktail (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tahitian-lime-mocktail-large",
+   "name": "Tahitian Lime Mocktail (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-guava-lemonade-regular",
+   "name": "Chilli Guava Lemonade (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-guava-lemonade-large",
+   "name": "Chilli Guava Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "limbu-pani-lemonade-regular",
+   "name": "Limbu Pani Lemonade (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "limbu-pani-lemonade-large",
+   "name": "Limbu Pani Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-limbu-pani-lemonade-regular",
+   "name": "Blue Limbu Pani Lemonade (Regular)",
+   "category": "Cold drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-limbu-pani-lemonade-large",
+   "name": "Blue Limbu Pani Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-energy-drink",
+   "name": "Red Bull Energy Drink",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-sugarfree",
+   "name": "Red Bull Sugarfree",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-summer-edition-citrus-zest",
+   "name": "Red Bull Summer Edition (Citrus Zest)",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-apple-edition",
+   "name": "Red Bull Apple Edition",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-coconut-edition",
+   "name": "Red Bull Coconut Edition",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "desi-breakfast",
+   "name": "Desi Breakfast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-ish-breakfast",
+   "name": "English-ish breakfast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 934
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "omelette-wrap",
+   "name": "Omelette Wrap",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-chicken-sausage-and-egg-wrap",
+   "name": "Spiced Chicken Sausage & Egg Wrap",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 329
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rasher-and-egg-breakfast-wrap",
+   "name": "Rasher & Egg Breakfast Wrap",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aloo-paratha",
+   "name": "Aloo Paratha",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 245
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halwa-puri",
+   "name": "Halwa Puri",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 539
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-roti",
+   "name": "Classic Roti",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-paratha",
+   "name": "Classic Paratha",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-chicken-avo-toast",
+   "name": "Butter Chicken Avo Toast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-burji-avo-toast",
+   "name": "Egg Burji Avo Toast",
+   "category": "All day breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-wala-wrap",
+   "name": "Chicken Tikka Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 533
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-kebab-wala-wrap",
+   "name": "Mixed Kebab Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-kebab-wala-wrap",
+   "name": "Chicken Kebab Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bombay-twister",
+   "name": "Bombay Twister",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 645
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veg-kebab-wala-wrap",
+   "name": "Veg Kebab Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-paneer-wala-wrap",
+   "name": "Chilli Paneer Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aloo-tikki-wala-wrap",
+   "name": "Aloo Tikki Wala Wrap",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veg-bombay-twister",
+   "name": "Veg Bombay Twister",
+   "category": "Wala wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 645
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-salad",
+   "name": "Chicken Tikka Salad",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kebab-caesar-salad",
+   "name": "Kebab Caesar Salad",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tikka-biryani",
+   "name": "Tikka Biryani",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 621
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chana-biryani",
+   "name": "Chana Biryani",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-chicken-rice-bowl",
+   "name": "Butter chicken rice bowl",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-chicken-bombay-chips-bowl",
+   "name": "Butter Chicken Bombay Chips Bowl",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 686
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "daal-masala-bombay-rice-bowl",
+   "name": "Daal Masala Bombay Rice Bowl",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 562
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "daal-masala-bombay-chips-bowl",
+   "name": "Daal Masala Bombay Chips Bowl",
+   "category": "Lunch & dinner bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 746
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-melt",
+   "name": "Chicken Tikka Melt",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 502
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-bombay-toastie",
+   "name": "Classic Bombay Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-masala-beans-toastie",
+   "name": "Cheese & Masala Beans Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 412
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pav-bhaji-toastie",
+   "name": "Pav Bhaji Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 449
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-chutney-toastie",
+   "name": "Cheese & Chutney Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-chicken-toastie",
+   "name": "Butter Chicken Toastie",
+   "category": "Bombay toasties",
+   "serving": "",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-chicken-roll",
+   "name": "Butter Chicken Roll",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "masala-chips",
+   "name": "Masala Chips",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 729
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "samosa-chaat",
+   "name": "Samosa Chaat",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-chips-chicken",
+   "name": "Loaded Chips - Chicken",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1032
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pani-puri-poppers",
+   "name": "Pani puri poppers",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vada-pav",
+   "name": "Vada Pav",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 299
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veg-kebab-roll",
+   "name": "Veg Kebab Roll",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 427
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-kebab-roll",
+   "name": "Chicken Kebab Roll",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aloo-tikki-chaat",
+   "name": "Aloo Tikki Chaat",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aloo-tikki-burger",
+   "name": "Aloo tikki burger",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 376
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-chips-veg",
+   "name": "Loaded Chips - Veg",
+   "category": "Street food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-nuggets-and-chips",
+   "name": "Chicken Nuggets & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-masala-beans-toastie-and-chips",
+   "name": "Cheese & Masala Beans Toastie & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-chicken-wala-wrap-and-chips",
+   "name": "Mini Chicken Wala Wrap & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 552
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veg-nuggets-and-chips",
+   "name": "Veg Nuggets & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-veggie-wala-wrap-and-chips",
+   "name": "Mini Veggie Wala Wrap & Chips",
+   "category": "Wala kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-donuts",
+   "name": "Loaded Donuts",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 759
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutella-wrap",
+   "name": "Nutella Wrap",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-fix-ice-cream",
+   "name": "Pistachio Fix Ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocky-road-cheesecake",
+   "name": "Rocky Road Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 720
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-cheesecake",
+   "name": "Loaded Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-ice-cream",
+   "name": "Mango Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rose-ice-cream",
+   "name": "Rose Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-ice-cream",
+   "name": "Vanilla Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-dream-cake",
+   "name": "Chocolate dream cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 710
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-milk-cake",
+   "name": "Pistachio Milk Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-milk-cake",
+   "name": "Biscoff Milk cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gajar-halwa",
+   "name": "Gajar Halwa",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 345
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gulab-jamun",
+   "name": "Gulab Jamun",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 308
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

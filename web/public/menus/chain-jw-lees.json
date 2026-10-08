@@ -1,0 +1,2698 @@
+{
+ "schemaVersion": 1,
+ "id": "jw-lees",
+ "name": "JW Lees",
+ "cuisine": "Pub",
+ "builderType": "standard",
+ "aliases": [
+  "jw lees",
+  "j w lees",
+  "j.w. lees",
+  "jw lees pubs",
+  "j w lees pubs"
+ ],
+ "sample": false,
+ "source": {
+  "title": "JW Lees Pubs Menus Autumn 2026, allergen and calorie guides (PDFs: Main and Pub Lunch 7 Oct 2026, Cosy 11 Sep 2026, Children's 15 Sep 2026)",
+  "url": "https://www.jwlees.co.uk/pubs-main-spring-26",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only: one figure per dish, from JW Lees' Autumn 2026 pub menu guides; protein, carbs and fat are not published. Items shown as options (with ..., bread) carry their own figure. A dish with no allergen line there has none marked. The Main menu's soup of the day has no figure and is not listed.",
+ "allergenGuide": {
+  "title": "JW Lees Pubs Menus Autumn 2026: allergen and calorie guides (Main, Pub Lunch, Cosy and Children's menus)",
+  "url": "https://www.jwlees.co.uk/pubs-main-spring-26",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Main menu: Starters",
+  "Main menu: Pub classics",
+  "Main menu: Comfort food",
+  "Main menu: Burgers",
+  "Main menu: Grills",
+  "Main menu: Sides",
+  "Main menu: Puddings",
+  "Main menu: Room for a little one",
+  "Pub lunch: Mains",
+  "Pub lunch: Hot sandwiches",
+  "Pub lunch: Sandwiches",
+  "Cosy menu: Starters",
+  "Cosy menu: Mains",
+  "Cosy menu: Puddings",
+  "Children's menu: Starters",
+  "Children's menu: Mains",
+  "Children's menu: Puddings"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chilli-cheese-nachos",
+   "name": "Chilli cheese nachos",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "warm-pork-pie-pickles-and-apple-and-ale-chutney",
+   "name": "Warm pork pie, pickles and apple & ale chutney",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 700
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-fried-whitebait-lemon-and-dill-aioli",
+   "name": "Crispy fried whitebait, lemon & dill aioli",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 462
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish"
+    ],
+    "mayContain": [
+     "molluscs"
+    ]
+   }
+  },
+  {
+   "id": "sticky-pork-belly-bites-with-stout-bbq-glaze",
+   "name": "Sticky pork belly bites with stout BBQ glaze",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 698
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "thai-honey-halloumi-fries",
+   "name": "Thai honey halloumi fries",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 591
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "button-mushrooms-in-a-creamy-stilton-sauce",
+   "name": "Button mushrooms in a creamy Stilton sauce",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 509
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "salt-and-pepper-chicken-fries",
+   "name": "Salt & pepper chicken fries",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "spiced-cauliflower-fritters",
+   "name": "Spiced cauliflower fritters",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-baked-camembert",
+   "name": "Honey baked camembert",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1285
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts",
+     "sesame"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "warm-breads-houmous-beetroot-relish-gooey-cheese-dipping-sauce-pressed-rapeseed-and-balsamic-glaze",
+   "name": "Warm breads, houmous, beetroot relish, gooey cheese dipping sauce, pressed rapeseed and balsamic glaze",
+   "category": "Main menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1758
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-onion-pie",
+   "name": "Cheese & onion pie",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1372
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "baked-beans-with-cheese-and-onion-pie",
+   "name": "Baked beans (with cheese & onion pie)",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 104
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garden-peas-with-cheese-and-onion-pie",
+   "name": "Garden peas (with cheese & onion pie)",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mushy-peas-with-cheese-and-onion-pie",
+   "name": "Mushy peas (with cheese & onion pie)",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gravy-with-cheese-and-onion-pie",
+   "name": "Gravy (with cheese & onion pie)",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-chive-sauce-with-cheese-and-onion-pie",
+   "name": "Cheese & chive sauce (with cheese & onion pie)",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "slow-braised-steak-and-jw-lees-ale-pie",
+   "name": "Slow braised steak & JW Lees ale pie",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1601
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "fish-pie-with-cheesy-mash-topping",
+   "name": "Fish pie with cheesy mash topping",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "northern-upgrade",
+   "name": "Northern Upgrade",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tikka-curry",
+   "name": "Chicken tikka curry",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1555
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "grilled-fillet-of-seabass-and-garlic-prawns",
+   "name": "Grilled fillet of seabass & garlic prawns",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 820
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin"
+    ]
+   }
+  },
+  {
+   "id": "philly-cheesesteak-sandwich",
+   "name": "Philly cheesesteak sandwich",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1063
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "spiced-moroccan-sweet-potato-and-chick-pea-stew",
+   "name": "Spiced Moroccan sweet potato & chick pea stew",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nourish-bowl",
+   "name": "Nourish bowl",
+   "category": "Main menu: Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 676
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "farmhouse-sausage-rings",
+   "name": "Farmhouse sausage rings",
+   "category": "Main menu: Comfort food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1287
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-sausage-and-mash",
+   "name": "Vegan sausage & mash",
+   "category": "Main menu: Comfort food",
+   "serving": "",
+   "nutrients": {
+    "calories": 894
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "slow-braised-minted-lamb-henry",
+   "name": "Slow braised minted lamb Henry",
+   "category": "Main menu: Comfort food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1468
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-glazed-braised-ham-hock",
+   "name": "Honey glazed braised ham hock",
+   "category": "Main menu: Comfort food",
+   "serving": "",
+   "nutrients": {
+    "calories": 818
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "half-roast-chicken-dinner",
+   "name": "Half roast chicken dinner",
+   "category": "Main menu: Comfort food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1561
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "brewery-tower-burger",
+   "name": "Brewery Tower burger",
+   "category": "Main menu: Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1272
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "buttermilk-chicken-burger",
+   "name": "Buttermilk chicken burger",
+   "category": "Main menu: Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "garden-burger",
+   "name": "Garden burger",
+   "category": "Main menu: Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 807
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "brewers-mixed-grill",
+   "name": "Brewers mixed grill",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1815
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grilled-10oz-half-moon-gammon-steak",
+   "name": "Grilled 10oz half moon gammon steak",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1269
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "fried-eggs-with-gammon-steak",
+   "name": "Fried eggs (with gammon steak)",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-pineapple-with-gammon-steak",
+   "name": "Grilled pineapple (with gammon steak)",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-8oz-black-angus-sirloin-steak",
+   "name": "Grilled 8oz Black Angus Sirloin steak",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1473
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "peppercorn-sauce",
+   "name": "Peppercorn sauce",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "surf-your-turf-add-garlic-prawns",
+   "name": "Surf your turf add garlic prawns",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mushroom-and-stilton-cream-sauce",
+   "name": "Mushroom & Stilton cream sauce",
+   "category": "Main menu: Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin"
+    ]
+   }
+  },
+  {
+   "id": "ale-battered-onion-rings-with-bbq-dipping-sauce",
+   "name": "Ale battered onion rings with BBQ dipping sauce",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "buttered-seasonal-greens",
+   "name": "Buttered seasonal greens",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-roasted-root-vegetables",
+   "name": "Honey roasted root vegetables",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheesy-garlic-and-herb-ciabatta",
+   "name": "Cheesy Garlic & Herb Ciabatta",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 600
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "garden-salad-with-classic-vinaigrette",
+   "name": "Garden salad with classic vinaigrette",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "messy-chips",
+   "name": "Messy chips",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 843
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "skinny-fries-with-garlic-mayo",
+   "name": "Skinny fries with garlic mayo",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 483
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "baked-cauliflower-three-cheese-sauce",
+   "name": "Baked cauliflower, three cheese sauce",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 291
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thick-cut-chips-with-garlic-mayo",
+   "name": "Thick cut chips with garlic mayo",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 726
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pigs-in-blankets",
+   "name": "Pigs in blankets",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ruffled-roasties",
+   "name": "Ruffled roasties",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 838
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sage-and-onion-stuffing",
+   "name": "Sage & onion stuffing",
+   "category": "Main menu: Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 308
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-and-dark-chocolate-tart-with-clotted-cream-ice-cream",
+   "name": "Salted caramel & dark chocolate tart with clotted cream ice cream",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "vegan-salted-caramel-and-dark-chocolate-tart-with-dairy-free-vanilla-ice-cream",
+   "name": "Vegan salted caramel & dark chocolate tart with dairy free vanilla ice cream",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "baked-apple-crumble-with-hot-custard-or-pouring-cream",
+   "name": "Baked apple crumble with hot custard or pouring cream",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 469
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "warm-chocolate-brownie-dark-chocolate-sauce-and-vanilla-ice-cream",
+   "name": "Warm chocolate brownie, dark chocolate sauce and vanilla ice cream",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 407
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "burnt-basque-cheesecake-mulled-berries-and-cream",
+   "name": "Burnt Basque cheesecake, mulled berries and cream",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "ginger-and-black-pepper-sponge-pudding-with-custard-and-raspberry-sauce",
+   "name": "Ginger & black pepper sponge pudding with custard and raspberry sauce",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 532
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "selection-of-ice-creams-with-warm-toffee-sauce-wafer-and-marshmallows",
+   "name": "Selection of ice creams with warm toffee sauce, wafer & marshmallows",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scoop-of-chocolate-ice-cream",
+   "name": "Scoop of chocolate ice cream",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scoop-of-vanilla-ice-cream",
+   "name": "Scoop of vanilla ice cream",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scoop-of-strawberry-ice-cream",
+   "name": "Scoop of strawberry ice cream",
+   "category": "Main menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 206
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "burnt-basque-cheesecake-room-for-a-little-one",
+   "name": "Burnt Basque cheesecake (Room for a little one)",
+   "category": "Main menu: Room for a little one",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-with-chocolate-sauce-room-for-a-little-one",
+   "name": "Chocolate brownie with chocolate sauce (Room for a little one)",
+   "category": "Main menu: Room for a little one",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-and-chocolate-tart-with-pouring-cream-room-for-a-little-one",
+   "name": "Salted caramel & chocolate tart with pouring cream (Room for a little one)",
+   "category": "Main menu: Room for a little one",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chicken-new-yorker",
+   "name": "Chicken New Yorker",
+   "category": "Pub lunch: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1041
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-baked-ham-fried-eggs-thick-cut-chips-and-garden-peas",
+   "name": "Honey baked ham, fried eggs, thick cut chips & garden peas",
+   "category": "Pub lunch: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 791
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-haddock-mozzarella-and-spring-onion-fishcakes",
+   "name": "Smoked haddock, mozzarella & spring onion fishcakes",
+   "category": "Pub lunch: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-caesar-salad",
+   "name": "Chicken Caesar salad",
+   "category": "Pub lunch: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 662
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "simple-cheeseburger",
+   "name": "Simple cheeseburger",
+   "category": "Pub lunch: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 626
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "spicy-bean-burger",
+   "name": "Spicy bean burger",
+   "category": "Pub lunch: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 649
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "ale-battered-fish-goujon-bap",
+   "name": "Ale battered fish goujon bap",
+   "category": "Pub lunch: Hot sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1141
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ham-three-cheese-and-apple-chutney-toastie",
+   "name": "Ham, three cheese & apple chutney toastie",
+   "category": "Pub lunch: Hot sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1394
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "hot-chicken-tika-wrap",
+   "name": "Hot chicken tika wrap",
+   "category": "Pub lunch: Hot sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-roast-bap-of-the-day",
+   "name": "Hot roast bap of the day",
+   "category": "Pub lunch: Hot sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-red-onion-chutney-sandwich",
+   "name": "Cheese & red onion chutney sandwich",
+   "category": "Pub lunch: Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 814
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-baked-ham-and-mustard-sandwich",
+   "name": "Honey baked ham & mustard sandwich",
+   "category": "Pub lunch: Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 850
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tuna-mayonnaise-sandwich",
+   "name": "Tuna mayonnaise sandwich",
+   "category": "Pub lunch: Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 684
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-bread-sandwich-option",
+   "name": "White bread (sandwich option)",
+   "category": "Pub lunch: Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "brown-bread-sandwich-option",
+   "name": "Brown bread (sandwich option)",
+   "category": "Pub lunch: Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chefs-soup-of-the-day-with-warm-bread-and-butter",
+   "name": "Chefs soup of the day with warm bread & butter",
+   "category": "Cosy menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 269
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "bubble-and-squeak-potato-cake-poached-egg-and-streaky-bacon",
+   "name": "Bubble & squeak potato cake, poached egg and streaky bacon",
+   "category": "Cosy menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-pudding-fritters-with-english-mustard-mayonnaise",
+   "name": "Black pudding fritters with English mustard mayonnaise",
+   "category": "Cosy menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 489
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "crispy-breaded-garlic-mushrooms-with-roast-garlic-mayonnaise",
+   "name": "Crispy breaded garlic mushrooms with roast garlic mayonnaise",
+   "category": "Cosy menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 404
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gambas-pil-pil",
+   "name": "Gambas Pil Pil",
+   "category": "Cosy menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 357
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "grilled-fillet-of-seabass-saute-potatoes-and-buttered-greens",
+   "name": "Grilled fillet of seabass, saute potatoes and buttered greens",
+   "category": "Cosy menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 733
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin"
+    ]
+   }
+  },
+  {
+   "id": "grilled-6oz-sirloin-steak-peppercorn-sauce-onion-rings-and-skinny-fries",
+   "name": "Grilled 6oz sirloin steak, peppercorn sauce, onion rings and skinny fries",
+   "category": "Cosy menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 604
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "wexford-chicken",
+   "name": "Wexford chicken",
+   "category": "Cosy menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 619
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin"
+    ]
+   }
+  },
+  {
+   "id": "plant-based-sausage-and-mash",
+   "name": "Plant based sausage & mash",
+   "category": "Cosy menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 894
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sticky-toffee-pudding-with-custard-and-toffee-sauce",
+   "name": "Sticky toffee pudding with custard and toffee sauce",
+   "category": "Cosy menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "melting-chocolate-fudge-cake-vanilla-ice-cream-and-pouring-cream",
+   "name": "Melting chocolate fudge cake, vanilla ice cream & pouring cream",
+   "category": "Cosy menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "lotus-biscoff-cheesecake-and-pouring-cream",
+   "name": "Lotus Biscoff cheesecake & pouring cream",
+   "category": "Cosy menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crunchy-carrot-sticks-and-apple-with-houmous-dip",
+   "name": "Crunchy carrot sticks & apple with houmous dip",
+   "category": "Children's menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheesy-garlic-bread-fingers",
+   "name": "Cheesy garlic bread fingers",
+   "category": "Children's menu: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "childrens-grilled-beef-burger-and-cheddar-melt",
+   "name": "Children's grilled beef burger and cheddar melt",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 287
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "childrens-crispy-battered-fish-goujons",
+   "name": "Children's crispy battered fish goujons",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-chicken-dippers-with-ketchup",
+   "name": "Children's chicken dippers with ketchup",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "childrens-pork-chipolatas-with-gravy",
+   "name": "Children's pork chipolatas with gravy",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 478
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "childrens-penne-pasta-in-tomato-sauce-with-vegan-mozzarella",
+   "name": "Children's penne pasta in tomato sauce with vegan mozzarella",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 291
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "childrens-mini-tomato-and-mozzarella-pizzas",
+   "name": "Children's mini tomato & mozzarella pizzas",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "childrens-little-sunday-roast-beef",
+   "name": "Children's Little Sunday Roast (beef)",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 652
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "childrens-skinny-fries-side-option",
+   "name": "Children's skinny fries (side option)",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 236
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-thick-cut-chips-side-option",
+   "name": "Children's thick cut chips (side option)",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-garden-peas-side-option",
+   "name": "Children's garden peas (side option)",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-seasonal-vegetables-side-option",
+   "name": "Children's seasonal vegetables (side option)",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-baked-beans-side-option",
+   "name": "Children's baked beans (side option)",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-garden-salad-side-option",
+   "name": "Children's garden salad (side option)",
+   "category": "Children's menu: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-warm-chocolate-fudge-cake-and-vanilla-ice-cream",
+   "name": "Children's warm chocolate fudge cake & vanilla ice cream",
+   "category": "Children's menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "childrens-ice-cream-chocolate",
+   "name": "Children's ice cream (chocolate)",
+   "category": "Children's menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-ice-cream-strawberry",
+   "name": "Children's ice cream (strawberry)",
+   "category": "Children's menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childrens-ice-cream-vanilla",
+   "name": "Children's ice cream (vanilla)",
+   "category": "Children's menu: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,990 @@
+{
+ "schemaVersion": 1,
+ "id": "strada",
+ "name": "Strada",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "strada",
+  "strada restaurant",
+  "strada restaurants",
+  "strada italian"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Strada Southbank Core menu with calories, January 2025 edition (PDF created 28 January 2025) and Kids menu, January 2025 (image); Strada's current October 2026 menu prints no calories",
+  "url": "https://strada.co.uk/wp-content/uploads/2018/05/Southbank-Core-Jan-2025-A4-Calories-WEB.pdf",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only (Strada's January 2025 menu and kids menu; its current menu prints none), so some dishes may have changed or gone: check a dish is still served. No basis is printed: read as per dish. Strada's website now lists one restaurant (Southbank).",
+ "allergenGuide": {
+  "title": "Strada SS26 full allergen matrix, May 2026 (covers the current menu, not the January 2025 dishes)",
+  "url": "https://strada.co.uk/wp-content/uploads/2026/06/Strada-allergen-Matrix-May-26-1.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Bread & Nibbles",
+  "Antipasti",
+  "Pasta and Risotto",
+  "Mains & Grills",
+  "Pizza",
+  "Salads",
+  "Sides",
+  "Kids menu"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "large-green-olives",
+   "name": "Large Green Olives",
+   "category": "Bread & Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 203
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "italian-breads",
+   "name": "Italian Breads",
+   "category": "Bread & Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1085
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aglio-flatbread",
+   "name": "Aglio Flatbread",
+   "category": "Bread & Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 652
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "genovese-flatbread",
+   "name": "Genovese Flatbread",
+   "category": "Bread & Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "antipasti-11-50",
+   "name": "Antipasti (£11.50)",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 1056
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "antipasti-21",
+   "name": "Antipasti (£21)",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 1648
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-antipasti-11",
+   "name": "Vegetable Antipasti (£11)",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 1090
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-antipasti-20",
+   "name": "Vegetable Antipasti (£20)",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 1829
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seared-king-prawns",
+   "name": "Seared King Prawns",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 526
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta",
+   "name": "Bruschetta",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-squid",
+   "name": "Crispy Squid",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 506
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arancini-diavola",
+   "name": "Arancini Diavola",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 652
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caprese-salad",
+   "name": "Caprese Salad",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pappardelle-bolognese",
+   "name": "Pappardelle Bolognese",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-mushroom-strozzapreti",
+   "name": "Chicken & Mushroom Strozzapreti",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1265
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "penne-pomodoro",
+   "name": "Penne Pomodoro",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 800
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "risotto-alla-pescatora",
+   "name": "Risotto alla Pescatora",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 911
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "risotto-primavera",
+   "name": "Risotto Primavera",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 786
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-linguine",
+   "name": "Seafood Linguine",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1003
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rigatoni-ragu-pugliese",
+   "name": "Rigatoni Ragu Pugliese",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1015
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bucatini-carbonara",
+   "name": "Bucatini Carbonara",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 984
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach-and-ricotta-ravioli",
+   "name": "Spinach & Ricotta Ravioli",
+   "category": "Pasta and Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strada-burger",
+   "name": "Strada Burger",
+   "category": "Mains & Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 799
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-funghi",
+   "name": "Pollo Funghi",
+   "category": "Mains & Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-milanese",
+   "name": "Chicken Milanese",
+   "category": "Mains & Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1144
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "italian-steak-frites",
+   "name": "Italian Steak Frites",
+   "category": "Mains & Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 752
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pan-fried-sea-bass",
+   "name": "Pan Fried Sea Bass",
+   "category": "Mains & Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8oz-british-sirloin-steak",
+   "name": "8oz British Sirloin Steak",
+   "category": "Mains & Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 895
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-truffle-cream",
+   "name": "Add truffle cream",
+   "category": "Mains & Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-peppercorn-sauce",
+   "name": "Add peppercorn sauce",
+   "category": "Mains & Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita",
+   "name": "Margherita",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 873
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-buffalo-mozzarella-to-margherita",
+   "name": "Add buffalo mozzarella (to Margherita)",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prosciutto-cotto-ham-and-funghi",
+   "name": "Prosciutto Cotto Ham & Funghi",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 838
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salsiccia-and-friarielli",
+   "name": "Salsiccia & Friarielli",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 863
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "parma",
+   "name": "Parma",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 767
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vesuvio",
+   "name": "Vesuvio",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1303
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "campagnola",
+   "name": "Campagnola",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 828
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chicken-salads",
+   "name": "Add chicken (salads)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-goats-cheese-salads",
+   "name": "Add goat’s cheese (salads)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad",
+   "name": "Caesar Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 537
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "supergreen-salad",
+   "name": "Supergreen Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 451
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skinny-fries",
+   "name": "Skinny Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-fries",
+   "name": "Truffle Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 407
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-new-potatoes",
+   "name": "Roasted New Potatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 287
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tenderstem-broccoli",
+   "name": "Tenderstem Broccoli",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 159
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-beans",
+   "name": "Green Beans",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-salad",
+   "name": "House Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sicilian-tomato-and-onion-salad",
+   "name": "Sicilian Tomato & Onion Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-sticks-kids",
+   "name": "Veggie Sticks (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grissini-kids",
+   "name": "Grissini (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza-kids",
+   "name": "Margherita Pizza (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "penne-pomodoro-kids",
+   "name": "Penne Pomodoro (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chargrilled-chicken-kids",
+   "name": "Chargrilled Chicken (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "linguine-bolognese-kids",
+   "name": "Linguine Bolognese (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-carbonara-kids",
+   "name": "Pasta Carbonara (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 555
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-fruit-kids",
+   "name": "Fresh Fruit (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-and-hazelnut-pizzetta-kids",
+   "name": "Chocolate & Hazelnut Pizzetta (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-lolly-kids",
+   "name": "Ice Lolly (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-kids",
+   "name": "Milk (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cawston-press-apple-and-pear-kids",
+   "name": "Cawston Press Apple & Pear (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cawston-press-apple-and-mango-kids",
+   "name": "Cawston Press Apple & Mango (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cawston-press-apple-and-summer-berries-kids",
+   "name": "Cawston Press Apple & Summer Berries (kids)",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

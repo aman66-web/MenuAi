@@ -1,0 +1,6482 @@
+{
+ "schemaVersion": 1,
+ "id": "heartwood-inns",
+ "name": "Heartwood Inns",
+ "cuisine": "Pub",
+ "builderType": "standard",
+ "aliases": [
+  "heartwood inns",
+  "heartwood inn",
+  "coat & bear",
+  "meadow lark",
+  "potter's heron",
+  "ragged robin",
+  "ropemaker",
+  "royal forest"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Heartwood Inns menus with nutrition and allergens (Ten Kites pages embedded on heartwoodinns.com/menu): à la carte, Weekday Lunch, Saturday, Sunday, Bar, Kids and Drinks (accessed 2026-10-08, no date shown)",
+  "url": "https://menus.tenkites.com/hwc/hwialacarte",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Figures are per serving from Heartwood Inns' own menu pages (no fibre, kJ or weights printed). Weekday Lunch dishes are served Monday to Friday 12pm-5pm; the à la carte Monday to Friday from 5pm and all day Saturday. Wine, group dining and Christmas menus are not included. Alcoholic drinks print calories that include the alcohol.",
+ "allergenGuide": {
+  "title": "Heartwood Inns menus with allergens (Ten Kites): per-dish 'Contains' and 'May contain' on the same pages (accessed 2026-10-08, no date shown)",
+  "url": "https://menus.tenkites.com/hwc/hwialacarte",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Nibbles",
+  "Small plates",
+  "Sharing plates",
+  "Starters",
+  "Seasonal set starters",
+  "Mains",
+  "Seasonal set mains",
+  "Steaks",
+  "Sunday roasts",
+  "Sides",
+  "Puddings and cheese",
+  "Add-ons & extras",
+  "Kids: Starters",
+  "Kids: Mains",
+  "Kids: Desserts",
+  "Kids: Drinks",
+  "Drinks: Cocktails",
+  "Drinks: Gin",
+  "Drinks: Beer & cider",
+  "Drinks: Low & no alcohol",
+  "Drinks: Soft drinks & mixers",
+  "Drinks: Spirits & liqueurs",
+  "Drinks: Liqueur coffees"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "rustica-olives",
+   "name": "Rustica olives",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 125,
+    "protein": 0.9,
+    "carbs": 0.9,
+    "fat": 12.5,
+    "saturatedFat": 1.7,
+    "sugar": 0.3,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "baguette-gluten-free-bread",
+   "name": "Baguette (gluten-free bread)",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 281,
+    "protein": 2,
+    "carbs": 56.1,
+    "fat": 5.7,
+    "saturatedFat": 0.4,
+    "sugar": 4.3,
+    "salt": 1.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dips-gluten-free-bread",
+   "name": "Dips (gluten free bread)",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 805,
+    "protein": 10.2,
+    "carbs": 64.9,
+    "fat": 57.9,
+    "saturatedFat": 10.4,
+    "sugar": 11,
+    "salt": 2.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "free-range-scotch-egg",
+   "name": "Free-range Scotch egg",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 455,
+    "protein": 21.7,
+    "carbs": 46.7,
+    "fat": 21.5,
+    "saturatedFat": 7.1,
+    "sugar": 16.4,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "tomato-and-chargrilled-pepper-arancini",
+   "name": "Tomato & chargrilled pepper arancini",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 437,
+    "protein": 10.6,
+    "carbs": 48.6,
+    "fat": 22,
+    "saturatedFat": 4.4,
+    "sugar": 10.2,
+    "salt": 3.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "blythburgh-sausage-roll",
+   "name": "Blythburgh sausage roll",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 679,
+    "protein": 22,
+    "carbs": 34.9,
+    "fat": 50.3,
+    "saturatedFat": 18,
+    "sugar": 7.3,
+    "salt": 3.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "grilled-minute-steak-baguette",
+   "name": "Grilled minute-steak baguette",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1062,
+    "protein": 46.3,
+    "carbs": 135.8,
+    "fat": 64.6,
+    "saturatedFat": 20.9,
+    "sugar": 21.7,
+    "salt": 6.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "vegetarian-platter",
+   "name": "Vegetarian platter",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1494,
+    "protein": 57.1,
+    "carbs": 98.7,
+    "fat": 102.5,
+    "saturatedFat": 46.1,
+    "sugar": 47.4,
+    "salt": 8.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "twice-baked-cheese-souffle",
+   "name": "Twice-baked cheese souffle",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 390,
+    "protein": 18.2,
+    "carbs": 15.4,
+    "fat": 28.8,
+    "saturatedFat": 17.2,
+    "sugar": 3.3,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "french-onion-soup",
+   "name": "French onion soup",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 295,
+    "protein": 18,
+    "carbs": 22.4,
+    "fat": 18.5,
+    "saturatedFat": 9.6,
+    "sugar": 4.9,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "chicken-liver-parfait",
+   "name": "Chicken liver parfait",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 549,
+    "protein": 10.3,
+    "carbs": 39.1,
+    "fat": 45.3,
+    "saturatedFat": 20.8,
+    "sugar": 14.5,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "deep-fried-goats-cheese-and-black-olive-parcel",
+   "name": "Deep-fried goat’s cheese and black olive parcel",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 301,
+    "protein": 12,
+    "carbs": 11.8,
+    "fat": 23.3,
+    "saturatedFat": 9.8,
+    "sugar": 5.7,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "wild-mushroom-tartine-poached-egg",
+   "name": "Wild mushroom tartine (poached egg)",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 608,
+    "protein": 14.3,
+    "carbs": 40.9,
+    "fat": 40.7,
+    "saturatedFat": 7.4,
+    "sugar": 2.2,
+    "salt": 2.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "wild-mushroom-tartine-without-egg",
+   "name": "Wild mushroom tartine (without egg)",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 543,
+    "protein": 8,
+    "carbs": 40.9,
+    "fat": 36.2,
+    "saturatedFat": 6.2,
+    "sugar": 2.2,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "beetroot-terrine",
+   "name": "Beetroot terrine",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 192,
+    "protein": 3.8,
+    "carbs": 24,
+    "fat": 9.1,
+    "saturatedFat": 1.3,
+    "sugar": 19.7,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "lupin",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "potted-devon-crab",
+   "name": "Potted Devon crab",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 495,
+    "protein": 16.1,
+    "carbs": 37.4,
+    "fat": 35.6,
+    "saturatedFat": 12,
+    "sugar": 2.1,
+    "salt": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "muscat-pumpkin-and-kirsch-soup",
+   "name": "Muscat pumpkin & kirsch soup",
+   "category": "Seasonal set starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 137,
+    "protein": 1.8,
+    "carbs": 6.1,
+    "fat": 10.7,
+    "saturatedFat": 3,
+    "sugar": 5.2,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "celeriac-remoulade",
+   "name": "Celeriac remoulade",
+   "category": "Seasonal set starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 263,
+    "protein": 7.9,
+    "carbs": 3.7,
+    "fat": 24.6,
+    "saturatedFat": 3,
+    "sugar": 2.5,
+    "salt": 2.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pan-fried-gnocchi",
+   "name": "Pan-fried gnocchi",
+   "category": "Seasonal set starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 539,
+    "protein": 11.7,
+    "carbs": 34.8,
+    "fat": 38.7,
+    "saturatedFat": 15.8,
+    "sugar": 1.3,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-ballotine",
+   "name": "Chicken ballotine",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 907,
+    "protein": 61.1,
+    "carbs": 20.2,
+    "fat": 78.6,
+    "saturatedFat": 33,
+    "sugar": 7.4,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-cauliflower-steak",
+   "name": "Grilled cauliflower steak",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 902,
+    "protein": 8.5,
+    "carbs": 65.4,
+    "fat": 68.7,
+    "saturatedFat": 8.2,
+    "sugar": 20,
+    "salt": 5.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "pork-tomahawk",
+   "name": "Pork tomahawk",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1633,
+    "protein": 97.1,
+    "carbs": 27.8,
+    "fat": 126.9,
+    "saturatedFat": 47.1,
+    "sugar": 10.6,
+    "salt": 5.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grass-fed-8oz-rump",
+   "name": "Grass-fed 8oz rump",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1111,
+    "protein": 56.4,
+    "carbs": 50.1,
+    "fat": 76.2,
+    "saturatedFat": 27.3,
+    "sugar": 2.4,
+    "salt": 5.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "celeriac-artichoke-and-chestnut-mushroom-wellington",
+   "name": "Celeriac, artichoke & chestnut mushroom Wellington",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 983,
+    "protein": 15.8,
+    "carbs": 89.1,
+    "fat": 65.8,
+    "saturatedFat": 18.5,
+    "sugar": 17.7,
+    "salt": 4.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "nuts",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "venison-and-ale-pie",
+   "name": "Venison & ale pie",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1183,
+    "protein": 18.8,
+    "carbs": 98.9,
+    "fat": 76.8,
+    "saturatedFat": 40.1,
+    "sugar": 10,
+    "salt": 4.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "provencale-crusted-devon-scallops",
+   "name": "Provençale-crusted Devon scallops",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 944,
+    "protein": 35.4,
+    "carbs": 47.9,
+    "fat": 69.8,
+    "saturatedFat": 21.4,
+    "sugar": 9.8,
+    "salt": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "free-range-beef-burger-sesame-brioche-bun",
+   "name": "Free-range beef burger (sesame brioche bun)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1120,
+    "protein": 43.5,
+    "carbs": 90.1,
+    "fat": 65.4,
+    "saturatedFat": 15.5,
+    "sugar": 13,
+    "salt": 5.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "free-range-beef-burger-gluten-free-bun",
+   "name": "Free-range beef burger (gluten free bun)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1105,
+    "protein": 41.4,
+    "carbs": 85.1,
+    "fat": 65.7,
+    "saturatedFat": 14.6,
+    "sugar": 12.2,
+    "salt": 5.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-cod-lemon-butter-and-caper-sauce",
+   "name": "Grilled cod, lemon butter & caper sauce",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 636,
+    "protein": 36.1,
+    "carbs": 22.1,
+    "fat": 45.4,
+    "saturatedFat": 21,
+    "sugar": 2.8,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "moules-mariniere",
+   "name": "Moules marinière",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1165,
+    "protein": 87.5,
+    "carbs": 67.3,
+    "fat": 59.7,
+    "saturatedFat": 21.7,
+    "sugar": 4.3,
+    "salt": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans"
+    ]
+   }
+  },
+  {
+   "id": "malabar-fish-curry",
+   "name": "Malabar fish curry",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 542,
+    "protein": 40.1,
+    "carbs": 46.3,
+    "fat": 21.5,
+    "saturatedFat": 10.5,
+    "sugar": 7.9,
+    "salt": 2.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "gordo-chickpeas-and-roasted-red-pepper-salad",
+   "name": "Gordo chickpeas and roasted red pepper salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 867,
+    "protein": 31.1,
+    "carbs": 129.4,
+    "fat": 49.1,
+    "saturatedFat": 10.8,
+    "sugar": 26.4,
+    "salt": 5.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "lupin",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "fish-and-chips",
+   "name": "Fish and chips",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1027,
+    "protein": 15.3,
+    "carbs": 94,
+    "fat": 65.3,
+    "saturatedFat": 5.4,
+    "sugar": 6.3,
+    "salt": 6.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "grilled-minute-steak-and-triple-cooked-chips",
+   "name": "Grilled minute-steak & triple-cooked chips",
+   "category": "Seasonal set mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1004,
+    "protein": 34.8,
+    "carbs": 47.8,
+    "fat": 75.1,
+    "saturatedFat": 24.1,
+    "sugar": 1.6,
+    "salt": 6.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pork-loin-confit",
+   "name": "Pork loin confit",
+   "category": "Seasonal set mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1252,
+    "protein": 90.1,
+    "carbs": 22.3,
+    "fat": 89.7,
+    "saturatedFat": 40,
+    "sugar": 7.2,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-haddock-and-chalkstream-trout-fishcake",
+   "name": "Smoked haddock & ChalkStream trout fishcake",
+   "category": "Seasonal set mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 665,
+    "protein": 38,
+    "carbs": 37.3,
+    "fat": 42.1,
+    "saturatedFat": 19.1,
+    "sugar": 6.3,
+    "salt": 2.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "8oz-sirloin",
+   "name": "8oz sirloin",
+   "category": "Steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 991,
+    "protein": 56.6,
+    "carbs": 48.5,
+    "fat": 63.6,
+    "saturatedFat": 21.3,
+    "sugar": 2.4,
+    "salt": 7.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "7oz-fillet",
+   "name": "7oz fillet",
+   "category": "Steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 826,
+    "protein": 47.1,
+    "carbs": 48.5,
+    "fat": 49.2,
+    "saturatedFat": 15.6,
+    "sugar": 2.4,
+    "salt": 7.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "14oz-chateaubriand-for-two",
+   "name": "14oz chateaubriand for two",
+   "category": "Steaks",
+   "serving": "for two",
+   "nutrients": {
+    "calories": 1591,
+    "protein": 94.2,
+    "carbs": 96.9,
+    "fat": 91.6,
+    "saturatedFat": 26.1,
+    "sugar": 4.7,
+    "salt": 13.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "21-day-matured-british-beef-rump",
+   "name": "21-day matured British beef rump",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1161,
+    "protein": 60.9,
+    "carbs": 103.4,
+    "fat": 63.8,
+    "saturatedFat": 22.3,
+    "sugar": 36.5,
+    "salt": 7.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "outdoor-bred-british-pork-loin",
+   "name": "Outdoor-bred British pork loin",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1747,
+    "protein": 98.7,
+    "carbs": 106.8,
+    "fat": 111.1,
+    "saturatedFat": 40.7,
+    "sugar": 39.8,
+    "salt": 8.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "beetroot-and-smoked-cheddar-pasty",
+   "name": "Beetroot and smoked cheddar pasty",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1259,
+    "protein": 36.7,
+    "carbs": 128.5,
+    "fat": 74.2,
+    "saturatedFat": 26.4,
+    "sugar": 40.6,
+    "salt": 5.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "triple-cooked-chips",
+   "name": "Triple-cooked chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 425,
+    "protein": 5.1,
+    "carbs": 50.6,
+    "fat": 21.9,
+    "saturatedFat": 2.4,
+    "sugar": 0.9,
+    "salt": 3.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mash-potatoes",
+   "name": "Mash potatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 278,
+    "protein": 3.5,
+    "carbs": 20,
+    "fat": 19.7,
+    "saturatedFat": 12.5,
+    "sugar": 2.3,
+    "salt": 1.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "burnt-hispi-cabbage",
+   "name": "Burnt hispi cabbage",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 408,
+    "protein": 7.7,
+    "carbs": 6.3,
+    "fat": 42.2,
+    "saturatedFat": 19,
+    "sugar": 4.9,
+    "salt": 4.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cream-spinach",
+   "name": "Cream spinach",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 463,
+    "protein": 9.5,
+    "carbs": 5.8,
+    "fat": 42.7,
+    "saturatedFat": 27.7,
+    "sugar": 4.1,
+    "salt": 2.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-beans",
+   "name": "Green beans",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 111,
+    "protein": 2.7,
+    "carbs": 5,
+    "fat": 9.8,
+    "saturatedFat": 1.4,
+    "sugar": 2.8,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mixed-leaf-salad",
+   "name": "Mixed leaf salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 4,
+    "protein": 0.6,
+    "carbs": 1.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "salt": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bramley-apple-crumble",
+   "name": "Bramley apple crumble",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 595,
+    "protein": 2.8,
+    "carbs": 107.5,
+    "fat": 16.3,
+    "saturatedFat": 7.7,
+    "sugar": 86,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-fondant",
+   "name": "Chocolate fondant",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 595,
+    "protein": 7.9,
+    "carbs": 64.3,
+    "fat": 33.5,
+    "saturatedFat": 21,
+    "sugar": 54.6,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky toffee pudding",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 755,
+    "protein": 5.6,
+    "carbs": 78.1,
+    "fat": 45.5,
+    "saturatedFat": 26.2,
+    "sugar": 56.9,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "callebaut-dark-chocolate-mousse",
+   "name": "Callebaut dark chocolate mousse",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 251,
+    "protein": 6.3,
+    "carbs": 24.6,
+    "fat": 12.7,
+    "saturatedFat": 8.6,
+    "sugar": 23.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-souffle",
+   "name": "Pistachio soufflé",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 368,
+    "protein": 8,
+    "carbs": 49.3,
+    "fat": 15.2,
+    "saturatedFat": 8,
+    "sugar": 44.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "rum-baba",
+   "name": "Rum baba",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 696,
+    "protein": 5.5,
+    "carbs": 77.7,
+    "fat": 37.7,
+    "saturatedFat": 23.1,
+    "sugar": 58,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "ice-cream-vanilla",
+   "name": "Ice cream: Vanilla",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 92,
+    "protein": 0.4,
+    "carbs": 12.5,
+    "fat": 4.2,
+    "saturatedFat": 3.6,
+    "sugar": 9,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ice-cream-chocolate",
+   "name": "Ice cream: Chocolate",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 101,
+    "protein": 0.4,
+    "carbs": 13.7,
+    "fat": 4.5,
+    "saturatedFat": 3.6,
+    "sugar": 10.6,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ice-cream-strawberry",
+   "name": "Ice cream: Strawberry",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "protein": 0.5,
+    "carbs": 13.8,
+    "fat": 3.9,
+    "saturatedFat": 3.4,
+    "sugar": 9.7,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ice-cream-salted-caramel",
+   "name": "Ice cream: Salted caramel",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 88,
+    "protein": 0.4,
+    "carbs": 12.6,
+    "fat": 4.1,
+    "saturatedFat": 3.6,
+    "sugar": 8.9,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ice-cream-honeycomb",
+   "name": "Ice cream: Honeycomb",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 104,
+    "protein": 0.5,
+    "carbs": 15.2,
+    "fat": 4.2,
+    "saturatedFat": 3.5,
+    "sugar": 11.1,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sorbet-raspberry",
+   "name": "Sorbet: Raspberry",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 49,
+    "protein": 0.1,
+    "carbs": 11.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 10.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sorbet-mango",
+   "name": "Sorbet: Mango",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 50,
+    "protein": 0.1,
+    "carbs": 12.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 11.3,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sorbet-blackcurrant",
+   "name": "Sorbet: Blackcurrant",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.1,
+    "carbs": 12.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 10.2,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sorbet-lemon",
+   "name": "Sorbet: Lemon",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 14.1,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 12.1,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "selection-of-british-and-french-cheese-crackers-and-accompaniments",
+   "name": "Selection of British & French cheese (crackers & accompaniments)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 604,
+    "protein": 29.7,
+    "carbs": 42.2,
+    "fat": 40.9,
+    "saturatedFat": 24.6,
+    "sugar": 18.6,
+    "salt": 2.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "selection-of-british-and-french-cheese-gluten-free-bread-and-accompaniments",
+   "name": "Selection of British & French cheese (gluten free bread & accompaniments)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 681,
+    "protein": 26.3,
+    "carbs": 53.6,
+    "fat": 41.4,
+    "saturatedFat": 24,
+    "sugar": 20.3,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chorizo-ketchup-burger-add-on",
+   "name": "Chorizo ketchup (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 3.5,
+    "carbs": 3.8,
+    "fat": 4.7,
+    "saturatedFat": 0.6,
+    "sugar": 3.5,
+    "salt": 0.7
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "emmental-burger-add-on",
+   "name": "Emmental (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 79,
+    "protein": 6,
+    "carbs": 0,
+    "fat": 6.2,
+    "saturatedFat": 4.1,
+    "sugar": 0,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tomato-chutney-burger-add-on",
+   "name": "Tomato chutney (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.5,
+    "carbs": 2.8,
+    "fat": 0.8,
+    "saturatedFat": 0.4,
+    "sugar": 2.5,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gorgonzola-burger-add-on",
+   "name": "Gorgonzola (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 78,
+    "protein": 4.5,
+    "carbs": 0,
+    "fat": 6.8,
+    "saturatedFat": 4.8,
+    "sugar": 0,
+    "salt": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "raclette-burger-add-on",
+   "name": "Raclette (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 115,
+    "protein": 7.3,
+    "carbs": 0.3,
+    "fat": 9.3,
+    "saturatedFat": 6.7,
+    "sugar": 0,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacon-burger-add-on",
+   "name": "Bacon (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 109,
+    "protein": 6.3,
+    "carbs": 0,
+    "fat": 9.4,
+    "saturatedFat": 3.3,
+    "sugar": 0,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rich-lardon-gravy-burger-add-on",
+   "name": "Rich lardon gravy (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 221,
+    "protein": 6.3,
+    "carbs": 4.2,
+    "fat": 18.5,
+    "saturatedFat": 3.8,
+    "sugar": 1.3,
+    "salt": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-and-herb-butter-steak-add-on",
+   "name": "Garlic & herb butter (steak add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 140,
+    "protein": 0.6,
+    "carbs": 0.7,
+    "fat": 14.8,
+    "saturatedFat": 9.3,
+    "sugar": 0.4,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bearnaise-steak-add-on",
+   "name": "Béarnaise (steak add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 1.7,
+    "carbs": 0.4,
+    "fat": 23,
+    "saturatedFat": 13.7,
+    "sugar": 0.3,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roquefort-steak-add-on",
+   "name": "Roquefort (steak add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 129,
+    "protein": 2.8,
+    "carbs": 1.8,
+    "fat": 12.2,
+    "saturatedFat": 7.9,
+    "sugar": 1.1,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "peppercorn-steak-add-on",
+   "name": "Peppercorn (steak add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 104,
+    "protein": 2.3,
+    "carbs": 2,
+    "fat": 9.7,
+    "saturatedFat": 4.8,
+    "sugar": 0.8,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "aged-black-garlic-mayonnaise-steak-add-on",
+   "name": "Aged black garlic mayonnaise (steak add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 313,
+    "protein": 1,
+    "carbs": 1,
+    "fat": 34.5,
+    "saturatedFat": 4.2,
+    "sugar": 0.3,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "classic-dijon-mustard-dressing",
+   "name": "Classic Dijon mustard dressing",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 0.4,
+    "carbs": 0.2,
+    "fat": 28.5,
+    "saturatedFat": 3.4,
+    "sugar": 0.1,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "balsamic-with-fig-leaf-oil-salad-dressing",
+   "name": "Balsamic with fig leaf oil (salad dressing)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 134,
+    "protein": 0.1,
+    "carbs": 3,
+    "fat": 13.5,
+    "saturatedFat": 1.9,
+    "sugar": 2.8,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crunchy-pickles-burger-add-on",
+   "name": "Crunchy pickles (burger add-on)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0.9,
+    "carbs": 8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.2,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "veggie-dippers-and-houmous",
+   "name": "Veggie dippers & houmous",
+   "category": "Kids: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 252,
+    "protein": 6.3,
+    "carbs": 12,
+    "fat": 19,
+    "saturatedFat": 1.4,
+    "sugar": 6.7,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "lupin",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breadsticks-and-houmous",
+   "name": "Breadsticks & houmous",
+   "category": "Kids: Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 316,
+    "protein": 7.8,
+    "carbs": 22.5,
+    "fat": 20.1,
+    "saturatedFat": 1.8,
+    "sugar": 1.8,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "veggie-bolognese",
+   "name": "Veggie bolognese",
+   "category": "Kids: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 466,
+    "protein": 18.3,
+    "carbs": 61.1,
+    "fat": 17.6,
+    "saturatedFat": 5.7,
+    "sugar": 8.4,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "lupin",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grill-chalkstream-trout",
+   "name": "Grill ChalkStream trout",
+   "category": "Kids: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 401,
+    "protein": 23.7,
+    "carbs": 31.1,
+    "fat": 21.1,
+    "saturatedFat": 2.7,
+    "sugar": 6.3,
+    "salt": 2.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "lupin"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sausage-and-mash",
+   "name": "Sausage & mash",
+   "category": "Kids: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 672,
+    "protein": 22.5,
+    "carbs": 29.3,
+    "fat": 52.3,
+    "saturatedFat": 21.7,
+    "sugar": 6.3,
+    "salt": 3.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-roulade",
+   "name": "Chicken roulade",
+   "category": "Kids: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 841,
+    "protein": 43,
+    "carbs": 45.4,
+    "fat": 56.6,
+    "saturatedFat": 6.1,
+    "sugar": 5.6,
+    "salt": 2.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "beef-burger",
+   "name": "Beef burger",
+   "category": "Kids: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 639,
+    "protein": 25.7,
+    "carbs": 52.3,
+    "fat": 36.4,
+    "saturatedFat": 8,
+    "sugar": 9.4,
+    "salt": 3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "watermelon-and-pineapple-fruit-salad",
+   "name": "Watermelon & pineapple fruit salad",
+   "category": "Kids: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 124,
+    "protein": 1.5,
+    "carbs": 28.6,
+    "fat": 0.9,
+    "saturatedFat": 0,
+    "sugar": 28.5,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "judes-fruit-twist",
+   "name": "Jude's fruit twist",
+   "category": "Kids: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 47,
+    "protein": 0.1,
+    "carbs": 10,
+    "fat": 0.3,
+    "saturatedFat": 0.3,
+    "sugar": 7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-knickerbocker-glory",
+   "name": "Strawberry knickerbocker glory",
+   "category": "Kids: Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 315,
+    "protein": 2.5,
+    "carbs": 37.3,
+    "fat": 17.1,
+    "saturatedFat": 12.5,
+    "sugar": 29.2,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "cawston-press-juices-apple-and-pear",
+   "name": "Cawston Press juices (apple & pear)",
+   "category": "Kids: Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0.2,
+    "carbs": 12.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cawston-press-juices-apple-and-summer-berries",
+   "name": "Cawston Press juices (apple & summer berries)",
+   "category": "Kids: Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 51,
+    "protein": 0.6,
+    "carbs": 11.6,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "deluxe-hot-chocolate",
+   "name": "Deluxe hot chocolate",
+   "category": "Kids: Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.8,
+    "carbs": 10.2,
+    "fat": 0.7,
+    "saturatedFat": 0.4,
+    "sugar": 9.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "babyccino",
+   "name": "Babyccino",
+   "category": "Kids: Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56,
+    "protein": 3.1,
+    "carbs": 4,
+    "fat": 3.2,
+    "saturatedFat": 2.1,
+    "sugar": 4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cinnamon-and-pomegranate-margarita-on-the-rocks",
+   "name": "Cinnamon & Pomegranate Margarita (on the rocks)",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 0.4,
+    "carbs": 24.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 18.8,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "cranberry-collins",
+   "name": "Cranberry Collins",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 199,
+    "protein": 0.1,
+    "carbs": 25.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 24.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orchard-frost",
+   "name": "Orchard Frost",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 0.6,
+    "carbs": 8.4,
+    "fat": 0.4,
+    "saturatedFat": 0,
+    "sugar": 7.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spiced-apple-mojito",
+   "name": "Spiced Apple Mojito",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 195,
+    "protein": 1.2,
+    "carbs": 18.6,
+    "fat": 0.5,
+    "saturatedFat": 0.1,
+    "sugar": 17.5,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bellini",
+   "name": "Bellini",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 110,
+    "protein": 0.1,
+    "carbs": 6.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blood-orange-paloma",
+   "name": "Blood Orange Paloma",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 0.5,
+    "carbs": 22,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 18.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bramble",
+   "name": "Bramble",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 152,
+    "protein": 0.2,
+    "carbs": 15.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15.7,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-martini",
+   "name": "Espresso Martini",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 0,
+    "carbs": 16.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16.1,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "margarita-on-the-rocks",
+   "name": "Margarita (on the rocks)",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 165,
+    "protein": 0.3,
+    "carbs": 16.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 15,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "negroni",
+   "name": "Negroni",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 0.2,
+    "carbs": 11.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 8.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mojito",
+   "name": "Mojito",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 156,
+    "protein": 1,
+    "carbs": 10.3,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 9.6,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "old-fashioned",
+   "name": "Old Fashioned",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 169,
+    "protein": 0.6,
+    "carbs": 11,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 11,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spicy-margarita",
+   "name": "Spicy Margarita",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 171,
+    "protein": 0.2,
+    "carbs": 12.5,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 10.5,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tom-collins",
+   "name": "Tom Collins",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 0.1,
+    "carbs": 12.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.3,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "whiskey-sour",
+   "name": "Whiskey Sour",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 141,
+    "protein": 3,
+    "carbs": 13.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 13.8,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "aperol-spritz",
+   "name": "Aperol Spritz",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 0.5,
+    "carbs": 18.1,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 18.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "citrus-spritz",
+   "name": "Citrus Spritz",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 0.2,
+    "carbs": 17.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 17.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hugo-spritz",
+   "name": "Hugo Spritz",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 124,
+    "protein": 0.3,
+    "carbs": 13.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 13.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sarti-rosa-spritz",
+   "name": "Sarti Rosa Spritz",
+   "category": "Drinks: Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 0.3,
+    "carbs": 14.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 13.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "signature-g-and-t",
+   "name": "Signature G&T",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 117,
+    "protein": 0.2,
+    "carbs": 13,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 11.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bombay-sapphire-mediterranean-tonic-lime-wedge",
+   "name": "Bombay Sapphire - Mediterranean Tonic, lime wedge",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 105,
+    "protein": 0.1,
+    "carbs": 8.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hendricks-elderflower-tonic-lime-wedge",
+   "name": "Hendrick’s - Elderflower Tonic, lime wedge",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 98,
+    "protein": 0.1,
+    "carbs": 8.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "lupin"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malfy-originale-mediterranean-tonic-lemon-wedge",
+   "name": "Malfy Originale - Mediterranean Tonic, lemon wedge",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 91,
+    "protein": 0,
+    "carbs": 8.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "monkey-47-mediterranean-tonic-blackberries",
+   "name": "Monkey 47 - Mediterranean Tonic, blackberries",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 0.2,
+    "carbs": 9.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tanqueray-indian-tonic-lime-wedge",
+   "name": "Tanqueray - Indian Tonic, lime wedge",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 87,
+    "protein": 0.1,
+    "carbs": 8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "the-botanist-elderflower-tonic-lime-wedge",
+   "name": "The Botanist - Elderflower Tonic, lime wedge",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 0.1,
+    "carbs": 9.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 9.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "warners-rhubarb-mediterranean-tonic-orange-slice",
+   "name": "Warner’s Rhubarb - Mediterranean tonic, orange slice",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 128,
+    "protein": 0.2,
+    "carbs": 10.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 10.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tanqueray-flor-de-sevilla-0-0-mediterranean-tonic-orange-slice",
+   "name": "Tanqueray Flor de Sevilla 0.0% - Mediterranean Tonic, orange Slice",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.2,
+    "carbs": 10.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 10.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "warners-pink-berry-0-0-elderflower-tonic-blackberries",
+   "name": "Warner’s Pink Berry 0.0% - Elderflower tonic, blackberries",
+   "category": "Drinks: Gin",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 0.2,
+    "carbs": 9.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "asahi-super-dry-5-2",
+   "name": "Asahi Super Dry 5.2%",
+   "category": "Drinks: Beer & cider",
+   "serving": "330ml bottle",
+   "nutrients": {
+    "calories": 135,
+    "protein": 1,
+    "carbs": 9.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "beavertown-gamma-ray-5-4-can",
+   "name": "Beavertown Gamma Ray 5.4% (can)",
+   "category": "Drinks: Beer & cider",
+   "serving": "",
+   "nutrients": {
+    "calories": 152,
+    "protein": 1.3,
+    "carbs": 11.6,
+    "fat": 0.3,
+    "saturatedFat": 0.3,
+    "sugar": 0.7,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "corona-4-5",
+   "name": "Corona 4.5%",
+   "category": "Drinks: Beer & cider",
+   "serving": "330ml bottle",
+   "nutrients": {
+    "calories": 141,
+    "protein": 1.1,
+    "carbs": 13.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "camden-eazy-hazy-ipa-5-0-can",
+   "name": "Camden Eazy Hazy IPA 5.0% (can)",
+   "category": "Drinks: Beer & cider",
+   "serving": "",
+   "nutrients": {
+    "calories": 145,
+    "protein": 1.7,
+    "carbs": 11.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "peroni-gluten-free-5-0",
+   "name": "Peroni Gluten Free 5.0%",
+   "category": "Drinks: Beer & cider",
+   "serving": "330ml bottle",
+   "nutrients": {
+    "calories": 139,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "asahi-super-dry-0-0",
+   "name": "Asahi Super Dry 0.0%",
+   "category": "Drinks: Beer & cider",
+   "serving": "330ml bottle",
+   "nutrients": {
+    "calories": 83,
+    "protein": 0.7,
+    "carbs": 20.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "corona-cero-0-0",
+   "name": "Corona Cero 0.0%",
+   "category": "Drinks: Beer & cider",
+   "serving": "330ml bottle",
+   "nutrients": {
+    "calories": 59,
+    "protein": 0.8,
+    "carbs": 13.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "guinness-0-0-538ml-can",
+   "name": "Guinness 0.0% (538ml can)",
+   "category": "Drinks: Beer & cider",
+   "serving": "538ml can",
+   "nutrients": {
+    "calories": 91,
+    "protein": 2.2,
+    "carbs": 20.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lucky-saint-hazy-ipa-0-5",
+   "name": "Lucky Saint Hazy IPA 0.5%",
+   "category": "Drinks: Beer & cider",
+   "serving": "330ml bottle",
+   "nutrients": {
+    "calories": 59,
+    "protein": 1,
+    "carbs": 12.2,
+    "fat": 0.3,
+    "saturatedFat": 0.3,
+    "sugar": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "peroni-0-0",
+   "name": "Peroni 0.0%",
+   "category": "Drinks: Beer & cider",
+   "serving": "330ml bottle",
+   "nutrients": {
+    "calories": 76,
+    "protein": 0,
+    "carbs": 18.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.6,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cornish-orchards-cherry-and-blackberry-4-0-500ml",
+   "name": "Cornish Orchards Cherry & Blackberry 4.0% (500ml)",
+   "category": "Drinks: Beer & cider",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 265,
+    "protein": 0.5,
+    "carbs": 39,
+    "fat": 2.3,
+    "saturatedFat": 0.5,
+    "sugar": 36.5,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cornish-orchards-raspberry-and-elderflower-4-0-500ml",
+   "name": "Cornish Orchards Raspberry & Elderflower 4.0% (500ml)",
+   "category": "Drinks: Beer & cider",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 265,
+    "protein": 0.5,
+    "carbs": 37.5,
+    "fat": 2.5,
+    "saturatedFat": 0.5,
+    "sugar": 35,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "aper-no-spritz-non-alcoholic",
+   "name": "Aper-NO Spritz (non-alcoholic)",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 66,
+    "protein": 0.4,
+    "carbs": 15.8,
+    "fat": 0.1,
+    "saturatedFat": 0.1,
+    "sugar": 15.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-martini-non-alcoholic",
+   "name": "Espresso Martini (non-alcoholic)",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 62,
+    "protein": 0,
+    "carbs": 15.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 15.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "margarita-non-alcoholic",
+   "name": "Margarita (non-alcoholic)",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.3,
+    "carbs": 14.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 13.4,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mojito-non-alcoholic",
+   "name": "Mojito (non-alcoholic)",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 54,
+    "protein": 1,
+    "carbs": 11.9,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 10.6,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "signature-g-and-t-non-alcoholic",
+   "name": "Signature G&T (non-alcoholic)",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 59,
+    "protein": 0.2,
+    "carbs": 14.3,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 13.2,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tom-collins-non-alcoholic",
+   "name": "Tom Collins (non-alcoholic)",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.1,
+    "carbs": 12.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.3,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "elderflower-and-apricot-cooler",
+   "name": "Elderflower & Apricot Cooler",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 69,
+    "protein": 0.2,
+    "carbs": 16.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 16.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-and-rhubarb-cooler",
+   "name": "Orange & Rhubarb Cooler",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 25,
+    "protein": 0.6,
+    "carbs": 5.5,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 5.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pineapple-and-pink-grapefruit-cooler",
+   "name": "Pineapple & Pink Grapefruit Cooler",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 13,
+    "protein": 0.4,
+    "carbs": 3.6,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 2.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "berry-burst",
+   "name": "Berry Burst",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 37,
+    "protein": 0.5,
+    "carbs": 8.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "zest-fest",
+   "name": "Zest Fest",
+   "category": "Drinks: Low & no alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "protein": 0.6,
+    "carbs": 17.5,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 16.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-classic-330ml",
+   "name": "Coca-Cola Classic 330ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 139,
+    "protein": 0,
+    "carbs": 35,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 35,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coke-zero-330ml",
+   "name": "Coke Zero 330ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coke-330ml",
+   "name": "Diet Coke 330ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sprite-zero-330ml",
+   "name": "Sprite Zero 330ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "appletiser-275ml",
+   "name": "Appletiser 275ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "275ml",
+   "nutrients": {
+    "calories": 129,
+    "protein": 0,
+    "carbs": 30.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 28.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fever-tree-raspberry-and-rose-lemonade-275ml",
+   "name": "Fever-Tree raspberry & rose lemonade 275ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "275ml",
+   "nutrients": {
+    "calories": 49,
+    "protein": 0,
+    "carbs": 12.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12.1,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fever-tree-sparkling-english-elderflower-275ml",
+   "name": "Fever-Tree sparkling English elderflower 275ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "275ml",
+   "nutrients": {
+    "calories": 49,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "frobishers-apple-and-mango-275ml",
+   "name": "Frobishers Apple and Mango 275ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "275ml",
+   "nutrients": {
+    "calories": 91,
+    "protein": 0.8,
+    "carbs": 22.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 22.6,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "frobishers-apple-and-raspberry-275ml",
+   "name": "Frobishers Apple and Raspberry 275ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "275ml",
+   "nutrients": {
+    "calories": 83,
+    "protein": 0.6,
+    "carbs": 20.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 20.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "frobishers-orange-and-passionfruit-275ml",
+   "name": "Frobishers Orange and Passionfruit 275ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "275ml",
+   "nutrients": {
+    "calories": 99,
+    "protein": 1.4,
+    "carbs": 24.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 24.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "elderflower-tonic",
+   "name": "Elderflower tonic",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 8.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ginger-ale",
+   "name": "Ginger ale",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0,
+    "carbs": 8.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "indian-tonic",
+   "name": "Indian tonic",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 30,
+    "protein": 0,
+    "carbs": 7.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7.6,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "italian-blood-orange-soda",
+   "name": "Italian blood orange soda",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 40,
+    "protein": 0,
+    "carbs": 9.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mediterranean-tonic",
+   "name": "Mediterranean tonic",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0,
+    "carbs": 8.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-grape-and-apricot-soda",
+   "name": "White grape & apricot soda",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 37,
+    "protein": 0,
+    "carbs": 9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fever-tree-indian-tonic-water-200ml",
+   "name": "Fever Tree Indian Tonic Water 200ml",
+   "category": "Drinks: Soft drinks & mixers",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0,
+    "carbs": 14.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "finlandia",
+   "name": "Finlandia",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ketel-one",
+   "name": "Ketel One",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chase",
+   "name": "Chase",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grey-goose",
+   "name": "Grey Goose",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bacardi-carta-blanca",
+   "name": "Bacardi Carta Blanca",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lyres-white-cane-non-alcoholic",
+   "name": "Lyre's White Cane (non-alcoholic)",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0.1,
+    "carbs": 1.2,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "goslings",
+   "name": "Gosling's",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lyres-dark-cane-non-alcoholic",
+   "name": "Lyre's Dark Cane (non-alcoholic)",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0.1,
+    "carbs": 1.6,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacardi-caribbean-spiced",
+   "name": "Bacardi Caribbean Spiced",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 61,
+    "protein": 0.1,
+    "carbs": 1.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacardi-8yr",
+   "name": "Bacardi 8yr",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "the-kraken",
+   "name": "The Kraken",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ron-zacapa-23yr",
+   "name": "Ron Zacapa 23yr",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 69,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "el-jimador-blanco",
+   "name": "El Jimador Blanco",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "el-jimador-reposado",
+   "name": "El Jimador Reposado",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patron-anejo",
+   "name": "Patron Anejo",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 0.4,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lyres-agave-blanco-non-alcoholic",
+   "name": "Lyre's Agave Blanco (non-alcoholic)",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 5,
+    "protein": 0.1,
+    "carbs": 1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 0.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "johnnie-walker-black-label",
+   "name": "Johnnie Walker Black Label",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bulleit",
+   "name": "Bulleit",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jack-daniels",
+   "name": "Jack Daniel's",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "woodford-reserve",
+   "name": "Woodford Reserve",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 59,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lyres-american-malt-non-alcoholic",
+   "name": "Lyre's American Malt (non-alcoholic)",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0.6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jameson",
+   "name": "Jameson",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hatozaki",
+   "name": "Hatozaki",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 83,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "monkey-shoulder",
+   "name": "Monkey Shoulder",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 70,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "glenmorangie-12-yr",
+   "name": "Glenmorangie 12 yr",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "talisker-10yr",
+   "name": "Talisker 10yr",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "glenfiddich-15-year-dram",
+   "name": "Glenfiddich 15 year dram",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "glenlivet-12yr",
+   "name": "Glenlivet 12yr",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "auchentoshan",
+   "name": "Auchentoshan",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 60,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "laphroaig-10-yr",
+   "name": "Laphroaig 10 yr",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "st-remy-xo",
+   "name": "St-Remy XO",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0.5,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "remy-martin-vsop",
+   "name": "Remy Martin VSOP",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "martell-xo",
+   "name": "Martell XO",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0,
+    "carbs": 0.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chateau-du-breuil",
+   "name": "Chateau du Breuil",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 63,
+    "protein": 0,
+    "carbs": 0.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "janneau-vsop",
+   "name": "Janneau VSOP",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 70,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cockburns-ruby",
+   "name": "Cockburn's Ruby",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "50ml",
+   "nutrients": {
+    "calories": 78,
+    "protein": 0.1,
+    "carbs": 6.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dows-tawny",
+   "name": "Dow's Tawny",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "50ml",
+   "nutrients": {
+    "calories": 83,
+    "protein": 0.1,
+    "carbs": 7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grahams-lbv",
+   "name": "Graham's LBV",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "50ml",
+   "nutrients": {
+    "calories": 79,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gonzalez-bypass-tio-pepe",
+   "name": "Gonzalez Bypass Tio Pepe",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "",
+   "nutrients": {
+    "calories": 58,
+    "protein": 0.1,
+    "carbs": 3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "harveys-bristol-cream",
+   "name": "Harvey's Bristol Cream",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "",
+   "nutrients": {
+    "calories": 75,
+    "protein": 0,
+    "carbs": 7.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "baileys-50ml",
+   "name": "Baileys (50ml)",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "50ml",
+   "nutrients": {
+    "calories": 152,
+    "protein": 1.5,
+    "carbs": 10.9,
+    "fat": 6.5,
+    "saturatedFat": 4.1,
+    "sugar": 10.9,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "campari",
+   "name": "Campari",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0.2,
+    "carbs": 8.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 8.7,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chambord",
+   "name": "Chambord",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 53,
+    "protein": 0,
+    "carbs": 8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cointreau",
+   "name": "Cointreau",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 71,
+    "protein": 0,
+    "carbs": 8.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "disaronno-amaretto",
+   "name": "Disaronno Amaretto",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 76,
+    "protein": 0,
+    "carbs": 7.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7.9,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "luxardo-limoncello",
+   "name": "Luxardo Limoncello",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 71,
+    "protein": 0,
+    "carbs": 9.8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.8,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pernod",
+   "name": "Pernod",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 78,
+    "protein": 0,
+    "carbs": 6.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.1,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regal-rogue-red-50ml",
+   "name": "Regal Rogue Red (50ml)",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "50ml",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.5,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regal-rogue-dry-50ml",
+   "name": "Regal Rogue Dry (50ml)",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "50ml",
+   "nutrients": {
+    "calories": 65,
+    "protein": 0,
+    "carbs": 1.7,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tia-maria",
+   "name": "Tia Maria",
+   "category": "Drinks: Spirits & liqueurs",
+   "serving": "25ml",
+   "nutrients": {
+    "calories": 75,
+    "protein": 0,
+    "carbs": 8.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 8.2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "amaretto-liqueur-coffee",
+   "name": "Amaretto (liqueur coffee)",
+   "category": "Drinks: Liqueur coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 262,
+    "protein": 1,
+    "carbs": 9.4,
+    "fat": 19,
+    "saturatedFat": 12.6,
+    "sugar": 9.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "baileys-liqueur-coffee",
+   "name": "Baileys (liqueur coffee)",
+   "category": "Drinks: Liqueur coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 338,
+    "protein": 2.5,
+    "carbs": 12.4,
+    "fat": 25.5,
+    "saturatedFat": 16.7,
+    "sugar": 12.4,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cointreau-liqueur-coffee",
+   "name": "Cointreau (liqueur coffee)",
+   "category": "Drinks: Liqueur coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 257,
+    "protein": 1,
+    "carbs": 10,
+    "fat": 19,
+    "saturatedFat": 12.6,
+    "sugar": 8.6,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "irish-liqueur-coffee",
+   "name": "Irish (liqueur coffee)",
+   "category": "Drinks: Liqueur coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 271,
+    "protein": 1,
+    "carbs": 9.4,
+    "fat": 19,
+    "saturatedFat": 12.6,
+    "sugar": 9.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "brandy-liqueur-coffee",
+   "name": "Brandy (liqueur coffee)",
+   "category": "Drinks: Liqueur coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 271,
+    "protein": 1.5,
+    "carbs": 9.4,
+    "fat": 19,
+    "saturatedFat": 12.6,
+    "sugar": 9.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tia-maria-liqueur-coffee",
+   "name": "Tia Maria (liqueur coffee)",
+   "category": "Drinks: Liqueur coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 261,
+    "protein": 1,
+    "carbs": 9.7,
+    "fat": 19,
+    "saturatedFat": 12.6,
+    "sugar": 9.7,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "floater-coffee-non-alcoholic",
+   "name": "Floater Coffee (non-alcoholic)",
+   "category": "Drinks: Liqueur coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 216,
+    "protein": 1,
+    "carbs": 9.4,
+    "fat": 19,
+    "saturatedFat": 12.6,
+    "sugar": 9.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

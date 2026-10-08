@@ -1,0 +1,8198 @@
+{
+ "schemaVersion": 1,
+ "id": "creams-cafe",
+ "name": "Creams Cafe",
+ "cuisine": "Desserts",
+ "builderType": "standard",
+ "aliases": [
+  "creams cafe",
+  "creams café",
+  "creams"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 02 Oct 2026 (PDF created 30 September 2026)",
+  "url": "https://www.creamscafe.com/brochures/Allergen-Matrix--02-Oct-26.pdf",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only: one figure per dish as listed in Creams Cafe's own allergen matrix; portion sizes are not stated and protein, carbs, fat and salt are not published. Sauces, syrups, toppings and the parts of build-your-own shakes and desserts are left out (no portion given). Creams says slushies contain glycerol: not recommended for children aged 4 and under.",
+ "allergenGuide": {
+  "title": "Creams Cafe Allergens & Calorie Declaration and Matrix, Version 02 Oct 2026",
+  "url": "https://www.creamscafe.com/brochures/Allergen-Matrix--02-Oct-26.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Savoury pockets",
+  "Savourish",
+  "Gelato",
+  "Sorbet",
+  "Cones",
+  "Kids menu",
+  "Cakes & pastries",
+  "Doughnuts",
+  "Savouries",
+  "Birthday cake package",
+  "Milk cakes",
+  "Cookie dough",
+  "Hot waffles",
+  "Fresh crepes",
+  "Fruit kebabs",
+  "Smoothie pots",
+  "Sensational sundaes",
+  "Soft swirled sundaes",
+  "Hot puddings",
+  "Hot pockets",
+  "Thick shakes",
+  "Loaded shakes",
+  "Slushies",
+  "Drinks",
+  "Bubble tea (regular)",
+  "Bubble tea (large)",
+  "Coffee & hot chocolate",
+  "Coffee & hot chocolate with milk",
+  "Coffee & hot chocolate with soya milk",
+  "Coffee & hot chocolate with coconut milk",
+  "Coffee & hot chocolate with almond milk",
+  "Coffee & hot chocolate with oat milk",
+  "Floats",
+  "Frappes",
+  "Tea",
+  "Milk",
+  "Cold drinks",
+  "Cake upgrade",
+  "Secret menu",
+  "Pepsi collab: floats",
+  "Pepsi collab: soft swirl sundaes",
+  "Froffle toasts",
+  "Value menu: shakes",
+  "Value menu: cookie doughettes",
+  "Value menu: waffle wedges",
+  "Value menu: stuffed pancake bites",
+  "Crave & Save",
+  "Winter: goo bakes",
+  "Winter: bites",
+  "Winter: hot chocolate"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "bbq-chicken-pocket",
+   "name": "BBQ Chicken Pocket",
+   "category": "Savoury pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 784
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spicy-sriracha-chicken-pocket",
+   "name": "Spicy Sriracha Chicken Pocket",
+   "category": "Savoury pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 769
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "falafel-chipotle-pocket",
+   "name": "Falafel Chipotle Pocket",
+   "category": "Savoury pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 914
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-fiesta-crunch-pocket",
+   "name": "Chicken Fiesta Crunch Pocket",
+   "category": "Savoury pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 866
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "teriyaki-chicken-pocket",
+   "name": "Teriyaki Chicken Pocket",
+   "category": "Savourish",
+   "serving": "",
+   "nutrients": {
+    "calories": 493
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chargrilled-spicy-veg-and-houmous",
+   "name": "Chargrilled Spicy Veg and Houmous",
+   "category": "Savourish",
+   "serving": "",
+   "nutrients": {
+    "calories": 531
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cherry-choc-chunk",
+   "name": "Cherry Choc Chunk",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 239
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "basque-cheesecake",
+   "name": "Basque Cheesecake",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bubblegum-blue-gelato",
+   "name": "Bubblegum Blue Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-chip-gelato",
+   "name": "Chocolate Chip Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-fudge-brownie-gelato",
+   "name": "Chocolate Fudge Brownie Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coconut-gelato",
+   "name": "Coconut Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 128
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "coffee-arabica-gelato",
+   "name": "Coffee Arabica Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "cookie-dough-gelato",
+   "name": "Cookie Dough Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "creams-buenot",
+   "name": "Creams Buenot",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "creams-rosher-gelato",
+   "name": "Creams Rosher Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "creams-vanilla-gelato",
+   "name": "Creams Vanilla Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mint-chocolate-chip-gelato",
+   "name": "Mint Chocolate Chip Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "o-re-o-gelato",
+   "name": "O-RE-O Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-gelato",
+   "name": "Pistachio Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-gelato",
+   "name": "Salted Caramel Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "speculoos-gelato",
+   "name": "Speculoos Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-gelato",
+   "name": "Strawberry Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "white-chocolate-gelato",
+   "name": "White Chocolate Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "winter-spiced-gelato",
+   "name": "Winter Spiced Gelato",
+   "category": "Gelato",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-absolute",
+   "name": "Chocolate Absolute",
+   "category": "Sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "alphonso-mango-sorbet",
+   "name": "Alphonso Mango Sorbet",
+   "category": "Sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "amalfi-lemon",
+   "name": "Amalfi Lemon",
+   "category": "Sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tango-sorbet",
+   "name": "Tango Sorbet",
+   "category": "Sorbet",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-sorbet",
+   "name": "Raspberry Sorbet",
+   "category": "Sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "waffle-cone-small",
+   "name": "Waffle Cone Small",
+   "category": "Cones",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "waffle-cone-medium",
+   "name": "Waffle Cone Medium",
+   "category": "Cones",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-waffle-cone-small",
+   "name": "Chocolate Waffle Cone Small",
+   "category": "Cones",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-waffle-cone-medium",
+   "name": "Chocolate Waffle Cone Medium",
+   "category": "Cones",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 468
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-brownie-bites",
+   "name": "Strawberry Brownie Bites",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "jr-bubble-gum-soft-sundae",
+   "name": "Jr Bubble Gum Soft Sundae",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rainbow-cake-and-ice-cream",
+   "name": "Rainbow Cake & Ice Cream",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "stuffed-pancake-bites",
+   "name": "Stuffed Pancake bites",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 720
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "kids-mallow-sticks",
+   "name": "Kids Mallow Sticks",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 432
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweetie-the-soft-bear",
+   "name": "Sweetie the soft bear",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 647
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "caramel-apple-crumble-pie",
+   "name": "Caramel Apple Crumble Pie",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 533
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-belgian-chocolate-fudge-cake",
+   "name": "Vegan Belgian Chocolate Fudge Cake",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 402
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-fudge-obsession",
+   "name": "Chocolate Fudge Obsession",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 909
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-meringue-cheesecake",
+   "name": "Lemon Meringue Cheesecake",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "madagascan-vanilla-cheesecake",
+   "name": "Madagascan Vanilla Cheesecake",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "white-chocolate-and-raspberry-cheesecake",
+   "name": "White Chocolate & Raspberry Cheesecake",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 421
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rainbow-cake",
+   "name": "Rainbow Cake",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 624
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chunky-triple-chocolate-brownie",
+   "name": "Chunky Triple Chocolate Brownie",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 539
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butter-croissant",
+   "name": "Butter Croissant",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 211
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pain-aux-raisins",
+   "name": "Pain Aux Raisins",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-twist",
+   "name": "Chocolate Twist",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 231
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fruit-scone",
+   "name": "Fruit Scone",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-swirl",
+   "name": "Cinnamon Swirl",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 358
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cherry-bakewell-slice",
+   "name": "Cherry Bakewell Slice",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 293
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "plain-iced-twisted-yum-yum",
+   "name": "Plain Iced Twisted YUM YUM",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain Au Chocolat",
+   "category": "Cakes & pastries",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "creams-glazed-ring-doughnut",
+   "name": "Creams Glazed Ring Doughnut",
+   "category": "Doughnuts",
+   "serving": "",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-dark-chocolate-doughnut",
+   "name": "Pistachio Dark Chocolate Doughnut",
+   "category": "Doughnuts",
+   "serving": "",
+   "nutrients": {
+    "calories": 458
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "lotus-biscoff-with-white-chocolate-sauce",
+   "name": "Lotus Biscoff with white chocolate sauce",
+   "category": "Doughnuts",
+   "serving": "",
+   "nutrients": {
+    "calories": 414
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "o-re-o-with-milk-chocolate-sauce-and-oreo-crumb",
+   "name": "O-re-o with milk chocolate sauce and Oreo crumb",
+   "category": "Doughnuts",
+   "serving": "",
+   "nutrients": {
+    "calories": 445
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smarties-with-white-chocolate-sauce",
+   "name": "Smarties with white chocolate sauce",
+   "category": "Doughnuts",
+   "serving": "",
+   "nutrients": {
+    "calories": 488
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "jammie-dodger-with-white-chocolate-and-strawberry-sauce",
+   "name": "Jammie Dodger with white chocolate & strawberry sauce",
+   "category": "Doughnuts",
+   "serving": "",
+   "nutrients": {
+    "calories": 454
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "aero-mint-bubbles-with-milk-chocolate-sauce",
+   "name": "Aero mint bubbles with milk chocolate sauce",
+   "category": "Doughnuts",
+   "serving": "",
+   "nutrients": {
+    "calories": 451
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rolo-with-milk-chocolate-and-toffee-sauce",
+   "name": "Rolo with milk chocolate & toffee sauce",
+   "category": "Doughnuts",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "popcorn-chicken-waffle-bites",
+   "name": "Popcorn Chicken Waffle Bites",
+   "category": "Savouries",
+   "serving": "",
+   "nutrients": {
+    "calories": 926
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-nachos-small",
+   "name": "Cheese Nachos Small",
+   "category": "Savouries",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 473
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mexican-nachos-small",
+   "name": "Mexican Nachos Small",
+   "category": "Savouries",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 495
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cheese-nachos-to-share",
+   "name": "Cheese Nachos To Share",
+   "category": "Savouries",
+   "serving": "To Share",
+   "nutrients": {
+    "calories": 792
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mexican-nachos-to-share",
+   "name": "Mexican Nachos To Share",
+   "category": "Savouries",
+   "serving": "To Share",
+   "nutrients": {
+    "calories": 968
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "rolo-cake",
+   "name": "Rolo Cake",
+   "category": "Birthday cake package",
+   "serving": "",
+   "nutrients": {
+    "calories": 625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-fudge-cake",
+   "name": "Chocolate Fudge Cake",
+   "category": "Birthday cake package",
+   "serving": "",
+   "nutrients": {
+    "calories": 401
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "eton-mess-cake",
+   "name": "Eton Mess Cake",
+   "category": "Birthday cake package",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gluten-free-white-chocolate-raspberry-cake",
+   "name": "Gluten free White Chocolate Raspberry Cake",
+   "category": "Birthday cake package",
+   "serving": "",
+   "nutrients": {
+    "calories": 630
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "lotus-biscuit-milk-cake",
+   "name": "Lotus Biscuit Milk Cake",
+   "category": "Milk cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 422
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rose-and-pistachio-milk-cake",
+   "name": "Rose and Pistachio Milk Cake",
+   "category": "Milk cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "milk-chocolate-cookie-dough",
+   "name": "Milk Chocolate Cookie Dough",
+   "category": "Cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 979
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "white-chocolate-cookie-dough",
+   "name": "White Chocolate Cookie Dough",
+   "category": "Cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 939
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "creams-atella-cookie-dough",
+   "name": "Creams-A'Tella Cookie Dough",
+   "category": "Cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 1130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "o-re-o-cookie-dough",
+   "name": "O-RE-O Cookie Dough",
+   "category": "Cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 1158
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "triple-treat-cookie-dough",
+   "name": "Triple Treat Cookie Dough",
+   "category": "Cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 1222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "bueno-on-white-cookie-dough",
+   "name": "Bueno On White Cookie Dough",
+   "category": "Cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 1309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-choc-indulgence-waffle",
+   "name": "Strawberry Choc Indulgence Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 930
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chocoholic-waffle",
+   "name": "Chocoholic Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1007
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cookie-crush-waffle",
+   "name": "Cookie Crush Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1207
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "speculoos-waffle",
+   "name": "Speculoos Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 994
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "millionaires-waffle",
+   "name": "Millionaires Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1291
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "royale-waffle",
+   "name": "Royale Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "o-re-o-waffle",
+   "name": "O-RE-O Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 964
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "banana-and-strawberry-waffle",
+   "name": "Banana & Strawberry Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1054
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "the-classic-waffle",
+   "name": "The Classic Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 437
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "creams-atella-waffle",
+   "name": "Creams-A'Tella Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 691
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "bueno-waffle",
+   "name": "Bueno Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-obsession-waffle",
+   "name": "Chocolate Obsession Waffle",
+   "category": "Hot waffles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1408
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-choc-indulgence-crepe",
+   "name": "Strawberry Choc Indulgence Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 906
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocoholic-crepe",
+   "name": "Chocoholic Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 983
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cookie-crush-crepe",
+   "name": "Cookie Crush Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1183
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "speculoos-crepe",
+   "name": "Speculoos Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 970
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "millionaires-crepe",
+   "name": "Millionaires Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1285
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "royale-crepe",
+   "name": "Royale Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1157
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "o-re-o-crepe",
+   "name": "O-RE-O Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 940
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "banana-and-strawberry-crepe",
+   "name": "Banana & Strawberry Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1030
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-classic-crepe",
+   "name": "The Classic Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "creams-atella-crepe",
+   "name": "Creams-A'Tella Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 667
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "bueno-crepe",
+   "name": "Bueno Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1201
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-obsession-crepe",
+   "name": "Chocolate Obsession Crepe",
+   "category": "Fresh crepes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fruit-kebabs",
+   "name": "Fruit Kebabs",
+   "category": "Fruit kebabs",
+   "serving": "",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "berrie-smoothie-pot",
+   "name": "Berrie Smoothie Pot",
+   "category": "Smoothie pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tropical-smoothie-pot",
+   "name": "Tropical Smoothie Pot",
+   "category": "Smoothie pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "green-smoothie-pot",
+   "name": "Green Smoothie Pot",
+   "category": "Smoothie pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "creams-sundae-royale",
+   "name": "Creams Sundae Royale",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 832
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "speculoos-and-caramel",
+   "name": "Speculoos & Caramel",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 791
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "o-re-o-overload",
+   "name": "O-RE-O Overload",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "creams-knickerbocker-glory",
+   "name": "Creams Knickerbocker Glory",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 577
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "berry-slice",
+   "name": "Berry Slice",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 556
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bubblelicious",
+   "name": "Bubblelicious",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 634
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolatier",
+   "name": "Chocolatier",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 745
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hot-n-cold-chocolate-cake-volcano",
+   "name": "Hot N Cold Chocolate Cake Volcano",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 829
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-meringue-cheesecakeundae",
+   "name": "Lemon Meringue Cheesecakeundae",
+   "category": "Sensational sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 734
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "toffee-speculoos-tub",
+   "name": "Toffee Speculoos Tub",
+   "category": "Soft swirled sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 461
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-strawberry-tub",
+   "name": "Chocolate and Strawberry Tub",
+   "category": "Soft swirled sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "black-forest-tub",
+   "name": "Black Forest Tub",
+   "category": "Soft swirled sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 367
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-tapioca-tub",
+   "name": "Hazelnut Tapioca Tub",
+   "category": "Soft swirled sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 462
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "mango-coconut-boba-tub",
+   "name": "Mango Coconut Boba Tub",
+   "category": "Soft swirled sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sticky-toffee-hot-skillet",
+   "name": "Sticky Toffee Hot Skillet",
+   "category": "Hot puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 801
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-fudge-cake",
+   "name": "Hot Chocolate Fudge Cake",
+   "category": "Hot puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 695
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "banoffee-hot-pocket",
+   "name": "Banoffee Hot Pocket",
+   "category": "Hot pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 897
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "black-forest-hot-pocket",
+   "name": "Black Forest Hot Pocket",
+   "category": "Hot pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 1043
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "choc-tiramisu-hot-pocket",
+   "name": "Choc Tiramisu Hot Pocket",
+   "category": "Hot pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 1102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "smores-hot-pocket",
+   "name": "Smores Hot Pocket",
+   "category": "Hot pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 972
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "oreo-thick-shake-regular",
+   "name": "Oreo Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "oreo-thick-shake-large",
+   "name": "Oreo Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 930
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "creamsatella-thick-shake-regular",
+   "name": "Creams'a'tella Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 873
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "creamsatella-thick-shake-large",
+   "name": "Creams'a'tella Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1077
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "rolo-thick-shake-regular",
+   "name": "Rolo Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 666
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "rolo-thick-shake-large",
+   "name": "Rolo Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 910
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aero-mint-thick-shake-regular",
+   "name": "Aero Mint Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 604
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aero-mint-thick-shake-large",
+   "name": "Aero Mint Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 788
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "kinder-bueno-white-thick-shake-regular",
+   "name": "Kinder Bueno White Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 632
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "kinder-bueno-white-thick-shake-large",
+   "name": "Kinder Bueno White Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 892
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "kinder-bueno-thick-shake-regular",
+   "name": "Kinder Bueno Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 645
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "kinder-bueno-thick-shake-large",
+   "name": "Kinder Bueno Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 909
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "lotus-thick-shake-regular",
+   "name": "Lotus Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 702
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lotus-thick-shake-large",
+   "name": "Lotus Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 957
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ferrero-rocher-thick-shake-regular",
+   "name": "Ferrero Rocher Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 668
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "ferrero-rocher-thick-shake-large",
+   "name": "Ferrero Rocher Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 959
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "smarties-thick-shake-regular",
+   "name": "Smarties Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 548
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "smarties-thick-shake-large",
+   "name": "Smarties Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1008
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "snickers-thick-shake-regular",
+   "name": "Snickers Thick Shake (Regular)",
+   "category": "Thick shakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 753
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "snickers-thick-shake-large",
+   "name": "Snickers Thick Shake (Large)",
+   "category": "Thick shakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 908
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "birthday-cake-loaded-shake",
+   "name": "Birthday Cake Loaded Shake",
+   "category": "Loaded shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1023
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-salted-caramel-loaded-shake",
+   "name": "Chocolate Salted Caramel Loaded Shake",
+   "category": "Loaded shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "blue-raspberry-slushie-regular",
+   "name": "Blue Raspberry Slushie (Regular)",
+   "category": "Slushies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blue-raspberry-slushie-large",
+   "name": "Blue Raspberry Slushie (Large)",
+   "category": "Slushies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-slushie-regular",
+   "name": "Strawberry Slushie (Regular)",
+   "category": "Slushies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-slushie-large",
+   "name": "Strawberry Slushie (Large)",
+   "category": "Slushies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mega-mix-slushie-regular",
+   "name": "Mega-Mix Slushie (Regular)",
+   "category": "Slushies",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mega-mix-slushie-large",
+   "name": "Mega-Mix Slushie (Large)",
+   "category": "Slushies",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-bubble-fruit-tea",
+   "name": "Mango Bubble Fruit Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-and-lychee-bubble-shake",
+   "name": "Mango and Lychee Bubble Shake",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-mango-bubble-slush",
+   "name": "Strawberry Mango Bubble Slush",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-fruit-tea-regular",
+   "name": "Strawberry Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "passion-fruit-tea-regular",
+   "name": "Passion Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "apple-fruit-tea-regular",
+   "name": "Apple Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blueberry-fruit-tea-regular",
+   "name": "Blueberry Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-fruit-tea-regular",
+   "name": "Raspberry Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "watermelon-fruit-tea-regular",
+   "name": "Watermelon Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-peach-fruit-tea-regular",
+   "name": "Honey Peach Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "mango-fruit-tea-regular",
+   "name": "Mango Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "lychee-fruit-tea-regular",
+   "name": "Lychee Fruit Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "matcha-green-milk-tea-regular",
+   "name": "Matcha Green Milk Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 832
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taro-milk-tea-regular",
+   "name": "Taro Milk Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-dew-milk-tea-regular",
+   "name": "Honey Dew Milk Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 1001
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-milk-tea-regular",
+   "name": "Strawberry Milk Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 981
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-milk-tea-regular",
+   "name": "Chocolate Milk Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 981
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mango-milk-tea-regular",
+   "name": "Mango Milk Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 951
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "assam-pearl-milk-tea-regular",
+   "name": "Assam Pearl Milk Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jasmine-pearl-milk-tea-regular",
+   "name": "Jasmine Pearl Milk Tea (regular)",
+   "category": "Bubble tea (regular)",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-fruit-tea-large",
+   "name": "Strawberry Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "passion-fruit-tea-large",
+   "name": "Passion Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "apple-fruit-tea-large",
+   "name": "Apple Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blueberry-fruit-tea-large",
+   "name": "Blueberry Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 356
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-fruit-tea-large",
+   "name": "Raspberry Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "watermelon-fruit-tea-large",
+   "name": "Watermelon Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 356
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-peach-fruit-tea-large",
+   "name": "Honey Peach Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "mango-fruit-tea-large",
+   "name": "Mango Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "lychee-fruit-tea-large",
+   "name": "Lychee Fruit Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "matcha-green-milk-tea-large",
+   "name": "Matcha Green Milk Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1050
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taro-milk-tea-large",
+   "name": "Taro Milk Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 667
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honey-dew-milk-tea-large",
+   "name": "Honey Dew Milk Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1347
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-milk-tea-large",
+   "name": "Strawberry Milk Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-milk-tea-large",
+   "name": "Chocolate Milk Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mango-milk-tea-large",
+   "name": "Mango Milk Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "assam-pearl-milk-tea-large",
+   "name": "Assam Pearl Milk Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 658
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jasmine-pearl-milk-tea-large",
+   "name": "Jasmine Pearl Milk Tea (large)",
+   "category": "Bubble tea (large)",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 658
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Coffee & hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "affogato-vanilla-gelato",
+   "name": "Affogato (vanilla gelato)",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "iced-coffee",
+   "name": "Iced Coffee",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-hot-chocolate",
+   "name": "Tiramisu Hot Chocolate",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "churros-hot-chocolate",
+   "name": "Churros Hot Chocolate",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rich-hot-chocolate",
+   "name": "Rich Hot Chocolate",
+   "category": "Coffee & hot chocolate with milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-soya-milk",
+   "name": "Flat White (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-soya-milk",
+   "name": "Cappuccino (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "latte-soya-milk",
+   "name": "Latte (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-soya-milk",
+   "name": "Chai Latte (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "iced-coffee-soya-milk",
+   "name": "Iced Coffee (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "luxury-milk-hot-chocolate-soya-milk",
+   "name": "Luxury Milk Hot Chocolate (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-hot-chocolate-soya-milk",
+   "name": "Tiramisu Hot Chocolate (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "churros-hot-chocolate-soya-milk",
+   "name": "Churros Hot Chocolate (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rich-hot-chocolate-soya-milk",
+   "name": "Rich Hot Chocolate (soya milk)",
+   "category": "Coffee & hot chocolate with soya milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-coconut-milk",
+   "name": "Flat White (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-coconut-milk",
+   "name": "Cappuccino (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "latte-coconut-milk",
+   "name": "Latte (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-coconut-milk",
+   "name": "Chai Latte (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "iced-coffee-coconut-milk",
+   "name": "Iced Coffee (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "luxury-milk-hot-chocolate-coconut-milk",
+   "name": "Luxury Milk Hot Chocolate (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-hot-chocolate-coconut-milk",
+   "name": "Tiramisu Hot Chocolate (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "churros-hot-chocolate-coconut-milk",
+   "name": "Churros Hot Chocolate (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rich-hot-chocolate-coconut-milk",
+   "name": "Rich Hot Chocolate (coconut milk)",
+   "category": "Coffee & hot chocolate with coconut milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-almond-milk",
+   "name": "Flat White (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 51
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-almond-milk",
+   "name": "Cappuccino (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "latte-almond-milk",
+   "name": "Latte (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-almond-milk",
+   "name": "Chai Latte (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "iced-coffee-almond-milk",
+   "name": "Iced Coffee (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "luxury-milk-hot-chocolate-almond-milk",
+   "name": "Luxury Milk Hot Chocolate (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 156
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-hot-chocolate-almond-milk",
+   "name": "Tiramisu Hot Chocolate (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "churros-hot-chocolate-almond-milk",
+   "name": "Churros Hot Chocolate (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "rich-hot-chocolate-almond-milk",
+   "name": "Rich Hot Chocolate (almond milk)",
+   "category": "Coffee & hot chocolate with almond milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-oat-milk",
+   "name": "Flat White (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-oat-milk",
+   "name": "Cappuccino (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-dairy-oat-milk",
+   "name": "Latte Dairy (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-oat-milk",
+   "name": "Chai Latte (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "iced-coffee-oat-milk",
+   "name": "Iced Coffee (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "luxury-milk-hot-chocolate-oat-milk",
+   "name": "Luxury Milk Hot Chocolate (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-hot-chocolate-oat-milk",
+   "name": "Tiramisu Hot Chocolate (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "churros-hot-chocolate-oat-milk",
+   "name": "Churros Hot Chocolate (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "rich-hot-chocolate-oat-milk",
+   "name": "Rich Hot Chocolate (oat milk)",
+   "category": "Coffee & hot chocolate with oat milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pepsi-ice-cream-float",
+   "name": "Pepsi Ice Cream Float",
+   "category": "Floats",
+   "serving": "",
+   "nutrients": {
+    "calories": 213
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "7up-ice-cream-float",
+   "name": "7UP Ice Cream Float",
+   "category": "Floats",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramel-frappe",
+   "name": "Caramel Frappe",
+   "category": "Frappes",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "strawberries-and-cream-frappe",
+   "name": "Strawberries & Cream Frappe",
+   "category": "Frappes",
+   "serving": "",
+   "nutrients": {
+    "calories": 344
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "coffee-frappe",
+   "name": "Coffee Frappe",
+   "category": "Frappes",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "english-breakfast",
+   "name": "English Breakfast",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey",
+   "name": "Earl Grey",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mint",
+   "name": "Mint",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "redbush",
+   "name": "Redbush",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "masala-chai",
+   "name": "Masala Chai",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dairy-whole-milk",
+   "name": "Dairy Whole Milk",
+   "category": "Milk",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-regular-can",
+   "name": "Pepsi Regular Can",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-diet-can",
+   "name": "Pepsi Diet Can",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-max-can",
+   "name": "Pepsi Max Can",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "7up-can",
+   "name": "7UP Can",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tango-orange-can",
+   "name": "Tango Orange Can",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ballygowan-still-water",
+   "name": "Ballygowan Still Water",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "harrogate-sparkling-water",
+   "name": "Harrogate Sparkling Water",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fruit-shoot-apple-and-raspberry",
+   "name": "Fruit Shoot Apple&Raspberry",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fruit-shoot-orange-juice",
+   "name": "Fruit Shoot Orange Juice",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "j20-orange-and-passionfruit",
+   "name": "J20 Orange and Passionfruit",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "j20-apple-and-raspberry",
+   "name": "J20 Apple and Raspberry",
+   "category": "Cold drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cinnamon-swirl-cheesecake",
+   "name": "Cinnamon Swirl Cheesecake",
+   "category": "Cake upgrade",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-drip-cake",
+   "name": "Chocolate Drip Cake",
+   "category": "Cake upgrade",
+   "serving": "",
+   "nutrients": {
+    "calories": 396
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-drip-cake",
+   "name": "Salted Caramel Drip Cake",
+   "category": "Cake upgrade",
+   "serving": "",
+   "nutrients": {
+    "calories": 443
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dubai-choc-waffle",
+   "name": "Dubai Choc Waffle",
+   "category": "Secret menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 1992
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-ripple-pepsi-ice-cream-float",
+   "name": "Raspberry Ripple Pepsi Ice cream Float",
+   "category": "Pepsi collab: floats",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pepsi-strawberries-and-cream-float",
+   "name": "Pepsi Strawberries and Cream Float",
+   "category": "Pepsi collab: floats",
+   "serving": "",
+   "nutrients": {
+    "calories": 159
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cherry-and-vanilla-pepsi-ice-cream-float",
+   "name": "Cherry& Vanilla Pepsi Ice cream Float",
+   "category": "Pepsi collab: floats",
+   "serving": "",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "lemon-and-strawberry-eton-mess-soft-swirl-sundae",
+   "name": "Lemon and Strawberry Eton Mess Soft Swirl Sundae",
+   "category": "Pepsi collab: soft swirl sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 351
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "honey-and-blueberry-crunch-soft-swirl-sundae",
+   "name": "Honey and Blueberry Crunch Soft Swirl Sundae",
+   "category": "Pepsi collab: soft swirl sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-rippletto-soft-swirl-sundae",
+   "name": "Raspberry Rippletto Soft Swirl Sundae",
+   "category": "Pepsi collab: soft swirl sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "black-forest-soft-swirl-sundae",
+   "name": "Black Forest Soft Swirl Sundae",
+   "category": "Pepsi collab: soft swirl sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-milk-chocolate-soft-swirl-sundae",
+   "name": "Pistachio Milk Chocolate Soft Swirl Sundae",
+   "category": "Pepsi collab: soft swirl sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-and-chocolate-soft-swirl-sundae",
+   "name": "Strawberry and Chocolate Soft Swirl Sundae",
+   "category": "Pepsi collab: soft swirl sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 297
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "teriyaki-chicken-froffle-toast",
+   "name": "Teriyaki Chicken Froffle Toast",
+   "category": "Froffle toasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 806
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "maple-froffle-toast",
+   "name": "Maple Froffle Toast",
+   "category": "Froffle toasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 817
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "apple-crunch-froffle-toast",
+   "name": "Apple Crunch Froffle Toast",
+   "category": "Froffle toasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 841
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "creams-a-tella-shake",
+   "name": "Creams a tella Shake",
+   "category": "Value menu: shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 551
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-shake",
+   "name": "Strawberry Shake",
+   "category": "Value menu: shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 435
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "toffee-shake",
+   "name": "Toffee Shake",
+   "category": "Value menu: shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-shake",
+   "name": "Pistachio Shake",
+   "category": "Value menu: shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 558
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "white-chocolate-cookie-doughette",
+   "name": "White Chocolate Cookie Doughette",
+   "category": "Value menu: cookie doughettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 473
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "milk-chocolate-cookie-doughette",
+   "name": "Milk Chocolate Cookie Doughette",
+   "category": "Value menu: cookie doughettes",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "double-chocolate-waffle-wedges",
+   "name": "Double Chocolate Waffle Wedges",
+   "category": "Value menu: waffle wedges",
+   "serving": "",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-waffle-wedges",
+   "name": "Pistachio Waffle Wedges",
+   "category": "Value menu: waffle wedges",
+   "serving": "",
+   "nutrients": {
+    "calories": 419
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-meringue-waffle-wedges",
+   "name": "Strawberry Meringue Waffle Wedges",
+   "category": "Value menu: waffle wedges",
+   "serving": "",
+   "nutrients": {
+    "calories": 356
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "toffee-waffle-wedges",
+   "name": "Toffee Waffle Wedges",
+   "category": "Value menu: waffle wedges",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "toffee-stuffed-pancake-bites",
+   "name": "Toffee Stuffed Pancake Bites",
+   "category": "Value menu: stuffed pancake bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheesey-nachos",
+   "name": "Cheesey Nacho's",
+   "category": "Crave & Save",
+   "serving": "",
+   "nutrients": {
+    "calories": 326
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "waffle-wedges",
+   "name": "Waffle Wedges",
+   "category": "Crave & Save",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "caramel-chunk-goo-bake",
+   "name": "Caramel Chunk Goo Bake",
+   "category": "Winter: goo bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 950
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-cherry-goo-bake",
+   "name": "Pistachio Cherry Goo Bake",
+   "category": "Winter: goo bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 989
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "double-chocolate-smores-goo-bake",
+   "name": "Double Chocolate Smores Goo Bake",
+   "category": "Winter: goo bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1079
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-roll-middle",
+   "name": "Cinnamon Roll Middle",
+   "category": "Winter: bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-pistachio-pancake",
+   "name": "Chocolate Pistachio Pancake",
+   "category": "Winter: bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-orange-hot-chocolate",
+   "name": "Chocolate Orange Hot Chocolate",
+   "category": "Winter: hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 480
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "praline-hot-chocolate",
+   "name": "Praline Hot Chocolate",
+   "category": "Winter: hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 520
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "gingerbread-hot-chocolate",
+   "name": "Gingerbread Hot Chocolate",
+   "category": "Winter: hot chocolate",
+   "serving": "",
+   "nutrients": {
+    "calories": 521
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

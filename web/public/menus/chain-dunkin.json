@@ -1,0 +1,1905 @@
+{
+ "schemaVersion": 1,
+ "id": "dunkin",
+ "name": "Dunkin'",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "dunkin",
+  "dunkin'",
+  "dunkin’",
+  "dunkin donuts",
+  "dunkin' donuts",
+  "dunkin’ donuts",
+  "dunkin uk"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Dunkin' UK allergens & nutrition pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot drinks and cold drinks (dunkin.co.uk/allergens-*, (c) 2026 DD IP Holder LLC; accessed 2026-10-08, no date shown)",
+  "url": "https://dunkin.co.uk/allergens",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Dunkin' publishes calories only, so protein, carbs, fat and other nutrients are not published. Drinks whose calories are printed as a range (it depends on the milk chosen, e.g. Latte), or without a size, are left out. Sizes are Small, Medium and Large as printed (no ml given). Items whose calories differ between Dunkin's allergen page and product page are not shown.",
+ "allergenGuide": {
+  "title": "Dunkin' UK allergens pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot and cold drinks (no date shown)",
+  "url": "https://dunkin.co.uk/allergens",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Donuts",
+  "Cookies",
+  "Bakery",
+  "Limited time donuts",
+  "Hot drinks",
+  "Cold drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "original-glazed-og",
+   "name": "Original Glazed (OG)",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boston-kreme",
+   "name": "Boston Kreme",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smiley",
+   "name": "Smiley",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-rainbow",
+   "name": "Strawberry Rainbow",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-monster",
+   "name": "Chocolate Monster",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 299
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banoffee-pie",
+   "name": "Banoffee Pie",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-kreme-blast",
+   "name": "Cookie Kreme Blast",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocky-road",
+   "name": "Rocky Road",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 443
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "speculoos-sensation",
+   "name": "Speculoos Sensation",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-white-chocolate",
+   "name": "Raspberry & White Chocolate",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 433
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-jelly",
+   "name": "Strawberry Jelly",
+   "category": "Donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oatmeal-cookie",
+   "name": "Oatmeal Cookie",
+   "category": "Cookies",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 366
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolate-cookie",
+   "name": "Double Chocolate Cookie",
+   "category": "Cookies",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-white-chocolate-cookie",
+   "name": "Raspberry & White Chocolate Cookie",
+   "category": "Cookies",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-croissant",
+   "name": "Butter Croissant",
+   "category": "Bakery",
+   "serving": "1 croissant",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-croissant",
+   "name": "Chocolate Croissant",
+   "category": "Bakery",
+   "serving": "1 croissant",
+   "nutrients": {
+    "calories": 346
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-roll",
+   "name": "Cinnamon Roll",
+   "category": "Bakery",
+   "serving": "1 item",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-praline",
+   "name": "Maple Praline",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 285
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smores",
+   "name": "S’mores",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 404
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-pistachio",
+   "name": "Chocolate Pistachio",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "drac",
+   "name": "Drac",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 420
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frank",
+   "name": "Frank",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 402
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toffee-apple",
+   "name": "Toffee Apple",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churro",
+   "name": "Churro",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "speculoos-caramel-crumb",
+   "name": "Speculoos Caramel Crumb",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sid",
+   "name": "Sid",
+   "category": "Limited time donuts",
+   "serving": "1 donut",
+   "nutrients": {
+    "calories": 355
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-small",
+   "name": "Espresso (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-medium",
+   "name": "Espresso (Medium)",
+   "category": "Hot drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white-small",
+   "name": "Flat White (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-small",
+   "name": "Cappuccino (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-medium",
+   "name": "Cappuccino (Medium)",
+   "category": "Hot drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-small",
+   "name": "Hot Chocolate (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-medium",
+   "name": "Hot Chocolate (Medium)",
+   "category": "Hot drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-large",
+   "name": "Hot Chocolate (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spiced-latte-hot-small",
+   "name": "Pumpkin Spiced Latte, hot (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spiced-latte-hot-medium",
+   "name": "Pumpkin Spiced Latte, hot (Medium)",
+   "category": "Hot drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 277
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spiced-latte-hot-large",
+   "name": "Pumpkin Spiced Latte, hot (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 360
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-pie-latte-hot-small",
+   "name": "Maple Pecan Pie Latte, hot (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-pie-latte-hot-medium",
+   "name": "Maple Pecan Pie Latte, hot (Medium)",
+   "category": "Hot drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-pie-latte-hot-large",
+   "name": "Maple Pecan Pie Latte, hot (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 358
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-chocolate-mocha-hot-small",
+   "name": "Dubai Chocolate Mocha, hot (Small)",
+   "category": "Hot drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-chocolate-mocha-hot-medium",
+   "name": "Dubai Chocolate Mocha, hot (Medium)",
+   "category": "Hot drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-chocolate-mocha-hot-large",
+   "name": "Dubai Chocolate Mocha, hot (Large)",
+   "category": "Hot drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 440
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-and-white-chocolate-iced-matcha-small",
+   "name": "Strawberry & White Chocolate Iced Matcha (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-and-white-chocolate-iced-matcha-medium",
+   "name": "Strawberry & White Chocolate Iced Matcha (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-and-white-chocolate-iced-matcha-large",
+   "name": "Strawberry & White Chocolate Iced Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-green-tea-small",
+   "name": "Iced Green Tea (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-green-tea-medium",
+   "name": "Iced Green Tea (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-green-tea-large",
+   "name": "Iced Green Tea (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chocolate-small",
+   "name": "Iced Chocolate (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chocolate-medium",
+   "name": "Iced Chocolate (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-chocolate-large",
+   "name": "Iced Chocolate (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 329
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-cappuccino-small",
+   "name": "Iced Cappuccino (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-cappuccino-medium",
+   "name": "Iced Cappuccino (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-cappuccino-large",
+   "name": "Iced Cappuccino (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-dragon-fruit-daydream-refresher-small",
+   "name": "Strawberry Dragon fruit Daydream Refresher (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 156
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-dragon-fruit-daydream-refresher-medium",
+   "name": "Strawberry Dragon fruit Daydream Refresher (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-dragon-fruit-daydream-refresher-large",
+   "name": "Strawberry Dragon fruit Daydream Refresher (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 232
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackberry-lemonade-small",
+   "name": "Blackberry Lemonade (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackberry-lemonade-medium",
+   "name": "Blackberry Lemonade (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackberry-lemonade-large",
+   "name": "Blackberry Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blush-spritz-small",
+   "name": "Blush Spritz (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blush-spritz-medium",
+   "name": "Blush Spritz (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blush-spritz-large",
+   "name": "Blush Spritz (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spiced-latte-cold-small",
+   "name": "Pumpkin Spiced Latte, cold (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spiced-latte-cold-medium",
+   "name": "Pumpkin Spiced Latte, cold (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 350
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-spiced-latte-cold-large",
+   "name": "Pumpkin Spiced Latte, cold (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 433
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-pie-latte-cold-small",
+   "name": "Maple Pecan Pie Latte, cold (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-pie-latte-cold-medium",
+   "name": "Maple Pecan Pie Latte, cold (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-pecan-pie-latte-cold-large",
+   "name": "Maple Pecan Pie Latte, cold (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 301
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-chocolate-mocha-cold-small",
+   "name": "Dubai Chocolate Mocha, cold (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 177
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-chocolate-mocha-cold-medium",
+   "name": "Dubai Chocolate Mocha, cold (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-chocolate-mocha-cold-large",
+   "name": "Dubai Chocolate Mocha, cold (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 383
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-matcha-oat-latte-small",
+   "name": "Pumpkin Matcha Oat Latte (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-matcha-oat-latte-medium",
+   "name": "Pumpkin Matcha Oat Latte (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 223
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-matcha-oat-latte-large",
+   "name": "Pumpkin Matcha Oat Latte (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "starlight-lemonade-small",
+   "name": "Starlight Lemonade (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "starlight-lemonade-medium",
+   "name": "Starlight Lemonade (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 257
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "starlight-lemonade-large",
+   "name": "Starlight Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "atlantic-ice-small",
+   "name": "Atlantic Ice (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "atlantic-ice-medium",
+   "name": "Atlantic Ice (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 227
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "atlantic-ice-large",
+   "name": "Atlantic Ice (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 291
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shaken-iced-tea-small",
+   "name": "Shaken Iced Tea (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shaken-iced-tea-medium",
+   "name": "Shaken Iced Tea (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shaken-iced-tea-large",
+   "name": "Shaken Iced Tea (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 178
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cookie-frappe-small",
+   "name": "Chocolate Cookie Frappe (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 286
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cookie-frappe-medium",
+   "name": "Chocolate Cookie Frappe (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-cookie-frappe-large",
+   "name": "Chocolate Cookie Frappe (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 479
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shortcake-frappe-small",
+   "name": "Strawberry Shortcake Frappe (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shortcake-frappe-medium",
+   "name": "Strawberry Shortcake Frappe (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 448
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shortcake-frappe-large",
+   "name": "Strawberry Shortcake Frappe (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 556
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-fudge-frappe-small",
+   "name": "Caramel Fudge Frappe (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-fudge-frappe-medium",
+   "name": "Caramel Fudge Frappe (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-fudge-frappe-large",
+   "name": "Caramel Fudge Frappe (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 514
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-frappe-small",
+   "name": "Coffee Frappe (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-frappe-medium",
+   "name": "Coffee Frappe (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-frappe-large",
+   "name": "Coffee Frappe (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 466
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-pineapple-daydream-refresher-small",
+   "name": "Mango Pineapple Daydream Refresher (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-pineapple-daydream-refresher-medium",
+   "name": "Mango Pineapple Daydream Refresher (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-pineapple-daydream-refresher-large",
+   "name": "Mango Pineapple Daydream Refresher (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 237
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mojito-citrus-zest-red-bull-infusion-medium",
+   "name": "Mojito Citrus Zest Red Bull Infusion (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-shaken-espresso-small",
+   "name": "Iced Shaken Espresso (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-shaken-espresso-medium",
+   "name": "Iced Shaken Espresso (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-shaken-espresso-large",
+   "name": "Iced Shaken Espresso (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-small",
+   "name": "Iced Caramel Macchiato (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-medium",
+   "name": "Iced Caramel Macchiato (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 178
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-caramel-macchiato-large",
+   "name": "Iced Caramel Macchiato (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-lemonade-small",
+   "name": "Strawberry Lemonade (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-lemonade-medium",
+   "name": "Strawberry Lemonade (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-lemonade-large",
+   "name": "Strawberry Lemonade (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-marshmallow-iced-matcha-small",
+   "name": "Toasted Marshmallow Iced Matcha (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-marshmallow-iced-matcha-medium",
+   "name": "Toasted Marshmallow Iced Matcha (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 171
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-marshmallow-iced-matcha-large",
+   "name": "Toasted Marshmallow Iced Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churro-iced-matcha-small",
+   "name": "Churro Iced Matcha (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churro-iced-matcha-medium",
+   "name": "Churro Iced Matcha (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "churro-iced-matcha-large",
+   "name": "Churro Iced Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toffee-apple-iced-matcha-small",
+   "name": "Toffee Apple Iced Matcha (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toffee-apple-iced-matcha-medium",
+   "name": "Toffee Apple Iced Matcha (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toffee-apple-iced-matcha-large",
+   "name": "Toffee Apple Iced Matcha (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-patch-cloud-latte-small",
+   "name": "Pumpkin Patch Cloud Latte (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 177
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-patch-cloud-latte-medium",
+   "name": "Pumpkin Patch Cloud Latte (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-patch-cloud-latte-large",
+   "name": "Pumpkin Patch Cloud Latte (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-sours-small",
+   "name": "Apple Sours (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-sours-medium",
+   "name": "Apple Sours (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-sours-large",
+   "name": "Apple Sours (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 219
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-sours-small",
+   "name": "Cherry Sours (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-sours-medium",
+   "name": "Cherry Sours (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-sours-large",
+   "name": "Cherry Sours (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-sours-small",
+   "name": "Orange Sours (Small)",
+   "category": "Cold drinks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-sours-medium",
+   "name": "Orange Sours (Medium)",
+   "category": "Cold drinks",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-sours-large",
+   "name": "Orange Sours (Large)",
+   "category": "Cold drinks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

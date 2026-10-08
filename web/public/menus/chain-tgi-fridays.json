@@ -1,0 +1,3538 @@
+{
+ "schemaVersion": 1,
+ "id": "tgi-fridays",
+ "name": "TGI Fridays",
+ "cuisine": "American",
+ "builderType": "standard",
+ "aliases": [
+  "tgi fridays",
+  "tgi friday's",
+  "tgi friday",
+  "fridays"
+ ],
+ "sample": false,
+ "source": {
+  "title": "TGI Fridays allergen and calorie guide: Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-10-07, no date shown)",
+  "url": "https://viewthe.menu/2alz",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only (per dish, from TGI Fridays' own allergen guide): protein, carbs and fat are not published. Drinks and cocktails are not in the guide, and it doesn't say whether grills include their two sides. Several different dishes print identical calories (all four steaks print 679): ask the restaurant if it matters.",
+ "allergenGuide": {
+  "title": "TGI Fridays allergen and intolerance guide with calories, Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-10-07, no date shown)",
+  "url": "https://viewthe.menu/2alz",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Appetizers",
+  "Burgers & sandwiches",
+  "Pasta",
+  "Chicken",
+  "Whiskey-glazed grill",
+  "Grill & steaks",
+  "Fresh-Mex",
+  "Bowls & salads",
+  "Toppings for bowls & salads",
+  "Sides",
+  "Desserts",
+  "Kids menu: chicken & dips",
+  "Kids menu: burgers, dogs & pasta",
+  "Kids menu: wild bunch faves",
+  "Kids menu: sides",
+  "Kids menu: desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chips-and-guacamole",
+   "name": "Chips & Guacamole",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chicken-potstickers",
+   "name": "Chicken Potstickers",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegetable-potstickers",
+   "name": "Vegetable Potstickers",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-nachos",
+   "name": "Cheese Nachos",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 972
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "bruschetta",
+   "name": "Bruschetta",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 332
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "fridays-loaded-potato-skins",
+   "name": "Fridays Loaded Potato Skins",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-whiskey-glazed-sesame-chicken-strips-appetizer",
+   "name": "Fridays™ Signature Whiskey-Glazed Sesame Chicken Strips (appetizer)",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 504
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crispy-calamari",
+   "name": "Crispy Calamari",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "molluscs",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mozzarella-planks",
+   "name": "Mozzarella Planks",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 463
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-quesadilla",
+   "name": "Chicken Quesadilla",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 617
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "boneless-wings-with-buffalo-sauce",
+   "name": "Boneless Wings with Buffalo Sauce",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 608
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "boneless-wings-with-fridays-signature-whiskey-glaze",
+   "name": "Boneless Wings with Fridays Signature Whiskey-Glaze",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "boneless-wings-with-nashville-hot-sauce",
+   "name": "Boneless Wings with Nashville Hot Sauce",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "boneless-wings-with-blaze-glaze",
+   "name": "Boneless Wings with Blaze Glaze",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 608
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "traditional-wings-with-buffalo-sauce",
+   "name": "Traditional Wings with Buffalo Sauce",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "traditional-wings-with-bbq-sauce",
+   "name": "Traditional Wings with BBQ Sauce",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "traditional-wings-with-fridays-signature-whiskey-glaze",
+   "name": "Traditional Wings with Fridays Signature Whiskey-Glaze",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 600
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "traditional-wings-with-nashville-hot-sauce",
+   "name": "Traditional Wings with Nashville Hot Sauce",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tgi-combo",
+   "name": "TGI Combo",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 2533
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "triple-chicken-platter",
+   "name": "Triple Chicken Platter",
+   "category": "Appetizers",
+   "serving": "",
+   "nutrients": {
+    "calories": 2287
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-original-burger",
+   "name": "The Original Burger",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 709
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheeseburger",
+   "name": "Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 763
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-whiskey-glazed-burger",
+   "name": "Fridays™ Signature Whiskey-Glazed Burger",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 816
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "texas-chilli-cheeseburger",
+   "name": "Texas Chilli Cheeseburger",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 816
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "loaded-cheese-fry-big-af-burger",
+   "name": "Loaded Cheese Fry Big AF Burger",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 816
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-bbq-burger",
+   "name": "Vegan BBQ Burger",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 676
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-whiskey-glazed-chicken-sandwich",
+   "name": "Fridays™ Signature Whiskey-Glazed Chicken Sandwich",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 649
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cajun-chicken-sandwich",
+   "name": "Cajun Chicken Sandwich",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 593
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chicken-finger-blt",
+   "name": "Chicken Finger BLT",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 593
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "nashville-hot-chicken-sandwich",
+   "name": "Nashville Hot Chicken Sandwich",
+   "category": "Burgers & sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 734
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pasta-alla-pantalones-tequila",
+   "name": "Pasta Alla Pantalones Tequila",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 735
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sizzling-mac-and-cheese",
+   "name": "Sizzling Mac & Cheese",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "sizzling-chicken",
+   "name": "Sizzling Chicken",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 779
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "crispy-chicken-fingers",
+   "name": "Crispy Chicken Fingers",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 688
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-whiskey-glazed-sesame-chicken-strips-main",
+   "name": "Fridays™ Signature Whiskey-Glazed Sesame Chicken Strips (main)",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 892
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "wicked-chicken",
+   "name": "Wicked Chicken",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 955
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-whiskey-glazed-chicken",
+   "name": "Fridays™ Signature Whiskey-Glazed Chicken",
+   "category": "Whiskey-glazed grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 779
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-whiskey-glazed-salmon",
+   "name": "Fridays™ Signature Whiskey-Glazed Salmon",
+   "category": "Whiskey-glazed grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 779
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-half-rack-whiskey-glazed-ribs",
+   "name": "Fridays™ Signature Half Rack Whiskey-Glazed Ribs",
+   "category": "Whiskey-glazed grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1484
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-full-rack-whiskey-glazed-ribs",
+   "name": "Fridays Signature Full Rack Whiskey-Glazed Ribs",
+   "category": "Whiskey-glazed grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 2260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-whiskey-glazed-steak",
+   "name": "Fridays™ Signature Whiskey-Glazed Steak",
+   "category": "Whiskey-glazed grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "full-rack-of-bbq-ribs",
+   "name": "Full Rack of BBQ Ribs",
+   "category": "Grill & steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2222
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "half-rack-of-bbq-ribs",
+   "name": "Half Rack of BBQ Ribs",
+   "category": "Grill & steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1444
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "classic-sirloin-steak",
+   "name": "Classic Sirloin Steak",
+   "category": "Grill & steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "ribeye-steak",
+   "name": "Ribeye Steak",
+   "category": "Grill & steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "rump-steak",
+   "name": "Rump Steak",
+   "category": "Grill & steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "steak-and-rib-duet",
+   "name": "Steak and Rib Duet",
+   "category": "Grill & steaks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1859
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "cajun-chicken-sizzling-fajitas",
+   "name": "Cajun Chicken Sizzling Fajitas",
+   "category": "Fresh-Mex",
+   "serving": "",
+   "nutrients": {
+    "calories": 955
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cajun-chicken-and-steak-fajitas",
+   "name": "Cajun Chicken & Steak Fajitas",
+   "category": "Fresh-Mex",
+   "serving": "",
+   "nutrients": {
+    "calories": 955
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "garlic-and-chilli-sizzling-vegetable-fajita",
+   "name": "Garlic & Chilli Sizzling Vegetable Fajita",
+   "category": "Fresh-Mex",
+   "serving": "",
+   "nutrients": {
+    "calories": 694
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "cheese-quesadilla-with-spicy-rice",
+   "name": "Cheese Quesadilla with Spicy Rice",
+   "category": "Fresh-Mex",
+   "serving": "",
+   "nutrients": {
+    "calories": 617
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cajun-mushroom-fajita-wrap",
+   "name": "Cajun Mushroom Fajita Wrap",
+   "category": "Fresh-Mex",
+   "serving": "",
+   "nutrients": {
+    "calories": 355
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crispy-chicken-salad",
+   "name": "Crispy Chicken Salad",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cobb-salad",
+   "name": "Cobb Salad",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 597
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "king-prawn-mexi-bowl",
+   "name": "King Prawn Mexi Bowl",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "mexi-bowl",
+   "name": "Mexi Bowl",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "plant-based-mexi-bowl",
+   "name": "Plant-Based Mexi Bowl",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "blackened-chicken-for-bowls-and-salads",
+   "name": "Blackened Chicken for Bowls & Salads",
+   "category": "Toppings for bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 141
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "blackened-salmon-for-bowls-and-salads",
+   "name": "Blackened Salmon for Bowls & Salads",
+   "category": "Toppings for bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 344
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "garlic-and-chilli-king-prawns",
+   "name": "Garlic & Chilli King Prawns",
+   "category": "Toppings for bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "grilled-chicken",
+   "name": "Grilled Chicken",
+   "category": "Toppings for bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 141
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "house-fries",
+   "name": "House Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 419
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "cajun-spiced-onion-rings",
+   "name": "Cajun Spiced Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 440
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "maple-glazed-corn-ribs",
+   "name": "Maple Glazed Corn Ribs",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "coleslaw",
+   "name": "Coleslaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 103
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "spicy-rice",
+   "name": "Spicy Rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "creamy-mash",
+   "name": "Creamy Mash",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 344
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "garlic-ciabatta-bread-with-cheese",
+   "name": "Garlic Ciabatta Bread with Cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 582
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "garlic-ciabatta",
+   "name": "Garlic Ciabatta",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 440
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-bacon-loaded-fries",
+   "name": "Cheese and Bacon Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 982
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chefs-vegetables",
+   "name": "Chef's Vegetables",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 51
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "house-salad-with-honey-mustard-sauce",
+   "name": "House Salad with Honey Mustard Sauce",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "house-salad-with-blue-cheese-sauce",
+   "name": "House Salad with Blue Cheese Sauce",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "house-salad-with-ranch-dressing",
+   "name": "House Salad with Ranch Dressing",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "peppercorn-sauce",
+   "name": "Peppercorn Sauce",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "fridays-signature-whiskey-glaze",
+   "name": "Fridays Signature Whiskey-Glaze",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-fudge-fixation",
+   "name": "Chocolate Fudge Fixation",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "brownie-obsession",
+   "name": "Brownie Obsession",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fridays-sundae",
+   "name": "Fridays Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1490
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-and-chocolate-brownie-sundae",
+   "name": "Salted Caramel and Chocolate Brownie Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1490
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dirt-and-worm-pie",
+   "name": "Dirt and Worm Pie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 541
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fresh-fruit-and-orange-sorbet",
+   "name": "Fresh Fruit & Orange Sorbet",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chicken-wings-kids",
+   "name": "Chicken Wings (kids)",
+   "category": "Kids menu: chicken & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 308
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "boneless-bites-kids",
+   "name": "Boneless Bites (kids)",
+   "category": "Kids menu: chicken & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 265
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crispy-chicken-tenders-kids",
+   "name": "Crispy Chicken Tenders (kids)",
+   "category": "Kids menu: chicken & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 253
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "plant-based-bites-kids",
+   "name": "Plant-based Bites (kids)",
+   "category": "Kids menu: chicken & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bbq-sauce-kids",
+   "name": "BBQ Sauce (kids)",
+   "category": "Kids menu: chicken & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "franks-redhot-sauce-kids",
+   "name": "Frank’s® RedHot Sauce (kids)",
+   "category": "Kids menu: chicken & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "maple-sriracha-kids",
+   "name": "Maple Sriracha (kids)",
+   "category": "Kids menu: chicken & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "beef-gravy-kids",
+   "name": "Beef Gravy (kids)",
+   "category": "Kids menu: chicken & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "crispy-chicken-burger-kids",
+   "name": "Crispy Chicken Burger (kids)",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grilled-chicken-burger-kids",
+   "name": "Grilled Chicken Burger (kids)",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-hamburger-with-fries",
+   "name": "Kids Hamburger with Fries",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tomatoes-tubes-kids",
+   "name": "Tomatoes Tubes (kids)",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-burger-gluten-free-kids",
+   "name": "Beef Burger (Gluten Free, kids)",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "cheeseburger-gluten-free-kids",
+   "name": "Cheeseburger (Gluten Free, kids)",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 407
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "grilled-chicken-burger-gluten-free-kids",
+   "name": "Grilled Chicken Burger (Gluten Free, kids)",
+   "category": "Kids menu: burgers, dogs & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "kids-fish-fingers-with-fries",
+   "name": "Kids Fish Fingers with Fries",
+   "category": "Kids menu: wild bunch faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "milk",
+     "molluscs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "quesadilla-kids",
+   "name": "Quesadilla (kids)",
+   "category": "Kids menu: wild bunch faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fridays-kids-hotdog-with-fries",
+   "name": "Fridays™ Kids Hotdog with Fries",
+   "category": "Kids menu: wild bunch faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 298
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fridays-hotdog-with-cheese-kids",
+   "name": "Fridays™ Hotdog (With Cheese, kids)",
+   "category": "Kids menu: wild bunch faves",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fries-kids",
+   "name": "Fries (kids)",
+   "category": "Kids menu: sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 299
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "sweet-potato-fries-kids",
+   "name": "Sweet Potato Fries (kids)",
+   "category": "Kids menu: sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "creamy-mash-kids",
+   "name": "Creamy Mash (kids)",
+   "category": "Kids menu: sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "corn-ribs-kids",
+   "name": "Corn Ribs (kids)",
+   "category": "Kids menu: sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "baked-beans-kids",
+   "name": "Baked Beans (kids)",
+   "category": "Kids menu: sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "peas-kids",
+   "name": "Peas (kids)",
+   "category": "Kids menu: sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "fresh-fruit-sundae-kids",
+   "name": "Fresh Fruit Sundae (kids)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-kids",
+   "name": "Chocolate Brownie (kids)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 259
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-ice-cream-kids-sundae",
+   "name": "Vanilla Ice Cream (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-ice-cream-kids-sundae",
+   "name": "Strawberry Ice Cream (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-ice-cream-kids-sundae",
+   "name": "Chocolate Ice Cream (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "orange-sorbet-kids-sundae",
+   "name": "Orange Sorbet (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 41
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "caramel-sauce-kids-sundae",
+   "name": "Caramel Sauce (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-sauce-kids-sundae",
+   "name": "Chocolate Sauce (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 87
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-sauce-kids-sundae",
+   "name": "Strawberry Sauce (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberries-kids-sundae",
+   "name": "Strawberries (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "banana-kids-sundae",
+   "name": "Banana (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-buttons-kids-sundae",
+   "name": "White Chocolate Buttons (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweets-kids-sundae",
+   "name": "Sweets (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 51
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "brownie-pieces-kids-sundae",
+   "name": "Brownie Pieces (kids sundae)",
+   "category": "Kids menu: desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,124 @@
+{
+ "schemaVersion": 1,
+ "id": "burger-shack",
+ "name": "Burger Shack",
+ "cuisine": "Burgers",
+ "builderType": "standard",
+ "aliases": [
+  "burger shack",
+  "burgershack",
+  "young's burger shack",
+  "youngs burger shack"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Young's Burger Shack page (accessed 2026-10-07, no date shown)",
+  "url": "https://www.youngs.co.uk/burger-shack",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as Young's prints them on the Burger Shack page (per burger or hot dog as listed): protein, carbs and fat are not published. Burger Shack is served in Young's pub gardens. Sides, extras, sauces and ice creams print no calories and are not listed.",
+ "categories": [
+  "Burgers",
+  "Hot dog"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "the-original",
+   "name": "The Original",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 757
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-cheese",
+   "name": "Chilli Cheese",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 771
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-chilli-cheese",
+   "name": "Bacon, Chilli Cheese",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1028
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-plant",
+   "name": "Loaded Plant",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chick",
+   "name": "Hot Chick",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bratwurst-dog",
+   "name": "Bratwurst Dog",
+   "category": "Hot dog",
+   "serving": "",
+   "nutrients": {
+    "calories": 630
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

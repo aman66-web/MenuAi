@@ -1,0 +1,1722 @@
+{
+ "schemaVersion": 1,
+ "id": "hotel-du-vin",
+ "name": "Hotel du Vin",
+ "cuisine": "French bistro",
+ "builderType": "standard",
+ "aliases": [
+  "hotel du vin",
+  "hotel du vin & bistro",
+  "hotel du vin and bistro",
+  "hotel du vin bistro",
+  "bistro du vin"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Hotel du Vin allergen and calorie information on Ten Kites: Autumn, Offers, Breakfast, Beverages, Kids and Afternoon Tea menus (accessed 2026-10-08, no date shown)",
+  "url": "https://menus.tenkites.com/mhdv/hotelduvin",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Hotel du Vin prints calories only, per dish as served, with no portion sizes, so protein, carbs and fat are not published. Its allergen page often disagrees with its own printed menus, so every dish where they differ is held back, as are the cocktails and afternoon tea. Menus vary a little by hotel.",
+ "allergenGuide": {
+  "title": "Hotel du Vin allergen matrix on Ten Kites, all menu tabs (accessed 2026-10-08, no date shown)",
+  "url": "https://menus.tenkites.com/mhdv/hotelduvin",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Nibbles",
+  "Starters",
+  "Mains",
+  "Sides & sauces",
+  "Desserts",
+  "NGCI options",
+  "Plats de jour",
+  "Taste du Vin menu",
+  "Taste du Vin vegan",
+  "Breakfast",
+  "Breakfast add-ons",
+  "Breakfast (NGCI)",
+  "Hot drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "petites-olives-lucques",
+   "name": "Petites Olives Lucques",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "lupin",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "amandes-fumees-smoked-almonds",
+   "name": "Amandes Fumées, Smoked Almonds",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 307
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "huitres-rock-natives-maldon-rock-oysters-half-a-dozen",
+   "name": "Huîtres Rock Natives, Maldon Rock Oysters, Half a dozen",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "huitres-rock-natives-maldon-rock-oysters-single",
+   "name": "Huîtres Rock Natives, Maldon Rock Oysters, Single",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tartiflette-de-savoie-baked-creamy-potatoes-onion-and-pancetta-under-melted-yarlington-cheese",
+   "name": "Tartiflette de Savoie, Baked creamy potatoes, onion and pancetta under melted Yarlington cheese",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 681
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-liver-parfait-brioche-toast",
+   "name": "Chicken Liver Parfait Brioche toast",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roasted-scallops-gremolata-and-herb-crust",
+   "name": "Roasted Scallops Gremolata & Herb Crust",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 345
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramelised-onion-squash-and-spinach-pithivier-celeriac-puree-vegan-jus",
+   "name": "Caramelised Onion, Squash & Spinach Pithivier Celeriac Purée, Vegan Jus",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pave-of-monkfish-tail-watercress-lemon-and-cafe-de-paris-butter",
+   "name": "Pave of Monkfish Tail Watercress Lemon & Cafe de Paris Butter",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 608
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chargrilled-sea-bass-braised-fennel-and-gremolata",
+   "name": "Chargrilled Sea Bass Braised fennel & gremolata",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 470
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sole-meuniere-lemon-sole-lightly-pan-fried-with-caper-and-parsley-beurre-noisette",
+   "name": "Sole Meunière Lemon sole lightly pan-fried with caper and parsley beurre noisette",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 795
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "whole-roast-dorade-fennel-olives-and-lemon",
+   "name": "Whole Roast Dorade, Fennel, olives, and lemon",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "additional-chicken",
+   "name": "Additional chicken",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 628
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-tiger-prawns-salade-maison",
+   "name": "Add Tiger Prawns (Salade Maison)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "additional-halloumi",
+   "name": "Additional halloumi",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "haricot-verts",
+   "name": "Haricot Verts",
+   "category": "Sides & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ratatouille-provencal",
+   "name": "Ratatouille Provençal",
+   "category": "Sides & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin"
+    ]
+   }
+  },
+  {
+   "id": "peppercorn-sauce",
+   "name": "Peppercorn Sauce",
+   "category": "Sides & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "cafe-de-paris",
+   "name": "Cafe de Paris",
+   "category": "Sides & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 317
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "le-vrai-flan-parisian-vanilla-custard-tart-with-brandy-soaked-agen-prunes",
+   "name": "Le Vrai Flan Parisian, Vanilla custard tart with brandy soaked Agen prunes",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 589
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "soupe-a-loignon-ngci",
+   "name": "Soupe a L'Oignon (NGCI)",
+   "category": "NGCI options",
+   "serving": "",
+   "nutrients": {
+    "calories": 367
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sauteed-wild-mushrooms-madeira-sauce-toasted-sourdough-ngci",
+   "name": "Sautéed Wild Mushrooms, Madeira sauce, toasted sourdough (NGCI)",
+   "category": "NGCI options",
+   "serving": "",
+   "nutrients": {
+    "calories": 216
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "oak-smoked-salmon-gluten-free-bread-and-fromage-blanc-ngci",
+   "name": "Oak Smoked Salmon Gluten free bread & fromage blanc (NGCI)",
+   "category": "NGCI options",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chateaubriand-500g-best-shared-between-two-served-with-a-choice-of-bearnaise-or-peppercorn-sauce-ngci",
+   "name": "Chateaubriand 500g Best shared between two, served with a choice of bearnaise or peppercorn sauce (NGCI)",
+   "category": "NGCI options",
+   "serving": "",
+   "nutrients": {
+    "calories": 1921
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pommes-frites-baked-ngci",
+   "name": "Pommes Frites Baked (NGCI)",
+   "category": "NGCI options",
+   "serving": "",
+   "nutrients": {
+    "calories": 308
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-sirloin-of-beef-ngci",
+   "name": "Roast Sirloin of Beef (NGCI)",
+   "category": "NGCI options",
+   "serving": "",
+   "nutrients": {
+    "calories": 1053
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "the-cheese-plate-selection-of-artisan-cheese-served-with-gluten-free-bread-and-chutney-ngci",
+   "name": "The Cheese Plate Selection of artisan cheese, served with gluten free bread and chutney (NGCI)",
+   "category": "NGCI options",
+   "serving": "",
+   "nutrients": {
+    "calories": 469
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chargrilled-corn-fed-chicken-breast-served-with-pommes-frites-and-petit-salad",
+   "name": "Chargrilled Corn Fed Chicken Breast Served with pommes frites and petit salad",
+   "category": "Plats de jour",
+   "serving": "",
+   "nutrients": {
+    "calories": 1136
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fish-and-chips-a-la-leffe-leffe-beer-battered-fish-and-chips",
+   "name": "Fish & Chips à la Leffe, Leffe beer battered fish and chips",
+   "category": "Plats de jour",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chateaubriand-500g-best-shared-between-two-served-with-a-choice-of-bearnaise-or-peppercorn-sauce",
+   "name": "Chateaubriand 500g Best shared between two served with a choice of bearnaise or peppercorn sauce",
+   "category": "Plats de jour",
+   "serving": "",
+   "nutrients": {
+    "calories": 2275
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tdv-oak-smoked-salmon-treacle-soda-bread-and-fromage-blanc",
+   "name": "TdV Oak Smoked Salmon Treacle soda bread & fromage blanc",
+   "category": "Taste du Vin menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "tdv-soupe-a-loignon-french-onion-soup",
+   "name": "TdV Soupe a l’Oignon, French onion soup",
+   "category": "Taste du Vin menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tdv-poitrine-de-porc-rotie-roasted-pork-belly-braised-butter-beans-and-wild-mushrooms",
+   "name": "TdV Poitrine de Porc Rôtie Roasted pork belly braised butter beans and wild mushrooms",
+   "category": "Taste du Vin menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 479
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tdv-valrhona-pot-de-chocolat-chantilly-cream",
+   "name": "TdV Valrhona Pot de Chocolat, Chantilly cream",
+   "category": "Taste du Vin menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tdv-salade-maison-baby-kale-edamame-beans-quinoa-and-alfalfa-sprouts",
+   "name": "TdV Salade Maison Baby kale, edamame beans, quinoa and alfalfa sprouts",
+   "category": "Taste du Vin vegan",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "fricassee-de-champignons-sauteed-mushrooms-madeira-sauce-toasted-sourdough",
+   "name": "Fricassée de Champignons, Sauteed mushrooms, Madeira sauce, toasted sourdough",
+   "category": "Taste du Vin vegan",
+   "serving": "",
+   "nutrients": {
+    "calories": 91
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "tdv-caramelised-onion-squash-and-spinach-pithivier-celeriac-puree-vegan-jus",
+   "name": "TdV Caramelised Onion, Squash & Spinach Pithivier, Celeriac Puree Vegan Jus",
+   "category": "Taste du Vin vegan",
+   "serving": "",
+   "nutrients": {
+    "calories": 362
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "assiette-de-fauxmage-selection-of-vegan-cheese-toasted-sourdough-raisin-chutney",
+   "name": "Assiette de Fauxmage Selection of vegan cheese, toasted sourdough, raisin chutney",
+   "category": "Taste du Vin vegan",
+   "serving": "",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fried-eggs-on-white-toast",
+   "name": "Fried Eggs on White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fried-eggs-on-brown-toast",
+   "name": "Fried Eggs on Brown Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "poached-eggs-on-white-toast",
+   "name": "Poached Eggs on White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "poached-eggs-on-brown-toast",
+   "name": "Poached Eggs on Brown Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "scrambled-eggs-on-white-toast",
+   "name": "Scrambled Eggs on White Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "scrambled-eggs-on-brown-toast",
+   "name": "Scrambled Eggs on Brown Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "omelette-aux-fines-herbes",
+   "name": "Omelette aux Fines Herbes",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "omelette-jambon-et-gruyere",
+   "name": "Omelette Jambon et Gruyere",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-sausage-add-on",
+   "name": "Breakfast Sausage Add On",
+   "category": "Breakfast add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 256
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-bacon-add-on",
+   "name": "Breakfast Bacon Add On",
+   "category": "Breakfast add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-grilled-field-mushroom-add-on",
+   "name": "Breakfast Grilled Field Mushroom Add On",
+   "category": "Breakfast add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 51
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-grilled-tomato-add-on",
+   "name": "Breakfast Grilled Tomato Add On",
+   "category": "Breakfast add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-black-pudding-add-on",
+   "name": "Breakfast Black Pudding Add On",
+   "category": "Breakfast add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-beans-add-on",
+   "name": "Breakfast Beans Add On",
+   "category": "Breakfast add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-smoked-salmon-add-on",
+   "name": "Breakfast Smoked Salmon Add On",
+   "category": "Breakfast add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "classic-full-cooked-breakfast-ngci",
+   "name": "Classic Full Cooked Breakfast (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "eggs-benedict-toasted-english-muffin-topped-with-poached-eggs-and-hollandaise-sauce-ham-ngci",
+   "name": "Eggs Benedict - toasted English muffin topped with poached eggs and hollandaise sauce Ham (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 779
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "eggs-benedict-toasted-english-muffin-topped-with-poached-eggs-and-hollandaise-sauce-mushrooms-ngci",
+   "name": "Eggs Benedict - toasted English muffin topped with poached eggs and hollandaise sauce Mushrooms (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 639
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "eggs-benedict-toasted-english-muffin-topped-with-poached-eggs-and-hollandaise-sauce-smoked-salmon-ngci",
+   "name": "Eggs Benedict - toasted English muffin topped with poached eggs and hollandaise sauce Smoked Salmon (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 763
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "oak-smoked-salmon-ngci",
+   "name": "Oak Smoked Salmon (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "avocado-on-toast-ngci",
+   "name": "Avocado on Toast (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 329
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "avocado-on-toast-served-with-poached-eggs-ngci",
+   "name": "Avocado on Toast. Served with poached eggs (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "boiled-eggs-ngci",
+   "name": "Boiled Eggs (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "porridge-served-from-the-kitchen-ngci",
+   "name": "Porridge (served from the kitchen) (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "full-cooked-vegan-breakfast-ngci",
+   "name": "Full Cooked Vegan Breakfast (NGCI)",
+   "category": "Breakfast (NGCI)",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-almond-milk",
+   "name": "Breakfast Tea (Almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-tea-cows-milk",
+   "name": "Breakfast Tea (Cow's milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-oats-milk",
+   "name": "Breakfast Tea (Oats milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-tea-soya-milk",
+   "name": "Breakfast Tea (Soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

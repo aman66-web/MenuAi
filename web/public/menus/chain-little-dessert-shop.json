@@ -1,0 +1,2734 @@
+{
+ "schemaVersion": 1,
+ "id": "little-dessert-shop",
+ "name": "Little Dessert Shop",
+ "cuisine": "Desserts",
+ "builderType": "standard",
+ "aliases": [
+  "little dessert shop",
+  "little dessert shop uk",
+  "the little dessert shop"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Little Dessert Shop store menu pages with calories and allergens page (accessed 2026-10-08, no date shown)",
+  "url": "https://www.littledessertshop.co.uk/menu/1/city-centre-wolverhampton",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories for the dish before any choices: flavours, sauces and extras add calories and can add allergens. Listed only if all 18 stores read print the same figure: Wolverhampton, Birmingham Bullring, Altrincham, Chorlton, Balham, Battersea, Southall, Croydon, Glasgow East, Cardiff, Sandown, Exeter, Nottingham, Leicester, Stockport, Wrexham, Doncaster, Huddersfield.",
+ "allergenGuide": {
+  "title": "Little Dessert Shop allergens page (accessed 2026-10-08, no date shown)",
+  "url": "https://www.littledessertshop.co.uk/allergens",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Viral Desserts",
+  "Kunafa Kollection",
+  "Waffles, Crepes & Pancakes",
+  "Cookie Doughs",
+  "Cakes, Bakes & Milkcakes",
+  "Milkshakes & Sundaes",
+  "Sharing",
+  "Dessert Edit"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "kinder-bueno-french-toast",
+   "name": "Kinder Bueno® French Toast",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 553
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-dream-french-toast",
+   "name": "Pistachio Dream French Toast",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 795
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "oreo-brownie-french-toast",
+   "name": "Oreo® Brownie French Toast",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 673
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-coconut-kiss-french-toast",
+   "name": "Raspberry Coconut Kiss French Toast",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 561
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "golden-lotus-bananza-french-toast",
+   "name": "Golden Lotus Bananza French Toast",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 643
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-and-milk-chocolate-french-toast",
+   "name": "Strawberry & Milk Chocolate French Toast",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 520
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-cheesecake-gelato-bites",
+   "name": "Strawberry Cheesecake Gelato Bites",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "date-and-peanut-butter-gelato-bites",
+   "name": "Date & Peanut Butter Gelato Bites",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "ube-and-honeycomb-gelato-bites",
+   "name": "Ube & Honeycomb Gelato Bites",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "sleeping-bear",
+   "name": "Sleeping Bear",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 192
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "milk-chocolate-doughnut-pudding",
+   "name": "Milk Chocolate Doughnut Pudding",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "fish",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "dubai-dream-doughnut-pudding",
+   "name": "Dubai Dream Doughnut Pudding",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 873
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "fish",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "nutella-filled-croissant-cubes",
+   "name": "Nutella®-filled Croissant Cubes",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-filled-croissant-cubes",
+   "name": "Pistachio-filled Croissant Cubes",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "banana-split",
+   "name": "Banana Split",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 504
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "dot-cake",
+   "name": "Dot Cake",
+   "category": "Viral Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "double-chocolate-sea-salt-cookie-dough",
+   "name": "Double Chocolate Sea Salt Cookie Dough",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 883
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "kunafa-cookie-dough",
+   "name": "Kunafa Cookie Dough",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 1079
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "kinder-bueno-krunch-kunafa-cake",
+   "name": "Kinder Bueno® Krunch Kunafa Cake",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 779
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "roche-krunch-kunafa-cake",
+   "name": "Roche Krunch Kunafa Cake",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 1580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-krunch-kunafa-cake",
+   "name": "Pistachio Krunch Kunafa Cake",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 1548
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "dubai-chocolate-gelato-bites",
+   "name": "Dubai Chocolate Gelato Bites",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-kunafa-waffle",
+   "name": "Pistachio Kunafa Waffle",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 620
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "kunafa-sushi-crepe",
+   "name": "Kunafa Sushi Crepe",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-pistachio-kunafa-loaded-crepe",
+   "name": "Strawberry Pistachio Kunafa Loaded Crepe",
+   "category": "Kunafa Kollection",
+   "serving": "",
+   "nutrients": {
+    "calories": 758
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberries-and-flake-waffle",
+   "name": "Strawberries & Flake® Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 636
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "banoffee-crumble-waffle",
+   "name": "Banoffee Crumble Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "banana-berry-oreo-waffle",
+   "name": "Banana Berry Oreo® Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 396
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-kinder-waffle",
+   "name": "Strawberry Kinder® Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 599
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "cookie-explosion-waffle",
+   "name": "Cookie Explosion Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 503
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-sensation-waffle",
+   "name": "Strawberry Sensation Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "endless-temptation-waffle",
+   "name": "Endless Temptation Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 760
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "white-choc-and-rasp-roulette-waffle",
+   "name": "White Choc & Rasp Roulette Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 716
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "heavenly-fantasy-waffle",
+   "name": "Heavenly Fantasy Waffle",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 883
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-hazelnut-sushi-crepe",
+   "name": "Strawberry Hazelnut Sushi Crepe",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "i-shouldnt-but-i-will-crepe",
+   "name": "I Shouldn't But I Will Crepe",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 428
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "obsession-crepe",
+   "name": "Obsession Crepe",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "banana-and-strawberry-delight-crepe",
+   "name": "Banana & Strawberry Delight Crepe",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 468
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "coconut-snowflake-crunch-loaded-crepe",
+   "name": "Coconut Snowflake Crunch Loaded Crepe",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 470
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-choc-lotus-mini-pancakes",
+   "name": "Strawberry Choc Lotus Mini Pancakes",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 513
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "truly-yours-mini-pancakes",
+   "name": "Truly Yours Mini Pancakes",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 649
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "spoil-me-rotten-mini-pancakes",
+   "name": "Spoil Me Rotten Mini Pancakes",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-choc-lotus-pancake-stack",
+   "name": "Strawberry Choc Lotus Pancake Stack",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1048
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "truly-yours-pancake-stack",
+   "name": "Truly Yours Pancake Stack",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "spoil-me-rotten-pancake-stack",
+   "name": "Spoil Me Rotten Pancake Stack",
+   "category": "Waffles, Crepes & Pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1014
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "milk-chocolate-cookie-dough",
+   "name": "Milk Chocolate Cookie Dough",
+   "category": "Cookie Doughs",
+   "serving": "",
+   "nutrients": {
+    "calories": 614
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "white-chocolate-and-raspberry-cookie-dough",
+   "name": "White Chocolate & Raspberry Cookie Dough",
+   "category": "Cookie Doughs",
+   "serving": "",
+   "nutrients": {
+    "calories": 668
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "double-chocolate-cookie-dough",
+   "name": "Double Chocolate Cookie Dough",
+   "category": "Cookie Doughs",
+   "serving": "",
+   "nutrients": {
+    "calories": 713
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "biscoff-butter-cookie-dough",
+   "name": "Biscoff® Butter Cookie Dough",
+   "category": "Cookie Doughs",
+   "serving": "",
+   "nutrients": {
+    "calories": 618
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "stars-in-your-eyes-cookie-dough",
+   "name": "Stars In Your Eyes Cookie Dough",
+   "category": "Cookie Doughs",
+   "serving": "",
+   "nutrients": {
+    "calories": 650
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "biscoff-and-white-chocolate-cookie-dough",
+   "name": "Biscoff® & White Chocolate Cookie Dough",
+   "category": "Cookie Doughs",
+   "serving": "",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "oreo-cookie-dough",
+   "name": "Oreo® Cookie Dough",
+   "category": "Cookie Doughs",
+   "serving": "",
+   "nutrients": {
+    "calories": 444
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "kinder-bueno-cookie-dough",
+   "name": "Kinder Bueno® Cookie Dough",
+   "category": "Cookie Doughs",
+   "serving": "",
+   "nutrients": {
+    "calories": 712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "jam-and-coconut-sponge",
+   "name": "Jam & Coconut Sponge",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "rocky-road",
+   "name": "Rocky Road",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 459
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cornflake-brownie",
+   "name": "Cornflake Brownie",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "concrete-cake",
+   "name": "Concrete Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 527
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cornflake-tart",
+   "name": "Cornflake Tart",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 457
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cookie-dough-brownie",
+   "name": "Cookie Dough Brownie",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 572
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-cream-dream",
+   "name": "Pistachio Cream Dream",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 581
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "lotus-drip-cake",
+   "name": "Lotus Drip Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 785
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "cookies-and-cream-drip-cake",
+   "name": "Cookies & Cream Drip Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 570
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-mojito-cake",
+   "name": "Strawberry Mojito Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 419
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "pina-colada-cake",
+   "name": "Pina Colada Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 895
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "mango-and-passion-fruit-cake",
+   "name": "Mango & Passion Fruit Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 728
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-roll-cake",
+   "name": "Cinnamon Roll Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 980
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "oh-fudge-cake",
+   "name": "Oh Fudge Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 727
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "red-velvet-cake",
+   "name": "Red Velvet Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 424
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "carrot-cake",
+   "name": "Carrot Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 669
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "birthday-cake",
+   "name": "Birthday Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "caramel-chocolate-cake",
+   "name": "Caramel Chocolate Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 446
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kulfi-cream-cheesecake",
+   "name": "Kulfi Cream Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 501
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "oreo-cheesecake",
+   "name": "Oreo® Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "mango-and-passion-cheesecake",
+   "name": "Mango & Passion Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 728
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "honeycomb-cheesecake",
+   "name": "Honeycomb Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-cheesecake",
+   "name": "Strawberry Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-basque-cheesecake",
+   "name": "Vanilla Basque Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 615
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "sweet-addiction-cheesecake",
+   "name": "Sweet Addiction Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 498
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "red-velvet-cheesecake",
+   "name": "Red Velvet Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "taste-of-heaven-cheesecake",
+   "name": "Taste of Heaven Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 474
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "hazelnut-cheesecake",
+   "name": "Hazelnut Cheesecake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "ube-cream-milk-cake",
+   "name": "Ube Cream Milk Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 407
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "matcha-and-strawberry-milk-cake",
+   "name": "Matcha & Strawberry Milk Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 419
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "lotus-milk-cake",
+   "name": "Lotus Milk Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 440
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "kinderella-milk-cake",
+   "name": "Kinderella Milk Cake",
+   "category": "Cakes, Bakes & Milkcakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "banana-pudding-shake",
+   "name": "Banana Pudding Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ferrero-rocher-latte-shake",
+   "name": "Ferrero Rocher® Latte Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 529
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "oreo-shake",
+   "name": "Oreo® Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "kinder-bueno-shake",
+   "name": "Kinder Bueno® Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 628
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "white-kinder-bueno-shake",
+   "name": "White Kinder Bueno® Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "lotus-biscoff-shake",
+   "name": "Lotus Biscoff® Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "white-hazelnut-and-lotus-biscoff-shake",
+   "name": "White Hazelnut & Lotus Biscoff® Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 694
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "bubblegum-and-skittles-shake",
+   "name": "Bubblegum & Skittles® Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 548
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "moonwalker-shake",
+   "name": "Moonwalker Shake",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 650
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-blast-sundae",
+   "name": "Chocolate Brownie Blast Sundae",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "give-it-to-me-sundae",
+   "name": "Give It To Me Sundae",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 581
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "fanatic-crunch-sundae",
+   "name": "Fanatic Crunch Sundae",
+   "category": "Milkshakes & Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 720
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dunkin-box",
+   "name": "Dunkin Box",
+   "category": "Sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "trio-box",
+   "name": "Trio Box",
+   "category": "Sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-almond-layer-cake",
+   "name": "Raspberry Almond Layer Cake",
+   "category": "Dessert Edit",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-banana-loaf",
+   "name": "Cinnamon Banana Loaf",
+   "category": "Dessert Edit",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "kunafa-protein-brownie",
+   "name": "Kunafa Protein Brownie",
+   "category": "Dessert Edit",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-matcha-cake-jar",
+   "name": "Strawberry Matcha Cake Jar",
+   "category": "Dessert Edit",
+   "serving": "",
+   "nutrients": {
+    "calories": 169
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "blueberry-ube-cake-jar",
+   "name": "Blueberry Ube Cake Jar",
+   "category": "Dessert Edit",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

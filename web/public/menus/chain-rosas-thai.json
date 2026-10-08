@@ -1,0 +1,4193 @@
+{
+ "schemaVersion": 1,
+ "id": "rosas-thai",
+ "name": "Rosa's Thai",
+ "cuisine": "Thai",
+ "builderType": "standard",
+ "aliases": [
+  "rosa's thai",
+  "rosas thai",
+  "rosa's thai cafe",
+  "rosas thai cafe"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Rosa's Thai Nutritional Info and allergen guide, London: All Day, Desserts and Drinks menus (viewthe.menu/dy2v, accessed 2026-10-07, no date shown)",
+  "url": "https://viewthe.menu/dy2v",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Rosa's Thai prints calories only, per dish as listed (no portion basis, protein, carbs or fat), on its London menu page. Drinks with no calories printed, set menus (set lunch, Thai Feast, unlimited curries), the Little Rosa's kids menu and condiments are not listed.",
+ "allergenGuide": {
+  "title": "Rosa's Thai allergen guide, London menus (viewthe.menu/dy2v, accessed 2026-10-07, no date shown)",
+  "url": "https://viewthe.menu/dy2v",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Sharing platters & crackers",
+  "Small plates",
+  "Salads",
+  "One plate 'Jarn Diew'",
+  "Signature curries",
+  "Classic curries",
+  "Noodle soups",
+  "Stir-fries",
+  "Noodles",
+  "Rice",
+  "Sides",
+  "Thai-inspired desserts",
+  "Thai iced drinks",
+  "Bubble tea",
+  "Hot drinks",
+  "Beers",
+  "Softs",
+  "Thai-inspired cocktails",
+  "Wines: Rose",
+  "Wines: White",
+  "Wines: Red",
+  "Wines: Bubbly"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "classic-platter-for-2",
+   "name": "Classic Platter for 2",
+   "category": "Sharing platters & crackers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "milk",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-platter-for-2",
+   "name": "Veggie Platter for 2",
+   "category": "Sharing platters & crackers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1048
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "prawn-crackers",
+   "name": "Prawn Crackers",
+   "category": "Sharing platters & crackers",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "peanuts"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "molluscs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pumpkin-crackers",
+   "name": "Pumpkin Crackers",
+   "category": "Sharing platters & crackers",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chicken-satay",
+   "name": "Chicken Satay",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "peanuts"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "crispy-pad-cha-aubergine",
+   "name": "Crispy Pad Cha Aubergine",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "crispy-prawn-doughnuts",
+   "name": "Crispy Prawn Doughnuts",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "molluscs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "summer-rolls",
+   "name": "Summer Rolls",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "summer-rolls-prawns",
+   "name": "Summer Rolls Prawns",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 615
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "thai-fried-chicken-tfc",
+   "name": "Thai Fried Chicken (TFC)",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 534
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "thai-calamari",
+   "name": "Thai Calamari",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chargrilled-pork-skewers",
+   "name": "Chargrilled Pork Skewers",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 448
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "molluscs",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "kale-tempura",
+   "name": "Kale Tempura",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veggie-spring-rolls",
+   "name": "Veggie Spring Rolls",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "sweetcorn-fritter-bites",
+   "name": "Sweetcorn Fritter Bites",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "tom-yum-soup",
+   "name": "Tom Yum Soup",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "papaya-salad",
+   "name": "Papaya Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "small-papaya-salad",
+   "name": "Small Papaya Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "minced-chicken-salad",
+   "name": "Minced Chicken Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "small-minced-chicken-salad",
+   "name": "Small Minced Chicken Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 177
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "waterfall-beef",
+   "name": "Waterfall Beef",
+   "category": "One plate 'Jarn Diew'",
+   "serving": "",
+   "nutrients": {
+    "calories": 939
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "khao-mun-gai-steamed-chicken",
+   "name": "Khao Mun Gai - Steamed Chicken",
+   "category": "One plate 'Jarn Diew'",
+   "serving": "",
+   "nutrients": {
+    "calories": 789
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "khao-mun-gai-crispy-breadcrumbed-chicken",
+   "name": "Khao Mun Gai - Crispy Breadcrumbed Chicken",
+   "category": "One plate 'Jarn Diew'",
+   "serving": "",
+   "nutrients": {
+    "calories": 1088
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chilli-and-basil-stir-fry-veg-and-tofu",
+   "name": "Chilli & Basil Stir-Fry - Veg & Tofu",
+   "category": "One plate 'Jarn Diew'",
+   "serving": "",
+   "nutrients": {
+    "calories": 920
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chilli-and-basil-stir-fry-chicken",
+   "name": "Chilli & Basil Stir-Fry - Chicken",
+   "category": "One plate 'Jarn Diew'",
+   "serving": "",
+   "nutrients": {
+    "calories": 782
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chilli-and-basil-stir-fry-pork-belly",
+   "name": "Chilli & Basil Stir-Fry - Pork Belly",
+   "category": "One plate 'Jarn Diew'",
+   "serving": "",
+   "nutrients": {
+    "calories": 1188
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "thai-spiced-pork-ribs",
+   "name": "Thai-Spiced Pork Ribs",
+   "category": "One plate 'Jarn Diew'",
+   "serving": "",
+   "nutrients": {
+    "calories": 1486
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "red-duck-pineapple-curry",
+   "name": "Red Duck Pineapple Curry",
+   "category": "Signature curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1186
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "massaman-beef-curry",
+   "name": "Massaman Beef Curry",
+   "category": "Signature curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1206
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "chu-chi-pla",
+   "name": "Chu Chi Pla",
+   "category": "Signature curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 910
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "green-curry-veg-and-tofu",
+   "name": "Green Curry - Veg & Tofu",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 932
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "green-curry-chicken",
+   "name": "Green Curry - Chicken",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 912
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "green-curry-slow-cooked-beef",
+   "name": "Green Curry - Slow-Cooked Beef",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1137
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "green-curry-pork-belly",
+   "name": "Green Curry - Pork Belly",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1384
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "green-curry-prawns",
+   "name": "Green Curry - Prawns",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 783
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-curry-veg-and-tofu",
+   "name": "Red Curry - Veg & Tofu",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 829
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "red-curry-chicken",
+   "name": "Red Curry - Chicken",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 797
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "red-curry-slow-cooked-beef",
+   "name": "Red Curry - Slow-Cooked Beef",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1026
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "red-curry-pork-belly",
+   "name": "Red Curry - Pork Belly",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1263
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "red-curry-prawns",
+   "name": "Red Curry - Prawns",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 672
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "panang-curry-veg-and-tofu",
+   "name": "Panang Curry - Veg & Tofu",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 745
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "panang-curry-chicken",
+   "name": "Panang Curry - Chicken",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "panang-curry-slow-cooked-beef",
+   "name": "Panang Curry - Slow-Cooked Beef",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 937
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "panang-curry-pork-belly",
+   "name": "Panang Curry - Pork Belly",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1183
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "panang-curry-prawns",
+   "name": "Panang Curry - Prawns",
+   "category": "Classic curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 944
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tom-yum-seafood-hot-pot",
+   "name": "Tom Yum Seafood Hot Pot",
+   "category": "Noodle soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 785
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "khao-soi-noodle-soup-veg",
+   "name": "Khao Soi Noodle Soup - Veg",
+   "category": "Noodle soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 753
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "khao-soi-noodle-soup-chicken",
+   "name": "Khao Soi Noodle Soup - Chicken",
+   "category": "Noodle soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 750
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "khao-soi-noodle-soup-beef",
+   "name": "Khao Soi Noodle Soup - Beef",
+   "category": "Noodle soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 1047
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "tom-yum-noodle-soup-veg-and-tofu",
+   "name": "Tom Yum Noodle Soup - Veg & Tofu",
+   "category": "Noodle soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "tom-yum-noodle-soup-chicken",
+   "name": "Tom Yum Noodle Soup - Chicken",
+   "category": "Noodle soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tom-yum-noodle-soup-prawns",
+   "name": "Tom Yum Noodle Soup - Prawns",
+   "category": "Noodle soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 445
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "stir-fried-aubergine",
+   "name": "Stir-Fried Aubergine",
+   "category": "Stir-fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 639
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rosas-fried-rice-veg-and-tofu",
+   "name": "Rosa's Fried Rice - Veg & Tofu",
+   "category": "Stir-fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 805
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rosas-fried-rice-chicken",
+   "name": "Rosa's Fried Rice - Chicken",
+   "category": "Stir-fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 756
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rosas-fried-rice-king-prawns",
+   "name": "Rosa's Fried Rice - King Prawns",
+   "category": "Stir-fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 634
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cashew-stir-fry-veg-and-tofu",
+   "name": "Cashew Stir-Fry - Veg & Tofu",
+   "category": "Stir-fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 916
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "cashew-stir-fry-chicken",
+   "name": "Cashew Stir-Fry - Chicken",
+   "category": "Stir-fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 926
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "cashew-stir-fry-king-prawns",
+   "name": "Cashew Stir-Fry - King Prawns",
+   "category": "Stir-fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 675
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "pad-thai-veg-and-tofu",
+   "name": "Pad Thai - Veg & Tofu",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1247
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "molluscs",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pad-thai-chicken",
+   "name": "Pad Thai - Chicken",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1216
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "molluscs",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pad-thai-prawns",
+   "name": "Pad Thai - Prawns",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1090
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "stir-fried-flat-noodles-veg-and-tofu",
+   "name": "Stir-Fried Flat Noodles - Veg & Tofu",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 749
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "stir-fried-flat-noodles-chicken",
+   "name": "Stir-Fried Flat Noodles - Chicken",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 700
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "stir-fried-flat-noodles-pork-belly",
+   "name": "Stir-Fried Flat Noodles - Pork Belly",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1077
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "stir-fried-flat-noodles-prawns",
+   "name": "Stir-Fried Flat Noodles - Prawns",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "drunken-noodles-veg-and-tofu",
+   "name": "Drunken Noodles - Veg & Tofu",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "drunken-noodles-minced-chicken",
+   "name": "Drunken Noodles - Minced Chicken",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 658
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "drunken-noodles-pork-belly",
+   "name": "Drunken Noodles - Pork Belly",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1064
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "drunken-noodles-prawns",
+   "name": "Drunken Noodles - Prawns",
+   "category": "Noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "steamed-jasmine-rice",
+   "name": "Steamed Jasmine Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sticky-rice",
+   "name": "Sticky Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 301
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "coconut-rice",
+   "name": "Coconut Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 498
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "egg-fried-rice",
+   "name": "Egg Fried Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 358
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "brown-rice",
+   "name": "Brown Rice",
+   "category": "Rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "stir-fried-vegetables",
+   "name": "Stir-Fried Vegetables",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "stir-fried-broccoli",
+   "name": "Stir-Fried Broccoli",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "morning-glory",
+   "name": "Morning Glory",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roti-bread",
+   "name": "Roti Bread",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "traditional-thai-ice-cream-bun-coconut",
+   "name": "Traditional Thai Ice Cream Bun - Coconut",
+   "category": "Thai-inspired desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 448
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "traditional-thai-ice-cream-bun-mango",
+   "name": "Traditional Thai Ice Cream Bun - Mango",
+   "category": "Thai-inspired desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "thai-tea-affogato",
+   "name": "Thai Tea Affogato",
+   "category": "Thai-inspired desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-sticky-rice",
+   "name": "Mango Sticky Rice",
+   "category": "Thai-inspired desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 555
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "crispy-banoffee-roti",
+   "name": "Crispy Banoffee Roti",
+   "category": "Thai-inspired desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 510
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coconut-ice-cream",
+   "name": "Coconut Ice Cream",
+   "category": "Thai-inspired desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-ice-cream",
+   "name": "Vanilla Ice Cream",
+   "category": "Thai-inspired desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-sorbet",
+   "name": "Mango Sorbet",
+   "category": "Thai-inspired desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nam-dang-manao",
+   "name": "Nam Dang Manao",
+   "category": "Thai iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thai-iced-tea",
+   "name": "Thai Iced Tea",
+   "category": "Thai iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cha-manao-thai-lemon-iced-tea",
+   "name": "'Cha Manao' Thai Lemon Iced Tea",
+   "category": "Thai iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cha-nom-thai-milk-iced-tea",
+   "name": "'Cha Nom' Thai Milk Iced Tea",
+   "category": "Thai iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thai-iced-coffee",
+   "name": "Thai Iced Coffee",
+   "category": "Thai iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thai-iced-milk-coffee",
+   "name": "Thai Iced Milk Coffee",
+   "category": "Thai iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemongrass-pandan-iced-tea",
+   "name": "Lemongrass Pandan Iced Tea",
+   "category": "Thai iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nam-manao",
+   "name": "Nam Manao",
+   "category": "Thai iced drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mango-sticky-rice-with-fresh-mango-and-mango-boba",
+   "name": "Mango Sticky Rice with Fresh Mango and Mango Boba",
+   "category": "Bubble tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 273
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "lychee-with-mango-boba",
+   "name": "Lychee with Mango Boba",
+   "category": "Bubble tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "milo-chocolate-milk-with-tapioca",
+   "name": "Milo Chocolate Milk with Tapioca",
+   "category": "Bubble tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 402
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "ube-taro-with-tapioca",
+   "name": "Ube-Taro with Tapioca",
+   "category": "Bubble tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "coconut-matcha-with-coconut-jelly",
+   "name": "Coconut Matcha with Coconut Jelly",
+   "category": "Bubble tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "hot-thai-tea",
+   "name": "Hot Thai Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 211
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cafetiere-coffee",
+   "name": "Cafetière Coffee",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "make-it-thai-with-condensed-milk",
+   "name": "Make it Thai with condensed milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemongrass-hot-tea",
+   "name": "Lemongrass Hot Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ginger-tea",
+   "name": "Ginger Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-lemon-tea",
+   "name": "Fresh Lemon Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-mint-tea",
+   "name": "Fresh Mint Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jasmine-green-tea",
+   "name": "Jasmine Green Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lucky-saint-lager-330ml",
+   "name": "Lucky Saint Lager 330ml",
+   "category": "Beers",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "east-london-ipa-330ml",
+   "name": "East London IPA 330ml",
+   "category": "Beers",
+   "serving": "",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "coca-cola-330ml",
+   "name": "Coca-Cola 330ml",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-zero-330ml",
+   "name": "Coca-Cola Zero 330ml",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fanta-330ml",
+   "name": "Fanta 330ml",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sprite-330ml",
+   "name": "Sprite 330ml",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "xoxo-soda-watermelon",
+   "name": "XOXO Soda - Watermelon",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "xoxo-soda-lychee",
+   "name": "XOXO Soda - Lychee",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thai-coconut-water-350ml",
+   "name": "Thai Coconut Water 350ml",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "singha-ume-soda",
+   "name": "Singha Ume Soda",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bangkok-spritz",
+   "name": "Bangkok Spritz",
+   "category": "Thai-inspired cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thai-tea-ni",
+   "name": "Thai Tea-Ni",
+   "category": "Thai-inspired cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "salted-plum-dirty-martini",
+   "name": "Salted Plum Dirty Martini",
+   "category": "Thai-inspired cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thai-spicy-margarita",
+   "name": "Thai Spicy Margarita",
+   "category": "Thai-inspired cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tom-yum-collins",
+   "name": "Tom Yum Collins",
+   "category": "Thai-inspired cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-boba-colada",
+   "name": "Mango Boba Colada",
+   "category": "Thai-inspired cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "toasted-rice-and-pandan-old-fashioned",
+   "name": "Toasted Rice & Pandan Old Fashioned",
+   "category": "Thai-inspired cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lychee-ume-spritz",
+   "name": "Lychee Ume Spritz",
+   "category": "Thai-inspired cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "provence-rose-chateau-de-laumerade-france-12-5-175ml",
+   "name": "Provence Rosé Chateau de l’Aumerade (France 12.5%) - 175ml",
+   "category": "Wines: Rose",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "provence-rose-chateau-de-laumerade-france-12-5-carafe",
+   "name": "Provence Rosé Chateau de l’Aumerade (France 12.5%) - Carafe",
+   "category": "Wines: Rose",
+   "serving": "Carafe",
+   "nutrients": {
+    "calories": 398
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "provence-rose-chateau-de-laumerade-france-12-5-bottle",
+   "name": "Provence Rosé Chateau de l’Aumerade (France 12.5%) - Bottle",
+   "category": "Wines: Rose",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 597
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "novita-pinot-grigio-rose-italy-11-175ml",
+   "name": "Novita Pinot Grigio Rosé (Italy 11%) - 175ml",
+   "category": "Wines: Rose",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "novita-pinot-grigio-rose-italy-11-carafe",
+   "name": "Novita Pinot Grigio Rosé (Italy 11%) - Carafe",
+   "category": "Wines: Rose",
+   "serving": "Carafe",
+   "nutrients": {
+    "calories": 398
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "novita-pinot-grigio-rose-italy-11-bottle",
+   "name": "Novita Pinot Grigio Rosé (Italy 11%) - Bottle",
+   "category": "Wines: Rose",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 597
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dr-loosen-riesling-germany-8-5-175ml",
+   "name": "Dr Loosen Riesling (Germany 8.5%) - 175ml",
+   "category": "Wines: White",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dr-loosen-riesling-germany-8-5-carafe",
+   "name": "Dr Loosen Riesling (Germany 8.5%) - Carafe",
+   "category": "Wines: White",
+   "serving": "Carafe",
+   "nutrients": {
+    "calories": 479
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dr-loosen-riesling-germany-8-5-bottle",
+   "name": "Dr Loosen Riesling (Germany 8.5%) - Bottle",
+   "category": "Wines: White",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bruce-jack-tumbleweed-sauvignon-blanc-south-africa-12-5-175ml",
+   "name": "Bruce Jack Tumbleweed Sauvignon Blanc (South Africa 12.5%) - 175ml",
+   "category": "Wines: White",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bruce-jack-tumbleweed-sauvignon-blanc-south-africa-12-5-carafe",
+   "name": "Bruce Jack Tumbleweed Sauvignon Blanc (South Africa 12.5%) - Carafe",
+   "category": "Wines: White",
+   "serving": "Carafe",
+   "nutrients": {
+    "calories": 381
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bruce-jack-tumbleweed-sauvignon-blanc-south-africa-12-5-bottle",
+   "name": "Bruce Jack Tumbleweed Sauvignon Blanc (South Africa 12.5%) - Bottle",
+   "category": "Wines: White",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 572
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grenache-viognier-chateau-de-campuget-france-12-5-175ml",
+   "name": "Grenache/Viognier, Château de Campuget (France 12.5%) - 175ml",
+   "category": "Wines: White",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grenache-viognier-chateau-de-campuget-france-12-5-carafe",
+   "name": "Grenache/Viognier, Château de Campuget (France 12.5%) - Carafe",
+   "category": "Wines: White",
+   "serving": "Carafe",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grenache-viognier-chateau-de-campuget-france-12-5-bottle",
+   "name": "Grenache/Viognier, Château de Campuget (France 12.5%) - Bottle",
+   "category": "Wines: White",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 563
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malbec-cambalache-bodegas-salentein-argentina-13-175ml",
+   "name": "Malbec, Cambalache, Bodegas Salentein (Argentina 13%) - 175ml",
+   "category": "Wines: Red",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 134
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malbec-cambalache-bodegas-salentein-argentina-13-carafe",
+   "name": "Malbec, Cambalache, Bodegas Salentein (Argentina 13%) - Carafe",
+   "category": "Wines: Red",
+   "serving": "Carafe",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malbec-cambalache-bodegas-salentein-argentina-13-bottle",
+   "name": "Malbec, Cambalache, Bodegas Salentein (Argentina 13%) - Bottle",
+   "category": "Wines: Red",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pinot-noir-monarch-france-8-5-175ml",
+   "name": "Pinot Noir Monarch (France 8.5%) - 175ml",
+   "category": "Wines: Red",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 134
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pinot-noir-monarch-france-8-5-carafe",
+   "name": "Pinot Noir Monarch (France 8.5%) - Carafe",
+   "category": "Wines: Red",
+   "serving": "Carafe",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pinot-noir-monarch-france-8-5-bottle",
+   "name": "Pinot Noir Monarch (France 8.5%) - Bottle",
+   "category": "Wines: Red",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tierra-antica-merlot-chile-11-175ml",
+   "name": "Tierra Antica Merlot (Chile 11%) - 175ml",
+   "category": "Wines: Red",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 134
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tierra-antica-merlot-chile-11-carafe",
+   "name": "Tierra Antica Merlot (Chile 11%) - Carafe",
+   "category": "Wines: Red",
+   "serving": "Carafe",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tierra-antica-merlot-chile-11-bottle",
+   "name": "Tierra Antica Merlot (Chile 11%) - Bottle",
+   "category": "Wines: Red",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prosecco-extra-dry-bosco-del-conte-italy-11-125ml",
+   "name": "Prosecco Extra Dry, Bosco del Conte (Italy 11%) - 125ml",
+   "category": "Wines: Bubbly",
+   "serving": "125ml",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prosecco-extra-dry-bosco-del-conte-italy-11-bottle",
+   "name": "Prosecco Extra Dry, Bosco del Conte (Italy 11%) - Bottle",
+   "category": "Wines: Bubbly",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 483
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

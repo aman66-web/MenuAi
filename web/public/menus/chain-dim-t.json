@@ -1,0 +1,1428 @@
+{
+ "schemaVersion": 1,
+ "id": "dim-t",
+ "name": "Dim T",
+ "cuisine": "Asian",
+ "builderType": "standard",
+ "aliases": [
+  "dim t",
+  "dim-t",
+  "dimt"
+ ],
+ "sample": false,
+ "source": {
+  "title": "dim t main menu calorie information (14.08.2026 v1), checked against the August 2026 menu",
+  "url": "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-calories-14.08.2026-v1.pdf",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "dim t prints calories only, one value per dish as served: no protein, carbs, fat or portion sizes (dim sum baskets and ice cream scoops excepted). Not listed: drinks, kids and lunch menus, and Thai spicy basil fried rice and Pad kee mao (values differ between its calorie list and its menu). Crispy Thai fish is not on the August 2026 menu.",
+ "allergenGuide": {
+  "title": "dim t main menu allergen information (V1, 14.08.2026, 25 pages)",
+  "url": "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-allergens-14.08.2026-v1.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Small eats",
+  "Bao buns",
+  "Handmade dim sum",
+  "Curries",
+  "Specialities",
+  "Plant-based chicken specialities",
+  "Noodles & rice",
+  "Ramen & soups",
+  "Salads",
+  "Sides",
+  "Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "thai-prawn-crackers",
+   "name": "Thai prawn crackers",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame",
+   "name": "Edamame",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-edamame",
+   "name": "Spicy edamame",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 302
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-spring-rolls",
+   "name": "Vegetable spring rolls",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 323
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "duck-spring-rolls",
+   "name": "Duck spring rolls",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-gyoza",
+   "name": "Vegetable gyoza",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-gyoza",
+   "name": "Chicken gyoza",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-satay",
+   "name": "Chicken satay",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 443
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "five-spice-squid",
+   "name": "Five spice squid",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-pork-belly-bites",
+   "name": "Crispy pork belly bites",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 806
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-salt-and-pepper-tofu",
+   "name": "Crispy salt & pepper tofu",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wonton-soup",
+   "name": "Wonton soup",
+   "category": "Small eats",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-fried-chicken-bao",
+   "name": "Korean fried chicken bao",
+   "category": "Bao buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bao-buns-with-plant-based-chicken-as-an-option",
+   "name": "Bao buns with plant-based chicken (as an option)",
+   "category": "Bao buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 236
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-duck-bao",
+   "name": "Crispy duck bao",
+   "category": "Bao buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-pork-belly-bao",
+   "name": "Crispy pork belly bao",
+   "category": "Bao buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-dim-sum",
+   "name": "Prawn dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-peanut-and-coriander-dim-sum",
+   "name": "Prawn, peanut & coriander dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-prawn-dim-sum",
+   "name": "Spicy prawn dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scallop-and-prawn-dim-sum",
+   "name": "Scallop & prawn dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-and-prawn-dim-sum",
+   "name": "Pork & prawn dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach-and-mushroom-dim-sum",
+   "name": "Spinach & mushroom dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-vegetable-dim-sum",
+   "name": "Spicy vegetable dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-beef-dim-sum",
+   "name": "Korean beef dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "duck-and-ginger-dim-sum",
+   "name": "Duck & ginger dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-cashew-and-coriander-dim-sum",
+   "name": "Chicken, cashew & coriander dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 174
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-chicken-dim-sum",
+   "name": "Teriyaki chicken dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-edamame-dim-sum",
+   "name": "Truffle edamame dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-wagyu-beef-dim-sum",
+   "name": "Spicy wagyu beef dim sum",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 3",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "char-siu-pork-buns",
+   "name": "Char siu pork buns",
+   "category": "Handmade dim sum",
+   "serving": "Basket of 2",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry",
+   "name": "Chicken katsu curry",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 577
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-chicken",
+   "name": "Thai green curry chicken",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 755
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-green-curry-prawn",
+   "name": "Thai green curry prawn",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 648
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "penang-curry-chicken",
+   "name": "Penang curry chicken",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 661
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "penang-curry-prawn",
+   "name": "Penang curry prawn",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 555
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rendang-beef",
+   "name": "Rendang beef",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1040
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-cashew-stir-fry-chicken",
+   "name": "Thai cashew stir fry - Chicken",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 618
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-cashew-stir-fry-beef",
+   "name": "Thai cashew stir fry - Beef",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-cashew-stir-fry-prawn",
+   "name": "Thai cashew stir fry - Prawn",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 534
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thai-cashew-stir-fry-tofu",
+   "name": "Thai cashew stir fry - Tofu",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 610
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-thai-fish",
+   "name": "Crispy Thai fish",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 691
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-aromatic-duck",
+   "name": "Crispy aromatic duck",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 1066
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-fried-chicken",
+   "name": "Korean fried chicken",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-fried-tofu",
+   "name": "Korean fried tofu",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 637
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-chicken",
+   "name": "Sweet & sour chicken",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 668
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-aubergine-and-cashew",
+   "name": "Spicy aubergine & cashew",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 557
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-shredded-beef",
+   "name": "Crispy shredded beef",
+   "category": "Specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 762
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-korean",
+   "name": "Vegan Korean",
+   "category": "Plant-based chicken specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-sweet-and-sour",
+   "name": "Vegan sweet & sour",
+   "category": "Plant-based chicken specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 461
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-katsu-curry",
+   "name": "Vegetarian katsu curry",
+   "category": "Plant-based chicken specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 853
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "phad-thai-chicken",
+   "name": "Phad Thai - Chicken",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 1055
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "phad-thai-prawn",
+   "name": "Phad Thai - Prawn",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 949
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "phad-thai-chicken-and-prawn",
+   "name": "Phad Thai - Chicken & Prawn",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 1041
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "phad-thai-tofu",
+   "name": "Phad Thai - Tofu",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 883
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nasi-goreng",
+   "name": "Nasi goreng",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 1171
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "singapore-fried-noodles",
+   "name": "Singapore fried noodles",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 1064
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chow-mien-chicken",
+   "name": "Chow mien - Chicken",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 789
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chow-mien-prawn",
+   "name": "Chow mien - Prawn",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 685
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chow-mien-beef",
+   "name": "Chow mien - Beef",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 746
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chow-mien-tofu",
+   "name": "Chow mien - Tofu",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 741
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yaki-soba-chicken",
+   "name": "Yaki soba chicken",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 652
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yaki-soba-beef",
+   "name": "Yaki soba beef",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yaki-soba-prawn",
+   "name": "Yaki soba prawn",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yaki-soba-tofu",
+   "name": "Yaki soba tofu",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 604
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bi-bim-bap-veg",
+   "name": "Bi bim bap - veg",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 699
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bi-bim-bap-chicken",
+   "name": "Bi bim bap - chicken",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 830
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bi-bim-bap-beef",
+   "name": "Bi bim bap - beef",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 787
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bi-bim-bap-prawns",
+   "name": "Bi bim bap - prawns",
+   "category": "Noodles & rice",
+   "serving": "",
+   "nutrients": {
+    "calories": 740
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-roasted-pork-ramen",
+   "name": "BBQ roasted pork ramen",
+   "category": "Ramen & soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 634
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tom-yum-chicken",
+   "name": "Tom yum - Chicken",
+   "category": "Ramen & soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tom-yum-prawn",
+   "name": "Tom yum - Prawn",
+   "category": "Ramen & soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tom-yum-tofu",
+   "name": "Tom yum - Tofu",
+   "category": "Ramen & soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-miso-ramen",
+   "name": "Tofu miso ramen",
+   "category": "Ramen & soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 617
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-laksa",
+   "name": "Seafood laksa",
+   "category": "Ramen & soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 748
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bang-bang-chicken-salad",
+   "name": "Bang bang chicken salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-and-chicken-salad",
+   "name": "Mango & chicken salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 472
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-cucumber-salad",
+   "name": "Spicy cucumber salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 177
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stir-fried-egg-noodles",
+   "name": "Stir-fried egg noodles",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-rice",
+   "name": "Coconut rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 506
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-fried-rice",
+   "name": "Egg fried rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 545
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "special-fried-rice",
+   "name": "Special fried rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-rice",
+   "name": "Steamed rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-bento-box",
+   "name": "Chocolate bento box",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 921
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-ice-cream",
+   "name": "Fried ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 642
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "passionfruit-and-white-chocolate-cheesecake",
+   "name": "Passionfruit & white chocolate cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toffee-peanut-sundae",
+   "name": "Toffee peanut sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 949
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet",
+   "name": "Raspberry sorbet",
+   "category": "Desserts",
+   "serving": "2 scoops",
+   "nutrients": {
+    "calories": 364
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-vanilla",
+   "name": "Ice cream vanilla",
+   "category": "Desserts",
+   "serving": "2 scoops with hot chocolate sauce",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-coconut",
+   "name": "Ice cream coconut",
+   "category": "Desserts",
+   "serving": "2 scoops with hot chocolate sauce",
+   "nutrients": {
+    "calories": 623
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-chocolate",
+   "name": "Ice cream chocolate",
+   "category": "Desserts",
+   "serving": "2 scoops with hot chocolate sauce",
+   "nutrients": {
+    "calories": 741
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-torte-coconut-ice-cream",
+   "name": "Chocolate torte, coconut ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 454
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-ginger-pudding",
+   "name": "Salted caramel ginger pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

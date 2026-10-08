@@ -1,0 +1,2897 @@
+{
+ "schemaVersion": 1,
+ "id": "comptoir-libanais",
+ "name": "Comptoir Libanais",
+ "cuisine": "Lebanese",
+ "builderType": "standard",
+ "aliases": [
+  "comptoir libanais",
+  "comptoir"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Comptoir Libanais Allergen & Calorie Menu, Spring 2026, Version 07 (PDF created 21 August 2026)",
+  "url": "https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/uploads/2026/08/Comptoir_AllergenMenu_Spring2026_v07.pdf",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed in the guide's kcals column (it gives no serving sizes), so protein, carbs and fat are not published. Dishes with no calorie figure in the guide (most alternative-milk coffees, cocktails, wine, beer, some lemonades) are not listed, and the guide's drinks pages carry no 'may contain' marks.",
+ "allergenGuide": {
+  "title": "Comptoir Libanais Allergen & Calorie Menu, Spring 2026, Version 07",
+  "url": "https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/uploads/2026/08/Comptoir_AllergenMenu_Spring2026_v07.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Nibbles",
+  "Mezze",
+  "Flatbreads",
+  "Grills",
+  "Takeaway grills (with flatbread)",
+  "House specialities",
+  "Tagines",
+  "Salads",
+  "Single wraps (takeaway)",
+  "Side dishes & sauces",
+  "Desserts",
+  "Ice cream",
+  "Kids menu",
+  "Breakfast",
+  "Breakfast: our favourites",
+  "Breakfast: morning bakes & bites",
+  "Breakfast: mezze",
+  "Hot drinks",
+  "Lemonades"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "lebanese-pickles",
+   "name": "Lebanese Pickles",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "marinated-olives",
+   "name": "Marinated Olives",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 221
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "roasted-almonds",
+   "name": "Roasted Almonds",
+   "category": "Nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "lentil-soup",
+   "name": "Lentil Soup",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hommos",
+   "name": "Hommos",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 277
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "baba-ghanuj",
+   "name": "Baba Ghanuj",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 283
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "falafel",
+   "name": "Falafel",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-samboussek",
+   "name": "Cheese Samboussek",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 476
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-samboussek",
+   "name": "Chicken Samboussek",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "feta-and-pepper-dip",
+   "name": "Feta & Pepper Dip",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 256
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "batata-harra",
+   "name": "Batata Harra",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lebanese-wings",
+   "name": "Lebanese Wings",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-steak",
+   "name": "Halloumi Steak",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "lamb-kibbeh",
+   "name": "Lamb Kibbeh",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 534
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "tabbouleh",
+   "name": "Tabbouleh",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "fattoush",
+   "name": "Fattoush",
+   "category": "Mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "warm-olive-oil-bread",
+   "name": "Warm Olive Oil Bread",
+   "category": "Flatbreads",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zaatar-and-garlic-bread",
+   "name": "Za’atar & Garlic Bread",
+   "category": "Flatbreads",
+   "serving": "",
+   "nutrients": {
+    "calories": 524
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mixed-grill",
+   "name": "Mixed Grill",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lamb-kofta-grill",
+   "name": "Lamb Kofta Grill",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 761
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-taouk-grill",
+   "name": "Chicken Taouk Grill",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 683
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-kofta-grill",
+   "name": "Chicken Kofta Grill",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 769
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lamb-kofta-burger",
+   "name": "Lamb Kofta Burger",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 895
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-kofta-burger",
+   "name": "Chicken Kofta Burger",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 895
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mixed-grill-takeaway-with-flatbread",
+   "name": "Mixed Grill (takeaway, with flatbread)",
+   "category": "Takeaway grills (with flatbread)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1376
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lamb-kofta-grill-takeaway-with-flatbread",
+   "name": "Lamb Kofta Grill (takeaway, with flatbread)",
+   "category": "Takeaway grills (with flatbread)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1002
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-taouk-grill-takeaway-with-flatbread",
+   "name": "Chicken Taouk Grill (takeaway, with flatbread)",
+   "category": "Takeaway grills (with flatbread)",
+   "serving": "",
+   "nutrients": {
+    "calories": 924
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-kofta-grill-takeaway-with-flatbread",
+   "name": "Chicken Kofta Grill (takeaway, with flatbread)",
+   "category": "Takeaway grills (with flatbread)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1010
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roasted-salmon",
+   "name": "Roasted Salmon",
+   "category": "House specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 827
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "spinach-and-feta-borek",
+   "name": "Spinach & Feta Borek",
+   "category": "House specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 1002
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-shawarma-rice-bowl",
+   "name": "Chicken Shawarma Rice Bowl",
+   "category": "House specialities",
+   "serving": "",
+   "nutrients": {
+    "calories": 1098
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-green-olive-tagine",
+   "name": "Chicken & Green Olive Tagine",
+   "category": "Tagines",
+   "serving": "",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "aubergine-tagine",
+   "name": "Aubergine Tagine",
+   "category": "Tagines",
+   "serving": "",
+   "nutrients": {
+    "calories": 598
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mama-zohra-salad",
+   "name": "Mama Zohra Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 691
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grilled-halloumi-salad",
+   "name": "Grilled Halloumi Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 900
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-taouk-single-wrap-takeaway",
+   "name": "Chicken Taouk Single Wrap (takeaway)",
+   "category": "Single wraps (takeaway)",
+   "serving": "",
+   "nutrients": {
+    "calories": 532
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lamb-kofta-single-wrap-takeaway",
+   "name": "Lamb Kofta Single Wrap (takeaway)",
+   "category": "Single wraps (takeaway)",
+   "serving": "",
+   "nutrients": {
+    "calories": 556
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-single-wrap-takeaway",
+   "name": "Halloumi Single Wrap (takeaway)",
+   "category": "Single wraps (takeaway)",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "falafel-single-wrap-takeaway",
+   "name": "Falafel Single Wrap (takeaway)",
+   "category": "Single wraps (takeaway)",
+   "serving": "",
+   "nutrients": {
+    "calories": 712
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fries-and-garlic-dip",
+   "name": "Fries & Garlic Dip",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "quinoa",
+   "name": "Quinoa",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 266
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "vermicelli-rice",
+   "name": "Vermicelli Rice",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 364
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "couscous",
+   "name": "Couscous",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "garlic-sauce",
+   "name": "Garlic Sauce",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 121
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "tahina-sauce",
+   "name": "Tahina Sauce",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "harissa-sauce",
+   "name": "Harissa Sauce",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mint-yoghurt-sauce",
+   "name": "Mint Yoghurt Sauce",
+   "category": "Side dishes & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mango-cheesecake",
+   "name": "Mango Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 638
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "orange-blossom-mouhalabia",
+   "name": "Orange Blossom Mouhalabia",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie",
+   "name": "Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 769
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "orange-and-almond-cake",
+   "name": "Orange & Almond Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 699
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "selection-of-baklawa",
+   "name": "Selection of Baklawa",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 548
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut",
+     "cashew",
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "dairy-free-vanilla-ice-cream",
+   "name": "Dairy Free Vanilla Ice Cream",
+   "category": "Ice cream",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 55,
+    "weight": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-ice-cream",
+   "name": "Pistachio Ice Cream",
+   "category": "Ice cream",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 43,
+    "weight": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-ice-cream",
+   "name": "Chocolate Ice Cream",
+   "category": "Ice cream",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 35,
+    "weight": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "rose-ice-cream",
+   "name": "Rose Ice Cream",
+   "category": "Ice cream",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 36,
+    "weight": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "cheesy-chicken-flatbread",
+   "name": "Cheesy Chicken Flatbread",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheesy-tomato-flatbread",
+   "name": "Cheesy Tomato Flatbread",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 518
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-wrap",
+   "name": "Chicken Wrap",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-wrap",
+   "name": "Halloumi Wrap",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-taouk-bites",
+   "name": "Chicken Taouk Bites",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mezze-adventure-platter",
+   "name": "Mezze Adventure Platter",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dairy-free-ice-cream",
+   "name": "Dairy Free Ice Cream",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "comptoir-breakfast",
+   "name": "Comptoir Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 969
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "veggie-breakfast",
+   "name": "Veggie Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 758
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-breakfast",
+   "name": "Vegan Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 674
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "shakshuka-egg-and-feta",
+   "name": "Shakshuka Egg & Feta",
+   "category": "Breakfast: our favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 468
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "scrambled-egg-and-feta",
+   "name": "Scrambled Egg & Feta",
+   "category": "Breakfast: our favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 596
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-and-scrambled-egg",
+   "name": "Smoked Salmon & Scrambled Egg",
+   "category": "Breakfast: our favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 702
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "shakshuka-and-soujok",
+   "name": "Shakshuka & Soujok",
+   "category": "Breakfast: our favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "poached-eggs",
+   "name": "Poached Eggs",
+   "category": "Breakfast: our favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 540
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "soujok-shakshuka-sandwich",
+   "name": "Soujok Shakshuka Sandwich",
+   "category": "Breakfast: our favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 634
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "lupin",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "soujok-manousha",
+   "name": "Soujok Man’ousha",
+   "category": "Breakfast: our favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 968
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zatar-and-halloumi-manousha",
+   "name": "Za’tar & Halloumi Man’ousha",
+   "category": "Breakfast: our favourites",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butter-croissant",
+   "name": "Butter Croissant",
+   "category": "Breakfast: morning bakes & bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-raisin",
+   "name": "Pain au Raisin",
+   "category": "Breakfast: morning bakes & bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 358
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-croissant",
+   "name": "Chocolate Croissant",
+   "category": "Breakfast: morning bakes & bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "soujok-and-shakshuka-croissant",
+   "name": "Soujok & Shakshuka Croissant",
+   "category": "Breakfast: morning bakes & bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 470
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-and-zaatar-croissant",
+   "name": "Halloumi & Za’atar Croissant",
+   "category": "Breakfast: morning bakes & bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 503
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "orange-and-almond-cake-breakfast-menu",
+   "name": "Orange & Almond Cake (breakfast menu)",
+   "category": "Breakfast: morning bakes & bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "fatayer",
+   "name": "Fatayer",
+   "category": "Breakfast: morning bakes & bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ful-moudamas",
+   "name": "Ful Moudamas",
+   "category": "Breakfast: mezze",
+   "serving": "",
+   "nutrients": {
+    "calories": 757
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "lupin",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fresh-rose-mint-tea",
+   "name": "Fresh Rose Mint Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-blossom-hibiscus-and-mint-tea",
+   "name": "Orange Blossom, Hibiscus & Mint Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-with-cow-milk",
+   "name": "Americano with Cow Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-with-cow-milk",
+   "name": "Cappuccino with Cow Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-with-cow-milk",
+   "name": "Latte with Cow Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-with-cow-milk",
+   "name": "Flat White with Cow Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-with-cow-milk",
+   "name": "Mocha with Cow Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "macchiato-with-cow-milk",
+   "name": "Macchiato with Cow Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "macchiato-with-cow-milk-double",
+   "name": "Macchiato with Cow Milk (double)",
+   "category": "Hot drinks",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-single",
+   "name": "Espresso Single",
+   "category": "Hot drinks",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-double",
+   "name": "Espresso Double",
+   "category": "Hot drinks",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tahina-and-date-molasses-with-almond-milk",
+   "name": "Tahina & Date Molasses with Almond Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-with-cow-milk",
+   "name": "Hot Chocolate with Cow Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lebanese-hot-chocolate-with-cow-milk",
+   "name": "Lebanese Hot Chocolate with Cow Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "roomana",
+   "name": "Roomana",
+   "category": "Lemonades",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roza",
+   "name": "Roza",
+   "category": "Lemonades",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "toufaha",
+   "name": "Toufaha",
+   "category": "Lemonades",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "leymona",
+   "name": "Leymona",
+   "category": "Lemonades",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry",
+   "name": "Strawberry",
+   "category": "Lemonades",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

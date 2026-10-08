@@ -1,0 +1,2202 @@
+{
+ "schemaVersion": 1,
+ "id": "wild-bean-cafe",
+ "name": "Wild Bean Cafe",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "wild bean cafe",
+  "wild bean café",
+  "wildbean cafe",
+  "wild bean",
+  "bp wild bean cafe",
+  "bp wild bean café"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Wild Bean Cafe Ingredient and Nutritional Information, 22 September 2026 (WBC-Product Pages-Sept-2026-V2, coffee re-launch)",
+  "url": "https://www.bp.com/content/dam/bp/country-sites/en_gb/united-kingdom/home/pdf/products-and-services/ingredient-and-nutritional-information-oct-2026.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Food only: the guide's drinks (coffees, teas, hot chocolates, iced drinks, frappes, smoothies) print energy only, so they are not listed. Figures are per portion or piece as printed; the range varies by bp site.",
+ "allergenGuide": {
+  "title": "Wild Bean Cafe Ingredient and Nutritional Information, 22 September 2026 (allergen grid on each product page)",
+  "url": "https://www.bp.com/content/dam/bp/country-sites/en_gb/united-kingdom/home/pdf/products-and-services/ingredient-and-nutritional-information-oct-2026.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Breakfast (pre-packed)",
+  "Hot breakfast (made in store)",
+  "Hot savouries",
+  "Hot lunch",
+  "Slices & pasties",
+  "Hot savoury snacks",
+  "Pastries",
+  "Sweet treats",
+  "Cookies",
+  "Sauces"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "bacon-bap",
+   "name": "Bacon Bap",
+   "category": "Breakfast (pre-packed)",
+   "serving": "133 g",
+   "nutrients": {
+    "calories": 412,
+    "protein": 18,
+    "carbs": 40,
+    "fat": 19,
+    "saturatedFat": 9,
+    "sugar": 3.9,
+    "salt": 1.9,
+    "energyKj": 1727,
+    "weight": 133
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "sausage-bap",
+   "name": "Sausage Bap",
+   "category": "Breakfast (pre-packed)",
+   "serving": "162 g",
+   "nutrients": {
+    "calories": 480,
+    "protein": 18,
+    "carbs": 42,
+    "fat": 26,
+    "saturatedFat": 10.2,
+    "sugar": 4.8,
+    "salt": 1.9,
+    "energyKj": 2006,
+    "weight": 162
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "all-day-breakfast-baguette",
+   "name": "All Day Breakfast Baguette",
+   "category": "Breakfast (pre-packed)",
+   "serving": "262 g",
+   "nutrients": {
+    "calories": 507,
+    "protein": 8.4,
+    "carbs": 69,
+    "fat": 16.5,
+    "saturatedFat": 6.9,
+    "sugar": 6.2,
+    "salt": 3.22,
+    "energyKj": 2129,
+    "weight": 262
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "all-day-breakfast-wrap",
+   "name": "All Day Breakfast Wrap",
+   "category": "Breakfast (pre-packed)",
+   "serving": "229 g",
+   "nutrients": {
+    "calories": 593,
+    "protein": 4.5,
+    "carbs": 60,
+    "fat": 28,
+    "saturatedFat": 12.1,
+    "sugar": 6,
+    "salt": 2.4,
+    "energyKj": 2485,
+    "weight": 229
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cheese-and-tomato-croissant",
+   "name": "Cheese & Tomato Croissant",
+   "category": "Breakfast (pre-packed)",
+   "serving": "137 g",
+   "nutrients": {
+    "calories": 371,
+    "protein": 12.4,
+    "carbs": 36,
+    "fat": 19,
+    "saturatedFat": 11.3,
+    "sugar": 6.5,
+    "salt": 1.12,
+    "energyKj": 1551,
+    "weight": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "egg-and-cheese-bap",
+   "name": "Egg & Cheese Bap",
+   "category": "Breakfast (pre-packed)",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 387,
+    "protein": 18,
+    "carbs": 43.9,
+    "fat": 15.1,
+    "saturatedFat": 8.2,
+    "sugar": 5.4,
+    "salt": 1.56,
+    "energyKj": 1625,
+    "weight": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-cheese-croissant",
+   "name": "Ham & Cheese Croissant",
+   "category": "Breakfast (pre-packed)",
+   "serving": "137 g",
+   "nutrients": {
+    "calories": 387,
+    "protein": 16,
+    "carbs": 32.8,
+    "fat": 21,
+    "saturatedFat": 12.3,
+    "sugar": 5.2,
+    "salt": 1.85,
+    "energyKj": 1618,
+    "weight": 137
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "big-breakfast-ciabatta",
+   "name": "Big Breakfast Ciabatta",
+   "category": "Hot breakfast (made in store)",
+   "serving": "1 ciabatta, 428 g",
+   "nutrients": {
+    "calories": 1134,
+    "protein": 48.3,
+    "carbs": 78.9,
+    "fat": 68.6,
+    "saturatedFat": 30.7,
+    "sugar": 6.4,
+    "salt": 5.8,
+    "energyKj": 4732,
+    "weight": 428
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "big-breakfast-ciabatta-half",
+   "name": "Big Breakfast Ciabatta (half)",
+   "category": "Hot breakfast (made in store)",
+   "serving": "Half, 214 g",
+   "nutrients": {
+    "calories": 567,
+    "protein": 24.1,
+    "carbs": 39.4,
+    "fat": 34.3,
+    "saturatedFat": 15.4,
+    "sugar": 3.2,
+    "salt": 2.9,
+    "energyKj": 2366,
+    "weight": 214
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "bacon-ciabatta",
+   "name": "Bacon Ciabatta",
+   "category": "Hot breakfast (made in store)",
+   "serving": "1 ciabatta, 228 g",
+   "nutrients": {
+    "calories": 708,
+    "protein": 38.5,
+    "carbs": 62.3,
+    "fat": 33.1,
+    "saturatedFat": 17,
+    "sugar": 2.7,
+    "salt": 3.9,
+    "energyKj": 2967,
+    "weight": 228
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "bacon-ciabatta-half",
+   "name": "Bacon Ciabatta (half)",
+   "category": "Hot breakfast (made in store)",
+   "serving": "Half, 114 g",
+   "nutrients": {
+    "calories": 348,
+    "protein": 18.5,
+    "carbs": 31.1,
+    "fat": 16.2,
+    "saturatedFat": 8.4,
+    "sugar": 1.3,
+    "salt": 1.9,
+    "energyKj": 1455,
+    "weight": 114
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "sausage-ciabatta",
+   "name": "Sausage Ciabatta",
+   "category": "Hot breakfast (made in store)",
+   "serving": "1 ciabatta, 244 g",
+   "nutrients": {
+    "calories": 726,
+    "protein": 20.5,
+    "carbs": 76.7,
+    "fat": 36.7,
+    "saturatedFat": 17.1,
+    "sugar": 4.2,
+    "salt": 3.3,
+    "energyKj": 3037,
+    "weight": 244
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "sausage-ciabatta-half",
+   "name": "Sausage Ciabatta (half)",
+   "category": "Hot breakfast (made in store)",
+   "serving": "Half, 122 g",
+   "nutrients": {
+    "calories": 363,
+    "protein": 10.3,
+    "carbs": 38.3,
+    "fat": 18.3,
+    "saturatedFat": 8.5,
+    "sugar": 2.1,
+    "salt": 1.6,
+    "energyKj": 1519,
+    "weight": 122
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "egg-and-cheese-ciabatta",
+   "name": "Egg & Cheese Ciabatta",
+   "category": "Hot breakfast (made in store)",
+   "serving": "1 ciabatta, 280 g",
+   "nutrients": {
+    "calories": 781,
+    "protein": 29.5,
+    "carbs": 63.7,
+    "fat": 44.6,
+    "saturatedFat": 22.6,
+    "sugar": 4.3,
+    "salt": 3.5,
+    "energyKj": 3261,
+    "weight": 280
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "egg-and-cheese-ciabatta-half",
+   "name": "Egg & Cheese Ciabatta (half)",
+   "category": "Hot breakfast (made in store)",
+   "serving": "Half, 140 g",
+   "nutrients": {
+    "calories": 518,
+    "protein": 22.4,
+    "carbs": 31.9,
+    "fat": 33.1,
+    "saturatedFat": 17.9,
+    "sugar": 2.2,
+    "salt": 2.3,
+    "energyKj": 2159,
+    "weight": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "bacon-and-cheese-turnover",
+   "name": "Bacon & Cheese Turnover",
+   "category": "Hot savouries",
+   "serving": "153 g",
+   "nutrients": {
+    "calories": 537,
+    "protein": 14,
+    "carbs": 39.6,
+    "fat": 35.3,
+    "saturatedFat": 16.3,
+    "sugar": 2.3,
+    "salt": 1.49,
+    "energyKj": 2235,
+    "weight": 153
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-turnover",
+   "name": "Breakfast Turnover",
+   "category": "Hot savouries",
+   "serving": "153 g",
+   "nutrients": {
+    "calories": 434,
+    "protein": 12.1,
+    "carbs": 39,
+    "fat": 24.7,
+    "saturatedFat": 9.7,
+    "sugar": 3,
+    "salt": 1.67,
+    "energyKj": 1816,
+    "weight": 153
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sausage-roll",
+   "name": "Sausage Roll",
+   "category": "Hot savouries",
+   "serving": "165 g",
+   "nutrients": {
+    "calories": 467,
+    "protein": 17.3,
+    "carbs": 32.9,
+    "fat": 29.2,
+    "saturatedFat": 13.3,
+    "sugar": 2.1,
+    "salt": 1.78,
+    "energyKj": 1946,
+    "weight": 165
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-sausage-roll",
+   "name": "Mini Sausage Roll",
+   "category": "Hot savouries",
+   "serving": "1 roll, 36 g",
+   "nutrients": {
+    "calories": 113,
+    "protein": 4,
+    "carbs": 6.9,
+    "fat": 7.5,
+    "saturatedFat": 3,
+    "sugar": 0.7,
+    "salt": 0.28,
+    "energyKj": 471,
+    "weight": 36
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-cheese-and-onion-roll",
+   "name": "Mini Cheese & Onion Roll",
+   "category": "Hot savouries",
+   "serving": "1 roll, 35 g",
+   "nutrients": {
+    "calories": 112,
+    "protein": 2.9,
+    "carbs": 8.5,
+    "fat": 7.3,
+    "saturatedFat": 3.6,
+    "sugar": 0.5,
+    "salt": 0.29,
+    "energyKj": 469,
+    "weight": 35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-tomato-pizza-slice",
+   "name": "Cheese & Tomato Pizza Slice",
+   "category": "Hot lunch",
+   "serving": "158 g",
+   "nutrients": {
+    "calories": 477,
+    "protein": 18.2,
+    "carbs": 51.7,
+    "fat": 21.2,
+    "saturatedFat": 8.2,
+    "sugar": 5.4,
+    "salt": 1.47,
+    "energyKj": 1999,
+    "weight": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pepperoni-pizza-slice",
+   "name": "Pepperoni Pizza Slice",
+   "category": "Hot lunch",
+   "serving": "156 g",
+   "nutrients": {
+    "calories": 533,
+    "protein": 19.4,
+    "carbs": 58.3,
+    "fat": 23.9,
+    "saturatedFat": 7.6,
+    "sugar": 5.5,
+    "salt": 2.3,
+    "energyKj": 2230,
+    "weight": 156
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-caramelised-onion-toastie",
+   "name": "Cheese & Caramelised Onion Toastie",
+   "category": "Hot lunch",
+   "serving": "200 g",
+   "nutrients": {
+    "calories": 476,
+    "protein": 24.1,
+    "carbs": 54.2,
+    "fat": 17.1,
+    "saturatedFat": 10.4,
+    "sugar": 5.8,
+    "salt": 2.4,
+    "energyKj": 1998,
+    "weight": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-cheese-toastie",
+   "name": "Ham & Cheese Toastie",
+   "category": "Hot lunch",
+   "serving": "225 g",
+   "nutrients": {
+    "calories": 516,
+    "protein": 30.5,
+    "carbs": 51.5,
+    "fat": 19.9,
+    "saturatedFat": 12,
+    "sugar": 3.6,
+    "salt": 3.3,
+    "energyKj": 2169,
+    "weight": 225
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-big-smoke",
+   "name": "The Big Smoke",
+   "category": "Hot lunch",
+   "serving": "233 g",
+   "nutrients": {
+    "calories": 571,
+    "protein": 31.7,
+    "carbs": 55.1,
+    "fat": 24.5,
+    "saturatedFat": 10.8,
+    "sugar": 19.1,
+    "salt": 2.5,
+    "energyKj": 2396,
+    "weight": 233
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hot-honey-chicken-flatbread",
+   "name": "Hot Honey Chicken Flatbread",
+   "category": "Hot lunch",
+   "serving": "178 g",
+   "nutrients": {
+    "calories": 485,
+    "protein": 22.7,
+    "carbs": 48.5,
+    "fat": 21.5,
+    "saturatedFat": 6.8,
+    "sugar": 10.7,
+    "salt": 1.87,
+    "energyKj": 2031,
+    "weight": 178
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "philly-cheesesteak-baguette",
+   "name": "Philly Cheesesteak Baguette",
+   "category": "Hot lunch",
+   "serving": "260 g",
+   "nutrients": {
+    "calories": 722,
+    "protein": 32.4,
+    "carbs": 64.1,
+    "fat": 36.3,
+    "saturatedFat": 7.2,
+    "sugar": 7,
+    "salt": 3.5,
+    "energyKj": 3021,
+    "weight": 260
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mexican-style-chicken-ciabatta",
+   "name": "Mexican Style Chicken Ciabatta",
+   "category": "Hot lunch",
+   "serving": "191 g",
+   "nutrients": {
+    "calories": 409,
+    "protein": 23.2,
+    "carbs": 49.5,
+    "fat": 11.8,
+    "saturatedFat": 4.3,
+    "sugar": 5.9,
+    "salt": 1.6,
+    "energyKj": 1722,
+    "weight": 191
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tikka-wrap",
+   "name": "Chicken Tikka Wrap",
+   "category": "Hot lunch",
+   "serving": "191 g",
+   "nutrients": {
+    "calories": 392,
+    "protein": 24.4,
+    "carbs": 46.3,
+    "fat": 11.4,
+    "saturatedFat": 4.1,
+    "sugar": 5.1,
+    "salt": 1.9,
+    "energyKj": 1648,
+    "weight": 191
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "steak-slice",
+   "name": "Steak Slice",
+   "category": "Slices & pasties",
+   "serving": "153 g",
+   "nutrients": {
+    "calories": 433,
+    "protein": 14.8,
+    "carbs": 37.9,
+    "fat": 24,
+    "saturatedFat": 12.2,
+    "sugar": 2.4,
+    "salt": 1.3,
+    "energyKj": 1810,
+    "weight": 153
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "sticky-pork-rib-slice",
+   "name": "Sticky Pork Rib Slice",
+   "category": "Slices & pasties",
+   "serving": "153 g",
+   "nutrients": {
+    "calories": 478,
+    "protein": 13.6,
+    "carbs": 51,
+    "fat": 25.3,
+    "saturatedFat": 11.4,
+    "sugar": 9.4,
+    "salt": 1.1,
+    "energyKj": 2054,
+    "weight": 153
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-onion-slice",
+   "name": "Cheese & Onion Slice",
+   "category": "Slices & pasties",
+   "serving": "157 g",
+   "nutrients": {
+    "calories": 476,
+    "protein": 11.5,
+    "carbs": 44.6,
+    "fat": 29.1,
+    "saturatedFat": 16.1,
+    "sugar": 1.9,
+    "salt": 1.6,
+    "energyKj": 2036,
+    "weight": 157
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-slice",
+   "name": "Chicken Slice",
+   "category": "Slices & pasties",
+   "serving": "153 g",
+   "nutrients": {
+    "calories": 421,
+    "protein": 12.4,
+    "carbs": 39,
+    "fat": 23.3,
+    "saturatedFat": 13,
+    "sugar": 2.4,
+    "salt": 1.34,
+    "energyKj": 1758,
+    "weight": 153
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "feta-and-red-pepper-slice",
+   "name": "Feta & Red Pepper Slice",
+   "category": "Slices & pasties",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 392,
+    "protein": 7.7,
+    "carbs": 38.6,
+    "fat": 22.5,
+    "saturatedFat": 11,
+    "sugar": 3.8,
+    "salt": 1.1,
+    "energyKj": 1640,
+    "weight": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sausage-and-bean-slice",
+   "name": "Sausage & Bean Slice",
+   "category": "Slices & pasties",
+   "serving": "153 g",
+   "nutrients": {
+    "calories": 416,
+    "protein": 11.1,
+    "carbs": 41,
+    "fat": 22.2,
+    "saturatedFat": 11.2,
+    "sugar": 4.6,
+    "salt": 1.7,
+    "energyKj": 1738,
+    "weight": 153
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cornish-pasty",
+   "name": "Cornish Pasty",
+   "category": "Slices & pasties",
+   "serving": "1 pasty, 225 g",
+   "nutrients": {
+    "calories": 706,
+    "protein": 18.1,
+    "carbs": 75.5,
+    "fat": 35.7,
+    "saturatedFat": 18.4,
+    "sugar": 6.1,
+    "salt": 2.8,
+    "energyKj": 2953,
+    "weight": 225
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hash-browns",
+   "name": "Hash Browns",
+   "category": "Hot savoury snacks",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 287,
+    "protein": 2.3,
+    "carbs": 47.1,
+    "fat": 11.4,
+    "saturatedFat": 1.2,
+    "sugar": 0.8,
+    "salt": 1.05,
+    "energyKj": 1208,
+    "weight": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "potato-wedges",
+   "name": "Potato Wedges",
+   "category": "Hot savoury snacks",
+   "serving": "150 g",
+   "nutrients": {
+    "calories": 245,
+    "protein": 3.6,
+    "carbs": 37.4,
+    "fat": 6.8,
+    "saturatedFat": 0.9,
+    "sugar": 1.5,
+    "salt": 1.2,
+    "energyKj": 1028,
+    "weight": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crispy-chicken-goujons",
+   "name": "Crispy Chicken Goujons",
+   "category": "Hot savoury snacks",
+   "serving": "185 g",
+   "nutrients": {
+    "calories": 403,
+    "protein": 26,
+    "carbs": 29,
+    "fat": 20,
+    "saturatedFat": 8.7,
+    "sugar": 0,
+    "salt": 1.1,
+    "energyKj": 1691,
+    "weight": 185
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butter-croissant",
+   "name": "Butter Croissant",
+   "category": "Pastries",
+   "serving": "72 g",
+   "nutrients": {
+    "calories": 298,
+    "protein": 7.3,
+    "carbs": 31,
+    "fat": 15.8,
+    "saturatedFat": 10.5,
+    "sugar": 4.4,
+    "salt": 0.71,
+    "energyKj": 1246,
+    "weight": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "triple-chocolate-pain-au-chocolat",
+   "name": "Triple Chocolate Pain au Chocolat",
+   "category": "Pastries",
+   "serving": "66 g",
+   "nutrients": {
+    "calories": 346,
+    "protein": 6.5,
+    "carbs": 36,
+    "fat": 19,
+    "saturatedFat": 12,
+    "sugar": 14,
+    "salt": 0.64,
+    "energyKj": 1445,
+    "weight": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "apricot-and-custard-slice",
+   "name": "Apricot & Custard Slice",
+   "category": "Pastries",
+   "serving": "66 g",
+   "nutrients": {
+    "calories": 336,
+    "protein": 5.8,
+    "carbs": 44,
+    "fat": 15,
+    "saturatedFat": 10.1,
+    "sugar": 18,
+    "salt": 0.65,
+    "energyKj": 1416,
+    "weight": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-knot",
+   "name": "Cheese Knot",
+   "category": "Pastries",
+   "serving": "79 g",
+   "nutrients": {
+    "calories": 438,
+    "protein": 15.8,
+    "carbs": 34.3,
+    "fat": 26.4,
+    "saturatedFat": 14.5,
+    "sugar": 5.9,
+    "salt": 1.32,
+    "energyKj": 1828,
+    "weight": 79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "almond-croissant",
+   "name": "Almond Croissant",
+   "category": "Pastries",
+   "serving": "80 g",
+   "nutrients": {
+    "calories": 346,
+    "protein": 7.4,
+    "carbs": 36.8,
+    "fat": 18.4,
+    "saturatedFat": 6.7,
+    "sugar": 12.8,
+    "salt": 0.66,
+    "energyKj": 1445,
+    "weight": 80
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "maple-pecan-plait",
+   "name": "Maple Pecan Plait",
+   "category": "Pastries",
+   "serving": "82 g",
+   "nutrients": {
+    "calories": 372,
+    "protein": 4.6,
+    "carbs": 36.6,
+    "fat": 23,
+    "saturatedFat": 9.6,
+    "sugar": 13.8,
+    "salt": 0.31,
+    "energyKj": 1554,
+    "weight": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-twist",
+   "name": "Chocolate Twist",
+   "category": "Pastries",
+   "serving": "88 g",
+   "nutrients": {
+    "calories": 324,
+    "protein": 6,
+    "carbs": 38,
+    "fat": 16,
+    "saturatedFat": 11,
+    "sugar": 14,
+    "salt": 0.7,
+    "energyKj": 1355,
+    "weight": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-bun",
+   "name": "Cinnamon Bun",
+   "category": "Sweet treats",
+   "serving": "95 g",
+   "nutrients": {
+    "calories": 392,
+    "protein": 6.6,
+    "carbs": 49.4,
+    "fat": 18.1,
+    "saturatedFat": 5.8,
+    "sugar": 20,
+    "salt": 0.81,
+    "energyKj": 1641,
+    "weight": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "jam-doughnut",
+   "name": "Jam Doughnut",
+   "category": "Sweet treats",
+   "serving": "1 doughnut, 60 g",
+   "nutrients": {
+    "calories": 182,
+    "protein": 3.5,
+    "carbs": 28.4,
+    "fat": 5.8,
+    "saturatedFat": 2,
+    "sugar": 9.2,
+    "salt": 0.31,
+    "energyKj": 765,
+    "weight": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-chocolate-hazelnut-muffin",
+   "name": "Mini Chocolate Hazelnut Muffin",
+   "category": "Sweet treats",
+   "serving": "1 mini muffin, 26 g",
+   "nutrients": {
+    "calories": 115,
+    "protein": 1.5,
+    "carbs": 12.8,
+    "fat": 6.2,
+    "saturatedFat": 1,
+    "sugar": 9.7,
+    "salt": 0.17,
+    "energyKj": 479,
+    "weight": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "mini-salted-caramel-hazelnut-muffin",
+   "name": "Mini Salted Caramel Hazelnut Muffin",
+   "category": "Sweet treats",
+   "serving": "1 mini muffin, 26 g",
+   "nutrients": {
+    "calories": 106,
+    "protein": 1.3,
+    "carbs": 14,
+    "fat": 5,
+    "saturatedFat": 0.8,
+    "sugar": 10,
+    "salt": 0.22,
+    "energyKj": 446,
+    "weight": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "milk-chocolate-cookie",
+   "name": "Milk Chocolate Cookie",
+   "category": "Cookies",
+   "serving": "1 cookie, 70 g",
+   "nutrients": {
+    "calories": 323,
+    "protein": 3.7,
+    "carbs": 43.3,
+    "fat": 14.8,
+    "saturatedFat": 7.8,
+    "sugar": 29.5,
+    "salt": 0.54,
+    "energyKj": 1353,
+    "weight": 70
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "white-chocolate-cookie",
+   "name": "White Chocolate Cookie",
+   "category": "Cookies",
+   "serving": "1 cookie, 70 g",
+   "nutrients": {
+    "calories": 325,
+    "protein": 3.9,
+    "carbs": 43.1,
+    "fat": 15.1,
+    "saturatedFat": 8.2,
+    "sugar": 31.3,
+    "salt": 0.5,
+    "energyKj": 1361,
+    "weight": 70
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "triple-chocolate-cookie",
+   "name": "Triple Chocolate Cookie",
+   "category": "Cookies",
+   "serving": "1 cookie, 70 g",
+   "nutrients": {
+    "calories": 323,
+    "protein": 4,
+    "carbs": 40,
+    "fat": 15.9,
+    "saturatedFat": 8.6,
+    "sugar": 28.7,
+    "salt": 0.46,
+    "energyKj": 1350,
+    "weight": 70
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "oat-and-raisin-cookie",
+   "name": "Oat & Raisin Cookie",
+   "category": "Cookies",
+   "serving": "1 cookie, 70 g",
+   "nutrients": {
+    "calories": 308,
+    "protein": 3.1,
+    "carbs": 41.5,
+    "fat": 14,
+    "saturatedFat": 6.9,
+    "sugar": 23,
+    "salt": 0.58,
+    "energyKj": 1292,
+    "weight": 70
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "large-rainbow-cookie",
+   "name": "Large Rainbow Cookie",
+   "category": "Cookies",
+   "serving": "1 cookie, 70 g",
+   "nutrients": {
+    "calories": 316,
+    "protein": 3.2,
+    "carbs": 47.4,
+    "fat": 12.5,
+    "saturatedFat": 6,
+    "sugar": 30.7,
+    "salt": 0.74,
+    "energyKj": 1329,
+    "weight": 70
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-black-forest-cookie",
+   "name": "Mini Black Forest Cookie",
+   "category": "Cookies",
+   "serving": "1 cookie, 25 g",
+   "nutrients": {
+    "calories": 111,
+    "protein": 1.2,
+    "carbs": 16.5,
+    "fat": 4.3,
+    "saturatedFat": 2.1,
+    "sugar": 11.3,
+    "salt": 0.21,
+    "energyKj": 464,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 34,
+    "protein": 0.2,
+    "carbs": 7.8,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 7,
+    "salt": 0.3,
+    "energyKj": 145,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-sauce",
+   "name": "Garlic Sauce",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 102,
+    "protein": 0.3,
+    "carbs": 3,
+    "fat": 9.8,
+    "saturatedFat": 0.8,
+    "sugar": 2.2,
+    "salt": 0.43,
+    "energyKj": 419,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-chilli-sauce",
+   "name": "Sweet Chilli Sauce",
+   "category": "Sauces",
+   "serving": "25 g",
+   "nutrients": {
+    "calories": 47,
+    "protein": 0.1,
+    "carbs": 11.5,
+    "fat": 0,
+    "sugar": 10.5,
+    "salt": 0.38,
+    "energyKj": 199,
+    "weight": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

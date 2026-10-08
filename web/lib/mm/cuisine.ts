@@ -23,6 +23,10 @@ export const CUISINE_GROUPS: readonly CuisineGroupDef[] = [
   { id: "pubs", label: "Pubs & bars", match: /\bpubs?\b|\bbars?\b|carvery/i },
   { id: "grill", label: "Grill & steak", match: /grill|steak|barbecue|bbq|smokehouse/i },
   { id: "brasserie", label: "British & French", match: /british|french|brasserie/i },
+  { id: "american", label: "American & diner", match: /american|diner/i },
+  { id: "seafood", label: "Seafood", match: /seafood|fish/i },
+  { id: "world", label: "World food", match: /lebanese|middle east|turkish|greek|mediterranean|world/i },
+  { id: "leisure", label: "Hotels & days out", match: /hotel|holiday|cinema|resort|\bpark\b|leisure/i },
 ];
 
 export const OTHER_GROUP = { id: "more", label: "More" } as const;

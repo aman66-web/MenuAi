@@ -1,0 +1,1841 @@
+{
+ "schemaVersion": 1,
+ "id": "sticks-n-sushi",
+ "name": "Sticks'n'Sushi",
+ "cuisine": "Japanese",
+ "builderType": "standard",
+ "aliases": [
+  "sticks'n'sushi",
+  "sticks n sushi",
+  "sticks and sushi",
+  "sticksnsushi",
+  "sticks 'n' sushi"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Sticks'n'Sushi UK menu with kcal (KCAL UK 05.2026; PDF created 2 June 2026)",
+  "url": "https://a.storyblok.com/f/286316/x/07c5b00b47/sns-menu-uk-kcal-2026-05-210x210-web.pdf",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Sticks'n'Sushi prints calories only, beside each dish, so protein, carbs and fat are not published. Nigiri and sticks show 1 and 2 pieces. Drinks, desserts, the kids' menu and set menus without a per-person figure are not listed. Menu dated May 2026.",
+ "allergenGuide": {
+  "title": "Sticks'n'Sushi allergen guide for dine-in and takeaway (allergen-uk-02-10-26-2.pdf, 14 pages; PDF created 2 October 2026)",
+  "url": "https://a.storyblok.com/f/286316/x/4b635a8bd5/allergen-uk-02-10-26-2.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "À la carte",
+  "Sashimi",
+  "Nigiri",
+  "House rolls",
+  "Uramaki",
+  "Kaburimaki",
+  "Sticks",
+  "Set menus"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "edamame-beans-grilled-supreme-soy-and-soya-sesame",
+   "name": "Edamame Beans (Grilled, supreme soy & soya sesame)",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame-beans-spicy-miso-and-sesame",
+   "name": "Edamame Beans (Spicy miso & sesame)",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame-beans-sea-salt-and-lemon",
+   "name": "Edamame Beans (Sea salt & lemon)",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-tataki",
+   "name": "Shake Tataki",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kinoko-korokke",
+   "name": "Kinoko Korokke",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-tartare-bites",
+   "name": "Tuna Tartare Bites",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lobster-and-ikura-temaki",
+   "name": "Lobster & Ikura Temaki",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "broccoli",
+   "name": "Broccoli",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "karaage",
+   "name": "Karaage",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 533
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hotate-kataifi",
+   "name": "Hotate Kataifi",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 402
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hiramasa-ceviche",
+   "name": "Hiramasa Ceviche",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "come-for-a-swim",
+   "name": "Come for a Swim",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 804
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gyoza",
+   "name": "Gyoza",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 331
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kani-korokke",
+   "name": "Kani Korokke",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hiramasa-kataifi",
+   "name": "Hiramasa Kataifi",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cauliflower",
+   "name": "Cauliflower",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hiramasa-kama",
+   "name": "Hiramasa Kama",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-soup",
+   "name": "Miso Soup",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-paper-shake",
+   "name": "Rice Paper Shake",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 273
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ebi-bites",
+   "name": "Ebi Bites",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seaweed-salad",
+   "name": "Seaweed Salad",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wagyu-bites",
+   "name": "Wagyu Bites",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-tataki",
+   "name": "Beef Tataki",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "exmoor-caviar",
+   "name": "Exmoor Caviar",
+   "category": "À la carte",
+   "serving": "10 g",
+   "nutrients": {
+    "calories": 26,
+    "weight": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "temaki-setto",
+   "name": "Temaki Setto",
+   "category": "À la carte",
+   "serving": "",
+   "nutrients": {
+    "calories": 706
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maguro-sashimi",
+   "name": "Maguro Sashimi",
+   "category": "Sashimi",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-sashimi",
+   "name": "Shake Sashimi",
+   "category": "Sashimi",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hiramasa-sashimi",
+   "name": "Hiramasa Sashimi",
+   "category": "Sashimi",
+   "serving": "",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sashimi-deluxe",
+   "name": "Sashimi Deluxe",
+   "category": "Sashimi",
+   "serving": "",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "inari-ikura-nigiri-1-pc",
+   "name": "Inari Ikura Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "inari-ikura-nigiri-2-pcs",
+   "name": "Inari Ikura Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tamago-nigiri-1-pc",
+   "name": "Tamago Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 41
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tamago-nigiri-2-pcs",
+   "name": "Tamago Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ebi-nigiri-1-pc",
+   "name": "Ebi Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ebi-nigiri-2-pcs",
+   "name": "Ebi Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "abokado-nigiri-1-pc",
+   "name": "Abokado Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "abokado-nigiri-2-pcs",
+   "name": "Abokado Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 166
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maguro-nigiri-1-pc",
+   "name": "Maguro Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maguro-nigiri-2-pcs",
+   "name": "Maguro Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-nigiri-1-pc",
+   "name": "Shake Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-nigiri-2-pcs",
+   "name": "Shake Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-yaki-nigiri-1-pc",
+   "name": "Shake Yaki Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-yaki-nigiri-2-pcs",
+   "name": "Shake Yaki Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kinoko-nigiri-1-pc",
+   "name": "Kinoko Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kinoko-nigiri-2-pcs",
+   "name": "Kinoko Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hiramasa-nigiri-1-pc",
+   "name": "Hiramasa Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 62
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hiramasa-nigiri-2-pcs",
+   "name": "Hiramasa Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nasu-aburi-nigiri-1-pc",
+   "name": "Nasu Aburi Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nasu-aburi-nigiri-2-pcs",
+   "name": "Nasu Aburi Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aka-piman-nigiri-1-pc",
+   "name": "Aka Piman Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aka-piman-nigiri-2-pcs",
+   "name": "Aka Piman Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hiramasa-yaki-nigiri-1-pc",
+   "name": "Hiramasa Yaki Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hiramasa-yaki-nigiri-2-pcs",
+   "name": "Hiramasa Yaki Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-new-york-nigiri-1-pc",
+   "name": "Shake New York Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-new-york-nigiri-2-pcs",
+   "name": "Shake New York Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "inari-nigiri-1-pc",
+   "name": "Inari Nigiri (1 pc)",
+   "category": "Nigiri",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "inari-nigiri-2-pcs",
+   "name": "Inari Nigiri (2 pcs)",
+   "category": "Nigiri",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tokyo-non-stop",
+   "name": "Tokyo Non-Stop",
+   "category": "Nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 286
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wagyu-house-roll",
+   "name": "Wagyu House Roll",
+   "category": "House rolls",
+   "serving": "4 pcs",
+   "nutrients": {
+    "calories": 243
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aka-ebi-house-roll",
+   "name": "Aka Ebi House Roll",
+   "category": "House rolls",
+   "serving": "4 pcs",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-cod-house-roll",
+   "name": "Black Cod House Roll",
+   "category": "House rolls",
+   "serving": "4 pcs",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "redngreen-house-roll",
+   "name": "Red’n’Green House Roll",
+   "category": "House rolls",
+   "serving": "4 pcs",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-shell-house-roll",
+   "name": "Soft Shell House Roll",
+   "category": "House rolls",
+   "serving": "4 pcs",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lobster-abokado-house-roll",
+   "name": "Lobster Abokado House Roll",
+   "category": "House rolls",
+   "serving": "4 pcs",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "full-house",
+   "name": "Full House",
+   "category": "House rolls",
+   "serving": "All 6 House Rolls (4 pcs of each roll)",
+   "nutrients": {
+    "calories": 1296
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nanban",
+   "name": "Nanban",
+   "category": "Uramaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 506
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-ebi",
+   "name": "Crispy Ebi",
+   "category": "Uramaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california",
+   "name": "California",
+   "category": "Uramaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 314
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mamma-mia",
+   "name": "Mamma Mia",
+   "category": "Uramaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pink-alaska",
+   "name": "Pink Alaska",
+   "category": "Uramaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-tuna",
+   "name": "Spicy Tuna",
+   "category": "Uramaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "new-york-subway",
+   "name": "New York Subway",
+   "category": "Kaburimaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 466
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ebi-panko",
+   "name": "Ebi Panko",
+   "category": "Kaburimaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hells-kitchen",
+   "name": "Hell’s Kitchen",
+   "category": "Kaburimaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 503
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-aioli",
+   "name": "Shake Aïoli",
+   "category": "Kaburimaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ceviche",
+   "name": "Ceviche",
+   "category": "Kaburimaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chirashi-maki",
+   "name": "Chirashi Maki",
+   "category": "Kaburimaki",
+   "serving": "8 pcs",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-maki-maki",
+   "name": "Mini Maki Maki",
+   "category": "Kaburimaki",
+   "serving": "4 pcs of each roll",
+   "nutrients": {
+    "calories": 792
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "imo-yaki-1-pc",
+   "name": "Imo Yaki (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "imo-yaki-2-pcs",
+   "name": "Imo Yaki (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shishito-yaki-1-pc",
+   "name": "Shishito Yaki (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shishito-yaki-2-pcs",
+   "name": "Shishito Yaki (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wagyu-yaki-1-pc",
+   "name": "Wagyu Yaki (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 159
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wagyu-yaki-2-pcs",
+   "name": "Wagyu Yaki (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-teriyaki-1-pc",
+   "name": "Shake Teriyaki (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shake-teriyaki-2-pcs",
+   "name": "Shake Teriyaki (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 156
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gindara-no-miso-1-pc",
+   "name": "Gindara No Miso (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gindara-no-miso-2-pcs",
+   "name": "Gindara No Miso (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aka-ebi-1-pc",
+   "name": "Aka Ebi (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aka-ebi-2-pcs",
+   "name": "Aka Ebi (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hotate-bacon-1-pc",
+   "name": "Hotate Bacon (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hotate-bacon-2-pcs",
+   "name": "Hotate Bacon (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yaki-yagi-1-pc",
+   "name": "Yaki Yagi (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yaki-yagi-2-pcs",
+   "name": "Yaki Yagi (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chiizu-maki-1-pc",
+   "name": "Chiizu Maki (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 188
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chiizu-maki-2-pcs",
+   "name": "Chiizu Maki (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 376
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buta-yaki-1-pc",
+   "name": "Buta Yaki (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buta-yaki-2-pcs",
+   "name": "Buta Yaki (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 286
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iberico-secreto-1-pc",
+   "name": "Iberico Secreto (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iberico-secreto-2-pcs",
+   "name": "Iberico Secreto (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gyu-habu-1-pc",
+   "name": "Gyu Habu (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gyu-habu-2-pcs",
+   "name": "Gyu Habu (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 192
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eringi-yaki-1-pc",
+   "name": "Eringi Yaki (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eringi-yaki-2-pcs",
+   "name": "Eringi Yaki (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "momo-nanban-1-pc",
+   "name": "Momo Nanban (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "momo-nanban-2-pcs",
+   "name": "Momo Nanban (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 292
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shoyu-tebasaki-1-pc",
+   "name": "Shōyu Tebasaki (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shoyu-tebasaki-2-pcs",
+   "name": "Shōyu Tebasaki (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsukune-1-pc",
+   "name": "Tsukune (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsukune-2-pcs",
+   "name": "Tsukune (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 278
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsukune-chili-1-pc",
+   "name": "Tsukune Chili (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tsukune-chili-2-pcs",
+   "name": "Tsukune Chili (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ramu-niku-1-pc",
+   "name": "Ramu Niku (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ramu-niku-2-pcs",
+   "name": "Ramu Niku (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 326
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aigamo-tsukune-1-pc",
+   "name": "Aigamo Tsukune (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aigamo-tsukune-2-pcs",
+   "name": "Aigamo Tsukune (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 247
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gyu-katzu-1-pc",
+   "name": "Gyu Katzu (1 pc)",
+   "category": "Sticks",
+   "serving": "1 pc",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gyu-katzu-2-pcs",
+   "name": "Gyu Katzu (2 pcs)",
+   "category": "Sticks",
+   "serving": "2 pcs",
+   "nutrients": {
+    "calories": 326
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice",
+   "name": "Rice",
+   "category": "Sticks",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-with-crunchy-chilli",
+   "name": "Rice with crunchy chilli",
+   "category": "Sticks",
+   "serving": "",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-with-teriyaki",
+   "name": "Rice with teriyaki",
+   "category": "Sticks",
+   "serving": "",
+   "nutrients": {
+    "calories": 221
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-with-chilli-dip",
+   "name": "Rice with chilli dip",
+   "category": "Sticks",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "as-good-as-it-gets",
+   "name": "As Good As It Gets",
+   "category": "Set menus",
+   "serving": "per person",
+   "nutrients": {
+    "calories": 1878
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "set-for-success",
+   "name": "Set For Success",
+   "category": "Set menus",
+   "serving": "per person",
+   "nutrients": {
+    "calories": 1476
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "perfect-day",
+   "name": "Perfect Day",
+   "category": "Set menus",
+   "serving": "per person",
+   "nutrients": {
+    "calories": 1194
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

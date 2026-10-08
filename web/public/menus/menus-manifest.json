@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261007125107,
- "generatedAt": "2026-10-07T12:51:07Z",
+ "dataVersion": 20261008092628,
+ "generatedAt": "2026-10-08T09:26:28Z",
  "chains": [
   {
    "id": "abokado",
@@ -70,6 +70,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "barburrito",
+   "name": "BarBurrito",
+   "cuisine": "Mexican",
+   "file": "chain-barburrito.json",
+   "sha256": "c0a942581d21f54d17b92cda628d1b57230a735e3ab2cc86f20d779d6c85a6ff",
+   "contentHash": "cfa2653a9039587306be8c3c1224cdbce5bf597ea3024af6bf19f2c79f9e2e8f",
+   "sample": false,
+   "itemCount": 171,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "baskin-robbins",
    "name": "Baskin-Robbins",
    "cuisine": "Ice cream",
@@ -79,6 +91,17 @@
    "sample": false,
    "itemCount": 23,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "baynes",
+   "name": "Baynes",
+   "cuisine": "Bakery",
+   "file": "chain-baynes.json",
+   "sha256": "e6fa5f2af3fd8974385affcbefd4c0b29d4e125a6d6f568a1c8731cbd2b1e258",
+   "contentHash": "3bfd5cedaba91d1848ce864d7379849bbf6db5579727a49bc3242e95e493c734",
+   "sample": false,
+   "itemCount": 175,
+   "checkedOn": "2026-10-08"
   },
   {
    "id": "be-at-one",
@@ -103,6 +126,30 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "benugo",
+   "name": "Benugo",
+   "cuisine": "Sandwiches",
+   "file": "chain-benugo.json",
+   "sha256": "4e43d97056242c8336da5fb07b566c1f3e793df370e8c182bc03acb0d3caa2d6",
+   "contentHash": "6bbef82da6c65311e9a47a3499a642035d23043b434b8d6ff30172d3de094b3b",
+   "sample": false,
+   "itemCount": 79,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "bills",
+   "name": "Bill's",
+   "cuisine": "British",
+   "file": "chain-bills.json",
+   "sha256": "9ac6ec87176450d3351ac34d5cee98621cb4a668d41cc295258f27bf91f8bcb2",
+   "contentHash": "99f7374ba1f2c56657b0c49836b881426fecc4b93f85eb70e21e8970befe3d53",
+   "sample": false,
+   "itemCount": 366,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "birds-bakery",
    "name": "Birds Bakery",
    "cuisine": "Bakery",
@@ -112,6 +159,42 @@
    "sample": false,
    "itemCount": 80,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "bistrot-pierre",
+   "name": "Bistrot Pierre",
+   "cuisine": "French",
+   "file": "chain-bistrot-pierre.json",
+   "sha256": "833ca15461ac3e37c211f73088c364a5a9b0b91be8970ca7a7cfbd75b4d4b249",
+   "contentHash": "aedb43887e7144b0fac9e3c936d3922c62a8c0726210ac32040f0666de4afaf1",
+   "sample": false,
+   "itemCount": 114,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "blank-street-coffee",
+   "name": "Blank Street",
+   "cuisine": "Coffee",
+   "file": "chain-blank-street-coffee.json",
+   "sha256": "33e2542119ade7c73603421581043980948a257accfd0cf2461bf4a427f2c5f8",
+   "contentHash": "aff8cc872a8281499933e2f7a50ae17c755a886aa93e4d140039f0255c18344b",
+   "sample": false,
+   "itemCount": 178,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "boston-tea-party",
+   "name": "Boston Tea Party",
+   "cuisine": "Cafe",
+   "file": "chain-boston-tea-party.json",
+   "sha256": "2f07f08ed2d5b4e07344d6058116387ffc3e81f5c6f5ba3f22009f48862e2411",
+   "contentHash": "a3a06270c2bf743a78ea4d870a6c5f3a2bf5fd9eb512f08d2d370a0f2f937fec",
+   "sample": false,
+   "itemCount": 147,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "browns",
@@ -125,6 +208,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "burger-and-lobster",
+   "name": "Burger & Lobster",
+   "cuisine": "Burgers & lobster",
+   "file": "chain-burger-and-lobster.json",
+   "sha256": "16477538fae1a2409c8bd06dcdc602841fd9bce27c8acb4c33c7ee9dcf140fbb",
+   "contentHash": "57283f57a02b3bdb497b89e9c9bc0051ea9e68bcdfa11fd7f5be6914ee7db3cf",
+   "sample": false,
+   "itemCount": 52,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "burger-king",
    "name": "Burger King",
    "cuisine": "Burgers",
@@ -134,6 +229,18 @@
    "sample": false,
    "itemCount": 193,
    "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "burger-shack",
+   "name": "Burger Shack",
+   "cuisine": "Burgers",
+   "file": "chain-burger-shack.json",
+   "sha256": "61a957bb87aee71fedffbd3049e96148b628925ba891e186b938daf80ccbdaa8",
+   "contentHash": "4454b698fcbe221c81acbdcacb564947526e8e0e7899ad5b9288fb129b7b6d7e",
+   "sample": false,
+   "itemCount": 6,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
   },
   {
    "id": "cafe-rouge",
@@ -167,6 +274,18 @@
    "sample": false,
    "itemCount": 45,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "chaiiwala",
+   "name": "Chaiiwala",
+   "cuisine": "Indian",
+   "file": "chain-chaiiwala.json",
+   "sha256": "13792c4f5b9a9b4e62566b4fa5db0ef9306bfb22cbd175c1ed5594ae8e927ce8",
+   "contentHash": "5e57814a711e0fcf6a5aa917706c61aa789f026114eb9fff79f86edca44d3201",
+   "sample": false,
+   "itemCount": 132,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "chilango",
@@ -235,6 +354,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "comptoir-libanais",
+   "name": "Comptoir Libanais",
+   "cuisine": "Lebanese",
+   "file": "chain-comptoir-libanais.json",
+   "sha256": "ccb66946b44a2547c53863c4ac57f67aaca406d04c2f4974e2f68ed404ecb141",
+   "contentHash": "83764c47aefa5a3ddacaccc980b2c66e18d76f110bb7936f97ec9ce6a5cfdbf6",
+   "sample": false,
+   "itemCount": 101,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "cooplands",
    "name": "Cooplands",
    "cuisine": "Bakery",
@@ -244,6 +375,18 @@
    "sample": false,
    "itemCount": 107,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "cornish-bakery",
+   "name": "The Cornish Bakery",
+   "cuisine": "Bakery",
+   "file": "chain-cornish-bakery.json",
+   "sha256": "4fc09e80d0c178129822988e9b4fd4d244b88765f4b26ec55811ce5b249ee7ed",
+   "contentHash": "0923d8cd774e4984729236dd8af14e12bea2e1a7e2add74a3c4e41ba3094ab3a",
+   "sample": false,
+   "itemCount": 75,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "cote-brasserie",
@@ -257,6 +400,65 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "creams-cafe",
+   "name": "Creams Cafe",
+   "cuisine": "Desserts",
+   "file": "chain-creams-cafe.json",
+   "sha256": "4aa31bed7b15dc24428e6bf42f526581db3590827becc64118cb777b26322a93",
+   "contentHash": "6c8c7ca3e8fee3b3bf4111e45f14d5edc54e3edfeb4c7a412f1e0a93cecec194",
+   "sample": false,
+   "itemCount": 300,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "daves-hot-chicken",
+   "name": "Dave's Hot Chicken",
+   "cuisine": "Chicken",
+   "file": "chain-daves-hot-chicken.json",
+   "sha256": "31810764ffc01fdd4a3704c1e6d001803f520f5798235db40ff616073da4eb89",
+   "contentHash": "373d6025908f04e6d786d48296f61ae7612169478465b1a7697c88590761dda1",
+   "sample": false,
+   "itemCount": 51,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "dim-t",
+   "name": "Dim T",
+   "cuisine": "Asian",
+   "file": "chain-dim-t.json",
+   "sha256": "0a3846b24e89c1758532793ad5b36cf3919e969e0c4591d29f16558d59f873bd",
+   "contentHash": "7e988fd34a67db8c9e6aadbe7a28c47d5a97ee527b3940afe11e58f00b685b0f",
+   "sample": false,
+   "itemCount": 92,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "dunkin",
+   "name": "Dunkin'",
+   "cuisine": "Bakery",
+   "file": "chain-dunkin.json",
+   "sha256": "df580b712937704dafa3c87406b2a46edfcac0557b11866611f1feedfdb2c084",
+   "contentHash": "59683d150b1d12d83aa67eb9e658b27db26aa3359ac57f8441c6881c55cf5893",
+   "sample": false,
+   "itemCount": 132,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "eds-easy-diner",
+   "name": "Ed's Easy Diner",
+   "cuisine": "Burgers",
+   "file": "chain-eds-easy-diner.json",
+   "sha256": "1962bfc691e80c1ada35730b9ec6f0c7d5d7dba31d7cd454d169caea4e54be53",
+   "contentHash": "58efdbf51723609fc8668f2f7b25a23f53981973858caf8cd8475afd29c7c3cd",
+   "sample": false,
+   "itemCount": 168,
+   "checkedOn": "2026-10-07"
+  },
+  {
    "id": "ember-inns",
    "name": "Ember Inns",
    "cuisine": "Pub",
@@ -266,6 +468,18 @@
    "sample": false,
    "itemCount": 255,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "esquires",
+   "name": "Esquires Coffee",
+   "cuisine": "Coffee",
+   "file": "chain-esquires.json",
+   "sha256": "837dea52ed92abc98d4e5e29196022516b3dfb8aa81347fb63b61ea1a926c3b2",
+   "contentHash": "7a294073dd108526d3053357b538e7cfbd567cac15847dd8b261216282ef59ea",
+   "sample": false,
+   "itemCount": 54,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
   },
   {
    "id": "farmer-j",
@@ -301,6 +515,29 @@
    "checkedOn": "2026-10-05"
   },
   {
+   "id": "flight-club",
+   "name": "Flight Club",
+   "cuisine": "Social darts bar",
+   "file": "chain-flight-club.json",
+   "sha256": "090ec1315948a636c656933d70a23861e4941a1298e00ba857a7dd6a730473b2",
+   "contentHash": "c49776cb4f843e2206d4695f6980035449d6c93f4926cd1ad0662dfa6e069fd6",
+   "sample": false,
+   "itemCount": 77,
+   "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "franco-manca",
+   "name": "Franco Manca",
+   "cuisine": "Pizza",
+   "file": "chain-franco-manca.json",
+   "sha256": "3d5eb95e0745a38be21542e0ce15f290222128c702bd066c6e237a4f08e2f52d",
+   "contentHash": "dfe7781b95a6c295ff2575f208acc99e760a739d97231e9c7c19d712d68e914c",
+   "sample": false,
+   "itemCount": 76,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "frankie-and-bennys",
    "name": "Frankie & Benny's",
    "cuisine": "Italian American",
@@ -312,6 +549,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "gails",
+   "name": "GAIL's Bakery",
+   "cuisine": "Bakery",
+   "file": "chain-gails.json",
+   "sha256": "d6eb8cb79ee611933cb1bd4772763a0c2d0e2e9313efca261699f75233707846",
+   "contentHash": "365822545a0115195fe8409347e24aa84665d341cd8221ba1fce0f7e11d85d1a",
+   "sample": false,
+   "itemCount": 267,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "giggling-squid",
    "name": "Giggling Squid",
    "cuisine": "Thai",
@@ -321,6 +570,18 @@
    "sample": false,
    "itemCount": 205,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "giraffe",
+   "name": "Giraffe",
+   "cuisine": "World food",
+   "file": "chain-giraffe.json",
+   "sha256": "4d6b7ee4f05a849e2906ce5480aa5d7200b6f075f53a3f3205fccf5252c4b983",
+   "contentHash": "3d6256730ea69acf557acaf87ff503c08069a51310e0d63db3c274b67bae5f71",
+   "sample": false,
+   "itemCount": 239,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
   },
   {
    "id": "gourmet-burger-kitchen",
@@ -356,6 +617,30 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "gusto",
+   "name": "Gusto Italian",
+   "cuisine": "Italian",
+   "file": "chain-gusto.json",
+   "sha256": "4d51319aa7c83e531e05eaf0f915d4059853274074ad3d1492c2835688c3de7a",
+   "contentHash": "81db35305d6e87734d369b4a8fe8abe302b366527e95006e5dd9b5be0bd71369",
+   "sample": false,
+   "itemCount": 172,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "hard-rock-cafe",
+   "name": "Hard Rock Cafe",
+   "cuisine": "Burgers",
+   "file": "chain-hard-rock-cafe.json",
+   "sha256": "24c877a33a35a45cfebec965b5c511690f89ea25564711ada4fac7f383d62daa",
+   "contentHash": "a2f4e27e2ff2eefd1559d7f202a6a85d28f67013469ad267d56315f6a7be62c5",
+   "sample": false,
+   "itemCount": 113,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "harvester",
    "name": "Harvester",
    "cuisine": "Grill",
@@ -367,6 +652,29 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "haven",
+   "name": "Haven",
+   "cuisine": "Holiday park restaurant",
+   "file": "chain-haven.json",
+   "sha256": "1747d4ccca1140afd3f5f3788c20623739f7d952c56e12c36d7f03fbeec6ebf0",
+   "contentHash": "a01a4ce0ed429a4e6b0ba4244e8d0531457566093aff730e19fa81cd7c78f13c",
+   "sample": false,
+   "itemCount": 575,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "heartwood-inns",
+   "name": "Heartwood Inns",
+   "cuisine": "Pub",
+   "file": "chain-heartwood-inns.json",
+   "sha256": "242c5a1a61f1ce09521b300c72be5a5431fdce5351c2c9fb9bf2f9cc2281871e",
+   "contentHash": "04b4ab519a7ff104ff485c44cfbb464d0c5b9785a2bd0d6796b974188d5af75e",
+   "sample": false,
+   "itemCount": 220,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "hickorys",
    "name": "Hickory's Smokehouse",
    "cuisine": "Barbecue",
@@ -376,6 +684,30 @@
    "sample": false,
    "itemCount": 188,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "hotel-du-vin",
+   "name": "Hotel du Vin",
+   "cuisine": "French bistro",
+   "file": "chain-hotel-du-vin.json",
+   "sha256": "f81f9e1d026bd0c1db53309818971e15f05f2e749ae2413bd07d9efaeb4ee56f",
+   "contentHash": "2a9986d1cd499e8b87163ba20bc7520fc3dadfbae731b86df7732f75d42fc3df",
+   "sample": false,
+   "itemCount": 67,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "hungry-horse",
+   "name": "Hungry Horse",
+   "cuisine": "Pub",
+   "file": "chain-hungry-horse.json",
+   "sha256": "2034807ccc6755a7161ebd1a184c98118ec8b2507df817dc8a6694638e5825d6",
+   "contentHash": "7f8cc0d61647a32be4507b4da4edeb5d03704647b92a3f957006cdd1e9a33627",
+   "sample": false,
+   "itemCount": 220,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
   },
   {
    "id": "ikea",
@@ -411,6 +743,30 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "joseph-holt",
+   "name": "Joseph Holt",
+   "cuisine": "Pub",
+   "file": "chain-joseph-holt.json",
+   "sha256": "190760dc16739c21bfe795023e6fec53d81a506a7c1025bae9416f2123c4c3d7",
+   "contentHash": "3c1f3bee7ce5cce4418ca7514553d8a99240e462e41baf849bb4d97790208662",
+   "sample": false,
+   "itemCount": 121,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "jw-lees",
+   "name": "JW Lees",
+   "cuisine": "Pub",
+   "file": "chain-jw-lees.json",
+   "sha256": "be79e8456133bbf1b2a2e8092a35e6ea5d39ab1d039b8770c7374eeff0af011d",
+   "contentHash": "595a93dd4a43524198bfa68418e9d793615f764bc959f6a9e148218d7cd42e4b",
+   "sample": false,
+   "itemCount": 111,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "kfc",
    "name": "KFC",
    "cuisine": "Chicken",
@@ -420,6 +776,18 @@
    "sample": false,
    "itemCount": 108,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "kokoro",
+   "name": "Kokoro",
+   "cuisine": "Japanese",
+   "file": "chain-kokoro.json",
+   "sha256": "6de1926e0c232cdb11396ee1cd42513c9dff25918935af1b2225d00b73a9bfa5",
+   "contentHash": "bae792edce76e1c9e29f1298556d6d932f957eb7975ee84ed7416eeaa09d96fc",
+   "sample": false,
+   "itemCount": 69,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
   },
   {
    "id": "las-iguanas",
@@ -444,6 +812,53 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "little-dessert-shop",
+   "name": "Little Dessert Shop",
+   "cuisine": "Desserts",
+   "file": "chain-little-dessert-shop.json",
+   "sha256": "097eab8478e9a8b19128265915f4826ecc7db08d8d12082587557ba176425001",
+   "contentHash": "e6707814ae107821bc9e28b3acbd33438d10dffc1aa91a86956dd946deb2537e",
+   "sample": false,
+   "itemCount": 104,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "loungers",
+   "name": "Loungers",
+   "cuisine": "Cafe",
+   "file": "chain-loungers.json",
+   "sha256": "7da4a752a4ae8d3d81d76280aa198c845f11e574d1b6fd0777dcfdb7f94444b2",
+   "contentHash": "92843f247cc98af7b1a5bc4941179dc3649916396efd60714c9fdbb0e5ff71a6",
+   "sample": false,
+   "itemCount": 397,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "malmaison",
+   "name": "Malmaison",
+   "cuisine": "Brasserie",
+   "file": "chain-malmaison.json",
+   "sha256": "4e3ca814959d0f71d1a7235b6b915493fd9ec7a816f325209dadca3dfb945a39",
+   "contentHash": "dd138964a442af0de9dce44898c195128a36ee9848b72695b4234c72c1611914",
+   "sample": false,
+   "itemCount": 74,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "mcmullens",
+   "name": "McMullen & Sons",
+   "cuisine": "Pub",
+   "file": "chain-mcmullens.json",
+   "sha256": "a0bc05b094d6069b93d3e6ba1a74354ee48a536341d7270e5d779429c05adae9",
+   "contentHash": "101093303b7a32bc7267416dea5698263ae475a861fb81ad6ee569108cc0d5db",
+   "sample": false,
+   "itemCount": 190,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "miller-and-carter",
    "name": "Miller & Carter",
    "cuisine": "Steakhouse",
@@ -453,6 +868,18 @@
    "sample": false,
    "itemCount": 103,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "mowgli",
+   "name": "Mowgli Street Food",
+   "cuisine": "Indian",
+   "file": "chain-mowgli.json",
+   "sha256": "45c6f67da632d3ef5a989fcaa2b272e2f44f70b9369569e6b9d8180d2c2b0095",
+   "contentHash": "aebdd6a6426266c7c3503942e5b187fbb136c0933e828262577d57e17a0c4018",
+   "sample": false,
+   "itemCount": 46,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
   },
   {
    "id": "nandos",
@@ -477,6 +904,30 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "notcutts",
+   "name": "Notcutts",
+   "cuisine": "Cafe",
+   "file": "chain-notcutts.json",
+   "sha256": "471284b9e70f6371aac6d1f7d8e05d3228cd5b871c8be327d89e76d31533ac16",
+   "contentHash": "a76d1b93cd17adf5c13a9e2f75651d53f2effe6998311fa564fe10bf94d5c5e2",
+   "sample": false,
+   "itemCount": 122,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "ole-and-steen",
+   "name": "Ole & Steen",
+   "cuisine": "Bakery",
+   "file": "chain-ole-and-steen.json",
+   "sha256": "e49c6fb11637760bd7b7c9c3d07cbac57206d1037fdbf429fb3ebabd4b1562a9",
+   "contentHash": "3037cb5d95b2105a115c2d5fa10fcc61b7d0d511a83887386bd37309066338ff",
+   "sample": false,
+   "itemCount": 225,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "oneills",
    "name": "O'Neill's",
    "cuisine": "Pub",
@@ -486,6 +937,18 @@
    "sample": false,
    "itemCount": 62,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "patisserie-valerie",
+   "name": "Patisserie Valerie",
+   "cuisine": "Bakery",
+   "file": "chain-patisserie-valerie.json",
+   "sha256": "708a3c5f034f9e0f2ebc2fe9b4a07d74c3093f098c10afb00cafeadf2ca9cd1f",
+   "contentHash": "965834e305e1a73bf56377eee5e3403ab33a8625523c4c016255ab84e25d5179",
+   "sample": false,
+   "itemCount": 287,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
   },
   {
    "id": "pepes-piri-piri",
@@ -620,6 +1083,52 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "rick-steins",
+   "name": "Rick Stein",
+   "cuisine": "Seafood",
+   "file": "chain-rick-steins.json",
+   "sha256": "d2d6e52ad202a90aa02524307f31375c7b006a6f4b0b86968b6ae5624622d4b9",
+   "contentHash": "200f238da4f36329c5a376d42c5cb74c193a1c7c4fa08ae1aefd9aa45e7013ff",
+   "sample": false,
+   "itemCount": 196,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "rosas-thai",
+   "name": "Rosa's Thai",
+   "cuisine": "Thai",
+   "file": "chain-rosas-thai.json",
+   "sha256": "832a8912a33f96d6baaad52619207a8912d416941034fdf97367481c1defd0e9",
+   "contentHash": "9783e1b2ae3c894d4813743246b4de4872fa3486b20ac72e1bff48ffe32705d7",
+   "sample": false,
+   "itemCount": 152,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "rudys-pizza-napoletana",
+   "name": "Rudy's Pizza Napoletana",
+   "cuisine": "Pizza",
+   "file": "chain-rudys-pizza-napoletana.json",
+   "sha256": "cdfac1960a30248727c4f03a73439293b2b789ec76214993f15b3fcdb6b9a2b8",
+   "contentHash": "75ad1cff45ab26c55f76da7d0ecb7e58f6416ae9846a4800e5a21c8366a4b5f2",
+   "sample": false,
+   "itemCount": 61,
+   "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "san-carlo",
+   "name": "San Carlo",
+   "cuisine": "Italian",
+   "file": "chain-san-carlo.json",
+   "sha256": "968f6359ff8f9f12d05ef2835e2cf1f49008f62d184a84bbdeeb63aaf355a987",
+   "contentHash": "db6faff1f99ad976339e6e40d1f9bc8de2871d119b95de5314b786a17fdb5ea8",
+   "sample": false,
+   "itemCount": 322,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "sbarro",
    "name": "Sbarro",
    "cuisine": "Pizza",
@@ -653,6 +1162,17 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "soho-coffee-co",
+   "name": "SOHO Coffee",
+   "cuisine": "Coffee",
+   "file": "chain-soho-coffee-co.json",
+   "sha256": "c3d137a8bdff40d7484a3d50b69fdfd74b836859634596910c57a27aa72c064f",
+   "contentHash": "b0781e3a25cc785f005bd65f16e80d0f06a8004f35bc6ef79582f9a1cd26a761",
+   "sample": false,
+   "itemCount": 198,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "starbucks",
    "name": "Starbucks",
    "cuisine": "Coffee",
@@ -664,6 +1184,18 @@
    "checkedOn": "2026-10-05"
   },
   {
+   "id": "sticks-n-sushi",
+   "name": "Sticks'n'Sushi",
+   "cuisine": "Japanese",
+   "file": "chain-sticks-n-sushi.json",
+   "sha256": "b97c0316e46d405e4517cf0764274a9271360626a5bf09b667ee32b43580ec37",
+   "contentHash": "ea65ede6cd0d38f50ac779d2d45a7dae8a0fbd6d64970a4ffe751b37de85c677",
+   "sample": false,
+   "itemCount": 125,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "stonehouse",
    "name": "Stonehouse",
    "cuisine": "Pub",
@@ -673,6 +1205,18 @@
    "sample": false,
    "itemCount": 84,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "strada",
+   "name": "Strada",
+   "cuisine": "Italian",
+   "file": "chain-strada.json",
+   "sha256": "32a23d38adcccc1cecbe925126819658f72d5b8475776a4fb017c266198e6d7f",
+   "contentHash": "f1e810fbb5e267eb6c2de77f86c0384c5236faa4a6c9b730be060c138fb046ed",
+   "sample": false,
+   "itemCount": 62,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
   },
   {
    "id": "subway",
@@ -695,6 +1239,54 @@
    "sample": false,
    "itemCount": 102,
    "checkedOn": "2026-10-05"
+  },
+  {
+   "id": "tesco-cafe",
+   "name": "Tesco Cafe",
+   "cuisine": "Cafe",
+   "file": "chain-tesco-cafe.json",
+   "sha256": "00513cc0f3a8a3f3fd2fe372aaa2eca14ffd22462a626b2870df532add3fc570",
+   "contentHash": "21fe5f31d377fc2be7df15280b0e725d3b98102c965265d5de781e9ef0693edb",
+   "sample": false,
+   "itemCount": 378,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "tgi-fridays",
+   "name": "TGI Fridays",
+   "cuisine": "American",
+   "file": "chain-tgi-fridays.json",
+   "sha256": "cc1d92f092fd37781ada449090c8d97fd51a9a89ecf3964432acbe536df9f81f",
+   "contentHash": "61d3330f097329d374326750d23ff79eb812f4e134c987ae67d2dfc8486e3797",
+   "sample": false,
+   "itemCount": 123,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "the-botanist",
+   "name": "The Botanist",
+   "cuisine": "Bar",
+   "file": "chain-the-botanist.json",
+   "sha256": "d607475a3fd50d482dcf3158aa47f6477c8444db9b1f23fd4cae23079535288a",
+   "contentHash": "ab472c7168dc8d3658484353820d78508f5e2c2fc3bd847b22874c1bf2169963",
+   "sample": false,
+   "itemCount": 159,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "the-breakfast-club",
+   "name": "The Breakfast Club",
+   "cuisine": "Cafe",
+   "file": "chain-the-breakfast-club.json",
+   "sha256": "96c2bf048772b99f799744665071fc537d2b248d13ff6743f466a7df5a675de9",
+   "contentHash": "9f9b0fc90826dc21438a8cae9f1e39dede7092a9ad558dd9ae405ceace07f650",
+   "sample": false,
+   "itemCount": 51,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "tim-hortons",
@@ -741,6 +1333,17 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "vue",
+   "name": "Vue",
+   "cuisine": "Cinema snacks",
+   "file": "chain-vue.json",
+   "sha256": "ce7af3245786acfb7b06672c859846117a6fcd6ac0b4e2c181c4961d362cef48",
+   "contentHash": "c528690292ab7ef12b79ec62fc1430a2cd131c1cc026beeca7e137d4fe7a1317",
+   "sample": false,
+   "itemCount": 58,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "wagamama",
    "name": "Wagamama",
    "cuisine": "Japanese",
@@ -764,6 +1367,42 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "warner-hotels",
+   "name": "Warner Hotels",
+   "cuisine": "Hotel restaurant",
+   "file": "chain-warner-hotels.json",
+   "sha256": "e4b8899ba426cc24efbb67f7fd773724b05a33731556d23d999076b6b5be1d69",
+   "contentHash": "3ca047eb94210e9783ceb93f991e8edfeef3f06019ec77f254c23ca50aca6184",
+   "sample": false,
+   "itemCount": 158,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "warrens-bakery",
+   "name": "Warrens Bakery",
+   "cuisine": "Bakery",
+   "file": "chain-warrens-bakery.json",
+   "sha256": "d0e059125e352cdf805437d6d3b0544fb9e537232f826760e32b654be329de3c",
+   "contentHash": "904585ba3f22444051df7ddf935334088fbb53b63b1065dd5248bd8991a27747",
+   "sample": false,
+   "itemCount": 146,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "wasabi",
+   "name": "Wasabi",
+   "cuisine": "Japanese",
+   "file": "chain-wasabi.json",
+   "sha256": "7dc6bbca73c4e89edcf69b67ef287b65226c95e4b47a869b249e87d9519d05cb",
+   "contentHash": "7e0c35423d96766ddd606e8cd3ac18804c9b0b00fd0bcce7843e43714d99b0bb",
+   "sample": false,
+   "itemCount": 207,
+   "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "wendys",
    "name": "Wendy's",
    "cuisine": "Burgers",
@@ -773,6 +1412,17 @@
    "sample": false,
    "itemCount": 137,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "wild-bean-cafe",
+   "name": "Wild Bean Cafe",
+   "cuisine": "Cafe",
+   "file": "chain-wild-bean-cafe.json",
+   "sha256": "51e4d430144e5d348473bbfc7a6bf42f3520b0a517dcb28da02bc0a6e252a656",
+   "contentHash": "c1ec1a9b619256bc488eb4498a693d988abcad7eb6c2fd7ee70dd226872d0108",
+   "sample": false,
+   "itemCount": 59,
+   "checkedOn": "2026-10-08"
   },
   {
    "id": "wimpy",
@@ -810,6 +1460,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "fbcd86dabd7f8f0fe5aa118fb5f92c416c7846080bccc42c20cbf4310c3ee5ed"
+  "sha256": "520d6bbf39d6e4d05c26dcde305e7229e8530de1e2df383b238c174796e4da77"
  }
 }

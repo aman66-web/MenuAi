@@ -1,0 +1,1946 @@
+{
+ "schemaVersion": 1,
+ "id": "malmaison",
+ "name": "Malmaison",
+ "cuisine": "Brasserie",
+ "builderType": "standard",
+ "aliases": [
+  "malmaison",
+  "malmaison hotel",
+  "chez mal",
+  "chez mal brasserie",
+  "chez mal brasserie & bar",
+  "mal brasserie"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Malmaison allergen and calorie pages on Ten Kites: Chez Mal Autumn/Winter 2026, Bar, Sunday Roast and Beverage menus (accessed 2026-10-08, no date shown)",
+  "url": "https://menus.tenkites.com/mhdv/malmaison",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as served, from Malmaison's allergen page; protein, carbs and fat are not published. A dish is left out where the page and Malmaison's printed menu give different calories. Breakfast, kids, afternoon tea and cocktails are not listed.",
+ "allergenGuide": {
+  "title": "Malmaison allergen matrix on Ten Kites (Contains / May contain, Chez Mal Autumn/Winter 2026 and related menus)",
+  "url": "https://menus.tenkites.com/mhdv/malmaison",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Little kick start",
+  "Starters",
+  "Burgers",
+  "Protein salads",
+  "Mains",
+  "Bone-in steak",
+  "More meat",
+  "Josper add-ons",
+  "Sides",
+  "Desserts",
+  "Room service & night bites",
+  "Bar menu",
+  "Sunday roasts",
+  "Hot drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "gordal-olives",
+   "name": "Gordal olives",
+   "category": "Little kick start",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "milk",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "ngci-seared-scallops-cauliflower-puree-pickled-cauliflower",
+   "name": "NGCI Seared scallops, cauliflower puree, pickled cauliflower",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "molluscs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "ngci-cured-salmon-winter-slaw-capers-creme-fraiche",
+   "name": "NGCI cured salmon, winter slaw, capers, creme fraiche",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "ngci-argentinian-konro-roasted-prawns-chilli-and-lime-butter",
+   "name": "NGCI Argentinian Konro roasted prawns, chilli & lime butter",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "winter-panzanella-salad-taleggio-cheese-sourdough-croutons",
+   "name": "Winter panzanella salad, taleggio cheese, sourdough croutons",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ncgi-burger-gruyere-ayrshire-bacon-fries-relish",
+   "name": "NCGI Burger, gruyere, Ayrshire bacon, fries, relish",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1470
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "flat-iron-steak-2-fried-eggs-sliced-avocado-watercress-olive-oil",
+   "name": "Flat iron steak, 2 fried eggs, sliced avocado, watercress, olive oil",
+   "category": "Protein salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 581
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ngci-chicken-breast-masala-pilaf-rice",
+   "name": "NGCI chicken breast masala, pilaf rice",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1048
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "lupin",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "ngci-mixed-mushroom-masala-pilaf-rice",
+   "name": "NGCI mixed mushroom masala, pilaf rice",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 695
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "lupin",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "pork-tomahawk-forestiere-sherry-jus",
+   "name": "Pork tomahawk forestiere, sherry jus",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 772
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "josper-450g-ribeye-steak",
+   "name": "Josper 450g ribeye steak",
+   "category": "Bone-in steak",
+   "serving": "",
+   "nutrients": {
+    "calories": 1193
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "josper-tbone-450g-steak",
+   "name": "Josper Tbone 450g steak",
+   "category": "Bone-in steak",
+   "serving": "",
+   "nutrients": {
+    "calories": 1005
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "josper-1kg-tbone-steak",
+   "name": "Josper 1kg Tbone steak",
+   "category": "More meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 2160
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "josper-900g-ny-strip-steak",
+   "name": "Josper 900g NY strip steak",
+   "category": "More meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 2483
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "argentinian-red-prawn-x-1",
+   "name": "Argentinian red prawn x 1",
+   "category": "Josper add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 37
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-bone-marrow",
+   "name": "Roasted bone marrow",
+   "category": "Josper add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "truffle-mash",
+   "name": "Truffle Mash",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "truffle-and-parmesan-fries",
+   "name": "Truffle & Parmesan Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 626
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ncgi-cheese-plate-westcombe-valencay-blue-murder-quince",
+   "name": "NCGI Cheese plate, westcombe, Valencay, Blue murder quince",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "cheese-plate-westcombe-cheddar-valencay-blue-murder-quince-chutney-crackers",
+   "name": "Cheese plate, westcombe cheddar, valencay, Blue murder quince, chutney, crackers",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 366
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mal-hot-chocolate",
+   "name": "Mal hot chocolate",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 939
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "classic-creme-brulee",
+   "name": "Classic creme brulee",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 759
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pear-and-almond-tart-vanilla-ice-cream",
+   "name": "Pear & almond tart, Vanilla ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 856
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "ice-cream-1-scoop",
+   "name": "Ice Cream 1 scoop",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ice-cream-2-scoop",
+   "name": "Ice Cream 2 Scoop",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ice-cream-3-scoop",
+   "name": "Ice Cream 3 Scoop",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ice-cream-and-sorbet-vegan",
+   "name": "Ice cream and sorbet vegan",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "sticky-toffee-pudding-milk-ice-cream",
+   "name": "Sticky toffee pudding, milk ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 818
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepperoni-pizza",
+   "name": "Pepperoni pizza",
+   "category": "Room service & night bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 780
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chilli-con-carne-garlic-bread",
+   "name": "Chilli con carne, garlic bread",
+   "category": "Room service & night bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mushroom-risotto",
+   "name": "Mushroom risotto",
+   "category": "Room service & night bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chicken-cheddar-and-pesto-toastie",
+   "name": "Chicken, cheddar & pesto toastie",
+   "category": "Room service & night bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "feta-and-provencal-vegetable-toastie",
+   "name": "Feta & provencal vegetable toastie",
+   "category": "Room service & night bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-westcombe-cheese-toastie",
+   "name": "Ham & westcombe cheese toastie",
+   "category": "Room service & night bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chilli-con-carne-basmati-rice-garlic-bread",
+   "name": "Chilli con carne, basmati rice, garlic bread",
+   "category": "Room service & night bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mug-of-soup-curried-parsnip",
+   "name": "Mug of soup Curried Parsnip",
+   "category": "Bar menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "mug-of-soup-carrot",
+   "name": "Mug of soup carrot",
+   "category": "Bar menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "lupin"
+    ]
+   }
+  },
+  {
+   "id": "sunday-roast-beef-thyme-rosemary-yorkie",
+   "name": "Sunday roast beef, thyme rosemary yorkie",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1462
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sunday-roast-pork-tomahawk-thyme-rosemary-yorkie",
+   "name": "Sunday roast pork tomahawk, thyme rosemary yorkie",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1369
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sunday-roast-chicken-breast-hampshire-pork-stuffing-thyme-rosemary-yorkie",
+   "name": "Sunday roast chicken breast, Hampshire pork stuffing, thyme rosemary yorkie",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1690
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salmon-charred-lemon-watercress-salad",
+   "name": "Salmon, charred lemon, watercress salad",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1194
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ngci-sunday-roast-beef",
+   "name": "NGCI Sunday roast beef",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 979
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ngci-sunday-roast-chicken-breast",
+   "name": "NGCI Sunday roast chicken breast",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 988
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-cows-milk",
+   "name": "Cappuccino (Cow's milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 61
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-black",
+   "name": "Americano (Black)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-cows-milk",
+   "name": "Latte (Cow's milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-cows-milk",
+   "name": "Mocha (Cow's milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "macchiato-cows-milk",
+   "name": "Macchiato (Cow's milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-cows-milk",
+   "name": "Hot Chocolate (Cow's milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-cows-milk",
+   "name": "Flat White (Cow's milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-cows-milk",
+   "name": "Breakfast Tea (Cow's milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-soya-milk",
+   "name": "Breakfast Tea (Soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-tea-oats-milk",
+   "name": "Breakfast Tea (Oats milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-tea-almond-milk",
+   "name": "Breakfast Tea (Almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-oats-milk",
+   "name": "Cappuccino (Oats milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-almond-milk",
+   "name": "Cappuccino (Almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-soya-milk",
+   "name": "Cappuccino (Soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-almond-milk",
+   "name": "Flat White (Almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-oats-milk",
+   "name": "Flat White (Oats milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-soya-milk",
+   "name": "Flat White (Soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-almond-milk",
+   "name": "Hot Chocolate (Almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-soya-milk",
+   "name": "Hot Chocolate (Soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-oats-milk",
+   "name": "Hot Chocolate (Oats milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-almond-milk",
+   "name": "Latte (Almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "latte-soya-milk",
+   "name": "Latte (Soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-oats-milk",
+   "name": "Latte (Oats milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "macchiato-almond-milk",
+   "name": "Macchiato (Almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "macchiato-soya-milk",
+   "name": "Macchiato (Soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "macchiato-oats-milk",
+   "name": "Macchiato (Oats milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-almond-milk",
+   "name": "Mocha (Almond milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "mocha-soya-milk",
+   "name": "Mocha (Soya milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mocha-oats-milk",
+   "name": "Mocha (Oats milk)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

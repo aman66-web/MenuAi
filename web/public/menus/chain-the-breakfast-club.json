@@ -1,0 +1,785 @@
+{
+ "schemaVersion": 1,
+ "id": "the-breakfast-club",
+ "name": "The Breakfast Club",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "the breakfast club",
+  "breakfast club",
+  "the breakfast club cafes"
+ ],
+ "sample": false,
+ "source": {
+  "title": "The Breakfast Club menu with calories (PDF 'July 2026 Low Menu', created 19 July 2026, last modified 26 September 2026; no date printed on the page)",
+  "url": "https://www.thebreakfastclubcafes.com/s/Calorie-Menu.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only: The Breakfast Club prints a calorie figure beside each dish and extra; protein, carbs, fat and the rest are not published. Drinks and kids' menus print no calories and are not listed. The PDF does not say whether a dish's figure includes the toppings, sides or dips offered with it. Some branches may use a different menu.",
+ "categories": [
+  "Caf Classics",
+  "Pancake Filled Hope",
+  "Pancakes for the Table",
+  "Diner Plates",
+  "Veggie Plates",
+  "Chicken",
+  "Tacos, Huevos + Burritos",
+  "Sides + Shares",
+  "Add-ons and Toppings"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "the-full-monty",
+   "name": "The Full Monty",
+   "category": "Caf Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1551
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-veggie-monty",
+   "name": "The Veggie Monty",
+   "category": "Caf Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1287
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-full-english",
+   "name": "The Full English",
+   "category": "Caf Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1118
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-eggs-hash-browns",
+   "name": "Bacon, Eggs + Hash Browns",
+   "category": "Caf Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 988
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avo-and-eggs",
+   "name": "Avo & Eggs",
+   "category": "Caf Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 799
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-all-american",
+   "name": "The All American",
+   "category": "Pancake Filled Hope",
+   "serving": "",
+   "nutrients": {
+    "calories": 1598
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "short-stack-pancakes",
+   "name": "Short Stack Pancakes",
+   "category": "Pancake Filled Hope",
+   "serving": "3 pancakes",
+   "nutrients": {
+    "calories": 643
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-marmite-maple-butter",
+   "name": "Pancakes with Marmite Maple Butter",
+   "category": "Pancakes for the Table",
+   "serving": "2 pancakes",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tbc-breakfast-burger",
+   "name": "TBC Breakfast Burger",
+   "category": "Diner Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1003
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-toast-plate",
+   "name": "French Toast Plate",
+   "category": "Diner Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-benedict",
+   "name": "Eggs Benedict",
+   "category": "Diner Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1077
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-salmon-avo-and-eggs",
+   "name": "Smoked Salmon, Avo & Eggs",
+   "category": "Diner Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 697
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "anvars-turkish-eggs",
+   "name": "Anvar’s Turkish Eggs",
+   "category": "Veggie Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 977
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chilli-and-feta-avo-toast",
+   "name": "Crispy Chilli & Feta Avo Toast",
+   "category": "Veggie Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 657
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-halloumi-tacos",
+   "name": "Hot Honey Halloumi Tacos",
+   "category": "Veggie Plates",
+   "serving": "2 soft tacos",
+   "nutrients": {
+    "calories": 668
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-avocado-and-mojo-picon-on-toast",
+   "name": "Smashed Avocado & Mojo Picon on Toast",
+   "category": "Veggie Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 831
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-chicken-bacon-and-waffles",
+   "name": "Fried Chicken, Bacon & Waffles",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 1056
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-schnitzel-caesar",
+   "name": "Chicken Schnitzel Caesar",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 1065
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mr-big-chicken",
+   "name": "Mr Big Chicken",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 716
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-breakfast-burrito",
+   "name": "The Breakfast Burrito",
+   "category": "Tacos, Huevos + Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 873
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nduja-and-fried-egg-tacos",
+   "name": "’Nduja & Fried Egg Tacos",
+   "category": "Tacos, Huevos + Burritos",
+   "serving": "2 soft tacos",
+   "nutrients": {
+    "calories": 1097
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tacos",
+   "name": "Chicken Tacos",
+   "category": "Tacos, Huevos + Burritos",
+   "serving": "2 soft tacos",
+   "nutrients": {
+    "calories": 730
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-tacos",
+   "name": "Chorizo Tacos",
+   "category": "Tacos, Huevos + Burritos",
+   "serving": "2 soft tacos",
+   "nutrients": {
+    "calories": 758
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "huevos-rancheros",
+   "name": "Huevos Rancheros",
+   "category": "Tacos, Huevos + Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1231
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-browns-and-dip-3-hash-browns",
+   "name": "Hash Browns & Dip (3 hash browns)",
+   "category": "Sides + Shares",
+   "serving": "3 hash browns",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-browns-and-dip-6-hash-browns",
+   "name": "Hash Browns & Dip (6 hash browns)",
+   "category": "Sides + Shares",
+   "serving": "6 hash browns",
+   "nutrients": {
+    "calories": 780
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-browns-and-dip-9-hash-browns",
+   "name": "Hash Browns & Dip (9 hash browns)",
+   "category": "Sides + Shares",
+   "serving": "9 hash browns",
+   "nutrients": {
+    "calories": 1170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-toast-fingers",
+   "name": "French Toast Fingers",
+   "category": "Sides + Shares",
+   "serving": "",
+   "nutrients": {
+    "calories": 526
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tenders",
+   "name": "Chicken Tenders",
+   "category": "Sides + Shares",
+   "serving": "4 tenders",
+   "nutrients": {
+    "calories": 530
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homestyle-potatoes",
+   "name": "Homestyle Potatoes",
+   "category": "Sides + Shares",
+   "serving": "",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-side-salad",
+   "name": "Caesar Side Salad",
+   "category": "Sides + Shares",
+   "serving": "",
+   "nutrients": {
+    "calories": 451
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg",
+   "name": "Egg",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golden-yolk-poached-egg",
+   "name": "Golden Yolk Poached Egg",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon",
+   "name": "Bacon",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "turkey-bacon",
+   "name": "Turkey Bacon",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-pancake-topping",
+   "name": "Sausage (pancake topping)",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-browns",
+   "name": "Hash Browns",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-berries-pancake-topping",
+   "name": "Mixed Berries (pancake topping)",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-cream-pancake-topping",
+   "name": "Vanilla Cream (pancake topping)",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-pancake-topping",
+   "name": "Chocolate (pancake topping)",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-pancake-topping",
+   "name": "Banana (pancake topping)",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-compote-pancake-topping",
+   "name": "Blueberry Compote (pancake topping)",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-syrup-with-french-toast-fingers",
+   "name": "Maple Syrup (with French Toast Fingers)",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-dip-with-french-toast-fingers",
+   "name": "Chocolate Dip (with French Toast Fingers)",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harissa-beans",
+   "name": "Harissa Beans",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo",
+   "name": "Chorizo",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-chorizo",
+   "name": "Veggie Chorizo",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 188
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi",
+   "name": "Halloumi",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-chicken-tenders",
+   "name": "Fried Chicken Tenders",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken",
+   "category": "Add-ons and Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

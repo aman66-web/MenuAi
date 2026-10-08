@@ -1,0 +1,814 @@
+{
+ "schemaVersion": 1,
+ "id": "daves-hot-chicken",
+ "name": "Dave's Hot Chicken",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "dave's hot chicken",
+  "daves hot chicken",
+  "dave’s hot chicken"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Dave's Hot Chicken UK menu page with calories (accessed 2026-10-08, no date shown)",
+  "url": "https://www.daveshotchicken.co.uk/menus",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories are as printed on Dave's UK menu page: one figure per item for every spice level. Protein, carbs and fat aren't on the page, so aren't shown. The page doesn't say what the Top-loaded shake figures cover (they are lower than the plain shakes). Vegetarian marks are the chain's own; it says all equipment and fryers are shared.",
+ "allergenGuide": {
+  "title": "Dave's Hot Chicken UK allergen information page (accessed 2026-10-08, no date shown)",
+  "url": "https://www.daveshotchicken.co.uk/allergen-uk",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Mains",
+  "Feed a crowd",
+  "Sides",
+  "Shakes",
+  "Slushers",
+  "Top-loaded slushers",
+  "Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "daves-1-mild-reaper-spices",
+   "name": "Dave's #1 (Mild > Reaper Spices)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1506
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "daves-2-mild-reaper-spices",
+   "name": "Dave's #2 (Mild > Reaper Spices)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1825
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "daves-3-mild-reaper-spices",
+   "name": "Dave's #3 (Mild > Reaper Spices)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1666
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "daves-4-mild-reaper-spices",
+   "name": "Dave's #4 (Mild > Reaper Spices)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1334
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10pc-daves-bites-w-fries-medium-and-hot-spices",
+   "name": "10pc Dave's Bites w/ Fries (Medium & Hot Spices)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1322
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "top-loaded-fries-small-medium-and-hot-spices",
+   "name": "Top-Loaded Fries - Small (Medium & Hot Spices)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 967
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "top-loaded-fries-regular-medium-and-hot",
+   "name": "Top-Loaded Fries - Regular (Medium & Hot)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1934
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "top-loaded-fries-large-medium-and-hot-spices",
+   "name": "Top-Loaded Fries - Large (Medium & Hot Spices)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 2991
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "saucy-bites-hot-honey-with-fries",
+   "name": "Saucy Bites - Hot Honey with Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1146
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "saucy-bites-spicy-bbq-with-fries",
+   "name": "Saucy Bites - Spicy BBQ with Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1091
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "saucy-bites-spicy-buffalo-with-fries",
+   "name": "Saucy Bites - Spicy Buffalo with Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1027
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-box-sliders",
+   "name": "Hot Box - Sliders",
+   "category": "Feed a crowd",
+   "serving": "",
+   "nutrients": {
+    "calories": 5763
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-box-tenders",
+   "name": "Hot Box - Tenders",
+   "category": "Feed a crowd",
+   "serving": "",
+   "nutrients": {
+    "calories": 3700
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-box-fries",
+   "name": "Hot Box - Fries",
+   "category": "Feed a crowd",
+   "serving": "",
+   "nutrients": {
+    "calories": 2659
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-fries",
+   "name": "Cheese Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 665
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kale-slaw",
+   "name": "Kale Slaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 421
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pickles",
+   "name": "Pickles",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "single-slider-mild-reaper-spices",
+   "name": "Single Slider (Mild > Reaper Spices)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 587
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "single-tender-mild-reaper-spices",
+   "name": "Single Tender (Mild > Reaper Spices)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "daves-sauce-pot-6oz",
+   "name": "Dave's Sauce Pot (6oz)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 819
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "daves-bites-medium-and-hot-spices",
+   "name": "Dave's Bites (Medium & Hot Spices)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 657
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "saucy-bites-hot-honey-bites-only",
+   "name": "Saucy Bites - Hot Honey (Bites only)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 482
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "saucy-bites-spicy-bbq-bites-only",
+   "name": "Saucy Bites - Spicy BBQ (Bites only)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "saucy-bites-spicy-buffalo-bites-only",
+   "name": "Saucy Bites - Spicy Buffalo (Bites only)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 362
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-shake-large",
+   "name": "Chocolate Shake - Large",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 818
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shake-large",
+   "name": "Strawberry Shake - Large",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-shake-large",
+   "name": "Vanilla Shake - Large",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 828
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shake-regular",
+   "name": "Strawberry Shake - Regular",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 650
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-shake-regular",
+   "name": "Vanilla Shake - Regular",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-shake-regular",
+   "name": "Chocolate Shake - Regular",
+   "category": "Shakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 630
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-raspberry-slusher",
+   "name": "Blue Raspberry Slusher",
+   "category": "Slushers",
+   "serving": "",
+   "nutrients": {
+    "calories": 213
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-drift-slusher",
+   "name": "Strawberry Drift Slusher",
+   "category": "Slushers",
+   "serving": "",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-raspberry-creme-slusher",
+   "name": "Blue Raspberry Creme Slusher",
+   "category": "Top-loaded slushers",
+   "serving": "",
+   "nutrients": {
+    "calories": 432
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-raspberry-x-strawberry-pearls-slusher",
+   "name": "Blue Raspberry X Strawberry Pearls Slusher",
+   "category": "Top-loaded slushers",
+   "serving": "",
+   "nutrients": {
+    "calories": 249
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocket-creme-slusher",
+   "name": "Rocket Creme Slusher",
+   "category": "Top-loaded slushers",
+   "serving": "",
+   "nutrients": {
+    "calories": 434
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-and-creme-slusher",
+   "name": "Strawberries & Creme Slusher",
+   "category": "Top-loaded slushers",
+   "serving": "",
+   "nutrients": {
+    "calories": 437
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-drift-x-mango-pearls-slusher",
+   "name": "Strawberry Drift X Mango Pearls Slusher",
+   "category": "Top-loaded slushers",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-water-330ml-can",
+   "name": "Sparkling Water - 330ml can",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "still-water-330ml-can",
+   "name": "Still Water - 330ml Can",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-regular",
+   "name": "Coca Cola - Regular",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 199
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-zero-regular",
+   "name": "Coca Cola Zero - Regular",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-regular",
+   "name": "Diet Coke - Regular",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dr-pepper-zero-regular",
+   "name": "Dr Pepper Zero - Regular",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta-regular",
+   "name": "Fanta - Regular",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-regular",
+   "name": "Sprite Zero - Regular",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lipton-lemon-iced-tea",
+   "name": "Lipton Lemon Iced Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lipton-peach-iced-tea",
+   "name": "Lipton Peach Iced Tea",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-250ml",
+   "name": "Red Bull 250ml",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monster-mango-loco-500ml",
+   "name": "Monster Mango Loco (500ml)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

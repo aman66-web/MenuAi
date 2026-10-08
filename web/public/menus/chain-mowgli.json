@@ -1,0 +1,740 @@
+{
+ "schemaVersion": 1,
+ "id": "mowgli",
+ "name": "Mowgli Street Food",
+ "cuisine": "Indian",
+ "builderType": "standard",
+ "aliases": [
+  "mowgli",
+  "mowgli street food"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Mowgli Street Food website, Food menu with calorie information (accessed 2026-10-07, no date shown)",
+  "url": "https://mowglistreetfood.com/menus/food/",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed beside each dish on Mowgli's Food menu page (the page shows them when you tick 'Calorie information'). No serving sizes, protein, carbs or fat are published. Drinks are not on that page.",
+ "allergenGuide": {
+  "title": "Mowgli allergen matrix, Brighton (Mowgli-Mv35 v3, Rev 35; PDF created 2 October 2026)",
+  "url": "https://mowglistreetfood.com/wp-content/uploads/2026/10/Mowgli-Mv35_Allergen-Matrix_Brighton_v3.pdf",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "The Light Kitchen",
+  "Street Plates",
+  "The House Kitchen",
+  "Curry Companions",
+  "Kids Menu",
+  "Sweet"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chicken-frankie-wrap",
+   "name": "Chicken Frankie Wrap",
+   "category": "The Light Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-frankie-wrap",
+   "name": "Rainbow Frankie Wrap",
+   "category": "The Light Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 534
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mowgli-chicken-salad",
+   "name": "Mowgli Chicken Salad",
+   "category": "The Light Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 406
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mowgli-tenderstem-salad",
+   "name": "Mowgli Tenderstem Salad",
+   "category": "The Light Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yoghurt-chat-bombs",
+   "name": "Yoghurt Chat Bombs",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 302
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-bhajis",
+   "name": "Onion Bhajis",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 642
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "himalayan-cheese-toast",
+   "name": "Himalayan Cheese Toast",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fenugreek-kissed-fries",
+   "name": "Fenugreek Kissed Fries",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 940
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "treacle-tamarind-fries",
+   "name": "Treacle Tamarind Fries",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1153
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mowgli-chip-butty",
+   "name": "Mowgli Chip Butty",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1082
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diwali-cauliflower",
+   "name": "Diwali Cauliflower",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 559
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mowgli-crispy-wings",
+   "name": "Mowgli Crispy Wings",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monkey-tandoor-roti",
+   "name": "Monkey Tandoor Roti",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "angry-bird",
+   "name": "Angry Bird",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 840
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gunpowder-chicken",
+   "name": "Gunpowder Chicken",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-chicken",
+   "name": "Sticky Chicken",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maas-lamb-chops",
+   "name": "Maa’s Lamb Chops",
+   "category": "Street Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 802
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mother-butter-chicken",
+   "name": "Mother Butter Chicken",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 388
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-chicken-curry",
+   "name": "House Chicken Curry",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-lamb-curry",
+   "name": "House Lamb Curry",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mowgli-chicken-biryani",
+   "name": "Mowgli Chicken Biryani",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 933
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "goan-fish-curry",
+   "name": "Goan Fish Curry",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aunty-geetas-prawn-curry",
+   "name": "Aunty Geeta’s Prawn Curry",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mowgli-paneer",
+   "name": "Mowgli Paneer",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mowgli-black-dahl",
+   "name": "Mowgli Black Dahl",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 608
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "temple-dahl",
+   "name": "Temple Dahl",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-steeped-chickpeas",
+   "name": "Tea Steeped Chickpeas",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 293
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "picnic-potato-curry",
+   "name": "Picnic Potato Curry",
+   "category": "The House Kitchen",
+   "serving": "",
+   "nutrients": {
+    "calories": 262
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homestyle-cumin-rice",
+   "name": "Homestyle Cumin Rice",
+   "category": "Curry Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-butter-paratha",
+   "name": "Garlic Butter Paratha",
+   "category": "Curry Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 453
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "puffed-puri-bread",
+   "name": "Puffed Puri Bread",
+   "category": "Curry Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roti-breads",
+   "name": "Roti Breads",
+   "category": "Curry Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-poppadoms",
+   "name": "Mini Poppadoms",
+   "category": "Curry Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mowgli-slaw",
+   "name": "Mowgli Slaw",
+   "category": "Curry Companions",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-gunpowder-chicken-and-fries",
+   "name": "Kids Gunpowder Chicken & Fries",
+   "category": "Kids Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 469
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mother-butter-chicken-and-rice",
+   "name": "Kids Mother Butter Chicken & Rice",
+   "category": "Kids Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 345
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-house-chicken-curry-and-rice",
+   "name": "Kids House Chicken Curry & Rice",
+   "category": "Kids Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 404
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mowgli-paneer-and-rice",
+   "name": "Kids Mowgli Paneer & Rice",
+   "category": "Kids Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 394
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-temple-dahl-and-rice",
+   "name": "Kids Temple Dahl & Rice",
+   "category": "Kids Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 334
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mowgli-chocolate-brownie",
+   "name": "Kids Mowgli Chocolate Brownie",
+   "category": "Kids Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 243
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-cone-vanilla",
+   "name": "Ice Cream Cone – Vanilla",
+   "category": "Sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 244
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-cone-salted-caramel",
+   "name": "Ice Cream Cone – Salted Caramel",
+   "category": "Sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 244
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-cone-coconut",
+   "name": "Ice Cream Cone – Coconut",
+   "category": "Sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 235
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-cone-mango-sorbet",
+   "name": "Ice Cream Cone – Mango Sorbet",
+   "category": "Sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gulab-jamun",
+   "name": "Gulab Jamun",
+   "category": "Sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-mowgli-chocolate-brownie",
+   "name": "The Mowgli Chocolate Brownie",
+   "category": "Sweet",
+   "serving": "",
+   "nutrients": {
+    "calories": 681
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

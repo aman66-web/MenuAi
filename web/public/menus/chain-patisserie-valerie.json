@@ -1,0 +1,4587 @@
+{
+ "schemaVersion": 1,
+ "id": "patisserie-valerie",
+ "name": "Patisserie Valerie",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "patisserie valerie",
+  "patisserie valerie cafe",
+  "patisserie valerie café",
+  "valerie"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Patisserie Valerie Nutritional and Allergen Information, Autumn 2026 (five PDFs: Standard, Counter, Kiosk, Drinks and Valerie menus, created 29 September 2026)",
+  "url": "https://patisserie-valerie.co.uk/pages/nutritional-and-allergen-information",
+  "checkedOn": "2026-10-07"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only: the chain's Autumn 2026 allergen PDFs print one Kcal figure per product and no other nutrients, sizes or weights (unless a name or note says so). Products printed with different figures in different places are held back. Alcoholic drinks and drinks printed 'see menu' have no figure.",
+ "allergenGuide": {
+  "title": "Patisserie Valerie Nutritional and Allergen Information, Autumn 2026 (five allergen PDFs, created 29 September 2026)",
+  "url": "https://patisserie-valerie.co.uk/pages/nutritional-and-allergen-information",
+  "checkedOn": "2026-10-07",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Afternoon tea for two",
+  "Vegetarian afternoon tea for two",
+  "Vegan afternoon tea for two",
+  "Children's afternoon tea",
+  "Brunch",
+  "Main dishes",
+  "Little Valerie menu",
+  "Deluxe macarons",
+  "Macarons",
+  "Patisserie slices",
+  "Tarts",
+  "Éclairs",
+  "Celebration cakes",
+  "Other patisserie",
+  "Boards & plates",
+  "Pies",
+  "Salads",
+  "Burgers",
+  "From the oven",
+  "Sides & nibbles",
+  "Seasonal drinks",
+  "Matcha",
+  "Frappes",
+  "Milkshakes",
+  "Iced coffees",
+  "Coolers",
+  "Tea",
+  "Drinks with alternative milk options",
+  "Soft drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "egg-and-cress-finger-sandwich",
+   "name": "Egg & Cress finger sandwich",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber-and-cream-cheese-finger-sandwich",
+   "name": "Cucumber & Cream Cheese finger Sandwich",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-wholegrain-mustard-finger-sandwich",
+   "name": "Ham & wholegrain mustard finger sandwich",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coronation-chicken-finger-sandwich",
+   "name": "Coronation Chicken Finger Sandwich",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-plain-scones",
+   "name": "Large Plain Scones",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-fruit-scones",
+   "name": "Large Fruit Scones",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roddas-cornish-clotted-cream",
+   "name": "Roddas Cornish Clotted Cream",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 381
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bonne-maman-strawberry",
+   "name": "Bonne Maman Strawberry",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bonne-maman-raspberry-conserve",
+   "name": "Bonne Maman Raspberry conserve",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-portions",
+   "name": "Butter Portions",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-strawberry-and-white-chocolate-slice",
+   "name": "Mini Strawberry & White Chocolate slice",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-black-forest-slice",
+   "name": "Mini Black Forest Slice",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-salted-caramel-slice",
+   "name": "Mini Salted caramel slice",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweets-pv-brownies-cherry",
+   "name": "Sweets - PV Brownies (Cherry)",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-caramel-macaron",
+   "name": "Blue Caramel Macaron",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio",
+   "name": "Pistachio",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla",
+   "name": "Vanilla",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 91
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry",
+   "name": "Raspberry",
+   "category": "Afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-and-cress-sandwich",
+   "name": "Egg & Cress Sandwich",
+   "category": "Vegetarian afternoon tea for two",
+   "serving": "1 whole",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-tom-rocket-finger-sandwich",
+   "name": "Mozzarella, Tom, Rocket finger sandwich",
+   "category": "Vegetarian afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "summer-mixed-veg-with-cream-cheese",
+   "name": "Summer mixed Veg with cream cheese",
+   "category": "Vegetarian afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chargrilled-vegetable-finger-sandwich",
+   "name": "Chargrilled vegetable finger sandwich",
+   "category": "Vegan afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-cakes",
+   "name": "Tea Cakes",
+   "category": "Vegan afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunflower-spread-portion",
+   "name": "Sunflower Spread Portion",
+   "category": "Vegan afternoon tea for two",
+   "serving": "",
+   "nutrients": {
+    "calories": 43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-plain-standard-sized-scone",
+   "name": "Warm Plain Standard Sized scone",
+   "category": "Children's afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "clotted-cream",
+   "name": "Clotted Cream",
+   "category": "Children's afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-hot-chocolate-whole-milk",
+   "name": "Childrens Hot Chocolate Whole Milk",
+   "category": "Children's afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 196
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-hot-chocolate-skimmed-milk",
+   "name": "Childrens Hot Chocolate Skimmed Milk",
+   "category": "Children's afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-hot-chocolate-soya-milk",
+   "name": "Childrens Hot Chocolate Soya Milk",
+   "category": "Children's afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 134
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-hot-chocolate-oat-milk",
+   "name": "Childrens Hot Chocolate Oat Milk",
+   "category": "Children's afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 184
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childrens-hot-chocolate-coconut-milk",
+   "name": "Childrens Hot Chocolate Coconut Milk",
+   "category": "Children's afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "full-valerie-breakfast",
+   "name": "Full Valerie Breakfast",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "full-valerie-breakfast-large",
+   "name": "Full Valerie Breakfast - Large",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1487
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-benedict",
+   "name": "Eggs Benedict",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-royale",
+   "name": "Eggs Royale",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-florentine",
+   "name": "Eggs Florentine",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 453
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sizzling-stack",
+   "name": "Sizzling Stack",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 782
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-avocado-valerie-brunch",
+   "name": "Smashed Avocado Valerie Brunch",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 501
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-smoked-salmon",
+   "name": "Add - Smoked Salmon",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "valerie-folded-eggs",
+   "name": "Valerie Folded Eggs",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 437
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-wilshire-ham",
+   "name": "Add - Wilshire Ham",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-mature-cheddar",
+   "name": "Add - Mature Cheddar",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-spinach",
+   "name": "Add - Spinach",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-filled-croissant-egg-bacon-and-sausage",
+   "name": "Hot Filled Croissant - Egg, Bacon & Sausage",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 907
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-filled-croissant-rarebit-and-ham",
+   "name": "Hot Filled croissant - Rarebit & Ham",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-filled-croissant-egg-and-avocado",
+   "name": "Hot Filled Croissant - Egg & Avocado",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-strawberries-and-nutella",
+   "name": "Pancakes - Strawberries & Nutella",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 822
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-banana-and-nutella",
+   "name": "Pancakes - Banana & Nutella",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-banana-blueberries-and-honey",
+   "name": "Pancakes - Banana, Blueberries & Honey",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 638
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-sweetcure-bacon-and-scrambled-egg",
+   "name": "Pancakes - Sweetcure Bacon & Scrambled Egg",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 837
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-sweetcure-bacon-and-maple-syrup",
+   "name": "Pancakes - Sweetcure Bacon & Maple Syrup",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 883
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-scrambled-egg-spinach-and-avocado",
+   "name": "Pancakes - Scrambled Egg, Spinach & Avocado",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamy-mushroom-with-truffle-oil-toasted-brioche",
+   "name": "Creamy Mushroom with truffle oil toasted brioche",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-toast-cinnamon-butter-berries-and-maple-syp",
+   "name": "French Toast , Cinnamon Butter, berries & maple Syp",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 764
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rarebit-cheese-and-ham-with-hot-honey-drizzle",
+   "name": "Rarebit Cheese & Ham with Hot Honey Drizzle",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 552
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extras-toast-with-butter",
+   "name": "Extras - Toast with Butter",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 393
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extras-free-range-poached-egg",
+   "name": "Extras - Free Range Poached Egg",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extras-cumberland-sausage",
+   "name": "Extras - Cumberland Sausage",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 174
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extras-french-fries",
+   "name": "Extras - French Fries",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 166
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extras-smoked-salmon",
+   "name": "Extras - Smoked Salmon",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extras-halloumi",
+   "name": "Extras - Halloumi",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extras-baked-beans",
+   "name": "Extras - Baked Beans",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt",
+   "name": "BLT",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 892
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bacon-and-avocado-brioche-burger",
+   "name": "Chicken, Bacon & Avocado Brioche Burger",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 788
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-onion-soup",
+   "name": "French Onion Soup",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 629
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad",
+   "name": "Chicken Caesar Salad",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1073
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croque-monsieur",
+   "name": "Croque Monsieur",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1020
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-chorizo-croque",
+   "name": "Chicken & Chorizo Croque",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 957
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-flatbread-with-naked-coleslaw",
+   "name": "Chicken Caesar Flatbread with naked coleslaw",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 618
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-and-roasted-veg-flatbread-with-naked-coleslaw",
+   "name": "Halloumi & Roasted Veg Flatbread with naked coleslaw",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 744
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-roasted-veg-and-feta-bagel",
+   "name": "Mediterranean Roasted Veg & Feta Bagel",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 529
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-and-lemon-baguette",
+   "name": "Tuna & lemon Baguette",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 659
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jp-cheese-and-beans",
+   "name": "JP - Cheese & Beans",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 748
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jp-tuna-crunch",
+   "name": "JP - Tuna Crunch",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 911
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jp-coronation-chicken",
+   "name": "JP - Coronation Chicken",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jp-smoked-salmon-and-soft-cheese",
+   "name": "JP - Smoked Salmon & Soft Cheese",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jp-egg-mayo",
+   "name": "JP - Egg Mayo",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 764
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-smoked-salmon-soft-cheese-with-coleslaw",
+   "name": "Prawn, Smoked Salmon, Soft Cheese with Coleslaw",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-and-lemon-mayonnaise-baguette",
+   "name": "Tuna & Lemon Mayonnaise Baguette",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 561
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt-sandwich",
+   "name": "BLT Sandwich",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 586
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-filled-croissant-ham-and-cheese",
+   "name": "Hot-Filled Croissant - Ham & Cheese",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-filled-croissant-mozzarella-and-tomato",
+   "name": "Hot Filled Croissant - Mozzarella & Tomato",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 493
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croque-monsieur-no-fries",
+   "name": "Croque Monsieur - no fries",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-chorizo-y-croque",
+   "name": "Chicken, Chorizo y Croque",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 936
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-flatbread",
+   "name": "Chicken Caesar Flatbread",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 545
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-and-roasted-veg-flatbread",
+   "name": "Halloumi & Roasted Veg Flatbread",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 672
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-smoked-salmon-soft-cheese",
+   "name": "Prawn, Smoked Salmon, Soft Cheese",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 511
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-and-cheese-melt-flatbread",
+   "name": "BBQ chicken and Cheese Melt Flatbread",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 726
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jp-cheese-beans",
+   "name": "JP - Cheese Beans",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 748
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "valerie-buttermilk-pancakes-strawberries-and-nutella",
+   "name": "Valerie Buttermilk Pancakes - Strawberries & Nutella",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 822
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "valerie-buttermilk-pancakes-banana-and-nutella",
+   "name": "Valerie Buttermilk Pancakes - Banana & Nutella",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "valerie-buttermilk-pancakes-banana-blueberries-and-honey",
+   "name": "Valerie Buttermilk Pancakes - Banana, Blueberries & Honey",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 638
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pesto-mozzaralla-and-tomato-flatbread-melt",
+   "name": "Pesto, Mozzaralla & Tomato flatbread Melt",
+   "category": "Main dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 719
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-egg-on-toast",
+   "name": "Scrambled Egg on Toast",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-egg-and-bacon-on-toast",
+   "name": "Scrambled Egg & Bacon on Toast",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 442
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-valerie-pancakes-banana-and-nutella",
+   "name": "Mini Valerie Pancakes - Banana & Nutella",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-valerie-pancakes-banana-blueberries-and-honey",
+   "name": "Mini Valerie Pancakes - Banana, blueberries & honey",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-valerie-pancakes-strawberries-and-nutella",
+   "name": "Mini Valerie Pancakes - Strawberries & Nutella",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-toastie",
+   "name": "Ham Toastie",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 422
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-toastie",
+   "name": "Cheese Toastie",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-jack-potato-cheese-and-beans",
+   "name": "Mini Jack Potato Cheese & Beans",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-pear-juice",
+   "name": "Apple & Pear Juice",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino",
+   "name": "Babyccino",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-fruit-salad-strawberries-and-blueberries",
+   "name": "Fresh Fruit Salad - strawberries and blueberries",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "byo-pancakes",
+   "name": "BYO Pancakes",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 278
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "byo-croffle",
+   "name": "BYO Croffle",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey",
+   "name": "Honey",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-syrup",
+   "name": "Maple Syrup",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana",
+   "name": "Banana",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 41
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-marshmallows",
+   "name": "Mini Marshmallows",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whipped-cream-a171",
+   "name": "Whipped Cream A171",
+   "category": "Little Valerie menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-hazelnut-and-chocolate",
+   "name": "Raspberry Hazelnut & Chocolate",
+   "category": "Deluxe macarons",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-pistachio",
+   "name": "Raspberry & Pistachio",
+   "category": "Deluxe macarons",
+   "serving": "",
+   "nutrients": {
+    "calories": 368
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-macaron",
+   "name": "Raspberry Macaron",
+   "category": "Macarons",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-macaron",
+   "name": "Pistachio Macaron",
+   "category": "Macarons",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-salted-caramel-macaron",
+   "name": "Blue Salted Caramel Macaron",
+   "category": "Macarons",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-macaron",
+   "name": "Vanilla Macaron",
+   "category": "Macarons",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackforest-slice",
+   "name": "Blackforest Slice",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-cake-slice",
+   "name": "Carrot cake Slice",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 484
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-cheesecake-100-year-plaque",
+   "name": "Baked Cheesecake (100 year plaque)",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 649
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-chocolate-slice-100-year-plaque",
+   "name": "Double Chocolate Slice (100 year plaque)",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mille-feuille-slice",
+   "name": "Mille-Feuille Slice",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 571
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-honeycomb-and-chocolate-slice",
+   "name": "Caramel, Honeycomb & Chocolate Slice",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-gateau-slice",
+   "name": "Strawberry gateau slice",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-velvet-slice-v",
+   "name": "Red Velvet Slice (V)",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 532
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-lotus-slice",
+   "name": "Vegan Lotus Slice",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 617
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-slice",
+   "name": "Pistachio Slice",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "opera-slice",
+   "name": "Opera Slice",
+   "category": "Patisserie slices",
+   "serving": "",
+   "nutrients": {
+    "calories": 538
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-fruit-tart",
+   "name": "Mixed Fruit Tart",
+   "category": "Tarts",
+   "serving": "",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-tart",
+   "name": "Strawberry Tart",
+   "category": "Tarts",
+   "serving": "",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-tart",
+   "name": "Raspberry Tart",
+   "category": "Tarts",
+   "serving": "",
+   "nutrients": {
+    "calories": 237
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-tart",
+   "name": "Blueberry Tart",
+   "category": "Tarts",
+   "serving": "",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-clair",
+   "name": "Chocolate éclair",
+   "category": "Éclairs",
+   "serving": "",
+   "nutrients": {
+    "calories": 351
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-clair",
+   "name": "Coffee Éclair",
+   "category": "Éclairs",
+   "serving": "",
+   "nutrients": {
+    "calories": 385
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-cream-clair",
+   "name": "Fresh Cream Éclair",
+   "category": "Éclairs",
+   "serving": "",
+   "nutrients": {
+    "calories": 371
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-oreo-cake",
+   "name": "8\" Oreo Cake",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 628
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-oreo",
+   "name": "8\" Oreo",
+   "category": "Celebration cakes",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-angelica-gateau",
+   "name": "6\"Angelica Gateau",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-blackforest-gateau",
+   "name": "6\" Blackforest Gateau",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 358
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-strawberry-gateau-with-nuts",
+   "name": "6\" Strawberry Gateau (with nuts)",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-strawberry-gateau-with-nuts",
+   "name": "8\" Strawberry Gateau (with nuts)",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-ultimate-chocolate-layer-cake",
+   "name": "8\" Ultimate Chocolate Layer Cake",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 331
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-lotus-cake",
+   "name": "6\" Lotus Cake",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-raspberry-ripple",
+   "name": "8\" Raspberry Ripple",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "9-raspberry-ripple",
+   "name": "9\" Raspberry Ripple",
+   "category": "Celebration cakes",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 437
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8-carrot-cake",
+   "name": "8\" Carrot Cake",
+   "category": "Celebration cakes",
+   "serving": "1 portion",
+   "nutrients": {
+    "calories": 438
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-pistachio-and-raspberry-cake",
+   "name": "6\" Pistachio & Raspberry Cake",
+   "category": "Celebration cakes",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-6-inch",
+   "name": "Dubai 6-inch",
+   "category": "Celebration cakes",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 357
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "birthday-plaque",
+   "name": "Birthday Plaque",
+   "category": "Other patisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-cake",
+   "name": "Tea Cake",
+   "category": "Other patisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "almond-croissant",
+   "name": "Almond Croissant",
+   "category": "Other patisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Other patisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-aux-chocolat",
+   "name": "Pain Aux Chocolat",
+   "category": "Other patisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 285
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-raisin",
+   "name": "Pain Au Raisin",
+   "category": "Other patisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dark-chocolate-croissant",
+   "name": "Dark Chocolate Croissant",
+   "category": "Other patisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 351
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-camembert",
+   "name": "Baked Camembert",
+   "category": "Boards & plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 611
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-grazing-platter",
+   "name": "Mediterranean Grazing platter",
+   "category": "Boards & plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1029
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "british-cheese-and-antipasto-platter",
+   "name": "british Cheese & Antipasto Platter",
+   "category": "Boards & plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 966
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "venison-and-port-pie",
+   "name": "Venison & Port pie",
+   "category": "Pies",
+   "serving": "",
+   "nutrients": {
+    "calories": 1137
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheddar-and-potato-pie",
+   "name": "Cheddar & Potato Pie",
+   "category": "Pies",
+   "serving": "",
+   "nutrients": {
+    "calories": 1208
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bacon-and-avocado-salad-bowl",
+   "name": "Chicken, Bacon & Avocado Salad Bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 671
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-roasted-vegetable-and-feta-bowl",
+   "name": "Warm Roasted vegetable & Feta Bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 376
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-bacon-avocado-burger",
+   "name": "Chicken, Bacon, Avocado Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 786
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-burger",
+   "name": "Halloumi Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 877
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "valerie-burger",
+   "name": "Valerie Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1178
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-truffle-mushroom-tagliatelle",
+   "name": "Chicken & Truffle Mushroom Tagliatelle",
+   "category": "From the oven",
+   "serving": "",
+   "nutrients": {
+    "calories": 1231
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-mushroom-macaroni-cheese",
+   "name": "Truffle, mushroom Macaroni Cheese",
+   "category": "From the oven",
+   "serving": "",
+   "nutrients": {
+    "calories": 422
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-lasagna-with-rocket-and-parmesan-sd",
+   "name": "Vegetarian Lasagna with Rocket & Parmesan Sd",
+   "category": "From the oven",
+   "serving": "",
+   "nutrients": {
+    "calories": 570
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lasagna-classic-with-rocket-and-parmesan-sd",
+   "name": "Lasagna Classic with Rocket & Parmesan Sd",
+   "category": "From the oven",
+   "serving": "",
+   "nutrients": {
+    "calories": 602
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-and-watercress-salad",
+   "name": "Tomato & watercress Salad",
+   "category": "Sides & nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-mediterranean-olives",
+   "name": "Mixed Mediterranean Olives",
+   "category": "Sides & nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 358
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-and-parmesan-fries",
+   "name": "Truffle & Parmesan Fries",
+   "category": "Sides & nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 406
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bread-and-oil",
+   "name": "Bread & Oil",
+   "category": "Sides & nibbles",
+   "serving": "",
+   "nutrients": {
+    "calories": 606
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-pumpkin-latte-reg-full-fat-milk",
+   "name": "Spiced Pumpkin Latte - REG - Full Fat Milk",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 242
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-pumpkin-latte-reg-skimmed",
+   "name": "Spiced Pumpkin Latte - REG - Skimmed",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-pumpkin-latte-reg-coconut",
+   "name": "Spiced Pumpkin Latte - REG - Coconut",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 193
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-pumpkin-latte-reg-oat",
+   "name": "Spiced Pumpkin Latte - REG - Oat",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-pumpkin-latte-reg-soya",
+   "name": "Spiced Pumpkin Latte - REG - Soya",
+   "category": "Seasonal drinks",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-full-fat-milk",
+   "name": "Cinnamon Bun Latte - Full Fat Milk",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-skimmed",
+   "name": "Cinnamon Bun Latte - Skimmed",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-coconut",
+   "name": "Cinnamon Bun Latte - Coconut",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 263
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-oat",
+   "name": "Cinnamon Bun Latte - Oat",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 287
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-soya",
+   "name": "Cinnamon Bun Latte - Soya",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 278
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-iced-full-fat-milk",
+   "name": "Cinnamon Bun Latte - ICED - Full Fat Milk",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 249
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-iced-skimmed",
+   "name": "Cinnamon Bun Latte - ICED - Skimmed",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-iced-coconut",
+   "name": "Cinnamon Bun Latte - ICED - Coconut",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 196
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-iced-oat",
+   "name": "Cinnamon Bun Latte - ICED - Oat",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-latte-iced-soya",
+   "name": "Cinnamon Bun Latte - ICED - Soya",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 211
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-latte-and-iced-full-fat-milk",
+   "name": "Brown Sugar Latte and ICED - Full Fat Milk",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 232
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-latte-and-iced-skimmed",
+   "name": "Brown Sugar Latte and ICED - Skimmed",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 184
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-latte-and-iced-coconut",
+   "name": "Brown Sugar Latte and ICED - Coconut",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-latte-and-iced-oat",
+   "name": "Brown Sugar Latte and ICED - Oat",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 203
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-latte-and-iced-soya",
+   "name": "Brown Sugar Latte and ICED - Soya",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-latte-full-fat-milk",
+   "name": "Chai latte - Full Fat Milk",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 183
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-latte-skimmed",
+   "name": "Chai latte - Skimmed",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-latte-coconut",
+   "name": "Chai latte - Coconut",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-latte-oat",
+   "name": "Chai latte - Oat",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-latte-soya",
+   "name": "Chai latte - Soya",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-hot-chocolate-full-fat-milk",
+   "name": "Cinnamon Bun Hot Chocolate - Full Fat Milk",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-hot-chocolate-skimmed",
+   "name": "Cinnamon Bun Hot Chocolate - Skimmed",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-hot-chocolate-coconut",
+   "name": "Cinnamon Bun Hot Chocolate - Coconut",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 334
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-hot-chocolate-oat",
+   "name": "Cinnamon Bun Hot Chocolate - Oat",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 358
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-hot-chocolate-soya",
+   "name": "Cinnamon Bun Hot Chocolate - Soya",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 349
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-matcha-latte-and-iced-full-fat-milk",
+   "name": "Cinnamon Bun Matcha Latte & Iced - Full Fat Milk",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-matcha-latte-and-iced-skimmed",
+   "name": "Cinnamon Bun Matcha Latte & Iced - Skimmed",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-matcha-latte-and-iced-coconut",
+   "name": "Cinnamon Bun Matcha Latte & Iced - Coconut",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-matcha-latte-and-iced-oat",
+   "name": "Cinnamon Bun Matcha Latte & Iced - Oat",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cinnamon-bun-matcha-latte-and-iced-soya",
+   "name": "Cinnamon Bun Matcha Latte & Iced - Soya",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-matcha-latte-and-iced-full-fat-milk",
+   "name": "Brown Sugar Matcha Latte & Iced - Full Fat Milk",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 238
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-matcha-latte-and-iced-skimmed",
+   "name": "Brown Sugar Matcha Latte & Iced - Skimmed",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-matcha-latte-and-iced-coconut",
+   "name": "Brown Sugar Matcha Latte & Iced - Coconut",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-matcha-latte-and-iced-oat",
+   "name": "Brown Sugar Matcha Latte & Iced - Oat",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-sugar-matcha-latte-and-iced-soya",
+   "name": "Brown Sugar Matcha Latte & Iced - Soya",
+   "category": "Seasonal drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-iced-latte-medium-full-fat",
+   "name": "Strawberry Matcha Iced Latte - Medium - Full Fat",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-iced-latte-medium-skimmed",
+   "name": "Strawberry Matcha Iced Latte - Medium - Skimmed",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-iced-latte-medium-almond",
+   "name": "Strawberry Matcha Iced Latte - Medium - Almond",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-iced-latte-medium-coconut",
+   "name": "Strawberry Matcha Iced Latte - Medium - Coconut",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-iced-latte-medium-oat",
+   "name": "Strawberry Matcha Iced Latte - Medium - Oat",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-iced-latte-medium-soya",
+   "name": "Strawberry Matcha Iced Latte - Medium - Soya",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-iced-latte-medium-full-fat",
+   "name": "Vanilla Matcha Iced Latte - Medium - Full Fat",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 184
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-iced-latte-medium-skimmed",
+   "name": "Vanilla Matcha Iced Latte - Medium - Skimmed",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-iced-latte-medium-coconut",
+   "name": "Vanilla Matcha Iced Latte - Medium - Coconut",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-iced-latte-medium-oat",
+   "name": "Vanilla Matcha Iced Latte - Medium - Oat",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-iced-latte-medium-soya",
+   "name": "Vanilla Matcha Iced Latte - Medium - Soya",
+   "category": "Matcha",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-latte-hot-almond",
+   "name": "Strawberry Matcha Latte - Hot - Almond",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-latte-hot-coconut",
+   "name": "Strawberry Matcha Latte - Hot - Coconut",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-latte-hot-oat",
+   "name": "Strawberry Matcha Latte - Hot - Oat",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-matcha-latte-hot-soya",
+   "name": "Strawberry Matcha Latte - Hot - Soya",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-latte-hot-almond",
+   "name": "Vanilla Matcha Latte - Hot - Almond",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-latte-hot-coconut",
+   "name": "Vanilla Matcha Latte - Hot - Coconut",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-latte-hot-oat",
+   "name": "Vanilla Matcha Latte - Hot - Oat",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha-latte-hot-soya",
+   "name": "Vanilla Matcha Latte - Hot - Soya",
+   "category": "Matcha",
+   "serving": "",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-frappe-medium-full-fat-milk",
+   "name": "Salted Caramel Frappe Medium - Full Fat Milk",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 360
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-frappe-medium-skimmed",
+   "name": "Salted Caramel Frappe Medium - Skimmed",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-frappe-medium-almond",
+   "name": "Salted Caramel Frappe Medium - Almond",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 322
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-frappe-medium-coconut",
+   "name": "Salted Caramel Frappe Medium - Coconut",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-frappe-medium-oat",
+   "name": "Salted Caramel Frappe Medium - Oat",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 347
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-frappe-medium-soya",
+   "name": "Salted Caramel Frappe Medium - Soya",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 344
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-frappe-medium-full-fat-milk",
+   "name": "Espresso Frappe Medium - Full Fat Milk",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-frappe-medium-skimmed",
+   "name": "Espresso Frappe Medium - Skimmed",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 219
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-frappe-medium-almond",
+   "name": "Espresso Frappe Medium - Almond",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-frappe-medium-coconut",
+   "name": "Espresso Frappe Medium - Coconut",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-frappe-medium-oat",
+   "name": "Espresso Frappe Medium - Oat",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 227
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-frappe-medium-soya",
+   "name": "Espresso Frappe Medium - Soya",
+   "category": "Frappes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-milkshake-medium-full-fat-milk",
+   "name": "Biscoff Milkshake Medium - Full Fat Milk",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-milkshake-medium-skimmed",
+   "name": "Biscoff Milkshake Medium - Skimmed",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-milkshake-medium-almond",
+   "name": "Biscoff Milkshake Medium - Almond",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-milkshake-medium-coconut",
+   "name": "Biscoff Milkshake Medium - Coconut",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-milkshake-medium-oat",
+   "name": "Biscoff Milkshake Medium - Oat",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 483
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-milkshake-medium-soya",
+   "name": "Biscoff Milkshake Medium - Soya",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake-medium-full-fat-milk",
+   "name": "Vanilla Milkshake Medium - Full Fat Milk",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 407
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake-medium-skimmed",
+   "name": "Vanilla Milkshake Medium - Skimmed",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 377
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake-medium-almond",
+   "name": "Vanilla Milkshake Medium - Almond",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 351
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake-medium-coconut",
+   "name": "Vanilla Milkshake Medium - Coconut",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake-medium-oat",
+   "name": "Vanilla Milkshake Medium - Oat",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake-medium-soya",
+   "name": "Vanilla Milkshake Medium - Soya",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 383
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake-medium-full-fat-milk",
+   "name": "Chocolate Milkshake Medium - Full Fat Milk",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 448
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake-medium-skimmed",
+   "name": "Chocolate Milkshake Medium - Skimmed",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake-medium-almond",
+   "name": "Chocolate Milkshake Medium - Almond",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake-medium-coconut",
+   "name": "Chocolate Milkshake Medium - Coconut",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 414
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake-medium-oat",
+   "name": "Chocolate Milkshake Medium - Oat",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake-medium-soya",
+   "name": "Chocolate Milkshake Medium - Soya",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 424
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-medium-full-fat-milk",
+   "name": "Strawberry Milkshake Medium - Full Fat Milk",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-medium-skimmed",
+   "name": "Strawberry Milkshake Medium - Skimmed",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-medium-almond",
+   "name": "Strawberry Milkshake Medium - Almond",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-medium-coconut",
+   "name": "Strawberry Milkshake Medium - Coconut",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-medium-oat",
+   "name": "Strawberry Milkshake Medium - Oat",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 381
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake-medium-soya",
+   "name": "Strawberry Milkshake Medium - Soya",
+   "category": "Milkshakes",
+   "serving": "Medium",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Iced coffees",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-and-banana-cooler",
+   "name": "Strawberry and Banana Cooler",
+   "category": "Coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-and-passionfruit-cooler",
+   "name": "Mango and passionfruit Cooler",
+   "category": "Coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-earl-grey",
+   "name": "Tea - Earl Grey",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-english-breakfast",
+   "name": "Tea - English Breakfast",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-chamomile",
+   "name": "Tea - Chamomile",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-nilgiri-green",
+   "name": "Tea - Nilgiri Green",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-peppermint",
+   "name": "Tea - Peppermint",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-red-berry-very",
+   "name": "Tea - Red Berry (very)",
+   "category": "Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flavoured-syrup-shot-caramel",
+   "name": "Flavoured Syrup Shot - Caramel",
+   "category": "Drinks with alternative milk options",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flavoured-syrup-shot-hazelnut",
+   "name": "Flavoured Syrup Shot - Hazelnut",
+   "category": "Drinks with alternative milk options",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flavoured-syrup-shot-vanilla",
+   "name": "Flavoured Syrup Shot - Vanilla",
+   "category": "Drinks with alternative milk options",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7up-free",
+   "name": "7up Free",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cawston-press-cloudy-apple",
+   "name": "Cawston Press - Cloudy Apple",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cawston-press-elderflower-lemonade",
+   "name": "Cawston Press - Elderflower Lemonade",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "juice-apple-kids-apple-juice",
+   "name": "juice - Apple/ Kids Apple Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "juice-orange-kids-orange-juice",
+   "name": "Juice - Orange / Kids Orange Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}
