@@ -77,7 +77,7 @@ await step("switching shop shows that shop's own name and price", async () => {
   await page.getByRole("navigation", { name: "Supermarket" }).getByRole("link", { name: "Sainsbury's" }).click();
   await page.getByRole("heading", { name: "Cowbelle Semi-Skimmed Milk 2L", level: 1 }).waitFor();
   await page.getByRole("heading", { name: "Price at Sainsbury's" }).waitFor();
-  await page.getByText("Lowest price of the supermarkets we've checked").waitFor();
+  await page.getByText("Lowest regular price of the supermarkets we've checked").waitFor();
   await ctx.close();
 });
 

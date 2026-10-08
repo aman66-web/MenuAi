@@ -25,6 +25,14 @@ Not done, and why:
   (written by the Chrome session of `docs/NEXT_GROCERIES_IMAGES_PROMPT.md`), the details file's `image_url`, then the discovery lists; only
   URLs on a host listed in `IMAGE_HOSTS` (`tools/groceries/build_groceries.py`) are accepted. Today: Tesco 298 and Sainsbury's 535 products;
   the other nine supermarkets have no products in the catalogue yet (Open Food Facts fetch incomplete), so there is nothing to attach to.
+  **Photo chain, "Option D" (founder, 2026-10-09):** the app tries, in order, (1) our own stored 400 px WebP copy of the shop's photo
+  (`photo` on the product, served from `/grocery-images/<shop>/`, chosen by `tools/groceries/select_stored_photos.py`: priced products first, then
+  the default "Most protein per 100 kcal" order, at most 3,000, only shops in `fetch_retailer_images.STORE`: Sainsbury's today, **never Tesco**
+  because its image host answers 403 to robots.txt and its terms ban automated tools), (2) the shop's picture hotlinked (`retailerImage`,
+  `referrerPolicy="no-referrer"`), (3) Open Food Facts' picture, (4) "no photo". A picture that fails to load moves to the next place
+  (`photoSources` in `web/lib/mm/groceries.ts`, `usePhotoSource` in `ProductPhoto.tsx`). Captions: "Photo from the {shop} website" for (1)
+  and (2), "Photo: Open Food Facts contributors (CC BY-SA)" for (3). Stored copies live on our server, not on the visitor's phone; the privacy
+  page says which places a picture can be loaded from.
 - **AI recipes.** Later; the catalogue (barcode, macros per 100 g, allergens, size) is the base for it.
 
 ## What the check found (2026-10-07, from the founder's Mac, one request per site)

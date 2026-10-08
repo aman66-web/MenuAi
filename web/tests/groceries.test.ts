@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addToList, barcodeQuery, imageUrl, listAsText, mergeProducts, productLine, productPhoto, proteinPer100Kcal, sanitizeShoppingList, searchProducts, setQty, type GroceryFile, type GroceryProduct } from "../lib/mm/groceries";
+import { addToList, barcodeQuery, imageUrl, listAsText, mergeProducts, photoCaption, photoSources, productLine, proteinPer100Kcal, sanitizeShoppingList, searchProducts, setQty, type GroceryFile, type GroceryProduct } from "../lib/mm/groceries";
 
 const p = (over: Partial<GroceryProduct> & Pick<GroceryProduct, "gtin" | "name">): GroceryProduct => ({ brand: "", size: "", per: "g", kcal: 100, protein: 10, carbs: 5, fat: 3, allergens: null, category: "other", ...over });
 const file = (retailer: string, products: GroceryProduct[]): GroceryFile => ({ v: 1, retailer, name: retailer, generatedOn: "2026-10-07", source: "t", products });
@@ -40,10 +40,23 @@ describe("groceries", () => {
   it("builds photo addresses and the nutrition line", () => {
     expect(imageUrl("501/234/567/8900/front_en.12", 400)).toBe("https://images.openfoodfacts.org/images/products/501/234/567/8900/front_en.12.400.jpg");
     expect(imageUrl(undefined)).toBeUndefined();
-    // the supermarket's own photo wins when there is one (https only); otherwise Open Food Facts'
-    expect(productPhoto({ retailerImage: "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg", image: "501/234/567/8900/front_en.12" })).toEqual({ src: "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg", from: "retailer" });
-    expect(productPhoto({ retailerImage: "http://insecure.example/x.jpg", image: "501/234/567/8900/front_en.12" }, 100)).toEqual({ src: "https://images.openfoodfacts.org/images/products/501/234/567/8900/front_en.12.100.jpg", from: "off" });
-    expect(productPhoto({})).toBeUndefined();
+    // photo chain, best first: our stored copy -> the shop's own picture (https only) -> Open Food Facts' -> nothing
+    const off200 = "https://images.openfoodfacts.org/images/products/501/234/567/8900/front_en.12.200.jpg";
+    expect(photoSources({ photo: "0123456789ab.webp", retailerImage: "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg", image: "501/234/567/8900/front_en.12", retailers: ["sainsburys"], byRetailer: { sainsburys: { photo: "0123456789ab.webp", retailerImage: "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg" } } }, "sainsburys")).toEqual([
+      { src: "/grocery-images/sainsburys/0123456789ab.webp", from: "stored", shop: "sainsburys" },
+      { src: "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg", from: "retailer", shop: "sainsburys" },
+      { src: off200, from: "off" },
+    ]);
+    expect(photoSources({ retailerImage: "http://insecure.example/x.jpg", image: "501/234/567/8900/front_en.12" }, null, 100).map((x) => x.from)).toEqual(["off"]);
+    expect(photoSources({})).toEqual([]);
+    // a stored name that is not our own file-name shape is never turned into a path; Tesco's picture stays a hotlink
+    expect(photoSources({ retailers: ["tesco"], byRetailer: { tesco: { photo: "../../x.webp", retailerImage: "https://digitalcontent.api.tesco.com/a.jpeg" } } }).map((x) => x.src)).toEqual(["https://digitalcontent.api.tesco.com/a.jpeg"]);
+    // the shop the person came from leads; each picture is credited to the shop it is from
+    const both = { retailers: ["tesco", "sainsburys"], byRetailer: { tesco: { retailerImage: "https://digitalcontent.api.tesco.com/a.jpeg" }, sainsburys: { photo: "0123456789ab.webp" } } };
+    expect(photoSources(both, "sainsburys").map((x) => [x.from, x.shop])).toEqual([["stored", "sainsburys"], ["retailer", "tesco"]]);
+    expect(photoCaption({ src: "x", from: "stored", shop: "sainsburys" })).toBe("Photo from the Sainsbury's website");
+    expect(photoCaption({ src: "x", from: "retailer", shop: "tesco" })).toBe("Photo from the Tesco website");
+    expect(photoCaption({ src: "x", from: "off" })).toBe("Photo: Open Food Facts contributors (CC BY-SA)");
     expect(productLine({ kcal: 97.4, protein: 9, carbs: 4.2, fat: 5 })).toBe("97 kcal · 9g protein · 4.2g carbs · 5g fat");
     expect(productLine({ kcal: 620, protein: 26.4, carbs: 12, fat: 51 })).toBe("620 kcal · 26g protein · 12g carbs · 51g fat");
   });

@@ -1,11 +1,11 @@
 # Groceries build report
 
-Built 2026-10-07 from the Open Food Facts cache (/private/tmp/off-cache).
+Built 2026-10-09 from the Open Food Facts cache (/private/tmp/off-cache).
 
 | retailer | products | with photo | allergens known | with price |
 |---|---|---|---|---|
-| Tesco | 4501 | 3820 | 2848 | 30 |
-| Sainsbury's | 1873 | 1791 | 1509 | 0 |
+| Tesco | 4501 | 3820 | 2848 | 165 |
+| Sainsbury's | 2701 | 2552 | 2045 | 123 |
 | Asda | 0 | 0 | 0 | 0 |
 | Waitrose | 0 | 0 | 0 | 0 |
 | Lidl | 0 | 0 | 0 | 0 |
@@ -20,13 +20,18 @@ Built 2026-10-07 from the Open Food Facts cache (/private/tmp/off-cache).
 
 - Tesco: 33 products with details; 32 use the shop's own numbers; 1 numbers not per 100 g/ml in our unit (kept Open Food Facts')
 
+## Photos from the supermarkets' own websites (a stored copy where we hold one, else hotlinked)
+
+- Tesco: 298 of 4501 products have the shop's photo address, 0 also have a stored copy
+- Sainsbury's: 784 of 2701 products have the shop's photo address, 123 also have a stored copy
+
 ## Left out (and why)
 
-- sainsburys: energy doesn't match macros (check): 48
-- sainsburys: implausible numbers: 4
-- sainsburys: invalid barcode: 10
-- sainsburys: kcal, protein, carbs or fat missing: 115
-- sainsburys: no usable name: 28
+- sainsburys: energy doesn't match macros (check): 75
+- sainsburys: implausible numbers: 10
+- sainsburys: invalid barcode: 19
+- sainsburys: kcal, protein, carbs or fat missing: 170
+- sainsburys: no usable name: 47
 - tesco: energy doesn't match macros (check): 118
 - tesco: implausible numbers: 18
 - tesco: invalid barcode: 62
