@@ -1,0 +1,61 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,coppa-club,Coppa Club,British/Mediterranean,,https://www.coppaclub.co.uk/,https://coppa.cdn.prismic.io/coppa/YveUqQeuQg5FcN5L_Coppa_Club_Nutritional_Information_Summer_2026.pdf,pdf,"nutrition PDF: kcal, carbs, protein, fat per dish (read); allergen PDFs on /allergens"
+,the-real-greek,The Real Greek,Greek,,https://www.therealgreek.com/,https://www.therealgreek.com/wp-content/uploads/2026/03/TRG%E2%80%93Allergen%E2%80%93Menu-Spring%E2%80%9326.pdf,pdf,"macronutrient allergen menu: kcal, protein, fat, carbs per dish (read)"
+,blacklock,Blacklock,Steakhouse,,https://theblacklock.com/,https://viewthe.menu/by8v,platform:viewthe.menu,menus page links full allergy and nutrition list per site; energy values shown on the viewthe.menu page (read)
+,chaophraya,Chaophraya,Thai,,https://chaophraya.co.uk/,https://menus.tenkites.com/tlg/chaophraya,platform:tenkites,FAQ links allergens; menu page has allergen filter and calories (read)
+,fishworks,Fishworks,Seafood,Boparan Restaurant Group,https://www.fishworks.co.uk/,https://menus.tenkites.com/brg/fishworks,platform:tenkites,allergen filter and calories on Ten Kites menu; only a few sites
+,wildwood,Wildwood,Italian,,https://wildwoodrestaurants.co.uk/,https://wildwoodrestaurants.co.uk/allergens/,web,page titled Allergen & Calorie/Nutritional Information; pick one of 24 venues (figures not read)
+,farmhouse-inns,Farmhouse Inns,Carvery pub restaurant,Greene King,https://www.farmhouseinns.co.uk/,https://www.farmhouseinns.co.uk/allergens,web,Allergens and Nutritional Information page (JavaScript app)
+,rossopomodoro,Rossopomodoro,Italian (Neapolitan pizza),,https://www.rossopomodoro.co.uk/,https://www.rossopomodoro.co.uk/_files/ugd/a2a2d2_1a9da3e52b54432ab425062e988571ad.pdf,pdf,dietary information page links allergen matrix PDF; a few items show kcal
+,marugame-udon,Marugame Udon,Japanese (udon),Toridoll,https://marugame.co.uk/,https://marugame.co.uk/wp-content/uploads/2026/09/Marugame_Customer_Allergen_Matrix.pdf,pdf,allergen matrix PDF linked from menu page; no calories seen
+,spaghetti-house,Spaghetti House,Italian,,https://www.spaghettihouse.co.uk/,https://www.spaghettihouse.co.uk/s/Allergen-Matrix-September-26-005.pdf,pdf,allergen matrix PDF on menus page
+,kricket,Kricket,Indian,,https://kricketrestaurants.com/,https://menu.menuguide.pro/html/1341AF8/1341AF8.html,platform:menuguide,online allergy menus for all four sites; no nutrition
+,masala-zone,Masala Zone,Indian,,https://www.masalazone.com/,https://menu.menuguide.pro/html/F22AF12/F22AF12.html,platform:menuguide,allergen menus via FAQ; FAQ says nutritional information not provided
+,ambiente-tapas,Ambiente Tapas,Spanish tapas,,https://www.ambiente-tapas.co.uk/,https://www.ambiente-tapas.co.uk/dietary,web,"allergy, vegetarian and vegan menu page"
+,cafe-andaluz,Cafe Andaluz,Spanish tapas,,https://www.cafeandaluz.com/,https://www.cafeandaluz.com/allergens,web,"allergen page, choose restaurant first; found by path, menu page names the guide without a link"
+,pasta-evangelists,Pasta Evangelists,Italian (fresh pasta),,https://pastaevangelists.com/,https://pastaevangelists.com/allergens,web,allergens page per dining location
+,brasserie-blanc,Brasserie Blanc,French,,https://brasserieblanc.com/,https://brasserieblanc.com/faqs/,web,FAQ says use the allergen filter on each restaurant's menu page; no nutrition
+,maroush,Maroush,Lebanese,,https://www.maroush.com/,https://www.maroush.com/wp-content/uploads/2024/07/Maroush-House-Menu-Sept-2022-with-sandwishes8pp-1.pdf,pdf,main menu PDF lists allergens per dish; dated Sept 2022; no calories
+,caravan,Caravan,Global small plates/brunch,,https://caravanandco.com/,https://caravanandco.com/pages/nutrition,web,Nutritional + Allergen Info page with per-site allergen guides (flipsnack/web)
+,pieminister,Pieminister,Pies,,https://www.pieminister.co.uk/,https://www.pieminister.co.uk/_files/ugd/4dd37a_097aca7aeaed4b70a6f6606ee9afe825.pdf,pdf,Restaurant Allergens PDF linked from /allergens; no calories seen
+,lunya,Lunya,Spanish/Catalan,,https://lunya.co.uk/,https://lunya.co.uk/lunya-liverpool/lunya-hanover-allergen-matrix-november-2025/,web,allergen matrix and dietary advice pages per site; only a few sites
+,bettys,Bettys,Tea rooms,Bettys & Taylors,https://www.bettys.co.uk/,,none,site blocked (Incapsula challenge); /allergens is listed in its sitemap but not opened
+,roka,Roka,Japanese robata,,https://rokarestaurant.com/,,none,site blocked (HTTP 403)
+,bodeans,Bodean's,American BBQ,,https://bodeansbbq.com/,,none,no allergen or nutrition link on home or menu pages
+,benihana,Benihana,Japanese teppanyaki,,https://www.benihanainternational.com/,,none,UK domain redirects to the international site; no UK allergen link found
+,tas,Tas,Turkish,,https://www.tasrestaurants.co.uk/,,none,no allergen or nutrition link found
+,four-seasons,Four Seasons,Chinese (roast duck),,https://www.fs-restaurants.co.uk/,,none,"menu PDFs only, no allergen link, no calories"
+,hakkasan,Hakkasan,Chinese,Hakkasan Group,https://hakkasangroup.com/,,none,no allergen or nutrition link on venue pages
+,yauatcha,Yauatcha,Chinese dim sum,Hakkasan Group,https://hakkasangroup.com/venues/yauatcha/,,none,no allergen or nutrition link on venue pages
+,sushi-samba,SushiSamba,Japanese-Brazilian,,https://www.sushisamba.com/,,none,no allergen or nutrition link found
+,barrafina,Barrafina,Spanish tapas,,https://www.barrafina.com/,,none,no allergen or nutrition link on menu pages
+,tapas-revolution,Tapas Revolution,Spanish tapas,,https://tapasrevolution.com/,,none,"menus say allergen information is available on request; PDF menus, no calories"
+,steak-and-lobster,Steak & Lobster,Steak and seafood,,https://www.steakandlobster.com/,,none,FAQ only says tell them about allergies when booking
+,cau,CAU,Argentinian steakhouse,Gaucho group,https://caurestaurants.com/,,none,FAQ mentions nut-free dishes only; no allergen guide link found
+,shoryu-ramen,Shoryu Ramen,Japanese ramen,,https://www.shoryuramen.com/,,none,FAQ only; sample menu PDF has no text
+,bone-daddies,Bone Daddies,Japanese ramen,,https://bonedaddies.com/,,none,no allergen or nutrition link found
+,padella,Padella,Italian pasta,,https://www.padella.co/,,none,no allergen or nutrition link found
+,ottolenghi,Ottolenghi,Mediterranean deli-restaurant,,https://ottolenghi.co.uk/,,none,no allergen link on restaurant pages
+,bancone,Bancone,Italian pasta,,https://www.bancone.co.uk/,,none,FAQ says dietary needs accommodated; no allergen file
+,mother-india,Mother India,Indian,,https://www.motherindia.co.uk/,,none,"menu PDFs only, no calories"
+,tampopo,Tampopo,Pan-Asian,,https://tampopo.co.uk/,,none,"menu PDFs per city, no allergen link, no calories"
+,la-porchetta,La Porchetta,Italian pizzeria,,https://laporchetta.co.uk/,,none,"menu PDFs only, no calories"
+,chotto-matte,Chotto Matte,Japanese-Peruvian,,https://chotto-matte.com/,,none,no allergen or nutrition link found
+,salt-yard-group,Salt Yard Group,Spanish/Italian tapas,,https://www.saltyardgroup.co.uk/,,none,no allergen or nutrition link found
+,sofra,Sofra,Turkish,,https://www.sofra.co.uk/,,none,no allergen or nutrition link found
+,haz,Haz,Turkish,,https://www.hazrestaurant.co.uk/,,none,no allergen or nutrition link found
+,bao,BAO,Taiwanese,,https://baolondon.com/,,none,no allergen or nutrition link found
+,granger-and-co,Granger & Co,Australian brunch,,https://www.grangerandco.com/,,none,no allergen or nutrition link found
+,tony-macaroni,Tony Macaroni,Italian (Scotland),,https://www.tonymacaroni.com/,,none,no allergen or nutrition link found
+,almost-famous,Almost Famous,Burgers,,https://www.almostfamousburgers.com/,,none,no allergen or nutrition link found
+,thaikhun,Thaikhun,Thai street food,,https://thaikhun.com/,,none,no allergen or nutrition link found
+,gino-dacampo,Gino D'Acampo My Restaurant,Italian,,https://ginodacampo.com/,,none,no allergen or nutrition link found
+,mildreds,Mildreds,Vegan,,https://www.mildreds.com/,,none,"FAQ only, no allergen file"
+,the-gate,The Gate,Vegetarian,,https://www.thegaterestaurants.com/,,none,no allergen or nutrition link found
+,boisdale,Boisdale,Scottish steak and seafood,,https://www.boisdale.co.uk/,,none,no allergen or nutrition link found
+,tsuru,Tsuru,Japanese sushi,,https://tsuru-sushi.co.uk/,,none,no allergen or nutrition link found
+,kanada-ya,Kanada-Ya,Japanese ramen,,https://www.kanada-ya.com/,,none,no allergen or nutrition link found
+,royal-china,Royal China,Chinese dim sum,,https://www.royalchinagroup.co.uk/,,none,"menu PDFs only, no allergen link"
+,hare-and-tortoise,Hare & Tortoise,Pan-Asian,,https://www.hareandtortoise.co.uk/,,none,"menu PDFs only, no allergen link"
+,cinnamon-club,Cinnamon Club,Indian fine dining,Cinnamon Collection (Boparan),https://cinnamonclub.com/,,none,menu PDFs and order platform only; its Ten Kites page not found
+,rum-kitchen,Rum Kitchen,Caribbean,,https://www.rumkitchen.co.uk/,,none,"menu PDF only, no allergen link"
