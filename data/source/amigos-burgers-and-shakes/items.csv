@@ -1,0 +1,38 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+egg-and-cheese-muffin,Egg & Cheese Muffin,Breakfast,,295,,,,,,,,,1234,,,,,,,false,false,,,Page /egg-cheese-muffin: printed 'EGG & CHEESE MUFFIN' 1234kJ | 295kcal
+chicken-sausage-and-egg-muffin,Chicken Sausage & Egg Muffin,Breakfast,,415,,,,,,,,,1736,,,,,,,false,false,,,Page /chickensausage-egg-muffin: printed 'CHICKEN SAUSAGE & EGG MUFFIN' 1736kJ | 415kcal
+dbl-chicken-sausage-and-egg-muffin,DBL Chicken Sausage & Egg Muffin,Breakfast,,552,,,,,,,,,2309.5,,,,,,,false,false,,,Page /dbl-chickensausage-egg-muffin: printed 'DBL CHICKEN SAUSAGE & EGG MUFFIN' 2309.5kJ | 552kcal
+turkey-bacon-and-egg-muffin,Turkey Bacon & Egg Muffin,Breakfast,,327,,,,,,,,,1368,,,,,,,false,false,,,Page /turkeybacon-egg-muffin: printed 'TURKEY BACON & EGG MUFFIN' 1368kJ | 327kcal
+dbl-turkey-bacon-and-egg-muffin,DBL Turkey Bacon & Egg Muffin,Breakfast,,369,,,,,,,,,1543.9,,,,,,,false,false,,,Page /dbl-turkeybacon-sausage-egg-muffin: printed 'DBL TURKEY BACON & EGG MUFFIN' 1543.9kJ | 369kcal
+hashbrown-and-egg-muffin,Hashbrown & Egg Muffin,Breakfast,,431,,,,,,,,,1803,,,,,,,false,false,,,Page /hashbrown-egg-muffin: printed 'HASHBROWN & EGG MUFFIN' 1803kJ | 431kcal
+hashbrown-and-orange-juice,Hashbrown & Orange Juice,Breakfast,,239,,,,,,,,,999.9,,,,,,,false,false,,,Page /hashbrown-orangejuice: printed 'HASHBROWN & ORANGE JUICE' 999.9kJ | 239kcal
+strawberry-pancakes,Strawberry Pancakes,Breakfast,,477,,,,,,,,,1995.7,,,,,,,false,false,,,Page /strawberry-pancakes: printed 'STRAWBERRY PANCAKES' 1995.7kJ | 477kcal; Same printed figures as the Maple Syrup Pancakes page
+maple-syrup-pancakes,Maple Syrup Pancakes,Breakfast,,477,,,,,,,,,1995.7,,,,,,,false,false,,,Page /syrup-pancakes: printed 'MAPLE SYRUP PANCAKES' 1995.7kJ | 477kcal; Same printed figures as the Strawberry Pancakes page; the page <title> says 'SYRUP PANCAKES'
+breakfast-wrap,Breakfast Wrap,Breakfast,,178,,,,,,,,,1899.5,,,,,,,false,false,,,Page /amigos-wrap-comingsoon: printed 'BREAKFAST WRAP' 1899.5kJ | 178kcal
+amigo,Amigo,Burgers,,635,,,,,,,,,2656.8,,,,,,contains_beef,false,false,,,Page /b-001: printed 'AMIGO' 2656.8kJ | 635kcal
+mexican,Mexican,Burgers,,699,,,,,,,,,2924.6,,,,,,,false,false,,,Page /b-004: printed 'MEXICAN' 2924.6kJ | 699kcal
+breakie,Breakie,Burgers,,1305,,,,,,,,,5460,,,,,,contains_beef,false,false,,,"Page /copy-of-the-boss: printed 'BREAKIE' 5460kJ | 1305kcal; Same kcal (1305) as The Boss, whose page prints no kJ; Breakie's 5460kJ is consistent with 1305kcal. Page slug 'copy-of-the-boss'"
+jacob,Jacob,Burgers,,725,,,,,,,,,3033,,,,,,contains_beef,false,false,,,Page /b-002: printed 'JACOB' 3033kJ | 725kcal
+happynero,Happynero,Burgers,,577,,,,,,,,,2414,,,,,,,false,false,,,Page /b-006: printed 'HAPPYNERO' 2414kJ | 577kcal; The page prints '577' and 'kcal' as separate text pieces
+cheese-burger,Cheese Burger,Burgers,,381,,,,,,,,,1594,,,,,,,false,false,,,Page /copy-of-breakie: printed 'CHEESE BURGER' 1594kJ | 381kcal; Page slug 'copy-of-breakie'
+texan,Texan,Burgers,,738,,,,,,,,,3087.7,,,,,,,false,false,,,Page /b-003: printed 'TEXAN' 3087.7kJ | 738kcal
+the-boss,The Boss,Burgers,2x 6oz. beef patties,1305,,,,,,,,,,,,,,,contains_beef,false,false,,,Page /b-007: printed 'THE BOSS 2x 6oz. beef patties' 1305kcal; Prints kcal only (no kJ); same kcal (1305) as Breakie
+dbl-cheese,DBL Cheese,Burgers,,442,,,,,,,,,1849,,,,,,,false,false,,,Page /copy-of-cheese-burger: printed 'DBL CHEESE' 1849kJ | 442kcal; Page slug 'copy-of-cheese-burger'
+1-4-chicken,1/4 Chicken,Chicken,,116,,,,,,,,,485,,,,,,,false,false,,,Page /c-004: printed '1/4 CHICKEN' 485kJ | 116kcal
+chickn-pitta,Chick'n Pitta,Chicken,,454,,,,,,,,,1899.5,,,,,,,false,false,,,Page /c-007: printed 'CHICK'N PITTA' 1899.5kJ | 454kcal; Same printed figures as the Chick Burger page
+chick-burger,Chick Burger,Chicken,,454,,,,,,,,,1899.5,,,,,,,false,false,,,Page /c-001: printed 'CHICK BURGER' 1899.5kJ | 454kcal; Same printed figures as the Chick'n Pitta page; the page <title> says 'Chicken burger'
+amigos-wrap,Amigos Wrap,Chicken,,278,,,,,,,,,1163,,,,,,,false,false,,,"Page /c-008: printed 'AMIGOS WRAP' 1163kJ | 278kcal; Same printed figures (1163kJ/278kcal) as the Crispy Korean, Halloumi and Veggie wrap pages"
+1-2-chicken,1/2 Chicken,Chicken,,233,,,,,,,,,974.8,,,,,,,false,false,,,Page /c-005: printed '1/2 CHICKEN' 974.8kJ | 233kcal
+supah-loaded-fries,Supah Loaded Fries,Chicken,,463,,,,,,,,,1937,,,,,,,false,false,,,"Page /copy-of-buttermilk-burger: printed 'SUPAH LOADED FRIES' 1937kJ | 463kcal; Same printed figures (1937kJ/463kcal) as the Buttermilk Burger page, which this page looks cloned from. Page slug 'copy-of-buttermilk-burger'"
+crispy-korean-wrap,Crispy Korean Wrap,Chicken,,278,,,,,,,,,1163,,,,,,,false,false,,,"Page /copy-of-buffalo-wrap: printed 'CRISPY KOREAN' 1163kJ | 278kcal; Same printed figures (1163kJ/278kcal) as the Amigos Wrap page; the page heading says 'CRISPY KOREAN', the menu tile 'CRISPY KOREAN WRAP'. Page slug 'copy-of-buffalo-wrap'"
+halloumi-wrap,Halloumi Wrap,Chicken,,278,,,,,,,,,1163,,,,,,,false,false,,,Page /copy-of-buffalo-wrap-1: printed 'HALLOUMI WRAP' 1163kJ | 278kcal
+whole-chicken,Whole Chicken,Chicken,,466,,,,,,,,,1949.7,,,,,,,false,false,,,Page /c-006: printed 'WHOLE CHICKEN' 1949.7kJ | 466kcal
+chick-n-rice,Chick N' Rice,Chicken,4x Tenders,558,,,,,,,,,,,,,,,,false,false,,,Page /c-009: printed 'CHICK N' RICE (4x Tenders)' 558kcal; Prints kcal only (no kJ)
+buttermilk-burger,Buttermilk Burger,Chicken,,463,,,,,,,,,1937,,,,,,,false,false,,,Page /c-003: printed 'BUTTERMILKBURGER' 1937kJ | 463kcal; The page heading runs the words together ('BUTTERMILKBURGER'); the menu tile says 'BUTTERMILK'
+veggie-wrap-chicken-menu,Veggie Wrap,Chicken,,278,,,,,,,,,1163,,,,,,,false,false,,,Page /copy-of-halloumi-wrap: printed 'VEGGIE WRAP' 1163kJ | 278kcal
+the-fun-guy,The Fun-Guy,Veggie,,400,,,,,,,,,1673.6,,,,,,vegetarian,false,false,,,Page /thefunguy: printed 'THE FUN-GUY' 1673.6kJ | 400kcal
+veggie-wrap-veggie-menu,Veggie Wrap,Veggie,,284,,,,,,,,,1188,,,,,,,false,false,,,Page /v-003: printed 'VEGGIE WRAP' 1188kJ | 284kcal
+lil-chicken-burger,Lil' Chicken Burger,Kids,,315,,,,,,,,,1317.9,,,,,,,false,false,,,Page /k-001: printed 'LIL'CHICKEN BURGER' 1317.9kJ | 315kcal; The page <title> says 'Little chicken burger'
+chicken-popcorn,Chicken Popcorn,Kids,10x Pieces,141,,,,,,,,,,,,,,,,false,false,,,Page /k-003: printed 'CHICKEN POPCORN 10x Pieces' 141kcal; Prints kcal only (no kJ); the menu tile says 'CHICK'N POPCORN'
+crispy-chickn-dippers,Crispy Chick'n Dippers,Kids,5x Tenders,282,,,,,,,,,,,,,,,,false,false,,,Page /k-004: printed 'CRISPY CHICK'N DIPPERS 5x Tenders' 282kcal; Prints kcal only (no kJ)
+hamburger,Hamburger,Kids,,660,,,,,,,,,2761,,,,,,,false,false,,,Page /k-002: printed 'HAMBURGER' 2761kJ | 660kcal; The page <title> says 'Ham Burger'; the heading and menu tile say HAMBURGER

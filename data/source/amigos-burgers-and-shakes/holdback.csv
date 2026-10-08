@@ -1,0 +1,5 @@
+item_id,reason
+breakfast-wrap,"The page prints 1899.5kJ with 178kcal: 1899.5kJ is about 454kcal, so kJ and kcal contradict (1899.5kJ is also the Chick Burger's kJ). Page slug 'amigos-wrap-comingsoon'. Restore by deleting this line once the chain corrects the page."
+halloumi-wrap,"The site has two 'Halloumi Wrap' pages: /copy-of-buffalo-wrap-1 prints 1163kJ/278kcal, the Veggie menu's own page /shmicknbites prints 0kJ/0kcal '(per 100g)'; neither is chosen. Restore by deleting this line once the chain says which is right."
+veggie-wrap-chicken-menu,The site has two 'Veggie Wrap' pages with different figures (/v-003: 1188kJ/284kcal; /copy-of-halloumi-wrap: 1163kJ/278kcal); neither is chosen. Restore by deleting this line once the chain says which is right.
+veggie-wrap-veggie-menu,The site has two 'Veggie Wrap' pages with different figures (/v-003: 1188kJ/284kcal; /copy-of-halloumi-wrap: 1163kJ/278kcal); neither is chosen. Restore by deleting this line once the chain says which is right.
