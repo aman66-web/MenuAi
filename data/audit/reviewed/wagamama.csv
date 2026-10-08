@@ -1,0 +1,8 @@
+item,code,verdict,evidence
+koko-prawn-crackers,name-implies-crustaceans,ok,"Page flags vegan=yes and vegetarian=yes; 'prawn' is in quotes (a prawn-flavour cracker); Contains sulphites, May contain gluten/sesame/soya exactly as printed."
+oyster-shiitake-mushrooms-bao-bun,name-implies-molluscs,ok,"Page flags vegan=yes: 'oyster' is oyster mushroom; Contains gluten, sesame, soya; may contain sulphites exactly as printed."
+signature-seafood-ramen-may-contain-small-bones,salt-very-high,ok,Page prints Salt (g) 10.4 with 974 kcal per serving (independent reader of the payload gives the same); unchanged on the live page.
+miso-caramel-ice-cream,name-implies-milk,ok,"Page flags vegan=yes (dairy-free ice cream); Contains soya only, exactly as printed."
+iced-matcha-strawberry-latte,name-implies-milk,ok,"Page flags vegan=yes (plant-based milk); no allergens flagged, exactly as printed."
+kids-yasai-ramen-rice-noodles,name-implies-gluten,ok,"Item is the rice-noodle version ('rice noodles' is in its name on the page); Contains soya only, exactly as printed."
+kids-yasai-yaki-soba-rice-noodles,name-implies-gluten,ok,"Item is the rice-noodle version ('rice noodles' is in its name on the page); Contains soya only, exactly as printed."

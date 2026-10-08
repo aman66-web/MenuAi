@@ -1,0 +1,13 @@
+{
+ "chain": "megans",
+ "date": "2026-10-08",
+ "source_read": "https://menus.tenkites.com/megans/megans ('All' page and 21 section pages, downloaded afresh 8 Oct 2026; menus.tenkites.com robots.txt does not disallow them)",
+ "compared_items": 217,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 6,
+ "marked_ok": 18,
+ "not_verifiable": "",
+ "notes": "217 of 219 rows re-read with an independent regex reader (kcal, protein, carbs, sugars, fat, sat fat, salt + the 14 yes/may/no columns, cereal and nut detail): 0 mismatches; 2 rows (section-page-only dishes) were already held back. 6 held back: five brownies (no gluten marked, no gluten-free wording) and the hazelnut syrup (no tree nut marked)."
+}

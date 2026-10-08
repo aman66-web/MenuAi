@@ -70,6 +70,13 @@ HOLDBACK: dict[str, str] = {
     "Fish & Chips (Excluding Your Pea Option, see below)": "Allergen row contradicts the dish name/ingredients: the dish is hand-battered fish with "
                                                           "tartare sauce, but the guide marks only fish and mustard (no gluten, egg or milk). "
                                                           "Restore by deleting this line once the chain confirms the allergens.",
+    # same battered fish in two more dishes: no gluten marked, and none of the three is on the chain's own no-gluten menu
+    "Fish Goujon (Excluding Base Option, see below)": "Allergen row contradicts the dish name/ingredients: hand-battered fish goujons with tartare "
+                                                      "sauce, but the guide marks only fish and mustard (no gluten, egg or milk), and the chain's own "
+                                                      "no-gluten menu does not list it. Restore by deleting this line once the chain confirms the allergens.",
+    "Fish Goujons (Excluding Accompaniment Option, see below)": "Allergen row contradicts the dish name/ingredients: battered fish goujons, but the "
+                                                                "guide marks only fish (no gluten), and the chain's own no-gluten menu does not "
+                                                                "list it. Restore by deleting this line once the chain confirms the allergens.",
 }
 # Notes for rows the check report flags or that look odd: entered as printed, explained here
 NOTES: dict[str, str] = {

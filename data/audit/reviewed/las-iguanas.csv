@@ -1,0 +1,8 @@
+item,code,verdict,evidence
+3-way-wings,huge-protein,ok,"Main Menu 'Sharing Section' '3 Way Wings' (recipe 106416): Energy 1,901 kcal, Protein 179.7 g, Carb 82.1 g, Fat 92.8 g printed; 4P+4C+9F = 1,882 kcal so the row is internally consistent. A sharing platter (category Sharing, not rankable), entered as printed"
+3-way-wings,salt-very-high,ok,"Main Menu '3 Way Wings' (recipe 106416): Salt 12.3 g printed with 1,901 kcal; sharing platter with three sauces, entered as printed (Ribs & Wings, recipe 106697, prints 6.2 g for 1,481 kcal)"
+sizzling-fajitas-prawn,salt-very-high,ok,"Main Menu Sizzling Fajitas, protein row 'Prawn' (recipe 104027): Energy 309 kcal, Protein 20.6, Carb 20.2, Sugars 16.2, Fat 15.5, Sat 1.5, Salt 5.1 printed. The protein is a separate row from the fajita base (recipe 106732, salt 1.6); the Mushroom row prints 3.7 g, so a high marinade salt is the chain's own figure"
+warm-chocolate-brownie,name-implies-gluten,ok,"Main Menu 'Warm Chocolate Brownie' (recipe 104257): 'Suitable for: Gluten Free, Vegetarian'; 'Contains: Eggs, Milk, Soya'. The page itself calls it gluten free"
+chocolate-brownie,name-implies-gluten,ok,"Kids tab 'Chocolate Brownie' (recipe 92443): 'Suitable for: Gluten Free, Vegetarian'; 'Contains: Eggs, Milk, Soya'. The page itself calls it gluten free"
+chocolate-ganache-churro-dip,name-implies-gluten,ok,"Main Menu 'Chocolate Ganache' (recipe 85278): 'Suitable for: Gluten Free, Vegetarian'; 'Contains: Soya'. Row is the dip; the churros are a separate row"
+dulce-de-leche-churro-dip,name-implies-gluten,ok,"Main Menu 'Dulce de leche' (recipe 85286): 'Suitable for: Gluten Free, Vegetarian'; 'Contains: Milk'. Row is the dip; the churros are a separate row"

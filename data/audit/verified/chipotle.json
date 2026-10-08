@@ -1,0 +1,13 @@
+{
+ "chain": "chipotle",
+ "date": "2026-10-08",
+ "source_read": "https://www.chipotle.co.uk/nutrition-calculator (AUG 2022 sheet, re-downloaded 2026-10-08, byte-identical to the earlier copy, Last-Modified 14 Dec 2023); also read by eye the chain's current chart https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/Allergen-UK270726.pdf (UK270726, Aug 2026, image-only)",
+ "compared_items": 25,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 2,
+ "marked_ok": 2,
+ "not_verifiable": "allergens: none are published for Chipotle (link-only to the chain's chart), so there is nothing to verify; nutrition: all 25 sheet rows matched the sheet",
+ "notes": "All 25 rows (8 values each) matched an independent pdftotext -layout read and the rendered page. The current 2026 chart repeats the other 20 published rows exactly but prints different figures for Flour Tortilla (taco) (3 for 240 kcal vs 94 each) and Chips (large) (170 g 627 kcal vs 834): both held back. The 2026 chart also has a readable 14-allergen grid and serving weights (image-only: needs OCR/vision extraction to use)."
+}

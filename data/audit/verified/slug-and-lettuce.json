@@ -6,8 +6,8 @@
  "nutrition_mismatches": 0,
  "allergen_mismatches": 0,
  "fixed": 0,
- "held_back": 4,
+ "held_back": 6,
  "marked_ok": 19,
  "not_verifiable": "",
- "notes": "All 232 items matched on kcal, kJ, protein, carbs, sugars, fat, saturates, salt and on contains/may-contain/cereals by an independent regex read (841 boxes, cross-checked with the pages' JSON-LD); held back Crodino Spritz x2 and Crispy Tofu (VG) (kJ contradicts kcal) and Fish & Chips (hand-battered, guide marks no gluten/egg/milk)."
+ "notes": "All 232 items matched on kcal, kJ, protein, carbs, sugars, fat, saturates, salt and on contains/may-contain/cereals by an independent regex read (841 boxes, cross-checked with the pages' JSON-LD); held back Crodino Spritz x2 and Crispy Tofu (VG) (kJ contradicts kcal) and three battered-fish dishes (Fish & Chips, Fish Goujon, Fish Goujons: no gluten marked and not on the chain's own no-gluten menu)."
 }
