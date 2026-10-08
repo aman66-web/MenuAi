@@ -1,0 +1,90 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+tenders-small,Tenders (small),Appetisers & bar snacks,Small,368,,,,,,,,,,,,,,,,false,false,,,
+tenders-large,Tenders (large),Appetisers & bar snacks,Large,730,,,,,,,,,,,,,,,,false,false,,,
+buffalo-sauce-dip-for-tenders,Buffalo sauce (dip for Tenders),Appetisers & bar snacks,,14,,,,,,,,,,,,,,,,false,false,,,
+sweet-chilli-sauce-dip-for-tenders,Sweet Chilli sauce (dip for Tenders),Appetisers & bar snacks,,109,,,,,,,,,,,,,,,,false,false,,,
+light-garlic-mayo-dip-for-tenders,Light Garlic Mayo (dip for Tenders),Appetisers & bar snacks,,117,,,,,,,,,,,,,,,,false,false,,,
+wings-with-bbq-sauce-small,Wings with BBQ sauce (small),Appetisers & bar snacks,Small,922,,,,,,,,,,,,,,,,false,false,,,
+wings-with-bbq-sauce-large,Wings with BBQ sauce (large),Appetisers & bar snacks,Large,1844,,,,,,,,,,,,,,,,false,false,,,
+wings-with-buffalo-sauce-small,Wings with Buffalo sauce (small),Appetisers & bar snacks,Small,872,,,,,,,,,,,,,,,,false,false,,,
+wings-with-buffalo-sauce-large,Wings with Buffalo sauce (large),Appetisers & bar snacks,Large,1744,,,,,,,,,,,,,,,,false,false,,,
+loaded-fries,Loaded Fries,Appetisers & bar snacks,,1086,,,,,,,,,,,,,,,vegetarian,false,false,,,
+loaded-fries-upgraded-to-sweet-potato-fries,Loaded Fries upgraded to sweet potato fries,Appetisers & bar snacks,,1086,,,,,,,,,,,,,,,,false,false,,,Printed 'Upgrade to sweet potato fries (1086 Kcals) for £2': the same number as Loaded Fries itself
+add-chilli-beef-to-loaded-fries,Add Chilli Beef (to Loaded Fries),Appetisers & bar snacks,,244,,,,,,,,,,,,,,,contains_beef,false,false,,,The extra's own calories (far smaller than the dish)
+prawn-appetiser-basket,Prawn Appetiser Basket,Appetisers & bar snacks,,523,,,,,,,,,,,,,,,,false,false,,,
+burrata-and-tomato-salad,Burrata & Tomato Salad,Appetisers & bar snacks,,302,,,,,,,,,,,,,,,vegetarian,false,false,,,
+asian-mixed-appetisers,Asian Mixed Appetisers,Appetisers & bar snacks,,689,,,,,,,,,,,,,,,,false,false,,,"A Feast from the East: spring rolls, karaage, popcorn chicken, prawn dumplings"
+duck-bao-bun-basket,Duck Bao Bun Basket,Appetisers & bar snacks,,773,,,,,,,,,,,,,,,,false,false,,,
+garbage-can-nachos-2-sharing,Garbage Can Nachos (2 sharing),Sharing,Per person,945,,,,,,,,,,,,,,,vegetarian,false,false,,,
+garbage-can-nachos-3-sharing,Garbage Can Nachos (3 sharing),Sharing,Per person,630,,,,,,,,,,,,,,,vegetarian,false,false,,,
+garbage-can-nachos-with-chicken-2-sharing,Garbage Can Nachos with Chicken (2 sharing),Sharing,Per person,1027,,,,,,,,,,,,,,,,false,false,,,"Printed under 'Add Chicken'; larger than the nachos alone (945), read as the dish with the extra, per person"
+garbage-can-nachos-with-chicken-3-sharing,Garbage Can Nachos with Chicken (3 sharing),Sharing,Per person,684,,,,,,,,,,,,,,,,false,false,,,"Printed under 'Add Chicken'; larger than the nachos alone (630), read as the dish with the extra, per person"
+garbage-can-nachos-with-chilli-beef-2-sharing,Garbage Can Nachos with Chilli Beef (2 sharing),Sharing,Per person,1018,,,,,,,,,,,,,,,contains_beef,false,false,,,"Printed under 'or Chilli Beef for £4'; larger than the nachos alone (945), read as the dish with the extra, per person"
+garbage-can-nachos-with-chilli-beef-3-sharing,Garbage Can Nachos with Chilli Beef (3 sharing),Sharing,Per person,679,,,,,,,,,,,,,,,contains_beef,false,false,,,"Printed under 'or Chilli Beef for £4'; larger than the nachos alone (630), read as the dish with the extra, per person"
+grilled-chicken-wrap,Grilled Chicken Wrap,Wraps,,493,,,,,,,,,,,,,,,,false,false,,,Served with a choice of side printed separately
+buffalo-chicken-wrap,Buffalo Chicken Wrap,Wraps,,541,,,,,,,,,,,,,,,,false,false,,,Served with a choice of side printed separately
+roast-salmon-wrap,Roast Salmon Wrap,Wraps,,634,,,,,,,,,,,,,,,,false,false,,,Served with a choice of side printed separately
+spuddy-filling-chicken-tikka,Spuddy filling: Chicken Tikka,Spuddies,,675,,,,,,,,,,,,,,,,false,false,,,Printed under '(Kcals per serving)'; unclear whether the potato is included
+spuddy-filling-beef-chilli-with-cheese,Spuddy filling: Beef Chilli with cheese,Spuddies,,914,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed under '(Kcals per serving)'
+spuddy-filling-coleslaw,Spuddy filling: Coleslaw,Spuddies,,634,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed under '(Kcals per serving)'
+spuddy-filling-tuna-mayo,Spuddy filling: Tuna Mayo,Spuddies,,589,,,,,,,,,,,,,,,,false,false,,,Printed under '(Kcals per serving)'
+spuddy-filling-baked-beans-and-sausage,Spuddy filling: Baked Beans & Sausage,Spuddies,,1001,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed under '(Kcals per serving)'
+spuddy-filling-baked-beans-with-cheese,Spuddy filling: Baked Beans with cheese,Spuddies,,920,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed under '(Kcals per serving)'
+spuddy-filling-coronation-chicken,Spuddy filling: Coronation Chicken,Spuddies,,571,,,,,,,,,,,,,,,,false,false,,,Printed under '(Kcals per serving)'
+spuddy-filling-egg-mayonnaise,Spuddy filling: Egg Mayonnaise,Spuddies,,562,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed under '(Kcals per serving)'
+spuddy-sauce-sour-cream,Spuddy sauce: Sour Cream,Spuddies,,19,,,,,,,,,,,,,,,,false,false,,,'Choose a sauce'
+spuddy-sauce-bbq-sauce,Spuddy sauce: BBQ Sauce,Spuddies,,13,,,,,,,,,,,,,,,,false,false,,,'Choose a sauce'
+spuddy-sauce-hot-sauce,Spuddy sauce: Hot Sauce,Spuddies,,3,,,,,,,,,,,,,,,,false,false,,,'Choose a sauce'
+spuddy-sauce-yoghurt,Spuddy sauce: Yoghurt,Spuddies,,19,,,,,,,,,,,,,,,,false,false,,,'Choose a sauce'
+spuddy-sauce-garlic-ranch,Spuddy sauce: Garlic Ranch,Spuddies,,36,,,,,,,,,,,,,,,,false,false,,,'Choose a sauce'
+spuddy-topping-bacon-bits,Spuddy topping: Bacon Bits,Spuddies,,20,,,,,,,,,,,,,,,contains_pork,false,false,,,'And pick a topping'
+spuddy-topping-parmesan,Spuddy topping: Parmesan,Spuddies,,39,,,,,,,,,,,,,,,,false,false,,,'And pick a topping'
+spuddy-topping-crispy-onion,Spuddy topping: Crispy Onion,Spuddies,,60,,,,,,,,,,,,,,,,false,false,,,'And pick a topping'
+get-shredded-bowl,Get Shredded! Bowl,Bowls & salads,,828,,,,,,,,,,,,,,,,false,false,,,
+king-prawn-noodle-bowl,King Prawn Noodle Bowl,Bowls & salads,,612,,,,,,,,,,,,,,,,false,false,,,
+salmon-mediterranean-bowl,Salmon Mediterranean Bowl,Bowls & salads,,883,,,,,,,,,,,,,,,,false,false,,,
+asian-duck-salad,Asian Duck Salad,Bowls & salads,,747,,,,,,,,,,,,,,,,false,false,,,
+gourmet-wagyu-cheese-and-bacon-burger,Gourmet Wagyu Cheese & Bacon Burger,Burgers,,1246,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,Served with a choice of side printed separately (skin on fries and slaw)
+hot-honey-chicken-burger,Hot Honey Chicken Burger,Burgers,,834,,,,,,,,,,,,,,,,false,false,,,"Served with a choice of side printed separately (slaw, fries or salad)"
+the-chilli-cheese-stack,The Chilli Cheese Stack,Burger stacks,,1213,,,,,,,,,,,,,,,contains_beef,false,false,,,"Served with a choice of side printed separately (slaw, fries or salad)"
+the-cheese-and-bacon-stack,The Cheese & Bacon Stack,Burger stacks,,1099,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,Served with a choice of side printed separately
+the-cheeseburger-stack,The Cheeseburger Stack,Burger stacks,,1117,,,,,,,,,,,,,,,contains_beef,false,false,,,Served with a choice of side printed separately
+the-bbq-burger-stack,The BBQ Burger Stack,Burger stacks,,1162,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,Served with a choice of side printed separately
+the-peri-peri-stack,The Peri Peri Stack,Burger stacks,,698,,,,,,,,,,,,,,,,false,false,,,Served with a choice of side printed separately
+veggie-stack,Veggie Stack,Burger stacks,,689,,,,,,,,,,,,,,,vegetarian,false,false,,,Served with a choice of side printed separately
+the-village-big-stack,The Village Big Stack,Burger stacks,,1656,,,,,,,,,,,,,,,contains_pork,false,false,,,Three burger patties: no meat type is printed
+margherita-pizza,Margherita Pizza,Pizza,,787,,,,,,,,,,,,,,,vegetarian,false,false,,,
+pepperoni-pizza,Pepperoni Pizza,Pizza,,1023,,,,,,,,,,,,,,,contains_pork,false,false,,,
+pepperoni-hot-pizza,Pepperoni Hot Pizza,Pizza,,1105,,,,,,,,,,,,,,,contains_pork,false,false,,,
+bbq-chicken-pizza,BBQ Chicken Pizza,Pizza,,1109,,,,,,,,,,,,,,,,false,false,,,
+pasta-primavera,Pasta Primavera,Pasta,,696,,,,,,,,,,,,,,,,false,false,,,
+fish-and-chips,Fish & Chips,Pub classics,,1308,,,,,,,,,,,,,,,,false,false,,,
+chicken-katsu-curry,Chicken Katsu Curry,Pub classics,,684,,,,,,,,,,,,,,,,false,false,,,
+chicken-tikka-curry,Chicken Tikka Curry,Pub classics,,676,,,,,,,,,,,,,,,,false,false,,,
+steak-frites,Steak Frites,Pub classics,,1352,,,,,,,,,,,,,,,contains_beef,false,false,,,
+chicken-and-chorizo-skewers,Chicken & Chorizo Skewers,Pub classics,,842,,,,,,,,,,,,,,,contains_pork,false,false,,,
+gammon-egg-and-chips,"Gammon, Egg & Chips",From the grill,,1291,,,,,,,,,,,,,,,contains_pork,false,false,,,
+tomahawk-pork-chop,Tomahawk Pork Chop,From the grill,,1203,,,,,,,,,,,,,,,contains_pork,false,false,,,
+8oz-black-angus-sirloin-steak,8oz Black Angus Sirloin Steak,From the grill,,1026,,,,,,,,,,,,,,,contains_beef,false,false,,,
+mixed-grill,Mixed Grill,From the grill,,1778,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,
+peppercorn-sauce-add-to-a-grill-dish,Peppercorn sauce (add to a grill dish),From the grill,,252,,,,,,,,,,,,,,,,false,false,,,Printed 'Add your choice of peppercorn or bearnaise sauce for £1.50'
+bearnaise-sauce-add-to-a-grill-dish,Bearnaise sauce (add to a grill dish),From the grill,,309,,,,,,,,,,,,,,,,false,false,,,Printed 'Add your choice of peppercorn or bearnaise sauce for £1.50'
+cone-of-onion-rings,Cone of Onion Rings,Sides,,970,,,,,,,,,,,,,,,vegetarian,false,false,,,
+cone-of-cry-fry,Cone of Cry Fry,Sides,,932,,,,,,,,,,,,,,,vegetarian,false,false,,,Skin on fries and giant beer battered onion rings
+cone-of-fries,Cone of Fries,Sides,,573,,,,,,,,,,,,,,,vegetarian,false,false,,,Same printed value as the skin on fries served with wraps and burgers
+cone-of-sweet-potato-fries,Cone of Sweet Potato Fries,Sides,,573,,,,,,,,,,,,,,,vegetarian,false,false,,,
+wedge-salad,Wedge Salad,Sides,,276,,,,,,,,,,,,,,,contains_pork,false,false,,,
+tenderstem-broccoli,Tenderstem Broccoli,Sides,,102,,,,,,,,,,,,,,,vegetarian,false,false,,,
+baked-potato,Baked Potato,Sides,,571,,,,,,,,,,,,,,,vegetarian,false,false,,,
+skin-on-fries-served-with-wraps-burgers-and-stacks,"Skin on fries (served with wraps, burgers and stacks)",Sides with wraps & burgers,,573,,,,,,,,,,,,,,,,false,false,,,"Printed in four places, identical"
+green-salad-served-with-wraps-burgers-and-stacks,"Green salad (served with wraps, burgers and stacks)",Sides with wraps & burgers,,147,,,,,,,,,,,,,,,,false,false,,,"Printed in three places, identical"
+freshly-made-slaw-served-with-burgers-and-stacks,Freshly made slaw (served with burgers and stacks),Sides with wraps & burgers,,42,,,,,,,,,,,,,,,,false,false,,,"Printed in three places, identical"
+sweet-potato-fries-upgrade-for-wraps-burgers-and-stacks,"Sweet potato fries (upgrade for wraps, burgers and stacks)",Sides with wraps & burgers,,573,,,,,,,,,,,,,,,,false,false,,,"Printed 'for £2', in two places, identical"
+cry-fry-upgrade-for-wraps-burgers-and-stacks,"Cry fry (upgrade for wraps, burgers and stacks)",Sides with wraps & burgers,,932,,,,,,,,,,,,,,,,false,false,,,"Printed 'for £2', in two places, identical"
+warm-chocolate-fudge-cake,Warm Chocolate Fudge Cake,Desserts,,819,,,,,,,,,,,,,,,,false,false,,,
+sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,717,,,,,,,,,,,,,,,,false,false,,,
+cookie-skillet,Cookie Skillet,Desserts,,654,,,,,,,,,,,,,,,,false,false,,,
+blackberry-and-apple-crumble-with-custard,Blackberry & Apple Crumble with custard,Desserts,,504,,,,,,,,,,,,,,,,false,false,,,
+blackberry-and-apple-crumble-with-vanilla-ice-cream,Blackberry & Apple Crumble with vanilla ice cream,Desserts,,521,,,,,,,,,,,,,,,,false,false,,,
+roast-turkey-in-a-giant-yorkshire-pudding-adult,Roast Turkey in a Giant Yorkshire Pudding (adult),Sunday lunch,Adult,920,,,,,,,,,,,,,,,contains_pork,true,false,,,"'Get stuffed this Sunday!', adults 15 pounds, available from 12 noon, subject to availability"
+roast-turkey-in-a-giant-yorkshire-pudding-kids,Roast Turkey in a Giant Yorkshire Pudding (kids),Sunday lunch,Kids,460,,,,,,,,,,,,,,,contains_pork,true,false,,,"'Get stuffed this Sunday!', kids 10 pounds, available from 12 noon, subject to availability"
