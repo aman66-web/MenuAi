@@ -47,7 +47,7 @@ export default function WelcomePage() {
   const capValid = Number.isFinite(capNumber) && capNumber >= 100 && capNumber <= 2000;
 
   return (
-    <div className="flex min-h-[calc(100dvh-3rem)] flex-col">
+    <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col">
       <div className="flex items-center gap-3">
         <p className="text-sm font-semibold text-muted" aria-live="polite">Step {step} of 4</p>
         <div aria-hidden className="flex flex-1 gap-1.5">

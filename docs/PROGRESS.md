@@ -304,6 +304,21 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   with evidence in `data/audit/reviewed/<chain>.csv`; per-chain results in `data/audit/verified/<chain>.json`. `check_chain.py` now prints the audit
   and `bank.py` refuses to bank a chain with unreviewed high flags.
 
+- 2026-10-09 — **Xcode preview shell running on the founder's iPhone** (docs/XCODE_PREVIEW_SHELL.md). `ios/MenuMacrosPreview/MenuMacrosPreview.xcodeproj` was
+  created by Claude at the founder's request (overriding CLAUDE.md's "founder creates new targets" once; XcodeGen was used once as a generator and is not kept in
+  the repo: edit the project in Xcode from now on, never regenerate). It holds the four files from `ios/PreviewSources/` plus our own icon, bundle
+  `com.amanmarwaha.MenuMacrosPreview`, iOS 17, iPhone only, Swift 6 strict concurrency, team S7G6ZHHK59 (CLARIFO DEVELOPERS LTD, a paid team, so the install lasts
+  until its profile expires on 2027-07-27, not 7 days), site address `https://menumacros.vercel.app/app`. It compiled first time. Checked in the iPhone 17 Pro
+  simulator: the web view is exactly screen-sized, the page receives `env(safe-area-inset-*)` of 62/34 px, the floating tab bar sits above the home bar, pull-to-refresh
+  reloads the page, and an external link opens Safari. Installed and launched on the founder's iPhone 16 (iOS 26.5); the founder's screenshot of the Nearby map confirms
+  it runs. **Fixed on the way:** the onboarding page used `min-h-[calc(100dvh-3rem)]`, which assumed about 52 px of padding, but a notched iPhone adds 62 px at the top, so
+  it overflowed by about 46 px and the "Skip" link sat under the fold (headless browser tests have no safe area, so they never saw it): now
+  `calc(100dvh - max(1.25rem, env(safe-area-inset-top)) - 2rem)`. **Vercel:** Production is the `main` branch (fast-forwarded to the same commit as this branch) and
+  `menumacros.vercel.app/app` returns 200 with no login wall; the Production Branch setting itself is still `main` (the Vercel connector cannot edit it and the CLI is
+  not logged in), so pushes to this branch become Previews until a Production deployment is triggered or the setting is changed in the dashboard. **Nearby map logos
+  (founder's request):** pins of chains with an official logo file now show it unmodified on its plain white or dark tile, scaled to fit and never cropped or stretched
+  (`lib/mm/logoFit.ts`, tested); the selected pin gets a ring; chains without a logo file keep the green dot (CLAUDE.md rule 2).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
