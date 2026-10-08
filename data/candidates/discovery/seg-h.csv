@@ -1,0 +1,46 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,yo-chi,Yo-Chi,Frozen yogurt,,https://yochi.co.uk/,https://yochi.co.uk/nutritional-and-allergen-information/,pdf,"nutrition PDF (kJ, protein, fat, carbs, sugars per serve and per 100g) plus allergen PDF"
+,insomnia-coffee,Insomnia Coffee Company,Coffee,Insomnia Coffee Company (Ireland),https://www.insomnia.ie,https://www.insomnia.ie/menu/nutritional-information,web,kcal and protein table on web page; Irish chain with UK units
+,daisy-green,Daisy Green,Brunch cafe,,https://www.daisygreenfood.com,https://www.daisygreenfood.com/allergen-information,pdf,calories per dish in menu PDFs plus allergen info
+,mildreds,Mildreds,Vegan restaurant,,https://www.mildreds.com,https://www.mildreds.com/menu/,web,kcal per dish printed on menu page; 5 London sites
+,hummingbird-bakery,The Hummingbird Bakery,Bakery,,https://www.hummingbirdbakery.com,https://www.hummingbirdbakery.com/dietary-allergen-info,pdf,monthly allergen matrix PDF; no calories
+,caravan,Caravan,Restaurant and coffee roaster,,https://caravanandco.com,https://caravanandco.com/pages/nutrition,web,per-site allergen guides (some on flipsnack); no calories seen
+,pieminister,Pieminister,Pies,,https://www.pieminister.co.uk,https://www.pieminister.co.uk/allergens,pdf,restaurant allergen matrix PDF; also listed by another segment
+,granger-and-co,Granger & Co,Brunch cafe,,https://www.grangerandco.com,https://www.grangerandco.com/our-menus,pdf,menu PDFs carry per-dish allergen codes; no calories
+,batchd,Batch'd,Dessert,,https://www.batchd.co.uk,https://www.batchd.co.uk/pages/allergen-information,web,allergen page plus allergen booklet link
+,cream-curls,Cream Curls,Dessert,,https://creamcurls.co.uk,https://creamcurls.co.uk/allergens,web,allergen statement page; check for a per-item matrix
+,fabrique,Fabrique,Bakery,Fabrique (Sweden),https://fabrique.co.uk,https://fabrique.co.uk/allergens/,web,short allergen statement page; check for a matrix
+,poke-house,Poke House,Poke bowls,Poke House (Italy),https://poke-house.com/en-uk/home/,https://poke-house.com/en-uk/allergens/,web,UK allergen page
+,federal-cafe,Federal Cafe & Bar,Cafe,,https://federalcafe.co.uk/,https://federalcafe.co.uk/pages/allergens,pdf,allergen sheet PDFs for Manchester and Leeds
+,ginger-and-white,Ginger & White,Cafe,,https://www.gingerandwhite.com,https://www.gingerandwhite.com/pages/ingredients-allergens,web,allergen page
+,gentlemen-baristas,The Gentlemen Baristas,Coffee,,https://www.thegentlemenbaristas.com,https://www.thegentlemenbaristas.com/pages/allergens,web,allergen page
+,peggy-porschen,Peggy Porschen,Cakes and cafe,,https://www.peggyporschen.com,https://cdn.shopify.com/s/files/1/2178/1471/files/Allergen_Guide_for_Cakes_Sept_2026_web.pdf?v=1790094918,pdf,allergen and dietary guide PDF for cakes; few sites
+,gelupo,Gelupo,Gelato,,https://gelupo.com/,https://gelupo.com/pages/allergen-info,web,current allergen list; few London sites
+,notes-coffee,Notes,Coffee and wine bar,,https://notescoffee.com,,none,no allergen or nutrition link found
+,workshop-coffee,Workshop Coffee,Coffee,,https://workshopcoffee.com/,,none,no allergen or nutrition link found
+,redemption-roasters,Redemption Roasters,Coffee,,https://redemptionroasters.com/,,none,no allergen link found; few sites
+,origin-coffee,Origin Coffee,Coffee,,https://www.origincoffee.co.uk,,none,roaster shop site; no allergen link found
+,ozone-coffee,Ozone Coffee Roasters,Coffee,,https://ozonecoffee.co.uk,,none,no allergen link found; few sites
+,monmouth-coffee,Monmouth Coffee Company,Coffee,,https://www.monmouthcoffee.co.uk/,,none,well-known London brand; no allergen link found
+,artisan-roast,Artisan Roast,Coffee,,https://artisanroast.co.uk,,none,Scottish coffee bars; no allergen link found
+,kaffeine,Kaffeine,Coffee,,https://kaffeine.co.uk,,none,location menus carry only a generic allergen disclaimer
+,tap-coffee,TAP Coffee,Coffee,,https://www.tapcoffee.com,,none,no allergen link found
+,allpress-espresso,Allpress Espresso,Coffee,Allpress (New Zealand),https://allpress.com/en-gb,,none,UK cafes and roastery; no allergen link found
+,grindsmith,Grindsmith,Coffee,,https://www.grindsmith.com,,none,site blocked (robots.txt disallows all)
+,knoops,Knoops,Hot chocolate cafe,,https://knoops.com/,,none,no allergen link found
+,aubaine,Aubaine,French cafe-restaurant,,https://aubaine.co.uk,,none,per-site menus without allergens or calories
+,eggbreak,EggBreak,Brunch cafe,,https://eggbreak.com/,,none,menu page only asks guests to ask about allergens
+,ottolenghi,Ottolenghi,Deli cafe,,https://ottolenghi.co.uk/,,none,no allergen link found
+,oddonos,Oddono's,Gelato,,https://www.oddonos.com,,none,no allergen link found
+,venchi,Venchi,Gelato and chocolate,Venchi (Italy),https://www.venchi.com/uk,,none,site blocked (HTTP 403)
+,lolas-cupcakes,Lola's,Cakes and cupcakes,,https://www.lolas.co.uk,,none,no allergen link found
+,konditor,Konditor,Bakery and cakes,,https://konditor.co.uk/,,none,allergens listed per product online only
+,kova-patisserie,Kova Patisserie,Patisserie,,https://www.kovapatisserie.com,,none,no allergen link found
+,mimis-bakehouse,Mimi's Bakehouse,Bakery cafe,,https://mimisbakehouse.com/,,none,no allergen link found
+,fisher-and-donaldson,Fisher & Donaldson,Bakery cafe,,https://www.fisheranddonaldson.com,,none,no allergen link found
+,gd-cafe,G&D Cafe,Ice cream cafe,,https://www.gdcafe.com/web/,,none,Oxford-based ice cream cafes; no allergen link found
+,xing-fu-tang,Xing Fu Tang,Bubble tea,Xing Fu Tang (Taiwan),https://xingfutang.co.uk,,none,menu page with prices only
+,milksha,Milksha,Bubble tea,Milksha (Taiwan),https://www.milksha.co.uk,,none,no allergen link found
+,happy-lemon,Happy Lemon,Bubble tea,Happy Lemon (Taiwan),https://www.happy-lemon.co.uk,,none,site is JS-rendered; no allergen link found
+,oakberry,Oakberry,Acai bowls,Oakberry (Brazil),https://www.oakberry.com,,none,site is US-focused; no UK allergen page found
+,acai-and-the-tribe,Acai & The Tribe,Acai bowls,,https://www.acaiandthetribe.co.uk,,none,"menu PDFs only, no allergens"
