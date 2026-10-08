@@ -45,9 +45,9 @@ ALIASES = ["rockfish", "the rockfish", "rockfish seafood and chips", "rockfish s
 ALLERGEN_GUIDE_TITLE = "Rockfish Allergens, Gluten Free and Calories Menus (restaurant 2026.07, takeaway 2026.06)"
 ALLERGEN_GUIDE_URL = SOURCE_URL
 MAY_CONTAIN_PUBLISHED = True
-NOTE = ("Rockfish prints calories only, per dish, so protein, carbs and fat are not published. Mitch's Seasonal Selection (market fish, "
-        "crab, lobster) and drinks print no calories and are not listed. Takeaway dishes use takeaway portions; where the two menus "
-        "disagree on a dish it is left out.")
+NOTE = ("Calories only: protein, carbs and fat are not published. Mitch's Seasonal Selection (market fish, crab, lobster) and drinks print no "
+        "calories, so they are not listed. Takeaway dishes use takeaway portions; where the two menus disagree a dish is left out. "
+        "Allergen marks are for dishes as normally prepared (most can be made gluten free on request).")
 KEY = {"Celery": "celery", "Crustacean": "crustaceans", "Egg": "eggs", "Fish": "fish", "Gluten": "gluten", "Milk": "milk", "Molluscs": "molluscs",
        "Mustard": "mustard", "Nuts": "nuts", "Peanuts": "peanuts", "Sesame": "sesame", "Soya": "soya", "Sulphites": "sulphites", "Lupin": "lupin"}
 EXTRA_WORDS = {"brazil": ("nuts", "brazil nut")}     # the guide's own list "almonds, hazelnut, walnuts, cashews, pecan, brazil, pistachio, macadamia"
