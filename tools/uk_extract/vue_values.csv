@@ -1,0 +1,131 @@
+# Vue Entertainment food nutritional information (PDF 'M19911-Nutritional-FOOD - Feb 2025.pdf', SHA-256 d4fc738b9c239bc214f26069ea49df800b698788d411f73f77ed8cd55e9a79c0).
+# Transcribed by eye from the PAGES RENDERED at 220-300 dpi (the PDF's text layer drops digits, so it cannot be used for numbers), then checked a
+# second time against zoomed renders and by an independent OCR comparison. Numbers are exactly as printed, including stray units ('0g', '14g',
+# '1133g') and '-' for an empty cell. Rows marked 'exclude' carry no numbers: they are listed only so tools/uk_extract/vue.py can stop if the PDF's
+# row list changes. Column order = the PDF's: kJ, kcal, protein, carbohydrate, of which sugars, fat, of which saturates, fibre, sodium (mg), salt (g).
+page,section,product,size,status,kj,kcal,protein,carbs,sugars,fat,sat,fibre,sodium,salt
+1,POPCORN,Sweet Popcorn,Kids/Snackit,publish,1012,242,2.9,34,17,11,0.9,0,0,0
+1,POPCORN,Sweet Popcorn,Junior,publish,2834,678,8.1,95.2,47.6,30.8,2.5,0,0,0
+1,POPCORN,Sweet Popcorn,Regular,publish,4048,968,11.6,136,68,44,3.6,0,0,0
+1,POPCORN,Sweet Popcorn,Large,publish,5060,1210,14.5,170,85,55,4.5,0,0,0
+1,POPCORN,Salted Popcorn,Kids/Snackit,publish,1006,241,4.5,26.5,0.4,12,0.9,0,0,0.8
+1,POPCORN,Salted Popcorn,Junior,publish,2817,674,13.5,79.5,1.1,36,2.7,0,0,2.4
+1,POPCORN,Salted Popcorn,Regular,publish,4024,962,17.8,106,1.4,48,3.6,0,0,3.2
+1,POPCORN,Salted Popcorn,Large,publish,5030,1202.5,22.25,132.5,1.75,60,4.5,0,0,4
+1,POPCORN,Salted Popcorn (Dublin),Kids/Snackit,exclude: Dublin (Ireland) variant,,,,,,,,,,
+1,POPCORN,Salted Popcorn (Dublin),Junior,exclude: Dublin (Ireland) variant,,,,,,,,,,
+1,POPCORN,Salted Popcorn (Dublin),Regular,exclude: Dublin (Ireland) variant,,,,,,,,,,
+1,POPCORN,Salted Popcorn (Dublin),Large,exclude: Dublin (Ireland) variant,,,,,,,,,,
+1,POPCORN,Joe & Sephs Eton Mess,100g,exclude: per 100 g row,,,,,,,,,,
+1,POPCORN,Joe & Sephs Eton Mess,70g,publish,1471.4,353.5,2.9,35.6,19.3,23,14.1,2.5,-,0.4
+1,POPCORN,Joe & Sephs Strawberry & Cream,100g,exclude: per 100 g row,,,,,,,,,,
+1,POPCORN,Joe & Sephs Strawberry & Cream,70g,publish,1370.6,329,2.4,40.4,24.3,19,11.6,2.6,0,0.4
+1,POPCORN,Joe and Sephs White Chocolate & Caramel,100g,exclude: per 100 g row,,,,,,,,,,
+1,POPCORN,Joe and Sephs White Chocolate & Caramel,75g,publish,1536,369,3.3,43.5,26.3,21.8,13.5,2.7,0,0.4
+2,"POPCORN - CLEVELEYS, CWMBRAN, DONCASTER, FINCHLEY ROAD, INVERNESS & READING",Sweet Popcorn,Kids/Snackit,exclude: six named cinemas only,,,,,,,,,,
+2,"POPCORN - CLEVELEYS, CWMBRAN, DONCASTER, FINCHLEY ROAD, INVERNESS & READING",Sweet Popcorn,Regular,exclude: six named cinemas only,,,,,,,,,,
+2,"POPCORN - CLEVELEYS, CWMBRAN, DONCASTER, FINCHLEY ROAD, INVERNESS & READING",Sweet Popcorn,Large,exclude: six named cinemas only,,,,,,,,,,
+2,"POPCORN - CLEVELEYS, CWMBRAN, DONCASTER, FINCHLEY ROAD, INVERNESS & READING",Salted Popcorn,Kids/Snackit,exclude: six named cinemas only,,,,,,,,,,
+2,"POPCORN - CLEVELEYS, CWMBRAN, DONCASTER, FINCHLEY ROAD, INVERNESS & READING",Salted Popcorn,Regular,exclude: six named cinemas only,,,,,,,,,,
+2,"POPCORN - CLEVELEYS, CWMBRAN, DONCASTER, FINCHLEY ROAD, INVERNESS & READING",Salted Popcorn,Large,exclude: six named cinemas only,,,,,,,,,,
+2,POPCORN TOPPINGS,M&M Chocolate Popcorn Topping,60g,publish,1209.6,288,3.1,42,39.6,11.4,7.2,0,0,0.1
+2,POPCORN TOPPINGS,Wotsits Crunchy - Really Cheesy,35g,publish,806.4,193.2,1.8,19.6,2,11.9,1.7,0.3,0,0.5
+2,POPCORN TOPPINGS,Wotsits Crunchy - Flamin’Hot,35g,publish,798,191.1,1.9,19.6,1.2,11.6,1.5,0.4,0,0.5
+3,HOT DOGS,Pork Frankfurter,Large,publish,1401,335,15.6,7.3,1.4,27,9.9,0g,864,2.2
+3,HOT DOGS,Pork Frankfurter,Regular,publish,883,211,9.9,4.6,0.9,17,6.2,0g,544,1.4
+3,HOT DOGS,Bread Roll,Regular,publish,844,202,6.8,36.4,4,2.7,0.9,2.7g,236,0.6
+3,HOT DOG COMBINATIONS,The Yankee,Regular,publish,2173,520,18,51,7.8,27,10.2,3.4,840,2.2
+3,HOT DOG COMBINATIONS,The Yankee,Large,publish,2691,644,23.6,58.7,8.3,37,13.9,3.4,1160,3
+3,HOT DOG COMBINATIONS,The Brooklyn,Regular,publish,2303,552,18.6,52.2,9.5,30,10.4,3.4,780,2.4
+3,HOT DOG COMBINATIONS,The Brooklyn,Large,publish,2732,676,23.8,9,9.96,40,14.1,3.4,1100,3.2
+3,HOT DOG COMBINATIONS,Nacho Libre,Regular,publish,1877,449,17.1,46.3,6.5,20.8,7.2,3,813,3
+3,HOT DOG COMBINATIONS,Nacho Libre,Large,publish,2395,573,22.9,49,7,30.8,10.9,3,1133g,3.9
+3,HOT DOG COMBINATIONS,West Side Sizzler,Regular,publish,2218,530,18,53.7,10.6,26.5,10.1,3.4,840,2.2
+3,HOT DOG COMBINATIONS,West Side Sizzler,Large,publish,2736,654,23.7,56.4,11.1,36.5,13.8,3.4,1160,3
+3,HOT DOG COMBINATIONS,Harlem Hot,Regular,publish,2227,533,17.7,49,6.75,29,10.3,3.4,840,2.2
+3,HOT DOG COMBINATIONS,Harlem Hot,Large,publish,2745,657,23.4,56.7,7.25,39,14g,3.4,1160,3
+3,NACHOS,Lightly Salted Doritos,Regular,publish,1227,293.4,3.72,36.72,0.72,13.8,1.68,3.78,0,0.432
+3,NACHOS,Lightly Salted Doritos,Large,publish,2250,537.9,6.82,67.32,1.32,25.3,3.08,6.93,0,0.792
+3,NACHOS,Chilli Heatwave Doritos,Regular,publish,1210,297,3.8,34.4,3.5,15.2,1.2,4.1,810,2.1
+3,NACHOS,Chilli Heatwave Doritos,Large,publish,2278,545,7,63.1,6.4,27.9,2.2,7.4,1485,3.77
+3,NACHOS,Tangy Extra Flamin Hot Doritos,Regular,publish,1204.8,288,3.84,36,1.992,13.2,1.14,3.42,216,0.54
+3,NACHOS,Tangy Extra Flamin Hot Doritos,Large,publish,2208.8,528,7.04,66,3.652,24.2,2.09,6.27,396,0.99
+3,NACHOS,Tangy Cheese Doritos,Regular,publish,1253,300,4.1,33.3,1.6,15.8,1.5,4.1,762,1.94
+3,NACHOS,Tangy Cheese Doritos,Large,publish,2297,549,7.5,61,2.9,29,2.7,7.4,1397,3.56
+3,NACHO TOPPINGS,Hombre Salsa,100g,exclude: per 100 g row only,,,,,,,,,,
+3,NACHO TOPPINGS,Cheese Sauce,100g,exclude: per 100 g row only,,,,,,,,,,
+3,NACHO TOPPINGS,Jalapeno Peppers,100g,exclude: per 100 g row only,,,,,,,,,,
+3,NACHO TOPPINGS,Hombre Salsa-Dip Portion Pack (Ireland),100g,exclude: Ireland variant and per 100 g row only,,,,,,,,,,
+4,NACHO TOPPINGS,Hombre Salsa Dip (Swindon),100g,exclude: single cinema (Swindon) and per 100 g row only,,,,,,,,,,
+4,NACHO TOPPINGS,Cheese Dip (Swindon),100g,exclude: single cinema (Swindon) and per 100 g row only,,,,,,,,,,
+4,PRE-PACKED,Candy Floss (Dublin),70g,exclude: Dublin (Ireland) variant,,,,,,,,,,
+4,PRE-PACKED,Candy Floss (Dublin),25g,exclude: Dublin (Ireland) variant,,,,,,,,,,
+4,PRE-PACKED,Doritos Cool Original,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Doritos Cool Original,180g,publish,3126,747,8.9,87.2,4.1,38.3,2.7,8.4,888,2.2
+4,PRE-PACKED,Jacobs Sea salt and Vinegar Cracker Crisps,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Jacobs Sea salt and Vinegar Cracker Crisps,150g,publish,2949,705,7.8,101,11.3,29,7.2,3.6,1.1,3.2
+4,PRE-PACKED,Jacobs Sour Cream and Chive Cracker Crisps,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Jacobs Sour Cream and Chive Cracker Crisps,150g,publish,2949,705,8.6,99.6,10.2,29.4,7.5,3.8,1.1,2.7
+4,PRE-PACKED,Joe and Sephs Caramel and Belgian Choc,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Joe and Sephs Caramel and Belgian Choc,80g,publish,1602,384,3,49.6,31.2,21.6,12.8,3,0,0.4
+4,PRE-PACKED,Joe and Sephs Cheddar Popcorn,70g,publish,1877,453,10.3,18.3,0.1,37.6,7,0,0,0.9
+4,PRE-PACKED,Joe and Sephs Dark Choc Pop Bites,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Joe and Sephs Dark Choc Pop Bites,63g,publish,1353,324,3,32.1,27.7,19.5,12,4.7,0,0.5
+4,PRE-PACKED,Joe and Sephs Milk Choc Popcorn Bites,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Joe and Sephs Milk Choc Popcorn Bites,63g,publish,1391,333,3.8,34,30.2,20.2,12,2.1,0,0.5
+4,PRE-PACKED,Joe and Sephs Orange Marmalade Gourmet,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Joe and Sephs Orange Marmalade Gourmet,70g,publish,1263.5,303.1,2.5,43.6,29.1,14,8.5,0,0,0.3
+4,PRE-PACKED,Joe and Sephs Salted Caramel Pop,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Joe and Sephs Salted Caramel Pop,80g,publish,1613,385,2.6,52.2,32.2,17.7,11.5,0,0,1.1
+4,PRE-PACKED,Keogh’s Irish Sea Salt & Irish Cider Vinegar Crisps,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Keogh’s Irish Sea Salt & Irish Cider Vinegar Crisps,125g,publish,2683.8,641.3,5.4,71,2.9,33.1,2.9,1.4,0,3.7
+4,PRE-PACKED,Keogh’s Mature Irish Cheese & Onion Crisps,100g,exclude: per 100 g row,,,,,,,,,,
+4,PRE-PACKED,Keogh’s Mature Irish Cheese & Onion Crisps,125g,publish,2727.5,653.8,9.1,62.6,2.6,33.1,3.4,5.6,0,1.2
+5,PRE-PACKED,Sensations Chicken & Thyme,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Sensations Chicken & Thyme,175g,publish,3622.5,866,10.3,104.1,5.8,43.8,3.9,7.2,1.2,2.9
+5,PRE-PACKED,Sensations Thai Sweet Chilli,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Sensations Thai Sweet Chilli,150g,publish,3164,756,8.7,89,5.6,40,3.3,6,2.3,6
+5,PRE-PACKED,Popworks - Sweet & Salty,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Popworks - Sweet & Salty,85g,publish,1662.6,387,5.8,63.6,8.8,12.8,1.1,1.1,0,0.9
+5,PRE-PACKED,Sensations Poppadoms,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Sensations Poppadoms,82.5g,publish,1682,402,5.3,48,2.1,20.7,2,1.7,0,0
+5,PRE-PACKED,Walkers Max Strong Chicken Wings,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Walkers Max Strong Chicken Wings,150g,publish,3339,798,9.5,76.5,4.8,49.5,4.1,4.5,0.8,2.1
+5,PRE-PACKED,Walkers Max Extra Flamin Hot,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Walkers Max Extra Flamin Hot,130g,publish,2762.5,660.4,9,67.6,2.6,37.7,3,5.6,348.4,0.9
+5,PRE-PACKED,Walkers Monster Munch Pickled Onion,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Walkers Monster Munch Pickled Onion,40g,publish,823.6,196.8,2.4,24,1.2,10,0.8,0.7,248,0.6
+5,PRE-PACKED,Walkers Wotsits Giants Flamin Hot Crisps,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Walkers Wotsits Giants Flamin Hot Crisps,130g,publish,2892.5,692.9,7.4,74.6,4.8,40.3,3.3,2.2,0,2.2
+5,PRE-PACKED,Walkers Wotsits Giants Really Cheesy Crisps,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Walkers Wotsits Giants Really Cheesy Crisps,130g,publish,2676.7,642.2,7,59.8,9.4,41.6,3.8,0.3,0,2.1
+5,PRE-PACKED,Wotsits Crunchy - Really Cheesy,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Wotsits Crunchy - Really Cheesy,140g,publish,3225.6,772.8,7.1,78.4,8.1,47.6,6.7,1.3,0,1.8
+5,PRE-PACKED,Wotsits Crunchy - Extra Flamin Hot,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Wotsits Crunchy - Extra Flamin Hot,130g,publish,2589.6,618.8,8.1,88.4,4.8,24.7,4.8,3.4,572,1.4
+5,PRE-PACKED,Wotsits Crunchy - Flamin Hot,100g,exclude: per 100 g row,,,,,,,,,,
+5,PRE-PACKED,Wotsits Crunchy - Flamin Hot,140g,publish,3192,764.4,7.4,78.4,4.6,46.2,5.9,1.4,0,2.1
+5,PRE-PACKED,Giant Wotsits Prawn Cocktail,100g,exclude: per 100 g row,,,,,,,,,,
+6,PRE-PACKED,Giant Wotsits Prawn Cocktail,105g,publish,2187.2,521.9,5.9,67.9,3.6,24.8,1.9,1.8,0,1.5
+6,PRE-PACKED,Ollys Pretzel Thins Sweet Chilli,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Ollys Olives Chilli & Rosemary,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Ollys Olives Basil & Garlic,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Ollys Pretzel Thins - Sour cream & Onion,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Ollys Pretzel Thins - Salted,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Walkers Max Strong Jalapeno & Cheese,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Walkers Max Spicy Prawn Cocktail,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Sensations Honey & Salt Roasted Peanuts,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Sensations Thai Sweet Chilli Peanuts,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Doritos Chilli Heatwave,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PRE-PACKED,Doritos Tangy Cheese,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PROTEIN BARS,McVities Chocolate HobNob Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PROTEIN BARS,McVities Gold Bullion Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PROTEIN BARS,McVities Jaffa Cake Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PROTEIN BARS,Misfits Cookie Dough Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PROTEIN BARS,Misfits Brownie Protein Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PROTEIN BARS,Misfits Caramel Fudge Protein Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+6,PROTEIN BARS,Misfits Cookie Butter Protein Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+7,PROTEIN BARS,Quakers Golden Syrup Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+7,PROTEIN BARS,Grenade Oreo Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+7,PROTEIN BARS,Grenade White Cookie Bar,100g,exclude: per 100 g row only,,,,,,,,,,
+7,PROTEIN BARS,Grenade White Oreo Bar,100g,exclude: per 100 g row only,,,,,,,,,,
