@@ -1,2 +1,5 @@
 item_id,reason
 olives,"The table prints 237 kcal; its own macros (1.7 g protein, 1.0 g carbs, 4.1 g fat) add up to about 48 kcal."
+vegetarian-breakfast-gluten-free,"Allergen row contradicts the dish's description ('one fried egg, ...'): the page's Contains line prints Milk only and does not mention eggs at all (the regular Vegetarian Breakfast lists eggs under May contain)."
+mussels,"Allergen row contradicts the dish's description ('steamed to order in white wine, garlic and cream sauce'): the page's Contains line prints Milk / Molluscs and no sulphites, while the chain marks sulphites on its other wine dishes."
+mussels-gluten-free,"Allergen row contradicts the dish's description ('steamed to order in white wine, garlic and cream sauce'): the page's Contains line prints Milk / Molluscs and no sulphites, while the chain marks sulphites on its other wine dishes."

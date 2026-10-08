@@ -130,6 +130,15 @@ def classify(rec: dict):
 
 HOLDBACK = {
     "Olives": "The table prints 237 kcal; its own macros (1.7 g protein, 1.0 g carbs, 4.1 g fat) add up to about 48 kcal.",
+    # Added by the independent accuracy re-check of 2026-10-08: the page's allergen line contradicts the dish's own description.
+    "Vegetarian Breakfast (Gluten-free)": ("Allergen row contradicts the dish's description ('one fried egg, ...'): the page's Contains line "
+                                           "prints Milk only and does not mention eggs at all (the regular Vegetarian Breakfast lists eggs "
+                                           "under May contain)."),
+    "Mussels": ("Allergen row contradicts the dish's description ('steamed to order in white wine, garlic and cream sauce'): the page's "
+                "Contains line prints Milk / Molluscs and no sulphites, while the chain marks sulphites on its other wine dishes."),
+    "Mussels (Gluten free)": ("Allergen row contradicts the dish's description ('steamed to order in white wine, garlic and cream sauce'): "
+                              "the page's Contains line prints Milk / Molluscs and no sulphites, while the chain marks sulphites on its "
+                              "other wine dishes."),
 }
 NOTE = ("Per portion as printed on the chain's menu pages. Wines, cocktails and most drinks print no numbers and are not listed; "
         "afternoon tea, Sunday roast (Centre Parcs only) and the Christmas Day menus are not listed. Extras and the side served "

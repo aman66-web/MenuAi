@@ -44,13 +44,13 @@ BASE_URL = "https://tkmenus.com/barburrito"
 CHAIN_PAGE = "https://barburrito.co.uk/menu/"
 # label -> (menu id, name on the page's menu list, entries expected on the page, published?)
 MENUS = {
-    "burritos": ("663d8e54-6c96-48e9-922f-fbdf4d349f28", "Burritos", 194, True),
-    "bowls": ("c860a62f-d507-4b0c-9a7e-b74c9a020a6d", "Bowls", 149, True),
+    "burritos": ("663d8e54-6c96-48e9-922f-fbdf4d349f28", "Burritos", 187, True),
+    "bowls": ("c860a62f-d507-4b0c-9a7e-b74c9a020a6d", "Bowls", 143, True),
     "extras": ("92a108d5-3dc8-4123-8875-b2821d3f3f90", "Main Menu Extras", 17, True),
-    "nachos": ("616c73ba-0214-47be-a36b-8a67352a0338", "Nachos", 34, True),
+    "nachos": ("616c73ba-0214-47be-a36b-8a67352a0338", "Nachos", 33, True),
     "sides": ("6b5f2784-19c0-437e-8311-426df565f4d9", "Sides", 40, True),
     "desserts": ("2bb8651d-a09e-4731-a5f8-6269c3c73bb7", "Dessert Menu", 6, True),
-    "kids": ("ee30ba61-1941-40b6-8d39-637784325171", "Kids Menu", 73, True),
+    "kids": ("ee30ba61-1941-40b6-8d39-637784325171", "Kids Menu", 71, True),
     "breakfast": ("e2798692-f63d-4a05-843a-f86c7e33f69e", "BREAKFAST", 38, False),  # airport stores only
     "drinks": ("3d57d95f-96b6-410b-b96b-b71536b1211f", "Drinks Menu", 33, True),
 }
@@ -133,6 +133,14 @@ RENAME = {
 }
 EXCLUDED_NO_KCAL = {"Sparkling Wine - Prosecco"}
 EXCLUDED_AMBIGUOUS = ("drinks", "Bottomless Soda")  # printed twice, 18 and 15 kcal, nothing tells them apart
+# Entries the page contradicts itself about (kept in items.csv, not published; nothing is corrected). Keys are the item names written below.
+_VEGAN_FRIES = ("Listed under the chain's own 'VEGAN LOADED FRIES' heading, but the page's allergens for it include Milk and its 'Suitable for' "
+                "line says Vegetarians only (a plain vegan dish would say Vegans): the page is inconsistent about whether this is vegan, and "
+                "neither reading is chosen. Restore by deleting this line once BarBurrito corrects the page.")
+HOLDBACK = {
+    "Loaded Fries - VG Steak (Vegan loaded fries)": _VEGAN_FRIES,
+    "Loaded Fries - Veg & Guac VG": _VEGAN_FRIES,
+}
 EMOJI = re.compile(r"[☀-➿\U0001F300-\U0001FAFF️]")
 
 
@@ -357,6 +365,9 @@ def main() -> int:
             notes += f"; {conflict}"
         items.append({"name": name, "category": e["category"], "serving": serving_of(name), "calories": e["kcal"],
                       "tags": tags, "rankable": False, "notes": notes, "allergens": e["allergens"]})
+    missing_hold = sorted(set(HOLDBACK) - {i["name"] for i in items})
+    if missing_hold:
+        raise SystemExit(f"HOLDBACK names no longer on the menu (the pages changed): {missing_hold}")
     rank = {c: i for i, c in enumerate(CAT_ORDER)}
     unknown = sorted({i["category"] for i in items} - set(rank))
     if unknown:
@@ -365,7 +376,7 @@ def main() -> int:
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="BarBurrito", cuisine="Mexican", source_title=SOURCE_TITLE.format(date=args.checked_on),
         source_url=BASE_URL, checked_on=args.checked_on, aliases=["barburrito", "bar burrito", "bar burrito uk"], items=items, out=args.out,
-        note=NOTE, nutrition_level="calories",
+        note=NOTE, nutrition_level="calories", holdback=[(slug(n), why) for n, why in HOLDBACK.items()],
         allergen_guide={"title": ALLERGEN_TITLE.format(date=args.checked_on), "url": BASE_URL, "checked_on": args.checked_on,
                         "may_contain_published": True})
     for label in MENUS:

@@ -48,7 +48,7 @@ from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "rick-steins"
 BASE = "https://rickstein.com/wp-content/uploads/2024/02/"
 SOURCE_URL = "https://rickstein.com/restaurants/"
-SOURCE_TITLE = "Rick Stein restaurant menus with calories (13 PDFs on rickstein.com, created 21 April to 4 October 2026; read 2026-10-07)"
+SOURCE_TITLE = "Rick Stein restaurant menus with calories (13 PDFs on rickstein.com, created 21 April to 4 October 2026; read 2026-10-08)"
 ALIASES = ["rick stein", "rick steins", "rick stein's", "rick stein's cafe", "rick steins cafe", "rick stein padstow", "st petrocs bistro",
            "the seafood restaurant padstow"]
 NOTE = ("Calories only, copied from each restaurant's own menu PDF: The Seafood Restaurant, St Petroc's Bistro and Rick Stein's Café "
@@ -397,6 +397,13 @@ def build(pdf_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[dict]]
     for d in items:
         if d["entry"].n == 2 and not d["entry"].labels:
             holds[id(d)] = f"The {d['menu_label']} prints two different figures for this dish ({d['kcal']} and {d['extra'][0]} kcal). Not published."
+    # basis not printed: the Cornish Arms prints one figure per flavour under the heading "TREATS (3 scoops)" and does not say whether it is for
+    # one scoop or for the three (the Bistro's own "3 scoops 519kcal" for mixed ice cream and sorbet suggests per scoop, but nothing is estimated)
+    for d in items:
+        if d["name"].startswith("Treleavens ") and d.get("serving") == "3 scoops":
+            why = ("The menu prints one figure per flavour under a '(3 scoops)' heading and does not say whether it is for one scoop or for "
+                   "the three, so the portion the figure describes is unknown. Not published.")
+            holds[id(d)] = holds[id(d)] + " " + why if id(d) in holds else why
     # names: a name used at several restaurants gets the restaurant added; a clash inside one restaurant gets the menu added
     by_name: dict = {}
     for d in items:
