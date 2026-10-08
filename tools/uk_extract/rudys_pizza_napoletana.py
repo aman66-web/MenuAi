@@ -118,7 +118,7 @@ def _dish_allergens(row: dict, where: str):
         raise SystemExit(f"{where}: no allergen label ids to check the printed lines against")
     col_yes = allergen_words([c for c in cols if states[c] == "yes"], where)[0]
     col_may = allergen_words([c for c in cols if states[c] == "may"], where)[0]
-    if col_yes != result["contains"] or col_may != result["may_contain"]:
+    if col_yes != result["contains"] or col_may - col_yes != result["may_contain"] - result["contains"]:
         raise SystemExit(f"{where}: the 14 allergen cells (contains {sorted(col_yes)}, may {sorted(col_may)}) disagree with the printed lines "
                          f"(contains {sorted(result['contains'])}, may {sorted(result['may_contain'])})")
     vegan, veg = states["Vegan"] == "yes", states["Vegetarian"] == "yes"

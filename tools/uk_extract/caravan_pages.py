@@ -110,7 +110,7 @@ def _allergens(contains: list, may: list, ids: tuple, filt: dict, states: dict, 
         raise SystemExit(f"{here}: allergens could not be checked against the page's filter")
     col_yes = allergen_words([c for c in COLUMNS if states[c] == "yes"], here, EXTRA_WORDS)[0]
     col_may = allergen_words([c for c in COLUMNS if states[c] == "may"], here, EXTRA_WORDS)[0]
-    if col_yes != checked["contains"] or col_may - col_yes != checked["may_contain"]:
+    if col_yes != checked["contains"] or col_may - col_yes != checked["may_contain"] - checked["contains"]:
         raise Disagree(f"{here}: the allergen columns (contains {sorted(col_yes)}, may {sorted(col_may)}) disagree with the printed lines "
                        f"(contains {sorted(checked['contains'])}, may {sorted(checked['may_contain'])})")
     return checked

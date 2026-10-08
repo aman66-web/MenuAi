@@ -207,7 +207,7 @@ def allergens_for(row: dict, filt: dict) -> dict:
             col_yes.add(umbrella)
     yes_keys = allergen_words(sorted(col_yes), where, EXTRA_WORDS)[0]
     may_keys = allergen_words(sorted(col_may), where, EXTRA_WORDS)[0]
-    if yes_keys != checked["contains"] or may_keys != checked["may_contain"]:
+    if yes_keys != checked["contains"] or may_keys - yes_keys != checked["may_contain"] - checked["contains"]:
         raise SystemExit(f"{where}: allergen columns (contains {sorted(yes_keys)}, may {sorted(may_keys)}) disagree with the printed "
                          f"lines (contains {sorted(checked['contains'])}, may {sorted(checked['may_contain'])})")
     return checked

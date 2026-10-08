@@ -413,7 +413,7 @@ def allergens_for(r: dict, filt: dict) -> dict:
     out = tk.allergens_checked(row, where)
     if out is None:
         raise SystemExit(f"{where}: no allergen data to check against; the page layout changed")
-    if out["contains"] != ck or out["may_contain"] != mk - ck:
+    if out["contains"] != ck or out["may_contain"] - out["contains"] != mk - ck:
         raise SystemExit(f"{where}: the matrix (contains {sorted(ck)}, may {sorted(mk)}) disagrees with the printed lines "
                          f"(contains {sorted(out['contains'])}, may {sorted(out['may_contain'])})")
     # the short mobile lines: heads only

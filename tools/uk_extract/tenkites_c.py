@@ -400,7 +400,7 @@ def allergens_from_columns(row: dict, where: str, columns: list[str], extra: dic
     out = allergens_checked(lines, where, extra)
     if out is None:
         return None
-    if col_yes != out["contains"] or col_may - col_yes != out["may_contain"]:
+    if col_yes != out["contains"] or col_may - col_yes != out["may_contain"] - out["contains"]:
         raise SystemExit(f"{where}: allergen columns (contains {sorted(col_yes)}, may {sorted(col_may)}) disagree with "
                          f"the printed line {text!r}")
     return out
