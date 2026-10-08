@@ -49,6 +49,10 @@ same (contains and may-contain, as sets of the 14 allergens). Nothing is inferre
 - drinks print no "may contain" line (except Coffee Frappe and Strawberry & White Chocolate Iced Matcha), and the product pages say that
   "May Contain" information, where there is any, sits in the Nutrition block; so a drink without that line has no traces listed (the app
   shows every unlisted allergen as "Not listed", never "free from");
+- the two pages really disagree for Toffee Apple, Churro and Speculoos Caramel Crumb (the allergen page lists Nuts only as "may contain", the
+  product page lists Nuts as contained): held back, neither is chosen;
+- Maple Pecan Pie Latte and Churro Iced Matcha: both pages print milk only although the names say pecan, pie and churro: held back
+  (NAME_CONTRADICTS, docs/ACCURACY_AUDIT.md policy 3);
 - Hazelnut Pie and Glazed Munchkins stay held back for their calories (two figures on the chain's website).
 Self-checks: every published item has a row; both pages agree for every published product; an unknown allergen word stops the run.
 Set PUBLISH_ALLERGENS = False to go back to the link only (and drop the allergen hold-backs).
