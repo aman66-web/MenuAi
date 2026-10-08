@@ -1,0 +1,11 @@
+item_id,reason
+8-boneless-bites-meal,"kJ and kcal contradict each other: 2802 kJ vs 770 kcal (kJ/kcal 3.64, usual 4.18)"
+extra-chicken-breast,website 'Double up your sandwich for £3.00' +136 kcal vs 176 kcal here
+slims-salad-meal,website 'Slim's Salad' from 663 kcal vs 542 kcal here: 'from' minimum is not within 5% above ours
+buffalo-blue-loaded-fries,website 'Buffalo & Blue Cheese Loaded Fries' 597 kcal vs 586 kcal here: differs
+coleslaw,website 'Coleslaw' 313 kcal vs 281 kcal here: differs
+slims-sauce,website 'Slim Sauce' 194 kcal vs 226 kcal here: differs
+kids-tenders-meal,website 'Tenders Meal' 529 kcal vs 452 kcal here: differs
+kids-tender-mac-and-cheese,website 'Tender Mac & Cheese' 749 kcal vs 726 kcal here: differs
+kids-boneless-bite-meal,"website 'Boneless Bites Meal' 571 kcal vs 534 kcal here: differs; kJ and kcal contradict each other: 1911 kJ vs 534 kcal (kJ/kcal 3.58, usual 4.18)"
+mocha-shake,website 'Mocha Shake' 698 kcal vs 644 kcal here: differs
