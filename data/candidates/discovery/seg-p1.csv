@@ -1,0 +1,95 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,yalla-yalla,Yalla Yalla,Lebanese,,https://yalla-yalla.co.uk/,https://yalla-yalla.co.uk/wp-content/uploads/2026/08/YallaYalla_AllergenMenu_Spring2026_v04.pdf,pdf,"Allergen & Calorie menu PDF (kcal per dish, 14 allergens); London sites, about 3 (count unverified)"
+,koya,Koya,Japanese udon,,https://www.koya.co.uk,https://www.koya.co.uk/menu/city-allergens,web,"allergens menu page per site (City, Soho, Hackney), no nutrition; 3 sites; pages set a cookie redirect"
+,lantana,Lantana Cafe,Australian cafe,,https://lantana.co.uk/,https://lantanacafe.cdn.prismic.io/lantanacafe/bbQrQgqHzjbizD9q_LantanaAllergenMatrixJuly2026-Fitzrovia.xlsx,web,"allergen matrix .xlsx per site group (July 2026), no nutrition; 3+ London cafes"
+,goodman,Goodman,Steak,,https://www.goodmanrestaurants.com,https://www.goodmanrestaurants.com/journal/goodman-mayfair-allergy-menu,web,"allergy menu web page per site (contains / cross-contamination per dish), no nutrition; Mayfair, City, Canary Wharf"
+,m-manze,M. Manze,Pie and mash,,https://www.manze.co.uk,https://www.manze.co.uk/allergen-content/,web,"allergen charts per shop group, no nutrition; family pie and mash shops, about 5 (count unverified)"
+,banh-mi-bay,Banh Mi Bay,Vietnamese,,https://www.banhmibay.co.uk,https://www.banhmibay.co.uk/s/Allergen.pdf,pdf,"allergen matrix PDF, no nutrition; 3 London sites (Holborn, Fitzrovia, Surrey Quays)"
+,mr-bao,Mr Bao,Taiwanese,,https://mrbao.co.uk/,https://mrbao.co.uk/wp-content/uploads/2025/03/Allergen-Sheet-Mr-Bao-updated-25_03_25.pdf,pdf,"EU-14 allergen sheet PDF (March 2025), no nutrition; 4-5 sites incl. Daddy Bao and Master Bao Westfield"
+,wolseley-hospitality-group,The Wolseley Hospitality Group,European,"Brasserie Zedel, The Wolseley, The Delaunay, Colbert",https://thewolseleyhospitalitygroup.com,https://www.brasseriezedel.com/wp-content/uploads/2020/02/00728_Zedel_Winter_2026_MainMenu_and_WineList_KCAL.pdf,pdf,kcal in brackets after every dish in menu PDFs (Brasserie Zedel Winter 2026); other sites' menus not checked; about 8 London sites
+,zaap-thai,Zaap Thai,Thai,,https://zaapthai.co.uk/,https://zaapthai.co.uk/wp-content/uploads/2026/02/Updated-2025-Allergy-Zaap-Menu.pdf,pdf,"allergy matrix PDF for the whole menu (Dec 2025), no nutrition; 8 sites (Leeds, Sheffield, Nottingham, Newcastle, York, Durham, Manchester)"
+,rola-wala,Rola Wala,Indian wraps,,https://rolawala.com/,https://rolawala.com/wp-content/uploads/2024/07/RLW-Nutrition-2024-v3.0.pdf,pdf,"nutrition chart PDF 2024 (kcal, fat, saturates, carbs, sugars, fibre, protein per roll) plus allergens; UK site count unverified"
+,hippo-bars,Hippo Bars (Bar Soho),Bars,Hippo,https://www.barsoho.co.uk,https://tkmenus.com/hippo,platform:tkmenus.com,Ten Kites 'Allergen & Nutritional Data' with kcal per item (Bar Soho and LGBTQIA+ bars/pubs menus); site count unverified
+,dirty-bones,Dirty Bones,American,,https://dirty-bones.com/,https://igfd.menu/london/dirty-bones-guzd,platform:igfd.menu,"interactive allergen menu on Ingredifind, JS-rendered (content unread); about 4 sites"
+,burgerism,Burgerism,Burgers,,https://www.burgerism.co.uk,https://burgerismallergens.netlify.app/,web,"allergen (and nutrition) web app linked from the site, JS bundle (content unread); about 10 sites in south England"
+,brightside,Brightside,Roadside diner,Loungers,https://brightside.co.uk/,https://menus.tenkites.com/loungers/brightside,platform:menus.tenkites.com,"Ten Kites allergen matrix with kcal per dish; 4 sites (Honiton, Exeter, Saltash, Ram Jam); Loungers sister brand"
+,permit-room,Dishoom Permit Room,Indian bar,Dishoom,https://www.permitroom.co.uk,https://app.served-app.com/permit-room,platform:served-app,"allergen menus with filters on the Served app, no nutrition seen; 5 sites (Brighton, Cambridge, Liverpool, Oxford, Portobello); Dishoom sister brand"
+,zerodegrees,Zerodegrees,Brewpub,,https://www.zerodegrees.co.uk,https://www.zerodegrees.co.uk/allergens,web,"allergen PDFs per venue linked from the page (e.g. Blackheath, Feb 2025), no nutrition; 4-5 brewery restaurants"
+,chick-fil-a-uk,Chick-fil-A UK,Chicken,Chick-fil-A,https://www.chick-fil-a.co.uk,https://www.chick-fil-a.co.uk/wp-content/uploads/sites/2/2026/09/387155-UK_Allergen_Sign_Digital.pdf,pdf,"'Nutrition & Allergens' page links a UK PDF; well-known brand, UK site count unverified"
+,yum-bun,Yum Bun,Taiwanese buns,,https://www.yumbun.com,https://www.yumbun.com/restaurants/old-spitalfields-market,web,"allergen PDF per site (Spitalfields, Seven Dials) hosted on a Webflow CDN whose robots.txt disallows PDFs (needs a manual download); no nutrition; 3-4 sites"
+,alley-cats-pizza,Alley Cats Pizza,Pizza,,https://www.alleycatspizza.co.uk,https://www.alleycatspizza.co.uk/Allergens,web,Allergens page exists but is JS-rendered (content unread); about 6 London sites
+,jamaica-blue,Jamaica Blue,Coffee,,https://www.jamaicablue.co.uk,https://allergens-jamaicablue.co.uk/,web,"'Allergens and Nutrition Information' microsite, JS-rendered (content unread); UK site count unverified"
+,galloways-bakers,Galloways Bakers,Bakery,,https://www.gallowaysbakers.co.uk,https://www.gallowaysbakers.co.uk/allergens,web,allergens page exists but is JS-rendered (content unread); about 10 shops in Lancashire and Merseyside (unverified)
+,the-restaurant-hub,The Restaurant Hub,Cafe / restaurants,"The Restaurant Group (Carluccio's, Sainsbury's car parks)",https://therestauranthub.co.uk/,https://menus.tenkites.com/brg/therestauranthub,platform:menus.tenkites.com,"footer 'Allergens & Nutrition' link to Ten Kites menus (kcal and allergens per dish); 21 sites, two branded CAFFE Carluccio's"
+,pizza-punks,Pizza Punks,Pizza,,https://pizzapunks.co.uk/,https://pizzapunks.co.uk/pizzapunks/uploads/2026/10/Mainland-Allergen1026.pdf,pdf,"food allergen guide PDF (Oct 2026) plus a drinks allergen guide PDF; no nutrition seen; 6 sites (Glasgow, Belfast, Newcastle, Leeds, Liverpool, Nottingham)"
+,voodoo-rays,Voodoo Ray's,Pizza,,https://voodoorays.com/,,none,no allergen link found; about 4 London sites
+,sacro-cuore,Sacro Cuore,Pizza,,https://www.sacrocuore.co.uk,,none,no allergen link found; about 6 London sites
+,tommis-burger-joint,Tommi's Burger Joint,Burgers,,https://tommisburgerjoint.com,,none,no allergen link found; about 5 London sites
+,hache,Hache,Burgers,,https://www.hacheburgers.com,,none,no allergen link found; about 6 London sites
+,moshi-moshi,Moshi Moshi,Sushi,,https://www.moshimoshi.co.uk,,none,no allergen link found (menu PDFs only); 3 London sites
+,patara,Patara,Thai,,https://www.pataralondon.com,,none,no allergen link found; about 4 London sites
+,cay-tre,Cay Tre,Vietnamese,,https://caytre.co.uk/,,none,no allergen link found; 3 London sites
+,hoppers,Hoppers,Sri Lankan,JKS Restaurants,https://www.hopperslondon.com,,none,"no allergen link on home or menu pages; 4 sites (Soho, Marylebone, King's Cross, Shoreditch)"
+,jks-restaurants,JKS Restaurants,Indian,"Gymkhana, Hoppers, Kricket, Brigadiers, Lyle's",https://www.jksrestaurants.com,,none,group site; no allergen link found; 10+ sites
+,gunpowder,Gunpowder,Indian,,https://gunpowderrestaurants.com,,none,no allergen link found; about 4 sites
+,honey-and-co,Honey & Co,Middle Eastern,,https://honeyandco.co.uk/,,none,menu PDFs only (S3 host blocks robots); about 4 sites
+,cottons,Cottons,Caribbean,,https://www.cottons-restaurant.co.uk,,none,menu PDFs only; 3-4 London sites
+,poppies-fish-and-chips,Poppies Fish & Chips,Fish and chips,,https://poppiesfishandchips.co.uk/,,none,PDF menu only; about 4 sites
+,sutton-and-sons,Sutton & Sons,Fish and chips,,https://www.suttonandsons.co.uk/,,none,no allergen link found; about 4 sites
+,wulf-and-lamb,Wulf & Lamb,Vegan,,https://www.wulfandlamb.com,,none,no allergen link found; 3 sites
+,club-mexicana,Club Mexicana,Vegan Mexican,,https://clubmexicana.com,,none,menu PDFs only (CDN robots 403); about 4 sites
+,the-vurger-co,The Vurger Co,Vegan burgers,,https://www.thevurgerco.com/,,none,no allergen link found; about 3 sites
+,cutter-and-squidge,Cutter & Squidge,Bakery,,https://cutterandsquidge.com/,,none,no allergen link found; about 4 sites
+,farm-girl,Farm Girl,Brunch,,https://www.thefarmgirl.co.uk/,,none,no allergen link found; about 3 sites
+,laduree,Laduree,Patisserie,,https://www.laduree.co.uk,,none,no allergen link found; about 6 UK sites
+,galvin,Galvin Restaurants,French,,https://galvinrestaurants.com/,,none,menu PDFs only (CloudFront robots 403); about 5 sites
+,searcys,Searcys,British,,https://searcys.co.uk/,,none,group site; no allergen link found; about 10 venues
+,brindisa,Brindisa,Spanish,,https://www.brindisatapas.com,,none,menu PDFs only; about 5 sites
+,jose-pizarro,Jose Pizarro,Spanish,,https://www.josepizarro.com,,none,menu PDFs only; about 4 sites
+,lobos-tapas,Lobos Tapas,Spanish,,https://lobostapas.co.uk/,,none,no allergen link found; 3 sites
+,cafe-murano,Cafe Murano,Italian,,https://www.cafemurano.co.uk,,none,wine list PDFs only; about 4 sites
+,lina-stores,Lina Stores,Italian,,https://www.linastores.co.uk/,,none,no allergen link found (CDN robots disallow); about 4 sites
+,obica,Obica Mozzarella Bar,Italian,,https://www.obica.com,,none,no allergen link found; about 5 UK sites
+,cubitt-house,Cubitt House,Pubs,,https://www.cubitthouse.co.uk,,none,no allergen link found; about 6 pubs
+,draughts,Draughts,Board game cafe,,https://draughtslondon.com/,,none,food menu PDF only; 3 sites
+,corney-and-barrow,Corney & Barrow,Wine bars,,https://www.corneyandbarrow.com,,none,no allergen link found; about 10 sites
+,andina,Andina,Peruvian,,https://andinalondon.com/,,none,no allergen link found; 3 sites
+,mercato-metropolitano,Mercato Metropolitano,Food hall,,https://mercatometropolitano.com/,,none,no allergen link found; 3 sites
+,boxpark,Boxpark,Food hall,,https://www.boxpark.co.uk,,none,no allergen link found; 4 sites
+,market-halls,Market Halls,Food hall,,https://markethalls.co.uk,,none,"per-site menu PDFs only; 4 food halls (Victoria, Canary Wharf, Oxford Street, Paddington)"
+,bourne-and-hollingsworth,Bourne & Hollingsworth,Cocktail bars,,https://www.bandhbuildings.com,,none,no allergen link found; about 5 bars
+,mr-foggs,Mr Fogg's,Bars,,https://www.mr-foggs.com,,none,no allergen link found; about 3 bars
+,napule,Napule,Pizza,,https://napule.co.uk/,,none,no allergen link found; about 4 sites
+,the-blues-kitchen,The Blues Kitchen,American,,https://theblueskitchen.com/,,none,no allergen link found; about 3 sites
+,primrose-bakery,Primrose Bakery,Bakery,,https://primrosebakery.org.uk,,none,no allergen link found; about 3 sites
+,mamma-dough,Mamma Dough,Pizza,,https://www.mammadough.com,,none,food menu PDF only; about 4 sites
+,tattu,Tattu,Chinese,Permanently Unique Group,https://tattu.co.uk/,,none,no allergen link found; 5 UK sites
+,big-mamma-group,Big Mamma Group,Italian,,https://www.bigmammagroup.com,,none,menus on menu.bigmammagroup.com (allergen content unchecked); 9 UK restaurants
+,atari-ya,Atari-Ya,Japanese,,https://www.atariya.co.uk,,none,no allergen link found; about 5 shops
+,japan-centre,Japan Centre,Japanese,,https://www.japancentre.com,,none,no allergen link found; 3 sites
+,kabab-ji,Kabab-Ji,Lebanese,,https://kababji.co.uk/,,none,no allergen link found; about 4 UK sites
+,beirut-express,Beirut Express,Lebanese,,https://www.beirutexpress.com,,none,no allergen link found; about 4 London sites
+,noura,Noura,Lebanese,,https://www.noura.com,,none,menu PDF only; about 5 London sites
+,wright-brothers,Wright Brothers,Seafood,,https://thewrightbros.com/,,none,no allergen link found; about 4 sites
+,grillstock,Grillstock,BBQ,,https://www.grillstock.com,,none,no allergen link found; about 4 sites
+,simmons-bars,Simmons,Bars,,https://www.simmonsbar.co.uk,,none,no allergen link found; about 8 bars
+,draft-house,Draft House,Pubs,,https://www.drafthouse.co.uk,,none,site error (HTTP 522) on the .co.uk address; no allergen link found on drafthouse.com; about 8 pubs
+,bubbledogs,Bubbledogs,Hot dogs,JKS Restaurants,https://www.bubbledogs.co.uk,,none,no allergen link found; 3 sites
+,d-and-d-london,D&D London,British,,https://ddlondon.com/,,none,group site; no allergen link found; 30+ sites
+,soho-house,Soho House (restaurants),British,Soho House,https://www.sohohouse.com,,none,"members' clubs, menus not public; 20+ houses"
+,rasa-restaurants,Rasa,Indian,,https://rasarestaurants.com,,none,no allergen link found; about 4 sites
+,super-nonna,Super Nonna,Italian delivery,The Big Table Group,https://supernonna.com,,none,delivery brand; Ten Kites menu seen via search (menus.tenkites.com/thebigtg/supernonna02) but not linked from home
+,crazy-pizza,Crazy Pizza,Pizza,,https://www.crazypizza.com,,none,site blocked; London sites
+,hix,HIX Restaurants,British,,https://www.hixrestaurants.co.uk,,none,site blocked; about 4 sites
+,ceviche,Ceviche,Peruvian,,https://www.ceviche.co.uk,,none,site blocked; 3 sites
+,square-pie,Square Pie,Pies,,https://www.squarepie.com,,none,site blocked (robots.txt disallows); about 4 sites
+,berenjak,Berenjak,Persian,,https://berenjak.com,,none,site blocked; 3 sites
+,stem-and-glory,Stem & Glory,Vegan,,https://stemandglory.com,,none,site blocked; about 5 sites
+,kerb,KERB,Street food markets,,https://www.kerbfood.com,,none,site blocked; about 6 sites
+,dirty-burger,Dirty Burger,Burgers,Soho House,https://www.dirtyburger.co.uk,,none,site unreachable (certificate error 526); about 5 sites
+,kerbisher-and-malt,Kerbisher & Malt,Fish and chips,,https://www.kerbisher.co.uk,,none,site unreachable from here (connection failed); about 6 sites
+,herman-ze-german,Herman ze German,German,,https://www.hermanzegerman.com,,none,site unreachable from here (TLS failure); about 6 sites
+,fernandez-and-wells,Fernandez & Wells,Cafe,,https://www.fernandezandwells.com,,none,site unreachable from here (connection reset); about 5 sites
+,sagar,Sagar,Indian vegetarian,,https://www.sagarveg.co.uk,,none,site unreachable from here (certificate error); about 6 sites
+,bukowski-grill,Bukowski Grill,Burgers,,https://www.bukowskigrill.com,,none,site unreachable from here (connection reset); 3 sites
+,nordic-bakery,Nordic Bakery,Bakery cafe,,https://www.nordicbakery.com,,none,site blocked; 3 sites

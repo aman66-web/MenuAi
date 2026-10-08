@@ -109,13 +109,16 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
     # own figures contradict each other, so none of them can be trusted: the dish is held back and nothing is chosen or corrected.
     # Same gate as tools/audit/accuracy_audit.py (ratio outside 0.93-1.07 for items of 20 kcal or more).
     holds: list[tuple[str, str]] = []
+    seen: dict[str, int] = {}   # same ids as common.write_chain_folder: the second dish of a repeated name is "<id>-2"
     for it in kept:
+        seen[it["id"]] = seen.get(it["id"], 0) + 1
+        hold_id = it["id"] if seen[it["id"]] == 1 else f"{it['id']}-{seen[it['id']]}"
         try:
             kcal, kj = float(it["calories"]), float(str(it.get("energy_kj", "")).replace(",", ""))
         except (TypeError, ValueError):
             continue
         if kcal >= 20 and not 0.93 <= kj / (kcal * 4.184) <= 1.07:
-            holds.append((slug(it["name"]), f"The page prints {kj:g} kJ and {kcal:g} kcal for this dish, which disagree "
+            holds.append((hold_id, f"The page prints {kj:g} kJ and {kcal:g} kcal for this dish, which disagree "
                                             f"({kcal:g} kcal is about {kcal * 4.184:.0f} kJ), so its energy cannot be trusted."))
     report += [f"held back (kJ and kcal disagree by more than 7%): {i}" for i, _ in holds]
     return kept, holds, report

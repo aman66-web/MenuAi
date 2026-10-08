@@ -243,6 +243,11 @@ SPEC: list[tuple] = [
 HOLDBACK = {
     "Katsu Curry Sauce Portion - Small": "Guide prints saturates 2.8 g above total fat 0.8 g, and 80 kcal where its own fat, carbohydrate and protein add up to about 33 kcal",
     "Katsu Curry Sauce Portion - Large": "Guide prints saturates 5.6 g above total fat 1.6 g, and 160 kcal where its own fat, carbohydrate and protein add up to about 66 kcal",
+    # Added after the independent re-read of 2026-10-08: kJ and kcal printed on one row disagree (kJ / 4.184 is the kcal it implies).
+    "Panko Chicken Katsu Curry - Small (2 Pieces)": "Guide prints 1243 kJ (about 297 kcal) but 219 kcal, and its own fat, carbohydrate and protein add up to about 250 kcal: the three cannot all be right",
+    "Panko Chicken Katsu Curry - Regular / Large (2 Pieces)": "Guide prints 1243 kJ (about 297 kcal) but 219 kcal, and its own fat, carbohydrate and protein add up to about 250 kcal: the three cannot all be right",
+    "Fruit Shoot Blackcurrant 275ml bottle": "Guide prints 55 kJ (about 13 kcal) but 17 kcal for the same bottle: neither can be chosen",
+    "Fruit Shoot Orange 275ml bottle": "Guide prints 55 kJ (about 13 kcal) but 17 kcal for the same bottle: neither can be chosen",
 }
 
 
@@ -292,6 +297,14 @@ def main() -> int:
             "sat_fat_g": row["sat"], "salt_g": row["salt"], "sugar_g": row["sugars"], "fiber_g": row["fibre"],
             "energy_kj": row["kj"],
         })
+    # kJ and kcal on one row must agree (kJ / 4.184, 6% + 1.5 kcal for rounding): a disagreement is held back, never corrected.
+    for row, spec in zip(rows, SPEC):
+        if spec[1] is None or not row["kj"] or not row["kcal"]:
+            continue
+        kcal, kj = float(row["kcal"].lstrip("<")), float(row["kj"].lstrip("<"))
+        if abs(kj / 4.184 - kcal) > 0.06 * kcal + 1.5 and spec[0] not in HOLDBACK:
+            print(f"'{spec[0]}' prints {row['kj']} kJ and {row['kcal']} kcal, which disagree: add it to HOLDBACK.", file=sys.stderr)
+            return 1
     for label, reason in HOLDBACK.items():
         if label not in id_of:
             print(f"HOLDBACK names '{label}', which is not an included row.", file=sys.stderr)

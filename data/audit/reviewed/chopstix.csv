@@ -1,0 +1,2 @@
+item,code,verdict,evidence
+pumpkin-katsu-curry,energy-gap,ok,"PDF page 1 toppings row 'Pumpkin Katsu Curry': 895 kJ, 215 kcal (kJ/4.184 = 214 kcal, consistent), fat 7.3, carbs 22.9, protein 3.2; the 21% gap to 4P+4C+9F is printed so, within the tolerance of the pipeline (30% above)"
