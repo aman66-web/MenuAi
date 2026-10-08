@@ -1,0 +1,148 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+the-full-monty,The Full Monty,All day brekky,,1634,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: The Full Monty Boston’s biggest ever breakfast. A whole mature cheddar cheese an ...  & garlic-roasted flat mushroom, slow-roasted tomato, smoky tomato jam 1634 kcal; marks: none"
+the-boss-breakfast,The Boss Breakfast,All day brekky,,1190,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: The Boss Breakfast Two Old English sausages, back bacon, hash browns, scrambled eggs, herb & garlic-roasted flat mushroom, baked beans, two slices of toast 1190 kcal; marks: none"
+the-breakfast,The Breakfast,All day brekky,,829,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: The Breakfast Old English sausage & back bacon, scrambled eggs, herb & garlic-roasted flat mushroom, baked beans, toast 829 kcal; marks: none"
+add-2-hash-browns-to-the-breakfast,Add 2 hash browns (to The Breakfast),All day brekky,,187,,,,,,,,,,,,,,,,false,false,,,Printed: Add 2 hash browns +2.50 187 kcal; marks: none
+the-veggie,The Veggie,All day brekky,,1115,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: The Veggie Sweetcorn fritter, scrambled eggs, hash browns, slow-roasted tomato, spinach, herb & garlic-roasted flat mushroom, baked beans, toasted sourdough 1115 kcal; marks: V"
+add-halloumi-to-the-veggie,Add halloumi (to The Veggie),All day brekky,,219,,,,,,,,,,,,,,,,false,false,,,Printed: Add halloumi +2.80 219 kcal; marks: none
+the-veggie-vegan-switch-to-scrambled-tofu,"The Veggie, vegan (switch to scrambled tofu)",All day brekky,,899,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Make it vegan – switch to scrambled tofu VE 899 kcal; marks: VE
+avocado-and-ricotta-on-toast,Avocado & Ricotta on Toast,Lighter breakfasts,,398,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Avocado & Ricotta on Toast Sourdough toast topped with avocado smash, whipped ricotta with extra virgin olive oil, pomegranate seeds, fresh dill 398 kcal; marks: V"
+add-a-poached-egg-to-avocado-and-ricotta-on-toast,Add a poached egg (to Avocado & Ricotta on Toast),Lighter breakfasts,,74,,,,,,,,,,,,,,,,false,false,,,Printed: Add a poached egg +1.50 74 kcal; marks: none
+granola-bowl,Granola Bowl,Lighter breakfasts,,491,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Granola Bowl Glebe Farm granola, yoghurt, blueberry compote, sliced banana 491 kcal; marks: V NGO"
+butchers-bap-with-old-english-sausage,Butcher’s Bap with Old English sausage,Lighter breakfasts,,598,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Butcher’s Bap In a Hobbs House bun made with regeneratively farmed flour. With your choice of Old English sausage 598 kcal; marks: none
+butchers-bap-with-back-bacon,Butcher’s Bap with back bacon,Lighter breakfasts,,396,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: or back bacon 396 kcal; marks: none
+add-2-hash-browns-to-butchers-bap,Add 2 hash browns (to Butcher’s Bap),Lighter breakfasts,,187,,,,,,,,,,,,,,,,false,false,,,Printed: Add 2 hash browns +2.50 187 kcal; marks: none
+free-range-eggs-on-toast-scrambled,"Free-Range Eggs on Toast, scrambled",Lighter breakfasts,,545,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Free-Range Eggs on Toast Scrambled 545 kcal; marks: none; Printed 'Scrambled 545 kcal or poached 499 kcal V NGO': the V mark closes the line, so it is read for both options"
+free-range-eggs-on-toast-poached,"Free-Range Eggs on Toast, poached",Lighter breakfasts,,499,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: or poached 499 kcal; marks: V NGO
+sweetcorn-hash,Sweetcorn Hash,Brunch,,847,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Sweetcorn Hash Sweetcorn fritters, halloumi, poached eggs, coriander, avocado & tomato smash, red chillies, sriracha maple syrup 847 kcal; marks: V"
+santa-fe-fritters,Santa Fe Fritters,Brunch,,911,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: Santa Fe Fritters Sweetcorn fritters, roasted chorizo, smoky black beans, avocad ... hilli fried egg, confit garlic yoghurt, sriracha maple syrup, coriander 911 kcal; marks: none"
+add-halloumi-to-santa-fe-fritters,Add halloumi (to Santa Fe Fritters),Brunch,,219,,,,,,,,,,,,,,,,false,false,,,Printed: Add halloumi +2.80 219 kcal; marks: none
+smoked-salmon-hash,Smoked Salmon Hash,Brunch,,555,,,,,,,,,,,,,,,,false,false,,,"Printed: Smoked Salmon Hash Homemade crispy potato hash, flaked smoked salmon in crème fraîche, charred corn, avocado, coriander, sweet chilli & lime 555 kcal; marks: none; Not on the Bath Kingsmead Square, Worcester and Honiton menus (2a, 3a)"
+add-a-poached-egg-to-smoked-salmon-hash,Add a poached egg (to Smoked Salmon Hash),Brunch,,74,,,,,,,,,,,,,,,,false,false,,,Printed: Add a poached egg +1.50 74 kcal; marks: none
+shakshuka-with-chorizo,Shakshuka with Chorizo,Brunch,,886,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: Shakshuka with Chorizo Two poached eggs in a smoky harissa, roasted red pepper & ...  confit garlic yoghurt, salsa verde, dill. With warm Abu Noor flatbread 886 kcal; marks: none"
+shakshuka-without-chorizo-veggie,Shakshuka without chorizo (veggie),Brunch,,687,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Make it veggie – remove the chorizo 687 kcal; marks: V; Printed 'Make it veggie - remove the chorizo 687 kcal 10.95 V': the dish's own price, so the value is for the whole dish"
+buttermilk-pancakes-with-smoked-streaky-bacon-and-boston-maple-syrup,Buttermilk Pancakes with smoked streaky bacon & Boston maple syrup,Brunch,,824,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Buttermilk Pancakes Smoked streaky bacon & Boston maple syrup 824 kcal; marks: none
+buttermilk-pancakes-with-blueberry-compote-natural-yoghurt-and-boston-maple-syrup,"Buttermilk Pancakes with blueberry compote, natural yoghurt & Boston maple syrup",Brunch,,688,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Blueberry compote, natural yoghurt & Boston maple syrup 688 kcal; marks: V"
+smoked-salmon-avocado-and-scrambled-eggs,"Smoked Salmon, Avocado & Scrambled Eggs",Brunch,,598,,,,,,,,,,,,,,,,false,false,,,"Printed: Smoked Salmon, Avocado & Scrambled Eggs 13.95 On sourdough toast 598 kcal; marks: NGO"
+eggs-benedict,Eggs Benedict,Brunch,,638,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: Eggs Benedict Two poached eggs with ham, hollandaise, sourdough toast, radish, cress, za’atar 638 kcal; marks: none"
+eggs-royale,Eggs Royale,Brunch,,696,,,,,,,,,,,,,,,,false,false,,,"Printed: Eggs Royale Two poached eggs with smoked salmon, hollandaise, sourdough toast, radish, cress, za’atar 696 kcal; marks: none"
+add-avo-to-eggs-benedict-or-eggs-royale,Add avo (to Eggs Benedict or Eggs Royale),Brunch,,141,,,,,,,,,,,,,,,,false,false,,,Printed: Add avo to your Benedict or Royale +2.50 141 kcal; marks: none
+boss-breakfast-muffin,Boss Breakfast Muffin,Breakfast muffins,,775,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: Boss Smoked streaky bacon, pork sausage patty, hash brown, fried egg, mature cheddar cheese, American mustard 775 kcal; marks: none"
+sausage-breakfast-muffin,Sausage Breakfast Muffin,Breakfast muffins,,674,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: Sausage Pork sausage patty, hash brown, fried egg, mature cheddar cheese, American mustard 674 kcal; marks: none"
+veggie-breakfast-muffin,Veggie Breakfast Muffin,Breakfast muffins,,644,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Veggie Vegan sausage patty, hash brown, fried egg, mature cheddar cheese, American mustard 644 kcal; marks: V"
+veggie-breakfast-muffin-vegan-vegan-cheese-and-baby-leaf-spinach,"Veggie Breakfast Muffin, vegan (vegan cheese & baby leaf spinach)",Breakfast muffins,,457,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Make it vegan – with vegan cheese & baby leaf spinach 457 kcal; marks: VE
+double-up-extra-pork-patty-add-to-a-breakfast-muffin,Double up: extra pork patty (add to a breakfast muffin),Breakfast muffins,,152,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Add an extra patty +3.35 (pork 152 kcal; marks: none
+double-up-extra-vegan-patty-add-to-a-breakfast-muffin,Double up: extra vegan patty (add to a breakfast muffin),Breakfast muffins,,140,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: or vegan 140 kcal; marks: VE
+mexican-eggs,Mexican Eggs,Lunch,,685,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: Mexican Eggs Our quesadilla filled with smoky black beans & melted cheese, toppe ... two fried free-range eggs, pico de gallo salsa, soured cream, coriander 685 kcal; marks: none"
+add-avo-smash-to-mexican-eggs,Add avo smash (to Mexican Eggs),Lunch,,101,,,,,,,,,,,,,,,,false,false,,,Printed: Add avo smash +2.00 101 kcal; marks: none
+quesadilla,Quesadilla,Lunch,,659,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Quesadilla Toasted tortilla wrap, smoky black bean & melted cheese filling. With ...  red onion, jalapeños, coriander & fresh lime), soured cream, coriander 659 kcal; marks: V"
+roasted-vegetable-flatbread,Roasted Vegetable Flatbread,Lunch,,702,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Roasted Vegetable Flatbread Loaded onto a warm Abu Noor flatbread – spiced roast ... red onion, beet houmous, tabbouleh, Middle Eastern slaw, pickled chilli 702 kcal; marks: VE"
+add-hot-honey-halloumi-to-roasted-vegetable-flatbread,Add hot honey halloumi (to Roasted Vegetable Flatbread),Lunch,,233,,,,,,,,,,,,,,,,false,false,,,Printed: Add hot honey halloumi +2.80 233 kcal; marks: none
+roasted-vegetable-buddha-bowl,Roasted Vegetable Buddha Bowl,Lunch,,450,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Roasted Vegetable Buddha Bowl As above, without the flatbread, with added baby leaf spinach 450 kcal; marks: VE"
+add-hot-honey-halloumi-to-roasted-vegetable-buddha-bowl,Add hot honey halloumi (to Roasted Vegetable Buddha Bowl),Lunch,,233,,,,,,,,,,,,,,,,false,false,,,Printed: Add hot honey halloumi +2.80 233 kcal; marks: none
+bacon-cheeseburger,Bacon Cheeseburger,Lunch,,1148,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"Printed: Bacon Cheeseburger In a Hobbs House bun made with regeneratively farmed flour. W ... smoked streaky bacon, lettuce, pickles, house sauce. Served with fries 1148 kcal; marks: none; Not on the Bath Kingsmead Square and Worcester menus (2a)"
+bacon-cheeseburger-without-bacon,Bacon Cheeseburger without bacon,Lunch,,1047,,,,,,,,,,,,,,,contains_beef,false,false,,,"Printed: Remove the bacon 13.95 1047 kcal; marks: none; Printed 'Remove the bacon 13.95 1047 kcal': the dish's own reduced price, so the value is for the whole dish"
+the-aussie-veg-burger,The Aussie Veg Burger,Lunch,,1266,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: The Aussie Veg Burger In a Hobbs House bun made with regeneratively farmed flour ... lloumi, avocado, slow-roasted tomato, sriracha mayo. Served with fries 1266 kcal; marks: V; Not on the Bath Kingsmead Square and Worcester menus (2a)"
+the-aussie-veg-burger-without-halloumi-vegan,The Aussie Veg Burger without halloumi (vegan),Lunch,,1137,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Make it vegan – remove the halloumi 11.95 1137 kcal; marks: none; Printed 'Make it vegan - remove the halloumi 11.95 1137 kcal': the dish's own reduced price, so the value is for the whole dish"
+top-your-burger-hash-brown,Top your burger: Hash brown,Lunch,,94,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Hash brown +1.25 94 kcal; marks: VE
+top-your-burger-avo,Top your burger: Avo,Lunch,,141,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Avo +2.50 141 kcal; marks: VE
+top-your-burger-fried-egg,Top your burger: Fried egg,Lunch,,90,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Fried egg +1.50 90 kcal; marks: V
+top-your-burger-mature-cheddar-cheese,Top your burger: Mature cheddar cheese,Lunch,,83,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Mature cheddar cheese +1.00 83 kcal; marks: V
+ham-and-cheese-toastie,Ham & Cheese Toastie,Boston toasties,,820,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed: Ham & Cheese Ham, mature cheddar cheese, smoky tomato jam 820 kcal; marks: NGO"
+cheese-and-baked-bean-toastie,Cheese & Baked Bean Toastie,Boston toasties,,766,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Cheese & Baked Bean Mature cheddar cheese, baked beans 766 kcal; marks: V"
+mushroom-and-pesto-toastie,Mushroom & Pesto Toastie,Boston toasties,,804,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Mushroom & Pesto Mature cheddar cheese, mozzarella, pesto, herb & garlic-roasted mushroom, spinach 804 kcal; marks: V NGO"
+mushroom-and-pesto-toastie-vegan-vegan-cheese,"Mushroom & Pesto Toastie, vegan (vegan cheese)",Boston toasties,,737,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Make it vegan – swap to vegan cheese 737 kcal; marks: VE; Printed '(NGO unavailable)': no non-gluten option for the vegan version
+two-hash-browns,Two Hash Browns,Hash browns,,187,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Two Hash Browns 187 kcal; marks: VE
+six-hash-browns,Six Hash Browns,Hash browns,,573,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Six Hash Browns 573 kcal; marks: VE
+add-two-dips-to-six-hash-browns-sriracha-mayo,Add two dips to six hash browns: Sriracha mayo,Hash browns,,358,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Add two dips to six hash browns Sriracha mayo 358 kcal; marks: VE
+add-two-dips-to-six-hash-browns-stokes-real-brown-sauce,Add two dips to six hash browns: Stokes Real Brown Sauce,Hash browns,,123,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Stokes Real Brown Sauce 123 kcal; marks: VE
+add-two-dips-to-six-hash-browns-creamy-garlic-and-chive,Add two dips to six hash browns: Creamy garlic & chive,Hash browns,,269,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: or Creamy garlic & chive 269 kcal; marks: V
+large-portion-of-fries,Large Portion of Fries,Sides & extras,,455,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Large Portion of Fries 455 kcal; marks: VE
+old-english-sausage,Old English Sausage,Sides & extras,,167,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Old English Sausage 167 kcal; marks: none
+back-bacon,Back Bacon,Sides & extras,,210,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Back Bacon 210 kcal; marks: none
+smoked-streaky-bacon,Smoked Streaky Bacon,Sides & extras,,151,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Smoked Streaky Bacon 151 kcal; marks: none
+free-range-chorizo,Free-Range Chorizo,Sides & extras,,129,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Free-Range Chorizo 129 kcal; marks: none
+smoked-salmon,Smoked Salmon,Sides & extras,,101,,,,,,,,,,,,,,,,false,false,,,Printed: Smoked Salmon 101 kcal; marks: none
+avocado,Avocado,Sides & extras,,141,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Avocado 141 kcal; marks: VE
+roasted-flat-mushroom,Roasted Flat Mushroom,Sides & extras,,91,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Roasted Flat Mushroom 91 kcal; marks: VE
+poached-egg,Poached Egg,Sides & extras,,74,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Poached Egg 74 kcal; marks: V
+scrambled-egg,Scrambled Egg,Sides & extras,,197,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Scrambled Egg 197 kcal; marks: V
+halloumi,Halloumi,Sides & extras,,219,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Halloumi 219 kcal; marks: V
+dips-sriracha-mayo,Dips: Sriracha mayo,Sides & extras,,358,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Dips Sriracha mayo 358 kcal; marks: VE
+dips-stokes-real-brown-sauce,Dips: Stokes Real Brown Sauce,Sides & extras,,123,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Stokes Real Brown Sauce 123 kcal; marks: VE
+dips-creamy-garlic-and-chive,Dips: Creamy garlic & chive,Sides & extras,,269,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: or Creamy garlic & chive 269 kcal; marks: V
+berry-peachy-smoothie,Berry Peachy Smoothie,Smoothies & shakes,,237,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Berry Peachy Smoothie Blueberries, peach, banana, apple juice 237 kcal; marks: VE"
+the-green-one-smoothie,The Green One Smoothie,Smoothies & shakes,,144,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: The Green One Smoothie Spinach, cucumber, banana, chia seeds, apple juice, lime 144 kcal; marks: VE"
+pineapple-coco-smoothie,Pineapple Coco Smoothie,Smoothies & shakes,,249,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Pineapple Coco Smoothie If you like piña coladas... (etc etc). Pineapple, mango, coconut cream, lime 249 kcal; marks: VE"
+raspberry-and-mango-smoothie,Raspberry & Mango Smoothie,Smoothies & shakes,,127,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Raspberry & Mango Smoothie Raspberry, mango, apple juice 127 kcal; marks: VE"
+strawberry-ripple-shake,Strawberry Ripple Shake,Smoothies & shakes,,383,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Strawberry Ripple Shake Strawberry purée, vanilla ice cream, milk, whipped cream, freeze dried strawberry 383 kcal; marks: V; Printed 'V (VE available)': the value is for the V version"
+chocolate-oreo-shake,Chocolate Oreo Shake,Smoothies & shakes,,419,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Chocolate Oreo Shake Chocolate sauce, vanilla ice cream, milk, whipped cream, Oreo 419 kcal; marks: V; Printed 'V (VE available)': the value is for the V version"
+lotus-biscoff-shake,Lotus Biscoff Shake,Smoothies & shakes,,525,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Lotus Biscoff Shake Lotus Biscoff, vanilla ice cream, milk, whipped cream 525 kcal; marks: V; Printed 'V (VE available)': the value is for the V version"
+homemade-lemonade,Homemade Lemonade,Coolers & juices,,223,,,,,,,,,,,,,,,,false,false,,,Printed: Homemade Lemonade With cold-pressed lemon juice 223 kcal; marks: none
+orange-juice,Orange Juice,Coolers & juices,,109,,,,,,,,,,,,,,,,false,false,,,Printed: Orange Juice Freshly squeezed 109 kcal; marks: none
+cloudy-apple-juice,Cloudy Apple Juice,Coolers & juices,,85,,,,,,,,,,,,,,,,false,false,,,Printed: Cloudy Apple Juice Made with wonky apples 85 kcal; marks: none
+homemade-iced-tea,Homemade Iced Tea,Coolers & juices,,68,,,,,,,,,,,,,,,,false,false,,,"Printed: Homemade Iced Tea Iced Earl Grey tea, lemon, sugar, mint 68 kcal; marks: none"
+bloody-mary-virgin-ditch-the-vodka,"Bloody Mary, virgin (ditch the vodka)",Brunch tipples,,50,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Go virgin - ditch the vodka 50 kcal; marks: VE; Printed 'Go virgin - ditch the vodka 50 kcal 4.90 VE': the virgin drink's own price, so the value is for the whole drink"
+lucky-saint-alcohol-free-superior-unfiltered-lager,Lucky Saint Alcohol Free Superior Unfiltered Lager,Craft beer & cider,330ml,53,,,,,,,,,,,,,,,,false,false,,,Printed: Lucky Saint Alcohol Free Superior Unfiltered Lager 0.5% ABV 330ml 53 kcal; marks: none
+coca-cola,Coca-Cola,Softs,,139,,,,,,,,,,,,,,,,false,false,,,Printed: Coca-Cola 139 kcal; marks: none
+diet-coke,Diet Coke,Softs,,1,,,,,,,,,,,,,,,,false,false,,,Printed: Diet Coke 1 kcal; marks: none
+coke-zero,Coke Zero,Softs,,0,,,,,,,,,,,,,,,,false,false,,,Printed: Coke Zero 0 kcal; marks: none
+belvoir-farm-sparkling-elderflower,Belvoir Farm Sparkling Elderflower,Softs,,66,,,,,,,,,,,,,,,,false,false,,,"Printed: Belvoir Farm Sparkling Elderflower Naturally sweetened, made with real fruit & flowers 66 kcal; marks: none"
+flawsome-lightly-sparkling-juice-apple-and-rhubarb,"Flawsome Lightly Sparkling Juice, Apple & Rhubarb",Softs,,24,,,,,,,,,,,,,,,,false,false,,,Printed: Choose Apple & Rhubarb 24 kcal; marks: none
+flawsome-lightly-sparkling-juice-apple-and-sour-cherry,"Flawsome Lightly Sparkling Juice, Apple & Sour Cherry",Softs,,24,,,,,,,,,,,,,,,,false,false,,,Printed: or Apple & Sour Cherry 24 kcal; marks: none
+counter-culture-kombucha-soda,Counter Culture Kombucha Soda,Softs,,14,,,,,,,,,,,,,,,,false,false,,,"Printed: Counter Culture Kombucha Soda Naturally fermented with mango, ginger & lime, from a purpose-driven Bristol brewery 14 kcal; marks: none"
+cream-tea,Cream Tea,Cakes & treats,,895,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Cream Tea Our giant homemade scone with West Country clotted cream & strawberry jam, served with a pot of tea 895 kcal; marks: V"
+cream-tea-with-butter-instead-of-clotted-cream,Cream Tea with butter instead of clotted cream,Cakes & treats,,764,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Swap clotted cream for butter 764 kcal; marks: V
+cream-tea-vegan-vegan-spread-instead-of-clotted-cream,"Cream Tea, vegan (vegan spread instead of clotted cream)",Cakes & treats,,708,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Make it vegan – swap clotted cream for vegan spread 708 kcal; marks: VE
+matcha-latte,Matcha Latte,Matcha,,155,,,,,,,,,,,,,,,,false,false,,,Printed: Matcha Latte 155 kcal; marks: none
+vanilla-matcha-latte,Vanilla Matcha Latte,Matcha,,220,,,,,,,,,,,,,,,,false,false,,,Printed: Vanilla Matcha Latte 220 kcal; marks: none
+iced-matcha-latte,Iced Matcha Latte,Matcha,,155,,,,,,,,,,,,,,,,false,false,,,Printed: Iced Matcha Latte 155 kcal; marks: none
+iced-vanilla-matcha-latte,Iced Vanilla Matcha Latte,Matcha,,220,,,,,,,,,,,,,,,,false,false,,,Printed: Iced Vanilla Matcha Latte 220 kcal; marks: none
+iced-strawberry-matcha-latte,Iced Strawberry Matcha Latte,Matcha,,230,,,,,,,,,,,,,,,,false,false,,,Printed: Iced Strawberry Matcha Latte 230 kcal; marks: none
+iced-peaches-and-cream-matcha-latte,Iced Peaches & Cream Matcha Latte,Matcha,,220,,,,,,,,,,,,,,,,false,false,,,Printed: Iced Peaches & Cream Matcha Latte 220 kcal; marks: none
+espresso,Espresso,Coffee,,2,,,,,,,,,,,,,,,,false,false,,,Printed: Espresso  2 kcal; marks: none
+americano,Americano,Coffee,,22,,,,,,,,,,,,,,,,false,false,,,Printed: Americano  22 kcal; marks: none
+flat-white,Flat White,Coffee,,109,,,,,,,,,,,,,,,,false,false,,,Printed: Flat White 109 kcal; marks: none
+cappuccino,Cappuccino,Coffee,,131,,,,,,,,,,,,,,,,false,false,,,Printed: Cappuccino  131 kcal; marks: none
+latte,Latte,Coffee,,155,,,,,,,,,,,,,,,,false,false,,,Printed: Latte  155 kcal; marks: none
+mocha,Mocha,Coffee,,211,,,,,,,,,,,,,,,,false,false,,,Printed: Mocha  211 kcal; marks: none
+piccolo,Piccolo,Coffee,,83,,,,,,,,,,,,,,,,false,false,,,Printed: Piccolo 83 kcal; marks: none
+iced-latte,Iced Latte,Coffee,,155,,,,,,,,,,,,,,,,false,false,,,Printed: Iced Latte Espresso over milk 155 kcal; marks: none
+maple-blended-iced-coffee,Maple Blended Iced Coffee,Coffee,,176,,,,,,,,,,,,,,,,false,false,,,"Printed: Maple Blended Iced Coffee Coffee and milk, blended frappé-style with avocado (trust us) and maple syrup 176 kcal; marks: none"
+hot-chocolate,Hot Chocolate,Other hotties,,243,,,,,,,,,,,,,,,,false,false,,,Printed: Hot Chocolate  243 kcal; marks: none
+chai-latte,Chai Latte,Other hotties,,365,,,,,,,,,,,,,,,,false,false,,,Printed: Chai Latte 365 kcal; marks: none
+scrambled-egg-kids,Scrambled Egg (kids),Kids: Build your own breakfast,,98,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Scrambled Egg V 98 kcal; marks: V
+bacon-kids,Bacon (kids),Kids: Build your own breakfast,,44,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Bacon 44 kcal; marks: none
+poached-egg-kids,Poached Egg (kids),Kids: Build your own breakfast,,74,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Poached Egg V 74 kcal; marks: V
+sausage-kids,Sausage (kids),Kids: Build your own breakfast,,167,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Sausage 167 kcal; marks: none
+hash-brown-kids,Hash Brown (kids),Kids: Build your own breakfast,,94,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Hash Brown VE 94 kcal; marks: VE
+beans-kids,Beans (kids),Kids: Build your own breakfast,,80,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Beans V 80 kcal; marks: V
+buttered-toast-kids,Buttered Toast (kids),Kids: Build your own breakfast,,166,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Buttered Toast V 166 kcal; marks: V
+avocado-kids,Avocado (kids),Kids: Build your own breakfast,,70,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Avocado VE 70 kcal; marks: VE
+vegan-sausage-patty-kids,Vegan Sausage Patty (kids),Kids: Build your own breakfast,,138,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Vegan Sausage Patty VE 138 kcal; marks: VE
+mushroom-kids,Mushroom (kids),Kids: Build your own breakfast,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Mushroom VE 46 kcal; marks: VE
+scrambly-eggs-and-soldiers-kids,Scrambly Eggs & Soldiers (kids),Kids: Mini meals,,344,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Scrambly Eggs & Soldiers V 344 kcal; marks: V
+beans-on-toast-kids,Beans on Toast (kids),Kids: Mini meals,,309,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Beans on Toast V 309 kcal; marks: V
+granola-bowl-with-yoghurt-berry-compote-and-banana-kids,"Granola Bowl with Yoghurt, Berry Compote & Banana (kids)",Kids: Mini meals,,309,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Granola Bowl with Yoghurt, Berry Compote & Banana V 309 kcal; marks: V"
+bacon-and-maple-syrup-pancakes-kids,Bacon & Maple Syrup Pancakes (kids),Kids: Pancakes,,393,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Bacon & Maple Syrup 393 kcal; marks: none
+maple-syrup-pancakes-kids,Maple Syrup Pancakes (kids),Kids: Pancakes,,349,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Maple Syrup V 349 kcal; marks: V
+blueberry-compote-pancakes-kids,Blueberry Compote Pancakes (kids),Kids: Pancakes,,369,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Blueberry Compote V 369 kcal; marks: V
+banana-and-lotus-biscoff-spread-pancakes-kids,Banana & Lotus Biscoff Spread Pancakes (kids),Kids: Pancakes,,498,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Banana & Lotus Biscoff Spread V 498 kcal; marks: V
+beef-burger-kids,Beef Burger (kids),Kids: Mains,,721,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Beef Burger 721 kcal; marks: none
+sweetcorn-fritter-burger-kids,Sweetcorn Fritter Burger (kids),Kids: Mains,,701,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Sweetcorn Fritter Burger VE 701 kcal; marks: VE
+double-cheese-toastie-kids,Double Cheese Toastie (kids),Kids: Mains,,658,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Double Cheese Toastie V 658 kcal; marks: V
+cheese-and-ham-toastie-kids,Cheese & Ham Toastie (kids),Kids: Mains,,701,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Cheese & Ham Toastie 701 kcal; marks: none
+beetroot-houmous-cucumber-carrot-sticks-and-flatbread-soldiers-kids,"Beetroot Houmous, Cucumber, Carrot Sticks & Flatbread Soldiers (kids)",Kids: Mains,,333,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed: Beetroot Houmous, Cucumber, Carrot Sticks & Flatbread Soldiers VE 333 kcal; marks: VE"
+chocolate-brownie-ice-cream-sundae-kids,Chocolate Brownie Ice Cream Sundae (kids),Kids: Sweet treats,,546,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Chocolate Brownie Ice Cream Sundae V 546 kcal; marks: V
+vanilla-ice-cream-and-lotus-biscoff-topping-kids,Vanilla Ice Cream & Lotus Biscoff Topping (kids),Kids: Sweet treats,,242,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Vanilla Ice Cream & Lotus Biscoff 1.50 Topping V 242 kcal; marks: V; Printed 'V 242 kcal (VE available)': the value is for the V version
+chocolate-brownie-kids,Chocolate Brownie (kids),Kids: Sweet treats,,277,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Chocolate Brownie V 277 kcal; marks: V
+strawberry-shake-kids,Strawberry Shake (kids),Kids: Shakes,,244,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Strawberry V 244 kcal; marks: V
+chocolate-shake-kids,Chocolate Shake (kids),Kids: Shakes,,263,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Chocolate V 263 kcal; marks: V
+lotus-biscoff-shake-kids,Lotus Biscoff Shake (kids),Kids: Shakes,,314,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Lotus Biscoff V 314 kcal; marks: V
+raspberry-and-mango-smoothie-kids,Raspberry & Mango Smoothie (kids),Kids: Drinks,,127,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Raspberry & Mango Smoothie VE 127 kcal; marks: VE
+oj-kids,OJ (kids),Kids: Drinks,,54,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: OJ VE 54 kcal; marks: VE
+apple-juice-kids,Apple Juice (kids),Kids: Drinks,,51,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Apple Juice VE 51 kcal; marks: VE
+homemade-lemonade-kids,Homemade Lemonade (kids),Kids: Drinks,,58,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Homemade Lemonade V 58 kcal; marks: V
+milk-kids,Milk (kids),Kids: Drinks,,160,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Milk V 160 kcal; marks: V
+mini-hot-chocolate-kids,Mini Hot Chocolate (kids),Kids: Drinks,,166,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Mini Hot Chocolate V 166 kcal; marks: V
+babyccino-kids,Babyccino (kids),Kids: Drinks,,36,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed: Babyccino V 36 kcal; marks: V

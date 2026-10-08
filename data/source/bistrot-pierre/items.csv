@@ -1,0 +1,117 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+houmous,Houmous,Petit plats,,584,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PETIT PLATS; printed 'HOUMOUS'; also printed identically on: Bar Pierre
+nocellara-olives,Nocellara Olives,Petit plats,,207,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PETIT PLATS; printed 'NOCELLARA OLIVES'; also printed identically on: Bar Pierre
+sourdough-bread-board-with-whipped-salted-butter,Sourdough Bread Board - with Whipped Salted Butter,Petit plats,,526,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PETIT PLATS; printed 'SOURDOUGH BREAD BOARD - with Whipped Salted Butter'; also printed identically on: Bar Pierre
+sourdough-bread-board-with-whipped-salted-butter-and-garlic-butter,Sourdough Bread Board - with Whipped Salted Butter and Garlic Butter,Petit plats,,710,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PETIT PLATS; printed 'SOURDOUGH BREAD BOARD - with Whipped Salted Butter and Garlic Butter'
+gluten-free-bread-board-with-whipped-salted-butter,Gluten Free Bread Board - with Whipped Salted Butter,Petit plats,,220,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PETIT PLATS; printed 'GLUTEN FREE BREAD BOARD - with Whipped Salted Butter'; also printed identically on: Bar Pierre
+crispy-confit-potatoes,Crispy Confit Potatoes,Petit plats,,849,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PETIT PLATS; printed 'CRISPY CONFIT POTATOES'; also printed identically on: Bar Pierre
+squash-fritti,Squash Fritti,Petit plats,,681,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PETIT PLATS; printed 'SQUASH FRITTI'; also printed identically on: Bar Pierre
+croquettes,Croquettes,Petit plats,,543,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: PETIT PLATS; printed 'CROQUETTES'; also printed identically on: Bar Pierre
+french-onion-soup,French Onion Soup,Entrées,,632,,,,,,,,,,,,,,,,false,false,,,allday: ENTRÉES; printed 'FRENCH ONION SOUP'
+scallops,Scallops,Entrées,,453,,,,,,,,,,,,,,,,false,false,,,allday: ENTRÉES; printed 'SCALLOPS'
+wild-mushrooms-on-toast,Wild Mushrooms on Toast,Entrées,,505,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: ENTRÉES; printed 'WILD MUSHROOMS ON TOAST'; page ticks Vegan but its allergen columns say contains milk
+chicken-liver-parfait,Chicken Liver Parfait,Entrées,,432,,,,,,,,,,,,,,,,false,false,,,allday: ENTRÉES; printed 'CHICKEN LIVER PARFAIT'
+french-blt-salad,French BLT Salad,Entrées,,323,,,,,,,,,,,,,,,,false,false,,,allday: ENTRÉES; printed 'FRENCH BLT SALAD'; page marks it vegetarian but its own text names pork: no diet tags given
+gambas,Gambas,Entrées,,805,,,,,,,,,,,,,,,,false,false,,,allday: ENTRÉES; printed 'GAMBAS'; also printed identically on: Bar Pierre
+calamari,Calamari,Entrées,,541,,,,,,,,,,,,,,,,false,false,,,allday: ENTRÉES; printed 'CALAMARI'
+twice-baked-cheese-souffle,Twice-Baked Cheese Soufflé,Entrées,,480,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: ENTRÉES; printed 'TWICE-BAKED CHEESE SOUFFLÉ'
+baked-camembert-menu-pierre,Baked Camembert - Menu Pierre,Entrées,,383,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: ENTRÉES; printed 'BAKED CAMEMBERT - Menu Pierre'
+steak-frites,Steak Frites,Frites & steaks,,798,,,,,,,,,,,,,,,contains_beef,false,false,,,allday: FRITES & STEAKS; printed 'STEAK FRITES'; also printed identically on: Bar Pierre
+lobster-frites,Lobster Frites,Frites & steaks,,1401,,,,,,,,,,,,,,,,false,false,,,allday: FRITES & STEAKS; printed 'LOBSTER FRITES'
+8oz-sirloin,8oz Sirloin,Frites & steaks,,1245,,,,,,,,,,,,,,,contains_beef,false,false,,,allday: FRITES & STEAKS; printed '8OZ SIRLOIN'
+7oz-fillet,7oz Fillet,Frites & steaks,,1097,,,,,,,,,,,,,,,,false,false,,,allday: FRITES & STEAKS; printed '7oz FILLET'
+8oz-rump,8oz Rump,Frites & steaks,,1172,,,,,,,,,,,,,,,,false,false,,,allday: FRITES & STEAKS; printed '8oz RUMP'
+jug-of-peppercorn-sauce,Jug of Peppercorn Sauce,Frites & steaks,,171,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: FRITES & STEAKS
+red-wine-jus,Red Wine Jus,Frites & steaks,,50,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: FRITES & STEAKS
+homemade-garlic-and-parsley-butter,Homemade Garlic and Parsley Butter,Frites & steaks,,276,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: FRITES & STEAKS
+chicken-normandy,Chicken Normandy,Plats,,880,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: PLATS; printed 'CHICKEN NORMANDY'
+bistrot-raclette-burger,Bistrot Raclette Burger,Plats,,1551,,,,,,,,,,,,,,,,false,false,,,allday: PLATS; printed 'BISTROT RACLETTE BURGER'; also printed identically on: Bar Pierre
+chicken-supreme-schnitzel,Chicken Supreme Schnitzel,Plats,,1444,,,,,,,,,,,,,,,,false,false,,,allday: PLATS; printed 'CHICKEN SUPREME SCHNITZEL'; also printed identically on: Bar Pierre
+lamb-tagine,Lamb Tagine,Plats,,532,,,,,,,,,,,,,,,,false,false,,,allday: PLATS; printed 'LAMB TAGINE'
+vegetable-tagine,Vegetable Tagine,Plats,,601,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PLATS; printed 'VEGETABLE TAGINE'
+saint-mont-and-roasted-squash-crepe,Saint Mont & Roasted Squash Crêpe,Plats,,978,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PLATS; printed 'SAINT MONT & ROASTED SQUASH CRÊPE'
+confit-duck-leg,Confit Duck Leg,Plats,,1112,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: PLATS; printed 'CONFIT DUCK LEG'
+slow-cooked-pork-belly,Slow-Cooked Pork Belly,Plats,,736,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: PLATS; printed 'SLOW-COOKED PORK BELLY'
+salmon-bearnaise,Salmon Béarnaise,Plats,,781,,,,,,,,,,,,,,,,false,false,,,allday: PLATS; printed 'SALMON BÉARNAISE'
+pan-fried-sea-bass,Pan-Fried Sea Bass,Plats,,668,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: PLATS; printed 'PAN-FRIED SEA BASS'
+potato-and-wild-mushroom-galette,Potato & Wild Mushroom Galette,Plats,,862,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: PLATS; printed 'POTATO & WILD MUSHROOM GALETTE'
+moules-mariniere-menu-pierre,Moules Marinière - Menu Pierre,Plats,,863,,,,,,,,,,,,,,,,false,false,,,allday: PLATS; printed 'MOULES MARINIÈRE - Menu Pierre'
+confit-chicken-menu-pierre,Confit Chicken - Menu Pierre,Plats,,1427,,,,,,,,,,,,,,,contains_pork,false,false,,,allday: PLATS; printed 'CONFIT CHICKEN - Menu Pierre'
+dauphinoise-potatoes,Dauphinoise Potatoes,Accompagnements,,443,,,,,,,,,,,,,,,,false,false,,,allday: ACCOMPAGNEMENTS; printed 'DAUPHINOISE POTATOES'
+salade-verte,Salade Verte,Accompagnements,,189,,,,,,,,,,,,,,,,false,false,,,allday: ACCOMPAGNEMENTS; printed 'SALADE VERTE'
+truffle-frites,Truffle Frites,Accompagnements,,625,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: ACCOMPAGNEMENTS; printed 'TRUFFLE FRITES'; also printed identically on: Bar Pierre
+frites,Frites,Accompagnements,,451,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: ACCOMPAGNEMENTS; printed 'FRITES'; also printed identically on: Bar Pierre
+tenderstem-broccoli,Tenderstem Broccoli,Accompagnements,,446,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: ACCOMPAGNEMENTS; printed 'TENDERSTEM BROCCOLI'; page ticks Vegan but its allergen columns say contains milk
+sweet-potato-frites,Sweet Potato Frites,Accompagnements,,507,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: ACCOMPAGNEMENTS; printed 'SWEET POTATO FRITES'; also printed identically on: Bar Pierre
+french-onion-mac-n-cheese,French Onion Mac N Cheese,Accompagnements,,835,,,,,,,,,,,,,,,,false,false,,,allday: ACCOMPAGNEMENTS; printed 'FRENCH ONION MAC N CHEESE'
+burnt-butter-mash,Burnt Butter Mash,Accompagnements,,803,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: ACCOMPAGNEMENTS; printed 'BURNT BUTTER MASH'
+dark-chocolate-mousse,Dark Chocolate Mousse,Desserts,,318,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'DARK CHOCOLATE MOUSSE'
+cafe-gourmand,Café Gourmand,Desserts,,358,,,,,,,,,,,,,,,,false,false,,,allday: DESSERTS; printed 'CAFÉ GOURMAND'
+cafe-gourmand-macaron,Café Gourmand - Macaron,Desserts,,121,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'CAFÉ GOURMAND - Macaron'
+cafe-gourmand-brulee-tart,Café Gourmand - Brulee Tart,Desserts,,115,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'CAFÉ GOURMAND - Brulee Tart'
+cafe-gourmand-chocolate-mousse,Café Gourmand - Chocolate Mousse,Desserts,,282,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'CAFÉ GOURMAND - Chocolate Mousse'
+cafe-gourmand-mango-sorbet,Café Gourmand - Mango sorbet,Desserts,,82,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'CAFÉ GOURMAND - Mango sorbet'
+spiced-blackberry-pain-perdu,Spiced Blackberry Pain Perdu,Desserts,,1053,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'SPICED BLACKBERRY PAIN PERDU'
+creme-brulee,Crème Brûlée,Desserts,,804,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'CRÈME BRÛLÉE'
+sticky-toffee-madeleine,Sticky Toffee Madeleine,Desserts,,624,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'STICKY TOFFEE MADELEINE'
+riz-au-lait,Riz au Lait,Desserts,,706,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'RIZ AU LAIT'
+miso-caramel-banana-crepe,Miso Caramel Banana Crêpe,Desserts,,633,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'MISO CARAMEL BANANA CRÊPE'
+fromage-du-jour,Fromage du Jour,Desserts,,752,,,,,,,,,,,,,,,,false,false,,,allday: DESSERTS; printed 'FROMAGE DU JOUR'
+chocolate-ice-cream,Chocolate Ice Cream,Desserts,,257,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS
+salted-caramel-ice-cream,Salted Caramel Ice Cream,Desserts,,235,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS
+strawberry-ice-cream,Strawberry Ice Cream,Desserts,,188,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS
+vanilla-ice-cream,Vanilla Ice Cream,Desserts,,244,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS
+lemon-sorbet,Lemon Sorbet,Desserts,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS
+raspberry-sorbet,Raspberry Sorbet,Desserts,,68,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS
+pot-au-chocolate-menu-pierre,Pot au Chocolate - Menu Pierre,Desserts,,212,,,,,,,,,,,,,,,vegetarian,false,false,,,allday: DESSERTS; printed 'POT AU CHOCOLATE - Menu Pierre'; also printed identically on: Petit Pierre
+traditional-breakfast,Traditional Breakfast,Breakfast: menu complet,,1482,,,,,,,,,,,,,,,contains_pork,false,false,,,breakfast: Menu Complet
+garden-breakfast,Garden Breakfast,Breakfast: menu complet,,1035,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Menu Complet
+vegan-garden-breakfast,Vegan Garden Breakfast,Breakfast: menu complet,,619,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Menu Complet
+eggs-royale,Eggs Royale,Breakfast: menu complet,,681,,,,,,,,,,,,,,,,false,false,,,breakfast: Menu Complet
+eggs-benedict,Eggs Benedict,Breakfast: menu complet,,605,,,,,,,,,,,,,,,contains_pork,false,false,,,breakfast: Menu Complet
+steak-and-eggs,Steak and Eggs,Breakfast: menu complet,,628,,,,,,,,,,,,,,,contains_beef,false,false,,,breakfast: Menu Complet
+french-toast,French Toast,Breakfast: menu complet,,815,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Menu Complet
+avocado-on-toast,Avocado on Toast,Breakfast: menu complet,,698,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Menu Complet
+pain-aux-raisin,Pain aux Raisin,Breakfast: lighter options,,288,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Lighter Options
+croissant,Croissant,Breakfast: lighter options,,312,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Lighter Options
+pain-au-chocolat,Pain au Chocolat,Breakfast: lighter options,,286,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Lighter Options
+granola-yoghurt-and-berries,"Granola, Yoghurt & Berries",Breakfast: lighter options,,529,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Lighter Options
+scrambled-eggs,Scrambled Eggs,Breakfast: lighter options,,522,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Lighter Options
+bacon-brioche,Bacon Brioche,Breakfast: lighter options,,794,,,,,,,,,,,,,,,contains_pork,false,false,,,breakfast: Lighter Options
+sausage-brioche,Sausage Brioche,Breakfast: lighter options,,713,,,,,,,,,,,,,,,contains_pork,false,false,,,breakfast: Lighter Options
+pork-and-herb-sausage,Pork & Herb Sausage,Breakfast: accompagnements,,352,,,,,,,,,,,,,,,contains_pork,false,false,,,breakfast: Accompagnements
+grilled-field-mushroom,Grilled Field Mushroom,Breakfast: accompagnements,,20,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Accompagnements
+grilled-tomato,Grilled Tomato,Breakfast: accompagnements,,10,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Accompagnements
+grilled-back-bacon,Grilled Back Bacon,Breakfast: accompagnements,,289,,,,,,,,,,,,,,,contains_pork,false,false,,,breakfast: Accompagnements
+toast,Toast,Breakfast: accompagnements,,581,,,,,,,,,,,,,,,,false,false,,,breakfast: Accompagnements
+free-range-egg,Free Range Egg,Breakfast: accompagnements,,94,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Accompagnements
+avocado,Avocado,Breakfast: accompagnements,,162,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Accompagnements
+smoked-salmon,Smoked Salmon,Breakfast: accompagnements,,73,,,,,,,,,,,,,,,,false,false,,,breakfast: Accompagnements
+kids-cooked-breakfast,Kids Cooked Breakfast,Breakfast: kids,,751,,,,,,,,,,,,,,,contains_pork,false,false,,,breakfast: Kids Breakfast
+beans-on-toast,Beans on Toast,Breakfast: kids,,454,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Kids Breakfast
+jammy-toast,Jammy Toast,Breakfast: kids,,547,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Kids Breakfast
+scrambled-eggs-kids-breakfast,Scrambled Eggs (Kids Breakfast),Breakfast: kids,,588,,,,,,,,,,,,,,,vegetarian,false,false,,,breakfast: Kids Breakfast
+kids-french-toast,Kids French Toast,Breakfast: kids,,428,,,,,,,,,,,,,,,,false,false,,,breakfast: Kids Breakfast
+french-afternoon-tea,French Afternoon Tea,Afternoon tea,,2787,,,,,,,,,,,,,,,contains_pork,false,false,,,tea: Afternoon Tea
+houmous-petit-pierre,Houmous (Petit Pierre),Petit Pierre (kids): starters,,195,,,,,,,,,,,,,,,vegetarian,false,false,,,kids: STARTERS; printed 'HOUMOUS'
+garlic-bread,Garlic Bread,Petit Pierre (kids): starters,,338,,,,,,,,,,,,,,,vegetarian,false,false,,,kids: STARTERS; printed 'GARLIC BREAD'
+garlic-bread-with-cheese,Garlic Bread - with Cheese,Petit Pierre (kids): starters,,584,,,,,,,,,,,,,,,vegetarian,false,false,,,kids: STARTERS; printed 'GARLIC BREAD - with Cheese'
+chicken-goujons-petit-pierre,Chicken Goujons (Petit Pierre),Petit Pierre (kids): mains,,659,,,,,,,,,,,,,,,,false,false,,,kids: MAINS; printed 'CHICKEN GOUJONS'
+petit-steak-frites,Petit Steak Frites,Petit Pierre (kids): mains,,807,,,,,,,,,,,,,,,contains_beef,false,false,,,kids: MAINS; printed 'PETIT STEAK FRITES'
+mac-and-cheese-gratin,Mac & Cheese Gratin,Petit Pierre (kids): mains,,823,,,,,,,,,,,,,,,vegetarian,false,false,,,kids: MAINS; printed 'MAC & CHEESE GRATIN'
+beef-burger,Beef Burger,Petit Pierre (kids): mains,,1033,,,,,,,,,,,,,,,contains_beef,false,false,,,kids: MAINS; printed 'BEEF BURGER'
+ham-and-cheese-croque-croissant,Ham & Cheese Croque Croissant,Petit Pierre (kids): mains,,1057,,,,,,,,,,,,,,,contains_pork,false,false,,,kids: MAINS; printed 'HAM & CHEESE CROQUE CROISSANT'
+fish-goujons-petit-pierre,Fish Goujons (Petit Pierre),Petit Pierre (kids): mains,,794,,,,,,,,,,,,,,,,false,false,,,kids: MAINS; printed 'FISH GOUJONS'
+fruit-bowl,Fruit Bowl,Petit Pierre (kids): desserts,,77,,,,,,,,,,,,,,,vegetarian,false,false,,,kids: DESSERTS; printed 'FRUIT BOWL'
+warm-chocolate-chip-cookies,Warm Chocolate Chip Cookies,Petit Pierre (kids): desserts,,600,,,,,,,,,,,,,,,vegetarian,false,false,,,kids: DESSERTS; printed 'WARM CHOCOLATE CHIP COOKIES'
+pip-fruity-ice-lolly,Pip Fruity Ice Lolly,Petit Pierre (kids): desserts,,39,,,,,,,,,,,,,,,vegetarian,false,false,,,kids: DESSERTS; printed 'PIP FRUITY ICE LOLLY'
+calamari-bar-pierre,Calamari (Bar Pierre),Bar Pierre: petit plats,,454,,,,,,,,,,,,,,,,false,false,,,bar: PETIT PLATS
+sharing-camembert,Sharing Camembert,Bar Pierre: petit plats,,788,,,,,,,,,,,,,,,vegetarian,false,false,,,bar: PETIT PLATS
+chicken-goujons,Chicken Goujons,Bar Pierre: petit plats,,785,,,,,,,,,,,,,,,,false,false,,,bar: PETIT PLATS
+fish-goujons,Fish Goujons,Bar Pierre: petit plats,,683,,,,,,,,,,,,,,,,false,false,,,bar: PETIT PLATS
+frites-en-trois,Frites en Trois,Bar Pierre: petit plats,,1542,,,,,,,,,,,,,,,,false,false,,,bar: PETIT PLATS
+chicken-club-baguette,Chicken Club Baguette,Bar Pierre: baguettes,,1644,,,,,,,,,,,,,,,contains_pork,false,false,,,bar: BAGUETTES; printed 'CHICKEN CLUB BAGUETTE'
+cheese-and-tomato-baguette,Cheese & Tomato Baguette,Bar Pierre: baguettes,,1349,,,,,,,,,,,,,,,vegetarian,false,false,,,bar: BAGUETTES; printed 'CHEESE & TOMATO BAGUETTE'
+ham-and-cheese-baguette,Ham & Cheese Baguette,Bar Pierre: baguettes,,1214,,,,,,,,,,,,,,,contains_pork,false,false,,,bar: BAGUETTES; printed 'HAM & CHEESE'
+jambon-beurre-baguette,Jambon Beurre Baguette,Bar Pierre: baguettes,,885,,,,,,,,,,,,,,,contains_pork,false,false,,,bar: BAGUETTES; printed 'JAMBON BEURRE BAGUETTE'
+smoked-salmon-baguette,Smoked Salmon Baguette,Bar Pierre: baguettes,,999,,,,,,,,,,,,,,,,false,false,,,bar: BAGUETTES; printed 'SMOKED SALMON'

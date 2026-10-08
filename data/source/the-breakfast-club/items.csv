@@ -1,0 +1,56 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+the-full-monty,The Full Monty,Caf Classics,,1551,,,,,,,,,,,,,,,contains_pork,false,false,,,"Crispy bacon, sausage, black pudding; turkey bacon + chicken sausage available; printed 1 time(s)"
+the-veggie-monty,The Veggie Monty,Caf Classics,,1287,,,,,,,,,,,,,,,,false,false,,,Named 'Veggie' but no (V) mark printed: not tagged vegetarian; printed 1 time(s)
+the-full-english,The Full English,Caf Classics,,1118,,,,,,,,,,,,,,,contains_pork,false,false,,,"Crispy bacon, sausage; printed 1 time(s)"
+bacon-eggs-hash-browns,"Bacon, Eggs + Hash Browns",Caf Classics,,988,,,,,,,,,,,,,,,contains_pork,false,false,,,Streaky bacon; turkey bacon available; printed 1 time(s)
+avo-and-eggs,Avo & Eggs,Caf Classics,,799,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed (V + PB); printed 1 time(s)
+the-all-american,The All American,Pancake Filled Hope,,1598,,,,,,,,,,,,,,,contains_pork,false,false,,,"Pancakes, bacon, sausage; 'swap out pork products for turkey bacon and chicken sausage'; printed 1 time(s)"
+short-stack-pancakes,Short Stack Pancakes,Pancake Filled Hope,3 pancakes,643,,,,,,,,,,,,,,,,false,false,,,"Printed '15.00/16.00 643kcal': price for 2 or 3 toppings, one calorie figure; toppings are printed with their own calories; printed 1 time(s)"
+pancakes-with-marmite-maple-butter,Pancakes with Marmite Maple Butter,Pancakes for the Table,2 pancakes,519,,,,,,,,,,,,,,,,false,false,,,printed 1 time(s)
+tbc-breakfast-burger,TBC Breakfast Burger,Diner Plates,,1003,,,,,,,,,,,,,,,contains_pork,false,false,,,"Sausage patty, double bacon; with hash browns, homestyle potatoes or fries; printed 1 time(s)"
+french-toast-plate,French Toast Plate,Diner Plates,,682,,,,,,,,,,,,,,,contains_pork,false,false,,,Crispy bacon; (V available) so not tagged vegetarian; turkey bacon available; printed 1 time(s)
+eggs-benedict,Eggs Benedict,Diner Plates,,1077,,,,,,,,,,,,,,,contains_pork,false,false,,,"Bacon; with homestyle potatoes, hash browns, fries or fruit salad; turkey bacon available; printed 1 time(s)"
+smoked-salmon-avo-and-eggs,"Smoked Salmon, Avo & Eggs",Diner Plates,,697,,,,,,,,,,,,,,,,false,false,,,printed 1 time(s)
+anvars-turkish-eggs,Anvar’s Turkish Eggs,Veggie Plates,,977,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed (V); printed 1 time(s)
+crispy-chilli-and-feta-avo-toast,Crispy Chilli & Feta Avo Toast,Veggie Plates,,657,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed (V); on its own or with 1 or 2 additional sides; printed 1 time(s)
+hot-honey-halloumi-tacos,Hot Honey Halloumi Tacos,Veggie Plates,2 soft tacos,668,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed (V); printed 1 time(s)
+smashed-avocado-and-mojo-picon-on-toast,Smashed Avocado & Mojo Picon on Toast,Veggie Plates,,831,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed (PB) plant based; on its own or with 1 or 2 additional sides; printed 1 time(s)
+fried-chicken-bacon-and-waffles,"Fried Chicken, Bacon & Waffles",Chicken,,1056,,,,,,,,,,,,,,,contains_pork,false,false,,,Crispy bacon; turkey bacon available; printed 1 time(s)
+chicken-schnitzel-caesar,Chicken Schnitzel Caesar,Chicken,,1065,,,,,,,,,,,,,,,,false,false,,,printed 1 time(s)
+mr-big-chicken,Mr Big Chicken,Chicken,,716,,,,,,,,,,,,,,,,false,false,,,'beef tomato' in the description is a tomato: no beef tag; printed 1 time(s)
+the-breakfast-burrito,The Breakfast Burrito,"Tacos, Huevos + Burritos",,873,,,,,,,,,,,,,,,,false,false,,,Chorizo 'vegan or pork': meat type not stated; (V available); printed 1 time(s)
+nduja-and-fried-egg-tacos,’Nduja & Fried Egg Tacos,"Tacos, Huevos + Burritos",2 soft tacos,1097,,,,,,,,,,,,,,,contains_pork,false,false,,,'Nduja is a pork salumi (the PDF doesn't say pork); (V available) by swapping in veggie chorizo; printed 1 time(s)
+chicken-tacos,Chicken Tacos,"Tacos, Huevos + Burritos",2 soft tacos,730,,,,,,,,,,,,,,,,false,false,,,"Printed 'Chicken or Chorizo Tacos 730kcal / 758kcal': values paired with the fillings in printed order, not labelled in the PDF; printed 1 time(s)"
+chorizo-tacos,Chorizo Tacos,"Tacos, Huevos + Burritos",2 soft tacos,758,,,,,,,,,,,,,,,,false,false,,,Second of the two printed values (see Chicken Tacos); chorizo 'vegan chorizo available': meat type not stated; printed 1 time(s)
+huevos-rancheros,Huevos Rancheros,"Tacos, Huevos + Burritos",,1231,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed (V); printed 1 time(s)
+hash-browns-and-dip-3-hash-browns,Hash Browns & Dip (3 hash browns),Sides + Shares,3 hash browns,390,,,,,,,,,,,,,,,,false,false,,,"Printed 390kcal/780kcal/1170kcal for 'Choose 3, 6 or 9 hash browns With 1, 2 or 3 dips': paired in printed order; dip calories not printed; gravy dip (not V); printed 1 time(s)"
+hash-browns-and-dip-6-hash-browns,Hash Browns & Dip (6 hash browns),Sides + Shares,6 hash browns,780,,,,,,,,,,,,,,,,false,false,,,Second of three printed values (see the 3 hash browns row); printed 1 time(s)
+hash-browns-and-dip-9-hash-browns,Hash Browns & Dip (9 hash browns),Sides + Shares,9 hash browns,1170,,,,,,,,,,,,,,,,false,false,,,Third of three printed values (see the 3 hash browns row); printed 1 time(s)
+french-toast-fingers,French Toast Fingers,Sides + Shares,,526,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '526kcal/(V)'; maple syrup and chocolate dip have their own values; printed 1 time(s)
+chicken-tenders,Chicken Tenders,Sides + Shares,4 tenders,530,,,,,,,,,,,,,,,,false,false,,,4 golden chicken tenders with your choice of two dips (dip calories not printed; gravy is one); printed 1 time(s)
+homestyle-potatoes,Homestyle Potatoes,Sides + Shares,,300,,,,,,,,,,,,,,,,false,false,,,"Printed on the Sides list, as an add-on to the Smoked Salmon and the Halloumi Tacos, and as 'POTATOES' in the side choice lists (same value); the PB mark above 'Fries' may belong here: not tagged; printed 5 time(s)"
+fries,Fries,Sides + Shares,,486,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '(PB) Fries 486kcal (PB)'. HELD BACK: the add-on Fries are printed 485kcal elsewhere in the same PDF; printed 1 time(s)
+caesar-side-salad,Caesar Side Salad,Sides + Shares,,451,,,,,,,,,,,,,,,,false,false,,,"Printed on the Sides list, and as 'ADD CAESAR SALAD' on the Halloumi Tacos (same value); printed 2 time(s)"
+egg,Egg,Add-ons and Toppings,,131,,,,,,,,,,,,,,,,false,false,,,"Printed 5 times (Full Monty add, pancake toppings, French Toast Plate add, two side choice lists), always 131kcal; printed 5 time(s)"
+golden-yolk-poached-egg,Golden Yolk Poached Egg,Add-ons and Toppings,,131,,,,,,,,,,,,,,,,false,false,,,Printed 'ADD GOLDEN YOLK POACHED EGG' on the Chicken Schnitzel Caesar; printed 1 time(s)
+bacon,Bacon,Add-ons and Toppings,,220,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed in the pancake toppings, both side choice lists and the Huevos Rancheros adds, always 220kcal; printed 4 time(s)"
+turkey-bacon,Turkey Bacon,Add-ons and Toppings,,42,,,,,,,,,,,,,,,,false,false,,,"Printed in the pancake toppings and both side choice lists, always 42kcal; printed 3 time(s)"
+sausage-pancake-topping,Sausage (pancake topping),Add-ons and Toppings,,154,,,,,,,,,,,,,,,contains_pork,false,false,,,Pancake toppings; the PDF calls sausage a pork product (turkey bacon and chicken sausage swap); printed 1 time(s)
+veggie-sausage-pancake-topping,Veggie Sausage (pancake topping),Add-ons and Toppings,,188,,,,,,,,,,,,,,,,false,false,,,"HELD BACK: pancake toppings print 188kcal, the side choice lists print 144kcal for the same name; printed 1 time(s)"
+veggie-sausage-side-choice,Veggie Sausage (side choice),Add-ons and Toppings,,144,,,,,,,,,,,,,,,,false,false,,,"HELD BACK: side choice lists print 144kcal, the pancake toppings print 188kcal for the same name; printed 2 time(s)"
+hash-browns,Hash Browns,Add-ons and Toppings,,155,,,,,,,,,,,,,,,,false,false,,,"Printed in the pancake toppings, as an add-on to the Smoked Salmon and in both side choice lists, always 155kcal; the 3 hash browns & dip is 390kcal; printed 4 time(s)"
+mixed-berries-pancake-topping,Mixed Berries (pancake topping),Add-ons and Toppings,,6,,,,,,,,,,,,,,,,false,false,,,printed 1 time(s)
+vanilla-cream-pancake-topping,Vanilla Cream (pancake topping),Add-ons and Toppings,,120,,,,,,,,,,,,,,,,false,false,,,printed 1 time(s)
+chocolate-pancake-topping,Chocolate (pancake topping),Add-ons and Toppings,,270,,,,,,,,,,,,,,,,false,false,,,printed 1 time(s)
+banana-pancake-topping,Banana (pancake topping),Add-ons and Toppings,,44,,,,,,,,,,,,,,,,false,false,,,printed 1 time(s)
+blueberry-compote-pancake-topping,Blueberry Compote (pancake topping),Add-ons and Toppings,,70,,,,,,,,,,,,,,,,false,false,,,printed 1 time(s)
+maple-syrup-with-french-toast-fingers,Maple Syrup (with French Toast Fingers),Add-ons and Toppings,,120,,,,,,,,,,,,,,,,false,false,,,'with: MAPLE SYRUP 120kcal OR CHOCOLATE DIP 270kcal'; printed 1 time(s)
+chocolate-dip-with-french-toast-fingers,Chocolate Dip (with French Toast Fingers),Add-ons and Toppings,,270,,,,,,,,,,,,,,,,false,false,,,'with: MAPLE SYRUP 120kcal OR CHOCOLATE DIP 270kcal'; printed 1 time(s)
+harissa-beans,Harissa Beans,Add-ons and Toppings,,310,,,,,,,,,,,,,,,,false,false,,,'ON ITS OWN OR WITH 1 OR 2 ADDITIONAL SIDES' lists: printed under both the Crispy Chilli & Feta Avo Toast and the Smashed Avocado; printed 2 time(s)
+mushrooms,Mushrooms,Add-ons and Toppings,,72,,,,,,,,,,,,,,,,false,false,,,'ON ITS OWN OR WITH 1 OR 2 ADDITIONAL SIDES' lists: printed under both the Crispy Chilli & Feta Avo Toast and the Smashed Avocado; printed 2 time(s)
+chorizo,Chorizo,Add-ons and Toppings,,290,,,,,,,,,,,,,,,,false,false,,,Printed on the Turkish Eggs and Huevos Rancheros adds (290kcal both); vegan or pork not stated; printed 2 time(s)
+veggie-chorizo,Veggie Chorizo,Add-ons and Toppings,,188,,,,,,,,,,,,,,,,false,false,,,Huevos Rancheros add; named 'veggie' but no (V) mark: not tagged; printed 1 time(s)
+halloumi,Halloumi,Add-ons and Toppings,,246,,,,,,,,,,,,,,,,false,false,,,Printed on the Turkish Eggs and Huevos Rancheros adds (246kcal both); printed 2 time(s)
+fried-chicken-tenders,Fried Chicken Tenders,Add-ons and Toppings,,270,,,,,,,,,,,,,,,,false,false,,,Add-on to the Turkish Eggs; the Chicken Tenders on the Sides list (4 tenders) are 530kcal; printed 1 time(s)
+chicken,Chicken,Add-ons and Toppings,,270,,,,,,,,,,,,,,,,false,false,,,Huevos Rancheros add; printed 1 time(s)
+fries-add-on,Fries (add-on),Add-ons and Toppings,,485,,,,,,,,,,,,,,,,false,false,,,"HELD BACK: printed 485kcal on the Halloumi Tacos and Schnitzel adds, but 486kcal as the Fries side on the Sides list; printed 2 time(s)"

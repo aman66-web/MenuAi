@@ -1,0 +1,3 @@
+item_id,reason
+cafe-gourmand,"Printed 358 kcal, but the same page prints its four parts (Macaron 121, Brulee Tart 115, Chocolate Mousse 282, Mango sorbet 82) as 600 kcal together"
+lemon-sorbet,"Printed 0 kcal for a sorbet, while the same page prints 68 kcal for Raspberry Sorbet and 82 kcal for the Mango sorbet in Cafe Gourmand"

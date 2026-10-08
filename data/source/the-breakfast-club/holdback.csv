@@ -1,0 +1,5 @@
+item_id,reason
+veggie-sausage-pancake-topping,"The PDF prints Veggie Sausage as 188kcal in one place (Veggie Sausage (pancake topping)) and 144kcal in another (Veggie Sausage (side choice)): contradicting itself, not published"
+veggie-sausage-side-choice,"The PDF prints Veggie Sausage as 144kcal in one place (Veggie Sausage (side choice)) and 188kcal in another (Veggie Sausage (pancake topping)): contradicting itself, not published"
+fries,"The PDF prints Fries as 486kcal in one place (Fries) and 485kcal in another (Fries (add-on)): contradicting itself, not published"
+fries-add-on,"The PDF prints Fries as 485kcal in one place (Fries (add-on)) and 486kcal in another (Fries): contradicting itself, not published"
