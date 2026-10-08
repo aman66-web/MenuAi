@@ -1,0 +1,4 @@
+item_id,reason
+individual-small-custard,"The page prints 'Cals per unit 267 kcal' but its own 'Nutrition Information - Per 100g' table also gives 267 kcal, so the figure may be the per-100 g value and its basis cannot be confirmed. The page does not say what a unit weighs."
+small-custards-2-pack,"The page prints 'Cals per unit 267 kcal' but its own 'Nutrition Information - Per 100g' table also gives 267 kcal, so the figure may be the per-100 g value and its basis cannot be confirmed. The page does not say what a unit weighs."
+apple-slice,"The page prints 'Cals per unit 267 kcal', the same figure as the two custard pages, and has no nutrition table to check it against. The custard pages' own per-100 g table also reads 267 kcal, so the basis of this figure is not confirmed."
