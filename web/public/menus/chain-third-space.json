@@ -1,0 +1,215 @@
+{
+ "schemaVersion": 1,
+ "id": "third-space",
+ "name": "Third Space",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "third space",
+  "thirdspace",
+  "third space gym",
+  "third space london",
+  "natural fitness food"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Third Space Natural Fitness Food menu: shakes (live page labelled #NFF26, accessed 2026-10-08, no date shown)",
+  "url": "https://www.thirdspace.london/natural-fitness-foods-menu/",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Third Space's own Natural Fitness Food menu publishes calories, protein, carbs and fat for its 11 shakes, per 22 oz shake. Protein powders, milks and add-ons are not listed: the page gives no portion for them. No food menu or allergen guide is published.",
+ "categories": [
+  "Shakes"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "apple-crumble",
+   "name": "Apple Crumble",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 347,
+    "protein": 27,
+    "carbs": 34,
+    "fat": 10
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-bread",
+   "name": "Banana Bread",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 393,
+    "protein": 23,
+    "carbs": 55,
+    "fat": 7.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-blast",
+   "name": "Berry Blast",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 176,
+    "protein": 22,
+    "carbs": 11,
+    "fat": 4.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-almond",
+   "name": "Blueberry Almond",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 294,
+    "protein": 26,
+    "carbs": 11,
+    "fat": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-beat",
+   "name": "Breakfast Beat",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 531,
+    "protein": 28,
+    "carbs": 55,
+    "fat": 19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-chief",
+   "name": "Chocolate Chief",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 286,
+    "protein": 22,
+    "carbs": 28,
+    "fat": 8.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ferrero-rocher",
+   "name": "Ferrero Rocher",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 450,
+    "protein": 24,
+    "carbs": 36,
+    "fat": 23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutter-butter",
+   "name": "Nutter Butter",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 413,
+    "protein": 24,
+    "carbs": 37,
+    "fat": 17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "snickers",
+   "name": "Snickers",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 305,
+    "protein": 26,
+    "carbs": 16,
+    "fat": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "superhuman",
+   "name": "Superhuman",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 451,
+    "protein": 30,
+    "carbs": 34,
+    "fat": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "perfect-matcha",
+   "name": "Perfect Matcha",
+   "category": "Shakes",
+   "serving": "22 oz",
+   "nutrients": {
+    "calories": 311,
+    "protein": 27,
+    "carbs": 18,
+    "fat": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

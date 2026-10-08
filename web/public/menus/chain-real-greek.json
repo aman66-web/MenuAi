@@ -1,0 +1,1498 @@
+{
+ "schemaVersion": 1,
+ "id": "real-greek",
+ "name": "The Real Greek",
+ "cuisine": "Greek",
+ "builderType": "standard",
+ "aliases": [
+  "the real greek",
+  "real greek",
+  "therealgreek",
+  "real greek restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "The Real Greek Macronutrient Allergen Menu, 30 September 2026 (page 1 of TRG-Allergen-Menu-Spring-26.pdf, PDF created 5 October 2026)",
+  "url": "https://www.therealgreek.com/wp-content/uploads/2026/03/TRG%E2%80%93Allergen%E2%80%93Menu-Spring%E2%80%9326.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Per dish as served, from the chain's own 30 September 2026 Macronutrient Allergen Menu (page 1). Its lunch, ice cream, coffee, tea and kids pages print calories only, so those dishes are not listed. Dishes marked * are fried and may touch other allergens. Baked Cheesecake: almond; may also contain other nuts and soya.",
+ "allergenGuide": {
+  "title": "The Real Greek Macronutrient Allergen Menu, 30 September 2026 (allergen letter codes beside each dish; same PDF as the nutrition table)",
+  "url": "https://www.therealgreek.com/wp-content/uploads/2026/03/TRG%E2%80%93Allergen%E2%80%93Menu-Spring%E2%80%9326.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Flatbread and dips",
+  "Small plates",
+  "Skewers",
+  "Mains",
+  "Wraps",
+  "Sides",
+  "Salads",
+  "Desserts",
+  "Ice cream and sorbet"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "gluten-free-greek-flatbread",
+   "name": "Gluten-Free Greek Flatbread",
+   "category": "Flatbread and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 291,
+    "protein": 4.9,
+    "carbs": 58.8,
+    "fat": 3.6,
+    "saturatedFat": 0.7,
+    "sugar": 3.2,
+    "fiber": 6.3,
+    "salt": 0.87
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "warm-greek-flatbread",
+   "name": "Warm Greek Flatbread",
+   "category": "Flatbread and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 506,
+    "protein": 12,
+    "carbs": 70,
+    "fat": 22,
+    "saturatedFat": 3.5,
+    "sugar": 2.2,
+    "fiber": 3.8,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "whipped-spicy-feta",
+   "name": "Whipped Spicy Feta",
+   "category": "Flatbread and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 639,
+    "protein": 10,
+    "carbs": 8,
+    "fat": 60,
+    "saturatedFat": 18,
+    "sugar": 6,
+    "fiber": 1,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "whipped-spicy-feta-50-g",
+   "name": "Whipped Spicy Feta (50 g)",
+   "category": "Flatbread and dips",
+   "serving": "50 g",
+   "nutrients": {
+    "calories": 456,
+    "protein": 7.1,
+    "carbs": 5.7,
+    "fat": 42.9,
+    "saturatedFat": 12.9,
+    "sugar": 4.3,
+    "fiber": 0.7,
+    "salt": 1.14,
+    "weight": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taramasalata",
+   "name": "Taramasalata",
+   "category": "Flatbread and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 761,
+    "protein": 7,
+    "carbs": 18,
+    "fat": 70,
+    "saturatedFat": 10,
+    "sugar": 3,
+    "fiber": 2,
+    "salt": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "taramasalata-50-g",
+   "name": "Taramasalata (50 g)",
+   "category": "Flatbread and dips",
+   "serving": "50 g",
+   "nutrients": {
+    "calories": 544,
+    "protein": 5,
+    "carbs": 12.9,
+    "fat": 50,
+    "saturatedFat": 7.1,
+    "sugar": 2.1,
+    "fiber": 1.4,
+    "salt": 0,
+    "weight": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "houmous",
+   "name": "Houmous",
+   "category": "Flatbread and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 508,
+    "protein": 13,
+    "carbs": 22,
+    "fat": 46,
+    "saturatedFat": 6,
+    "sugar": 2,
+    "fiber": 9,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "houmous-50-g",
+   "name": "Houmous (50 g)",
+   "category": "Flatbread and dips",
+   "serving": "50 g",
+   "nutrients": {
+    "calories": 363,
+    "protein": 9.3,
+    "carbs": 15.7,
+    "fat": 32.9,
+    "saturatedFat": 4.3,
+    "sugar": 1.4,
+    "fiber": 6.4,
+    "salt": 1.43,
+    "weight": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fava",
+   "name": "Fava",
+   "category": "Flatbread and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 30,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 3.1,
+    "saturatedFat": 0.2,
+    "sugar": 0,
+    "fiber": 0.2,
+    "salt": 0.26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "olives",
+   "name": "Olives",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 314,
+    "protein": 2,
+    "carbs": 2,
+    "fat": 30,
+    "saturatedFat": 3,
+    "sugar": 0.3,
+    "fiber": 1.5,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "courgette-fritter",
+   "name": "Courgette Fritter",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 266,
+    "protein": 6,
+    "carbs": 25,
+    "fat": 20,
+    "saturatedFat": 2,
+    "sugar": 4,
+    "fiber": 2,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dolmades",
+   "name": "Dolmades",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 408,
+    "protein": 9,
+    "carbs": 53,
+    "fat": 24,
+    "saturatedFat": 3,
+    "sugar": 3,
+    "fiber": 8,
+    "salt": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-skewer",
+   "name": "Chicken Skewer",
+   "category": "Skewers",
+   "serving": "",
+   "nutrients": {
+    "calories": 324,
+    "protein": 35,
+    "carbs": 1,
+    "fat": 15,
+    "saturatedFat": 3,
+    "sugar": 0.5,
+    "fiber": 0.5,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loukanico-skewer",
+   "name": "Loukanico Skewer",
+   "category": "Skewers",
+   "serving": "",
+   "nutrients": {
+    "calories": 595,
+    "protein": 24,
+    "carbs": 2,
+    "fat": 50,
+    "saturatedFat": 18,
+    "sugar": 1,
+    "fiber": 0.8,
+    "salt": 1.3
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lamb-skewer",
+   "name": "Lamb Skewer",
+   "category": "Skewers",
+   "serving": "",
+   "nutrients": {
+    "calories": 488,
+    "protein": 40,
+    "carbs": 0,
+    "fat": 38,
+    "saturatedFat": 14,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "halloumi-skewer",
+   "name": "Halloumi Skewer",
+   "category": "Skewers",
+   "serving": "",
+   "nutrients": {
+    "calories": 516,
+    "protein": 18,
+    "carbs": 2,
+    "fat": 45,
+    "saturatedFat": 21,
+    "sugar": 1.2,
+    "fiber": 0.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "octopus-skewer",
+   "name": "Octopus Skewer",
+   "category": "Skewers",
+   "serving": "",
+   "nutrients": {
+    "calories": 139,
+    "protein": 20,
+    "carbs": 0,
+    "fat": 6,
+    "saturatedFat": 1,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pork-skewer",
+   "name": "Pork Skewer",
+   "category": "Skewers",
+   "serving": "",
+   "nutrients": {
+    "calories": 601,
+    "protein": 19,
+    "carbs": 3,
+    "fat": 49,
+    "saturatedFat": 18,
+    "sugar": 1,
+    "fiber": 0.5,
+    "salt": 2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-sea-bream",
+   "name": "Grilled Sea Bream",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 411,
+    "protein": 53.5,
+    "carbs": 9.9,
+    "fat": 16.3,
+    "saturatedFat": 3.1,
+    "sugar": 0.8,
+    "fiber": 1.3,
+    "salt": 2.65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lamb-meatballs",
+   "name": "Lamb Meatballs",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 753,
+    "protein": 40.7,
+    "carbs": 22.4,
+    "fat": 53,
+    "saturatedFat": 21.4,
+    "sugar": 7.9,
+    "fiber": 3.6,
+    "salt": 1.23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spetsofai",
+   "name": "Spetsofai",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 873,
+    "protein": 27,
+    "carbs": 58,
+    "fat": 52,
+    "saturatedFat": 15,
+    "sugar": 11,
+    "fiber": 7.9,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pastitsio-500-g",
+   "name": "Pastitsio (500 g)",
+   "category": "Mains",
+   "serving": "500 g",
+   "nutrients": {
+    "calories": 1040,
+    "protein": 46,
+    "carbs": 76,
+    "fat": 62,
+    "saturatedFat": 31,
+    "sugar": 11.5,
+    "fiber": 6.5,
+    "salt": 5.25,
+    "weight": 500
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pastitsio-kids",
+   "name": "Pastitsio (Kids)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 520,
+    "protein": 23,
+    "carbs": 38,
+    "fat": 31,
+    "saturatedFat": 15.5,
+    "sugar": 5.8,
+    "fiber": 3.3,
+    "salt": 2.63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kokkinisto-with-mash",
+   "name": "Kokkinisto with Mash",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 614,
+    "protein": 32,
+    "carbs": 49,
+    "fat": 30,
+    "saturatedFat": 16,
+    "sugar": 12,
+    "fiber": 6.6,
+    "salt": 6.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "moussaka",
+   "name": "Moussaka",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 420,
+    "protein": 13,
+    "carbs": 27,
+    "fat": 29,
+    "saturatedFat": 18,
+    "sugar": 9,
+    "fiber": 1,
+    "salt": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegetable-moussaka",
+   "name": "Vegetable Moussaka",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 664,
+    "protein": 16,
+    "carbs": 75,
+    "fat": 34,
+    "saturatedFat": 4,
+    "sugar": 11,
+    "fiber": 10,
+    "salt": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-gyros-wrap-mustard",
+   "name": "Chicken Gyros Wrap (Mustard)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 1076,
+    "protein": 33.7,
+    "carbs": 88.9,
+    "fat": 66.2,
+    "saturatedFat": 8.9,
+    "sugar": 4,
+    "fiber": 5.9,
+    "salt": 3.21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-wrap",
+   "name": "Halloumi Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 714,
+    "protein": 30,
+    "carbs": 55,
+    "fat": 45,
+    "saturatedFat": 12,
+    "sugar": 4.5,
+    "fiber": 2.5,
+    "salt": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "loukanico-wrap",
+   "name": "Loukanico Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 747,
+    "protein": 36,
+    "carbs": 65,
+    "fat": 50,
+    "saturatedFat": 15,
+    "sugar": 5,
+    "fiber": 2,
+    "salt": 2.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "courgette-fritter-wrap",
+   "name": "Courgette Fritter Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 888,
+    "protein": 28,
+    "carbs": 75,
+    "fat": 35,
+    "saturatedFat": 10,
+    "sugar": 8,
+    "fiber": 3,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chips-small",
+   "name": "Chips (Small)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 813,
+    "protein": 6,
+    "carbs": 60,
+    "fat": 61,
+    "saturatedFat": 8,
+    "sugar": 1,
+    "fiber": 6,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chips-large",
+   "name": "Chips (Large)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1219,
+    "protein": 8,
+    "carbs": 84,
+    "fat": 85,
+    "saturatedFat": 12,
+    "sugar": 1,
+    "fiber": 8,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "potato-salad",
+   "name": "Potato Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 328,
+    "protein": 5.5,
+    "carbs": 35.5,
+    "fat": 18.9,
+    "saturatedFat": 2.8,
+    "sugar": 3,
+    "fiber": 4.5,
+    "salt": 0.88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chickpea-salad",
+   "name": "Chickpea Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "protein": 13.5,
+    "carbs": 33.4,
+    "fat": 18.2,
+    "saturatedFat": 2.1,
+    "sugar": 6.1,
+    "fiber": 9.1,
+    "salt": 1.05
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "greek-salad-small",
+   "name": "Greek Salad (Small)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 422,
+    "protein": 8,
+    "carbs": 20,
+    "fat": 35,
+    "saturatedFat": 10,
+    "sugar": 6,
+    "fiber": 4,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "greek-salad-large",
+   "name": "Greek Salad (Large)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 722,
+    "protein": 14,
+    "carbs": 35,
+    "fat": 60,
+    "saturatedFat": 18,
+    "sugar": 9,
+    "fiber": 6,
+    "salt": 2.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-leaf-salad",
+   "name": "Green Leaf Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 241,
+    "protein": 4,
+    "carbs": 10,
+    "fat": 18,
+    "saturatedFat": 2.5,
+    "sugar": 1,
+    "fiber": 1.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "greek-filo-custard-pie",
+   "name": "Greek Filo Custard Pie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 958,
+    "protein": 17.8,
+    "carbs": 109.3,
+    "fat": 47.5,
+    "saturatedFat": 28,
+    "sugar": 72.9,
+    "fiber": 1.3,
+    "salt": 0.68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "baked-cheesecake",
+   "name": "Baked Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 411,
+    "protein": 6,
+    "carbs": 30,
+    "fat": 28,
+    "saturatedFat": 16,
+    "sugar": 10,
+    "fiber": 0.5,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "greek-orange-cake",
+   "name": "Greek Orange Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 692,
+    "protein": 14.5,
+    "carbs": 75,
+    "fat": 46,
+    "saturatedFat": 27,
+    "sugar": 57,
+    "fiber": 1.5,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yoghurt-and-honey",
+   "name": "Yoghurt and Honey",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 158,
+    "protein": 9,
+    "carbs": 15,
+    "fat": 4,
+    "saturatedFat": 2.5,
+    "sugar": 11,
+    "fiber": 0.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-brownie",
+   "name": "Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 486,
+    "protein": 6.7,
+    "carbs": 28.4,
+    "fat": 39.8,
+    "saturatedFat": 13.3,
+    "sugar": 14.5,
+    "fiber": 5.6,
+    "salt": 6.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-ice-cream",
+   "name": "Vanilla Ice Cream",
+   "category": "Ice cream and sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 6.2,
+    "carbs": 48.2,
+    "fat": 22.2,
+    "saturatedFat": 13.4,
+    "sugar": 44.6,
+    "fiber": 0,
+    "salt": 0.28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vegan-vanilla-ice-cream",
+   "name": "Vegan Vanilla Ice Cream",
+   "category": "Ice cream and sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 525,
+    "protein": 18,
+    "carbs": 2,
+    "fat": 45.7,
+    "saturatedFat": 21.4,
+    "sugar": 1.2,
+    "fiber": 0.5,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-ice-cream",
+   "name": "Chocolate Ice Cream",
+   "category": "Ice cream and sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 433,
+    "protein": 7.4,
+    "carbs": 49,
+    "fat": 20.2,
+    "saturatedFat": 12.8,
+    "sugar": 48.2,
+    "fiber": 0,
+    "salt": 0.88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pistachio-ice-cream",
+   "name": "Pistachio Ice Cream",
+   "category": "Ice cream and sorbet",
+   "serving": "",
+   "nutrients": {
+    "calories": 413,
+    "protein": 9.6,
+    "carbs": 38.6,
+    "fat": 28.6,
+    "saturatedFat": 12.4,
+    "sugar": 34.8,
+    "fiber": 0,
+    "salt": 0.66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "pistachio"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

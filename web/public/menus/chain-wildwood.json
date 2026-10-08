@@ -1,0 +1,1683 @@
+{
+ "schemaVersion": 1,
+ "id": "wildwood",
+ "name": "Wildwood",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "wildwood",
+  "wildwood restaurant",
+  "wildwood restaurants"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Wildwood calorie sheets: Main Menu, Lunch Set Menu and Evening Set Menu (each dated 13.05.2026), Specials (24.07.26 V1, and 30.06.26 at Northwich); checked against the August 2026 menu",
+  "url": "https://wildwoodrestaurants.co.uk/wp-content/uploads/Wildwood-Spring-Main-Menu-Calories-27.04.2026.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Wildwood prints calories only, so protein, carbs and fat are not published. Read from its Main, Lunch Set, Evening Set and Specials calorie sheets (Apr-Sep 2026): a dish is listed only if every sheet that prints it agrees. Menus differ by restaurant, and specials change often. Drinks are not on those sheets, so none are listed.",
+ "allergenGuide": {
+  "title": "Wildwood Allergen & Calorie Information page (main menu allergen data V1 10/08/2026; lunch set and evening set 27.04.2026; specials 24.07.26)",
+  "url": "https://wildwoodrestaurants.co.uk/allergens/",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Bread and olives",
+  "Starters",
+  "Soup of the day",
+  "Pizza",
+  "Large pizza",
+  "Light options",
+  "Salad",
+  "Pasta",
+  "Risotto",
+  "Grill",
+  "Burgers",
+  "Sides",
+  "Dips",
+  "Extra toppings",
+  "Dessert",
+  "Specials"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "mixed-olives",
+   "name": "Mixed olives",
+   "category": "Bread and olives",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "focaccia",
+   "name": "Focaccia",
+   "category": "Bread and olives",
+   "serving": "",
+   "nutrients": {
+    "calories": 406
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosemary-garlic-bread",
+   "name": "Rosemary garlic bread",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 491
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosemary-garlic-bread-large",
+   "name": "Rosemary garlic bread (large)",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 978
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-and-caramelised-onion-garlic-bread",
+   "name": "Mozzarella & caramelised onion garlic bread",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 698
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-and-caramelised-onion-garlic-bread-large",
+   "name": "Mozzarella & caramelised onion garlic bread (large)",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari",
+   "name": "Calamari",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 709
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-mushroom-arancini",
+   "name": "Truffle mushroom arancini",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata-and-red-pepper-tapenade",
+   "name": "Burrata & red pepper tapenade",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 531
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-and-avocado-pate",
+   "name": "Tuna & avocado pâté",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 349
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "courgette-pea-and-mint-soup",
+   "name": "Courgette pea & mint soup",
+   "category": "Soup of the day",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-and-red-pepper-soup",
+   "name": "Tomato & red pepper soup",
+   "category": "Soup of the day",
+   "serving": "",
+   "nutrients": {
+    "calories": 174
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butternut-squash-and-ginger-soup",
+   "name": "Butternut squash & ginger soup",
+   "category": "Soup of the day",
+   "serving": "",
+   "nutrients": {
+    "calories": 266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "minestrone-soup",
+   "name": "Minestrone soup",
+   "category": "Soup of the day",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cauliflower-soup",
+   "name": "Cauliflower soup",
+   "category": "Soup of the day",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-margherita",
+   "name": "Pizza Margherita",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 979
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-funghi",
+   "name": "Pizza Funghi",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1015
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-piccante-carne",
+   "name": "Pizza Piccante carne",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1303
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-double-pepperoni",
+   "name": "Pizza double pepperoni",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1083
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-nduja-and-pepperoni",
+   "name": "Pizza 'Nduja & pepperoni",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1279
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-the-amalfi",
+   "name": "Pizza The Amalfi",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 927
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-spicy-chicken",
+   "name": "Pizza spicy chicken",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 985
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calzone-chicken-and-chorizo",
+   "name": "Calzone chicken & chorizo",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1361
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-and-dairy-free-pizza-dough-base",
+   "name": "Gluten and dairy free pizza dough base",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 499,
+    "weight": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-pizza-margherita",
+   "name": "Large pizza Margherita",
+   "category": "Large pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1206
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-pizza-funghi",
+   "name": "Large pizza Funghi",
+   "category": "Large pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1122
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-pizza-piccante-carne",
+   "name": "Large pizza Piccante carne",
+   "category": "Large pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-pizza-double-pepperoni",
+   "name": "Large pizza double pepperoni",
+   "category": "Large pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1364
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-pizza-nduja-and-pepperoni",
+   "name": "Large pizza 'Nduja & pepperoni",
+   "category": "Large pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1559
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-pizza-the-amalfi",
+   "name": "Large pizza The Amalfi",
+   "category": "Large pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1079
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-pizza-spicy-chicken",
+   "name": "Large pizza spicy chicken",
+   "category": "Large pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1252
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-pepperoni",
+   "name": "Light pepperoni",
+   "category": "Light options",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-margherita",
+   "name": "Light Margherita",
+   "category": "Light options",
+   "serving": "",
+   "nutrients": {
+    "calories": 563
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-pizza-carne",
+   "name": "Light pizza carne",
+   "category": "Light options",
+   "serving": "",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-spaghetti-pomodoro",
+   "name": "Light spaghetti pomodoro",
+   "category": "Light options",
+   "serving": "",
+   "nutrients": {
+    "calories": 586
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-spaghetti-carbonara",
+   "name": "Light spaghetti carbonara",
+   "category": "Light options",
+   "serving": "",
+   "nutrients": {
+    "calories": 733
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-spaghetti-bolognese",
+   "name": "Light spaghetti Bolognese",
+   "category": "Light options",
+   "serving": "",
+   "nutrients": {
+    "calories": 767
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-salad-dressing",
+   "name": "Add salad dressing",
+   "category": "Light options",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cobb-salad",
+   "name": "Cobb salad",
+   "category": "Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 1186
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad",
+   "name": "Chicken Caesar salad",
+   "category": "Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 965
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-grilled-chicken",
+   "name": "Extra grilled chicken",
+   "category": "Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-prawns",
+   "name": "Extra prawns",
+   "category": "Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 103
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rigatoni-arrabbiata",
+   "name": "Rigatoni arrabbiata",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 967
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spaghetti-pomodoro",
+   "name": "Spaghetti pomodoro",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-bolognese",
+   "name": "Traditional Bolognese",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 950
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-peri-chicken-rigatoni",
+   "name": "Peri-Peri chicken rigatoni",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1368
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-lasagne",
+   "name": "Vegan lasagne",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 518
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-lasagne",
+   "name": "Classic lasagne",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 746
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spaghetti-carbonara",
+   "name": "Spaghetti carbonara",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1163
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-linguine",
+   "name": "Seafood linguine",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1022
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oven-baked-chicken-and-mushroom-rigatoni",
+   "name": "Oven baked chicken & mushroom rigatoni",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 841
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nduja-and-burrata-rigatoni",
+   "name": "'Nduja & burrata rigatoni",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1300
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-chorizo-risotto",
+   "name": "Chicken & chorizo risotto",
+   "category": "Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 879
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "risotto-primavera",
+   "name": "Risotto primavera",
+   "category": "Risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-peppercorn-sauce",
+   "name": "Add peppercorn sauce",
+   "category": "Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-garlic-butter",
+   "name": "Add garlic butter",
+   "category": "Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 156
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "philly-cheesesteak-sandwich",
+   "name": "Philly cheesesteak sandwich",
+   "category": "Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1140
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-milanese",
+   "name": "Chicken Milanese",
+   "category": "Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 877
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-spaghetti-arrabbiata-chicken-milanese",
+   "name": "Add spaghetti arrabbiata (Chicken Milanese)",
+   "category": "Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 692
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-fries-chicken-milanese",
+   "name": "Add fries (Chicken Milanese)",
+   "category": "Grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 322
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wagyu-beef-burger",
+   "name": "Wagyu beef burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 862
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-ultimate-double-cheese-burger",
+   "name": "The Ultimate double cheese burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1458
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosemary-fries",
+   "name": "Rosemary fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 322
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-and-cheese-fries",
+   "name": "Truffle & cheese fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 385
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet potato fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 423
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-beans",
+   "name": "Green beans",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 161
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zucchini-fritti",
+   "name": "Zucchini fritti",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-peri-mayo",
+   "name": "Peri-Peri mayo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-and-mustard",
+   "name": "Hot honey & mustard",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 477
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "basil-aioli",
+   "name": "Basil aioli",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-crispy-bacon",
+   "name": "Extra crispy bacon",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-chicken-for-pasta-and-pizza",
+   "name": "Extra chicken (for pasta & pizza)",
+   "category": "Extra toppings",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-pepperoni",
+   "name": "Extra pepperoni",
+   "category": "Extra toppings",
+   "serving": "15 slices",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-speck",
+   "name": "Extra speck",
+   "category": "Extra toppings",
+   "serving": "2 slices",
+   "nutrients": {
+    "calories": 62
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-chorizo",
+   "name": "Extra chorizo",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-milano-salami",
+   "name": "Extra Milano salami",
+   "category": "Extra toppings",
+   "serving": "3 slices",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-nduja",
+   "name": "Extra 'nduja",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-pancetta",
+   "name": "Extra pancetta",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-bolognaise",
+   "name": "Extra bolognaise",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-mushrooms",
+   "name": "Extra mushrooms",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-olives",
+   "name": "Extra olives",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-chilli",
+   "name": "Extra chilli",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-cherry-tomato",
+   "name": "Extra cherry tomato",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-mozzarella",
+   "name": "Extra mozzarella",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-vegan-cheese",
+   "name": "Extra vegan cheese",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 169
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-triple-blend-cheese",
+   "name": "Extra triple blend cheese",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-monterey-jack-cheese",
+   "name": "Extra Monterey Jack cheese",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extra-stracciatella",
+   "name": "Extra stracciatella",
+   "category": "Extra toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 183,
+    "weight": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-fondant",
+   "name": "Chocolate fondant",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 711
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky toffee pudding",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 754
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "torta-della-nonna",
+   "name": "Torta della nonna",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 579
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 355
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookies-and-cream-cheesecake",
+   "name": "Cookies & cream cheesecake",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 427
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-brownie",
+   "name": "Chocolate brownie",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 744
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-profiteroles-single",
+   "name": "Salted caramel profiteroles (single)",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-profiteroles-to-share",
+   "name": "Salted caramel profiteroles (to share)",
+   "category": "Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 795
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-ice-cream",
+   "name": "Vanilla ice cream",
+   "category": "Dessert",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 292
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-ice-cream",
+   "name": "Chocolate ice cream",
+   "category": "Dessert",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 302
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-ice-cream",
+   "name": "Strawberry ice cream",
+   "category": "Dessert",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-ice-cream",
+   "name": "Mint ice cream",
+   "category": "Dessert",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 298
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-sorbet",
+   "name": "Lemon sorbet",
+   "category": "Dessert",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 119
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-sorbet",
+   "name": "Mango sorbet",
+   "category": "Dessert",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet",
+   "name": "Raspberry sorbet",
+   "category": "Dessert",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-whitebait",
+   "name": "Crispy whitebait",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-salmon",
+   "name": "Roasted salmon",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 866
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach-ricotta-and-mascarpone-ravioli",
+   "name": "Spinach, ricotta & mascarpone ravioli",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 838
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuscan-mussels-and-prawns-casserole",
+   "name": "Tuscan mussels & prawns casserole",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1036
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banoffee-mess",
+   "name": "Banoffee mess",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 635
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "antipasto",
+   "name": "Antipasto",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 513
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-prosciutto-caprese",
+   "name": "Pizza prosciutto caprese",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1024
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-tuna",
+   "name": "Grilled tuna",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 819
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "supper-green-and-grains",
+   "name": "Supper green & grains",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 754
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-halloumi-cheese-specials",
+   "name": "Add halloumi cheese (specials)",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 411
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-eton-mess-sundae",
+   "name": "Raspberry Eton mess sundae",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 767
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

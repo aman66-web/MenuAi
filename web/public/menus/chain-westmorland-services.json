@@ -1,0 +1,9222 @@
+{
+ "schemaVersion": 1,
+ "id": "westmorland-services",
+ "name": "Westmorland Services",
+ "cuisine": "British cafe",
+ "builderType": "standard",
+ "aliases": [
+  "westmorland services",
+  "westmorland family",
+  "tebay services",
+  "tebay motorway services",
+  "tebay services north",
+  "tebay services south",
+  "gloucester services",
+  "gloucester services north",
+  "gloucester services south",
+  "gloucester services m5",
+  "cairn lodge services",
+  "cairn lodge",
+  "rheged",
+  "rheged centre",
+  "rheged cafe"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Westmorland Family food data portals (Tebay Services, Gloucester Services, Cairn Lodge Services, Rheged): allergen and nutritional information, Civica Food Data Hub (accessed 2026-10-08, no date shown)",
+  "url": "https://tebayservices.mysaffronportal.com/Menus",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Read from the Tebay, Gloucester, Cairn Lodge and Rheged food portals (kitchens and cafes only, not shops or filling stations). Menus differ by site, so a dish is listed only if its figures and allergens are identical wherever the portals print it (dishes that differ are left out); it may not be sold at every site. Named nuts and cereals a dish only may contain aren't listed.",
+ "allergenGuide": {
+  "title": "Westmorland Family allergen and nutritional information, Civica Food Data Hub portals: tebayservices.mysaffronportal.com, gloucesterservices.mysaffronportal.com, cairnlodgeservices.mysaffronportal.com, rheged.mysaffronportal.com (accessed 2026-10-08, no date shown)",
+  "url": "https://tebayservices.mysaffronportal.com/Menus",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Breakfast",
+  "Porridge & Toppings",
+  "Lunch",
+  "Hot Food",
+  "Pies & Sausage Rolls",
+  "Soups",
+  "Sandwiches",
+  "Wraps & Salad Mains",
+  "Salads",
+  "Food to Go",
+  "Sides",
+  "Extras",
+  "Condiments",
+  "Children's",
+  "Desserts",
+  "Ice Cream",
+  "Cakes & Bakes",
+  "Cold Drinks",
+  "Hot Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "bean-bowl",
+   "name": "Bean Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 343,
+    "protein": 32,
+    "carbs": 11,
+    "fat": 20,
+    "saturatedFat": 6.6,
+    "sugar": 1.8,
+    "fiber": 1,
+    "salt": 4.4,
+    "energyKj": 1434
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "muesli",
+   "name": "Muesli",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 203,
+    "protein": 6,
+    "carbs": 22,
+    "fat": 10,
+    "saturatedFat": 1.2,
+    "fiber": 3,
+    "salt": 0,
+    "energyKj": 851
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "greek-yoghurt-granola-and-fruit-compote-breakfast-glass",
+   "name": "Greek Yoghurt, Granola & Fruit Compote Breakfast Glass",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 292,
+    "protein": 10,
+    "carbs": 38,
+    "fat": 14,
+    "saturatedFat": 5.6,
+    "sugar": 32,
+    "fiber": 2,
+    "salt": 0.2,
+    "energyKj": 1224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "cumberland-sausage-bap",
+   "name": "Cumberland Sausage Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 711,
+    "protein": 28,
+    "carbs": 51,
+    "fat": 45,
+    "saturatedFat": 18,
+    "sugar": 2.7,
+    "fiber": 2,
+    "salt": 2.5,
+    "energyKj": 2973
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "almond-filled-croissant",
+   "name": "Almond Filled Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 899,
+    "protein": 14,
+    "carbs": 80,
+    "fat": 58,
+    "saturatedFat": 28,
+    "sugar": 36,
+    "fiber": 2,
+    "salt": 0.99,
+    "energyKj": 3762
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "handmade-croissant",
+   "name": "Handmade Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 445,
+    "protein": 6,
+    "carbs": 46,
+    "fat": 27,
+    "saturatedFat": 17,
+    "sugar": 6.1,
+    "fiber": 0,
+    "salt": 0.93,
+    "energyKj": 1862
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cornflakes",
+   "name": "Cornflakes",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 2,
+    "carbs": 29,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.8,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 554
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "rice-krispies",
+   "name": "Rice Krispies",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 2,
+    "carbs": 30,
+    "fat": 0,
+    "saturatedFat": 0.4,
+    "sugar": 2.8,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 570
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "weetabix",
+   "name": "Weetabix",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 2,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0.1,
+    "sugar": 0.8,
+    "fiber": 1,
+    "salt": 0.06,
+    "energyKj": 296
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "fresh-fruit-apple",
+   "name": "Fresh Fruit - Apple",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 1,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 18,
+    "fiber": 3,
+    "salt": 0,
+    "energyKj": 295
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "banana",
+   "name": "Banana",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 1,
+    "carbs": 28,
+    "fat": 0,
+    "saturatedFat": 0.1,
+    "sugar": 25,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 477
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oranges",
+   "name": "Oranges",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 59,
+    "protein": 2,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "fiber": 3,
+    "salt": 0.02,
+    "energyKj": 248
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lakeland-muesli-the-chocolatier",
+   "name": "Lakeland Muesli The Chocolatier",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 194,
+    "protein": 6,
+    "carbs": 20,
+    "fat": 9.9,
+    "saturatedFat": 2.4,
+    "fiber": 3,
+    "salt": 0,
+    "energyKj": 810
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "white-milk-roll",
+   "name": "White Milk Roll",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 264,
+    "protein": 8,
+    "carbs": 43,
+    "fat": 7.8,
+    "saturatedFat": 2.1,
+    "sugar": 2.3,
+    "fiber": 2,
+    "salt": 1,
+    "energyKj": 1103
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-and-tomato-bap",
+   "name": "Halloumi & Tomato Bap",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 22,
+    "carbs": 47,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 11,
+    "fiber": 5,
+    "salt": 1.2,
+    "energyKj": 1790
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "tebay-breakfast",
+   "name": "Tebay Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 950,
+    "protein": 47,
+    "carbs": 58,
+    "fat": 59,
+    "saturatedFat": 22,
+    "sugar": 9.5,
+    "fiber": 9,
+    "salt": 4.2,
+    "energyKj": 3975
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "white-bread",
+   "name": "White Bread",
+   "category": "Breakfast",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 93,
+    "protein": 3,
+    "carbs": 18,
+    "fat": 0.7,
+    "saturatedFat": 0.1,
+    "sugar": 1.4,
+    "fiber": 1,
+    "salt": 0.36,
+    "energyKj": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "porridge-with-seasonal-berries-coconut-cacao-nibs-and-maple-syrup",
+   "name": "Porridge with Seasonal Berries,Coconut,Cacao Nibs & Maple Syrup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "protein": 8,
+    "carbs": 36,
+    "fat": 8.3,
+    "saturatedFat": 4.4,
+    "sugar": 13,
+    "fiber": 5,
+    "salt": 0.09,
+    "energyKj": 1071
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "yoghurt-fresh-fruit-and-granola",
+   "name": "Yoghurt, Fresh Fruit & Granola",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 322,
+    "protein": 9,
+    "carbs": 62,
+    "fat": 5,
+    "saturatedFat": 0.5,
+    "sugar": 56,
+    "fiber": 2,
+    "salt": 0.02,
+    "energyKj": 1349
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "waffle-with-bacon-maple-syrup-and-banana",
+   "name": "Waffle with Bacon,Maple Syrup & Banana",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 826,
+    "protein": 37,
+    "carbs": 97,
+    "fat": 33,
+    "saturatedFat": 13,
+    "sugar": 41,
+    "fiber": 4,
+    "salt": 4.8,
+    "energyKj": 3455
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "waffle-greek-yoghurt-and-fresh-fruit",
+   "name": "Waffle, Greek Yoghurt & Fresh Fruit",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 576,
+    "protein": 16,
+    "carbs": 75,
+    "fat": 25,
+    "saturatedFat": 11,
+    "sugar": 21,
+    "fiber": 4,
+    "salt": 1.2,
+    "energyKj": 2412
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sausage-sandwich",
+   "name": "Sausage Sandwich",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 766,
+    "protein": 31,
+    "carbs": 70,
+    "fat": 42,
+    "saturatedFat": 17,
+    "sugar": 5.8,
+    "fiber": 3,
+    "salt": 3.1,
+    "energyKj": 3204
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bacon-sandwich",
+   "name": "Bacon Sandwich",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 621,
+    "protein": 39,
+    "carbs": 62,
+    "fat": 26,
+    "saturatedFat": 10,
+    "sugar": 4.6,
+    "fiber": 3,
+    "salt": 5.5,
+    "energyKj": 2598
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "waffle-greek-yoghurt-and-fruit-compote",
+   "name": "Waffle, Greek Yoghurt & Fruit Compote",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 596,
+    "protein": 15,
+    "carbs": 81,
+    "fat": 25,
+    "saturatedFat": 11,
+    "sugar": 26,
+    "fiber": 3,
+    "salt": 1.1,
+    "energyKj": 2494
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "almond-croissant",
+   "name": "Almond Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 742,
+    "protein": 16,
+    "carbs": 68,
+    "fat": 43,
+    "saturatedFat": 17,
+    "sugar": 39,
+    "fiber": 2,
+    "salt": 0,
+    "energyKj": 3106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-raisin",
+   "name": "Pain Au Raisin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 391,
+    "protein": 8,
+    "carbs": 51,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 16,
+    "fiber": 1,
+    "salt": 1,
+    "energyKj": 1638
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "farmhouse-white-bread",
+   "name": "Farmhouse White Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 135,
+    "protein": 5,
+    "carbs": 28,
+    "fat": 1.1,
+    "saturatedFat": 0.3,
+    "sugar": 1.6,
+    "fiber": 1,
+    "salt": 0.56,
+    "energyKj": 565
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "harvester-seeded-bread",
+   "name": "Harvester Seeded Bread",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 119,
+    "protein": 4,
+    "carbs": 25,
+    "fat": 1.1,
+    "saturatedFat": 0.4,
+    "sugar": 0.5,
+    "energyKj": 498
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "pain-de-campagne",
+   "name": "Pain De Campagne",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 82,
+    "protein": 3,
+    "carbs": 18,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "energyKj": 343
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-and-tomato-roll",
+   "name": "Halloumi & Tomato Roll",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 517,
+    "protein": 25,
+    "carbs": 52,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 9.6,
+    "fiber": 5,
+    "salt": 0.52,
+    "energyKj": 2171
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mushroom-and-spinach-croissant",
+   "name": "Mushroom & Spinach Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 402,
+    "protein": 9,
+    "carbs": 39,
+    "fat": 24,
+    "saturatedFat": 9.3,
+    "sugar": 5.1,
+    "fiber": 2,
+    "salt": 0.78,
+    "energyKj": 1682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "porridge-fresh-fruit-maple-syrup-and-coconut",
+   "name": "Porridge,Fresh Fruit,Maple Syrup & Coconut",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 218,
+    "protein": 8,
+    "carbs": 31,
+    "fat": 6.4,
+    "saturatedFat": 3.2,
+    "sugar": 7.8,
+    "fiber": 4,
+    "salt": 0.09,
+    "energyKj": 911
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "waffle-bacon-maple-syrup-and-banana",
+   "name": "Waffle, Bacon, Maple Syrup & Banana",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 801,
+    "protein": 25,
+    "carbs": 97,
+    "fat": 35,
+    "saturatedFat": 14,
+    "sugar": 41,
+    "fiber": 4,
+    "salt": 3.2,
+    "energyKj": 3352
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-porridge-and-brown-sugar",
+   "name": "Kids Porridge & Brown Sugar",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 4,
+    "carbs": 16,
+    "fat": 2,
+    "saturatedFat": 0.7,
+    "sugar": 4.5,
+    "fiber": 2,
+    "salt": 0.04,
+    "energyKj": 417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "kids-porridge-maple-syrup-fruit-and-coconut",
+   "name": "Kids Porridge Maple Syrup,Fruit & Coconut",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 109,
+    "protein": 4,
+    "carbs": 15,
+    "fat": 3.2,
+    "saturatedFat": 1.6,
+    "sugar": 3.9,
+    "fiber": 2,
+    "salt": 0.04,
+    "energyKj": 455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "kids-porridge-compote-banana-and-maple-syrup",
+   "name": "Kids Porridge,Compote,Banana & Maple Syrup",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 182,
+    "protein": 5,
+    "carbs": 35,
+    "fat": 2.2,
+    "saturatedFat": 0.7,
+    "sugar": 22,
+    "fiber": 5,
+    "salt": 0.04,
+    "energyKj": 762
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "kids-waffle-yoghurt-and-seasonal-compote",
+   "name": "Kids Waffle,Yoghurt & Seasonal Compote",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 288,
+    "protein": 8,
+    "carbs": 37,
+    "fat": 12,
+    "saturatedFat": 5.4,
+    "sugar": 10,
+    "fiber": 2,
+    "salt": 0.57,
+    "energyKj": 1206
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-waffle-bacon-maple-syrup-and-banana",
+   "name": "Kids Waffle,Bacon,Maple Syrup & Banana",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 401,
+    "protein": 12,
+    "carbs": 49,
+    "fat": 18,
+    "saturatedFat": 6.9,
+    "sugar": 20,
+    "fiber": 2,
+    "salt": 1.6,
+    "energyKj": 1676
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yoghurt-compote-and-granola",
+   "name": "Yoghurt, Compote & Granola",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 329,
+    "protein": 9,
+    "carbs": 63,
+    "fat": 4.6,
+    "saturatedFat": 0.5,
+    "sugar": 58,
+    "fiber": 2,
+    "salt": 0.02,
+    "energyKj": 1375
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "kids-waffle-yoghurt-compote-and-banana",
+   "name": "Kids Waffle,Yoghurt,Compote & Banana",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 298,
+    "protein": 8,
+    "carbs": 40,
+    "fat": 12,
+    "saturatedFat": 5.4,
+    "sugar": 13,
+    "fiber": 1,
+    "salt": 0.57,
+    "energyKj": 1247
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "plain-croissant",
+   "name": "Plain Croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 336,
+    "protein": 7,
+    "carbs": 39,
+    "fat": 18,
+    "saturatedFat": 8.8,
+    "sugar": 4.8,
+    "fiber": 1,
+    "salt": 0.74,
+    "energyKj": 1405
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bran-flakes",
+   "name": "Bran Flakes",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 4,
+    "carbs": 26,
+    "fat": 0.9,
+    "saturatedFat": 0.2,
+    "sugar": 5.6,
+    "fiber": 6,
+    "salt": 0,
+    "energyKj": 599
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "granola-and-yoghurt-pot",
+   "name": "Granola & Yoghurt Pot",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 227,
+    "protein": 7,
+    "carbs": 38,
+    "fat": 5.6,
+    "saturatedFat": 1.5,
+    "sugar": 33,
+    "fiber": 3,
+    "salt": 0,
+    "energyKj": 951
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "almond-butter-banana-and-choc-overnight-oats-glass",
+   "name": "Almond Butter, Banana & Choc Overnight Oats Glass",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 485,
+    "protein": 11,
+    "carbs": 41,
+    "fat": 21,
+    "saturatedFat": 3.5,
+    "sugar": 10,
+    "fiber": 10,
+    "salt": 0.18,
+    "energyKj": 2028
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "luxury-museli",
+   "name": "Luxury Museli",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 35,
+    "protein": 1,
+    "carbs": 6,
+    "fat": 0.9,
+    "sugar": 2.5,
+    "fiber": 1,
+    "energyKj": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "homemade-granola",
+   "name": "Homemade Granola",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 1,
+    "carbs": 5,
+    "fat": 1.9,
+    "saturatedFat": 0.2,
+    "sugar": 2.4,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 174
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "scottish-blossom-honey",
+   "name": "Scottish Blossom Honey",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 17,
+    "protein": 0,
+    "carbs": 5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.6,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cairn-breakfast",
+   "name": "Cairn Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1143,
+    "protein": 61,
+    "carbs": 62,
+    "fat": 73,
+    "saturatedFat": 27,
+    "sugar": 12,
+    "fiber": 9,
+    "salt": 4.6,
+    "energyKj": 4783
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "toast-and-butter",
+   "name": "Toast & Butter",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 232,
+    "protein": 5,
+    "carbs": 33,
+    "fat": 8.6,
+    "saturatedFat": 5.3,
+    "sugar": 0.7,
+    "fiber": 1,
+    "salt": 0.8,
+    "energyKj": 971
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bacon-and-egg-sandwich",
+   "name": "Bacon & Egg Sandwich",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 559,
+    "protein": 25,
+    "carbs": 52,
+    "fat": 28,
+    "saturatedFat": 11,
+    "sugar": 2.5,
+    "fiber": 2,
+    "salt": 3.5,
+    "energyKj": 2340
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-salmon-and-poached-eggs-on-toast",
+   "name": "Smoked Salmon & Poached Eggs on Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1503,
+    "protein": 64,
+    "carbs": 229,
+    "fat": 36,
+    "saturatedFat": 11,
+    "sugar": 5.7,
+    "fiber": 14,
+    "salt": 8.8,
+    "energyKj": 6287
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "brunch-bowl",
+   "name": "Brunch Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 994,
+    "protein": 54,
+    "carbs": 43,
+    "fat": 67,
+    "saturatedFat": 21,
+    "sugar": 4.8,
+    "fiber": 7,
+    "salt": 3,
+    "energyKj": 4158
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pulled-beef-hash",
+   "name": "Pulled Beef Hash",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 588,
+    "protein": 32,
+    "carbs": 13,
+    "fat": 46,
+    "saturatedFat": 22,
+    "sugar": 1.3,
+    "fiber": 2,
+    "salt": 2.1,
+    "energyKj": 2461
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "avocado-on-toast",
+   "name": "Avocado on Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 711,
+    "protein": 14.6,
+    "carbs": 56.7,
+    "fat": 49.2,
+    "saturatedFat": 10.3,
+    "sugar": 7.6,
+    "fiber": 14.1,
+    "salt": 1.6,
+    "energyKj": 2976
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "sultanas",
+   "name": "Sultana's",
+   "category": "Porridge & Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 21,
+    "protein": 0,
+    "carbs": 5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.9,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lowther-wildflower-honey",
+   "name": "Lowther Wildflower Honey",
+   "category": "Porridge & Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cotswold-summer-honey",
+   "name": "Cotswold Summer Honey",
+   "category": "Porridge & Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 9,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.3,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blackberry-and-apple-compote",
+   "name": "Blackberry & Apple Compote",
+   "category": "Porridge & Toppings",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 11,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 11,
+    "salt": 0,
+    "energyKj": 190
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "honey-mustard-sausage-pot",
+   "name": "Honey Mustard Sausage Pot",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 447,
+    "protein": 23,
+    "carbs": 21,
+    "fat": 32,
+    "saturatedFat": 12,
+    "sugar": 9.5,
+    "fiber": 0,
+    "salt": 3.4,
+    "energyKj": 1872
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 283,
+    "protein": 5,
+    "carbs": 44,
+    "fat": 9.8,
+    "saturatedFat": 1,
+    "sugar": 1,
+    "fiber": 3,
+    "salt": 0.82,
+    "energyKj": 1184
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mashed-potato",
+   "name": "Mashed Potato",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 156,
+    "protein": 3,
+    "carbs": 24,
+    "fat": 4.7,
+    "saturatedFat": 2.9,
+    "sugar": 0,
+    "fiber": 3,
+    "salt": 0.77,
+    "energyKj": 653
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garden-peas",
+   "name": "Garden Peas",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 48,
+    "protein": 4,
+    "carbs": 6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.2,
+    "fiber": 4,
+    "salt": 0.05,
+    "energyKj": 202
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-lamb",
+   "name": "Roast Lamb",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 396,
+    "protein": 48,
+    "carbs": 0,
+    "fat": 23,
+    "saturatedFat": 7.7,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.33,
+    "energyKj": 1656
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cauliflower-cheese-sunday-lunch",
+   "name": "Cauliflower Cheese (Sunday Lunch)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 2,
+    "carbs": 0,
+    "fat": 4.9,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 223
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "yorkshire-pudding",
+   "name": "Yorkshire Pudding",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 127,
+    "protein": 5,
+    "carbs": 19,
+    "fat": 3.2,
+    "saturatedFat": 0.9,
+    "sugar": 1.2,
+    "fiber": 1,
+    "salt": 0.09,
+    "energyKj": 531
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cumberland-sausage-curl",
+   "name": "Cumberland Sausage Curl",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 388,
+    "protein": 20,
+    "carbs": 8,
+    "fat": 31,
+    "saturatedFat": 11,
+    "sugar": 0,
+    "fiber": 1,
+    "salt": 1.5,
+    "energyKj": 1623
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "red-onion-marmalade",
+   "name": "Red Onion Marmalade",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 0,
+    "carbs": 9,
+    "fat": 0.6,
+    "saturatedFat": 0,
+    "sugar": 8.1,
+    "energyKj": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cottage-pie",
+   "name": "Cottage Pie",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 419,
+    "protein": 9,
+    "carbs": 48,
+    "fat": 21,
+    "saturatedFat": 4.1,
+    "sugar": 15,
+    "fiber": 9,
+    "salt": 2.4,
+    "energyKj": 1755
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "sweet-potato-tagine",
+   "name": "Sweet Potato Tagine",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 191,
+    "protein": 7,
+    "carbs": 30,
+    "fat": 4.1,
+    "saturatedFat": 0.4,
+    "sugar": 14,
+    "fiber": 6,
+    "salt": 0.1,
+    "energyKj": 798
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "gravy",
+   "name": "Gravy",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 43,
+    "protein": 2,
+    "carbs": 8,
+    "fat": 0,
+    "saturatedFat": 0.1,
+    "sugar": 1.3,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-potatoes",
+   "name": "Roast Potatoes",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 94,
+    "protein": 3,
+    "carbs": 22,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.8,
+    "fiber": 2,
+    "salt": 0.02,
+    "energyKj": 392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mac-and-cheese-meal",
+   "name": "Mac & Cheese Meal",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 995,
+    "protein": 41,
+    "carbs": 143,
+    "fat": 29,
+    "saturatedFat": 17,
+    "sugar": 16,
+    "fiber": 7,
+    "salt": 3.9,
+    "energyKj": 4164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "wilted-greens",
+   "name": "Wilted Greens",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 103,
+    "protein": 2,
+    "carbs": 2,
+    "fat": 9.9,
+    "saturatedFat": 0.7,
+    "sugar": 1.6,
+    "fiber": 2,
+    "salt": 0.08,
+    "energyKj": 429
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-beetroot-and-dukkah-seed",
+   "name": "Roasted Beetroot & Dukkah Seed",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 1,
+    "carbs": 6,
+    "fat": 4.9,
+    "saturatedFat": 0.4,
+    "sugar": 5,
+    "fiber": 1,
+    "salt": 0.12,
+    "energyKj": 296
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "garlic-and-thyme-roasties",
+   "name": "Garlic & Thyme Roasties",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 143,
+    "protein": 4,
+    "carbs": 28,
+    "fat": 2.6,
+    "saturatedFat": 0.2,
+    "sugar": 1,
+    "fiber": 2,
+    "salt": 0.02,
+    "energyKj": 597
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mac-and-cheese-only",
+   "name": "Mac and Cheese Only",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 991,
+    "protein": 41,
+    "carbs": 142,
+    "fat": 29,
+    "saturatedFat": 17,
+    "sugar": 16,
+    "fiber": 6,
+    "salt": 3.9,
+    "energyKj": 4147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "braised-red-cabbage",
+   "name": "Braised Red Cabbage",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0,
+    "carbs": 6,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.2,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thyme-roasted-carrots",
+   "name": "Thyme Roasted Carrots",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 35,
+    "protein": 0,
+    "carbs": 3,
+    "fat": 2.4,
+    "saturatedFat": 0.2,
+    "sugar": 2.9,
+    "fiber": 2,
+    "salt": 0.04,
+    "energyKj": 146
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-pork",
+   "name": "Roast Pork",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 292,
+    "protein": 46,
+    "carbs": 0,
+    "fat": 11.9,
+    "saturatedFat": 3.8,
+    "salt": 0.2,
+    "energyKj": 1220
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cauliflower-cheese",
+   "name": "Cauliflower Cheese",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 5,
+    "carbs": 4,
+    "fat": 7.3,
+    "saturatedFat": 3.4,
+    "sugar": 2.2,
+    "fiber": 1,
+    "salt": 0.13,
+    "energyKj": 429
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dry-cure-streaky-bacon",
+   "name": "Dry Cure Streaky Bacon",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 100,
+    "protein": 6,
+    "carbs": 0,
+    "fat": 8.6,
+    "saturatedFat": 3,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.2,
+    "energyKj": 420
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sunday-carvery",
+   "name": "Sunday Carvery",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 720,
+    "protein": 45,
+    "carbs": 59,
+    "fat": 35,
+    "saturatedFat": 9.7,
+    "sugar": 9.4,
+    "fiber": 6,
+    "salt": 0.98,
+    "energyKj": 3012
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sourdough-bloomer",
+   "name": "Sourdough Bloomer",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 144,
+    "protein": 5,
+    "carbs": 29,
+    "fat": 0,
+    "saturatedFat": 0.1,
+    "sugar": 1,
+    "salt": 0,
+    "energyKj": 603
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "hummus-mezze-bowl",
+   "name": "Hummus Mezze Bowl",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 648,
+    "protein": 20,
+    "carbs": 77,
+    "fat": 34,
+    "saturatedFat": 3.6,
+    "sugar": 5.6,
+    "fiber": 9,
+    "salt": 4.1,
+    "energyKj": 2713
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "steak-sandwich",
+   "name": "Steak Sandwich",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 942,
+    "protein": 57,
+    "carbs": 79,
+    "fat": 44,
+    "saturatedFat": 15,
+    "sugar": 8.4,
+    "fiber": 4,
+    "salt": 2,
+    "energyKj": 3943
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pulled-beef-shin-and-hash-browns",
+   "name": "Pulled Beef Shin & Hash Browns",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 562,
+    "protein": 31,
+    "carbs": 13,
+    "fat": 43,
+    "saturatedFat": 21,
+    "sugar": 1.3,
+    "fiber": 2,
+    "salt": 1.6,
+    "energyKj": 2352
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "harissa-red-pepper-and-butterbean-shakshuka",
+   "name": "Harissa, Red Pepper & Butterbean Shakshuka",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 521,
+    "protein": 17,
+    "carbs": 23,
+    "fat": 40,
+    "saturatedFat": 3.9,
+    "sugar": 9.8,
+    "fiber": 7,
+    "salt": 4.1,
+    "energyKj": 2181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "wild-garlic-souffle",
+   "name": "Wild Garlic Souffle",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 460,
+    "protein": 17,
+    "carbs": 11,
+    "fat": 39,
+    "saturatedFat": 23,
+    "sugar": 3.6,
+    "fiber": 1,
+    "salt": 2.2,
+    "energyKj": 1923
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-chilli-salad",
+   "name": "Crispy Chilli Salad",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 337,
+    "protein": 5,
+    "carbs": 18,
+    "fat": 27,
+    "saturatedFat": 2.2,
+    "sugar": 14,
+    "fiber": 4,
+    "salt": 1.1,
+    "energyKj": 1412
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sweet-potato-and-chick-pea-tagine",
+   "name": "Sweet Potato & Chick Pea Tagine",
+   "category": "Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 191,
+    "protein": 7,
+    "carbs": 30,
+    "fat": 4.1,
+    "saturatedFat": 0.4,
+    "sugar": 14,
+    "fiber": 6,
+    "salt": 0.1,
+    "energyKj": 798
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "pigs-in-blankets-pot",
+   "name": "Pigs in Blankets Pot",
+   "category": "Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 514,
+    "protein": 28,
+    "carbs": 29,
+    "fat": 31,
+    "saturatedFat": 11,
+    "sugar": 11,
+    "salt": 3.4,
+    "energyKj": 2150
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-onion-pie",
+   "name": "Cheese and Onion Pie",
+   "category": "Pies & Sausage Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 8,
+    "carbs": 42,
+    "fat": 19,
+    "saturatedFat": 12,
+    "sugar": 1.1,
+    "fiber": 2,
+    "salt": 1.8,
+    "energyKj": 1589
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-smoked-bacon-and-leek-pie",
+   "name": "Chicken, Smoked Bacon & Leek Pie",
+   "category": "Pies & Sausage Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 557,
+    "protein": 23,
+    "carbs": 52,
+    "fat": 28,
+    "saturatedFat": 16,
+    "sugar": 2.6,
+    "fiber": 2,
+    "salt": 3.1,
+    "energyKj": 2330
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "steak-and-hawkshead-ale-pie",
+   "name": "Steak & Hawkshead Ale Pie",
+   "category": "Pies & Sausage Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 459,
+    "protein": 20,
+    "carbs": 47,
+    "fat": 20,
+    "saturatedFat": 12,
+    "sugar": 5.1,
+    "fiber": 2,
+    "salt": 2.4,
+    "energyKj": 1918
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "pork-chestnut-mushroom-and-w-grain-mustard-pie",
+   "name": "Pork,Chestnut Mushroom & W/Grain Mustard Pie",
+   "category": "Pies & Sausage Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 528,
+    "protein": 22,
+    "carbs": 46,
+    "fat": 28,
+    "saturatedFat": 15,
+    "sugar": 2.9,
+    "fiber": 2,
+    "salt": 2.5,
+    "energyKj": 2209
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bombay-chickpea-and-spinach-pie",
+   "name": "Bombay Chickpea & Spinach Pie",
+   "category": "Pies & Sausage Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 418,
+    "protein": 9,
+    "carbs": 53,
+    "fat": 19,
+    "saturatedFat": 9.4,
+    "sugar": 2.6,
+    "fiber": 3,
+    "salt": 2.4,
+    "energyKj": 1749
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tandoori-pork-sausage-roll",
+   "name": "Tandoori Pork Sausage Roll",
+   "category": "Pies & Sausage Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 708,
+    "protein": 26,
+    "carbs": 35,
+    "fat": 51,
+    "saturatedFat": 24,
+    "sugar": 3.5,
+    "fiber": 2,
+    "salt": 4.8,
+    "energyKj": 2962
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "carrot-and-chilli-lentil-broth",
+   "name": "Carrot & Chilli Lentil Broth",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 185,
+    "protein": 10,
+    "carbs": 29,
+    "fat": 2.7,
+    "saturatedFat": 0.3,
+    "sugar": 10,
+    "fiber": 5,
+    "salt": 2.9,
+    "energyKj": 774
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "small-soup-roll",
+   "name": "Small Soup Roll",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 125,
+    "protein": 4,
+    "carbs": 25,
+    "fat": 1.9,
+    "saturatedFat": 0.9,
+    "sugar": 0,
+    "fiber": 2,
+    "salt": 0.59,
+    "energyKj": 523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "minestrone-soup",
+   "name": "Minestrone Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 158,
+    "protein": 5,
+    "carbs": 27,
+    "fat": 2.5,
+    "saturatedFat": 0.4,
+    "sugar": 10,
+    "fiber": 3,
+    "salt": 3.3,
+    "energyKj": 662
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pea-courgette-and-mint-soup",
+   "name": "Pea, Courgette & Mint Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 349,
+    "protein": 29,
+    "carbs": 37,
+    "fat": 9.6,
+    "saturatedFat": 1.7,
+    "sugar": 29,
+    "fiber": 16,
+    "salt": 2.6,
+    "energyKj": 1462
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "focaccia",
+   "name": "Focaccia",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 291,
+    "protein": 8,
+    "carbs": 55,
+    "fat": 4.1,
+    "saturatedFat": 0.4,
+    "sugar": 1,
+    "fiber": 2,
+    "salt": 1.7,
+    "energyKj": 1218
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "milk-roll",
+   "name": "Milk Roll",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 201,
+    "protein": 6,
+    "carbs": 37,
+    "fat": 2.7,
+    "saturatedFat": 0.9,
+    "sugar": 0,
+    "salt": 1.1,
+    "energyKj": 840
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "potato-and-watercress-soup",
+   "name": "Potato & Watercress Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 4,
+    "carbs": 27,
+    "fat": 3.4,
+    "saturatedFat": 0.2,
+    "sugar": 4.6,
+    "fiber": 3,
+    "salt": 2.2,
+    "energyKj": 619
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "soup-of-the-day-and-bread",
+   "name": "Soup Of The Day & Bread",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 501,
+    "protein": 10,
+    "carbs": 57,
+    "fat": 26,
+    "saturatedFat": 9,
+    "sugar": 6.2,
+    "fiber": 4,
+    "salt": 2.9,
+    "energyKj": 2095
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "soup-of-the-day-and-cheese-scone",
+   "name": "Soup Of The Day & Cheese Scone",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 631,
+    "protein": 19,
+    "carbs": 54,
+    "fat": 36,
+    "saturatedFat": 15,
+    "sugar": 8.2,
+    "fiber": 4,
+    "salt": 4.5,
+    "energyKj": 2639
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mozzarella-pesto-and-tomato-baguette",
+   "name": "Mozzarella, Pesto & Tomato Baguette",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 611,
+    "protein": 20,
+    "carbs": 74,
+    "fat": 28,
+    "saturatedFat": 6.9,
+    "sugar": 8.7,
+    "fiber": 4,
+    "salt": 4.1,
+    "energyKj": 2555
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "egg-mayo-tomato-and-watercress-baguette",
+   "name": "Egg Mayo, Tomato & Watercress Baguette",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 654,
+    "protein": 25,
+    "carbs": 60,
+    "fat": 34,
+    "saturatedFat": 9.3,
+    "sugar": 6.3,
+    "fiber": 4,
+    "salt": 2.7,
+    "energyKj": 2737
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "bbq-beef",
+   "name": "BBQ Beef",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 485,
+    "protein": 43,
+    "carbs": 45,
+    "fat": 14,
+    "saturatedFat": 4.9,
+    "sugar": 13,
+    "fiber": 3,
+    "salt": 3.1,
+    "energyKj": 2031
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-cheese-toastie",
+   "name": "Ham and Cheese Toastie",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 546,
+    "protein": 32,
+    "carbs": 37,
+    "fat": 31,
+    "saturatedFat": 18,
+    "sugar": 0.7,
+    "fiber": 0,
+    "salt": 0.8,
+    "energyKj": 2283
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "brie-bacon-and-red-onion",
+   "name": "Brie, Bacon & Red Onion",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 541,
+    "protein": 22,
+    "carbs": 47,
+    "fat": 30,
+    "saturatedFat": 15,
+    "sugar": 10,
+    "fiber": 0,
+    "salt": 2.1,
+    "energyKj": 2263
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "brie-bacon-and-cranberry-toastie",
+   "name": "Brie, Bacon & Cranberry Toastie",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 545,
+    "protein": 21,
+    "carbs": 51,
+    "fat": 30,
+    "saturatedFat": 15,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 2.1,
+    "energyKj": 2279
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "mushroom-spinach-croissant",
+   "name": "Mushroom/Spinach Croissant",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 343,
+    "protein": 8,
+    "carbs": 27,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 4.3,
+    "fiber": 3,
+    "salt": 0.59,
+    "energyKj": 1436
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "egg-mayo-and-sundried-tomato-baguette",
+   "name": "Egg Mayo & Sundried Tomato Baguette",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 613,
+    "protein": 25,
+    "carbs": 60,
+    "fat": 29,
+    "saturatedFat": 7.4,
+    "sugar": 6.3,
+    "fiber": 4,
+    "salt": 2.7,
+    "energyKj": 2566
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "roast-veg-and-hummus-focaccia",
+   "name": "Roast Veg & Hummus Focaccia",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 416,
+    "protein": 13,
+    "carbs": 64,
+    "fat": 11,
+    "saturatedFat": 1.3,
+    "sugar": 8.9,
+    "fiber": 5,
+    "salt": 3.1,
+    "energyKj": 1742
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-shawarma-wrap",
+   "name": "Chicken Shawarma Wrap",
+   "category": "Wraps & Salad Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 39,
+    "carbs": 55,
+    "fat": 7.4,
+    "saturatedFat": 1.6,
+    "sugar": 5.2,
+    "fiber": 3,
+    "salt": 2.7,
+    "energyKj": 1881
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "made-without-gluten-tortilla",
+   "name": "Made without Gluten Tortilla",
+   "category": "Wraps & Salad Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 1,
+    "carbs": 33,
+    "fat": 0.8,
+    "saturatedFat": 0.3,
+    "sugar": 1.3,
+    "fiber": 9,
+    "salt": 0,
+    "energyKj": 612
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "money-shot-sauce",
+   "name": "Money Shot Sauce",
+   "category": "Wraps & Salad Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 13,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.2,
+    "salt": 0.16,
+    "energyKj": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-chilli-and-tomato-relish",
+   "name": "Sweet Chilli & Tomato Relish",
+   "category": "Wraps & Salad Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 22,
+    "protein": 0,
+    "carbs": 5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 4.6,
+    "fiber": 0,
+    "salt": 0.09,
+    "energyKj": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cumberland-scotch-egg",
+   "name": "Cumberland Scotch Egg",
+   "category": "Wraps & Salad Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 313,
+    "protein": 15,
+    "carbs": 16,
+    "fat": 21,
+    "saturatedFat": 5.8,
+    "sugar": 2.6,
+    "energyKj": 1308
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beetroot-grains-and-tahini-salad",
+   "name": "Beetroot, Grains & Tahini Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 105,
+    "protein": 3,
+    "carbs": 17,
+    "fat": 3.3,
+    "saturatedFat": 0.3,
+    "sugar": 6.3,
+    "fiber": 3,
+    "salt": 0.32,
+    "energyKj": 438
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "sunblush-tomato-and-orzo-salad",
+   "name": "Sunblush Tomato & Orzo Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 137,
+    "protein": 3,
+    "carbs": 15,
+    "fat": 6.6,
+    "saturatedFat": 0.9,
+    "sugar": 2.1,
+    "fiber": 1,
+    "salt": 0.77,
+    "energyKj": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "small-salad-bowl",
+   "name": "Small Salad Bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 178,
+    "protein": 4,
+    "carbs": 20,
+    "fat": 9.8,
+    "saturatedFat": 0.7,
+    "sugar": 8.9,
+    "fiber": 4,
+    "salt": 0.36,
+    "energyKj": 746
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "large-salad-bowl",
+   "name": "Large Salad Bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 330,
+    "protein": 7,
+    "carbs": 35,
+    "fat": 18,
+    "saturatedFat": 1.7,
+    "sugar": 11,
+    "fiber": 5,
+    "salt": 0.98,
+    "energyKj": 1383
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tamarind-potato-salad",
+   "name": "Tamarind Potato Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 365,
+    "protein": 7,
+    "carbs": 40,
+    "fat": 20,
+    "saturatedFat": 1.7,
+    "sugar": 21,
+    "fiber": 5,
+    "salt": 1.1,
+    "energyKj": 1528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "nuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "parmesan-and-rocket-salad",
+   "name": "Parmesan & Rocket Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 90,
+    "protein": 6,
+    "carbs": 4,
+    "fat": 5.8,
+    "saturatedFat": 4,
+    "sugar": 2.7,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 377
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "beetroot-spelt-and-tahini-salad",
+   "name": "Beetroot, Spelt & Tahini Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 224,
+    "protein": 6,
+    "carbs": 36,
+    "fat": 7,
+    "saturatedFat": 0.6,
+    "sugar": 13,
+    "fiber": 5,
+    "salt": 0.7,
+    "energyKj": 939
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "pea-courgette-and-rocket-pesto-salad",
+   "name": "Pea, Courgette & Rocket Pesto Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 14,
+    "carbs": 58,
+    "fat": 9.6,
+    "saturatedFat": 1,
+    "sugar": 6.3,
+    "fiber": 6,
+    "salt": 0.25,
+    "energyKj": 1522
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoky-chicken-chickpea-and-tzatziki-snack-pot",
+   "name": "Smoky Chicken, Chickpea & Tzatziki Snack Pot",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 352,
+    "protein": 33,
+    "carbs": 30,
+    "fat": 7.5,
+    "saturatedFat": 2,
+    "sugar": 5.9,
+    "fiber": 10,
+    "salt": 1.8,
+    "energyKj": 1474
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "british-strawberries-and-melon",
+   "name": "British Strawberries and Melon",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 23,
+    "protein": 1,
+    "carbs": 5,
+    "fat": 0,
+    "sugar": 4.9,
+    "fiber": 1,
+    "salt": 0.02,
+    "energyKj": 97
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "seasonal-fruit-salad",
+   "name": "Seasonal Fruit Salad",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 208,
+    "protein": 3,
+    "carbs": 49,
+    "fat": 1.6,
+    "saturatedFat": 0.5,
+    "sugar": 49,
+    "fiber": 2,
+    "salt": 0.03,
+    "energyKj": 869
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crudites-and-hummus-snack-pot",
+   "name": "Crudites & Hummus Snack Pot",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 72,
+    "protein": 2,
+    "carbs": 6,
+    "fat": 4.2,
+    "saturatedFat": 0.4,
+    "sugar": 3.2,
+    "fiber": 2,
+    "salt": 0.52,
+    "energyKj": 301
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "soy-and-sesame-salmon-snack-pot",
+   "name": "Soy & Sesame Salmon Snack Pot",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 212,
+    "protein": 22,
+    "carbs": 14,
+    "fat": 8,
+    "saturatedFat": 1.5,
+    "sugar": 9.3,
+    "fiber": 3,
+    "salt": 6.1,
+    "energyKj": 887
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "goats-cheese-and-balsamic-beetroot-spelt-salad",
+   "name": "Goats Cheese & Balsamic Beetroot Spelt Salad",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 371,
+    "protein": 13,
+    "carbs": 49,
+    "fat": 14,
+    "saturatedFat": 5.9,
+    "sugar": 26,
+    "fiber": 6,
+    "salt": 1.5,
+    "energyKj": 1552
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "roasted-courgette-and-pesto-pasta-salad",
+   "name": "Roasted Courgette & Pesto Pasta Salad",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 378,
+    "protein": 16,
+    "carbs": 30,
+    "fat": 22,
+    "saturatedFat": 6.7,
+    "sugar": 2.6,
+    "fiber": 3,
+    "salt": 0.54,
+    "energyKj": 1580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "heritage-tomato-salad",
+   "name": "Heritage Tomato Salad",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 3,
+    "carbs": 8,
+    "fat": 12,
+    "saturatedFat": 1,
+    "sugar": 7.3,
+    "fiber": 2,
+    "salt": 0.57,
+    "energyKj": 629
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-smoked-salmon-nicoise",
+   "name": "Hot Smoked Salmon Nicoise",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 514,
+    "protein": 24,
+    "carbs": 21,
+    "fat": 38,
+    "saturatedFat": 4.5,
+    "sugar": 5.6,
+    "fiber": 2,
+    "salt": 4.5,
+    "energyKj": 2151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "hot-smoked-salmon-nicoise-salad",
+   "name": "Hot Smoked Salmon Nicoise Salad",
+   "category": "Food to Go",
+   "serving": "",
+   "nutrients": {
+    "calories": 514,
+    "protein": 24,
+    "carbs": 21,
+    "fat": 38,
+    "saturatedFat": 4.5,
+    "sugar": 5.6,
+    "fiber": 2,
+    "salt": 4.5,
+    "energyKj": 2151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "hash-brown-bites",
+   "name": "Hash Brown Bites",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 188,
+    "protein": 3,
+    "carbs": 24,
+    "fat": 9.4,
+    "saturatedFat": 0.6,
+    "sugar": 2.1,
+    "fiber": 2,
+    "salt": 0.72,
+    "energyKj": 787
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "mixed-olives",
+   "name": "Mixed Olives",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 431,
+    "protein": 1,
+    "carbs": 0,
+    "fat": 48,
+    "saturatedFat": 6.2,
+    "sugar": 0,
+    "fiber": 3,
+    "salt": 2.9,
+    "energyKj": 1801
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "homemade-breads-and-oil",
+   "name": "Homemade Breads & Oil",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 883,
+    "protein": 13,
+    "carbs": 87,
+    "fat": 53,
+    "saturatedFat": 8.3,
+    "sugar": 5.1,
+    "fiber": 3,
+    "salt": 2.4,
+    "energyKj": 3695
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "toasred-garlic-focaccia",
+   "name": "Toasred Garlic Focaccia",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 428,
+    "protein": 8,
+    "carbs": 53,
+    "fat": 20,
+    "saturatedFat": 11,
+    "sugar": 1.2,
+    "fiber": 2,
+    "salt": 1.6,
+    "energyKj": 1792
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pork-sausage",
+   "name": "Pork Sausage",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 190,
+    "protein": 10,
+    "carbs": 4,
+    "fat": 15,
+    "saturatedFat": 5.4,
+    "sugar": 1.2,
+    "salt": 1.4,
+    "energyKj": 793
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dry-cure-back-bacon",
+   "name": "Dry Cure Back Bacon",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "protein": 13,
+    "carbs": 0,
+    "fat": 7.2,
+    "saturatedFat": 2.7,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 1.9,
+    "energyKj": 484
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-pudding",
+   "name": "Black Pudding",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 6,
+    "carbs": 13,
+    "fat": 7.3,
+    "saturatedFat": 2.7,
+    "sugar": 0.9,
+    "fiber": 2,
+    "salt": 0.19,
+    "energyKj": 576
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "haggis",
+   "name": "Haggis",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 177,
+    "protein": 7,
+    "carbs": 10,
+    "fat": 12,
+    "saturatedFat": 5.2,
+    "sugar": 0,
+    "fiber": 2,
+    "salt": 1.2,
+    "energyKj": 742
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bubble-and-squeak",
+   "name": "Bubble and Squeak",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 2,
+    "carbs": 10,
+    "fat": 0.8,
+    "saturatedFat": 0,
+    "sugar": 1.7,
+    "fiber": 1,
+    "salt": 0.45,
+    "energyKj": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "baked-beans",
+   "name": "Baked Beans",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 7,
+    "carbs": 19,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 7.8,
+    "fiber": 6,
+    "salt": 0.98,
+    "energyKj": 505
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breakfast-mushrooms",
+   "name": "Breakfast Mushrooms",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 64,
+    "protein": 1,
+    "carbs": 0,
+    "fat": 6.4,
+    "saturatedFat": 0.5,
+    "sugar": 0,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 269
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoky-beans",
+   "name": "Smoky Beans",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 42,
+    "protein": 2,
+    "carbs": 6,
+    "fat": 0.7,
+    "saturatedFat": 0,
+    "sugar": 1.7,
+    "fiber": 2,
+    "salt": 0.38,
+    "energyKj": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marinated-smoked-tofu",
+   "name": "Marinated Smoked Tofu",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 278,
+    "protein": 17,
+    "carbs": 4,
+    "fat": 21,
+    "saturatedFat": 2.1,
+    "sugar": 2.5,
+    "fiber": 1,
+    "salt": 0.97,
+    "energyKj": 1164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "scrambled-egg",
+   "name": "Scrambled Egg",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 5,
+    "carbs": 1,
+    "fat": 11,
+    "saturatedFat": 5.7,
+    "sugar": 0.6,
+    "fiber": 0,
+    "salt": 0.13,
+    "energyKj": 504
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-chorizo",
+   "name": "Extra Chorizo",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 260,
+    "protein": 17,
+    "carbs": 3,
+    "fat": 20,
+    "saturatedFat": 7.1,
+    "sugar": 1,
+    "salt": 0,
+    "energyKj": 1088
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-grilled-halloumi",
+   "name": "Extra Grilled Halloumi",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 402,
+    "protein": 21,
+    "carbs": 2,
+    "fat": 35,
+    "saturatedFat": 18,
+    "sugar": 2,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-harissa-chicken",
+   "name": "Extra Harissa Chicken",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 318,
+    "protein": 47,
+    "carbs": 2,
+    "fat": 14,
+    "saturatedFat": 2.2,
+    "sugar": 1,
+    "fiber": 0,
+    "salt": 0.45,
+    "energyKj": 1332
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "raspberry-jam",
+   "name": "Raspberry Jam",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 54,
+    "protein": 0,
+    "carbs": 13,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "salt": 0,
+    "energyKj": 224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marmalade",
+   "name": "Marmalade",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 13,
+    "fiber": 0,
+    "energyKj": 233
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mayonnaise",
+   "name": "Mayonnaise",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 130,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 14,
+    "saturatedFat": 2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 543
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tartare-sauce",
+   "name": "Tartare Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 75,
+    "protein": 0,
+    "carbs": 4,
+    "fat": 6.2,
+    "sugar": 4.1,
+    "fiber": 0,
+    "salt": 0.68,
+    "energyKj": 313
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tracklements-horseradish-sauce",
+   "name": "Tracklements Horseradish Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0.8,
+    "saturatedFat": 0.1,
+    "sugar": 1.5,
+    "fiber": 0,
+    "salt": 0.23,
+    "energyKj": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "butter-portion",
+   "name": "Butter Portion",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 74,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 8.2,
+    "saturatedFat": 5.2,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 311
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tracklements-english-mustard",
+   "name": "Tracklements English Mustard",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 10,
+    "protein": 1,
+    "carbs": 0,
+    "fat": 0.6,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.31,
+    "energyKj": 42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "tracklements-red-onion-marmalade",
+   "name": "Tracklements Red Onion Marmalade",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 85,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 19,
+    "fiber": 1,
+    "energyKj": 358
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "netherend-butter-portion",
+   "name": "Netherend Butter Portion",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 77,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 8.4,
+    "saturatedFat": 5.6,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.08,
+    "energyKj": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "apple-and-cider-brandy-sauce",
+   "name": "Apple and Cider Brandy Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 12,
+    "protein": 0,
+    "carbs": 3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 2.9,
+    "fiber": 0,
+    "energyKj": 52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "horseradish-sauce",
+   "name": "Horseradish Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 15,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0.8,
+    "saturatedFat": 0.1,
+    "sugar": 1.5,
+    "fiber": 0,
+    "salt": 0.23,
+    "energyKj": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "fruity-brown-sauce",
+   "name": "Fruity Brown Sauce",
+   "category": "Condiments",
+   "serving": "",
+   "nutrients": {
+    "calories": 18,
+    "protein": 0,
+    "carbs": 4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 3.4,
+    "salt": 0.75,
+    "energyKj": 76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-ham-sandwich",
+   "name": "Kids Ham Sandwich",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 214,
+    "protein": 13,
+    "carbs": 29,
+    "fat": 4.8,
+    "saturatedFat": 2,
+    "sugar": 2.3,
+    "fiber": 2,
+    "salt": 1.1,
+    "energyKj": 894
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-cheese-sandwich",
+   "name": "Kids Cheese Sandwich",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 276,
+    "protein": 12,
+    "carbs": 29,
+    "fat": 12,
+    "saturatedFat": 7.1,
+    "sugar": 2.3,
+    "fiber": 2,
+    "salt": 0.58,
+    "energyKj": 1154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-jam-sandwich",
+   "name": "Kids Jam Sandwich",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 202,
+    "protein": 6,
+    "carbs": 38,
+    "fat": 2.8,
+    "saturatedFat": 1.3,
+    "sugar": 11,
+    "fiber": 2,
+    "salt": 0.58,
+    "energyKj": 843
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grape-pot",
+   "name": "Grape Pot",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 12,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 188
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "child-dried-fruit-pot",
+   "name": "Child Dried Fruit Pot",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 336,
+    "protein": 3,
+    "carbs": 79,
+    "fat": 0,
+    "saturatedFat": 0.2,
+    "sugar": 79,
+    "fiber": 2,
+    "salt": 0.05,
+    "energyKj": 1404
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cherry-tomato-pot",
+   "name": "Cherry Tomato Pot",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 11,
+    "protein": 1,
+    "carbs": 2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 1.9,
+    "fiber": 1,
+    "salt": 0.02,
+    "energyKj": 47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "child-plain-omelette",
+   "name": "Child Plain Omelette",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 193,
+    "protein": 17,
+    "carbs": 0,
+    "fat": 15,
+    "saturatedFat": 3.9,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.47,
+    "energyKj": 808
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "child-cheese-omelette",
+   "name": "Child Cheese Omelette",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 272,
+    "protein": 22,
+    "carbs": 0,
+    "fat": 21,
+    "saturatedFat": 8,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.47,
+    "energyKj": 1138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "child-ham-omelette",
+   "name": "Child Ham Omelette",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 226,
+    "protein": 22,
+    "carbs": 0,
+    "fat": 16,
+    "saturatedFat": 4.4,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.83,
+    "energyKj": 944
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "child-pork-sausage",
+   "name": "Child Pork Sausage",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 190,
+    "protein": 10,
+    "carbs": 4,
+    "fat": 15,
+    "saturatedFat": 5.4,
+    "sugar": 1.2,
+    "salt": 1.4,
+    "energyKj": 793
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "childs-lasagne-only",
+   "name": "Childs Lasagne Only",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 7,
+    "carbs": 26.2,
+    "fat": 4.2,
+    "saturatedFat": 2.5,
+    "sugar": 2.2,
+    "fiber": 1.1,
+    "salt": 0.1,
+    "energyKj": 719
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "childs-roast-lamb",
+   "name": "Childs Roast Lamb",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 198,
+    "protein": 24,
+    "carbs": 0,
+    "fat": 11,
+    "saturatedFat": 3.9,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.17,
+    "energyKj": 828
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childs-roast-beef",
+   "name": "Childs Roast Beef",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 148,
+    "protein": 28,
+    "carbs": 0,
+    "fat": 4,
+    "saturatedFat": 1.4,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.23,
+    "energyKj": 618
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "childs-breakfast",
+   "name": "Childs Breakfast",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 407,
+    "protein": 16,
+    "carbs": 28,
+    "fat": 25,
+    "saturatedFat": 11,
+    "sugar": 4.1,
+    "fiber": 4,
+    "salt": 1.4,
+    "energyKj": 1703
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "kids-tagine-meal",
+   "name": "Kids Tagine Meal",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 124,
+    "protein": 4,
+    "carbs": 15,
+    "fat": 5.1,
+    "saturatedFat": 0.4,
+    "sugar": 6.8,
+    "fiber": 3,
+    "salt": 0.05,
+    "energyKj": 517
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "childs-ham-s-wich",
+   "name": "Childs Ham S/Wich",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 244,
+    "protein": 14,
+    "carbs": 37,
+    "fat": 5.2,
+    "saturatedFat": 2.2,
+    "sugar": 2.3,
+    "fiber": 2,
+    "salt": 1.3,
+    "energyKj": 1022
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "childs-cheese-s-wich",
+   "name": "Childs Cheese S/Wich",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 307,
+    "protein": 14,
+    "carbs": 37,
+    "fat": 13,
+    "saturatedFat": 7.3,
+    "sugar": 2.2,
+    "fiber": 2,
+    "salt": 0.75,
+    "energyKj": 1283
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "childs-sausage",
+   "name": "Childs Sausage",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 190,
+    "protein": 10,
+    "carbs": 4,
+    "fat": 15,
+    "saturatedFat": 5.4,
+    "sugar": 1.2,
+    "salt": 1.4,
+    "energyKj": 793
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "homemade-beans-on-sourdough-toast",
+   "name": "Homemade Beans on Sourdough Toast",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 11,
+    "carbs": 44,
+    "fat": 2.3,
+    "saturatedFat": 0.3,
+    "sugar": 5,
+    "fiber": 6,
+    "salt": 1.3,
+    "energyKj": 1066
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "eggs-on-sourdough-toast-kids",
+   "name": "Eggs on Sourdough Toast kids",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 250,
+    "protein": 15,
+    "carbs": 23,
+    "fat": 11,
+    "saturatedFat": 3.4,
+    "sugar": 0,
+    "fiber": 1,
+    "salt": 0.88,
+    "energyKj": 1045
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bacon-sandwich-child",
+   "name": "Bacon Sandwich child",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 516,
+    "protein": 19,
+    "carbs": 46,
+    "fat": 29,
+    "saturatedFat": 12,
+    "sugar": 5,
+    "fiber": 2,
+    "salt": 2.9,
+    "energyKj": 2158
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 570,
+    "protein": 17,
+    "carbs": 86,
+    "fat": 17,
+    "saturatedFat": 9.2,
+    "sugar": 4.9,
+    "fiber": 3,
+    "salt": 0.96,
+    "energyKj": 2386
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hummus-bowl",
+   "name": "Hummus Bowl",
+   "category": "Children's",
+   "serving": "",
+   "nutrients": {
+    "calories": 204,
+    "protein": 6,
+    "carbs": 23,
+    "fat": 9.1,
+    "saturatedFat": 1,
+    "sugar": 4.5,
+    "fiber": 4,
+    "salt": 1.4,
+    "energyKj": 853
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gleefully-brownie",
+   "name": "Gleefully Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 512,
+    "protein": 4,
+    "carbs": 38,
+    "fat": 37,
+    "saturatedFat": 23,
+    "sugar": 31,
+    "fiber": 0,
+    "salt": 0.41,
+    "energyKj": 2142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky Toffee Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 207,
+    "protein": 3,
+    "carbs": 39,
+    "fat": 3.8,
+    "saturatedFat": 2.2,
+    "sugar": 25,
+    "fiber": 1,
+    "salt": 0.7,
+    "energyKj": 867
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butterscotch-sauce",
+   "name": "Butterscotch Sauce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 580,
+    "protein": 1,
+    "carbs": 46,
+    "fat": 44,
+    "saturatedFat": 28,
+    "sugar": 46,
+    "fiber": 0,
+    "salt": 0.06,
+    "energyKj": 2428
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-cream",
+   "name": "Double Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 149,
+    "protein": 0,
+    "carbs": 1,
+    "fat": 16,
+    "saturatedFat": 10,
+    "sugar": 0.5,
+    "fiber": 0,
+    "salt": 0.02,
+    "energyKj": 623
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "waffle-cone",
+   "name": "Waffle Cone",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 18,
+    "protein": 1,
+    "carbs": 4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.02,
+    "energyKj": 77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "death-by-chocolate",
+   "name": "Death By Chocolate",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 134,
+    "protein": 3,
+    "carbs": 18,
+    "fat": 7.7,
+    "saturatedFat": 4.8,
+    "sugar": 18,
+    "fiber": 2,
+    "salt": 0,
+    "energyKj": 563
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "mint-choc-chip",
+   "name": "Mint Choc Chip",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 168,
+    "protein": 3,
+    "carbs": 17,
+    "fat": 9.6,
+    "saturatedFat": 5.1,
+    "sugar": 14,
+    "fiber": 1,
+    "energyKj": 702
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "real-strawberry",
+   "name": "Real Strawberry",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 111,
+    "protein": 2,
+    "carbs": 13,
+    "fat": 5.4,
+    "saturatedFat": 2.6,
+    "sugar": 13,
+    "fiber": 2,
+    "salt": 0,
+    "energyKj": 463
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "double-jersey",
+   "name": "Double Jersey",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 3,
+    "carbs": 15,
+    "fat": 8.1,
+    "saturatedFat": 5.1,
+    "sugar": 14,
+    "fiber": 1,
+    "energyKj": 612
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rum-and-raisin",
+   "name": "Rum & Raisin",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 163,
+    "protein": 3,
+    "carbs": 18,
+    "fat": 8.3,
+    "saturatedFat": 5.2,
+    "sugar": 18,
+    "fiber": 2,
+    "energyKj": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thunder-and-lightning",
+   "name": "Thunder & Lightning",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 164,
+    "protein": 3,
+    "carbs": 20,
+    "fat": 7.4,
+    "saturatedFat": 4.6,
+    "sugar": 19,
+    "fiber": 2,
+    "energyKj": 687
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "plum-and-damson",
+   "name": "Plum & Damson",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 3,
+    "carbs": 14,
+    "fat": 7.1,
+    "saturatedFat": 4.5,
+    "sugar": 14,
+    "fiber": 2,
+    "energyKj": 568
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cartmel-sticky-toffee-pudding",
+   "name": "Cartmel Sticky Toffee Pudding",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 1,
+    "carbs": 7,
+    "fat": 2.2,
+    "saturatedFat": 1.3,
+    "sugar": 6.6,
+    "fiber": 0,
+    "energyKj": 216
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blackcurrant-and-cream",
+   "name": "Blackcurrant & Cream",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 136,
+    "protein": 2,
+    "carbs": 14,
+    "fat": 7.1,
+    "saturatedFat": 4.5,
+    "sugar": 14,
+    "fiber": 2,
+    "energyKj": 568
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel",
+   "name": "Salted Caramel",
+   "category": "Ice Cream",
+   "serving": "",
+   "nutrients": {
+    "calories": 150,
+    "protein": 3,
+    "carbs": 19,
+    "fat": 6.1,
+    "saturatedFat": 3.8,
+    "sugar": 19,
+    "fiber": 0,
+    "energyKj": 627
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fruit-and-seed-flapjack",
+   "name": "Fruit & Seed Flapjack",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 376,
+    "protein": 4,
+    "carbs": 38,
+    "fat": 17,
+    "saturatedFat": 8.5,
+    "sugar": 27,
+    "fiber": 3,
+    "salt": 0.09,
+    "energyKj": 1573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "classic-lemon-drizzle-loaf",
+   "name": "Classic Lemon Drizzle Loaf",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 414,
+    "protein": 7,
+    "carbs": 66,
+    "fat": 15,
+    "saturatedFat": 8.4,
+    "sugar": 36,
+    "fiber": 1,
+    "salt": 0.54,
+    "energyKj": 1732
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "shortbread-twin-pack",
+   "name": "Shortbread Twin Pack",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 345,
+    "protein": 5,
+    "carbs": 42,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 14,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 1444
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-curd-and-poppy-seed-muffin",
+   "name": "Lemon Curd & Poppy Seed Muffin",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 396,
+    "protein": 6,
+    "carbs": 49,
+    "fat": 20,
+    "saturatedFat": 6,
+    "sugar": 28,
+    "fiber": 1,
+    "salt": 0.51,
+    "energyKj": 1657
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "almond-fruit-slice",
+   "name": "Almond Fruit Slice",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 474,
+    "protein": 7,
+    "carbs": 54,
+    "fat": 25,
+    "saturatedFat": 11,
+    "sugar": 35,
+    "fiber": 2,
+    "salt": 0.06,
+    "energyKj": 1985
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-salted-caramel-brownie",
+   "name": "Chocolate & Salted Caramel Brownie",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 476,
+    "protein": 6,
+    "carbs": 51,
+    "fat": 27,
+    "saturatedFat": 16,
+    "sugar": 44,
+    "fiber": 2,
+    "salt": 0.12,
+    "energyKj": 1992
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "carrot-cake",
+   "name": "Carrot Cake",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 721,
+    "protein": 8,
+    "carbs": 61,
+    "fat": 49,
+    "saturatedFat": 12,
+    "sugar": 36,
+    "fiber": 3,
+    "salt": 0.88,
+    "energyKj": 3015
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "coffee-caramel-and-hazelnut-cake",
+   "name": "Coffee, Caramel & Hazelnut Cake",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 784,
+    "protein": 7,
+    "carbs": 81,
+    "fat": 49,
+    "saturatedFat": 11,
+    "sugar": 57,
+    "fiber": 1,
+    "salt": 0.55,
+    "energyKj": 3282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-and-white-chocolate-cake",
+   "name": "Raspberry & White Chocolate Cake",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 672,
+    "protein": 8,
+    "carbs": 72,
+    "fat": 34,
+    "saturatedFat": 25,
+    "sugar": 50,
+    "fiber": 1,
+    "salt": 0.62,
+    "energyKj": 2812
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-and-pistachio-polenta-cake",
+   "name": "Strawberry & Pistachio Polenta Cake",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 473,
+    "protein": 8,
+    "carbs": 45,
+    "fat": 28,
+    "saturatedFat": 2.5,
+    "sugar": 32,
+    "fiber": 2,
+    "salt": 0.1,
+    "energyKj": 1978
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "soya"
+    ],
+    "nuts": [
+     "almond",
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "apple-and-cinnamon-cake",
+   "name": "Apple & Cinnamon Cake",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 447,
+    "protein": 8,
+    "carbs": 71,
+    "fat": 14,
+    "saturatedFat": 8,
+    "sugar": 36,
+    "fiber": 2,
+    "salt": 0.53,
+    "energyKj": 1868
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "brown-butter-blackberry-and-honey-cake",
+   "name": "Brown Butter, Blackberry & Honey Cake",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 293,
+    "protein": 5,
+    "carbs": 39,
+    "fat": 16,
+    "saturatedFat": 8.5,
+    "sugar": 15,
+    "fiber": 2,
+    "salt": 0.22,
+    "energyKj": 1225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "plum-and-pistachio-polenta-cake",
+   "name": "Plum & Pistachio Polenta Cake",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 578,
+    "protein": 10,
+    "carbs": 56,
+    "fat": 35,
+    "saturatedFat": 3.2,
+    "sugar": 41,
+    "fiber": 2,
+    "salt": 0.13,
+    "energyKj": 2416
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "nuts": [
+     "almond",
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "strawberry-jam",
+   "name": "Strawberry Jam",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 55,
+    "protein": 0,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "salt": 0,
+    "energyKj": 230
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cherry-and-almond-scone",
+   "name": "Cherry & Almond Scone",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 404,
+    "protein": 8,
+    "carbs": 66,
+    "fat": 14,
+    "saturatedFat": 7.4,
+    "sugar": 15,
+    "fiber": 2,
+    "salt": 0.94,
+    "energyKj": 1692
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "cherry-jam",
+   "name": "Cherry Jam",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "salt": 0.01,
+    "energyKj": 218
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "date-maple-and-pecan-bun",
+   "name": "Date, Maple & Pecan Bun",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 544,
+    "protein": 9,
+    "carbs": 74,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 29,
+    "fiber": 2,
+    "salt": 1.3,
+    "energyKj": 2275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "plain-scone",
+   "name": "Plain Scone",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 382,
+    "protein": 8,
+    "carbs": 58,
+    "fat": 13,
+    "saturatedFat": 7.3,
+    "sugar": 8.9,
+    "fiber": 2,
+    "salt": 0.59,
+    "energyKj": 1600
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "damson-and-apple-compote",
+   "name": "Damson & Apple Compote",
+   "category": "Cakes & Bakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 54,
+    "protein": 0,
+    "carbs": 13,
+    "fat": 0,
+    "sugar": 13,
+    "energyKj": 225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "local-apple-juice",
+   "name": "Local Apple Juice",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 144,
+    "protein": 0,
+    "carbs": 34,
+    "fat": 1.7,
+    "saturatedFat": 0.3,
+    "sugar": 34,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 603
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "glass-of-milk",
+   "name": "Glass of Milk",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 163,
+    "protein": 12,
+    "carbs": 17,
+    "fat": 6,
+    "saturatedFat": 3.8,
+    "sugar": 17,
+    "fiber": 0,
+    "salt": 0.38,
+    "energyKj": 683
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-coffee",
+   "name": "Iced Coffee",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hullabaloo-lemonade-glass",
+   "name": "Hullabaloo Lemonade Glass",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 0,
+    "carbs": 39,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 39,
+    "salt": 0,
+    "energyKj": 613
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hullabaloo-raspberry-lemonade-glass",
+   "name": "Hullabaloo Raspberry Lemonade Glass",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 0,
+    "carbs": 39,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 39,
+    "salt": 0,
+    "energyKj": 613
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "12oz-iced-matcha",
+   "name": "12oz Iced Matcha",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 219,
+    "protein": 11,
+    "carbs": 16,
+    "fat": 12,
+    "saturatedFat": 7.9,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.34,
+    "energyKj": 917
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "milk-glass-large",
+   "name": "Milk - Glass Large",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 184,
+    "protein": 14,
+    "carbs": 19,
+    "fat": 6.8,
+    "saturatedFat": 4.3,
+    "sugar": 19,
+    "fiber": 0,
+    "salt": 0.43,
+    "energyKj": 770
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "passionfruit-smoothie",
+   "name": "Passionfruit Smoothie",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 160,
+    "protein": 1,
+    "carbs": 37,
+    "fat": 1.3,
+    "saturatedFat": 0.2,
+    "sugar": 37,
+    "fiber": 2,
+    "salt": 0,
+    "energyKj": 670
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kale-smoothie",
+   "name": "Kale Smoothie",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 145,
+    "protein": 3,
+    "carbs": 30,
+    "fat": 1.7,
+    "saturatedFat": 0.3,
+    "sugar": 30,
+    "fiber": 2,
+    "salt": 0.06,
+    "energyKj": 606
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "summer-berry-smoothie",
+   "name": "Summer Berry Smoothie",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139,
+    "protein": 1,
+    "carbs": 28,
+    "fat": 1.6,
+    "saturatedFat": 0.2,
+    "sugar": 28,
+    "fiber": 7,
+    "salt": 0,
+    "energyKj": 582
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "karma-cola-small",
+   "name": "Karma Cola Small",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 0,
+    "carbs": 28,
+    "fat": 0,
+    "sugar": 27,
+    "energyKj": 468
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerella-small",
+   "name": "Gingerella Small",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 0,
+    "carbs": 25,
+    "fat": 0,
+    "sugar": 25,
+    "energyKj": 429
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemony-lemonade-small",
+   "name": "Lemony Lemonade Small",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 92,
+    "protein": 0,
+    "carbs": 22,
+    "fat": 0,
+    "sugar": 22,
+    "energyKj": 383
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orangeade-small",
+   "name": "Orangeade Small",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 96,
+    "protein": 0,
+    "carbs": 23,
+    "fat": 0,
+    "sugar": 23,
+    "energyKj": 403
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "razza-raspberry-small",
+   "name": "Razza Raspberry Small",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102,
+    "protein": 0,
+    "carbs": 25,
+    "fat": 0,
+    "sugar": 25,
+    "energyKj": 429
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "karma-cola-regular",
+   "name": "Karma Cola Regular",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 159,
+    "protein": 0,
+    "carbs": 40,
+    "fat": 0,
+    "sugar": 39,
+    "energyKj": 667
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerella-regular",
+   "name": "Gingerella Regular",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 0,
+    "carbs": 35,
+    "fat": 0,
+    "sugar": 35,
+    "energyKj": 611
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemony-lemonade-regular",
+   "name": "Lemony Lemonade Regular",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 131,
+    "protein": 0,
+    "carbs": 32,
+    "fat": 0,
+    "sugar": 32,
+    "energyKj": 547
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orangeade-regular",
+   "name": "Orangeade Regular",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 137,
+    "protein": 1,
+    "carbs": 32,
+    "fat": 0,
+    "sugar": 32,
+    "energyKj": 575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "razza-raspberry-regular",
+   "name": "Razza Raspberry Regular",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 0,
+    "carbs": 35,
+    "fat": 0,
+    "sugar": 35,
+    "energyKj": 611
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-decaff",
+   "name": "Iced Latte Decaff",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 138,
+    "protein": 10,
+    "carbs": 14,
+    "fat": 5.1,
+    "saturatedFat": 3.2,
+    "sugar": 14,
+    "fiber": 0,
+    "salt": 0.32,
+    "energyKj": 579
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-coffee-decaff",
+   "name": "Iced Coffee Decaff",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 28,
+    "protein": 2,
+    "carbs": 3,
+    "fat": 1,
+    "saturatedFat": 0.6,
+    "sugar": 2.8,
+    "fiber": 0,
+    "salt": 0.06,
+    "energyKj": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mixed-berry-milkshake",
+   "name": "Mixed Berry Milkshake",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 361,
+    "protein": 6,
+    "carbs": 56,
+    "fat": 14,
+    "saturatedFat": 8.7,
+    "sugar": 56,
+    "salt": 0.27,
+    "energyKj": 1512
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-gelato-milkshake",
+   "name": "Salted Caramel Gelato Milkshake",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 514,
+    "protein": 6,
+    "carbs": 55,
+    "fat": 31,
+    "saturatedFat": 20,
+    "sugar": 55,
+    "fiber": 0,
+    "salt": 0.29,
+    "energyKj": 2150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha",
+   "name": "Iced Matcha",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 155,
+    "protein": 11,
+    "carbs": 17,
+    "fat": 5.4,
+    "saturatedFat": 3.4,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.34,
+    "energyKj": 649
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-milkshake",
+   "name": "Chocolate Milkshake",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 288,
+    "protein": 10,
+    "carbs": 35,
+    "fat": 12,
+    "saturatedFat": 7.5,
+    "sugar": 33,
+    "fiber": 2,
+    "salt": 0.33,
+    "energyKj": 1203
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-milkshake",
+   "name": "Strawberry Milkshake",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 226,
+    "protein": 8,
+    "carbs": 35,
+    "fat": 5.7,
+    "saturatedFat": 3.5,
+    "sugar": 30,
+    "fiber": 3,
+    "salt": 0.29,
+    "energyKj": 944
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "banana-milkshake",
+   "name": "Banana Milkshake",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 255,
+    "protein": 8,
+    "carbs": 44,
+    "fat": 5.2,
+    "saturatedFat": 3.5,
+    "sugar": 38,
+    "fiber": 1,
+    "salt": 0.29,
+    "energyKj": 1067
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-americano",
+   "name": "Iced Americano",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hullabaloos-lemonade",
+   "name": "Hullabaloos Lemonade",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 0,
+    "carbs": 39,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 39,
+    "salt": 0,
+    "energyKj": 613
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hullabaloos-raspberry-lemonade",
+   "name": "Hullabaloos Raspberry Lemonade",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146,
+    "protein": 0,
+    "carbs": 39,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 39,
+    "salt": 0,
+    "energyKj": 613
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "large-iced-latte",
+   "name": "Large Iced Latte",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 307,
+    "protein": 15,
+    "carbs": 21,
+    "fat": 18,
+    "saturatedFat": 12,
+    "sugar": 21,
+    "fiber": 0,
+    "salt": 0.5,
+    "energyKj": 1285
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "large-iced-americano",
+   "name": "Large Iced Americano",
+   "category": "Cold Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea",
+   "name": "English Breakfast Tea",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-tea",
+   "name": "Earl Grey Tea",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "triple-mint-tea",
+   "name": "Triple Mint Tea",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "berry-and-hibiscus-tea",
+   "name": "Berry and Hibiscus Tea",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-small-black",
+   "name": "Americano Small (Black)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-medium-black",
+   "name": "Americano Medium (Black)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-large-black",
+   "name": "Americano Large (Black)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-latte",
+   "name": "Regular Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 145,
+    "protein": 6,
+    "carbs": 14,
+    "fat": 7.4,
+    "saturatedFat": 4.5,
+    "sugar": 9.8,
+    "fiber": 0,
+    "salt": 0.25,
+    "energyKj": 606
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "filter-coffee-small",
+   "name": "Filter Coffee Small",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "filter-coffee-medium",
+   "name": "Filter Coffee Medium",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "filter-coffee-large",
+   "name": "Filter Coffee Large",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "macchiato",
+   "name": "Macchiato",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 13,
+    "protein": 1,
+    "carbs": 1,
+    "fat": 0.9,
+    "saturatedFat": 0.5,
+    "sugar": 0.9,
+    "fiber": 0,
+    "salt": 0.02,
+    "energyKj": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "milk-alternative-oat",
+   "name": "Milk Alternative:Oat",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 92,
+    "protein": 1,
+    "carbs": 18,
+    "fat": 1.8,
+    "saturatedFat": 0.6,
+    "sugar": 5.2,
+    "fiber": 1,
+    "salt": 0.2,
+    "energyKj": 385
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marshmallow",
+   "name": "Marshmallow",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 33,
+    "protein": 0,
+    "carbs": 8,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.9,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flake",
+   "name": "Flake",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 167,
+    "protein": 2,
+    "carbs": 19,
+    "fat": 9,
+    "saturatedFat": 5.4,
+    "sugar": 18,
+    "fiber": 1,
+    "salt": 0,
+    "energyKj": 699
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-sprinkle",
+   "name": "Chocolate Sprinkle",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0.02,
+    "energyKj": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappucino-medium",
+   "name": "Cappucino Medium",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 121,
+    "protein": 5,
+    "carbs": 12,
+    "fat": 6.2,
+    "saturatedFat": 3.7,
+    "sugar": 8,
+    "fiber": 0,
+    "salt": 0.23,
+    "energyKj": 506
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "regular-vanilla-matcha",
+   "name": "Regular Vanilla Matcha",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 215,
+    "protein": 11,
+    "carbs": 29,
+    "fat": 5.4,
+    "saturatedFat": 3.4,
+    "sugar": 28,
+    "fiber": 0,
+    "salt": 0.35,
+    "energyKj": 900
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tea-decaffinated",
+   "name": "Tea Decaffinated",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-single",
+   "name": "Espresso Single",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 231,
+    "protein": 12,
+    "carbs": 16,
+    "fat": 14,
+    "saturatedFat": 8.7,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.38,
+    "energyKj": 967
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 231,
+    "protein": 12,
+    "carbs": 16,
+    "fat": 14,
+    "saturatedFat": 8.7,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.38,
+    "energyKj": 967
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 9,
+    "carbs": 12,
+    "fat": 10,
+    "saturatedFat": 6.5,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0.28,
+    "energyKj": 719
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tea-english-breakfast-leaf",
+   "name": "Tea English Breakfast Leaf",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tea-earl-grey-leaf",
+   "name": "Tea Earl Grey Leaf",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tea-decaff-leaf",
+   "name": "Tea Decaff Leaf",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-syrup",
+   "name": "Caramel Syrup",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56,
+    "protein": 0,
+    "carbs": 13,
+    "fat": 0,
+    "sugar": 13,
+    "salt": 0.06,
+    "energyKj": 232
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hazelnut-syrup",
+   "name": "Hazelnut Syrup",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95,
+    "protein": 0,
+    "carbs": 24,
+    "fat": 0,
+    "sugar": 24,
+    "salt": 0,
+    "energyKj": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-decaf",
+   "name": "Latte - Decaf",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 231,
+    "protein": 12,
+    "carbs": 16,
+    "fat": 14,
+    "saturatedFat": 8.7,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.38,
+    "energyKj": 968
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-decaf",
+   "name": "Cappuccino - Decaf",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 231,
+    "protein": 12,
+    "carbs": 16,
+    "fat": 14,
+    "saturatedFat": 8.7,
+    "sugar": 16,
+    "fiber": 0,
+    "salt": 0.38,
+    "energyKj": 968
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-decaf",
+   "name": "Flat White - Decaf",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 172,
+    "protein": 9,
+    "carbs": 12,
+    "fat": 10,
+    "saturatedFat": 6.5,
+    "sugar": 12,
+    "fiber": 0,
+    "salt": 0.28,
+    "energyKj": 719
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-decaf",
+   "name": "Espresso - Decaf",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tea-speciality",
+   "name": "Tea Speciality",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 1,
+    "carbs": 3,
+    "fat": 0.7,
+    "saturatedFat": 0.4,
+    "sugar": 3.4,
+    "fiber": 0,
+    "salt": 0.04,
+    "energyKj": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea-decaf",
+   "name": "English Breakfast Tea - Decaf",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "fiber": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

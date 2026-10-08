@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261008105957,
- "generatedAt": "2026-10-08T10:59:57Z",
+ "dataVersion": 20261008143638,
+ "generatedAt": "2026-10-08T14:36:38Z",
  "chains": [
   {
    "id": "abokado",
@@ -151,6 +151,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "bettys",
+   "name": "Bettys",
+   "cuisine": "Tea rooms",
+   "file": "chain-bettys.json",
+   "sha256": "0cb6fb7b3a6887963e7b7937aa11a3ea5d3db169db1f905dfdafc93c1ea83867",
+   "contentHash": "2c01a648b208ab61cf665fdb8f1c3aa13dafdaf8c6a05c310ae4eecc01260857",
+   "sample": false,
+   "itemCount": 134,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "bills",
    "name": "Bill's",
    "cuisine": "British",
@@ -208,6 +220,17 @@
    "itemCount": 147,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
+  },
+  {
+   "id": "brasserie-blanc",
+   "name": "Brasserie Blanc",
+   "cuisine": "French",
+   "file": "chain-brasserie-blanc.json",
+   "sha256": "dfc2bfd80069b95b713af79530d20dbe738a911f24fd6c566e5a37b50c5fa2af",
+   "contentHash": "5bc6a94f2e99b41ed64bde2d46a157b91dc27da2342b23852202bc3d6556a86d",
+   "sample": false,
+   "itemCount": 241,
+   "checkedOn": "2026-10-08"
   },
   {
    "id": "british-garden-centres",
@@ -268,6 +291,29 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "butlins",
+   "name": "Butlin's",
+   "cuisine": "Holiday resort restaurant",
+   "file": "chain-butlins.json",
+   "sha256": "251955ebb58081ec8fe2e22709ead7b56bee9797d21c60af1eb9f85f148f6cf6",
+   "contentHash": "3fdfe327417c7ebb301d66586c6693270a76a0d205a5e1bde8b31234e64d03a6",
+   "sample": false,
+   "itemCount": 607,
+   "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "buzz-bingo",
+   "name": "Buzz Bingo",
+   "cuisine": "Bingo club",
+   "file": "chain-buzz-bingo.json",
+   "sha256": "9a80bae38abe669a76ec7825e6f40039a998f43f9619ca2a4e6ded4842f53c19",
+   "contentHash": "1eb98351c86665c80249afcf96a510cc65a5d77edef61be5ffe93e924d2dd573",
+   "sample": false,
+   "itemCount": 94,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "cafe-rouge",
    "name": "Cafe Rouge",
    "cuisine": "French",
@@ -299,6 +345,17 @@
    "sample": false,
    "itemCount": 45,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "castle-carvery",
+   "name": "Castle Carvery",
+   "cuisine": "Carvery",
+   "file": "chain-castle-carvery.json",
+   "sha256": "50a101552b81d6cec2fcfdd45b24e2c378957fe0fc382d9cacfa6bfe9f84606d",
+   "contentHash": "deeab12c072fea1fefbad88abda49954562f291707f690d68146561bb4ccf4fb",
+   "sample": false,
+   "itemCount": 80,
+   "checkedOn": "2026-10-08"
   },
   {
    "id": "chaiiwala",
@@ -450,6 +507,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "drake-and-morgan",
+   "name": "Drake & Morgan",
+   "cuisine": "Cocktail bar",
+   "file": "chain-drake-and-morgan.json",
+   "sha256": "350caeb7ba770177c2a7589f275a1702b0b7e4bfe705e068d5f61602ce79ba29",
+   "contentHash": "6f840f907b9f3565fa354c9c199932a16700cf3b46eea497f98c3a1b4b1aad4a",
+   "sample": false,
+   "itemCount": 93,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "dunkin",
    "name": "Dunkin'",
    "cuisine": "Bakery",
@@ -562,6 +631,18 @@
    "sample": false,
    "itemCount": 77,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "forest-holidays",
+   "name": "Forest Holidays",
+   "cuisine": "Holiday cabin restaurant",
+   "file": "chain-forest-holidays.json",
+   "sha256": "4349149bb708ae91f95d8a85eaad9bc5a45c7f225c562e02fe99f3885ab655ec",
+   "contentHash": "0ab2ba6e675dafc354d0ccaa068b0f5879404096ace5b0bc7bd830df217eb912",
+   "sample": false,
+   "itemCount": 82,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "franco-manca",
@@ -713,6 +794,17 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "heritage-pubs",
+   "name": "Heritage Pubs",
+   "cuisine": "Pub",
+   "file": "chain-heritage-pubs.json",
+   "sha256": "abbc630b04e735e9a426a3a59ffdcfac51c10c5327b74767df6967220301f2fa",
+   "contentHash": "e45ff7b111c57ae75651f1e9e69a8c7468411e2ff845b4676b57e1c712993e13",
+   "sample": false,
+   "itemCount": 306,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "hickorys",
    "name": "Hickory's Smokehouse",
    "cuisine": "Barbecue",
@@ -722,6 +814,18 @@
    "sample": false,
    "itemCount": 188,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "hoburne-holidays",
+   "name": "Hoburne Holidays",
+   "cuisine": "Holiday park restaurant",
+   "file": "chain-hoburne-holidays.json",
+   "sha256": "f065f873daa465d91d6e798e76994b488e978aefbdb4e612f41352ebc24c5d00",
+   "contentHash": "b6e29d70c544678f39af9c4d9748d472797f1f63cd6d5b25d1150e84057177b5",
+   "sample": false,
+   "itemCount": 201,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "hollywood-bowl",
@@ -909,6 +1013,29 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "megans",
+   "name": "Megan's",
+   "cuisine": "Middle Eastern",
+   "file": "chain-megans.json",
+   "sha256": "ee5c38ac3a7d15fb9a83e33231f43197a94d4e33d9a387e873bc88f9168323bf",
+   "contentHash": "e73190ecc90562c980425ab67e979b2a6fd1e5834a68b084a4ef357f57f41eae",
+   "sample": false,
+   "itemCount": 197,
+   "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "mildreds",
+   "name": "Mildreds",
+   "cuisine": "World food",
+   "file": "chain-mildreds.json",
+   "sha256": "3614da9df6666f41c7db704426f5f27450eb7351eacdd4cfb9e817ead27e8595",
+   "contentHash": "26a3a0fac87f7bb1305fdaf510ba80ce3edf46f1304c9f3ca8e27e6a237e69e3",
+   "sample": false,
+   "itemCount": 48,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "miller-and-carter",
    "name": "Miller & Carter",
    "cuisine": "Steakhouse",
@@ -1044,6 +1171,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "places-leisure",
+   "name": "Places Leisure Cafeology",
+   "cuisine": "Cafe",
+   "file": "chain-places-leisure.json",
+   "sha256": "b39c3b7bbc1efc6c8f357ecc56d3b0402fc07cf34650cb60930cf8ae1879e754",
+   "contentHash": "34e8562abf3dfca243ca0dee68381bf56f6f8e6780c622083dfc4df25e66f000",
+   "sample": false,
+   "itemCount": 299,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "popeyes",
    "name": "Popeyes",
    "cuisine": "Chicken",
@@ -1110,6 +1249,29 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "puttshack-uk",
+   "name": "Puttshack",
+   "cuisine": "Mini golf diner",
+   "file": "chain-puttshack-uk.json",
+   "sha256": "b9461b1243fbd81f329530af7b6b45e192642f2c5820abfd7ed13ccea7427e45",
+   "contentHash": "e046b9b99ddb8e0b4b75d430a4f655cce9614db5c24875f8ac7b16909b29b8d1",
+   "sample": false,
+   "itemCount": 36,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "real-greek",
+   "name": "The Real Greek",
+   "cuisine": "Greek",
+   "file": "chain-real-greek.json",
+   "sha256": "d36cf9c5a25ec162f08c604c1401477ce8ed16dc1a2132c4bc89d153dedfed51",
+   "contentHash": "16c7f561baa0ff64a70c43e72b1da355f6d8d4fa3fad10eae2a2a343a6037202",
+   "sample": false,
+   "itemCount": 46,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "rick-steins",
    "name": "Rick Stein",
    "cuisine": "Seafood",
@@ -1167,6 +1329,17 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "shahs-halal-food",
+   "name": "Shah's Halal Food",
+   "cuisine": "Middle Eastern",
+   "file": "chain-shahs-halal-food.json",
+   "sha256": "330ece0b0aee2a2b0e621ecfe91e508e4c1feb7e374a3e6ee8272bcbae753648",
+   "contentHash": "9521d59e26d77da8c464617322bde2c8ebfde83836940edef054aa9adce70b87",
+   "sample": false,
+   "itemCount": 10,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "sizzling-pubs",
    "name": "Sizzling Pubs",
    "cuisine": "Pub",
@@ -1198,6 +1371,17 @@
    "sample": false,
    "itemCount": 232,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "social-pub-and-kitchen",
+   "name": "Social Pub & Kitchen",
+   "cuisine": "Pub",
+   "file": "chain-social-pub-and-kitchen.json",
+   "sha256": "e25abf2652637e1a7ae975d5609a461c2ddbe2ea70d0d262c1f2ee60e67ca290",
+   "contentHash": "0971e167d6628afe1745d217d6b24f72f7eecba7c07bdd489e9cc8cec8885a38",
+   "sample": false,
+   "itemCount": 213,
+   "checkedOn": "2026-10-08"
   },
   {
    "id": "soho-coffee-co",
@@ -1314,6 +1498,17 @@
    "itemCount": 51,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
+  },
+  {
+   "id": "third-space",
+   "name": "Third Space",
+   "cuisine": "Cafe",
+   "file": "chain-third-space.json",
+   "sha256": "4f230922756370163c6128d2a8066e1abc62611e16b653edaca5cab11be65f19",
+   "contentHash": "6517304de1792004ffc8d87c46da3a1f05e4f34ddac8dbd401d8889d51e974e7",
+   "sample": false,
+   "itemCount": 11,
+   "checkedOn": "2026-10-08"
   },
   {
    "id": "tim-hortons",
@@ -1453,6 +1648,28 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "wenzels",
+   "name": "Wenzel's the Bakers",
+   "cuisine": "Bakery",
+   "file": "chain-wenzels.json",
+   "sha256": "a0475ae9a135121b96e4b7e1c62b85ba644f797e90f39b42a69e1ed3b3797330",
+   "contentHash": "43fc8b990acaeaa9bbdd8efb432f142fdb5c611bbeae8b04d14465710bf25e9b",
+   "sample": false,
+   "itemCount": 110,
+   "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "westmorland-services",
+   "name": "Westmorland Services",
+   "cuisine": "British cafe",
+   "file": "chain-westmorland-services.json",
+   "sha256": "3fcc8b994dac122f625ff5c03b8741537e95ab3721ae934886b21f4e26268311",
+   "contentHash": "0c99f6d9f55d681310f9a6166e24074df3224e11df3d4d09698e5193057ea500",
+   "sample": false,
+   "itemCount": 293,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "wild-bean-cafe",
    "name": "Wild Bean Cafe",
    "cuisine": "Cafe",
@@ -1462,6 +1679,18 @@
    "sample": false,
    "itemCount": 59,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "wildwood",
+   "name": "Wildwood",
+   "cuisine": "Italian",
+   "file": "chain-wildwood.json",
+   "sha256": "562cd778205403784bb34c6034a9f3c679a26cdbb71ce37601a5c51d77d80958",
+   "contentHash": "5c934db50d11e00b5236381295f9db3d5bf70cd0d4791793316f1e51d2ccf35d",
+   "sample": false,
+   "itemCount": 114,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "wimpy",
@@ -1488,6 +1717,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "093fdc11c9ab98bcabf9121b9e6fd2c6f0616dcbda5db3e0594ccc72d9711a7d"
+  "sha256": "f9e181752d85cbf89101d79338153393624c77632408873694ab752791b650d8"
  }
 }

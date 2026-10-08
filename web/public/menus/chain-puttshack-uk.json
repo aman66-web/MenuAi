@@ -1,0 +1,977 @@
+{
+ "schemaVersion": 1,
+ "id": "puttshack-uk",
+ "name": "Puttshack",
+ "cuisine": "Mini golf diner",
+ "builderType": "standard",
+ "aliases": [
+  "puttshack",
+  "puttshack uk",
+  "putt shack"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Puttshack UK food menu page (accessed 8 October 2026, no date shown; its menu PDF was created 29 May 2026)",
+  "url": "https://www.puttshack.com/uk/food-and-drink/",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Puttshack prints calories only, per dish as served, so protein, carbs and fat are not published. Food menu for Puttshack UK (Bank, Lakeside, Watford, White City); add-ons and the kids, drinks, group and Christmas menus are not listed.",
+ "allergenGuide": {
+  "title": "Puttshack allergen & dietary information, food (July 2026, v8, 8 pages)",
+  "url": "https://www.puttshack.com/wp-content/uploads/2026/07/PUTTSHACK_ALLERGENS-DIETARY_JULY-26_v8.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Shareables",
+  "Flatbreads",
+  "Salads & bowls",
+  "Handhelds",
+  "Sides",
+  "Sauces",
+  "Desserts"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "mac-n-cheese-bites",
+   "name": "Mac 'n' Cheese Bites",
+   "category": "Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 962
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "buttermilk-chicken-tenders",
+   "name": "Buttermilk Chicken Tenders",
+   "category": "Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 852
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smokey-corn-riblets",
+   "name": "Smokey Corn Riblets",
+   "category": "Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 388
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-nachos",
+   "name": "Loaded Nachos",
+   "category": "Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 1202
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "halloumi-fries",
+   "name": "Halloumi Fries",
+   "category": "Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 708
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "franks-fiery-wings",
+   "name": "Frank's Fiery Wings",
+   "category": "Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 1066
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "korean-kick-wings",
+   "name": "Korean Kick Wings",
+   "category": "Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 1079
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "skewer-tower",
+   "name": "Skewer Tower",
+   "category": "Shareables",
+   "serving": "",
+   "nutrients": {
+    "calories": 2400
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pepperoni-flatbread",
+   "name": "Pepperoni Flatbread",
+   "category": "Flatbreads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1100
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-veggie-flatbread",
+   "name": "The Veggie Flatbread",
+   "category": "Flatbreads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1044
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "margherita-flatbread",
+   "name": "Margherita Flatbread",
+   "category": "Flatbreads",
+   "serving": "",
+   "nutrients": {
+    "calories": 954
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "texas-bbq-flatbread",
+   "name": "Texas BBQ Flatbread",
+   "category": "Flatbreads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "wild-mushroom-flatbread",
+   "name": "Wild Mushroom Flatbread",
+   "category": "Flatbreads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "avocado-caesar-salad",
+   "name": "Avocado Caesar Salad",
+   "category": "Salads & bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 577
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "super-food-grain-bowl",
+   "name": "Super Food Grain Bowl",
+   "category": "Salads & bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "og-cheese-burger",
+   "name": "OG Cheese Burger",
+   "category": "Handhelds",
+   "serving": "",
+   "nutrients": {
+    "calories": 850
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "nashville-hot-honey-chicken-burger",
+   "name": "Nashville Hot Honey Chicken Burger",
+   "category": "Handhelds",
+   "serving": "",
+   "nutrients": {
+    "calories": 1300
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "bbq-bacon-jalapeno-cheeseburger",
+   "name": "BBQ Bacon Jalapeño Cheeseburger",
+   "category": "Handhelds",
+   "serving": "",
+   "nutrients": {
+    "calories": 1292
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "plant-power-burger",
+   "name": "Plant Power Burger",
+   "category": "Handhelds",
+   "serving": "",
+   "nutrients": {
+    "calories": 817
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tinga-tacos",
+   "name": "Chicken Tinga Tacos",
+   "category": "Handhelds",
+   "serving": "",
+   "nutrients": {
+    "calories": 874
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mango-habanero-shrimp-tacos",
+   "name": "Mango Habanero Shrimp Tacos",
+   "category": "Handhelds",
+   "serving": "",
+   "nutrients": {
+    "calories": 607
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "polish-boy-street-dog",
+   "name": "Polish Boy Street Dog",
+   "category": "Handhelds",
+   "serving": "",
+   "nutrients": {
+    "calories": 552
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "buffalo-chicken-street-dog",
+   "name": "Buffalo Chicken Street Dog",
+   "category": "Handhelds",
+   "serving": "",
+   "nutrients": {
+    "calories": 646
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "house-seasoned-fries",
+   "name": "House Seasoned Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 447
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "potato-tots",
+   "name": "Potato Tots",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 646
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rainbow-slaw",
+   "name": "Rainbow Slaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peri-peri-sauce",
+   "name": "Peri Peri Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tzatziki",
+   "name": "Tzatziki",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "aioli",
+   "name": "Aioli",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chipotle-mayo",
+   "name": "Chipotle Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ranch-sauce",
+   "name": "Ranch Sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberries-and-cream-cookie-dough-sundae",
+   "name": "Strawberries & Cream, Cookie Dough Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1458
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "new-york-cheesecake",
+   "name": "New York Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "double-chocolate-brownie",
+   "name": "Double Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 699
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

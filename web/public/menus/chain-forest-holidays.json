@@ -1,0 +1,1305 @@
+{
+ "schemaVersion": 1,
+ "id": "forest-holidays",
+ "name": "Forest Holidays",
+ "cuisine": "Holiday cabin restaurant",
+ "builderType": "standard",
+ "aliases": [
+  "forest holidays",
+  "forest holidays cabins",
+  "forest holidays restaurant",
+  "forest holidays cafe",
+  "forest holidays café",
+  "forest holidays dining",
+  "forest holidays bar and restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Forest Holidays Autumn Winter 2026 menus with calories: England (generic) and Scotland A4 PDFs and the Beddgelert takeaway menu (all PDFs created 17 September 2026)",
+  "url": "https://www.forestholidays.co.uk/food-and-drink/",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as printed (no protein, carbs, fat or salt). Menus differ by site, so a dish is listed only if the England, Scotland and Beddgelert menus agree on it; it may not be served at every site. Hot drinks that print two unnamed sizes are left out. Allergens are in Forest Holidays' own allergen menu (linked).",
+ "allergenGuide": {
+  "title": "Forest Holidays allergen menus on Ingredifind (igfd.menu: per-dish allergens, England menu; accessed 2026-10-08, no date shown)",
+  "url": "https://igfd.menu/forest-holidays-england-menu-skio",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Traditional cooked breakfast",
+  "Waffles and pancakes",
+  "Breakfast baps",
+  "Light brunch",
+  "Breakfast extras",
+  "Smoothies",
+  "Sourdough sandwich pockets",
+  "Loaded mac and cheese",
+  "British classics",
+  "Soup of the day",
+  "Burgers",
+  "Curries",
+  "Pizza",
+  "Small plates",
+  "Topped fries",
+  "Sides",
+  "Children's breakfast",
+  "Children's meals",
+  "Milkshakes",
+  "Desserts",
+  "Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "woodland-breakfast",
+   "name": "Woodland breakfast",
+   "category": "Traditional cooked breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 730
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-forest-breakfast",
+   "name": "Plant forest breakfast",
+   "category": "Traditional cooked breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 736
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-or-waffles-with-smoked-streaky-bacon-and-hot-honey",
+   "name": "Pancakes or waffles with smoked streaky bacon and hot honey",
+   "category": "Waffles and pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1062
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-or-waffles-with-fresh-berries-coconut-yoghurt-granola-and-maple-drizzle",
+   "name": "Pancakes or waffles with fresh berries, coconut yoghurt, granola and maple drizzle",
+   "category": "Waffles and pancakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1039
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-bap",
+   "name": "Bacon bap",
+   "category": "Breakfast baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 740
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-bap",
+   "name": "Sausage bap",
+   "category": "Breakfast baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 444
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-bap",
+   "name": "Vegetable bap",
+   "category": "Breakfast baps",
+   "serving": "",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-orchard-porridge",
+   "name": "Apple orchard porridge",
+   "category": "Light brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-and-poached-eggs-on-toast",
+   "name": "Avocado and poached eggs on toast",
+   "category": "Light brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 425
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-on-toast",
+   "name": "Eggs on toast",
+   "category": "Light brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 314
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "forest-breakfast-flatbread",
+   "name": "Forest breakfast flatbread",
+   "category": "Light brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 816
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "campfire-breakfast-hash",
+   "name": "Campfire breakfast hash",
+   "category": "Light brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 576
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "campfire-breakfast-hash-with-bacon",
+   "name": "Campfire breakfast hash with bacon",
+   "category": "Light brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 686
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "streaky-bacon",
+   "name": "Streaky bacon",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage",
+   "name": "Sausage",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-sausage",
+   "name": "Vegan sausage",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beans",
+   "name": "Beans",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-white-harvester-or-sourdough",
+   "name": "Toast (white, harvester or sourdough)",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-scrambled-poached-or-fried",
+   "name": "Egg (scrambled, poached or fried)",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash brown",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-pudding",
+   "name": "Black pudding",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom",
+   "name": "Mushroom",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato",
+   "name": "Tomato",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-wild-mushrooms",
+   "name": "Garlic wild mushrooms",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tropical-sunrise-smoothie",
+   "name": "Tropical Sunrise smoothie",
+   "category": "Smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 169
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "forest-berry-smoothie",
+   "name": "Forest Berry smoothie",
+   "category": "Smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry-medley-smoothie",
+   "name": "Cherry Medley smoothie",
+   "category": "Smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-cooler-smoothie",
+   "name": "Coconut Cooler smoothie",
+   "category": "Smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-ham-sourdough-pocket",
+   "name": "Cheese and ham sourdough pocket",
+   "category": "Sourdough sandwich pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 531
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-vegetable-sourdough-pocket",
+   "name": "Mediterranean vegetable sourdough pocket",
+   "category": "Sourdough sandwich pockets",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "forest-mushroom-loaded-mac-and-cheese",
+   "name": "Forest mushroom loaded mac and cheese",
+   "category": "Loaded mac and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 797
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "campfire-bbq-loaded-mac-and-cheese",
+   "name": "Campfire BBQ loaded mac and cheese",
+   "category": "Loaded mac and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 989
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-meatballs-loaded-mac-and-cheese",
+   "name": "Maple meatballs loaded mac and cheese",
+   "category": "Loaded mac and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 1075
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-and-chips",
+   "name": "Fish and chips",
+   "category": "British classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-ale-pie",
+   "name": "Steak and ale pie",
+   "category": "British classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1066
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-and-coriander-soup",
+   "name": "Carrot and coriander soup",
+   "category": "Soup of the day",
+   "serving": "",
+   "nutrients": {
+    "calories": 495
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "leek-and-potato-soup",
+   "name": "Leek and potato soup",
+   "category": "Soup of the day",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-cheese-and-bacon-burger",
+   "name": "Double cheese and bacon burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1159
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-bbq-burger",
+   "name": "Vegan BBQ burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 892
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-jalfrezi-curry",
+   "name": "Chicken jalfrezi curry",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-masala-curry",
+   "name": "Chicken tikka masala curry",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 951
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-korma-curry",
+   "name": "Chicken korma curry",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-balti-curry",
+   "name": "Vegetable balti curry",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 623
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "naan-and-dips",
+   "name": "Naan and dips",
+   "category": "Curries",
+   "serving": "",
+   "nutrients": {
+    "calories": 216
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meatball-pizza",
+   "name": "Meatball pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1018
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-southern-fried-chicken-strips",
+   "name": "BBQ southern-fried chicken strips",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 401
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meatballs",
+   "name": "Meatballs",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-smash-browns",
+   "name": "BBQ smash browns",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 440
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-pulled-pork-loaded-fries",
+   "name": "BBQ pulled pork loaded fries",
+   "category": "Topped fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 877
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-balti-loaded-fries",
+   "name": "Vegetable balti loaded fries",
+   "category": "Topped fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 761
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-rosemary-salted-skin-on-fries",
+   "name": "Garlic and rosemary salted skin-on fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-wedges",
+   "name": "Sweet potato wedges",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "waffle-fries",
+   "name": "Waffle fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "battered-onion-rings",
+   "name": "Battered onion rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 355
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-forest-breakfast",
+   "name": "Little forest breakfast",
+   "category": "Children's breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-beans-on-toast",
+   "name": "Kids beans on toast",
+   "category": "Children's breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pancakes-with-nutella",
+   "name": "Kids pancakes with Nutella",
+   "category": "Children's breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pancakes-with-syrup",
+   "name": "Kids pancakes with syrup",
+   "category": "Children's breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 397
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cheese-and-tomato-pizza",
+   "name": "Kids cheese and tomato pizza",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 579
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pepperoni-pizza",
+   "name": "Kids pepperoni pizza",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 748
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ham-sandwich",
+   "name": "Kids ham sandwich",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 423
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-jam-sandwich",
+   "name": "Kids jam sandwich",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 425
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cheese-sandwich",
+   "name": "Kids cheese sandwich",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 462
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pork-sausages",
+   "name": "Kids pork sausages",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 368
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vegan-sausages",
+   "name": "Kids vegan sausages",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-southern-fried-chicken-tenders",
+   "name": "Kids southern-fried chicken tenders",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-mini-beef-burger",
+   "name": "Kids mini beef burger",
+   "category": "Children's meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 615
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake",
+   "name": "Chocolate milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 623
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake",
+   "name": "Strawberry milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake",
+   "name": "Vanilla milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "panettone-bread-and-butter-pudding",
+   "name": "Panettone bread and butter pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 285
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-sticky-toffee",
+   "name": "Banana sticky toffee",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-and-raspberry-cheesecake",
+   "name": "Lemon and raspberry cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-blackberry-crumble",
+   "name": "Apple and blackberry crumble",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 531
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-ice-cream",
+   "name": "Kids ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat white",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "babyccino",
+   "name": "Babyccino",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tea-earl-grey-english-breakfast-or-herbal",
+   "name": "Tea (Earl Grey, English Breakfast or herbal)",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced latte",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-americano",
+   "name": "Iced americano",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

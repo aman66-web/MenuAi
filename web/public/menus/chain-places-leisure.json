@@ -1,0 +1,6295 @@
+{
+ "schemaVersion": 1,
+ "id": "places-leisure",
+ "name": "Places Leisure Cafeology",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "places leisure",
+  "places leisure cafeology",
+  "places leisure cafe",
+  "places leisure cafes",
+  "cafeology",
+  "cafeology cafe",
+  "cafeology coffee shop"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Places Leisure Cafeology allergen and calorie charts: unlabelled food (chart dated 03/09/2026, 27 pages) and hot drinks (September 2026, 36 pages); both PDFs created 3 September 2026",
+  "url": "https://www.placesleisure.org/allergens-and-nutritional-information/",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, for an average adult serving as the chart prints it: protein, carbs and fat are not published. Hot drink values depend on the cafe's coffee machine and cup size (the chart doesn't say which centre has which). Items sold at only some centres, Costa sites and packaged food are not listed.",
+ "allergenGuide": {
+  "title": "Places Leisure Cafeology allergen and calorie charts: unlabelled food (03/09/2026) and hot drinks (September 2026)",
+  "url": "https://www.placesleisure.org/allergens-and-nutritional-information/",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Food",
+  "Cakes",
+  "Extras",
+  "Milkshakes",
+  "Smoothies",
+  "Slushies",
+  "Frappes",
+  "Post mix and squash",
+  "Hot drinks, Vitali machine, 8oz cup",
+  "Hot drinks, Vitro X3 machine, 12oz cup",
+  "Hot drinks, Egro machine, 12oz cup",
+  "Hot drinks, Egro machine, 16oz cup",
+  "Hot drinks, Franke machine, 12oz cup",
+  "Hot drinks, Franke machine, 16oz cup"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "teacake-2-x-jam-and-2-x-butter",
+   "name": "Teacake (2 x Jam and 2 x Butter)",
+   "category": "Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 439
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bacon-bap-2-x-rashers-no-butter",
+   "name": "Bacon Bap (2 x rashers - no butter)",
+   "category": "Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 313
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sysco-classic-gf-victoria-sponge",
+   "name": "Sysco Classic GF Victoria Sponge",
+   "category": "Cakes",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "sysco-classic-gf-chocolate-fudge",
+   "name": "Sysco Classic GF Chocolate Fudge",
+   "category": "Cakes",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "carrot-cake",
+   "name": "Carrot Cake",
+   "category": "Cakes",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 379
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "scone-clotted-cream-x1-and-jam-x2",
+   "name": "Scone (Clotted Cream x1 and Jam x2)",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 701
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butter-portion-each",
+   "name": "Butter Portion (each)",
+   "category": "Extras",
+   "serving": "each",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-jam-portion-each",
+   "name": "Strawberry Jam Portion (each)",
+   "category": "Extras",
+   "serving": "each",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "clotted-cream-each",
+   "name": "Clotted Cream (Each)",
+   "category": "Extras",
+   "serving": "each",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-top-banana-shake-160g",
+   "name": "Love Taste Top Banana Shake 160g",
+   "category": "Milkshakes",
+   "serving": "Prepared with 150ml Semi Skimmed Milk",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-strawberry-glory-shake-155g",
+   "name": "Love Taste Strawberry Glory Shake 155g",
+   "category": "Milkshakes",
+   "serving": "Prepared with 150ml Semi Skimmed Milk",
+   "nutrients": {
+    "calories": 229
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-livin-la-cocoa-shake-155g",
+   "name": "Love Taste Livin La Cocoa Shake 155g",
+   "category": "Milkshakes",
+   "serving": "Prepared with 150ml Semi Skimmed Milk",
+   "nutrients": {
+    "calories": 305
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-va-va-vanilla-shake-155g",
+   "name": "Love Taste Va Va Vanilla Shake 155g",
+   "category": "Milkshakes",
+   "serving": "Prepared with 150ml Semi Skimmed Milk",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-strawberry-split-140g",
+   "name": "Love Taste Strawberry Split 140g",
+   "category": "Smoothies",
+   "serving": "Prepared with 200ml Apple Juice",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-pash-n-shot-140g",
+   "name": "Love Taste Pash N Shot 140g",
+   "category": "Smoothies",
+   "serving": "Prepared with 200ml Apple Juice",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-big-5-140g",
+   "name": "Love Taste Big 5 140g",
+   "category": "Smoothies",
+   "serving": "Prepared with 200ml Apple Juice",
+   "nutrients": {
+    "calories": 159
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-detox-zing-140g",
+   "name": "Love Taste Detox Zing 140g",
+   "category": "Smoothies",
+   "serving": "Prepared with 200ml Apple Juice",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-kale-kick-140g",
+   "name": "Love Taste Kale Kick 140g",
+   "category": "Smoothies",
+   "serving": "Prepared with 200ml Apple Juice",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "love-taste-avo-go-go-140g",
+   "name": "Love Taste Avo Go Go 140g",
+   "category": "Smoothies",
+   "serving": "Prepared with 200ml Apple Juice",
+   "nutrients": {
+    "calories": 196
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "polar-krush-slushy-strawberry-blue-raspberry-contains-glycerol",
+   "name": "Polar Krush Slushy Strawberry / Blue Raspberry (contains glycerol)",
+   "category": "Slushies",
+   "serving": "330ml cup",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "polar-krush-slushy-strawberry-drift-blue-and-raspberry-glycerol-free",
+   "name": "Polar Krush Slushy Strawberry Drift / Blue and Raspberry (glycerol free)",
+   "category": "Slushies",
+   "serving": "330ml cup",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-classico-polar-krush-caffe-frappe",
+   "name": "Latte Classico (Polar Krush Caffe Frappe)",
+   "category": "Frappes",
+   "serving": "330ml cup",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramello-dorato-polar-krush-caffe-frappe",
+   "name": "Caramello Dorato (Polar Krush Caffe Frappe)",
+   "category": "Frappes",
+   "serving": "330ml cup",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-choccolato-polar-krush-caffe-frappe",
+   "name": "Mocha Choccolato (Polar Krush Caffe Frappe)",
+   "category": "Frappes",
+   "serving": "330ml cup",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-tango-sugar-free-300ml",
+   "name": "Orange Tango Sugar Free (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-tango-sugar-free-454ml",
+   "name": "Orange Tango Sugar Free (454ml)",
+   "category": "Post mix and squash",
+   "serving": "454ml",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-max-300ml",
+   "name": "Pepsi Max (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-max-454ml",
+   "name": "Pepsi Max (454ml)",
+   "category": "Post mix and squash",
+   "serving": "454ml",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "r-whites-lemonade-300ml",
+   "name": "R Whites Lemonade (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "r-whites-lemonade-454ml",
+   "name": "R Whites Lemonade (454ml)",
+   "category": "Post mix and squash",
+   "serving": "454ml",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "7up-free-300ml",
+   "name": "7up Free (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "7up-free-454ml",
+   "name": "7up Free (454ml)",
+   "category": "Post mix and squash",
+   "serving": "454ml",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-diet-300ml",
+   "name": "Pepsi Diet (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pepsi-diet-454ml",
+   "name": "Pepsi Diet (454ml)",
+   "category": "Post mix and squash",
+   "serving": "454ml",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "schweppes-orange-cordial-300ml",
+   "name": "Schweppes Orange Cordial (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "schweppes-blackcurrant-flavour-cordial-300ml",
+   "name": "Schweppes Blackcurrant Flavour Cordial (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sysco-classic-double-strength-orange-squash-300ml",
+   "name": "Sysco Classic Double Strength Orange Squash (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sysco-classic-double-strength-blackcurrant-squash-300ml",
+   "name": "Sysco Classic Double Strength Blackcurrant Squash (300ml)",
+   "category": "Post mix and squash",
+   "serving": "300ml",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-black-no-milk-vitali-8oz",
+   "name": "Americano (Black - No Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-milk-granules-vitali-8oz",
+   "name": "Hot Chocolate (Milk Granules) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-milk-granules-vitali-8oz",
+   "name": "Latte (Milk Granules) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-milk-granules-vitali-8oz",
+   "name": "Cappuccino (Milk Granules) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-milk-granules-vitali-8oz",
+   "name": "Mocha (Milk Granules) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "james-aimer-fairtrade-string-and-tagged-english-breakfast-tea-10ml-added-milk-vitali-8oz",
+   "name": "James Aimer Fairtrade String & Tagged English Breakfast Tea (10ml Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-decaff-enveloped-tea-10ml-added-milk-vitali-8oz",
+   "name": "Taylors Decaff Enveloped Tea (10ml Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-blackberry-and-raspberry-enveloped-tea-no-added-milk-vitali-8oz",
+   "name": "Taylors Blackberry & Raspberry Enveloped Tea (No Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-earl-grey-enveloped-tea-no-added-milk-vitali-8oz",
+   "name": "Taylors Earl Grey Enveloped Tea (No Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-peppermint-enveloped-tea-no-added-milk-vitali-8oz",
+   "name": "Taylors Peppermint Enveloped Tea (No Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-lemon-and-ginger-enveloped-tea-no-added-milk-vitali-8oz",
+   "name": "Taylors Lemon & Ginger Enveloped Tea (No Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-enveloped-tea-no-added-milk-vitali-8oz",
+   "name": "Taylors Green Enveloped Tea (No Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-and-lemon-enveloped-tea-no-added-milk-vitali-8oz",
+   "name": "Taylors Green & Lemon Enveloped Tea (No Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-chamomile-envelope-tea-no-added-milk-vitali-8oz",
+   "name": "Taylors Chamomile Envelope Tea (No Added Milk) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "8oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-vanilla-30ml-vitali-8oz",
+   "name": "Sugar Free Vanilla (30ml) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-hazelnut-30ml-vitali-8oz",
+   "name": "Sugar Free Hazelnut (30ml) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-caramel-30ml-vitali-8oz",
+   "name": "Sugar Free Caramel (30ml) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marshmallows-portion-20g-vitali-8oz",
+   "name": "Marshmallows (Portion 20g) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "20g portion",
+   "nutrients": {
+    "calories": 66,
+    "weight": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aerosol-cream-portion-25g-vitali-8oz",
+   "name": "Aerosol Cream (Portion 25g) - Vitali 8oz",
+   "category": "Hot drinks, Vitali machine, 8oz cup",
+   "serving": "25g portion",
+   "nutrients": {
+    "calories": 74,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-vitro-x3-12oz",
+   "name": "Espresso - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "americano-black-no-milk-vitro-x3-12oz",
+   "name": "Americano (Black - No Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-milk-granules-vitro-x3-12oz",
+   "name": "Hot Chocolate (Milk Granules) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-milk-granules-vitro-x3-12oz",
+   "name": "Latte (Milk Granules) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-milk-granules-vitro-x3-12oz",
+   "name": "Cappuccino (Milk Granules) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-milk-granules-vitro-x3-12oz",
+   "name": "Mocha (Milk Granules) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "james-aimer-fairtrade-string-and-tagged-english-breakfast-tea-10ml-added-milk-vitro-x3-12oz",
+   "name": "James Aimer Fairtrade String & Tagged English Breakfast Tea (10ml Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-decaff-enveloped-tea-10ml-added-milk-vitro-x3-12oz",
+   "name": "Taylors Decaff Enveloped Tea (10ml Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-blackberry-and-raspberry-enveloped-tea-no-added-milk-vitro-x3-12oz",
+   "name": "Taylors Blackberry & Raspberry Enveloped Tea (No Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-earl-grey-enveloped-tea-no-added-milk-vitro-x3-12oz",
+   "name": "Taylors Earl Grey Enveloped Tea (No Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-peppermint-enveloped-tea-no-added-milk-vitro-x3-12oz",
+   "name": "Taylors Peppermint Enveloped Tea (No Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-lemon-and-ginger-enveloped-tea-no-added-milk-vitro-x3-12oz",
+   "name": "Taylors Lemon & Ginger Enveloped Tea (No Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-enveloped-tea-no-added-milk-vitro-x3-12oz",
+   "name": "Taylors Green Enveloped Tea (No Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-and-lemon-enveloped-tea-no-added-milk-vitro-x3-12oz",
+   "name": "Taylors Green & Lemon Enveloped Tea (No Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-chamomile-envelope-tea-no-added-milk-vitro-x3-12oz",
+   "name": "Taylors Chamomile Envelope Tea (No Added Milk) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-vanilla-30ml-vitro-x3-12oz",
+   "name": "Sugar Free Vanilla (30ml) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-hazelnut-30ml-vitro-x3-12oz",
+   "name": "Sugar Free Hazelnut (30ml) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-caramel-30ml-vitro-x3-12oz",
+   "name": "Sugar Free Caramel (30ml) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marshmallows-20g-portion-vitro-x3-12oz",
+   "name": "Marshmallows (20g portion) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "20g portion",
+   "nutrients": {
+    "calories": 66,
+    "weight": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aerosol-cream-25g-portion-vitro-x3-12oz",
+   "name": "Aerosol Cream (25g portion) - Vitro X3 12oz",
+   "category": "Hot drinks, Vitro X3 machine, 12oz cup",
+   "serving": "25g portion",
+   "nutrients": {
+    "calories": 74,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-egro-12oz",
+   "name": "Espresso - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "americano-black-no-milk-egro-12oz",
+   "name": "Americano (Black - No Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-americano-black-no-milk-egro-12oz",
+   "name": "Decaf Bean Americano (Black - No Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-americano-black-no-milk-egro-12oz",
+   "name": "Decaf Sachet Americano (Black - No Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-fresh-milk-egro-12oz",
+   "name": "Hot Chocolate (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-oat-milk-egro-12oz",
+   "name": "Hot Chocolate (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-soya-milk-egro-12oz",
+   "name": "Hot Chocolate (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-fresh-milk-cream-and-marshmallows-egro-12oz",
+   "name": "Hot Chocolate Deluxe (Fresh Milk, cream and marshmallows) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 273
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-oat-milk-cream-and-marshmallows-egro-12oz",
+   "name": "Hot Chocolate Deluxe (Oat Milk, cream and marshmallows) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-soya-milk-cream-and-marshmallows-egro-12oz",
+   "name": "Hot Chocolate Deluxe (Soya Milk, cream and marshmallows) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-fresh-milk-egro-12oz",
+   "name": "Latte (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-latte-fresh-milk-egro-12oz",
+   "name": "Decaf Bean Latte (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-fresh-milk-egro-12oz",
+   "name": "Decaf Sachet Latte (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-oat-milk-egro-12oz",
+   "name": "Latte (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-latte-oat-milk-egro-12oz",
+   "name": "Decaf Bean Latte (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-oat-milk-egro-12oz",
+   "name": "Decaf Sachet Latte (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-soya-milk-egro-12oz",
+   "name": "Latte (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-latte-soya-milk-egro-12oz",
+   "name": "Decaf Bean Latte (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-soya-milk-egro-12oz",
+   "name": "Decaf Sachet Latte (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-fresh-milk-egro-12oz",
+   "name": "Cappuccino (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-fresh-milk-egro-12oz",
+   "name": "Decaf Bean Cappuccino (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-fresh-milk-egro-12oz",
+   "name": "Decaf Sachet Cappuccino (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-oat-milk-egro-12oz",
+   "name": "Cappuccino (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-oat-milk-egro-12oz",
+   "name": "Decaf Bean Cappuccino (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-oat-milk-egro-12oz",
+   "name": "Decaf Sachet Cappuccino (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-soya-milk-egro-12oz",
+   "name": "Cappuccino (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-soya-milk-egro-12oz",
+   "name": "Decaf Bean Cappuccino (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-soya-milk-egro-12oz",
+   "name": "Decaf Sachet Cappuccino (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-fresh-milk-egro-12oz",
+   "name": "Flat White (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-flat-white-fresh-milk-egro-12oz",
+   "name": "Decaf Bean Flat White (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-flat-white-fresh-milk-egro-12oz",
+   "name": "Decaf Sachet Flat White (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-oat-milk-egro-12oz",
+   "name": "Flat White (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-flat-white-oat-milk-egro-12oz",
+   "name": "Decaf Bean Flat White (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-flat-white-oat-milk-egro-12oz",
+   "name": "Decaf Sachet Flat White (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-soya-milk-egro-12oz",
+   "name": "Flat White (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-flat-white-soya-milk-egro-12oz",
+   "name": "Decaf Bean Flat White (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-flat-white-soya-milk-egro-12oz",
+   "name": "Decaf Sachet Flat White (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "mocha-fresh-milk-egro-12oz",
+   "name": "Mocha (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-fresh-milk-egro-12oz",
+   "name": "Decaf Bean Mocha (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-fresh-milk-egro-12oz",
+   "name": "Decaf Sachet Mocha (Fresh Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-oat-milk-egro-12oz",
+   "name": "Mocha (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-oat-milk-egro-12oz",
+   "name": "Decaf Bean Mocha (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-oat-milk-egro-12oz",
+   "name": "Decaf Sachet Mocha (Oat Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-soya-milk-egro-12oz",
+   "name": "Mocha (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-soya-milk-egro-12oz",
+   "name": "Decaf Bean Mocha (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-soya-milk-egro-12oz",
+   "name": "Decaf Sachet Mocha (Soya Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "james-aimer-fairtrade-string-and-tagged-english-breakfast-tea-10ml-added-milk-egro-12oz",
+   "name": "James Aimer Fairtrade String & Tagged English Breakfast Tea (10ml Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-decaff-enveloped-tea-10ml-added-milk-egro-12oz",
+   "name": "Taylors Decaff Enveloped Tea (10ml Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-blackberry-and-raspberry-enveloped-tea-no-added-milk-egro-12oz",
+   "name": "Taylors Blackberry & Raspberry Enveloped Tea (No Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-earl-grey-enveloped-tea-no-added-milk-egro-12oz",
+   "name": "Taylors Earl Grey Enveloped Tea (No Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-peppermint-enveloped-tea-no-added-milk-egro-12oz",
+   "name": "Taylors Peppermint Enveloped Tea (No Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-lemon-and-ginger-enveloped-tea-no-added-milk-egro-12oz",
+   "name": "Taylors Lemon & Ginger Enveloped Tea (No Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-enveloped-tea-no-added-milk-egro-12oz",
+   "name": "Taylors Green Enveloped Tea (No Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-and-lemon-enveloped-tea-no-added-milk-egro-12oz",
+   "name": "Taylors Green & Lemon Enveloped Tea (No Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-chamomile-envelope-tea-no-added-milk-egro-12oz",
+   "name": "Taylors Chamomile Envelope Tea (No Added Milk) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-vanilla-30ml-egro-12oz",
+   "name": "Sugar Free Vanilla (30ml) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-hazelnut-30ml-egro-12oz",
+   "name": "Sugar Free Hazelnut (30ml) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-caramel-30ml-egro-12oz",
+   "name": "Sugar Free Caramel (30ml) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marshmallows-20g-portion-egro-12oz",
+   "name": "Marshmallows (20g portion) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "20g portion",
+   "nutrients": {
+    "calories": 66,
+    "weight": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aerosol-cream-25g-portion-egro-12oz",
+   "name": "Aerosol Cream (25g portion) - Egro 12oz",
+   "category": "Hot drinks, Egro machine, 12oz cup",
+   "serving": "25g portion",
+   "nutrients": {
+    "calories": 74,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-egro-16oz",
+   "name": "Espresso - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "americano-black-no-milk-egro-16oz",
+   "name": "Americano (Black - No Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-americano-black-no-milk-egro-16oz",
+   "name": "Decaf Bean Americano (Black - No Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-americano-black-no-milk-egro-16oz",
+   "name": "Decaf Sachet Americano (Black - No Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-fresh-milk-egro-16oz",
+   "name": "Hot Chocolate (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-oat-milk-egro-16oz",
+   "name": "Hot Chocolate (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 287
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-soya-milk-egro-16oz",
+   "name": "Hot Chocolate (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 283
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-fresh-milk-cream-and-marshmallows-egro-16oz",
+   "name": "Hot Chocolate Deluxe (Fresh Milk, cream and marshmallows) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-oat-milk-cream-and-marshmallows-egro-16oz",
+   "name": "Hot Chocolate Deluxe (Oat Milk, cream and marshmallows) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 427
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-soya-milk-cream-and-marshmallows-egro-16oz",
+   "name": "Hot Chocolate Deluxe (Soya Milk, cream and marshmallows) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 423
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-fresh-milk-egro-16oz",
+   "name": "Latte (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-latte-fresh-milk-egro-16oz",
+   "name": "Decaf Bean Latte (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-fresh-milk-egro-16oz",
+   "name": "Decaf Sachet Latte (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-oat-milk-egro-16oz",
+   "name": "Latte (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-latte-oat-milk-egro-16oz",
+   "name": "Decaf Bean Latte (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-oat-milk-egro-16oz",
+   "name": "Decaf Sachet Latte (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-soya-milk-egro-16oz",
+   "name": "Latte (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-latte-soya-milk-egro-16oz",
+   "name": "Decaf Bean Latte (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-soya-milk-egro-16oz",
+   "name": "Decaf Sachet Latte (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-fresh-milk-egro-16oz",
+   "name": "Cappuccino (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-fresh-milk-egro-16oz",
+   "name": "Decaf Bean Cappuccino (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-fresh-milk-egro-16oz",
+   "name": "Decaf Sachet Cappuccino (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-oat-milk-egro-16oz",
+   "name": "Cappuccino (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-oat-milk-egro-16oz",
+   "name": "Decaf Bean Cappuccino (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-oat-milk-egro-16oz",
+   "name": "Decaf Sachet Cappuccino (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-soya-milk-egro-16oz",
+   "name": "Cappuccino (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-soya-milk-egro-16oz",
+   "name": "Decaf Bean Cappuccino (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-soya-milk-egro-16oz",
+   "name": "Decaf Sachet Cappuccino (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "mocha-fresh-milk-egro-16oz",
+   "name": "Mocha (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-fresh-milk-egro-16oz",
+   "name": "Decaf Bean Mocha (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-fresh-milk-egro-16oz",
+   "name": "Decaf Sachet Mocha (Fresh Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-oat-milk-egro-16oz",
+   "name": "Mocha (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-oat-milk-egro-16oz",
+   "name": "Decaf Bean Mocha (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-oat-milk-egro-16oz",
+   "name": "Decaf Sachet Mocha (Oat Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-soya-milk-egro-16oz",
+   "name": "Mocha (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-soya-milk-egro-16oz",
+   "name": "Decaf Bean Mocha (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-soya-milk-egro-16oz",
+   "name": "Decaf Sachet Mocha (Soya Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "james-aimer-fairtrade-string-and-tagged-english-breakfast-tea-10ml-added-milk-egro-16oz",
+   "name": "James Aimer Fairtrade String & Tagged English Breakfast Tea (10ml Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-decaff-enveloped-tea-10ml-added-milk-egro-16oz",
+   "name": "Taylors Decaff Enveloped Tea (10ml Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-blackberry-and-raspberry-enveloped-tea-no-added-milk-egro-16oz",
+   "name": "Taylors Blackberry & Raspberry Enveloped Tea (No Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-earl-grey-enveloped-tea-no-added-milk-egro-16oz",
+   "name": "Taylors Earl Grey Enveloped Tea (No Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-peppermint-enveloped-tea-no-added-milk-egro-16oz",
+   "name": "Taylors Peppermint Enveloped Tea (No Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-lemon-and-ginger-enveloped-tea-no-added-milk-egro-16oz",
+   "name": "Taylors Lemon & Ginger Enveloped Tea (No Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-enveloped-tea-no-added-milk-egro-16oz",
+   "name": "Taylors Green Enveloped Tea (No Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-and-lemon-enveloped-tea-no-added-milk-egro-16oz",
+   "name": "Taylors Green & Lemon Enveloped Tea (No Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-chamomile-envelope-tea-no-added-milk-egro-16oz",
+   "name": "Taylors Chamomile Envelope Tea (No Added Milk) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-vanilla-30ml-egro-16oz",
+   "name": "Sugar Free Vanilla (30ml) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-hazelnut-30ml-egro-16oz",
+   "name": "Sugar Free Hazelnut (30ml) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-caramel-30ml-egro-16oz",
+   "name": "Sugar Free Caramel (30ml) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marshmallows-20g-portion-egro-16oz",
+   "name": "Marshmallows (20g portion) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "20g portion",
+   "nutrients": {
+    "calories": 66,
+    "weight": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aerosol-cream-25g-portion-egro-16oz",
+   "name": "Aerosol Cream (25g portion) - Egro 16oz",
+   "category": "Hot drinks, Egro machine, 16oz cup",
+   "serving": "25g portion",
+   "nutrients": {
+    "calories": 74,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-franke-12oz",
+   "name": "Espresso - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "americano-black-no-milk-franke-12oz",
+   "name": "Americano (Black - No Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-americano-black-no-milk-franke-12oz",
+   "name": "Decaf Bean Americano (Black - No Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-americano-black-no-milk-franke-12oz",
+   "name": "Decaf Sachet Americano (Black - No Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-fresh-milk-franke-12oz",
+   "name": "Hot Chocolate (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-oat-milk-franke-12oz",
+   "name": "Hot Chocolate (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-soya-milk-franke-12oz",
+   "name": "Hot Chocolate (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-fresh-milk-cream-and-marshmallows-franke-12oz",
+   "name": "Hot Chocolate Deluxe (Fresh Milk, cream and marshmallows) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 329
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-oat-milk-cream-and-marshmallows-franke-12oz",
+   "name": "Hot Chocolate Deluxe (Oat Milk, cream and marshmallows) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 321
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-soya-milk-cream-and-marshmallows-franke-12oz",
+   "name": "Hot Chocolate Deluxe (Soya Milk, cream and marshmallows) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-fresh-milk-franke-12oz",
+   "name": "Latte (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-latte-fresh-milk-franke-12oz",
+   "name": "Decaf Bean Latte (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-fresh-milk-franke-12oz",
+   "name": "Decaf Sachet Latte (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-oat-milk-franke-12oz",
+   "name": "Latte (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-latte-oat-milk-franke-12oz",
+   "name": "Decaf Bean Latte (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-oat-milk-franke-12oz",
+   "name": "Decaf Sachet Latte (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-soya-milk-franke-12oz",
+   "name": "Latte (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-latte-soya-milk-franke-12oz",
+   "name": "Decaf Bean Latte (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-soya-milk-franke-12oz",
+   "name": "Decaf Sachet Latte (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-fresh-milk-franke-12oz",
+   "name": "Cappuccino (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-fresh-milk-franke-12oz",
+   "name": "Decaf Bean Cappuccino (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-fresh-milk-franke-12oz",
+   "name": "Decaf Sachet Cappuccino (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-oat-milk-franke-12oz",
+   "name": "Cappuccino (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-oat-milk-franke-12oz",
+   "name": "Decaf Bean Cappuccino (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-oat-milk-franke-12oz",
+   "name": "Decaf Sachet Cappuccino (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-soya-milk-franke-12oz",
+   "name": "Cappuccino (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-soya-milk-franke-12oz",
+   "name": "Decaf Bean Cappuccino (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-soya-milk-franke-12oz",
+   "name": "Decaf Sachet Cappuccino (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-fresh-milk-franke-12oz",
+   "name": "Flat White (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-flat-white-fresh-milk-franke-12oz",
+   "name": "Decaf Bean Flat White (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-flat-white-fresh-milk-franke-12oz",
+   "name": "Decaf Sachet Flat White (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-oat-milk-franke-12oz",
+   "name": "Flat White (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-flat-white-oat-milk-franke-12oz",
+   "name": "Decaf Bean Flat White (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-flat-white-oat-milk-franke-12oz",
+   "name": "Decaf Sachet Flat White (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "flat-white-soya-milk-franke-12oz",
+   "name": "Flat White (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-flat-white-soya-milk-franke-12oz",
+   "name": "Decaf Bean Flat White (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-flat-white-soya-milk-franke-12oz",
+   "name": "Decaf Sachet Flat White (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "mocha-fresh-milk-franke-12oz",
+   "name": "Mocha (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-fresh-milk-franke-12oz",
+   "name": "Decaf Bean Mocha (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-fresh-milk-franke-12oz",
+   "name": "Decaf Sachet Mocha (Fresh Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-oat-milk-franke-12oz",
+   "name": "Mocha (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-oat-milk-franke-12oz",
+   "name": "Decaf Bean Mocha (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-oat-milk-franke-12oz",
+   "name": "Decaf Sachet Mocha (Oat Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 173
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-soya-milk-franke-12oz",
+   "name": "Mocha (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-soya-milk-franke-12oz",
+   "name": "Decaf Bean Mocha (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-soya-milk-franke-12oz",
+   "name": "Decaf Sachet Mocha (Soya Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "james-aimer-fairtrade-string-and-tagged-english-breakfast-tea-10ml-added-milk-franke-12oz",
+   "name": "James Aimer Fairtrade String & Tagged English Breakfast Tea (10ml Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-decaff-enveloped-tea-10ml-added-milk-franke-12oz",
+   "name": "Taylors Decaff Enveloped Tea (10ml Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-blackberry-and-raspberry-enveloped-tea-no-added-milk-franke-12oz",
+   "name": "Taylors Blackberry & Raspberry Enveloped Tea (No Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-earl-grey-enveloped-tea-no-added-milk-franke-12oz",
+   "name": "Taylors Earl Grey Enveloped Tea (No Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-peppermint-enveloped-tea-no-added-milk-franke-12oz",
+   "name": "Taylors Peppermint Enveloped Tea (No Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-lemon-and-ginger-enveloped-tea-no-added-milk-franke-12oz",
+   "name": "Taylors Lemon & Ginger Enveloped Tea (No Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-enveloped-tea-no-added-milk-franke-12oz",
+   "name": "Taylors Green Enveloped Tea (No Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-and-lemon-enveloped-tea-no-added-milk-franke-12oz",
+   "name": "Taylors Green & Lemon Enveloped Tea (No Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-chamomile-envelope-tea-no-added-milk-franke-12oz",
+   "name": "Taylors Chamomile Envelope Tea (No Added Milk) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "12oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-vanilla-30ml-franke-12oz",
+   "name": "Sugar Free Vanilla (30ml) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-hazelnut-30ml-franke-12oz",
+   "name": "Sugar Free Hazelnut (30ml) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-caramel-30ml-franke-12oz",
+   "name": "Sugar Free Caramel (30ml) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marshmallows-20g-portion-franke-12oz",
+   "name": "Marshmallows (20g portion) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "20g portion",
+   "nutrients": {
+    "calories": 66,
+    "weight": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aerosol-cream-25g-portion-franke-12oz",
+   "name": "Aerosol Cream (25g portion) - Franke 12oz",
+   "category": "Hot drinks, Franke machine, 12oz cup",
+   "serving": "25g portion",
+   "nutrients": {
+    "calories": 74,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-franke-16oz",
+   "name": "Espresso - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "americano-black-no-milk-franke-16oz",
+   "name": "Americano (Black - No Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-americano-black-no-milk-franke-16oz",
+   "name": "Decaf Bean Americano (Black - No Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-americano-black-no-milk-franke-16oz",
+   "name": "Decaf Sachet Americano (Black - No Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-fresh-milk-franke-16oz",
+   "name": "Hot Chocolate (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-oat-milk-franke-16oz",
+   "name": "Hot Chocolate (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 213
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-soya-milk-franke-16oz",
+   "name": "Hot Chocolate (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-fresh-milk-cream-and-marshmallows-franke-16oz",
+   "name": "Hot Chocolate Deluxe (Fresh Milk, cream and marshmallows) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 364
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-oat-milk-cream-and-marshmallows-franke-16oz",
+   "name": "Hot Chocolate Deluxe (Oat Milk, cream and marshmallows) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-deluxe-soya-milk-cream-and-marshmallows-franke-16oz",
+   "name": "Hot Chocolate Deluxe (Soya Milk, cream and marshmallows) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-fresh-milk-franke-16oz",
+   "name": "Latte (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-latte-fresh-milk-franke-16oz",
+   "name": "Decaf Bean Latte (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-fresh-milk-franke-16oz",
+   "name": "Decaf Sachet Latte (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "latte-oat-milk-franke-16oz",
+   "name": "Latte (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-latte-oat-milk-franke-16oz",
+   "name": "Decaf Bean Latte (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-oat-milk-franke-16oz",
+   "name": "Decaf Sachet Latte (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "latte-soya-milk-franke-16oz",
+   "name": "Latte (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-latte-soya-milk-franke-16oz",
+   "name": "Decaf Bean Latte (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-latte-soya-milk-franke-16oz",
+   "name": "Decaf Sachet Latte (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-fresh-milk-franke-16oz",
+   "name": "Cappuccino (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-fresh-milk-franke-16oz",
+   "name": "Decaf Bean Cappuccino (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-fresh-milk-franke-16oz",
+   "name": "Decaf Sachet Cappuccino (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-oat-milk-franke-16oz",
+   "name": "Cappuccino (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-oat-milk-franke-16oz",
+   "name": "Decaf Bean Cappuccino (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-oat-milk-franke-16oz",
+   "name": "Decaf Sachet Cappuccino (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cappuccino-soya-milk-franke-16oz",
+   "name": "Cappuccino (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-cappuccino-soya-milk-franke-16oz",
+   "name": "Decaf Bean Cappuccino (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-cappuccino-soya-milk-franke-16oz",
+   "name": "Decaf Sachet Cappuccino (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "mocha-fresh-milk-franke-16oz",
+   "name": "Mocha (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-fresh-milk-franke-16oz",
+   "name": "Decaf Bean Mocha (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-fresh-milk-franke-16oz",
+   "name": "Decaf Sachet Mocha (Fresh Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-oat-milk-franke-16oz",
+   "name": "Mocha (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 229
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-oat-milk-franke-16oz",
+   "name": "Decaf Bean Mocha (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 229
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-oat-milk-franke-16oz",
+   "name": "Decaf Sachet Mocha (Oat Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 229
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-soya-milk-franke-16oz",
+   "name": "Mocha (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-bean-mocha-soya-milk-franke-16oz",
+   "name": "Decaf Bean Mocha (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "decaf-sachet-mocha-soya-milk-franke-16oz",
+   "name": "Decaf Sachet Mocha (Soya Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "james-aimer-fairtrade-string-and-tagged-english-breakfast-tea-10ml-added-milk-franke-16oz",
+   "name": "James Aimer Fairtrade String & Tagged English Breakfast Tea (10ml Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-decaff-enveloped-tea-10ml-added-milk-franke-16oz",
+   "name": "Taylors Decaff Enveloped Tea (10ml Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-blackberry-and-raspberry-enveloped-tea-no-added-milk-franke-16oz",
+   "name": "Taylors Blackberry & Raspberry Enveloped Tea (No Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-earl-grey-enveloped-tea-no-added-milk-franke-16oz",
+   "name": "Taylors Earl Grey Enveloped Tea (No Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-peppermint-enveloped-tea-no-added-milk-franke-16oz",
+   "name": "Taylors Peppermint Enveloped Tea (No Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-lemon-and-ginger-enveloped-tea-no-added-milk-franke-16oz",
+   "name": "Taylors Lemon & Ginger Enveloped Tea (No Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-enveloped-tea-no-added-milk-franke-16oz",
+   "name": "Taylors Green Enveloped Tea (No Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-green-and-lemon-enveloped-tea-no-added-milk-franke-16oz",
+   "name": "Taylors Green & Lemon Enveloped Tea (No Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "taylors-chamomile-envelope-tea-no-added-milk-franke-16oz",
+   "name": "Taylors Chamomile Envelope Tea (No Added Milk) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "16oz cup",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-vanilla-30ml-franke-16oz",
+   "name": "Sugar Free Vanilla (30ml) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-hazelnut-30ml-franke-16oz",
+   "name": "Sugar Free Hazelnut (30ml) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-free-caramel-30ml-franke-16oz",
+   "name": "Sugar Free Caramel (30ml) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "30ml",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "marshmallows-20g-portion-franke-16oz",
+   "name": "Marshmallows (20g portion) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "20g portion",
+   "nutrients": {
+    "calories": 66,
+    "weight": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "aerosol-cream-25g-portion-franke-16oz",
+   "name": "Aerosol Cream (25g portion) - Franke 16oz",
+   "category": "Hot drinks, Franke machine, 16oz cup",
+   "serving": "25g portion",
+   "nutrients": {
+    "calories": 74,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

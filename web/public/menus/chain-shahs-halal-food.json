@@ -1,0 +1,270 @@
+{
+ "schemaVersion": 1,
+ "id": "shahs-halal-food",
+ "name": "Shah's Halal Food",
+ "cuisine": "Middle Eastern",
+ "builderType": "standard",
+ "aliases": [
+  "shahs halal food",
+  "shah's halal food",
+  "shahs halal",
+  "shah's halal",
+  "shahs"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Shah's Halal Food UK product pages with Nutrition Summary (accessed 2026-10-08, no date shown)",
+  "url": "https://shahshalalfood.co.uk/menu/",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Figures are per serving from the product pages Shah's publishes (US-style panel: sodium, no salt). Platter pages also print a per-container figure, twice the serving; it is not used. Chicken Nuggets are marked approximate (~) by Shah's. Pita, sauces and drinks print calories only, so they are not listed. Some items may not be available in all stores.",
+ "allergenGuide": {
+  "title": "Shah's Halal Food UK allergen information page (accessed 2026-10-08, no date shown)",
+  "url": "https://shahshalalfood.co.uk/allergen-infromation/",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Platters",
+  "Gyros",
+  "Sandwiches",
+  "Side orders"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "falafel-over-rice",
+   "name": "Falafel Over Rice",
+   "category": "Platters",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 631,
+    "protein": 20,
+    "carbs": 135,
+    "fat": 7,
+    "saturatedFat": 1,
+    "sodium": 2010,
+    "sugar": 4,
+    "fiber": 8,
+    "transFat": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-over-rice",
+   "name": "Fish Over Rice",
+   "category": "Platters",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 590,
+    "protein": 20,
+    "carbs": 125,
+    "fat": 9,
+    "saturatedFat": 1,
+    "sodium": 1140,
+    "sugar": 0,
+    "fiber": 2,
+    "transFat": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-gyro",
+   "name": "Chicken Gyro",
+   "category": "Gyros",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 498,
+    "protein": 59,
+    "carbs": 55.3,
+    "fat": 11.2,
+    "saturatedFat": 3.5,
+    "sodium": 927,
+    "sugar": 9.3,
+    "fiber": 5.6,
+    "transFat": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lamb-gyro",
+   "name": "Lamb Gyro",
+   "category": "Gyros",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 765,
+    "protein": 41.3,
+    "carbs": 63.3,
+    "fat": 41.3,
+    "saturatedFat": 16.1,
+    "sodium": 2060,
+    "sugar": 11.3,
+    "fiber": 5.6,
+    "transFat": 2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gyro-combo",
+   "name": "Combo Gyro",
+   "category": "Gyros",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 627,
+    "protein": 49.9,
+    "carbs": 58.5,
+    "fat": 26.2,
+    "saturatedFat": 9.8,
+    "sodium": 1491,
+    "sugar": 9.8,
+    "fiber": 5.3,
+    "transFat": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falafel-gyro",
+   "name": "Falafel Gyro",
+   "category": "Gyros",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 703,
+    "protein": 31.5,
+    "carbs": 112.6,
+    "fat": 16.4,
+    "saturatedFat": 3.4,
+    "sodium": 4551,
+    "sugar": 17.7,
+    "fiber": 19.6,
+    "transFat": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-sandwich",
+   "name": "Chicken Sandwich",
+   "category": "Sandwiches",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 633,
+    "protein": 18.6,
+    "carbs": 51.3,
+    "fat": 39.4,
+    "saturatedFat": 6.1,
+    "sodium": 1008,
+    "sugar": 5.5,
+    "fiber": 1.9,
+    "transFat": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-burger",
+   "name": "Beef Burger",
+   "category": "Sandwiches",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 812,
+    "protein": 27.7,
+    "carbs": 54.2,
+    "fat": 54.6,
+    "saturatedFat": 17.1,
+    "sodium": 1184,
+    "sugar": 16.4,
+    "fiber": 2.9,
+    "transFat": 1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "philly-cheese-steak",
+   "name": "Philly Cheese Steak",
+   "category": "Sandwiches",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 955,
+    "protein": 39.3,
+    "carbs": 74.4,
+    "fat": 63.6,
+    "saturatedFat": 14.2,
+    "sodium": 1746,
+    "sugar": 5.1,
+    "fiber": 3.8,
+    "transFat": 0
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-fries",
+   "name": "French Fries",
+   "category": "Side orders",
+   "serving": "1 serving",
+   "nutrients": {
+    "calories": 280,
+    "protein": 4,
+    "carbs": 44,
+    "fat": 10,
+    "saturatedFat": 3,
+    "sodium": 600,
+    "sugar": 2,
+    "fiber": 4,
+    "transFat": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

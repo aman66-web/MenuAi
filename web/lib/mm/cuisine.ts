@@ -26,7 +26,7 @@ export const CUISINE_GROUPS: readonly CuisineGroupDef[] = [
   { id: "american", label: "American & diner", match: /american|diner/i },
   { id: "seafood", label: "Seafood", match: /seafood|fish/i },
   { id: "world", label: "World food", match: /lebanese|middle east|turkish|greek|mediterranean|world/i },
-  { id: "leisure", label: "Hotels & days out", match: /hotel|holiday|cinema|resort|\bpark\b|leisure/i },
+  { id: "leisure", label: "Hotels & days out", match: /hotel|holiday|cinema|resort|\bpark\b|leisure|bingo|bowling|museum/i },
 ];
 
 export const OTHER_GROUP = { id: "more", label: "More" } as const;
