@@ -1,0 +1,69 @@
+item_id,reason
+espresso,page nutritional-information/11011 prints 0 for every figure (no nutrition published)
+focaccia-new-yorker,"page nutritional-information/10632 prints 1,403 kcal per 100 g, above the 900 kcal per 100 g pure fat supplies: its own columns cannot both be right"
+sourdough-san-francisco,page nutritional-information-rm/12236 prints 0 for every figure (no nutrition published)
+coffee-and-walnut-cake-14,page nutritional-information-rm/10781 prints 0 for every figure (no nutrition published)
+white-ciabatta,"page nutritional-information-rm/10700 prints the same figures for 'Per Ciabatta' and 'Per 100g', so the per-item figure is not shown"
+filling-pesto-chicken,page nutritional-information-rm/11842 prints 0 for every figure (no nutrition published)
+fillings-roasted-veg,"page nutritional-information-rm/12288 prints the same figures for 'Per Serving' and 'Per 100g', so the per-item figure is not shown"
+bueno-chocolate-log,"page nutritional-information-rm/10805 prints 1,009 kcal per 100 g, above the 900 kcal per 100 g pure fat supplies: its own columns cannot both be right"
+bueno-chocolate-yule-log,"page nutritional-information-rm/10806 prints 1,009 kcal per 100 g, above the 900 kcal per 100 g pure fat supplies: its own columns cannot both be right"
+candy-cane-cup-cake-fri,"page nutritional-information-rm/11620 prints the same figures for 'Per Cupcake' and 'Per 100g', so the per-item figure is not shown"
+christmas-celebration-mince-pies-9,page nutritional-information-rm/10798 prints 0 for every figure (no nutrition published)
+milk-chocolate-yule-log,"page prints 'Per serving' 10,256 kcal with 518 kcal per 100 g: that is a 1.98 kg whole log, not a serving (the label does not say what the figure covers)"
+christmas-tree-biscuit,page nutritional-information-rm/11623 prints 0 for every figure (no nutrition published)
+mallo-snowman-biscuit,page nutritional-information-rm/11616 prints 0 for every figure (no nutrition published)
+danish-apple,"page nutritional-information-rm/10770 prints the same figures for 'Per Danish' and 'Per 100g', so the per-item figure is not shown"
+cake-pops,page nutritional-information-rm/12119 prints 0 for every figure (no nutrition published)
+ring-doughnut-caramel,"page nutritional-information-rm/10764 prints the same figures for 'Per Doughnut' and 'Per 100g', so the per-item figure is not shown"
+iced-biscuit-charlie-chilli,page nutritional-information-rm/11519 prints 0 for every figure (no nutrition published)
+danish-cherry,"page nutritional-information-rm/10771 prints the same figures for 'Per Danish' and 'Per 100g', so the per-item figure is not shown"
+cinnamon-bun,"page nutritional-information-rm/10755 prints the same figures for 'Per Bun' and 'Per 100g', so the per-item figure is not shown"
+easter-bunny-cake-tues,page nutritional-information-rm/11558 prints 0 for every figure (no nutrition published)
+iced-biscuit-dinosaurs,page nutritional-information-rm/11536 prints 0 for every figure (no nutrition published)
+croissant-twice-baked-almond,"page nutritional-information-rm/10752 prints the same figures for 'Per Croissant' and 'Per 100g', so the per-item figure is not shown"
+doughnut-millionaire,page nutritional-information-rm/10760 prints 0 for every figure (no nutrition published)
+iced-biscuit-egg-sheeran,page nutritional-information-rm/11533 prints 0 for every figure (no nutrition published)
+easter-choc-bunny-biscuit,page nutritional-information-rm/11856 prints 0 for every figure (no nutrition published)
+gingerbread-easter-egg,page nutritional-information-rm/11730 prints 0 for every figure (no nutrition published)
+iced-biscuit-mexican-cacti,page nutritional-information-rm/11529 prints 0 for every figure (no nutrition published)
+choc-and-mint-cup-cake-tue,page nutritional-information-rm/11556 prints 0 for every figure (no nutrition published)
+danish-toffee-pecan,"page nutritional-information-rm/11689 prints the same figures for 'Per Danish' and 'Per 100g', so the per-item figure is not shown"
+iced-biscuit-unicorn,page nutritional-information-rm/11517 prints 0 for every figure (no nutrition published)
+soup-leek-and-potato-2-litres,page nutritional-information-rm/10645 prints 0 for every figure (no nutrition published)
+soup-sweet-potato-red-pepper,page nutritional-information-rm/10647 prints 0 for every figure (no nutrition published)
+soup-tomato-and-basil-2-litres,page nutritional-information-rm/10646 prints 0 for every figure (no nutrition published)
+tray-choc-brownie-12,"page nutritional-information-rm/10657 prints the same figures for 'Per Slice' and 'Per 100g', so the per-item figure is not shown"
+family-tray-bread-pudding,"page nutritional-information-rm/10649 prints the same figures for 'Per Quarter' and 'Per 100g', so the per-item figure is not shown"
+family-tray-flapjack,"page nutritional-information-rm/10656 prints the same figures for 'Per Quarter' and 'Per 100g', so the per-item figure is not shown"
+family-tray-choc-cara-s-bread,"page nutritional-information-rm/10658 prints the same figures for 'Per Quarter' and 'Per 100g', so the per-item figure is not shown"
+family-tray-rice-flour-brownie,"page nutritional-information-rm/10650 prints the same figures for 'Per Quarter' and 'Per 100g', so the per-item figure is not shown"
+tray-milk-choc-shortbread-12,"page nutritional-information-rm/10654 prints the same figures for 'Per Slice' and 'Per 100g', so the per-item figure is not shown"
+tray-white-choc-shortbread-12,"page nutritional-information-rm/10655 prints the same figures for 'Per Slice' and 'Per 100g', so the per-item figure is not shown"
+raspberry-and-hibiscus-cooler,the page's own figures disagree with each other: kj-kcal: 520.0 kJ vs 98.0 kcal (expected about 410 kJ)
+salad-bacon-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 1005.0 kJ vs 208.0 kcal (expected about 870 kJ)
+salad-bacon-no-dressing,the page's own figures disagree with each other: kj-kcal: 919.0 kJ vs 187.0 kcal (expected about 782 kJ)
+salad-boiled-fried-egg-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 938.0 kJ vs 191.0 kcal (expected about 799 kJ)
+salad-boiled-fried-egg-no-dressing,the page's own figures disagree with each other: kj-kcal: 853.0 kJ vs 171.0 kcal (expected about 715 kJ)
+salad-cheese-crunch-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 728.0 kJ vs 142.0 kcal (expected about 594 kJ)
+salad-cheese-crunch-no-dressing,the page's own figures disagree with each other: kj-kcal: 642.0 kJ vs 122.0 kcal (expected about 510 kJ)
+salad-chicken-and-avocado-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 856.0 kJ vs 171.0 kcal (expected about 715 kJ)
+salad-chicken-and-avocado-no-dressing,the page's own figures disagree with each other: kj-kcal: 770.0 kJ vs 150.0 kcal (expected about 628 kJ)
+salad-chicken-tikka-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 1270.0 kJ vs 239.0 kcal (expected about 1000 kJ)
+salad-chicken-tikka-no-dressing,the page's own figures disagree with each other: kj-kcal: 1184.0 kJ vs 219.0 kcal (expected about 916 kJ)
+salad-cold-smoked-salmon-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 845.0 kJ vs 168.0 kcal (expected about 703 kJ)
+salad-cold-smoked-salmon-no-dressing,the page's own figures disagree with each other: kj-kcal: 759.0 kJ vs 148.0 kcal (expected about 619 kJ)
+salad-feta-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 829.0 kJ vs 166.0 kcal (expected about 695 kJ)
+salad-feta-no-dressing,the page's own figures disagree with each other: kj-kcal: 743.0 kJ vs 145.0 kcal (expected about 607 kJ)
+salad-ham-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 710.0 kJ vs 134.0 kcal (expected about 561 kJ)
+salad-ham-no-dressing,the page's own figures disagree with each other: kj-kcal: 624.0 kJ vs 114.0 kcal (expected about 477 kJ)
+salad-hot-smoked-salmon-no-dressing,the page's own figures disagree with each other: kj-kcal: 1024.0 kJ vs 212.0 kcal (expected about 887 kJ)
+salad-pastrami-balsamic-dressing,the page's own figures disagree with each other: energy-gap: 66.0 kcal vs 4P+4C+9F=100 (52% off); kj-kcal: 419.0 kJ vs 66.0 kcal (expected about 276 kJ)
+salad-pastrami-no-dressing,the page's own figures disagree with each other: kj-kcal: 333.0 kJ vs 46.0 kcal (expected about 192 kJ)
+salad-plain-chicken-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 673.0 kJ vs 126.0 kcal (expected about 527 kJ)
+salad-plain-chicken-no-dressing,the page's own figures disagree with each other: kj-kcal: 587.0 kJ vs 106.0 kcal (expected about 444 kJ)
+salad-rare-roast-beef-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 756.0 kJ vs 147.0 kcal (expected about 615 kJ)
+salad-rare-roast-beef-no-dressing,the page's own figures disagree with each other: kj-kcal: 670.0 kJ vs 126.0 kcal (expected about 527 kJ)
+salad-roasted-veg-balsamic-dressing,the page's own figures disagree with each other: kj-kcal: 623.0 kJ vs 115.0 kcal (expected about 481 kJ)
+salad-roasted-veg-no-dressing,the page's own figures disagree with each other: kj-kcal: 537.0 kJ vs 95.0 kcal (expected about 397 kJ)
+slab-ginger,the page's own figures disagree with each other: energy-gap: 400.0 kcal vs 4P+4C+9F=991 (148% off)
