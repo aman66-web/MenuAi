@@ -1,0 +1,73 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+potted-meat-and-kimchi,Potted Meat and Kimchi,Pre chop bites,,48,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,main: Blacklock > PRE CHOP BITES
+egg-and-anchovy,Egg and Anchovy,Pre chop bites,,51,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > PRE CHOP BITES
+cheese-and-pickle,Cheese & Pickle,Pre chop bites,,46,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > PRE CHOP BITES
+gluten-free-cracker,Gluten free cracker,Pre chop bites,,5,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > PRE CHOP BITES
+mushrooms-on-toast,Mushrooms on Toast,Starters,,645,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > STARTERS; also printed identically on: Sunday
+pigs-head-on-toast,Pig's Head on Toast,Starters,,166,,,,,,,,,,,,,,,contains_beef|contains_pork,false,false,,,main: Blacklock > STARTERS; also printed identically on: Sunday
+smoked-beef-ribs,Smoked Beef Ribs,Starters,,313,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > STARTERS; also printed identically on: Sunday
+crayfish-cocktail,Crayfish Cocktail,Starters,,541,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > STARTERS; also printed identically on: Sunday
+blacklock-burger,Blacklock Burger,Particularly good at lunch,,1144,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > PARTICULARLY GOOD AT LUNCH
+steak-sarnie,Steak Sarnie,Particularly good at lunch,,1030,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > PARTICULARLY GOOD AT LUNCH
+steak-caesar-salad-26,(Steak) Caesar salad 26,Particularly good at lunch,,901,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > PARTICULARLY GOOD AT LUNCH
+barbecued-cauliflower-chop,Barbecued Cauliflower Chop,Meat free main,,626,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Meat Free Main
+caesar-salad-26,Caesar salad 26,Meat free main,,693,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Meat Free Main
+steak-and-stout-pie,Steak & Stout Pie,Specials,,623,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,main: Blacklock > Specials
+steak-and-stilton-pie,Steak & Stilton Pie,Specials,,631,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,main: Blacklock > Specials
+lamb-cutlet,Lamb Cutlet,Chops,,367,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > CHOPS
+lamb-t-bone,Lamb T-bone,Chops,,367,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > CHOPS
+pork-loin,Pork Loin,Chops,,252,,,,,,,,,,,,,,,contains_pork,false,false,,,main: Blacklock > CHOPS
+pork-rib,Pork Rib,Chops,,252,,,,,,,,,,,,,,,contains_pork,false,false,,,main: Blacklock > CHOPS
+beef-chop,Beef chop,Chops,,264,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > CHOPS
+denver,Denver,Steaks,,317,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > STEAKS
+bavette,Bavette,Steaks,,436,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > STEAKS
+rump-cap,Rump Cap,Steaks,,518,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > STEAKS
+sirloin-steak,Sirloin Steak,Steaks,,460,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > STEAKS
+sixth-rib-eye,Sixth Rib-eye,Steaks,,614,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > STEAKS
+blacklock-fillet,Blacklock Fillet,Steaks,,363,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > STEAKS
+all-in,All-in,All in,,1365,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,main: Blacklock > All In
+lamb-rump,Lamb Rump,Big chops,,222,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Big Chops; sold per 100 g on the PDF menu; the page's per-serving figure is almost its per-100g figure
+bone-in-sirloin,Bone in Sirloin,Big chops,,399,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Big Chops; sold per 100 g on the PDF menu; the page's per-serving figure is almost its per-100g figure
+prime-rib,Prime Rib,Big chops,,208,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Big Chops; sold per 100 g on the PDF menu; the page's per-serving figure is almost its per-100g figure
+porterhouse,Porterhouse,Big chops,,306,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Big Chops; sold per 100 g on the PDF menu; the page's per-serving figure is almost its per-100g figure
+christmas-chateau,Christmas Chateau,Big chops,,622,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Big Chops
+beef-dripping-chips,Beef Dripping Chips,Sides,,307,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Sides
+chop-house-salad,Chop House Salad,Sides,,265,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sides
+10-hour-ash-roasted-sweet-potato,10 Hour Ash Roasted Sweet Potato,Sides,,334,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sides
+broccoli-and-walnut-salad,Broccoli & Walnut Salad,Sides,,374,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sides
+autumn-slaw,Autumn Slaw,Sides,,94,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sides
+creamed-spinach,Creamed Spinach,Sides,,435,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sides; also printed identically on: Sunday
+chilli-hollandaise,Chilli Hollandaise,Sauces & table pleasers,,202,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers
+green-sauce-2024,Green Sauce 2024,Sauces & table pleasers,,124,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers
+bearnaise,Bearnaise,Sauces & table pleasers,,204,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers
+blacklock-gravy,Blacklock Gravy,Sauces & table pleasers,,59,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Sauces & Table Pleasers
+chop-sauce,Chop Sauce,Sauces & table pleasers,,85,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Sauces & Table Pleasers
+bread-and-gravy,Bread & Gravy,Sauces & table pleasers,,294,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Sauces & Table Pleasers
+garlic-bone-marrow,Garlic Bone Marrow,Sauces & table pleasers,,294,,,,,,,,,,,,,,,contains_beef,false,false,,,main: Blacklock > Sauces & Table Pleasers
+tomato-ketchup,Tomato Ketchup,Sauces & table pleasers,,30,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers; also printed identically on: Sunday
+english-mustard,English Mustard,Sauces & table pleasers,,56,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers; also printed identically on: Sunday
+dijon-mustard,Dijon Mustard,Sauces & table pleasers,,44,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers; also printed identically on: Sunday
+colmans-wholegrain-mustard,Colman's Wholegrain mustard,Sauces & table pleasers,,48,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers
+maille-wholegrain-mustard,Maille Wholegrain Mustard,Sauces & table pleasers,,43,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers
+mayonnaise,Mayonnaise,Sauces & table pleasers,,217,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers
+hp-sauce,HP Sauce,Sauces & table pleasers,,35,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers; also printed identically on: Sunday
+colmans-horseradish,Colman's Horseradish,Sauces & table pleasers,,29,,,,,,,,,,,,,,,,false,false,,,main: Blacklock > Sauces & Table Pleasers; also printed identically on: Sunday
+cheesecake,Cheesecake,Pudding,,988,,,,,,,,,,,,,,,,false,false,,,main: PUDDING
+apple-crumble-mnc,Apple Crumble MNC,Pudding,,495,,,,,,,,,,,,,,,,false,false,,,main: PUDDING
+berry-compote,Berry Compote,Pudding,,27,,,,,,,,,,,,,,,,false,false,,,main: PUDDING
+service-custard,Service Custard,Pudding,,1209,,,,,,,,,,,,,,,,false,false,,,main: PUDDING
+cheese-plate-mnc,Cheese plate MNC,Pudding,,660,,,,,,,,,,,,,,,,false,false,,,main: PUDDING
+vanilla-ice-cream-mnc,Vanilla Ice Cream MNC,Pudding: bowl of ice cream,,131,,,,,,,,,,,,,,,,false,false,,,main: PUDDING > Bowl of Ice Cream
+choclolate-sorbet-mnc,Choclolate Sorbet MNC,Pudding: bowl of ice cream,,105,,,,,,,,,,,,,,,,false,false,,,main: PUDDING > Bowl of Ice Cream
+raspberry-sorbet-mnc,Raspberry Sorbet MNC,Pudding: bowl of ice cream,,88,,,,,,,,,,,,,,,,false,false,,,main: PUDDING > Bowl of Ice Cream
+all-in-roast,All in Roast,Sunday: roasts,,1221,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,sunday: Roasts
+roast-beef-plate,Roast Beef plate,Sunday: roasts,,1066,,,,,,,,,,,,,,,contains_beef,false,false,,,sunday: Roasts
+roast-pork-plate,Roast pork plate,Sunday: roasts,,815,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,sunday: Roasts
+roast-lamb-plate,Roast lamb plate,Sunday: roasts,,860,,,,,,,,,,,,,,,contains_beef,false,false,,,sunday: Roasts
+sirloin-roast,Sirloin Roast,Sunday: roasts,,1539,,,,,,,,,,,,,,,contains_beef,false,false,,,sunday: Roasts
+bbq-cauliflower-roast,BBQ Cauliflower Roast,Sunday: roasts,,1318,,,,,,,,,,,,,,,,false,false,,,sunday: Roasts
+horseradish-sauce,Horseradish Sauce,Sunday: roast sauces,,52,,,,,,,,,,,,,,,,false,false,,,sunday: Roasts > Sauces
+mint-sauce,Mint Sauce,Sunday: roast sauces,,27,,,,,,,,,,,,,,,,false,false,,,sunday: Roasts > Sauces
+apple-sauce,Apple Sauce,Sunday: roast sauces,,28,,,,,,,,,,,,,,,,false,false,,,sunday: Roasts > Sauces
+cauliflower-cheese,Cauliflower Cheese,Sunday: roast sides,,457,,,,,,,,,,,,,,,,false,false,,,sunday: Roasts > Sides
+extra-trimings,Extra Trimings,Sunday: roast sides,,550,,,,,,,,,,,,,,,,false,false,,,sunday: Roasts > Sides
