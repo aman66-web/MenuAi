@@ -1,0 +1,127 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+buffalo-chicken-wings-5,Buffalo Chicken Wings (5),Wings,5 wings,415,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Buffalo Chicken Wings' under WINGS (block 1)
+buffalo-chicken-wings-10,Buffalo Chicken Wings (10),Wings,10 wings,897,,,,,,,,,,,,,,,,false,false,,,Printed '10 x Buffalo Chicken Wings' under WINGS (block 1)
+buffalo-chicken-wings-15,Buffalo Chicken Wings (15),Wings,15 wings,1250,,,,,,,,,,,,,,,,false,false,,,Printed '15 x Buffalo Chicken Wings' under WINGS (block 1)
+korean-chicken-wings-5,Korean Chicken Wings (5),Wings,5 wings,428,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Korean Chicken Wings' under WINGS (block 1)
+korean-chicken-wings-10,Korean Chicken Wings (10),Wings,10 wings,610,,,,,,,,,,,,,,,,false,false,,,Printed '10 x Korean Chicken Wings' under WINGS (block 1)
+korean-chicken-wings-15,Korean Chicken Wings (15),Wings,15 wings,985,,,,,,,,,,,,,,,,false,false,,,Printed '15 x Korean Chicken Wings' under WINGS (block 1)
+dragon-spice-chicken-wings-5,Dragon Spice Chicken Wings (5),Wings,5 wings,410,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Dragon Spice Chicken Wings' under WINGS (block 1)
+dragon-spice-chicken-wings-10,Dragon Spice Chicken Wings (10),Wings,10 wings,710,,,,,,,,,,,,,,,,false,false,,,Printed '10 x Dragon Spice Chicken Wings' under WINGS (block 1)
+dragon-spice-chicken-wings-15,Dragon Spice Chicken Wings (15),Wings,15 wings,956,,,,,,,,,,,,,,,,false,false,,,Printed '15 x Dragon Spice Chicken Wings' under WINGS (block 1)
+bbq-chicken-wings-5,BBQ Chicken Wings (5),Wings,5 wings,310,,,,,,,,,,,,,,,,false,false,,,Printed '5 x BBQ Chicken Wings' under WINGS (block 1)
+bbq-chicken-wings-10,BBQ Chicken Wings (10),Wings,10 wings,595,,,,,,,,,,,,,,,,false,false,,,Printed '10 x BBQ Chicken Wings' under WINGS (block 1)
+bbq-chicken-wings-15,BBQ Chicken Wings (15),Wings,15 wings,965,,,,,,,,,,,,,,,,false,false,,,Printed '15 x BBQ Chicken Wings' under WINGS (block 1)
+louisianna-wings-5,Louisianna Wings (5),Wings,5 wings,576,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Louisianna Wings' under WINGS (block 1)
+louisianna-chicken-wings-10,Louisianna Chicken Wings (10),Wings,10 wings,965,,,,,,,,,,,,,,,,false,false,,,Printed '10 x Louisianna Chicken Wings' under WINGS (block 1)
+louisianna-chicken-wings-15,Louisianna Chicken Wings (15),Wings,15 wings,1265,,,,,,,,,,,,,,,,false,false,,,Printed '15 x Louisianna Chicken Wings' under WINGS (block 1)
+buffalo-chicken-tenders-3,Buffalo Chicken Tenders (3),Tenders,3 tenders,414,,,,,,,,,,,,,,,,false,false,,,Printed '3 x Buffalo Chicken Tenders' under WINGS (block 2)
+buffalo-chicken-tenders-5,Buffalo Chicken Tenders (5),Tenders,5 tenders,810,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Buffalo Chicken Tenders' under WINGS (block 2)
+korean-chicken-tenders-3,Korean Chicken Tenders (3),Tenders,3 tenders,473,,,,,,,,,,,,,,,,false,false,,,Printed '3 x Korean Chicken Tenders' under WINGS (block 2)
+korean-chicken-tenders-5,Korean Chicken Tenders (5),Tenders,5 tenders,609,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Korean Chicken Tenders' under WINGS (block 2)
+dragon-spice-chicken-tenders-3,Dragon Spice Chicken Tenders (3),Tenders,3 tenders,310,,,,,,,,,,,,,,,,false,false,,,Printed '3 x Dragon Spice Chicken Tenders' under WINGS (block 2)
+dragon-spice-chicken-tenders-5,Dragon Spice Chicken Tenders (5),Tenders,5 tenders,595,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Dragon Spice Chicken Tenders' under WINGS (block 2)
+bbq-chicken-tenders-3,BBQ Chicken Tenders (3),Tenders,3 tenders,415,,,,,,,,,,,,,,,,false,false,,,Printed '3 x BBQ Chicken Tenders' under WINGS (block 2)
+bbq-chicken-tenders-5,BBQ Chicken Tenders (5),Tenders,5 tenders,705,,,,,,,,,,,,,,,,false,false,,,Printed '5 x BBQ Chicken Tenders' under WINGS (block 2)
+herby-louisianna-tenders-3,Herby Louisianna Tenders (3),Tenders,3 tenders,546,,,,,,,,,,,,,,,,false,false,,,Printed '3 x Herby Louisianna Tenders' under WINGS (block 2)
+louisianna-chicken-tenders-5,Louisianna Chicken Tenders (5),Tenders,5 tenders,949,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Louisianna Chicken Tenders' under WINGS (block 2)
+buffalo-cauli-wings-5,Buffalo Cauli Wings (5),Cauli wings,5 wings,410,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Buffalo Cauli Wings' under WINGS (block 3)
+buffalo-cauli-wings-10,Buffalo Cauli Wings (10),Cauli wings,10 wings,610,,,,,,,,,,,,,,,,false,false,,,Printed '10 x Buffalo Cauli Wings' under WINGS (block 3)
+buffalo-cauli-wings-15,Buffalo Cauli Wings (15),Cauli wings,15 wings,945,,,,,,,,,,,,,,,,false,false,,,Printed '15 x Buffalo Cauli Wings' under WINGS (block 3)
+korean-cauli-wings-5,Korean Cauli Wings (5),Cauli wings,5 wings,536,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Korean Cauli Wings' under WINGS (block 3)
+korean-cauli-wings-10,Korean Cauli Wings (10),Cauli wings,10 wings,754,,,,,,,,,,,,,,,,false,false,,,Printed '10 x Korean Cauli Wings' under WINGS (block 3)
+korean-cauli-wings-15,Korean Cauli Wings (15),Cauli wings,15 wings,1175,,,,,,,,,,,,,,,,false,false,,,Printed '15 x Korean Cauli Wings' under WINGS (block 3)
+dragon-spice-cauli-wings-5,Dragon Spice Cauli Wings (5),Cauli wings,5 wings,510,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Dragon Spice Cauli Wings' under WINGS (block 3)
+dragon-spice-cauli-wings-10,Dragon Spice Cauli Wings (10),Cauli wings,10 wings,710,,,,,,,,,,,,,,,,false,false,,,Printed '10 x Dragon Spice Cauli Wings' under WINGS (block 3)
+dragon-spice-cauli-wings-15,Dragon Spice Cauli Wings (15),Cauli wings,15 wings,975,,,,,,,,,,,,,,,,false,false,,,Printed '15 x Dragon Spice Cauli Wings' under WINGS (block 3)
+bbq-cauli-wings-5,BBQ Cauli Wings (5),Cauli wings,5 wings,404,,,,,,,,,,,,,,,,false,false,,,Printed '5 x BBQ Cauli Wings' under WINGS (block 3)
+bbq-cauli-wings-10,BBQ Cauli Wings (10),Cauli wings,10 wings,607,,,,,,,,,,,,,,,,false,false,,,Printed '10 x BBQ Cauli Wings' under WINGS (block 3)
+bbq-cauli-wings-15,BBQ Cauli Wings (15),Cauli wings,15 wings,955,,,,,,,,,,,,,,,,false,false,,,Printed '15 x BBQ Cauli Wings' under WINGS (block 3)
+louisianna-cauli-wings-5,Louisianna Cauli Wings (5),Cauli wings,5 wings,546,,,,,,,,,,,,,,,,false,false,,,Printed '5 x Louisianna Cauli Wings' under WINGS (block 3)
+louisianna-cauli-wings-10,Louisianna Cauli Wings (10),Cauli wings,10 wings,959,,,,,,,,,,,,,,,,false,false,,,Printed '10 x Louisianna Cauli Wings' under WINGS (block 3)
+louisianna-cauli-wings-15,Louisianna Cauli Wings (15),Cauli wings,15 wings,1245,,,,,,,,,,,,,,,,false,false,,,Printed '15 x Louisianna Cauli Wings' under WINGS (block 3)
+buffalo-cluckless-tenders-6,Buffalo Cluckless Tenders (6),Cluckless tenders,6 tenders,658,,,,,,,,,,,,,,,,false,false,,,Printed '6 x Buffalo Cluckless Tenders' under WINGS (block 4)
+buffalo-cluckless-tenders-9,Buffalo Cluckless Tenders (9),Cluckless tenders,9 tenders,851,,,,,,,,,,,,,,,,false,false,,,Printed '9 x Buffalo Cluckless Tenders' under WINGS (block 4)
+korean-cluckless-tenders-6,Korean Cluckless Tenders (6),Cluckless tenders,6 tenders,688,,,,,,,,,,,,,,,,false,false,,,Printed '6 x Korean Cluckless Tenders' under WINGS (block 4)
+korean-cluckless-tenders-9,Korean Cluckless Tenders (9),Cluckless tenders,9 tenders,909,,,,,,,,,,,,,,,,false,false,,,Printed '9 x Korean Cluckless Tenders' under WINGS (block 4)
+dragon-spice-cluckless-tenders-6,Dragon Spice Cluckless Tenders (6),Cluckless tenders,6 tenders,717,,,,,,,,,,,,,,,,false,false,,,Printed '6 x Dragon Spice Cluckless Tenders' under WINGS (block 4)
+dragon-spice-cluckless-tenders-9,Dragon Spice Cluckless Tenders (9),Cluckless tenders,9 tenders,910,,,,,,,,,,,,,,,,false,false,,,Printed '9 x Dragon Spice Cluckless Tenders' under WINGS (block 4)
+bbq-cluckless-tenders-6,BBQ Cluckless Tenders (6),Cluckless tenders,6 tenders,652,,,,,,,,,,,,,,,,false,false,,,Printed '6 x BBQ Cluckless Tenders' under WINGS (block 4)
+bbq-cluckless-tenders-9,BBQ Cluckless Tenders (9),Cluckless tenders,9 tenders,816,,,,,,,,,,,,,,,,false,false,,,Printed '9 x BBQ Cluckless Tenders' under WINGS (block 4)
+louisianna-cluckless-tenders-6,Louisianna Cluckless Tenders (6),Cluckless tenders,6 tenders,651,,,,,,,,,,,,,,,,false,false,,,Printed '6 x Louisianna Cluckless Tenders' under WINGS (block 4)
+louisianna-cluckless-tenders-9,Louisianna Cluckless Tenders (9),Cluckless tenders,9 tenders,891,,,,,,,,,,,,,,,,false,false,,,Printed '9 x Louisianna Cluckless Tenders' under WINGS (block 4)
+frickles,Frickles,Snacks,,356,,,,,,,,,,,,,,,,false,false,,,Printed 'Frickles' under Snacks
+cracking-mac-and-cheese,Cracking Mac & Cheese,Snacks,,645,,,,,,,,,,,,,,,,false,false,,,Printed 'Cracking Mac & Cheese' under Snacks
+add-fried-chicken,Add fried chicken,Snacks,,207,,,,,,,,,,,,,,,,false,false,,,Printed 'add fried Chicken' under Snacks
+add-jalapenos-and-bacon,Add jalapenos & bacon,Snacks,,76,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'add jalapenos & bacon' under Snacks
+add-shortrib,Add shortrib,Snacks,,522,,,,,,,,,,,,,,,,false,false,,,Printed 'add shortrib' under Snacks
+loaded-street-corn,Loaded Street Corn,Snacks,,328,,,,,,,,,,,,,,,,false,false,,,Printed 'Loaded Street Corn' under Snacks
+fries-large,Fries (large),Snacks,Large,456,,,,,,,,,,,,,,,,false,false,,,Printed 'Fries lrg' under Snacks
+louisianna-fries-large,Louisianna Fries (large),Snacks,Large,478,,,,,,,,,,,,,,,,false,false,,,Printed 'Louisianna Fries lrg' under Snacks
+buffalo-loaded-fries,Buffalo Loaded Fries,Big snacks,,824,,,,,,,,,,,,,,,,false,false,,,Printed 'Buffalo Loaded Fries' under Big Snacks (block 1)
+korean-loaded-fries,Korean Loaded Fries,Big snacks,,970,,,,,,,,,,,,,,,,false,false,,,Printed 'Korean Loaded Fries' under Big Snacks (block 1)
+cheeseburger-loaded-fries,Cheeseburger Loaded Fries,Big snacks,,813,,,,,,,,,,,,,,,,false,false,,,Printed 'Cheeseburger Loaded Fries' under Big Snacks (block 1)
+spice-bag-fries,Spice Bag Fries,Big snacks,,545,,,,,,,,,,,,,,,,false,false,,,Printed 'Spice Bag Fries' under Big Snacks (block 1)
+spice-bag-fries-with-chicken,Spice Bag Fries with Chicken,Big snacks,,777,,,,,,,,,,,,,,,,false,false,,,Printed 'Spice Bag Fries with Chicken' under Big Snacks (block 1)
+loaded-tater-tots,Loaded Tater Tots,Big snacks,,793,,,,,,,,,,,,,,,,false,false,,,Printed 'Loaded Tater Tots' under Big Snacks (block 1)
+the-feast,The Feast,Big snacks,,1190,,,,,,,,,,,,,,,,false,false,,,Printed 'The Feast' under Big Snacks (block 2)
+the-plant-stack,The Plant Stack,Big snacks,,1620,,,,,,,,,,,,,,,,false,false,,,Printed 'The Plant Stack' under Big Snacks (block 2)
+oklahoma-stack,Oklahoma Stack,Burgers,,1292,,,,,,,,,,,,,,,,false,false,,,Printed 'Oklahoma Stack' under BURGERS (block 1)
+the-pit,The Pit,Burgers,,1020,,,,,,,,,,,,,,,,false,false,,,Printed 'The Pit' under BURGERS (block 1)
+patriot,Patriot,Burgers,,1110,,,,,,,,,,,,,,,,false,false,,,Printed 'Patriot' under BURGERS (block 1)
+the-punk,The Punk,Burgers,,1050,,,,,,,,,,,,,,,,false,false,,,Printed 'The Punk' under BURGERS (block 1)
+big-pastrami,Big Pastrami,Burgers,,943,,,,,,,,,,,,,,,,false,false,,,Printed 'Big Pastrami' under BURGERS (block 1)
+philly-smash,Philly Smash,Burgers,,1297,,,,,,,,,,,,,,,,false,false,,,Printed 'Philly Smash' under BURGERS (block 1)
+return-of-the-mac,Return of the Mac,Burgers,,1268,,,,,,,,,,,,,,,,false,false,,,Printed 'Return of the Mac' under BURGERS (block 2)
+buffalo-chicken,Buffalo Chicken,Burgers,,1062,,,,,,,,,,,,,,,,false,false,,,Printed 'Buffalo Chicken' under BURGERS (block 2)
+cluck-norris,Cluck Norris,Burgers,,1035,,,,,,,,,,,,,,,,false,false,,,Printed 'Cluck Norris' under BURGERS (block 2)
+bbq-beyond,BBQ Beyond,Burgers,,872,,,,,,,,,,,,,,,,false,false,,,Printed 'BBQ Beyond' under BURGERS (block 3)
+hazy-and-hash,Hazy & Hash,Burgers,,776,,,,,,,,,,,,,,,,false,false,,,Printed 'Hazy & Hash' under BURGERS (block 3)
+root-66,Root 66,Burgers,,956,,,,,,,,,,,,,,,,false,false,,,Printed 'Root 66' under BURGERS (block 3)
+what-the-cluck,What the Cluck,Burgers,,747,,,,,,,,,,,,,,,,false,false,,,Printed 'What the Cluck' under BURGERS (block 3)
+2-buffalo-chicken-tenders-burger-add-on,2 Buffalo Chicken Tenders (burger add-on),Burger add-ons,2 tenders,218,,,,,,,,,,,,,,,,false,false,,,Printed '2 Buffalo Chicken Tender' under BURGER ADD ONS
+2-korean-chicken-tenders-burger-add-on,2 Korean Chicken Tenders (burger add-on),Burger add-ons,2 tenders,235,,,,,,,,,,,,,,,,false,false,,,Printed '2 Korean Chicken Tender' under BURGER ADD ONS
+2-louisianna-chicken-tenders-burger-add-on,2 Louisianna Chicken Tenders (burger add-on),Burger add-ons,2 tenders,230,,,,,,,,,,,,,,,,false,false,,,Printed '2 Louisianna Chicken Tender' under BURGER ADD ONS
+2-smoky-bbq-chicken-tenders-burger-add-on,2 Smoky BBQ Chicken Tenders (burger add-on),Burger add-ons,2 tenders,251,,,,,,,,,,,,,,,,false,false,,,Printed '2 Smoky BBQ Chicken Tender' under BURGER ADD ONS
+2-dragon-spice-chicken-tenders-burger-add-on,2 Dragon Spice Chicken Tenders (burger add-on),Burger add-ons,2 tenders,225,,,,,,,,,,,,,,,,false,false,,,Printed '2 Dragon Spice Chicken Tender' under BURGER ADD ONS
+beer-cheese,Beer Cheese,Burger add-ons,,220,,,,,,,,,,,,,,,,false,false,,,Printed 'Beer Cheese' under BURGER ADD ONS
+cuban-melt,Cuban Melt,Subs & melts,,510,,,,,,,,,,,,,,,,false,false,,,Printed 'Cuban Melt' under SUBS & MELTS
+new-yorker,New Yorker,Subs & melts,,551,,,,,,,,,,,,,,,,false,false,,,Printed 'New Yorker' under SUBS & MELTS
+chicken-parm,Chicken Parm,Subs & melts,,652,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Parm' under SUBS & MELTS
+beyond-meatball,Beyond Meatball,Subs & melts,,592,,,,,,,,,,,,,,,,false,false,,,Printed 'Beyond Meatball' under SUBS & MELTS
+brisket-and-onion,Brisket & Onion,Subs & melts,,790,,,,,,,,,,,,,,,,false,false,,,Printed 'Brisket & Onion' under SUBS & MELTS
+fries-regular,Fries (regular),Sides,Regular,236,,,,,,,,,,,,,,,,false,false,,,Printed 'Fries reg' under SIDE
+louisianna-fries-regular,Louisianna Fries (regular),Sides,Regular,246,,,,,,,,,,,,,,,,false,false,,,Printed 'Louisianna Fries reg' under SIDE
+onion-rings,Onion Rings,Sides,,361,,,,,,,,,,,,,,,,false,false,,,Printed 'Onion Rings' under SIDE
+chopped-salad,Chopped Salad,Sides,,154,,,,,,,,,,,,,,,,false,false,,,Printed 'Chopped Salad' under SIDE
+rainbow-slaw,Rainbow Slaw,Sides,,146,,,,,,,,,,,,,,,,false,false,,,Printed 'Rainbow Slaw' under SIDE
+mini-mac-n-cheese,Mini Mac N Cheese,Sides,,502,,,,,,,,,,,,,,,,false,false,,,Printed 'Mini Mac N Cheese' under SIDE
+tater-tots,Tater Tots,Sides,,174,,,,,,,,,,,,,,,,false,false,,,Printed 'Tater Tots' under SIDE
+chicken-and-bacon-caesar-salad,Chicken & Bacon Caesar Salad,Salads,,812,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Chicken & Bacon Caeser Salad' under SALADS
+golden-state-greens,Golden State Greens,Salads,,650,,,,,,,,,,,,,,,,false,false,,,Printed 'Golden State Greens' under SALADS
+add-chicken,Add chicken,Salads,,233,,,,,,,,,,,,,,,,false,false,,,Printed 'add Chicken' under SALADS
+buffalo-chicken-bowl,Buffalo Chicken Bowl,Salads,,674,,,,,,,,,,,,,,,,false,false,,,Printed 'Buffalo Chicken Bowl' under SALADS
+kids-hoppy-hamburger,Kids Hoppy Hamburger,Kids Hoppy meals,,706,,,,,,,,,,,,,,,,false,false,,,Printed 'Kids Hoppy Hamburger' under KIDS HOPPY MEALS
+kids-hoppy-cheeseburger,Kids Hoppy Cheeseburger,Kids Hoppy meals,,769,,,,,,,,,,,,,,,,false,false,,,Printed 'Kids Hoppy Cheeseburger' under KIDS HOPPY MEALS
+kids-hoppy-vegan-hamburger,Kids Hoppy Vegan Hamburger,Kids Hoppy meals,,773,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Kids Hoppy Vegan Hamburger' under KIDS HOPPY MEALS
+kids-hoppy-vegan-cheeseburger,Kids Hoppy Vegan Cheeseburger,Kids Hoppy meals,,793,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Kids Hoppy Vegan Cheeseburger' under KIDS HOPPY MEALS
+kids-hoppy-nuggets,Kids Hoppy Nuggets,Kids Hoppy meals,,682,,,,,,,,,,,,,,,,false,false,,,Printed 'Kids Hoppy Nuggets' under KIDS HOPPY MEALS
+kids-hoppy-tenders,Kids Hoppy Tenders,Kids Hoppy meals,,418,,,,,,,,,,,,,,,,false,false,,,Printed 'Kids Hoppy Tenders' under KIDS HOPPY MEALS
+kids-hoppy-rebel-tenders,Kids Hoppy Rebel Tenders,Kids Hoppy meals,,425,,,,,,,,,,,,,,,,false,false,,,Printed 'Kids Hoppy Rebel Tenders' under KIDS HOPPY MEALS
+kids-hoppy-billy-the-grill,Kids Hoppy Billy the Grill,Kids Hoppy meals,,583,,,,,,,,,,,,,,,,false,false,,,Printed 'Kids Hoppy Billy the Grill' under KIDS HOPPY MEALS
+xl-cookie-skillet,XL Cookie Skillet,Desserts,,1007,,,,,,,,,,,,,,,,false,false,,,Printed 'XL Cookie Skillet' under DESSERTS
+loaded-donut,Loaded Donut,Desserts,,731,,,,,,,,,,,,,,,,false,false,,,Printed 'Loaded Donut' under DESSERTS
+toffee-ice-cream-sando,Toffee Ice Cream Sando,Desserts,,735,,,,,,,,,,,,,,,,false,false,,,Printed 'Toffee Ice Cream Sando' under DESSERTS
+deep-fried-oreos,Deep Fried Oreos,Desserts,,616,,,,,,,,,,,,,,,,false,false,,,Printed 'Deep Fried Oreos' under DESSERTS
+deep-fried-oreos-with-ice-cream,Deep Fried Oreos with Ice Cream,Desserts,,823,,,,,,,,,,,,,,,,false,false,,,Printed 'Deep Fried Oreos with Ice Cream' under DESSERTS
+ice-cream-2-scoops,Ice Cream (2 scoops),Desserts,2 scoops,485,,,,,,,,,,,,,,,,false,false,,,Printed 'Ice Cream 2 Scoops' under DESSERTS
+ice-cream-3-scoops,Ice Cream (3 scoops),Desserts,3 scoops,698,,,,,,,,,,,,,,,,false,false,,,Printed 'Ice Cream 3 Scoops' under DESSERTS
+buffalo-sauce,Buffalo Sauce,Dips,,15,,,,,,,,,,,,,,,,false,false,,,Printed 'Buffalo Sauce' under DIPS
+ranch-mayo,Ranch Mayo,Dips,,95,,,,,,,,,,,,,,,,false,false,,,Printed 'Ranch Mayo' under DIPS
+bbq-sauce,BBQ Sauce,Dips,,65,,,,,,,,,,,,,,,,false,false,,,Printed 'BBQ Sauce' under DIPS
+blue-cheese-dip,Blue Cheese Dip,Dips,,134,,,,,,,,,,,,,,,,false,false,,,Printed 'Blue Cheese Dip' under DIPS
+korean-bbq-sauce,Korean BBQ Sauce,Dips,,54,,,,,,,,,,,,,,,,false,false,,,Printed 'Korean BBQ Sauce' under DIPS
+sriracha-mayo,Sriracha Mayo,Dips,,137,,,,,,,,,,,,,,,,false,false,,,Printed 'Sriracha Mayo' under DIPS
+garlic-mayo,Garlic Mayo,Dips,,159,,,,,,,,,,,,,,,,false,false,,,Printed 'Garlic Mayo' under DIPS
+marinara,Marinara,Dips,,20,,,,,,,,,,,,,,,,false,false,,,Printed 'Marinara' under DIPS
+lemon-ricotta,Lemon Ricotta,Dips,,73,,,,,,,,,,,,,,,,false,false,,,Printed 'Lemon Ricotta' under DIPS
+vegan-mayo,Vegan Mayo,Dips,,300,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Mayo' under DIPS

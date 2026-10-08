@@ -1,0 +1,1 @@
+BrewDog's Burger & Wings menu file prints calories only, one figure per dish as listed, so protein, carbs and fat are not published. It has no drinks, pizza, brunch or slow-cooked meats (separate BrewDog files). Menus differ by bar. The file is undated.
