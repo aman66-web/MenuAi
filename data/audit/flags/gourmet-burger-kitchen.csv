@@ -1,0 +1,14 @@
+chain,kind,severity,code,item,name,category,detail
+gourmet-burger-kitchen,nutrition,high,sat-gt-fat,firey-red-root-relish,Firey Red Root Relish,Sauces,saturates 2.1 g > fat 0.1 g
+gourmet-burger-kitchen,nutrition,high,sugar-gt-carbs,paprika-onions,Paprika Onions,GBK your way: extras,sugars 27.9 g > carbohydrate 11.7 g
+gourmet-burger-kitchen,allergen,high,vegan-contains-animal,vegan-burger-gluten-free,Vegan Burger (gluten free),Kids mains,named vegan/plant-based but allergens say it contains ['eggs']
+gourmet-burger-kitchen,nutrition,medium,kj-kcal,bbq-sauce,BBQ Sauce,Sauces,393 kJ vs 101 kcal (expected about 423 kJ)
+gourmet-burger-kitchen,nutrition,medium,kj-kcal,oreo-shake,Oreo® shake,Shakes,3828 kJ vs 823 kcal (expected about 3443 kJ)
+gourmet-burger-kitchen,nutrition,medium,sugar-implausible,caramel-shake,Caramel shake,Shakes,sugar 134.6 g in one item
+gourmet-burger-kitchen,nutrition,medium,sugar-implausible,chocolate-shake-gluten-free-drinks-menu,Chocolate Shake (gluten free / drinks menu),Shakes,sugar 128.7 g in one item
+gourmet-burger-kitchen,nutrition,medium,sugar-implausible,strawberry-shake-gluten-free-drinks-menu,Strawberry Shake (gluten free / drinks menu),Shakes,sugar 121 g in one item
+gourmet-burger-kitchen,nutrition,low,energy-gap-alcohol,cruzcampo-sevilla-330ml,Cruzcampo Sevilla 330ml,Drinks,129 kcal vs 4P+4C+9F=45: energy not in the macros (alcohol?)
+gourmet-burger-kitchen,nutrition,low,identical-numbers,latte,Latte,Drinks,"4 differently named items share these exact numbers (e.g. ['Cappuccino', 'Flat White', 'Iced Latte'])"
+gourmet-burger-kitchen,nutrition,low,sugar+fibre-gt-carbs,rocket-man-burger-double,Rocket Man Burger - Double,Go naked (no bun),sugars 30.1 + fibre 6.8 > carbohydrate 30.8 (starch would be negative)
+gourmet-burger-kitchen,nutrition,low,sugar+fibre-gt-carbs,rocket-man-single,Rocket Man - Single,Go naked (no bun),sugars 29.4 + fibre 6.1 > carbohydrate 30 (starch would be negative)
+gourmet-burger-kitchen,nutrition,low,sugar+fibre-gt-carbs,texan-single-go-naked,Texan - Single (Go Naked),Go naked (no bun),sugars 31.4 + fibre 4.9 > carbohydrate 34 (starch would be negative)

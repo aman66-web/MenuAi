@@ -1,0 +1,5 @@
+chain,kind,severity,code,item,name,category,detail
+toby-carvery,allergen,medium,name-implies-gluten,chocolate-fudge-cake,Chocolate Fudge Cake,Puddings,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+toby-carvery,allergen,medium,name-implies-gluten,toffee-apple-crumble,Toffee Apple Crumble,Puddings,'Crumb' in the name but gluten is not marked (contains: none)
+toby-carvery,nutrition,medium,salt-very-high,hand-carved-gammon-and-mustard,Hand-Carved Gammon & Mustard,Yorkie wraps & sandwiches,salt 8.39 g with 302 kcal (6 g is the whole day's limit)
+toby-carvery,nutrition,medium,salt-very-high,roast-gammon,Roast Gammon,Carvery,salt 10.43 g with 385 kcal (6 g is the whole day's limit)

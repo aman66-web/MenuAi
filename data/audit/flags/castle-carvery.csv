@@ -1,0 +1,9 @@
+chain,kind,severity,code,item,name,category,detail
+castle-carvery,allergen,medium,name-implies-eggs,tuna-and-sweetcorn-mayonnaise-jacket,Tuna & Sweetcorn Mayonnaise (jacket),Jackets,"'Mayo' in the name but eggs is not marked (contains: ['fish', 'mustard'])"
+castle-carvery,allergen,medium,name-implies-fish,chicken-caesar,Chicken Caesar,Salads & pasta,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard', 'sulphites'])"
+castle-carvery,nutrition,medium,salt-very-high,castle-platter,Castle Platter,Starters & sharers,salt 13.2 g with 2066 kcal (6 g is the whole day's limit)
+castle-carvery,nutrition,medium,salt-very-high,chicken-wings-1kg,Chicken Wings 1kg,Starters & sharers,salt 32 g with 1176 kcal (6 g is the whole day's limit)
+castle-carvery,nutrition,medium,salt-very-high,chicken-wings-500g,Chicken Wings 500g,Starters & sharers,salt 16 g with 588 kcal (6 g is the whole day's limit)
+castle-carvery,nutrition,medium,salt-very-high,cowboy-burger,Cowboy Burger,Gourmet burgers,salt 11.4 g with 2054 kcal (6 g is the whole day's limit)
+castle-carvery,nutrition,medium,salt-very-high,hand-carved-roasted-ham-branston-pickle-cheddar-and-tomato-baguette,"Hand-carved roasted ham, Branston pickle, Cheddar & tomato baguette","Wraps, baguettes & cobs",salt 10.8 g with 1349 kcal (6 g is the whole day's limit)
+castle-carvery,nutrition,medium,sugar-implausible,chicken-wings-1kg,Chicken Wings 1kg,Starters & sharers,sugar 161.8 g in one item

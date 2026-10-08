@@ -1,0 +1,27 @@
+chain,kind,severity,code,item,name,category,detail
+haven,allergen,high,vegan-contains-animal,kids-penne-pomodoro-vegan,Kids Penne Pomodoro Vegan,NGCI menu: Kids NGCI,named vegan/plant-based but allergens say it contains ['eggs']
+haven,allergen,high,vegan-contains-animal,vegan-nuggets-fries-and-beans-ve,Vegan Nuggets Fries & Beans (VE),Kids menu: Kids Meal,named vegan/plant-based but allergens say it contains ['eggs']
+haven,allergen,medium,name-implies-eggs,cajun-mayo,Cajun mayo,Sunday menu: Small Plates,'mayo' in the name but eggs is not marked (contains: ['mustard'])
+haven,allergen,medium,name-implies-eggs,chilli-lime-mayo,Chilli Lime Mayo,Main menu: Small Plates,'Mayo' in the name but eggs is not marked (contains: none)
+haven,allergen,medium,name-implies-eggs,garlic-mayo,Garlic mayo,Main menu: Small Plates,'mayo' in the name but eggs is not marked (contains: ['mustard'])
+haven,allergen,medium,name-implies-eggs,gordons-lemon-meringue-gin-25ml,Gordons Lemon Meringue Gin 25ml,Drinks: Spirits: Gin,'Meringue' in the name but eggs is not marked (contains: none)
+haven,allergen,medium,name-implies-eggs,mayonnaise,Mayonnaise,Dark Kitchen: Kebab style,'Mayo' in the name but eggs is not marked (contains: none)
+haven,allergen,medium,name-implies-eggs,mint-mayo-ve,Mint Mayo (VE),Dark Kitchen: Kebab style,'Mayo' in the name but eggs is not marked (contains: none)
+haven,allergen,medium,name-implies-eggs,tuna-mayo-jacket,Tuna Mayo Jacket,Main menu: Lite Bites,"'Mayo' in the name but eggs is not marked (contains: ['fish', 'mustard', 'sulphites'])"
+haven,allergen,medium,name-implies-gluten,blackcurrant-crumble-v-ngci,Blackcurrant Crumble (V) (NGCI),Kids menu: Desserts,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+haven,allergen,medium,name-implies-gluten,blackcurrant-crumble-with-plant-based-vanilla-ice-cream-ve-ngci,Blackcurrant Crumble With Plant Based Vanilla Ice Cream (VE) (NGCI),Kids menu: Desserts,'Crumb' in the name but gluten is not marked (contains: none)
+haven,allergen,medium,name-implies-gluten,brownie,Brownie,Cakery: Cake Specials,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+haven,allergen,medium,name-implies-gluten,carrot-and-walnut-cake,Carrot and Walnut Cake,Cake counter: Cakes,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts'])"
+haven,allergen,medium,name-implies-gluten,kids-penne-pomodoro-vegan,Kids Penne Pomodoro Vegan,NGCI menu: Kids NGCI,"'Penne' in the name but gluten is not marked (contains: ['celery', 'eggs', 'mustard'])"
+haven,allergen,medium,name-implies-gluten,mushroom-bourguignon-pie-vegan,Mushroom Bourguignon Pie (vegan),Sunday menu: Sunday,'Pie' in the name but gluten is not marked (contains: ['sulphites'])
+haven,allergen,medium,name-implies-gluten,penne-pomodoro-ngci-menu,Penne Pomodoro (NGCI menu),NGCI menu: Pasta,"'Penne' in the name but gluten is not marked (contains: ['celery', 'eggs', 'milk', 'mustard'])"
+haven,allergen,medium,name-implies-gluten,pepperoni-pizza-fries,Pepperoni Pizza Fries,Night menu: Small Plates,'Pizza' in the name but gluten is not marked (contains: ['milk'])
+haven,allergen,medium,name-implies-gluten,spicy-cajun-chicken-pasta-ngci-menu,Spicy Cajun Chicken Pasta (NGCI menu),NGCI menu: Pasta,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'mustard', 'soya'])"
+haven,allergen,medium,name-implies-gluten,ultimate-brownie,Ultimate Brownie,Cake counter: Cakes,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+haven,allergen,medium,name-implies-gluten,vegan-crumble-slice,Vegan Crumble Slice,Cake counter: Cakes,'Crumb' in the name but gluten is not marked (contains: none)
+haven,allergen,medium,name-implies-milk,worthingtons-creamflow-pint,Worthington's Creamflow Pint,"Drinks: Draught Lager, Bitter & Ales",'Cream' in the name but milk is not marked (contains: ['gluten'])
+haven,allergen,medium,name-implies-milk,worthingtons-creamflow-shandy-pint,Worthington's Creamflow Shandy Pint,"Drinks: Draught Lager, Bitter & Ales",'Cream' in the name but milk is not marked (contains: ['gluten'])
+haven,allergen,medium,name-implies-milk,worthingtons-creamflow-top-pint,Worthington's Creamflow Top Pint,"Drinks: Draught Lager, Bitter & Ales",'Cream' in the name but milk is not marked (contains: ['gluten'])
+haven,nutrition,low,zero-named-has-kcal,doom-bar-zero-alcohol-ale-500ml-bottle,Doom Bar Zero Alcohol Ale 500ml Bottle,Drinks: Bottles: Beers,named diet/zero/no sugar but 65 kcal
+haven,nutrition,low,zero-named-has-kcal,heineken-zero-pint,Heineken Zero Pint,"Drinks: Draught Lager, Bitter & Ales",named diet/zero/no sugar but 119 kcal
+haven,nutrition,low,zero-named-has-kcal,thatchers-zero-cider-500ml-bottle,Thatchers Zero Cider 500ml bottle,Drinks: Bottles: Cider,named diet/zero/no sugar but 270 kcal

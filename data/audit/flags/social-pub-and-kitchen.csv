@@ -1,0 +1,22 @@
+chain,kind,severity,code,item,name,category,detail
+social-pub-and-kitchen,allergen,high,vegan-contains-animal,plant-based-sausage-sandwich-v,Plant-Based Sausage Sandwich (V),Breakfast sandwiches,named vegan/plant-based but allergens say it contains ['milk']
+social-pub-and-kitchen,nutrition,medium,fat-implausible,the-social-sharer,The Social Sharer,Sharers,fat 213.3 g in one item
+social-pub-and-kitchen,nutrition,medium,huge-protein,1kg-classic-chicken-wings,1KG Classic Chicken Wings,Wings,120.1 g protein
+social-pub-and-kitchen,nutrition,medium,huge-protein,1kg-crispy-coated-chicken-wings,1KG Crispy Coated Chicken Wings,Wings,129.4 g protein
+social-pub-and-kitchen,nutrition,medium,huge-protein,the-mighty-meat-detroit-style,The Mighty Meat Detroit Style,Pizza,135.4 g protein
+social-pub-and-kitchen,allergen,medium,name-implies-eggs,bramley-apple-and-custard-dairy-ice-cream-v,Bramley Apple & Custard Dairy Ice Cream (V),Desserts,'Custard' in the name but eggs is not marked (contains: ['milk'])
+social-pub-and-kitchen,allergen,medium,name-implies-fish,chicken-caesar,Chicken Caesar,Burgers,"'Caesar' in the name but fish is not marked (contains: ['celery', 'eggs', 'gluten', 'milk', 'mustard', 'soya'])"
+social-pub-and-kitchen,allergen,medium,name-implies-fish,chicken-caesar-no-gluten-menu,Chicken Caesar (no-gluten menu),Burgers,"'Caesar' in the name but fish is not marked (contains: ['celery', 'eggs', 'milk', 'mustard'])"
+social-pub-and-kitchen,allergen,medium,name-implies-gluten,banoffee-pie-ice-cream-v,Banoffee Pie Ice Cream (V),Desserts,'Pie' in the name but gluten is not marked (contains: ['milk'])
+social-pub-and-kitchen,allergen,medium,name-implies-gluten,battered-chillies-vg,Battered Chillies (VG),Burger extras,'Battered' in the name but gluten is not marked (contains: none)
+social-pub-and-kitchen,allergen,medium,name-implies-gluten,crispy-coated-smoked-tofu-vg-excluding-bread-option-see-below,"Crispy Coated Smoked Tofu (VG) (Excluding Bread Option, see below)",Wraps & flatbreads,"'Bread' in the name but gluten is not marked (contains: ['mustard', 'soya'])"
+social-pub-and-kitchen,allergen,medium,name-implies-gluten,jalapenos-vg-pizza-additional-toppers,Jalapeños (VG) (Pizza Additional Toppers),Pizza extras,'Pizza' in the name but gluten is not marked (contains: none)
+social-pub-and-kitchen,allergen,medium,name-implies-gluten,tandoori-chicken-excluding-bread-option-see-below,"Tandoori Chicken (Excluding Bread Option, see below)",Wraps & flatbreads,"'Bread' in the name but gluten is not marked (contains: ['milk', 'mustard'])"
+social-pub-and-kitchen,allergen,medium,name-implies-milk,strawberries-and-cream-spritz-0,Strawberries & Cream Spritz 0%,Drinks,'Cream' in the name but milk is not marked (contains: none)
+social-pub-and-kitchen,nutrition,medium,salt-very-high,1kg-crispy-coated-chicken-wings,1KG Crispy Coated Chicken Wings,Wings,salt 14.5 g with 2079 kcal (6 g is the whole day's limit)
+social-pub-and-kitchen,nutrition,medium,salt-very-high,hoisin-crispy-tofu-bowl-vg,Hoisin Crispy Tofu Bowl (VG),Mains,salt 10.1 g with 778 kcal (6 g is the whole day's limit)
+social-pub-and-kitchen,nutrition,medium,salt-very-high,the-mighty-meat-detroit-style,The Mighty Meat Detroit Style,Pizza,salt 10.4 g with 2248 kcal (6 g is the whole day's limit)
+social-pub-and-kitchen,nutrition,medium,salt-very-high,the-social-sharer,The Social Sharer,Sharers,salt 18.6 g with 3457 kcal (6 g is the whole day's limit)
+social-pub-and-kitchen,nutrition,low,huge,the-social-sharer,The Social Sharer,Sharers,3457 kcal in one item
+social-pub-and-kitchen,allergen,low,name-implies-sulphites,elderflower-spritz-0,Elderflower Spritz 0%,Drinks,'Spritz' in the name but sulphites is not marked (contains: none)
+social-pub-and-kitchen,allergen,low,name-implies-sulphites,strawberries-and-cream-spritz-0,Strawberries & Cream Spritz 0%,Drinks,'Spritz' in the name but sulphites is not marked (contains: none)

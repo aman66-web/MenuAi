@@ -1,0 +1,8 @@
+chain,kind,severity,code,item,name,category,detail
+malmaison,allergen,medium,name-implies-milk,cappuccino-oats-milk,Cappuccino (Oats milk),Hot drinks,'Cappuccino' in the name but milk is not marked (contains: ['gluten'])
+malmaison,allergen,medium,name-implies-milk,flat-white-oats-milk,Flat White (Oats milk),Hot drinks,'Flat White' in the name but milk is not marked (contains: ['gluten'])
+malmaison,allergen,medium,name-implies-milk,ice-cream-1-scoop,Ice Cream 1 scoop,Desserts,'Ice Cream' in the name but milk is not marked (contains: ['soya'])
+malmaison,allergen,medium,name-implies-milk,ice-cream-2-scoop,Ice Cream 2 Scoop,Desserts,'Ice Cream' in the name but milk is not marked (contains: ['soya'])
+malmaison,allergen,medium,name-implies-milk,ice-cream-3-scoop,Ice Cream 3 Scoop,Desserts,'Ice Cream' in the name but milk is not marked (contains: ['soya'])
+malmaison,allergen,medium,name-implies-milk,latte-oats-milk,Latte (Oats milk),Hot drinks,'Latte' in the name but milk is not marked (contains: ['gluten'])
+malmaison,allergen,medium,name-implies-milk,macchiato-oats-milk,Macchiato (Oats milk),Hot drinks,'Macchiato' in the name but milk is not marked (contains: ['gluten'])

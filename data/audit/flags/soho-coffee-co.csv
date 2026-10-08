@@ -1,0 +1,8 @@
+chain,kind,severity,code,item,name,category,detail
+soho-coffee-co,nutrition,low,sugar+fibre-gt-carbs,banana-and-spinach,Banana & Spinach,Smoothies,sugars 42 + fibre 32.1 > carbohydrate 43.3 (starch would be negative)
+soho-coffee-co,nutrition,low,sugar+fibre-gt-carbs,cornish-sea-salt-caramel-hot-chocolate-skimmed-milk,Cornish Sea Salt Caramel Hot Chocolate (skimmed milk),Hot chocolate,sugars 32.8 + fibre 4.4 > carbohydrate 34.5 (starch would be negative)
+soho-coffee-co,nutrition,low,sugar+fibre-gt-carbs,cornish-sea-salt-caramel-hot-chocolate-whole-milk,Cornish Sea Salt Caramel Hot Chocolate (whole milk),Hot chocolate,sugars 32.3 + fibre 4.4 > carbohydrate 34.1 (starch would be negative)
+soho-coffee-co,nutrition,low,sugar+fibre-gt-carbs,cornish-sea-salt-caramel-iced-chocolate-skimmed-milk,Cornish Sea Salt Caramel Iced Chocolate (skimmed milk),Iced chocolate,sugars 29.3 + fibre 3.8 > carbohydrate 30.9 (starch would be negative)
+soho-coffee-co,nutrition,low,sugar+fibre-gt-carbs,cornish-sea-salt-caramel-iced-chocolate-whole-milk,Cornish Sea Salt Caramel Iced Chocolate (whole milk),Iced chocolate,sugars 28.9 + fibre 3.8 > carbohydrate 30.5 (starch would be negative)
+soho-coffee-co,nutrition,low,sugar+fibre-gt-carbs,mango-and-passionfruit,Mango & Passionfruit,Smoothies,sugars 41.7 + fibre 32.4 > carbohydrate 41.8 (starch would be negative)
+soho-coffee-co,nutrition,low,sugar+fibre-gt-carbs,strawberry-and-blueberry,Strawberry & Blueberry,Smoothies,sugars 35.8 + fibre 28.1 > carbohydrate 36.6 (starch would be negative)

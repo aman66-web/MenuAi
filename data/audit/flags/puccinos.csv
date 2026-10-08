@@ -1,0 +1,4 @@
+chain,kind,severity,code,item,name,category,detail
+puccinos,nutrition,low,sugar+fibre-gt-carbs,matcha-latte-soya-milk-large,Matcha Latte - Soya Milk (large),Matcha,sugars 11 + fibre 4.1 > carbohydrate 13 (starch would be negative)
+puccinos,nutrition,low,sugar+fibre-gt-carbs,strawberry-and-banana-smoothie,Strawberry & Banana Smoothie,Iced drinks,sugars 112 + fibre 2.7 > carbohydrate 112 (starch would be negative)
+puccinos,nutrition,low,sugar+fibre-gt-carbs,vanilla-matcha-latte-soya-milk-large,Vanilla Matcha Latte - Soya Milk (large),Matcha,sugars 32 + fibre 3.5 > carbohydrate 33 (starch would be negative)

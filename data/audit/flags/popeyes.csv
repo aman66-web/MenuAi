@@ -1,0 +1,16 @@
+chain,kind,severity,code,item,name,category,detail
+popeyes,nutrition,medium,huge-protein,12-garlic-parmesan-hot-wings,12 Garlic Parmesan Hot Wings,Hot Wings,121.3 g protein
+popeyes,nutrition,medium,huge-protein,20-hot-wings,20 Hot Wings,Hot Wings,190 g protein
+popeyes,nutrition,medium,huge-protein,6-piece-signature-louisiana-chicken,6 Piece Signature Louisiana Chicken,Signature Louisiana Chicken,210 g protein
+popeyes,nutrition,medium,salt-very-high,12-cajun-citrus-hot-wings,12 Cajun Citrus Hot Wings,Hot Wings,salt 11.95 g with 1124 kcal (6 g is the whole day's limit)
+popeyes,nutrition,medium,salt-very-high,12-garlic-parmesan-hot-wings,12 Garlic Parmesan Hot Wings,Hot Wings,salt 15.88 g with 1879 kcal (6 g is the whole day's limit)
+popeyes,nutrition,medium,salt-very-high,12-ghost-pepper-hot-wings,12 Ghost Pepper Hot Wings,Hot Wings,salt 12.33 g with 1123 kcal (6 g is the whole day's limit)
+popeyes,nutrition,medium,salt-very-high,12-honey-bbq-hot-wings,12 Honey BBQ Hot Wings,Hot Wings,salt 13.06 g with 1413 kcal (6 g is the whole day's limit)
+popeyes,nutrition,medium,salt-very-high,12-hot-wings,12 Hot Wings,Hot Wings,salt 11.33 g with 1109 kcal (6 g is the whole day's limit)
+popeyes,nutrition,medium,salt-very-high,20-hot-wings,20 Hot Wings,Hot Wings,salt 18.88 g with 1848 kcal (6 g is the whole day's limit)
+popeyes,nutrition,medium,salt-very-high,6-piece-signature-louisiana-chicken,6 Piece Signature Louisiana Chicken,Signature Louisiana Chicken,salt 13.1 g with 1420 kcal (6 g is the whole day's limit)
+popeyes,nutrition,medium,salt-very-high,8-garlic-parmesan-hot-wings,8 Garlic Parmesan Hot Wings,Hot Wings,salt 10.59 g with 1253 kcal (6 g is the whole day's limit)
+popeyes,nutrition,medium,salt-very-high,ghost-pepper-big-dip,Ghost Pepper Big Dip,Dips,salt 5.28 g with 274 kcal (6 g is the whole day's limit)
+popeyes,nutrition,low,energy-gap-alcohol,kids-shake-vanilla,Kids Shake - Vanilla,Drinks,286 kcal vs 4P+4C+9F=229: energy not in the macros (alcohol?)
+popeyes,nutrition,low,energy-gap-alcohol,large-vanilla-shake,Large Vanilla Shake,Drinks,608 kcal vs 4P+4C+9F=485: energy not in the macros (alcohol?)
+popeyes,nutrition,low,energy-gap-alcohol,vanilla-shake,Vanilla Shake,Drinks,439 kcal vs 4P+4C+9F=351: energy not in the macros (alcohol?)

@@ -1,0 +1,5 @@
+chain,kind,severity,code,item,name,category,detail
+sizzling-pubs,nutrition,medium,huge-protein,mega-mixed-grill,Mega Mixed Grill,Sizzling skillets,124.3 g protein
+sizzling-pubs,nutrition,medium,salt-very-high,the-big-beef,The Big Beef,Burger bar,salt 11.78 g with 1785 kcal (6 g is the whole day's limit)
+sizzling-pubs,allergen,low,name-implies-sulphites,beef-and-red-wine-lasagne,Beef and Red Wine Lasagne,Sizzle 'N' Save mains,"'Wine' in the name but sulphites is not marked (contains: ['eggs', 'gluten', 'milk'])"
+sizzling-pubs,allergen,low,name-implies-sulphites,port-and-stilton-sauce,Port and Stilton Sauce,Sauces,'Port' in the name but sulphites is not marked (contains: ['milk'])

@@ -1,0 +1,5 @@
+chain,kind,severity,code,item,name,category,detail
+nicholsons,nutrition,medium,energy-gap,add-beef-patty,Add Beef Patty,Add-ons,271 kcal vs 4P+4C+9F=191 (29% off)
+nicholsons,nutrition,medium,energy-gap,add-scampi,Add Scampi,Add-ons,156 kcal vs 4P+4C+9F=116 (26% off)
+nicholsons,nutrition,medium,energy-gap,wholetail-scottish-scampi,Wholetail Scottish Scampi,Childrens,178 kcal vs 4P+4C+9F=137 (23% off)
+nicholsons,nutrition,low,energy-gap-alcohol,decaf-iced-black-coffee,Decaf Iced Black Coffee,Drinks,50 kcal vs 4P+4C+9F=35: energy not in the macros (alcohol?)

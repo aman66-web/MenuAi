@@ -1,0 +1,6 @@
+chain,kind,severity,code,item,name,category,detail
+chilango,nutrition,low,fibre-gt-carbs,guacamole,Guacamole,topping,fibre 3.7 g > carbohydrate 1.8 g
+chilango,nutrition,low,fibre-gt-carbs,guacamole-pot-170-g,Guacamole Pot (170 g),Dips & salsas,fibre 7.3 g > carbohydrate 3.6 g
+chilango,nutrition,low,fibre-gt-carbs,guacamole-pot-80-g,Guacamole Pot (80 g),Dips & salsas,fibre 3.4 g > carbohydrate 1.7 g
+chilango,nutrition,low,sugar+fibre-gt-carbs,keto-box,Keto Box,Boxes,sugars 3.2 + fibre 4.4 > carbohydrate 4.9 (starch would be negative)
+chilango,nutrition,low,sugar+fibre-gt-carbs,low-carb-box,Low Carb Box,Boxes,sugars 7.8 + fibre 6.9 > carbohydrate 12.1 (starch would be negative)

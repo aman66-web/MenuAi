@@ -1,0 +1,4 @@
+chain,kind,severity,code,item,name,category,detail
+cafe-rouge,nutrition,medium,energy-gap,waldorf-salad,Waldorf Salad,Mains,523 kcal vs 4P+4C+9F=412 (21% off)
+cafe-rouge,allergen,medium,name-implies-fish,caesar-salad,Caesar Salad,Mains,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"
+cafe-rouge,allergen,medium,name-implies-gluten,chocolate-brownie,Chocolate Brownie,Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"

@@ -1,0 +1,13 @@
+chain,kind,severity,code,item,name,category,detail
+westmorland-services,allergen,medium,name-implies-gluten,gleefully-brownie,Gleefully Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
+westmorland-services,allergen,medium,name-implies-gluten,strawberry-and-pistachio-polenta-cake,Strawberry & Pistachio Polenta Cake,Cakes & Bakes,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'nuts'])"
+westmorland-services,allergen,medium,name-implies-milk,harissa-red-pepper-and-butterbean-shakshuka,"Harissa, Red Pepper & Butterbean Shakshuka",Lunch,"'Butter' in the name but milk is not marked (contains: ['eggs', 'sesame', 'soya', 'sulphites'])"
+westmorland-services,allergen,medium,name-implies-nuts,hazelnut-syrup,Hazelnut Syrup,Hot Drinks,'Hazelnut' in the name but nuts is not marked (contains: none)
+westmorland-services,nutrition,medium,salt-very-high,soy-and-sesame-salmon-snack-pot,Soy & Sesame Salmon Snack Pot,Food to Go,salt 6.1 g with 212 kcal (6 g is the whole day's limit)
+westmorland-services,nutrition,low,fibre-gt-carbs,mixed-olives,Mixed Olives,Sides,fibre 3 g > carbohydrate 0 g
+westmorland-services,nutrition,low,identical-numbers,hullabaloo-lemonade-glass,Hullabaloo Lemonade Glass,Cold Drinks,"4 differently named items share these exact numbers (e.g. ['Hullabaloo Lemonade Glass', 'Hullabaloo Raspberry Lemonade Glass', 'Hullabaloos Lemonade'])"
+westmorland-services,allergen,low,name-implies-sulphites,child-dried-fruit-pot,Child Dried Fruit Pot,Children's,'Dried Fruit' in the name but sulphites is not marked (contains: none)
+westmorland-services,nutrition,low,sugar+fibre-gt-carbs,fresh-fruit-apple,Fresh Fruit - Apple,Breakfast,sugars 18 + fibre 3 > carbohydrate 18 (starch would be negative)
+westmorland-services,nutrition,low,sugar+fibre-gt-carbs,oranges,Oranges,Breakfast,sugars 14 + fibre 3 > carbohydrate 14 (starch would be negative)
+westmorland-services,nutrition,low,sugar+fibre-gt-carbs,pea-courgette-and-mint-soup,"Pea, Courgette & Mint Soup",Soups,sugars 29 + fibre 16 > carbohydrate 37 (starch would be negative)
+westmorland-services,nutrition,low,sugar+fibre-gt-carbs,summer-berry-smoothie,Summer Berry Smoothie,Cold Drinks,sugars 28 + fibre 7 > carbohydrate 28 (starch would be negative)

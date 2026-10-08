@@ -1,0 +1,36 @@
+chain,kind,severity,code,item,name,category,detail
+heritage-pubs,allergen,medium,name-implies-eggs,custard,Custard,Options & add-ons,'Custard' in the name but eggs is not marked (contains: ['milk'])
+heritage-pubs,allergen,medium,name-implies-eggs,egg-on-toast-v-excluding-egg-option,Egg on Toast (V) (Excluding Egg Option),Kids' breakfasts,"'Egg' in the name but eggs is not marked (contains: ['gluten', 'milk', 'soya'])"
+heritage-pubs,allergen,medium,name-implies-eggs,full-english-breakfast-excluding-egg-option,Full English Breakfast (Excluding Egg Option),Breakfast,"'Egg' in the name but eggs is not marked (contains: ['gluten', 'milk', 'soya', 'sulphites'])"
+heritage-pubs,allergen,medium,name-implies-eggs,full-veggie-breakfast-v-excluding-egg-option,Full Veggie Breakfast (V) (Excluding Egg Option),Breakfast,"'Egg' in the name but eggs is not marked (contains: ['gluten', 'milk', 'soya'])"
+heritage-pubs,allergen,medium,name-implies-eggs,non-dairy-custard-vg,Non-Dairy Custard (VG),Options & add-ons,'Custard' in the name but eggs is not marked (contains: ['soya'])
+heritage-pubs,allergen,medium,name-implies-eggs,small-english-breakfast-excluding-egg-option,Small English Breakfast (Excluding Egg Option),Breakfast,"'Egg' in the name but eggs is not marked (contains: ['gluten', 'soya', 'sulphites'])"
+heritage-pubs,allergen,medium,name-implies-fish,caesar-salad-v,Caesar Salad (V),Classics,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+heritage-pubs,allergen,medium,name-implies-gluten,baked-fish-fingers,Baked Fish Fingers,Kids: mains,'Fish Finger' in the name but gluten is not marked (contains: ['fish'])
+heritage-pubs,allergen,medium,name-implies-gluten,chocolate-brownie-vg,Chocolate Brownie (VG),Coffee shop,'Brownie' in the name but gluten is not marked (contains: none)
+heritage-pubs,allergen,medium,name-implies-gluten,chocolate-chunk-cookie-v,Chocolate Chunk Cookie (V),Coffee shop,'Cookie' in the name but gluten is not marked (contains: ['soya'])
+heritage-pubs,allergen,medium,name-implies-gluten,lamb-shank-shepherds-pie,Lamb Shank Shepherd's Pie,Pies,"'Pie' in the name but gluten is not marked (contains: ['celery', 'milk', 'sulphites'])"
+heritage-pubs,allergen,medium,name-implies-gluten,mixed-fruit-crumble-v,Mixed Fruit Crumble (V),Desserts,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+heritage-pubs,allergen,medium,name-implies-gluten,mixed-fruit-crumble-vg-excluding-accompaniment-option,Mixed Fruit Crumble (VG) (Excluding Accompaniment option),Desserts,'Crumb' in the name but gluten is not marked (contains: none)
+heritage-pubs,allergen,medium,name-implies-gluten,non-gluten-containing-carrot-cake-v,Non-Gluten Containing Carrot Cake (V),Coffee shop,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts'])"
+heritage-pubs,allergen,medium,name-implies-gluten,pork-orange-and-fig-stuffing,"Pork, Orange & Fig Stuffing",Sides,'Stuffing' in the name but gluten is not marked (contains: none)
+heritage-pubs,allergen,medium,name-implies-gluten,rhubarb-and-ginger-crumble-v,Rhubarb & Ginger Crumble (V),Desserts,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+heritage-pubs,allergen,medium,name-implies-gluten,rhubarb-and-ginger-crumble-vg-excluding-accompaniment-option,Rhubarb & Ginger Crumble (VG) (Excluding Accompaniment option),Desserts,'Crumb' in the name but gluten is not marked (contains: none)
+heritage-pubs,allergen,medium,name-implies-gluten,salted-caramel-apple-crumble-v,Salted Caramel Apple Crumble (V),Desserts,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+heritage-pubs,allergen,medium,name-implies-gluten,salted-caramel-apple-crumble-vg-excluding-accompaniment-option,Salted Caramel Apple Crumble (VG) (Excluding Accompaniment option),Desserts,'Crumb' in the name but gluten is not marked (contains: none)
+heritage-pubs,allergen,medium,name-implies-gluten,salted-caramel-chocolate-brownie-vg,Salted Caramel Chocolate Brownie (VG),Coffee shop,'Brownie' in the name but gluten is not marked (contains: none)
+heritage-pubs,allergen,medium,name-implies-gluten,shepherds-pie,Shepherd's Pie,Lunch,"'Pie' in the name but gluten is not marked (contains: ['celery', 'milk'])"
+heritage-pubs,allergen,medium,name-implies-gluten,toasted-cumin-cauliflower-and-coconut-soup-v-no-gluten-menu,"Toasted Cumin, Cauliflower and Coconut Soup (V) (no-gluten menu)",Starters,"'Toast' in the name but gluten is not marked (contains: ['eggs', 'milk'])"
+heritage-pubs,allergen,medium,name-implies-milk,crispy-buttermilk-style-quorntm-fillet-vg,Crispy Buttermilk-Style Quorn™ Fillet (VG),Lunch,"'Butter' in the name but milk is not marked (contains: ['gluten', 'mustard'])"
+heritage-pubs,allergen,medium,name-implies-milk,crispy-coated-buttermilk-style-quorntm-fillet-salad-vg,Crispy coated buttermilk-style Quorn™ Fillet Salad (VG),Lunch,"'butter' in the name but milk is not marked (contains: ['gluten', 'mustard'])"
+heritage-pubs,nutrition,medium,salt-very-high,fritto-misto,Fritto Misto,Sharers,salt 12.5 g with 2289 kcal (6 g is the whole day's limit)
+heritage-pubs,nutrition,medium,salt-very-high,meat-feast,Meat Feast,Pizza,salt 11.4 g with 1553 kcal (6 g is the whole day's limit)
+heritage-pubs,nutrition,medium,salt-very-high,olives-vg,Olives (VG),Bar bites,salt 5 g with 305 kcal (6 g is the whole day's limit)
+heritage-pubs,nutrition,medium,salt-very-high,perfect-pub-platter,Perfect Pub Platter,Sharers,salt 11.7 g with 2482 kcal (6 g is the whole day's limit)
+heritage-pubs,nutrition,medium,salt-very-high,ploughmans-platter,Ploughman's Platter,Sharers,salt 10.7 g with 2468 kcal (6 g is the whole day's limit)
+heritage-pubs,nutrition,medium,salt-very-high,sunday-lunch-sharing-board-excluding-meat-and-veg-option,Sunday Lunch Sharing Board (Excluding Meat and Veg Option),Sunday sharing roast,salt 11.5 g with 2812 kcal (6 g is the whole day's limit)
+heritage-pubs,nutrition,low,huge,sunday-lunch-sharing-board-excluding-meat-and-veg-option,Sunday Lunch Sharing Board (Excluding Meat and Veg Option),Sunday sharing roast,2812 kcal in one item
+heritage-pubs,allergen,low,name-implies-sulphites,hugo-spritz-0,Hugo Spritz 0%,Drinks,'Spritz' in the name but sulphites is not marked (contains: none)
+heritage-pubs,allergen,low,name-implies-sulphites,pink-gin-spritz-0,Pink Gin Spritz 0%,Drinks,'Spritz' in the name but sulphites is not marked (contains: none)
+heritage-pubs,allergen,low,name-implies-sulphites,steak-and-malbec-pie,Steak & Malbec Pie,Pies,"'Malbec' in the name but sulphites is not marked (contains: ['eggs', 'gluten', 'milk'])"
+heritage-pubs,nutrition,low,zero-named-has-kcal,birra-moretti-zero,Birra Moretti Zero,Drinks,named diet/zero/no sugar but 66 kcal

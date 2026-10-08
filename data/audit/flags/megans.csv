@@ -1,0 +1,25 @@
+chain,kind,severity,code,item,name,category,detail
+megans,allergen,medium,name-implies-eggs,tiramisu-latte,Tiramisu Latte,Signature hot drinks,'Tiramisu' in the name but eggs is not marked (contains: ['milk'])
+megans,allergen,medium,name-implies-fish,chicken-and-avocado-caesar,Chicken & Avocado Caesar,Bowls,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+megans,allergen,medium,name-implies-gluten,baileys-tiramisu-brownie,Baileys Tiramisu Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+megans,allergen,medium,name-implies-gluten,brownie-and-ice-cream,Brownie & Ice Cream,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'sesame', 'soya'])"
+megans,allergen,medium,name-implies-gluten,chocolate-brownie,Chocolate Brownie,Cakes & pastries,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+megans,allergen,medium,name-implies-gluten,ice-cream-topping-brownie-pieces,Ice Cream Topping - Brownie Pieces,Kids desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+megans,allergen,medium,name-implies-gluten,kids-chocolate-brownie-bite-and-ice-cream,Kids Chocolate Brownie Bite & Ice Cream,Kids desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+megans,allergen,medium,name-implies-milk,biscoff-latte,Biscoff Latte,Signature hot drinks,"'Latte' in the name but milk is not marked (contains: ['gluten', 'soya'])"
+megans,allergen,medium,name-implies-milk,chai-latte,Chai Latte,Signature hot drinks,'Latte' in the name but milk is not marked (contains: none)
+megans,allergen,medium,name-implies-milk,hot-chocolate,Hot Chocolate,Signature hot drinks,'Hot Chocolate' in the name but milk is not marked (contains: none)
+megans,allergen,medium,name-implies-milk,ice-cream-topping-blueberry-compote,Ice Cream Topping - Blueberry Compote,Kids desserts,'Ice Cream' in the name but milk is not marked (contains: none)
+megans,allergen,medium,name-implies-milk,mocha,Mocha,Coffees & hotties,'Mocha' in the name but milk is not marked (contains: none)
+megans,allergen,medium,name-implies-molluscs,lg-spiced-oyster-mushroom,LG Spiced Oyster Mushroom,Little grills & little arayes,'Oyster' in the name but molluscs is not marked (contains: none)
+megans,allergen,medium,name-implies-molluscs,oyster-mushrooms,Oyster Mushrooms,Brunch extras,'Oyster' in the name but molluscs is not marked (contains: none)
+megans,allergen,medium,name-implies-molluscs,spiced-oyster-mushroom-shawarma-kebab,Spiced Oyster Mushroom Shawarma Kebab,Kebabs,"'Oyster' in the name but molluscs is not marked (contains: ['celery', 'gluten', 'mustard', 'sesame', 'sulphites'])"
+megans,allergen,medium,name-implies-nuts,hazelnut-syrup,Hazelnut Syrup,Milks & syrups,'Hazelnut' in the name but nuts is not marked (contains: none)
+megans,nutrition,medium,salt-very-high,chicken-halloumi-and-feta-arayes,"Chicken, Halloumi & Feta Arayes","Arayes, pitas & grills",salt 10.4 g with 1311 kcal (6 g is the whole day's limit)
+megans,nutrition,medium,salt-very-high,lg-spiced-oyster-mushroom,LG Spiced Oyster Mushroom,Little grills & little arayes,salt 5.8 g with 229 kcal (6 g is the whole day's limit)
+megans,nutrition,medium,salt-very-high,megans-brunch-grill,Megan's Brunch Grill,Brunch plates,salt 11.1 g with 1321 kcal (6 g is the whole day's limit)
+megans,nutrition,medium,salt-very-high,megans-nduja-turkish-eggs,Megan's N'duja Turkish Eggs,Brunch plates,salt 10.6 g with 1188 kcal (6 g is the whole day's limit)
+megans,nutrition,medium,salt-very-high,mushroom-halloumi-and-feta-arayes,"Mushroom, Halloumi & Feta Arayes","Arayes, pitas & grills",salt 10.1 g with 1285 kcal (6 g is the whole day's limit)
+megans,nutrition,medium,salt-very-high,sharing-platter,Sharing Platter,To start & share,salt 10.3 g with 1452 kcal (6 g is the whole day's limit)
+megans,nutrition,medium,salt-very-high,spicy-lamb-and-beef-arayes-burger,Spicy Lamb & Beef Arayes Burger,"Arayes, pitas & grills",salt 12.1 g with 1391 kcal (6 g is the whole day's limit)
+megans,nutrition,medium,salt-very-high,the-best-of-megans-set-menu,The Best of Megan's Set Menu,Set menu,salt 11.2 g with 1893 kcal (6 g is the whole day's limit)

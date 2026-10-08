@@ -1,0 +1,5 @@
+chain,kind,severity,code,item,name,category,detail
+rudys-pizza-napoletana,nutrition,medium,salt-very-high,capricciosa,Capricciosa,Pizza,salt 10.2 g with 1401 kcal (6 g is the whole day's limit)
+rudys-pizza-napoletana,nutrition,medium,salt-very-high,carni,Carni,Pizza,salt 10.3 g with 1281 kcal (6 g is the whole day's limit)
+rudys-pizza-napoletana,nutrition,medium,salt-very-high,romagnola,Romagnola,Pizza,salt 10.3 g with 1293 kcal (6 g is the whole day's limit)
+rudys-pizza-napoletana,nutrition,medium,salt-very-high,tarantina,Tarantina,Pizza,salt 13.9 g with 1171 kcal (6 g is the whole day's limit)

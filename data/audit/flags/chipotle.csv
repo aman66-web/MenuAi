@@ -1,0 +1,6 @@
+chain,kind,severity,code,item,name,category,detail
+chipotle,nutrition,high,energy-gap,pinto-beans,Pinto Beans,Ingredients,95 kcal vs 4P+4C+9F=57 (40% off)
+chipotle,nutrition,medium,energy-gap,black-beans,Black Beans,Ingredients,95 kcal vs 4P+4C+9F=70 (26% off)
+chipotle,nutrition,low,fibre-gt-carbs,black-beans,Black Beans,Ingredients,fibre 8.6 g > carbohydrate 4.9 g
+chipotle,nutrition,low,fibre-gt-carbs,pinto-beans,Pinto Beans,Ingredients,fibre 11.2 g > carbohydrate 6.2 g
+chipotle,nutrition,low,sugar+fibre-gt-carbs,guacamole-large,Guacamole (large),Ingredients,sugars 1.6 + fibre 6.6 > carbohydrate 5.6 (starch would be negative)

@@ -1,0 +1,21 @@
+chain,kind,severity,code,item,name,category,detail
+chiquito,allergen,medium,name-implies-gluten,brownie,Brownie,Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+chiquito,allergen,medium,name-implies-gluten,chocolate-churro-sauce,Chocolate (churro sauce),Add-ons & extras,'churro' in the name but gluten is not marked (contains: ['soya'])
+chiquito,allergen,medium,name-implies-gluten,chocolate-sauce-churro-sauce,Chocolate Sauce (churro sauce),Kids: Desserts,'churro' in the name but gluten is not marked (contains: ['soya'])
+chiquito,allergen,medium,name-implies-gluten,dulce-de-leche-churro-sauce-kids,"Dulce de Leche (churro sauce, Kids)",Kids: Desserts,'churro' in the name but gluten is not marked (contains: ['milk'])
+chiquito,allergen,medium,name-implies-gluten,dulce-de-leche-churro-sauce-lunch,"Dulce de Leche (churro sauce, Lunch)",Add-ons & extras,'churro' in the name but gluten is not marked (contains: ['milk'])
+chiquito,allergen,medium,name-implies-gluten,yorkshire-breakfast-tea,Yorkshire Breakfast Tea,Drinks: Hot drinks,"'Yorkshire' in the name but gluten is not marked (contains: ['milk', 'nuts', 'peanuts'])"
+chiquito,allergen,medium,name-implies-milk,ice-cream,Ice Cream,Desserts,'Ice Cream' in the name but milk is not marked (contains: ['gluten'])
+chiquito,nutrition,medium,salt-very-high,nachos-go-large,Nachos (Go Large),Starters,salt 10.4 g with 1197 kcal (6 g is the whole day's limit)
+chiquito,nutrition,medium,sugar-implausible,hot-chocolate-brownie-fajita,Hot Chocolate Brownie Fajita,Desserts,sugar 130.7 g in one item
+chiquito,nutrition,low,energy-gap-alcohol,aqua-riva,Aqua Riva,Drinks: Tequila,55 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,beefeater-london,Beefeater London,Drinks: Gin,111 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,classic-mojito,Classic Mojito,Drinks: Cocktails,172 kcal vs 4P+4C+9F=95: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,frozen-strawberry-daiquiri,Frozen Strawberry Daiquiri,Drinks: Cocktails,295 kcal vs 4P+4C+9F=221: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,jose-cuervo-traditional-reposado,Jose Cuervo Traditional Reposado,Drinks: Tequila,58 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,mex-on-the-beach,Mex on The Beach,Drinks: Cocktails,229 kcal vs 4P+4C+9F=137: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,miami-vice,Miami Vice,Drinks: Cocktails,340 kcal vs 4P+4C+9F=220: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,ocho-blanco,Ocho Blanco,Drinks: Tequila,69 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,pacifico,Pacifico,Drinks: Beer,178 kcal vs 4P+4C+9F=62: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,passion-fruit-mojito,Passion Fruit Mojito,Drinks: Cocktails,236 kcal vs 4P+4C+9F=158: energy not in the macros (alcohol?)
+chiquito,nutrition,low,energy-gap-alcohol,pina-colada,Pina Colada,Drinks: Cocktails,338 kcal vs 4P+4C+9F=218: energy not in the macros (alcohol?)

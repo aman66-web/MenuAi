@@ -1,0 +1,18 @@
+chain,kind,severity,code,item,name,category,detail
+cote-brasserie,nutrition,high,sat-gt-fat,risotto-vert-vegan-weekday-gluten-free-menu,Risotto Vert - Vegan (weekday gluten free menu),Côte icons,saturates 46.7 g > fat 19.6 g
+cote-brasserie,nutrition,high,sat-gt-fat,risotto-vert-vegan-weekend-gluten-free-menu,Risotto Vert - Vegan (weekend gluten free menu),Côte icons,saturates 46.7 g > fat 19.6 g
+cote-brasserie,nutrition,high,sugar-gt-carbs,botivo-elderflower-spritz,Botivo Elderflower Spritz,Drinks,sugars 10.6 g > carbohydrate 6 g
+cote-brasserie,nutrition,high,sugar-gt-carbs,chocolate-mousse-for-one,Chocolate Mousse for One,Desserts,sugars 23.9 g > carbohydrate 22 g
+cote-brasserie,nutrition,high,sugar-gt-carbs,poulet-grille,Poulet Grille,Prix fixe mains,sugars 6.2 g > carbohydrate 2 g
+cote-brasserie,allergen,high,vegan-contains-animal,kids-vegan-vanilla-ice-cream-with-wafer,Kids Vegan Vanilla Ice Cream with Wafer,Kids desserts,named vegan/plant-based but allergens say it contains ['milk']
+cote-brasserie,allergen,high,vegetarian-contains-fish,caesar-salad-gluten-free,Caesar Salad (gluten free),Light mains,tagged vegetarian but allergens say it contains ['fish']
+cote-brasserie,nutrition,medium,huge-protein,whole-poulet-breton,Whole Poulet Breton,Côte icons,162.1 g protein
+cote-brasserie,nutrition,medium,huge-protein,whole-poulet-breton-gluten-free,Whole Poulet Breton (gluten free),Côte icons,160.9 g protein
+cote-brasserie,allergen,medium,name-implies-fish,caesar-salad,Caesar Salad,Light mains,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"
+cote-brasserie,allergen,medium,name-implies-gluten,avocado-on-toast,Avocado on Toast,Breakfast,'Toast' in the name but gluten is not marked (contains: none)
+cote-brasserie,allergen,medium,name-implies-gluten,bread-and-butter,Bread and Butter,For the table,'Bread' in the name but gluten is not marked (contains: ['milk'])
+cote-brasserie,allergen,medium,name-implies-milk,creamed-potato-puree,Creamed Potato Purée,Kids sides,'Cream' in the name but milk is not marked (contains: ['soya'])
+cote-brasserie,allergen,medium,name-implies-milk,creamy-tomato-mafalde,Creamy Tomato Mafalde,Light mains,"'Cream' in the name but milk is not marked (contains: ['gluten', 'soya'])"
+cote-brasserie,allergen,medium,name-implies-milk,fruit-and-yogurt-bowl,Fruit & Yogurt Bowl,Kids desserts,'Yogurt' in the name but milk is not marked (contains: ['soya'])
+cote-brasserie,nutrition,low,huge,whole-poulet-breton,Whole Poulet Breton,Côte icons,2769 kcal in one item
+cote-brasserie,allergen,low,name-implies-sulphites,botivo-elderflower-spritz,Botivo Elderflower Spritz,Drinks,'Spritz' in the name but sulphites is not marked (contains: none)

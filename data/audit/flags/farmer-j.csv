@@ -1,0 +1,7 @@
+chain,kind,severity,code,item,name,category,detail
+farmer-j,allergen,medium,name-implies-fish,feta-radicchio-caesar,Feta Radicchio Caesar,Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"
+farmer-j,allergen,medium,name-implies-gluten,chocolate-chip-cookie,Chocolate Chip Cookie,Snacks,"'Cookie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+farmer-j,allergen,medium,name-implies-gluten,dark-double-choc-cookie,Dark Double Choc Cookie,Snacks,'Cookie' in the name but gluten is not marked (contains: ['soya'])
+farmer-j,allergen,medium,name-implies-gluten,matcha-white-choc-cookie,Matcha + White Choc Cookie,Snacks,"'Cookie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+farmer-j,nutrition,low,fibre-gt-carbs,avo,Avo,Toppings & extras,fibre 2.9 g > carbohydrate 1.4 g
+farmer-j,nutrition,low,sugar+fibre-gt-carbs,green-eggs-and-labneh-pot,Green Eggs & Labneh Pot,Egg pots,sugars 2.9 + fibre 4.5 > carbohydrate 4.4 (starch would be negative)

@@ -1,0 +1,8 @@
+chain,kind,severity,code,item,name,category,detail
+cooplands,nutrition,high,macros-exceed-weight,fun-gingerbread-biscuit,Fun Gingerbread Biscuit,Cakes & sweet treats,protein+carbs+fat = 49 g in a 45 g serving
+cooplands,nutrition,high,macros-exceed-weight,gingerbread,Gingerbread,Cakes & sweet treats,protein+carbs+fat = 49 g in a 45 g serving
+cooplands,nutrition,high,size-inverted,large-chocolate-cream-sponge,Large Chocolate Cream Sponge,Cream cakes,larger size 'Large Chocolate Cream Sponge' has 189 kcal but smaller 'Mini Chocolate Cream Sponge' has 326
+cooplands,nutrition,high,size-inverted,large-cream-sponge,Large Cream Sponge,Cream cakes,larger size 'Large Cream Sponge' has 168 kcal but smaller 'Mini Cream Sponge' has 296
+cooplands,nutrition,high,size-inverted,large-curd-tart,Large Curd Tart,Cakes & sweet treats,larger size 'Large Curd Tart' has 305 kcal but smaller 'Small Curd Tart' has 324
+cooplands,nutrition,high,size-inverted,large-custard-tart,Large Custard Tart,Cakes & sweet treats,larger size 'Large Custard Tart' has 188 kcal but smaller 'Small Custard Tart' has 213
+cooplands,allergen,medium,name-implies-nuts,almond-tart,Almond Tart,Cakes & sweet treats,"'Almond' in the name but nuts is not marked (contains: ['eggs', 'gluten'])"

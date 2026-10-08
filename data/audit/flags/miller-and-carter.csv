@@ -1,0 +1,7 @@
+chain,kind,severity,code,item,name,category,detail
+miller-and-carter,nutrition,medium,huge-protein,butchers-block-25oz,Butcher's Block 25oz,Sharing steaks,156.9 g protein
+miller-and-carter,nutrition,medium,huge-protein,porterhouse-35oz,Porterhouse 35oz,Sharing steaks,232.5 g protein
+miller-and-carter,nutrition,medium,huge-protein,t-bone-20oz,T-Bone 20oz,Steaks,129.1 g protein
+miller-and-carter,allergen,medium,name-implies-gluten,crumbled-blue-cheese,Crumbled Blue Cheese,Add-ons,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+miller-and-carter,nutrition,medium,salt-very-high,porterhouse-35oz,Porterhouse 35oz,Sharing steaks,salt 24.83 g with 2181 kcal (6 g is the whole day's limit)
+miller-and-carter,nutrition,medium,sugar-implausible,carters-signature-chocolate-bar-dessert,Carter's Signature Chocolate Bar Dessert,Desserts,sugar 195.7 g in one item

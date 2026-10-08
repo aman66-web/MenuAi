@@ -1,0 +1,23 @@
+chain,kind,severity,code,item,name,category,detail
+pret,nutrition,low,fibre-gt-carbs,british-sausages-prets-baked-beans-egg-pot,"British Sausages, Pret's Baked Beans & Egg Pot",Breakfast,fibre 14.9 g > carbohydrate 12 g
+pret,nutrition,low,fibre-gt-carbs,roasted-mushroom-prets-baked-beans-egg-pot,"Roasted Mushroom, Pret's Baked Beans & Egg Pot",Breakfast,fibre 15.1 g > carbohydrate 11.2 g
+pret,nutrition,low,sugar+fibre-gt-carbs,apple,Apple,Fruit,sugars 18.9 + fibre 2.9 > carbohydrate 18.9 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,berries-banana-smoothie,Berries & Banana Smoothie,Cold drinks,sugars 43.8 + fibre 3.9 > carbohydrate 45.1 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,cranberry-raspberry-pomegranate-pret-still,"Cranberry, Raspberry & Pomegranate Pret Still",Cold drinks,sugars 24.5 + fibre 2.6 > carbohydrate 24.5 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,dark-chocolate-with-sea-salt,Dark Chocolate with Sea Salt,Snacks & sweet treats,sugars 8.3 + fibre 3.9 > carbohydrate 9.5 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,fruit-salad,Fruit Salad,Fruit,sugars 22.7 + fibre 3.1 > carbohydrate 22.7 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,green-tea-peach-pret-still,Green Tea & Peach Pret Still,Cold drinks,sugars 21.5 + fibre 2.5 > carbohydrate 21.5 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,hot-chocolate-semi-skimmed-milk,Hot Chocolate (semi-skimmed milk),Hot drinks,sugars 34 + fibre 5.3 > carbohydrate 35.3 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,hot-chocolate-soya-milk,Hot Chocolate (soya milk),Hot drinks,sugars 30.4 + fibre 4.3 > carbohydrate 32.4 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,iced-hot-chocolate,Iced Hot Chocolate,Cold drinks,sugars 29.1 + fibre 5.3 > carbohydrate 30.5 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,iced-mocha-semi-skimmed-milk,Iced Mocha (semi-skimmed milk),Cold drinks,sugars 20.6 + fibre 2.8 > carbohydrate 21.4 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,lemon-ginger-pret-still,Lemon & Ginger Pret Still,Cold drinks,sugars 19.5 + fibre 2.5 > carbohydrate 19.5 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,mango-passion-fruit-pret-still,Mango & Passion Fruit Pret Still,Cold drinks,sugars 23.5 + fibre 2.5 > carbohydrate 23.5 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,poppi-lemon-lime,poppi Lemon Lime,Cold drinks,sugars 4.6 + fibre 3 > carbohydrate 4.9 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,poppi-orange,poppi Orange,Cold drinks,sugars 4.3 + fibre 3 > carbohydrate 4.9 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,poppi-raspberry-rose,poppi Raspberry Rose,Cold drinks,sugars 3.6 + fibre 3.6 > carbohydrate 4.9 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,poppi-wild-berry,poppi Wild Berry,Cold drinks,sugars 4.3 + fibre 3 > carbohydrate 4.6 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,souper-tomato,Souper Tomato,Hot food,sugars 14.7 + fibre 5 > carbohydrate 15.1 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,souper-tomato-side-soup,Souper Tomato Side Soup,Hot food,sugars 7.4 + fibre 2.5 > carbohydrate 7.5 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,super-fruit,Super Fruit,Fruit,sugars 16.7 + fibre 2.5 > carbohydrate 17 (starch would be negative)
+pret,nutrition,low,sugar+fibre-gt-carbs,toasted-marshmallow-hot-chocolate,Toasted Marshmallow Hot Chocolate,Hot drinks,sugars 38 + fibre 2.8 > carbohydrate 38.7 (starch would be negative)

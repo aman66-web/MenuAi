@@ -1,0 +1,4 @@
+chain,kind,severity,code,item,name,category,detail
+wenzels,nutrition,low,huge,seeded-bloomer-loaf,Seeded Bloomer Loaf,Bread & rolls,2546 kcal in one item
+wenzels,nutrition,low,sugar+fibre-gt-carbs,chicken-avocado-and-bacon-salad,Chicken Avocado and Bacon Salad,Salads,sugars 11.8 + fibre 7.8 > carbohydrate 15.6 (starch would be negative)
+wenzels,nutrition,low,sugar+fibre-gt-carbs,tuna-nicoise-salad,Tuna Nicoise Salad,Salads,sugars 10.7 + fibre 5.5 > carbohydrate 12.3 (starch would be negative)

@@ -1,0 +1,30 @@
+chain,kind,severity,code,item,name,category,detail
+slug-and-lettuce,nutrition,high,kj-kcal,crodino-spritz,Crodino Spritz,Drinks,1330 kJ vs 41 kcal (expected about 172 kJ)
+slug-and-lettuce,nutrition,high,kj-kcal,crodino-spritz-175ml,Crodino Spritz - 175ml,Drinks,1285 kJ vs 30 kcal (expected about 126 kJ)
+slug-and-lettuce,allergen,high,vegan-contains-animal,plant-based-big-breakfast-v,Plant-Based Big Breakfast (V),Brunch,named vegan/plant-based but allergens say it contains ['eggs']
+slug-and-lettuce,nutrition,medium,kj-kcal,crispy-tofu-vg,Crispy Tofu (VG),Small plates,1489 kJ vs 387 kcal (expected about 1619 kJ)
+slug-and-lettuce,allergen,medium,name-implies-eggs,egg-on-toast-v-excluding-egg-option-see-below,"Egg on Toast (V) (Excluding Egg Option, see below)",Kids brunch,'Egg' in the name but eggs is not marked (contains: ['gluten'])
+slug-and-lettuce,allergen,medium,name-implies-fish,caesar-salad-bowl-v,Caesar Salad Bowl (V),Mains,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+slug-and-lettuce,allergen,medium,name-implies-fish,caesar-salad-bowl-v-no-gluten-menu,Caesar Salad Bowl (V) (no-gluten menu),Mains,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk'])"
+slug-and-lettuce,allergen,medium,name-implies-gluten,crispy-smoked-tofu-vg-with-katsu-curry,Crispy Smoked Tofu (VG) (with Katsu Curry),Options & add-ons,'Katsu' in the name but gluten is not marked (contains: ['soya'])
+slug-and-lettuce,allergen,medium,name-implies-gluten,crispy-smoked-tofu-vg-with-katsu-fries,Crispy Smoked Tofu (VG) (with Katsu Fries),Options & add-ons,'Katsu' in the name but gluten is not marked (contains: ['soya'])
+slug-and-lettuce,allergen,medium,name-implies-gluten,crispy-smoked-tofu-vg-with-katsu-loaded-fries,Crispy Smoked Tofu (VG) (with Katsu Loaded Fries),Options & add-ons,'Katsu' in the name but gluten is not marked (contains: ['soya'])
+slug-and-lettuce,allergen,medium,name-implies-gluten,fish-and-chips-excluding-your-pea-option-see-below,"Fish & Chips (Excluding Your Pea Option, see below)",Mains,"'Fish & Chips' in the name but gluten is not marked (contains: ['fish', 'mustard'])"
+slug-and-lettuce,allergen,medium,name-implies-gluten,salted-caramel-chocolate-brownie-bites-vg,Salted Caramel Chocolate Brownie Bites (VG),Desserts,'Brownie' in the name but gluten is not marked (contains: ['soya'])
+slug-and-lettuce,allergen,medium,name-implies-gluten,salted-caramel-chocolate-brownie-vg,Salted Caramel Chocolate Brownie (VG),Desserts,'Brownie' in the name but gluten is not marked (contains: ['soya'])
+slug-and-lettuce,allergen,medium,name-implies-gluten,salted-caramel-chocolate-brownie-vg-afternoon-tea,Salted Caramel Chocolate Brownie (VG) (afternoon tea),Afternoon tea,'Brownie' in the name but gluten is not marked (contains: none)
+slug-and-lettuce,allergen,medium,name-implies-gluten,scone-v-non-gluten-containing-afternoon-tea-selection,Scone (V) (Non-Gluten Containing Afternoon Tea Selection),Afternoon tea,"'Scone' in the name but gluten is not marked (contains: ['eggs', 'milk'])"
+slug-and-lettuce,allergen,medium,name-implies-milk,veggie-burger-v-excluding-cheese-and-accompaniment-options-see-below,"Veggie Burger (V) (Excluding Cheese & Accompaniment options, see below)",Mains,"'Cheese' in the name but milk is not marked (contains: ['celery', 'gluten', 'soya'])"
+slug-and-lettuce,allergen,medium,name-implies-soya,crispy-shredded-chicken-with-katsu-fries,Crispy Shredded Chicken (with Katsu Fries),Options & add-ons,'Katsu' in the name but soya is not marked (contains: ['gluten'])
+slug-and-lettuce,allergen,medium,name-implies-soya,crispy-shredded-chicken-with-katsu-loaded-fries,Crispy Shredded Chicken (with Katsu Loaded Fries),Options & add-ons,'Katsu' in the name but soya is not marked (contains: ['gluten'])
+slug-and-lettuce,allergen,medium,name-implies-soya,katsu-curry-excluding-topper-option-see-below,"Katsu Curry (Excluding Topper Option, see below)",Mains,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+slug-and-lettuce,allergen,medium,name-implies-soya,katsu-fries-excluding-topper-choice-see-below,"Katsu Fries (Excluding Topper Choice, see below)",Sides,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+slug-and-lettuce,allergen,medium,name-implies-soya,katsu-loaded-fries-excluding-topper-choice-see-below,"Katsu Loaded Fries (Excluding Topper Choice, see below)",Sharers,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+slug-and-lettuce,nutrition,medium,salt-very-high,s-and-l-meat-feast,S&L Meat Feast,Sharers,salt 12.1 g with 1848 kcal (6 g is the whole day's limit)
+slug-and-lettuce,nutrition,medium,salt-very-high,s-and-l-sharer-for-two,S&L Sharer For Two,Sharers,salt 14.2 g with 2511 kcal (6 g is the whole day's limit)
+slug-and-lettuce,nutrition,low,energy-gap-alcohol,jack-daniels-tennessee-honey,Jack Daniel's Tennessee Honey,Drinks,60 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+slug-and-lettuce,nutrition,low,huge,s-and-l-sharer-for-two,S&L Sharer For Two,Sharers,2511 kcal in one item
+slug-and-lettuce,allergen,low,name-implies-sulphites,crodino-spritz,Crodino Spritz,Drinks,'Spritz' in the name but sulphites is not marked (contains: none)
+slug-and-lettuce,allergen,low,name-implies-sulphites,crodino-spritz-175ml,Crodino Spritz - 175ml,Drinks,'Spritz' in the name but sulphites is not marked (contains: none)
+slug-and-lettuce,allergen,low,name-implies-sulphites,pink-spritz-0,Pink Spritz 0%,Drinks,'Spritz' in the name but sulphites is not marked (contains: none)
+slug-and-lettuce,nutrition,low,zero-named-has-kcal,zombie-zero,Zombie Zero,Drinks,named diet/zero/no sugar but 152 kcal

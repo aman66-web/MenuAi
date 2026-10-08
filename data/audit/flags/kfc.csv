@@ -1,0 +1,4 @@
+chain,kind,severity,code,item,name,category,detail
+kfc,nutrition,high,zero-kcal,bottle-of-still-water,Bottle of Still Water,Drinks,0 kcal but macros add to 8 kcal
+kfc,allergen,medium,name-implies-eggs,iced-tiramisu-latte,Iced Tiramisu Latte,Drinks,'Tiramisu' in the name but eggs is not marked (contains: ['milk'])
+kfc,allergen,medium,name-implies-eggs,oatly-iced-tiramisu-latte,Oatly Iced Tiramisu Latte,Drinks,'Tiramisu' in the name but eggs is not marked (contains: ['gluten'])

@@ -1,0 +1,4 @@
+chain,kind,severity,code,item,name,category,detail
+pizza-union,allergen,medium,name-implies-gluten,pizza-sauce,Pizza sauce,Toppings,'Pizza' in the name but gluten is not marked (contains: none)
+pizza-union,nutrition,low,energy-gap-alcohol,beer-moretti,Beer Moretti,Beer,125 kcal vs 4P+4C+9F=49: energy not in the macros (alcohol?)
+pizza-union,nutrition,low,energy-gap-alcohol,beer-moretti-large,Beer Moretti Large,Beer,250 kcal vs 4P+4C+9F=99: energy not in the macros (alcohol?)

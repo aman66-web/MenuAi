@@ -1,0 +1,18 @@
+chain,kind,severity,code,item,name,category,detail
+nandos,nutrition,medium,energy-gap,beanie-wrap,Beanie Wrap,Veggie,644 kcal vs 4P+4C+9F=472 (27% off)
+nandos,nutrition,medium,energy-gap,spicy-rice-bowl,Spicy Rice Bowl,Salads & Bowls,600 kcal vs 4P+4C+9F=432 (28% off)
+nandos,nutrition,medium,huge-protein,whole-chicken,Whole Chicken,PERi-PERi Chicken,157.6 g protein
+nandos,nutrition,medium,salt-very-high,10-phantom-wings,10 Phantom Wings,PERi-PERi Chicken,salt 10.2 g with 959 kcal (6 g is the whole day's limit)
+nandos,nutrition,low,energy-gap-alcohol,freedom-pils,Freedom Pils,Drinks,119 kcal vs 4P+4C+9F=42: energy not in the macros (alcohol?)
+nandos,nutrition,low,energy-gap-alcohol,sagres,Sagres,Drinks,129 kcal vs 4P+4C+9F=46: energy not in the macros (alcohol?)
+nandos,nutrition,low,energy-gap-alcohol,spier-merlot-south-africa,Spier Merlot (South Africa),Drinks,203 kcal vs 4P+4C+9F=8: energy not in the macros (alcohol?)
+nandos,nutrition,low,energy-gap-alcohol,spier-rose-south-africa,Spier Rose (South Africa),Drinks,188 kcal vs 4P+4C+9F=2: energy not in the macros (alcohol?)
+nandos,nutrition,low,energy-gap-alcohol,spier-sauvignon-blanc-south-africa,Spier Sauvignon Blanc (South Africa),Drinks,190 kcal vs 4P+4C+9F=3: energy not in the macros (alcohol?)
+nandos,nutrition,low,energy-gap-alcohol,sxollie-cider,Sxollie Cider,Drinks,290 kcal vs 4P+4C+9F=131: energy not in the macros (alcohol?)
+nandos,nutrition,low,energy-gap-alcohol,tiny-rebel-session-ipa,Tiny Rebel Session IPA,Drinks,129 kcal vs 4P+4C+9F=42: energy not in the macros (alcohol?)
+nandos,nutrition,low,fibre-gt-carbs,10-chicken-wings,10 Chicken Wings,PERi-PERi Chicken,fibre 2.5 g > carbohydrate 0.9 g
+nandos,nutrition,low,fibre-gt-carbs,4-boneless-chicken-thighs,4 Boneless Chicken Thighs,PERi-PERi Chicken,fibre 1.4 g > carbohydrate 0.3 g
+nandos,nutrition,low,fibre-gt-carbs,chicken-butterfly,Chicken Butterfly,PERi-PERi Chicken,fibre 1.5 g > carbohydrate 0.2 g
+nandos,nutrition,low,fibre-gt-carbs,cucumber-sticks-nandinos-side,Cucumber Sticks (Nandinos side),Nandinos (Kids),fibre 2.7 g > carbohydrate 0.1 g
+nandos,nutrition,low,fibre-gt-carbs,peri-plant-fillet,PERi-Plant Fillet,Dips & Extras,fibre 5.3 g > carbohydrate 3.5 g
+nandos,nutrition,low,fibre-gt-carbs,whole-chicken,Whole Chicken,PERi-PERi Chicken,fibre 3 g > carbohydrate 1.1 g

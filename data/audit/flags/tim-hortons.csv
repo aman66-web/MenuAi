@@ -1,0 +1,9 @@
+chain,kind,severity,code,item,name,category,detail
+tim-hortons,nutrition,medium,energy-gap,iced-caramel-latte-small,Iced Caramel Latte (small),Cold drinks,105 kcal vs 4P+4C+9F=135 (28% off)
+tim-hortons,nutrition,medium,energy-gap,iced-latte-medium,Iced Latte (medium),Cold drinks,99 kcal vs 4P+4C+9F=124 (25% off)
+tim-hortons,nutrition,medium,energy-gap,iced-vanilla-latte-medium,Iced Vanilla Latte (medium),Cold drinks,99 kcal vs 4P+4C+9F=124 (25% off)
+tim-hortons,nutrition,medium,sugar-implausible,maple-caramel-smores-iced-capp-large,Maple Caramel S'mores Iced Capp® (large),Cold drinks,sugar 122 g in one item
+tim-hortons,nutrition,low,energy-gap-alcohol,iced-french-vanilla-medium,Iced French Vanilla (medium),Cold drinks,360 kcal vs 4P+4C+9F=256: energy not in the macros (alcohol?)
+tim-hortons,nutrition,low,energy-gap-alcohol,iced-french-vanilla-small,Iced French Vanilla (small),Cold drinks,267 kcal vs 4P+4C+9F=209: energy not in the macros (alcohol?)
+tim-hortons,nutrition,low,sugar+fibre-gt-carbs,hot-chocolate-large,Hot Chocolate (large),Hot drinks,sugars 90 + fibre 5.1 > carbohydrate 92 (starch would be negative)
+tim-hortons,nutrition,low,zero-named-has-kcal,fanta-orange-zero-large,Fanta Orange Zero (large),Soft drinks,named diet/zero/no sugar but 16 kcal

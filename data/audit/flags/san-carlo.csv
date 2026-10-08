@@ -1,0 +1,70 @@
+chain,kind,severity,code,item,name,category,detail
+san-carlo,nutrition,high,energy-gap,filetto-alla-griglia,Filetto alla Griglia,Macelleria,749 kcal vs 4P+4C+9F=977 (30% off)
+san-carlo,nutrition,high,energy-gap,spaghetti-pomodoro-e-basilico,Spaghetti Pomodoro e Basilico,Pasta e risotto,820 kcal vs 4P+4C+9F=559 (32% off)
+san-carlo,nutrition,medium,energy-gap,branzino-pizzaiola,Branzino Pizzaiola,1996 menu: Mains,1093 kcal vs 4P+4C+9F=792 (28% off)
+san-carlo,nutrition,medium,energy-gap,burrata-e-pomodoro,Burrata e Pomodoro,Antipasti,704 kcal vs 4P+4C+9F=548 (22% off)
+san-carlo,nutrition,medium,energy-gap,burrata-e-pomodoro-christmas-lunch,Burrata e Pomodoro (Christmas lunch),Christmas menu: Starters,703 kcal vs 4P+4C+9F=548 (22% off)
+san-carlo,nutrition,medium,energy-gap,burrata-pomodoro,Burrata Pomodoro,Lunch menu: Starters,704 kcal vs 4P+4C+9F=548 (22% off)
+san-carlo,nutrition,medium,energy-gap,cozze-all-arrabbiata,Cozze all Arrabbiata,Antipasti,547 kcal vs 4P+4C+9F=411 (25% off)
+san-carlo,nutrition,medium,energy-gap,cozze-all-arrabbiata-lunch-menu,Cozze all Arrabbiata (lunch menu),Lunch menu: Starters,547 kcal vs 4P+4C+9F=411 (25% off)
+san-carlo,nutrition,medium,energy-gap,cozze-allarrabbiata-or-mariniere-a-spicy-tomato-sauce-with-chilli-and-garlic,Cozze all'Arrabbiata or Mariniere (a spicy tomato sauce with chilli & garlic),Antipasti,831 kcal vs 4P+4C+9F=604 (27% off)
+san-carlo,nutrition,medium,energy-gap,filetto-al-tartufo,Filetto al Tartufo,Carne,1109 kcal vs 4P+4C+9F=1350 (22% off)
+san-carlo,nutrition,medium,energy-gap,gnocchi-sorrentina,Gnocchi Sorrentina,Pasta e risotto,1222 kcal vs 4P+4C+9F=889 (27% off)
+san-carlo,nutrition,medium,energy-gap,penne-arrabbiata-main,Penne Arrabbiata (main),Pasta e risotto,1086 kcal vs 4P+4C+9F=782 (28% off)
+san-carlo,nutrition,medium,energy-gap,penne-arrabbiata-starter,Penne Arrabbiata (starter),Pasta e risotto,544 kcal vs 4P+4C+9F=391 (28% off)
+san-carlo,nutrition,medium,energy-gap,pizza-prosciutto-e-funghi,Pizza Prosciutto e Funghi,Lunch menu: Pizza,1672 kcal vs 4P+4C+9F=1263 (24% off)
+san-carlo,nutrition,medium,energy-gap,quattro-stagioni,Quattro Stagioni,Pizza,2069 kcal vs 4P+4C+9F=1563 (24% off)
+san-carlo,nutrition,medium,energy-gap,rigatoni-alla-norma-main,Rigatoni alla Norma (main),Pasta e risotto,1195 kcal vs 4P+4C+9F=897 (25% off)
+san-carlo,nutrition,medium,energy-gap,rigatoni-alla-norma-starter,Rigatoni alla Norma (starter),Pasta e risotto,580 kcal vs 4P+4C+9F=432 (26% off)
+san-carlo,nutrition,medium,energy-gap,rigatoni-norma,Rigatoni Norma,Lunch menu: Mains,1087 kcal vs 4P+4C+9F=789 (27% off)
+san-carlo,nutrition,medium,energy-gap,spaghetti-puttanesca-main,Spaghetti Puttanesca (main),Pasta e risotto,1200 kcal vs 4P+4C+9F=951 (21% off)
+san-carlo,nutrition,medium,energy-gap,steak-diane,Steak Diane,1996 menu: Mains,410 kcal vs 4P+4C+9F=526 (28% off)
+san-carlo,nutrition,medium,energy-gap,tagliata-di-filetto-di-manzo,Tagliata Di Filetto Di Manzo,Macelleria,887 kcal vs 4P+4C+9F=1108 (25% off)
+san-carlo,nutrition,medium,energy-gap,tagliolini-allaragosta,Tagliolini all’Aragosta,Pasta e risotto,994 kcal vs 4P+4C+9F=1202 (21% off)
+san-carlo,nutrition,medium,energy-gap,tagliolini-con-aragosta,Tagliolini con Aragosta,Christmas menu: Mains,994 kcal vs 4P+4C+9F=1202 (21% off)
+san-carlo,nutrition,medium,energy-gap,tournedos-rossini,Tournedos Rossini,Christmas menu: Mains,836 kcal vs 4P+4C+9F=1049 (25% off)
+san-carlo,nutrition,medium,energy-gap,vegetali,Vegetali,Pizza,1589 kcal vs 4P+4C+9F=1266 (20% off)
+san-carlo,nutrition,medium,fat-implausible,lemon-sole-with-clams-and-asparagus,Lemon Sole with Clams and Asparagus,Specials,fat 188.9 g in one item
+san-carlo,nutrition,medium,fat-implausible,ravioli-tartufo-main,Ravioli Tartufo (main),Pasta e risotto,fat 166.1 g in one item
+san-carlo,nutrition,medium,fat-implausible,t-bone-steak-two-people,T-Bone Steak (Two People),Sunday roast,fat 232.1 g in one item
+san-carlo,nutrition,medium,fat-implausible,tomahawk,Tomahawk,Macelleria,fat 217.5 g in one item
+san-carlo,nutrition,medium,fat-implausible,tortellini-panna-e-prosciutto,Tortellini Panna e Prosciutto,Pasta e risotto,fat 161.5 g in one item
+san-carlo,nutrition,medium,fat-implausible,tortellini-panna-e-prosciutto-lunch-menu,Tortellini Panna e Prosciutto (lunch menu),Lunch menu: Mains,fat 160.4 g in one item
+san-carlo,nutrition,medium,huge-protein,dover-sole-served-with-capers-and-lemon-butter-sauce,Dover Sole (served with capers & lemon butter sauce),Pesci,139.3 g protein
+san-carlo,nutrition,medium,huge-protein,dover-sole-whole-grilled-dover-sole,Dover Sole (whole grilled Dover sole),Pesci,136.2 g protein
+san-carlo,nutrition,medium,huge-protein,grigliata-mista-di-pesce,Grigliata Mista di Pesce,Pesci,143.9 g protein
+san-carlo,nutrition,medium,huge-protein,mixed-roasted-shellfish,Mixed Roasted Shellfish,Specials,166.8 g protein
+san-carlo,nutrition,medium,huge-protein,roast-chicken,Roast Chicken,Sunday roast,131.6 g protein
+san-carlo,nutrition,medium,huge-protein,san-carlo-special-shellfish,San Carlo Special Shellfish,Pesci,166.8 g protein
+san-carlo,nutrition,medium,huge-protein,seafood-mixed-grill,Seafood Mixed Grill,Specials,136.2 g protein
+san-carlo,nutrition,medium,huge-protein,sogliola,Sogliola,Specials,136.5 g protein
+san-carlo,nutrition,medium,huge-protein,t-bone-steak-two-people,T-Bone Steak (Two People),Sunday roast,252.6 g protein
+san-carlo,nutrition,medium,huge-protein,tomahawk,Tomahawk,Macelleria,200.8 g protein
+san-carlo,allergen,medium,name-implies-fish,monkfish-in-salsa-verde,Monkfish in Salsa Verde,Seasonal specials,"'Monkfish' in the name but fish is not marked (contains: ['celery', 'milk', 'mustard', 'sulphites'])"
+san-carlo,allergen,medium,name-implies-gluten,add-pizza-sauce,Add Pizza Sauce,Toppings,'Pizza' in the name but gluten is not marked (contains: none)
+san-carlo,allergen,medium,name-implies-gluten,branzino-pizzaiola,Branzino Pizzaiola,1996 menu: Mains,'Pizza' in the name but gluten is not marked (contains: ['fish'])
+san-carlo,allergen,medium,name-implies-gluten,build-your-own-pasta-bolognese-sauce,Build Your Own Pasta (Bolognese Sauce),Children's menu: Main event,"'Pasta' in the name but gluten is not marked (contains: ['celery', 'sulphites'])"
+san-carlo,allergen,medium,name-implies-gluten,build-your-own-pasta-butter-and-parmesan-sauce,Build Your Own Pasta (Butter & Parmesan Sauce),Children's menu: Main event,"'Pasta' in the name but gluten is not marked (contains: ['eggs', 'milk'])"
+san-carlo,allergen,medium,name-implies-gluten,build-your-own-pizza-chicken,Build Your Own Pizza (Chicken),Children's menu: Main event,'Pizza' in the name but gluten is not marked (contains: none)
+san-carlo,allergen,medium,name-implies-gluten,build-your-own-pizza-mozarrella,Build Your Own Pizza (Mozarrella),Children's menu: Main event,'Pizza' in the name but gluten is not marked (contains: ['milk'])
+san-carlo,allergen,medium,name-implies-gluten,build-your-own-pizza-mushrooms,Build Your Own Pizza (Mushrooms),Children's menu: Main event,'Pizza' in the name but gluten is not marked (contains: none)
+san-carlo,allergen,medium,name-implies-gluten,build-your-own-pizza-pizza-sauce,Build Your Own Pizza (Pizza Sauce),Children's menu: Main event,'Pizza' in the name but gluten is not marked (contains: none)
+san-carlo,allergen,medium,name-implies-gluten,cookie-sauce,Cookie Sauce,Children's menu: Gelati & toppings,'Cookie' in the name but gluten is not marked (contains: ['milk'])
+san-carlo,nutrition,medium,salt-very-high,dover-sole-served-with-capers-and-lemon-butter-sauce,Dover Sole (served with capers & lemon butter sauce),Pesci,salt 11.4 g with 1053 kcal (6 g is the whole day's limit)
+san-carlo,nutrition,medium,salt-very-high,green-olives,Green Olives,To start,salt 5.3 g with 269 kcal (6 g is the whole day's limit)
+san-carlo,nutrition,medium,salt-very-high,quattro-stagioni,Quattro Stagioni,Pizza,salt 15.1 g with 2069 kcal (6 g is the whole day's limit)
+san-carlo,nutrition,medium,salt-very-high,rigatoro-affumicato-and-monkfish,Rigatoro Affumicato & Monkfish,Seasonal specials,salt 11.5 g with 1234 kcal (6 g is the whole day's limit)
+san-carlo,nutrition,medium,salt-very-high,risotto-gamberi-and-asparagi,Risotto Gamberi & Asparagi,Pasta e risotto,salt 10.5 g with 898 kcal (6 g is the whole day's limit)
+san-carlo,nutrition,medium,saturatedFat-implausible,ravioli-tartufo-main,Ravioli Tartufo (main),Pasta e risotto,saturatedFat 92.7 g in one item
+san-carlo,nutrition,medium,saturatedFat-implausible,t-bone-steak-two-people,T-Bone Steak (Two People),Sunday roast,saturatedFat 85.3 g in one item
+san-carlo,nutrition,medium,saturatedFat-implausible,tomahawk,Tomahawk,Macelleria,saturatedFat 81.5 g in one item
+san-carlo,nutrition,medium,saturatedFat-implausible,tortellini-panna-e-prosciutto,Tortellini Panna e Prosciutto,Pasta e risotto,saturatedFat 83.4 g in one item
+san-carlo,nutrition,medium,saturatedFat-implausible,tortellini-panna-e-prosciutto-lunch-menu,Tortellini Panna e Prosciutto (lunch menu),Lunch menu: Mains,saturatedFat 83.9 g in one item
+san-carlo,nutrition,low,energy-gap-alcohol,amalfi-in-winter,Amalfi in Winter,Seasonal cocktails,157 kcal vs 4P+4C+9F=46: energy not in the macros (alcohol?)
+san-carlo,nutrition,low,energy-gap-alcohol,bellini-festivo,Bellini Festivo,Seasonal cocktails,182 kcal vs 4P+4C+9F=29: energy not in the macros (alcohol?)
+san-carlo,nutrition,low,energy-gap-alcohol,centre-court-cocktail,Centre Court Cocktail,Wimbledon specials,165 kcal vs 4P+4C+9F=71: energy not in the macros (alcohol?)
+san-carlo,nutrition,low,energy-gap-alcohol,champagne-sorbet,Champagne Sorbet,Christmas menu: Starters,137 kcal vs 4P+4C+9F=98: energy not in the macros (alcohol?)
+san-carlo,nutrition,low,energy-gap-alcohol,fireside-negroni,Fireside Negroni,Seasonal cocktails,223 kcal vs 4P+4C+9F=57: energy not in the macros (alcohol?)
+san-carlo,nutrition,low,energy-gap-alcohol,winter-rose,Winter Rose,Seasonal cocktails,165 kcal vs 4P+4C+9F=67: energy not in the macros (alcohol?)
+san-carlo,nutrition,low,huge,t-bone-steak-two-people,T-Bone Steak (Two People),Sunday roast,3366 kcal in one item
+san-carlo,nutrition,low,huge,tomahawk,Tomahawk,Macelleria,3036 kcal in one item

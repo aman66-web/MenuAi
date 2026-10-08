@@ -1,0 +1,6 @@
+chain,kind,severity,code,item,name,category,detail
+the-botanist,allergen,medium,name-implies-eggs,garlic-aioli-dip,Garlic Aioli Dip,Garden Sides,'Aioli' in the name but eggs is not marked (contains: none)
+the-botanist,allergen,medium,name-implies-eggs,mayonnaise,Mayonnaise,Condiments: Sauces,'Mayo' in the name but eggs is not marked (contains: none)
+the-botanist,allergen,medium,name-implies-gluten,chocolate-chip-cookie-dough,Chocolate Chip Cookie Dough,Puddings,"'Cookie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+the-botanist,allergen,medium,name-implies-milk,vanilla-cheesecake,Vanilla Cheesecake,Puddings,"'Cheese' in the name but milk is not marked (contains: ['gluten', 'soya'])"
+the-botanist,nutrition,low,huge,asian-pork-belly-bites-christmas-nibbles,Asian Pork Belly Bites,Christmas Nibbles,2748 kcal in one item

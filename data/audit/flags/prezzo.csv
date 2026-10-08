@@ -1,0 +1,28 @@
+chain,kind,severity,code,item,name,category,detail
+prezzo,nutrition,medium,fat-implausible,fusilli-carbonara-sharer-gluten-free,Fusilli Carbonara Sharer Gluten Free,Family sharers,fat 181 g in one item
+prezzo,nutrition,medium,fat-implausible,rigatoni-carbonara-sharer,Rigatoni Carbonara Sharer,Family sharers,fat 185 g in one item
+prezzo,nutrition,medium,huge-protein,rigatoni-carbonara-sharer,Rigatoni Carbonara Sharer,Family sharers,130 g protein
+prezzo,allergen,medium,name-implies-eggs,custard-cream-tiramisu,Custard Cream Tiramisu,Specials,"'Custard' in the name but eggs is not marked (contains: ['gluten', 'milk'])"
+prezzo,allergen,medium,name-implies-fish,baby-caesar-salad,Baby Caesar Salad,Sides,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk', 'mustard'])"
+prezzo,allergen,medium,name-implies-fish,caesar-salad-big-kids,Caesar Salad - Big Kids,Kids mains,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard', 'sulphites'])"
+prezzo,allergen,medium,name-implies-fish,chicken-caesar-salad,Chicken Caesar Salad,Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"
+prezzo,allergen,medium,name-implies-gluten,creamy-mushroom-fusilli-byo,Creamy Mushroom Fusilli - BYO,Build your own,"'Fusilli' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+prezzo,allergen,medium,name-implies-gluten,hot-chocolate-fudge-cake,Hot Chocolate Fudge Cake,Desserts,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+prezzo,allergen,medium,name-implies-gluten,marry-me-chicken-fusilli,Marry Me Chicken Fusilli,Pasta,"'Fusilli' in the name but gluten is not marked (contains: ['celery', 'eggs', 'milk'])"
+prezzo,allergen,medium,name-implies-gluten,pesto-chicken-fusilli-byo,Pesto Chicken Fusilli - BYO,Build your own,'Fusilli' in the name but gluten is not marked (contains: ['milk'])
+prezzo,allergen,medium,name-implies-gluten,smokey-pork-crumb-extra,Smokey Pork Crumb (Extra),Extras and toppings,'Crumb' in the name but gluten is not marked (contains: none)
+prezzo,allergen,medium,name-implies-gluten,smokey-sausage-and-chilli-fusilli,Smokey Sausage and Chilli Fusilli,Specials,"'Fusilli' in the name but gluten is not marked (contains: ['celery', 'eggs', 'milk'])"
+prezzo,nutrition,medium,salt-very-high,fusilli-carbonara-sharer-gluten-free,Fusilli Carbonara Sharer Gluten Free,Family sharers,salt 11.2 g with 3535 kcal (6 g is the whole day's limit)
+prezzo,nutrition,medium,salt-very-high,meat-lovers-large,Meat Lovers - Large,Pizza,salt 11.8 g with 1760 kcal (6 g is the whole day's limit)
+prezzo,nutrition,medium,salt-very-high,rigatoni-carbonara-sharer,Rigatoni Carbonara Sharer,Family sharers,salt 11.5 g with 3290 kcal (6 g is the whole day's limit)
+prezzo,nutrition,medium,salt-very-high,vegan-double-pepperoni,Vegan Double Pepperoni,Pizza,salt 10.8 g with 1200 kcal (6 g is the whole day's limit)
+prezzo,nutrition,medium,salt-very-high,vegan-double-pepperoni-gluten-free,Vegan Double Pepperoni Gluten Free,Pizza,salt 11.8 g with 1100 kcal (6 g is the whole day's limit)
+prezzo,nutrition,medium,salt-very-high,vegan-pepperoni-large,Vegan Pepperoni - Large,Pizza,salt 10.2 g with 1220 kcal (6 g is the whole day's limit)
+prezzo,nutrition,medium,saturatedFat-implausible,fusilli-carbonara-sharer-gluten-free,Fusilli Carbonara Sharer Gluten Free,Family sharers,saturatedFat 97 g in one item
+prezzo,nutrition,medium,saturatedFat-implausible,rigatoni-carbonara-sharer,Rigatoni Carbonara Sharer,Family sharers,saturatedFat 99 g in one item
+prezzo,nutrition,low,energy-gap-alcohol,stonewall-inn-ipa,Stonewall Inn IPA,Beer and cider,122 kcal vs 4P+4C+9F=44: energy not in the macros (alcohol?)
+prezzo,nutrition,low,fibre-gt-carbs,vegan-chicken,Vegan Chicken,Extras and toppings,fibre 3.8 g > carbohydrate 1.7 g
+prezzo,nutrition,low,fibre-gt-carbs,vegan-pepperoni-extra,Vegan Pepperoni (extra),Extras and toppings,fibre 5.6 g > carbohydrate 1.9 g
+prezzo,nutrition,low,huge,fusilli-carbonara-sharer-gluten-free,Fusilli Carbonara Sharer Gluten Free,Family sharers,3535 kcal in one item
+prezzo,nutrition,low,huge,rigatoni-carbonara-sharer,Rigatoni Carbonara Sharer,Family sharers,3290 kcal in one item
+prezzo,nutrition,low,zero-named-has-kcal,poretti-zero,Poretti Zero,Beer and cider,named diet/zero/no sugar but 49 kcal

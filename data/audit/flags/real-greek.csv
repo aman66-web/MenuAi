@@ -1,0 +1,5 @@
+chain,kind,severity,code,item,name,category,detail
+real-greek,nutrition,high,kcal-per-gram,taramasalata-50-g,Taramasalata (50 g),Flatbread and dips,544 kcal in 50 g is 10.9 kcal/g (fat is 9)
+real-greek,nutrition,high,macros-exceed-weight,houmous-50-g,Houmous (50 g),Flatbread and dips,protein+carbs+fat = 58 g in a 50 g serving
+real-greek,nutrition,high,macros-exceed-weight,taramasalata-50-g,Taramasalata (50 g),Flatbread and dips,protein+carbs+fat = 68 g in a 50 g serving
+real-greek,nutrition,high,macros-exceed-weight,whipped-spicy-feta-50-g,Whipped Spicy Feta (50 g),Flatbread and dips,protein+carbs+fat = 56 g in a 50 g serving

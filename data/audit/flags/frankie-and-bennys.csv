@@ -1,0 +1,36 @@
+chain,kind,severity,code,item,name,category,detail
+frankie-and-bennys,nutrition,high,energy-gap,brooklyn-boba,Brooklyn Boba,Drinks: Mocktails,70 kcal vs 4P+4C+9F=92 (31% off)
+frankie-and-bennys,allergen,high,free-from-gluten-contains,peroni-nastro-azzurro-gluten-free,Peroni Nastro Azzurro Gluten Free,Drinks: Beers & ciders,named 'Gluten Free' but allergens say it contains gluten
+frankie-and-bennys,allergen,high,free-from-gluten-contains,vegan-salted-caramel-shake-go-gluten-free,Vegan Salted Caramel Shake (go gluten-free),Shakes,named 'gluten-free' but allergens say it contains gluten
+frankie-and-bennys,nutrition,medium,huge-protein,bbq-platter,BBQ Platter,Signature grills & classics,133.9 g protein
+frankie-and-bennys,allergen,medium,name-implies-fish,classic-caesar,Classic Caesar,Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"
+frankie-and-bennys,allergen,medium,name-implies-gluten,broccolini-kids-pizza-topping,Broccolini (kids pizza topping),Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,allergen,medium,name-implies-gluten,cherry-tomato-kids-pizza-topping,Cherry Tomato (kids pizza topping),Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,allergen,medium,name-implies-gluten,chicken-kids-pizza-topping,Chicken (kids pizza topping),Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,allergen,medium,name-implies-gluten,courgette-kids-pizza-topping,Courgette (kids pizza topping),Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,allergen,medium,name-implies-gluten,ham-kids-pizza-topping,Ham (kids pizza topping),Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,allergen,medium,name-implies-gluten,kids-brownie-and-ice-cream,Kids Brownie & Ice Cream,Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+frankie-and-bennys,allergen,medium,name-implies-gluten,mushroom-kids-pizza-topping,Mushroom (kids pizza topping),Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,allergen,medium,name-implies-gluten,nduja-add-on-main-menu-pasta,"'Nduja (add-on, Main Menu, Pasta)",Add-ons & extras,'Pasta' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,allergen,medium,name-implies-gluten,pepperoni-kids-pizza-topping,Pepperoni (kids pizza topping),Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,allergen,medium,name-implies-gluten,red-pepper-kids-pizza-topping,Red Pepper (kids pizza topping),Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+frankie-and-bennys,nutrition,medium,salt-very-high,bbq-platter,BBQ Platter,Signature grills & classics,salt 10.4 g with 1787 kcal (6 g is the whole day's limit)
+frankie-and-bennys,nutrition,medium,salt-very-high,calizza,Calizza,Calzones,salt 10 g with 1670 kcal (6 g is the whole day's limit)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,absolut-25ml,Absolut (25ml),Drinks: Spirits,56 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,absolut-50ml,Absolut (50ml),Drinks: Spirits,111 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,amaretto-25ml,Amaretto (25ml),Drinks: Spirits,77 kcal vs 4P+4C+9F=33: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,amaretto-50ml,Amaretto (50ml),Drinks: Spirits,154 kcal vs 4P+4C+9F=66: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,aperol-apertivo-50ml,Aperol Apertivo (50ml),Drinks: Spirits,104 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,baileys-50ml,Baileys (50ml),Drinks: Spirits,162 kcal vs 4P+4C+9F=117: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,beefeater-25ml,Beefeater (25ml),Drinks: Spirits,56 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,beefeater-50ml,Beefeater (50ml),Drinks: Spirits,111 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,chambord-25ml,Chambord (25ml),Drinks: Spirits,52 kcal vs 4P+4C+9F=13: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,chambord-50ml,Chambord (50ml),Drinks: Spirits,104 kcal vs 4P+4C+9F=26: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,doom-bar-4-3-500ml,Doom Bar 4.3% 500ml,Drinks: Beers & ciders,179 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,jameson-25ml,Jameson (25ml),Drinks: Spirits,52 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,jameson-50ml,Jameson (50ml),Drinks: Spirits,104 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,malibu-50ml,Malibu (50ml),Drinks: Spirits,138 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,peroni-nastro-azzurro-gluten-free,Peroni Nastro Azzurro Gluten Free,Drinks: Beers & ciders,139 kcal vs 4P+4C+9F=45: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,teich-peach-schn-25ml,Teich Peach Schn (25ml),Drinks: Spirits,120 kcal vs 4P+4C+9F=56: energy not in the macros (alcohol?)
+frankie-and-bennys,nutrition,low,energy-gap-alcohol,teich-peach-schn-50ml,Teich Peach Schn (50ml),Drinks: Spirits,239 kcal vs 4P+4C+9F=112: energy not in the macros (alcohol?)
+frankie-and-bennys,allergen,low,name-implies-sulphites,passionfruit-spritz,Passionfruit Spritz,Drinks: Mocktails,'Spritz' in the name but sulphites is not marked (contains: none)

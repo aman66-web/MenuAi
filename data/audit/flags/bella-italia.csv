@@ -1,0 +1,36 @@
+chain,kind,severity,code,item,name,category,detail
+bella-italia,allergen,high,free-from-gluten-contains,peroni-nastro-azzurro-gluten-free,Peroni Nastro Azzurro Gluten Free,Drinks: Beers & ciders,named 'Gluten Free' but allergens say it contains gluten
+bella-italia,allergen,medium,name-implies-fish,chicken-caesar-salad,Chicken Caesar Salad,House Specials,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"
+bella-italia,allergen,medium,name-implies-fish,chicken-caesar-salad-gluten-free,Chicken Caesar Salad (Gluten-Free),House Specials,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk', 'mustard'])"
+bella-italia,allergen,medium,name-implies-gluten,brownie,Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+bella-italia,allergen,medium,name-implies-gluten,chicken-kids-pizza-topping-larger,"Chicken (kids pizza topping, larger)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,chicken-kids-pizza-topping-smaller,"Chicken (kids pizza topping, smaller)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,chocolate-brownie,Chocolate Brownie,Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+bella-italia,allergen,medium,name-implies-gluten,ham-kids-pizza-topping-larger,"Ham (kids pizza topping, larger)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,ham-kids-pizza-topping-smaller,"Ham (kids pizza topping, smaller)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,mini-chocolate-brownie,Mini Chocolate Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+bella-italia,allergen,medium,name-implies-gluten,mushroom-kids-pizza-topping-larger,"Mushroom (kids pizza topping, larger)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,mushroom-kids-pizza-topping-smaller,"Mushroom (kids pizza topping, smaller)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,pepperoni-kids-pizza-topping-larger,"Pepperoni (kids pizza topping, larger)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,pepperoni-kids-pizza-topping-smaller,"Pepperoni (kids pizza topping, smaller)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,red-pepper-kids-pizza-topping-larger,"Red Pepper (kids pizza topping, larger)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-gluten,red-pepper-kids-pizza-topping-smaller,"Red Pepper (kids pizza topping, smaller)",Kids: Add-ons & extras,'pizza' in the name but gluten is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-milk,chocolate-sauce-gelato-topping,Chocolate Sauce (gelato topping),Kids: Add-ons & extras,'gelato' in the name but milk is not marked (contains: ['soya'])
+bella-italia,allergen,medium,name-implies-milk,gelato-lemon-sorbet,Gelato: Lemon Sorbet,Kids: Desserts,'Gelato' in the name but milk is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-milk,gelato-mango-sorbet,Gelato: Mango Sorbet,Kids: Desserts,'Gelato' in the name but milk is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-milk,gelato-watermelon,Gelato: Watermelon,Kids: Desserts,'Gelato' in the name but milk is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-milk,macchiato-regular,Macchiato (Regular),Drinks: Hot drinks,'Macchiato' in the name but milk is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-milk,rainbow-strands-gelato-topping,Rainbow Strands (gelato topping),Kids: Add-ons & extras,'gelato' in the name but milk is not marked (contains: none)
+bella-italia,allergen,medium,name-implies-milk,salted-caramel-gelato-topping,Salted Caramel (gelato topping),Kids: Add-ons & extras,'gelato' in the name but milk is not marked (contains: none)
+bella-italia,nutrition,low,energy-gap-alcohol,basil-gin-smash,Basil Gin Smash,Drinks: Cocktails,111 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,beefeater-london-dry,Beefeater London Dry,Drinks: Gin & tonic,56 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,birra-moretti,Birra Moretti,Drinks: Beers & ciders,244 kcal vs 4P+4C+9F=74: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,birra-moretti-draught,Birra Moretti Draught,Drinks: Beers & ciders,210 kcal vs 4P+4C+9F=70: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,birra-moretti-sale-di-mare,Birra Moretti Sale Di Mare,Drinks: Beers & ciders,139 kcal vs 4P+4C+9F=54: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,bombay-sapphire,Bombay Sapphire,Drinks: Gin & tonic,55 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,cruzcampo-draught,Cruzcampo Draught,Drinks: Beers & ciders,222 kcal vs 4P+4C+9F=77: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,old-mout-cider-berries-and-cherries,Old Mout Cider: Berries & Cherries,Drinks: Beers & ciders,235 kcal vs 4P+4C+9F=122: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,orange-spritz,Orange Spritz,Drinks: Cocktails,65 kcal vs 4P+4C+9F=49: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,peroni-nastro-azzurro-gluten-free,Peroni Nastro Azzurro Gluten Free,Drinks: Beers & ciders,139 kcal vs 4P+4C+9F=45: energy not in the macros (alcohol?)
+bella-italia,nutrition,low,energy-gap-alcohol,tutti-frutti,Tutti Frutti,Drinks: Cocktails,161 kcal vs 4P+4C+9F=48: energy not in the macros (alcohol?)
+bella-italia,allergen,low,name-implies-sulphites,orange-spritz,Orange Spritz,Drinks: Cocktails,'Spritz' in the name but sulphites is not marked (contains: none)

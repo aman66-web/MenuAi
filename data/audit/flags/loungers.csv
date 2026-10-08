@@ -1,0 +1,13 @@
+chain,kind,severity,code,item,name,category,detail
+loungers,allergen,high,free-from-gluten-contains,gf-and-vegan-goan-spiced-parsnip-soup-made-with-gluten-free-oats,GF & Vegan Goan Spiced Parsnip Soup (Made with Gluten Free Oats),Christmas menu,named 'GF' but allergens say it contains gluten
+loungers,allergen,high,free-from-gluten-contains,gf-cauliflower-shawarma-made-with-gluten-free-oats,GF Cauliflower Shawarma (Made with Gluten Free Oats),Christmas menu,named 'GF' but allergens say it contains gluten
+loungers,allergen,high,free-from-gluten-contains,gf-goan-spiced-parsnip-soup-made-with-gluten-free-oats,GF Goan Spiced Parsnip Soup (Made with Gluten Free Oats),Christmas menu,named 'GF' but allergens say it contains gluten
+loungers,allergen,medium,name-implies-gluten,apple-and-blackberry-crumble,Apple & Blackberry Crumble,Puds,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+loungers,allergen,medium,name-implies-gluten,ef-apple-and-blackberry-crumble,EF Apple & Blackberry Crumble,Egg free menu,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+loungers,allergen,medium,name-implies-gluten,mf-apple-and-blackberry-crumble,MF Apple & Blackberry Crumble,Milk free menu,'Crumb' in the name but gluten is not marked (contains: none)
+loungers,allergen,medium,name-implies-gluten,mulled-apple-and-blackberry-crumble,Mulled Apple & Blackberry Crumble,Christmas menu,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+loungers,allergen,medium,name-implies-gluten,vegan-apple-and-blackberry-crumble,Vegan Apple & Blackberry Crumble,Vegan menu,'Crumb' in the name but gluten is not marked (contains: none)
+loungers,allergen,medium,name-implies-gluten,vegan-mulled-apple-and-blackberry-crumble,Vegan Mulled Apple & Blackberry Crumble,Christmas menu,'Crumb' in the name but gluten is not marked (contains: none)
+loungers,allergen,medium,name-implies-gluten,warm-chocolate-brownie-kids-puddings,Warm Chocolate Brownie (kids puddings),Kids puddings,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+loungers,allergen,medium,name-implies-gluten,warm-chocolate-brownie-puds,Warm Chocolate Brownie (puds),Puds,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+loungers,allergen,low,name-implies-sulphites,elderglow-spritz,Elderglow Spritz,Mocktails,'Spritz' in the name but sulphites is not marked (contains: none)

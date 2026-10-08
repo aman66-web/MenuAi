@@ -1,0 +1,9 @@
+chain,kind,severity,code,item,name,category,detail
+banana-tree,nutrition,medium,energy-gap,lychee-juice,Lychee Juice,Drinks,50 kcal vs 4P+4C+9F=62 (24% off)
+banana-tree,allergen,medium,name-implies-soya,extra-katsu-sauce,Extra Katsu Sauce,Options & add-ons,"'Katsu' in the name but soya is not marked (contains: ['celery', 'gluten', 'mustard'])"
+banana-tree,nutrition,medium,salt-very-high,korean-drug-egg,Korean Drug Egg,Options & add-ons,salt 5.8 g with 188 kcal (6 g is the whole day's limit)
+banana-tree,nutrition,medium,salt-very-high,korean-drug-egg-bottomless-bowls,Korean Drug Egg (bottomless bowls),Bottomless bowls: extras,salt 5.8 g with 189 kcal (6 g is the whole day's limit)
+banana-tree,nutrition,medium,salt-very-high,ramen-steak,Ramen - Steak,Ramen,salt 11.5 g with 638 kcal (6 g is the whole day's limit)
+banana-tree,nutrition,medium,salt-very-high,teriyaki-soba-noodles-duck,Teriyaki Soba Noodles - Duck,Wok tossed noodles,salt 10.2 g with 1376 kcal (6 g is the whole day's limit)
+banana-tree,nutrition,medium,sugar-implausible,mango-rice-pudding,Mango Rice Pudding,Desserts,sugar 165.3 g in one item
+banana-tree,nutrition,low,energy-gap-alcohol,berries-and-cherries,Berries & Cherries,Drinks,235 kcal vs 4P+4C+9F=122: energy not in the macros (alcohol?)

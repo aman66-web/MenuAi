@@ -1,0 +1,13 @@
+chain,kind,severity,code,item,name,category,detail
+pepes-piri-piri,nutrition,medium,huge-protein,1-2-chicken,1/2 Chicken,Grilled collection,125.6 g protein
+pepes-piri-piri,nutrition,medium,huge-protein,family-platter-serves-3-4,Family Platter (serves 3-4),Grilled platters,287.3 g protein
+pepes-piri-piri,nutrition,medium,huge-protein,mega-platter-serves-5-6,Mega Platter (serves 5-6),Grilled platters,547.1 g protein
+pepes-piri-piri,nutrition,medium,huge-protein,pepes-original,Pepe's Original,Grilled collection,251.2 g protein
+pepes-piri-piri,nutrition,medium,huge-protein,platter-combo-serves-2-3,Combo Platter (serves 2-3),Grilled platters,152.9 g protein
+pepes-piri-piri,nutrition,medium,huge-protein,whole-chicken,Whole Chicken,Grilled collection,251.2 g protein
+pepes-piri-piri,nutrition,medium,huge-protein,wings-x-28-serves-3,Wings x 28 (serves 3),Grilled platters,132.6 g protein
+pepes-piri-piri,nutrition,medium,salt-very-high,family-platter-serves-3-4,Family Platter (serves 3-4),Grilled platters,salt 13.7 g with 3397 kcal (6 g is the whole day's limit)
+pepes-piri-piri,nutrition,medium,salt-very-high,mega-platter-serves-5-6,Mega Platter (serves 5-6),Grilled platters,salt 24.9 g with 6005 kcal (6 g is the whole day's limit)
+pepes-piri-piri,nutrition,medium,sugar-implausible,pepsi-1-5l,Pepsi (1.5L),Drinks,sugar 165 g in one item
+pepes-piri-piri,nutrition,low,huge,family-platter-serves-3-4,Family Platter (serves 3-4),Grilled platters,3397 kcal in one item
+pepes-piri-piri,nutrition,low,huge,mega-platter-serves-5-6,Mega Platter (serves 5-6),Grilled platters,6005 kcal in one sharing item

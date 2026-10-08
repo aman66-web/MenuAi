@@ -1,0 +1,15 @@
+chain,kind,severity,code,item,name,category,detail
+tesco-cafe,allergen,high,free-from-milk-contains,double-choc-shake-cannot-be-made-dairy-free,Double Choc Shake (cannot be made dairy free),Drinks,named 'dairy free' but allergens say it contains milk
+tesco-cafe,allergen,high,free-from-milk-contains,strawberry-shortcake-shake-cannot-be-made-dairy-free,Strawberry Shortcake Shake (cannot be made dairy free),Drinks,named 'dairy free' but allergens say it contains milk
+tesco-cafe,allergen,high,free-from-milk-contains,topped-hot-chocolate-with-semi-skimmed-milk-cannot-be-made-dairy-free,Topped Hot Chocolate with Semi Skimmed Milk (cannot be made dairy free),Drinks,named 'dairy free' but allergens say it contains milk
+tesco-cafe,allergen,medium,name-implies-nuts,hazelnut-syrup-syrup-is-free-from-nuts-medium,Hazelnut Syrup (syrup is free from nuts) (Medium),Drinks,'Hazelnut' in the name but nuts is not marked (contains: none)
+tesco-cafe,allergen,medium,name-implies-nuts,hazelnut-syrup-syrup-is-free-from-nuts-small,Hazelnut Syrup (syrup is free from nuts) (Small),Drinks,'Hazelnut' in the name but nuts is not marked (contains: none)
+tesco-cafe,allergen,medium,name-implies-nuts,pistachio-syrup-syrup-is-free-from-nuts-medium,Pistachio Syrup (syrup is free from nuts) (Medium),Drinks,'Pistachio' in the name but nuts is not marked (contains: none)
+tesco-cafe,allergen,medium,name-implies-nuts,pistachio-syrup-syrup-is-free-from-nuts-small,Pistachio Syrup (syrup is free from nuts) (Small),Drinks,'Pistachio' in the name but nuts is not marked (contains: none)
+tesco-cafe,allergen,medium,name-implies-nuts,sugar-free-hazelnut-syrup-syrup-is-free-from-nuts-medium,Sugar Free Hazelnut Syrup (syrup is free from nuts) (Medium),Drinks,'Hazelnut' in the name but nuts is not marked (contains: none)
+tesco-cafe,allergen,medium,name-implies-nuts,sugar-free-hazelnut-syrup-syrup-is-free-from-nuts-small,Sugar Free Hazelnut Syrup (syrup is free from nuts) (Small),Drinks,'Hazelnut' in the name but nuts is not marked (contains: none)
+tesco-cafe,nutrition,low,zero-named-has-kcal,sugar-free-caramel-syrup-medium,Sugar Free Caramel Syrup (Medium),Drinks,named diet/zero/no sugar but 20 kcal
+tesco-cafe,nutrition,low,zero-named-has-kcal,sugar-free-french-vanilla-syrup-medium,Sugar Free French Vanilla Syrup (Medium),Drinks,named diet/zero/no sugar but 20 kcal
+tesco-cafe,nutrition,low,zero-named-has-kcal,sugar-free-hazelnut-syrup-syrup-is-free-from-nuts-medium,Sugar Free Hazelnut Syrup (syrup is free from nuts) (Medium),Drinks,named diet/zero/no sugar but 20 kcal
+tesco-cafe,nutrition,low,zero-named-has-kcal,sugar-free-salted-caramel-syrup-medium,Sugar Free Salted Caramel Syrup (Medium),Drinks,named diet/zero/no sugar but 20 kcal
+tesco-cafe,nutrition,low,zero-named-has-kcal,sugar-free-vanilla-syrup-medium,Sugar Free Vanilla Syrup (Medium),Drinks,named diet/zero/no sugar but 20 kcal
