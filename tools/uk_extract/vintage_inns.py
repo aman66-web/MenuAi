@@ -57,6 +57,8 @@ CHAIN = mb.Chain(
         # Allergen rows that contradict the dish itself (accuracy re-check, 2026-10-08). Not corrected, not chosen between.
         "Fish & Chips": "allergen row contradicts the dish name/ingredients: the feed marks eggs, fish and mustard but no gluten or cereal for 'freshly battered haddock' (and its noGlutenContainingIngs claim is false); Harvester, Stonehouse and Sizzling Pubs mark gluten on their battered fish.",
         "Double Chocolate Brownie": "allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false); the other Mitchells & Butlers brands mark gluten on their brownies.",
+        "Aubergine & Sweet Potato Arancini": "allergen row contradicts the dish name: crumbed arancini with no cereal (gluten) marked; held back rather than guess (accuracy re-check, 2026-10-08).",
+        "Wild Boar Sausage & Mash": "allergen row has no cereal (gluten) marked for a sausage dish and nothing says it is gluten free; held back rather than guess (accuracy re-check, 2026-10-08).",
         "Mini Double Chocolate Brownie": "allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false); the other Mitchells & Butlers brands mark gluten on their brownies.",
     },
     note_txt=("Main menu (Mon-Sat) only; the Sunday menu isn't included. A steak sauce or other choice you add isn't included. "

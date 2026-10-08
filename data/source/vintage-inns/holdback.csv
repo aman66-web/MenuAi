@@ -4,3 +4,5 @@ fish-and-chips,"allergen row contradicts the dish name/ingredients: the feed mar
 double-chocolate-brownie,allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false); the other Mitchells & Butlers brands mark gluten on their brownies.
 trio-of-ice-cream-and-sorbet,The feed prints 0.9 kcal for three scoops of ice cream or sorbet; the scoops are chosen separately and their values aren't added in.
 mini-double-chocolate-brownie,allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false); the other Mitchells & Butlers brands mark gluten on their brownies.
+aubergine-and-sweet-potato-arancini,"allergen row contradicts the dish name: crumbed arancini with no cereal (gluten) marked; held back rather than guess (accuracy re-check, 2026-10-08)."
+wild-boar-sausage-and-mash,"allergen row has no cereal (gluten) marked for a sausage dish and nothing says it is gluten free; held back rather than guess (accuracy re-check, 2026-10-08)."
