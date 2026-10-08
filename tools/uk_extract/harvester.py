@@ -73,6 +73,10 @@ CHAIN = mb.Chain(
     holdback={
         "Crispy Calamari": "The feed prints 354 kcal; its own macros add up to about 237 kcal (and its kJ to about 261 kcal).",
         "Wholetail Whitby Scampi": "The feed prints 1,052 kcal; its own macros add up to about 854 kcal (and its kJ to about 761 kcal).",
+        "Rotisserie Flavour Mayo": "allergen row contradicts the dish name/ingredients: the feed marks milk and mustard but no eggs for a mayonnaise (Peri-Mayo marks eggs) and prints no ingredients.",
+        "Chocolate Fudge Cake": "allergen row contradicts the dish name: a fudge cake with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).",
+        "Apple & Blackberry Crumble (Dessert)": "allergen row contradicts the dish name: a crumble with a crumble topping and no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).",
+        "Apple & Blackberry Crumble (Mini dessert)": "allergen row contradicts the dish name: a crumble with a crumble topping and no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).",
     },
     note_txt=("Main menu only (kids, breakfast, salad bar and set menus aren't included). Each dish is listed as the menu publishes it: "
               "a side, sauce, swap or topping you choose isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights."),

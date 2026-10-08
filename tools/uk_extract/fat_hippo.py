@@ -275,6 +275,11 @@ NO_VEG_TAG = {"Trash Browns": "listed under Veggie / Vegan Starters, but it cont
 LABELS = ["Energy:", "Fat:", "Saturated Fat:", "Trans Fat:", "Carbohydrates:", "Sugars:", "Added Sugar:", "Fibre:", "Protein:", "Salt:"]
 PORK = re.compile(r"\b(bacon|ham|pepperoni|sausage|pork|salami|chorizo)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
+# The Special menu page calls the Cheesy Garlic Crumb a "cheesy garlic bacon crumb" (the main menu names the same component, with the
+# same allergen list, without saying bacon): found in the 8 Oct 2026 accuracy check, so every dish with the component is tagged contains_pork.
+CRUMB = re.compile(r"\bcheesy garlic crumb\b", re.I)
+CRUMB_NOTE = ("Contains the Cheesy Garlic Crumb, which the Special menu page calls a 'cheesy garlic bacon crumb'; "
+              "tagged contains_pork.")
 
 
 # ---------------------------------------------------------------- reading the pages
@@ -382,7 +387,7 @@ def impossible(n: dict, alcoholic: bool) -> str | None:
 
     - saturates above total fat, or sugars above carbohydrate (as printed, whole grams);
     - fat alone (9 kcal/g) above the printed calories;
-    - printed calories more than 25% (and 15 kcal) away from 4 x protein + 4 x carbohydrate + 9 x fat. Whole-gram rounding,
+    - printed calories more than 20% (and 15 kcal) away from 4 x protein + 4 x carbohydrate + 9 x fat. Whole-gram rounding,
       fibre and sweeteners explain small gaps (those stay published with a warning); alcohol adds energy the macros don't show,
       so for alcoholic drinks only a gap in the other direction (macros above the calories) counts."""
     cal, p, c, f = (float(n[k]) for k in ("calories", "protein_g", "carbs_g", "fat_g"))
@@ -394,7 +399,7 @@ def impossible(n: dict, alcoholic: bool) -> str | None:
         return f"The page prints {n['calories']} kcal with {n['fat_g']} g of fat; the fat alone would be about {9 * f:.0f} kcal."
     est = 4 * p + 4 * c + 9 * f
     gap = est - cal if alcoholic else abs(est - cal)
-    if gap > 0.25 * cal and gap > 15:
+    if gap > 0.20 * cal and gap > 15:      # was 25%; lowered 8 Oct 2026: two panels (24.8%, 21% off) have a kcal equal to the sum of their parts' kcal but fat the parts cannot supply
         return (f"The page prints {n['calories']} kcal; its own protein, carbohydrate and fat ({n['protein_g']} g, {n['carbs_g']} g, "
                 f"{n['fat_g']} g) add up to about {est:.0f} kcal.")
     return None
@@ -452,7 +457,7 @@ def main() -> int:
                    "calories": n["calories"], "protein_g": n["protein_g"], "carbs_g": n["carbs_g"], "fat_g": n["fat_g"],
                    "sat_fat_g": n["sat_fat_g"], "sodium_mg": "", "salt_g": n["salt_g"], "sugar_g": n["sugar_g"],
                    "fiber_g": n["fiber_g"], "limited_time": spec["limited"], "rankable": spec["rankable"],
-                   "_panel": n, "_text": card["text"], "_veg": marked_veg, "_pork": bool(PORK.search(text)),
+                   "_panel": n, "_text": card["text"], "_veg": marked_veg, "_pork": bool(PORK.search(text)) or bool(CRUMB.search(text)), "_crumb_only": bool(CRUMB.search(text)) and not PORK.search(text),
                    "_beef": bool(BEEF.search(text)), "_title": spec["title"], "_note": spec["note"],
                    "_allergens": card["allergens"],
                    "_alcohol": spec["section"] in ALCOHOL_SECTIONS and page == "drinks"}
@@ -472,6 +477,8 @@ def main() -> int:
         notes = [row["_note"]] if row["_note"] else []
         if row["_veg"] and row["name"] in NO_VEG_TAG:
             notes.append(NO_VEG_TAG[row["name"]][0].upper() + NO_VEG_TAG[row["name"]][1:] + ".")
+        if row["_crumb_only"]:
+            notes.append(CRUMB_NOTE)
         if row["_alcohol"]:
             notes.append("Alcoholic: the calories include alcohol, so they are higher than 4P+4C+9F.")
         cal, est = float(row["calories"]), 4 * float(row["protein_g"]) + 4 * float(row["carbs_g"]) + 9 * float(row["fat_g"])

@@ -9,19 +9,17 @@ batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
 ,wolseley-hospitality-group,The Wolseley Hospitality Group,European,"Brasserie Zedel, The Wolseley, The Delaunay, Colbert",https://thewolseleyhospitalitygroup.com,https://www.brasseriezedel.com/wp-content/uploads/2020/02/00728_Zedel_Winter_2026_MainMenu_and_WineList_KCAL.pdf,pdf,kcal in brackets after every dish in menu PDFs (Brasserie Zedel Winter 2026); other sites' menus not checked; about 8 London sites
 ,zaap-thai,Zaap Thai,Thai,,https://zaapthai.co.uk/,https://zaapthai.co.uk/wp-content/uploads/2026/02/Updated-2025-Allergy-Zaap-Menu.pdf,pdf,"allergy matrix PDF for the whole menu (Dec 2025), no nutrition; 8 sites (Leeds, Sheffield, Nottingham, Newcastle, York, Durham, Manchester)"
 ,rola-wala,Rola Wala,Indian wraps,,https://rolawala.com/,https://rolawala.com/wp-content/uploads/2024/07/RLW-Nutrition-2024-v3.0.pdf,pdf,"nutrition chart PDF 2024 (kcal, fat, saturates, carbs, sugars, fibre, protein per roll) plus allergens; UK site count unverified"
-,hippo-bars,Hippo Bars (Bar Soho),Bars,Hippo,https://www.barsoho.co.uk,https://tkmenus.com/hippo,platform:tkmenus.com,Ten Kites 'Allergen & Nutritional Data' with kcal per item (Bar Soho and LGBTQIA+ bars/pubs menus); site count unverified
+,hippo-bars,"Hippo (Bar Soho, LGBTQIA+ bars and pubs)",Bars,Hippo,https://www.barsoho.co.uk,https://tkmenus.com/hippo,platform:tkmenus.com,Ten Kites 'Allergen & Nutritional Data' with kcal per item (Bar Soho and LGBTQIA+ bars/pubs menus); site count unverified
 ,dirty-bones,Dirty Bones,American,,https://dirty-bones.com/,https://igfd.menu/london/dirty-bones-guzd,platform:igfd.menu,"interactive allergen menu on Ingredifind, JS-rendered (content unread); about 4 sites"
 ,burgerism,Burgerism,Burgers,,https://www.burgerism.co.uk,https://burgerismallergens.netlify.app/,web,"allergen (and nutrition) web app linked from the site, JS bundle (content unread); about 10 sites in south England"
 ,brightside,Brightside,Roadside diner,Loungers,https://brightside.co.uk/,https://menus.tenkites.com/loungers/brightside,platform:menus.tenkites.com,"Ten Kites allergen matrix with kcal per dish; 4 sites (Honiton, Exeter, Saltash, Ram Jam); Loungers sister brand"
 ,permit-room,Dishoom Permit Room,Indian bar,Dishoom,https://www.permitroom.co.uk,https://app.served-app.com/permit-room,platform:served-app,"allergen menus with filters on the Served app, no nutrition seen; 5 sites (Brighton, Cambridge, Liverpool, Oxford, Portobello); Dishoom sister brand"
-,zerodegrees,Zerodegrees,Brewpub,,https://www.zerodegrees.co.uk,https://www.zerodegrees.co.uk/allergens,web,"allergen PDFs per venue linked from the page (e.g. Blackheath, Feb 2025), no nutrition; 4-5 brewery restaurants"
 ,chick-fil-a-uk,Chick-fil-A UK,Chicken,Chick-fil-A,https://www.chick-fil-a.co.uk,https://www.chick-fil-a.co.uk/wp-content/uploads/sites/2/2026/09/387155-UK_Allergen_Sign_Digital.pdf,pdf,"'Nutrition & Allergens' page links a UK PDF; well-known brand, UK site count unverified"
 ,yum-bun,Yum Bun,Taiwanese buns,,https://www.yumbun.com,https://www.yumbun.com/restaurants/old-spitalfields-market,web,"allergen PDF per site (Spitalfields, Seven Dials) hosted on a Webflow CDN whose robots.txt disallows PDFs (needs a manual download); no nutrition; 3-4 sites"
 ,alley-cats-pizza,Alley Cats Pizza,Pizza,,https://www.alleycatspizza.co.uk,https://www.alleycatspizza.co.uk/Allergens,web,Allergens page exists but is JS-rendered (content unread); about 6 London sites
-,jamaica-blue,Jamaica Blue,Coffee,,https://www.jamaicablue.co.uk,https://allergens-jamaicablue.co.uk/,web,"'Allergens and Nutrition Information' microsite, JS-rendered (content unread); UK site count unverified"
 ,galloways-bakers,Galloways Bakers,Bakery,,https://www.gallowaysbakers.co.uk,https://www.gallowaysbakers.co.uk/allergens,web,allergens page exists but is JS-rendered (content unread); about 10 shops in Lancashire and Merseyside (unverified)
 ,the-restaurant-hub,The Restaurant Hub,Cafe / restaurants,"The Restaurant Group (Carluccio's, Sainsbury's car parks)",https://therestauranthub.co.uk/,https://menus.tenkites.com/brg/therestauranthub,platform:menus.tenkites.com,"footer 'Allergens & Nutrition' link to Ten Kites menus (kcal and allergens per dish); 21 sites, two branded CAFFE Carluccio's"
-,pizza-punks,Pizza Punks,Pizza,,https://pizzapunks.co.uk/,https://pizzapunks.co.uk/pizzapunks/uploads/2026/10/Mainland-Allergen1026.pdf,pdf,"food allergen guide PDF (Oct 2026) plus a drinks allergen guide PDF; no nutrition seen; 6 sites (Glasgow, Belfast, Newcastle, Leeds, Liverpool, Nottingham)"
+,pizzarova,Pizzarova,Pizza,,https://www.pizzarova.com,https://igfd.menu/pizzarova-main-menu-el7q,platform:igfd.menu,"Ingredifind allergen menu linked from the menu page; no nutrition seen; 4 shops, all in Bristol"
 ,voodoo-rays,Voodoo Ray's,Pizza,,https://voodoorays.com/,,none,no allergen link found; about 4 London sites
 ,sacro-cuore,Sacro Cuore,Pizza,,https://www.sacrocuore.co.uk,,none,no allergen link found; about 6 London sites
 ,tommis-burger-joint,Tommi's Burger Joint,Burgers,,https://tommisburgerjoint.com,,none,no allergen link found; about 5 London sites
@@ -43,14 +41,12 @@ batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
 ,farm-girl,Farm Girl,Brunch,,https://www.thefarmgirl.co.uk/,,none,no allergen link found; about 3 sites
 ,laduree,Laduree,Patisserie,,https://www.laduree.co.uk,,none,no allergen link found; about 6 UK sites
 ,galvin,Galvin Restaurants,French,,https://galvinrestaurants.com/,,none,menu PDFs only (CloudFront robots 403); about 5 sites
-,searcys,Searcys,British,,https://searcys.co.uk/,,none,group site; no allergen link found; about 10 venues
 ,brindisa,Brindisa,Spanish,,https://www.brindisatapas.com,,none,menu PDFs only; about 5 sites
 ,jose-pizarro,Jose Pizarro,Spanish,,https://www.josepizarro.com,,none,menu PDFs only; about 4 sites
 ,lobos-tapas,Lobos Tapas,Spanish,,https://lobostapas.co.uk/,,none,no allergen link found; 3 sites
 ,cafe-murano,Cafe Murano,Italian,,https://www.cafemurano.co.uk,,none,wine list PDFs only; about 4 sites
 ,lina-stores,Lina Stores,Italian,,https://www.linastores.co.uk/,,none,no allergen link found (CDN robots disallow); about 4 sites
 ,obica,Obica Mozzarella Bar,Italian,,https://www.obica.com,,none,no allergen link found; about 5 UK sites
-,cubitt-house,Cubitt House,Pubs,,https://www.cubitthouse.co.uk,,none,no allergen link found; about 6 pubs
 ,draughts,Draughts,Board game cafe,,https://draughtslondon.com/,,none,food menu PDF only; 3 sites
 ,corney-and-barrow,Corney & Barrow,Wine bars,,https://www.corneyandbarrow.com,,none,no allergen link found; about 10 sites
 ,andina,Andina,Peruvian,,https://andinalondon.com/,,none,no allergen link found; 3 sites
@@ -63,7 +59,6 @@ batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
 ,the-blues-kitchen,The Blues Kitchen,American,,https://theblueskitchen.com/,,none,no allergen link found; about 3 sites
 ,primrose-bakery,Primrose Bakery,Bakery,,https://primrosebakery.org.uk,,none,no allergen link found; about 3 sites
 ,mamma-dough,Mamma Dough,Pizza,,https://www.mammadough.com,,none,food menu PDF only; about 4 sites
-,tattu,Tattu,Chinese,Permanently Unique Group,https://tattu.co.uk/,,none,no allergen link found; 5 UK sites
 ,big-mamma-group,Big Mamma Group,Italian,,https://www.bigmammagroup.com,,none,menus on menu.bigmammagroup.com (allergen content unchecked); 9 UK restaurants
 ,atari-ya,Atari-Ya,Japanese,,https://www.atariya.co.uk,,none,no allergen link found; about 5 shops
 ,japan-centre,Japan Centre,Japanese,,https://www.japancentre.com,,none,no allergen link found; 3 sites
@@ -72,7 +67,6 @@ batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
 ,noura,Noura,Lebanese,,https://www.noura.com,,none,menu PDF only; about 5 London sites
 ,wright-brothers,Wright Brothers,Seafood,,https://thewrightbros.com/,,none,no allergen link found; about 4 sites
 ,grillstock,Grillstock,BBQ,,https://www.grillstock.com,,none,no allergen link found; about 4 sites
-,simmons-bars,Simmons,Bars,,https://www.simmonsbar.co.uk,,none,no allergen link found; about 8 bars
 ,draft-house,Draft House,Pubs,,https://www.drafthouse.co.uk,,none,site error (HTTP 522) on the .co.uk address; no allergen link found on drafthouse.com; about 8 pubs
 ,bubbledogs,Bubbledogs,Hot dogs,JKS Restaurants,https://www.bubbledogs.co.uk,,none,no allergen link found; 3 sites
 ,d-and-d-london,D&D London,British,,https://ddlondon.com/,,none,group site; no allergen link found; 30+ sites
@@ -93,3 +87,21 @@ batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
 ,sagar,Sagar,Indian vegetarian,,https://www.sagarveg.co.uk,,none,site unreachable from here (certificate error); about 6 sites
 ,bukowski-grill,Bukowski Grill,Burgers,,https://www.bukowskigrill.com,,none,site unreachable from here (connection reset); 3 sites
 ,nordic-bakery,Nordic Bakery,Bakery cafe,,https://www.nordicbakery.com,,none,site blocked; 3 sites
+,vinoteca,Vinoteca,Wine bar restaurants,,https://www.vinoteca.com,,none,no allergen link found; about 8 London sites
+,bumpkin,Bumpkin,British,,https://bumpkin.com/,,none,no allergen link found (only a 'dietary' blog tag); about 5 London sites
+,albion-caff,Albion,British cafe,,https://albioncaff.co.uk/,,none,no allergen link found; 3 or more sites
+,rosslyn-coffee,Rosslyn Coffee,Coffee,,https://www.rosslyncoffee.com,,none,no allergen link found; 3 or more sites
+,the-attendant,The Attendant,Coffee,,https://www.the-attendant.com,,none,no allergen link found; 3 or more sites
+,climpson-and-sons,Climpson & Sons,Coffee,,https://climpsonandsons.com/,,none,no allergen link found; 3 or more sites
+,baker-and-spice,Baker & Spice,Bakery cafe,,https://www.bakerandspice.co.uk,,none,no allergen link found; about 5 London sites
+,beas-of-bloomsbury,Bea's of Bloomsbury,Bakery cafe,,https://www.beasofbloomsbury.com,,none,no allergen link found; 3 or more sites
+,pizza-east,Pizza East,Pizza,,https://www.pizzaeast.com,,none,no allergen link found; 3 or more sites
+,little-italy,Little Italy,Italian,,https://www.littleitaly.co.uk,,none,no allergen link found; 3 or more sites in Scotland
+,topolabamba,Topolabamba,Mexican,,https://www.topolabamba.com,,none,no allergen link found; 3 or more sites in Scotland
+,tootsies,Tootsies,American,,https://tootsiesrestaurants.com/,,none,no allergen link found; about 6 London sites
+,casa-do-frango,Casa do Frango,Portuguese,,https://www.casadofrango.co.uk,,none,no allergen link found; 3 or more London sites
+,sakonis,Sakonis,Indian vegetarian,,https://sakonis.co.uk/,,none,no allergen link found; 3 or more sites
+,braces-bakery,Brace's Bakery,Bakery,,https://www.bracesbakery.co.uk,,none,no allergen link found; many shops in Wales
+,nobu,Nobu,Japanese,,https://www.nobu.com,,none,"global site, no UK allergen link found; 3 or more London sites"
+,atomic-burger,Atomic Burger,Burgers,,https://atomicburger.co.uk,,none,site blocked; 3 or more sites
+,illegal-jacks,Illegal Jack's,Mexican,,https://illegaljacks.co.uk,,none,site blocked; 3 sites in Edinburgh

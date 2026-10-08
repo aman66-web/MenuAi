@@ -96,6 +96,23 @@ REVIEWED: dict[str, tuple[str, str]] = {
     "Plant-based Double Whopper": ("382|722|3022|35|7.7|1400|3.4|52|13|17|44", "Per 100g sugars printed as 34 (a typo); per-serving 13 g is what is entered"),
 }
 
+# Items kept in items.csv but not published (holdback.csv, written by this script): the table's own figures for the item contradict
+# each other, so neither is chosen (nothing is corrected). The first four were held at the first extraction; the rest were added
+# after the independent page-image re-read of 2026-10-08 (data/audit/verified/burger-king.json).
+HOLDBACK = {
+    "big-king": "The table prints 1,402 kcal; its own macros add up to about 940 kcal.",
+    "chilli-cheese-bites-20pc": "The table prints 106 kcal; its own macros add up to about 1,056 kcal.",
+    "big-king-sauce": "The table prints kcal and kJ that look swapped (497 kcal against 121 kcal from the macros).",
+    "caesar-style-sauce": "The table prints 161 g of fat for a 28 g sauce.",
+    "burger-buddies-big-king": "The table prints salt 1.4 g but sodium 416 mg (about 1.0 g of salt); the two cannot both be right.",
+    "wellington-wagyu": "The table prints salt 2.0 g but sodium 588.5 mg (about 1.5 g of salt); the two cannot both be right.",
+    "cheesecake-bar-gooey-salted-caramel": "The table prints 285 kcal but its own protein, carbs and fat (4.8, 34.2 and 8.7 g) add up to about 234 kcal; "
+                                           "its per 100 g row prints 17.9 g fat (about 14.7 g for 82 g) against 8.7 g per bar.",
+    "vanilla-milkshake-16oz": "The table prints sugars 0.7 g with 86 g of carbohydrate; its own per 100 g row prints 12 g sugars (about 61 g for 510 g).",
+    "wagyu-patty": "The table prints protein 24 g for a 125 g patty, the same as its per 100 g row (24 g, so about 30 g for 125 g); "
+                   "the two cannot both be right.",
+}
+
 BEEF_WORDS = re.compile(r"\b(beef|steak|angus|wagyu)\b", re.I)
 PORK_WORDS = re.compile(r"\b(bacon|ham|sausage|pork|pepperoni|salami|chorizo)\b", re.I)
 VEG_WORDS = re.compile(r"\b(vegan|plant-based)\b", re.I)
@@ -227,6 +244,12 @@ def main() -> int:
     (args.out / "modifiers.csv").write_text(
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
+    missing = sorted(set(HOLDBACK) - set(ids))
+    assert not missing, f"HOLDBACK names ids that are not items: {missing}"
+    with open(args.out / "holdback.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["item_id", "reason"])
+        w.writerows(HOLDBACK.items())
     print(f"wrote {len(items)} items to {args.out} (PDF sha256 {pdf_sha})")
     return 0
 

@@ -31,6 +31,7 @@ What is left out, and why (each is counted in the run's report):
   party / Christmas Day menus (hwichristmas): pre-booked group or seasonal menus, not the everyday menu.
 - Rows whose own numbers are impossible or contradict each other are HELD BACK (holdback.csv), never corrected; the rules are in HOLD_RULES.
 - "Three scoops" rows of the ice-cream block (see HOLD_NAMES): 46 kcal and 0 kcal for three scoops, when one scoop is 88-104 kcal on the same page.
+- Bramley apple crumble (HOLD_NAMES): marked vegan with soya only and no gluten, which the dish name contradicts (independent accuracy re-read, 8 Oct 2026).
 """
 from __future__ import annotations
 import argparse
@@ -114,6 +115,9 @@ HOLD_SALT_G = 15.0      # grams of salt in one portion
 HOLD_NAMES = {          # (name as printed on the page, block) -> reason: contradicted by other figures on the same page
     ("three scoops & biscuit", "Jude's ice creams and sorbets"):
         "46 kcal for three scoops of ice cream and a biscuit is less than half of any single flavour listed beside it (88-104 kcal each), so the figure cannot be right.",
+    ("Bramley apple crumble", ""):
+        "allergen row contradicts the dish name: the page marks this crumble (all four menus) 'Suitable for: Vegan, Vegetarian' and 'Contains: Soya' only, with no gluten "
+        "although a crumble topping is made from flour or oats, and prints no gluten-free wording. Independent re-read 2026-10-08; not corrected.",
 }
 
 

@@ -1,21 +1,21 @@
 id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
 frickles,Frickles,Starters,,118,1,12,14,0,,1,11,1,,,,,,,,false,false,,,
 corn-ribs,Corn Ribs,Starters,,325,7,24,41,6,,0,9,1,,,,,,,vegetarian,false,false,,,Also listed under Veggie / Vegan Starters with identical numbers; one row kept.
-trash-browns,Trash Browns,Starters,,486,5,57,25,3,,1,14,5,,,,,,,,false,false,,,"Also listed under Veggie / Vegan Starters with identical numbers; one row kept. Listed under Veggie / Vegan Starters, but it contains the Cheesy Garlic Crumb that the Special menu page calls a 'cheesy garlic bacon crumb'; not tagged vegetarian."
+trash-browns,Trash Browns,Starters,,486,5,57,25,3,,1,14,5,,,,,,,contains_pork,false,false,,,"Also listed under Veggie / Vegan Starters with identical numbers; one row kept. Listed under Veggie / Vegan Starters, but it contains the Cheesy Garlic Crumb that the Special menu page calls a 'cheesy garlic bacon crumb'; not tagged vegetarian. Contains the Cheesy Garlic Crumb, which the Special menu page calls a 'cheesy garlic bacon crumb'; tagged contains_pork."
 cheeseballs,Cheeseballs,Starters,,789,51,8,70,29,,3,7,0,,,,,,,vegetarian,false,false,,,Also listed under Veggie / Vegan Starters with identical numbers; one row kept.
 freddies-fingers-buffalo,Freddies Fingers: Buffalo,Starters,,521,66,7,35,3,,1,5,0,,,,,,,,false,false,,,Printed 521 kcal vs 607 kcal from its own macros (17% off); entered as printed.
 freddies-fingers-crack,Freddies Fingers: Crack,Starters,,572,69,3,37,5,,0,0,0,,,,,,,,false,false,,,
 freddies-fingers-white-rabbit,Freddies Fingers: White Rabbit,Starters,,453,65,13,15,8,,0,13,0,,,,,,,,false,false,,,
 vegan-frickles,Vegan Frickles,Starters,,118,1,12,14,0,,1,11,1,,,,,,,vegetarian,false,false,,,
 plain-ayli-beef,Plain Ayli Beef,Beef burgers,,509,48,41,14,6,,0,4,2,,,,,,,contains_beef,false,true,,,
-big-poppa,Big Poppa,Beef burgers,,738,51,62,28,8,,0,20,2,,,,,,,contains_beef,false,true,,,
+big-poppa,Big Poppa,Beef burgers,,738,51,62,28,8,,0,20,2,,,,,,,contains_pork|contains_beef,false,true,,,"Contains the Cheesy Garlic Crumb, which the Special menu page calls a 'cheesy garlic bacon crumb'; tagged contains_pork."
 american,American,Beef burgers,,592,51,54,18,7,,1,15,2,,,,,,,contains_beef,false,true,,,
 wild-bill,Wild Bill,Beef burgers,,854,57,60,42,10,,1,11,3,,,,,,,contains_pork|contains_beef,false,true,,,
 uncle-phil,Uncle Phil,Beef burgers,,839,56,48,40,16,,0,7,2,,,,,,,contains_beef,false,true,,,
 fat-hippo,Fat Hippo,Beef burgers,,906,58,68,46,10,,1,16,2,,,,,,,contains_pork|contains_beef,false,true,,,
 born-slippy,Born Slippy,Beef burgers,,787,54,68,36,8,,0,28,2,,,,,,,contains_pork|contains_beef,false,true,,,
 plain-ayli-chicken,Plain Ayli - Chicken,Chicken burgers,,413,43,41,7,3,,0,4,2,,,,,,,,false,true,,,
-triple-g,Triple G,Chicken burgers,,790,50,49,46,9,,0,6,2,,,,,,,,false,true,,,
+triple-g,Triple G,Chicken burgers,,790,50,49,46,9,,0,6,2,,,,,,,contains_pork,false,true,,,"Contains the Cheesy Garlic Crumb, which the Special menu page calls a 'cheesy garlic bacon crumb'; tagged contains_pork."
 white-rabbit,White Rabbit,Chicken burgers,,730,48,57,39,14,,0,19,2,,,,,,,,false,true,,,
 hangover-iii,Hangover III,Chicken burgers,,679,51,50,31,7,,1,13,2,,,,,,,contains_pork,false,true,,,
 bruce-almighty,Bruce Almighty,Chicken burgers,,801,45,65,39,7,,1,14,3,,,,,,,,false,true,,,
@@ -29,7 +29,7 @@ superfries-me-upgrade,Superfries Me! (upgrade),Upgrades,,832,14,105,48,2,,1,7,11
 dirty-hand-cut-fries-upgrade,Dirty Hand Cut Fries (upgrade),Upgrades,,545,10,73,30,0,,0,3,8,,,,,,,contains_pork,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 vegan-dirty-hand-cut-fries-upgrade,Vegan Dirty Hand Cut Fries (upgrade),Upgrades,,564,9,74,34,1,,1,5,7,,,,,,,vegetarian,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 dirty-tater-tots-upgrade,Dirty Tater Tots (upgrade),Upgrades,,495,8,55,37,2,,1,3,8,,,,,,,contains_pork,false,false,,,Burger-meal upgrade option (the page's Upgrades section). Printed 495 kcal vs 585 kcal from its own macros (18% off); entered as printed.
-vegan-dirty-tots-upgrade,Vegan Dirty Tots (upgrade),Upgrades,,514,7,56,41,3,,2,5,7,,,,,,,vegetarian,false,false,,,Burger-meal upgrade option (the page's Upgrades section). Printed 514 kcal vs 621 kcal from its own macros (21% off); entered as printed.
+vegan-dirty-tots-upgrade,Vegan Dirty Tots (upgrade),Upgrades,,514,7,56,41,3,,2,5,7,,,,,,,vegetarian,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 5oz-beef-patty-upgrade,5oz Beef Patty (upgrade),Upgrades,,290,20,0,23,10,,0,0,0,,,,,,,contains_beef,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 vegan-patty-upgrade,Vegan Patty (upgrade),Upgrades,,214,10,10,38,4,,1,0,4,,,,,,,vegetarian,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 buttermilk-chicken-breast-upgrade,Buttermilk Chicken Breast (upgrade),Upgrades,,252,25,19,7,2,,2,2,1,,,,,,,,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
@@ -39,12 +39,12 @@ little-american,Little American,Fast Hippo (weekdays until 4pm),,592,51,54,18,7,
 little-hippo,Little Hippo,Fast Hippo (weekdays until 4pm),,716,52,58,33,7,,0,15,2,,,,,,,contains_pork|contains_beef,false,true,,,
 little-lies,Little Lies,Fast Hippo (weekdays until 4pm),,570,24,59,25,13,,2,15,9,,,,,,,,false,true,,,
 little-buffalo,Little Buffalo,Fast Hippo (weekdays until 4pm),,634,39,50,33,4,,1,11,4,,,,,,,,false,true,,,
-little-crack-strips,Little Crack Strips,Fast Hippo (weekdays until 4pm),,267,1,6,33,3,,0,0,0,,,,,,,,false,true,,,
+little-crack-strips,Little Crack Strips,Fast Hippo (weekdays until 4pm),,267,1,6,33,3,,0,0,0,,,,,,,contains_pork,false,true,,,"Contains the Cheesy Garlic Crumb, which the Special menu page calls a 'cheesy garlic bacon crumb'; tagged contains_pork."
 little-white-rabbit,Little White Rabbit,Fast Hippo (weekdays until 4pm),,636,43,54,25,14,,0,17,2,,,,,,,,false,true,,,
 handcut-fries,Handcut Fries,Sides,,113,3,26,0,0,,0,1,0,,,,,,,,false,true,,,The page prints 113 kcal for this side but 424 kcal for the Hand Cut Fries upgrade and the kids' portion; it does not say why.
 tater-tots,Tater Tots,Sides,,312,4,40,14,2,,1,1,5,,,,,,,,false,true,,,
 purple-slaw-side,Purple Slaw Side,Sides,,246,4,8,23,1,,1,7,6,,,,,,,,false,true,,,
-dirty-handcut-fries,Dirty Handcut Fries,Sides,,234,6,31,16,0,,0,3,1,,,,,,,contains_pork,false,true,,,Printed 234 kcal vs 292 kcal from its own macros (25% off); entered as printed.
+dirty-handcut-fries,Dirty Handcut Fries,Sides,,234,6,31,16,0,,0,3,1,,,,,,,contains_pork,false,true,,,
 dirty-tots,Dirty Tots,Sides,,433,7,45,30,2,,1,3,6,,,,,,,contains_pork,false,true,,,
 vegan-dirty-handcut-fries,Vegan Dirty Handcut Fries,Sides,,253,5,32,20,1,,1,5,0,,,,,,,vegetarian,false,true,,,
 vegan-dirty-tots,Vegan Dirty Tots,Sides,,452,6,46,34,3,,2,5,5,,,,,,,vegetarian,false,true,,,
@@ -91,7 +91,7 @@ pickles-kids-burger-garnish,Pickles (kids burger garnish),Kids toppings & sauces
 kids-hand-cut-fries,Kids Hand Cut Fries,Kids sides,,424,7,68,14,0,,0,1,7,,,,,,,vegetarian,false,false,,,
 kids-tater-tots,Kids Tater Tots,Kids sides,,351,0,42,16,1,,0,0,5,,,,,,,vegetarian,false,false,,,
 kids-purple-slaw,Kids Purple 'Slaw,Kids sides,,345,1,7,18,1,,0,5,3,,,,,,,vegetarian,false,false,,,
-kids-orange-cordial,Kids Orange Cordial,Kids drinks,,165,0,32,0,0,,0,32,0,,,,,,,vegetarian,false,false,,,Printed 165 kcal vs 128 kcal from its own macros (22% off); entered as printed.
+kids-orange-cordial,Kids Orange Cordial,Kids drinks,,165,0,32,0,0,,0,32,0,,,,,,,vegetarian,false,false,,,
 kids-blackcurrant-cordial,Kids Blackcurrant Cordial,Kids drinks,,110,0,16,0,0,,0,16,0,,,,,,,vegetarian,false,false,,,
 kids-milk,Kids Milk,Kids drinks,,189,10,13,10,6,,0,13,0,,,,,,,vegetarian,false,false,,,
 kids-hippo-juice,Kids Hippo Juice,Kids drinks,,140,0,33,0,0,,0,33,0,,,,,,,vegetarian,false,false,,,
@@ -118,10 +118,10 @@ draught-pint-diet-lemonade,Draught Pint: Diet Lemonade,Soft drinks,,4,0,0,0,0,,0
 draught-pint-orange,Draught Pint: Orange,Soft drinks,,140,0,33,0,0,,0,33,0,,,,,,,vegetarian,false,false,,,
 draught-pint-irn-bru,Draught Pint: Irn Bru,Soft drinks,,239,0,0,0,0,,0,0,0,,,,,,,vegetarian,false,false,,,
 orange-fruit-juice,Orange Fruit Juice,Soft drinks,,105,1,22,0,0,,0,22,0,,,,,,,vegetarian,false,false,,,
-apple-fruit-juice,Apple Fruit Juice,Soft drinks,,105,0,20,0,0,,0,20,0,,,,,,,vegetarian,false,false,,,Printed 105 kcal vs 80 kcal from its own macros (24% off); entered as printed.
+apple-fruit-juice,Apple Fruit Juice,Soft drinks,,105,0,20,0,0,,0,20,0,,,,,,,vegetarian,false,false,,,
 cranberry-fruit-juice,Cranberry Fruit Juice,Soft drinks,,55,0,12,0,0,,0,12,0,,,,,,,vegetarian,false,false,,,
 pint-blackcurrant-cordial,Pint: Blackcurrant Cordial,Soft drinks,,110,0,16,0,0,,0,16,0,,,,,,,vegetarian,false,false,,,
-pint-orange-cordial,Pint: Orange Cordial,Soft drinks,,165,0,32,0,0,,0,32,0,,,,,,,vegetarian,false,false,,,Printed 165 kcal vs 128 kcal from its own macros (22% off); entered as printed.
+pint-orange-cordial,Pint: Orange Cordial,Soft drinks,,165,0,32,0,0,,0,32,0,,,,,,,vegetarian,false,false,,,
 pint-lime-cordial,Pint: Lime Cordial,Soft drinks,,106,0,24,0,0,,0,24,0,,,,,,,vegetarian,false,false,,,
 pint-elderflower-cordial,Pint: Elderflower Cordial,Soft drinks,,200,0,46,0,0,,0,46,0,,,,,,,vegetarian,false,false,,,
 coca-cola,Coca Cola,Soft drinks,,138,0,34,0,0,,0,34,0,,,,,,,vegetarian,false,false,,,
