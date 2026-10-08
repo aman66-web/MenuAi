@@ -319,6 +319,23 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   (founder's request):** pins of chains with an official logo file now show it unmodified on its plain white or dark tile, scaled to fit and never cropped or stretched
   (`lib/mm/logoFit.ts`, tested); the selected pin gets a ring; chains without a logo file keep the green dot (CLAUDE.md rule 2).
 
+- 2026-10-08 — **Accuracy pass results (see docs/ACCURACY_AUDIT.md).** Every chain published at the start of the day (150) was re-read from its
+  official source by a second reader (about 24,000 item comparisons, other method than our script): extraction mistakes were rare (Gail's
+  cut-off title, Greene King shifted tag, Bistrot Pierre allergen rows) but several chains' guides had drifted within days and were re-run (All
+  Bar One, Ember Inns, Miller & Carter, Sizzling Pubs, Stonehouse, The Botanist, Pure, Rosa's Thai, Hickory's, BarBurrito, Caffè Nero, Wagamama's
+  new 7 Oct menu); the chains' own documents contradict themselves often, so about 480 rows are held back (per-100 g shown as servings, kJ vs
+  kcal, vegan marked milk/egg, battered or crumbed dishes with no gluten, desserts with no gluten, mayonnaise with no egg). Decisions (all
+  conservative): (1) kJ that contradicts kcal holds a dish back only where we publish kJ (M&B guides publish none: those dishes stay when kcal
+  agrees with their macros); (2) a dish that contains one tree nut/cereal and may contain another kind now shows the generic allergen
+  (shared writers fixed: common.write_allergens and tenkites_a/b/c) — chains re-run so the data carries it; (3) a dish whose allergen row
+  contradicts its own name or ingredient text, or whose guide row "excludes choices", is held back; (4) **Starbucks pulled** (its guide PDFs
+  are disallowed by robots.txt: `data/held-robots/starbucks`, same as Subway, Zizzi, Pizza Express, ASK, Coco di Mama, Ole & Steen);
+  (5) high-severity audit flags are 0 for nutrition and 0 for allergens in the republished data. New allergen coverage: Chipotle (read from the
+  chart image), Five Guys (PDF matrix), Puccino's, IKEA, Itsu, Chilango, Tim Hortons, Tortilla, and the Mitchells & Butlers guide reader
+  (All Bar One, Ember Inns, Nicholson's, O'Neill's). New chains: Blacklock, Caravan, Oodles Wok, Rola Wala, Yalla Yalla, Rockfish,
+  Sainsbury's Café (calories-only). Photos added: Benugo, Dunkin', Chaiiwala, Franco Manca, Gail's, Hard Rock Café, Notcutts, Blank Street,
+  Wasabi, Little Dessert Shop, Sticks'n'Sushi. `tools/uk_extract/robots_audit.py` now also checks every URL written in a chain's script.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
