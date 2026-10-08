@@ -254,7 +254,7 @@ def allergens_from_row(row: dict, where: str) -> dict | None:
     mm = re.search(r"May contain(?: traces of)?\s*(.*?)(?:ALLERGY ADVICE|$)", row.get("ingredients", ""), re.S | re.I)
     if mm:
         may, _, _ = allergen_words(re.split(r",|\band\b", mm.group(1)), where)
-    return {"contains": from_cols, "may_contain": may - from_cols, "cereals": cereals | c2, "nuts": nuts | n2}
+    return {"contains": from_cols, "may_contain": may, "cereals": cereals | c2, "nuts": nuts | n2}  # raw may-contain: write_allergens drops kinds when a key is in both (accuracy audit 2026-10-08)
 
 
 # The other layouts print each dish's "Contains: ..." and "May contain: ..." lines (cereals and tree nuts named in brackets,
@@ -380,7 +380,7 @@ def allergens_checked(row: dict, where: str, extra: dict | None = None) -> dict 
     # a dish can contain one tree nut and "may contain" another: the key is then in both lines
     if mk - contains != may - contains:
         raise SystemExit(f"{where}: printed 'May contain' {sorted(may)} disagrees with the label ids {sorted(mk)}")
-    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}  # raw may-contain: write_allergens drops kinds when a key is in both (accuracy audit 2026-10-08)
 
 
 def allergens_from_columns(row: dict, where: str, columns: list[str], extra: dict | None = None) -> dict | None:

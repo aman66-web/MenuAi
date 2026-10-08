@@ -1,0 +1,7 @@
+item_id,reason
+chips,The restaurant and takeaway menus print this dish differently (calories 420 (restaurant) vs 840 (takeaway); may_contain marks differ): neither is published until Rockfish says which applies
+chips-takeaway,The restaurant and takeaway menus print this dish differently (calories 420 (restaurant) vs 840 (takeaway); may_contain marks differ): neither is published until Rockfish says which applies
+fresh-tartare-sauce-takeaway,The restaurant and takeaway menus print this dish differently (calories 397 (restaurant) vs 200 (takeaway)): neither is published until Rockfish says which applies
+garlic-aioli,"320 kcal in a printed 35 g is 9.1 kcal per g: more than pure fat (9), so the guide's own figures cannot both be right"
+halloumi-sriracha-mayonnaise-and-chips,the name says mayonnaise but the guide marks no egg for the dish (the same guide calls its egg-free one 'Vegan mayonnaise'): not published until Rockfish confirms the egg marks
+tartare-sauce,"The restaurant and takeaway menus print this dish differently (calories 397 (restaurant) vs 200 (takeaway)): neither is published until Rockfish says which applies; and 397 kcal in a printed 35 g is 11.3 kcal per g: more than pure fat (9), so the guide's own figures cannot both be right"

@@ -10,6 +10,13 @@ page does it (36800 -> 36.8). Only names, categories, serving text and rankable 
 removes a dish the set of entries no longer matches REVIEWED and this script stops, so a human re-checks names and flags.
 See nandos_feed.py for where the feed lives and why the old unversioned page-data.json must never be used.
 
+Allergens (docs/DATA.md "Allergens") come from the same feed: every entry carries the `allergens` list that the product panel's
+Allergens tab prints (name + YES / MAYBE_FROM_MANUFACTURING / MAYBE_FROM_KITCHEN_CROSS_CONTAMINATION). They are copied, never inferred:
+YES -> contains, either MAYBE -> may contain, the GLUTEN_<cereal> and named tree nut rows give the cereal / nut kinds. Nando's states
+the list is for "the dish on its own, without customisations, spices, sides or extras". An unknown allergen word or presence value stops
+the run. Entries the feed has no allergen list for (spice levels: the page shows none for them) are held back so the chain stays
+all-or-nothing; if more than a third of the items would be held back the run stops (link only is the fallback).
+
 What goes in: everything the public menu page shows to all of Great Britain (entries with no `restaurantGroup`), the Nandino
 side options and the spice levels, each exactly as published and never added together. Left out: entries tied to a restaurant
 group (Gatwick only, pricing trials, Scotland, Northern Ireland, Ninos, beer/cocktail trials, delivery-only alcohol), trial items,
@@ -27,6 +34,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import common  # noqa: E402
 import nandos_feed as nf  # noqa: E402
 
 CHAIN_ID = "nandos"
@@ -117,8 +125,46 @@ NEVER_RANK = {"Nandinos (Kids)", "Dips & Extras", "Spice levels", "Drinks", "Des
 
 # Messages printed in the product panel that change how the numbers should be read. Copied verbatim into `notes`.
 NOTE_MESSAGE = re.compile(r"(?i)calorie|kcal|nutritional info is|specific to the chicken|regular size only")
+# Panel messages that qualify the allergen list (shown in the same Allergens tab): copied verbatim into `notes`. The generic
+# "dish on its own..." / "check the product information..." sentences are in the chain note instead, and the trademark line is not about allergens.
+ALLERGEN_MESSAGE = re.compile(r"(?i)contain|gluten|shellac|allergen|plant-based|barley|wheat")
+GENERIC_MESSAGE = re.compile(r"^(Remember to check the product information|This information is based on the dish on its own|This is based on the dish on its own|All our )")
 VOLUME = re.compile(r"(?:^|, )(\d+ ?ml)\.")
 PER_GLASS = re.compile(r"per (\d+ ?ml) glass", re.I)
+
+# ---- allergens ---------------------------------------------------------------------------------------------------------------
+# Spellings the feed uses that common._A does not have (the cereal rows the panel prints under "Cereals containing gluten").
+FEED_ALLERGEN_WORDS = {
+    "gluten wheat": ("gluten", "wheat"), "gluten rye": ("gluten", "rye"), "gluten barley": ("gluten", "barley"),
+    "gluten oats": ("gluten", "oats"), "gluten spelt": ("gluten", "spelt"),
+}
+PRESENT_CONTAINS = {"YES"}                       # panel heading "This dish contains:"
+PRESENT_MAY = {"MAYBE_FROM_MANUFACTURING",       # "Possible manufacturing contamination:"
+               "MAYBE_FROM_KITCHEN_CROSS_CONTAMINATION"}  # "Possible kitchen contamination:"
+PRESENT_NONE = {"NO"}                            # the page hides these; the feed has none today
+# Messages the panel prints under an allergen that need no note (they only say why it is a "may contain").
+STANDARD_MESSAGES = {
+    "Possible cross contamination at the manufacturing site", "Possible cross contamination in our kitchen",
+    "As bread is handled in the kitchen, please speak to the manager on duty so that extra precautions can be taken",
+    "As cheese is cooked on the grills, please speak to the manager on duty so that extra precautions can be taken",
+}
+# Entries whose allergen list the chain's own page contradicts or qualifies: not published (allergens are safety information).
+ALLERGEN_HOLDBACK = {
+    "per-plant-strips-extra:extras": (
+        "the panel's own message says the PERi-Plant Fillet 'may contain celery and mustard' but its allergen list marks neither: "
+        "the page contradicts itself, so the item is not published"),
+    "pe-rinaise:extras": (
+        "Nando's own description says 'Please double check the allergens as our PERinaise bottles have slightly different "
+        "ingredients', so one allergen list cannot be tied to this item"),
+}
+SPICE_REASON = ("Nando's publishes no allergen information for spice levels: the feed's allergen list is empty for every spice on "
+                "every dish and the menu page shows none; allergens are all-or-nothing for a chain, so the spice level is not published")
+NO_LIST_REASON = "the feed has no allergen list for this entry (Nando's page shows none), so it is not published"
+NANDINO_SIDE_REASON = ("the kid-size entry has no allergen list of its own and the regular-size entry the menu page borrows from "
+                       "does not agree with it (or does not exist), so no list can be tied to this item")
+# docs/DATA.md: a limit of the data shown on the chain page (under 400 characters). Reproduced here so a re-run keeps it.
+CHAIN_NOTE = ("Sharing platters aren't included: Nando's publishes their values for the chicken only. Add items to build a total. "
+              "Allergens are Nando's list for each dish on its own (no spices, sides or extras); it lists none for spice levels, which are left out.")
 
 
 def slug(name: str) -> str:
@@ -172,6 +218,40 @@ def _energy_note(f: dict) -> str:
     return f"Printed {kcal} kcal is not close to what the printed protein, carbohydrate and fat give ({est:.0f} kcal); entered as printed"
 
 
+def allergens_for(row: nf.Row) -> tuple[dict | None, list[str]]:
+    """Convert the feed's allergen list of one row into write_allergens' dict, plus any free-text message Nando's prints under a
+    'contains' allergen (copied into the item's notes). None = the feed has no list for this entry."""
+    if row.allergens is None:
+        return None, []
+    where = f"{row.key}: allergens"
+    contains: set = set()
+    may: set = set()
+    cereals: set = set()
+    nuts: set = set()
+    notes: list[str] = []
+    for a in row.allergens:
+        present = a["present"]
+        if present not in PRESENT_CONTAINS | PRESENT_MAY | PRESENT_NONE:
+            raise SystemExit(f"{where}: unknown presence value {present!r} for {a['name']!r}: read the panel and add it here")
+        if present in PRESENT_NONE:
+            continue
+        keys, cer, nut = common.allergen_words([a["name"].replace("_", " ")], where, FEED_ALLERGEN_WORDS)
+        message = (a.get("message") or "").strip()
+        if present in PRESENT_CONTAINS:
+            if re.search(r"(?i)may contain", message):
+                raise SystemExit(f"{where}: {a['name']} is YES but its message says {message!r}: the page contradicts itself, decide before re-running")
+            contains |= keys
+            cereals |= cer
+            nuts |= nut
+            if message:
+                notes.append(f"Nando's allergen note ({a['name'].replace('_', ' ').title()}): {message}")
+        else:
+            may |= keys
+            if message and message not in STANDARD_MESSAGES:
+                raise SystemExit(f"{where}: unexpected message {message!r} under {a['name']}: read the panel and decide")
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}, notes
+
+
 def holdback_reason(row: nf.Row) -> str:
     """Why a row is not published although the page prints it: the page's own figures contradict each other (never corrected, never
     chosen between). Accuracy audit 2026-10-08. Two tests, both on what the product panel prints:
@@ -206,6 +286,7 @@ def notes_for(row: nf.Row, serving_notes: list[str]) -> str:
     if row.key in RANKABLE_OVERRIDE:
         notes.append(RANKABLE_OVERRIDE[row.key][1])
     notes += [m for m in row.messages if NOTE_MESSAGE.search(m)]
+    notes += [m for m in row.messages if ALLERGEN_MESSAGE.search(m) and not GENERIC_MESSAGE.search(m)]
     f = row.facts
     if f.get("saturatesMg") is not None and f.get("fatMg") is not None and f["saturatesMg"] > f["fatMg"]:
         notes.append("Saturates are printed higher than total fat")
@@ -261,6 +342,7 @@ def main() -> int:
 
     items = []
     holdback = []
+    allergen_by_id = {}   # item id -> allergens dict (None = the feed has none for this entry)
     for r in rows:
         if r.key in SKIP:
             continue
@@ -272,6 +354,9 @@ def main() -> int:
         if r.portion:
             name = f"{name} ({r.portion.lower()})"
         serving, serving_notes = serving_for(r)
+        allergens, allergen_notes = allergens_for(r)
+        if r.key in ALLERGEN_HOLDBACK:
+            allergens = None
         cells = nf.facts_to_cells(r.facts)
         items.append({
             "id": slug(name), "name": name, "category": r.category, "serving": serving,
@@ -280,9 +365,15 @@ def main() -> int:
             "fiber_g": cells["fiber_g"],
             "tags": "vegetarian" if {"VEGETARIAN", "VEGAN"} & set(r.diets) else "",
             "limited_time": str(bool(r.lozenge and "limited" in r.lozenge.lower()) or r.key in LIMITED_BY_BANNER).lower(),
-            "rankable": str(rankable_for(r)).lower(), "components": "", "added_on": "", "notes": notes_for(r, serving_notes),
+            "rankable": str(rankable_for(r)).lower(), "components": "", "added_on": "",
+            "notes": notes_for(r, serving_notes + allergen_notes),
         })
+        allergen_by_id[items[-1]["id"]] = allergens
         why = holdback_reason(r)
+        if allergens is None:
+            # No allergen list from Nando's for this entry: allergens are all-or-nothing, so the entry is not published.
+            reason = ALLERGEN_HOLDBACK.get(r.key) or {"spice": SPICE_REASON, "nandino-side": NANDINO_SIDE_REASON}.get(r.kind, NO_LIST_REASON)
+            why = f"{why}; also {reason}" if why else reason
         if why:
             holdback.append((items[-1]["id"], why))
     ids = [i["id"] for i in items]
@@ -293,7 +384,25 @@ def main() -> int:
     assert not unknown, f"categories missing from CATEGORY_ORDER: {unknown}"
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))
 
+    # Allergen self-checks (docs/DATA.md "Allergens": all or nothing). Every published item must have a list copied from the feed.
+    held_ids = {h[0] for h in holdback}
+    no_list = [i for i, a in allergen_by_id.items() if a is None]
+    if len(no_list) * 3 > len(items):
+        print(f"{len(no_list)} of {len(items)} items have no allergen list in the feed: more than a third, so publish the allergen "
+              "guide link only and do not write allergens.csv", file=sys.stderr)
+        return 1
+    unheld = [i for i in no_list if i not in held_ids]
+    assert not unheld, f"items without allergen data that are not held back: {unheld}"
+    published = [i["id"] for i in items if i["id"] not in held_ids]
+    assert all(allergen_by_id[i] is not None for i in published), "a published item has no allergen row"
+    allergen_rows = [(i["id"], allergen_by_id[i["id"]]) for i in items if allergen_by_id[i["id"]] is not None]
+    assert {i for i, _ in allergen_rows} >= set(published), "allergens.csv would miss a published item"
+
     args.out.mkdir(parents=True, exist_ok=True)
+    common.write_allergens(args.out, CHAIN_ID, allergen_rows, {
+        "title": f"Nando's UK menu: product information, Allergens tab (nandos.co.uk/food/menu, published {published_date.day} {published_date:%B %Y})",
+        "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
+    (args.out / "note.txt").write_text(CHAIN_NOTE + "\n", encoding="utf-8")
     fields = ["id", "name", "category", "serving", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
               "sugar_g", "fiber_g", "tags", "limited_time", "rankable", "components", "added_on", "notes"]
     with open(args.out / "items.csv", "w", newline="", encoding="utf-8") as f:
@@ -319,7 +428,7 @@ def main() -> int:
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
 
-    print(f"held back (page's own figures contradict each other): {holdback}")
+    print(f"held back ({len(holdback)}: the page's own figures contradict each other, or no usable allergen list): {holdback}")
     print(f"wrote {len(items)} items to {args.out} (feed sha256 {hashlib.sha256(feed_path.read_bytes()).hexdigest()[:16]})")
     print("left out of the feed: " + "; ".join(f"{g}: {len(v)}" for g, v in left_out["grouped"].items()))
     print(f"  trial: {left_out['trial']}  no nutrition: {left_out['no_nutrition']}  skipped by rule 4: {sorted(SKIP)}")

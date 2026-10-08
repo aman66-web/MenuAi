@@ -1,4 +1,13 @@
 item_id,reason
 spicy-rice-bowl,"the page prints 600 kcal, but its own protein, carbohydrate and fat add up to about 432 kcal (2506 kJ is about 599 kcal)"
 beanie-wrap,"the page prints 644 kcal, but its own protein, carbohydrate and fat add up to about 472 kcal (2696 kJ is about 644 kcal)"
-cucumber-sticks-nandinos-side,the page prints 3 kcal but 1.7 g of protein alone would supply about 7 kcal
+peri-plant-fillet,"the panel's own message says the PERi-Plant Fillet 'may contain celery and mustard' but its allergen list marks neither: the page contradicts itself, so the item is not published"
+perinaise,"Nando's own description says 'Please double check the allergens as our PERinaise bottles have slightly different ingredients', so one allergen list cannot be tied to this item"
+corn-on-the-cob-nandinos-side,"the kid-size entry has no allergen list of its own and the regular-size entry the menu page borrows from does not agree with it (or does not exist), so no list can be tied to this item"
+cucumber-sticks-nandinos-side,"the page prints 3 kcal but 1.7 g of protein alone would supply about 7 kcal; also the kid-size entry has no allergen list of its own and the regular-size entry the menu page borrows from does not agree with it (or does not exist), so no list can be tied to this item"
+vusa-xx-hot-spice-level,"Nando's publishes no allergen information for spice levels: the feed's allergen list is empty for every spice on every dish and the menu page shows none; allergens are all-or-nothing for a chain, so the spice level is not published"
+extra-hot-spice-level,"Nando's publishes no allergen information for spice levels: the feed's allergen list is empty for every spice on every dish and the menu page shows none; allergens are all-or-nothing for a chain, so the spice level is not published"
+hot-spice-level,"Nando's publishes no allergen information for spice levels: the feed's allergen list is empty for every spice on every dish and the menu page shows none; allergens are all-or-nothing for a chain, so the spice level is not published"
+medium-spice-level,"Nando's publishes no allergen information for spice levels: the feed's allergen list is empty for every spice on every dish and the menu page shows none; allergens are all-or-nothing for a chain, so the spice level is not published"
+lemon-herb-spice-level,"Nando's publishes no allergen information for spice levels: the feed's allergen list is empty for every spice on every dish and the menu page shows none; allergens are all-or-nothing for a chain, so the spice level is not published"
+peri-tamer-spice-level,"Nando's publishes no allergen information for spice levels: the feed's allergen list is empty for every spice on every dish and the menu page shows none; allergens are all-or-nothing for a chain, so the spice level is not published"

@@ -130,6 +130,10 @@ HOLDBACK: dict[tuple[str, int], str] = {
                                                   "macros add up to about 299 kcal, not the printed 1135: the columns look shifted; not corrected",
     ("Innocent - Apple and Mango Juicy water", 1): "sugars (12 g) printed higher than carbohydrate (2 g) and the macros add up to about 14 kcal, "
                                                    "not the printed 55; not corrected",
+    ("Custard Cream Tiramisu", 1): "allergen row contradicts the dish name/ingredients: the page describes custard creams layered with "
+                                   "'sweet mascarpone, custard, fresh cream' (a tiramisu) but marks no egg, not even as may-contain "
+                                   "(it marks only gluten and milk, may contain soya); the page names no egg-free custard, so the dish is "
+                                   "not published rather than guessing; not corrected",
     ("Margherita", 2): "the page lists two different rows named exactly 'Margherita' (985 kcal and 1145 kcal) with no size on either; "
                        "which size this one is is not stated, so it is not published (the first row is)",
     ("Meat Lovers", 2): "the page lists two different rows named exactly 'Meat Lovers' (1240 kcal and 740 kcal) with no size on either; "

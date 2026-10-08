@@ -514,7 +514,7 @@ def allergens_from_record(rec: dict, where: str, sub_labels: dict, extra: dict |
     # a dish can contain one tree nut and "may contain" another: the key is then in both lines
     if may_ids - contains != may - contains:
         raise SystemExit(f"{where}: 'May contain: {rec.get('may_text')}' disagrees with the filter's label ids {sorted(may_ids)}")
-    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}  # raw may-contain: write_allergens drops kinds when a key is in both (accuracy audit 2026-10-08)
 
 
 # ------------------------------------------------------------------------------------------------ building items

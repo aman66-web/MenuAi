@@ -98,6 +98,10 @@ class Row:
     flags: list[str]
     abv: float | None = None
     extra: dict = field(default_factory=dict)
+    # The `allergens` list Nando's feed carries for this entry (what the product panel's Allergens tab prints: name, present, message),
+    # or None when the feed has no allergen data for it (those entries are held back, never guessed). An empty list means the
+    # panel marks none of the allergens for the dish.
+    allergens: list | None = None
 
 
 def load(path: Path) -> dict:
@@ -108,7 +112,7 @@ def _clean(s: str | None) -> str:
     return re.sub(r"\s+", " ", s or "").strip()
 
 
-def _portion_rows(base: dict, item: dict, kind: str, category: str, key: str) -> list[Row]:
+def _portion_rows(base: dict, item: dict, kind: str, category: str, key: str, allergens: list | None = None) -> list[Row]:
     info = item.get("nutritionalInfo") or {}
     sizes = info.get("factsForPortionSizes") or []
     if len(sizes) > 2:
@@ -121,10 +125,48 @@ def _portion_rows(base: dict, item: dict, kind: str, category: str, key: str) ->
             serving_info=_clean(item.get("servingInfo")), portion=portion, facts=facts,
             messages=[_clean(m) for m in info.get("messages") or []], diets=list(item.get("diets") or []),
             lozenge=((item.get("lozenge") or {}).get("label")), flags=list(item.get("flags") or []),
-            abv=facts.get("alcoholByVolumePercent"), **base))
+            abv=facts.get("alcoholByVolumePercent"), allergens=allergens, **base))
     if len(sizes) == 2 and not sizes[0]["energyKcal"] <= sizes[1]["energyKcal"]:
         raise SystemExit(f"{key}: the second portion has fewer kcal than the first, so 'Regular'/'Large' may be the wrong way round.")
     return rows
+
+
+NANDINO_SIDE_PREFIX = "nandinos-side:"
+
+
+def allergen_list(obj: dict) -> list | None:
+    """The feed's allergen list for an entry, or None when the entry has no `allergens` list at all (never treated as 'none')."""
+    found = obj.get("allergens")
+    if not isinstance(found, list):
+        return None
+    for a in found:
+        if not isinstance(a, dict) or not a.get("name") or not a.get("present"):
+            raise SystemExit(f"{obj.get('plu')}: an allergen entry without a name or a 'present' value: {a!r}")
+    return found
+
+
+def nandino_side_allergens(opt: dict, sections: list) -> list | None:
+    """Allergens of a Nandino side option. The menu page (comp-index.js `extractNandinosSides`) shows the option's own list and, when
+    that is empty, borrows the list of the SIDES entry with the same name (slug = the option's slug without 'nandinos-side:').
+    We copy only what can be tied to the option itself:
+      * the option's own list, when it has entries;
+      * an empty list, when the matching SIDES entry's list is empty too (nothing to borrow, nothing to contradict);
+      * otherwise None (held back): an empty own list next to a borrowed non-empty one (the kid-size corn is tagged vegan on the
+        option while the regular corn is 'served with butter' and marked milk), or no matching entry at all."""
+    own = allergen_list(opt)
+    if own:
+        return own
+    slug = opt.get("slug") or ""
+    if own is None or not slug.startswith(NANDINO_SIDE_PREFIX):
+        return None
+    stripped = slug[len(NANDINO_SIDE_PREFIX):]
+    found = [it for sec in sections if sec.get("kind") == "SIDES" for it in sec["items"]
+             if not it.get("restaurantGroup") and "IS_TRIAL" not in (it.get("flags") or [])
+             and it.get("slug") == stripped and _clean(it.get("displayName")) == _clean(opt.get("displayName"))]
+    if len(found) != 1:
+        return None
+    borrowed = allergen_list(found[0])
+    return [] if borrowed == [] else None
 
 
 def read_menu(menu: dict) -> tuple[list[Row], dict]:
@@ -163,22 +205,23 @@ def read_menu(menu: dict) -> tuple[list[Row], dict]:
                             baste_rows[opt["slug"]] = opt
                         if str(opt.get("plu", "")).startswith("nandinos-side:") and sizes:
                             prev = nandino_sides.get(opt["plu"])
-                            if prev and prev[1] != json.dumps(sizes, sort_keys=True):
-                                raise SystemExit(f"{opt['plu']}: differing values between dishes.")
-                            nandino_sides[opt["plu"]] = (opt, json.dumps(sizes, sort_keys=True))
+                            sig = json.dumps([sizes, opt.get("allergens")], sort_keys=True)
+                            if prev and prev[1] != sig:
+                                raise SystemExit(f"{opt['plu']}: differing values or allergens between dishes.")
+                            nandino_sides[opt["plu"]] = (opt, sig)
             if group:
                 left_out["grouped"].setdefault(group, []).append(_clean(item["displayName"]))
                 continue
             if "IS_TRIAL" in (item.get("flags") or []):
                 left_out["trial"].append(_clean(item["displayName"]))
                 continue
-            made = _portion_rows({}, item, "item", cat, item["plu"])
+            made = _portion_rows({}, item, "item", cat, item["plu"], allergens=allergen_list(item))
             if not made:
                 left_out["no_nutrition"].append(_clean(item["displayName"]))
             rows.extend(made)
 
     for plu, (opt, _) in nandino_sides.items():
-        rows.extend(_portion_rows({}, opt, "nandino-side", "Nandinos (Kids)", plu))
+        rows.extend(_portion_rows({}, opt, "nandino-side", "Nandinos (Kids)", plu, allergens=nandino_side_allergens(opt, data["sections"])))
 
     flagged_bastes = {b["slug"]: b for b in data["bastes"]}
     for slug, variants in bastes.items():
