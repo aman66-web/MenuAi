@@ -1,0 +1,20 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+flat-iron-steak,Flat Iron Steak,Steak,,325,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'FLAT IRON STEAK' 325 kcal; Name says steak. Printed 15.0 under STEAK; no weight printed
+smashed-onion-double-cheeseburger,Smashed Onion Double Cheeseburger,Beef specials,,796,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Smashed Onion Double Cheeseburger' 796 kcal; Menu line says 'Flat Iron Herd Beef'; printed 14.0
+35-day-aged-ribeye,35 Day Aged Ribeye,Beef specials,,416,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed '35 Day Aged Ribeye' 416 kcal; Sits under the menu's own 'BEEF specials' heading; the name does not say beef or steak. Printed 20.0
+homemade-beef-dripping-chips,Homemade Beef Dripping Chips,Sides,,490,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Homemade Beef Dripping Chips' 490kcal; Name says beef dripping. Printed 4.5
+crispy-bone-marrow-garlic-mash,Crispy Bone Marrow Garlic Mash,Sides,,543,,,,,,,,,,,,,,,,false,false,,,"Printed 'Crispy Bone Marrow Garlic Mash' 543kcal; Bone marrow: the animal is not stated, so no meat tag. Printed 5.0"
+creamed-spinach,Creamed Spinach,Sides,,425,,,,,,,,,,,,,,,,false,false,,,"Printed 'Creamed Spinach' 425kcal; FAQ says it contains Parmesan made with rennet, so not tagged vegetarian. Printed 4.5"
+green-salad,Green Salad,Sides,,210,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Green Salad' 210kcal; Vegetarian tag from the chain's FAQ ('totally vegetarian (but not vegan)'), not from the menu page. Printed 3.5"
+truffled-macaroni-cheese,Truffled Macaroni Cheese,Sides,,525,,,,,,,,,,,,,,,,false,false,,,Printed 'Truffled Macaroni Cheese' 525kcal; Printed 5.5
+roast-aubergine,Roast Aubergine,Sides,,420,,,,,,,,,,,,,,,,false,false,,,Printed 'Roast Aubergine*' 420kcal; Value printed with the side (5.0); footnote '* Available as a main - 9.0' has no calories. FAQ says Parmesan with rennet: not tagged vegetarian
+bearnaise-sauce,Bearnaise sauce,Sauces,,195,,,,,,,,,,,,,,,,false,false,,,"Printed 'Bearnaise' 195 / 55 / 210 / 55 kcal; One list of 4 values, matched in printed order; printed 1.5"
+peppercorn-sauce,Peppercorn sauce,Sauces,,55,,,,,,,,,,,,,,,,false,false,,,"Printed 'Peppercorn' 195 / 55 / 210 / 55 kcal; One list of 4 values, matched in printed order; printed 1.5"
+homemade-smoked-chilli-mayo,Homemade Smoked Chilli Mayo,Sauces,,210,,,,,,,,,,,,,,,,false,false,,,"Printed 'Homemade Smoked Chilli Mayo' 195 / 55 / 210 / 55 kcal; One list of 4 values, matched in printed order; printed 1.5"
+wild-mushroom-sauce,Wild Mushroom sauce,Sauces,,55,,,,,,,,,,,,,,,,false,false,,,"Printed 'Wild Mushroom' 195 / 55 / 210 / 55 kcal; One list of 4 values, matched in printed order; printed 1.5"
+citrus-margarita,Citrus Margarita,0% cocktails,,91,,,,,,,,,,,,,,,,false,false,,,Printed 'Citrus Margarita' 91kcal; Under '0% COCKTAILS — 5.0'
+virgin-passion-fruit-collins,Virgin Passion Fruit Collins,0% cocktails,,86,,,,,,,,,,,,,,,,false,false,,,Printed 'Virgin Passion Fruit Collins' 86kcal; Under '0% COCKTAILS — 5.0'
+sober-mule,Sober Mule,0% cocktails,,54,,,,,,,,,,,,,,,,false,false,,,Printed 'Sober Mule' 54kcal; Under '0% COCKTAILS — 5.0'
+lime-and-mint-house-fizz,Lime & Mint House Fizz,Softs,,52,,,,,,,,,,,,,,,,false,false,,,"Printed 'Lime & Mint' 52 / 70 / 58 kcal; One list of 3 values, matched in printed order"
+apple-and-rhubarb-house-fizz,Apple & Rhubarb House Fizz,Softs,,70,,,,,,,,,,,,,,,,false,false,,,"Printed 'Apple & Rhubarb' 52 / 70 / 58 kcal; One list of 3 values, matched in printed order"
+rose-lemonade-house-fizz,Rose Lemonade House Fizz,Softs,,58,,,,,,,,,,,,,,,,false,false,,,"Printed 'Rose Lemonade' 52 / 70 / 58 kcal; One list of 3 values, matched in printed order"

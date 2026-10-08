@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
-"""Build a data/source/flat-iron/ folder from Flat Iron's own online menu page (a CALORIES-ONLY chain).
+"""Build data/source/flat-iron/ from Flat Iron's own online menu page (a CALORIES-ONLY chain).
 
-    python3 tools/uk_extract/flat_iron.py --pages DIR --checked-on 2026-10-07 --out data/source/flat-iron [--fetch]
+    python3 tools/uk_extract/flat_iron.py --pages DIR --checked-on 2026-10-08 [--out DIR] [--fetch]
 
-DIR holds three saved files: menu.html, allergens.html and style.css; --fetch downloads them first (one request each, one second
-apart, normal browser user-agent; robots.txt of flatironsteak.co.uk allows everything). --out is REQUIRED on purpose, see below.
+DIR holds four saved files: menu.html, allergens.html, style.css and calories.js; --fetch downloads them first (one request each,
+one second apart, normal browser user-agent; robots.txt of flatironsteak.co.uk is `User-agent: *` / `Disallow:` = everything allowed,
+checked with tools/uk_extract/robots_rfc.py). --out defaults to data/source/flat-iron.
 
 Source (the chain's own pages, https://flatironsteak.co.uk, WordPress):
     https://flatironsteak.co.uk/menu/       the menu; 15 paragraphs with class "calories" print kcal beside dishes
                                             (WordPress REST API says the page was last modified 2026-08-18; no date is shown on it)
     https://flatironsteak.co.uk/allergens/  "Allergens Guide", prints "DATE REVIEWED: 1/7/2026" (modified 2026-07-07)
-    https://flatironsteak.co.uk/wp-content/themes/flatiron4/style.css   the theme stylesheet (only read to see the hiding rule below)
+    https://flatironsteak.co.uk/wp-content/themes/flatiron4/style.css          the theme stylesheet: `.calories { display: none; }`
+    https://flatironsteak.co.uk/wp-content/themes/flatiron4/js/calories.js     the page's own script that undoes that rule
 
-!! THE CALORIES ARE HIDDEN FROM VISITORS. !!  The menu page's own stylesheet has the rule `.calories { display: none; }` and no
-exception (no media query), so a visitor to flatironsteak.co.uk/menu/ sees NO calories at all: the kcal figures are only in the page's
-HTML source. Checked on 2026-10-07 with Chromium (computed style display:none, width 0 / height 0 at 1400 px). We therefore did NOT
-install this chain into data/source by default: the app would tell people "source: the chain's menu page" and they would not find the
-numbers there. Whether to publish figures the chain keeps out of sight is the founder's call (see the report). To publish anyway, run
-this script with `--out data/source/flat-iron` and then `python3 tools/uk_extract/check_chain.py flat-iron`. The script re-checks the
-rule on every run and writes note.txt to match (it stops if style.css is missing).
+HOW A VISITOR SEES THE CALORIES (checked 2026-10-08 with Chromium on the live page): the figures start hidden (stylesheet rule above),
+and the footer of the menu has three buttons, "ALLERGENS", "CALORIES" and "SUPPLIERS". Clicking CALORIES (class `toggle-calories`) runs
+calories.js, `$('.calories').toggle()`, and all 15 figures appear in italics under their dishes (15 of 15 visible after the click,
+0 of 15 before). So the calories ARE published to visitors, behind the chain's own Calories button. (An earlier version of this script,
+written 2026-10-07, missed that button and held the data back as "hidden"; that was wrong.) The script checks on every run that the
+button and the toggle script are still there, and stops if they are not: a page that hides the figures without a way to show them
+would be the founder's call.
 
 What the page prints: calories ONLY, per dish, as sold, with no portion size, no kJ, no protein, carbs, fat, salt, etc. So protein, carbs
 and fat stay blank (docs/DATA.md "Calories-only chains": every item is then not rankable). Calories are copied from the page as printed;
@@ -63,19 +65,17 @@ PAGES = {  # file name -> url
     "menu.html": BASE + "/menu/",
     "allergens.html": BASE + "/allergens/",
     "style.css": BASE + "/wp-content/themes/flatiron4/style.css",
+    "calories.js": BASE + "/wp-content/themes/flatiron4/js/calories.js",
 }
 SOURCE_URL = BASE + "/menu/"
-SOURCE_TITLE = "Flat Iron menu with calories (flatironsteak.co.uk/menu, accessed 2026-10-07, no date shown; page last modified 2026-08-18 per the site's own API)"
+SOURCE_TITLE = "Flat Iron menu with calories (flatironsteak.co.uk/menu, accessed 2026-10-08, no date shown; page last modified 2026-08-18 per the site's own API)"
 ALLERGEN_GUIDE_TITLE = "Flat Iron Allergens Guide (page says: DATE REVIEWED 1/7/2026)"
 ALLERGEN_GUIDE_URL = BASE + "/allergens/"
 # The guide prints "May contain traces of ..." for many dishes and the sentence "We make every effort to avoid cross-contamination
 # but sadly cannot guarantee dishes and drinks are allergen-free": traces information is published.
 MAY_CONTAIN_PUBLISHED = True
-NOTE_HIDDEN = ("Flat Iron's menu page lists calories only, per dish, with no portion sizes: protein, carbs and fat are not published. "
-               "The figures are in the page's code but the site's stylesheet currently hides them from view. Wines, beers, "
-               "alcoholic cocktails and the Wagyu steak of the day (a range) print no single calorie figure.")
-NOTE_SHOWN = ("Flat Iron's menu page lists calories only, per dish, with no portion sizes: protein, carbs and fat are not published. "
-              "Wines, beers, alcoholic cocktails and the Wagyu steak of the day (a range) print no single calorie figure.")
+NOTE = ("Flat Iron's menu page lists calories only (behind its Calories button), per dish, with no portion sizes: protein, carbs "
+        "and fat are not published. Wines, beers, alcoholic cocktails and the Wagyu steak of the day (a range) print no single figure.")
 
 STEAK, BEEF, SIDES, SAUCES, ZERO, SOFTS = "Steak", "Beef specials", "Sides", "Sauces", "0% cocktails", "Softs"
 EXPECTED_CALORIE_PARAGRAPHS = 15
@@ -191,8 +191,11 @@ def read_calorie_blocks(html: str) -> list[tuple[str, list[str], str]]:
     return out
 
 
-def hides_calories(css: str) -> bool:
-    return re.search(r"\.calories\s*\{[^}]*display\s*:\s*none", css) is not None
+def has_calorie_button(html: str, js: str) -> bool:
+    """True when the menu page still has its CALORIES button (class toggle-calories) and calories.js still toggles .calories."""
+    button = re.search(r'class="[^"]*\btoggle-calories\b[^"]*".*?<a href="#">CALORIES</a>', html, re.S) is not None
+    toggles = re.search(r"\.toggle-calories['\"]\)\.click\(.*?\$\(['\"]\.calories['\"]\)\.toggle\(\)", js, re.S) is not None
+    return button and toggles
 
 
 def build_items(found: list[tuple[str, list[str], str]]) -> tuple[list[dict], list[str]]:
@@ -257,9 +260,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--pages", type=Path, required=True)
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day the pages were read")
-    ap.add_argument("--out", type=Path, required=True,
-                    help="folder to write. Required: the calories are hidden on the live page, publishing them is the founder's call")
-    ap.add_argument("--fetch", action="store_true", help="download the three pages into --pages first")
+    ap.add_argument("--out", type=Path, default=None, help="folder to write (default data/source/flat-iron)")
+    ap.add_argument("--fetch", action="store_true", help="download the four files into --pages first")
     args = ap.parse_args()
     args.pages.mkdir(parents=True, exist_ok=True)
     if args.fetch:
@@ -277,13 +279,14 @@ def main() -> int:
         raise SystemExit("The allergen guide's 'DATE REVIEWED' changed: update ALLERGEN_GUIDE_TITLE and re-read the guide.")
     if "May contain traces of" not in allergen_text:
         raise SystemExit("The allergen guide no longer prints 'May contain traces of': set MAY_CONTAIN_PUBLISHED to False after reading it.")
-    hidden = hides_calories((args.pages / "style.css").read_text(encoding="utf-8"))
-    print("WARNING: style.css hides the calories (.calories { display: none; }): visitors do not see these figures." if hidden
-          else "style.css no longer hides .calories: the page shows the calories now (checked in the file only).")
+    if not has_calorie_button((args.pages / "menu.html").read_text(encoding="utf-8"), (args.pages / "calories.js").read_text(encoding="utf-8")):
+        raise SystemExit("The menu page no longer has its CALORIES button (class toggle-calories) wired to calories.js: the figures may be hidden "
+                         "from visitors. Open https://flatironsteak.co.uk/menu/ in a browser; publishing hidden figures is the founder's call.")
+    print("CALORIES button and calories.js toggle found: visitors can show the figures with one click.")
     guide = {"title": ALLERGEN_GUIDE_TITLE, "url": ALLERGEN_GUIDE_URL, "checked_on": args.checked_on, "may_contain_published": MAY_CONTAIN_PUBLISHED}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Flat Iron", cuisine="Steakhouse", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
                              checked_on=args.checked_on, aliases=["flat iron", "flat iron steak", "flat iron steak restaurant"],
-                             items=items, out=args.out, note=NOTE_HIDDEN if hidden else NOTE_SHOWN, allergen_guide=guide,
+                             items=items, out=args.out, note=NOTE, allergen_guide=guide,
                              nutrition_level="calories")
     print("\n".join(report))
     print(f"wrote {len(items)} items to {out}")
