@@ -1,0 +1,1 @@
+Read from all 36 site menus of English Heritage's food portal. Menus differ by site, so a dish is listed only if its figures and allergens are identical on every menu that prints it (28 differing dishes left out); it may not be sold at every site. Calories only, per portion: no protein or carbs. Named nuts and cereals a dish only may contain aren't listed.
