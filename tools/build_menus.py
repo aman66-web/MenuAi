@@ -119,7 +119,7 @@ def round_nutrient(key: str, val: float):
     return int(r) if r == int(r) else r
 
 
-def nutrients_from_row(row: dict, where: str, errors: list, *, allow_blank_required=False, calories_only=False):
+def nutrients_from_row(row: dict, where: str, errors: list, *, allow_blank_required=False, calories_only=False, mixed=False):
     """Parse nutrient columns. Returns dict (missing optional keys omitted) or None if all required blank.
 
     '<1' style values (as printed in nutrition guides) are stored as 0; see docs/DATA.md."""
@@ -146,6 +146,13 @@ def nutrients_from_row(row: dict, where: str, errors: list, *, allow_blank_requi
             errors.append(f"{where}: column '{col}' is negative ({raw})")
             continue
         out[key] = round_nutrient(key, val)
+    if mixed and "calories" in out:
+        # a "mixed" chain (docs/DATA.md "Mixed chains"): an item either has protein, carbs and fat together or none of them (a drink, a side or a
+        # dessert the chain prints calories for only); never one or two of the three
+        missing = [c for c, k in NUTRIENT_COLUMNS.items() if k in ("protein", "carbs", "fat") and k not in out]
+        if len(missing) in (1, 2):
+            errors.append(f"{where}: a mixed chain's item has protein, carbs and fat together or none of them; missing: {', '.join(missing)}")
+        blanks = [c for c in blanks if c not in missing] if len(missing) == 3 else blanks
     if blanks:
         if allow_blank_required and len(blanks) == len(REQUIRED_NUTRIENTS):
             return None
@@ -312,6 +319,7 @@ class ChainBuild:
     combinations: list = field(default_factory=list)
     held: list = field(default_factory=list)         # (item id, name, reason): rows left out of the published menu
     calories_only: bool = False                       # nutrition_level "calories": the chain publishes calories only
+    mixed: bool = False                               # nutrition_level "mixed": most items have full macros, some print calories only
 
 
 def load_chain(folder: Path) -> ChainBuild:
@@ -340,12 +348,13 @@ def load_chain(folder: Path) -> ChainBuild:
     if r["checked_on"]:
         parse_date(r["checked_on"], "checked_on", w, E)
     level = (r.get("nutrition_level") or "full").strip().lower()
-    if level not in {"full", "calories"}:
-        E.append(f"{w}: nutrition_level must be 'full' or 'calories', got {level!r}")
+    if level not in {"full", "calories", "mixed"}:
+        E.append(f"{w}: nutrition_level must be 'full', 'calories' or 'mixed', got {level!r}")
         level = "full"
     b.calories_only = level == "calories"
-    if b.calories_only and r["builder_type"] == "build_your_own":
-        E.append(f"{w}: a calories-only chain can't be build_your_own (components need protein, carbs and fat)")
+    b.mixed = level == "mixed"
+    if (b.calories_only or b.mixed) and r["builder_type"] == "build_your_own":
+        E.append(f"{w}: a {level} chain can't be build_your_own (components need protein, carbs and fat)")
     b.chain = {
         "id": cid,
         "name": r["name"],
@@ -443,7 +452,7 @@ def load_chain(folder: Path) -> ChainBuild:
                 E.append(f"{w}: component {comp_id!r} has quantity 2 but allow_double is false")
             comps.append({"id": comp_id, "qty": qty})
 
-        typed = nutrients_from_row(r, w, E, allow_blank_required=bool(comps), calories_only=b.calories_only)
+        typed = nutrients_from_row(r, w, E, allow_blank_required=bool(comps), calories_only=b.calories_only, mixed=b.mixed)
         if comps:
             n = add_nutrients([(b.components[c["id"]]["nutrients"], c["qty"]) for c in comps])
             if typed:
@@ -466,7 +475,7 @@ def load_chain(folder: Path) -> ChainBuild:
             "nutrients": n,
             "tags": tags,
             "limitedTime": parse_bool(r["limited_time"], False, w, E),
-            "rankable": parse_bool(r["rankable"], True, w, E) and not b.calories_only,  # never suggested without protein, carbs and fat
+            "rankable": parse_bool(r["rankable"], True, w, E) and not b.calories_only and all(k in n for k in ("protein", "carbs", "fat")),  # never suggested without protein, carbs and fat
             "components": comps,
             "modifiers": [],
         }

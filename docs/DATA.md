@@ -139,6 +139,14 @@ Several items may share one file (sizes of one product). The build exports `imag
 (errors: missing file, not `.webp`, over 150,000 bytes, non-https source; warning: item no longer in items.csv). Rows for
 held-back items are ignored. Never from third-party sites, stock libraries, or generated/edited images.
 
+### Mixed chains (`nutrition_level = mixed`)
+
+Founder's request 2026-10-08: "include drinks, desserts, side dishes, everything". Many full-nutrition chains print only calories for some
+items (alcohol, hot drinks, sides, desserts). In a `mixed` chain `chain.csv` has `nutrition_level = mixed`, and each item has either
+protein, carbs and fat **together** or **none** of them (one or two of the three is an error); calories are always required. An item without
+the three is never rankable and shows "not published" for them (the item page already reads `hasMacros`); the chain itself is shown as a
+full-nutrition chain (no `nutritionLevel` in the JSON). The energy check runs only on items that have all four numbers.
+
 ### Allergens: allergens.csv + allergen_guide.csv (optional)
 
 Founder's decision 2026-10-06: show each item's allergens, as specifically as the chain's own guide prints them. Allergens

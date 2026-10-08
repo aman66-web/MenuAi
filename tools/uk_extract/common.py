@@ -117,7 +117,7 @@ def write_chain_folder(*, chain_id: str, name: str, cuisine: str, source_title: 
     seen: dict[str, int] = {}
     rows = []
     for it in items:
-        required = ("name", "category", "calories") if nutrition_level == "calories" else ("name", "category", "calories", "protein_g", "carbs_g", "fat_g")
+        required = ("name", "category", "calories") if nutrition_level in ("calories", "mixed") else ("name", "category", "calories", "protein_g", "carbs_g", "fat_g")
         for key in required:
             if str(it.get(key, "")).strip() == "":
                 raise ValueError(f"{chain_id}: item {it.get('name')!r} is missing {key}")
@@ -143,9 +143,9 @@ def write_chain_folder(*, chain_id: str, name: str, cuisine: str, source_title: 
         w.writerows(rows)
     with open(out / "chain.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        calories_only = nutrition_level == "calories"  # docs/DATA.md: the chain publishes calories only
-        w.writerow(["id", "name", "cuisine", "builder_type", "source_title", "source_url", "checked_on", "aliases", "sample", *(["nutrition_level"] if calories_only else [])])
-        w.writerow([chain_id, name, cuisine, "standard", source_title, source_url, checked_on, "|".join(aliases), "", *(["calories"] if calories_only else [])])
+        has_level = nutrition_level in ("calories", "mixed")  # docs/DATA.md: "calories" = calories only; "mixed" = most items full, some calories only
+        w.writerow(["id", "name", "cuisine", "builder_type", "source_title", "source_url", "checked_on", "aliases", "sample", *(["nutrition_level"] if has_level else [])])
+        w.writerow([chain_id, name, cuisine, "standard", source_title, source_url, checked_on, "|".join(aliases), "", *([nutrition_level] if has_level else [])])
     (out / "components.csv").write_text("id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,removable,allow_double\n", encoding="utf-8")
     (out / "modifiers.csv").write_text("item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")

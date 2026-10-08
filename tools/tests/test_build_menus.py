@@ -329,6 +329,39 @@ class SaltTests(unittest.TestCase):
         self.assertEqual(self.build(), 1)
 
 
+class MixedLevelTests(SaltTests):
+    """nutrition_level 'mixed' (docs/DATA.md): items have protein, carbs and fat together or not at all; those without are never rankable."""
+
+    def chain(self, items, components="", modifiers=""):
+        super().chain(items, components, modifiers)
+        csv = self.src / "uk-chain" / "chain.csv"
+        csv.write_text(
+            "id,name,cuisine,builder_type,source_title,source_url,checked_on,aliases,sample,nutrition_level\n"
+            "uk-chain,UK Chain,Test,standard,Guide,https://example.com,2026-10-01,uk chain,true,mixed\n")
+
+    def test_a_drink_with_calories_only_sits_beside_full_items(self):
+        self.chain(self.row("burger", "Burger", ["463", "28.8", "43.0", "18.7", "2.2", "", "2.20", "6.5", ""])
+                   + self.row("lager", "Lager", ["210", "", "", "", "", "", "", "", ""]))
+        self.assertEqual(self.build(), 0)
+        items = {i["id"]: i for i in self.doc()["items"]}
+        self.assertEqual(items["burger"]["rankable"], True)
+        self.assertEqual(items["lager"]["nutrients"], {"calories": 210})
+        self.assertEqual(items["lager"]["rankable"], False)   # never suggested without protein, carbs and fat
+        self.assertNotIn("nutritionLevel", self.doc())  # the chain itself is shown as a full-nutrition chain
+
+    def test_one_or_two_of_protein_carbs_fat_is_an_error(self):
+        self.chain(self.row("half", "Half", ["300", "10", "", "", "", "", "", "", ""]))
+        self.assertNotEqual(self.build(), 0)
+
+    def test_calories_are_still_required(self):
+        self.chain(self.row("none", "Nothing", ["", "", "", "", "", "", "", "", ""]))
+        self.assertNotEqual(self.build(), 0)
+
+    def test_a_full_chain_still_needs_all_four_numbers(self):
+        SaltTests.chain(self, self.row("lager", "Lager", ["210", "", "", "", "", "", "", "", ""]))
+        self.assertNotEqual(self.build(), 0)
+
+
 if __name__ == "__main__":
     unittest.main()
 
