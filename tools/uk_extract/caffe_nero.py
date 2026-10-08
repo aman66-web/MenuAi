@@ -58,9 +58,10 @@ PAGES = {
     "hot-drinks": "drinks/hot-drinks",
     "iced-drinks": "drinks/iced-drinks",
 }
-# Set after the reviewed run of 2026-10-06. If the website's products/options change, the script stops: re-check, then update.
-EXPECTED_ROWS = 436          # nutrition tables on the eight pages (including Northern Ireland rows and cross-page repeats)
-EXPECTED_FINGERPRINT = "fa8513f5d5f455eb"  # first 16 hex of sha256 over the sorted page|product|option|size keys
+# Set after the reviewed run of 2026-10-06; re-set on 2026-10-08 after the website dropped two products (Plant Based Mushroom
+# & Tomato Ragu Panini, Cappuccino Cake: 436 -> 434 tables; every other table was unchanged). If the website's products/options change, the script stops: re-check, then update.
+EXPECTED_ROWS = 434          # nutrition tables on the eight pages (including Northern Ireland rows and cross-page repeats)
+EXPECTED_FINGERPRINT = "d9d64694c9048ff8"  # first 16 hex of sha256 over the sorted page|product|option|size keys
 
 # --- display categories (display order) -------------------------------------------------------------------------
 BRK, PAS, SAN, SAL, SNK, CAK = ("Breakfast", "Pastries", "Sandwiches, paninis & tostati", "Salads, soups & hot pots",
