@@ -1,0 +1,132 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+thai-prawn-crackers,Thai Prawn Crackers,Nibbles,,417,,,,,,,,,,,,,,,,false,false,,,
+vegan-crackers,Vegan Crackers,Nibbles,,253,,,,,,,,,,,,,,,vegetarian,false,false,,,
+bangkok-street,Bangkok Street,Sharing Starters,,887,,,,,,,,,,,,,,,contains_pork,false,false,,,
+thaikhun,Thaikhun,Sharing Starters,,904,,,,,,,,,,,,,,,contains_pork,false,false,,,printed '♥ THAIKHUN' (heart / chilli marks dropped)
+phuket-jay,Phuket Jay,Sharing Starters,,753,,,,,,,,,,,,,,,,false,false,,,
+chicken-satay,Chicken Satay,Small Plates,,268,,,,,,,,,,,,,,,,false,false,,,
+chicken-and-prawn-toast,Chicken and Prawn Toast,Small Plates,,413,,,,,,,,,,,,,,,,false,false,,,
+crispy-vegetable-gyoza,Crispy Vegetable Gyoza,Small Plates,,305,,,,,,,,,,,,,,,vegetarian,false,false,,,
+thai-fish-cakes,Thai Fish Cakes,Small Plates,,375,,,,,,,,,,,,,,,,false,false,,,printed 'THAI FISH CAKES 🌶' (heart / chilli marks dropped)
+tempura-king-prawns,Tempura King Prawns,Small Plates,,312,,,,,,,,,,,,,,,,false,false,,,printed '♥ Tempura King Prawns' (heart / chilli marks dropped)
+pork-skewers,Pork Skewers,Small Plates,,388,,,,,,,,,,,,,,,contains_pork,false,false,,,
+6-chicken-wings-thai-bbq,6 Chicken Wings (Thai BBQ),Small Plates,,427,,,,,,,,,,,,,,,,false,false,,,printed '6 Chicken Wing 🌶'; printed '6 Chicken Wing 🌶' (heart / chilli marks dropped)
+6-chicken-wings-tom-yum-seasoning,6 Chicken Wings (Tom Yum Seasoning),Small Plates,,465,,,,,,,,,,,,,,,,false,false,,,printed '6 Chicken Wings 🌶' (heart / chilli marks dropped)
+papaya-salad,Papaya Salad,Small Plates,,245,,,,,,,,,,,,,,,,false,false,,,printed 'Papaya Salad 🌶🌶🌶🌶' (heart / chilli marks dropped)
+chilli-squid,Chilli Squid,Small Plates,,405,,,,,,,,,,,,,,,,false,false,,,printed 'CHILLI SQUID 🌶' (heart / chilli marks dropped)
+sweetcorn-cakes,Sweetcorn Cakes,Small Plates,,472,,,,,,,,,,,,,,,vegetarian,false,false,,,printed '♥ SWEETCORN CAKES' (heart / chilli marks dropped)
+spring-rolls-vegetable,Spring Rolls Vegetable,Small Plates,,416,,,,,,,,,,,,,,,vegetarian,false,false,,,
+spring-rolls-chicken,Spring Rolls Chicken,Small Plates,,549,,,,,,,,,,,,,,,,false,false,,,
+pork-rib-stack-sticky-thai-bbq,Pork Rib Stack (Sticky Thai BBQ),Small Plates,,597,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'PORK RIB STACK 🌶' (heart / chilli marks dropped)
+pork-rib-stack-salt-and-pepper,Pork Rib Stack (Salt and Pepper),Small Plates,,640,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'PORK RIB STACK 🌶' (heart / chilli marks dropped)
+12-chicken-wings-thai-bbq,12 Chicken Wings (Thai BBQ),Small Plates,,934,,,,,,,,,,,,,,,,false,false,,,printed '12 CHICKEN WINGS 🌶' (heart / chilli marks dropped)
+12-chicken-wings-tom-yum-seasoning,12 Chicken Wings (Tom Yum Seasoning),Small Plates,,886,,,,,,,,,,,,,,,,false,false,,,printed '12 Chicken Wings 🌶' (heart / chilli marks dropped)
+massaman-lamb,Massaman Lamb,Curry,,1191,,,,,,,,,,,,,,,,false,false,,,printed '♥ MASSAMAN LAMB🌶' (heart / chilli marks dropped)
+massaman-chicken,Massaman Chicken,Curry,,1037,,,,,,,,,,,,,,,,false,false,,,printed '♥ MASSAMAN CHICKEN 🌶' (heart / chilli marks dropped)
+massaman-beef,Massaman Beef,Curry,,1073,,,,,,,,,,,,,,,contains_beef,false,false,,,printed '♥ MASSAMAN BEEF 🌶' (heart / chilli marks dropped)
+massaman-prawn,Massaman Prawn,Curry,,909,,,,,,,,,,,,,,,,false,false,,,printed '♥ MASSAMAN PRAWN 🌶' (heart / chilli marks dropped)
+massaman-vegetables,Massaman Vegetables,Curry,,1003,,,,,,,,,,,,,,,vegetarian,false,false,,,printed '♥ MASSAMAN VEGETABLES 🌶' (heart / chilli marks dropped)
+massaman-tofu,Massaman Tofu,Curry,,1098,,,,,,,,,,,,,,,vegetarian,false,false,,,printed '♥ MASSAMAN TOFU 🌶' (heart / chilli marks dropped)
+massaman-vegan-chicken,Massaman Vegan Chicken,Curry,,996,,,,,,,,,,,,,,,vegetarian,false,false,,,printed '♥ MASSAMAN VEGAN CHICKEN 🌶' (heart / chilli marks dropped)
+thai-red-curry-prawn,Thai Red Curry Prawn,Curry,,741,,,,,,,,,,,,,,,,false,false,,,printed 'THAI RED CURRY PRAWN 🌶🌶' (heart / chilli marks dropped)
+thai-red-curry-vegetables,Thai Red Curry Vegetables,Curry,,748,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'THAI RED CURRY VEGETABLES 🌶🌶' (heart / chilli marks dropped)
+thai-red-curry-tofu,Thai Red Curry Tofu,Curry,,849,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'THAI RED CURRY TOFU 🌶🌶' (heart / chilli marks dropped)
+thai-red-curry-vegan-chicken,Thai Red Curry Vegan Chicken,Curry,,822,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'THAI RED CURRY VEGAN CHICKEN 🌶🌶' (heart / chilli marks dropped)
+thai-green-curry-prawn,Thai Green Curry Prawn,Curry,,744,,,,,,,,,,,,,,,,false,false,,,printed 'THAI GREEN CURRY PRAWN 🌶🌶🌶' (heart / chilli marks dropped)
+thai-green-curry-vegetables,Thai Green Curry Vegetables,Curry,,859,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'THAI GREEN CURRY VEGETABLES 🌶🌶🌶' (heart / chilli marks dropped)
+thai-green-curry-tofu,Thai Green Curry Tofu,Curry,,853,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'THAI GREEN CURRY TOFU 🌶🌶🌶' (heart / chilli marks dropped)
+thai-green-curry-vegan-chicken,Thai Green Curry Vegan Chicken,Curry,,833,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'THAI GREEN CURRY VEGAN CHICKEN 🌶🌶🌶' (heart / chilli marks dropped)
+panang-prawn,Panang Prawn,Curry,,749,,,,,,,,,,,,,,,,false,false,,,printed 'PANANG PRAWN 🌶🌶' (heart / chilli marks dropped)
+panang-vegetables,Panang Vegetables,Curry,,759,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'PANANG VEGETABLES 🌶🌶' (heart / chilli marks dropped)
+panang-tofu,Panang Tofu,Curry,,912,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'PANANG TOFU 🌶🌶' (heart / chilli marks dropped)
+panang-plant-based-chicken,Panang Plant-Based Chicken,Curry,,830,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'PANANG PLANT-BASED CHICKEN 🌶🌶' (heart / chilli marks dropped)
+chilli-and-thai-basil-chicken,Chilli and Thai Basil Chicken,Stir fry,,725,,,,,,,,,,,,,,,,false,false,,,printed 'CHILLI AND THAI BASIL CHICKEN 🌶🌶🌶' (heart / chilli marks dropped)
+chilli-and-thai-basil-beef,Chilli and Thai Basil Beef,Stir fry,,885,,,,,,,,,,,,,,,contains_beef,false,false,,,printed 'CHILLI AND THAI BASIL BEEF 🌶🌶🌶' (heart / chilli marks dropped)
+chilli-and-thai-basil-prawn,Chilli and Thai Basil Prawn,Stir fry,,616,,,,,,,,,,,,,,,,false,false,,,printed 'CHILLI AND THAI BASIL PRAWN 🌶🌶🌶' (heart / chilli marks dropped)
+chilli-and-thai-basil-pork-belly,Chilli and Thai Basil Pork Belly,Stir fry,,1052,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'CHILLI AND THAI BASIL PORK BELLY 🌶🌶🌶' (heart / chilli marks dropped)
+chilli-and-thai-basil-aubergine,Chilli and Thai Basil Aubergine,Stir fry,,489,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'CHILLI AND THAI BASIL AUBERGINE 🌶🌶🌶' (heart / chilli marks dropped)
+chilli-and-cashew-nuts-crispy-chicken,Chilli and Cashew Nuts Crispy Chicken,Stir fry,,930,,,,,,,,,,,,,,,,false,false,,,printed 'CHILLI AND CASHEW NUTS CRISPY CHCIKEN 🌶'; printed 'CHILLI AND CASHEW NUTS CRISPY CHCIKEN 🌶' (heart / chilli marks dropped)
+chilli-and-cashew-nuts-prawns,Chilli and Cashew Nuts Prawns,Stir fry,,768,,,,,,,,,,,,,,,,false,false,,,printed 'CHILLI AND CASHEW NUTS PRAWNS 🌶' (heart / chilli marks dropped)
+chilli-and-cashew-nuts-tofu,Chilli and Cashew Nuts Tofu,Stir fry,,823,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'CHILLI AND CASHEW NUTS TOFU 🌶' (heart / chilli marks dropped)
+chilli-and-cashew-nut-vegan-chicken,Chilli and Cashew Nut Vegan Chicken,Stir fry,,849,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'CHILLI AND CASHEW NUT VEGAN CHICKEN 🌶' (heart / chilli marks dropped)
+chicken-tamarind,Chicken Tamarind,Stir fry,,926,,,,,,,,,,,,,,,,false,false,,,printed '♥ CHICKEN TAMARIND' (heart / chilli marks dropped)
+stir-fried-belly-pork,Stir-Fried Belly Pork,Stir fry,,829,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'Stir-Fried Belly Pork 🌶🌶' (heart / chilli marks dropped)
+thai-garlic-and-black-pepper-chicken,Thai Garlic & Black Pepper Chicken,Stir fry,,742,,,,,,,,,,,,,,,,false,false,,,
+thai-garlic-and-black-pepper-beef,Thai Garlic & Black Pepper Beef,Stir fry,,860,,,,,,,,,,,,,,,contains_beef,false,false,,,
+thai-garlic-and-black-pepper-prawns,Thai Garlic & Black Pepper Prawns,Stir fry,,668,,,,,,,,,,,,,,,,false,false,,,
+sweet-and-sour-crispy-chicken,Sweet and Sour Crispy Chicken,Stir fry,,933,,,,,,,,,,,,,,,,false,false,,,printed 'SWEET AND SOUR CRISPY CHCIKEN'
+sweet-and-sour-prawn,Sweet and Sour Prawn,Stir fry,,770,,,,,,,,,,,,,,,,false,false,,,
+sweet-and-sour-tofu,Sweet and Sour Tofu,Stir fry,,825,,,,,,,,,,,,,,,vegetarian,false,false,,,
+sweet-and-sour-vegan-chicken,Sweet and Sour Vegan Chicken,Stir fry,,851,,,,,,,,,,,,,,,vegetarian,false,false,,,
+spicy-southern-style-chicken,Spicy Southern Style Chicken,Stir fry,,435,,,,,,,,,,,,,,,,false,false,,,printed '♥ SPICY SOUTHERN STYLE CHICKEN 🌶🌶🌶🌶' (heart / chilli marks dropped)
+spicy-southern-style-beef,Spicy Southern Style Beef,Stir fry,,460,,,,,,,,,,,,,,,contains_beef,false,false,,,printed '♥ SPICY SOUTHERN STYLE BEEF 🌶🌶🌶🌶' (heart / chilli marks dropped)
+pad-thai-chicken,Pad Thai Chicken,Noodles & Fried Rice,,909,,,,,,,,,,,,,,,,false,false,,,printed '♥ PAD THAI CHICKEN' (heart / chilli marks dropped)
+pad-thai-beef,Pad Thai Beef,Noodles & Fried Rice,,943,,,,,,,,,,,,,,,contains_beef,false,false,,,printed '♥ PAD THAI BEEF' (heart / chilli marks dropped)
+pad-thai-bbq-pork,Pad Thai BBQ Pork,Noodles & Fried Rice,,1041,,,,,,,,,,,,,,,contains_pork,false,false,,,printed '♥ PAD THAI BBQ PORK' (heart / chilli marks dropped)
+pad-thai-prawn,Pad Thai Prawn,Noodles & Fried Rice,,780,,,,,,,,,,,,,,,,false,false,,,printed '♥ PAD THAI PRAWN' (heart / chilli marks dropped)
+pad-thai-vegan-chicken,Pad Thai Vegan Chicken,Noodles & Fried Rice,,812,,,,,,,,,,,,,,,vegetarian,false,false,,,printed '♥ PAD THAI VEGAN CHICKEN' (heart / chilli marks dropped)
+pad-thai-tofu,Pad Thai Tofu,Noodles & Fried Rice,,805,,,,,,,,,,,,,,,vegetarian,false,false,,,printed '♥ PAD THAI TOFU' (heart / chilli marks dropped)
+thai-fried-rice-chicken,Thai Fried Rice Chicken,Noodles & Fried Rice,,710,,,,,,,,,,,,,,,,false,false,,,
+thai-fried-rice-beef,Thai Fried Rice Beef,Noodles & Fried Rice,,811,,,,,,,,,,,,,,,contains_beef,false,false,,,
+thai-fried-rice-bbq-pork,Thai Fried Rice BBQ Pork,Noodles & Fried Rice,,851,,,,,,,,,,,,,,,contains_pork,false,false,,,
+thai-fried-rice-prawn,Thai Fried Rice Prawn,Noodles & Fried Rice,,652,,,,,,,,,,,,,,,,false,false,,,
+thai-fried-rice-vegan-chicken,Thai Fried Rice Vegan Chicken,Noodles & Fried Rice,,683,,,,,,,,,,,,,,,vegetarian,false,false,,,
+thai-fried-rice-tofu,Thai Fried Rice Tofu,Noodles & Fried Rice,,676,,,,,,,,,,,,,,,vegetarian,false,false,,,
+street-noodles-chicken,Street Noodles Chicken,Noodles & Fried Rice,,693,,,,,,,,,,,,,,,,false,false,,,printed 'STREET NOODLES CHICKIEN'
+street-noodles-beef,Street Noodles Beef,Noodles & Fried Rice,,794,,,,,,,,,,,,,,,contains_beef,false,false,,,
+street-noodles-bbq-pork,Street Noodles BBQ Pork,Noodles & Fried Rice,,825,,,,,,,,,,,,,,,contains_pork,false,false,,,
+street-noodles-prawn,Street Noodles Prawn,Noodles & Fried Rice,,632,,,,,,,,,,,,,,,,false,false,,,
+street-noodles-tofu,Street Noodles Tofu,Noodles & Fried Rice,,647,,,,,,,,,,,,,,,vegetarian,false,false,,,
+street-noodles-vegan-chicken,Street Noodles Vegan Chicken,Noodles & Fried Rice,,841,,,,,,,,,,,,,,,vegetarian,false,false,,,
+street-noodles-tofu-2,Street Noodles Tofu,Noodles & Fried Rice,,630,,,,,,,,,,,,,,,vegetarian,false,false,,,
+singapore-noodles-chicken,Singapore Noodles Chicken,Noodles & Fried Rice,,781,,,,,,,,,,,,,,,,false,false,,,
+singapore-noodles-beef,Singapore Noodles Beef,Noodles & Fried Rice,,909,,,,,,,,,,,,,,,contains_beef,false,false,,,
+singapore-noodles-bbq-pork,Singapore Noodles BBQ Pork,Noodles & Fried Rice,,920,,,,,,,,,,,,,,,contains_pork,false,false,,,
+singapore-noodles-prawn,Singapore Noodles Prawn,Noodles & Fried Rice,,693,,,,,,,,,,,,,,,,false,false,,,
+singapore-noodles-vegan-chicken,Singapore Noodles Vegan Chicken,Noodles & Fried Rice,,627,,,,,,,,,,,,,,,vegetarian,false,false,,,
+singapore-noodles-tofu-or-vegetable,Singapore Noodles Tofu or Vegetable,Noodles & Fried Rice,,599,,,,,,,,,,,,,,,vegetarian,false,false,,,
+spicy-thai-basil-fried-rice-chicken,Spicy Thai Basil Fried Rice Chicken,Noodles & Fried Rice,,703,,,,,,,,,,,,,,,,false,false,,,printed 'SPICY THAI BASIL FRIED RICE CHICKEN 🌶🌶' (heart / chilli marks dropped)
+spicy-thai-basil-fried-rice-beef,Spicy Thai Basil Fried Rice Beef,Noodles & Fried Rice,,797,,,,,,,,,,,,,,,contains_beef,false,false,,,printed 'SPICY THAI BASIL FRIED RICE BEEF 🌶🌶' (heart / chilli marks dropped)
+spicy-thai-basil-fried-rice-belly-pork,Spicy Thai Basil Fried Rice Belly Pork,Noodles & Fried Rice,,993,,,,,,,,,,,,,,,contains_pork,false,false,,,printed 'Spicy Thai Basil Fried Rice Belly Pork 🌶🌶' (heart / chilli marks dropped)
+spicy-thai-basil-fried-rice-mushroom-and-sugar-snap-peas,Spicy Thai Basil Fried Rice Mushroom & Sugar Snap Peas,Noodles & Fried Rice,,643,,,,,,,,,,,,,,,vegetarian,false,false,,,printed 'Spicy Thai Basil Fried Rice Mushroom & Sugar Snap Peas 🌶🌶' (heart / chilli marks dropped)
+bbq-pork-on-rice,BBQ Pork on Rice,Noodles & Fried Rice,,825,,,,,,,,,,,,,,,contains_pork,false,false,,,
+prawn-pineapple-fried-rice,Prawn Pineapple Fried Rice,Noodles & Fried Rice,,746,,,,,,,,,,,,,,,,false,false,,,printed '♥ PRAWN PINEAPPLE FRIED RICE' (heart / chilli marks dropped)
+seafood-udon-noodles,Seafood Udon Noodles,Specials,,664,,,,,,,,,,,,,,,,false,false,,,printed 'SEAFOOD UDON NOODLES 🌶🌶🌶' (heart / chilli marks dropped)
+grilled-pork-strips,Grilled Pork Strips,Specials,,984,,,,,,,,,,,,,,,contains_pork,false,false,,,
+papaya-salad-2,Papaya Salad,Specials,,326,,,,,,,,,,,,,,,,false,false,,,printed 'PAPAYA SALAD 🌶🌶🌶🌶' (heart / chilli marks dropped)
+vegetarian-papaya-salad,Vegetarian Papaya Salad,Specials,,350,,,,,,,,,,,,,,,,false,false,,,
+crispy-pork-belly,Crispy Pork Belly,Specials,,948,,,,,,,,,,,,,,,contains_pork,false,false,,,
+thai-chicken-katsu,Thai Chicken Katsu,Specials,,1026,,,,,,,,,,,,,,,,false,false,,,printed 'THAI CHICKEN KATSU 🌶' (heart / chilli marks dropped)
+weeping-tiger-chilli-basil,Weeping Tiger Chilli Basil,Specials,,845,,,,,,,,,,,,,,,contains_beef,false,false,,,printed 'Weeping Tiger Chilli Basil 🌶🌶🌶' (heart / chilli marks dropped)
+crispy-duck-pad-kaprao,Crispy Duck Pad Kaprao,Specials,,1091,,,,,,,,,,,,,,,,false,false,,,printed 'CRISPY DUCK PAD KAPRAO 🌶🌶🌶' (heart / chilli marks dropped)
+duck-tamarind,Duck Tamarind,Specials,,1290,,,,,,,,,,,,,,,,false,false,,,
+tom-yum-mushroom,Tom Yum Mushroom,Thai Bowls,,227,,,,,,,,,,,,,,,vegetarian,false,false,,,printed '♥ TOM YUM MUSHROOM 🌶🌶' (heart / chilli marks dropped)
+tom-yum-chicken,Tom Yum Chicken,Thai Bowls,,271,,,,,,,,,,,,,,,,false,false,,,printed '♥ TOM YUM CHICKEN 🌶🌶' (heart / chilli marks dropped)
+tom-yum-prawn,Tom Yum Prawn,Thai Bowls,,221,,,,,,,,,,,,,,,,false,false,,,printed '♥ TOM YUM PRAWN 🌶🌶' (heart / chilli marks dropped)
+chicken-salad,Chicken Salad,Thai Bowls,,197,,,,,,,,,,,,,,,,false,false,,,printed 'CHICKEN SALAD 🌶🌶🌶' (heart / chilli marks dropped)
+legendary-ksg,Legendary KSG,Thai Bowls,,1177,,,,,,,,,,,,,,,,false,false,,,printed '♥ Legendary KSG 🌶' (heart / chilli marks dropped)
+mee-kiew-moo-dang,Mee Kiew Moo Dang,Thai Bowls,,688,,,,,,,,,,,,,,,contains_pork,false,false,,,
+roti,Roti,Sides,,292,,,,,,,,,,,,,,,vegetarian,false,false,,,
+jasmine-rice,Jasmine Rice,Sides,,374,,,,,,,,,,,,,,,vegetarian,false,false,,,
+coconut-rice,Coconut Rice,Sides,,449,,,,,,,,,,,,,,,vegetarian,false,false,,,
+egg-fried-rice,Egg Fried Rice,Sides,,168,,,,,,,,,,,,,,,vegetarian,false,false,,,
+sticky-rice,Sticky Rice,Sides,,396,,,,,,,,,,,,,,,vegetarian,false,false,,,
+egg-noodles,Egg Noodles,Sides,,574,,,,,,,,,,,,,,,vegetarian,false,false,,,
+stir-fried-vegetables,Stir-Fried Vegetables,Sides,,633,,,,,,,,,,,,,,,vegetarian,false,false,,,
+five-spice-fries,Five Spice Fries,Sides,,564,,,,,,,,,,,,,,,vegetarian,false,false,,,
+fries-with-sriracha-mayo,Fries with Sriracha Mayo,Sides,,242,,,,,,,,,,,,,,,vegetarian,false,false,,,
+edamame-beans,Edamame Beans,Sides,,246,,,,,,,,,,,,,,,,false,false,,,printed 'Edamame Beans 🌶' (heart / chilli marks dropped)
+mango-sticky-rice,Mango Sticky Rice,Desserts,,503,,,,,,,,,,,,,,,vegetarian,false,false,,,printed '♥ MANGO STICKY RICE' (heart / chilli marks dropped)
+citron-tart,Citron Tart,Desserts,,337,,,,,,,,,,,,,,,vegetarian,false,false,,,
+banana-fritters,Banana Fritters,Desserts,,591,,,,,,,,,,,,,,,,false,false,,,
+ultimate-chocolate-fudge-cheesecake,Ultimate Chocolate Fudge Cheesecake,Desserts,,532,,,,,,,,,,,,,,,vegetarian,false,false,,,
+buttermilk-pancake-stack,Buttermilk Pancake Stack,Desserts,,718,,,,,,,,,,,,,,,vegetarian,false,false,,,
+chocolate-ice-cream,Chocolate Ice Cream,Desserts,,86,,,,,,,,,,,,,,,vegetarian,false,false,,,
+vanilla-ice-cream,Vanilla Ice Cream,Desserts,,85,,,,,,,,,,,,,,,vegetarian,false,false,,,
+strawberry-ice-cream,Strawberry Ice Cream,Desserts,,79,,,,,,,,,,,,,,,vegetarian,false,false,,,
+salted-caramel-ice-cream,Salted Caramel Ice Cream,Desserts,,83,,,,,,,,,,,,,,,vegetarian,false,false,,,
+coconut-ice-cream,Coconut Ice Cream,Desserts,,109,,,,,,,,,,,,,,,vegetarian,false,false,,,
+mango-sorbet,Mango Sorbet,Desserts,,79,,,,,,,,,,,,,,,vegetarian,false,false,,,
+coffee-and-cake-mini-carrot-cake,Coffee and Cake (Mini Carrot Cake),Desserts,,148,,,,,,,,,,,,,,,vegetarian,false,false,,,
+coffee-and-cake-coffee-and-walnut-cake,Coffee and Cake (Coffee and Walnut Cake),Desserts,,160,,,,,,,,,,,,,,,vegetarian,false,false,,,
+coffee-and-cake-chocolate-brownie,Coffee and Cake (Chocolate Brownie),Desserts,,154,,,,,,,,,,,,,,,vegetarian,false,false,,,
