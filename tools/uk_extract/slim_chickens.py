@@ -328,6 +328,14 @@ def cross_check(entries: dict, site: dict) -> dict:
     return {"held": held, "notes": notes}
 
 
+# Independent accuracy check, 8 Oct 2026: dishes whose own page entry conflicts with itself on an allergen. The meal is named Plant Based
+# and its page entry marks Milk as CONTAINED (the Solo sandwich of the same recipe marks milk only as "may contain"; the page shows no
+# Vegan label for either), so the page does not say whether the milk comes from the meal's sauce or drink or is a mistake: held back.
+HOLD_NAMED = {
+    ("SANDWICHES", "Plant Based Buffalo Sandwich Meal"): "The dish is named Plant Based but the page marks Milk as contained (its Solo sandwich marks milk only as may contain), so its allergen information conflicts with its name.",
+}
+
+
 def energy_notes(n: dict) -> tuple:
     """(hold-back reason or '', [notes]) from the dish's own numbers. kJ and kcal that contradict each other (kJ/kcal outside
     3.7-4.5; the usual factor is 4.18) are held back; smaller oddities are only noted."""
@@ -426,7 +434,7 @@ def main() -> None:
             notes.append(SPECIAL_NOTES[key])
         items.append(dict(name=shown, category=CATEGORY[course], tags="|".join(tags), rankable=rankable(course, name),
                           allergens=allergens_of(e), notes="; ".join(notes), **n))
-        reasons = [r for r in (result["held"].get(key), energy_hold) if r]
+        reasons = [r for r in (result["held"].get(key), energy_hold, HOLD_NAMED.get(key)) if r]
         if reasons:
             holdback.append((key, "; ".join(reasons)))
     ids = [slug(it["name"]) for it in items]

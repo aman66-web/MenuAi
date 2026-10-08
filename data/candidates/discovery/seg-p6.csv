@@ -1,0 +1,37 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,parsons-bakery,Parsons Bakery,Bakery and sandwiches,,https://www.parsonsbakery.co.uk,https://www.parsonsbakery.co.uk/allergens,pdf,"one PDF per product with nutrition per 100g and per item (kJ/kcal, fat, saturates, carbs, sugars, protein, salt) plus allergens; about 100 products incl. sandwiches, hot drinks; about 40 shops Bristol/Somerset/Wiltshire; site robots.txt names AI crawlers, check before bulk download"
+,bubble-citea,Bubble CiTea,Bubble tea,,https://www.bubblecitea.com,https://www.bubblecitea.com/menu/toppings,web,kcal per topping on menu page and allergen matrix PDF (19 Aug 2026) at /resources/documents/allergens/allergensdocument.pdf; drink kcal not seen; about 25 stores mostly south east
+,montezumas,Montezuma's,Chocolate shops and cafes,,https://www.montezumas.co.uk,https://www.montezumas.co.uk/collections/all,web,"every product page has typical values per 100g (kJ, kcal, fat, carbs, protein, salt) and allergens (Shopify); confectionery not restaurant meals; Sussex-based, a handful of shops"
+,rockfish,Rockfish,Seafood and fish and chips,,https://therockfish.co.uk,https://therockfish.co.uk/pages/allergens-menus,pdf,"allergen menu PDFs for restaurants and takeaways (30 Jun 2026), no kcal seen; 12 restaurants in Devon and Dorset (Mitch Tonks)"
+,cornish-bakehouse,The Cornish Bakehouse,Bakery and pasties,Bridgewater Brothers Holdings,https://www.cornish-bakehouse.com,https://www.cornish-bakehouse.com/allergens,pdf,"allergen PDFs for pasties/savouries, cakes, recipe items, cold drinks (some dated Jan 2023); about 19 shops; different business from Cornish Bakery"
+,hobbs-house-bakery,Hobbs House Bakery,Bakery,,https://www.hobbshousebakery.co.uk,https://www.hobbshousebakery.co.uk/pages/allergens,web,allergen matrix for shop products is a Google Drive folder linked from the page (not a site file); about 5 shops Gloucestershire/Bristol/Bath
+,salcombe-dairy,Salcombe Dairy,Ice cream and chocolate shops,,https://salcombedairy.co.uk,https://salcombedairy.co.uk/pages/allergens,web,"allergy info page, content not readable in the raw HTML; about 5 shops in Devon"
+,fudge-kitchen,Fudge Kitchen,Fudge shops,,https://www.fudgekitchen.co.uk,,none,"product pages list ingredients and allergens in capitals but no nutrition table seen; Kent-based, shops in Canterbury, Windsor, Bath, Brighton and others"
+,herbies-pizza,Herbies Pizza,Pizza takeaway,,https://www.herbiespizza.com,https://www.herbiespizza.com/allergens,web,"allergens page answers 200 but is script-rendered so not read; about 20 takeaways in Wiltshire, Berkshire, Oxfordshire, Hampshire"
+,the-stable,The Stable,Pizza and cider,,https://stablepizza.com,,none,site blocked (403); allergen page reported at stablepizza.com/allergens/; about 12 sites in the South West and beyond
+,pengenna-pasties,Pengenna Pasties,Pasties,,https://www.pengennapasties.co.uk,,none,site blocked (403); Cornish pasty shops
+,real-eating-company,The Real Eating Company,Cafe and deli,,https://www.real-eating.co.uk,,none,site blocked (403); Brighton and Sussex cafe delis
+,rolys-fudge,Roly's Fudge,Fudge shops,,https://www.rolysfudge.co.uk,,none,"site blocked (403); about 15 shops Cornwall, Somerset, Sussex, New Forest"
+,royal-collection-trust,Royal Collection Trust cafes,Attraction cafes,,https://www.rct.uk,,none,"site blocked (403); cafes at Windsor Castle, Buckingham Palace and others"
+,rowes-bakery,Rowe's Cornish Bakers,Bakery and pasties,,https://rowesbakers.co.uk,,none,"no nutrition or allergen page on site; about 60 shops Cornwall, Somerset, Dorset"
+,truffles-bakery,Truffles Bakery,Bakery,,https://trufflesbakery.co.uk,,none,Sussex family bakery since 1982; no allergen or nutrition page found; about 14 shops
+,reeve-the-baker,Reeve the Baker,Bakery,,https://www.reevethebaker.co.uk,,none,"allergens page is a general statement only, no per-product data; about 20 shops Dorset and Wiltshire"
+,huffkins,Huffkins Bakery and Tea Rooms,Tea rooms,,https://huffkins.com,,none,"9 tea rooms Cotswolds, Oxfordshire, Cheltenham, Kingston; no nutrition or allergen page found"
+,pinkmans-bakery,Pinkmans Bakery,Bakery cafe,,https://www.pinkmans.co.uk,,none,4 Bristol cafes; no allergen or nutrition page found
+,trading-post-coffee-roasters,Trading Post Coffee Roasters,Coffee houses,,https://www.tradingpostcoffee.co.uk,,none,menu is an image-only PDF; about 7 coffee houses Brighton and Sussex
+,hathats-coffee,HatHats Coffee Company,Coffee,,https://hathats.co.uk,,none,"Kent coffee shops, about 6 sites; no allergen or nutrition page found"
+,the-codfather,The Codfather,Fish and chips,,https://www.thecodfather.co.uk,,none,"fish and chip shops across Dorset, Cornwall, Bucks, Hampshire (about 19 on food hygiene register); no allergen page found"
+,panku-streetfood,Panku Streetfood,Street food takeaway,,https://www.panku.co.uk,,none,about 25 takeaways in the South West and South East; no allergen page found
+,bristol-beer-factory,Bristol Beer Factory,Brewery pubs,,https://www.bristolbeerfactory.co.uk,,none,taproom and pubs in Bristol (about 3 sites); no allergen page found
+,wild-beer-co,Wild Beer Co,Taprooms,,https://www.wildbeerco.com,,none,"taprooms in Somerset, Bristol and Bath (about 4 sites); no allergen page found"
+,tom-kerridge-pubs,Tom Kerridge pubs and restaurants,Pub and restaurant group,,https://tomkerridge.com,,none,Marlow and Buckinghamshire pubs plus Kerridge's Bar and Grill (about 5 sites); no allergen page found
+,brighton-pier-group,Brighton Pier Group,Pier attractions and bars,,https://www.brightonpiergroup.com,,none,"Palace Pier, Horatio's and other seafront venues; no allergen page found"
+,cornwall-hotel-collection,Cornwall Hotel Collection,Hotels,,https://www.cornwallhotel.com,,none,group of Cornish hotels; allergy statement exists on Falmouth Hotel site but no dish-level data found
+,woolacombe-bay-holiday-parks,Woolacombe Bay Holiday Parks,Holiday park,,https://www.woolacombe.co.uk,,none,3 parks plus hotels in North Devon; eat-out pages have no allergen or nutrition link
+,blue-reef-aquarium,Blue Reef Aquarium,Attraction,,https://www.bluereefaquarium.co.uk,,none,"six aquariums incl. Newquay, Portsmouth, Hastings, Bristol, Bournemouth; no food information found"
+,merlin-cinemas,Merlin Cinemas,Cinema,,https://www.merlincinemas.co.uk,,none,Cornwall-based cinema group (about 8 sites); no food information found
+,otter-garden-centres,Otter Garden Centres,Garden centre cafes,,https://www.ottergardencentres.com,,none,"5 garden centres (Devon, Somerset, Hampshire) with cafes; no allergen page found"
+,mole-avon,Mole Avon,Farm and garden stores,,https://www.moleavon.co.uk,,none,"farm and garden stores in Wiltshire, Somerset, Gloucestershire; no food information found"
+,trago-mills,Trago Mills,Retail stores with cafes,,https://www.tragomills.com,,none,3 out-of-town stores with cafes in Cornwall and Devon; no allergen or nutrition page found
+,boho-gelato,Boho Gelato,Gelato,,https://www.bohogelato.co.uk,,none,about 5 gelato shops Brighton and Sussex; no allergen page found
+,genuine-dining-company,Genuine Dining Company,Restaurant group,,https://genuinedining.com,,none,"restaurant group in Hampshire, Kent and Bucks (about 9 on food hygiene register); site has policies only"

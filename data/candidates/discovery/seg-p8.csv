@@ -1,0 +1,53 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,seafood-pub-company,Seafood Pub Company,"Pub, seafood",,https://seafoodpubcompany.com,https://seafoodpubcompany.com/allergens/,pdf,"allergen matrix PDFs per menu (core, set, kids, buffet, Hesketh Arms); 7 pubs Lancashire/Yorkshire; no calories"
+,zerodegrees,Zerodegrees,"Brewpub, pizza",,https://www.zerodegrees.co.uk,https://www.zerodegrees.co.uk/allergens,pdf,allergen matrix PDFs (chain-wide plus Blackheath); microbrewery pizza and mussels; about 4 sites; no calories
+,glee-club,Glee Club,"Comedy club, bar food",,https://www.glee.co.uk,https://www.glee.co.uk/wp-content/uploads/2026/03/Allergens-2026-15-Mar-2026.pdf,pdf,"allergen matrix PDF (14 allergens, vegan/halal flags); 4 clubs; no calories"
+,barons-pubs,Barons Pubs,Pub,,https://baronspubs.com,https://allergens.baronspubs.com/,web,own JavaScript allergen filter app (Vue) by dish; 10 pubs Surrey area; data source not yet read
+,scotsman-group,Scotsman Group (formerly G1 Group),"Bars, pubs, restaurants",,https://scotsman.group,https://scotsman.group/allergens/,web,"allergen policy statement page only, no dish table seen; 50+ Scottish venues"
+,urban-pubs-and-bars,Urban Pubs & Bars,Pub,,https://www.urbanpubsandbars.com,,none,66 London pubs; each venue page links menu PDFs (no allergens or calories printed); FAQ says allergen info on request
+,tiny-rebel,Tiny Rebel,"Craft beer bars, food",,https://www.tinyrebel.co.uk,,none,4 Welsh bars; menu PDFs say scan QR for allergens (target not read); no calories
+,camerons-brewery,Camerons Brewery,Brewery pub estate,,https://cameronsbrewery.com,,none,about 31 pubs North East; no allergen or nutrition page found
+,palmers-brewery,Palmers Brewery (Palmers Inns),Brewery pub estate,,https://www.palmersbrewery.com,,none,"about 53 pubs Dorset/Devon/Somerset; per-pub pages, no allergen page found"
+,black-country-ales,Black Country Ales,Real ale pubs,,https://www.blackcountryales.co.uk,,none,about 52 pubs; no allergen or nutrition page found
+,batemans,Batemans,Brewery pub estate,,https://batemans.com,,none,about 49 pubs Lincolnshire/East Midlands; no allergen page found
+,heavitree-brewery,Heavitree Brewery,Brewery pub estate,,https://www.heavitreebrewery.co.uk,,none,"about 58 Devon pubs; per-pub pages, no allergen page found"
+,titanic-brewery,Titanic Brewery,Brewery pub estate,,https://www.titanicbrewery.co.uk,,none,about 25 pubs Staffordshire/Cheshire; no allergen page found
+,ossett-brewery,Ossett Brewery Pub Company,Brewery pub estate,,https://ossett-brewery.co.uk,,none,about 23 Yorkshire pubs; menus as flipbooks; no allergen page found
+,holdens-brewery,Holden's Brewery,Brewery pub estate,,https://www.holdensbrewery.co.uk,,none,about 18 Black Country pubs; no allergen page found
+,timothy-taylors,Timothy Taylor's,Brewery pub estate,,https://www.timothytaylor.co.uk,,none,about 19 pubs; its allergens page covers beers only
+,bathams,Batham's,Brewery pub estate,,https://bathams.co.uk,,none,about 11 Black Country pubs; no allergen page found
+,leeds-brewery,Leeds Brewery,Brewery pubs and bars,,https://www.leedsbrewery.co.uk,,none,pub estate in Leeds area; no allergen page found
+,northern-monk,Northern Monk,"Craft beer taprooms, food",,https://www.northernmonk.com,,none,"taprooms in Leeds, Manchester, Newcastle and others with food menus; no allergen page found"
+,brew-york,Brew York,Craft beer taprooms,,https://brewyork.co.uk,,none,York taprooms and bars; no allergen page found
+,etm-group,ETM Group,"London bars, restaurants, rooftops",,https://www.etmgroup.co.uk,,none,"about 17 central London venues (8 gastropubs, 6 sports bars, 3 rooftop bars); no allergen page found"
+,ardent-pub-group,Ardent Pub Group,Gastropub,,https://www.ardentpubgroup.com,,none,"founded 2021, pubs page lists sites; no allergen page found"
+,oak-taverns,Oak Taverns,Pub,,https://www.oaktaverns.co.uk,,none,19 pubs South of England; no allergen page found
+,cubitt-house,Cubitt House,London gastropubs and hotels,,https://www.cubitthouse.co.uk,,none,"London gastropubs, restaurants, boutique hotels; no allergen page found"
+,longbow-venues,Longbow Venues,"Pub, food-led",,https://longbowvenues.com,,none,"Publican Awards 2026 Best Food Offer finalist; venues page, no allergen page found"
+,laine-pubs,Laine Pubs,"Pub, craft beer",,https://www.laine.co.uk,,none,Brighton-based group with many pubs; each pub has own menus; no allergen page found
+,steamin-billy,Steamin' Billy,"Pub, food pubs",,https://steamin-billy.co.uk,,none,"food pubs and beer pubs across Leicestershire/Derbyshire; per-pub menu pages, no allergen page found"
+,amber-taverns,Amber Taverns,Community pubs,,https://ambertaverns.co.uk,,none,"about 171 pubs; per-pub pages, no allergen page found"
+,red-oak-taverns,Red Oak Taverns,Community pubs,,https://redoak.co.uk,,none,about 246 tenanted pubs; no allergen page found
+,dorbiere,Dorbiere Pub Group,Pub,,https://www.dorbiere.co.uk,,none,about 40 pubs; no allergen page found
+,mosaic-pub-and-dining,Mosaic Pub and Dining,"Pub, Sunday roasts",,https://mosaicpubanddining.com,,none,about 34 pubs London/Birmingham/Kent; no allergen page found
+,thorley-taverns,Thorley Taverns,Pub,,https://www.thorleytaverns.co.uk,,none,about 18 pubs; only a Christmas brochure PDF found
+,kingdom-taverns,Kingdom Taverns,Pub,,https://www.kingdomtaverns.co.uk,,none,about 27 Fife pubs; no allergen page found
+,signature-group,Signature Group (Signature Pub Group),"Pubs, bars, restaurants",,https://signaturepubs.co.uk,,none,"about 22 Scottish venues; venues pages, no allergen page found"
+,simmons-bars,Simmons Bars,Cocktail bars,,https://www.simmonsbar.co.uk,,none,about 22 London cocktail bars; no food nutrition or allergen page found
+,davys-wine-bars,Davy's Wine Bars,"Wine bars, British food",,https://www.davy.co.uk,,none,about 16 London wine bars and restaurants; no allergen page found
+,the-comedy-store,The Comedy Store,"Comedy club, bar",,https://www.thecomedystore.co.uk,,none,"well-known comedy club brand (London, Manchester); no allergen page found"
+,valiant-pub-company,Valiant Pub Company,Community pubs,,https://www.valiantpubs.com,,none,about 90 pubs; no allergen page found
+,rosemount-taverns,Rosemount Taverns,Pubs and restaurants,,https://www.rosemounttaverns.co.uk,,none,"about 50 Scottish pubs and restaurants; per-pub pages, no allergen page found"
+,pub-people-company,The Pub People Company,Community pubs,,https://www.pubpeople.com,,none,"Midlands operator, about 45 pubs; no allergen page found"
+,sheldon-inns,Sheldon Inns,Pub,,https://www.sheldoninns.co.uk,,none,about 24 pubs Wolverhampton area; no allergen page found
+,remarkable-pubs,Remarkable Pubs,Pub,,https://remarkablepubs.co.uk,,none,about 15 pubs; no allergen page found
+,town-centre-inns,Town Centre Inns,Pub,,https://towncentreinns.com,,none,about 15 pubs; no allergen page found
+,true-pub-co,True Pub Co,Pub,,https://www.truepubco.co.uk,,none,"independent pub group London and beyond, about 15 pubs; no allergen page found"
+,windmill-taverns,Windmill Taverns,Irish pubs,,https://www.windmilltaverns.com,,none,London Irish pub group; no allergen page found
+,nightcap-group,Nightcap,Bars and late-night venues,,https://www.nightcapgroup.com,,none,"12 bar brands (Cocktail Club, Barrio, Tonight Josephine and others; Dirty Martini already known); group site shows no allergen page"
+,proper-pubs,Proper Pubs,Community pubs,,https://proper-pubs.com,,none,tenanted community pubs; Publican Awards 2026 finalist; no allergen page found
+,portobello-pubs-and-bars,Portobello Pubs and Bars,Pub,,https://portobellopubco.com,,none,about 27 pubs London and South Coast; no allergen page found
+,incipio-group,Incipio Group,"London restaurants, pubs, bars",,https://www.incipio-group.co.uk,,none,"London restaurants, pubs and bars by brand; no allergen page found"
+,arc-inspirations,Arc Inspirations,Bars,,https://www.arcinspirations.com,,none,18 bar venues in 3 brands; Publican Awards 2026 brand finalist; no allergen page found
+,neos-hospitality,NEOS Hospitality (formerly Rekom UK),"Bars, nightlife",,https://www.neoshospitality.com,,none,about 24 venues; no allergen page found
+,fb-taverns,FB Taverns,Community pubs,,https://www.fbtaverns.co.uk,,none,about 40 pubs; site returned no allergen content

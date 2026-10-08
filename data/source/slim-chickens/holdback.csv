@@ -1,6 +1,7 @@
 item_id,reason
 8-boneless-bites-meal,"kJ and kcal contradict each other: 2802 kJ vs 770 kcal (kJ/kcal 3.64, usual 4.18)"
 extra-chicken-breast,website 'Double up your sandwich for £3.00' +136 kcal vs 176 kcal here
+plant-based-buffalo-sandwich-meal,"The dish is named Plant Based but the page marks Milk as contained (its Solo sandwich marks milk only as may contain), so its allergen information conflicts with its name."
 slims-salad-meal,website 'Slim's Salad' from 663 kcal vs 542 kcal here: 'from' minimum is not within 5% above ours
 buffalo-blue-loaded-fries,website 'Buffalo & Blue Cheese Loaded Fries' 597 kcal vs 586 kcal here: differs
 coleslaw,website 'Coleslaw' 313 kcal vs 281 kcal here: differs
