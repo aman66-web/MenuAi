@@ -34,19 +34,23 @@ LABELS = ["Kcal", "Fat (g)", "Saturated Fat (g)", "Carbohydrates (g)", "Sugars (
 NUMBER = re.compile(r"^\d+(\.\d+)?$")
 
 # The page's own category slugs (data-category) and the display name we give each.
-GC, FC, VT, KM, PL, ES, DP, DS, BJ, DR, SF = (
+GC, FC, VT, KM, PL, ES, DP, DS, BJ, DR, SF, CP = (
     "pepes-grilled-collection", "pepes-fried-collection", "pepes-veggie-table", "pepes-kids-meals", "grilled-platters",
-    "extras-sides", "pepes-dips", "pepes-desserts", "ben-jerrys-ice-cream", "drinks", "pepes-sauce-flavours")
+    "extras-sides", "pepes-dips", "pepes-desserts", "ben-jerrys-ice-cream", "drinks", "pepes-sauce-flavours", "current-promotion")
 CATEGORY_NAME = {
     GC: "Grilled collection", FC: "Fried collection", VT: "Veggie table", KM: "Kids meals", PL: "Grilled platters",
-    ES: "Extras & sides", DP: "Dips", DS: "Desserts", BJ: "Ben & Jerry's ice cream", DR: "Drinks", SF: "Sauce flavours (per 10 ml)"}
-CATEGORY_ORDER = [GC, FC, VT, KM, PL, ES, DP, DS, BJ, DR, SF]
+    ES: "Extras & sides", DP: "Dips", DS: "Desserts", BJ: "Ben & Jerry's ice cream", DR: "Drinks", SF: "Sauce flavours (per 10 ml)",
+    CP: "Current promotion"}
+CATEGORY_ORDER = [GC, FC, VT, KM, PL, ES, DP, DS, BJ, DR, SF, CP]
 
 # Why a card is left out (rule 4 of the playbook and rule 3: never fill a gap).
 NOT_ALL = "marked * on the page: item not available in all stores"
 KCAL_ONLY = "only calories are printed (no fat, carbs or protein), so it can't be published"
 NO_BASIS = "packaged third-party drink: the page states no size or serving for it"
 RETAIL = "retail product: the page doesn't say whether the values are per bottle or per 100 ml/g"
+
+PROMO = "Listed under 'Current Promotion' on the page (four melts added to the page after 6 October 2026)"
+PROMO_PANEER = PROMO + "; the page does not file it under Pepe's Veggie Table, so no vegetarian tag"
 
 VEG = "Tagged vegetarian because Pepe's files it under 'Pepe's Veggie Table'; its notice says vegetarian items are cooked alongside chicken and meat"
 MEAT = "meat type not stated"
@@ -70,6 +74,8 @@ ROWS = [
     I("7UP - Fountain LRG", DR, "7UP fountain (large)", serving="Large", rankable=False),
     I("7UP - Fountain Reg", DR, "7UP fountain (regular)", serving="Regular", rankable=False),
     X("Barr Cola", DR, NO_BASIS),
+    I("BBQ Chicken & Cheese Melt", CP, note=PROMO),
+    I("BBQ Paneer & Cheese Melt", CP, note=PROMO_PANEER),
     I("BBQ Quesadilla", GC, note=MEAT),
     I("BBQ Wrap", GC, note=MEAT),
     X("Bottled Water", DR, NO_BASIS),
@@ -79,6 +85,7 @@ ROWS = [
     I("Chicken Burger", FC),
     I("Chicken Burger - Double", FC, "Chicken Burger – Double"),
     I("Chicken Burrito", GC),
+    I("Chicken Cheese & Tomato Salsa Melt", CP, note=PROMO),
     I("Chicken Fajita Wrap", GC),
     I("Chicken Nachos", GC),
     I("Chicken Nuggets - 5", FC, "Chicken Nuggets – 5"),
@@ -160,6 +167,7 @@ ROWS = [
     I("Mozarella Sticks", ES, "Mozzarella Sticks", note="The page spells the name 'Mozarella Sticks'"),
     I("Onion Rings", ES, note="HELD BACK: carbs 393.0 g with 305 kcal is impossible (Piri Piri Onion Rings prints 43.0 g); nothing corrected"),
     I("Paneer Burrito", VT, tags="vegetarian", note=VEG),
+    I("Paneer Cheese & Tomato Salsa Melt", CP, note=PROMO_PANEER),
     I("Paneer Loaded Fries", VT, tags="vegetarian", note=VEG),
     I("Paneer Nachos", VT, tags="vegetarian", note=VEG),
     I("Paneer Rice", VT, tags="vegetarian", note=VEG),
@@ -220,17 +228,20 @@ ROWS = [
     I("Wedges", ES),
     I("Whole Chicken", GC, note="Same numbers as Pepe's Original (the page lists both names)"),
     I("Wings X 18 (Serves 2)", PL, "Wings x 18 (serves 2)", rankable=False,
-      note=MEAT + "; serves more than one; salt is printed as 8.0 g here but 1.3 g for 28 wings; entered as printed"),
+      note=MEAT + "; serves more than one; HELD BACK: salt is printed as 8.0 g here but 1.3 g for 28 wings; nothing corrected"),
     I("Wings X 28 (Serves 3)", PL, "Wings x 28 (serves 3)", rankable=False,
-      note=MEAT + "; serves more than one; salt is printed as 1.3 g here but 8.0 g for 18 wings; entered as printed"),
+      note=MEAT + "; serves more than one; HELD BACK: salt is printed as 1.3 g here but 8.0 g for 18 wings; nothing corrected"),
 ]
 
 # The one platter that serves one person is a normal order.
 PLATTER_FOR_ONE = {"Solo (Serves 1)"}
 
 # Hold back (never correct): the card's own numbers are impossible.
+WINGS_SALT = ("Salt is printed as 8.0 g for 18 wings but 1.3 g for 28 wings (more wings, less salt; 3 and 5 wings print 0.1 and "
+              "0.2 g): the page's own figures contradict each other. Not corrected, neither wings platter is published.")
 HOLDBACK = {"Onion Rings": "Carbohydrates printed as 393.0 g with only 305 kcal (and 13.8 g fat, 5.9 g protein): impossible; "
-                           "Piri Piri Onion Rings prints 43.0 g. Not corrected."}
+                           "Piri Piri Onion Rings prints 43.0 g. Not corrected.",
+            "Wings X 18 (Serves 2)": WINGS_SALT, "Wings X 28 (Serves 3)": WINGS_SALT}  # accuracy audit 2026-10-08
 
 
 def norm(text: str) -> str:

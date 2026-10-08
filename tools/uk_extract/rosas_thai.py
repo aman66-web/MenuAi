@@ -90,6 +90,8 @@ CATEGORY = {
 HOLDBACK = {
     "Singha (half pint)": "Printed 0 kcal for a lager, while the same page prints 66 and 132 kcal for two other 330 ml beers",
     "Singha (pint)": "Printed 0 kcal for a lager, while the same page prints 66 and 132 kcal for two other 330 ml beers",
+    "Pad Thai - Veg & Tofu": "The page's own data contradict each other: the dish is flagged Vegetarian, but its allergen columns (and its Pad Thai "
+                             "sauce sub-recipe, which is also flagged Suitable for Vegetarian) say it contains Molluscs. Not chosen between.",
 }
 NOTE = ("Rosa's Thai prints calories only, per dish as listed (no portion basis, protein, carbs or fat), on its London menu page. "
         "Drinks with no calories printed, set menus (set lunch, Thai Feast, unlimited curries), the Little Rosa's kids menu and "

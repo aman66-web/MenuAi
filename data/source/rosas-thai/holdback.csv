@@ -1,3 +1,4 @@
 item_id,reason
 singha-half-pint,"Printed 0 kcal for a lager, while the same page prints 66 and 132 kcal for two other 330 ml beers"
 singha-pint,"Printed 0 kcal for a lager, while the same page prints 66 and 132 kcal for two other 330 ml beers"
+pad-thai-veg-and-tofu,"The page's own data contradict each other: the dish is flagged Vegetarian, but its allergen columns (and its Pad Thai sauce sub-recipe, which is also flagged Suitable for Vegetarian) say it contains Molluscs. Not chosen between."

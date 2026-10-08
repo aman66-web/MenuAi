@@ -79,6 +79,18 @@ LIST_NAMES = {"Christmas Menu": "Christmas Set Menu"}
 EXCLUDED_SECTIONS = {("Botanista Brunch", "Race Days Only"): "event/venue-specific section (race days only)"}
 # rows whose printed calories are impossible: published nowhere (holdback.csv); any other 0 kcal row stops the run
 _NO_MARKS = "The page marks no allergen at all for this add-on (not even for a meat or dairy product), so 'none' would be a guess. Not published."
+# Allergen rows that contradict the dish (never corrected, held back): a key is the printed name (every kcal) or (name, kcal).
+_NO_GLUTEN = ("allergen row contradicts the dish name/ingredients: the page marks no gluten at all for {what}, with no non-gluten label "
+              "(the Botanist labels its gluten-free dishes 'NG' / 'Non Gluten').")
+_PANKO = ("The page marks gluten only as 'may contain' for a panko-breaded dish, while the same page marks gluten as contained for the "
+          "breaded Crispy Panko Halloumi in its £8.95 Lunch Menu: the allergen rows contradict each other, so neither is chosen.")
+HOLD_ALLERGEN = {
+    ("Crispy Panko Halloumi", "690"): _PANKO,
+    ("Crispy Panko Halloumi", "945"): _PANKO,
+    ("Panko Halloumi Kebab", "1268"): _PANKO,
+    "Chocolate Chip Cookie Dough": _NO_GLUTEN.format(what="a cookie dough dessert"),
+    "Sticky Toffee Pudding": _NO_GLUTEN.format(what="a sticky toffee pudding (a flour sponge)"),
+}
 HOLD = {"Moët et Chandon 20CL": "The page prints 0 kcal for a 20 cl bottle of champagne, which is impossible; the other wines print no calories. Not published.",
         "Add Maple Bacon": _NO_MARKS, "Add Grilled Chicken": _NO_MARKS, "Add Smoked Streaky Bacon": _NO_MARKS}
 # choice groups whose names say nothing more than "options"
@@ -272,6 +284,7 @@ def build(pages_dir: Path, day: str) -> tuple[list[dict], list[tuple[str, str]],
 
     items = []
     used_ids: set[str] = set()
+    used_allergen_holds: set = set()
     for menu, r, cat, parent in emitted:
         key = (r["name"], r["calories"])
         listed_in = sorted(set(where_listed[key]))
@@ -302,6 +315,14 @@ def build(pages_dir: Path, day: str) -> tuple[list[dict], list[tuple[str, str]],
         items.append(item)
         if r["name"] in HOLD:
             held.append((item_id, HOLD[r["name"]]))
+        else:
+            why = HOLD_ALLERGEN.get((r["name"], r["calories"])) or HOLD_ALLERGEN.get(r["name"])
+            if why:
+                held.append((item_id, why))
+                used_allergen_holds.add((r["name"], r["calories"]) if (r["name"], r["calories"]) in HOLD_ALLERGEN else r["name"])
+    unused = [k for k in HOLD_ALLERGEN if k not in used_allergen_holds]
+    if unused:
+        raise SystemExit(f"HOLD_ALLERGEN names dishes that are not on the pages any more (renamed, recalculated?): {unused}")
     report += [f"left out {n} dish(es): {s}" for s, n in left_out.items()]
     report += [f"no kcal printed, not published: {n} dishes in {m}" for m, n in no_kcal.items()]
     report += [f"held back: {i} ({why})" for i, why in held]
