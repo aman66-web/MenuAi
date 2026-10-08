@@ -1,0 +1,21 @@
+{
+ "chain": "ember-inns",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.mbplc.io/AllergenGuideEmberEstate.html (live page, downloaded fresh 2026-10-08 19:23:37 GMT, last-modified Thu, 08 Oct 2026 05:24:34 GMT, sha256 04ee80f31f47fc9a6c28d959f428a2d7b6cb6afd5c72563a4b62712f20c31659)",
+ "method": "Chromium (Playwright) renders the guide; each dish card's innerText is split on the printed 'Contains' / 'May Contains' / 'Contains no major allergens' lines and tokenised with a fixed list of the 14 allergen names (different from mb_guide.py's HTML parser); each published item is matched to its card(s) by menu, section, name and printed kcal and compared on contains, may contain, cereals and tree nuts. Two cards were also screenshotted and read by eye. A negative control (10 rows altered on purpose) was caught on 9 of 10 distinct items.",
+ "compared_items": 190,
+ "compared_cards": 198,
+ "random_sample_of_40_mismatches": 0,
+ "allergen_mismatches": 0,
+ "published_items": 190,
+ "allergen_rows": 256,
+ "items_in_items_csv": 256,
+ "held_back": 66,
+ "held_back_choices_flagged_by_guide": 56,
+ "held_back_allergen_row_contradicts_dish": 6,
+ "held_back_vegan_or_vegetarian_contradiction": 0,
+ "dropped_allergens_differ_between_menus": "none",
+ "not_verifiable": "",
+ "notes": "Allergens copied from the guide's own Contains/May Contains pills by tools/uk_extract/mb_guide.py for every published item (all or nothing). Dishes the guide flags 'Click through to view full allergen and dietary information including choices' / 'Please refer to ... for additional allergen information' are held back because their printed row leaves out the choices. Guide pages are regenerated each morning (about 05:20 GMT): re-run the chain script to refresh.",
+ "nutrition_checked": "not by this check (only the printed kcal was used to find the card); see data/audit/verified/ember-inns.json"
+}

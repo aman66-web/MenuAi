@@ -1,0 +1,21 @@
+{
+ "chain": "nicholsons",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.mbplc.io/AllergenGuideNicholsonsEstate.html (live page, downloaded fresh 2026-10-08 19:23:44 GMT, last-modified Thu, 08 Oct 2026 05:25:38 GMT, sha256 c82858a11b3e69e3bc27cb29489c2bbdc15576c0f6a4b9342092ec6e1a09ff75)",
+ "method": "Chromium (Playwright) renders the guide; each dish card's innerText is split on the printed 'Contains' / 'May Contains' / 'Contains no major allergens' lines and tokenised with a fixed list of the 14 allergen names (different from mb_guide.py's HTML parser); each published item is matched to its card(s) by menu, section, name and printed kcal and compared on contains, may contain, cereals and tree nuts. Two cards were also screenshotted and read by eye. A negative control (10 rows altered on purpose) was caught on 9 of 10 distinct items.",
+ "compared_items": 181,
+ "compared_cards": 185,
+ "random_sample_of_40_mismatches": 0,
+ "allergen_mismatches": 0,
+ "published_items": 181,
+ "allergen_rows": 192,
+ "items_in_items_csv": 192,
+ "held_back": 11,
+ "held_back_choices_flagged_by_guide": 4,
+ "held_back_allergen_row_contradicts_dish": 2,
+ "held_back_vegan_or_vegetarian_contradiction": 0,
+ "dropped_allergens_differ_between_menus": "Hot Chocolate: the Lavazza Coffee menu card prints Soya and Cereals Containing Gluten (Oats, Wheat) with Milk only as may contain, while the other menus print Milk; not published",
+ "not_verifiable": "",
+ "notes": "Allergens copied from the guide's own Contains/May Contains pills by tools/uk_extract/mb_guide.py for every published item (all or nothing). Dishes the guide flags 'Click through to view full allergen and dietary information including choices' / 'Please refer to ... for additional allergen information' are held back because their printed row leaves out the choices. Guide pages are regenerated each morning (about 05:20 GMT): re-run the chain script to refresh. The rows were written by this chain's own script run (another session, after the mb_guide.py change); this check re-read them against the same 2026-10-08 page.",
+ "nutrition_checked": "not by this check (only the printed kcal was used to find the card); see data/audit/verified/nicholsons.json"
+}

@@ -12,7 +12,8 @@ VEGAN; kcals; COMMENTS.
 
 The text layer (pdftotext -bbox) carries the names, kcals, comments and the small "Wheat" / "Almond" labels under a mark.
 The allergen marks themselves are NOT text: they are filled circles drawn as vector shapes (no images, no glyphs). Each page's
-legend says what the colours mean ("Allergen" red = contains, "May Contain" blue, "Vegan / Vegetarian" teal), and this reader
+legend says what the colours mean ("Allergen" red = contains, "May Contain" blue, "Vegan / Vegetarian" green; the code calls the green bucket
+"teal" because the sister brand's guide is teal), and this reader
 takes the colour -> meaning map FROM THE LEGEND of each page (never hard-coded), then reads every circle's colour and the
 table cell its centre lies in (cell rectangles come from `pdftocairo -svg`). The header text of every column is checked on
 every table, so a changed column order stops the run.

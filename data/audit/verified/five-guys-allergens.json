@@ -1,0 +1,17 @@
+{
+ "chain": "five-guys",
+ "date": "2026-10-08",
+ "source_read": "https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf (fresh download today, one GET after robots.txt check with robots_rfc: Disallow empty; byte-identical to the file the script read, sha256 69034f9edef373039a5eee5280ba3c530df127af0fee32b2ba668eaa6ad5c690)",
+ "compared_items": 67,
+ "allergen_mismatches": 0,
+ "held_back": 1,
+ "marks_read": {
+  "matrix_rows": 76,
+  "columns": 14,
+  "cells_compared": 1064,
+  "contains_dots": 170,
+  "cross_contact_1_marks": 246,
+  "mark_2_used": 0
+ },
+ "notes": "All 67 published items now have an allergens.csv row copied from the guide's ALLERGEN GUIDE matrix. Read three ways that agree on all 76 rows x 14 columns: (1) the text layer via pdftotext -bbox; (2) pixel sampling of every grid cell of the 150 dpi render (red dot / dark digit / empty, grid lines detected from the image, digit shapes all identical, no '2' hidden); (3) all 76 rows read by eye on annotated crops, plus legend and 14 column headers read on the rendered header. allergens.csv was then re-compared with the pixel reading through a separately written item-to-row mapping: 0 mismatches. The guide's own ingredient listing (capitalised allergens) was cross-checked against the matrix for 74 rows: no allergen printed in capitals lacks a red dot; the only extra dots are 'milk' on 9 milkshake mix-ins (the matrix marks them for the shake's milk). Mark meanings (legend): red dot = CONTAINS AN ALLERGEN -> contains; digit 1 = 'Not suitable for this allergen sufferer due to manufacturing and preparation methods' -> may contain (same treatment as Cooplands' 'Not suitable for someone with a ... allergy'), so may_contain_published = yes; digit 2 (breakfast hours) is in the legend but used by no row (the script stops if one appears). No cereal or tree-nut kinds are published (the matrix names none). Held back: Crispy Fried Onions (the matrix prints 'Crispy Onions', not an exact name; the other four held-back items are nutrition holdbacks and need no allergens). Judgement calls for the founder: the four fries sizes use the matrix's single 'Fries' row; little-shake mix-ins use the regular mix-in row because the section heading reads 'MILKSHAKES (INCLUDING BIG KIDS SHAKE AND LITTLE SHAKE) + MIX-INS'; 'Green Peppers', 'Jalapeno Peppers' and 'Tomatoes' use the rows printed '(including diced)'. Hash Browns, Loaded Fries, breakfast and Egg rows exist in the matrix but those items are not published (Heathrow / participating locations only)."
+}

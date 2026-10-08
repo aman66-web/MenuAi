@@ -1,0 +1,21 @@
+{
+ "chain": "oneills",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.mbplc.io/AllergenGuideHighSteetEstate.html (live page, downloaded fresh 2026-10-08 19:23:41 GMT, last-modified Thu, 08 Oct 2026 05:25:38 GMT, sha256 51a7d3d5aa11d71adf04b2e2c9f37dd96b3a328b8d5cdbb0e91ac81422944760)",
+ "method": "Chromium (Playwright) renders the guide; each dish card's innerText is split on the printed 'Contains' / 'May Contains' / 'Contains no major allergens' lines and tokenised with a fixed list of the 14 allergen names (different from mb_guide.py's HTML parser); each published item is matched to its card(s) by menu, section, name and printed kcal and compared on contains, may contain, cereals and tree nuts. Two cards were also screenshotted and read by eye. A negative control (10 rows altered on purpose) was caught on 9 of 10 distinct items.",
+ "compared_items": 49,
+ "compared_cards": 56,
+ "random_sample_of_40_mismatches": 0,
+ "allergen_mismatches": 0,
+ "published_items": 49,
+ "allergen_rows": 63,
+ "items_in_items_csv": 63,
+ "held_back": 14,
+ "held_back_choices_flagged_by_guide": 12,
+ "held_back_allergen_row_contradicts_dish": 0,
+ "held_back_vegan_or_vegetarian_contradiction": 0,
+ "dropped_allergens_differ_between_menus": "none",
+ "not_verifiable": "",
+ "notes": "Allergens copied from the guide's own Contains/May Contains pills by tools/uk_extract/mb_guide.py for every published item (all or nothing). Dishes the guide flags 'Click through to view full allergen and dietary information including choices' / 'Please refer to ... for additional allergen information' are held back because their printed row leaves out the choices. Guide pages are regenerated each morning (about 05:20 GMT): re-run the chain script to refresh. The rows were written by this chain's own script run (another session, after the mb_guide.py change); this check re-read them against the same 2026-10-08 page.",
+ "nutrition_checked": "not by this check (only the printed kcal was used to find the card); see data/audit/verified/oneills.json"
+}

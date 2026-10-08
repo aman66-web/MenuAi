@@ -1,0 +1,10 @@
+{
+ "chain": "browns",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.mbplc.io/AllergenGuideBrownsEstate.html (live page, downloaded 2026-10-08 19:23 GMT, last-modified 2026-10-08 05:21 GMT, stamped 2026-10-08 06:21)",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "published_allergens": false,
+ "not_verifiable": "The live guide now lists only two menus (Celebration Graduation, Classic Graduation: 51 dishes), none of which the 230 published Browns items came from (they come from the page stamped 2026-10-05). Allergens are therefore NOT published for Browns (link only): they cannot be re-confirmed against the current guide, and allergen information goes stale faster than numbers.",
+ "notes": "Dry run only: the saved 2026-10-05 page (sha256 4488c038...) reproduces items.csv exactly; mb_guide.py reads 230 published items' allergens from it, all 220 not held back were compared against that page rendered in Chromium with 0 mismatches (219 matched by name, 1 not matched by the checker), but nothing is written to data/source/browns. To publish them anyway: python3 tools/uk_extract/browns.py <that saved page> --checked-on 2026-10-06 (3 dishes would be held back as contradicting their names: Traditional Fish & Chips, Battered Haddock & Peas, Pan-Roasted Cod)."
+}

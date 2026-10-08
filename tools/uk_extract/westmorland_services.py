@@ -141,6 +141,7 @@ NOT_A_MEAL = {  # accompaniments, parts and snacks filed under a meal course (ed
     "Made without Gluten Tortilla", "Money Shot Sauce", "Sweet Chilli & Tomato Relish", "British Strawberries and Melon",
     "Crudites & Hummus Snack Pot",
 }
+SALT_INGREDIENT = re.compile(r"(?<![A-Za-z-])salt\b(?! free)", re.I)  # "Salt", "Sea Salt" as an ingredient (not "unsalted", "salt-free")
 KIDS_NAME = re.compile(r"^(kids?|child|childs|children's)\b|\b(kids?|child)$", re.I)  # children's portions are never suggested
 
 PORK = re.compile(r"\b(pork|bacon|ham|gammon|sausage|sausages|pepperoni|salami|chorizo|pancetta|prosciutto|chipolatas|pigs in blankets)\b", re.I)
@@ -603,13 +604,19 @@ def make_items(result: dict, info: dict) -> tuple:
         if len(name_counts) > 1:
             stats["printed with different capitalisation (same figures)"] += 1
         pt = pr["portion_table"]
+        salt_blank = r["salt"].startswith("<") and bool(SALT_INGREDIENT.search(pr["ingredients"]))
+        if salt_blank:
+            # "Salt <0.01 g" for a dish whose OWN ingredient list names salt (cornflakes, bread, halloumi, chorizo, mayonnaise ...): the
+            # figure is contradicted by the portal's own ingredient text, so it is not published (the other figures are unaffected).
+            notes.append(f"salt printed {r['salt']} g but the dish's own ingredient list names salt: salt not published")
+            stats["salt printed '<0.01' although the ingredient list names salt (salt left blank)"] += 1
         if pt["fibre"] == "0.0":
             stats["fibre printed 0.0 (the portal's fill-in; left blank)"] += 1
         for key_, col in (("sat_fat", "sat_fat_g"), ("sugar", "sugar_g"), ("salt", "salt_g")):
             if r[key_] == "0.0":
                 stats[f"{col} printed 0.0 (the portal's fill-in; left blank)"] += 1
         item = dict(_pr=pr, _row=r, name=name, category=category, calories=r["kcal"], protein_g=pt["protein"], carbs_g=pt["carb"], fat_g=r["fat"],
-                    sat_fat_g=("" if r["sat_fat"] == "0.0" else r["sat_fat"]), sugar_g=("" if r["sugar"] == "0.0" else r["sugar"]), fiber_g=("" if pt["fibre"] == "0.0" else pt["fibre"]), salt_g=("" if r["salt"] == "0.0" else r["salt"]), energy_kj=r["kj"], tags="|".join(tags),
+                    sat_fat_g=("" if r["sat_fat"] == "0.0" else r["sat_fat"]), sugar_g=("" if r["sugar"] == "0.0" else r["sugar"]), fiber_g=("" if pt["fibre"] == "0.0" else pt["fibre"]), salt_g=("" if (r["salt"] == "0.0" or salt_blank) else r["salt"]), energy_kj=r["kj"], tags="|".join(tags),
                     rankable=rankable, allergens=allergens, notes="; ".join(notes))
         w = re.match(r"^(\d+(?:\.\d+)?)g$", pr["label"])
         if w:

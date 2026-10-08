@@ -1,0 +1,21 @@
+{
+ "chain": "all-bar-one",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.mbplc.io/AllergenGuideAllBarOneEstate.html (live page, downloaded fresh 2026-10-08 19:23:31 GMT, last-modified Thu, 08 Oct 2026 05:21:21 GMT, sha256 a280a94dfa071b58779c513ec694be914acda46f8167b37d4c72b6555fab864a)",
+ "method": "Chromium (Playwright) renders the guide; each dish card's innerText is split on the printed 'Contains' / 'May Contains' / 'Contains no major allergens' lines and tokenised with a fixed list of the 14 allergen names (different from mb_guide.py's HTML parser); each published item is matched to its card(s) by menu, section, name and printed kcal and compared on contains, may contain, cereals and tree nuts. Two cards were also screenshotted and read by eye. A negative control (10 rows altered on purpose) was caught on 9 of 10 distinct items.",
+ "compared_items": 139,
+ "compared_cards": 343,
+ "random_sample_of_40_mismatches": 0,
+ "allergen_mismatches": 0,
+ "published_items": 139,
+ "allergen_rows": 148,
+ "items_in_items_csv": 148,
+ "held_back": 9,
+ "held_back_choices_flagged_by_guide": 4,
+ "held_back_allergen_row_contradicts_dish": 3,
+ "held_back_vegan_or_vegetarian_contradiction": 0,
+ "dropped_allergens_differ_between_menus": "Hot Chocolate: one Hot Drinks card prints other numbers and adds Cereals Containing Gluten (Oats) under the same name, so no single allergen row is true for every menu; not published",
+ "not_verifiable": "",
+ "notes": "Allergens copied from the guide's own Contains/May Contains pills by tools/uk_extract/mb_guide.py for every published item (all or nothing). Dishes the guide flags 'Click through to view full allergen and dietary information including choices' / 'Please refer to ... for additional allergen information' are held back because their printed row leaves out the choices. Guide pages are regenerated each morning (about 05:20 GMT): re-run the chain script to refresh.",
+ "nutrition_checked": "not by this check (only the printed kcal was used to find the card); see data/audit/verified/all-bar-one.json"
+}

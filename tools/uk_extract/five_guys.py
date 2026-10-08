@@ -317,11 +317,12 @@ def check_matrix_against_ingredients(matrix: list, ingredients: list) -> int:
     """The guide's own ingredient listing prints allergens in capitals. Each such allergen must be a red dot in the matrix row of the same
     product (a dot the listing does not show is fine: milkshake mix-ins are marked for the milk of the shake). Returns the rows compared."""
     used, compared, bad = set(), 0, []
+    nm = lambda label: norm(label.replace("&", " and "))  # noqa: E731  (the listing spells '&' as 'and')
     for row in matrix:
-        want = INGREDIENT_ALIAS.get(norm(row["label"]), norm(row["label"]))
+        want = INGREDIENT_ALIAS.get(nm(row["label"]), nm(row["label"]))
         found = None
         for i, ing in enumerate(ingredients):
-            have = norm(ing["label"])
+            have = nm(ing["label"])
             if i not in used and (have == want or have.startswith(want) or want.startswith(have)):
                 found = i
                 break
