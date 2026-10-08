@@ -1,0 +1,10 @@
+status: installed
+file: daves-hot-chicken.svg
+tile: dark
+source_url: https://cdn.sanity.io/images/ysupxjc9/production/44b0f3af4eaa61409b54567d5ad20b06a3000718-232x20.svg
+page: https://www.daveshotchicken.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.daveshotchicken.co.uk/, white wordmark served from the site's Sanity CDN); saved as served, white artwork so it needs the dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte, robots.txt of the site and of cdn.sanity.io allowed it
+retrieved: 2026-10-08

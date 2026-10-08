@@ -1,0 +1,10 @@
+status: installed
+file: ole-and-steen.svg
+tile: light
+source_url: https://oleandsteen.co.uk/ (inline SVG, id "secondary", in the page header; the site draws it with JavaScript and serves no standalone file)
+page: https://oleandsteen.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own UK website header logo (https://oleandsteen.co.uk/), an inline SVG with its small "Lagkagehuset" line as the site publishes it; paths saved unchanged, only the page's CSS class and aria attributes were dropped from the <svg> tag.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allows the page (only /cms/, /api/, /basket/ disallowed); the site's own script chunk had to be fetched directly with curl because Chromium was served an HTML error page for it
+retrieved: 2026-10-08

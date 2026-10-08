@@ -1,0 +1,10 @@
+status: installed
+file: the-breakfast-club.png
+tile: light
+source_url: https://images.squarespace-cdn.com/content/v1/68b025163c03825dcdc6fcb7/3d1c9241-e8dd-45ed-9637-f29d9680a8bc/Logo.png
+page: https://www.thebreakfastclubcafes.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.thebreakfastclubcafes.com/, robots.txt allows it; logo hosted on the site's Squarespace image CDN, which publishes no robots.txt): the original 2134 x 2134 PNG scaled down proportionally to 600 x 600 and nothing else.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

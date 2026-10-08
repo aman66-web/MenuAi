@@ -1,0 +1,10 @@
+status: installed
+file: bistrot-pierre.svg
+tile: light
+source_url: https://www.bistrotpierre.co.uk/propeller/themes/propeller/assets/img/icons.svg?v=3 (symbol id="logo-new-2", the logo used in the site header and footer)
+page: https://www.bistrotpierre.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.bistrotpierre.co.uk/); the logo is a symbol in the site's own icons.svg, its paths saved unchanged as a standalone SVG (the site colours it cream with CSS; the file as served has no fill, so it renders black on a white tile).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt only disallows /wordpress/wp-admin/
+retrieved: 2026-10-08

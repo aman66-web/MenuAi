@@ -1,0 +1,10 @@
+status: installed
+file: joseph-holt.png
+tile: light
+source_url: https://www.joseph-holt.com/wp/themes/josephholt-theme/images/Joseph_Holt_Logo.png
+page: https://www.joseph-holt.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.joseph-holt.com/, the shield-and-scroll logo); saved as served (730 x 518 px, 174 KB: not scaled because a 600 px copy came out larger).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte, robots.txt (Cloudflare content-signal comments only, no Disallow rules) allowed the page and file
+retrieved: 2026-10-08

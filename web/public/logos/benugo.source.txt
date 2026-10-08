@@ -1,0 +1,10 @@
+status: installed
+file: benugo.svg
+tile: light
+source_url: https://www.benugo.com/ (inline <svg> in the header's .header__logo-wrapper link, extracted unchanged; the site's CSS fills it white on the home-page hero and black once scrolled, the file itself has no fill so it renders black)
+page: https://www.benugo.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.benugo.com/, the Benugo roundel is an inline SVG there); extracted unchanged, renders black on the light tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allowed the page
+retrieved: 2026-10-08

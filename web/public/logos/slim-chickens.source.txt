@@ -1,0 +1,10 @@
+status: installed
+file: slim-chickens.svg
+tile: light
+source_url: https://www.slimchickens.co.uk/ (inline SVG "Group_7" in the page header, drawn by the site's own script; no standalone file is served)
+page: https://www.slimchickens.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://www.slimchickens.co.uk/), an inline SVG that the page builds; saved as rendered, with only the Vue data-v-* scoping attributes removed and no artwork altered.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allows everything
+retrieved: 2026-10-08

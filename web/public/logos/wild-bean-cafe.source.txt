@@ -1,0 +1,8 @@
+status: skipped-unavailable
+file: none
+page: https://www.bp.com/en_gb/united-kingdom/home/products-and-services/our-offer/wild-bean-cafe.html
+why: The chain's own pages (bp.com Wild Bean Cafe home, food, drinks, deals, nutritional information; wildbeancafe.com redirects there) show only bp's own header logo, a different brand, and no Wild Bean Cafe logo file; send a Wild Bean Cafe logo saved from a bp or Wild Bean Cafe source and it installs in one step.
+terms_url: not reviewed
+terms_summary: not reviewed
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allowed the pages, but no logo file for this brand is published on them
+retrieved: 2026-10-08

@@ -1,0 +1,10 @@
+status: installed
+file: wahaca.svg
+tile: dark
+source_url: https://www.wahaca.co.uk/wp-content/uploads/2025/04/Wahaca_Logo_RGB_White-1.svg
+page: https://www.wahaca.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.wahaca.co.uk/, the logo linked to the home page); white artwork the site shows on its dark header, saved as served; robots.txt allowed it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

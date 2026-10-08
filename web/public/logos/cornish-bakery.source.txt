@@ -1,0 +1,10 @@
+status: installed
+file: cornish-bakery.png
+tile: light
+source_url: https://thecornishbakery.com/cdn/shop/files/Cornish_bakery_logo_large_b0bac83a-4af1-4aef-ad48-853e5acc9d26.png?v=1633951901
+page: https://thecornishbakery.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://thecornishbakery.com/, robots.txt allows it); the original uploaded file (602 x 160 PNG) saved as served, without the CDN's resize parameters.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

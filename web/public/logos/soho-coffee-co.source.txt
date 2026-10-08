@@ -1,0 +1,10 @@
+status: installed
+file: soho-coffee-co.png
+tile: light
+source_url: https://sohocoffee.com/wp-content/uploads/2021/05/Soho-new-logo-600x270.png
+page: https://sohocoffee.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://sohocoffee.com/, robots.txt allows it): the 600 x 270 size the site itself serves of its header logo (Soho-new-logo.png), saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

@@ -1,0 +1,10 @@
+status: installed
+file: hollywood-bowl.svg
+tile: dark
+source_url: https://media.hollywoodbowlgroup.com/assets/media/4327/original?v=1785369514749
+page: https://www.hollywoodbowl.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://www.hollywoodbowl.co.uk/, served from the group's own media host); white artwork made for a dark header, saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); www robots.txt allows everything; the media host's robots.txt answers 400 (no rules)
+retrieved: 2026-10-08

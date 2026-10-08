@@ -1,0 +1,10 @@
+status: installed
+file: creams-cafe.png
+tile: dark
+source_url: https://www.creamscafe.com/wp-content/uploads/2023/01/creams_white_sm.png
+page: https://www.creamscafe.com/
+why: Own website header (https://www.creamscafe.com/); saved as served (white-lettered version the site shows on its header, so it needs the dark tile).
+terms_url: https://www.creamscafe.com/terms-and-conditions/
+terms_summary: Terms page reviewed: it has no clause about logos, trade marks or image reuse; no separate logo or press-kit page was found.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page and file
+retrieved: 2026-10-08

@@ -1,0 +1,8 @@
+status: skipped-blocked
+file: none
+page: https://www.myvue.com/
+why: The chain's own site answered an automated visit with a Cloudflare challenge page ("Just a moment...", HTTP 403) so no logo was fetched; blocks are never worked around. Save the logo from https://www.myvue.com/ in your own browser (right-click the header logo, Save Image) and send it, and it installs in one step.
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

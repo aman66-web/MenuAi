@@ -1,0 +1,10 @@
+status: installed
+file: everyman.png
+tile: light
+source_url: https://cms-assets.webediamovies.pro/production/279/fda91d18e4256797bd75c64c34a5547a.png
+page: https://www.everymancinema.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.everymancinema.com/, original 2994 x 364 PNG behind the header logo, scaled down proportionally to 600 px wide, nothing else changed).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt of the site allowed the page, the image host has no robots.txt (404 = no rules)
+retrieved: 2026-10-08

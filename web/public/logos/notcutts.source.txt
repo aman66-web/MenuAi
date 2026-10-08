@@ -1,0 +1,10 @@
+status: installed
+file: notcutts.svg
+tile: light
+source_url: https://www.notcutts.co.uk/static/version1790255205/frontend/NetXtra/NotCutts/en_GB/images/notcutts-logo-green-01.svg
+page: https://www.notcutts.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.notcutts.co.uk/); saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt does not disallow /static/
+retrieved: 2026-10-08

@@ -1,0 +1,10 @@
+status: installed
+file: burger-and-lobster.svg
+tile: light
+source_url: https://www.burgerandlobster.com/wp-content/themes/burger-and-lobster/images/logo-black.svg
+page: https://www.burgerandlobster.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.burgerandlobster.com/, the dark "logo--black" wordmark); saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page and file
+retrieved: 2026-10-08

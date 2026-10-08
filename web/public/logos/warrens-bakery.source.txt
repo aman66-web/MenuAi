@@ -1,0 +1,10 @@
+status: installed
+file: warrens-bakery.svg
+tile: light
+source_url: https://warrensbakery.co.uk/ (inline SVG symbol "icon--logo--dark" used by the header logo link; no standalone file is served)
+page: https://warrensbakery.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://warrensbakery.co.uk/), an inline SVG on the page; its paths are saved unchanged and only wrapped in a standalone <svg xmlns viewBox> element, so no artwork was altered.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allows everything
+retrieved: 2026-10-08

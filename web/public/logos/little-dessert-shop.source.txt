@@ -1,0 +1,10 @@
+status: installed
+file: little-dessert-shop.png
+tile: dark
+source_url: https://www.littledessertshop.co.uk/site/assets/images/uploads/9098_10951_7fbb2cb5c611_o.png
+page: https://www.littledessertshop.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://www.littledessertshop.co.uk/); white wordmark with green accent made for a dark header, saved as served (378 x 150 px, not resized).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allows the page and the file
+retrieved: 2026-10-08

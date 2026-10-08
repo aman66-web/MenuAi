@@ -1,0 +1,10 @@
+status: installed
+file: jw-lees.svg
+tile: light
+source_url: https://www.jwlees.co.uk/ (inline <svg> inside the header link aria-label="logo", extracted verbatim; no separate logo file is served)
+page: https://www.jwlees.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.jwlees.co.uk/, the badge logo inline in the header link to the home page); saved verbatim, it uses currentColor (white in the site's header) so it renders black on the light tile; robots.txt allows everything.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

@@ -1,0 +1,10 @@
+status: installed
+file: franco-manca.svg
+tile: dark
+source_url: https://www.francomanca.co.uk/wp-content/themes/franco-manca-theme/img/logo-stacked.svg
+page: https://www.francomanca.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website (https://www.francomanca.co.uk/): the stacked logo file its footer serves, off-white artwork for a dark background; saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt only disallows /wp-json/
+retrieved: 2026-10-08

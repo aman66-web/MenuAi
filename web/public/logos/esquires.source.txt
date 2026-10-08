@@ -1,0 +1,10 @@
+status: installed
+file: esquires.svg
+tile: light
+source_url: https://esquirescoffee.co.uk/wp-content/uploads/2022/06/logo.svg
+page: https://esquirescoffee.co.uk/
+why: Own website header (https://esquirescoffee.co.uk/); saved as served.
+terms_url: https://esquirescoffee.co.uk/terms-and-conditions/
+terms_summary: Terms say Esquires Coffee (UK) Limited owns or licenses the site's intellectual property including trade marks and that all rights are reserved; no separate logo or press-kit page was found.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page and file
+retrieved: 2026-10-08

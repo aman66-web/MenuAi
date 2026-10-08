@@ -1,0 +1,10 @@
+status: installed
+file: baynes.svg
+tile: light
+source_url: https://baynes.co.uk/__shared_assets/header/baynes-logo.svg
+page: https://baynes.co.uk/
+why: Own website header (https://baynes.co.uk/); saved as served.
+terms_url: https://baynes.co.uk/policies/terms-and-conditions/
+terms_summary: Terms say all website content is the property of SM Bayne & Co Ltd and protected by copyright; no separate logo or press-kit page was found.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page and file
+retrieved: 2026-10-08

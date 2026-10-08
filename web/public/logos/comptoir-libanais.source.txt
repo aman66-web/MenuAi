@@ -1,0 +1,10 @@
+status: installed
+file: comptoir-libanais.svg
+tile: light
+source_url: https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/themes/comptoir/library/images/logos/main-logo.svg
+page: https://www.comptoirlibanais.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://www.comptoirlibanais.com/, file served from the site's own media CDN); saved as served.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt of the site and its CDN allow everything
+retrieved: 2026-10-08

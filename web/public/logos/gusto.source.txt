@@ -1,0 +1,10 @@
+status: installed
+file: gusto.webp
+tile: light
+source_url: https://www.gustorestaurants.com/wp-content/themes/gusto-italian/assets/images/Gusto_Wordmark_RGB_Navy.webp
+page: https://www.gustorestaurants.com/
+why: Own website header (https://www.gustorestaurants.com/); saved as served.
+terms_url: https://www.gustorestaurants.com/terms-and-conditions/
+terms_summary: The terms page is short and says nothing about logos, trade marks or image reuse; no separate logo or press-kit page was found.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page and file
+retrieved: 2026-10-08

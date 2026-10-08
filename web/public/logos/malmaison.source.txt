@@ -1,0 +1,10 @@
+status: installed
+file: malmaison.svg
+tile: dark
+source_url: https://www.malmaison.com/media/q3jh43p4/mallogo.svg
+page: https://www.malmaison.com/
+why: Own website header (https://www.malmaison.com/); saved as served (near-white wordmark made for the site's dark header, so it needs the dark tile).
+terms_url: https://www.malmaison.com/other-important-stuff/booking-terms-and-conditions/
+terms_summary: The booking terms page says nothing about logos, trade marks or image reuse; no separate logo or press-kit page was found.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page and file (it only disallows /book/*)
+retrieved: 2026-10-08

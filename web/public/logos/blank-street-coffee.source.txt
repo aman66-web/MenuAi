@@ -1,0 +1,10 @@
+status: installed
+file: blank-street-coffee.svg
+tile: light
+source_url: https://www.blankstreet.com/en-GB (inline SVG "logo_svg" in the header link "Blank Street homepage"; no standalone file is served)
+page: https://www.blankstreet.com/en-GB
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://www.blankstreet.com/en-GB), the site's block-and-ST mark as an inline SVG; saved unchanged, single colour (currentColor), so it renders black on the white tile where the site shows it cream on a dark header.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt answers 404 (no rules)
+retrieved: 2026-10-08

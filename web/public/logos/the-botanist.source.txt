@@ -1,0 +1,10 @@
+status: installed
+file: the-botanist.svg
+tile: light
+source_url: https://thebotanist.uk.com/ (inline SVG "header-logo" in the page header; no standalone file is served for it)
+page: https://thebotanist.uk.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://thebotanist.uk.com/), an inline SVG on the page; its paths are saved unchanged, only the page's CSS class and alt attributes were dropped from the <svg> tag.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allows everything
+retrieved: 2026-10-08

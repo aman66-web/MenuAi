@@ -1,0 +1,10 @@
+status: installed
+file: sticks-n-sushi.svg
+tile: dark
+source_url: https://www.sticksnsushi.com/gb/en/
+page: https://www.sticksnsushi.com/gb/en/
+why: Own website header (https://www.sticksnsushi.com/gb/en/): the header logo is an inline SVG (red diamond with chopsticks, symbol only, no wordmark), copied verbatim from the page source into a file; its sticks are white, made for the site's dark header, so it needs the dark tile.
+terms_url: https://www.sticksnsushi.com/gb/en/terms-and-conditions/
+terms_summary: The terms page says nothing about logos, trade marks or image reuse; no separate logo or press-kit page was found.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); SVG markup copied byte for byte from the chain's own page, robots.txt allowed /gb/en/
+retrieved: 2026-10-08

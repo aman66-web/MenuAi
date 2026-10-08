@@ -1,0 +1,10 @@
+status: installed
+file: mowgli.svg
+tile: light
+source_url: https://mowglistreetfood.com/wp-content/themes/mowglistreetfood/assets/img/mowgli-text-logo-dark.svg
+page: https://mowglistreetfood.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://mowglistreetfood.com/, the site-title background image; the dark-text version the site shows on light pages); saved as served; robots.txt allows everything except cart/admin paths.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

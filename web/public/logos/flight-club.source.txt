@@ -1,0 +1,10 @@
+status: installed
+file: flight-club.svg
+tile: light
+source_url: https://flightclubdarts.com/ (inline <svg aria-label="Flight Club"> in the page header, extracted verbatim; no separate logo file is served: the logo URL in the site's JSON-LD returns 404)
+page: https://flightclubdarts.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://flightclubdarts.com/, the wordmark inline in the header link to the home page); the inline SVG saved verbatim, it uses currentColor so it renders black on the light tile; robots.txt allows everything (flightclub.com is an unrelated Cloudflare-blocked site, not used).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

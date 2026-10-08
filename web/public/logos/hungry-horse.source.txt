@@ -1,0 +1,8 @@
+status: skipped-blocked
+file: none
+page: https://www.hungryhorse.co.uk/
+why: The chain's own site answered 403 Access Denied (Akamai) to https://www.hungryhorse.co.uk/robots.txt, treated as a block and never worked around; download the logo from the site header yourself and send it, and it installs in one step.
+terms_url: not reviewed
+terms_summary: not reviewed
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocked, so nothing was fetched beyond robots.txt
+retrieved: 2026-10-08

@@ -279,6 +279,15 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Sainsbury's 535 products. The rest needs the founder's own Chrome (the shops refuse the cloud environment): `docs/NEXT_GROCERIES_IMAGES_PROMPT.md`.
   Only Tesco (4,501) and Sainsbury's (1,873) have products in the catalogue; the other nine shops show 0 until the Open Food Facts fetch is rerun.
 
+- 2026-10-08 — **Logos for the 57 new chains** (founder: "a lot of them don't have images for the restaurants themselves"). 57 of the 64 chains added
+  since 6 October now show their own logo, taken by helpers from each chain's own website (robots.txt honoured, saved as served, looked at on
+  a contact sheet), assembled by `tools/logos/assemble_logos.py` from the per-chain records in `web/public/logos/`. Not installed: Vue,
+  Tesco Café, Hungry Horse, Amigos, Kokoro (blocked or the logo's only host disallows robots), Giraffe (its only logo file is 233 KB), Wild
+  Bean Café (bp's site shows only bp's logo). **Compliance finding, same day:** six published chains' PDFs had been fetched from hosts whose
+  robots.txt disallows them (Python's robotparser ignores wildcards): Subway, Zizzi, Pizza Express, ASK Italian, Coco di Mama, Ole & Steen.
+  They are out of the app (`data/held-robots/`, README says how to restore) until you download the PDFs yourself or say restore anyway; the
+  photo fetcher and a new audit (`tools/uk_extract/robots_audit.py`) now use an RFC 9309 matcher (`robots_rfc.py`, tested). Live site: 130 chains.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -301,7 +310,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md
-- [ ] **Logos (19 missing):** their sites block automated visits. To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me: KFC, Nando's, Pizza Hut, Subway, Premier Inn, GBK, Coffee #1, Jamie's Italian, and the M&B pubs (All Bar One, Browns, Ember Inns, Harvester, Miller & Carter, Nicholson's, O'Neill's, Sizzling Pubs, Stonehouse, Toby Carvery, Vintage Inns)
+- [ ] **Logos (26 missing):** the 19 below plus Vue, Tesco Café, Hungry Horse, Amigos, Kokoro, Giraffe, Wild Bean Café. The first list: their sites block automated visits. To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me: KFC, Nando's, Pizza Hut, Subway, Premier Inn, GBK, Coffee #1, Jamie's Italian, and the M&B pubs (All Bar One, Browns, Ember Inns, Harvester, Miller & Carter, Nicholson's, O'Neill's, Sizzling Pubs, Stonehouse, Toby Carvery, Vintage Inns)
 - [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)

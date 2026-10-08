@@ -1,0 +1,10 @@
+status: installed
+file: village-hotels.svg
+tile: dark
+source_url: https://image-tc.galaxy.tf/wisvg-9figbouk9zfn14ue5jbv5sbmz/village-hotel-club-white.svg
+page: https://www.village-hotels.co.uk/
+why: Own website header (https://www.village-hotels.co.uk/, "Village Hotel Club" logo served from the site's own image host); saved as served (white artwork made for the dark header, so it needs the dark tile; it embeds its artwork as a data: PNG, no external references).
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page (the image host's robots.txt is 404, no rules)
+retrieved: 2026-10-08

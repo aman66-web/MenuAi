@@ -23,9 +23,10 @@ import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
-import urllib.robotparser
 from datetime import date
 from pathlib import Path
+
+import robots_rfc
 
 ROOT = Path(__file__).resolve().parents[2]
 IMAGES_ROOT = ROOT / "web" / "public" / "menu-images"
@@ -67,36 +68,28 @@ def load_items(chain_id: str) -> list[dict]:
 # ---------------------------------------------------------------- fetching
 
 _last_request: dict[str, float] = {}
-_robots: dict[str, urllib.robotparser.RobotFileParser | None] = {}
+_robots: dict[str, list] = {}
 
 
 def _robots_allow(url: str) -> bool:
+    """robots.txt as RFC 9309 reads it (wildcards included: see robots_rfc.py). Cached per host."""
     host = urllib.parse.urlsplit(url)
     key = f"{host.scheme}://{host.netloc}"
     if key not in _robots:
-        rp = urllib.robotparser.RobotFileParser()
         try:
             req = urllib.request.Request(f"{key}/robots.txt", headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=20) as r:
-                rp.parse(r.read().decode("utf-8", "replace").splitlines())
-            _robots[key] = rp
+                _robots[key] = robots_rfc.parse(r.read().decode("utf-8", "replace"))
         except urllib.error.HTTPError as e:
             # RFC 9309: a 4xx for robots.txt (404, 410, a CDN's odd 400...) means "no rules"; 401/403/429 and 5xx we treat
             # conservatively as "do not fetch".
             # An Amazon S3 bucket answers 403 AccessDenied for a robots.txt it simply doesn't have (the bucket is the site's own public
             # image store; the site's own robots.txt is what states its rules). Treated as "no rules" for S3 bucket hosts only.
             s3_missing_file = e.code == 403 and re.search(r"\.s3[.-][a-z0-9-]*\.?amazonaws\.com$", host.netloc) is not None
-            _robots[key] = None if s3_missing_file else _deny_all() if e.code in (401, 403, 429) or e.code >= 500 else None
+            _robots[key] = [] if s3_missing_file else [("disallow", "/")] if e.code in (401, 403, 429) or e.code >= 500 else []
         except Exception:
-            _robots[key] = None
-    rp = _robots[key]
-    return True if rp is None else rp.can_fetch(UA, url)
-
-
-def _deny_all() -> urllib.robotparser.RobotFileParser:
-    rp = urllib.robotparser.RobotFileParser()
-    rp.parse(["User-agent: *", "Disallow: /"])
-    return rp
+            _robots[key] = []
+    return robots_rfc.allowed(_robots[key], host.path + ("?" + host.query if host.query else ""))
 
 
 def polite_get(url: str, cache_dir: Path, *, delay: float = 1.0, referer: str | None = None, accept: str = "image/*,*/*;q=0.8") -> bytes:

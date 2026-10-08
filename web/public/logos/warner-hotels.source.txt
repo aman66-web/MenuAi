@@ -1,0 +1,10 @@
+status: installed
+file: warner-hotels.svg
+tile: light
+source_url: https://www.warnerhotels.co.uk/static/images/svg.svg (symbol id="svg-warner-logo", the logo used in the site header)
+page: https://www.warnerhotels.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.warnerhotels.co.uk/); the logo is a symbol in the site's own svg.svg sprite, its paths (and the sprite's matching clipPath) saved unchanged as a standalone SVG.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt does not disallow /static/
+retrieved: 2026-10-08

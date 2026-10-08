@@ -1,0 +1,10 @@
+status: installed
+file: patisserie-valerie.png
+tile: light
+source_url: https://patisserie-valerie.co.uk/cdn/shop/files/PV_Logo_with_strapp_600px.png?v=1772125737
+page: https://patisserie-valerie.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://patisserie-valerie.co.uk/, robots.txt allows it); the original uploaded file (600 x 101 PNG) saved as served, without the CDN's resize parameters.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

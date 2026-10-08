@@ -1,0 +1,10 @@
+status: installed
+file: rudys-pizza-napoletana.svg
+tile: light
+source_url: https://assets.rudyspizza.co.uk/content/themes/rudys-pizza/library/images/logo.svg
+page: https://www.rudyspizza.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.rudyspizza.co.uk/, the header__logo image); saved as served; robots.txt of the site and its assets host (same file) allowed it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

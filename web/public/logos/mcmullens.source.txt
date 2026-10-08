@@ -1,0 +1,10 @@
+status: installed
+file: mcmullens.svg
+tile: dark
+source_url: https://www.mcmullens.co.uk/app/uploads/2024/03/mcmullen-logo-white-1.svg
+page: https://www.mcmullens.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.mcmullens.co.uk/, the white stag and "McMullen Brewing and Pubs" logo); saved as served, white artwork so it needs the dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte, robots.txt allowed the page and file
+retrieved: 2026-10-08

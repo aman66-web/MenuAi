@@ -1,0 +1,10 @@
+status: installed
+file: san-carlo.png
+tile: light
+source_url: https://sancarlo.co.uk/wp-content/uploads/2025/05/logo-1.png
+page: https://sancarlo.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://sancarlo.co.uk/): the dark-green logo its header uses once scrolled (the white copy shows over the video); scaled down proportionally from 1625 px to 600 px wide, nothing else changed.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allows /wp-content/uploads/ (only /wp-content/uploads/wpforms/ is disallowed); fetched from sancarlo.co.uk itself, not its cdn. subdomain (whose robots.txt reset the connection)
+retrieved: 2026-10-08

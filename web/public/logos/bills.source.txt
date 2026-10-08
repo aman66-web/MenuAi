@@ -1,0 +1,10 @@
+status: installed
+file: bills.svg
+tile: light
+source_url: https://cdn.bills-website.co.uk/wp-content/uploads/2023/01/book-a-table-logo.svg
+page: https://bills-website.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://bills-website.co.uk/, the site's custom-logo image); saved as served; robots.txt of the site and its CDN allowed it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

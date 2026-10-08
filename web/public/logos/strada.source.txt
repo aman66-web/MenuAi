@@ -1,0 +1,10 @@
+status: installed
+file: strada.svg
+tile: light
+source_url: https://strada.co.uk/ (inline <svg> inside the home-page banner's .logo element, extracted unchanged; the site's CSS fills it white over its photo, the file itself has no fill so it renders black)
+page: https://strada.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website home page (https://strada.co.uk/, the STRADA wordmark is an inline SVG in the banner; the header itself has no logo); extracted unchanged, renders black on the light tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allowed the page
+retrieved: 2026-10-08

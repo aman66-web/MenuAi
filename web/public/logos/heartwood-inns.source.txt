@@ -1,0 +1,10 @@
+status: installed
+file: heartwood-inns.svg
+tile: light
+source_url: https://heartwoodinns.com/images/icon.svg (symbol id="wordmark-inns", the logo used in the site header)
+page: https://heartwoodinns.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://heartwoodinns.com/); the logo is a symbol in the site's own icon.svg, its paths saved unchanged as a standalone SVG (fill is currentColor, so it renders black on a white tile).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allows everything (User-agent: *, Allow: /)
+retrieved: 2026-10-08

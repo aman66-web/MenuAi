@@ -1,0 +1,10 @@
+status: installed
+file: tgi-fridays.svg
+tile: dark
+source_url: https://www.tgifridays.co.uk/sites/default/files/logo%20%283%29_0.svg
+page: https://www.tgifridays.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.tgifridays.co.uk/); saved as served (cream artwork made for its dark header).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt does not disallow /sites/default/files/
+retrieved: 2026-10-08

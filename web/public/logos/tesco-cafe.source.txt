@@ -1,0 +1,8 @@
+status: skipped-blocked
+file: none
+page: https://www.tesco.com/
+why: The chain's own site refused an automated visit (https://www.tesco.com/ and https://www.tescoplc.com/robots.txt both answered 403 "Access Denied" from the Akamai edge); blocks are never worked around. Save the Tesco Cafe or Tesco logo from the site in your browser and send it, and it installs in one step.
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

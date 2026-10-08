@@ -1,0 +1,10 @@
+status: installed
+file: rick-steins.svg
+tile: light
+source_url: https://rickstein.com/wp-content/themes/rickstein/images/logo_Rick_Stein_Signature_Black.svg
+page: https://rickstein.com/
+why: Own website header (https://rickstein.com/); saved as served (the black Rick Stein signature mark; its Press Centre page lists no logo download).
+terms_url: https://rickstein.com/terms/
+terms_summary: The site terms say Rick Stein Group owns the site content and grants no right under its trade marks or copyright beyond a limited licence, and bar automated data collection and marketing use without written consent; its Press Centre says all images are subject to copyright.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file saved byte for byte from the chain's own website, robots.txt allowed the page and file; terms restrict reuse and the founder has accepted that risk
+retrieved: 2026-10-08

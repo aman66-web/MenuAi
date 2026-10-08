@@ -1,0 +1,10 @@
+status: installed
+file: british-garden-centres.png
+tile: light
+source_url: https://www.britishgardencentres.com/wp-content/uploads/2026/03/bgc-logo.png
+page: https://www.britishgardencentres.com/
+why: Own website header (https://www.britishgardencentres.com/); the 1600 px file scaled down proportionally to 600 px, nothing else changed.
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say (its media centre page is news releases only, no logo download)
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); file from the chain's own website, robots.txt allowed the page and file
+retrieved: 2026-10-08

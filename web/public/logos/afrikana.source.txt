@@ -1,0 +1,10 @@
+status: installed
+file: afrikana.svg
+tile: dark
+source_url: https://www.afrikanakitchen.com/ (inline SVG symbols svg1344238269_4031 and svg-539453950_8302 in the page's svg-templates; there is no standalone logo file)
+page: https://www.afrikanakitchen.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.afrikanakitchen.com/); the site draws its logo as two inline SVGs (chick + AFRIKANA wordmark, cream artwork for its dark header): both copied verbatim into one file side by side as in the header, nothing recoloured or redrawn.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allows everything (User-agent: *, Allow: /)
+retrieved: 2026-10-08

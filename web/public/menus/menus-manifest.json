@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261008100918,
- "generatedAt": "2026-10-08T10:09:18Z",
+ "dataVersion": 20261008105957,
+ "generatedAt": "2026-10-08T10:59:57Z",
  "chains": [
   {
    "id": "abokado",
@@ -48,17 +48,6 @@
    "itemCount": 33,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
-  },
-  {
-   "id": "ask-italian",
-   "name": "ASK Italian",
-   "cuisine": "Italian",
-   "file": "chain-ask-italian.json",
-   "sha256": "5338868c8f4d11700886eb2ccffad6fdebf47cf9d5a6fe13336a3a1d0068691a",
-   "contentHash": "f0e11e8a214755792271392c351c7d732067e3cb5fa6ba4e470f90aee3e86ed5",
-   "sample": false,
-   "itemCount": 355,
-   "checkedOn": "2026-10-06"
   },
   {
    "id": "aunties-anne",
@@ -365,17 +354,6 @@
    "contentHash": "0c078ec745c9c57747974f70097d6cd5830e3d95a874d144af7737a09b66de4d",
    "sample": false,
    "itemCount": 126,
-   "checkedOn": "2026-10-06"
-  },
-  {
-   "id": "coco-di-mama",
-   "name": "Coco di Mama",
-   "cuisine": "Italian",
-   "file": "chain-coco-di-mama.json",
-   "sha256": "d16c6978101bb7af352a9f9d43c4ee7cf372eb9926e649202ea1482d7d3b7154",
-   "contentHash": "0f37bc390d46faeb6d26a80850aeec863949a6c65515fa53681de87b51c2f2ec",
-   "sample": false,
-   "itemCount": 571,
    "checkedOn": "2026-10-06"
   },
   {
@@ -988,18 +966,6 @@
    "nutritionLevel": "calories"
   },
   {
-   "id": "ole-and-steen",
-   "name": "Ole & Steen",
-   "cuisine": "Bakery",
-   "file": "chain-ole-and-steen.json",
-   "sha256": "e49c6fb11637760bd7b7c9c3d07cbac57206d1037fdbf429fb3ebabd4b1562a9",
-   "contentHash": "3037cb5d95b2105a115c2d5fa10fcc61b7d0d511a83887386bd37309066338ff",
-   "sample": false,
-   "itemCount": 225,
-   "checkedOn": "2026-10-07",
-   "nutritionLevel": "calories"
-  },
-  {
    "id": "oneills",
    "name": "O'Neill's",
    "cuisine": "Pub",
@@ -1053,17 +1019,6 @@
    "contentHash": "b1dd2f6086c080aa64d26690be3ef2ef93d2340a7205c4ad19ab27ef3272cfd1",
    "sample": false,
    "itemCount": 47,
-   "checkedOn": "2026-10-06"
-  },
-  {
-   "id": "pizza-express",
-   "name": "PizzaExpress",
-   "cuisine": "Pizza",
-   "file": "chain-pizza-express.json",
-   "sha256": "589f11886beb6e94c0b2e84cf99a4b803c3231e8392ae30fef26cc41306f94ed",
-   "contentHash": "873ffb7b4d524b771409e150937d50c001ecf5ac764d569beaaf468ff06e90b9",
-   "sample": false,
-   "itemCount": 386,
    "checkedOn": "2026-10-06"
   },
   {
@@ -1302,17 +1257,6 @@
    "nutritionLevel": "calories"
   },
   {
-   "id": "subway",
-   "name": "Subway",
-   "cuisine": "Sandwiches",
-   "file": "chain-subway.json",
-   "sha256": "b0e334455c91e43da350f08d319ac6ea7fa9df4e1d82a7d12e782dd7961fb6cc",
-   "contentHash": "d1359a0fbf72da27fcc06796905a455bdec4d10c42899797c87f12bfcc46998c",
-   "sample": false,
-   "itemCount": 145,
-   "checkedOn": "2026-10-05"
-  },
-  {
    "id": "taco-bell",
    "name": "Taco Bell",
    "cuisine": "Mexican",
@@ -1540,21 +1484,10 @@
    "sample": false,
    "itemCount": 94,
    "checkedOn": "2026-10-06"
-  },
-  {
-   "id": "zizzi",
-   "name": "Zizzi",
-   "cuisine": "Italian",
-   "file": "chain-zizzi.json",
-   "sha256": "489439e6e222280134e1adfd7073257e5e1234880b40fa435817289bea14e020",
-   "contentHash": "81a432c94b70e3cc44c830136957096ae0ba8b2719c7c192c488c787535acf28",
-   "sample": false,
-   "itemCount": 429,
-   "checkedOn": "2026-10-06"
   }
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "72c7cbc8a344056f4b3c1031225dd8d53f808c3a3005f0e2268a641705a2efa6"
+  "sha256": "093fdc11c9ab98bcabf9121b9e6fd2c6f0616dcbda5db3e0594ccc72d9711a7d"
  }
 }

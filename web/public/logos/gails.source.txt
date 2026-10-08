@@ -1,0 +1,10 @@
+status: installed
+file: gails.png
+tile: light
+source_url: https://gails.com/cdn/shop/files/gails-logo_1.png?v=1678900193
+page: https://gails.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header logo (https://gails.com/); saved as served (401 x 92 px, not resized).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt of gails.com does not disallow /cdn/shop/files/ or the page
+retrieved: 2026-10-08

@@ -1,0 +1,10 @@
+status: installed
+file: hotel-du-vin.svg
+tile: light
+source_url: https://www.hotelduvin.com/media/vobdhtfn/hdvlogo.svg
+page: https://www.hotelduvin.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: Own website header (https://www.hotelduvin.com/, robots.txt only disallows /book/); saved as served (gold "Hotel du Vin & Bistro" mark).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08

@@ -1,0 +1,9 @@
+status: skipped-unavailable
+file: none
+page: https://www.giraffe.net/
+source_url: https://www.giraffe.net/assets/_site/global/navigation/giraffe-logo.svg
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
+why: The only logo on the chain's own site (https://www.giraffe.net/assets/_site/global/navigation/giraffe-logo.svg, the round "g" badge) is a 233 KB SVG that wraps an embedded PNG, over the 200 KB limit; the founder can approve it as an exception.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands")
+retrieved: 2026-10-08
