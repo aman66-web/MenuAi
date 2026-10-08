@@ -1,0 +1,11 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+margherita-12-inch,Margherita (12 inch),Pizza,,925,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech"
+pepperoni-12-inch,Pepperoni (12 inch),Pizza,,1149,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech"
+add-jalapenos,Add Jalapeños,Pizza,,6,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech; the same figure is printed on 8 of 8 diner menus"
+guinness-0,Guinness 0%,Low & no,440ml,75,,,,,,,,,,,,,,,,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech, bolton, newbrighton"
+bero-pilsner,Bero Pilsner,Low & no,330ml,83,,,,,,,,,,,,,,,,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech, bolton, newbrighton; the same figure is printed on 8 of 8 diner menus"
+j2o-apple-and-raspberry,J2O Apple and Raspberry,Soft drinks,250ml,52,,,,,,,,,,,,,,,,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech, bolton, newbrighton; the same figure is printed on 8 of 8 diner menus"
+j2o-orange-and-passionfruit,J2O Orange and Passionfruit,Soft drinks,250ml,55,,,,,,,,,,,,,,,,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech, bolton, newbrighton; the same figure is printed on 8 of 8 diner menus"
+gingerella-ginger-ale,Gingerella Ginger Ale,Soft drinks,250ml,50,,,,,,,,,,,,,,,,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech, bolton, newbrighton; the same figure is printed on 8 of 8 diner menus"
+appletiser,Appletiser,Soft drinks,250ml,129,,,,,,,,,,,,,,,,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech, bolton, newbrighton; the same figure is printed on 8 of 8 diner menus"
+still-sparkling-water,Still / Sparkling Water,Soft drinks,500ml,0,,,,,,,,,,,,,,,,false,false,,,"Printed on the cinema menus of: cambridge, bradford, thetford, wisbech, bolton, newbrighton; the same figure is printed on 8 of 8 diner menus"
