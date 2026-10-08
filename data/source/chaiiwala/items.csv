@@ -1,0 +1,133 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+our-famous-karak-chaii-regular,Our Famous Karak Chaii (Regular),Hot drinks,Regular,144,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/karak-chaii
+our-famous-karak-chaii-large,Our Famous Karak Chaii (Large),Hot drinks,Large,216,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/karak-chaii
+karak-chaii-no-added-sugar-regular,Karak Chaii (no added sugar) (Regular),Hot drinks,Regular,101,,,,,,,,,,,,,,,,false,false,,,menu card /menu/karak-chaii-no-added-sugar
+karak-chaii-no-added-sugar-large,Karak Chaii (no added sugar) (Large),Hot drinks,Large,152,,,,,,,,,,,,,,,,false,false,,,menu card /menu/karak-chaii-no-added-sugar
+vegan-chaii-regular,Vegan Chaii (Regular),Hot drinks,Regular,138,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/vegan-chaii
+vegan-chaii-large,Vegan Chaii (Large),Hot drinks,Large,207,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/vegan-chaii
+pink-chaii-regular,Pink Chaii (Regular),Hot drinks,Regular,212,,,,,,,,,,,,,,,,false,false,,,menu card /menu/pink-chaii
+pink-chaii-large,Pink Chaii (Large),Hot drinks,Large,319,,,,,,,,,,,,,,,,false,false,,,menu card /menu/pink-chaii
+karak-coffee-regular,Karak Coffee (Regular),Hot drinks,Regular,137,,,,,,,,,,,,,,,,false,false,,,menu card /menu/karak-coffee
+karak-coffee-large,Karak Coffee (Large),Hot drinks,Large,205,,,,,,,,,,,,,,,,false,false,,,menu card /menu/karak-coffee
+chaii-flask,Chaii Flask,Hot drinks,"Flask, 6 cups",864,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chaii-flask; serving taken from the dish's own text ('six generous cups'); one figure printed for a bundle with choices
+chaii-latte-regular,Chaii Latte (Regular),Hot drinks,Regular,261,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chaii-latte
+chaii-latte-large,Chaii Latte (Large),Hot drinks,Large,327,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chaii-latte
+garam-chocolate-regular,Garam Chocolate (Regular),Hot drinks,Regular,246,,,,,,,,,,,,,,,,false,false,,,menu card /menu/garam-chocolate
+garam-chocolate-large,Garam Chocolate (Large),Hot drinks,Large,369,,,,,,,,,,,,,,,,false,false,,,menu card /menu/garam-chocolate
+latte-regular,Latte (Regular),Hot drinks,Regular,110,,,,,,,,,,,,,,,,false,false,,,menu card /menu/latte; flagged 'in select stores' (no stores named)
+latte-large,Latte (Large),Hot drinks,Large,165,,,,,,,,,,,,,,,,false,false,,,menu card /menu/latte; flagged 'in select stores' (no stores named)
+caramel-chaii-regular,Caramel Chaii (Regular),Hot drinks,Regular,193,,,,,,,,,,,,,,,,false,false,,,menu card /menu/caramel-chaii
+caramel-chaii-large,Caramel Chaii (Large),Hot drinks,Large,292,,,,,,,,,,,,,,,,false,false,,,menu card /menu/caramel-chaii
+flat-white-regular,Flat White (Regular),Hot drinks,Regular,133,,,,,,,,,,,,,,,,false,false,,,menu card /menu/flat-white; flagged 'in select stores' (no stores named)
+flat-white-large,Flat White (Large),Hot drinks,Large,199,,,,,,,,,,,,,,,,false,false,,,menu card /menu/flat-white; flagged 'in select stores' (no stores named)
+espresso-regular,Espresso (Regular),Hot drinks,Regular,2,,,,,,,,,,,,,,,,false,false,,,menu card /menu/espresso; flagged 'in select stores' (no stores named)
+espresso-large,Espresso (Large),Hot drinks,Large,3,,,,,,,,,,,,,,,,false,false,,,menu card /menu/espresso; flagged 'in select stores' (no stores named)
+americano-regular,Americano (Regular),Hot drinks,Regular,5,,,,,,,,,,,,,,,,false,false,,,menu card /menu/americano; flagged 'in select stores' (no stores named)
+americano-large,Americano (Large),Hot drinks,Large,8,,,,,,,,,,,,,,,,false,false,,,menu card /menu/americano; flagged 'in select stores' (no stores named)
+cappuccino-regular,Cappuccino (Regular),Hot drinks,Regular,90,,,,,,,,,,,,,,,,false,false,,,menu card /menu/cappuccino; flagged 'in select stores' (no stores named)
+cappuccino-large,Cappuccino (Large),Hot drinks,Large,135,,,,,,,,,,,,,,,,false,false,,,menu card /menu/cappuccino; flagged 'in select stores' (no stores named)
+cinnamon-tea-regular,Cinnamon Tea (Regular),Hot drinks,Regular,12,,,,,,,,,,,,,,,,false,false,,,menu card /menu/cinnamon-tea
+cinnamon-tea-large,Cinnamon Tea (Large),Hot drinks,Large,18,,,,,,,,,,,,,,,,false,false,,,menu card /menu/cinnamon-tea
+english-tea-regular,English Tea (Regular),Hot drinks,Regular,2,,,,,,,,,,,,,,,,false,false,,,menu card /menu/english-tea
+english-tea-large,English Tea (Large),Hot drinks,Large,3,,,,,,,,,,,,,,,,false,false,,,menu card /menu/english-tea
+arabic-tea-regular,Arabic tea (Regular),Hot drinks,Regular,9,,,,,,,,,,,,,,,,false,false,,,menu card /menu/arabic-tea
+arabic-tea-large,Arabic tea (Large),Hot drinks,Large,14,,,,,,,,,,,,,,,,false,false,,,menu card /menu/arabic-tea
+the-wala-box,The Wala Box,Wala bundles,Perfect for 1,1502,,,,,,,,,,,,,,,,false,false,,,menu card /menu/the-wala-box; marked NEW; flagged 'in select stores' (no stores named); serving taken from the dish's own text ('perfect for 1'); one figure printed for a bundle with choices
+the-family-platter,The Family platter,Wala bundles,Feast for 4,4324,,,,,,,,,,,,,,,,false,false,,,menu card /menu/the-family-platter; marked NEW; serving taken from the dish's own text ('feast for 4'); one figure printed for a bundle with choices
+the-wala-box-veg,The Wala Box - veg,Wala bundles,Perfect for 1,1464,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/the-wala-box-veg; marked NEW; flagged 'in select stores' (no stores named); serving taken from the dish's own text ('perfect for 1'); one figure printed for a bundle with choices
+the-family-platter-veg,The Family platter - veg,Wala bundles,Feast for 4,4204,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/the-family-platter-veg; marked NEW; flagged 'in select stores' (no stores named); serving taken from the dish's own text ('feast for 4'); one figure printed for a bundle with choices
+badam-milk-shake,Badam Milk-Shake,Cold drinks,,560,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/badam-milk; marked NEW
+desi-cold-coffee,Desi Cold Coffee,Cold drinks,,458,,,,,,,,,,,,,,,,false,false,,,menu card /menu/desi-cold-coffee; marked NEW
+iced-karak-coffee-regular,Iced Karak Coffee (Regular),Cold drinks,Regular,77,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/iced-karak-coffee
+iced-karak-coffee-large,Iced Karak Coffee (Large),Cold drinks,Large,148,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/iced-karak-coffee
+mango-lassi-regular,Mango Lassi (Regular),Cold drinks,Regular,381,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/mango-lassi
+mango-lassi-large,Mango Lassi (Large),Cold drinks,Large,495,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/mango-lassi
+falooda-mango-milkshake-regular,Falooda Mango Milkshake (Regular),Cold drinks,Regular,474,,,,,,,,,,,,,,,,false,false,,,menu card /menu/falooda-mango-milkshake
+falooda-mango-milkshake-large,Falooda Mango Milkshake (Large),Cold drinks,Large,578,,,,,,,,,,,,,,,,false,false,,,menu card /menu/falooda-mango-milkshake
+falooda-rose-milkshake-regular,Falooda Rose Milkshake (Regular),Cold drinks,Regular,481,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/falooda-rose-milkshake
+falooda-rose-milkshake-large,Falooda Rose Milkshake (Large),Cold drinks,Large,585,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/falooda-rose-milkshake
+toasted-cinnamon-and-vanilla-matcha-regular,Toasted Cinnamon & Vanilla Matcha (Regular),Cold drinks,Regular,179,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/toasted-cinnamon-vanilla-matcha
+toasted-cinnamon-and-vanilla-matcha-large,Toasted Cinnamon & Vanilla Matcha (Large),Cold drinks,Large,233,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/toasted-cinnamon-vanilla-matcha
+blueberry-and-white-chocolate-matcha-regular,Blueberry & White Chocolate Matcha (Regular),Cold drinks,Regular,284,,,,,,,,,,,,,,,,false,false,,,menu card /menu/blueberry-white-chocolate-matcha
+blueberry-and-white-chocolate-matcha-large,Blueberry & White Chocolate Matcha (Large),Cold drinks,Large,364,,,,,,,,,,,,,,,,false,false,,,menu card /menu/blueberry-white-chocolate-matcha
+mango-mojito-regular,Mango Mojito (Regular),Cold drinks,Regular,81,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/mango-mojito
+mango-mojito-large,Mango Mojito (Large),Cold drinks,Large,120,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/mango-mojito
+watermelon-spritz-regular,Watermelon Spritz (Regular),Cold drinks,Regular,83,,,,,,,,,,,,,,,,false,false,,,menu card /menu/watermelon-spritz
+watermelon-spritz-large,Watermelon Spritz (Large),Cold drinks,Large,123,,,,,,,,,,,,,,,,false,false,,,menu card /menu/watermelon-spritz
+blueberry-mocktail-regular,Blueberry Mocktail (Regular),Cold drinks,Regular,139,,,,,,,,,,,,,,,,false,false,,,menu card /menu/blueberry-mocktail
+blueberry-mocktail-large,Blueberry Mocktail (Large),Cold drinks,Large,229,,,,,,,,,,,,,,,,false,false,,,menu card /menu/blueberry-mocktail
+tahitian-lime-mocktail-regular,Tahitian Lime Mocktail (Regular),Cold drinks,Regular,88,,,,,,,,,,,,,,,,false,false,,,menu card /menu/tahitian-lime-mocktail
+tahitian-lime-mocktail-large,Tahitian Lime Mocktail (Large),Cold drinks,Large,130,,,,,,,,,,,,,,,,false,false,,,menu card /menu/tahitian-lime-mocktail
+chilli-guava-lemonade-regular,Chilli Guava Lemonade (Regular),Cold drinks,Regular,109,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/chilli-guava-lemonade
+chilli-guava-lemonade-large,Chilli Guava Lemonade (Large),Cold drinks,Large,186,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/chilli-guava-lemonade
+limbu-pani-lemonade-regular,Limbu Pani Lemonade (Regular),Cold drinks,Regular,4,,,,,,,,,,,,,,,,false,false,,,menu card /menu/limbu-pani-lemonade
+limbu-pani-lemonade-large,Limbu Pani Lemonade (Large),Cold drinks,Large,7,,,,,,,,,,,,,,,,false,false,,,menu card /menu/limbu-pani-lemonade
+blue-limbu-pani-lemonade-regular,Blue Limbu Pani Lemonade (Regular),Cold drinks,Regular,36,,,,,,,,,,,,,,,,false,false,,,menu card /menu/blue-limbu-pani-lemonade
+blue-limbu-pani-lemonade-large,Blue Limbu Pani Lemonade (Large),Cold drinks,Large,68,,,,,,,,,,,,,,,,false,false,,,menu card /menu/blue-limbu-pani-lemonade
+red-bull-energy-drink,Red Bull Energy Drink,Cold drinks,,115,,,,,,,,,,,,,,,,false,false,,,menu card /menu/red-bull-energy-drink
+red-bull-sugarfree,Red Bull Sugarfree,Cold drinks,,7,,,,,,,,,,,,,,,,false,false,,,menu card /menu/red-bull-sugarfree
+red-bull-summer-edition-citrus-zest,Red Bull Summer Edition (Citrus Zest),Cold drinks,,115,,,,,,,,,,,,,,,,false,false,,,menu card /menu/red-bull-summer-edition-citrus-zest
+red-bull-apple-edition,Red Bull Apple Edition,Cold drinks,,113,,,,,,,,,,,,,,,,false,false,,,menu card /menu/red-bull-apple-edition
+red-bull-coconut-edition,Red Bull Coconut Edition,Cold drinks,,113,,,,,,,,,,,,,,,,false,false,,,menu card /menu/red-bull-sugarfree-copy
+desi-breakfast,Desi Breakfast,All day breakfast,,696,,,,,,,,,,,,,,,,false,false,,,menu card /menu/desi-breakfast
+english-ish-breakfast,English-ish breakfast,All day breakfast,,934,,,,,,,,,,,,,,,,false,false,,,menu card /menu/english-ish-breakfast
+omelette-wrap,Omelette Wrap,All day breakfast,,267,,,,,,,,,,,,,,,,false,false,,,menu card /menu/omelette-wrap
+spiced-chicken-sausage-and-egg-wrap,Spiced Chicken Sausage & Egg Wrap,All day breakfast,,329,,,,,,,,,,,,,,,,false,false,,,menu card /menu/spiced-chicken-sausage-egg
+rasher-and-egg-breakfast-wrap,Rasher & Egg Breakfast Wrap,All day breakfast,,394,,,,,,,,,,,,,,,,false,false,,,menu card /menu/macon-egg-roti-wrap
+aloo-paratha,Aloo Paratha,All day breakfast,,245,,,,,,,,,,,,,,,,false,false,,,menu card /menu/aloo-paratha
+halwa-puri,Halwa Puri,All day breakfast,,539,,,,,,,,,,,,,,,,false,false,,,menu card /menu/halwa-puri
+classic-roti,Classic Roti,All day breakfast,,143,,,,,,,,,,,,,,,,false,false,,,menu card /menu/classic-roti
+classic-paratha,Classic Paratha,All day breakfast,,268,,,,,,,,,,,,,,,,false,false,,,menu card /menu/classic-paratha
+butter-chicken-avo-toast,Butter Chicken Avo Toast,All day breakfast,,391,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chicken-avo-toast; marked NEW
+egg-burji-avo-toast,Egg Burji Avo Toast,All day breakfast,,377,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/egg-burji-avo-toast; marked NEW
+chicken-tikka-wala-wrap,Chicken Tikka Wala Wrap,Wala wraps,,533,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chicken-tikka-wala-wrap
+mixed-kebab-wala-wrap,Mixed Kebab Wala Wrap,Wala wraps,,544,,,,,,,,,,,,,,,,false,false,,,menu card /menu/mixed-kebab-wala-wrap
+chicken-kebab-wala-wrap,Chicken Kebab Wala Wrap,Wala wraps,,512,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chicken-kebab-wala-wrap
+bombay-twister,Bombay Twister,Wala wraps,,645,,,,,,,,,,,,,,,,false,false,,,menu card /menu/bombay-twister
+veg-kebab-wala-wrap,Veg Kebab Wala Wrap,Wala wraps,,512,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/veg-kebab-wala-wrap; flagged 'in select stores' (no stores named)
+chilli-paneer-wala-wrap,Chilli Paneer Wala Wrap,Wala wraps,,492,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/chilli-paneer-wala-wrap; flagged 'in select stores' (no stores named)
+aloo-tikki-wala-wrap,Aloo Tikki Wala Wrap,Wala wraps,,512,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/aloo-tikki-wala-wrap; flagged 'in select stores' (no stores named)
+veg-bombay-twister,Veg Bombay Twister,Wala wraps,,645,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/veg-bombay-twister; flagged 'in select stores' (no stores named)
+chicken-tikka-salad,Chicken Tikka Salad,Lunch & dinner bowls,,270,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chicken-tikka-salad; marked NEW
+kebab-caesar-salad,Kebab Caesar Salad,Lunch & dinner bowls,,399,,,,,,,,,,,,,,,,false,false,,,menu card /menu/kebab-caesar-salad; marked NEW
+tikka-biryani,Tikka Biryani,Lunch & dinner bowls,,621,,,,,,,,,,,,,,,,false,false,,,menu card /menu/tikka-biryani
+chana-biryani,Chana Biryani,Lunch & dinner bowls,,696,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chana-biryani
+butter-chicken-rice-bowl,Butter chicken rice bowl,Lunch & dinner bowls,,497,,,,,,,,,,,,,,,,false,false,,,menu card /menu/butter-chicken-rice-bowl
+butter-chicken-bombay-chips-bowl,Butter Chicken Bombay Chips Bowl,Lunch & dinner bowls,,686,,,,,,,,,,,,,,,,false,false,,,menu card /menu/butter-chicken-bombay-chips-bowl
+daal-masala-bombay-rice-bowl,Daal Masala Bombay Rice Bowl,Lunch & dinner bowls,,562,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/daal-masala-bombay-rice-bowl; flagged 'in select stores' (no stores named)
+daal-masala-bombay-chips-bowl,Daal Masala Bombay Chips Bowl,Lunch & dinner bowls,,746,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/daal-masala-bombay-chips-bowl; flagged 'in select stores' (no stores named)
+chicken-tikka-melt,Chicken Tikka Melt,Bombay toasties,,502,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chicken-tikka-melt
+classic-bombay-toastie,Classic Bombay Toastie,Bombay toasties,,389,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/classic-bombay-toastie
+cheese-and-masala-beans-toastie,Cheese & Masala Beans Toastie,Bombay toasties,,412,,,,,,,,,,,,,,,,false,false,,,menu card /menu/cheese-masala-beans-toastie
+pav-bhaji-toastie,Pav Bhaji Toastie,Bombay toasties,,449,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/pav-bhaji-toastie; flagged 'in select stores' (no stores named)
+cheese-and-chutney-toastie,Cheese & Chutney Toastie,Bombay toasties,,369,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/cheese-chutney-toastie; flagged 'in select stores' (no stores named)
+butter-chicken-toastie,Butter Chicken Toastie,Bombay toasties,,384,,,,,,,,,,,,,,,,false,false,,,menu card /menu/butter-chicken-toastie
+butter-chicken-roll,Butter Chicken Roll,Street food,,222,,,,,,,,,,,,,,,,false,false,,,menu card /menu/butter-chicken-roll
+masala-chips,Masala Chips,Street food,,729,,,,,,,,,,,,,,,,false,false,,,menu card /menu/masala-chips
+samosa-chaat,Samosa Chaat,Street food,,426,,,,,,,,,,,,,,,,false,false,,,menu card /menu/samosa-chaat
+loaded-chips-chicken,Loaded Chips - Chicken,Street food,,1032,,,,,,,,,,,,,,,,false,false,,,menu card /menu/loaded-chips-chicken
+pani-puri-poppers,Pani puri poppers,Street food,,215,,,,,,,,,,,,,,,,false,false,,,menu card /menu/pani-puri
+vada-pav,Vada Pav,Street food,,299,,,,,,,,,,,,,,,,false,false,,,menu card /menu/vada-pav
+veg-kebab-roll,Veg Kebab Roll,Street food,,427,,,,,,,,,,,,,,,,false,false,,,menu card /menu/veg-kebab-roll
+chicken-kebab-roll,Chicken Kebab Roll,Street food,,387,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chicken-kebab-roll
+aloo-tikki-chaat,Aloo Tikki Chaat,Street food,,431,,,,,,,,,,,,,,,,false,false,,,menu card /menu/aloo-tikki-chaat
+aloo-tikki-burger,Aloo tikki burger,Street food,,376,,,,,,,,,,,,,,,,false,false,,,menu card /menu/aloo-tikki-burger
+loaded-chips-veg,Loaded Chips - Veg,Street food,,1106,,,,,,,,,,,,,,,,false,false,,,menu card /menu/loaded-chips-veg
+chicken-nuggets-and-chips,Chicken Nuggets & Chips,Wala kids,,379,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chicken-nuggets-chips
+cheese-and-masala-beans-toastie-and-chips,Cheese & Masala Beans Toastie & Chips,Wala kids,,439,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/cheese-masala-beans-toastie-chips
+mini-chicken-wala-wrap-and-chips,Mini Chicken Wala Wrap & Chips,Wala kids,,552,,,,,,,,,,,,,,,,false,false,,,menu card /menu/mini-chicken-wala-wrap-chips
+veg-nuggets-and-chips,Veg Nuggets & Chips,Wala kids,,379,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/veg-nuggets-chips; flagged 'in select stores' (no stores named)
+mini-veggie-wala-wrap-and-chips,Mini Veggie Wala Wrap & Chips,Wala kids,,379,,,,,,,,,,,,,,,vegetarian,false,false,,,menu card /menu/mini-veggie-wala-wrap-chips; flagged 'in select stores' (no stores named)
+loaded-donuts,Loaded Donuts,Desserts,,759,,,,,,,,,,,,,,,,false,false,,,menu card /menu/loaded-donuts
+nutella-wrap,Nutella Wrap,Desserts,,439,,,,,,,,,,,,,,,,false,false,,,menu card /menu/nutella-wrap
+pistachio-fix-ice-cream,Pistachio Fix Ice cream,Desserts,,601,,,,,,,,,,,,,,,,false,false,,,menu card /menu/pistachio-fix-ice-cream
+rocky-road-cheesecake,Rocky Road Cheesecake,Desserts,,720,,,,,,,,,,,,,,,,false,false,,,menu card /menu/rocky-road-cheesecake
+loaded-cheesecake,Loaded Cheesecake,Desserts,,564,,,,,,,,,,,,,,,,false,false,,,menu card /menu/loaded-cheesecake
+mango-ice-cream,Mango Ice Cream,Desserts,,158,,,,,,,,,,,,,,,,false,false,,,menu card /menu/mango-ice-cream
+rose-ice-cream,Rose Ice Cream,Desserts,,165,,,,,,,,,,,,,,,,false,false,,,menu card /menu/rose-ice-cream
+vanilla-ice-cream,Vanilla Ice Cream,Desserts,,162,,,,,,,,,,,,,,,,false,false,,,menu card /menu/vanilla-ice-cream
+chocolate-dream-cake,Chocolate dream cake,Desserts,,710,,,,,,,,,,,,,,,,false,false,,,menu card /menu/chocolate-dream-cake
+pistachio-milk-cake,Pistachio Milk Cake,Desserts,,426,,,,,,,,,,,,,,,,false,false,,,menu card /menu/pistachio-milk-cake
+biscoff-milk-cake,Biscoff Milk cake,Desserts,,417,,,,,,,,,,,,,,,,false,false,,,menu card /menu/biscoff-milk-cake
+gajar-halwa,Gajar Halwa,Desserts,,345,,,,,,,,,,,,,,,,false,false,,,menu card /menu/gajar-halwa
+gulab-jamun,Gulab Jamun,Desserts,,308,,,,,,,,,,,,,,,,false,false,,,menu card /menu/gulab-jamun
