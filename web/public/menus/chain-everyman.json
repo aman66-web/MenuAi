@@ -1,0 +1,1654 @@
+{
+ "schemaVersion": 1,
+ "id": "everyman",
+ "name": "Everyman Cinemas",
+ "cuisine": "Cinema",
+ "builderType": "standard",
+ "aliases": [
+  "everyman",
+  "everyman cinema",
+  "everyman cinemas"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Everyman Cinemas Calories Menu (PDF created 23 September 2026; linked from everymancinema.com/menu-details)",
+  "url": "https://cms-assets.webediamovies.pro/production/279/a04f49b720bb02d413dd28bb329147c6.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "One calorie menu for all Everyman venues; menus vary by venue and some have a reduced selection. Calories only: no protein, carbs or fat. Wine, beer, cider and cocktails print no calories and are not listed. Burgers are served with fries; the menu doesn't say whether the figure includes them.",
+ "categories": [
+  "Sharing plates",
+  "Burgers",
+  "Dogs & rolls",
+  "Fries",
+  "Pizza",
+  "Kids menus",
+  "Popcorn",
+  "Sundaes",
+  "Pastries, cakes and cookie dough",
+  "Sweet pots",
+  "Savoury pots",
+  "Shakes & coolers",
+  "Soft drinks",
+  "Hot drinks",
+  "No & low"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "popcorn-chicken",
+   "name": "Popcorn chicken",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-halloumi",
+   "name": "Hot honey halloumi",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tempura-prawns",
+   "name": "Tempura prawns",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salsa-and-tortilla-chips",
+   "name": "Salsa & tortilla chips",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 231
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hummus-and-flat-bread",
+   "name": "Hummus & flat bread",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "handmade-garlic-parsley-dough-balls",
+   "name": "Handmade garlic parsley dough balls",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 351
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "padron-peppers",
+   "name": "Padron peppers",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 103
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-guac-and-tortilla-chips",
+   "name": "Fresh guac & tortilla chips",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 364
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-and-mustard-glazed-sausages",
+   "name": "Honey & mustard glazed sausages",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 683
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-and-artichoke-dip",
+   "name": "Truffle & artichoke dip",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 479
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-garlic-flatbread",
+   "name": "Cheesy garlic flatbread",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 461
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frickles",
+   "name": "Frickles",
+   "category": "Sharing plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-burger",
+   "name": "Korean Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1331
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-smokehouse-bbq-burger",
+   "name": "Signature Smokehouse BBQ Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1464
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-smash-cheeseburger",
+   "name": "Double Smash Cheeseburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1425
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-spielburger",
+   "name": "The Spielburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1471
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-cured-streaky-bacon",
+   "name": "Add cured streaky bacon",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 121
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "piri-piri-chicken-burger",
+   "name": "Piri Piri Chicken Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1079
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-cheeseburger",
+   "name": "Plant-based Cheeseburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1109
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-dog",
+   "name": "Classic Dog",
+   "category": "Dogs & rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 499
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-dog",
+   "name": "Plant-based Dog",
+   "category": "Dogs & rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-finger-club-sandwich",
+   "name": "Fish Finger Club Sandwich",
+   "category": "Dogs & rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1524
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lobster-roll",
+   "name": "Lobster Roll",
+   "category": "Dogs & rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 931
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "standard-fries",
+   "name": "Standard Fries",
+   "category": "Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 704
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-fries",
+   "name": "Buffalo Fries",
+   "category": "Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 599
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fig-prosciutto-and-gorgonzola-pizza",
+   "name": "Fig, Prosciutto and Gorgonzola pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 618
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza",
+   "name": "Pepperoni pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-pesto-and-sundried-tomato-pizza",
+   "name": "Plant-based Pesto and Sundried Tomato pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nduja-hot-pizza",
+   "name": "Nduja Hot pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 517
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-margherita-pizza",
+   "name": "Kids Margherita pizza",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 414
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-pepperoni-pizza",
+   "name": "Kids Pepperoni pizza",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 473
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-smash-burger-and-chips",
+   "name": "Kids smash burger & chips",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-buttermilk-chicken-and-chips",
+   "name": "Kids Buttermilk chicken & chips",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 683
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hummus-and-crudites",
+   "name": "Kids Hummus & crudites",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-little-sundae",
+   "name": "Kids Little Sundae",
+   "category": "Kids menus",
+   "serving": "",
+   "nutrients": {
+    "calories": 357
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-popcorn-small",
+   "name": "Salted popcorn (small)",
+   "category": "Popcorn",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-popcorn-large",
+   "name": "Salted popcorn (large)",
+   "category": "Popcorn",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 631
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-popcorn-small",
+   "name": "Sweet popcorn (small)",
+   "category": "Popcorn",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 302
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-popcorn-large",
+   "name": "Sweet popcorn (large)",
+   "category": "Popcorn",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-popcorn-small",
+   "name": "Mixed popcorn (small)",
+   "category": "Popcorn",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-popcorn-large",
+   "name": "Mixed popcorn (large)",
+   "category": "Popcorn",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 677
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "everything-mix",
+   "name": "Everything Mix",
+   "category": "Popcorn",
+   "serving": "",
+   "nutrients": {
+    "calories": 290
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-vanilla-scoop",
+   "name": "Build Your Own Sundae: vanilla scoop",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-chocolate-scoop",
+   "name": "Build Your Own Sundae: chocolate scoop",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-strawberry-scoop",
+   "name": "Build Your Own Sundae: strawberry scoop",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-salted-caramel-scoop",
+   "name": "Build Your Own Sundae: salted caramel scoop",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-caramel-sauce",
+   "name": "Build Your Own Sundae: caramel sauce",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-strawberry-sauce",
+   "name": "Build Your Own Sundae: strawberry sauce",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-chocolate-sauce",
+   "name": "Build Your Own Sundae: chocolate sauce",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-chocolate-flake-topping",
+   "name": "Build Your Own Sundae: chocolate flake topping",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-mini-marshmallows-topping",
+   "name": "Build Your Own Sundae: mini marshmallows topping",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-honeycomb-bites-topping",
+   "name": "Build Your Own Sundae: honeycomb bites topping",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 103
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-strawberries-topping",
+   "name": "Build Your Own Sundae: strawberries topping",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-chocolate-buttons-topping",
+   "name": "Build Your Own Sundae: chocolate buttons topping",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "build-your-own-sundae-oreos-topping",
+   "name": "Build Your Own Sundae: Oreos topping",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "everything-sundae",
+   "name": "Everything Sundae",
+   "category": "Sundaes",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freshly-baked-double-chocolate-cookies",
+   "name": "Freshly Baked Double Chocolate Cookies",
+   "category": "Pastries, cakes and cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 643
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain au Chocolat",
+   "category": "Pastries, cakes and cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 313
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Pastries, cakes and cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-and-orange-cake",
+   "name": "Carrot & orange cake",
+   "category": "Pastries, cakes and cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 405
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ultimate-brownie",
+   "name": "Ultimate brownie",
+   "category": "Pastries, cakes and cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burnt-basque-cheesecake",
+   "name": "Burnt Basque Cheesecake",
+   "category": "Pastries, cakes and cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-a-scoop-of-vanilla-ice-cream",
+   "name": "Add a scoop of vanilla ice cream",
+   "category": "Pastries, cakes and cookie dough",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "milk-chocolate-buttons",
+   "name": "Milk chocolate buttons",
+   "category": "Sweet pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 630
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-fruit-and-nut-mix",
+   "name": "Chocolate fruit & nut mix",
+   "category": "Sweet pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 529
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-bites",
+   "name": "Honeycomb bites",
+   "category": "Sweet pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 563
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jelly-retro-candy",
+   "name": "Jelly retro candy",
+   "category": "Sweet pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fizzy-retro-candy",
+   "name": "Fizzy retro candy",
+   "category": "Sweet pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "olives",
+   "name": "Olives",
+   "category": "Savoury pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-and-pepper-cashews",
+   "name": "Salt & pepper cashews",
+   "category": "Savoury pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 561
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-roasted-cashews",
+   "name": "Honey roasted cashews",
+   "category": "Savoury pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-bites",
+   "name": "Chilli bites",
+   "category": "Savoury pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 191
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-pretzels",
+   "name": "Salted pretzels",
+   "category": "Savoury pots",
+   "serving": "Pot",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-shake",
+   "name": "Vanilla shake",
+   "category": "Shakes & coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-shake",
+   "name": "Chocolate shake",
+   "category": "Shakes & coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 499
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shake",
+   "name": "Strawberry shake",
+   "category": "Shakes & coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 457
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-shake",
+   "name": "Salted caramel shake",
+   "category": "Shakes & coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 461
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-shake",
+   "name": "Oreo shake",
+   "category": "Shakes & coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 736
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-oreo-shake",
+   "name": "Plant-based Oreo shake",
+   "category": "Shakes & coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 541
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-vanilla-shake",
+   "name": "Plant-based Vanilla shake",
+   "category": "Shakes & coolers",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola",
+   "name": "Coca Cola",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero",
+   "name": "Coke Zero",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "luscombe-sicilian-lemonade",
+   "name": "Luscombe Sicilian Lemonade",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "luscombe-sparkling-apple",
+   "name": "Luscombe Sparkling Apple",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "karma-orangeade",
+   "name": "Karma Orangeade",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gingerella-ginger-ale",
+   "name": "Gingerella Ginger Ale",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-juice",
+   "name": "Pineapple Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-iced-tea",
+   "name": "Peach Iced Tea",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dash-water-lemon-or-raspberry",
+   "name": "Dash Water (lemon or raspberry)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "everyman-reusable-water-still-or-sparkling",
+   "name": "Everyman Reusable Water (still or sparkling)",
+   "category": "Soft drinks",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 164
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-matcha",
+   "name": "Vanilla Matcha",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-mint-tea",
+   "name": "Fresh Mint Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "speciality-teas",
+   "name": "Speciality Teas",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-tea",
+   "name": "Chai Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crodino-non-alcoholic-spritz",
+   "name": "Crodino non-alcoholic Spritz",
+   "category": "No & low",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grapefruit-and-elderflower-botivo-spritz",
+   "name": "Grapefruit & Elderflower Botivo Spritz",
+   "category": "No & low",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "elderflower-and-mint-collins",
+   "name": "Elderflower & Mint Collins",
+   "category": "No & low",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sipsmith-freeglider-and-tonic",
+   "name": "Sipsmith FreeGlider & Tonic",
+   "category": "No & low",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-saint-lager-0-5abv",
+   "name": "Lucky Saint Lager 0.5abv",
+   "category": "No & low",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-saint-hazy-ipa-0-5abv",
+   "name": "Lucky Saint Hazy IPA 0.5abv",
+   "category": "No & low",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-alcoholic-prosecco-175ml",
+   "name": "Non Alcoholic Prosecco (175ml)",
+   "category": "No & low",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-alcoholic-prosecco-bottle",
+   "name": "Non Alcoholic Prosecco (bottle)",
+   "category": "No & low",
+   "serving": "Bottle",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "botivo-mule",
+   "name": "Botivo Mule",
+   "category": "No & low",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

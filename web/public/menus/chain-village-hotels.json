@@ -1,0 +1,1369 @@
+{
+ "schemaVersion": 1,
+ "id": "village-hotels",
+ "name": "Village Hotels",
+ "cuisine": "Pub & grill",
+ "builderType": "standard",
+ "aliases": [
+  "village hotels",
+  "village hotel",
+  "village hotels pub & grill",
+  "village pub & grill",
+  "village pub and grill"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Village Hotels Main Pub & Grill Menu with calories (PDF created 18 September 2026; served last modified 2 October 2026)",
+  "url": "https://document-tc.galaxy.tf/wdpdf-dfdlwz0h7qnp088413oz3ecl4/menus_cms-document.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed in each dish's description (no protein, carbs, fat or salt). Sharing dishes are per person. Sides, sauces and upgrades have their own calories and are listed separately. Drinks print none. Prices vary by hotel and are not shown. Spuddy fillings are 'per serving'; the menu doesn't say whether that includes the potato.",
+ "categories": [
+  "Appetisers & bar snacks",
+  "Sharing",
+  "Wraps",
+  "Spuddies",
+  "Bowls & salads",
+  "Burgers",
+  "Burger stacks",
+  "Pizza",
+  "Pasta",
+  "Pub classics",
+  "From the grill",
+  "Sides",
+  "Sides with wraps & burgers",
+  "Desserts",
+  "Sunday lunch"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "tenders-small",
+   "name": "Tenders (small)",
+   "category": "Appetisers & bar snacks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 368
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tenders-large",
+   "name": "Tenders (large)",
+   "category": "Appetisers & bar snacks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 730
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-sauce-dip-for-tenders",
+   "name": "Buffalo sauce (dip for Tenders)",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-sauce-dip-for-tenders",
+   "name": "Sweet Chilli sauce (dip for Tenders)",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 109
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-garlic-mayo-dip-for-tenders",
+   "name": "Light Garlic Mayo (dip for Tenders)",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-bbq-sauce-small",
+   "name": "Wings with BBQ sauce (small)",
+   "category": "Appetisers & bar snacks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 922
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-bbq-sauce-large",
+   "name": "Wings with BBQ sauce (large)",
+   "category": "Appetisers & bar snacks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1844
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-buffalo-sauce-small",
+   "name": "Wings with Buffalo sauce (small)",
+   "category": "Appetisers & bar snacks",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 872
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings-with-buffalo-sauce-large",
+   "name": "Wings with Buffalo sauce (large)",
+   "category": "Appetisers & bar snacks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 1744
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries",
+   "name": "Loaded Fries",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1086
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries-upgraded-to-sweet-potato-fries",
+   "name": "Loaded Fries upgraded to sweet potato fries",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1086
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chilli-beef-to-loaded-fries",
+   "name": "Add Chilli Beef (to Loaded Fries)",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 244
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-appetiser-basket",
+   "name": "Prawn Appetiser Basket",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata-and-tomato-salad",
+   "name": "Burrata & Tomato Salad",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 302
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "asian-mixed-appetisers",
+   "name": "Asian Mixed Appetisers",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 689
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "duck-bao-bun-basket",
+   "name": "Duck Bao Bun Basket",
+   "category": "Appetisers & bar snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 773
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garbage-can-nachos-2-sharing",
+   "name": "Garbage Can Nachos (2 sharing)",
+   "category": "Sharing",
+   "serving": "Per person",
+   "nutrients": {
+    "calories": 945
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garbage-can-nachos-3-sharing",
+   "name": "Garbage Can Nachos (3 sharing)",
+   "category": "Sharing",
+   "serving": "Per person",
+   "nutrients": {
+    "calories": 630
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garbage-can-nachos-with-chicken-2-sharing",
+   "name": "Garbage Can Nachos with Chicken (2 sharing)",
+   "category": "Sharing",
+   "serving": "Per person",
+   "nutrients": {
+    "calories": 1027
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garbage-can-nachos-with-chicken-3-sharing",
+   "name": "Garbage Can Nachos with Chicken (3 sharing)",
+   "category": "Sharing",
+   "serving": "Per person",
+   "nutrients": {
+    "calories": 684
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garbage-can-nachos-with-chilli-beef-2-sharing",
+   "name": "Garbage Can Nachos with Chilli Beef (2 sharing)",
+   "category": "Sharing",
+   "serving": "Per person",
+   "nutrients": {
+    "calories": 1018
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garbage-can-nachos-with-chilli-beef-3-sharing",
+   "name": "Garbage Can Nachos with Chilli Beef (3 sharing)",
+   "category": "Sharing",
+   "serving": "Per person",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-wrap",
+   "name": "Grilled Chicken Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 493
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-wrap",
+   "name": "Buffalo Chicken Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 541
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-salmon-wrap",
+   "name": "Roast Salmon Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 634
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-filling-chicken-tikka",
+   "name": "Spuddy filling: Chicken Tikka",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 675
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-filling-beef-chilli-with-cheese",
+   "name": "Spuddy filling: Beef Chilli with cheese",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 914
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-filling-coleslaw",
+   "name": "Spuddy filling: Coleslaw",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 634
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-filling-tuna-mayo",
+   "name": "Spuddy filling: Tuna Mayo",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 589
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-filling-baked-beans-and-sausage",
+   "name": "Spuddy filling: Baked Beans & Sausage",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 1001
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-filling-baked-beans-with-cheese",
+   "name": "Spuddy filling: Baked Beans with cheese",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 920
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-filling-coronation-chicken",
+   "name": "Spuddy filling: Coronation Chicken",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 571
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-filling-egg-mayonnaise",
+   "name": "Spuddy filling: Egg Mayonnaise",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 562
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-sauce-sour-cream",
+   "name": "Spuddy sauce: Sour Cream",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-sauce-bbq-sauce",
+   "name": "Spuddy sauce: BBQ Sauce",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-sauce-hot-sauce",
+   "name": "Spuddy sauce: Hot Sauce",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-sauce-yoghurt",
+   "name": "Spuddy sauce: Yoghurt",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-sauce-garlic-ranch",
+   "name": "Spuddy sauce: Garlic Ranch",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-topping-bacon-bits",
+   "name": "Spuddy topping: Bacon Bits",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-topping-parmesan",
+   "name": "Spuddy topping: Parmesan",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 39
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spuddy-topping-crispy-onion",
+   "name": "Spuddy topping: Crispy Onion",
+   "category": "Spuddies",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "get-shredded-bowl",
+   "name": "Get Shredded! Bowl",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 828
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "king-prawn-noodle-bowl",
+   "name": "King Prawn Noodle Bowl",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 612
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-mediterranean-bowl",
+   "name": "Salmon Mediterranean Bowl",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 883
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "asian-duck-salad",
+   "name": "Asian Duck Salad",
+   "category": "Bowls & salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gourmet-wagyu-cheese-and-bacon-burger",
+   "name": "Gourmet Wagyu Cheese & Bacon Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1246
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-chicken-burger",
+   "name": "Hot Honey Chicken Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 834
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-chilli-cheese-stack",
+   "name": "The Chilli Cheese Stack",
+   "category": "Burger stacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1213
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-cheese-and-bacon-stack",
+   "name": "The Cheese & Bacon Stack",
+   "category": "Burger stacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1099
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-cheeseburger-stack",
+   "name": "The Cheeseburger Stack",
+   "category": "Burger stacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1117
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-bbq-burger-stack",
+   "name": "The BBQ Burger Stack",
+   "category": "Burger stacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1162
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-peri-peri-stack",
+   "name": "The Peri Peri Stack",
+   "category": "Burger stacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 698
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-stack",
+   "name": "Veggie Stack",
+   "category": "Burger stacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 689
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-village-big-stack",
+   "name": "The Village Big Stack",
+   "category": "Burger stacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1656
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 787
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-pizza",
+   "name": "Pepperoni Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1023
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-hot-pizza",
+   "name": "Pepperoni Hot Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1105
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-pizza",
+   "name": "BBQ Chicken Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1109
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-primavera",
+   "name": "Pasta Primavera",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-and-chips",
+   "name": "Fish & Chips",
+   "category": "Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1308
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry",
+   "name": "Chicken Katsu Curry",
+   "category": "Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 684
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-curry",
+   "name": "Chicken Tikka Curry",
+   "category": "Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 676
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-frites",
+   "name": "Steak Frites",
+   "category": "Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 1352
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-chorizo-skewers",
+   "name": "Chicken & Chorizo Skewers",
+   "category": "Pub classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gammon-egg-and-chips",
+   "name": "Gammon, Egg & Chips",
+   "category": "From the grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1291
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomahawk-pork-chop",
+   "name": "Tomahawk Pork Chop",
+   "category": "From the grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1203
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8oz-black-angus-sirloin-steak",
+   "name": "8oz Black Angus Sirloin Steak",
+   "category": "From the grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1026
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-grill",
+   "name": "Mixed Grill",
+   "category": "From the grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1778
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppercorn-sauce-add-to-a-grill-dish",
+   "name": "Peppercorn sauce (add to a grill dish)",
+   "category": "From the grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bearnaise-sauce-add-to-a-grill-dish",
+   "name": "Bearnaise sauce (add to a grill dish)",
+   "category": "From the grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cone-of-onion-rings",
+   "name": "Cone of Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 970
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cone-of-cry-fry",
+   "name": "Cone of Cry Fry",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 932
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cone-of-fries",
+   "name": "Cone of Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cone-of-sweet-potato-fries",
+   "name": "Cone of Sweet Potato Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wedge-salad",
+   "name": "Wedge Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tenderstem-broccoli",
+   "name": "Tenderstem Broccoli",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-potato",
+   "name": "Baked Potato",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 571
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skin-on-fries-served-with-wraps-burgers-and-stacks",
+   "name": "Skin on fries (served with wraps, burgers and stacks)",
+   "category": "Sides with wraps & burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-salad-served-with-wraps-burgers-and-stacks",
+   "name": "Green salad (served with wraps, burgers and stacks)",
+   "category": "Sides with wraps & burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freshly-made-slaw-served-with-burgers-and-stacks",
+   "name": "Freshly made slaw (served with burgers and stacks)",
+   "category": "Sides with wraps & burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries-upgrade-for-wraps-burgers-and-stacks",
+   "name": "Sweet potato fries (upgrade for wraps, burgers and stacks)",
+   "category": "Sides with wraps & burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cry-fry-upgrade-for-wraps-burgers-and-stacks",
+   "name": "Cry fry (upgrade for wraps, burgers and stacks)",
+   "category": "Sides with wraps & burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 932
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-chocolate-fudge-cake",
+   "name": "Warm Chocolate Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 819
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky Toffee Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cookie-skillet",
+   "name": "Cookie Skillet",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 654
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackberry-and-apple-crumble-with-custard",
+   "name": "Blackberry & Apple Crumble with custard",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 504
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackberry-and-apple-crumble-with-vanilla-ice-cream",
+   "name": "Blackberry & Apple Crumble with vanilla ice cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 521
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-turkey-in-a-giant-yorkshire-pudding-adult",
+   "name": "Roast Turkey in a Giant Yorkshire Pudding (adult)",
+   "category": "Sunday lunch",
+   "serving": "Adult",
+   "nutrients": {
+    "calories": 920
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-turkey-in-a-giant-yorkshire-pudding-kids",
+   "name": "Roast Turkey in a Giant Yorkshire Pudding (kids)",
+   "category": "Sunday lunch",
+   "serving": "Kids",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

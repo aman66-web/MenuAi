@@ -1,0 +1,1511 @@
+{
+ "schemaVersion": 1,
+ "id": "british-garden-centres",
+ "name": "British Garden Centres",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "british garden centres",
+  "gardener's retreat",
+  "gardeners retreat",
+  "the gardener's retreat",
+  "the gardeners retreat restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Gardener's Retreat Restaurant menu with calories, March 2026 (GR-Menu-Online-March2026.pdf; PDF created 17 March 2026)",
+  "url": "https://www.britishgardencentres.com/wp-content/uploads/2026/03/GR-Menu-Online-March2026.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed beside each dish in the Gardener's Retreat restaurant menu (March 2026): protein, carbs, fat and salt are not published. Add-ons are listed separately. Carvery, afternoon tea, soup, specials and drinks print no calories and are not listed. Menus can vary by centre. No allergen guide is published (ask a team member).",
+ "categories": [
+  "Breakfast",
+  "Breakfast Add Ons",
+  "Main Meals",
+  "Burgers",
+  "Light Bites",
+  "Salads",
+  "Jacket Potatoes",
+  "Jacket Potato Add Ons",
+  "Wraps",
+  "Sandwiches",
+  "Ciabattas",
+  "Sides"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "the-big-breakfast",
+   "name": "The Big Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1593
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-black-pudding-to-the-big-breakfast",
+   "name": "Add Black Pudding (to The Big Breakfast)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "full-english-breakfast",
+   "name": "Full English Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 859
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-black-pudding-to-full-english-breakfast",
+   "name": "Add Black Pudding (to Full English Breakfast)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-breakfast-omelette",
+   "name": "Loaded Breakfast Omelette",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 998
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-black-pudding-to-loaded-breakfast-omelette",
+   "name": "Add Black Pudding (to Loaded Breakfast Omelette)",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-veggie",
+   "name": "The Big Veggie",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1301
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-breakfast",
+   "name": "Vegetarian Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 898
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-vegetarian-omelette",
+   "name": "Loaded Vegetarian Omelette",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 993
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-benedict",
+   "name": "Eggs Benedict",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 728
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-eggs-and-smoked-salmon",
+   "name": "Scrambled Eggs & Smoked Salmon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-muffin",
+   "name": "Breakfast Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 834
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-sandwich",
+   "name": "Bacon Sandwich",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 589
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-sandwich",
+   "name": "Sausage Sandwich",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 555
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-and-preserves",
+   "name": "Toast & Preserves",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 367
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-egg",
+   "name": "Fried Egg",
+   "category": "Breakfast Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-rasher-of-bacon",
+   "name": "1 Rasher of Bacon",
+   "category": "Breakfast Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-hash-browns",
+   "name": "2 Hash Browns",
+   "category": "Breakfast Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 206
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-slice-of-black-pudding",
+   "name": "1 Slice of Black Pudding",
+   "category": "Breakfast Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "a-slice-of-toasted-white-or-brown-bread",
+   "name": "A Slice of Toasted White or Brown Bread",
+   "category": "Breakfast Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-vegetarian-sausage",
+   "name": "1 Vegetarian Sausage",
+   "category": "Breakfast Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8oz-gammon-steak",
+   "name": "8oz Gammon Steak",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 949
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-egg-to-8oz-gammon-steak",
+   "name": "Add Egg (to 8oz Gammon Steak)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-pineapple-to-8oz-gammon-steak",
+   "name": "Add Pineapple (to 8oz Gammon Steak)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-beef-lasagne",
+   "name": "Traditional Beef Lasagne",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1002
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-traditional-beef-lasagne",
+   "name": "Add Chips (to Traditional Beef Lasagne)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breaded-scampi",
+   "name": "Breaded Scampi",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 603
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "italian-chicken",
+   "name": "Italian Chicken",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 892
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smothered-bbq-chicken",
+   "name": "Smothered BBQ Chicken",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1163
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-brunch-omelette",
+   "name": "Loaded Brunch Omelette",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 692
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-loaded-brunch-omelette",
+   "name": "Add Chips (to Loaded Brunch Omelette)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-combo",
+   "name": "Chicken Combo",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1089
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-bbq-sauce-to-chicken-combo",
+   "name": "Add BBQ sauce (to Chicken Combo)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-ranch-sauce-to-chicken-combo",
+   "name": "Add Ranch sauce (to Chicken Combo)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-indian-sweet-chilli-sauce-to-chicken-combo",
+   "name": "Add Indian Sweet Chilli sauce (to Chicken Combo)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-masala",
+   "name": "Chicken Tikka Masala",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 691
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-egg-and-chips",
+   "name": "Sausage, Egg and Chips",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 742
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-cheese-and-broccoli-bake",
+   "name": "Cream Cheese & Broccoli Bake",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 937
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-cream-cheese-and-broccoli-bake",
+   "name": "Add Chips (to Cream Cheese & Broccoli Bake)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-thai-vegetable-curry",
+   "name": "Red Thai Vegetable Curry",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 576
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-red-thai-vegetable-curry",
+   "name": "Add Chips (to Red Thai Vegetable Curry)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-loaded-omelette",
+   "name": "Vegetarian Loaded Omelette",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-vegetarian-loaded-omelette",
+   "name": "Add Chips (to Vegetarian Loaded Omelette)",
+   "category": "Main Meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheeseburger",
+   "name": "Classic Cheeseburger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1483
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brie-and-bacon-burger",
+   "name": "Brie & Bacon Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1714
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ranch-chicken-burger",
+   "name": "Ranch Chicken Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1375
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beetroot-red-pepper-and-quinoa-burger",
+   "name": "Beetroot, Red Pepper & Quinoa Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1214
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "battered-chicken-bites-light-bite",
+   "name": "Battered Chicken Bites (Light Bite)",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 570
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breaded-scampi-light-bite",
+   "name": "Breaded Scampi (Light Bite)",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4oz-gammon-steak-light-bite",
+   "name": "4oz Gammon Steak (Light Bite)",
+   "category": "Light Bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 432
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ploughmans-platter",
+   "name": "Ploughman's Platter",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1255
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-ploughmans-platter",
+   "name": "Add Chips (to Ploughman's Platter)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shredded-crispy-chicken-salad-with-a-ranch-dressing",
+   "name": "Shredded Crispy Chicken Salad with a Ranch Dressing",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 751
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-shredded-crispy-chicken-salad-with-a-ranch-dressing",
+   "name": "Add Chips (to Shredded Crispy Chicken Salad with a Ranch Dressing)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawns-smoked-salmon-and-marie-rose-sauce-salad",
+   "name": "Prawns, Smoked Salmon and Marie Rose Sauce Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-prawns-smoked-salmon-and-marie-rose-sauce-salad",
+   "name": "Add Chips (to Prawns, Smoked Salmon and Marie Rose Sauce Salad)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beetroot-red-pepper-and-quinoa-burger-salad",
+   "name": "Beetroot, Red Pepper and Quinoa Burger Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips-to-beetroot-red-pepper-and-quinoa-burger-salad",
+   "name": "Add Chips (to Beetroot, Red Pepper and Quinoa Burger Salad)",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-jacket-potato",
+   "name": "Cheese Jacket Potato",
+   "category": "Jacket Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 923
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans-jacket-potato",
+   "name": "Baked Beans Jacket Potato",
+   "category": "Jacket Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 618
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-jacket-potato",
+   "name": "Tuna Mayonnaise Jacket Potato",
+   "category": "Jacket Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 676
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-bbq-pulled-pork-jacket-potato",
+   "name": "Sticky BBQ Pulled Pork Jacket Potato",
+   "category": "Jacket Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 670
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawns-and-smoked-salmon-in-a-marie-rose-sauce-jacket-potato",
+   "name": "Prawns & Smoked Salmon in a Marie Rose Sauce Jacket Potato",
+   "category": "Jacket Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 669
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-coleslaw-jacket-potato-add-on",
+   "name": "Homemade Coleslaw (jacket potato add-on)",
+   "category": "Jacket Potato Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-jacket-potato-add-on",
+   "name": "Cheese (jacket potato add-on)",
+   "category": "Jacket Potato Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans-jacket-potato-add-on",
+   "name": "Baked Beans (jacket potato add-on)",
+   "category": "Jacket Potato Add Ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-pulled-pork-and-mixed-leaves-wrap-with-chips",
+   "name": "BBQ Pulled Pork and Mixed Leaves Wrap (with chips)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 802
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-pulled-pork-and-mixed-leaves-wrap-with-salad",
+   "name": "BBQ Pulled Pork and Mixed Leaves Wrap (with salad)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cauliflower-wings-indian-sweet-chilli-sauce-and-mixed-leaves-wrap-with-chips",
+   "name": "Cauliflower Wings, Indian Sweet Chilli Sauce and Mixed Leaves Wrap (with chips)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cauliflower-wings-indian-sweet-chilli-sauce-and-mixed-leaves-wrap-with-salad",
+   "name": "Cauliflower Wings, Indian Sweet Chilli Sauce and Mixed Leaves Wrap (with salad)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shredded-crispy-chicken-sticky-bbq-sauce-and-mixed-leaves-wrap-with-chips",
+   "name": "Shredded Crispy Chicken, Sticky BBQ Sauce & Mixed Leaves Wrap (with chips)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 1033
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shredded-crispy-chicken-sticky-bbq-sauce-and-mixed-leaves-wrap-with-salad",
+   "name": "Shredded Crispy Chicken, Sticky BBQ Sauce & Mixed Leaves Wrap (with salad)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 775
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shredded-crispy-chicken-ranch-dressing-and-mixed-leaves-wrap-with-chips",
+   "name": "Shredded Crispy Chicken, Ranch Dressing & Mixed Leaves Wrap (with chips)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 1111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shredded-crispy-chicken-ranch-dressing-and-mixed-leaves-wrap-with-salad",
+   "name": "Shredded Crispy Chicken, Ranch Dressing & Mixed Leaves Wrap (with salad)",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 853
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-and-mixed-leaves-sandwich-with-chips",
+   "name": "Egg Mayonnaise & Mixed Leaves Sandwich (with chips)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 911
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-and-mixed-leaves-sandwich-with-salad",
+   "name": "Egg Mayonnaise & Mixed Leaves Sandwich (with salad)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 653
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-lettuce-and-tomato-blt-sandwich-with-chips",
+   "name": "Bacon, Lettuce and Tomato (BLT) Sandwich (with chips)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 805
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-lettuce-and-tomato-blt-sandwich-with-salad",
+   "name": "Bacon, Lettuce and Tomato (BLT) Sandwich (with salad)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 574
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-sandwich-with-chips",
+   "name": "Ham Sandwich (with chips)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 676
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-sandwich-with-salad",
+   "name": "Ham Sandwich (with salad)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mature-grated-cheddar-cheese-mixed-leaves-and-caramelised-onion-chutney-sandwich-with-chips",
+   "name": "Mature Grated Cheddar Cheese, Mixed Leaves & Caramelised Onion Chutney Sandwich (with chips)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1183
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mature-grated-cheddar-cheese-mixed-leaves-and-caramelised-onion-chutney-sandwich-with-salad",
+   "name": "Mature Grated Cheddar Cheese, Mixed Leaves & Caramelised Onion Chutney Sandwich (with salad)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 925
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-and-mixed-leaves-sandwich-with-chips",
+   "name": "Tuna Mayonnaise & Mixed Leaves Sandwich (with chips)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 861
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-and-mixed-leaves-sandwich-with-salad",
+   "name": "Tuna Mayonnaise & Mixed Leaves Sandwich (with salad)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 603
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawns-smoked-salmon-in-a-marie-rose-sauce-mixed-leaves-and-cucumber-sandwich-with-chips",
+   "name": "Prawns, Smoked Salmon in a Marie Rose Sauce, Mixed Leaves & Cucumber Sandwich (with chips)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 838
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawns-smoked-salmon-in-a-marie-rose-sauce-mixed-leaves-and-cucumber-sandwich-with-salad",
+   "name": "Prawns, Smoked Salmon in a Marie Rose Sauce, Mixed Leaves & Cucumber Sandwich (with salad)",
+   "category": "Sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-melted-cheese-ciabatta",
+   "name": "Ham, Melted Cheese Ciabatta",
+   "category": "Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 708
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-melted-cheese-ciabatta",
+   "name": "Tuna Mayonnaise, Melted Cheese Ciabatta",
+   "category": "Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 821
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheddar-cheese-and-caramelised-onion-chutney-ciabatta",
+   "name": "Cheddar Cheese and Caramelised Onion Chutney Ciabatta",
+   "category": "Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 800
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brie-bacon-and-caramelised-onion-chutney-ciabatta",
+   "name": "Brie, Bacon & Caramelised Onion Chutney Ciabatta",
+   "category": "Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 730
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-bbq-pulled-pork-melted-cheese-ciabatta",
+   "name": "Sticky BBQ Pulled Pork, Melted Cheese Ciabatta",
+   "category": "Ciabattas",
+   "serving": "",
+   "nutrients": {
+    "calories": 800
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "portion-of-chips",
+   "name": "Portion of Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-toasted-garlic-ciabatta",
+   "name": "Homemade Toasted Garlic Ciabatta",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 531
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beer-battered-onion-rings",
+   "name": "Beer Battered Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-coleslaw",
+   "name": "Homemade Coleslaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bread-and-butter",
+   "name": "Bread & Butter",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 339
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-salad",
+   "name": "House Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

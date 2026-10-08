@@ -1,0 +1,542 @@
+{
+ "schemaVersion": 1,
+ "id": "amigos-burgers-and-shakes",
+ "name": "Amigos Burgers & Shakes",
+ "cuisine": "Burgers",
+ "builderType": "standard",
+ "aliases": [
+  "amigos",
+  "amigos burgers",
+  "amigos burgers & shakes",
+  "amigos burgers and shakes",
+  "amigos burgers shakes",
+  "amigo's burgers"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Amigos Burgers & Shakes website menu item pages (accessed 2026-10-08, no date shown)",
+  "url": "https://www.amigosburgersandshakes.com/menu",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Amigos prints calories (and kJ on most items) per item as sold; protein, carbs and fat are not published and no serving weights are stated. Sides, hot dogs, shakes, desserts and drinks print no nutrition. Chicken wings and the Veggie, Halloumi and Breakfast wraps are not shown: the site gives no single usable figure.",
+ "allergenGuide": {
+  "title": "Amigos Burgers & Shakes Allergen Information Guide (PDF \"allergen menu-print[update25]\", created 28 January 2025)",
+  "url": "https://www.amigosburgersandshakes.com/_files/ugd/4a7bb9_8145f12f83fc46c8be0660bd0251a265.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Breakfast",
+  "Burgers",
+  "Chicken",
+  "Veggie",
+  "Kids"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "egg-and-cheese-muffin",
+   "name": "Egg & Cheese Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 295,
+    "energyKj": 1234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-sausage-and-egg-muffin",
+   "name": "Chicken Sausage & Egg Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 415,
+    "energyKj": 1736
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dbl-chicken-sausage-and-egg-muffin",
+   "name": "DBL Chicken Sausage & Egg Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 552,
+    "energyKj": 2310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "turkey-bacon-and-egg-muffin",
+   "name": "Turkey Bacon & Egg Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 327,
+    "energyKj": 1368
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dbl-turkey-bacon-and-egg-muffin",
+   "name": "DBL Turkey Bacon & Egg Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 369,
+    "energyKj": 1544
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hashbrown-and-egg-muffin",
+   "name": "Hashbrown & Egg Muffin",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 431,
+    "energyKj": 1803
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hashbrown-and-orange-juice",
+   "name": "Hashbrown & Orange Juice",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 239,
+    "energyKj": 1000
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-pancakes",
+   "name": "Strawberry Pancakes",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "energyKj": 1996
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maple-syrup-pancakes",
+   "name": "Maple Syrup Pancakes",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "energyKj": 1996
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amigo",
+   "name": "Amigo",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 635,
+    "energyKj": 2657
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican",
+   "name": "Mexican",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 699,
+    "energyKj": 2925
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakie",
+   "name": "Breakie",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1305,
+    "energyKj": 5460
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jacob",
+   "name": "Jacob",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 725,
+    "energyKj": 3033
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "happynero",
+   "name": "Happynero",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 577,
+    "energyKj": 2414
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-burger",
+   "name": "Cheese Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 381,
+    "energyKj": 1594
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "texan",
+   "name": "Texan",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 738,
+    "energyKj": 3088
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-boss",
+   "name": "The Boss",
+   "category": "Burgers",
+   "serving": "2x 6oz. beef patties",
+   "nutrients": {
+    "calories": 1305
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dbl-cheese",
+   "name": "DBL Cheese",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 442,
+    "energyKj": 1849
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-4-chicken",
+   "name": "1/4 Chicken",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 116,
+    "energyKj": 485
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chickn-pitta",
+   "name": "Chick'n Pitta",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 454,
+    "energyKj": 1900
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chick-burger",
+   "name": "Chick Burger",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 454,
+    "energyKj": 1900
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amigos-wrap",
+   "name": "Amigos Wrap",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 278,
+    "energyKj": 1163
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1-2-chicken",
+   "name": "1/2 Chicken",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "energyKj": 975
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "supah-loaded-fries",
+   "name": "Supah Loaded Fries",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 463,
+    "energyKj": 1937
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-korean-wrap",
+   "name": "Crispy Korean Wrap",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 278,
+    "energyKj": 1163
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whole-chicken",
+   "name": "Whole Chicken",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 466,
+    "energyKj": 1950
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chick-n-rice",
+   "name": "Chick N' Rice",
+   "category": "Chicken",
+   "serving": "4x Tenders",
+   "nutrients": {
+    "calories": 558
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-burger",
+   "name": "Buttermilk Burger",
+   "category": "Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 463,
+    "energyKj": 1937
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-fun-guy",
+   "name": "The Fun-Guy",
+   "category": "Veggie",
+   "serving": "",
+   "nutrients": {
+    "calories": 400,
+    "energyKj": 1674
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lil-chicken-burger",
+   "name": "Lil' Chicken Burger",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 315,
+    "energyKj": 1318
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-popcorn",
+   "name": "Chicken Popcorn",
+   "category": "Kids",
+   "serving": "10x Pieces",
+   "nutrients": {
+    "calories": 141
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chickn-dippers",
+   "name": "Crispy Chick'n Dippers",
+   "category": "Kids",
+   "serving": "5x Tenders",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hamburger",
+   "name": "Hamburger",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 660,
+    "energyKj": 2761
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261008092628,
- "generatedAt": "2026-10-08T09:26:28Z",
+ "dataVersion": 20261008100140,
+ "generatedAt": "2026-10-08T10:01:40Z",
  "chains": [
   {
    "id": "abokado",
@@ -15,6 +15,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "afrikana",
+   "name": "Afrikana Kitchen",
+   "cuisine": "Chicken",
+   "file": "chain-afrikana.json",
+   "sha256": "7a4f3446406b69ecf058b6f0b5569ed84f072b1fbcf0572bb212eb9250f1b8a5",
+   "contentHash": "d18feab71049a48ec890b003933192865ad0ae73a79cf5fb6dd2776414084a87",
+   "sample": false,
+   "itemCount": 74,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "all-bar-one",
    "name": "All Bar One",
    "cuisine": "Bar & Kitchen",
@@ -24,6 +36,18 @@
    "sample": false,
    "itemCount": 148,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "amigos-burgers-and-shakes",
+   "name": "Amigos Burgers & Shakes",
+   "cuisine": "Burgers",
+   "file": "chain-amigos-burgers-and-shakes.json",
+   "sha256": "d8b413662ac47d0ba323943fae93e1cf028c8c9d0243ffc88eee0b5c38142de2",
+   "contentHash": "63f5e9146a672d8068ed7c9cb3b7c0079b442f75b3979fccd5897fb126550051",
+   "sample": false,
+   "itemCount": 33,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "ask-italian",
@@ -193,6 +217,18 @@
    "contentHash": "a3a06270c2bf743a78ea4d870a6c5f3a2bf5fd9eb512f08d2d370a0f2f937fec",
    "sample": false,
    "itemCount": 147,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "british-garden-centres",
+   "name": "British Garden Centres",
+   "cuisine": "Cafe",
+   "file": "chain-british-garden-centres.json",
+   "sha256": "eb859ae608e4b7c04af8a95c3df775814a8ca0718ef886f2bfef3f25cb340bb9",
+   "contentHash": "69ebd77ad1a153778204edc25ca179e911a9d485056b268e04291b87a59e8791",
+   "sample": false,
+   "itemCount": 97,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
   },
@@ -470,6 +506,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "english-heritage",
+   "name": "English Heritage Cafes",
+   "cuisine": "Cafe",
+   "file": "chain-english-heritage.json",
+   "sha256": "ef4d5a3b83cd8776faafc7a1cdf612582e252ad39d8cf1e1a0b30e24f355811d",
+   "contentHash": "a098e552701cbfe4eaa9d0a15af1727d18b43421e866a753c03993081a7b3d49",
+   "sample": false,
+   "itemCount": 499,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "esquires",
    "name": "Esquires Coffee",
    "cuisine": "Coffee",
@@ -479,6 +527,18 @@
    "sample": false,
    "itemCount": 54,
    "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "everyman",
+   "name": "Everyman Cinemas",
+   "cuisine": "Cinema",
+   "file": "chain-everyman.json",
+   "sha256": "b41a704798aebe747daba6cc28efd305ac42e28731115f3b802720e344fc602e",
+   "contentHash": "06df8734b96d211c0bcdb83dc603fa2b6e0540dd5dc8b8d46bcbd58af3d91e89",
+   "sample": false,
+   "itemCount": 113,
+   "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
   },
   {
@@ -684,6 +744,18 @@
    "sample": false,
    "itemCount": 188,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "hollywood-bowl",
+   "name": "Hollywood Bowl",
+   "cuisine": "Bowling diner",
+   "file": "chain-hollywood-bowl.json",
+   "sha256": "b77a2c373a33b9e4fb7a3a1e6c60124f6cee7a4d78641ad223ff4d9430bea29e",
+   "contentHash": "b1d67f8db02bdf1edad0f6af60536dd231218e35fc8093bd867bd374e7e34677",
+   "sample": false,
+   "itemCount": 106,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
   },
   {
    "id": "hotel-du-vin",
@@ -1151,6 +1223,17 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "slim-chickens",
+   "name": "Slim Chickens",
+   "cuisine": "Chicken",
+   "file": "chain-slim-chickens.json",
+   "sha256": "6de52f1d905c36aa653a16f20c1e10697030e4e5e9a53a13e645d4a209457a41",
+   "contentHash": "f118189fa44f7907d2e63e139a68940c86f5e6ae963c1443c49d22e4eebe6f9c",
+   "sample": false,
+   "itemCount": 94,
+   "checkedOn": "2026-10-08"
+  },
+  {
    "id": "slug-and-lettuce",
    "name": "Slug & Lettuce",
    "cuisine": "Pub",
@@ -1322,6 +1405,18 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "village-hotels",
+   "name": "Village Hotels",
+   "cuisine": "Pub & grill",
+   "file": "chain-village-hotels.json",
+   "sha256": "60bedbfaff4f93aafb994d9799453325fd80c81a957234736280993d2ca3f22c",
+   "contentHash": "7a54843c4afabbdb825363138c54600bf438b80628c6727a90668e2c36ce22c2",
+   "sample": false,
+   "itemCount": 89,
+   "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "vintage-inns",
    "name": "Vintage Inns",
    "cuisine": "Pub",
@@ -1460,6 +1555,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "520d6bbf39d6e4d05c26dcde305e7229e8530de1e2df383b238c174796e4da77"
+  "sha256": "c87afee53ef7d7a54848576099a979b7b7f83692c73e9da952ee8b7a634e8a66"
  }
 }
