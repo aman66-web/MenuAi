@@ -1,0 +1,49 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,coppa-club,Coppa Club,Brasserie,,https://www.coppaclub.co.uk/,https://coppa.cdn.prismic.io/coppa/YveUqQeuQg5FcN5L_Coppa_Club_Nutritional_Information_Summer_2026.pdf,pdf,kcal protein fat carbs per dish in Summer 2026 PDF; allergen PDFs on /allergens
+,heritage-pubs,Heritage Pubs,Pub,Stonegate,https://www.heritagepubs.co.uk/,https://menus.tenkites.com/heritage02,platform:tenkites,kcal protein fat per dish (Jan 2025 menu on Ten Kites)
+,castle-carvery,Castle Carvery,Carvery pub,Red Cat (from Ten Kites slug),https://www.redcatpubs.co.uk/,https://menus.tenkites.com/redcat/castlecarvery,platform:tenkites,kcal protein fat per dish (SS25 menu); guessed home page returned 403 so site unconfirmed
+,supermacs,Supermac's,Burgers and chicken,Supermac's (Ireland),https://supermacs.ie/,https://supermacs.ie/wp-content/uploads/2026/10/Nutritional-SUPERMACS-PAPA-JOHNS-Rev005-1.pdf,pdf,kcal kJ protein carbs per item; Irish chain with only a few NI sites
+,insomnia-coffee,Insomnia Coffee Company,Coffee,Insomnia (Ireland),https://www.insomnia.ie/,https://www.insomnia.ie/menu/nutritional-information,web,kcal fat protein table; Irish chain with NI sites and GB partner outlets
+,wildwood,Wildwood,Italian,Prezzo group,https://wildwoodrestaurants.co.uk/,https://wildwoodrestaurants.co.uk/allergens/,web,Allergen & Calorie page per restaurant; 24 locations listed
+,farmhouse-inns,Farmhouse Inns,Carvery pub,Greene King,https://www.farmhouseinns.co.uk/,https://www.farmhouseinns.co.uk/allergens,web,page titled Allergens and Nutritional Information (JavaScript app)
+,bettys,Bettys,Tea rooms,Bettys & Taylors,https://www.bettys.co.uk/,https://www.bettys.co.uk/media/pdf/bettys-winter-core-menu-2026.pdf,pdf,kcal per dish in menu PDF; home page shows a bot challenge so not scraped; Yorkshire tea rooms
+,chaophraya,Chaophraya,Thai,,https://www.chaophraya.co.uk/,https://menus.tenkites.com/tlg/chaophraya04,platform:tenkites,kcal and allergens per dish; city-centre restaurants
+,thaikhun,Thaikhun,Thai street food,,https://www.thaikhun.co.uk/,https://menus.tenkites.com/tlg/thaikhun,platform:tenkites,kcal and allergens per dish; small chain
+,rossopomodoro,Rossopomodoro,Italian pizza,,https://www.rossopomodoro.co.uk/,https://www.rossopomodoro.co.uk/_files/ugd/a2a2d2_1a9da3e52b54432ab425062e988571ad.pdf,pdf,12-page allergen matrix PDF with a few kcal figures; few sites
+,papas-fish-and-chips,Papa's Fish & Chips,Fish and chips,,https://papasfishandchips.com/,https://papasfishandchips.com/nutritional-information/,web,per-product nutrition PDFs (dated 2018) plus allergens page; Yorkshire and seaside sites
+,pieminister,Pieminister,Pies,,https://www.pieminister.co.uk/,https://www.pieminister.co.uk/_files/ugd/4dd37a_097aca7aeaed4b70a6f6606ee9afe825.pdf,pdf,restaurant allergen matrix PDF (Sept 2026); no calories; also /allergens page
+,hummingbird-bakery,Hummingbird Bakery,Bakery,,https://hummingbirdbakery.com/,https://www.hummingbirdbakery.com/media/wysiwyg/PDFs/Allergens_-_October_-_November_2026.pdf,pdf,monthly allergen PDFs; no calories; small London chain
+,boojum,Boojum,Mexican burritos,,https://boojummex.com/,https://boojummex.com/assets/uploads/Allergen-Sheet-A3-July-2026.pdf,pdf,allergen sheet (image-only PDF); Irish chain with a few NI sites
+,eddie-rockets,Eddie Rocket's,American diner,Eddie Rocket's (Ireland),https://www.eddierockets.ie/,https://www.eddierockets.ie/allergens,web,allergen PDFs per menu section; no calories; Irish chain with a few NI sites
+,puttshack,Puttshack,Mini golf and dining,,https://www.puttshack.com/,https://www.puttshack.com/uk/allergens/,pdf,allergen and dietary matrix PDFs; no calories; UK sites in big cities
+,purezza,Purezza,Vegan pizza,,https://purezza.co.uk/,https://purezza.co.uk/allergens/,web,interactive allergen page; no calories; about five sites
+,mildreds,Mildreds,Vegan,,https://mildreds.co.uk/,https://mildreds.co.uk/faqs/,web,allergen filter on each menu page per FAQ; no calories
+,masala-zone,Masala Zone,Indian,Real Indian Food Co,https://www.masalazone.com/,https://menu.menuguide.pro/html/F22AF12/F22AF12.html,platform:menuguide,per-dish allergens; its FAQ says nutrition info is not provided
+,bone-daddies,Bone Daddies,Japanese ramen,,https://www.bonedaddies.com/,https://bonedaddies.com/menus/,web,allergens printed per dish on web menu; no calories
+,thorntons,Thorntons,Chocolate shops and cafes,Ferrero,https://www.thorntons.co.uk/,https://www.thorntons.co.uk/uk/en/dietary-information,web,dietary information page (JavaScript so contents unchecked); mainly chocolate shops
+,fortnum-and-mason,Fortnum & Mason,Tea salons,,https://www.fortnumandmason.com/,https://www.fortnumandmason.com/stories/tea-salon-dietary-menu,web,dietary menu page (JavaScript so contents unchecked); a few tea salons
+,butlins,Butlins,Holiday resorts,Bourne Leisure,https://www.butlins.com/,https://viewthe.menu/1a9z,platform:viewthe.menu,menus with kcal and allergens seen on viewthe.menu (a 2023 Seaside Treats page; JavaScript so unchecked); three resorts
+,philps-pasties,Philps Pasties,Cornish pasties,,https://www.philpspasties.co.uk/,https://buy.philpspasties.co.uk/pages/allergy-information,web,allergy information page; Cornish pasty shops
+,mother-hubbards,Mother Hubbard's,Fish and chips,,https://www.mother-hubbards.co.uk/,https://www.mother-hubbards.co.uk/wp-content/uploads/2026/04/2026_food_and_drink.pdf,pdf,menu PDF refused my fetch (403) so contents unchecked; franchise chain of 50+ shops per press
+,wetherby-whaler,Wetherby Whaler,Fish and chips,,https://www.wetherbywhaler.co.uk/,,none,Yorkshire fish restaurants; ordering via preoday; no nutrition or allergen guide found
+,harry-gow,Harry Gow,Bakery,,https://www.harrygow.co.uk/,,none,Highland bakery with about 17 shops per press; no nutrition found
+,fisher-and-donaldson,Fisher & Donaldson,Bakery,,https://www.fisheranddonaldson.com/,,none,Fife and Tayside bakeries; FAQ has no nutrition
+,sayers-the-bakers,Sayers the Bakers,Bakery,S&PB Retail,https://www.sayersthebakers.co.uk/,,none,Merseyside bakery chain; our-food page has no nutrition
+,pound-bakery,Poundbakery,Bakery,S&PB Retail,https://www.poundbakery.co.uk/,,none,North West and Yorkshire bakery chain; only a scanned PDF linked
+,clarks-pies,Clark's Pies,Pies,,https://clarkspies.net/,,none,Cardiff and Bristol pie shops; no nutrition found
+,murdoch-allan,Murdoch Allan,Bakery,,https://www.murdochallan.co.uk/,,none,North East Scotland bakery; no nutrition found
+,kellys-of-cornwall,Kelly's of Cornwall,Ice cream parlours,,https://www.kellysofcornwall.co.uk/,,none,FAQ mentions an allergen list but no link found
+,cadwaladers,Cadwaladers,Ice cream cafes,,https://www.cadwaladers.co.uk/,,none,Welsh ice cream cafes; no nutrition found
+,bread-ahead,Bread Ahead,Bakery,,https://breadahead.com/,,none,London bakery shops; no nutrition found
+,mimis-bakehouse,Mimi's Bakehouse,Bakery cafe,,https://www.mimisbakehouse.com/,,none,Edinburgh cafes; only dietary cake range page
+,social-bite,Social Bite,Cafe,,https://social-bite.co.uk/,,none,Scottish charity cafes; no nutrition found
+,tampopo,Tampopo,Pan-Asian,,https://www.tampopo.co.uk/,,none,menus as PDFs per city; no allergen or nutrition guide
+,shoryu-ramen,Shoryu Ramen,Japanese ramen,,https://www.shoryuramen.com/,,none,menu PDF only; FAQ says tell staff about allergies
+,bodeans,Bodean's,BBQ,,https://www.bodeansbbq.com/,,none,London BBQ restaurants; no nutrition found
+,tas-restaurants,Tas Restaurants,Turkish,,https://www.tasrestaurants.co.uk/,,none,London Turkish group; no nutrition found
+,black-and-blue,Black & Blue,Steakhouse,,https://www.blackandbluerestaurants.com/,,none,London steak restaurants; no nutrition found
+,spaghetti-house,Spaghetti House,Italian,,https://www.spaghettihouse.co.uk/,,none,London Italian group; no nutrition found
+,mpw-restaurants,Marco Pierre White Restaurants,Steakhouse,,https://www.mpwrestaurants.co.uk/,,none,hotel steakhouses; menu PDFs print kcal per search listing but no stable page found
+,planet-organic,Planet Organic,Organic grocer with cafe,,https://www.planetorganic.com/,,none,London shops with cafes; no nutrition found
+,neat-burger,Neat Burger,Vegan burgers,,https://www.neatburger.com/,,none,site blocked (403 to automated visit)
+,tony-macaroni,Tony Macaroni,Italian,,https://www.tonymacaroni.co.uk/,,none,Scottish Italian chain; site blocked (403 to automated visit)

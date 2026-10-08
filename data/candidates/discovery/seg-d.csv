@@ -1,0 +1,61 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,real-greek,The Real Greek,Greek,Fulham Shore,https://www.therealgreek.com,https://www.therealgreek.com/wp-content/uploads/2026/03/TRG–Allergen–Menu-Spring–26.pdf,pdf,"macronutrient allergen menu PDF: kcal, protein, carbs, fat, sugars, sat fat per dish"
+,coppa-club,Coppa Club,Bar-restaurant,Coppa Collective,https://www.coppaclub.co.uk,https://coppa.cdn.prismic.io/coppa/YveUqQeuQg5FcN5L_Coppa_Club_Nutritional_Information_Summer_2026.pdf,pdf,"nutritional information PDF: kcal, carbs, protein, fat per dish; allergen PDFs on /allergens"
+,social-pub-and-kitchen,Social Pub & Kitchen,Pub,Stonegate,https://www.socialpubandkitchen.co.uk,https://www.tkmenus.com/socialpubkitchen,platform:tkmenus,"per-dish kcal, protein, carbs, fat, sugars, salt (Main Menu April 2026); about 127 pubs; also /food-allergens page"
+,tank-and-paddle,Tank & Paddle,Pub,Stonegate,https://www.tankandpaddle.co.uk,https://www.tkmenus.com/tankandpaddle,platform:tkmenus,"per-dish kcal, protein, carbs, fat (Main Menu Feb 2025); Stonegate brand"
+,drake-and-morgan,Drake & Morgan,Bar-restaurant,,https://www.drakeandmorgan.co.uk,https://www.drakeandmorgan.co.uk/sample-menus/,web,menu page with calorie counter and allergen filters; 17-23 bar-restaurants
+,wildwood,Wildwood,Italian,,https://wildwoodrestaurants.co.uk,https://wildwoodrestaurants.co.uk/allergens/,web,page titled Allergen & Calorie Information with a per-restaurant picker (about 30 restaurants)
+,megans,Megan's,Bar-restaurant,,https://megans.co.uk,https://megans.co.uk/allergy-information/,web,menus page link reads allergen & calorie guide
+,orleans-smokehouse,Orleans Smokehouse,BBQ restaurant,Mitchells & Butlers,https://www.orleanssmokehouse.co.uk,https://www.orleanssmokehouse.co.uk/security/allergens,platform:mbplc-safe2eat,Allergen and Nutrition Information page on M&B platform
+,pesto,Pesto,Italian,Mitchells & Butlers,https://pestorestaurants.co.uk,https://www.pestorestaurants.co.uk/restaurants/north-west/chester/dietary-requirements,platform:mbplc-safe2eat,per-restaurant dietary page links safe2eat.mbplc.io guide
+,farmhouse-inns,Farmhouse Inns,Pub,Greene King,https://www.farmhouseinns.co.uk,https://www.farmhouseinns.co.uk/allergens,web,page titled Allergens and Nutritional Information (Greene King app platform)
+,topgolf-uk,Topgolf UK,Leisure bar-restaurant,Topgolf Entertainment,https://topgolf.com/uk/,https://topgolf.com/uk/menu/,web,UK menu page titled Food and Drink Menu & Nutritional Info; about 8 UK venues; figures not inspected
+,fuzzy-eds,Fuzzy Ed's,Tex-Mex,Mitchells & Butlers,https://www.fuzzyeds.co.uk,https://www.fuzzyeds.co.uk/allergensandnutrition,web,M&B brand; footer Allergen Guide page titled Allergens & Nutrition; per-restaurant detail on each restaurant site
+,belhaven-pubs,Belhaven Pubs,Pub,Greene King,https://www.belhaven.co.uk,https://www.belhaven.co.uk/allergens,web,filterable allergen menus per pub (Greene King platform)
+,dirty-martini,Dirty Martini,Bar-restaurant,,https://www.dirtymartini.co.uk,https://www.dirtymartini.co.uk/allergens,web,menu allergens page
+,craft-beer-co,The Craft Beer Co,Pub,,https://www.thecraftbeerco.com,http://www.thecraftbeerco.com/allergy,web,allergy information page with per-pub pages
+,puttshack,Puttshack,Leisure bar-restaurant,,https://www.puttshack.com,https://www.puttshack.com/uk/allergens/,web,"allergen and dietary PDFs per menu (food, drinks, kids)"
+,boom-battle-bar,Boom Battle Bar,Leisure bar-restaurant,,https://boombattlebar.com/uk/,https://boombattlebar.com/uk/allergen-matrix/,web,allergen matrix PDF
+,roxy-leisure,Roxy Ball Room and Roxy Lanes,Leisure bar-restaurant,,https://roxyleisure.co.uk,https://roxyleisure.co.uk/allergen-statement/,web,allergen statement page
+,all-star-lanes,All Star Lanes,Leisure bar-restaurant,,https://www.allstarlanes.co.uk,https://www.allstarlanes.co.uk/wp-content/uploads/2026/06/FULL-KIDS-PARTY-PACKAGE_ALLERGENS_SS0626.pdf,pdf,allergen PDFs for party packages; main menu allergens not located
+,popworld,Popworld,Bar,Stonegate,https://www.popworld.com,https://www.tkmenus.com/popworld,platform:tkmenus,"drinks menu with allergen data only, no kcal (Jan 2025); Stonegate late-night bars"
+,craft-union,Craft Union Pub Company,Pub,Stonegate,,https://www.tkmenus.com/craftunion,platform:tkmenus,"drinks menu allergen data only (June 2022), no food; craftunion.co.uk is a parked domain; 440+ tenanted pubs"
+,camino,Camino,Tapas bar,,https://camino.uk.com,https://camino.uk.com/menus/,platform:igfd.menu,per-venue menus link View Allergens on igfd.menu; about 5 London sites
+,brasserie-blanc,Brasserie Blanc,French brasserie,,https://brasserieblanc.com,https://brasserieblanc.com/faqs/,web,FAQ says each location menu has an allergen filter; no group nutrition file seen
+,upham-inns,Upham Inns,Pub,,https://uphaminns.co.uk,https://uphaminns.co.uk/faqs/,web,FAQ says allergen info is on each pub website; about 28 pubs
+,butcombe-inns,Butcombe Inns,Pub,Liberation Group,https://butcombe.com,https://butcombe.com/allergyaware/,web,menus page links to allergen information for the menus
+,bone-daddies,Bone Daddies,Ramen,,https://bonedaddies.com,https://bonedaddies.com/menus/,web,per-dish allergens printed on menu page; no calories seen
+,barrafina,Barrafina,Spanish tapas,,https://www.barrafina.com,https://www.barrafina.com/frequently-asked-questions/,web,FAQ on dietary requirements only; about 7 sites
+,pitcher-and-piano,Pitcher & Piano,Bar,Marston's,https://www.pitcherandpiano.com,,none,home redirects to marstonspubs.co.uk/bars (corporate page); no own nutrition or allergen page
+,missoula,Missoula,Bar and grill,Stonegate,https://www.missoula.co.uk,,none,no allergen or nutrition link found; not on Stonegate tkmenus; few sites
+,scream-pubs,Scream,Pub,Stonegate,https://www.scream.co.uk,,none,student pub brand; no allergen or nutrition link found; not on tkmenus
+,reflex-bars,Reflex,Bar,Stonegate,https://reflexbars.co.uk,,none,no allergen or nutrition link found
+,castle-pubs,Castle,Pub,Mitchells & Butlers,https://www.castlepubs.co.uk,,none,M&B brand; no allergen link on site; M&B safe2eat platform likely
+,ego-restaurants,Ego,Mediterranean,Mitchells & Butlers,https://www.egorestaurants.co.uk,,none,"M&B brand; per-restaurant menu pages, no allergen link found"
+,premium-country-pubs,Premium Country Pubs,Pub,Mitchells & Butlers,https://www.eatdrinkmeet.co.uk,,none,M&B consumer site; no allergen link found
+,innkeepers-collection,Innkeeper's Collection,Hotel and pub,Mitchells & Butlers,https://www.innkeeperscollection.co.uk,,none,hotel brand beside M&B restaurants; formerly Innkeeper's Lodge; no allergen link found
+,joules-brewery-pubs,Joules,Pub,,https://www.joulesbrewery.co.uk,,none,no allergen or nutrition link found on site or sitemap
+,brains-pubs,Brains,Pub,,https://brainsbrewery.com,,none,no allergen or nutrition link found
+,black-sheep-brewery,Black Sheep Brewery,Pub,,https://www.blacksheepbrewery.com,,none,brewery with bistro and few pubs; no food allergen or nutrition link found
+,liberation-group,Liberation Group,Pub,,https://liberation-group.com,,none,site blocked (connection reset)
+,punch-pubs,Punch Pubs,Pub,,https://www.punchpubs.com,,none,tenanted pubco; home-page Allergen Information link returns 404
+,admiral-taverns,Admiral Taverns,Pub,,https://www.admiraltaverns.co.uk,,none,tenanted pubco; no allergen or nutrition link found
+,star-pubs-and-bars,Star Pubs & Bars,Pub,Heineken,https://www.starpubs.co.uk,,none,tenanted pubco; no allergen or nutrition link found
+,hawthorn-leisure,Hawthorn Leisure,Pub,Stonegate,https://www.hawthornleisure.co.uk,,none,robots.txt disallows all crawling; not fetched
+,trust-inns,Trust Inns,Pub,,https://www.trustinns.co.uk,,none,no allergen or nutrition link found
+,inn-collection-group,Inn Collection Group,Pub with rooms,,https://www.inncollectiongroup.com,,none,about 31 pubs with rooms; menus point to QR allergen code; no page link found
+,coaching-inn-group,Coaching Inn Group,Hotel and pub,,https://coachinginngroup.co.uk,,none,no allergen or nutrition link found
+,food-and-fuel,Food & Fuel Pubs,Pub,,https://foodandfuel.co.uk,,none,no allergen or nutrition link found
+,antic-london,Antic,Pub,,https://www.anticlondon.com,,none,no allergen or nutrition link found
+,wellington-pub-company,Wellington Pub Company,Pub,,https://wellingtonpubcompany.co.uk,,none,no allergen or nutrition link found
+,individual-pubs,Individual Pubs,Pub,,https://www.individualpubs.co.uk,,none,no allergen or nutrition link found
+,belushis,Belushi's,Bar,,https://belushis.com,,none,no allergen or nutrition link found
+,waxy-oconnors,Waxy O'Connors,Irish pub,,https://www.waxyoconnors.com,,none,no allergen or nutrition link found
+,bodeans,Bodean's,BBQ restaurant,,https://bodeansbbq.com,,none,no allergen or nutrition link found
+,rodizio-rico,Rodizio Rico,Brazilian,,https://www.rodizio.co.uk,,none,no allergen or nutrition link found
+,smith-and-wollensky,Smith & Wollensky,Steakhouse,,https://www.smithandwollensky.co.uk,,none,no allergen or nutrition link found
+,lucky-voice,Lucky Voice,Karaoke bar,,https://www.luckyvoice.com,,none,no allergen or nutrition link found
+,kingpin,Kingpin,Leisure bar-restaurant,,https://www.kingpinbowl.com,,none,no allergen or nutrition link found (kingpinbowling.co.uk returns 403)
+,electric-shuffle,Electric Shuffle,Leisure bar-restaurant,,https://www.electricshuffle.com,,none,site blocked (HTTP 403)
+,swingers,Swingers,Leisure bar-restaurant,,https://www.swingers.club,,none,site blocked (HTTP 403)
+,hijingo,Hijingo,Leisure bar-restaurant,,https://www.hijingo.com,,none,site blocked (HTTP 403)

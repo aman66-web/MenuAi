@@ -1,0 +1,55 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,wenzels,Wenzel's the Bakers,bakery / food to go,,https://www.wenzels.co.uk,https://www.wenzels.co.uk/wp-content/uploads/2026/06/Wenzels_Allergen_Sheet_June_2026.pdf,pdf,"p8 per-serving nutrition table (kcal, fat, carbs, protein, salt) plus allergen matrix; image-based PDF so needs OCR"
+,roti,Roti UK,Mediterranean fast casual,Roti Modern Mediterranean,https://roti.co.uk,https://drive.google.com/file/d/1etCDGwOheqIR1XvAcBMO0AjxC7GI6N5I/view?usp=drive_link,platform:google-drive,home page link labelled Nutrition opens a Google Drive file (not opened); UK site count unclear (Kentish Town seen)
+,rossopomodoro,Rossopomodoro,pizza / Neapolitan,,https://www.rossopomodoro.co.uk,https://www.rossopomodoro.co.uk/_files/ugd/a2a2d2_1a9da3e52b54432ab425062e988571ad.pdf,pdf,12-page allergen matrix PDF; kcal printed for some dishes only; page /dietary-informations
+,chicken-shop,Chicken Shop,chicken,Soho House group,https://www.chickenshop.com,https://determined-addition-3b3c360e5e.media.strapiapp.com/Allergens_Kiosk_APRIL_03_2026_8c0b474599.pdf,pdf,allergen table PDF linked from /allergens; no calories
+,pieminister,Pieminister,pies,,https://www.pieminister.co.uk,https://www.pieminister.co.uk/_files/ugd/4dd37a_097aca7aeaed4b70a6f6606ee9afe825.pdf,pdf,restaurant allergen PDF (issue 62); no calories; page /allergens
+,island-poke,Island Poke,poke bowls,,https://www.islandpoke.com,https://www.islandpoke.com/propeller/uploads/sites/3/2026/04/IP-Allergen-Matrix-April-2026.pdf,pdf,allergen matrix Apr 2026; no calories
+,boojum,Boojum,burritos / Mexican,,https://boojummex.com,https://boojummex.com/assets/uploads/Allergen-Sheet-A3-July-2026.pdf,pdf,allergen sheet is image-only PDF; Irish chain with Belfast sites (few GB/NI sites)
+,wing-wing,Wing Wing,chicken wings,,https://wingwing.co.uk,https://wingwing.co.uk/wp-content/uploads/2025/09/WingWing-Allergens-2025.pdf,pdf,allergen PDF 2025; no calories; site count not checked
+,wraps-and-wings,Wraps & Wings,wraps / chicken,,https://www.wrapsandwings.co.uk,https://www.wrapsandwings.co.uk/allergens,web,allergen tables on page; no calories; multi-brand franchise (links Baskin-Robbins)
+,churchills-fish-and-chips,Churchill's Fish & Chips,fish and chips,,https://churchillsfishandchips.co.uk,https://churchillsfishandchips.co.uk/allergens/,web,written allergen statement only (matrix in store); calories only on delivery apps
+,anns-pasties,Ann's Pasties,Cornish pasties,,https://www.annspasties.co.uk,https://www.annspasties.co.uk/allergens-and-ingredients/,web,allergens and ingredients page; content not opened
+,philps-pasties,Philps Pasties,Cornish pasties,,https://philpspasties.co.uk,https://buy.philpspasties.co.uk/pages/allergy-information,web,allergy information page on online shop; content not opened
+,proper-cornish,Proper Cornish,Cornish pasties / bakery,,https://www.propercornish.co.uk,https://online.fliphtml5.com/ltypd/aawu/,platform:fliphtml5,allergen and product info flipbook; also a wholesaler
+,hubbox,Hubbox,burgers,,https://www.hubbox.co.uk,https://www.hubbox.co.uk/allergen-information/,web,"7 sites (Cornwall, Devon, Somerset, Cardiff, Cheltenham); allergen matrix PDFs per site (e.g. 260907-HUBBOX-ALLERGENS-TR.pdf), no calories seen"
+,shahs-halal-food,Shah's Halal Food,halal street food,Shah's Halal (New York),https://shahshalalfood.co.uk,https://shahshalalfood.co.uk/allergen-infromation/,web,allergen matrix in the page HTML; no calories; several UK stores (count not shown)
+,bronsons-burgers,Bronson's Burgers,burgers,,https://bronsonsburgers.co.uk,https://bronsonsburgers.co.uk/allergens/,web,allergen chart is an image (new-alleren.jpg); no calories; London
+,fabrique,Fabrique Bakery,bakery cafe,,https://fabrique.co.uk,https://fabrique.co.uk/allergens/,web,"statement only, no matrix or calories"
+,the-japanese-canteen,The Japanese Canteen,sushi / bento,,https://thejapanesecanteen.co.uk,https://thejapanesecanteen.co.uk/allergies.html,platform:google-sheets,allergen table is a Google Sheet; no calories
+,you-me-sushi,YouMeSushi,sushi / poke,,https://www.youmesushi.com,https://www.youmesushi.com/allergens,web,"allergen page (content behind a verification check, not read); UK store count not checked"
+,butchies,Butchies,fried chicken,,https://butchies.co.uk,,none,no nutrition or allergen link found; JS site
+,chick-n-sours,Chick'n'Sours,fried chicken,,https://www.chicknsours.co.uk,,none,no nutrition or allergen link found; few London sites
+,black-bear-burger,Black Bear Burger,burgers,,https://www.blackbearburger.com,,none,"no nutrition or allergen link found; award-winning, few sites"
+,lucky-chip,Lucky Chip,burgers,,https://www.luckychip.co.uk,,none,no nutrition or allergen link found; few sites
+,12th-street-burgers,12th Street Burgers,burgers,,https://www.12thstreetburgers.co.uk,,none,"franchise; site script-rendered, no info link seen"
+,doner-shack,Doner Shack,kebab,,https://www.donershack.com,,none,"multi-country site; UK pages under /gb (menu and FAQ), not checked"
+,maemes-piri-piri,Maeme's Piri Piri,piri-piri chicken,,https://www.maemes.com,,none,"franchise; 4 branches listed (Bournemouth, Camberwell, Swansea, Inverness); /food page has no nutrition link"
+,rios-piri-piri,Rio's Piri Piri,piri-piri chicken,,https://www.riospiripiri.com,,none,branches across UK; only a menu PDF (2021)
+,karens-diner,Karen's Diner,diner / burgers,,https://karensdiner.co.uk,,none,novelty diner chain; no info link found
+,ok-diner,OK Diner,diner / burgers,,https://www.okdiner.com,,none,"UK diner chain; site script-rendered, not checked"
+,spudulike,Spudulike,baked potatoes,,https://www.spudulike.com,,none,"UK jacket potato chain; site script-rendered, not checked"
+,wrapchic,Wrapchic,wraps,,https://wrapchic.co.uk,,none,no nutrition or allergen link found
+,philpotts,Philpotts,sandwiches / bakery,,https://www.philpotts.co.uk,,none,only terms.pdf on home page; no nutrition or allergen link found
+,homeslice,Homeslice,pizza,,https://www.homeslicepizza.co.uk,,none,no nutrition or allergen link found; few London sites
+,sodo-pizza,Sodo Pizza,pizza,,https://www.sodopizza.co.uk,,none,no nutrition or allergen link found (only menu PDFs)
+,galitos,Galito's,piri-piri chicken,,https://www.galitos.co.uk,,none,"South African chain with UK sites; site script-rendered, HTTP 503 to some visits; check by hand"
+,paris-baguette-uk,Paris Baguette UK,bakery cafe,,https://parisbaguette.uk,,none,home page says speak to team about allergies; no file
+,mcghees-bakery,McGhee's Bakery,bakery,,https://www.mcgheesbakery.co.uk,,none,Scottish bakery shops; no nutrition or allergen link found
+,poundbakery,Poundbakery,bakery,,https://www.poundbakery.co.uk,,none,"bakery shops (NI, Scotland, N England); only a scan.pdf on the home page; some visits get HTTP 503"
+,wetherby-whaler,Wetherby Whaler,fish and chips,,https://wetherbywhaler.co.uk,,none,about 5 to 7 Yorkshire restaurants; only a non-gluten page
+,dish-d,Dish'd,virtual delivery brands,,https://dishd.co.uk,,none,dark-kitchen franchise (50+ kitchens); no nutrition found
+,donut-king,Donut King,doughnuts,,https://www.donutking.co.uk,,none,"UK franchise; site script-rendered, not checked"
+,oowee-vegan,Oowee Vegan,vegan delivery brand,,https://oowee.co.uk,,none,vegan delivery-led brand; no nutrition or allergen link found
+,sushidog,SushiDog,sushi,,https://www.sushidog.co.uk,,none,no nutrition or allergen link found; sitemap checked
+,bread-ahead,Bread Ahead,bakery,,https://www.breadahead.com,,none,a handful of bakeries; no nutrition or allergen link found
+,chicking,Chicking,fried chicken,Chicking (Dubai),https://www.chicking.co.uk,,none,site blocked (HTTP 403); 30+ UK sites reported
+,camile-thai,Camile Thai Kitchen,Thai takeaway,,https://www.camile.co.uk,,none,site blocked (HTTP 403)
+,southern-fried-chicken,Southern Fried Chicken (SFC),fried chicken,,https://www.southernfriedchicken.com,,none,site blocked (HTTP 403); UK franchise network
+,merigo-piri-piri,MeriGo Piri Piri,piri-piri chicken,,https://www.merigopiripiri.co.uk,,none,robots.txt disallows all; about 7 sites reported
+,mother-clucker,Mother Clucker,delivery chicken brand,,https://www.motherclucker.co.uk,,none,robots.txt disallows all; delivery-led brand
+,benjys,Benjys,sandwiches / food to go,,https://www.benjys.co.uk,,none,robots.txt disallows all; check it is still trading
+,pitaya,Pitaya,Thai street food,,https://www.pitaya.co.uk,,none,site blocked (HTTP 403)
+,poke-house,Poke House,poke bowls,,https://www.pokehouse.co.uk,,none,site blocked (HTTP 403)
+,burns-the-bread,Burns the Bread,bakery,,https://www.burnsthebread.co.uk,,none,site blocked (HTTP 403)
+,fatto-a-mano,Fatto a Mano,pizza,,https://www.fattoamano.co.uk,,none,robots.txt disallows all; handful of south-coast sites
