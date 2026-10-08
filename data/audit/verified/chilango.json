@@ -1,0 +1,13 @@
+{
+ "chain": "chilango",
+ "date": "2026-10-08",
+ "source_read": "https://a.storyblok.com/f/293792/x/c1bd09189b/chilango-nutrition-guide_19-nov-2024.pdf (re-downloaded 8 Oct, sha256 c0e82cc9..., byte-identical to the earlier copy; chilango.co.uk/food still links it as the current guide, the other link is the older May 2024 one; a.storyblok.com has no robots.txt (403 AccessDenied from the bucket), so no Disallow applies)",
+ "compared_items": 27,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 1,
+ "marked_ok": 0,
+ "not_verifiable": "",
+ "notes": "16 rows of items.csv (4 set boxes built from their printed ingredient rows + 12 sides) and 11 components compared with an independent parse of the PDF text (all 9 printed numbers incl. kJ per row, matched on page and name) and with 6 rendered pages (Protein, Keto and Vegan box, Sides; text for Low Carb): all match, and each box page's printed TOTAL kcal equals the sum of its rows (published box kcal can differ by 1 from the printed total because the pipeline rounds each component). The committed data/source pre-dated the allergen/kJ code: re-running the current chilango.py on the same PDF changed no existing value and ADDED energy_kj, pot weights, allergens.csv (26 rows) and allergen_guide.csv; every allergen row (contains / may contain, incl. the 'cooked on the same grill' notes recorded as may contain) was checked against the rendered pages. Baked Fries stays held back (288 kcal vs 905 kJ = 216 kcal and macros = 225 kcal). check_chain warning explained: Black beans 104 kcal vs 4P+4C+9F 121 because the guide's carbohydrate includes the 8.0 g of fibre. The guide is dated Nov 2024 (about 2 years old); the chain publishes only the four boxes and sides as finished dishes."
+}
