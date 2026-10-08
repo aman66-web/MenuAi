@@ -14,7 +14,9 @@ in grams).
 
 Allergens (docs/DATA.md "Allergens"): every product page, and every size page of a drink, prints its own "Allergens:" line
 under the table (e.g. "milk, wheat, rye"), so each item gets the allergens printed for exactly that product and size. The
-pages print no "may contain" information. Plain coffee, teas, lemonades and fountain drinks print no "Allergens:" line at all;
+pages print no "may contain" information; the PDF's allergen table does (a "Maybe" cell), and those cells become the item's
+may_contain (the PDF has one row per product, so every size of a drink gets its row's marks; a product the PDF has no row for
+stops the allergen files). Plain coffee, teas, lemonades and fountain drinks print no "Allergens:" line at all;
 such an item is read as containing none of the 14 only when the PDF's allergen table has a row of exactly the same name
 (case, punctuation and spacing ignored) with no "Yes" in it. Every page line is also cross-checked against that PDF row
 where one exists (the PDF prints one row per product, no sizes). Any disagreement or an unconfirmed missing line: the chain
@@ -277,14 +279,24 @@ def implied_kcal(r: dict) -> float:
     return 4 * num(r["protein"]) + 4 * num(r["carbs"]) + 9 * num(r["fat"])
 
 
+def kj_conflicts(r: dict) -> bool:
+    """True when the printed kJ is more than 15% away from the printed kcal x 4.184 (the audit's HIGH threshold, kcal >= 20).
+    Then the kJ is not published: the kcal is kept only if its own fat, carbohydrate and protein support it (else `impossible`
+    holds the row back, see rule 2 there), so a dish is never lost to a kJ typo alone and a contradicted number is never shown."""
+    kcal, kj = num(r["kcal"]), num(r["kj"])
+    return kcal >= 20 and not 0.85 <= kj / (kcal * 4.184) <= 1.15
+
+
 def impossible(r: dict) -> list[str]:
     """Reasons the chain's own row cannot be right (empty list = publish). Nothing is ever corrected.
 
     A row is held back when (1) its own fat, carbohydrate and protein give more than a third more energy than the kcal it
     prints (and over 10 kcal more), (2) its kcal contradicts its own kJ and is more than a third above what its macros give,
     (3) its macros weigh more than its serving, or (4) it prints more saturates than fat, or more sugars than carbohydrate,
-    by over 0.5 g. Smaller disagreements (the pipeline warns from 15%) are published as printed and described in the
-    item's notes."""
+    by over 0.5 g, or (5) its kJ is more than 15% away from its kcal and its own macros are more than 15% away from the kcal
+    too (neither figure supports the other). When only the kJ is the odd one out (the kcal agrees with the macros within 15%)
+    the dish is kept and its kJ is left unpublished (`kj_conflicts`). Smaller disagreements (the pipeline warns from 15%) are
+    published as printed and described in the item's notes."""
     kcal, kj, at = num(r["kcal"]), num(r["kj"]), implied_kcal(r)
     out = []
     if at - kcal > 10 and at > kcal * 4 / 3:
@@ -293,6 +305,9 @@ def impossible(r: dict) -> list[str]:
     if kcal >= 10 and kj > 0 and abs(kj / 4.184 - kcal) > 0.3 * kcal and kcal - at > 25 and kcal > at * 4 / 3:
         out.append(f"The page prints {r['kcal']} kcal but {r['kj']} kJ (about {kj / 4.184:.0f} kcal), and its fat, carbohydrate and "
                    f"protein add up to about {at:.0f} kcal.")
+    if kj_conflicts(r) and kcal > 0 and abs(at - kcal) / kcal > 0.15 and not out:
+        out.append(f"The page prints {r['kcal']} kcal but {r['kj']} kJ (about {kj / 4.184:.0f} kcal), and its fat, carbohydrate and "
+                   f"protein add up to about {at:.0f} kcal, so neither figure supports the other.")
     if num(r["sat"]) > num(r["fat"]) + 0.5:
         out.append(f"The page prints {r['sat']} g of saturates but only {r['fat']} g of total fat.")
     if num(r["sugars"]) > num(r["carbs"]) + 0.5:
@@ -377,28 +392,35 @@ def allergens_for(rows: list[dict], matrix: dict[str, list[dict]]) -> tuple[list
         where = f"{r['name']} (page {r['page']}{'/' + r['label'] if r['label'] else ''})"
         pdf = matrix.get(tim_hortons_pdf.norm_name(r["base_name"]), [])
         pdf_sets = [allergen_words(sorted(p["yes"]), f"PDF {p['name']}") for p in pdf]
+        if not pdf:
+            # The PDF row is the only place the chain prints "Maybe" (= may contain), so a row without one is not complete.
+            problems.append(f"{where}: the PDF has no row of that name, so its 'Maybe' (may contain) marks are unknown")
+            continue
         if r["allergens_printed"]:
             words = [w for w in r["allergens_text"].split(",") if w.strip()]
             if not words:
                 problems.append(f"{where}: prints an empty 'Allergens:' line")
                 continue
             keys, cereals, nuts = allergen_words(words, where)
-            if pdf:
-                checked += 1
-                if (keys, cereals, nuts) not in pdf_sets:
-                    problems.append(f"{where}: page prints '{r['allergens_text']}', the PDF's '{pdf[0]['name']}' row says Yes to "
-                                    f"{sorted(pdf[0]['yes'])}")
-        else:
-            if not pdf:
-                problems.append(f"{where}: page prints no 'Allergens:' line and the PDF has no row of that name")
+            checked += 1
+            if (keys, cereals, nuts) not in pdf_sets:
+                problems.append(f"{where}: page prints '{r['allergens_text']}', the PDF's '{pdf[0]['name']}' row says Yes to "
+                                f"{sorted(pdf[0]['yes'])}")
                 continue
+        else:
             checked += 1
             if any(k for k, _, _ in pdf_sets):
                 problems.append(f"{where}: page prints no 'Allergens:' line but the PDF's '{pdf[0]['name']}' row says Yes to "
                                 f"{sorted(pdf[0]['yes'])}")
                 continue
             keys, cereals, nuts = set(), set(), set()
-        r["allergens"] = {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}
+        # "Maybe" in the PDF's allergen table = may contain. Taken from the PDF row(s) whose Yes cells equal the page's own line
+        # (the PDF has one row per product, no sizes); if two such rows differ, both are kept (the wider warning).
+        may: set[str] = set()
+        for p, sets in zip(pdf, pdf_sets):
+            if sets == (keys, cereals, nuts):
+                may |= allergen_words(sorted(p["maybe"]), f"PDF {p['name']} (Maybe)")[0]
+        r["allergens"] = {"contains": keys, "may_contain": may, "cereals": cereals, "nuts": nuts}   # common.write_allergens drops what is also in contains
     return problems, checked
 
 
@@ -413,7 +435,11 @@ def notes_for(rows: list[dict]) -> None:
             n.append(f"The page prints the serving size as '{r['serving_printed']}' (stray unit); read as {r['serving']}.")
         kcal, kj = num(r["kcal"]), num(r["kj"])
         if kcal >= 10 and not 3.9 <= kj / kcal <= 4.4:
-            n.append(f"Printed kJ ({r['kj']}) and kcal ({r['kcal']}) do not agree; kJ is not used.")
+            if kj_conflicts(r):
+                n.append(f"Printed kJ ({r['kj']}) and kcal ({r['kcal']}) do not agree (kJ is about {kj / 4.184:.0f} kcal); the kJ is not "
+                         "published and the kcal is kept because its own fat, carbohydrate and protein support it.")
+            else:
+                n.append(f"Printed kJ ({r['kj']}) and kcal ({r['kcal']}) differ by more than 7%; both are published as printed.")
         at = implied_kcal(r)
         if (kcal >= 50 and abs(at - kcal) / kcal > 0.15) or (kcal < 50 and at - kcal > 25):
             n.append(f"Fat, carbohydrate and protein imply about {at:.0f} kcal against {r['kcal']} printed.")
@@ -480,7 +506,7 @@ def main() -> int:
         item = {"name": r["name"], "category": r["category"], "serving": r["serving_out"], "calories": r["kcal"],
                 "protein_g": r["protein"], "carbs_g": r["carbs"], "fat_g": r["fat"], "sat_fat_g": r["sat"], "sodium_mg": "",
                 "salt_g": r["salt"], "sugar_g": r["sugars"], "fiber_g": r["fibre"], "tags": "|".join(tags),
-                "limited_time": False, "rankable": r["rankable"], "notes": r["notes"], "energy_kj": r["kj"],
+                "limited_time": False, "rankable": r["rankable"], "notes": r["notes"], "energy_kj": "" if kj_conflicts(r) else r["kj"],
                 "weight_g": grams.group(1) if (grams := GRAMS.match(r["serving_printed"])) else "",
                 "allergens": None if allergen_problems else r["allergens"]}
         items.append(item)
@@ -510,8 +536,9 @@ def main() -> int:
                  "url": PDF_BASE + args.pdf.name, "checked_on": args.checked_on, "may_contain_published": True}
     else:
         guide = {"title": ("Tim Hortons UK website: allergens printed on each product and size page (timhortons.co.uk/information "
-                           f"pages, retrieved {args.checked_on}), cross-checked against the Nutrition PDF's allergen table, {version}"),
-                 "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": False}
+                           f"pages, retrieved {args.checked_on}), cross-checked against the Nutrition PDF's allergen table, {version}; "
+                           "'may contain' = the PDF's 'Maybe' cells"),
+                 "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True}
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Tim Hortons", cuisine="Coffee", source_title=SOURCE_TITLE.format(checked_on=args.checked_on),
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["tim hortons", "tims", "timmies"], items=items,

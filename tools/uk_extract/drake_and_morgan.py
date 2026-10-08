@@ -69,8 +69,8 @@ MENUS = OrderedDict([
     ("17734", ("Otherist drinks menu", 33, "DM-AW26-Otherist-FoodDrink-v6-1.pdf")),
     ("18350", ("Wine Menu", 40, "DM-AW26-Collection-Wines-v8.pdf")),
 ])
-EXPECTED_PUBLISHED = 89
-EXPECTED_HELD = 44
+EXPECTED_PUBLISHED = 86
+EXPECTED_HELD = 47
 # Held back after the independent accuracy check (2026-10-08): every figure and label below IS what the page prints (re-read afresh), but
 # the label contradicts the dish itself or the chain's own other labels, so we do not show it. normalised name -> reason. Nothing is corrected.
 CONTRADICTION_HOLDBACK = {
@@ -82,6 +82,14 @@ CONTRADICTION_HOLDBACK = {
                                 "Soybeans only), while the same chain's Buttermilk chicken burger is marked Contains Milk",
     "stickey toffee pudding": "the page's own dietary filter marks this Children's dessert 'vegan' while its allergen labels mark Milk and Eggs (the adult "
                               "Sticky toffee pudding with the same labels is marked vegetarian only)",
+    # Second accuracy re-check (2026-10-08, independent html.parser + Chromium re-read of every bar's menus): the labels below are exactly what the pages print.
+    "hot smoked salmon & kimchi salad": "allergen row contradicts the dish's own ingredient text: the page's description names 'sesame' but the page marks "
+                                        "no sesame (Contains Wheat, Rye, Fish, Soybeans only)",
+    "roasted salmon": "allergen row contradicts the chain's own other labels: the page's description names 'beetroot aioli' but marks no egg (Contains "
+                      "Fish, Milk, Sulphites only), while its other aioli dish (Chicken Milanese, truffle aioli) is marked Contains Eggs",
+    "fable mushroom burger": "allergen row contradicts the dish name: a burger, but the page marks no gluten (Contains Soybeans, Mustard, Sulphites only) and "
+                             "prints no 'gluten friendly' wording or bun description, while the chain's Cheeseburger, whose description names no bun either, is "
+                             "marked Contains Wheat",
 }
 SOURCE_TITLE = ("Drake & Morgan food and drink menus with calories and allergens on drakeandmorgan.co.uk, AW26 collection "
                 "(PDFs: All Day v8, Reduced All Day v8, Brunch v6, Breakfast v7, Desserts v6, Reduced Desserts v6, Drinks v13, Kids v4, "

@@ -16,6 +16,9 @@ import subprocess
 import unicodedata
 from pathlib import Path
 
+# The version stamp printed top right: "C5 5.10.26 - v6" (until 6 Oct 2026) or "C5 - 8.10.26 v7" (from 8 Oct 2026).
+_VERSION = re.compile(r"C\d+ (?:\d+\.\d+\.\d+ - v\d+|- \d+\.\d+\.\d+ v\d+)")
+
 # Column order of a PDF row after the name (the %RI columns are skipped).
 _COLS = ("serving", "kj", "kcal", None, "fat", None, "sat", None, "carbs", None, "sugars", None, "fibre", "protein", None, "salt", None)
 _KEYS = ("kj", "kcal", "fat", "sat", "carbs", "sugars", "fibre", "protein", "salt")
@@ -32,7 +35,7 @@ def _strip(cell: str) -> str:
 
 def read_pdf_rows(pdf: Path) -> tuple[str, dict[str, list[dict[str, str]]]]:
     text = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True, check=True).stdout
-    version = re.search(r"C\d+ \d+\.\d+\.\d+ - v\d+", text)
+    version = _VERSION.search(text)
     start = text.find("Nutritional Information (UK & Ireland)")
     if start < 0:
         raise SystemExit("The PDF has no 'Nutritional Information' table: the layout changed, re-check the comparison.")
@@ -98,7 +101,7 @@ def read_allergens(pdf: Path) -> tuple[str, dict[str, list[dict]]]:
     """The allergen matrix: (version, {norm_name: [{"name", "yes": {column}, "maybe": {column}}]}). Stops if the column
     headings move or a section's row count differs from the "(N Items)" it prints."""
     text = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True, check=True).stdout
-    version = re.search(r"C\d+ \d+\.\d+\.\d+ - v\d+", text)
+    version = _VERSION.search(text)
     start, end = text.find("Allergen Information (UK & Ireland)"), text.find("Nutritional Information (UK & Ireland)")
     if start < 0 or end < start:
         raise SystemExit("The PDF has no 'Allergen Information' table before the nutrition table: re-check the layout.")
