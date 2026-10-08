@@ -1,0 +1,234 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+crispy-cauliflower-wings,Crispy Cauliflower Wings,Small plates,,341,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu
+h-and-w-fried-chicken,H&W Fried Chicken,Small plates,,477,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu
+hummus-and-toasted-bread,Hummus & Toasted Bread,Small plates,,317,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu
+chorizo-pickled-pineapple-and-hot-honey,"Chorizo, Pickled Pineapple & Hot Honey",Small plates,,545,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Ground Floor Main Menu; Main Menu
+crispy-blanchbait,Crispy Blanchbait,Small plates,,536,,,,,,,,,,,,,,,,false,false,,,Printed at 7 of 8 pubs read; menus: Main Menu
+chicken-and-apricot-terrine,Chicken & Apricot Terrine,Starters and sharers,,353,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+veggie-mezze-plate,Veggie Mezze Plate,Starters and sharers,,1200,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+baked-camembert,Baked Camembert,Starters and sharers,,1273,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+roast-cumin-cauliflower-salad,Roast Cumin Cauliflower Salad,Starters and sharers,,305,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+beef-croquettes,Beef Croquettes,Starters and sharers,,429,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu
+bread-and-balsamic,Bread & Balsamic,Starters and sharers,,201,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Main Menu; Sunday Menu
+roasted-beetroot-and-whipped-goats-cheese,Roasted Beetroot & Whipped Goats Cheese,Starters and sharers,,268,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: First Floor Menu; Specials Menu
+artichoke-bruschetta,Artichoke Bruschetta,Starters and sharers,,296,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: First Floor Menu; Specials Menu
+burrata-with-panzanella-salad,Burrata with Panzanella Salad,Starters and sharers,,433,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Main Menu; Sunday Menu
+virgin-mary-prawn-cocktail,Virgin Mary Prawn Cocktail,Starters and sharers,,474,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu; Main Menu; Sunday Menu
+crispy-chicken-strips,Crispy Chicken Strips,Starters and sharers,,585,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Main Menu; Sunday Menu
+classic-fish-soup,Classic Fish Soup,Starters and sharers,,969,,,,,,,,,,,,,,,,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+leek-and-potato-soup,Leek & Potato Soup,Starters and sharers,,275,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu
+duck-and-orange-pate,Duck & Orange Pâté,Starters and sharers,,480,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu
+mini-camemberts,Mini Camembert's,Starters and sharers,,1274,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu
+gluten-friendly-leek-and-potato-soup,Gluten Friendly Leek & Potato Soup,Starters and sharers,,379,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Gluten-Friendly Christmas Celebration Menu
+pork-belly,Pork Belly,Starters and sharers,,464,,,,,,,,,,,,,,,contains_pork,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu
+smoked-salmon-parcel,Smoked Salmon Parcel,Starters and sharers,,325,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu; Gluten-Friendly Christmas Day Menu
+beetroot-carpaccio,Beetroot Carpaccio,Starters and sharers,,59,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu; Gluten-Friendly Christmas Day Menu
+prosciutto-and-treacle-dressing,Prosciutto & Treacle Dressing,Starters and sharers,,246,,,,,,,,,,,,,,,contains_pork,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu; Gluten-Friendly Christmas Day Menu
+mac-and-cheese-bites,Mac & Cheese Bites,Starters and sharers,,205,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+garlic-bread-and-veggie-sticks,Garlic Bread & Veggie Sticks,Starters and sharers,,223,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+tortilla-chips,Tortilla Chips,Starters and sharers,,153,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+chicken-and-bacon-parmagiana,Chicken & bacon Parmagiana,Starters and sharers,,784,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 7 of 8 pubs read; menus: Main Menu
+chipotle-cheese-sauce-cheddar-spring-onions,"Chipotle cheese sauce, cheddar, spring onions",Starters and sharers,,672,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Main Menu
+chilli-con-carne-cheese-onion-jalapenos-mustard,"Chilli con carne, cheese, onion, jalapeños, mustard",Starters and sharers,,797,,,,,,,,,,,,,,,,false,false,,,Printed at 5 of 8 pubs read; menus: Main Menu
+loaded-nachos,Loaded Nachos,Starters and sharers,,1351,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+breaded-calamari,Breaded Calamari,Starters and sharers,,409,,,,,,,,,,,,,,,,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+lemon-and-tarragon-chicken-skewers,Lemon & Tarragon Chicken Skewers,Starters and sharers,,470,,,,,,,,,,,,,,,,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+scotch-egg,Scotch Egg,Starters and sharers,,563,,,,,,,,,,,,,,,,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+chicken-and-bacon-mayo-bagel,Chicken & Bacon Mayo Bagel,Sandwiches and bread,,1232,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 6 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu
+smashed-pea-and-crispy-cauliflower-bagel,Smashed Pea & Crispy Cauliflower Bagel,Sandwiches and bread,,1022,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 6 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu
+eggs-florentine,Eggs Florentine,Sandwiches and bread,,561,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch; Ground Floor Main Menu
+smashed-peas-on-toast,Smashed Peas On Toast,Sandwiches and bread,,266,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch; Ground Floor Main Menu
+fish-finger-sandwich,Fish Finger Sandwich,Sandwiches and bread,,1136,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu
+pulled-mushroom-taco,Pulled Mushroom Taco,Sandwiches and bread,,321,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 6 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu; Sunday Menu
+chicken-and-bacon-mayo-sandwich,Chicken & Bacon Mayo Sandwich,Sandwiches and bread,,1226,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu
+smashed-pea-and-crispy-cauliflower-sandwich,Smashed Pea & Crispy Cauliflower Sandwich,Sandwiches and bread,,1016,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu
+chicken-bacon-and-mayo-roll,"Chicken, Bacon & Mayo Roll",Sandwiches and bread,,1206,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu
+bacon-lettuce-and-tomato-roll,"Bacon, Lettuce & Tomato Roll",Sandwiches and bread,,957,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu
+hummus-falafel-and-beetroot-roll,"Hummus, Falafel & Beetroot Roll",Sandwiches and bread,,712,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu
+virgin-mary-prawn-sandwich,Virgin Mary Prawn Sandwich,Sandwiches and bread,,1028,,,,,,,,,,,,,,,,false,false,,,Printed at 7 of 8 pubs read; menus: Main Menu
+roasted-mushroom-rueben,Roasted Mushroom Rueben,Sandwiches and bread,,1073,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 7 of 8 pubs read; menus: Main Menu
+coronation-chicken-toastie,Coronation Chicken Toastie,Sandwiches and bread,,1160,,,,,,,,,,,,,,,,false,false,,,Printed at 7 of 8 pubs read; menus: Main Menu
+steak-and-tanglefoot-ale-pie,Steak & Tanglefoot Ale Pie,Mains,,1181,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+chargrilled-8oz-rump-steak,Chargrilled 8oz Rump Steak,Mains,,947,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Ground Floor Main Menu; Main Menu
+salt-and-vinegar-battered-fish-and-chips,Salt & Vinegar Battered Fish & Chips,Mains,,1103,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+signature-seafood-pie,Signature Seafood Pie,Mains,,658,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+blackened-harissa-flat-iron-chicken,Blackened Harissa Flat-iron Chicken,Mains,,1961,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Ground Floor Main Menu; Main Menu
+sundried-tomato-and-vegetable-tart,Sundried Tomato & Vegetable Tart,Mains,,855,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+maple-pork-tomahawk,Maple Pork Tomahawk,Mains,,721,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 4 of 8 pubs read; menus: First Floor Menu; Specials Menu
+smoked-haddock-fishcake,Smoked Haddock Fishcake,Mains,,666,,,,,,,,,,,,,,,,false,false,,,Printed at 4 of 8 pubs read; menus: First Floor Menu; Specials Menu
+pappardelle-with-mushroom-ragu,Pappardelle with Mushroom Ragù,Mains,,571,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: First Floor Menu; Specials Menu
+roasted-butternut-squash-and-coconut-curry,Roasted Butternut Squash & Coconut Curry,Mains,,1102,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Main Menu; Sunday Menu
+the-sunday-roast-burger,The Sunday Roast Burger,Mains,,1487,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Sunday Menu
+ploughmans-lunch,Ploughman's Lunch,Mains,,1412,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Specials Menu
+stacked-jingle-bell-burger,Stacked Jingle Bell Burger,Mains,,1843,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu
+featherblade-beef-bourguignon,Featherblade Beef Bourguignon,Mains,,830,,,,,,,,,,,,,,,contains_beef,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu; Gluten-Friendly Christmas Celebration Menu
+pan-roasted-salmon,Pan Roasted Salmon,Mains,,789,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu; Gluten-Friendly Christmas Celebration Menu
+grilled-vegetable-and-sundried-tomato-tart,Grilled Vegetable & Sundried Tomato Tart,Mains,,1081,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu; Christmas Day Menu; Gluten-Friendly Christmas Celebration Menu; Gluten-Friendly Christmas Day Menu
+roast-turkey,Roast Turkey,Mains,,988,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu
+gluten-friendly-roast-turkey,Gluten Friendly Roast Turkey,Mains,,901,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Gluten-Friendly Christmas Celebration Menu
+pan-seared-stone-bass,Pan Seared Stone Bass,Mains,,512,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu
+aged-rump-steak,Aged Rump Steak,Mains,,991,,,,,,,,,,,,,,,contains_beef,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu
+roast-turkey-with-stuffing,Roast Turkey with Stuffing,Mains,,508,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+jumbo-fish-finger-and-fries,Jumbo Fish Finger & Fries,Mains,,389,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+beef-burger-and-fries,Beef Burger & Fries,Mains,,610,,,,,,,,,,,,,,,contains_beef,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+plant-cheeseburger-and-fries,Plant Cheeseburger & Fries,Mains,,592,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+spicy-chicken-parmigiana,Spicy Chicken Parmigiana,Mains,,1003,,,,,,,,,,,,,,,,false,false,,,Printed at 7 of 8 pubs read; menus: Main Menu; Sunday Menu
+hazy-duck-confit,Hazy Duck Confit,Mains,,886,,,,,,,,,,,,,,,,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+spiced-indian-bhaji-burger,Spiced Indian Bhaji Burger,Mains,,934,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+chilli-con-carne,Chilli Con Carne,Mains,,764,,,,,,,,,,,,,,,,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+margherita-pizza,Margherita Pizza,Burgers and pizza,,1075,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 7 of 8 pubs read; menus: Ground Floor Main Menu; Pizza
+pepperoni-pizza,Pepperoni Pizza,Burgers and pizza,,1205,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 7 of 8 pubs read; menus: Ground Floor Main Menu; Pizza
+goats-cheese-pizza,Goat's Cheese Pizza,Burgers and pizza,,881,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 7 of 8 pubs read; menus: Ground Floor Main Menu; Pizza
+roasted-vegetable-pizza,Roasted Vegetable Pizza,Burgers and pizza,,1111,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 7 of 8 pubs read; menus: Ground Floor Main Menu; Pizza
+triple-cooked-chips,Triple-Cooked Chips,Sides,,358,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+skin-on-fries,Skin-On Fries,Sides,,379,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+grain-salad,Grain Salad,Sides,,247,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+seasonal-veg,Seasonal Veg,Sides,,93,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+caesar-salad,Caesar Salad,Sides,,255,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+onion-rings,Onion Rings,Sides,,458,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+garlic-bread,Garlic Bread,Sides,,428,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: First Floor Menu; Ground Floor Main Menu; Main Menu; Sunday Menu
+pigs-in-blankets,Pigs in Blankets,Sides,,480,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Sunday Menu; Sunday Menu
+sunday-sides-platter,Sunday Sides Platter,Sides,,1269,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Sunday Menu
+cauliflower-cheese,Cauliflower Cheese,Sides,,269,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Sunday Menu
+chicken-tenders,Chicken Tenders,Kids,,636,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Kids menu; Main Menu; Sunday Kids Menu; Sunday Menu
+battered-fish-goujons,Battered Fish Goujons,Kids,,591,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Kids menu; Main Menu; Sunday Kids Menu; Sunday Menu
+mac-and-cheese,Mac & Cheese,Kids,,534,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Kids menu; Main Menu; Sunday Kids Menu; Sunday Menu
+veggie-sausage-and-mash,Veggie Sausage & Mash,Kids,,531,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Gluten Friendly Sunday Kids Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Kids menu; Main Menu; Sunday Kids Menu; Sunday Menu
+mezze-plate,Mezze Plate,Kids,,409,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Gluten Friendly Sunday Kids Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Kids menu; Main Menu; Sunday Menu
+ice-cream-and-sorbet-tubs,Ice Cream & Sorbet Tubs,Kids,,143,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Gluten Friendly Sunday Kids Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Kids menu; Main Menu; Sunday Kids Menu; Sunday Menu
+mushroom-plant-burger,Mushroom Plant Burger,Kids,,785,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Gluten Friendly Sunday Kids Menu; Gluten Friendly Sunday Menu
+bacon-pancakes,Bacon Pancakes,Kids,,332,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch
+fruit-pancakes,Fruit Pancakes,Kids,,253,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch
+beans-and-toast,Beans & Toast,Kids,,313,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch
+scrambled-eggs-and-toast,Scrambled Eggs & Toast,Kids,,436,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch
+kids-h-and-w-breakfast,Kids H&W Breakfast,Kids,,484,,,,,,,,,,,,,,,,false,false,,,Printed at 5 of 8 pubs read; menus: Gluten-Friendly Brunch
+kids-veggie-breakfast,Kids Veggie Breakfast,Kids,,451,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Gluten-Friendly Brunch
+kids-plant-based-breakfast,Kids Plant-Based Breakfast,Kids,,399,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Gluten-Friendly Brunch
+raspberry-and-gin-cheesecake,Raspberry & Gin Cheesecake,Puddings,,511,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Puddings Menu; Sunday Menu; Sunday Puddings Menu
+sticky-toffee-pudding,Sticky Toffee Pudding,Puddings,,685,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu; Puddings Menu; Sunday Menu; Sunday Puddings Menu
+chocolate-fondant,Chocolate Fondant,Puddings,,600,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Sunday Menu; Sunday Puddings Menu
+warm-apple-pie,Warm Apple Pie,Puddings,,319,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Ground Floor Main Menu; Main Menu; Puddings Menu; Sunday Menu; Sunday Puddings Menu
+ice-creams-and-sorbets,Ice Creams & Sorbets,Puddings,,226,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Gluten Friendly Main Menu; Gluten Friendly Sunday Menu; Ground Floor Main Menu; Main Menu; Puddings Menu; Sunday Menu; Sunday Puddings Menu
+vanilla-pannacotta,Vanilla Pannacotta,Puddings,,404,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Puddings Menu; Specials Menu
+raspberry-and-vanilla-creme-brulee,Raspberry & Vanilla Crème Brûlée,Puddings,,290,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Puddings Menu; Specials Menu
+mini-sticky-toffee-pudding,Mini Sticky Toffee Pudding,Puddings,,384,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Main Menu; Puddings Menu; Sunday Menu; Sunday Puddings Menu
+roast-pineapple,Roast Pineapple,Puddings,,220,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+chocolate-and-salted-caramel-slice,Chocolate & Salted Caramel Slice,Puddings,,898,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu
+chocolate-truffle-torte,Chocolate Truffle Torte,Puddings,,353,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu; Gluten-Friendly Christmas Celebration Menu
+mince-pie-cheesecake,Mince Pie Cheesecake,Puddings,,555,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Celebration Menu
+blood-orange-sorbet,Blood Orange Sorbet,Puddings,,117,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu; Gluten-Friendly Christmas Day Menu
+tart-au-citron,Tart Au Citron,Puddings,,459,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu
+earl-grey-panna-cotta,Earl Grey Panna Cotta,Puddings,,330,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu
+spiced-winter-trifle,Spiced Winter Trifle,Puddings,,773,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Christmas Day Menu; Gluten-Friendly Christmas Day Menu
+mango-sorbet,Mango Sorbet,Puddings,,83,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+oopsie-daisy-ice-cream,Oopsie Daisy Ice Cream,Puddings,,482,,,,,,,,,,,,,,,,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+banana-pancakes,Banana Pancakes,Puddings,,523,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+butterscotch-whip,Butterscotch Whip,Puddings,,152,,,,,,,,,,,,,,,vegetarian,true,false,,,Printed at 8 of 8 pubs read; menus: Cubs Christmas Day Menu
+beeramisu,Beeramisu,Puddings,,700,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Main Menu; Sunday Puddings Menu
+knickerbocker-glory,Knickerbocker Glory,Puddings,,422,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+raspberry-jam-pudding,Raspberry Jam Pudding,Puddings,,746,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Specials Menu
+fruit-and-bacon-pancakes,Fruit & Bacon Pancakes,Breakfast and brunch,,450,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch
+steak-and-eggs,Steak & Eggs,Breakfast and brunch,,979,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch; Gluten-Friendly Brunch
+bacon-chop,Bacon Chop,Breakfast and brunch,,913,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch; Gluten-Friendly Brunch
+chicken-and-egg,Chicken & Egg,Breakfast and brunch,,693,,,,,,,,,,,,,,,,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch
+honeycomb-and-malteser,Honeycomb & Malteser,Breakfast and brunch,,1244,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 5 of 8 pubs read; menus: Brunch
+spicy-nduja-and-hot-honey-pizza,Spicy Nduja & Hot Honey Pizza,Pizza,,1386,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed at 7 of 8 pubs read; menus: Pizza
+mushroom,Mushroom,Pizza,,10,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 7 of 8 pubs read; menus: Pizza
+jalapenos,Jalapeños,Pizza,,5,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 7 of 8 pubs read; menus: Pizza
+sauce-apple,Sauce - Apple,Sauces and condiments,,33,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-bbq,Sauce - BBQ,Sauces and condiments,,67,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-brown,Sauce - Brown,Sauces and condiments,,24,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-cranberry,Sauce - Cranberry,Sauces and condiments,,54,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-english-mustard,Sauce - English Mustard,Sauces and condiments,,51,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-french-mustard,Sauce - French Mustard,Sauces and condiments,,44,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-dijon-mustard,Sauce - Dijon Mustard,Sauces and condiments,,45,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-wholegrain-mustard,Sauce - Wholegrain Mustard,Sauces and condiments,,58,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-horseradish,Sauce - Horseradish,Sauces and condiments,,30,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-mayo,Sauce - Mayo,Sauces and condiments,,164,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-mint,Sauce - Mint,Sauces and condiments,,30,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-tartare,Sauce - Tartare,Sauces and condiments,,74,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-tomato-sauce,Sauce - Tomato Sauce,Sauces and condiments,,32,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+dressing-french,Dressing - French,Sauces and condiments,,50,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+dressing-olive-oil,Dressing - Olive Oil,Sauces and condiments,,225,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-red-currant-sauce-30g,Sauce - Red Currant Sauce 30g,Sauces and condiments,,77,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+sauce-hellmanns-mayo,Sauce - Hellmanns Mayo,Sauces and condiments,,147,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+salt-coarse-sea-salt-750g,Salt - Coarse Sea Salt (750g),Sauces and condiments,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Condiments
+americano,Americano,Coffee and tea,,48,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+cappuccino-latte,Cappuccino / Latte,Coffee and tea,,168,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+espresso,Espresso,Coffee and tea,,24,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+flat-white,Flat White,Coffee and tea,,84,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+macchiato,Macchiato,Coffee and tea,,39,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+iced-mocha,Iced Mocha,Coffee and tea,,199,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+iced-coffee,Iced Coffee,Coffee and tea,,138,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+chai-late,Chai Late,Coffee and tea,,190,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+dirty-chai-late,Dirty Chai Late,Coffee and tea,,190,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+mocha,Mocha,Coffee and tea,,278,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+hot-chocolate,Hot Chocolate,Coffee and tea,,366,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+ultimate-hot-chocolate,Ultimate Hot Chocolate,Coffee and tea,,596,,,,,,,,,,,,,,,,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+coconut-soy-milk,Coconut Soy Milk,Coffee and tea,,33,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+semi-skimmed-milk,Semi Skimmed Milk,Coffee and tea,,48,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+soya-milk,Soya Milk,Coffee and tea,,42,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+hot-matcha-latte,Hot Matcha Latte,Coffee and tea,,145,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Matcha Coffee
+iced-matcha-latte,Iced Matcha Latte,Coffee and tea,,96,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Matcha Coffee
+iced-vanilla-matcha-latte,Iced Vanilla Matcha Latte,Coffee and tea,,203,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Matcha Coffee
+iced-caramel-matcha-latte,Iced Caramel Matcha Latte,Coffee and tea,,204,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Matcha Coffee
+iced-strawberry-matcha-latte,Iced Strawberry Matcha Latte,Coffee and tea,,198,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 4 of 8 pubs read; menus: Matcha Coffee
+shortbread,Shortbread,Coffee extras,,37,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+colourful-coffee-syrup-selection-cc25,Colourful Coffee - Syrup Selection CC25,Coffee extras,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+rough-cut-white-sugar-cubes-8x1kg,Rough Cut White Sugar Cubes (8x1kg),Coffee extras,,4,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Menu
+heineken-0-0,Heineken 0.0,Beer and cider,,69,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed at 8 of 8 pubs read; menus: Beers, Ciders, Stouts & Snacks"
+thatchers-zero,Thatchers Zero,Beer and cider,,130,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed at 8 of 8 pubs read; menus: Beers, Ciders, Stouts & Snacks"
+old-mout-berries-and-cherries-zero,Old Mout Berries & Cherries Zero,Beer and cider,,170,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed at 8 of 8 pubs read; menus: Beers, Ciders, Stouts & Snacks"
+xr-salcombe-new-london-light-gin,XR Salcombe New London Light Gin,Spirits and cocktails,,2,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Spirits & Cocktails
+berry-white-donut,Berry White Donut,Cakes and bakes,,289,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+billionaires-shortbread,billionaires Shortbread,Cakes and bakes,,489,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+chocolate-orange-muffin,Chocolate Orange Muffin,Cakes and bakes,,404,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+chocolate-twist,Chocolate Twist,Cakes and bakes,,271,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+earl-grey-and-blackcurrant-cake,Earl Grey & Blackcurrant Cake,Cakes and bakes,,494,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+lemon-and-white-chocolate-muffin,Lemon & White Chocolate Muffin,Cakes and bakes,,427,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+ngci-chocolate-fudge-cake,NGCI Chocolate Fudge Cake,Cakes and bakes,,375,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+ngci-mint-choc-chip-cake,NGCI Mint Choc Chip Cake,Cakes and bakes,,405,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+plant-based-victoria-sponge,Plant Based Victoria Sponge,Cakes and bakes,,459,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+sticky-chocolate-orange-cake,Sticky Chocolate Orange Cake,Cakes and bakes,,401,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+sticky-salted-caramel-cake,Sticky Salted Caramel Cake,Cakes and bakes,,611,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+toffee-banana-muffin,Toffee Banana Muffin,Cakes and bakes,,526,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+raspberry-croissant,Raspberry Croissant,Cakes and bakes,,297,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+pain-aux-raisin,Pain Aux Raisin,Cakes and bakes,,281,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+freshly-baked-chocolate-croissant,Freshly Baked Chocolate Croissant,Cakes and bakes,,358,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+freshly-baked-croissant,Freshly Baked Croissant,Cakes and bakes,,288,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+portuguese-custard-tart,Portuguese Custard Tart,Cakes and bakes,,168,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+blueberry-muffin,Blueberry Muffin,Cakes and bakes,,471,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+chocolate-muffin,Chocolate Muffin,Cakes and bakes,,510,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Colourful Coffee Cakes Range
+schweppes-lemonade,Schweppes Lemonade,Soft drinks,,108,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+draught-diet-coca-cola,Draught Diet Coca Cola,Soft drinks,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+draught-coca-cola,Draught Coca Cola,Soft drinks,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+fanta-orange,Fanta Orange,Soft drinks,,108,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+cawston-press-apple-and-summer-berrries,Cawston Press Apple & Summer Berrries,Soft drinks,,50,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+cawston-press-apple-and-pear,Cawston Press Apple & Pear,Soft drinks,,54,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+elderflower-tonic-water,Elderflower Tonic Water,Soft drinks,,64,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+naturally-light-tonic,Naturally Light Tonic,Soft drinks,,30,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+connoisseurs-tonic,Connoisseurs Tonic,Soft drinks,,68,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+pink-rhubarb,Pink Rhubarb,Soft drinks,,66,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+ginger-ale,Ginger Ale,Soft drinks,,74,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+soda-folk-cream-soda,Soda Folk Cream Soda,Soft drinks,,109,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+red-bull,Red Bull,Soft drinks,,115,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+sprite,Sprite,Soft drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+frobishers-cranberry,Frobishers Cranberry,Soft drinks,,103,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+firefly-pomegranate-and-elderflower,Firefly Pomegranate & Elderflower,Soft drinks,,96,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+big-tom-spiced-tomato,Big Tom Spiced Tomato,Soft drinks,,45,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+ginger-beer,Ginger Beer,Soft drinks,,53,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+sanpellegrino-limonata,Sanpellegrino Limonata,Soft drinks,,73,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+pago-premium-pineapple,Pago Premium Pineapple,Soft drinks,,102,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+coca-cola-icon-bottle,Coca Cola Icon Bottle,Soft drinks,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+cawston-press-cloudy-apple,Cawston Press Cloudy Apple,Soft drinks,,80,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+cawston-press-rhubarb,Cawston Press Rhubarb,Soft drinks,,76,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+rio-tropical-light,Rio Tropical Light,Soft drinks,,17,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+folkingtons-cloudy-apple,Folkington's Cloudy Apple,Soft drinks,,130,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+fentimans-sparkling-light-raspberry,Fentimans Sparkling Light Raspberry,Soft drinks,,53,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+fentimans-sparkling-light-elderflower,Fentimans Sparkling Light Elderflower,Soft drinks,,58,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+mandarin-and-seville-orange-jigger,Mandarin & Seville Orange Jigger,Soft drinks,,58,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+karma-gingerella-ginger-ale,Karma Gingerella Ginger Ale,Soft drinks,,88,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+rose-lemonade,Rose Lemonade,Soft drinks,,50,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+pago-orange-juice,Pago Orange Juice,Soft drinks,,86,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+rio-tropical,Rio Tropical,Soft drinks,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks
+diet-coke-icon-bottle,Diet Coke Icon Bottle,Soft drinks,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed at 8 of 8 pubs read; menus: Soft Drinks

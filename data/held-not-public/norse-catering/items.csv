@@ -1,0 +1,74 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+margherita-pizza,Margherita Pizza,Primary school lunch menu,89.95 g,184.75,8.82,21.80,7.40,4.09,,,,,,89.95,,,,,vegetarian,false,false,,,"Printed on: W1 Mon, W2 Mon"
+potato-wedges,Potato Wedges,Primary school lunch menu,100 g,130.00,2.40,22.00,3.00,0.30,,,,,,100.00,,,,,,false,false,,,"Printed on: W1 Mon, W2 Thu, W3 Tue"
+chinese-style-plant-balls,Chinese-Style Plant Balls,Primary school lunch menu,184.1 g,138.11,8.24,13.72,6.10,0.65,,,,,,184.10,,,,,vegetarian,false,false,,,Printed on: W1 Mon
+steamed-rice-cooked-105-g,Steamed Rice (cooked),Primary school lunch menu,105 g,123.90,2.59,26.92,0.63,0.14,,,,,,105.00,,,,,,false,false,,,"Printed on: W1 Mon, W1 Tue, W2 Mon, W2 Tue, W3 Mon"
+mixed-salad,Mixed Salad,Primary school lunch menu,70 g,19.70,0.80,3.17,0.36,0.06,,,,,,70.00,,,,,,false,false,,,"Printed on: W1 Mon, W2 Thu, W3 Tue"
+summer-berry-cupcake,Summer Berry Cupcake,Primary school lunch menu,34.17 g,118.42,1.52,13.86,6.27,2.30,,,,,,34.17,,,,,,false,false,,,Printed on: W1 Mon
+ham-sandwich,Ham Sandwich,Primary school lunch menu,120 g,244.65,13.34,34.03,5.36,1.35,,,,,,120.00,,,,,contains_pork,false,false,,,"Printed on: W1 Mon, W1 Tue, W1 Fri, W2 Mon, W2 Tue, W2 Fri, W3 Mon, W3 Tue, W3 Fri"
+cheese-sandwich,Cheese Sandwich,Primary school lunch menu,115 g,339.00,15.15,33.57,15.23,7.67,,,,,,115.00,,,,,,false,false,,,"Printed on: W1 Mon, W1 Tue, W1 Fri, W2 Mon, W2 Tue, W2 Fri, W3 Mon, W3 Tue, W3 Fri"
+tuna-mayo-sandwich,Tuna Mayo Sandwich,Primary school lunch menu,135 g,284.90,17.52,34.30,7.81,1.62,,,,,,135.00,,,,,,false,false,,,"Printed on: W1 Mon, W1 Tue, W1 Fri, W2 Mon, W2 Tue, W2 Fri, W3 Mon, W3 Tue, W3 Fri"
+salad-sticks,Salad Sticks,Primary school lunch menu,25 g,6.00,0.19,1.11,0.13,0.01,,,,,,25.00,,,,,,false,false,,,"Printed on: W1 Mon, W1 Wed, W1 Thu, W1 Fri, W2 Mon, W2 Wed, W2 Thu, W2 Fri, W3 Mon, W3 Tue, W3 Wed, W3 Thu, W3 Fri"
+orange-wedges,Orange Wedges,Primary school lunch menu,50 g,18.50,0.55,4.25,0.05,0.00,,,,,,50.00,,,,,,false,false,,,"Printed on: W1 Mon, W1 Wed, W2 Tue, W3 Fri"
+chicken-in-tomato-sauce,Chicken in Tomato Sauce,Primary school lunch menu,169.2 g,106.43,15.76,6.23,1.84,0.30,,,,,,169.20,,,,,,false,false,,,Printed on: W1 Tue
+cheesy-pasta,Cheesy Pasta,Primary school lunch menu,205 g,434.69,16.01,43.37,23.21,11.58,,,,,,205.00,,,,,vegetarian,false,false,,,Printed on: W1 Tue
+peas,Peas,Primary school lunch menu,40 g,27.60,2.08,3.60,0.12,0.04,,,,,,40.00,,,,,,false,false,,,"Printed on: W1 Tue, W1 Fri, W2 Wed, W2 Fri, W3 Mon, W3 Fri"
+sweetcorn-40-g,Sweetcorn,Primary school lunch menu,40 g,29.60,1.00,4.64,0.56,0.16,,,,,,40.00,,,,,,false,false,,,"Printed on: W1 Tue, W3 Mon"
+vanilla-ice-cream,Vanilla Ice Cream,Primary school lunch menu,80 g,129.60,2.72,14.48,6.56,3.44,,,,,,80.00,,,,,,false,false,,,Printed on: W1 Tue
+pizza-finger,Pizza Finger,Primary school lunch menu,44.98 g,92.38,4.41,10.90,3.70,2.04,,,,,,44.98,,,,,,false,false,,,"Printed on: W1 Tue, W2 Tue"
+sultanas,Sultanas,Primary school lunch menu,25 g,67.75,0.68,17.35,0.10,0.00,,,,,,25.00,,,,,,false,false,,,"Printed on: W1 Tue, W1 Thu, W2 Mon, W2 Fri, W3 Mon, W3 Tue, W3 Thu"
+roast-chicken,Roast Chicken,Primary school lunch menu,60 g,63.60,14.40,0.00,0.66,0.18,,,,,,60.00,,,,,,false,false,,,"Printed on: W1 Wed, W3 Wed"
+stuffing,Stuffing,Primary school lunch menu,10 g,18.00,0.44,4.43,0.20,0.09,,,,,,10.00,,,,,,false,false,,,"Printed on: W1 Wed, W3 Wed"
+roast-potatoes-uncooked,Roast Potatoes (uncooked),Primary school lunch menu,103 g,102.00,2.10,17.20,3.20,0.20,,,,,,103.00,,,,,,false,false,,,Printed on: W1 Wed
+cheese-and-potato-pie,Cheese and Potato Pie,Primary school lunch menu,196.13 g,285.74,12.62,23.99,16.12,8.74,,,,,,196.13,,,,,vegetarian,false,false,,,Printed on: W1 Wed
+gravy,Gravy,Primary school lunch menu,26.75 g,6.02,0.13,1.26,0.07,0.03,,,,,,26.75,,,,,,false,false,,,"Printed on: W1 Wed, W2 Wed, W3 Wed"
+carrots,Carrots,Primary school lunch menu,40 g,13.60,0.20,3.08,0.16,0.04,,,,,,40.00,,,,,,false,false,,,"Printed on: W1 Wed, W2 Wed, W3 Wed"
+green-beans,Green Beans,Primary school lunch menu,40 g,10.00,0.68,1.88,0.04,0.00,,,,,,40.00,,,,,,false,false,,,Printed on: W1 Wed
+beetroot-brownie,Beetroot Brownie,Primary school lunch menu,32.57 g,147.18,1.66,11.99,10.30,1.35,,,,,,32.57,,,,,,false,false,,,Printed on: W1 Wed
+cheese-and-tomato-pasta,Cheese and Tomato Pasta,Primary school lunch menu,75 g,176.70,7.34,26.57,3.98,2.27,,,,,,75.00,,,,,,false,false,,,"Printed on: W1 Wed, W1 Thu, W2 Wed, W2 Thu, W3 Wed, W3 Thu"
+pork-bolognese,Pork Bolognese,Primary school lunch menu,147.2 g,149.95,9.70,5.63,8.29,2.47,,,,,,147.20,,,,,contains_pork,false,false,,,Printed on: W1 Thu
+pasta-twists-uncooked,Pasta Twists (uncooked),Primary school lunch menu,45.5 g,158.18,5.31,31.84,1.36,0.19,,,,,,45.50,,,,,,false,false,,,Printed on: W1 Thu
+bbq-loaded-bean-bake,BBQ Loaded Bean Bake,Primary school lunch menu,201.51 g,195.81,6.21,26.56,6.47,1.49,,,,,,201.51,,,,,vegetarian,false,false,,,Printed on: W1 Thu
+mixed-vegetables,Mixed Vegetables,Primary school lunch menu,80 g,42.00,2.02,6.20,0.36,0.12,,,,,,80.00,,,,,,false,false,,,"Printed on: W1 Thu, W2 Tue"
+fruit-jelly,Fruit Jelly,Primary school lunch menu,104.5 g,14.63,0.52,8.88,0.52,0.10,,,,,,104.50,,,,,,false,false,,,Printed on: W1 Thu
+chicken-fillet-bites,Chicken Fillet Bites,Primary school lunch menu,60 g,123.60,8.16,4.62,7.92,1.32,,,,,,60.00,,,,,,false,false,,,Printed on: W1 Fri
+garden-vegetable-goujons,Garden Vegetable Goujons,Primary school lunch menu,70 g,158.20,2.62,20.28,6.75,0.70,,,,,,70.00,,,,,vegetarian,false,false,,,Printed on: W1 Fri
+chips,Chips,Primary school lunch menu,100 g,110.00,1.60,20.00,2.40,0.30,,,,,,100.00,,,,,,false,false,,,"Printed on: W1 Fri, W2 Fri, W3 Fri"
+baked-beans,Baked Beans,Primary school lunch menu,40 g,33.60,1.88,5.40,0.16,0.08,,,,,,40.00,,,,,,false,false,,,"Printed on: W1 Fri, W2 Fri, W3 Fri"
+lemon-shortbread-16-57-g,Lemon Shortbread,Primary school lunch menu,16.57 g,73.63,0.84,8.47,3.86,1.14,,,,,,16.57,,,,,,false,false,,,Printed on: W1 Fri
+melon-wedge,Melon Wedge,Primary school lunch menu,80 g,14.40,0.24,3.44,0.08,0.02,,,,,,80.00,,,,,,false,false,,,"Printed on: W1 Fri, W3 Wed"
+lemon-shortbread-33-14-g,Lemon Shortbread,Primary school lunch menu,33.14 g,147.26,1.68,16.94,7.72,2.82,,,,,,33.14,,,,,,false,false,,,Printed on: W1 Fri
+tomato-pasta,Tomato Pasta,Primary school lunch menu,114.2 g,110.96,3.71,19.58,1.61,0.25,,,,,,114.20,,,,,vegetarian,false,false,,,Printed on: W2 Mon
+vegetable-curry,Vegetable Curry,Primary school lunch menu,154.75 g,115.54,4.24,13.75,4.46,2.68,,,,,,154.75,,,,,vegetarian,false,false,,,Printed on: W2 Mon
+sweetcorn-80-g,Sweetcorn,Primary school lunch menu,80 g,59.20,2.00,9.28,1.12,0.32,,,,,,80.00,,,,,,false,false,,,"Printed on: W2 Mon, W3 Thu"
+chicken-curry,Chicken Curry,Primary school lunch menu,124.25 g,161.46,16.13,3.82,9.17,4.07,,,,,,124.25,,,,,,false,false,,,Printed on: W2 Tue
+cheese-and-tomato-pasta-bake,Cheese and Tomato Pasta Bake,Primary school lunch menu,169.2 g,320.78,13.63,39.18,11.76,6.57,,,,,,169.20,,,,,vegetarian,false,false,,,"Printed on: W2 Tue, W3 Mon"
+marble-shortbread,Marble Shortbread,Primary school lunch menu,31.07 g,143.96,1.70,16.66,7.75,2.84,,,,,,31.07,,,,,,false,false,,,Printed on: W2 Tue
+chipolata-sausages,Chipolata Sausages,Primary school lunch menu,60 g,171.60,7.08,5.52,13.62,5.16,,,,,,60.00,,,,,contains_pork,false,false,,,Printed on: W2 Wed
+plant-sausages,Plant Sausages,Primary school lunch menu,50 g,91.00,6.60,4.30,5.55,0.50,,,,,,50.00,,,,,vegetarian,false,false,,,"Printed on: W2 Wed, W3 Tue"
+yorkshire-pudding,Yorkshire Pudding,Primary school lunch menu,22.87 g,38.70,1.68,5.43,1.10,0.27,,,,,,22.87,,,,,,false,false,,,Printed on: W2 Wed
+mashed-potato-uncooked,Mashed Potato (uncooked),Primary school lunch menu,125.2 g,121.50,2.56,20.67,3.74,1.30,,,,,,125.20,,,,,,false,false,,,"Printed on: W2 Wed, W3 Wed"
+summer-berry-and-apple-slice,Summer Berry and Apple Slice,Primary school lunch menu,67.19 g,169.62,1.60,18.56,10.15,3.74,,,,,,67.19,,,,,,false,false,,,Printed on: W2 Wed
+bbq-shredded-chicken-wrap,BBQ Shredded Chicken Wrap,Primary school lunch menu,114.2 g,203.58,16.84,26.11,3.31,0.51,,,,,,114.20,,,,,,false,false,,,Printed on: W2 Thu
+vegetarian-enchilada,Vegetarian Enchilada,Primary school lunch menu,156.91 g,212.45,12.72,27.69,4.95,1.66,,,,,,156.91,,,,,vegetarian,false,false,,,Printed on: W2 Thu
+orange-cupcake,Orange Cupcake,Primary school lunch menu,39.17 g,127.91,1.90,15.50,6.71,2.41,,,,,,39.17,,,,,,false,false,,,Printed on: W2 Thu
+fish-fingers,Fish Fingers,Primary school lunch menu,75 g,153.00,9.75,14.25,6.15,0.53,,,,,,75.00,,,,,,false,false,,,"Printed on: W2 Fri, W3 Fri"
+salmon-fingers,Salmon Fingers,Primary school lunch menu,60 g,166.20,8.10,19.74,6.18,0.60,,,,,,60.00,,,,,,false,false,,,Printed on: W2 Fri
+cheese-and-potato-pastry-pinwheel,Cheese and Potato Pastry Pinwheel,Primary school lunch menu,144 g,378.51,7.90,34.95,23.18,11.43,,,,,,144.00,,,,,vegetarian,false,false,,,Printed on: W2 Fri
+apple-flapjack,Apple Flapjack,Primary school lunch menu,63.21 g,208.48,4.03,29.81,7.17,2.55,,,,,,63.21,,,,,,false,false,,,Printed on: W2 Fri
+tex-mex-chilli,Tex Mex Chilli,Primary school lunch menu,165.03 g,84.65,1.94,5.95,2.65,0.39,,,,,,165.03,,,,,vegetarian,false,false,,,Printed on: W3 Mon
+banana-muffin,Banana Muffin,Primary school lunch menu,36.83 g,122.72,1.55,15.06,6.27,2.30,,,,,,36.83,,,,,,false,false,,,Printed on: W3 Mon
+hot-dog-sausage,Hot Dog Sausage,Primary school lunch menu,1 each,143.00,5.90,4.60,11.35,4.30,,,,,,,,,,,contains_pork,false,false,,,Printed on: W3 Tue
+homemade-roll,Homemade Roll,Primary school lunch menu,1 each,178.52,5.30,37.98,1.15,0.23,,,,,,,,,,,,false,false,,,Printed on: W3 Tue
+tomato-dip,Tomato Dip,Primary school lunch menu,10 g,14.60,0.24,3.38,0.03,0.00,,,,,,10.00,,,,,,false,false,,,Printed on: W3 Tue
+shortbread,Shortbread,Primary school lunch menu,31.07 g,139.45,1.56,16.82,7.71,2.82,,,,,,31.07,,,,,,false,false,,,Printed on: W3 Tue
+vegetable-pastry-plait,Vegetable Pastry Plait,Primary school lunch menu,131.25 g,364.50,5.78,33.55,22.59,11.26,,,,,,131.25,,,,,vegetarian,false,false,,,Printed on: W3 Wed
+brocoli,Brocoli,Primary school lunch menu,40 g,13.60,1.72,1.28,0.24,0.06,,,,,,40.00,,,,,,false,false,,,Printed on: W3 Wed
+apple-crumble,Apple Crumble,Primary school lunch menu,66.12 g,116.01,1.41,17.05,4.76,1.71,,,,,,66.12,,,,,,false,false,,,Printed on: W3 Wed
+flapjack,Flapjack,Primary school lunch menu,51.07 g,209.72,4.01,30.12,7.16,2.55,,,,,,51.07,,,,,,false,false,,,Printed on: W3 Wed
+chicken-taco,Chicken Taco,Primary school lunch menu,148.37 g,250.16,19.60,11.85,13.59,4.03,,,,,,148.37,,,,,,false,false,,,Printed on: W3 Thu
+vegetarian-taco,Vegetarian Taco,Primary school lunch menu,148.62 g,199.61,5.80,13.80,9.70,2.70,,,,,,148.62,,,,,vegetarian,false,false,,,Printed on: W3 Thu
+steamed-rice-cooked-60-g,Steamed Rice (cooked),Primary school lunch menu,60 g,70.80,1.48,15.38,0.36,0.08,,,,,,60.00,,,,,,false,false,,,Printed on: W3 Thu
+oaty-cookie,Oaty Cookie,Primary school lunch menu,24.91 g,102.82,1.70,14.26,4.05,1.45,,,,,,24.91,,,,,,false,false,,,Printed on: W3 Thu
+cheese-and-tomato-frittata,Cheese and Tomato Frittata,Primary school lunch menu,125 g,164.07,10.82,3.58,11.96,5.17,,,,,,125.00,,,,,vegetarian,false,false,,,Printed on: W3 Fri
+chewy-krispie-bar,Chewy Krispie Bar,Primary school lunch menu,26.72 g,115.15,1.38,16.26,5.12,2.23,,,,,,26.72,,,,,,false,false,,,Printed on: W3 Fri
