@@ -1,0 +1,122 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+buttermilk-chicken-bbq-sauce-bacon-and-cheddar-wrap,"Buttermilk Chicken, BBQ Sauce, Bacon and Cheddar Wrap",Wraps & Jacket Potatoes,,927,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 9.75; Also printed with the same calories on the lunch supplement menu
+onion-bhaji-and-red-pepper-wrap,Onion Bhaji and Red Pepper Wrap,Wraps & Jacket Potatoes,,591,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 9.75; Also printed with the same calories on the lunch supplement menu
+lamb-kofta-wrap,Lamb Kofta Wrap,Wraps & Jacket Potatoes,,591,,,,,,,,,,,,,,,,false,false,,,printed price 9.95; Also printed with the same calories on the lunch supplement menu; same printed value (591) as the Onion Bhaji and Red Pepper Wrap
+beef-and-bean-chilli-loaded-jacket-potato,Beef and Bean Chilli Loaded Jacket Potato,Wraps & Jacket Potatoes,,690,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 9.75; Also printed with the same calories on the lunch supplement menu
+trailblazer-bbq-pulled-pork-and-mature-cheddar-loaded-jacket-potato,Trailblazer BBQ Pulled Pork and Mature Cheddar Loaded Jacket Potato,Wraps & Jacket Potatoes,,1009,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 9.95; Also printed with the same calories on the lunch supplement menu
+baked-beans-and-mature-cheddar-jacket-potato,Baked Beans and Mature Cheddar Jacket Potato,Wraps & Jacket Potatoes,,634,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 8.85; Also printed with the same calories on the lunch supplement menu
+tuna-and-spring-onion-mayonnaise-jacket-potato,Tuna and Spring Onion Mayonnaise Jacket Potato,Wraps & Jacket Potatoes,,661,,,,,,,,,,,,,,,,false,false,,,printed price 8.95; Also printed with the same calories on the lunch supplement menu
+cheddar-topped-garlic-and-herb-bread,Cheddar Topped Garlic and Herb Bread,Small Plates,,679,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 5.95
+chicken-wings-salt-and-pepper,"Chicken Wings, salt and pepper",Small Plates,,826,,,,,,,,,,,,,,,,false,false,,,"Three flavours printed under 'Choose from:', each with its own value"
+chicken-wings-chicken-salt,"Chicken Wings, chicken salt",Small Plates,,738,,,,,,,,,,,,,,,,false,false,,,"Three flavours printed under 'Choose from:', each with its own value"
+chicken-wings-sticky-bbq,"Chicken Wings, sticky BBQ",Small Plates,,757,,,,,,,,,,,,,,,,false,false,,,"Three flavours printed under 'Choose from:', each with its own value"
+halloumi-fries,Halloumi Fries,Small Plates,,397,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.95
+black-pudding-fritter,Black Pudding Fritter,Small Plates,,470,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 6.95; Same printed value (470) as Hot Honey Chicken
+onion-bhaji-stack,Onion Bhaji Stack,Small Plates,,338,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.75
+steamed-duck-dumplings,Steamed Duck Dumplings,Small Plates,,352,,,,,,,,,,,,,,,,false,false,,,printed price 6.95
+pan-fried-king-prawns-and-chorizo,Pan-Fried King Prawns and Chorizo,Small Plates,,658,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 6.95
+hot-honey-chicken,Hot Honey Chicken,Small Plates,,470,,,,,,,,,,,,,,,,false,false,,,printed price 6.95; Same printed value (470) as the Black Pudding Fritter
+mac-and-smoked-pancetta-cheese,Mac and Smoked Pancetta Cheese,Small Plates,,671,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 6.45
+stilton-and-joseph-holts-trailblazer-mushrooms,Stilton and Joseph Holt’s Trailblazer Mushrooms,Small Plates,,734,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.95
+beef-and-bean-chilli-tortillas,Beef and Bean Chilli Tortillas,Small Plates,,406,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 6.95
+sticky-chilli-pork-bites,Sticky Chilli Pork Bites,Small Plates,,791,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 6.95
+the-jolly-hog-beer-braised-sausages,The Jolly Hog Beer Braised Sausages,Pub Classics,,1172,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 14.55; Printed 'The Jolly Hog' with a trade mark sign
+chicken-tikka-masala,Chicken Tikka Masala,Pub Classics,,874,,,,,,,,,,,,,,,,false,false,,,printed price 15.25
+add-poppadoms-and-mango-chutney-to-chicken-tikka-masala,Add poppadoms and mango chutney (to Chicken Tikka Masala),Pub Classics,,171,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed price 2.25; Printed under Chicken Tikka Masala: its own calories, not a total"
+h-m-pasties-steak-and-joseph-holts-ale-pie,H.M.Pasties Steak and Joseph Holt’s Ale Pie,Pub Classics,,1368,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 15.95
+scottish-scampi-and-chips,Scottish Scampi and Chips,Pub Classics,,1082,,,,,,,,,,,,,,,,false,false,,,printed price 15.25
+hand-crafted-beef-and-joseph-holts-golden-ale-lasagne,Hand Crafted Beef and Joseph Holt’s Golden Ale Lasagne,Pub Classics,,1247,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 14.95
+h-m-pasties-cheese-and-onion-pie,H.M.Pasties Cheese and Onion Pie,Pub Classics,,1619,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 15.25
+joseph-holts-beer-battered-fish-and-chips,Joseph Holt’s Beer Battered Fish and Chips,Pub Classics,,1468,,,,,,,,,,,,,,,,false,false,,,printed price 15.75
+thick-cut-gammon-steak,Thick Cut Gammon Steak,Pub Classics,,1076,,,,,,,,,,,,,,,contains_pork,false,false,,,"printed price 16.95; Gammon steak: tagged pork by the cut name, not beef"
+beef-bourguignon,Beef Bourguignon,Pub Signatures,,802,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,printed price 16.95
+steak-pepper-and-cheddar-baguette,"Steak, Pepper and Cheddar Baguette",Pub Signatures,,1550,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 12.95
+wexford-chicken,Wexford Chicken,Pub Signatures,,1017,,,,,,,,,,,,,,,,false,false,,,printed price 15.35
+firecracker-chicken,Firecracker Chicken,Pub Signatures,,984,,,,,,,,,,,,,,,,false,false,,,printed price 15.95
+add-black-pepper-sauce-to-steak-frites,Add black pepper sauce (to Steak Frites),Pub Signatures,,122,,,,,,,,,,,,,,,,false,false,,,"printed price 2.00; Printed under Steak Frites: its own calories, not a total"
+add-3-king-prawns-to-steak-frites,Add 3 king prawns (to Steak Frites),Pub Signatures,,124,,,,,,,,,,,,,,,,false,false,,,"printed price 2.50; Printed under Steak Frites: its own calories, not a total"
+beef-bean-and-chorizo-chilli,"Beef, Bean and Chorizo Chilli",Pub Signatures,,913,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,printed price 14.95
+korean-bbq-pulled-pork-and-asian-slaw-brioche,Korean BBQ Pulled Pork and Asian Slaw Brioche,Pub Signatures,,1003,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 12.85
+fiery-red-thai-vegetable-curry,Fiery Red Thai Vegetable Curry,Pub Signatures,,638,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 14.55
+classic-beef-burger,Classic Beef Burger,Burgers,,1267,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 14.75; Printed 'Classic Beef'; description: Aberdeen Angus beef burger with burger sauce and chips
+add-mature-cheddar-and-bacon-to-classic-beef,Add mature Cheddar and bacon (to Classic Beef),Burgers,,233,,,,,,,,,,,,,,,contains_pork,false,false,,,"printed price 2.00; Printed under Classic Beef: its own calories, not a total"
+halloumi-red-pepper-and-smashed-avocado-burger,"Halloumi, Red Pepper and Smashed Avocado Burger",Burgers,,1390,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 14.95; Printed without the word burger
+buttermilk-chicken-burger,Buttermilk Chicken Burger,Burgers,,1708,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 16.75; Printed 'Buttermilk Chicken' under the Burgers heading
+the-ultimate-burger,The Ultimate Burger,Burgers,,2075,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,printed price 16.95; Printed 'The Ultimate' under the Burgers heading
+add-a-6oz-aberdeen-angus-beef-burger,Add a 6oz Aberdeen Angus beef burger,Burger Upgrades,,474,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 3.00
+add-a-crisp-buttermilk-chicken-fillet,Add a crisp buttermilk chicken fillet,Burger Upgrades,,300,,,,,,,,,,,,,,,,false,false,,,printed price 3.00
+add-pulled-pork,Add pulled pork,Burger Upgrades,,214,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 2.50
+signature-salad,Signature Salad,Salads,,259,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 12.25
+add-pan-fried-halloumi-to-signature-salad,Add Pan-Fried Halloumi (to Signature Salad),Salads,,468,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed price 2.70; Printed under Signature Salad: its own calories, not a total"
+add-chicken-breast-and-bacon-to-signature-salad,Add Chicken Breast and Bacon (to Signature Salad),Salads,,321,,,,,,,,,,,,,,,contains_pork,false,false,,,"printed price 3.00; Printed under Signature Salad: its own calories, not a total"
+caesar-salad,Caesar Salad,Salads,,463,,,,,,,,,,,,,,,,false,false,,,printed price 12.25
+add-pan-fried-halloumi-to-caesar-salad,Add Pan-Fried Halloumi (to Caesar Salad),Salads,,468,,,,,,,,,,,,,,,,false,false,,,"printed price 2.70; Printed under Caesar Salad: its own calories, not a total"
+add-chicken-breast-and-bacon-to-caesar-salad,Add Chicken Breast and Bacon (to Caesar Salad),Salads,,321,,,,,,,,,,,,,,,contains_pork,false,false,,,"printed price 3.00; Printed under Caesar Salad: its own calories, not a total"
+half-roast-chicken-sunday-roast,Half Roast Chicken (Sunday roast),Traditional Sunday Roast,Adult,1496,,,,,,,,,,,,,,,,false,false,,,printed price 15.25; Footnote 1 on the menu: chicken breast is served on children's roast
+half-roast-chicken-sunday-roast-child,"Half Roast Chicken (Sunday roast, child)",Traditional Sunday Roast,Child,823,,,,,,,,,,,,,,,,false,false,,,printed price 8.45; Footnote 1 on the menu: chicken breast is served on children's roast
+topside-of-beef-sunday-roast,Topside of Beef (Sunday roast),Traditional Sunday Roast,Adult,1114,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 15.45
+topside-of-beef-sunday-roast-child,"Topside of Beef (Sunday roast, child)",Traditional Sunday Roast,Child,798,,,,,,,,,,,,,,,contains_beef,false,false,,,printed price 8.75
+honey-roast-gammon-sunday-roast,Honey Roast Gammon (Sunday roast),Traditional Sunday Roast,Adult,1073,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 14.95
+honey-roast-gammon-sunday-roast-child,"Honey Roast Gammon (Sunday roast, child)",Traditional Sunday Roast,Child,762,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 8.25
+chestnut-and-seed-roast-sunday-roast,Chestnut and Seed Roast (Sunday roast),Traditional Sunday Roast,Adult,1264,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 14.95
+chestnut-and-seed-roast-sunday-roast-child,"Chestnut and Seed Roast (Sunday roast, child)",Traditional Sunday Roast,Child,857,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 8.25
+cauliflower-cheese-sunday-side,Cauliflower Cheese (Sunday side),Sunday Sides,,342,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 2.25
+three-pigs-in-blankets-sunday-side,Three Pigs in Blankets (Sunday side),Sunday Sides,,186,,,,,,,,,,,,,,,,false,false,,,printed price 2.50; The menu names no meat for this dish
+chips,Chips,Sides,,464,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 3.70; Same printed value (464) as the Kelly’s Cornish Vegan Vanilla Ice Cream
+skin-on-fries,Skin On Fries,Sides,,388,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 4.25
+asian-slaw,Asian Slaw,Sides,,59,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 2.95
+loaded-fries,Loaded Fries,Sides,,872,,,,,,,,,,,,,,,contains_pork,false,false,,,printed price 5.45
+skin-on-fries-with-chicken-salt,Skin On Fries with Chicken Salt,Sides,,402,,,,,,,,,,,,,,,,false,false,,,printed price 4.45
+sweet-potato-fries,Sweet Potato Fries,Sides,,460,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 4.75
+beer-battered-onion-rings,Beer Battered Onion Rings,Sides,,444,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 3.75; Letter-spaced in the PDF text layer ('4 4 4 kcal'); read as 444
+truffle-fries,Truffle Fries,Sides,,591,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 4.95
+salt-and-pepper-chips,Salt and Pepper Chips,Sides,,694,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 4.95
+kellys-cornish-vegan-vanilla-ice-cream,Kelly’s Cornish Vegan Vanilla Ice Cream,Desserts,,464,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.15; Three scoops; same printed value (464) as Chips
+apple-and-blackberry-shortbread-crumble,Apple and Blackberry Shortbread Crumble,Desserts,,668,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.75
+gin-and-raspberry-cheesecake,Gin and Raspberry ‘Cheesecake’,Desserts,,633,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.65
+cadbury-dairy-milk-ice-cream-and-chocolate-sundae,Cadbury Dairy Milk Ice Cream and Chocolate Sundae,Desserts,,920,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.85
+the-lakes-sticky-toffee-pudding,The Lakes’ Sticky Toffee Pudding,Desserts,,729,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.65
+kellys-cornish-ice-cream,Kelly’s Cornish Ice Cream,Desserts,,616,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 5.45; Three scoops; 'ask a member of the team for today's choice'
+jam-sponge-pudding,Jam Sponge Pudding,Desserts,,585,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.45
+amaretto-cake,Amaretto Cake,Desserts,,571,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.75; Letter-spaced in the PDF text layer ('57 1 kcal'); read as 571
+chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,781,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 6.75
+flat-white,Flat White,Tea & Coffee,,54,,,,,,,,,,,,,,,,false,false,,,printed price 3.55
+americano,Americano,Tea & Coffee,,10,,,,,,,,,,,,,,,,false,false,,,printed price 3.35
+cappuccino,Cappuccino,Tea & Coffee,,124,,,,,,,,,,,,,,,,false,false,,,printed price 3.65
+espresso-single,Espresso (single),Tea & Coffee,Single,5,,,,,,,,,,,,,,,,false,false,,,Printed with 'Sgl' and 'Dbl' rows and '5 / 10 kcal'
+espresso-double,Espresso (double),Tea & Coffee,Double,10,,,,,,,,,,,,,,,,false,false,,,Printed with 'Sgl' and 'Dbl' rows and '5 / 10 kcal'
+latte,Latte,Tea & Coffee,,127,,,,,,,,,,,,,,,,false,false,,,printed price 3.65
+mocha,Mocha,Tea & Coffee,,263,,,,,,,,,,,,,,,,false,false,,,printed price 3.65
+hot-chocolate,Hot Chocolate,Tea & Coffee,,258,,,,,,,,,,,,,,,,false,false,,,printed price 3.65
+pot-of-tea,Pot of Tea,Tea & Coffee,,25,,,,,,,,,,,,,,,,false,false,,,printed price 2.90
+speciality-and-flavoured-teas,Speciality and Flavoured Teas,Tea & Coffee,,0,,,,,,,,,,,,,,,,false,false,,,printed price 3.20; Printed '0 kcal'; 'ask a member of the team for our range'
+flavoured-syrups-to-add-to-any-coffee,Flavoured Syrups (to add to any coffee),Tea & Coffee,,61,,,,,,,,,,,,,,,,false,false,,,printed price 0.70; Printed 61 kcal beside 'flavoured syrups to add to any coffee'
+battered-fish-kids,Battered Fish (kids),Kids: Main,,321,,,,,,,,,,,,,,,,false,false,,,
+halloumi-fries-kids,Halloumi Fries (kids),Kids: Main,,241,,,,,,,,,,,,,,,vegetarian,false,false,,,
+beef-burger-kids,Beef Burger (kids),Kids: Main,,453,,,,,,,,,,,,,,,contains_beef,false,false,,,
+cheeseburger-kids,Cheeseburger (kids),Kids: Main,,536,,,,,,,,,,,,,,,,false,false,,,
+tomato-and-mascarpone-pasta-kids,Tomato and Mascarpone Pasta (kids),Kids: Main,,245,,,,,,,,,,,,,,,vegetarian,false,false,,,
+buttermilk-chicken-burger-kids,Buttermilk Chicken Burger (kids),Kids: Main,,441,,,,,,,,,,,,,,,,false,false,,,
+pan-fried-halloumi-and-charred-red-pepper-burger-kids,Pan-Fried Halloumi and Charred Red Pepper Burger (kids),Kids: Main,,508,,,,,,,,,,,,,,,vegetarian,false,false,,,
+battered-chicken-breast-bites-kids,Battered Chicken Breast Bites (kids),Kids: Main,,336,,,,,,,,,,,,,,,,false,false,,,
+the-jolly-hog-pork-sausages-kids,The Jolly Hog Pork Sausages (kids),Kids: Main,,355,,,,,,,,,,,,,,,contains_pork,false,false,,,
+baked-beans-kids,Baked Beans (kids),Kids: Side,,92,,,,,,,,,,,,,,,vegetarian,false,false,,,
+carrot-batons-kids,Carrot Batons (kids),Kids: Side,,36,,,,,,,,,,,,,,,vegetarian,false,false,,,
+crunchy-salad-kids,Crunchy Salad (kids),Kids: Side,,9,,,,,,,,,,,,,,,vegetarian,false,false,,,
+fresh-veggie-sticks-kids,Fresh Veggie Sticks (kids),Kids: Side,,14,,,,,,,,,,,,,,,vegetarian,false,false,,,
+garden-peas-kids,Garden Peas (kids),Kids: Side,,72,,,,,,,,,,,,,,,vegetarian,false,false,,,
+mushy-peas-kids,Mushy Peas (kids),Kids: Side,,71,,,,,,,,,,,,,,,vegetarian,false,false,,,
+chips-kids,Chips (kids),Kids: Spud,,290,,,,,,,,,,,,,,,vegetarian,false,false,,,
+mashed-potato-kids,Mashed Potato (kids),Kids: Spud,,126,,,,,,,,,,,,,,,vegetarian,false,false,,,
+skin-on-fries-kids,Skin On Fries (kids),Kids: Spud,,242,,,,,,,,,,,,,,,vegetarian,false,false,,,
+fruit-pastilles-lolly-kids,Fruit Pastilles Lolly (kids),Kids: Lolly,,57,,,,,,,,,,,,,,,vegetarian,false,false,,,
+smarties-pop-up-lolly-kids,Smarties Pop Up Lolly (kids),Kids: Lolly,,110,,,,,,,,,,,,,,,,false,false,,,
+fab-lolly-kids,Fab Lolly (kids),Kids: Lolly,,75,,,,,,,,,,,,,,,vegetarian,false,false,,,
+coca-cola-zero-sugar-kids,Coca Cola Zero Sugar (kids),Kids: Drink,,2,,,,,,,,,,,,,,,,false,false,,,
+diet-coke-kids,Diet Coke (kids),Kids: Drink,,1,,,,,,,,,,,,,,,,false,false,,,A hidden '79 kcal' sits on top of the name in the text layer; the rendered page prints 1 kcal
+schweppes-lemonade-kids,Schweppes Lemonade (kids),Kids: Drink,,79,,,,,,,,,,,,,,,,false,false,,,
+innocent-juicy-water-apples-and-strawberries-kids,"Innocent Juicy Water, Apples & Strawberries (kids)",Kids: Drink,,64,,,,,,,,,,,,,,,,false,false,,,
+innocent-juicy-water-apples-and-mangoes-kids,"Innocent Juicy Water, Apples & Mangoes (kids)",Kids: Drink,,56,,,,,,,,,,,,,,,,false,false,,,
+garlic-and-herb-bread-kids-add-on,Garlic and Herb Bread (kids add-on),Kids: Add-ons,,342,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 2.75
+kellys-cornish-ice-cream-kids-add-on,Kelly’s Cornish Ice Cream (kids add-on),Kids: Add-ons,,410,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed price 4.45; Two scoops, 'ask a member of the team for today's choice'"
+kellys-cornish-vegan-vanilla-ice-cream-kids-add-on,Kelly’s Cornish Vegan Vanilla Ice Cream (kids add-on),Kids: Add-ons,,314,,,,,,,,,,,,,,,vegetarian,false,false,,,printed price 5.15; Two scoops with a red berry sauce

@@ -1,0 +1,164 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+popcorn,Popcorn,A La Carte,,28,,,,,,,,,,,,,,,vegetarian,false,false,,,
+mixed-olives,Mixed Olives,Nibbles,,200,,,,,,,,,,,,,,,vegetarian,false,false,,,
+ham-and-cheese-croquettes-nibbles,Ham & Cheese Croquettes,Nibbles,,433,,,,,,,,,,,,,,,contains_pork,false,false,,,The same name is printed with different calories elsewhere; both are kept
+green-garlic-flatbread,Green Garlic Flatbread,Nibbles,,339,,,,,,,,,,,,,,,vegetarian,false,false,,,
+spring-arancini-small-plates-and-sharing-boards,Spring Arancini,Small Plates & Sharing Boards,,579,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+salt-and-pepper-calamari-small-plates-and-sharing-boards,Salt & Pepper Calamari,Small Plates & Sharing Boards,,694,,,,,,,,,,,,,,,,false,false,,,Also printed in: Group Dining Celebration Menu; The same name is printed with different calories elsewhere; both are kept
+asian-pork-belly-bites-small-plates-and-sharing-boards,Asian Pork Belly Bites,Small Plates & Sharing Boards,,928,,,,,,,,,,,,,,,contains_pork,false,false,,,The same name is printed with different calories elsewhere; both are kept
+garlic-and-chilli-prawns,Garlic & Chilli Prawns,Small Plates & Sharing Boards,,647,,,,,,,,,,,,,,,,false,false,,,
+crispy-panko-halloumi-small-plates-and-sharing-boards,Crispy Panko Halloumi,Small Plates & Sharing Boards,,690,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+korean-fried-chicken-small-plates-and-sharing-boards,Korean Fried Chicken,Small Plates & Sharing Boards,,863,,,,,,,,,,,,,,,,false,false,,,"Also printed in: Christmas Menu, Group Dining Celebration Menu; The same name is printed with different calories elsewhere; both are kept"
+crispy-hoisin-tofu-bites-small-plates-and-sharing-boards,Crispy Hoisin Tofu Bites,Small Plates & Sharing Boards,,651,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+charred-tenderstem-broccoli,Charred Tenderstem Broccoli,Small Plates & Sharing Boards,,165,,,,,,,,,,,,,,,vegetarian,false,false,,,
+houmous,Houmous,Small Plates & Sharing Boards,,561,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu
+non-gluten-houmous-small-plates-and-sharing-boards,Non-Gluten Houmous,Small Plates & Sharing Boards,,392,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu; The same name is printed with different calories elsewhere; both are kept
+burrata,Burrata,Small Plates & Sharing Boards,,754,,,,,,,,,,,,,,,vegetarian,false,false,,,
+mezze-board-small-plates-and-sharing-boards,Mezze Board,Small Plates & Sharing Boards,,1002,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+allotment-board,Allotment Board,Small Plates & Sharing Boards,,276,,,,,,,,,,,,,,,vegetarian,false,false,,,
+pan-fried-salmon-main-event,Pan Fried Salmon,Main Event,,894,,,,,,,,,,,,,,,,false,false,,,The same name is printed with different calories elsewhere; both are kept
+slow-cooked-pork-belly-and-herby-mash,Slow-Cooked Pork Belly & Herby Mash,Main Event,,1659,,,,,,,,,,,,,,,contains_pork,false,false,,,Also printed in: Group Dining Celebration Menu
+haddock-and-chips-contains-gluten-free-barley,Haddock & Chips *contains Gluten Free Barley,Main Event,,1427,,,,,,,,,,,,,,,,false,false,,,
+gardeners-pie,Gardener's Pie,Main Event,,997,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Sunday Roast
+signature-beef-burger,Signature Beef Burger,Main Event,,1274,,,,,,,,,,,,,,,contains_beef,false,false,,,Also printed in: Botanista Brunch
+buttermilk-fried-chicken-burger,Buttermilk Fried Chicken Burger,Main Event,,1572,,,,,,,,,,,,,,,contains_pork,false,false,,,Also printed in: Group Dining Celebration Menu
+foragers-feast-burger,Forager's Feast Burger,Main Event,,969,,,,,,,,,,,,,,,vegetarian,false,false,,,
+add-maple-bacon,Add Maple Bacon,Main Event,,266,,,,,,,,,,,,,,,contains_pork,false,false,,,The page marks none of the 14 allergens and prints no Suitable-for or May-contain line for this item
+add-sliced-avocado,Add Sliced Avocado,Main Event,,80,,,,,,,,,,,,,,,vegetarian,false,false,,,
+add-herby-mash,Add Herby Mash,Main Event options,,365,,,,,,,,,,,,,,,vegetarian,false,false,,,Choice/add-on printed under Gardener's Pie; Also printed in: Sunday Roast (with Gardener's Pie)
+crispy-panko-halloumi-our-famous-hanging-kebabs-kebab,Crispy Panko Halloumi,Our Famous Hanging Kebabs™: Kebab,,945,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+garlic-oil,Garlic Oil,Our Famous Hanging Kebabs™: Sauce,,48,,,,,,,,,,,,,,,vegetarian,false,false,,,
+soy-sweet-chilli,Soy Sweet Chilli,Our Famous Hanging Kebabs™: Sauce,,59,,,,,,,,,,,,,,,vegetarian,false,false,,,
+rosemary-sweet-potato-fries-our-famous-hanging-kebabs-side,Rosemary Sweet Potato Fries,Our Famous Hanging Kebabs™: Side,,424,,,,,,,,,,,,,,,vegetarian,false,false,,,"Also printed in: A La Carte (with Buttermilk Fried Chicken Burger), A La Carte (with Forager's Feast Burger), A La Carte (with Haddock & Chips *contains Gluten Free Barley), A La Carte (with Harissa Spiced Chicken & Chorizo Kebab), A La Carte (with Signature Beef Burger), A La Carte (with Slow Marinated Steak Kebab), A La Carte (with Surf & Turf Sharing Kebab), A La Carte (with The Great Sharing Kebab), A La Carte (with Tumeric Spiced Tofu), Botanista Brunch (with Signature Beef Burger); The same name is printed with different calories elsewhere; both are kept"
+pomegranate-couscous-salad,Pomegranate Couscous Salad,Our Famous Hanging Kebabs™: Side,,380,,,,,,,,,,,,,,,vegetarian,false,false,,,"Also printed in: A La Carte (with Tumeric Spiced Tofu), Group Dining Celebration Menu (with Harissa Lamb Kofta), Group Dining Celebration Menu (with Original Chicken), Group Dining Celebration Menu (with Slow Marinated Steak), Group Dining Celebration Menu (with Tumeric Spiced Tofu)"
+slow-marinated-steak-kebab,Slow Marinated Steak Kebab,Signature Kebabs,,727,,,,,,,,,,,,,,,contains_beef,false,false,,,
+harissa-spiced-chicken-and-chorizo-kebab,Harissa Spiced Chicken & Chorizo Kebab,Signature Kebabs,,608,,,,,,,,,,,,,,,contains_pork,false,false,,,
+tumeric-spiced-tofu-signature-kebabs,Tumeric Spiced Tofu,Signature Kebabs,,432,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu; The same name is printed with different calories elsewhere; both are kept
+the-great-sharing-kebab,The Great Sharing Kebab,Sharing Kebabs,,2260,,,,,,,,,,,,,,,,false,false,,,
+surf-and-turf-sharing-kebab,Surf & Turf Sharing Kebab,Sharing Kebabs,,2389,,,,,,,,,,,,,,,contains_beef,false,false,,,
+garlic-flatbread,Garlic Flatbread,Kebab Add-Ons,,198,,,,,,,,,,,,,,,vegetarian,false,false,,,"Also printed in: A La Carte (with The Botanist Bowl), Festive Finger Food, Gardener's Table Finger Food, Group Dining Celebration Menu (with Harissa Lamb Kofta), Group Dining Celebration Menu (with Original Chicken), Group Dining Celebration Menu (with Slow Marinated Steak), Group Dining Celebration Menu (with The Botanist Bowl), Group Dining Celebration Menu (with Tumeric Spiced Tofu)"
+the-botanist-bowl-bowls-of-goodness,The Botanist Bowl,Bowls Of Goodness,,1041,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu; The same name is printed with different calories elsewhere; both are kept
+chicken-bacon-and-avocado-salad,"Chicken, Bacon & Avocado Salad",Bowls Of Goodness,,799,,,,,,,,,,,,,,,contains_pork,false,false,,,"Also printed in: Botanista Brunch, Group Dining Celebration Menu"
+feta-beetroot-salad,Feta Beetroot Salad,Bowls Of Goodness,,512,,,,,,,,,,,,,,,vegetarian,false,false,,,
+add-harissa-halloumi-bowls-of-goodness-options,Add Harissa Halloumi,Bowls Of Goodness options,,210,,,,,,,,,,,,,,,vegetarian,false,false,,,Choice/add-on printed under The Botanist Bowl; The same name is printed with different calories elsewhere; both are kept
+add-grilled-chicken,Add Grilled Chicken,Bowls Of Goodness options,,223,,,,,,,,,,,,,,,,false,false,,,"Choice/add-on printed under The Botanist Bowl; Also printed in: Botanista Brunch (with The Botanist Bowl), Group Dining Celebration Menu (with The Botanist Bowl); The page marks none of the 14 allergens and prints no Suitable-for or May-contain line for this item"
+properly-seasoned-fries-garden-sides,Properly Seasoned Fries,Garden Sides,,429,,,,,,,,,,,,,,,vegetarian,false,false,,,"Also printed in: A La Carte (with Buttermilk Fried Chicken Burger), A La Carte (with Forager's Feast Burger), A La Carte (with Haddock & Chips *contains Gluten Free Barley), A La Carte (with Harissa Spiced Chicken & Chorizo Kebab), A La Carte (with Signature Beef Burger), A La Carte (with Slow Marinated Steak Kebab), A La Carte (with Surf & Turf Sharing Kebab), A La Carte (with The Great Sharing Kebab), A La Carte (with Tumeric Spiced Tofu), Botanista Brunch, Botanista Brunch (with Signature Beef Burger), Group Dining Celebration Menu (with Harissa Lamb Kofta), Group Dining Celebration Menu (with Original Chicken), Group Dining Celebration Menu (with Slow Marinated Steak), Group Dining Celebration Menu (with Tumeric Spiced Tofu); The same name is printed with different calories elsewhere; both are kept"
+chunky-chips,Chunky Chips,Garden Sides,,475,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: A La Carte (with Haddock & Chips *contains Gluten Free Barley)
+rosemary-sweet-potato-fries-garden-sides,Rosemary Sweet Potato Fries,Garden Sides,,493,,,,,,,,,,,,,,,vegetarian,false,false,,,"Also printed in: Botanista Brunch, Group Dining Celebration Menu; The same name is printed with different calories elsewhere; both are kept"
+halloumi-fries,Halloumi Fries,Garden Sides,,690,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Botanista Brunch
+beer-battered-onion-rings,Beer Battered Onion Rings,Garden Sides,,587,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu
+tenderstem-broccoli,Tenderstem Broccoli,Garden Sides,,81,,,,,,,,,,,,,,,vegetarian,false,false,,,
+mediterranean-roasted-veg,Mediterranean Roasted Veg,Garden Sides,,271,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu
+couscous-salad,Couscous Salad,Garden Sides,,380,,,,,,,,,,,,,,,vegetarian,false,false,,,
+celeriac-and-apple-slaw,Celeriac & Apple Slaw,Garden Sides,,168,,,,,,,,,,,,,,,vegetarian,false,false,,,
+rainbow-salad,Rainbow Salad,Garden Sides,,138,,,,,,,,,,,,,,,vegetarian,false,false,,,"Also printed in: Botanista Brunch, Group Dining Celebration Menu"
+garlic-aioli-dip,Garlic Aioli Dip,Garden Sides,,333,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu
+green-goddess-dip,Green Goddess Dip,Garden Sides,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu
+hot-honey-bbq-dip,Hot Honey BBQ Dip,Garden Sides,,137,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu
+the-botanist-plant-pot-pud,The Botanist Plant Pot Pud,Puddings,,842,,,,,,,,,,,,,,,,false,false,,,
+lemon-verbena-tart,Lemon Verbena Tart,Puddings,,536,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu
+sticky-toffee-pudding-puddings,Sticky Toffee Pudding,Puddings,,492,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+vanilla-cheesecake,Vanilla Cheesecake,Puddings,,410,,,,,,,,,,,,,,,vegetarian,false,false,,,"Also printed in: Christmas Menu, Group Dining Celebration Menu"
+chocolate-brownie-puddings,Chocolate Brownie,Puddings,,1158,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+mini-chocolate-brownie,Mini Chocolate Brownie,Puddings,,677,,,,,,,,,,,,,,,vegetarian,false,false,,,
+chocolate-chip-cookie-dough,Chocolate Chip Cookie Dough,Puddings,,780,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Group Dining Celebration Menu
+millionaires-cookie-dough,Millionaire's Cookie Dough,Puddings,,1105,,,,,,,,,,,,,,,vegetarian,false,false,,,
+roast-rump-of-beef,Roast Rump of Beef,Sunday Roast: The Centrepiece,,1053,,,,,,,,,,,,,,,contains_beef,false,false,,,
+roast-shropshire-half-chicken,Roast Shropshire Half Chicken,Sunday Roast: The Centrepiece,,1383,,,,,,,,,,,,,,,,false,false,,,
+honey-glazed-pork-belly,Honey Glazed Pork Belly,Sunday Roast: The Centrepiece,,1768,,,,,,,,,,,,,,,contains_pork,false,false,,,
+chestnut-mushroom-bourguignon-pie,Chestnut Mushroom Bourguignon Pie,Sunday Roast: The Centrepiece,,1018,,,,,,,,,,,,,,,vegetarian,false,false,,,
+roast-trio,Roast Trio,Sunday Roast: The Centrepiece,,1966,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,
+roast-beef,Roast Beef,Sunday Roast: Children's,,578,,,,,,,,,,,,,,,contains_beef,false,false,,,
+roast-chicken,Roast Chicken,Sunday Roast: Children's,,1188,,,,,,,,,,,,,,,,false,false,,,
+garlic-and-herb-roast-potatoes,Garlic & Herb Roast Potatoes,Sunday Roast: Sharing Sides,,540,,,,,,,,,,,,,,,vegetarian,false,false,,,
+cauliflower-cheese,Cauliflower Cheese,Sunday Roast: Sharing Sides,,375,,,,,,,,,,,,,,,vegetarian,false,false,,,
+sage-and-onion-stuffing-balls,Sage & Onion Stuffing Balls,Sunday Roast: Sharing Sides,,483,,,,,,,,,,,,,,,contains_pork,false,false,,,
+proper-pigs-in-blankets,Proper Pigs In Blankets,Sunday Roast: Sharing Sides,,381,,,,,,,,,,,,,,,contains_pork,false,false,,,"Also printed in: Christmas Menu, Festive Finger Food"
+gravy,Gravy,Sunday Roast: Extras,,44,,,,,,,,,,,,,,,vegetarian,false,false,,,
+yorkshire-pudding,Yorkshire Pudding,Sunday Roast: Extras,,115,,,,,,,,,,,,,,,vegetarian,false,false,,,
+ng-roast-shropshire-half-chicken,NG Roast Shropshire Half Chicken,Sunday Roast: Non Gluten,,1264,,,,,,,,,,,,,,,,false,false,,,
+ng-roast-rump-of-beef,NG Roast Rump Of Beef,Sunday Roast: Non Gluten,,934,,,,,,,,,,,,,,,contains_beef,false,false,,,
+ng-honey-glazed-pork-belly,NG Honey Glazed Pork Belly,Sunday Roast: Non Gluten,,1649,,,,,,,,,,,,,,,contains_pork,false,false,,,
+ng-roast-trio,NG Roast Trio,Sunday Roast: Non Gluten,,1848,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,
+lamb-kofta,Lamb Kofta,£8.95 Lunch Menu: Lunch Kebabs,,682,,,,,,,,,,,,,,,,false,false,,,
+tumeric-spiced-tofu-8-95-lunch-menu-lunch-kebabs,Tumeric Spiced Tofu,£8.95 Lunch Menu: Lunch Kebabs,,563,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+original-chicken-8-95-lunch-menu-lunch-kebabs,Original Chicken,£8.95 Lunch Menu: Lunch Kebabs,,671,,,,,,,,,,,,,,,,false,false,,,The same name is printed with different calories elsewhere; both are kept
+crispy-panko-halloumi-8-95-lunch-menu-lunch-kebabs,Crispy Panko Halloumi,£8.95 Lunch Menu: Lunch Kebabs,,1017,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+properly-seasoned-fries-8-95-lunch-menu-add-ons,Properly Seasoned Fries,£8.95 Lunch Menu: Add-ons,,293,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+rosemary-sweet-potato-fries-8-95-lunch-menu-add-ons,Rosemary Sweet Potato Fries,£8.95 Lunch Menu: Add-ons,,265,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+houmous-snack-pot,Houmous Snack Pot,Kids Menu: Starter,,223,,,,,,,,,,,,,,,vegetarian,false,false,,,
+fish-fingers,Fish Fingers,Kids Menu: Step 1: Pick a main,,267,,,,,,,,,,,,,,,,false,false,,,
+chicken-tenders,Chicken Tenders,Kids Menu: Step 1: Pick a main,,361,,,,,,,,,,,,,,,,false,false,,,
+falafel-bites,Falafel Bites,Kids Menu: Step 1: Pick a main,,181,,,,,,,,,,,,,,,vegetarian,false,false,,,
+halloumi-bites,Halloumi Bites,Kids Menu: Step 1: Pick a main,,283,,,,,,,,,,,,,,,vegetarian,false,false,,,
+fries,Fries,Kids Menu: Step 2: Pick your first side,,205,,,,,,,,,,,,,,,vegetarian,false,false,,,
+mash,Mash,Kids Menu: Step 2: Pick your first side,,119,,,,,,,,,,,,,,,vegetarian,false,false,,,
+sweet-potato-fries,Sweet Potato Fries,Kids Menu: Step 2: Pick your first side,,226,,,,,,,,,,,,,,,vegetarian,false,false,,,
+couscous,Couscous,Kids Menu: Step 2: Pick your first side,,128,,,,,,,,,,,,,,,vegetarian,false,false,,,
+roasted-veg,Roasted Veg,Kids Menu: Step 2: Pick your first side,,64,,,,,,,,,,,,,,,vegetarian,false,false,,,
+baked-beans,Baked Beans,Kids Menu: Step 3: Pick your second side,,90,,,,,,,,,,,,,,,vegetarian,false,false,,,
+garden-peas,Garden Peas,Kids Menu: Step 3: Pick your second side,,53,,,,,,,,,,,,,,,vegetarian,false,false,,,
+veg-sticks,Veg Sticks,Kids Menu: Step 3: Pick your second side,,13,,,,,,,,,,,,,,,vegetarian,false,false,,,
+kids-fruit-pot,Kids Fruit Pot,Kids Menu: Step 3: Pick your second side,,79,,,,,,,,,,,,,,,vegetarian,false,false,,,
+vanilla-ice-cream,Vanilla Ice Cream,Kids Menu: Add a pud!,,257,,,,,,,,,,,,,,,vegetarian,false,false,,,
+raspberry-ripple-ice-cream,Raspberry Ripple Ice Cream,Kids Menu: Add a pud!,,189,,,,,,,,,,,,,,,vegetarian,false,false,,,
+banana-brownie-sundae,Banana Brownie Sundae,Kids Menu: Add a pud!,,429,,,,,,,,,,,,,,,vegetarian,false,false,,,
+rainbow-fruit-ice-lolly,Rainbow Fruit Ice Lolly,Kids Menu: Add a pud!,,19,,,,,,,,,,,,,,,vegetarian,false,false,,,
+breakfast-butty-with-ketchup,Breakfast Butty with Ketchup,Botanista Brunch: Brunch Dishes,,840,,,,,,,,,,,,,,,contains_pork,false,false,,,
+breakfast-butty-with-hp,Breakfast Butty with HP,Botanista Brunch: Brunch Dishes,,845,,,,,,,,,,,,,,,contains_pork,false,false,,,
+avocado-toast,Avocado Toast,Botanista Brunch: Brunch Dishes,,460,,,,,,,,,,,,,,,vegetarian,false,false,,,
+banoffee-pancake-stack,Banoffee Pancake Stack,Botanista Brunch: Brunch Dishes,,1678,,,,,,,,,,,,,,,vegetarian,false,false,,,
+the-botanist-blt,The Botanist BLT,Botanista Brunch: Brunch Dishes,,1556,,,,,,,,,,,,,,,contains_pork,false,false,,,
+the-botanist-bowl-botanista-brunch-brunch-dishes,The Botanist Bowl,Botanista Brunch: Brunch Dishes,,1056,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+our-famous-chicken-hanging-kebab,Our Famous Chicken Hanging Kebab,Botanista Brunch: Brunch Dishes,,537,,,,,,,,,,,,,,,,false,false,,,
+add-2-poached-eggs,Add 2 Poached Eggs,Botanista Brunch: Brunch Dishes options,,140,,,,,,,,,,,,,,,vegetarian,false,false,,,Choice/add-on printed under Avocado Toast
+add-harissa-halloumi-botanista-brunch-brunch-dishes-options,Add Harissa Halloumi,Botanista Brunch: Brunch Dishes options,,144,,,,,,,,,,,,,,,vegetarian,false,false,,,Choice/add-on printed under Avocado Toast; The same name is printed with different calories elsewhere; both are kept
+add-smoked-streaky-bacon,Add Smoked Streaky Bacon,Botanista Brunch: Brunch Dishes options,,172,,,,,,,,,,,,,,,contains_pork,false,false,,,Choice/add-on printed under Avocado Toast; The page marks none of the 14 allergens and prints no Suitable-for or May-contain line for this item
+add-tumeric-spiced-tofu,Add Tumeric-spiced Tofu,Botanista Brunch: Brunch Dishes options,,167,,,,,,,,,,,,,,,vegetarian,false,false,,,Choice/add-on printed under Avocado Toast
+add-harissa-halloumi-botanista-brunch-brunch-dishes-options-the-botanist-bowl,Add Harissa Halloumi,Botanista Brunch: Brunch Dishes options,,147,,,,,,,,,,,,,,,vegetarian,false,false,,,Choice/add-on printed under The Botanist Bowl; The same name is printed with different calories elsewhere; both are kept
+croissant,Croissant,Botanista Brunch: Pastries,,240,,,,,,,,,,,,,,,vegetarian,false,false,,,
+pain-au-chocolate,Pain Au Chocolate,Botanista Brunch: Pastries,,280,,,,,,,,,,,,,,,vegetarian,false,false,,,
+chicken-schnitzel,Chicken Schnitzel,Group Dining Celebration Menu: The Main Event,,869,,,,,,,,,,,,,,,,false,false,,,
+house-burger,House Burger,Group Dining Celebration Menu: The Main Event,,728,,,,,,,,,,,,,,,contains_beef,false,false,,,
+add-harissa-halloumi-group-dining-celebration-menu-the-main-event-options,Add Harissa Halloumi,Group Dining Celebration Menu: The Main Event options,,207,,,,,,,,,,,,,,,vegetarian,false,false,,,Choice/add-on printed under The Botanist Bowl; The same name is printed with different calories elsewhere; both are kept
+original-chicken-group-dining-celebration-menu-our-famous-hanging-kebabs,Original Chicken,Group Dining Celebration Menu: Our Famous Hanging Kebabs ™,,537,,,,,,,,,,,,,,,,false,false,,,Also printed in: A La Carte; The same name is printed with different calories elsewhere; both are kept
+harissa-lamb-kofta,Harissa Lamb Kofta,Group Dining Celebration Menu: Our Famous Hanging Kebabs ™,,517,,,,,,,,,,,,,,,,false,false,,,Also printed in: A La Carte
+slow-marinated-steak,Slow Marinated Steak,Group Dining Celebration Menu: Our Famous Hanging Kebabs ™,,702,,,,,,,,,,,,,,,contains_beef,false,false,,,
+korean-fried-chicken-gardeners-table-finger-food-mix-and-match,Korean Fried Chicken,Gardener's Table Finger Food: Mix & Match,,993,,,,,,,,,,,,,,,,false,false,,,Also printed in: Festive Finger Food; The same name is printed with different calories elsewhere; both are kept
+spring-arancini-gardeners-table-finger-food-mix-and-match,Spring Arancini,Gardener's Table Finger Food: Mix & Match,,905,,,,,,,,,,,,,,,vegetarian,false,false,,,The same name is printed with different calories elsewhere; both are kept
+chicken-kebab,Chicken Kebab,Gardener's Table Finger Food: Mix & Match,,681,,,,,,,,,,,,,,,,false,false,,,Also printed in: Festive Finger Food
+panko-halloumi-kebab,Panko Halloumi Kebab,Gardener's Table Finger Food: Mix & Match,,1268,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Festive Finger Food
+harissa-lamb-kofta-kebab,Harissa Lamb Kofta Kebab,Gardener's Table Finger Food: Mix & Match,,712,,,,,,,,,,,,,,,,false,false,,,Also printed in: Festive Finger Food
+turmeric-spiced-tofu-kebab,Turmeric Spiced Tofu Kebab,Gardener's Table Finger Food: Mix & Match,,441,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Festive Finger Food
+salt-and-pepper-calamari-gardeners-table-finger-food-mix-and-match,Salt & Pepper Calamari,Gardener's Table Finger Food: Mix & Match,,733,,,,,,,,,,,,,,,,false,false,,,Also printed in: Festive Finger Food; The same name is printed with different calories elsewhere; both are kept
+ham-and-cheese-croquettes-gardeners-table-finger-food-mix-and-match,Ham & Cheese Croquettes,Gardener's Table Finger Food: Mix & Match,,566,,,,,,,,,,,,,,,contains_pork,false,false,,,Also printed in: Festive Finger Food; The same name is printed with different calories elsewhere; both are kept
+chocolate-brownie-gardeners-table-finger-food-boards,Chocolate Brownie,Gardener's Table Finger Food: Boards,,1922,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Festive Finger Food; The same name is printed with different calories elsewhere; both are kept
+mezze-board-gardeners-table-finger-food-boards,Mezze Board,Gardener's Table Finger Food: Boards,,2000,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Festive Finger Food; The same name is printed with different calories elsewhere; both are kept
+properly-seasoned-fries-gardeners-table-finger-food-boards,Properly Seasoned Fries,Gardener's Table Finger Food: Boards,,1569,,,,,,,,,,,,,,,vegetarian,false,false,,,"Also printed in: Festive Finger Food, Midnight Menu; The same name is printed with different calories elsewhere; both are kept"
+sausage-sandwich,Sausage Sandwich,Gardener's Table Finger Food: Sandwiches,,1232,,,,,,,,,,,,,,,contains_pork,false,false,,,"Also printed in: Festive Finger Food, Midnight Menu"
+bacon-sandwich,Bacon Sandwich,Gardener's Table Finger Food: Sandwiches,,995,,,,,,,,,,,,,,,contains_pork,false,false,,,"Also printed in: Festive Finger Food, Midnight Menu"
+tomato-ketchup-dip,Tomato Ketchup Dip,Gardener's Table Finger Food: Condiments,,31,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Festive Finger Food
+hp-dip,HP Dip,Gardener's Table Finger Food: Condiments,,38,,,,,,,,,,,,,,,vegetarian,false,false,,,Also printed in: Festive Finger Food
+margherita,Margherita,Pizza,,545,,,,,,,,,,,,,,,vegetarian,false,false,,,
+vegan-roasted-vegetable,Vegan Roasted Vegetable,Pizza,,594,,,,,,,,,,,,,,,vegetarian,false,false,,,
+goats-cheese-and-pesto,Goats Cheese & Pesto,Pizza,,780,,,,,,,,,,,,,,,vegetarian,false,false,,,
+pepperoni,Pepperoni,Pizza,,671,,,,,,,,,,,,,,,contains_pork,false,false,,,
+ham-and-mushroom,Ham & Mushroom,Pizza,,619,,,,,,,,,,,,,,,contains_pork,false,false,,,
+tomato-ketchup,Tomato Ketchup,Condiments: Sauces,,31,,,,,,,,,,,,,,,vegetarian,false,false,,,
+mayonnaise,Mayonnaise,Condiments: Sauces,,61,,,,,,,,,,,,,,,vegetarian,false,false,,,
+moet-et-chandon-20cl,Moët et Chandon 20CL,Wine & Sparkling: Sparkling & Champagne,,0,,,,,,,,,,,,,,,,false,false,,,
+christmas-sharing-starter,Christmas Sharing Starter,Christmas Menu: Starters,,722,,,,,,,,,,,,,,,,true,false,,,
+non-gluten-houmous-christmas-menu-starters,Non-Gluten Houmous,Christmas Menu: Starters,,415,,,,,,,,,,,,,,,vegetarian,true,false,,,The same name is printed with different calories elsewhere; both are kept
+mushroom-bourguignon-pie,Mushroom Bourguignon Pie,Christmas Menu: Mains,,974,,,,,,,,,,,,,,,vegetarian,true,false,,,
+christmas-dinner-hanging-kebab,Christmas Dinner Hanging Kebab,Christmas Menu: Mains,,1142,,,,,,,,,,,,,,,contains_pork,true,false,,,
+8oz-sirloin-steak,8oz Sirloin Steak,Christmas Menu: Mains,,1346,,,,,,,,,,,,,,,contains_beef,true,false,,,
+pan-fried-salmon-christmas-menu-mains,Pan-Fried Salmon,Christmas Menu: Mains,,1058,,,,,,,,,,,,,,,,true,false,,,The same name is printed with different calories elsewhere; both are kept
+millionaires-brownie,Millionaire's Brownie,Christmas Menu: Puddings,,896,,,,,,,,,,,,,,,vegetarian,true,false,,,
+sticky-toffee-pudding-christmas-menu-puddings,Sticky Toffee Pudding,Christmas Menu: Puddings,,460,,,,,,,,,,,,,,,vegetarian,true,false,,,The same name is printed with different calories elsewhere; both are kept
+vegan-festive-cheesecake,Vegan Festive Cheesecake,Christmas Menu: Puddings,,496,,,,,,,,,,,,,,,vegetarian,true,false,,,
+no-alcohol-butternut-wellington,No Alcohol Butternut Wellington,Christmas Menu: Alcohol Free,,925,,,,,,,,,,,,,,,vegetarian,true,false,,,
+arancini,Arancini,Christmas Nibbles,,1839,,,,,,,,,,,,,,,vegetarian,true,false,,,
+ham-and-cheese-croquettes-christmas-nibbles,Ham & Cheese Croquettes,Christmas Nibbles,,1697,,,,,,,,,,,,,,,contains_pork,true,false,,,The same name is printed with different calories elsewhere; both are kept
+asian-pork-belly-bites-christmas-nibbles,Asian Pork Belly Bites,Christmas Nibbles,,2748,,,,,,,,,,,,,,,contains_pork,true,false,,,The same name is printed with different calories elsewhere; both are kept
+crispy-hoisin-tofu-bites-christmas-nibbles,Crispy Hoisin Tofu Bites,Christmas Nibbles,,2234,,,,,,,,,,,,,,,vegetarian,true,false,,,The same name is printed with different calories elsewhere; both are kept
+butternut-arancini,Butternut Arancini,Festive Finger Food: Mix & Match,,704,,,,,,,,,,,,,,,vegetarian,true,false,,,
