@@ -1,0 +1,5 @@
+item,code,verdict,evidence
+large-chocolate-cream-sponge,size-inverted,ok,"PDF row: weight 305g, KCAL_Per note 'Per 1/6 Slice', 189 kcal per product; 358 kcal/100g x ~52 g slice matches; the Mini (95g, 326 kcal) is a whole cake, different basis"
+large-cream-sponge,size-inverted,ok,"PDF row: weight 315g, KCAL_Per note 'Per 1/6 Slice', 168 kcal per product (323 kcal/100g x ~52 g); Mini Cream Sponge 95g, 296 kcal is a whole cake"
+large-curd-tart,size-inverted,ok,"PDF row: weight 355g, KCAL_Per '1/4 Slice of Tart', 305 kcal = 343 kcal/100g x ~89 g; Small Curd Tart is a whole 93g tart, 324 kcal"
+large-custard-tart,size-inverted,ok,"PDF row: weight 300g, KCAL_Per '1/4 Slice of Tart', 188 kcal = 250 kcal/100g x 75 g; Small Custard Tart is a whole 80g tart, 213 kcal"

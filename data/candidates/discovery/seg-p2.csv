@@ -1,0 +1,80 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,kcal-kitchen,Kcal Kitchen,Healthy cafe restaurant,,https://kcalkitchen.co.uk/,https://kcalkitchen.co.uk/menus,web,kcal and macros per dish in menu names/images (Deliveroo shows them); Glasgow and Leith; site looks stale
+,paesano,Paesano Pizza,Pizza,Di Maggio's Restaurant Group,https://www.paesanopizza.co.uk,https://igfd.menu/glasgow/paesano-pizza-gazt,platform:igfd.menu,per-dish allergen matrix on Ingredifind (JS app); several Glasgow-area sites
+,di-maggios,Di Maggio's,Italian,Di Maggio's Restaurant Group,https://www.dimaggios.co.uk,https://www.dimaggios.co.uk/s/DM-Allergen-Guide-4-november-2022-6s3a.pdf,pdf,a la carte allergen matrix PDF dated Nov 2022 (may be stale); several Glasgow-area sites
+,bread-meats-bread,Bread Meats Bread,Burgers,,https://breadmeatsbread.com/,https://breadmeatsbread.com/wp-content/uploads/JUNE-26-BMB-Allergen-Guide-WEB.pdf,pdf,"allergen matrix PDF June 2026, no calories; Scottish noodle bar sites"
+,jupiter-hotels,Jupiter Hotels,Hotel group,,https://www.jupiterhotels.co.uk/,https://www.jupiterhotels.co.uk/three-course-menu-allergens-information/,web,"HTML allergen tables per menu (e.g. Mercure Edinburgh City, Scott's on Princes Street); operator of several Scottish hotels"
+,scotmid,Scotmid Co-operative,Convenience food to go,,https://scotmid.coop/,https://scotmid.coop/wp-content/uploads/2026/08/FTG-Allergen-Summary-Home-Delivery-V1.9-0826.pdf,pdf,"food-to-go allergen summary PDF, no calories; about 300 Scottish stores"
+,ichiban,Ichiban,Japanese noodle bar,,https://ichiban.co.uk/,https://ichiban.co.uk/s/ICHIBAN_allergenidentification_a4_2022_Marchpdf.pdf,pdf,allergen table by menu item PDF dated March 2022 (old); Glasgow and Edinburgh sites
+,howies,Howies,Scottish restaurant,,https://www.howies.uk.com,https://www.howies.uk.com/information/allergens/,web,statement only: allergens are marked on each dish of the menu; several Edinburgh sites
+,scotsman-group,Scotsman Group (G1 Group),Hospitality group,,https://scotsman.group,https://scotsman.group/allergens/,web,"allergen statement page only; 50+ bars, restaurants and hotels in Scotland"
+,stonegate-group,Stonegate Group,Pub group,,https://www.stonegategroup.co.uk,https://www.stonegategroup.co.uk/food-allergens/,web,group allergen statement and links to brand sites; thousands of pubs incl. many in Scotland (Craft Union already known)
+,aberdeen-airport,Aberdeen International Airport,Airport dining,AGS Airports,https://www.aberdeenairport.com,https://www.aberdeenairport.com/shopping-and-eating/restaurants-and-bars/dietary-menus/,platform:restaurantallergens,"dietary menus per outlet on restaurantallergens.com; one airport, about 8 outlets"
+,national-trust-for-scotland,National Trust for Scotland,Visitor attractions with cafes,,https://www.nts.org.uk,,none,site blocked
+,national-museums-scotland,National Museums Scotland,Museum cafes,,https://www.nms.ac.uk,,none,site blocked; 5 museums with cafes
+,national-galleries-scotland,National Galleries of Scotland,Gallery cafes,,https://www.nationalgalleries.org,,none,site blocked; 3 sites with cafes
+,kitchin-group,Kitchin Group,Restaurant group,,https://www.thekitchin.com,,none,site blocked; several Edinburgh restaurants
+,mussel-inn,Mussel Inn,Seafood,,https://www.mussel-inn.com,,none,site blocked; Edinburgh and Glasgow sites
+,cream-o-galloway,Cream o' Galloway,Ice cream visitor centre,,https://www.creamogalloway.co.uk,,none,site blocked
+,glasgow-airport,Glasgow Airport,Airport dining,AGS Airports,https://www.glasgowairport.com,,none,"site blocked; one airport, many outlets"
+,nevis-range,Nevis Range,Mountain resort restaurants,,https://www.nevisrange.co.uk,,none,site blocked
+,dynamic-earth,Dynamic Earth,Visitor attraction cafe,,https://www.dynamicearth.co.uk,,none,site blocked; single site
+,aizle-hospitality,Aizle Hospitality Group,Restaurant group,,https://www.aizle.co.uk,,none,robots.txt disallows the home page; Edinburgh restaurant group
+,big-mannys-pizza,Big Manny's Pizza,Pizza takeaway,,https://bigmannys.com,,none,"robots.txt disallows the home page; Aberdeen-based, franchised"
+,falko-konditormeister,Falko Konditormeister,Bakery cafe,,https://falko.co.uk,,none,robots.txt disallows the home page; Edinburgh bakery cafes
+,brew-lab,Brew Lab,Coffee shop,,https://www.brewlabcoffee.co.uk,,none,robots.txt disallows the home page; Edinburgh cafes
+,kember-and-jones,Kember & Jones,Cafe and deli,,https://kemberandjones.co.uk,,none,site unreachable (HTTP 523); Glasgow cafes
+,jg-ross,J.G. Ross (Bakers),Bakery,,https://www.jg-ross.co.uk/,,none,about 20 bakery shops Aberdeenshire/Moray; no allergen/nutrition page seen
+,aulds-the-bakers,Aulds the Bakers,Bakery,,https://www.aulds.co.uk,,none,Edinburgh and Lothians bakery shops; no allergen page seen
+,goodfellow-and-steven,Goodfellow & Steven,Bakery,,https://www.goodfellowandsteven.co.uk,,none,Dundee/Angus bakery shops; no allergen page seen
+,luvians,Luvians Ice Cream,Ice cream,,https://www.luvians.com,,none,Fife ice cream parlours; none seen
+,mackies-of-scotland,Mackie's of Scotland,Ice cream and crisps visitor centre,,https://www.mackies.co.uk,,none,farm visitor centre with cafe; none seen
+,vittoria-group,Vittoria Group,Italian,,https://vittoria.co.uk/,,none,Edinburgh Italian restaurant group; none seen
+,signature-pubs,Signature Group,"Pubs, hotels and restaurants",,https://signaturepubs.co.uk/,,none,"Edinburgh-based, about 20 venues across Scotland; none seen"
+,amber-taverns,Amber Taverns,Community pubs,,https://ambertaverns.co.uk/,,none,pub company with Scottish estate; no allergen link on home page
+,ashoka-restaurants,Ashoka Restaurants,Indian,,https://ashokarestaurants.com,,none,Glasgow Indian restaurant group; none seen
+,civerinos,Civerinos,Pizza,,https://civerinos.co.uk/,,none,"Edinburgh pizza, several sites; none seen"
+,contini,Contini,Italian and Scottish,,https://www.contini.com,,none,Edinburgh restaurant group; none seen
+,dakota-hotels,Dakota Hotels,Hotels with grill restaurants,,https://dakotahotels.co.uk/,,none,"boutique hotels in Edinburgh, Glasgow, Forth Bridge and elsewhere; none seen"
+,crerar-hotels,Crerar Hotels,Hotels and inns,,https://www.crerarhotels.com,,none,around 15 Scottish hotels; menu PDFs use dietary codes only
+,highland-coast-hotels,Highland Coast Hotels,Hotels,,https://www.highlandcoasthotels.com/,,none,Highlands hotel group; none seen
+,fortitude-coffee,Fortitude Coffee,Coffee shop,,https://www.fortitudecoffee.com,,none,Edinburgh cafes; none seen
+,hula-juice-bar,Hula Juice Bar,Brunch cafe,,https://www.hula.co.uk/,,none,Edinburgh cafes; none seen
+,cairngorm-coffee,Cairngorm Coffee,Coffee shop,,https://cairngorm.coffee/en-us,,none,Edinburgh cafes; none seen
+,eteaket,Eteaket,Tea rooms,,https://www.eteaket.co.uk/,,none,Edinburgh tea shops; none seen
+,loudons-cafe,Loudons,Cafe,,https://www.loudons.co.uk,,none,Edinburgh cafe group; none seen
+,valvona-and-crolla,Valvona & Crolla,Italian deli and cafe,,https://www.valvonacrolla.co.uk,,none,Edinburgh well-known deli cafe; none seen
+,bar-soba,Bar Soba,Pan-Asian bar,,https://barsoba.co.uk/,,none,Glasgow/Edinburgh; none seen
+,glasgow-life,Glasgow Life,Museum and venue cafes,,https://www.glasgowlife.org.uk,,none,cafes at Kelvingrove and other venues; menu PDFs have no kcal or allergen table
+,royal-botanic-garden-edinburgh,Royal Botanic Garden Edinburgh,Garden cafes,,https://www.rbge.org.uk,,none,cafes at 4 gardens; none seen
+,glasgow-science-centre,Glasgow Science Centre,Visitor attraction cafe,,https://www.glasgowsciencecentre.org,,none,single site; none seen
+,v-and-a-dundee,V&A Dundee,Museum cafe,,https://www.vam.ac.uk/dundee,,none,single site; none seen
+,scottish-seabird-centre,Scottish Seabird Centre,Visitor attraction cafe,,https://www.seabird.org,,none,single site; none seen
+,blair-drummond-safari-park,Blair Drummond Safari Park,Safari park food outlets,,https://blairdrummond.com/,,none,single site; none seen
+,deep-sea-world,Deep Sea World,Aquarium cafe,,https://www.deepseaworld.com,,none,single site; none seen
+,loch-lomond-shores,Loch Lomond Shores,Visitor centre restaurants,,https://lochlomondshores.com/,,none,single site with several outlets; none seen
+,cairngorm-mountain,Cairngorm Mountain,Mountain restaurants,,https://www.cairngormmountain.co.uk,,none,single site; none seen
+,glencoe-mountain,Glencoe Mountain Resort,Mountain cafe,,https://www.glencoemountain.co.uk/,,none,single site; none seen
+,landmark-forest-adventure-park,Landmark Forest Adventure Park,Family attraction cafe,,https://www.landmarkpark.co.uk,,none,single site; none seen
+,jacobite-cruises,Jacobite Cruises,Cruise catering,,https://www.jacobite.co.uk,,none,Loch Ness cruises and trains; none seen
+,scotch-whisky-experience,The Scotch Whisky Experience,Whisky attraction restaurant,,https://www.scotchwhiskyexperience.co.uk,,none,single site; none seen
+,diageo-scotland-visitor-centres,Diageo Scotland visitor centres (Malts.com),Distillery visitor centres,Diageo,https://www.malts.com/en,,none,about 12 distillery visitor centres with cafes and Johnnie Walker Princes Street; none seen
+,the-glenturret,The Glenturret Distillery,Distillery restaurant,,https://theglenturret.com,,none,"single site with restaurant; its 'nutritional information' PDFs are for whisky bottles, not food"
+,baxters-highland-village,Baxters Highland Village,Visitor centre restaurant,,https://www.baxters.com,,none,single site; none seen
+,speyside-cooperage,Speyside Cooperage,Visitor attraction cafe,,https://speysidecooperage.co.uk/,,none,single site; none seen
+,kilchoman,Kilchoman Distillery,Distillery cafe,,https://www.kilchomandistillery.com,,none,single site with cafe; none seen
+,bruichladdich,Bruichladdich Distillery,Distillery visitor centre,,https://www.bruichladdich.com,,none,single site; none seen
+,arran-distillery,Isle of Arran Distillers,Distillery cafes,,https://www.arranwhisky.com,,none,distillery with cafe; none seen
+,real-mary-kings-close,The Real Mary King's Close,Visitor attraction,,https://www.realmarykingsclose.com,,none,single site; none seen
+,camera-obscura,Camera Obscura and World of Illusions,Visitor attraction cafe,,https://www.camera-obscura.co.uk,,none,single site; none seen
+,the-helix-and-kelpies,The Helix and Kelpies,Park cafe,,https://www.thehelix.co.uk,,none,single site; none seen
+,balmoral-castle,Balmoral Castle,Estate cafes,,https://balmoralcastle.com/,,none,single estate; none seen
+,dunrobin-castle,Dunrobin Castle,Castle cafe,,https://www.dunrobincastle.co.uk,,none,single site; none seen
+,hopetoun-house,Hopetoun House,Stately home tearoom,,https://hopetoun.co.uk/,,none,single site; none seen
+,inveraray-castle,Inveraray Castle,Castle tearoom,,https://www.inveraray-castle.com,,none,single site; none seen
+,edinburgh-airport,Edinburgh Airport,Airport dining,,https://www.edinburghairport.com,,none,"one airport, many outlets; no allergen page found from home page"
+,glasgow-prestwick-airport,Glasgow Prestwick Airport,Airport dining,,https://www.glasgowprestwick.com,,none,one airport; none seen
+,hial-airports,Highlands and Islands Airports,Airport cafes,,https://www.hial.co.uk,,none,11 airports with cafes; none seen
+,pentland-ferries,Pentland Ferries,Ferry catering,,https://pentlandferries.co.uk,,none,Orkney ferry cafe; none seen
+,western-ferries,Western Ferries,Ferry catering,,https://www.western-ferries.co.uk,,none,Clyde ferries; none seen
+,orkney-ferries,Orkney Ferries,Ferry catering,,https://www.orkneyferries.co.uk,,none,inter-island ferries; none seen

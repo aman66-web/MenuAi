@@ -103,7 +103,22 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
             notes.append(ODD[it["name"]])
         it["notes"] = "; ".join(notes)
         report += [f"{it['name']}: {n}" for n in notes]
-    return kept, [], report
+    # Independent accuracy check (8 Oct 2026): the page prints Energy (kJ) and Energy (kCal) side by side, and for 18 dishes they
+    # disagree by more than 7% (kcal x 4.184 against kJ), in both directions (the sushi rolls' kcal sits about 10% above their kJ and
+    # their own protein, carbs and fat; the teriyaki, noodle and rice dishes' kJ sits about 10% above their kcal and macros). The page's
+    # own figures contradict each other, so none of them can be trusted: the dish is held back and nothing is chosen or corrected.
+    # Same gate as tools/audit/accuracy_audit.py (ratio outside 0.93-1.07 for items of 20 kcal or more).
+    holds: list[tuple[str, str]] = []
+    for it in kept:
+        try:
+            kcal, kj = float(it["calories"]), float(str(it.get("energy_kj", "")).replace(",", ""))
+        except (TypeError, ValueError):
+            continue
+        if kcal >= 20 and not 0.93 <= kj / (kcal * 4.184) <= 1.07:
+            holds.append((slug(it["name"]), f"The page prints {kj:g} kJ and {kcal:g} kcal for this dish, which disagree "
+                                            f"({kcal:g} kcal is about {kcal * 4.184:.0f} kJ), so its energy cannot be trusted."))
+    report += [f"held back (kJ and kcal disagree by more than 7%): {i}" for i, _ in holds]
+    return kept, holds, report
 
 
 def main() -> int:

@@ -1,0 +1,13 @@
+{
+ "chain": "loungers",
+ "date": "2026-10-08",
+ "source_read": "https://menus.tenkites.com/loungers/lounges09 (8 menu pages re-downloaded 2026-10-08)",
+ "compared_items": 397,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 11,
+ "not_verifiable": "",
+ "notes": "All 397 items matched 461 independently parsed dishes (calories from popover, side figure and JSON-LD; contains/may/cereals/nuts; vegetarian marks). Calories-only chain; the page hides calories behind a visible switch (earlier decision, in note.txt). One cosmetic difference: the script corrects the page's 'WTH' typo to 'WITH' in one name."
+}

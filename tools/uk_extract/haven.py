@@ -46,7 +46,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import haven_pages as hp  # noqa: E402
 import tenkites_c as tc  # noqa: E402
-from common import write_chain_folder  # noqa: E402
+from common import slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "haven"
 SOURCE_URL = "https://viewthe.menu/1afv"
@@ -128,6 +128,13 @@ AMBIGUOUS = {
 }
 # Printed figures that look odd; entered exactly as printed (nothing is corrected) and reported.
 ANOMALIES = {("breezer watermelon 275ml", "534"): "534 kcal for a 275 ml bottle is high next to the other bottles on the menu"}
+# Accuracy audit 2026-10-08 (independent re-read of the 19 menus: every published calorie figure and allergen line matched the page).
+# Held back, never corrected: the guide's own allergen row contradicts the dish's name or its own diet label. Restoring one is deleting its line.
+AUDIT_HOLD = {
+    "kids-penne-pomodoro-vegan": "allergen row contradicts the dish name: named Vegan, but the guide marks Eggs (contains) and gives it the Vegetarian label only",
+    "vegan-nuggets-fries-and-beans-ve": "allergen row contradicts the dish name: named (VE), but the guide marks Eggs (contains) and gives it the Vegetarian label only",
+    "carrot-and-walnut-cake": "allergen row contradicts the dish name: a carrot cake with no cereal (gluten) marked, no gluten-free label, and a second row 'gluten free option available' with identical allergens",
+}
 KEEP_UPPER = {"BBQ", "NGCI", "PET", "RTD", "V", "VE", "UK", "TV", "KFC"}
 
 
@@ -334,7 +341,8 @@ def main() -> None:
     guide = {"title": ALLERGEN_GUIDE_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": MAY_CONTAIN_PUBLISHED}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Haven", cuisine="Holiday park restaurant", source_title=SOURCE_TITLE.format(checked=args.checked_on),
                              source_url=SOURCE_URL, checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE,
-                             allergen_guide=guide, nutrition_level="calories")
+                             allergen_guide=guide, nutrition_level="calories",
+                             holdback=[(i, why) for i, why in AUDIT_HOLD.items() if i in {slug(x["name"]) for x in items}])
     print(f"rows read: {sum(len(m['rows']) for m in menus.values())}; items published: {len(items)} (limited time {sum(1 for i in items if i['limited_time'])})")
     for reason, n in sorted(left.items()):
         print(f"  left out ({n}): {reason}")

@@ -1,0 +1,20 @@
+item,code,verdict,evidence
+cajun-mayo,name-implies-eggs,ok,guide row 'Cajun mayo' (Sunday menu): labelled Vegan and Vegetarian; Contains: Mustard - a vegan mayo carries no egg
+chilli-lime-mayo,name-implies-eggs,ok,guide row (Main menu): labelled Vegan and Vegetarian; no allergens listed - vegan mayo
+garlic-mayo,name-implies-eggs,ok,guide row (Main menu): labelled Vegan and Vegetarian; Contains: Mustard - vegan mayo
+gordons-lemon-meringue-gin-25ml,name-implies-eggs,ok,"guide row (Master Drinks): labelled Vegan; a gin flavour name, no egg"
+mayonnaise,name-implies-eggs,ok,guide row 'Mayonnaise' (Dark Kitchen): labelled Vegan and Vegetarian; no allergens listed
+mint-mayo-ve,name-implies-eggs,ok,guide row 'Mint Mayo (VE)' (Dark Kitchen): labelled Vegan and Vegetarian; no allergens listed
+tuna-mayo-jacket,name-implies-eggs,ok,"guide row (Main menu, Lite Bites): Contains Fish, Mustard, Sulphites; the guide's own mayonnaise rows are all labelled Vegan with no egg, so an egg-free mayo is the chain's data"
+blackcurrant-crumble-v-ngci,name-implies-gluten,ok,"guide row names itself (NGCI); Contains: Milk, Gluten Free Oats label (gluten-free crumble)"
+blackcurrant-crumble-with-plant-based-vanilla-ice-cream-ve-ngci,name-implies-gluten,ok,guide row names itself (VE) (NGCI); Contains: Gluten Free Oats label
+brownie,name-implies-gluten,ok,"guide row (Cakery): Contains: Eggs, Milk, Soya, 'Gluten Free Oats', 'Gluten Free Barley' - the guide's own labels mark the brownie gluten-free"
+mushroom-bourguignon-pie-vegan,name-implies-gluten,ok,"guide row (Sunday menu): labelled Vegan; Contains: Sulphites, 'Gluten Free Barley' label - the guide's own label marks the pie gluten-free"
+penne-pomodoro-ngci-menu,name-implies-gluten,ok,guide row on the NGCI menu: 'Gluten-free penne pasta in a tomato & basil sauce'
+pepperoni-pizza-fries,name-implies-gluten,ok,"guide row (Night menu): 'pepperoni pizza topped fries'; Contains: Milk - fries, not a pizza base"
+spicy-cajun-chicken-pasta-ngci-menu,name-implies-gluten,ok,guide row on the NGCI menu: gluten-free penne
+ultimate-brownie,name-implies-gluten,ok,"guide row (Cake counter): Contains includes 'Gluten Free Oats', 'Gluten Free Barley' - the guide's own labels mark the brownie gluten-free"
+vegan-crumble-slice,name-implies-gluten,ok,guide row (Cake counter): labelled Vegan; Contains 'Gluten Free Oats' label - gluten-free crumble
+worthingtons-creamflow-pint,name-implies-milk,ok,guide row (Drinks): Worthington's Creamflow is a beer brand; cream in the name is not an ingredient
+worthingtons-creamflow-shandy-pint,name-implies-milk,ok,guide row (Drinks): Worthington's Creamflow is a beer brand
+worthingtons-creamflow-top-pint,name-implies-milk,ok,guide row (Drinks): Worthington's Creamflow is a beer brand

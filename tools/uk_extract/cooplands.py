@@ -43,7 +43,7 @@ SOURCE_TITLE = "Cooplands 2026 March Allergen and Nutrition Information (PDF cre
 ALIASES = ["cooplands", "cooplands bakery"]
 ALLERGEN_GUIDE_TITLE = "Cooplands 2026 March Allergen and Nutrition Information (PDF created 19 March 2026): Contains and May Contain columns"
 NOTE = ("Per product from Cooplands' March 2026 guide, the latest on its website: its seasonal (Easter) lines may no longer be sold. "
-        "Bread, rolls and a few multipack rows aren't listed, and five items whose printed numbers contradict each other are held back.")
+        "Bread, rolls and a few multipack rows aren't listed, and eight items whose printed numbers or allergens contradict themselves are held back.")
 
 PORK, BEEF, VEG = "contains_pork", "contains_beef", "vegetarian"
 SAND, SAV, PIZ, SAL = "Sandwiches", "Savouries", "Pizzas", "Salads"
@@ -252,6 +252,13 @@ HOLDBACK = {
     "STEAK & ALE PIE": "The guide prints {kcal} kcal per pie but {kj} kJ (about {kjkcal:.0f} kcal), and its own macros add up to about {macro:.0f} kcal.",
     "SUPER SAUSAGE ROLL": "The guide prints {kcal} kcal per roll but {kj} kJ (about {kjkcal:.0f} kcal), and its own macros add up to about {macro:.0f} kcal.",
     "YUM YUM": "The guide prints {kcal} kcal but {kj} kJ (about {kjkcal:.0f} kcal), and its own macros add up to about {macro:.0f} kcal.",
+    # Added after the independent re-read of 2026-10-08:
+    "GINGERBREAD": ("The guide prints {fat100} g of fat, {carbs100} g of carbohydrate and {protein100} g of protein per 100 g, which add up to "
+                    "more than 100 g, and {fat} g + {carbs} g + {protein} g per 45 g product, which outweighs the product."),
+    "FUN GINGERBREAD BISCUIT": ("The guide prints {fat100} g of fat, {carbs100} g of carbohydrate and {protein100} g of protein per 100 g, which "
+                                "add up to more than 100 g, and {fat} g + {carbs} g + {protein} g per 45 g product, which outweighs the product."),
+    "ALMOND TART": ("The guide marks no nuts (not even may contain) for a tart named for almonds (the Bakewell Slice marks nuts): "
+                    "allergen row contradicts the dish name."),
 }
 EXPLAINED_FLAGS = {"Easter Cornflake Nest"}  # kJ typo; explained in the entry's note, and its kJ is not published (below)
 # Printed kJ per product left blank (never corrected): the number is impossible next to the row's own kJ per 100 g and kcal.
@@ -408,6 +415,8 @@ def main() -> int:
             problems.append(f"kcal {row['kcal']} vs kJ {row['kj']} (about {kjkcal:.0f} kcal)")
         if abs(macro - num(row, "kcal")) > 0.08 * num(row, "kcal"):
             problems.append(f"kcal {row['kcal']} vs macros about {macro:.0f} kcal")
+        if num(row, "fat100") + num(row, "carbs100") + num(row, "protein100") > 100.5:
+            problems.append("fat + carbohydrate + protein per 100 g add up to more than 100 g")
         if num(row, "sat") > num(row, "fat"):
             problems.append("saturates exceed fat")
         if num(row, "sugars") > num(row, "carbs"):

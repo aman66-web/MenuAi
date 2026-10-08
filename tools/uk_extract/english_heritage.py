@@ -11,7 +11,7 @@ list and a wide table); both renderings are parsed with different code and must 
 --fetch downloads the list pages and every menu once into --cache (browser User-Agent, one request per second); without it the
 script reads --cache only. All 36 menus are read.
 
---products DIR (with --fetch it downloads the missing pages, 503 requests at one per second, about 20 minutes) adds a third, independent
+--products DIR (with --fetch it downloads the missing pages, about 500 requests at one per second, about 10-20 minutes) adds a third, independent
 check: every published dish's own product page (/Products/<id>) is read with different code and must repeat the menu's kcal, kJ, fat,
 saturates, sugars, salt and allergen words exactly; the page's per-100 g column must agree with the per-portion figures (implied portion
 weight from calories, fat and salt within a factor of 2 and under 1.5 kg), and a portion label that is a gram weight ("Each 283g
@@ -84,10 +84,12 @@ CUISINE = "Cafe"
 PUBLISH_FAT = False  # DATA.md: fat stays blank for a calories-only chain; the printed value goes in the notes column
 
 EXPECTED_MENUS = 36
-EXPECTED_DISH_ROWS = 2364        # dish blocks over all 36 menus (a dish is listed once per menu and course)
-EXPECTED_DISHES = 531            # distinct dishes (names compared as above)
+# The portal is edited live: between two reads on 2026-10-08 (morning, afternoon) 19 of the 36 menus changed (soups, baguettes and
+# toasties re-costed, some dishes swapped); the counts below are those of the afternoon read, independently re-checked.
+EXPECTED_DISH_ROWS = 2351        # dish blocks over all 36 menus (a dish is listed once per menu and course)
+EXPECTED_DISHES = 526            # distinct dishes (names compared as above)
 EXPECTED_CONFLICTS = 28          # dishes whose figures differ between menus: left out
-EXPECTED_PUBLISHED = 503         # items in items.csv (of which HOLDBACK are not published)
+EXPECTED_PUBLISHED = 498         # items in items.csv (of which HOLDBACK are not published)
 
 NOTE = ("Read from all 36 site menus of English Heritage's food portal. Menus differ by site, so a dish is listed only if its figures and "
         "allergens are identical on every menu that prints it (28 differing dishes left out); it may not be sold at every site. Calories "

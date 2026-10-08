@@ -1,0 +1,12 @@
+item,code,verdict,evidence
+gf-and-vegan-goan-spiced-parsnip-soup-made-with-gluten-free-oats,free-from-gluten-contains,ok,"Christmas menu 'GF & VEGAN GOAN SPICED PARSNIP SOUP (Made with Gluten Free Oats)': Contains lists Cereals with Gluten (Oats) among other allergens; the page prints both the GF name and the oat cereal, we show the allergen"
+gf-cauliflower-shawarma-made-with-gluten-free-oats,free-from-gluten-contains,ok,"Christmas menu 'GF CAULIFLOWER SHAWARMA (Made with Gluten Free Oats)': Contains Cereals with Gluten (Oats), Mustard, Sesame, Soya; the page prints both, we show the allergen"
+gf-goan-spiced-parsnip-soup-made-with-gluten-free-oats,free-from-gluten-contains,ok,"Christmas menu 'GF GOAN SPICED PARSNIP SOUP (Made with Gluten Free Oats)': Contains Cereals with Gluten (Oats) among others; the page prints both, we show the allergen"
+apple-and-blackberry-crumble,name-implies-gluten,ok,Standard menu Puds 'APPLE & BLACKBERRY CRUMBLE' 440 kcal: Contains: Milk; the chain's Gluten Free menu prints 'GF APPLE & BLACKBERRY CRUMBLE' with the same 440 kcal and the same marks (the standard dish is itself gluten free)
+ef-apple-and-blackberry-crumble,name-implies-gluten,ok,Egg Free menu 'EF APPLE & BLACKBERRY CRUMBLE' 454 kcal: Contains: Milk; same crumble family as the Gluten Free menu's 'GF' version with the same marks
+mf-apple-and-blackberry-crumble,name-implies-gluten,ok,Milk Free menu 'MF APPLE & BLACKBERRY CRUMBLE' 368 kcal: Contains: none printed; same marks as the Vegan menu's crumble (no gluten printed in any menu's crumble)
+mulled-apple-and-blackberry-crumble,name-implies-gluten,ok,"Christmas menu 'MULLED APPLE & BLACKBERRY CRUMBLE' 466 kcal: Contains: Milk, as the standard and GF-menu crumbles"
+vegan-apple-and-blackberry-crumble,name-implies-gluten,ok,"Vegan menu 'VEGAN APPLE & BLACKBERRY CRUMBLE' 368 kcal: Contains: none printed, as the Milk Free menu crumble"
+vegan-mulled-apple-and-blackberry-crumble,name-implies-gluten,ok,Christmas menu 'VEGAN MULLED APPLE & BLACKBERRY CRUMBLE' 351 kcal: Contains: none printed
+warm-chocolate-brownie-kids-puddings,name-implies-gluten,ok,"Kids menu 'WARM CHOCOLATE BROWNIE' 340 kcal: Contains Eggs, Milk, Soya; the Gluten Free menu lists the same brownie as 'GF WARM CHOCOLATE BROWNIE' with identical marks"
+warm-chocolate-brownie-puds,name-implies-gluten,ok,"Standard menu Puds 'WARM CHOCOLATE BROWNIE' 572 kcal: Contains Eggs, Milk, Soya; the Gluten Free menu's 'GF WARM CHOCOLATE BROWNIE' has the identical 572 kcal and marks (the standard dish is itself gluten free)"

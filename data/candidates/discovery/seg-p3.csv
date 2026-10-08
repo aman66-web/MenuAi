@@ -1,0 +1,23 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,mauds-ice-cream,Maud's Ice Cream,ice cream parlours,,https://www.mauds.com,https://www.mauds.com/s/Allergen_Information.pdf,pdf,"allergen guide by flavour (no nutrition); Northern Ireland ice cream parlour chain, about a dozen parlours (count unverified)"
+,dylans-restaurant,Dylan's Restaurant,brasserie / pizza / seafood,,https://dylansrestaurant.co.uk,https://dylansrestaurant.co.uk/restaurant/menus,pdf,"menu PDFs carry dietary/allergen codes only, no kcal; 5 North Wales restaurants (Barmouth, Menai Bridge, Criccieth, Llandudno, Conwy)"
+,little-wing-pizzeria,Little Wing Pizzeria,pizza,Beannchor Group,https://www.littlewingpizzeria.com,https://www.littlewingpizzeria.com/menu,web,"menu page with allergen codes (N, NG, V, VE), no nutrition; 12 Northern Ireland restaurants per 2026 press"
+,jprestaurants,JPRestaurants,restaurants / cafe,Channel Island Hospitality,https://jprestaurants.com,https://jprestaurants.com/food-allergy-approach-allergen-menus,web,"allergen menu PDF per venue, 14 allergens ticked, no nutrition; Jersey: Beresford House, Jersey Crab Shack, Oyster Box, Cafe Ube (Crown Dependency, not UK)"
+,celtic-manor,Celtic Manor Resort,hotel restaurants,,https://www.celtic-manor.com,https://www.celtic-manor.com/home/dining/menus-afternoon-tea/,pdf,"menu PDFs with allergen letter codes, no kcal; single Newport resort with several restaurants (well-known brand, not a multi-site chain)"
+,handpicked-hotels,Handpicked Hotels,hotel restaurants,,https://www.handpickedhotels.co.uk,,none,site blocked (HTTP 403); hotel group incl. Grand Jersey and St Pierre Park Guernsey; its menu PDFs seen in search results print kcal per dish (e.g. Terrace Bar menus)
+,jenkins-bakery,Jenkins Bakery,bakery,David Jenkins Ltd,https://www.jenkinsbakery.co.uk,,none,Llanelli bakery with about 28 shops per trade press; no allergen or nutrition page on home page or common paths
+,pettigrew-bakeries,Pettigrew Bakeries,bakery / cafe,,https://www.pettigrew-bakeries.co.uk,,none,"Cardiff craft bakery, 5 shops per Business News Wales; no allergen or nutrition page found"
+,okells,Okell's Brewery and Inns,pubs,Heron & Brearley,https://okells.co.uk,,none,"Isle of Man pub estate, about 35 pubs per Isle of Man Today; no allergen or nutrition page found"
+,hastings-hotels,Hastings Hotels,hotel restaurants,,https://www.hastingshotels.com,,none,"6 Northern Ireland hotels (Culloden, Europa, Everglades, Stormont, Grand Central, Ballygally); restaurants page has no allergen or nutrition link"
+,beannchor,Beannchor Group,pubs / restaurants / hotels,,https://www.beannchor.com,,none,"Belfast group (Little Wing x12, Bullitt hotels, pubs); group site has no food information"
+,balloo-inns,Balloo Inns,pubs / restaurants,,https://www.balloo.co.uk,,none,North Down (NI) pub-restaurant group per Irish News (site count unverified); home page is a stub
+,clements-coffee,Clements Coffee,coffee,,https://clementscoffee.com,,none,Belfast coffee shops (4+ locations listed); menu page has no allergen or nutrition information
+,kaffe-o,Kaffe O,coffee,,https://kaffeo.coffee,,none,six Belfast cafes per its own site; menu PDFs have only a generic allergen disclaimer
+,national-museums-ni,National Museums NI,museum cafes,,https://www.nationalmuseumsni.org,,none,"Ulster Museum, Folk and Transport Museum, American Folk Park etc.; no cafe food information found"
+,amgueddfa-cymru,Amgueddfa Cymru - Museum Wales,museum cafes,,https://museum.wales,,none,7 national museums with cafes; no cafe food information found
+,randalls-guernsey,Randalls,pubs / hospitality,Channel Island Hospitality,https://www.randalls.gg,,none,Guernsey brewer and pub group (Crown Dependency); no allergen or nutrition page found
+,davisons-ice-cream,Davison's Ice Cream,ice cream parlours,,http://www.davisonsicecream.com,,none,"Isle of Man parlours in Douglas, Ramsey, Peel per manx.life directory; site root is an empty directory listing"
+,deanes-group,Deanes,restaurants,,https://www.deanesgroup.com,,none,site blocked (HTTP 403); Belfast fine-dining/casual restaurant group (site count unverified)
+,applegreen,Applegreen,forecourt food-to-go,,https://www.applegreen.com,,none,site blocked (HTTP 429); Irish forecourt and deli chain with Northern Ireland sites (UK count unverified)
+,joes-ice-cream,Joe's Ice Cream,ice cream parlours,,https://www.joesicecream.co.uk,,none,"Swansea family parlours (about 5 in South Wales per press); site refused by this environment's proxy, domain unverified"
+,fish-city,Fish City,fish and chips,,https://www.fishcity.co.uk,,none,"Belfast fish and chip shops (count unverified); site refused by this environment's proxy, domain unverified"
