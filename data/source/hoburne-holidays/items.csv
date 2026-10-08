@@ -1,0 +1,202 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+the-big-breakfast-with-fried-eggs,The Big Breakfast with Fried Eggs,Breakfast,,1535,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+the-big-breakfast-with-scrambled-eggs,The Big Breakfast with Scrambled Eggs,Breakfast,,1632,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+the-big-breakfast-with-poached-eggs,The Big Breakfast with Poached Eggs,Breakfast,,1515,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+classic-hoburne-breakfast-with-fried-egg,Classic Hoburne Breakfast with Fried Egg,Breakfast,,986,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+classic-hoburne-breakfast-with-scrambled-egg,Classic Hoburne Breakfast with Scrambled Egg,Breakfast,,1097,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+classic-hoburne-breakfast-with-poached-egg,Classic Hoburne Breakfast with Poached Egg,Breakfast,,966,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+vegetarian-breakfast-with-fried-eggs,Vegetarian Breakfast with Fried Eggs,Breakfast,,725,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+vegetarian-breakfast-with-scrambled-eggs,Vegetarian Breakfast with Scrambled Eggs,Breakfast,,822,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+vegetarian-breakfast-with-poached-eggs,Vegetarian Breakfast with Poached Eggs,Breakfast,,705,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+vegan-breakfast,Vegan Breakfast,Breakfast,,584,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+brioche-french-toast-with-grilled-bacon,Brioche French Toast with Grilled Bacon,Breakfast,,615,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+brioche-french-toast-with-red-berry-compote-and-greek-style-yoghurt,Brioche French Toast with Red Berry Compote & Greek Style Yoghurt,Breakfast,,459,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+yoghurt-granola-and-berries,"Yoghurt, Granola & Berries",Breakfast,,480,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+homemade-bubble-and-squeak,Homemade Bubble & Squeak,Breakfast,,640,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+eggs-and-avocado,Eggs & Avocado,Breakfast,,601,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+the-bays-full-english,The Bay’s Full English,Breakfast,,1003,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: The Bay
+the-veggie-breakfast,The Veggie Breakfast,Breakfast,,754,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+the-vegan-breakfast,The Vegan Breakfast,Breakfast,,613,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+back-bacon-rashers-breakfast-roll,Back Bacon Rashers Breakfast Roll,Breakfast Rolls & Toast,,644,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast, The Bay"
+butchers-sausages-breakfast-roll,Butcher’s Sausages Breakfast Roll,Breakfast Rolls & Toast,,902,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast, The Bay"
+vegan-quorn-sausages-breakfast-roll,Vegan Quorn Sausages Breakfast Roll,Breakfast Rolls & Toast,,406,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast, The Bay"
+toast-and-eggs-with-scrambled-eggs,Toast & Eggs with Scrambled Eggs,Breakfast Rolls & Toast,,756,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+toast-and-eggs-with-fried-eggs,Toast & Eggs with Fried Eggs,Breakfast Rolls & Toast,,414,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+toast-and-eggs-with-poached-eggs,Toast & Eggs with Poached Eggs,Breakfast Rolls & Toast,,394,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+toast-and-preserve,Toast & Preserve,Breakfast Rolls & Toast,,263,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+fried-eggs-on-toast,Fried Eggs on Toast,Breakfast Rolls & Toast,,463,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+baked-beans-on-toast,Baked Beans on Toast,Breakfast Rolls & Toast,,490,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+toast-butter-and-preserve,"Toast, Butter & Preserve",Breakfast Rolls & Toast,,263,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+sea-salt-and-rosemary-focaccia-wedge,Sea Salt & Rosemary Focaccia Wedge,Starters & Sharers,,972,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse, Venue"
+spiced-butternut-squash-and-sweet-potato-soup,Spiced Butternut Squash & Sweet Potato Soup,Starters & Sharers,,606,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Restaurant
+luxury-prawn-and-crab-cocktail,Luxury Prawn & Crab Cocktail,Starters & Sharers,,692,,,,,,,,,,,,,,,,false,false,,,Printed on: Restaurant
+k-pop-korean-chicken-bites,K Pop Korean Chicken Bites,Starters & Sharers,,753,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse, Venue"
+k-pop-crispy-cauli-bites-vegan-swap,K Pop Crispy Cauli Bites (vegan swap),Starters & Sharers,,622,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse, Venue"
+chicken-liver-pate,Chicken Liver Pâté,Starters & Sharers,,391,,,,,,,,,,,,,,,,false,false,,,Printed on: Restaurant
+cheesy-garlic-flatbread,Cheesy Garlic Flatbread,Starters & Sharers,,699,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse, Venue, The Pier House"
+thai-fries,Thai Fries,Loaded Fries,,1194,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Venue, The Pier House"
+american-fries,American Fries,Loaded Fries,,1027,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Venue, The Pier House"
+katsu-chicken-fries,Katsu Chicken Fries,Loaded Fries,,1069,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Venue, The Pier House"
+greek-fries,Greek Fries,Loaded Fries,,1020,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Venue, The Pier House"
+flaked-tuna-mayo-melt,Flaked Tuna Mayo Melt,Rolls & Wraps,,998,,,,,,,,,,,,,,,,false,false,,,Printed on: Clubhouse
+bourbon-bbq-chicken-melt,Bourbon BBQ Chicken Melt,Rolls & Wraps,,753,,,,,,,,,,,,,,,,false,false,,,Printed on: Clubhouse
+coronation-chicken-club,Coronation Chicken Club,Rolls & Wraps,,916,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: Clubhouse
+chunky-fish-finger-roll,Chunky Fish Finger Roll,Rolls & Wraps,,914,,,,,,,,,,,,,,,,false,false,,,Printed on: Clubhouse
+chunky-fish-finger-roll-with-crispy-battered-tofu-vegan-swap,Chunky Fish Finger Roll with Crispy Battered Tofu (vegan swap),Rolls & Wraps,,787,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+grilled-tortilla-wrap-with-breaded-chicken-goujons,Grilled Tortilla Wrap with Breaded Chicken Goujons,Rolls & Wraps,,837,,,,,,,,,,,,,,,,false,false,,,Printed on: Clubhouse
+grilled-tortilla-wrap-with-crispy-cauli-bites,Grilled Tortilla Wrap with Crispy Cauli Bites,Rolls & Wraps,,823,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+baked-jacket-potato-plain-with-just-butter,"Baked Jacket Potato, Plain with Just Butter",Baked Jacket Potatoes,,460,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+baked-jacket-potato-cheesy-baked-beans,"Baked Jacket Potato, Cheesy Baked Beans",Baked Jacket Potatoes,,759,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+baked-jacket-potato-flaked-tuna-mayo-and-cheddar-cheese,"Baked Jacket Potato, Flaked Tuna Mayo & Cheddar Cheese",Baked Jacket Potatoes,,1044,,,,,,,,,,,,,,,,false,false,,,Printed on: Clubhouse
+baked-jacket-potato-plain-with-butter,"Baked Jacket Potato, Plain with Butter",Baked Jacket Potatoes,,460,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+baked-jacket-potato-baked-beans-and-cheddar-cheese,"Baked Jacket Potato, Baked Beans & Cheddar Cheese",Baked Jacket Potatoes,,759,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+baked-jacket-potato-flaked-tuna-and-cheddar-cheese,"Baked Jacket Potato, Flaked Tuna & Cheddar Cheese",Baked Jacket Potatoes,,1044,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+baked-jacket-potato-prawn-marie-rose,"Baked Jacket Potato, Prawn Marie Rose",Baked Jacket Potatoes,,792,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+baked-jacket-potato-coronation-chicken,"Baked Jacket Potato, Coronation Chicken",Baked Jacket Potatoes,,814,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+beer-battered-fish-fillet-smaller-appetite,Beer Battered Fish Fillet (smaller appetite),Mains,,1023,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse"
+crispy-battered-tofu-instead-of-fish-fillet-vegan-swap,Crispy Battered Tofu instead of Fish Fillet (vegan swap),Mains,,1191,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse"
+crispy-battered-tofu-instead-of-fish-fillet-vegan-swap-smaller-appetite,"Crispy Battered Tofu instead of Fish Fillet (vegan swap, smaller appetite)",Mains,,976,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse"
+8oz-steak-bavette,8oz Steak Bavette,Mains,,614,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed on: Restaurant
+venison-bolognaise,Venison Bolognaise,Mains,,843,,,,,,,,,,,,,,,,false,false,,,Printed on: Restaurant
+venison-bolognaise-smaller-appetite,Venison Bolognaise (smaller appetite),Mains,,523,,,,,,,,,,,,,,,,false,false,,,Printed on: Restaurant
+butchers-sausages-and-mash,Butcher’s Sausages & Mash,Mains,,1075,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: Restaurant
+butchers-sausages-and-mash-smaller-appetite,Butcher’s Sausages & Mash (smaller appetite),Mains,,607,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: Restaurant
+chicken-gyros-flatbread,Chicken Gyros Flatbread,Mains,,967,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse"
+oven-baked-aubergine-parmigiana,Oven Baked Aubergine Parmigiana,Mains,,764,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Restaurant
+oven-baked-aubergine-parmigiana-smaller-appetite,Oven Baked Aubergine Parmigiana (smaller appetite),Mains,,382,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Restaurant
+japanese-katsu-curry,Japanese Katsu Curry,Mains,,874,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse, The Bay"
+japanese-katsu-curry-smaller-appetite,Japanese Katsu Curry (smaller appetite),Mains,,437,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse"
+the-hoburne-shepherds-pie,The Hoburne Shepherd’s Pie,Mains,,1143,,,,,,,,,,,,,,,,false,false,,,Printed on: Restaurant
+the-hoburne-shepherds-pie-smaller-appetite,The Hoburne Shepherd’s Pie (smaller appetite),Mains,,572,,,,,,,,,,,,,,,,false,false,,,Printed on: Restaurant
+beer-battered-fish-and-chips,Beer Battered Fish & Chips,Mains,,1238,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+double-cheeseburger,Double Cheeseburger,Mains,,1444,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed on: The Bay
+buttermilk-chicken-burger,Buttermilk Chicken Burger,Mains,,1014,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+ham-egg-and-chips-with-garden-peas,"Ham, Egg & Chips with Garden Peas",Mains,,998,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: The Bay
+ham-egg-and-chips-with-baked-beans,"Ham, Egg & Chips with Baked Beans",Mains,,1059,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: The Bay
+vegan-quorn-sausages-and-chips-with-garden-peas,Vegan Quorn Sausages & Chips with Garden Peas,Mains,,642,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+vegan-quorn-sausages-and-chips-with-baked-beans,Vegan Quorn Sausages & Chips with Baked Beans,Mains,,704,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+tomato-and-basil-soup,Tomato & Basil Soup,Mains,,437,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+oven-baked-beef-lasagne,Oven Baked Beef Lasagne,Mains,,815,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed on: The Bay
+vegetable-lasagne,Vegetable Lasagne,Mains,,769,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+2-battered-butchers-sausages,2 Battered Butcher’s Sausages,Mains,,1213,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: The Pier House
+2-battered-quorn-sausages,2 Battered Quorn Sausages,Mains,,791,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Pier House
+3-chicken-goujons,3 Chicken Goujons,Mains,,767,,,,,,,,,,,,,,,,false,false,,,Printed on: The Pier House
+aberdeen-angus-bacon-cheeseburger,Aberdeen Angus Bacon Cheeseburger,Burgers,,1431,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Restaurant, Clubhouse"
+mississippi-style-hunters-chicken-burger,Mississippi Style Hunters Chicken Burger,Burgers,,1373,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: Restaurant
+beetroot-red-pepper-and-quinoa-burger,"Beetroot, Red Pepper & Quinoa Burger",Burgers,,1039,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse"
+margherita-pizza,Margherita Pizza,Pizza,,1065,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Pier House
+pepperoni-pizza,Pepperoni Pizza,Pizza,,1345,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: The Pier House
+bbq-pizza,BBQ Pizza,Pizza,,1181,,,,,,,,,,,,,,,,false,false,,,Printed on: The Pier House
+hawaiian-pizza,Hawaiian Pizza,Pizza,,1217,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: The Pier House
+californian-cobb,Californian Cobb,Salads,,915,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Restaurant, Clubhouse"
+californian-cobb-smaller-appetite,Californian Cobb (smaller appetite),Salads,,532,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Restaurant, Clubhouse"
+buddha-bowl,Buddha Bowl,Salads,,824,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse"
+buddha-bowl-smaller-appetite,Buddha Bowl (smaller appetite),Salads,,412,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse"
+salad-topped-with-cheddar-cheese-and-chutney,Salad topped with Cheddar Cheese & Chutney,Salads,,590,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+salad-topped-with-flaked-tuna-mayo,Salad topped with Flaked Tuna Mayo,Salads,,558,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+salad-topped-with-coronation-chicken,Salad topped with Coronation Chicken,Salads,,524,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+salad-topped-with-prawn-marie-rose,Salad topped with Prawn Marie Rose,Salads,,505,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+3-pieces-of-scampi,3 Pieces of Scampi,Sides,,63,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse, The Bay, The Pier House; printed as +NNNkcal, the add-on's own calories"
+pickled-onion,Pickled Onion,Sides,,17,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse, The Bay, The Pier House; printed as +NNNkcal, the add-on's own calories"
+skin-on-fries,Skin on Fries,Sides,,652,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse, Venue"
+mini-salad-bowl,Mini Salad Bowl,Sides,,87,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse"
+smoked-garlic-mash,Smoked Garlic Mash,Sides,,350,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Restaurant
+crushed-minted-peas,Crushed Minted Peas,Sides,,171,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Restaurant
+moroccan-cous-cous,Moroccan Cous Cous,Sides,,480,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Restaurant
+garden-peas,Garden Peas,Sides,,96,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Venue; printed as +NNNkcal, the add-on's own calories"
+baked-beans,Baked Beans,Sides,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Venue, The Pier House; printed as +NNNkcal, the add-on's own calories"
+mini-salad,Mini Salad,Sides,,25,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Venue; printed as +NNNkcal, the add-on's own calories"
+corn-on-the-cob,Corn on the Cob,Sides,,65,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Venue; printed as +NNNkcal, the add-on's own calories"
+side-salad-bowl,Side Salad Bowl,Sides,,87,,,,,,,,,,,,,,,,false,false,,,Printed on: The Bay
+garlic-bread,Garlic Bread,Sides,,523,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+mushy-peas,Mushy Peas,Sides,,96,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Pier House
+tartare-sauce,Tartare Sauce,Sides,,385,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Pier House
+breaded-chicken-mini-fillets-add-to-japanese-katsu-curry,Breaded Chicken Mini Fillets (add to Japanese Katsu Curry),Add-ons,,436,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse, The Bay; printed as +NNNkcal, the add-on's own calories"
+breaded-chicken-mini-fillets-add-to-japanese-katsu-curry-smaller-appetite,"Breaded Chicken Mini Fillets (add to Japanese Katsu Curry, smaller appetite)",Add-ons,,218,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+crispy-cauliflower-bites-add-to-japanese-katsu-curry,Crispy Cauliflower Bites (add to Japanese Katsu Curry),Add-ons,,376,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse, The Bay; printed as +NNNkcal, the add-on's own calories"
+crispy-cauliflower-bites-add-to-japanese-katsu-curry-smaller-appetite,"Crispy Cauliflower Bites (add to Japanese Katsu Curry, smaller appetite)",Add-ons,,188,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+crispy-battered-tofu-add-to-japanese-katsu-curry,Crispy Battered Tofu (add to Japanese Katsu Curry),Add-ons,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+crispy-battered-tofu-add-to-japanese-katsu-curry-smaller-appetite,"Crispy Battered Tofu (add to Japanese Katsu Curry, smaller appetite)",Add-ons,,70,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+cheddar-cheese-burger-topping,Cheddar Cheese (burger topping),Add-ons,,183,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+grilled-bacon-burger-topping,Grilled Bacon (burger topping),Add-ons,,181,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+free-range-egg-burger-topping,Free Range Egg (burger topping),Add-ons,,79,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+grilled-mushroom-burger-topping,Grilled Mushroom (burger topping),Add-ons,,26,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+smashed-avocado-burger-topping,Smashed Avocado (burger topping),Add-ons,,102,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+flaked-tuna-mayo-salad-topping,Flaked Tuna Mayo (salad topping),Add-ons,,331,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+crispy-cauli-bites-salad-topping,Crispy Cauli Bites (salad topping),Add-ons,,387,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+korean-chicken-pieces-salad-topping,Korean Chicken Pieces (salad topping),Add-ons,,385,,,,,,,,,,,,,,,,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+crispy-fried-tofu-salad-topping,Crispy Fried Tofu (salad topping),Add-ons,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Restaurant, Clubhouse; printed as +NNNkcal, the add-on's own calories"
+tiptree-strawberry-jam-add-to-toast,Tiptree Strawberry Jam (add to toast),Add-ons,,152,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Breakfast; printed as +NNNkcal, the add-on's own calories"
+tiptree-orange-marmalade-add-to-toast,Tiptree Orange Marmalade (add to toast),Add-ons,,151,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Breakfast; printed as +NNNkcal, the add-on's own calories"
+nutella-add-to-toast,Nutella (add to toast),Add-ons,,162,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Breakfast, The Bay; printed as +NNNkcal, the add-on's own calories"
+breaded-chicken-goujons-add-to-build-your-own-wrap,Breaded Chicken Goujons (add to Build Your Own Wrap),Add-ons,,217,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse; printed as +NNNkcal, the add-on's own calories"
+crispy-cauliflower-bites-add-to-build-your-own-wrap,Crispy Cauliflower Bites (add to Build Your Own Wrap),Add-ons,,188,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse; printed as +NNNkcal, the add-on's own calories"
+tiptree-jam-add-to-toast,Tiptree Jam (add to toast),Add-ons,,152,,,,,,,,,,,,,,,,false,false,,,"Printed on: The Bay; printed as +NNNkcal, the add-on's own calories"
+marmalade-add-to-toast,Marmalade (add to toast),Add-ons,,151,,,,,,,,,,,,,,,,false,false,,,"Printed on: The Bay; printed as +NNNkcal, the add-on's own calories"
+roast-sirloin-of-beef-with-horseradish-sauce,Roast Sirloin of Beef with Horseradish Sauce,Sunday Roasts,,1460,,,,,,,,,,,,,,,contains_beef,false,false,,,"Printed on: Clubhouse, Sunday"
+herb-roasted-supreme-of-chicken,Herb Roasted Supreme of Chicken,Sunday Roasts,,1185,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sunday"
+roasted-pork-shoulder-with-apple-sauce,Roasted Pork Shoulder with Apple Sauce,Sunday Roasts,,1347,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Sunday"
+roasted-mushroom-and-lentil-bake,Roasted Mushroom & Lentil Bake,Sunday Roasts,,1211,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sunday"
+maple-roasted-carrots-and-parsnips,Maple Roasted Carrots & Parsnips,Sunday Sides,,304,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Sunday
+swede-mash,Swede Mash,Sunday Sides,,145,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Sunday
+herb-roasted-potatoes,Herb Roasted Potatoes,Sunday Sides,,538,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Sunday
+extra-yorkshire-pudding,Extra Yorkshire Pudding,Sunday Sides,,157,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Sunday
+sammy-breakfast-with-fried-egg,Sammy Breakfast with Fried Egg,Kids,,552,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+sammy-breakfast-with-poached-egg,Sammy Breakfast with Poached Egg,Kids,,532,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+sammy-breakfast-with-scrambled-egg,Sammy Breakfast with Scrambled Egg,Kids,,653,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed on: Clubhouse, Breakfast"
+captain-smuggles-cereal,Captain Smuggles Cereal,Kids,,180,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+tommys-egg-and-soldiers-with-scrambled-egg,Tommy’s Egg & Soldiers with Scrambled Egg,Kids,,303,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+tommys-egg-and-soldiers-with-fried-egg,Tommy’s Egg & Soldiers with Fried Egg,Kids,,222,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+tommys-egg-and-soldiers-with-poached-egg,Tommy’s Egg & Soldiers with Poached Egg,Kids,,202,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+corals-fruit-yoghurt,Coral’s Fruit Yoghurt,Kids,,176,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Breakfast"
+3-oz-beef-burger-kids-meal,3 oz Beef Burger (kids' meal),Kids,,856,,,,,,,,,,,,,,,contains_beef,false,false,,,"Printed on: Clubhouse, Venue, The Bay"
+pasta-bowl-kids-meal,Pasta Bowl (kids' meal),Kids,,536,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+larrys-lunch-kids-meal,Larry’s Lunch (kids' meal),Kids,,576,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+macaroni-cheese-kids-meal,Macaroni Cheese (kids' meal),Kids,,793,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+macaroni-cheese-go-large-kids-meal,"Macaroni Cheese, Go Large (kids' meal)",Kids,,1189,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+build-your-own-wrap-kids-meal,Build Your Own Wrap (kids' meal),Kids,,269,,,,,,,,,,,,,,,,false,false,,,Printed on: Clubhouse
+rich-chocolate-brownie-sammys-sweet-treats,Rich Chocolate Brownie (Sammy’s Sweet Treats),Kids,,435,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+bubble-waffle-sammys-sweet-treats,Bubble Waffle (Sammy’s Sweet Treats),Kids,,467,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: Clubhouse
+kids-breakfast,Kid’s Breakfast,Kids,,552,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed on: The Bay
+kids-coco-pops,Kid’s Coco Pops,Kids,,180,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed on: The Bay
+beef-or-veggie-lasagne-kids-meal,Beef or Veggie Lasagne (kids' meal),Kids,,445,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed on: The Bay
+homemade-apple-and-blackberry-crumble-with-custard,Homemade Apple & Blackberry Crumble with Custard,Desserts,,626,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+homemade-apple-and-blackberry-crumble-with-new-forest-ice-cream,Homemade Apple & Blackberry Crumble with New Forest Ice Cream,Desserts,,844,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+rich-chocolate-brownie,Rich Chocolate Brownie,Desserts,,687,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+chocolate-and-toffee-trillionaires-tart,Chocolate & Toffee Trillionaire’s Tart,Desserts,,694,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+bubble-waffle-and-berries,Bubble Waffle & Berries,Desserts,,1002,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats, Venue"
+sticky-toffee-pudding-with-custard,Sticky Toffee Pudding with Custard,Desserts,,729,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+sticky-toffee-pudding-with-new-forest-ice-cream,Sticky Toffee Pudding with New Forest Ice Cream,Desserts,,947,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-vanilla-bean,"New Forest Ice Cream, Vanilla Bean",Desserts,1 scoop,303,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-strawberry,"New Forest Ice Cream, Strawberry",Desserts,1 scoop,288,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-double-chocolate,"New Forest Ice Cream, Double Chocolate",Desserts,1 scoop,339,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-salted-caramel,"New Forest Ice Cream, Salted Caramel",Desserts,1 scoop,315,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-mint-choc-chip,"New Forest Ice Cream, Mint Choc Chip",Desserts,1 scoop,339,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-coconut,"New Forest Ice Cream, Coconut",Desserts,1 scoop,329,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-brownie-and-white-chocolate,"New Forest Ice Cream, Brownie & White Chocolate",Desserts,1 scoop,357,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-honeycomb-swirl,"New Forest Ice Cream, Honeycomb Swirl",Desserts,1 scoop,333,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-bubblegum,"New Forest Ice Cream, Bubblegum",Desserts,1 scoop,276,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-lotus-biscoff,"New Forest Ice Cream, Lotus Biscoff",Desserts,1 scoop,405,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-black-cherry,"New Forest Ice Cream, Black Cherry",Desserts,1 scoop,288,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-rum-and-raisin,"New Forest Ice Cream, Rum & Raisin",Desserts,1 scoop,334,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-vegan-salted-caramel,"New Forest Ice Cream, Vegan Salted Caramel",Desserts,1 scoop,213,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+new-forest-ice-cream-vegan-vanilla-pod,"New Forest Ice Cream, Vegan Vanilla Pod",Desserts,1 scoop,222,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats"
+cappuccino,Cappuccino,Hot Drinks,,87,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+flat-white,Flat White,Hot Drinks,,50,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+latte,Latte,Hot Drinks,,148,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+americano,Americano,Hot Drinks,,1,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+mocha,Mocha,Hot Drinks,,259,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+espresso,Espresso,Hot Drinks,,1,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+cortado,Cortado,Hot Drinks,,46,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+chai-latte,Chai Latte,Hot Drinks,,148,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+dirty-chai-latte,Dirty Chai Latte,Hot Drinks,,149,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+iced-coffee-latte,Iced Coffee Latte,Hot Drinks,,148,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+iced-matcha-tea,Iced Matcha Tea,Hot Drinks,,152,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+iced-strawberry-matcha,Iced Strawberry Matcha,Hot Drinks,,203,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+pot-of-tea-for-one,Pot of Tea for One,Hot Drinks,,49,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+speciality-flavoured-teas,Speciality Flavoured Teas,Hot Drinks,,1,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+hot-chocolate,Hot Chocolate,Hot Drinks,,258,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+luxury-hot-chocolate,Luxury Hot Chocolate,Hot Drinks,,417,,,,,,,,,,,,,,,,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+berry-go-round-smoothie,Berry Go Round Smoothie,Smoothies & Milkshakes,,137,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+pash-n-shoot-smoothie,Pash N Shoot Smoothie,Smoothies & Milkshakes,,158,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"
+milkshake-two-scoops-of-ice-cream,Milkshake (two scoops of ice cream),Smoothies & Milkshakes,,698,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed on: Clubhouse, Sweet Treats, The Bay"

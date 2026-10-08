@@ -1,0 +1,220 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+small-plate-classic-chicken-wings,Small Plate Classic Chicken Wings,Wings,,275,32.3,3.1,14.6,4.2,,1.9,0.5,,1149,,,,,,,false,true,,,The page lists the sauce choices separately and does not say whether this figure includes a sauce. On: main menu
+1kg-classic-chicken-wings,1KG Classic Chicken Wings,Wings,,1021,120.1,11.5,54.3,15.8,,7.2,1.8,,4269,,,,,,,false,false,,,"On: main menu, bottomless brunch menu"
+small-plate-crispy-coated-chicken-wings,Small Plate Crispy Coated Chicken Wings,Wings,,693,43.1,25.1,46.6,13.3,,4.8,0.2,,2889,,,,,,,false,true,,,The page lists the sauce choices separately and does not say whether this figure includes a sauce. On: main menu
+1kg-crispy-coated-chicken-wings,1KG Crispy Coated Chicken Wings,Wings,,2079,129.4,75.4,139.9,39.9,,14.5,0.7,,8666,,,,,,,false,false,,,On: main menu
+small-plate-corn-riblets-vg,Small Plate Corn Riblets (VG),Wings,,396,6.1,41.0,21.7,6.2,,1.1,11.7,,1650,,,,,,vegetarian,false,true,,,"The page lists the sauce choices separately and does not say whether this figure includes a sauce. On: main menu, vegan menu, no-gluten containing menu"
+1kg-corn-riblets-vg,1KG Corn Riblets (VG),Wings,,1695,26.3,175.7,93.0,26.6,,4.8,50.3,,7073,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu, bottomless brunch menu"
+sticky-bbq-vg-with-small-plate-classic-chicken-wings-3-more,Sticky BBQ (VG) (with Small Plate Classic Chicken Wings +3 more),Options & add-ons,,28,0.2,6.3,0.1,0.0,,0.2,5.4,,115,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu"
+franks-redhot-buffalo-sauce-and-ranch-vg-with-small-plate-classic-chicken-wings-3-more,Frank's® Redhot® Buffalo Sauce & Ranch (VG) (with Small Plate Classic Chicken Wings +3 more),Options & add-ons,,93,0.4,1.2,9.5,0.7,,1.2,0.5,,385,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu"
+cheesy-garlic-and-parsley-v-with-small-plate-classic-chicken-wings-3-more,Cheesy Garlic & Parsley (V) (with Small Plate Classic Chicken Wings +3 more),Options & add-ons,,136,1.9,0.5,14.0,4.3,,0.1,0.1,,561,,,,,,vegetarian,false,false,,,"On: main menu, no-gluten containing menu"
+carolina-reaper-hot-vg-with-small-plate-classic-chicken-wings-3-more,Carolina Reaper Hot (VG) (with Small Plate Classic Chicken Wings +3 more),Options & add-ons,,32,0.3,3.1,0.1,0.1,,0.2,2.0,,67,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu"
+sticky-bbq-vg-with-1kg-classic-chicken-wings-2-more,Sticky BBQ (VG) (with 1KG Classic Chicken Wings +2 more),Options & add-ons,,75,0.5,17.1,0.1,0.0,,0.6,14.6,,312,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu, bottomless brunch menu"
+franks-redhot-buffalo-sauce-and-ranch-vg-with-1kg-classic-chicken-wings-2-more,Frank's® Redhot® Buffalo Sauce & Ranch (VG) (with 1KG Classic Chicken Wings +2 more),Options & add-ons,,136,0.6,2.2,13.5,0.9,,3.2,0.7,,566,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu, bottomless brunch menu"
+cheesy-garlic-and-parsley-v-with-1kg-classic-chicken-wings-2-more,Cheesy Garlic & Parsley (V) (with 1KG Classic Chicken Wings +2 more),Options & add-ons,,363,3.9,1.4,38.0,11.1,,0.2,0.2,,1494,,,,,,vegetarian,false,false,,,"On: main menu, no-gluten containing menu, bottomless brunch menu"
+carolina-reaper-hot-vg-with-1kg-classic-chicken-wings-2-more,Carolina Reaper Hot (VG) (with 1KG Classic Chicken Wings +2 more),Options & add-ons,,57,0.6,8.2,0.3,0.2,,0.6,5.2,,176,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu, bottomless brunch menu"
+sticky-bbq,Sticky BBQ,Options & add-ons,,20,0.2,4.4,0.1,0.0,,0.2,3.8,,82,,,,,,,false,false,,,On: main menu
+franks-redhot-buffalo-sauce-and-ranch,Frank's® Redhot® Buffalo Sauce & Ranch,Options & add-ons,,64,0.3,0.8,6.6,0.5,,0.9,0.4,,268,,,,,,,false,false,,,On: main menu
+cheesy-garlic-and-parsley,Cheesy Garlic & Parsley,Options & add-ons,,100,1.8,0.4,10.2,3.3,,0.1,0.1,,414,,,,,,,false,false,,,On: main menu
+carolina-reaper-hot,Carolina Reaper Hot,Options & add-ons,,27,0.2,2.2,0.1,0.0,,0.2,1.5,,49,,,,,,,false,false,,,On: main menu
+flatbread,Flatbread,Options & add-ons,,281,7.6,47.1,6.1,0.4,,0.9,1.4,,1174,,,,,,,false,false,,,"On: main menu, lunch menu, vegan menu"
+wrap,Wrap,Options & add-ons,,288,7.2,43.8,8.8,3.7,,0.6,3.7,,1205,,,,,,,false,false,,,"On: main menu, lunch menu, vegan menu"
+chicken-breast,Chicken Breast,Options & add-ons,,184,39.0,1.9,2.3,0.6,,1.8,0.6,,782,,,,,,,false,false,,,"On: main menu, no-gluten containing menu"
+crispy-coated-chicken,Crispy Coated Chicken,Options & add-ons,,275,16.5,15.5,15.9,5.0,,1.4,0.2,,1147,,,,,,,false,false,,,On: main menu
+peas,Peas,Options & add-ons,,76,5.7,8.8,0.9,0.2,,0.0,2.5,,321,,,,,,,false,false,,,On: main menu
+mushy-peas,Mushy Peas,Options & add-ons,,88,5.4,13.8,0.4,0.1,,0.6,1.6,,366,,,,,,,false,false,,,On: main menu
+dirty-dough-ball-dipper-v,Dirty Dough Ball Dipper (V),Nibbles,,602,21.0,66.8,27.8,10.5,,3.4,15.7,,2535,,,,,,vegetarian,false,false,,,On: main menu
+crispy-halloumi-fries,Crispy Halloumi Fries,Nibbles,,541,18.7,38.1,34.5,16.4,,3.8,18.9,,2255,,,,,,,false,false,,,On: main menu
+crispy-coated-chicken-tenders,Crispy Coated Chicken Tenders,Nibbles,,401,24.6,25.1,21.7,9.4,,1.7,0.0,,1674,,,,,,,false,false,,,On: main menu
+frickles-and-frilles-vg,Frickles & Frilles (VG),Nibbles,,546,2.1,38.5,42.1,7.9,,4.1,9.1,,2274,,,,,,vegetarian,false,false,,,"On: vegan menu, no-gluten containing menu, drinks menu"
+nachos-el-clasico-v,Nachos El Clasico (V),Sharers,,1129,26.3,106.0,65.5,19.2,,4.0,8.7,,4715,,,,,,vegetarian,false,false,,,"On: main menu, bottomless brunch menu"
+nachos-el-clasico-vg-m,Nachos El Clasico (VG-M),Sharers,,1341,11.5,122.6,87.6,22.8,,4.5,6.2,,5592,,,,,,,false,false,,,"On: main menu, vegan menu, bottomless brunch menu"
+the-social-sharer,The Social Sharer,Sharers,,3457,105.3,278.9,213.3,51.8,,18.6,58.7,,14418,,,,,,,false,false,,,On: main menu
+five-classic-chicken-wings,Five Classic Chicken Wings,Sharers,,196,23.1,2.2,10.4,3.0,,1.4,0.4,,821,,,,,,,false,false,,,On: main menu
+five-crispy-coated-chicken-wings,Five Crispy Coated Chicken Wings,Sharers,,578,35.9,20.9,38.9,11.1,,4.0,0.2,,2407,,,,,,,false,false,,,On: main menu
+crispy-chicken-excluding-bread-option-see-below,"Crispy Chicken (Excluding Bread Option, see below)",Wraps & flatbreads,,1071,29.5,90.1,63.7,16.7,,4.8,9.3,,4483,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu, lunch menu"
+tandoori-chicken-excluding-bread-option-see-below,"Tandoori Chicken (Excluding Bread Option, see below)",Wraps & flatbreads,,952,42.2,73.4,52.4,8.3,,4.3,11.2,,3975,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu, lunch menu"
+crispy-coated-smoked-tofu-vg-excluding-bread-option-see-below,"Crispy Coated Smoked Tofu (VG) (Excluding Bread Option, see below)",Wraps & flatbreads,,1303,37.4,85.8,87.9,16.0,,5.4,9.8,,5440,,,,,,vegetarian,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu, lunch menu, vegan menu"
+texas-bbq-stone-baked,Texas BBQ Stone-Baked,Pizza,,979,64.0,118.1,26.3,12.7,,5.8,16.4,,4127,,,,,,contains_pork,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
+texas-bbq-detroit-style,Texas BBQ Detroit Style,Pizza,,2047,117.4,250.0,70.4,33.5,,9.7,23.9,,8629,,,,,,contains_pork,false,true,,,On: main menu
+the-fungi-pollo-stone-baked,The Fungi Pollo Stone-Baked,Pizza,,1249,59.6,121.1,56.8,20.4,,5.4,6.2,,5237,,,,,,,false,true,,,"On: main menu, bottomless brunch menu"
+the-fungi-pollo-detroit-style,The Fungi Pollo Detroit Style,Pizza,,2317,113.0,253.0,100.9,41.2,,9.3,13.7,,9740,,,,,,,false,true,,,On: main menu
+the-fun-guy-stone-baked-v-m,The Fun Guy Stone-Baked (V-M),Pizza,,1017,43.7,105.7,45.3,15.7,,4.1,6.1,,4265,,,,,,,false,true,,,"On: main menu, bottomless brunch menu"
+the-fun-guy-detroit-style-v,The Fun Guy Detroit Style (V),Pizza,,2085,97.1,237.6,89.4,36.5,,8.0,13.6,,8768,,,,,,vegetarian,false,true,,,On: main menu
+easy-cheesy-stone-baked-v-m,Easy Cheesy Stone-Baked (V-M),Pizza,,802,42.4,104.9,22.4,11.4,,4.1,5.8,,3382,,,,,,,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
+easy-cheesy-detroit-style-v,Easy Cheesy Detroit Style (V),Pizza,,1870,95.7,236.8,66.5,32.2,,8.0,13.3,,7884,,,,,,vegetarian,false,true,,,On: main menu
+easy-cheezy-stone-baked-vg-m,Easy Cheezy Stone-Baked (VG-M),Pizza,,792,23.5,122.6,21.5,14.3,,4.3,5.2,,3339,,,,,,,false,true,,,"On: main menu, lunch menu, vegan menu, bottomless brunch menu"
+a-load-of-pepperoni-stone-baked,A Load Of Pepperoni Stone-Baked,Pizza,,1019,49.8,105.4,41.2,19.4,,5.5,6.1,,4279,,,,,,contains_pork,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
+a-load-of-pepperoni-detroit-style,A Load Of Pepperoni Detroit Style,Pizza,,2087,103.2,237.3,85.3,40.2,,9.4,13.6,,8781,,,,,,contains_pork,false,true,,,On: main menu
+the-mighty-meat-stone-baked,The Mighty Meat Stone-Baked,Pizza,,1180,82.1,110.4,43.1,20.2,,6.5,9.7,,4963,,,,,,contains_pork|contains_beef,false,true,,,"On: main menu, bottomless brunch menu"
+the-mighty-meat-detroit-style,The Mighty Meat Detroit Style,Pizza,,2248,135.4,242.3,87.2,41.0,,10.4,17.2,,9465,,,,,,contains_pork|contains_beef,false,true,,,On: main menu
+feta-lly-delicious-stone-baked-v-m,Feta-lly Delicious Stone-Baked (V-M),Pizza,,947,43.2,114.9,33.4,17.7,,5.1,9.5,,3983,,,,,,,false,true,,,"On: main menu, bottomless brunch menu"
+feta-lly-delicious-detroit-style-v,Feta-lly Delicious Detroit Style (V),Pizza,,2015,96.6,246.8,77.5,38.5,,9.0,17.0,,8485,,,,,,vegetarian,false,true,,,On: main menu
+feta-lly-delicious-stone-baked-vg-m,Feta-lly Delicious Stone-Baked (VG-M),Pizza,,937,24.3,132.7,32.4,20.7,,5.3,8.9,,3940,,,,,,,false,true,,,"On: main menu, vegan menu, bottomless brunch menu"
+red-chillies-and-inferno-hot-sauce-vg,Red chillies and Inferno hot sauce (VG),Pizza extras,,66,0.6,6.8,0.3,0.1,,0.5,4.4,,148,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+basil-vg,Basil (VG),Pizza extras,,1,0.1,0.0,0.0,0.0,,0.0,0.0,,2,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+bbq-beef-burnt-ends,BBQ Beef Burnt Ends,Pizza extras,,147,14.7,4.3,7.5,3.5,,0.7,3.4,,613,,,,,,contains_beef,false,false,,,"On: main menu, no-gluten containing menu"
+crispy-coated-chicken-fries,Crispy Coated Chicken Fries,Pizza extras,,206,12.4,11.6,11.9,3.8,,1.0,0.2,,860,,,,,,,false,false,,,On: main menu
+chorizo-slices,Chorizo Slices,Pizza extras,,96,4.9,0.8,8.1,3.2,,0.9,0.5,,399,,,,,,contains_pork,false,false,,,On: main menu
+grated-cheese-v,Grated Cheese (V),Pizza extras,,60,4.8,0.6,4.2,2.6,,0.3,0.2,,252,,,,,,vegetarian,false,false,,,On: main menu
+jalapenos-vg-pizza-additional-toppers,Jalapeños (VG) (Pizza Additional Toppers),Pizza extras,,3,0.2,0.4,0.1,0.0,,0.9,0.0,,12,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+grilled-mushroom-vg,Grilled Mushroom (VG),Pizza extras,,51,0.7,0.2,5.3,0.4,,0.0,0.2,,211,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+olives-vg,Olives (VG),Pizza extras,,15,0.1,0.0,1.7,0.3,,0.5,0.0,,63,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+spicy-pepperoni,Spicy Pepperoni,Pizza extras,,109,3.8,0.3,9.4,4.0,,0.7,0.2,,449,,,,,,contains_pork,false,false,,,On: main menu
+peppers-vg,Peppers (VG),Pizza extras,,12,0.5,2.6,0.2,0.0,,0.0,2.4,,52,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+peppadew-peppers-vg,PEPPADEW® Peppers (VG),Pizza extras,,15,0.4,3.0,0.1,0.0,,0.1,3.0,,64,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+red-onion-vg,Red Onion (VG),Pizza extras,,6,0.2,1.2,0.0,0.0,,0.0,0.9,,26,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+shredded-chicken,Shredded Chicken,Pizza extras,,46,9.8,0.5,0.6,0.1,,0.5,0.2,,195,,,,,,,false,false,,,On: main menu
+streaky-bacon,Streaky Bacon,Pizza extras,,41,2.4,0.0,3.5,1.4,,0.2,0.0,,172,,,,,,contains_pork,false,false,,,"On: main menu, no-gluten containing menu"
+sweet-and-sour-onion-vg,Sweet & Sour Onion (VG),Pizza extras,,10,0.1,2.1,0.1,0.0,,0.3,1.7,,43,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+greek-style-sheese-vg,Greek-style Sheese® (VG),Pizza extras,,91,0.2,5.9,7.3,5.9,,0.5,0.0,,377,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+grated-sheese-vg,Grated Sheese® (VG),Pizza extras,,58,0.1,5.1,4.0,3.3,,0.3,0.1,,241,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu"
+red-chillies-vg,Red Chillies (VG),Pizza extras,,34,0.2,0.4,0.0,0.0,,0.0,0.4,,13,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+sticky-bbq-sauce-vg,Sticky BBQ Sauce (VG),Dips,,59,0.3,13.6,0.1,0.0,,0.5,11.6,,246,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+go-xl-sticky-bbq-sauce-vg,Go XL Sticky BBQ Sauce (VG),Dips,,118,0.6,27.2,0.2,0.0,,1.0,23.2,,492,,,,,,vegetarian,false,false,,,On: main menu
+ranch-sauce-vg,Ranch Sauce (VG),Dips,,192,0.3,1.6,20.4,1.4,,0.5,1.2,,797,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+go-xl-ranch-sauce-vg,Go XL Ranch Sauce (VG),Dips,,384,0.6,3.3,40.9,2.9,,0.9,2.3,,1595,,,,,,vegetarian,false,false,,,On: main menu
+garlic-and-parsley-v,Garlic & Parsley (V),Dips,,261,0.5,1.1,28.3,7.4,,0.0,0.1,,1072,,,,,,vegetarian,false,false,,,On: main menu
+go-xl-garlic-and-parsley-v,Go XL Garlic & Parsley (V),Dips,,522,1.0,2.2,56.6,14.7,,0.0,0.2,,2144,,,,,,vegetarian,false,false,,,On: main menu
+franks-redhot-buffalo-sauce-vg,Frank's® Redhot® Buffalo Sauce (VG),Dips,,12,0.3,0.9,0.6,0.0,,2.3,0.0,,52,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+go-xl-franks-redhot-buffalo-sauce-vg,Go XL Frank's® Redhot® Buffalo Sauce (VG),Dips,,25,0.6,1.8,1.1,0.1,,4.6,0.0,,104,,,,,,vegetarian,false,false,,,On: main menu
+garlic-and-herb-vg,Garlic & Herb (VG),Dips,,197,0.2,2.3,20.8,1.4,,0.6,1.8,,812,,,,,,vegetarian,false,false,,,On: vegan menu
+inferno-hot-sauce-vg,Inferno Hot Sauce (VG),Dips,,32,0.4,6.4,0.2,0.1,,0.5,4.0,,136,,,,,,vegetarian,false,false,,,On: vegan menu
+sweet-chilli-sauce-vg,Sweet Chilli Sauce (VG),Dips,,86,0.2,20.7,0.1,0.0,,1.3,17.8,,364,,,,,,vegetarian,false,false,,,On: vegan menu
+saucy-buffalo-v,Saucy Buffalo (V),Topped fries,,1186,20.6,121.9,66.3,17.0,,4.7,2.5,,4970,,,,,,vegetarian,false,true,,,"On: main menu, no-gluten containing menu"
+sweet-chilli-coated-chicken,Sweet Chilli Coated Chicken,Topped fries,,1433,39.7,156.2,69.7,22.9,,5.7,17.1,,6007,,,,,,,false,true,,,On: main menu
+sheesy-vg,Sheesy (VG),Topped fries,,1351,13.1,177.6,62.6,27.6,,5.7,30.1,,5670,,,,,,vegetarian,false,true,,,"On: main menu, vegan menu, no-gluten containing menu"
+spiced-frillie-fries-excluding-chicken-option-see-below,"Spiced Frillie Fries (Excluding Chicken Option, see below)",Topped fries,,872,10.2,96.6,47.3,8.7,,8.7,12.0,,3647,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu"
+fish-and-chips-excluding-pea-option-see-below,"Fish & Chips (Excluding Pea Option, see below)",Classics,,1407,47.0,106.9,86.2,22.2,,5.3,6.2,,5881,,,,,,,false,false,,,"Printed without the part named in its title (see Options & add-ons), so it is not suggested as a meal. On: main menu"
+classic-mac-v,Classic Mac (V),Classics,,1011,30.0,88.0,61.3,17.9,,3.9,16.3,,4239,,,,,,vegetarian,false,true,,,On: main menu
+dirty-classic-mac,Dirty Classic Mac,Classics,,1371,64.3,98.7,80.6,27.5,,5.7,24.4,,5747,,,,,,contains_beef,false,true,,,On: main menu
+classic-smash-melt,Classic Smash Melt,Burgers,,1337,58.0,111.3,72.2,25.6,,4.4,19.6,,5586,,,,,,contains_pork|contains_beef,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
+the-spicy-beef,The Spicy Beef,Burgers,,1406,56.6,123.4,74.9,26.0,,6.1,20.0,,5872,,,,,,contains_beef,false,true,,,On: main menu
+the-oklahoma-bbq-beef,The Oklahoma BBQ Beef,Burgers,,1538,66.8,103.8,94.0,26.5,,3.7,13.7,,6429,,,,,,contains_beef,false,true,,,"On: main menu, bottomless brunch menu"
+chicken-caesar,Chicken Caesar,Burgers,,1439,44.7,136.3,77.0,21.9,,5.2,20.7,,6008,,,,,,,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
+buffalo-chicken,Buffalo Chicken,Burgers,,1339,39.2,136.5,66.9,17.9,,7.0,19.8,,5599,,,,,,,false,true,,,On: main menu
+bbq-chicken-and-bacon-melt,BBQ Chicken & Bacon Melt,Burgers,,1297,42.7,145.4,57.7,19.7,,5.4,27.9,,5425,,,,,,contains_pork,false,true,,,On: main menu
+classic-veggie-melt-v,Classic Veggie Melt (V),Burgers,,1335,51.8,121.8,66.4,20.6,,6.0,19.7,,5582,,,,,,vegetarian,false,true,,,"On: main menu, lunch menu, bottomless brunch menu"
+classic-vegan-melt-vg,Classic Vegan Melt (VG),Burgers,,1432,48.8,135.1,72.3,27.6,,5.9,19.8,,5994,,,,,,vegetarian,false,true,,,"On: main menu, lunch menu, vegan menu, bottomless brunch menu"
+classic-smash-melt-no-gluten-menu,Classic Smash Melt (no-gluten menu),Burgers,,1320,53.4,105.6,74.4,24.8,,4.3,16.3,,5519,,,,,,contains_pork|contains_beef,false,true,,,On: no-gluten containing menu
+the-spicy-beef-no-gluten-menu,The Spicy Beef (no-gluten menu),Burgers,,1389,52.0,117.7,77.1,25.2,,6.0,16.7,,5805,,,,,,contains_beef,false,true,,,On: no-gluten containing menu
+the-oklahoma-bbq-beef-no-gluten-menu,The Oklahoma BBQ Beef (no-gluten menu),Burgers,,1521,62.2,98.1,96.2,25.7,,3.7,10.4,,6362,,,,,,contains_beef,false,true,,,On: no-gluten containing menu
+chicken-caesar-no-gluten-menu,Chicken Caesar (no-gluten menu),Burgers,,1183,53.4,105.3,58.8,11.8,,5.2,17.5,,4951,,,,,,,false,true,,,On: no-gluten containing menu
+buffalo-chicken-no-gluten-menu,Buffalo Chicken (no-gluten menu),Burgers,,1082,47.9,105.5,48.7,7.8,,6.9,16.7,,4541,,,,,,,false,true,,,On: no-gluten containing menu
+bbq-chicken-and-bacon-melt-no-gluten-menu,BBQ Chicken & Bacon Melt (no-gluten menu),Burgers,,1040,51.4,114.4,39.5,9.6,,5.3,24.7,,4368,,,,,,contains_pork,false,true,,,On: no-gluten containing menu
+classic-veggie-melt-v-no-gluten-menu,Classic Veggie Melt (V) (no-gluten menu),Burgers,,1142,31.6,114.0,59.6,13.5,,4.2,16.1,,4776,,,,,,vegetarian,false,true,,,On: no-gluten containing menu
+battered-chillies-vg,Battered Chillies (VG),Burger extras,,108,0.9,11.9,6.1,1.8,,1.2,0.3,,449,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu"
+burger-cheese-slice-v,Burger Cheese Slice (V),Burger extras,,42,1.9,1.3,3.2,1.5,,0.5,0.3,,173,,,,,,vegetarian,false,false,,,"On: main menu, no-gluten containing menu"
+crispy-coated-chicken-burger,Crispy Coated Chicken Burger,Burger extras,,424,25.7,27.2,22.8,9.9,,1.9,0.5,,1772,,,,,,,false,false,,,On: main menu
+jalapenos-vg-burger-additional-toppings,Jalapeños (VG) (Burger Additional Toppings),Burger extras,,3,0.2,0.4,0.1,0.0,,1.1,0.1,,14,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu"
+onion-rings,Onion Rings,Burger extras,,286,4.0,26.8,17.5,4.7,,1.0,3.2,,1191,,,,,,,false,false,,,On: main menu
+smash-beef-patty,Smash Beef Patty,Burger extras,,233,19.7,1.0,17.1,7.2,,0.3,0.3,,972,,,,,,contains_beef,false,false,,,"On: main menu, no-gluten containing menu"
+crispy-coated-smoked-tofu-vg,Crispy Coated Smoked Tofu (VG),Burger extras,,286,16.8,9.0,20.1,4.6,,1.0,0.6,,1193,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu"
+plant-based-beef-burger-vg,Plant-Based Beef Burger (VG),Burger extras,,229,16.0,6.0,14.4,5.2,,1.0,0.2,,959,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu"
+mexican-chicken-bowl,Mexican Chicken Bowl,Mains,,494,32.8,36.1,22.7,6.2,,5.2,7.4,,2072,,,,,,,false,true,,,"On: main menu, lunch menu, no-gluten containing menu"
+mexican-crispy-tofu-bowl-vg,Mexican Crispy Tofu Bowl (VG),Mains,,814,38.9,53.2,47.0,9.3,,6.9,12.0,,3398,,,,,,vegetarian,false,true,,,"On: main menu, lunch menu, vegan menu, no-gluten containing menu"
+tandoori-chicken-bowl,Tandoori Chicken Bowl,Mains,,658,44.5,61.9,24.4,9.3,,4.0,38.6,,2740,,,,,,,false,true,,,"On: main menu, lunch menu, no-gluten containing menu"
+tandoori-crispy-tofu-bowl-vg,Tandoori Crispy Tofu Bowl (VG),Mains,,563,32.8,58.4,20.8,3.0,,3.7,32.5,,2364,,,,,,vegetarian,false,true,,,"On: main menu, lunch menu, vegan menu, no-gluten containing menu"
+hoisin-chicken-bowl,Hoisin Chicken Bowl,Mains,,469,34.5,52.6,8.5,1.2,,9.1,28.1,,1969,,,,,,,false,true,,,On: main menu
+hoisin-crispy-tofu-bowl-vg,Hoisin Crispy Tofu Bowl (VG),Mains,,778,37.6,68.4,34.1,7.0,,10.1,33.1,,3251,,,,,,vegetarian,false,true,,,"On: main menu, vegan menu"
+mac-n-cheese-v,Mac 'n' Cheese (V),Sides,,338,15.0,31.5,17.7,8.5,,1.5,4.1,,1424,,,,,,vegetarian,false,true,,,On: main menu
+garlic-bread-slices-v,Garlic Bread Slices (V),Sides,,277,5.6,36.3,15.7,4.4,,0.9,2.1,,1145,,,,,,vegetarian,false,true,,,"On: main menu, bottomless brunch menu"
+cheesy-garlic-bread-slices-v,Cheesy Garlic Bread Slices (V),Sides,,412,16.4,37.7,25.1,10.3,,1.5,2.5,,1711,,,,,,vegetarian,false,true,,,"On: main menu, bottomless brunch menu"
+skin-on-fries-vg,Skin-On Fries (VG),Sides,,455,5.2,59.2,21.1,5.4,,1.1,0.5,,1910,,,,,,vegetarian,false,true,,,"On: main menu, vegan menu, no-gluten containing menu, bottomless brunch menu"
+side-salad-vg,Side Salad (VG),Sides,,116,1.5,6.2,9.3,0.8,,0.4,4.7,,479,,,,,,vegetarian,false,true,,,"On: main menu, vegan menu, no-gluten containing menu, bottomless brunch menu"
+onion-rings-sides,Onion Rings (Sides),Sides,,571,8.0,53.6,35.0,9.4,,2.0,6.5,,2382,,,,,,,false,true,,,On: main menu
+tater-bites-vg,Tater Bites (VG),Sides,,564,5.3,56.5,34.1,9.9,,1.9,0.6,,2352,,,,,,vegetarian,false,true,,,"On: main menu, vegan menu, no-gluten containing menu, bottomless brunch menu"
+salt-and-pepper-skin-on-fries-vg,Salt & Pepper Skin-on Fries (VG),Sides,,544,6.5,69.7,24.6,5.8,,4.1,7.9,,2282,,,,,,vegetarian,false,true,,,"On: main menu, vegan menu, no-gluten containing menu, bottomless brunch menu"
+bramley-apple-and-custard-dairy-ice-cream-v,Bramley Apple & Custard Dairy Ice Cream (V),Desserts,,88,1.3,12.6,3.6,2.2,,0.0,10.1,,369,,,,,,vegetarian,false,false,,,"On: main menu, no-gluten containing menu, bottomless brunch menu"
+banoffee-pie-ice-cream-v,Banoffee Pie Ice Cream (V),Desserts,,99,2.4,14.9,3.3,2.0,,0.1,12.0,,413,,,,,,vegetarian,false,false,,,"On: main menu, no-gluten containing menu, bottomless brunch menu"
+sticky-toffee-pudding-dairy-ice-cream-v,Sticky Toffee Pudding Dairy Ice Cream (V),Desserts,,104,1.8,14.4,4.3,2.9,,0.1,12.3,,436,,,,,,vegetarian,false,false,,,"On: main menu, no-gluten containing menu, bottomless brunch menu"
+caramel-speculoos-ice-kream-vg,Caramel Speculoos Ice Kream (VG),Desserts,,111,0.6,13.5,6.1,5.0,,0.1,9.1,,466,,,,,,vegetarian,false,false,,,"On: main menu, vegan menu, no-gluten containing menu"
+coke-zero-can-330ml,Coke Zero Can - 330ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,4,,,,,,,false,false,,,"On: lunch menu, bottomless brunch menu, drinks menu"
+coca-cola-can-330ml,Coca Cola Can - 330ml,Drinks,,139,0.0,35.0,0.0,0.0,,0.0,35.0,,594,,,,,,,false,false,,,"On: lunch menu, bottomless brunch menu, drinks menu"
+diet-coke-can-330ml,Diet Coke Can - 330ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,5,,,,,,,false,false,,,"On: lunch menu, bottomless brunch menu, drinks menu"
+fanta-orange-330ml,Fanta Orange - 330ml,Drinks,,63,0.0,14.9,0.0,0.0,,0.0,14.9,,267,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+appletiser-275ml,Appletiser - 275ml,Drinks,,129,0.0,30.3,0.0,0.0,,0.0,28.9,,542,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+schweppes-lemonade-200ml,Schweppes Lemonade - 200ml,Drinks,,36,0.0,8.4,0.0,0.0,,0.1,8.4,,156,,,,,,,false,false,,,"On: lunch menu, breakfast menu, bottomless brunch menu, drinks menu"
+schweppes-orange-juice-200ml,Schweppes Orange Juice -200ml,Drinks,,94,0.0,22.4,0.0,0.0,,0.0,22.4,,402,,,,,,,false,false,,,"On: lunch menu, breakfast menu, bottomless brunch menu"
+schweppes-tonic-water-200ml,Schweppes Tonic Water - 200ml,Drinks,,42,0.0,9.8,0.0,0.0,,0.0,9.8,,178,,,,,,,false,false,,,"On: lunch menu, bottomless brunch menu, drinks menu"
+schweppes-slimline-tonic-200ml,Schweppes Slimline Tonic - 200ml,Drinks,,4,0.0,0.0,0.0,0.0,,0.2,0.0,,16,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+soda-and-cordial,Soda & Cordial,Drinks,,4,0.0,0.8,0.0,0.0,,0.1,0.8,,14,,,,,,,false,false,,,On: lunch menu
+costa-coffee-caramel-iced-latte-250ml,Costa Coffee Caramel Iced Latte - 250ml,Drinks,,140,7.3,19.8,3.8,2.5,,0.2,17.5,,595,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+costa-coffee-iced-latte-250ml,Costa Coffee Iced Latte - 250ml,Drinks,,145,7.3,21.0,3.5,2.3,,0.2,17.8,,608,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+heineken-0-0-330ml,Heineken 0.0% - 330ml,Drinks,,69,1.3,15.8,0.0,0.0,,0.0,4.3,,294,,,,,,,false,false,,,"On: lunch menu, bottomless brunch menu, drinks menu"
+days-lager-0-0-330ml,Days Lager 0.0% - 330ml,Drinks,,33,1.3,6.9,0.0,0.0,,0.3,1.7,,142,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+guinness-0-0-538ml,Guinness 0.0% - 538ml,Drinks,,91,1.6,20.4,0.0,0.0,,0.0,3.8,,382,,,,,,,false,false,,,"On: lunch menu, bottomless brunch menu, drinks menu"
+red-bull-original-250ml,Red Bull Original - 250ml,Drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,488,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+red-bull-sugarfree-250ml,Red Bull Sugarfree - 250ml,Drinks,,8,0.0,0.0,0.0,0.0,,0.3,0.0,,33,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+monster-ultra-500ml,Monster Ultra - 500ml,Drinks,,10,0.0,4.5,0.0,0.0,,0.1,0.0,,50,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+monster-mango-loco-500ml,Monster Mango Loco - 500ml,Drinks,,240,0.0,60.0,0.0,0.0,,0.3,55.0,,1015,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+monster-pipeline-punch-500ml,Monster Pipeline Punch - 500ml,Drinks,,180,0.0,45.0,0.0,0.0,,0.2,42.5,,765,,,,,,,false,false,,,"On: lunch menu, drinks menu"
+crodino-italian-spritz-0,Crodino Italian Spritz 0%,Drinks,,41,0.2,9.7,0.1,0.0,,0.0,9.7,,1330,,,,,,,false,false,,,"On: bottomless brunch menu, drinks menu"
+elderflower-spritz-0,Elderflower Spritz 0%,Drinks,,69,0.2,16.2,0.1,0.0,,0.0,16.2,,292,,,,,,,false,false,,,"On: bottomless brunch menu, drinks menu"
+rumbungo-0,Rumbungo 0%,Drinks,,113,0.3,25.7,0.1,0.0,,0.1,25.6,,476,,,,,,,false,false,,,"On: bottomless brunch menu, drinks menu"
+pornstar-martini-0,Pornstar Martini 0%,Drinks,,205,0.1,48.9,0.0,0.0,,0.0,48.4,,868,,,,,,,false,false,,,"On: bottomless brunch menu, drinks menu"
+dash-of-cordial,Dash of Cordial,Drinks,,4,0.0,0.8,0.0,0.0,,0.0,0.8,,15,,,,,,,false,false,,,On: bottomless brunch menu
+peroni-nastro-azzurro-0-0-330ml,Peroni Nastro Azzurro 0.0% - 330ml,Drinks,,76,0.7,18.5,0.0,0.0,,0.0,2.6,,327,,,,,,,false,false,,,On: drinks menu
+strawberries-and-cream-spritz-0,Strawberries & Cream Spritz 0%,Drinks,,108,0.0,25.1,0.0,0.0,,,24.9,,457,,,,,,,false,false,,,On: drinks menu
+captain-morgan-spiced-0-and-red-bull-white-peach,Captain Morgan Spiced 0% and Red Bull White Peach,Drinks,,114,0.0,27.6,0.0,0.0,,0.3,27.6,,489,,,,,,,false,false,,,On: drinks menu
+captain-morgan-spiced-0-25ml,Captain Morgan Spiced 0% - 25ml,Drinks,,1,0.0,0.0,0.0,0.0,,0.0,0.0,,2,,,,,,,false,false,,,On: drinks menu
+gordons-pink-0-0-25ml,Gordon's Pink 0.0% - 25ml,Drinks,,3,0.0,0.0,0.0,0.0,,,0.0,,11,,,,,,,false,false,,,On: drinks menu
+gordons-0-0-25ml,Gordon's 0.0% - 25ml,Drinks,,3,0.0,0.0,0.0,0.0,,0.0,0.0,,12,,,,,,,false,false,,,On: drinks menu
+tanqueray-0-25ml,Tanqueray 0% 25ml,Drinks,,3,0.0,0.0,0.0,0.0,,0.0,0.0,,12,,,,,,,false,false,,,On: drinks menu
+sprite-zero-sugar-330ml,Sprite Zero Sugar - 330ml,Drinks,,3,0.0,0.0,0.0,0.0,,0.1,0.0,,17,,,,,,,false,false,,,On: drinks menu
+schweppes-pink-grapefruit-soda-200ml,Schweppes Pink Grapefruit Soda - 200ml,Drinks,,40,0.0,9.2,0.0,0.0,,0.0,9.2,,170,,,,,,,false,false,,,On: drinks menu
+schweppes-ginger-ale-200ml,Schweppes Ginger Ale - 200ml,Drinks,,40,0.0,9.6,0.0,0.0,,0.0,9.6,,174,,,,,,,false,false,,,On: drinks menu
+schweppes-ginger-beer-200ml,Schweppes Ginger Beer - 200ml,Drinks,,44,0.0,9.8,0.0,0.0,,0.1,9.8,,180,,,,,,,false,false,,,On: drinks menu
+aqua-libra-still-water-330ml,Aqua Libra Still Water - 330ml,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,0,,,,,,,false,false,,,On: drinks menu
+aqua-libra-sparkling-water-330ml,Aqua Libra Sparkling Water - 330ml,Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,0,,,,,,,false,false,,,On: drinks menu
+red-bull-tropical-edition-250ml,Red Bull Tropical Edition - 250ml,Drinks,,115,0.0,27.5,0.0,0.0,,0.3,27.5,,495,,,,,,,false,false,,,On: drinks menu
+j2o-apple-and-mango-275ml,J2O Apple & Mango - 275ml,Drinks,,50,0.0,11.0,0.0,0.0,,0.2,11.0,,209,,,,,,,false,false,,,On: drinks menu
+j2o-apple-and-raspberry-275ml,J2O Apple & Raspberry - 275ml,Drinks,,50,0.0,11.0,0.0,0.0,,0.2,11.0,,209,,,,,,,false,false,,,On: drinks menu
+j2o-orange-and-passion-fruit-275ml,J2O Orange & Passion Fruit - 275ml,Drinks,,55,0.0,11.8,0.0,0.0,,0.0,11.8,,231,,,,,,,false,false,,,On: drinks menu
+bottlegreen-elderflower-sparkling-presse-330ml,Bottlegreen Elderflower Sparkling Presse - 330ml,Drinks,,66,0.0,15.7,0.0,0.0,,0.1,15.7,,278,,,,,,,false,false,,,On: drinks menu
+bottlegreen-raspberry-lemonade-330ml,Bottlegreen Raspberry Lemonade - 330ml,Drinks,,63,0.0,14.9,0.0,0.0,,0.0,13.9,,262,,,,,,,false,false,,,On: drinks menu
+vegan-breakfast-vg,Vegan Breakfast (VG),Breakfast,,812,28.5,83.7,37.0,6.2,,3.9,19.9,,3394,,,,,,vegetarian,false,true,,,"On: vegan menu, breakfast menu"
+bacon-breakfast-roll,Bacon Breakfast Roll,Breakfast,,427,14.8,26.7,28.2,11.4,,2.6,1.6,,1779,,,,,,contains_pork,false,true,,,On: no-gluten containing menu
+fried-egg-and-cheese-breakfast-roll-v,Fried Egg & Cheese Breakfast Roll (V),Breakfast,,416,11.7,28.0,27.6,10.3,,1.5,1.9,,1730,,,,,,vegetarian,false,true,,,On: no-gluten containing menu
+bacon-egg-and-cheese-breakfast-roll,"Bacon, Egg & Cheese Breakfast Roll",Breakfast,,573,24.4,28.0,39.5,14.7,,3.4,1.9,,2384,,,,,,contains_pork,false,true,,,On: no-gluten containing menu
+the-big-bacon-breakfast,The Big Bacon Breakfast,Breakfast,,1126,44.9,69.3,71.9,22.0,,5.2,10.0,,4683,,,,,,contains_pork,false,true,,,On: no-gluten containing menu
+veggie-eggie-breakfast-v,Veggie Eggie Breakfast (V),Breakfast,,941,26.5,69.5,59.5,15.7,,2.4,10.2,,3914,,,,,,vegetarian,false,true,,,On: no-gluten containing menu
+vegan-breakfast-vg-no-gluten-menu,Vegan Breakfast (VG) (no-gluten menu),Breakfast,,608,11.0,56.1,37.5,6.7,,1.8,15.9,,2533,,,,,,vegetarian,false,true,,,On: no-gluten containing menu
+the-big-breakfast,The Big Breakfast,Breakfast,,1235,60.7,79.9,72.3,22.0,,5.9,12.7,,5145,,,,,,contains_pork,false,true,,,"On: breakfast menu, bottomless brunch menu"
+veggie-breakfast-v,Veggie Breakfast (V),Breakfast,,1027,43.2,75.4,58.2,13.0,,3.9,11.7,,4283,,,,,,vegetarian,false,true,,,"On: breakfast menu, bottomless brunch menu"
+billionaires-bacon-pancakes,Billionaire's Bacon Pancakes,Breakfast,,935,15.6,145.4,31.4,7.4,,2.8,71.2,,3907,,,,,,contains_pork,false,true,,,"On: breakfast menu, bottomless brunch menu"
+boss-benedit,Boss Benedit,Breakfast,,1063,52.0,41.1,75.7,25.2,,5.6,3.8,,4424,,,,,,contains_pork,false,true,,,"On: breakfast menu, bottomless brunch menu"
+avocado-and-toast-v,Avocado & Toast (V),Breakfast,,702,19.2,53.1,51.6,8.3,,1.4,6.4,,2939,,,,,,vegetarian,false,true,,,"On: breakfast menu, bottomless brunch menu"
+crispy-coated-smoked-tofu-seeded-roll-v,Crispy Coated Smoked Tofu Seeded Roll (V),Rolls,,1481,39.4,112.4,94.1,16.5,,5.9,11.3,,6188,,,,,,vegetarian,false,true,,,On: no-gluten containing menu
+shredded-chicken-seeded-roll,Shredded Chicken Seeded Roll,Rolls,,1067,38.0,99.1,55.1,10.5,,5.2,11.2,,4477,,,,,,,false,true,,,On: no-gluten containing menu
+tandoori-chicken-seeded-roll,Tandoori Chicken Seeded Roll,Rolls,,1131,44.3,100.0,58.6,8.8,,4.8,12.7,,4723,,,,,,,false,true,,,On: no-gluten containing menu
+smash-beef-burger,Smash Beef Burger,Kids: mains,,481,28.3,36.9,24.3,10.0,,1.6,7.7,,2004,,,,,,contains_beef,false,false,,,On: kids' mini menu
+plant-based-beef-style-burger-vg,Plant-Based Beef-Style Burger (VG),Kids: mains,,435,22.8,40.6,18.4,6.5,,1.7,7.3,,1818,,,,,,vegetarian,false,false,,,On: kids' mini menu
+fish-goujons,Fish Goujons,Kids: mains,,141,6.2,13.5,6.8,2.0,,0.2,0.4,,592,,,,,,,false,false,,,On: kids' mini menu
+crispy-chicken-strips,Crispy Chicken Strips,Kids: mains,,301,18.5,18.8,16.3,7.1,,1.3,0.0,,1255,,,,,,,false,false,,,On: kids' mini menu
+mac-n-cheese-v-kids-mini-menu,Mac 'n' Cheese (V) (kids' mini menu),Kids: mains,,646,27.6,62.6,33.2,15.6,,2.8,8.2,,2723,,,,,,vegetarian,false,false,,,On: kids' mini menu
+fish-goujon-sandwich,Fish Goujon Sandwich,Kids: mains,,641,17.5,68.2,31.8,9.8,,1.6,5.1,,2687,,,,,,,false,false,,,On: kids' mini menu
+cheese-and-tomato-sandwich-v,Cheese & Tomato Sandwich (V),Kids: mains,,513,21.0,56.4,21.5,12.2,,1.8,5.2,,2153,,,,,,vegetarian,false,false,,,On: kids' mini menu
+skin-on-fries-vg-kids-mini-menu,Skin-On Fries (VG) (kids' mini menu),Kids: sides,,228,2.6,29.6,10.5,2.7,,0.5,0.2,,955,,,,,,vegetarian,false,false,,,On: kids' mini menu
+garlic-bread-v,Garlic Bread (V),Kids: sides,,92,1.9,12.1,5.2,1.5,,0.3,0.7,,382,,,,,,vegetarian,false,false,,,On: kids' mini menu
+tortilla-chips-vg-m,Tortilla Chips (VG-M),Kids: sides,,198,2.5,24.8,9.2,0.8,,0.3,0.5,,826,,,,,,,false,false,,,On: kids' mini menu
+tater-bites-vg-kids-mini-menu,Tater Bites (VG) (kids' mini menu),Kids: sides,,282,2.6,28.2,17.1,4.9,,1.0,0.3,,1176,,,,,,vegetarian,false,false,,,On: kids' mini menu
+baked-beans-vg,Baked Beans (VG),Kids: veg,,39,2.4,6.3,0.1,0.0,,0.3,2.4,,163,,,,,,vegetarian,false,false,,,On: kids' mini menu
+garden-peas-vg,Garden Peas (VG),Kids: veg,,38,2.9,4.4,0.5,0.1,,0.0,1.3,,161,,,,,,vegetarian,false,false,,,On: kids' mini menu
+grilled-corn-vg,Grilled Corn (VG),Kids: veg,,17,0.9,2.5,0.5,0.1,,0.0,0.7,,73,,,,,,vegetarian,false,false,,,On: kids' mini menu
+veggie-sticks-vg,Veggie Sticks (VG),Kids: veg,,12,0.6,1.9,0.3,0.1,,0.0,1.8,,50,,,,,,vegetarian,false,false,,,On: kids' mini menu
+mushy-peas-vg,Mushy Peas (VG),Kids: veg,,44,2.7,6.9,0.2,0.1,,0.3,0.8,,183,,,,,,vegetarian,false,false,,,On: kids' mini menu
+vanilla-non-dairy-iced-dessert-vg,Vanilla Non-Dairy Iced Dessert (VG),Kids: dessert,,182,2.3,24.7,8.2,4.4,,0.3,22.8,,762,,,,,,vegetarian,false,false,,,On: kids' mini menu
+hash-brown-vg,Hash Brown (VG),Breakfast extras,,133,1.2,13.5,7.9,2.2,,0.3,0.3,,555,,,,,,vegetarian,false,false,,,On: breakfast menu
+toast-and-butter-v,Toast & Butter (V),Breakfast extras,,387,11.2,53.9,13.0,7.0,,1.2,4.2,,1622,,,,,,vegetarian,false,false,,,On: breakfast menu
+grilled-tomato-vg,Grilled Tomato (VG),Breakfast extras,,16,0.6,2.8,0.2,0.1,,0.0,2.8,,66,,,,,,vegetarian,false,false,,,On: breakfast menu
+flat-mushroom-vg,Flat Mushroom (VG),Breakfast extras,,51,0.7,0.2,5.3,0.4,,0.0,0.2,,211,,,,,,vegetarian,false,false,,,On: breakfast menu
+beans-vg,Beans (VG),Breakfast extras,,78,4.7,12.5,0.2,0.0,,0.6,4.7,,326,,,,,,vegetarian,false,false,,,On: breakfast menu
+fried-egg-v,Fried Egg (V),Breakfast extras,,104,7.6,0.0,8.2,1.8,,0.2,0.0,,432,,,,,,vegetarian,false,false,,,On: breakfast menu
+sausage,Sausage,Breakfast extras,,132,9.3,5.2,8.1,2.9,,0.8,1.1,,551,,,,,,contains_pork,false,false,,,On: breakfast menu
+bacon,Bacon,Breakfast extras,,157,12.7,0.0,11.8,4.4,,1.9,0.0,,654,,,,,,contains_pork,false,false,,,On: breakfast menu
+bacon-egg-and-cheese,"Bacon, Egg & Cheese",Breakfast sandwiches,,690,33.4,55.2,36.2,14.7,,3.8,4.5,,2882,,,,,,contains_pork,false,true,,,On: breakfast menu
+sausage-egg-and-cheese,"Sausage, Egg & Cheese",Breakfast sandwiches,,797,39.4,65.5,40.5,15.9,,3.6,6.7,,3330,,,,,,contains_pork,false,true,,,On: breakfast menu
+just-bacon,Just Bacon,Breakfast sandwiches,,544,23.9,53.9,24.8,11.4,,3.1,4.2,,2276,,,,,,contains_pork,false,true,,,On: breakfast menu
+just-sausage,Just Sausage,Breakfast sandwiches,,651,29.8,64.3,29.2,12.7,,2.9,6.4,,2724,,,,,,contains_pork,false,true,,,On: breakfast menu
+plant-based-sausage-sandwich-v,Plant-Based Sausage Sandwich (V),Breakfast sandwiches,,554,21.6,59.2,23.7,7.9,,2.3,5.2,,2322,,,,,,vegetarian,false,true,,,On: breakfast menu

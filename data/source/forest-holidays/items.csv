@@ -1,0 +1,99 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+woodland-breakfast,Woodland breakfast,Traditional cooked breakfast,,730,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'The woodland breakfast' 730; the Scotland PDF prints a different dish (a 'Scottish' version) instead; marks ['dfo', 'gfo']"
+big-forest-breakfast,Big forest breakfast,Traditional cooked breakfast,,1063,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'The big forest breakfast' 1063; the Scotland PDF prints a different dish (a 'Scottish' version) instead; marks ['dfo', 'gfo']"
+plant-forest-breakfast,Plant forest breakfast,Traditional cooked breakfast,,736,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'The plant forest breakfast' 736; Scotland PDF 736; marks ['df', 'gfo', 've']"
+pancakes-or-waffles-with-smoked-streaky-bacon-and-hot-honey,Pancakes or waffles with smoked streaky bacon and hot honey,Waffles and pancakes,,1062,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Smoked streaky bacon and hot honey' 1062; Scotland PDF 1062; no marks
+pancakes-or-waffles-with-fresh-berries-coconut-yoghurt-granola-and-maple-drizzle,"Pancakes or waffles with fresh berries, coconut yoghurt, granola and maple drizzle",Waffles and pancakes,,1039,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'and maple drizzle*' 1039; Scotland PDF 1039; marks ['df', 'v']"
+bacon-bap,Bacon bap,Breakfast baps,,740,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'Bacon' 740; Scotland PDF 740; marks ['df', 'gfo']"
+sausage-bap,Sausage bap,Breakfast baps,,444,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'Sausage' 444; Scotland PDF 444; marks ['df', 'gfo']"
+vegetable-bap,Vegetable bap,Breakfast baps,,467,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Vegetable' 467; Scotland PDF 467; marks ['df', 'gfo', 've']"
+apple-orchard-porridge,Apple orchard porridge,Light brunch,,310,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Apple orchard porridge' 310; Scotland PDF 310; marks ['dfo', 'v']"
+avocado-and-poached-eggs-on-toast,Avocado and poached eggs on toast,Light brunch,,425,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Avocado and poached eggs on toast' 425; Scotland PDF 425; marks ['df', 'gfo', 'v', 'veo']"
+eggs-on-toast,Eggs on toast,Light brunch,,314,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Eggs on toast - your way' 314; Scotland PDF 314; marks ['gfo', 'v']"
+forest-breakfast-flatbread,Forest breakfast flatbread,Light brunch,,816,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Forest breakfast flatbread' 816; Scotland PDF 816; no marks
+wild-garlic-mushrooms-on-toast,Wild garlic mushrooms on toast,Light brunch,,448.5,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Wild garlic mushrooms on toast' 448.5; Scotland PDF 448.5; marks ['df', 'gfo', 've']"
+wild-garlic-mushrooms-on-toast-with-eggs,Wild garlic mushrooms on toast with eggs,Light brunch,,451.5,,,,,,,,,,,,,,,,false,false,,,England PDF 'Wild garlic mushrooms on toast' 451.5; Scotland PDF 451.5; no marks
+campfire-breakfast-hash,Campfire breakfast hash,Light brunch,,576,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Campfire breakfast hash' 576; Scotland PDF 576; marks ['dfo', 'gf', 'v']"
+campfire-breakfast-hash-with-bacon,Campfire breakfast hash with bacon,Light brunch,,686,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Campfire breakfast hash' 686; Scotland PDF 686; no marks
+streaky-bacon,Streaky bacon,Breakfast extras,,120,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Streaky bacon' 120; Scotland PDF 120; no marks
+sausage,Sausage,Breakfast extras,,106,,,,,,,,,,,,,,,,false,false,,,England PDF 'Sausage' 106; Scotland PDF 106; marks ['gf']
+vegan-sausage,Vegan sausage,Breakfast extras,,74,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Vegan sausage' 74; Scotland PDF 74; no marks
+beans,Beans,Breakfast extras,,172,,,,,,,,,,,,,,,,false,false,,,England PDF 'Beans' 172; Scotland PDF 172; no marks
+toast-white-harvester-or-sourdough,"Toast (white, harvester or sourdough)",Breakfast extras,,230,,,,,,,,,,,,,,,,false,false,,,"England PDF 'Toast – White, Harvester or Sourdough' 230; Scotland PDF 230; no marks"
+egg-scrambled-poached-or-fried,"Egg (scrambled, poached or fried)",Breakfast extras,,80,,,,,,,,,,,,,,,,false,false,,,"England PDF 'Egg – Scrambled, poached or fried' 80; Scotland PDF 80; no marks"
+hash-brown,Hash brown,Breakfast extras,,290,,,,,,,,,,,,,,,,false,false,,,England PDF 'Hash brown' 290; Scotland PDF 290; no marks
+black-pudding,Black pudding,Breakfast extras,,173,,,,,,,,,,,,,,,,false,false,,,England PDF 'Black pudding' 173; Scotland PDF 173; no marks
+mushroom,Mushroom,Breakfast extras,,6,,,,,,,,,,,,,,,,false,false,,,England PDF 'Mushroom' 6; Scotland PDF 6; no marks
+tomato,Tomato,Breakfast extras,,15,,,,,,,,,,,,,,,,false,false,,,England PDF 'Tomato' 15; Scotland PDF 15; no marks
+avocado,Avocado,Breakfast extras,,89,,,,,,,,,,,,,,,,false,false,,,England PDF 'Avocado' 89; Scotland PDF 89; no marks
+garlic-wild-mushrooms,Garlic wild mushrooms,Breakfast extras,,75,,,,,,,,,,,,,,,,false,false,,,England PDF 'Garlic wild mushrooms' 75; Scotland PDF 75; no marks
+tropical-sunrise-smoothie,Tropical Sunrise smoothie,Smoothies,,169,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Tropical Sunrise' 169; Scotland PDF 169; marks ['ve']
+forest-berry-smoothie,Forest Berry smoothie,Smoothies,,96,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Forest Berry' 96; Scotland PDF 96; marks ['ve']
+cherry-medley-smoothie,Cherry Medley smoothie,Smoothies,,165,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Cherry Medley' 165; Scotland PDF 165; marks ['ve']
+coconut-cooler-smoothie,Coconut Cooler smoothie,Smoothies,,96,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Coconut Cooler' 96; Scotland PDF 96; marks ['ve']
+cheese-and-ham-sourdough-pocket,Cheese and ham sourdough pocket,Sourdough sandwich pockets,,531,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Cheese and ham' 531; Scotland PDF 531; marks ['dfo']
+mediterranean-vegetable-sourdough-pocket,Mediterranean vegetable sourdough pocket,Sourdough sandwich pockets,,492,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Mediterranean vegetable' 492; Scotland PDF 492; marks ['v']
+forest-mushroom-loaded-mac-and-cheese,Forest mushroom loaded mac and cheese,Loaded mac and cheese,,797,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Forest mushroom' 797; Scotland PDF 797; marks ['v']
+campfire-bbq-loaded-mac-and-cheese,Campfire BBQ loaded mac and cheese,Loaded mac and cheese,,989,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Campfire BBQ' 989; Scotland PDF 989; no marks
+maple-meatballs-loaded-mac-and-cheese,Maple meatballs loaded mac and cheese,Loaded mac and cheese,,1075,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Maple meatballs' 1075; Scotland PDF 1075; no marks
+fish-and-chips,Fish and chips,British classics,,1175,,,,,,,,,,,,,,,,false,false,,,England PDF 'Fish and chips' 1175; Scotland PDF 1175; marks ['gf']
+steak-and-ale-pie,Steak and ale pie,British classics,,1066,,,,,,,,,,,,,,,contains_beef,false,false,,,England PDF 'Steak and ale pie' 1066; Scotland PDF 1066; marks ['gf']
+ham-egg-and-chips,"Ham, egg and chips",British classics,,570,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'Ham, egg and chips' 570; Scotland PDF 570; marks ['df', 'gf']"
+carrot-and-coriander-soup,Carrot and coriander soup,Soup of the day,,495,,,,,,,,,,,,,,,,false,false,,,"England PDF 'Carrot & coriander' 495; Scotland PDF 495; marks ['df', 'gfo']"
+leek-and-potato-soup,Leek and potato soup,Soup of the day,,528,,,,,,,,,,,,,,,,false,false,,,"England PDF 'Leek & potato' 528; Scotland PDF 528; marks ['df', 'gfo']"
+classic-burger,Classic burger,Burgers,,691,,,,,,,,,,,,,,,contains_beef,false,false,,,"England PDF 'The classic' 691; Scotland PDF 691; Beddgelert PDF 'The classic' 691; marks ['dfo', 'gfo']"
+double-cheese-and-bacon-burger,Double cheese and bacon burger,Burgers,,1159,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"England PDF 'Double cheese and bacon' 1159; Scotland PDF 1159; Beddgelert PDF 'Double cheese and bacon' 1159; marks ['dfo', 'gfo']"
+pulled-pork-burger,Pulled pork burger,Burgers,,848,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,England PDF 'Pulled pork' 848; Scotland PDF 848; Beddgelert PDF 'BBQ pulled pork burger' 877; marks ['dfo']
+bbq-chicken-burger,BBQ chicken burger,Burgers,,1102,,,,,,,,,,,,,,,,false,false,,,England PDF 'BBQ chicken' 1102; Scotland PDF 1102; Beddgelert PDF 'BBQ chicken' 1912; no marks
+vegan-bbq-burger,Vegan BBQ burger,Burgers,,892,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Vegan BBQ' 892; Scotland PDF 892; Beddgelert PDF 'Vegan BBQ' 892; marks ['df', 've']"
+chicken-jalfrezi-curry,Chicken jalfrezi curry,Curries,,747,,,,,,,,,,,,,,,,false,false,,,"England PDF 'Chicken Jalfrezi' 747; Scotland PDF 747; Beddgelert PDF 'Chicken Jalfrezi' 747; marks ['df', 'gf']"
+chicken-tikka-masala-curry,Chicken tikka masala curry,Curries,,951,,,,,,,,,,,,,,,,false,false,,,"England PDF 'Chicken Tikka Masala' 951; Scotland PDF 951; Beddgelert PDF 'Chicken Tikka Masala' 951; marks ['df', 'gf']"
+chicken-korma-curry,Chicken korma curry,Curries,,1107,,,,,,,,,,,,,,,,false,false,,,"England PDF 'Chicken Korma' 1107; Scotland PDF 1107; Beddgelert PDF 'Chicken Korma' 1107; marks ['df', 'gf']"
+vegetable-balti-curry,Vegetable balti curry,Curries,,623,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Vegetable Balti' 623; Scotland PDF 623; Beddgelert PDF 'Vegetable Balti' 623; marks ['df', 'gf', 've']"
+naan-and-dips,Naan and dips,Curries,,216,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Naan and dips' 216; Scotland PDF 216; Beddgelert PDF 'Naan and pickles' 216; marks ['df', 've']"
+spicy-italian-pizza,Spicy Italian pizza,Pizza,,1036,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'Spicy Italian' 1036; Scotland PDF 1036; Beddgelert PDF 'Spicy meats' 1567; marks ['dfo', 'gfo']"
+mediterranean-pizza,Mediterranean pizza,Pizza,,714,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Mediterranean' 714; Scotland PDF 714; Beddgelert PDF 'Mediterranean' 1492; marks ['gfo', 'v', 'veo']"
+margherita-pizza,Margherita pizza,Pizza,,1031,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Margherita' 1031; Scotland PDF 1031; Beddgelert PDF 'Margherita' 1458; marks ['dfo', 'gfo', 'v', 'veo']"
+ham-and-spicy-pineapple-pizza,Ham and spicy pineapple pizza,Pizza,,750,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'Ham and spicy pineapple' 750; Scotland PDF 750; Beddgelert PDF 'Ham and spicy pineapple' 1366; marks ['dfo', 'gfo']"
+meatball-pizza,Meatball pizza,Pizza,,1018,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'Meatball' 1018; Scotland PDF 1018; marks ['dfo', 'gfo']"
+bbq-southern-fried-chicken-strips,BBQ southern-fried chicken strips,Small plates,,401,,,,,,,,,,,,,,,,false,false,,,England PDF 'BBQ southern-fried chicken strips' 401; Scotland PDF 401; marks ['df']
+meatballs,Meatballs,Small plates,,431,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Meatballs' 431; Scotland PDF 431; marks ['gf']
+crispy-spinach-and-ricotta-ravioli,Crispy spinach and ricotta ravioli,Small plates,,171,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Crispy spinach and ricotta ravioli' 171; Scotland PDF 171; marks ['v']
+bbq-smash-browns,BBQ smash browns,Small plates,,440,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'BBQ smash browns' 440; Scotland PDF 440; marks ['dfo', 'gf', 'v']"
+charred-corn-ribs,Charred corn ribs,Small plates,,365,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Charred corn ribs' 365; Scotland PDF 365; marks ['gf', 've']"
+bbq-pulled-pork-loaded-fries,BBQ pulled pork loaded fries,Topped fries,,877,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'BBQ pulled pork loaded fries' 877; Scotland PDF 877; marks ['dfo']
+vegetable-balti-loaded-fries,Vegetable balti loaded fries,Topped fries,,761,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Vegetable Balti' 761; Scotland PDF 761; marks ['df', 'gf', 've']"
+garlic-and-rosemary-salted-skin-on-fries,Garlic and rosemary salted skin-on fries,Sides,,312,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Garlic and rosemary salted skin-on fries' 312; Scotland PDF 312; Beddgelert PDF 'Garlic and rosemary salted skin-on fries' 312; marks ['df', 'gf', 've']"
+sweet-potato-wedges,Sweet potato wedges,Sides,,234,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Sweet potato wedges' 234; Scotland PDF 234; Beddgelert PDF 'Sweet potato wedges' 234; marks ['df', 'gf', 've']"
+waffle-fries,Waffle fries,Sides,,348,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Waffle fries' 348; Scotland PDF 348; Beddgelert PDF 'Waffle fries' 348; marks ['ve']
+battered-onion-rings,Battered onion rings,Sides,,355,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Battered onion rings' 355; Scotland PDF 355; Beddgelert PDF 'Battered onion rings' 355; marks ['ve']
+garlic-and-herb-flatbread,Garlic and herb flatbread,Sides,,464,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Garlic and herb flatbread' 464; Scotland PDF 464; Beddgelert PDF 'Garlic and herb flatbread' 754; marks ['v']
+garlic-herb-and-mozzarella-flatbread,"Garlic, herb and mozzarella flatbread",Sides,,595,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Garlic, herb and mozzarella flatbread' 595; Scotland PDF 595; Beddgelert PDF 'Garlic, herb and mozzarella flatbread' 883; marks ['v']"
+little-forest-breakfast,Little forest breakfast,Children's breakfast,,718,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'The little forest breakfast' 718; Scotland PDF 718; marks ['dfo', 'gfo']"
+kids-beans-on-toast,Kids beans on toast,Children's breakfast,,337,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Beans on toast' 337; Scotland PDF 337; marks ['df', 've']"
+kids-pancakes-with-nutella,Kids pancakes with Nutella,Children's breakfast,,324,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Nutella' 324; Scotland PDF 324; marks ['v']
+kids-pancakes-with-syrup,Kids pancakes with syrup,Children's breakfast,,397,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Syrup' 397; Scotland PDF 397; marks ['v']
+kids-cheese-and-tomato-pizza,Kids cheese and tomato pizza,Children's meals,,579,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Cheese and tomato' 579; Scotland PDF 579; marks ['v']
+kids-pepperoni-pizza,Kids pepperoni pizza,Children's meals,,748,,,,,,,,,,,,,,,contains_pork,false,false,,,England PDF 'Pepperoni' 748; Scotland PDF 748; no marks
+kids-ham-sandwich,Kids ham sandwich,Children's meals,,423,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'Houghton British ham' 423; Scotland PDF 423; marks ['df', 'gfo']"
+kids-jam-sandwich,Kids jam sandwich,Children's meals,,425,,,,,,,,,,,,,,,,false,false,,,"England PDF 'Jam' 425; Scotland PDF 425; marks ['df', 'gfo']"
+kids-cheese-sandwich,Kids cheese sandwich,Children's meals,,462,,,,,,,,,,,,,,,,false,false,,,England PDF 'Cheese' 462; Scotland PDF 462; marks ['gfo']
+kids-pork-sausages,Kids pork sausages,Children's meals,,368,,,,,,,,,,,,,,,contains_pork,false,false,,,"England PDF 'British pork sausage' 368; Scotland PDF 368; marks ['df', 'gf']"
+kids-vegan-sausages,Kids vegan sausages,Children's meals,,390,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Vegan sausage' 390; Scotland PDF 390; marks ['df', 've']"
+kids-southern-fried-chicken-tenders,Kids southern-fried chicken tenders,Children's meals,,197,,,,,,,,,,,,,,,,false,false,,,England PDF 'Southern-fried chicken tenders' 197; Scotland PDF 197; no marks
+kids-mini-beef-burger,Kids mini beef burger,Children's meals,,615,,,,,,,,,,,,,,,contains_beef,false,false,,,"England PDF 'Mini beef burger' 615; Scotland PDF 615; marks ['dfo', 'gfo']"
+kids-mac-and-cheese,Kids mac and cheese,Children's meals,,705,,,,,,,,,,,,,,,vegetarian,false,false,,,England PDF 'Mac and cheese' 705; Scotland PDF 705; marks ['v']
+chocolate-milkshake,Chocolate milkshake,Milkshakes,,623,,,,,,,,,,,,,,,,false,false,,,England PDF 'Chocolate' 623; Scotland PDF 623; no marks
+strawberry-milkshake,Strawberry milkshake,Milkshakes,,568,,,,,,,,,,,,,,,,false,false,,,England PDF 'Strawberry' 568; Scotland PDF 568; no marks
+vanilla-milkshake,Vanilla milkshake,Milkshakes,,568,,,,,,,,,,,,,,,,false,false,,,England PDF 'Vanilla' 568; Scotland PDF 568; no marks
+panettone-bread-and-butter-pudding,Panettone bread and butter pudding,Desserts,,285,,,,,,,,,,,,,,,,false,false,,,England PDF 'Panettone bread and butter pudding' 285; Scotland PDF 285; no marks
+banana-sticky-toffee,Banana sticky toffee,Desserts,,320,,,,,,,,,,,,,,,,false,false,,,England PDF 'Banana sticky toffee' 320; Scotland PDF 320; marks ['veo']
+lemon-and-raspberry-cheesecake,Lemon and raspberry cheesecake,Desserts,,335,,,,,,,,,,,,,,,vegetarian,false,false,,,"England PDF 'Lemon and raspberry cheesecake' 335; Scotland PDF 335; marks ['gf', 've']"
+apple-and-blackberry-crumble,Apple and blackberry crumble,Desserts,,531,,,,,,,,,,,,,,,,false,false,,,England PDF 'Apple and blackberry crumble' 531; Scotland PDF 531; marks ['veo']
+kids-ice-cream,Kids ice cream,Desserts,,252,,,,,,,,,,,,,,,,false,false,,,England PDF 'Kids ice cream' 252; Scotland PDF 252; no marks
+espresso,Espresso,Drinks,,2,,,,,,,,,,,,,,,,false,false,,,England PDF 'Espresso' 2; Scotland PDF 2; no marks
+flat-white,Flat white,Drinks,,118,,,,,,,,,,,,,,,,false,false,,,England PDF 'Flat white' 118; Scotland PDF 118; no marks
+babyccino,Babyccino,Drinks,,46,,,,,,,,,,,,,,,,false,false,,,England PDF 'Babyccino' 46; Scotland PDF 46; no marks
+tea-earl-grey-english-breakfast-or-herbal,"Tea (Earl Grey, English Breakfast or herbal)",Drinks,,0,,,,,,,,,,,,,,,,false,false,,,England PDF 'Tea' 0; Scotland PDF 0; no marks
+iced-latte,Iced latte,Drinks,,140,,,,,,,,,,,,,,,,false,false,,,England PDF 'Iced latte' 140; Scotland PDF 140; no marks
+iced-americano,Iced americano,Drinks,,2,,,,,,,,,,,,,,,,false,false,,,England PDF 'Iced americano' 2; Scotland PDF 2; no marks

@@ -1,0 +1,12 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+apple-crumble,Apple Crumble,Shakes,22 oz,347,27,34,10,,,,,,,,,,,,,true,false,,,"Ingredients as printed: Salted Caramel protein, apples, cinnamon, oats, almond milk; listed under the menu page's 'Limited Edition' heading"
+banana-bread,Banana Bread,Shakes,22 oz,393,23,55,7.9,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla Protein, oat milk, banana, oats, date syrup, cinnamon"
+berry-blast,Berry Blast,Shakes,22 oz,176,22,11,4.6,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla protein, almond milk, mixed berries"
+blueberry-almond,Blueberry Almond,Shakes,22 oz,294,26,11,15,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla protein, almond milk, blueberries, almond butter"
+breakfast-beat,Breakfast Beat,Shakes,22 oz,531,28,55,19,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla protein, oat milk, oats, banana, mulberries, peanut butter"
+chocolate-chief,Chocolate Chief,Shakes,22 oz,286,22,28,8.2,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Chocolate protein, almond milk, raw cacao, dates, pink salt, banana"
+ferrero-rocher,Ferrero Rocher,Shakes,22 oz,450,24,36,23,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Chocolate protein, NFF chocolate hazelnut butter, oat milk"
+nutter-butter,Nutter Butter,Shakes,22 oz,413,24,37,17,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Chocolate protein, oat milk, banana, almond butter"
+snickers,Snickers,Shakes,22 oz,305,26,16,14,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Chocolate protein, almond milk, chocolate, dates, peanut butter"
+superhuman,Superhuman,Shakes,22 oz,451,30,34,20,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla protein, coconut milk, berries, banana, almond butter"
+perfect-matcha,Perfect Matcha,Shakes,22 oz,311,27,18,13,,,,,,,,,,,,,false,false,,,"Ingredients as printed: Vanilla protein, matcha, almond butter, banana, almond milk"

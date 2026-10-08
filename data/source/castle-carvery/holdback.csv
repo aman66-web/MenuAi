@@ -1,0 +1,5 @@
+item_id,reason
+chocolate-brownie,"Kids' menu row prints 223.5 g of fat for 499 kcal (223.5 g of fat alone would be about 2,000 kcal)."
+halloumi-fries,"Printed 461 kcal, but its own protein, carbohydrate and fat (21.5 g, 28.6 g, 19.0 g) add up to about 371 kcal (19% less). The page repeats the same numbers in its structured data, so it is not a display slip."
+fish-and-chips,"Printed 1,658 kcal / 72.3 g protein, but 'Large Fish & Chips' (an extra large fillet) prints fewer: 1,237 kcal / 43.7 g protein. The two rows contradict each other and the page does not say which is wrong."
+large-fish-and-chips,"Printed 1,237 kcal / 43.7 g protein, fewer than the regular 'Fish & Chips' (1,658 kcal / 72.3 g protein) although it has the larger fillet. The page does not say which row is wrong."

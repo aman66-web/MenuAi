@@ -1,0 +1,95 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+bacon-bap,Bacon Bap,Breakfast,,514,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Bacon Bap' 514 in section 'Breakfast'
+sausage-bap,Sausage Bap,Breakfast,,623,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Sausage Bap' 623 in section 'Breakfast'
+vegan-sausage-bap,Vegan Sausage Bap,Breakfast,,427,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Sausage Bap' 427 in section 'Breakfast'
+lorne-sausage-bap,Lorne Sausage Bap,Breakfast,,442,,,,,,,,,,,,,,,,false,false,,,Printed 'Lorne Sausage Bap' 442 in section 'Breakfast'; meat type not stated
+bacon-5-item-breakfast,Bacon (5 item breakfast),5 Item Breakfast (where available),,129,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Bacon' 129 in section '5 Item Breakfast (Where Available)'
+sausage,Sausage,5 Item Breakfast (where available),,183,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Sausage' 183 in section '5 Item Breakfast (Where Available)'
+vegan-sausage-5-item-breakfast,Vegan Sausage (5 item breakfast),5 Item Breakfast (where available),,111,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Sausage' 111 in section '5 Item Breakfast (Where Available)'
+lorne-sausage,Lorne Sausage,5 Item Breakfast (where available),,185,,,,,,,,,,,,,,,,false,false,,,Printed 'Lorne Sausage' 185 in section '5 Item Breakfast (Where Available)'; meat type not stated
+egg,Egg,5 Item Breakfast (where available),,95,,,,,,,,,,,,,,,,false,false,,,Printed 'Egg' 95 in section '5 Item Breakfast (Where Available)'
+baked-beans-5-item-breakfast,Baked Beans (5 item breakfast),5 Item Breakfast (where available),,112,,,,,,,,,,,,,,,,false,false,,,Printed 'Baked Beans' 112 in section '5 Item Breakfast (Where Available)'
+toast,Toast,5 Item Breakfast (where available),,97,,,,,,,,,,,,,,,,false,false,,,Printed 'Toast' 97 in section '5 Item Breakfast (Where Available)'
+chicken-tikka-masala,Chicken Tikka Masala,Main Meals (main ingredient only),,519,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Tikka Masala' 519 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+macaroni-cheese,Macaroni Cheese,Main Meals (main ingredient only),,688,,,,,,,,,,,,,,,,false,false,,,Printed 'Macaroni Cheese' 688 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+scampi,Scampi,Main Meals (main ingredient only),,134,,,,,,,,,,,,,,,,false,false,,,Printed 'Scampi' 134 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+cauliflower-and-red-pepper-curry,Cauliflower & Red Pepper Curry,Main Meals (main ingredient only),,374,,,,,,,,,,,,,,,,false,false,,,Printed 'Cauliflower & Red Pepper Curry' 374 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+chips-main-meals,Chips (main meals),Main Meals (main ingredient only),,372,,,,,,,,,,,,,,,,false,false,,,Printed 'Chips' 372 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+garden-peas-main-meals,Garden Peas (main meals),Main Meals (main ingredient only),,64,,,,,,,,,,,,,,,,false,false,,,Printed 'Garden Peas' 64 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+baked-beans-main-meals,Baked Beans (main meals),Main Meals (main ingredient only),,112,,,,,,,,,,,,,,,,false,false,,,Printed 'Baked Beans' 112 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+garlic-bread-main-meals,Garlic Bread (main meals),Main Meals (main ingredient only),,199,,,,,,,,,,,,,,,,false,false,,,Printed 'Garlic Bread' 199 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+white-rice,White Rice,Main Meals (main ingredient only),,272,,,,,,,,,,,,,,,,false,false,,,Printed 'White Rice' 272 in section 'Main Meals - Main Ingredient Only - All accompaniments listed separately'
+chicken-breast,Chicken Breast,Sunday Lunch (where available),,170,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Breast' 170 in section 'Sunday Lunch (Where available)'
+roast-potatoes,Roast Potatoes,Sunday Lunch (where available),,260,,,,,,,,,,,,,,,,false,false,,,Printed 'Roast Potatoes' 260 in section 'Sunday Lunch (Where available)'
+yorkshire-pudding,Yorkshire Pudding,Sunday Lunch (where available),,69,,,,,,,,,,,,,,,,false,false,,,Printed 'Yorkshire Pudding' 69 in section 'Sunday Lunch (Where available)'
+stuffing-ball,Stuffing Ball,Sunday Lunch (where available),,80,,,,,,,,,,,,,,,,false,false,,,Printed 'Stuffing Ball' 80 in section 'Sunday Lunch (Where available)'
+garden-peas-sunday-lunch,Garden Peas (Sunday lunch),Sunday Lunch (where available),,64,,,,,,,,,,,,,,,,false,false,,,Printed 'Garden Peas' 64 in section 'Sunday Lunch (Where available)'
+carrots,Carrots,Sunday Lunch (where available),,75,,,,,,,,,,,,,,,,false,false,,,Printed 'Carrots' 75 in section 'Sunday Lunch (Where available)'
+gravy-sunday-lunch,Gravy (Sunday lunch),Sunday Lunch (where available),,181,,,,,,,,,,,,,,,,false,false,,,Printed 'Gravy' 181 in section 'Sunday Lunch (Where available)'
+vegan-sausage-sunday-lunch,Vegan Sausage (Sunday lunch),Sunday Lunch (where available),,222,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Sausage' 222 in section 'Sunday Lunch (Where available)'
+chicken-basket,Chicken Basket,Baskets,,1381,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Basket' 1381 in section 'Baskets (sauce choice listed seperatley)'
+fish-basket,Fish Basket,Baskets,,769,,,,,,,,,,,,,,,,false,false,,,Printed 'Fish Basket' 769 in section 'Baskets (sauce choice listed seperatley)'
+veggie-basket,Veggie Basket,Baskets,,935,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Veggie Basket' 935 in section 'Baskets (sauce choice listed seperatley)'
+classic-beef-burger-inc-all-ingredients-and-mayo,Classic Beef Burger (inc all ingredients & Mayo),Burgers & Chips,,961,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Classic Beef Burger (inc all ingredients & Mayo)' 961 in section 'Burgers & Chips'
+chicken-burger-inc-all-ingredients-and-mayo,Chicken Burger (inc all ingredients & Mayo),Burgers & Chips,,843,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Burger (inc all ingredients & Mayo)' 843 in section 'Burgers & Chips'
+vegan-burger-inc-all-ingredients-and-mayo,Vegan Burger (inc all ingredients & Mayo),Burgers & Chips,,881,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Burger (inc all ingredients & Mayo)' 881 in section 'Burgers & Chips'
+cheese-burgers-and-chips,Cheese (burgers & chips),Burgers & Chips,,66,,,,,,,,,,,,,,,,false,false,,,Printed 'Cheese' 66 in section 'Burgers & Chips'
+bacon-burgers-and-chips,Bacon (burgers & chips),Burgers & Chips,,129,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Bacon' 129 in section 'Burgers & Chips'
+onion-rings-burgers-and-chips,Onion Rings (burgers & chips),Burgers & Chips,,152,,,,,,,,,,,,,,,,false,false,,,Printed 'Onion Rings' 152 in section 'Burgers & Chips'
+fried-boiled-onions-burgers-and-chips,Fried / Boiled Onions (burgers & chips),Burgers & Chips,,31,,,,,,,,,,,,,,,,false,false,,,Printed 'Fried / Boiled Onions' 31 in section 'Burgers & Chips'
+fish-fingers-and-chips,Fish Fingers & Chips,Fiver Faves,,516,,,,,,,,,,,,,,,,false,false,,,Printed 'Fish Fingers & Chips' 516 in section 'Fiver Faves - Sauce Choices listed seperatley'
+chicken-goujons-and-chips,Chicken Goujons & Chips,Fiver Faves,,519,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Goujons & Chips' 519 in section 'Fiver Faves - Sauce Choices listed seperatley'
+sausages-and-chips,Sausages & Chips,Fiver Faves,,738,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Sausages & Chips' 738 in section 'Fiver Faves - Sauce Choices listed seperatley'
+vegan-sausages-and-chips,Vegan Sausages & Chips,Fiver Faves,,594,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Sausages & Chips' 594 in section 'Fiver Faves - Sauce Choices listed seperatley'
+uncle-johns-hot-dog-and-chips-inc-all-ingredients-and-tomato-sauce-and-mustard,Uncle Johns Hot Dog & Chips (inc all ingredients & Tomato Sauce & Mustard),Fiver Faves,,809,,,,,,,,,,,,,,,,false,false,,,Printed 'Uncle Johns Hot Dog & Chips (inc all ingredients & Tomato Sauce & Mustard)' 809 in section 'Fiver Faves - Sauce Choices listed seperatley'; meat type not stated
+vegan-hot-dog-and-chips-inc-all-ingredients-and-tomato-sauce-and-mustard,Vegan Hot Dog & Chips (inc all ingredients & Tomato Sauce & Mustard),Fiver Faves,,763,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Hot Dog & Chips (inc all ingredients & Tomato Sauce & Mustard)' 763 in section 'Fiver Faves - Sauce Choices listed seperatley'
+margherita,Margherita,Pizza,,872,,,,,,,,,,,,,,,,false,false,,,Printed 'Margherita' 872 in section 'Pizza'
+pepperoni,Pepperoni,Pizza,,1011,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Pepperoni' 1011 in section 'Pizza'
+plain-jacket-potato,Plain Jacket Potato,Jacket Potato,,293,,,,,,,,,,,,,,,,false,false,,,Printed 'Plain Jacket Potato' 293 in section 'Jacket Potato'
+butter,Butter,Jacket Potato,,52,,,,,,,,,,,,,,,,false,false,,,Printed 'Butter' 52 in section 'Jacket Potato'
+cheese-jacket-potato,Cheese (jacket potato),Jacket Potato,,279,,,,,,,,,,,,,,,,false,false,,,Printed 'Cheese' 279 in section 'Jacket Potato'
+tuna-mayonnaise,Tuna Mayonnaise,Jacket Potato,,422,,,,,,,,,,,,,,,,false,false,,,Printed 'Tuna Mayonnaise' 422 in section 'Jacket Potato'
+baked-beans-jacket-potato,Baked Beans (jacket potato),Jacket Potato,,112,,,,,,,,,,,,,,,,false,false,,,Printed 'Baked Beans' 112 in section 'Jacket Potato'
+ultimate-southern-fried-hunters-chips,Ultimate Southern-Fried Hunters Chips,"Chips, Toppings & Sides",,1048,,,,,,,,,,,,,,,,false,false,,,"Printed 'Ultimate Southern-Fried Hunters Chips' 1048 in section 'Chips, Toppings & Sides'; meat type not stated"
+chip-butty,Chip Butty,"Chips, Toppings & Sides",,576,,,,,,,,,,,,,,,,false,false,,,"Printed 'Chip Butty' 576 in section 'Chips, Toppings & Sides'"
+chips-sides,Chips (sides),"Chips, Toppings & Sides",,372,,,,,,,,,,,,,,,,false,false,,,"Printed 'Chips' 372 in section 'Chips, Toppings & Sides'"
+curry-sauce,Curry Sauce,"Chips, Toppings & Sides",,173,,,,,,,,,,,,,,,,false,false,,,"Printed 'Curry Sauce' 173 in section 'Chips, Toppings & Sides'"
+gravy-sides,Gravy (sides),"Chips, Toppings & Sides",,181,,,,,,,,,,,,,,,,false,false,,,"Printed 'Gravy' 181 in section 'Chips, Toppings & Sides'"
+cheese-sides,Cheese (sides),"Chips, Toppings & Sides",,279,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cheese' 279 in section 'Chips, Toppings & Sides'"
+baked-beans-sides,Baked Beans (sides),"Chips, Toppings & Sides",,112,,,,,,,,,,,,,,,,false,false,,,"Printed 'Baked Beans' 112 in section 'Chips, Toppings & Sides'"
+garden-peas-sides,Garden Peas (sides),"Chips, Toppings & Sides",,64,,,,,,,,,,,,,,,,false,false,,,"Printed 'Garden Peas' 64 in section 'Chips, Toppings & Sides'"
+garlic-bread-sides,Garlic Bread (sides),"Chips, Toppings & Sides",,199,,,,,,,,,,,,,,,,false,false,,,"Printed 'Garlic Bread' 199 in section 'Chips, Toppings & Sides'"
+garlic-bread-with-cheese,Garlic Bread with Cheese,"Chips, Toppings & Sides",,363,,,,,,,,,,,,,,,,false,false,,,"Printed 'Garlic Bread with Cheese' 363 in section 'Chips, Toppings & Sides'"
+halloumi-fries,Halloumi Fries,"Chips, Toppings & Sides",,195,,,,,,,,,,,,,,,,false,false,,,"Printed 'Halloumi Fries' 195 in section 'Chips, Toppings & Sides'"
+onion-rings-sides,Onion Rings (sides),"Chips, Toppings & Sides",,304,,,,,,,,,,,,,,,,false,false,,,"Printed 'Onion Rings' 304 in section 'Chips, Toppings & Sides'"
+fried-boiled-onions-sides,Fried / Boiled Onions (sides),"Chips, Toppings & Sides",,31,,,,,,,,,,,,,,,,false,false,,,"Printed 'Fried / Boiled Onions' 31 in section 'Chips, Toppings & Sides'"
+butter-portion,Butter Portion,"Chips, Toppings & Sides",,52,,,,,,,,,,,,,,,,false,false,,,"Printed 'Butter Portion' 52 in section 'Chips, Toppings & Sides'"
+burger-bun,Burger Bun,"Chips, Toppings & Sides",,205,,,,,,,,,,,,,,,,false,false,,,"Printed 'Burger Bun' 205 in section 'Chips, Toppings & Sides'"
+bbq-sauce,BBQ Sauce,Sauces,,56,,,,,,,,,,,,,,,,false,false,,,Printed 'BBQ Sauce' 56 in section 'Sauces'
+mayonnaise,Mayonnaise,Sauces,,165,,,,,,,,,,,,,,,,false,false,,,Printed 'Mayonnaise' 165 in section 'Sauces'
+garlic-mayonnaise,Garlic Mayonnaise,Sauces,,136,,,,,,,,,,,,,,,,false,false,,,Printed 'Garlic Mayonnaise' 136 in section 'Sauces'
+tomato-sauce,Tomato Sauce,Sauces,,27,,,,,,,,,,,,,,,,false,false,,,Printed 'Tomato Sauce' 27 in section 'Sauces'
+sweet-chilli-sauce,Sweet Chilli Sauce,Sauces,,64,,,,,,,,,,,,,,,,false,false,,,Printed 'Sweet Chilli Sauce' 64 in section 'Sauces'
+american-mustard,American Mustard,Sauces,,22,,,,,,,,,,,,,,,,false,false,,,Printed 'American Mustard' 22 in section 'Sauces'
+tartare-sauce,Tartare Sauce,Sauces,,92,,,,,,,,,,,,,,,,false,false,,,Printed 'Tartare Sauce' 92 in section 'Sauces'
+lemon-torte-and-raspberry-sauce,Lemon Torte & Raspberry Sauce,Desserts,,393,,,,,,,,,,,,,,,,false,false,,,Printed 'Lemon Torte & Raspberry Sauce' 393 in section 'Desserts'
+caramel-and-honeycomb-torte-and-raspberry-sauce,Caramel & Honeycomb Torte & Raspberry Sauce,Desserts,,436,,,,,,,,,,,,,,,,false,false,,,Printed 'Caramel & Honeycomb Torte & Raspberry Sauce' 436 in section 'Desserts'
+4-layer-fudge-cake,4 Layer Fudge Cake,Desserts,,747,,,,,,,,,,,,,,,,false,false,,,Printed '4 Layer Fudge Cake' 747 in section 'Desserts'
+ice-cream-and-raspberry-sauce,Ice cream & Raspberry Sauce,Desserts,,561,,,,,,,,,,,,,,,,false,false,,,Printed 'Ice cream & Raspberry Sauce' 561 in section 'Desserts'
+ice-cream-for-4-layer-cake,Ice Cream for 4 Layer Cake,Desserts,,200,,,,,,,,,,,,,,,,false,false,,,Printed 'Ice Cream for 4 Layer Cake' 200 in section 'Desserts'
+tea-with-milk,Tea with milk,Hot Drinks,,12,,,,,,,,,,,,,,,,false,false,,,Printed 'Tea with milk' 12 in section 'Hot Drinks:'
+tea-without-milk,Tea without milk,Hot Drinks,,4,,,,,,,,,,,,,,,,false,false,,,Printed 'Tea without milk' 4 in section 'Hot Drinks:'
+coffee-with-milk,Coffee with milk,Hot Drinks,,10,,,,,,,,,,,,,,,,false,false,,,Printed 'Coffee with milk' 10 in section 'Hot Drinks:'
+coffee-without-milk,Coffee without milk,Hot Drinks,,1,,,,,,,,,,,,,,,,false,false,,,Printed 'Coffee without milk' 1 in section 'Hot Drinks:'
+latte,Latte,Hot Drinks,,44,,,,,,,,,,,,,,,,false,false,,,Printed 'Latte' 44 in section 'Hot Drinks:'
+cappuccino,Cappuccino,Hot Drinks,,44,,,,,,,,,,,,,,,,false,false,,,Printed 'Cappuccino' 44 in section 'Hot Drinks:'
+mocha,Mocha,Hot Drinks,,124,,,,,,,,,,,,,,,,false,false,,,Printed 'Mocha' 124 in section 'Hot Drinks:'
+hot-chocolate,Hot Chocolate,Hot Drinks,,165,,,,,,,,,,,,,,,,false,false,,,Printed 'Hot Chocolate' 165 in section 'Hot Drinks:'
+diet-pepsi-16oz,Diet Pepsi (16oz),Soft Drinks,16oz,2,,,,,,,,,,,,,,,,false,false,,,Printed '16oz Diet Pepsi' 2 in section 'Soft Drinks:'
+diet-pepsi-20oz,Diet Pepsi (20oz),Soft Drinks,20oz,2,,,,,,,,,,,,,,,,false,false,,,Printed '20oz Diet Pepsi' 2 in section 'Soft Drinks:'
+pepsi-max-16oz,Pepsi Max (16oz),Soft Drinks,16oz,1,,,,,,,,,,,,,,,,false,false,,,Printed '16oz Pepsi Max' 1 in section 'Soft Drinks:'
+pepsi-max-20oz,Pepsi Max (20oz),Soft Drinks,20oz,2,,,,,,,,,,,,,,,,false,false,,,Printed '20oz Pepsi Max' 2 in section 'Soft Drinks:'
+pepsi-max-cherry-16oz,Pepsi Max Cherry (16oz),Soft Drinks,16oz,3,,,,,,,,,,,,,,,,false,false,,,Printed '16oz Pepsi Max Cherry' 3 in section 'Soft Drinks:'
+pepsi-max-cherry-20oz,Pepsi Max Cherry (20oz),Soft Drinks,20oz,4,,,,,,,,,,,,,,,,false,false,,,Printed '20oz Pepsi Max Cherry' 4 in section 'Soft Drinks:'
+rw-lemonade-16oz,RW Lemonade (16oz),Soft Drinks,16oz,9,,,,,,,,,,,,,,,,false,false,,,Printed '16oz RW Lemonade' 9 in section 'Soft Drinks:'
+rw-lemonade-20oz,RW Lemonade (20oz),Soft Drinks,20oz,12,,,,,,,,,,,,,,,,false,false,,,Printed '20oz RW Lemonade' 12 in section 'Soft Drinks:'

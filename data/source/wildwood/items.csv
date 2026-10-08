@@ -1,0 +1,126 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+mixed-olives,Mixed olives,Bread and olives,,190,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'MIXED OLIVES' (Bread and Olives) 190
+focaccia,Focaccia,Bread and olives,,406,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'FOCACCIA' (Bread and Olives) 406
+rosemary-garlic-bread,Rosemary garlic bread,Starters,,491,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ROSEMARY GARLIC BREAD' (Starters) 491; Lunch Set 'ROSEMARY GARLIC BREAD' (Starters) 491; Evening Set 'ROSEMARY GARLIC BREAD' (Starters) 491
+rosemary-garlic-bread-large,Rosemary garlic bread (large),Starters,,978,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ROSEMARY GARLIC BREAD ( LARGE )' (Starters) 978; Lunch Set 'ROSEMARY GARLIC BREAD ( LARGE )' (Starters) 978; Evening Set 'ROSEMARY GARLIC BREAD ( LARGE )' (Starters) 978
+mozzarella-and-caramelised-onion-garlic-bread,Mozzarella & caramelised onion garlic bread,Starters,,698,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'MOZZARELLA & CARAMELISED ONION GARLIC BREAD' (Starters) 698; Lunch Set 'MOZZARELLA & CARAMELISED ONION GARLIC BREAD' (Starters) 698; Evening Set 'MOZZARELLA & CARAMELISED ONION GARLIC BREAD' (Starters) 698
+mozzarella-and-caramelised-onion-garlic-bread-large,Mozzarella & caramelised onion garlic bread (large),Starters,,1306,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'MOZZARELLA & CARAMELISED ONION GARLIC BREAD (LARGE)' (Starters) 1306; Lunch Set 'MOZZARELLA & CARAMELISED ONION GARLIC BREAD (LARGE)' (Starters) 1306; Evening Set 'MOZZARELLA & CARAMELISED ONION GARLIC BREAD (LARGE)' (Starters) 1306
+calamari,Calamari,Starters,,709,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'CALAMARI (F)' (Starters) 709; Evening Set 'CALAMARI (F)' (Starters) 709; (F) = fried in oil shared with other allergens
+tiger-prawns,Tiger prawns,Starters,,362,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TIGER PRAWNS' (Starters) 362
+truffle-mushroom-arancini,Truffle mushroom arancini,Starters,,723,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TRUFFLE MUSHROOM ARANCINI (F)' (Starters) 723; Evening Set 'TRUFFLE MUSHROOM ARANCINI (F)' (Starters) 723; (F) = fried in oil shared with other allergens
+tomato-and-ricotta-bruschetta,Tomato & ricotta bruschetta,Starters,,672,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TOMATO & RICOTTA BRUSCHETTA' (Starters) 672; Lunch Set 'TOMATO & RICOTTA BRUSCHETTA' (Starters) 672; Evening Set 'TOMATO & RICOTTA BRUSCHETTA' (Starters) 672
+burrata-and-red-pepper-tapenade,Burrata & red pepper tapenade,Starters,,531,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'BURRATA & RED PEPPER TAPENADE' (Starters) 531
+tuna-and-avocado-pate,Tuna & avocado pâté,Starters,,349,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TUNA PATE' (Starters) 349; Lunch Set 'TUNA & AVOCADO PÂTÉ' (Starters) 349
+courgette-pea-and-mint-soup,Courgette pea & mint soup,Soup of the day,,255,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'COURGETTE PEA & MINT SOUP' (Soup of the day (ask your server for today’s flavour)) 255; Lunch Set 'COURGETTE PEA & MINT SOUP' (Soup of the day (ask your server for today’s flavour)) 255; Printed under 'Soup of the day (ask your server for today's flavour)'
+tomato-and-red-pepper-soup,Tomato & red pepper soup,Soup of the day,,174,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TOMATO & RED PEPPER SOUP' (Soup of the day (ask your server for today’s flavour)) 174; Lunch Set 'TOMATO & RED PEPPER SOUP' (Soup of the day (ask your server for today’s flavour)) 174
+butternut-squash-and-ginger-soup,Butternut squash & ginger soup,Soup of the day,,266,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'BUTTERNUT SQUASH& GINGER SOUP' (Soup of the day (ask your server for today’s flavour)) 266; Lunch Set 'BUTTERNUT SQUASH& GINGER SOUP' (Soup of the day (ask your server for today’s flavour)) 266
+minestrone-soup,Minestrone soup,Soup of the day,,251,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'MINESTRONE SOUP' (Soup of the day (ask your server for today’s flavour)) 251; Lunch Set 'MINESTRONE SOUP' (Soup of the day (ask your server for today’s flavour)) 251
+cauliflower-soup,Cauliflower soup,Soup of the day,,220,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'CAULIFLOWER SOUP' (Soup of the day (ask your server for today’s flavour)) 220; Lunch Set 'CAULIFLOWER SOUP' (Soup of the day (ask your server for today’s flavour)) 220
+pizza-margherita,Pizza Margherita,Pizza,,979,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'PIZZA MARGHERITA' (Pizza) 979; Lunch Set 'PIZZA MARGHERITA' (Mains) 979
+pizza-funghi,Pizza Funghi,Pizza,,1015,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'PIZZA FUNGHI' (Pizza) 1015; Evening Set 'PIZZA FUNGHI' (Mains) 1015
+pizza-piccante-carne,Pizza Piccante carne,Pizza,,1303,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'PIZZA PICCANTE CARNE' (Pizza) 1303
+pizza-double-pepperoni,Pizza double pepperoni,Pizza,,1083,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'PIZZA DOUBLE PEPPERONI' (Pizza) 1083; Lunch Set 'PIZZA DOUBLE PEPPERONI' (Mains) 1083; Evening Set 'PIZZA DOUBLE PEPPERONI' (Mains) 1083
+pizza-nduja-and-pepperoni,Pizza 'Nduja & pepperoni,Pizza,,1279,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'PIZZA NDUJA & PEPEPRONI' (Pizza) 1279; Printed 'PEPEPRONI'
+pizza-the-amalfi,Pizza The Amalfi,Pizza,,927,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'PIZZA THE AMALFI' (Pizza) 927
+pizza-spicy-chicken,Pizza spicy chicken,Pizza,,985,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'SPICY CHICKEN' (Pizza) 985; Printed 'SPICY CHICKEN' under Pizza
+calzone-chicken-and-chorizo,Calzone chicken & chorizo,Pizza,,1361,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'CALZONE CHICKEN & CHORIZO' (Pizza) 1361
+gluten-free-casarecce-pasta,Gluten free casarecce pasta,Pizza,,752,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'GLUTEN FREE CASARECCE PASTA AVAILABLE' (Pizza) 752; Lunch Set 'GLUTEN FREE CASARECCE PASTA AVAILABLE' (Mains) 752
+gluten-and-dairy-free-pizza-dough-base,Gluten and dairy free pizza dough base,Pizza,,499,,,,,,,,,,240,,,,,,false,false,,,Printed: Main Menu 'GLUTEN AND DAIRY FREE PIZZA DOUGH BASE (240G)' (Pizza) 499; Lunch Set 'GLUTEN AND DAIRY FREE PIZZA DOUGH BASE AVAILABLE' (Mains) 499
+large-pizza-margherita,Large pizza Margherita,Large pizza,,1206,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LARGE PIZZA MARGHERITA' (Large Pizza) 1206
+large-pizza-funghi,Large pizza Funghi,Large pizza,,1122,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LARGE PIZZA FUNGHI' (Large Pizza) 1122
+large-pizza-piccante-carne,Large pizza Piccante carne,Large pizza,,1678,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LARGE PIZZA PICCANTE CARNE' (Large Pizza) 1678
+large-pizza-double-pepperoni,Large pizza double pepperoni,Large pizza,,1364,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'LARGE PIZZA DOUBLE PEPPERONI' (Large Pizza) 1364
+large-pizza-nduja-and-pepperoni,Large pizza 'Nduja & pepperoni,Large pizza,,1559,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'LARGE PIZZA NDUJA & PEPEPRONI' (Large Pizza) 1559; Printed 'PEPEPRONI'
+large-pizza-the-amalfi,Large pizza The Amalfi,Large pizza,,1079,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LARGE THE AMALFI' (Large Pizza) 1079
+large-pizza-spicy-chicken,Large pizza spicy chicken,Large pizza,,1252,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LARGE SPICY CHICKEN' (Large Pizza) 1252
+light-pepperoni,Light pepperoni,Light options,,595,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'LIGHT PEPPERONI' (Light options) 595; Lunch Set 'LIGHT PEPPERONI' (Light options) 595
+light-margherita,Light Margherita,Light options,,563,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LIGHT MARGHERITA' (Light options) 563; Lunch Set 'LIGHT MARGHERITA' (Light options) 563
+light-pizza-carne,Light pizza carne,Light options,,717,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LIGHT PIZZA CARNE NOV23' (Light options) 717; Printed with a menu-date tag 'NOV23'
+light-spaghetti-pomodoro,Light spaghetti pomodoro,Light options,,586,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LIGHT SPAGHETTI POMODORO' (Light options) 586; Lunch Set 'LIGHT SPAGHETTI POMODORO' (Light options) 586
+light-spaghetti-carbonara,Light spaghetti carbonara,Light options,,733,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LIGHT SPAGHETTI CARBONARA' (Light options) 733; Lunch Set 'LIGHT SPAGHETTI CARBONARA' (Light options) 733
+light-spaghetti-bolognese,Light spaghetti Bolognese,Light options,,767,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LIGHT SPAGHETTI BOLOGNESE' (Light options) 767
+add-salad-dressing,Add salad dressing,Light options,,162,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ADD SALAD DRESSING' (Light options) 162; Lunch Set 'ADD SALAD DRESSING' (Light options) 162
+cobb-salad,Cobb salad,Salad,,1186,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'COBB SALAD' (Salad) 1186
+chicken-caesar-salad,Chicken Caesar salad,Salad,,965,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'CHICKEN CAESAR SALAD' (Salad) 965; Evening Set 'CHICKEN CAESAR SALAD' (Mains) 965
+extra-grilled-chicken,Extra grilled chicken,Salad,,309,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA GRILLED CHICKEN' (Salad) 309; Same printed value (309) as Extra crispy bacon
+extra-prawns,Extra prawns,Salad,,103,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA PRAWNS' (Salad) 103
+rigatoni-arrabbiata,Rigatoni arrabbiata,Pasta,,967,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'RIGATONI ARRABBIATA' (Pasta) 967
+spaghetti-pomodoro,Spaghetti pomodoro,Pasta,,723,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'SPAGHETTI POMODORO' (Pasta) 723
+traditional-bolognese,Traditional Bolognese,Pasta,,950,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TRADITIONAL BOLOGNESE' (Pasta) 950; Lunch Set 'TRADITIONAL BOLOGNESE' (Mains) 950; Evening Set 'TRADITIONAL BOLOGNESE' (Mains) 950
+peri-peri-chicken-rigatoni,Peri-Peri chicken rigatoni,Pasta,,1368,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'PERI-PERI CHICKEN RIGATONI' (Pasta) 1368
+vegan-lasagne,Vegan lasagne,Pasta,,518,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'VEGAN LASAGNE' (Pasta) 518; Lunch Set 'VEGAN LASAGNE' (Mains) 518; Evening Set 'VEGAN LASAGNE' (Mains) 518
+classic-lasagne,Classic lasagne,Pasta,,746,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'CLASSIC LASAGNE' (Pasta) 746; Lunch Set 'CLASSIC LASAGNE' (Mains) 746
+spaghetti-carbonara,Spaghetti carbonara,Pasta,,1163,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'SPAGHETTI CARBONARA' (Pasta) 1163; Lunch Set 'SPAGHETTI CARBONARA' (Mains) 1163; Evening Set 'SPAGHETTI CARBONARA' (Mains) 1163
+seafood-linguine,Seafood linguine,Pasta,,1022,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'SEAFOOD LINGUINE' (Pasta) 1022
+oven-baked-chicken-and-mushroom-rigatoni,Oven baked chicken & mushroom rigatoni,Pasta,,841,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'OVEN BAKED CHICKEN & MUSHROOM RIGATONI' (Pasta) 841
+nduja-and-burrata-rigatoni,'Nduja & burrata rigatoni,Pasta,,1300,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'NDUJA & BURRATA RIGATONI' (Pasta) 1300
+chicken-and-chorizo-risotto,Chicken & chorizo risotto,Risotto,,879,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'CHICKEN & CHORIZO RISOTTO' (Risotto) 879; Evening Set 'CHICKEN & CHORIZO RISOTTO' (Mains) 879
+risotto-primavera,Risotto primavera,Risotto,,660,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'RISOTTO PRIMAVERA' (Risotto) 660
+minute-steak,Minute steak,Grill,,474,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Main Menu 'MINUTE STEAK' (Grill) 474; Lunch Set 'MINUTE STEAK' (Mains) 796
+british-10oz-rib-eye-steak,British 10oz rib-eye steak,Grill,,578,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Main Menu 'BRITISH 10OZ RIB-EYE STEAK' (Grill) 578; Evening Set 'BRITISH 10OZ RIB-EYE STEAK' (Mains) 900
+add-peppercorn-sauce,Add peppercorn sauce,Grill,,148,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ADD PEPPERCORN SAUCE' (Grill) 148; Evening Set 'ADD PEPPERCORN SAUCE' (Mains) 148
+add-garlic-butter,Add garlic butter,Grill,,156,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ADD GARLIC BUTTER' (Grill) 156; Evening Set 'ADD GARLIC BUTTER' (Mains) 156
+philly-cheesesteak-sandwich,Philly cheesesteak sandwich,Grill,,1140,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Main Menu 'PHILLY CHEESESTEAK SANDWICH' (Grill) 1140
+peri-peri-half-chicken,Peri-Peri half chicken,Grill,,761,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'PERI PERI HALF CHICKEN' (Grill) 761; Evening Set 'ROASTED PERI PERI HALF CHICKEN' (Mains) 1083
+chicken-milanese,Chicken Milanese,Grill,,877,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'CHICKEN MILANESE' (Grill) 877
+add-spaghetti-arrabbiata-chicken-milanese,Add spaghetti arrabbiata (Chicken Milanese),Grill,,692,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ADD SPAGHETTI ARRABBIATA ( CHCIKEN MILANESE)' (Grill) 692; Printed 'CHCIKEN'
+add-fries-chicken-milanese,Add fries (Chicken Milanese),Grill,,322,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ADD FRIES ( CHICKEN MILANESE)' (Grill) 322
+classic-cheese-burger,Classic cheese burger,Burgers,,958,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'CLASSIC CHEESE BURGER' (Burgers) 958; Lunch Set 'CLASSIC CHEESE BURGER' (Mains) 926
+wagyu-beef-burger,Wagyu beef burger,Burgers,,862,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed: Main Menu 'WAGYU BEEF BURGER' (Burgers) 862
+buttermilk-chicken-burger,Buttermilk chicken burger,Burgers,,606,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'BUTTERMILK CHICKEN BURGER (F)' (Burgers) 606; Evening Set 'BUTTERMILK CHICKEN BURGER (F)' (Mains) 928; (F) = fried in oil shared with other allergens
+the-ultimate-double-cheese-burger,The Ultimate double cheese burger,Burgers,,1458,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'THE ULTIMATE DOUBLE CHEESE BURGER' (Burgers) 1458
+rosemary-fries,Rosemary fries,Sides,,322,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ROSEMARY FRIES (F)' (Sides) 322; (F) = fried in oil shared with other allergens
+truffle-and-cheese-fries,Truffle & cheese fries,Sides,,385,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TRUFFLE & CHEESE FRIES (F)' (Sides) 385; (F) = fried in oil shared with other allergens
+sweet-potato-fries,Sweet potato fries,Sides,,423,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'SWEET POTATO FRIES (F)' (Sides) 423; (F) = fried in oil shared with other allergens
+green-beans,Green beans,Sides,,161,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'GREEN BEANS' (Sides) 161
+zucchini-fritti,Zucchini fritti,Sides,,320,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ZUCCHINI FRITTI (F)' (Sides) 320; (F) = fried in oil shared with other allergens
+peri-peri-mayo,Peri-Peri mayo,Dips,,198,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'PERI-PERI MAYO' (Dips) 198
+hot-honey-and-mustard,Hot honey & mustard,Dips,,477,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'HOT HONEY & MUSTARD' (Dips) 477
+basil-aioli,Basil aioli,Dips,,164,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'BASIL AIOLI' (Dips) 164
+extra-crispy-bacon,Extra crispy bacon,Extra toppings,,309,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'EXTRA CRISPY BACON' (Salad) 309; Main Menu 'EXTRA CRISPY BACON' (Extra toppings) 309; Evening Set 'EXTRA CRISPY BACON' (Mains) 309
+extra-chicken-for-pasta-and-pizza,Extra chicken (for pasta & pizza),Extra toppings,6 pieces,90,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA CHICKEN ( 6 PIECES - FOR PASAT & PIZZA)' (Extra toppings) 90; Printed 'PASAT'
+extra-pepperoni,Extra pepperoni,Extra toppings,15 slices,115,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'EXTRA PEPPERONI (15 SLICES )' (Extra toppings) 115
+extra-speck,Extra speck,Extra toppings,2 slices,62,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'EXTRA SPECK (2 SLICES)' (Extra toppings) 62
+extra-chorizo,Extra chorizo,Extra toppings,,136,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'EXTRA CHORIZO' (Extra toppings) 136
+extra-milano-salami,Extra Milano salami,Extra toppings,3 slices,110,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'EXTRA MILANO SALAMI (3 SLICES )' (Extra toppings) 110
+extra-nduja,Extra 'nduja,Extra toppings,,310,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'EXTRA NDUJA' (Extra toppings) 310
+extra-pancetta,Extra pancetta,Extra toppings,,150,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed: Main Menu 'EXTRA PANCETTA' (Extra toppings) 150
+extra-bolognaise,Extra bolognaise,Extra toppings,,187,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA BOLOGNAISE' (Extra toppings) 187
+extra-mushrooms,Extra mushrooms,Extra toppings,,12,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA MUSHROOMS' (Extra toppings) 12
+extra-olives,Extra olives,Extra toppings,,49,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA OLIVES' (Extra toppings) 49
+extra-chilli,Extra chilli,Extra toppings,,8,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA CHILLI' (Extra toppings) 8
+extra-cherry-tomato,Extra cherry tomato,Extra toppings,,13,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA CHERRY TOMATO' (Extra toppings) 13
+extra-mozzarella,Extra mozzarella,Extra toppings,,179,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA MOZZARELLA' (Extra toppings) 179
+extra-vegan-cheese,Extra vegan cheese,Extra toppings,,169,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA VEGAN CHEESE' (Extra toppings) 169
+extra-triple-blend-cheese,Extra triple blend cheese,Extra toppings,,74,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA TRIPLE BLEND CHEESE' (Extra toppings) 74
+extra-monterey-jack-cheese,Extra Monterey Jack cheese,Extra toppings,,106,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA MONTEREY JACK CHEESE' (Extra toppings) 106
+extra-stracciatella,Extra stracciatella,Extra toppings,,183,,,,,,,,,,70,,,,,,false,false,,,Printed: Main Menu 'EXTRA STRACCIATELLA (70G)' (Extra toppings) 183
+extra-goats-cheese,Extra goat's cheese,Extra toppings,,152,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'EXTRA GOAT'S CHEESE' (Extra toppings) 152; Evening Set 'EXTRA GOAT'S CHEESE' (Mains) 145
+chocolate-fondant,Chocolate fondant,Dessert,,711,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'CHOCOLATE FONDANT' (Dessert) 711
+sticky-toffee-pudding,Sticky toffee pudding,Dessert,,754,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'STICKY TOFFEE PUDDING' (Dessert) 754
+torta-della-nonna,Torta della nonna,Dessert,,579,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TORTA DELLA NONNA' (Dessert) 579; Evening Set 'TORTA DELLA NONNA' (Dessert) 579
+tiramisu,Tiramisu,Dessert,,355,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'TIRAMISU' (Dessert) 355; Lunch Set 'TIRAMISU' (Dessert) 355; Evening Set 'TIRAMISU' (Dessert) 355
+cookies-and-cream-cheesecake,Cookies & cream cheesecake,Dessert,,427,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'COOKIES & CREAM CHEESECAKE' (Dessert) 427; Lunch Set 'COOKIES & CREAM CHEESECAKE' (Dessert) 427; Evening Set 'COOKIES & CREAM CHEESECAKE' (Dessert) 427
+chocolate-brownie,Chocolate brownie,Dessert,,744,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'CHOCOLATE BROWNIE' (Dessert) 744; Evening Set 'CHOCOLATE BROWNIE' (Dessert) 744
+salted-caramel-profiteroles-single,Salted caramel profiteroles (single),Dessert,,305,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'SALTED CARAMEL PROFITEROLS SINGLE' (Dessert) 305; Lunch Set 'SALTED CARAMEL PROFITEROLS SINGLE' (Dessert) 305
+salted-caramel-profiteroles-to-share,Salted caramel profiteroles (to share),Dessert,,795,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'SALTED CARAMEL PROFITEROLS TO SHARE' (Dessert) 795
+vanilla-ice-cream,Vanilla ice cream,Dessert,1 scoop,292,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ICE CREAM VANILLA (1 SCOOP)' (Dessert) 292; Lunch Set 'ICE CREAM VANILLA (1 SCOOP)' (Dessert) 292
+chocolate-ice-cream,Chocolate ice cream,Dessert,1 scoop,302,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ICE CREAM CHOCOLATE (1 SCOOP )' (Dessert) 302; Lunch Set 'ICE CREAM CHOCOLATE (1 SCOOP )' (Dessert) 302
+strawberry-ice-cream,Strawberry ice cream,Dessert,1 scoop,267,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ICE CREAM STRAWBERRY (1 SCOOP )' (Dessert) 267; Lunch Set 'ICE CREAM STRAWBERRY (1 SCOOP )' (Dessert) 267
+mint-ice-cream,Mint ice cream,Dessert,1 scoop,298,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'ICE CREAM MINT (1 SCOOP )' (Dessert) 298; Lunch Set 'ICE CREAM MINT (1 SCOOP )' (Dessert) 298
+lemon-sorbet,Lemon sorbet,Dessert,1 scoop,119,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'LEMON SORBET (1 SCOOP )' (Dessert) 119; Lunch Set 'LEMON SORBET (1 SCOOP )' (Dessert) 119
+mango-sorbet,Mango sorbet,Dessert,1 scoop,180,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'MANGO SORBET (1 SCOOP )' (Dessert) 180; Lunch Set 'MANGO SORBET (1 SCOOP )' (Dessert) 180
+raspberry-sorbet,Raspberry sorbet,Dessert,1 scoop,182,,,,,,,,,,,,,,,,false,false,,,Printed: Main Menu 'RASPBERRY SORBET (1 SCOOP )' (Dessert) 182; Lunch Set 'RASPBERRY SORBET (1 SCOOP )' (Dessert) 182
+crispy-whitebait,Crispy whitebait,Specials,,335,,,,,,,,,,,,,,,,true,false,,,Printed: Specials (Sept) 'CRISPY WHITEBAIT' (Starters) 335
+roasted-salmon,Roasted salmon,Specials,,866,,,,,,,,,,,,,,,,true,false,,,Printed: Specials (Sept) 'ROASTED SALMON' (MAINS) 866
+spinach-ricotta-and-mascarpone-ravioli,"Spinach, ricotta & mascarpone ravioli",Specials,,838,,,,,,,,,,,,,,,,true,false,,,"Printed: Specials (Sept) 'SPINACH,RICOTTA & MASCARPONE RAVIOLI' (MAINS) 838"
+tuscan-mussels-and-prawns-casserole,Tuscan mussels & prawns casserole,Specials,,1036,,,,,,,,,,,,,,,,true,false,,,Printed: Specials (Sept) 'TUSCAN MUSSELS & PRAWNS CASSEROLE' (MAINS) 1036
+banoffee-mess,Banoffee mess,Specials,,635,,,,,,,,,,,,,,,,true,false,,,Printed: Specials (Sept) 'BANOFFE MESS' (Dessert) 635; Printed 'BANOFFE'
+antipasto,Antipasto,Specials,,513,,,,,,,,,,,,,,,,true,false,,,"Printed: Specials (Sept) 'ANTIPASTO' (Starters) 513; Specials (30.06.26, Northwich) 'ANTIPASTO' (Starters) 513"
+pizza-prosciutto-caprese,Pizza prosciutto caprese,Specials,,1024,,,,,,,,,,,,,,,contains_pork,true,false,,,"Printed: Specials (Sept) 'PIZZA PROSCIUTTO CAPRESE' (MAINS) 1024; Specials (30.06.26, Northwich) 'PIZZA PROSCIUTTO CAPRESE' (MAINS) 1024"
+grilled-tuna,Grilled tuna,Specials,,819,,,,,,,,,,,,,,,,true,false,,,"Printed: Specials (Sept) 'GRILLED TUNA' (MAINS) 819; Specials (30.06.26, Northwich) 'GRILLED TUNA (F)' (MAINS) 819; (F) = fried in oil shared with other allergens"
+supper-green-and-grains,Supper green & grains,Specials,,754,,,,,,,,,,,,,,,,true,false,,,"Printed: Specials (Sept) 'SUPPER GREEN & GRAINS' (MAINS) 754; Specials (30.06.26, Northwich) 'SUPPER GREEN & GRAINS' (MAINS) 754"
+add-chicken-specials,Add chicken (specials),Specials,,314,,,,,,,,,,,,,,,,true,false,,,"Printed: Specials (Sept) 'ADD CHICKEN' (MAINS) 314; Specials (30.06.26, Northwich) 'Add Chicken (F)' (MAINS) 314; (F) = fried in oil shared with other allergens"
+add-goat-cheese-specials,Add goat cheese (specials),Specials,,291,,,,,,,,,,,,,,,,true,false,,,"Printed: Specials (Sept) 'ADD GOAT CHEESE' (MAINS) 291; Specials (30.06.26, Northwich) 'Add Goat Cheese' (MAINS) 291"
+add-halloumi-cheese-specials,Add halloumi cheese (specials),Specials,,411,,,,,,,,,,,,,,,,true,false,,,"Printed: Specials (Sept) 'ADD HALLOUMI CHEESE' (MAINS) 411; Specials (30.06.26, Northwich) 'Add Halloumi' (MAINS) 411"
+raspberry-eton-mess-sundae,Raspberry Eton mess sundae,Specials,,767,,,,,,,,,,,,,,,,true,false,,,"Printed: Specials (Sept) 'RASPBERRY ETON MESS - SUNDAE' (Dessert) 767; Specials (30.06.26, Northwich) 'RASPBERRY ETON MESS - SUNDAE' (Dessert) 767"

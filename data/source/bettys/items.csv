@@ -1,0 +1,135 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+swiss-breakfast-rosti,Swiss Breakfast Rösti,Breakfast specialities,,745,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '745 kcal £17.50' on page 4
+florentine-rosti,Florentine Rösti,Breakfast specialities,,565,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '565 kcal £16.95' on page 4
+english-breakfast,English Breakfast,Breakfast specialities,,1130,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '1130 kcal £17.95' on page 4
+vegan-english-breakfast,Vegan English Breakfast,Breakfast specialities,,670,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '670 kcal £14.95' on page 4
+avocado-and-poached-eggs,Avocado & Poached Eggs,Breakfast specialities,,825,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '825 kcal £14.25' on page 4
+avocado-and-aubergine,Avocado & Aubergine,Breakfast specialities,,715,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '715 kcal £14.25' on page 4
+kedgeree,Kedgeree,Breakfast specialities,,920,,,,,,,,,,,,,,,,false,false,,,Printed '920 kcal £16.25' on page 4
+bircher-muesli,Bircher Muesli,Breakfast specialities,,390,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '390 kcal £8.75' on page 5
+pastry-and-pikelet-selection,Pastry & Pikelet Selection,Breakfast specialities,,1115,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '1115 kcal £10.75' on page 5; Menu: served until 11.30am
+fruit-loaf-and-berries,Fruit Loaf & Berries,Breakfast specialities,,550,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '550 kcal £8.95' on page 5
+cinnamon-toast,Cinnamon Toast,Breakfast specialities,,295,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '295 kcal £4.75' on page 5
+dry-cured-bacon-breakfast-addition,Dry-cured bacon (breakfast addition),Breakfast additions,,190,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '190 kcal £2.50' on page 4; Can only be ordered as an addition to a breakfast dish
+spinach-breakfast-addition,Spinach (breakfast addition),Breakfast additions,,50,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '50 kcal £1.50' on page 4
+tomato-breakfast-addition,Tomato (breakfast addition),Breakfast additions,,40,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '40 kcal £1.50' on page 4
+yorkshire-sausage-breakfast-addition,Yorkshire sausage (breakfast addition),Breakfast additions,,225,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '225 kcal £2.50' on page 4
+baked-or-smoked-beans-breakfast-addition,Baked or smoked beans (breakfast addition),Breakfast additions,,45,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '45 kcal £1.50' on page 4; Name runs over two lines: 'Baked or Smoked / Beans (Ve)'
+crushed-avocado-breakfast-addition,Crushed avocado (breakfast addition),Breakfast additions,,135,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '135 kcal £2.50' on page 4
+rosti-bites-breakfast-addition,Rösti Bites (breakfast addition),Breakfast additions,,390,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '390 kcal £5.50' on page 4; Side-dish Rösti Bites print a different value (page 7)
+mushroom-breakfast-addition,Mushroom (breakfast addition),Breakfast additions,,60,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '60 kcal £1.50' on page 4
+yorkshire-smoked-salmon-breakfast-addition,Yorkshire smoked salmon (breakfast addition),Breakfast additions,,120,,,,,,,,,,,,,,,,false,false,,,Printed '120 kcal £3.75' on page 4; Name runs over two lines: 'Yorkshire / Smoked Salmon'
+eggs-florentine-with-spinach,Eggs Florentine with spinach,Eggs on a toasted muffin,,570,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '570 kcal £14.25' on page 5; Printed under 'Speciality Poached Eggs: on a toasted muffin with hollandaise sauce'
+eggs-benedict-with-traditional-wiltshire-cured-ham,Eggs Benedict with traditional Wiltshire cured ham,Eggs on a toasted muffin,,590,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '590 kcal £14.50' on page 5; Printed under 'Speciality Poached Eggs: on a toasted muffin with hollandaise sauce'
+eggs-royale-with-yorkshire-smoked-salmon,Eggs Royale with Yorkshire smoked salmon,Eggs on a toasted muffin,,645,,,,,,,,,,,,,,,,false,false,,,Printed '645 kcal £15.25' on page 5; Printed under 'Speciality Poached Eggs: on a toasted muffin with hollandaise sauce'
+scrambled-eggs-on-a-toasted-muffin-with-yorkshire-smoked-salmon,Scrambled eggs on a toasted muffin with Yorkshire smoked salmon,Eggs on a toasted muffin,,625,,,,,,,,,,,,,,,,false,false,,,Printed '625 kcal £14.25' on page 5; Printed under 'Scrambled Eggs on a Toasted Muffin'
+scrambled-eggs-on-a-toasted-muffin-with-dry-cured-bacon,Scrambled eggs on a toasted muffin with dry-cured bacon,Eggs on a toasted muffin,,730,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '730 kcal £13.75' on page 5; Printed under 'Scrambled Eggs on a Toasted Muffin'
+dry-cured-bacon-in-a-toasted-muffin,Dry-cured bacon in a toasted muffin,Eggs on a toasted muffin,,460,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '460 kcal £9.75' on page 5
+bacon-and-raclette-rosti,Bacon & Raclette Rösti,Main dishes,,690,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '690 kcal £17.95' on page 6
+bettys-burger,Bettys Burger,Main dishes,,1410,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed '1410 kcal £19.95' on page 6; Printed with pommes frites and pickles
+smoked-streaky-bacon-added-to-bettys-burger,Smoked streaky bacon (added to Bettys Burger),Main dishes,,110,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed '110 kcal £2.50' on page 6; Printed as a separate extra with its own price: the add-on's own calories, not a total for the dish"
+chicken-schnitzel,Chicken Schnitzel,Main dishes,,1020,,,,,,,,,,,,,,,,false,false,,,Printed '1020 kcal £20.95' on page 6
+alpine-macaroni,Alpine Macaroni,Main dishes,,1530,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '1530 kcal £19.95' on page 6
+haddock-salmon-and-prawn-gratin,"Haddock, Salmon & Prawn Gratin",Main dishes,,750,,,,,,,,,,,,,,,,false,false,,,Printed '750 kcal £19.50' on page 6
+salmon-salad,Salmon Salad,Main dishes,,625,,,,,,,,,,,,,,,,false,false,,,Printed '625 kcal £19.50' on page 6
+fried-fillet-of-haddock,Fried Fillet of Haddock,Main dishes,,1255,,,,,,,,,,,,,,,,false,false,,,Printed '1255 kcal £20.75' on page 6
+yorkshire-rarebit,Yorkshire Rarebit,Main dishes,,735,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '735 kcal £15.75' on page 6
+dry-cured-bacon-added-to-yorkshire-rarebit,Dry-cured bacon (added to Yorkshire Rarebit),Main dishes,,190,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed '190 kcal £2.50' on page 6; Printed as a separate extra with its own price: the add-on's own calories, not a total for the dish"
+mushroom-quiche,Mushroom Quiche,Main dishes,,850,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '850 kcal £17.50' on page 6
+club-sandwich,Club Sandwich,Sandwiches,,815,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '815 kcal £16.95' on page 7
+croque-monsieur,Croque Monsieur,Sandwiches,,790,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '790 kcal £19.75' on page 7; Printed 'Served with salad'
+croque-madame,Croque Madame,Sandwiches,,955,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '955 kcal £21.25' on page 7; Printed 'Served with salad'
+yorkshire-chicken,Yorkshire Chicken,Sandwiches,,465,,,,,,,,,,,,,,,,false,false,,,Printed '465 kcal £9.75' on page 7
+flaked-salmon-and-prawn,Flaked Salmon & Prawn,Sandwiches,,530,,,,,,,,,,,,,,,,false,false,,,Printed '530 kcal £10.50' on page 7
+mediterranean-roasted-pepper,Mediterranean Roasted Pepper,Sandwiches,,335,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '335 kcal £8.75' on page 7; Name runs over two lines: 'Mediterranean / Roasted Pepper (Ve)'
+egg-mayonnaise-and-cress,Egg Mayonnaise & Cress,Sandwiches,,480,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '480 kcal £7.95' on page 7; Name runs over two lines: 'Egg Mayonnaise / & Cress (V)'
+ham-and-cheese,Ham & Cheese,Sandwiches,,560,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '560 kcal £10.50' on page 7
+mixed-side-salad,Mixed Side Salad,Side dishes,,300,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '300 kcal £6.50' on page 7
+pear-and-pomegranate-salad,Pear & Pomegranate Salad,Side dishes,,130,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '130 kcal £5.50' on page 7; Name runs over two lines: 'Pear & Pomegranate / Salad (V)'
+rosti-bites,Rösti Bites,Side dishes,,650,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '650 kcal £5.75' on page 7; The breakfast addition Rösti Bites print a different value (page 4)
+chips,Chips,Side dishes,,535,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '535 kcal £5.25' on page 7
+pommes-frites,Pommes Frites,Side dishes,,375,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '375 kcal £5.25' on page 7
+yorkshire-cream-tea,Yorkshire Cream Tea,Afternoon tea,,1030,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '1030 kcal £13.50' on page 9; Printed 'Vegan option available on request. (Ve)'
+swiss-chocolate-torte-and-ice-cream,Swiss Chocolate Torte & Ice Cream,Cakes & pâtisserie,,715,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '715kcal £9.75' on page 10; Printed '715kcal' with no space
+engadine-torte-and-ice-cream,Engadine Torte & Ice Cream,Cakes & pâtisserie,,870,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '870 kcal £9.75' on page 10
+fruit-tart-and-ice-cream,Fruit Tart & Ice Cream,Cakes & pâtisserie,,410,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '410 kcal £9.75' on page 10
+seasonal-cheesecake-and-berries,Seasonal Cheesecake & Berries,Cakes & pâtisserie,,400,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '400 kcal £9.75' on page 10
+grande-raspberry-macaroon,Grande Raspberry Macaroon,Cakes & pâtisserie,,185,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '185 kcal £6.50' on page 10
+carrot-gugelhupf,Carrot Gugelhupf,Cakes & pâtisserie,,380,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '380 kcal £6.50' on page 10
+yorkshire-curd-tart,Yorkshire Curd Tart,Cakes & pâtisserie,,580,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '580 kcal £6.50' on page 10
+vanilla-slice,Vanilla Slice,Cakes & pâtisserie,,470,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '470 kcal £5.50' on page 10
+chocolate-eclair,Chocolate Éclair,Cakes & pâtisserie,,290,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '290 kcal £5.50' on page 10
+bettys-gooey-rascal-sundae,Bettys Gooey Rascal Sundae,Ice cream sundaes,,855,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '855 kcal £10.50' on page 11
+bettys-fruit-sundae,Bettys Fruit Sundae,Ice cream sundaes,,370,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '370 kcal £9.95' on page 11
+bettys-brown-bread-sundae,Bettys Brown Bread Sundae,Ice cream sundaes,,825,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '825 kcal £9.95' on page 11
+yorkshire-fat-rascal-scone,Yorkshire Fat Rascal Scone,Bettys bakery favourites,,860,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '860 kcal £6.95' on page 11
+gooey-rascal,Gooey Rascal,Bettys bakery favourites,,565,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '565 kcal £7.25' on page 11
+sultana-scone-with-clotted-cream-and-yorkshire-strawberry-preserve,Sultana Scone with clotted cream and Yorkshire strawberry preserve,Bettys bakery favourites,,515,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '515 kcal £5.95' on page 11; Sultana Scone (V): two printed variants, each on its own line; 'Vegan option available on request. (Ve)'"
+sultana-scone-toasted-with-butter,"Sultana Scone, toasted with butter",Bettys bakery favourites,,390,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '390 kcal £4.95' on page 11; Sultana Scone (V): two printed variants, each on its own line; 'Vegan option available on request. (Ve)'"
+rarebit-scone,Rarebit Scone,Bettys bakery favourites,,310,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '310 kcal £4.95' on page 11; Menu: served toasted with butter
+currant-and-sultana-teacake,Currant & Sultana Teacake,Bettys bakery favourites,,350,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '350 kcal £4.95' on page 11; Menu: served toasted with butter
+bettys-tea-room-blend,Bettys Tea Room Blend,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4.95' on page 12
+earl-grey,Earl Grey,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4.95' on page 12
+bettys-breakfast-tea,Bettys Breakfast Tea,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4.95' on page 12
+golden-valley-darjeeling,Golden Valley Darjeeling,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £6.50' on page 12
+china-rose-petal,China Rose Petal,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £6.50' on page 12
+jasmine-blossom,Jasmine Blossom,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £6.50' on page 12
+ceylon-blue-sapphire,Ceylon Blue Sapphire,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £6.50' on page 12
+pi-lo-chun-green-tea,Pi Lo Chun Green Tea,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £6.50' on page 12
+yu-luo-white-tea,Yu Luo White Tea,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £6.50' on page 12
+lemongrass-and-ginger-tisane,Lemongrass & Ginger Tisane,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4.75' on page 12
+peppermint-tisane,Peppermint Tisane,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4.75' on page 12
+raspberry-and-cherry-tisane,Raspberry & Cherry Tisane,Teas,Teapot for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4.75' on page 12
+americano,Americano,Coffees & hot chocolate,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4.95' on page 13
+flat-white,Flat White,Coffees & hot chocolate,,90,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '90 kcal £4.95' on page 13
+latte,Latte,Coffees & hot chocolate,,125,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '125 kcal £5.25' on page 13
+cappuccino,Cappuccino,Coffees & hot chocolate,,130,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '130 kcal £5.25' on page 13
+bettys-espresso,Bettys Espresso,Coffees & hot chocolate,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4.50' on page 13
+latte-latino,Latte Latino,Coffees & hot chocolate,,200,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '200 kcal £5.75' on page 13
+mocha,Mocha,Coffees & hot chocolate,,295,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '295 kcal £5.75' on page 13
+hot-chocolate,Hot Chocolate,Coffees & hot chocolate,,525,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '525 kcal £5.95' on page 13
+cafe-classic-blend-cafetiere,Café Classic Blend (cafetière),Coffees & hot chocolate,Cafetière for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £6.95' on page 13
+kenya-single-origin-coffee-cafetiere,Kenya single origin coffee (cafetière),Coffees & hot chocolate,Cafetière for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £8.50' on page 13
+colombia-single-origin-coffee-cafetiere,Colombia single origin coffee (cafetière),Coffees & hot chocolate,Cafetière for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £8.50' on page 13
+guatemala-single-origin-coffee-cafetiere,Guatemala single origin coffee (cafetière),Coffees & hot chocolate,Cafetière for one,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £9.95' on page 13
+nozeco-rose-125ml-glass,Nozeco Rosé (125ml glass),Low alcohol drinks,125ml glass,25,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '25 kcal (125ml Glass) £4.95' on page 15; Printed '25 kcal (125ml Glass)'
+nozeco-rose-75cl-bottle,Nozeco Rosé (75cl bottle),Low alcohol drinks,75cl bottle,150,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '150 kcal (75cl Bottle) £16.50' on page 15; Printed '150 kcal (75cl Bottle)' on the second line of the Nozeco Rosé entry
+cold-bath-1571,Cold Bath 1571,Low alcohol drinks,330ml bottle,124,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '124 kcal (330ml Bottle) £4.95' on page 15
+swiss-chocolate-milkshake,Swiss Chocolate Milkshake,Soft drinks,,465,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '465 kcal' on page 15; Printed under 'Milkshakes (V) £6.25: Bettys ice cream blended with milk and your choice of'
+banana-milkshake,Banana Milkshake,Soft drinks,,395,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '395 kcal' on page 15; Printed under 'Milkshakes (V) £6.25: Bettys ice cream blended with milk and your choice of'
+raspberry-milkshake,Raspberry Milkshake,Soft drinks,,365,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '365 kcal' on page 15; Printed under 'Milkshakes (V) £6.25: Bettys ice cream blended with milk and your choice of'
+strawberry-milkshake,Strawberry Milkshake,Soft drinks,,315,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '315 kcal' on page 15; Printed under 'Milkshakes (V) £6.25: Bettys ice cream blended with milk and your choice of'
+fresh-orange-juice,Fresh Orange Juice,Soft drinks,,115,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '115 kcal £4.95' on page 15
+yorkshire-wolds-pressed-apple-juice,Yorkshire Wolds Pressed Apple Juice,Soft drinks,,135,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '135 kcal £4.95' on page 15; Name runs over two lines: 'Yorkshire Wolds / Pressed Apple Juice (Ve)'
+bettys-lemonade,Bettys Lemonade,Soft drinks,,120,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '120 kcal £4.95' on page 15
+elderflower-bubbly,Elderflower Bubbly,Soft drinks,,165,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '165 kcal £5.50' on page 15
+sparkling-apple,Sparkling Apple,Soft drinks,,110,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '110 kcal £5.50' on page 15
+still-or-sparkling-water-330ml,Still or Sparkling Water (330ml),Soft drinks,330ml,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal (330ml) £4.25' on page 15; Name runs over two lines: 'Still or Sparkling / Water (Ve)'
+still-or-sparkling-water-750ml,Still or Sparkling Water (750ml),Soft drinks,750ml,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal (750ml) £7.25' on page 15; Name runs over two lines: 'Still or Sparkling / Water (Ve)'
+fever-tree-tonic,Fever-Tree Tonic,Soft drinks,,70,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '70 kcal £4.75' on page 15
+fever-tree-tonic-light,Fever-Tree Tonic Light,Soft drinks,,30,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '30 kcal £4.75' on page 15; Printed on one line: 'Fever-Tree Tonic Light (Ve) 30 kcal £4.75'
+ginger-beer,Ginger Beer,Soft drinks,,90,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '90 kcal £5.50' on page 15
+coca-cola,Coca-Cola,Soft drinks,,140,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '140 kcal £4.35' on page 15
+diet-coke,Diet Coke,Soft drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '0 kcal £4' on page 15
+little-rascal-english-breakfast,Little Rascal English Breakfast,Little Rascal menu,,590,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '590 kcal £9.75' on page 16
+little-rascal-chicken-schnitzel,Little Rascal Chicken Schnitzel,Little Rascal menu,,415,,,,,,,,,,,,,,,,false,false,,,Printed '415 kcal £10.75' on page 16
+little-rascal-alpine-macaroni,Little Rascal Alpine Macaroni,Little Rascal menu,,520,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '520 kcal £9.75' on page 16
+little-rascal-fried-fillet-of-haddock,Little Rascal Fried Fillet of Haddock,Little Rascal menu,,600,,,,,,,,,,,,,,,,false,false,,,Printed '600 kcal £10.75' on page 16
+little-rascal-yorkshire-sausages,Little Rascal Yorkshire Sausages,Little Rascal menu,,665,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed '665 kcal £10.75' on page 16
+little-rascal-cheddar-cheese-and-cucumber-sandwich,Little Rascal Cheddar Cheese & Cucumber sandwich,Little Rascal menu,,435,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '435 kcal £5.95' on page 16; Name runs over two lines: 'Cheddar Cheese / & Cucumber (V)'; menu: served in malted grain, wholemeal or white bread"
+little-rascal-egg-mayonnaise-sandwich,Little Rascal Egg Mayonnaise sandwich,Little Rascal menu,,335,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '335 kcal £5.95' on page 16; Menu: served in malted grain, wholemeal or white bread"
+little-rascal-traditional-wiltshire-cured-ham-sandwich,Little Rascal Traditional Wiltshire Cured Ham sandwich,Little Rascal menu,,295,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed '295 kcal £6.50' on page 16; Name runs over two lines: 'Traditional Wiltshire / Cured Ham'; menu: served in malted grain, wholemeal or white bread"
+little-rascal-yorkshire-chicken-sandwich,Little Rascal Yorkshire Chicken sandwich,Little Rascal menu,,305,,,,,,,,,,,,,,,,false,false,,,"Printed '305 kcal £6.50' on page 16; Menu: served in malted grain, wholemeal or white bread"
+little-rascal-chips,Little Rascal Chips,Little Rascal menu,,265,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '265 kcal £3.75' on page 16
+little-rascal-baked-beans,Little Rascal Baked Beans,Little Rascal menu,,45,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '45 kcal £3.25' on page 16
+little-rascal-fondant-fancy,Little Rascal Fondant Fancy,Little Rascal menu,,321,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '321 kcal £4.75' on page 16
+little-rascal-caramel-slice,Little Rascal Caramel Slice,Little Rascal menu,,270,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '270 kcal £3.75' on page 16
+little-rascal-small-hot-chocolate-with-cream,Little Rascal Small Hot Chocolate with Cream,Little Rascal menu,,255,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '255 kcal £4.75' on page 16; Name runs over two lines: 'Small Hot Chocolate / with Cream (V)'
+little-rascal-small-swiss-chocolate-milkshake,Little Rascal Small Swiss chocolate milkshake,Little Rascal menu,,270,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '270 kcal' on page 16; Printed under 'Small Milkshakes (V) £3.75'
+little-rascal-small-banana-milkshake,Little Rascal Small Banana milkshake,Little Rascal menu,,195,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '195 kcal' on page 16; Printed under 'Small Milkshakes (V) £3.75'
+little-rascal-small-raspberry-milkshake,Little Rascal Small Raspberry milkshake,Little Rascal menu,,185,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '185 kcal' on page 16; Printed under 'Small Milkshakes (V) £3.75'
+little-rascal-small-strawberry-milkshake,Little Rascal Small Strawberry milkshake,Little Rascal menu,,170,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '170 kcal' on page 16; Printed under 'Small Milkshakes (V) £3.75'
+little-rascal-small-fresh-orange-juice,Little Rascal Small Fresh Orange Juice,Little Rascal menu,,85,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '85 kcal £3.75' on page 16; Name runs over two lines: 'Small Fresh / Orange Juice (V)'
+little-rascal-small-lemonade,Little Rascal Small Lemonade,Little Rascal menu,,80,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '80 kcal £3.75' on page 16
+little-rascal-small-yorkshire-wolds-pressed-apple-juice,Little Rascal Small Yorkshire Wolds Pressed Apple Juice,Little Rascal menu,,95,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '95 kcal £3.75' on page 16; Name runs over two lines: 'Small Yorkshire Wolds / Pressed Apple Juice (Ve)'
+little-rascal-chilled-milk,Little Rascal Chilled Milk,Little Rascal menu,,115,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed '115 kcal £2.75' on page 16

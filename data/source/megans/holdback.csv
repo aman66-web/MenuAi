@@ -1,0 +1,23 @@
+item_id,reason
+gluten-free-flatbread,"every value is printed as 0: a flatbread cannot have no energy, so the row is a placeholder"
+latte-flat-white-cappuccino-macchiato,"every value is printed as 0 and its section says the milk choice is not included, so it does not describe the drink as sold"
+megans-iced-latte,"every value is printed as 0 and its section says the milk choice is not included, so it does not describe the drink as sold"
+megans-turkish-brunch-feast-for-the-table-4ppl,"sold for 4 people but the page's column says only 'per serving'; its own card lists parts (e.g. Original Baked Eggs 1,420 kcal, Bread Basket 1,745 kcal) that add up to far more than the 2,070 kcal printed, so the figure is probably per person and the page does not say"
+megans-mezze-feast-for-2,sold for 2 people but the page's column says only 'per serving'; unclear whether the figures are per person or for the whole feast
+carrot-cake,"salt is printed as 12.1 g for a cake (the other cakes and loaves print 0.1 to 0.9 g) and the cake's own ingredient list names salt last, as its smallest ingredient"
+hugo-spritz,alcoholic drink whose kcal (56) is exactly the carbohydrate energy (14 g x 4): the alcohol's energy is not counted
+efes,beer whose kcal (42) is only its protein and carbohydrate energy: the alcohol's energy is not counted
+corona,beer printed as 6 kcal: the figure cannot include the alcohol's energy
+olmeca-gold,"tequila: every value is printed as 0, which cannot include the alcohol's energy"
+baileys,cream liqueur printed as 4 kcal: the figure cannot include the alcohol's energy
+round-stone-sauvignon-blanc,"listed under Wine: every value is printed as 0; not clear whether it is alcohol-free, so not published"
+breakfast-flatbread-sausage,"printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages disagree on whether it is on the menu"
+baklava-bite,"printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages disagree on whether it is on the menu"
+harissa-halloumi-bowl,"printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages disagree on whether it is on the menu"
+centre-court-sundae,"printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages disagree on whether it is on the menu"
+strawberry-skewer,"printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages disagree on whether it is on the menu"
+kids-chicken-bites-protein,"printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages disagree on whether it is on the menu"
+ferrero-rocher-iced-latte,"printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages disagree on whether it is on the menu"
+elderflower-matcha-spritz,"printed on the 'All' page but on none of the chain's own section pages (read the same day), so the chain's pages disagree on whether it is on the menu"
+mixed-skewer-grill,"printed on its own section page but not on the 'All' page (read the same day), so the chain's pages disagree on whether it is on the menu"
+kids-chicken-bites-protein-only,"printed on its own section page but not on the 'All' page (read the same day), so the chain's pages disagree on whether it is on the menu"
