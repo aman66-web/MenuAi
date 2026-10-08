@@ -288,6 +288,22 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   They are out of the app (`data/held-robots/`, README says how to restore) until you download the PDFs yourself or say restore anyway; the
   photo fetcher and a new audit (`tools/uk_extract/robots_audit.py`) now use an RFC 9309 matcher (`robots_rfc.py`, tested). Live site: 130 chains.
 
+- 2026-10-08 — **Mixed nutrition level + restore pass.** `nutrition_level = mixed` (docs/DATA.md): a chain whose guide prints full macros for
+  food but only calories for drinks, desserts or sides may publish both; macros are all-or-none per item and an item without them is never ranked.
+  A restore pass over the chains whose calories-only rows had been dropped found very little to add (the dropped rows mostly print "-" for every
+  figure: alcohol), so only social-pub-and-kitchen gained 2 items. heritage-pubs' new hot-drink rows were reverted: their numbers looked like the
+  biscuit served with the drink, not the drink.
+- 2026-10-08 — **Accuracy audit (founder: "make sure to ensure the accuracy of the nutritional information and allergies").** New
+  `tools/audit/accuracy_audit.py` checks every published chain for numbers that cannot hold (calories vs 4P+4C+9F outside alcohol, saturates >
+  fat, sugars > carbohydrate, kJ vs kcal, salt vs sodium, macros heavier than the serving, size order inverted, implausible quantities) and for
+  allergen contradictions (a "vegan" dish marked milk/egg, a "gluten free" dish marked gluten, a cheese/bread/egg/fish/nut dish with that allergen
+  not marked). Flags are questions, never corrections. First run: 76 high-severity flags in 36 chains, about 840 medium. `tools/audit/sample.py <chain>`
+  prints the flagged rows plus 12 random items for an independent re-read of the chain's official source (agents re-read each chain's PDF/page
+  themselves, never through our script): extraction errors are fixed in the chain's script, rows where the source contradicts itself or where
+  an allergen row contradicts the dish's own name are held back (never chosen between, never corrected), and rows confirmed as printed are logged
+  with evidence in `data/audit/reviewed/<chain>.csv`; per-chain results in `data/audit/verified/<chain>.json`. `check_chain.py` now prints the audit
+  and `bank.py` refuses to bank a chain with unreviewed high flags.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
