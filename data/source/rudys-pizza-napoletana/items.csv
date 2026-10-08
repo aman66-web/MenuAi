@@ -1,0 +1,73 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+margherita,Margherita,Pizza,,1021,47.9,131.2,32.7,15.0,,7.3,6.7,,,,,,,,,false,true,,,
+doppia-mozzarella,Doppia Mozzarella,Pizza,,1247,66.8,131.7,49.2,25.2,,8.2,7.3,,,,,,,,,false,true,,,
+margherita-con-bufala,Margherita Con Bufala,Pizza,,790,28.2,132.4,15.0,3.9,,6.5,8.0,,,,,,,,,false,true,,,
+marinara,Marinara,Pizza,,748,24.5,133.4,11.6,1.8,,6.5,8.1,,,,,,,,vegetarian,false,true,,,
+portobello,Portobello,Pizza,,1222,54.6,131.7,32.5,15.0,,8.4,7.0,,,,,,,,,false,true,,,"Printed calories (1222) differ from the energy of the printed protein, carbs and fat (about 1038 kcal) by 15%"
+portobello-white,Portobello - White,Pizza,,1238,56.7,127.6,35.4,16.9,,8.0,2.9,,,,,,,,,false,true,,,"Printed calories (1238) differ from the energy of the printed protein, carbs and fat (about 1056 kcal) by 15%"
+tarantina,Tarantina,Pizza,,1171,56.2,132.5,44.7,16.6,,13.9,7.0,,,,,,,,,false,true,,,
+salame,Salame,Pizza,,1206,60.0,131.2,48.1,21.0,,9.4,6.7,,,,,,,,contains_pork,false,true,,,
+cinghiale,Cinghiale,Pizza,,1133,56.6,140.2,37.5,17.5,,8.8,14.3,,,,,,,,contains_pork,false,true,,,
+calabrese,Calabrese,Pizza,,1021,47.9,131.2,32.7,15.0,,7.3,6.7,,,,,,,,contains_pork,false,true,,,
+triple-pepperoni,Triple Pepperoni,Pizza,,1109,46.8,144.7,36.9,15.7,,8.4,19.9,,,,,,,,contains_pork,false,true,,,
+salsiccia,Salsiccia,Pizza,,1103,52.6,138.3,36.9,14.9,,8.1,11.9,,,,,,,,contains_pork,false,true,,,
+carni,Carni,Pizza,,1281,65.7,131.5,53.4,23.5,,10.3,6.9,,,,,,,,contains_pork,false,true,,,
+tonno,Tonno,Pizza,,1242,73.2,143.9,40.8,16.3,,8.2,17.1,,,,,,,,,false,true,,,
+capricciosa,Capricciosa,Pizza,,1401,63.1,134.2,52.2,17.6,,10.2,7.5,,,,,,,,contains_pork,false,true,,,"Printed calories (1401) differ from the energy of the printed protein, carbs and fat (about 1259 kcal) by 10%"
+romagnola,Romagnola,Pizza,,1293,71.1,132.0,52.1,23.1,,10.3,7.4,,,,,,,,contains_pork,false,true,,,
+nduja-ortolana,'Nduja Ortolana,Pizza,,1366,49.0,138.5,67.2,16.8,,9.3,10.8,,,,,,,,,false,true,,,The page calls the 'nduja on this pizza vegan (ingredient Symplicity N'duja Mince): no pork tag
+meatballs-alla-vodka,Meatballs Alla Vodka,Monthly pizza specials,,881,40.2,132.0,20.8,12.2,,6.8,6.3,,,,,,,,contains_pork,true,true,,,
+triple-cep,Triple Cep,Monthly pizza specials,,1204,50.6,127.4,31.5,14.3,,6.7,3.0,,,,,,,,,true,true,,,"Printed calories (1204) differ from the energy of the printed protein, carbs and fat (about 996 kcal) by 17%"
+the-peppe,The Peppe,Monthly pizza specials,,972,43.1,129.9,29.6,13.0,,6.5,5.6,,,,,,,,,true,true,,,
+nocellara-olives,Nocellara Olives,Starters + sharers,,296,1.9,4.2,30.2,2.4,,4.5,0.8,,,,,,,,vegetarian,false,false,,,
+bowl-of-salted-crisps,Bowl of Salted Crisps,Starters + sharers,,201,3.0,22.0,10.8,3.8,,0.4,0.2,,,,,,,,vegetarian,false,false,,,
+garlic-bread,Garlic Bread,Starters + sharers,,842,39.3,125.5,36.2,11.8,,1.0,1.2,,,,,,,,vegetarian,false,false,,,"Printed calories (842) differ from the energy of the printed protein, carbs and fat (about 985 kcal) by 17%"
+caprese-famiglia,Caprese Famiglia,Starters + sharers,,180,3.6,18.2,10.2,1.6,,0.7,6.9,,,,,,,,vegetarian,false,false,,,
+burrata,Burrata,Starters + sharers,,273,11.2,58.1,1.2,0.0,,1.0,2.4,,,,,,,,vegetarian,false,false,,,
+small-campana-standard,Small Campana (Standard),Campana,Standard,915,26.7,45.9,31.2,8.9,,4.7,1.7,,,,,,,,contains_pork,false,false,,,"Printed calories (915) differ from the energy of the printed protein, carbs and fat (about 571 kcal) by 38%"
+small-campana-three-plus-to-share,Small Campana (Three plus to share),Campana,Three plus to share,1830,53.4,91.7,62.4,17.9,,9.4,3.4,,,,,,,,contains_pork,false,false,,,"Printed calories (1830) differ from the energy of the printed protein, carbs and fat (about 1142 kcal) by 38%"
+campana,Campana,Campana,,1079,35.4,75.9,32.1,9.0,,5.5,2.3,,,,,,,,contains_pork,false,false,,,"Printed calories (1079) differ from the energy of the printed protein, carbs and fat (about 734 kcal) by 32%"
+caprese-piccola,Caprese Piccola,Side salads,,118,1.5,6.0,9.9,1.6,,1.2,5.7,,,,,,,,vegetarian,false,false,,,
+caesar-salad,Caesar Salad,Side salads,,709,9.5,14.6,9.5,3.8,,1.8,1.8,,,,,,,,,false,false,,,"Printed calories (709) differ from the energy of the printed protein, carbs and fat (about 182 kcal) by 74%"
+rocket-grana-padano,Rocket + Grana Padano,Side salads,,144,5.8,5.0,12.6,3.2,,2.7,4.5,,,,,,,,,false,false,,,
+mixed-leaf-salad,Mixed Leaf Salad,Side salads,,188,3.1,16.4,12.0,1.9,,1.1,2.9,,,,,,,,vegetarian,false,false,,,
+panzanella-tomato-salad,Panzanella Tomato Salad,Side salads,,180,2.8,13.9,12.2,1.9,,2.5,8.0,,,,,,,,,false,false,,,
+goats-cheese-walnut,Goat's Cheese + Walnut,Side salads,,212,4.8,17.3,21.0,2.7,,1.6,16.2,,,,,,,,,false,false,,,"Printed calories (212) differ from the energy of the printed protein, carbs and fat (about 277 kcal) by 31%"
+rosemary-sea-salt-fries,Rosemary + Sea Salt Fries,Side salads,,449,6.6,73.2,12.8,1.8,,1.9,0.0,,,,,,,,,false,false,,,
+garlic-aioli,Garlic Aioli,Dips,,440,0.7,1.6,49.2,3.6,,0.8,1.1,,,,,,,,vegetarian,false,false,,,
+nduja-aioli,'Nduja Aioli,Dips,,346,0.9,2.9,39.6,3.0,,0.6,1.2,,,,,,,,contains_pork,false,false,,,
+chilli-honey,Chilli Honey,Dips,,250,0.2,59.8,0.3,0.2,,0.0,58.9,,,,,,,,vegetarian,false,false,,,
+truffle-parmesan,Truffle + Parmesan,Dips,,382,0.5,1.2,44.9,3.5,,0.7,1.1,,,,,,,,,false,false,,,
+spicy-alla-vodka,Spicy Alla Vodka,Dips,,90,1.1,5.1,8.8,5.9,,0.0,2.0,,,,,,,,,false,false,,,"Printed calories (90) differ from the energy of the printed protein, carbs and fat (about 104 kcal) by 16%"
+any-3-dips,Any 3 Dips,Dips,,985,1.6,53.0,89.4,6.8,,1.7,50.1,,,,,,,,contains_pork,false,false,,,
+tiramisu,Tiramisu,Dolce,,417,8.1,33.5,19.2,12.0,,0.4,22.9,,,,,,,,vegetarian,false,false,,,"Printed calories (417) differ from the energy of the printed protein, carbs and fat (about 339 kcal) by 19%"
+chocolate-brownie,Chocolate Brownie,Dolce,,221,4.7,23.2,12.6,8.3,,0.3,23.0,,,,,,,,vegetarian,false,false,,,
+panna-cotta-cheesecake,Panna Cotta Cheesecake,Dolce,,486,5.5,45.4,31.2,19.4,,0.5,30.7,,,,,,,,,false,false,,,
+vanilla,Vanilla,Dolce,,213,3.2,26.5,10.4,9.2,,0.1,26.5,,,,,,,,vegetarian,false,false,,,
+chocolate,Chocolate,Dolce,,205,3.3,28.8,8.1,6.9,,0.0,28.8,,,,,,,,vegetarian,false,false,,,
+strawberry,Strawberry,Dolce,,139,0.1,26.5,3.5,3.5,,0.0,25.3,,,,,,,,vegetarian,false,false,,,
+lemon-sorbet,Lemon Sorbet,Dolce,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,
+affogato,Affogato,Dolce,,435,9.0,45.3,24.2,16.3,,0.7,45.3,,,,,,,,vegetarian,false,false,,,
+tiramisu-affogato,Tiramisu Affogato,Dolce,,273,6.7,33.1,17.6,11.5,,0.4,29.5,,,,,,,,,false,false,,,"Printed calories (273) differ from the energy of the printed protein, carbs and fat (about 318 kcal) by 16%"
+sundried-tomato,Sundried Tomato,Extra toppings: veggies,,62,1.7,6.5,2.9,0.3,,1.1,6.0,,,,,,,,vegetarian,false,false,,,
+mushroom,Mushroom,Extra toppings: veggies,,192,6.2,0.2,0.7,0.1,,0.1,0.2,,,,,,,,vegetarian,false,false,,,"Printed calories (192) differ from the energy of the printed protein, carbs and fat (about 32 kcal) by 83%"
+olives,Olives,Extra toppings: veggies,,70,0.5,0.2,7.2,0.9,,0.9,0.0,,,,,,,,,false,false,,,
+artichoke-hearts,Artichoke Hearts,Extra toppings: veggies,,64,0.9,2.1,5.4,0.6,,0.4,0.3,,,,,,,,vegetarian,false,false,,,
+cherry-tomato,Cherry Tomato,Extra toppings: veggies,,21,0.6,2.7,0.6,0.1,,0.1,2.8,,,,,,,,vegetarian,false,false,,,Sugars are printed higher than carbohydrate
+red-onion,Red Onion,Extra toppings: veggies,,9,0.3,2.0,0.0,0.0,,0.0,1.6,,,,,,,,vegetarian,false,false,,,
+capers,Capers,Extra toppings: veggies,,10,0.7,1.2,0.1,0.0,,1.8,0.0,,,,,,,,vegetarian,false,false,,,
+roquito-pepper,Roquito Pepper,Extra toppings: veggies,,8,0.3,1.5,0.3,0.1,,0.2,1.3,,,,,,,,vegetarian,false,false,,,
+sweetcorn,Sweetcorn,Extra toppings: veggies,,19,0.7,2.8,0.5,0.1,,0.0,1.3,,,,,,,,,false,false,,,
+wild-boar-salame,Wild Boar Salame,Extra toppings: meats,,66,7.0,0.0,4.3,2.2,,1.1,0.0,,,,,,,,contains_pork,false,false,,,Tagged contains_pork by the 'salame' rule: the page names it wild boar salame (Simonini Salami : Cinghiale)
+spilinga-nduja,Spilinga N'Duja,Extra toppings: meats,,207,5.2,0.4,20.4,8.8,,1.0,0.3,,,,,,,,contains_pork,false,false,,,
+spianata-piccante,Spianata Piccante,Extra toppings: meats,,61,6.4,0.6,3.7,1.2,,0.8,0.6,,,,,,,,contains_pork,false,false,,,
+cotto,Cotto,Extra toppings: meats,,58,7.8,3.7,1.3,0.4,,1.1,1.6,,,,,,,,contains_pork,false,false,,,
+fennel-sausage,Fennel Sausage,Extra toppings: meats,,61,6.4,0.6,3.7,1.2,,0.8,0.6,,,,,,,,contains_pork,false,false,,,
+extra-halal-pepperoni,Extra - Halal Pepperoni,Extra toppings: meats,,124,9.5,1.3,9.0,3.4,,1.6,0.5,,,,,,,,,false,false,,,
+extra-pepperoni,Extra - Pepperoni,Extra toppings: meats,,70,4.2,5.7,0.3,0.3,,0.6,3.7,,,,,,,,contains_pork,false,false,,,"Printed calories (70) differ from the energy of the printed protein, carbs and fat (about 42 kcal) by 40%"
+gorgonzola,Gorgonzola,Extra toppings: cheese + oils,,107,6.5,0.0,8.8,6.1,,0.6,0.0,,,,,,,,vegetarian,false,false,,,
+smoked-mozzarella,Smoked Mozzarella,Extra toppings: cheese + oils,,83,6.3,0.3,6.3,3.2,,0.2,0.3,,,,,,,,vegetarian,false,false,,,
+vegan-mozzarella,Vegan Mozzarella,Extra toppings: cheese + oils,,191,0.0,12.7,15.9,10.2,,1.1,1.2,,,,,,,,,false,false,,,
+whole-burrata,Whole Burrata,Extra toppings: cheese + oils,,265,17.5,1.0,21.3,15.0,,0.4,1.0,,,,,,,,vegetarian,false,false,,,
+garlic-oil,Garlic Oil,Extra toppings: cheese + oils,,75,0.1,0.2,8.3,1.3,,0.0,0.0,,,,,,,,vegetarian,false,false,,,
+truffle-oil,Truffle Oil,Extra toppings: cheese + oils,,82,0.0,0.0,9.2,1.3,,0.0,0.0,,,,,,,,vegetarian,false,false,,,
