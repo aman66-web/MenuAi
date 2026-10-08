@@ -1,0 +1,1 @@
+Dunkin' publishes calories only, so protein, carbs, fat and other nutrients are not published. Drinks whose calories are printed as a range (it depends on the milk chosen, e.g. Latte), or without a size, are left out. Sizes are Small, Medium and Large as printed (no ml given). Items whose calories differ between Dunkin's allergen page and product page are not shown.

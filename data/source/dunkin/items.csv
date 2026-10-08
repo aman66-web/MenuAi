@@ -1,0 +1,163 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+original-glazed-og,Original Glazed (OG),Donuts,1 donut,222,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Original Glazed (OG) - Vegan Friendly': Nutrition: 222 kcal; product page: (May contain traces of Egg, Milk, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+222 kcal per donut"
+boston-kreme,Boston Kreme,Donuts,1 donut,318,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Boston Kreme - Vegan Friendly': Nutrition: 318 kcal; product page: (May contain traces of Egg, Milk, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+318 kcal per donut"
+smiley,Smiley,Donuts,1 donut,337,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Smiley - Vegan Friendly': Nutrition: 337 kcal; product page: (May contain traces of Egg, Milk, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+337 kcal per donut"
+strawberry-rainbow,Strawberry Rainbow,Donuts,1 donut,264,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Strawberry Rainbow - Vegan Friendly': Nutrition: 264 kcal; product page: (May contain traces of Egg, Milk, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+264 kcal per donut"
+chocolate-monster,Chocolate Monster,Donuts,1 donut,299,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'Chocolate Monster - Vegan Friendly': Nutrition: 299 kcal; product page: (May contain traces of Egg, Milk, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+299 kcal per donut"
+banoffee-pie,Banoffee Pie,Donuts,1 donut,386,,,,,,,,,,,,,,,,false,false,,,"Printed 'Banoffee Pie': Nutrition: 386 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+386 kcal per donut"
+cookie-kreme-blast,Cookie Kreme Blast,Donuts,1 donut,490,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cookie Kreme Blast': Nutrition: 490 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+490 kcal per donut"
+rocky-road,Rocky Road,Donuts,1 donut,443,,,,,,,,,,,,,,,,false,false,,,"Printed 'Rocky Road': Nutrition: 443 kcal; product page: (May contain traces of Egg, Peanuts, Mustard)
+443 kcal per donut"
+hazelnut-pie,Hazelnut Pie,Donuts,1 donut,510,,,,,,,,,,,,,,,,false,false,,,"Printed 'Hazelnut Pie': Nutrition: 510 kcal; product page: (May contain traces of Egg, Peanuts, Sulphur Dioxide, Mustard)
+515 kcal per donut"
+speculoos-sensation,Speculoos Sensation,Donuts,1 donut,467,,,,,,,,,,,,,,,,false,false,,,"Printed 'Speculoos Sensation': Nutrition: 467 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide)
+467 kcal per donut"
+raspberry-and-white-chocolate,Raspberry & White Chocolate,Donuts,1 donut,433,,,,,,,,,,,,,,,,false,false,,,"Printed 'Raspberry & White Chocolate': Nutrition: 433 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+433 kcal per donut"
+strawberry-jelly,Strawberry Jelly,Donuts,1 donut,282,,,,,,,,,,,,,,,,false,false,,,"Printed 'Strawberry Jelly': Nutrition: 282 kcal; product page: (May contain traces of Egg, Milk Peanuts, Nuts, Sulphur Dioxide, Mustard)
+282 kcal per donut"
+glazed-munchkins,Glazed Munchkins,Munchkins,1 munchkin,73,,,,,,,,,,,,,,,,false,false,,,"Printed 'Glazed Munchkins®': Nutrition: 73 kcal; product page: (May contain traces of Peanuts, Nuts, Sulphur Dioxide, Mustard, Lupin)
+63 kcal per Munchkin®"
+oatmeal-cookie,Oatmeal Cookie,Cookies,1 item,366,,,,,,,,,,,,,,,,false,false,,,"Printed 'Oatmeal Cookie': 366 Kcal per item; product page: (May contain traces of Peanuts, Sulphur Dioxide, Mustard)
+366 Kcal per item"
+double-chocolate-cookie,Double Chocolate Cookie,Cookies,1 item,369,,,,,,,,,,,,,,,,false,false,,,"Printed 'Double Chocolate Cookie': 369 Kcal per item; product page: (May contain traces of Peanuts, Nuts, Sulphur Dioxide, Mustard)
+369 Kcal per item"
+raspberry-and-white-chocolate-cookie,Raspberry & White Chocolate Cookie,Cookies,1 item,390,,,,,,,,,,,,,,,,false,false,,,"Printed 'Raspberry & White Chocolate Cookie': 390 Kcal per item; product page: (May contain traces of Peanuts, Nuts, Sulphur Dioxide, Mustard)
+390 Kcal per item"
+butter-croissant,Butter Croissant,Bakery,1 croissant,197,,,,,,,,,,,,,,,,false,false,,,"Printed 'Butter Croissant': Nutrition: 197 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+197 kcal per croissant"
+chocolate-croissant,Chocolate Croissant,Bakery,1 croissant,346,,,,,,,,,,,,,,,,false,false,,,"Printed 'Chocolate Croissant': Nutrition: 346 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+346 kcal per croissant"
+cinnamon-roll,Cinnamon Roll,Bakery,1 item,324,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cinnamon Roll': Nutrition: 324 kcal; product page: (May contain traces of Egg, Milk, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+324 kcal per item"
+maple-praline,Maple Praline,Limited time donuts,1 donut,285,,,,,,,,,,,,,,,,true,false,,,"Printed 'Maple Praline': Nutrition: 285 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide)
+285 kcal per donut"
+smores,S’mores,Limited time donuts,1 donut,404,,,,,,,,,,,,,,,vegetarian,true,false,,,"Printed 'S’mores - Vegan Friendly': Nutrition: 404 kcal; product page: (May contain traces of Egg, Milk, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+404 kcal per donut"
+chocolate-pistachio,Chocolate Pistachio,Limited time donuts,1 donut,387,,,,,,,,,,,,,,,,true,false,,,"Printed 'Chocolate Pistachio': Nutrition: 387 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide)
+387 kcal per donut"
+drac,Drac,Limited time donuts,1 donut,420,,,,,,,,,,,,,,,,true,false,,,"Printed 'Drac': Nutrition: 420 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+420 kcal per donut"
+frank,Frank,Limited time donuts,1 donut,402,,,,,,,,,,,,,,,,true,false,,,"Printed 'Frank': Nutrition: 402 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+402 kcal per donut"
+toffee-apple,Toffee Apple,Limited time donuts,1 donut,342,,,,,,,,,,,,,,,,true,false,,,"Printed 'Toffee Apple': Nutrition: 342 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide)
+342 kcal per donut"
+churro,Churro,Limited time donuts,1 donut,264,,,,,,,,,,,,,,,,true,false,,,"Printed 'Churro': Nutrition: 264 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide)
+264 kcal per donut"
+speculoos-caramel-crumb,Speculoos Caramel Crumb,Limited time donuts,1 donut,289,,,,,,,,,,,,,,,,true,false,,,"Printed 'Speculoos Caramel Crumb': Nutrition: 289 kcal; product page: (May contain traces of Egg, Peanuts, Nuts, Mustard, Sulphur Dioxide)
+289 kcal per donut"
+sid,Sid,Limited time donuts,1 donut,355,,,,,,,,,,,,,,,vegetarian,true,false,,,"Printed 'Sid - Vegan Friendly': Nutrition: 355 kcal; product page: (May contain traces of Egg, Milk, Peanuts, Nuts, Sulphur Dioxide, Mustard)
+355 kcal per donut"
+espresso-small,Espresso (Small),Hot drinks,Small,0,,,,,,,,,,,,,,,,false,false,,,"Printed 'Espresso': Nutrition:Small 0 kcal, Medium 0 kcal"
+espresso-medium,Espresso (Medium),Hot drinks,Medium,0,,,,,,,,,,,,,,,,false,false,,,"Printed 'Espresso': Nutrition:Small 0 kcal, Medium 0 kcal"
+flat-white-small,Flat White (Small),Hot drinks,Small,113,,,,,,,,,,,,,,,,false,false,,,Printed 'Flat White': Nutrition: Small 113kcal
+cappuccino-small,Cappuccino (Small),Hot drinks,Small,76,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cappuccino': Nutrition: Small 76 kcal, Medium 113 kcal, Large 151 kcal"
+cappuccino-medium,Cappuccino (Medium),Hot drinks,Medium,113,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cappuccino': Nutrition: Small 76 kcal, Medium 113 kcal, Large 151 kcal"
+cappuccino-large,Cappuccino (Large),Hot drinks,Large,151,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cappuccino': Nutrition: Small 76 kcal, Medium 113 kcal, Large 151 kcal"
+hot-chocolate-small,Hot Chocolate (Small),Hot drinks,Small,214,,,,,,,,,,,,,,,,false,false,,,"Printed 'Hot Chocolate': Nutrition: Small 214 kcal, Medium 284 kcal, Large 353 kcal"
+hot-chocolate-medium,Hot Chocolate (Medium),Hot drinks,Medium,284,,,,,,,,,,,,,,,,false,false,,,"Printed 'Hot Chocolate': Nutrition: Small 214 kcal, Medium 284 kcal, Large 353 kcal"
+hot-chocolate-large,Hot Chocolate (Large),Hot drinks,Large,353,,,,,,,,,,,,,,,,false,false,,,"Printed 'Hot Chocolate': Nutrition: Small 214 kcal, Medium 284 kcal, Large 353 kcal"
+pumpkin-spiced-latte-hot-small,"Pumpkin Spiced Latte, hot (Small)",Hot drinks,Small,195,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Spiced Latte': Nutrition: Small 195 kcal, Medium 277 kcal, Large 360 kcal"
+pumpkin-spiced-latte-hot-medium,"Pumpkin Spiced Latte, hot (Medium)",Hot drinks,Medium,277,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Spiced Latte': Nutrition: Small 195 kcal, Medium 277 kcal, Large 360 kcal"
+pumpkin-spiced-latte-hot-large,"Pumpkin Spiced Latte, hot (Large)",Hot drinks,Large,360,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Spiced Latte': Nutrition: Small 195 kcal, Medium 277 kcal, Large 360 kcal"
+maple-pecan-pie-latte-hot-small,"Maple Pecan Pie Latte, hot (Small)",Hot drinks,Small,179,,,,,,,,,,,,,,,,false,false,,,"Printed 'Maple Pecan Pie Latte': Nutrition: Small 179 kcal, Medium 268 kcal, Large 358 kcal"
+maple-pecan-pie-latte-hot-medium,"Maple Pecan Pie Latte, hot (Medium)",Hot drinks,Medium,268,,,,,,,,,,,,,,,,false,false,,,"Printed 'Maple Pecan Pie Latte': Nutrition: Small 179 kcal, Medium 268 kcal, Large 358 kcal"
+maple-pecan-pie-latte-hot-large,"Maple Pecan Pie Latte, hot (Large)",Hot drinks,Large,358,,,,,,,,,,,,,,,,false,false,,,"Printed 'Maple Pecan Pie Latte': Nutrition: Small 179 kcal, Medium 268 kcal, Large 358 kcal"
+dubai-chocolate-mocha-hot-small,"Dubai Chocolate Mocha, hot (Small)",Hot drinks,Small,233,,,,,,,,,,,,,,,,false,false,,,"Printed 'Dubai Chocolate Mocha': Nutrition: Small 233 kcal, Medium 337 kcal, Large 440 kcal"
+dubai-chocolate-mocha-hot-medium,"Dubai Chocolate Mocha, hot (Medium)",Hot drinks,Medium,337,,,,,,,,,,,,,,,,false,false,,,"Printed 'Dubai Chocolate Mocha': Nutrition: Small 233 kcal, Medium 337 kcal, Large 440 kcal"
+dubai-chocolate-mocha-hot-large,"Dubai Chocolate Mocha, hot (Large)",Hot drinks,Large,440,,,,,,,,,,,,,,,,false,false,,,"Printed 'Dubai Chocolate Mocha': Nutrition: Small 233 kcal, Medium 337 kcal, Large 440 kcal"
+strawberry-and-white-chocolate-iced-matcha-small,Strawberry & White Chocolate Iced Matcha (Small),Cold drinks,Small,130,,,,,,,,,,,,,,,,false,false,,,"Printed 'Strawberry & White Chocolate Iced Matcha': Nutrition: Small 130 kcal, Medium 255 kcal, Large 380 kcal"
+strawberry-and-white-chocolate-iced-matcha-medium,Strawberry & White Chocolate Iced Matcha (Medium),Cold drinks,Medium,255,,,,,,,,,,,,,,,,false,false,,,"Printed 'Strawberry & White Chocolate Iced Matcha': Nutrition: Small 130 kcal, Medium 255 kcal, Large 380 kcal"
+strawberry-and-white-chocolate-iced-matcha-large,Strawberry & White Chocolate Iced Matcha (Large),Cold drinks,Large,380,,,,,,,,,,,,,,,,false,false,,,"Printed 'Strawberry & White Chocolate Iced Matcha': Nutrition: Small 130 kcal, Medium 255 kcal, Large 380 kcal"
+iced-green-tea-small,Iced Green Tea (Small),Cold drinks,Small,24,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Green Tea': Nutrition: Small 24 kcal, Medium 31 kcal, Large 37 kcal"
+iced-green-tea-medium,Iced Green Tea (Medium),Cold drinks,Medium,31,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Green Tea': Nutrition: Small 24 kcal, Medium 31 kcal, Large 37 kcal"
+iced-green-tea-large,Iced Green Tea (Large),Cold drinks,Large,37,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Green Tea': Nutrition: Small 24 kcal, Medium 31 kcal, Large 37 kcal"
+iced-chocolate-small,Iced Chocolate (Small),Cold drinks,Small,136,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Chocolate': Nutrition: Small 136 kcal, Medium 233 kcal, Large 329 kcal"
+iced-chocolate-medium,Iced Chocolate (Medium),Cold drinks,Medium,233,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Chocolate': Nutrition: Small 136 kcal, Medium 233 kcal, Large 329 kcal"
+iced-chocolate-large,Iced Chocolate (Large),Cold drinks,Large,329,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Chocolate': Nutrition: Small 136 kcal, Medium 233 kcal, Large 329 kcal"
+iced-cappuccino-small,Iced Cappuccino (Small),Cold drinks,Small,57,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Cappuccino': Nutrition: Small 57 kcal, Medium 113 kcal, Large 170 kcal"
+iced-cappuccino-medium,Iced Cappuccino (Medium),Cold drinks,Medium,113,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Cappuccino': Nutrition: Small 57 kcal, Medium 113 kcal, Large 170 kcal"
+iced-cappuccino-large,Iced Cappuccino (Large),Cold drinks,Large,170,,,,,,,,,,,,,,,,false,false,,,"Printed 'Iced Cappuccino': Nutrition: Small 57 kcal, Medium 113 kcal, Large 170 kcal"
+strawberry-dragon-fruit-daydream-refresher-small,Strawberry Dragon fruit Daydream Refresher (Small),Cold drinks,Small,156,,,,,,,,,,,,,,,,false,false,,,"Printed 'Strawberry Dragon fruit Daydream Refresher': Nutrition: 156 kcal Medium 194 Kcal Large 232 kcal; size taken from the product page, which prints the same figure with its size"
+strawberry-dragon-fruit-daydream-refresher-medium,Strawberry Dragon fruit Daydream Refresher (Medium),Cold drinks,Medium,194,,,,,,,,,,,,,,,,false,false,,,Printed 'Strawberry Dragon fruit Daydream Refresher': Nutrition: 156 kcal Medium 194 Kcal Large 232 kcal
+strawberry-dragon-fruit-daydream-refresher-large,Strawberry Dragon fruit Daydream Refresher (Large),Cold drinks,Large,232,,,,,,,,,,,,,,,,false,false,,,Printed 'Strawberry Dragon fruit Daydream Refresher': Nutrition: 156 kcal Medium 194 Kcal Large 232 kcal
+blackberry-lemonade-small,Blackberry Lemonade (Small),Cold drinks,Small,119,,,,,,,,,,,,,,,,false,false,,,Printed 'Blackberry Lemonade': Small - 119 Kcal - Medium 182 Kcal - Large 234 Kcal
+blackberry-lemonade-medium,Blackberry Lemonade (Medium),Cold drinks,Medium,182,,,,,,,,,,,,,,,,false,false,,,Printed 'Blackberry Lemonade': Small - 119 Kcal - Medium 182 Kcal - Large 234 Kcal
+blackberry-lemonade-large,Blackberry Lemonade (Large),Cold drinks,Large,234,,,,,,,,,,,,,,,,false,false,,,Printed 'Blackberry Lemonade': Small - 119 Kcal - Medium 182 Kcal - Large 234 Kcal
+blush-spritz-small,Blush Spritz (Small),Cold drinks,Small,121,,,,,,,,,,,,,,,,false,false,,,Printed 'Blush Spritz': Small 121 Kcal - Medium 163 Kcal - Large 209 Kcal
+blush-spritz-medium,Blush Spritz (Medium),Cold drinks,Medium,163,,,,,,,,,,,,,,,,false,false,,,Printed 'Blush Spritz': Small 121 Kcal - Medium 163 Kcal - Large 209 Kcal
+blush-spritz-large,Blush Spritz (Large),Cold drinks,Large,209,,,,,,,,,,,,,,,,false,false,,,Printed 'Blush Spritz': Small 121 Kcal - Medium 163 Kcal - Large 209 Kcal
+pumpkin-spiced-latte-cold-small,"Pumpkin Spiced Latte, cold (Small)",Cold drinks,Small,267,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Spiced Latte': Nutrition: Small 267 kcal, Medium 350 kcal, Large 433 kcal"
+pumpkin-spiced-latte-cold-medium,"Pumpkin Spiced Latte, cold (Medium)",Cold drinks,Medium,350,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Spiced Latte': Nutrition: Small 267 kcal, Medium 350 kcal, Large 433 kcal"
+pumpkin-spiced-latte-cold-large,"Pumpkin Spiced Latte, cold (Large)",Cold drinks,Large,433,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Spiced Latte': Nutrition: Small 267 kcal, Medium 350 kcal, Large 433 kcal"
+maple-pecan-pie-latte-cold-small,"Maple Pecan Pie Latte, cold (Small)",Cold drinks,Small,122,,,,,,,,,,,,,,,,false,false,,,"Printed 'Maple Pecan Pie Latte': Nutrition: Small 122 kcal, Medium 212 kcal, Large 301 kcal"
+maple-pecan-pie-latte-cold-medium,"Maple Pecan Pie Latte, cold (Medium)",Cold drinks,Medium,212,,,,,,,,,,,,,,,,false,false,,,"Printed 'Maple Pecan Pie Latte': Nutrition: Small 122 kcal, Medium 212 kcal, Large 301 kcal"
+maple-pecan-pie-latte-cold-large,"Maple Pecan Pie Latte, cold (Large)",Cold drinks,Large,301,,,,,,,,,,,,,,,,false,false,,,"Printed 'Maple Pecan Pie Latte': Nutrition: Small 122 kcal, Medium 212 kcal, Large 301 kcal"
+dubai-chocolate-mocha-cold-small,"Dubai Chocolate Mocha, cold (Small)",Cold drinks,Small,177,,,,,,,,,,,,,,,,false,false,,,"Printed 'Dubai Chocolate Mocha': Nutrition: Small 177 kcal, Medium 280 kcal, Large 383 kcal"
+dubai-chocolate-mocha-cold-medium,"Dubai Chocolate Mocha, cold (Medium)",Cold drinks,Medium,280,,,,,,,,,,,,,,,,false,false,,,"Printed 'Dubai Chocolate Mocha': Nutrition: Small 177 kcal, Medium 280 kcal, Large 383 kcal"
+dubai-chocolate-mocha-cold-large,"Dubai Chocolate Mocha, cold (Large)",Cold drinks,Large,383,,,,,,,,,,,,,,,,false,false,,,"Printed 'Dubai Chocolate Mocha': Nutrition: Small 177 kcal, Medium 280 kcal, Large 383 kcal"
+pumpkin-matcha-oat-latte-small,Pumpkin Matcha Oat Latte (Small),Cold drinks,Small,113,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Matcha Oat Latte': Nutrition: Small 113 kcal, Medium 223 kcal, Large 306 kcal"
+pumpkin-matcha-oat-latte-medium,Pumpkin Matcha Oat Latte (Medium),Cold drinks,Medium,223,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Matcha Oat Latte': Nutrition: Small 113 kcal, Medium 223 kcal, Large 306 kcal"
+pumpkin-matcha-oat-latte-large,Pumpkin Matcha Oat Latte (Large),Cold drinks,Large,306,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Matcha Oat Latte': Nutrition: Small 113 kcal, Medium 223 kcal, Large 306 kcal"
+starlight-lemonade-small,Starlight Lemonade (Small),Cold drinks,Small,170,,,,,,,,,,,,,,,,false,false,,,"Printed 'Starlight Lemonade': Nutrition: Small 170 kcal, Medium 257 kcal, Large 339 kcal"
+starlight-lemonade-medium,Starlight Lemonade (Medium),Cold drinks,Medium,257,,,,,,,,,,,,,,,,false,false,,,"Printed 'Starlight Lemonade': Nutrition: Small 170 kcal, Medium 257 kcal, Large 339 kcal"
+starlight-lemonade-large,Starlight Lemonade (Large),Cold drinks,Large,339,,,,,,,,,,,,,,,,false,false,,,"Printed 'Starlight Lemonade': Nutrition: Small 170 kcal, Medium 257 kcal, Large 339 kcal"
+atlantic-ice-small,Atlantic Ice (Small),Cold drinks,Small,160,,,,,,,,,,,,,,,,false,false,,,"Printed 'Atlantic Ice': Nutrition: Small 160 kcal, Medium 227 kcal, Large 291 kcal"
+atlantic-ice-medium,Atlantic Ice (Medium),Cold drinks,Medium,227,,,,,,,,,,,,,,,,false,false,,,"Printed 'Atlantic Ice': Nutrition: Small 160 kcal, Medium 227 kcal, Large 291 kcal"
+atlantic-ice-large,Atlantic Ice (Large),Cold drinks,Large,291,,,,,,,,,,,,,,,,false,false,,,"Printed 'Atlantic Ice': Nutrition: Small 160 kcal, Medium 227 kcal, Large 291 kcal"
+shaken-iced-tea-small,Shaken Iced Tea (Small),Cold drinks,Small,118,,,,,,,,,,,,,,,,false,false,,,"Printed 'Shaken Iced Tea': Nutrition: Small 118 kcal, Medium 148 kcal, Large 178 kcal"
+shaken-iced-tea-medium,Shaken Iced Tea (Medium),Cold drinks,Medium,148,,,,,,,,,,,,,,,,false,false,,,"Printed 'Shaken Iced Tea': Nutrition: Small 118 kcal, Medium 148 kcal, Large 178 kcal"
+shaken-iced-tea-large,Shaken Iced Tea (Large),Cold drinks,Large,178,,,,,,,,,,,,,,,,false,false,,,"Printed 'Shaken Iced Tea': Nutrition: Small 118 kcal, Medium 148 kcal, Large 178 kcal"
+chocolate-cookie-frappe-small,Chocolate Cookie Frappe (Small),Cold drinks,Small,286,,,,,,,,,,,,,,,,false,false,,,"Printed 'Chocolate Cookie Frappe': Nutrition: Small 286 kcal, Medium 382 kcal, Large 479 kcal"
+chocolate-cookie-frappe-medium,Chocolate Cookie Frappe (Medium),Cold drinks,Medium,382,,,,,,,,,,,,,,,,false,false,,,"Printed 'Chocolate Cookie Frappe': Nutrition: Small 286 kcal, Medium 382 kcal, Large 479 kcal"
+chocolate-cookie-frappe-large,Chocolate Cookie Frappe (Large),Cold drinks,Large,479,,,,,,,,,,,,,,,,false,false,,,"Printed 'Chocolate Cookie Frappe': Nutrition: Small 286 kcal, Medium 382 kcal, Large 479 kcal"
+strawberry-shortcake-frappe-small,Strawberry Shortcake Frappe (Small),Cold drinks,Small,341,,,,,,,,,,,,,,,,false,false,,,"Printed 'Strawberry Shortcake Frappe': Nutrition: Small 341 kcal, Medium 448 kcal, Large 556 kcal"
+strawberry-shortcake-frappe-medium,Strawberry Shortcake Frappe (Medium),Cold drinks,Medium,448,,,,,,,,,,,,,,,,false,false,,,"Printed 'Strawberry Shortcake Frappe': Nutrition: Small 341 kcal, Medium 448 kcal, Large 556 kcal"
+strawberry-shortcake-frappe-large,Strawberry Shortcake Frappe (Large),Cold drinks,Large,556,,,,,,,,,,,,,,,,false,false,,,"Printed 'Strawberry Shortcake Frappe': Nutrition: Small 341 kcal, Medium 448 kcal, Large 556 kcal"
+caramel-fudge-frappe-small,Caramel Fudge Frappe (Small),Cold drinks,Small,319,,,,,,,,,,,,,,,,false,false,,,"Printed 'Caramel Fudge Frappe': Nutrition: Small 319 kcal, Medium 417 kcal, Large 514 kcal"
+caramel-fudge-frappe-medium,Caramel Fudge Frappe (Medium),Cold drinks,Medium,417,,,,,,,,,,,,,,,,false,false,,,"Printed 'Caramel Fudge Frappe': Nutrition: Small 319 kcal, Medium 417 kcal, Large 514 kcal"
+caramel-fudge-frappe-large,Caramel Fudge Frappe (Large),Cold drinks,Large,514,,,,,,,,,,,,,,,,false,false,,,"Printed 'Caramel Fudge Frappe': Nutrition: Small 319 kcal, Medium 417 kcal, Large 514 kcal"
+coffee-frappe-small,Coffee Frappe (Small),Cold drinks,Small,289,,,,,,,,,,,,,,,,false,false,,,"Printed 'Coffee Frappe': Nutrition: Small 289 kcal, Medium 377 kcal, Large 466 kcal"
+coffee-frappe-medium,Coffee Frappe (Medium),Cold drinks,Medium,377,,,,,,,,,,,,,,,,false,false,,,"Printed 'Coffee Frappe': Nutrition: Small 289 kcal, Medium 377 kcal, Large 466 kcal"
+coffee-frappe-large,Coffee Frappe (Large),Cold drinks,Large,466,,,,,,,,,,,,,,,,false,false,,,"Printed 'Coffee Frappe': Nutrition: Small 289 kcal, Medium 377 kcal, Large 466 kcal"
+mango-pineapple-daydream-refresher-small,Mango Pineapple Daydream Refresher (Small),Cold drinks,Small,161,,,,,,,,,,,,,,,,false,false,,,Printed 'Mango Pineapple Daydream Refresher': Nutrition: Small 161 kcal Medium 201 kcal Large 237 kcal
+mango-pineapple-daydream-refresher-medium,Mango Pineapple Daydream Refresher (Medium),Cold drinks,Medium,201,,,,,,,,,,,,,,,,false,false,,,Printed 'Mango Pineapple Daydream Refresher': Nutrition: Small 161 kcal Medium 201 kcal Large 237 kcal
+mango-pineapple-daydream-refresher-large,Mango Pineapple Daydream Refresher (Large),Cold drinks,Large,237,,,,,,,,,,,,,,,,false,false,,,Printed 'Mango Pineapple Daydream Refresher': Nutrition: Small 161 kcal Medium 201 kcal Large 237 kcal
+mojito-citrus-zest-red-bull-infusion-medium,Mojito Citrus Zest Red Bull Infusion (Medium),Cold drinks,Medium,180,,,,,,,,,,,,,,,,false,false,,,Printed 'Mojito Citrus Zest Red Bull Infusion': Nutrition: Medium 180 kcal
+iced-shaken-espresso-small,Iced Shaken Espresso (Small),Cold drinks,Small,57,,,,,,,,,,,,,,,,false,false,,,Printed 'Iced Shaken Espresso': Small 57 Kcal - Medium 113Kcal - Large 170 Kcal
+iced-shaken-espresso-medium,Iced Shaken Espresso (Medium),Cold drinks,Medium,113,,,,,,,,,,,,,,,,false,false,,,Printed 'Iced Shaken Espresso': Small 57 Kcal - Medium 113Kcal - Large 170 Kcal
+iced-shaken-espresso-large,Iced Shaken Espresso (Large),Cold drinks,Large,170,,,,,,,,,,,,,,,,false,false,,,Printed 'Iced Shaken Espresso': Small 57 Kcal - Medium 113Kcal - Large 170 Kcal
+iced-caramel-macchiato-small,Iced Caramel Macchiato (Small),Cold drinks,Small,89,,,,,,,,,,,,,,,,false,false,,,Printed 'Iced Caramel Macchiato': Small 89 Kcal - Medium 178 Kcal - Large 267 Kcal
+iced-caramel-macchiato-medium,Iced Caramel Macchiato (Medium),Cold drinks,Medium,178,,,,,,,,,,,,,,,,false,false,,,Printed 'Iced Caramel Macchiato': Small 89 Kcal - Medium 178 Kcal - Large 267 Kcal
+iced-caramel-macchiato-large,Iced Caramel Macchiato (Large),Cold drinks,Large,267,,,,,,,,,,,,,,,,false,false,,,Printed 'Iced Caramel Macchiato': Small 89 Kcal - Medium 178 Kcal - Large 267 Kcal
+strawberry-lemonade-small,Strawberry Lemonade (Small),Cold drinks,Small,100,,,,,,,,,,,,,,,,false,false,,,Printed 'Strawberry Lemonade': Small 100 Kcal - Medium 153 Kcal - Large 204 Kcal
+strawberry-lemonade-medium,Strawberry Lemonade (Medium),Cold drinks,Medium,153,,,,,,,,,,,,,,,,false,false,,,Printed 'Strawberry Lemonade': Small 100 Kcal - Medium 153 Kcal - Large 204 Kcal
+strawberry-lemonade-large,Strawberry Lemonade (Large),Cold drinks,Large,204,,,,,,,,,,,,,,,,false,false,,,Printed 'Strawberry Lemonade': Small 100 Kcal - Medium 153 Kcal - Large 204 Kcal
+toasted-marshmallow-iced-matcha-small,Toasted Marshmallow Iced Matcha (Small),Cold drinks,Small,129,,,,,,,,,,,,,,,,false,false,,,"Printed 'Toasted Marshmallow Iced Matcha': Nutrition: Small 129 kcal, Medium 171 kcal, Large 198 kcal"
+toasted-marshmallow-iced-matcha-medium,Toasted Marshmallow Iced Matcha (Medium),Cold drinks,Medium,171,,,,,,,,,,,,,,,,false,false,,,"Printed 'Toasted Marshmallow Iced Matcha': Nutrition: Small 129 kcal, Medium 171 kcal, Large 198 kcal"
+toasted-marshmallow-iced-matcha-large,Toasted Marshmallow Iced Matcha (Large),Cold drinks,Large,198,,,,,,,,,,,,,,,,false,false,,,"Printed 'Toasted Marshmallow Iced Matcha': Nutrition: Small 129 kcal, Medium 171 kcal, Large 198 kcal"
+churro-iced-matcha-small,Churro Iced Matcha (Small),Cold drinks,Small,105,,,,,,,,,,,,,,,,false,false,,,"Printed 'Churro Iced Matcha': Nutrition: Small 105 kcal, Medium 155 kcal, Large 189 kcal"
+churro-iced-matcha-medium,Churro Iced Matcha (Medium),Cold drinks,Medium,155,,,,,,,,,,,,,,,,false,false,,,"Printed 'Churro Iced Matcha': Nutrition: Small 105 kcal, Medium 155 kcal, Large 189 kcal"
+churro-iced-matcha-large,Churro Iced Matcha (Large),Cold drinks,Large,189,,,,,,,,,,,,,,,,false,false,,,"Printed 'Churro Iced Matcha': Nutrition: Small 105 kcal, Medium 155 kcal, Large 189 kcal"
+toffee-apple-iced-matcha-small,Toffee Apple Iced Matcha (Small),Cold drinks,Small,124,,,,,,,,,,,,,,,,false,false,,,"Printed 'Toffee Apple Iced Matcha': Nutrition: Small 124 kcal, Medium 167 kcal, Large 195 kcal"
+toffee-apple-iced-matcha-medium,Toffee Apple Iced Matcha (Medium),Cold drinks,Medium,167,,,,,,,,,,,,,,,,false,false,,,"Printed 'Toffee Apple Iced Matcha': Nutrition: Small 124 kcal, Medium 167 kcal, Large 195 kcal"
+toffee-apple-iced-matcha-large,Toffee Apple Iced Matcha (Large),Cold drinks,Large,195,,,,,,,,,,,,,,,,false,false,,,"Printed 'Toffee Apple Iced Matcha': Nutrition: Small 124 kcal, Medium 167 kcal, Large 195 kcal"
+pumpkin-patch-cloud-latte-small,Pumpkin Patch Cloud Latte (Small),Cold drinks,Small,177,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Patch Cloud Latte': Nutrition: Small 177 kcal, Medium 275 kcal, Large 392 kcal"
+pumpkin-patch-cloud-latte-medium,Pumpkin Patch Cloud Latte (Medium),Cold drinks,Medium,275,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Patch Cloud Latte': Nutrition: Small 177 kcal, Medium 275 kcal, Large 392 kcal"
+pumpkin-patch-cloud-latte-large,Pumpkin Patch Cloud Latte (Large),Cold drinks,Large,392,,,,,,,,,,,,,,,,false,false,,,"Printed 'Pumpkin Patch Cloud Latte': Nutrition: Small 177 kcal, Medium 275 kcal, Large 392 kcal"
+apple-sours-small,Apple Sours (Small),Cold drinks,Small,100,,,,,,,,,,,,,,,,false,false,,,"Printed 'Apple Sours': Nutrition: Small 100 kcal, Medium 167 kcal, Large 219 kcal"
+apple-sours-medium,Apple Sours (Medium),Cold drinks,Medium,167,,,,,,,,,,,,,,,,false,false,,,"Printed 'Apple Sours': Nutrition: Small 100 kcal, Medium 167 kcal, Large 219 kcal"
+apple-sours-large,Apple Sours (Large),Cold drinks,Large,219,,,,,,,,,,,,,,,,false,false,,,"Printed 'Apple Sours': Nutrition: Small 100 kcal, Medium 167 kcal, Large 219 kcal"
+cherry-sours-small,Cherry Sours (Small),Cold drinks,Small,101,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cherry Sours': Nutrition: Small 101 kcal, Medium 168 kcal, Large 220 kcal"
+cherry-sours-medium,Cherry Sours (Medium),Cold drinks,Medium,168,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cherry Sours': Nutrition: Small 101 kcal, Medium 168 kcal, Large 220 kcal"
+cherry-sours-large,Cherry Sours (Large),Cold drinks,Large,220,,,,,,,,,,,,,,,,false,false,,,"Printed 'Cherry Sours': Nutrition: Small 101 kcal, Medium 168 kcal, Large 220 kcal"
+orange-sours-small,Orange Sours (Small),Cold drinks,Small,94,,,,,,,,,,,,,,,,false,false,,,"Printed 'Orange Sours': Nutrition: Small 94 kcal, Medium 142 kcal, Large 204 kcal"
+orange-sours-medium,Orange Sours (Medium),Cold drinks,Medium,142,,,,,,,,,,,,,,,,false,false,,,"Printed 'Orange Sours': Nutrition: Small 94 kcal, Medium 142 kcal, Large 204 kcal"
+orange-sours-large,Orange Sours (Large),Cold drinks,Large,204,,,,,,,,,,,,,,,,false,false,,,"Printed 'Orange Sours': Nutrition: Small 94 kcal, Medium 142 kcal, Large 204 kcal"
