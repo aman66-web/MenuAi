@@ -14,7 +14,9 @@ Source (the file the chain's own page links as "CALORIE CHART", under "Please do
 
 HOW THE NUMBERS WERE TAKEN (8 Oct 2026). Rendered at 200 dpi (`pdftoppm -r 200 -png`), every row read BY EYE at full size in five
 strips, and each cell then read again by tesseract OCR (jollibee_ocr_check.py) as a second, independent pass. The transcription below
-is therefore a checked table, not a script reading: TABLE holds every printed row of the chart, in the chart's own order, with its row
+is therefore a checked table, not a script reading (OCR agreed exactly on 78 of 85 numbers; the other 7 differ only by tesseract's
+usual 3-for-5 and asterisk-as-digit slips in this bold font, and each of those was looked at again at 3x and agrees with TABLE; in
+addition 32 of the chart's own sums hold exactly, see SUMS): TABLE holds every printed row of the chart, in the chart's own order, with its row
 number counted from the top (row 1 = "1pc Chickenjoy", row 85 = "BBQ & Cheese Chicken Wrap Meal"), the name as printed and the value
 as printed. A cell that could not be read with certainty would have been held back, never guessed; none needed it.
 The script STOPS if the PDF's SHA-256 is not the one that was read (a new chart means the table must be re-read), if the row numbers
