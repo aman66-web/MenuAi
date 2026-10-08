@@ -1,0 +1,13 @@
+{
+ "chain": "patisserie-valerie",
+ "date": "2026-10-08",
+ "source_read": "the five allergen PDFs (Standard, Counter, Kiosk, Drinks, Valerie; Autumn 2026, created 29 September 2026) linked from https://patisserie-valerie.co.uk/pages/nutritional-and-allergen-information, downloaded fresh 2026-10-08 (robots.txt of the page host and of cdn.shopify.com allow them); byte-identical to the copies data/source was built from",
+ "compared_items": 287,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 0,
+ "not_verifiable": "allergens: none are published for this chain (the Y/N/MC grid cannot be read completely; link-only), so none were compared",
+ "notes": "Calories-only chain. Re-running patisserie_valerie.py on the fresh PDFs reproduces items.csv and holdback.csv exactly (328 rows, 41 already held back, 287 published). An independent parse of pdftotext -layout (526 grid rows) matched 284 of the 287 published items by name and kcal figure automatically; the other 3 are explained (Mini Black Forest Slice and Mini Salted caramel slice print '1 x 116' / '1 x 148', which my pattern mis-read; Sizzling Stack is printed 'Sizzing Stack' by the chain, 782 kcal). Standard p2 and Drinks p3 were also rendered and read by eye (milkshake rows for every milk, merged Nutritics cells, 'see menu' rows are not published). The 'vegetarian' tag agrees with the grid's 'Suitable for Vegetarians' column on all 287 rows. No published name is printed with a different figure anywhere else in the five PDFs; no milk-variant outlier left unheld (the Vanilla Matcha Almond 963 typo is already held back)."
+}

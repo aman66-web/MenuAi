@@ -1,0 +1,13 @@
+{
+ "chain": "chaiiwala",
+ "date": "2026-10-08",
+ "source_read": "https://www.chaiiwala.co.uk/menu (re-downloaded 8 Oct with robots.txt allowing /), plus the six dish pages whose cards print no kcal (the-wala-box, -veg, the-family-platter, -veg, loaded-chips-chicken, -veg: JSON-LD 'calories'), and https://www.chaiiwala.co.uk/allergens + /api/allergen-matrix.pdf (robots allows that path); re-running tools/uk_extract/chaiiwala.py on the fresh files reproduces data/source byte for byte",
+ "compared_items": 132,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 0,
+ "not_verifiable": "",
+ "notes": "Calories-only chain (the site prints kcal only). All 132 rows (103 dishes, Regular/Large drinks as two rows) compared with an independent parse of the 142 menu cards: kcal (visible card figure, aria label and, for the 6 cards that print none, the dish page's schema.org calories), names, Regular/Large order and the vegetarian/vegan badge all match; 39 cards with no kcal stay unlisted. No allergen marks are published (link to the V15 October 2026 matrix only, because the matrix has no fish/crustacean/mollusc columns), so there are no allergen rows to compare; the audit raises no flags."
+}

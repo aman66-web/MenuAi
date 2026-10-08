@@ -651,9 +651,13 @@ def allergens_from_rec(rec: dict, where: str, extra: dict | None = None, kinds_f
         forms.append(("allergen marks", c, m))
     printed_kinds: dict[str, set[str]] = {}
     vague: set[str] = set()
+    may_keys: set[str] = set()
+    may_kinds: dict[str, set[str]] = {}
+    may_vague: set[str] = set()
     if src["contains"] is not None:
         c, printed_kinds, vague = _printed_list(src["contains"], where, extra)
-        m, _, _ = _printed_list(src["may"], where, extra)
+        m, may_kinds, may_vague = _printed_list(src["may"], where, extra)
+        may_keys = set(m)
         forms.append(("printed lines", c, m - c))
     ids = _from_ids(src, labels, where, extra)
     if ids is not None:
@@ -685,6 +689,11 @@ def allergens_from_rec(rec: dict, where: str, extra: dict | None = None, kinds_f
         elif kinds_from_ids and id_kinds is not None:
             kinds[key] = id_kinds.get(key, set())
         else:
+            kinds[key] = set()
+        # The model stores a key once, as "contains". When the page also says the dish MAY contain the same allergen
+        # in a kind it does not contain (or in an unnamed kind), naming only the contained kind would hide that warning:
+        # publish the generic allergen instead (accuracy audit 2026-10-08).
+        if key in may_keys and kinds[key] and (key in may_vague or not may_kinds.get(key, set()) <= kinds[key]):
             kinds[key] = set()
     return {"contains": contains, "may_contain": may, "cereals": kinds.get("gluten", set()), "nuts": kinds.get("nuts", set())}
 

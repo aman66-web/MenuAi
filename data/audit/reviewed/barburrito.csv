@@ -1,0 +1,10 @@
+item,code,verdict,evidence
+chipotle-mayo,name-implies-eggs,ok,"Build your own: sauces, 'CHIPOTLE MAYO 96 kcal' (bowls, burritos pop-ups): 'Suitable for: Vegetarians, Vegans', 'Contains: Mustard', no egg even as may-contain: a vegan mayonnaise, so no egg is consistent"
+garlic-lime-mayo,name-implies-eggs,ok,"'GARLIC LIME MAYO 127 kcal' pop-up: 'Suitable for: Vegetarians, Vegans', 'Contains: Mustard, Sulphur Dioxide/Sulphites' (the page's non-vegan 'Garlic Mayo' is a separate entry that does list Eggs as may-contain)"
+lil-chipotle-mayo,name-implies-eggs,ok,"burritos / Lil' Classic burrito sauce choice, ""Lil' Chipotle Mayo 58 kcal"": 'Suitable for: Vegetarians, Vegans', 'Contains: Mustard'; vegan mayonnaise"
+lil-garlic-lime-mayo,name-implies-eggs,ok,"burritos / Lil' Classic burrito sauce choice, ""Lil' Garlic Lime Mayo 76 kcal"": 'Suitable for: Vegetarians, Vegans', 'Contains: Mustard, Sulphur Dioxide/Sulphites'; vegan mayonnaise"
+dips-chipotle-mayo,name-implies-eggs,ok,"sides menu 'Dips - Chipotle Mayo 193 kcal': 'Suitable for: Vegetarians, Vegans', 'Contains: Mustard'; vegan mayonnaise"
+dips-garlic-lime-mayo,name-implies-eggs,ok,"sides menu 'Dips - Garlic Lime Mayo 255 kcal': 'Suitable for: Vegetarians, Vegans', 'Contains: Mustard, Sulphur Dioxide/Sulphites'; vegan mayonnaise"
+chipotle-mayo-dip,name-implies-eggs,ok,"sides menu 'CHIPOTLE MAYO DIP 354 kcal' (Tortilla & dips): 'Suitable for: Vegetarians, Vegans', no allergens listed; vegan mayonnaise"
+sides-garlic-lime-mayo,name-implies-eggs,ok,"main menu extras 'Sides - Garlic Lime Mayo 255 kcal': 'Suitable for: Vegetarians, Vegans', 'Contains: Mustard, Sulphur Dioxide/Sulphites'; vegan mayonnaise"
+sides-chipotle-mayo,name-implies-eggs,ok,"main menu extras 'Sides - Chipotle Mayo 193 kcal': 'Suitable for: Vegetarians, Vegans', 'Contains: Mustard'; vegan mayonnaise"
