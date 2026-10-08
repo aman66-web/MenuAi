@@ -1,0 +1,179 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+halloween-french-cake,Halloween French Cake,Halloween range 2026,,306,2.3,59.9,6.1,2.3,,0.6,45.8,,1280,,,,,,,true,false,,,Its per-100 g block (not used) does not add up: fat 3.8 g does not fit 340 kcal. The per-product block is consistent.
+halloween-cupcake,Halloween Cupcake,Halloween range 2026,,402,4,50.2,20.8,5.5,,0.7,38.6,,1681,,,,,,,true,false,,,
+alien-biscuit,Alien Biscuit,Halloween range 2026,,306,2.5,46.2,12.2,4.5,,0.3,27.3,,1282,,,,,,vegetarian,true,false,,,
+gingerbread-muffin,Gingerbread Muffin,Halloween range 2026,,450,4.1,62.7,20.2,6.4,,0.8,48.3,,1881,,,,,,vegetarian,true,false,,,
+bran-roll,Bran Roll,Rolls & breads,,213,6.4,36.2,4.1,1.7,,0.6,3.3,,890,,,,,,vegetarian,false,false,,,
+cabin-roll,Cabin Roll,Rolls & breads,,280,8.3,50.9,4.4,2.1,,1.3,6.1,,1171,,,,,,vegetarian,false,false,,,
+dark-fired-morning-roll,Dark Fired Morning Roll,Rolls & breads,,207,7.1,38.8,2.2,0.9,,0.8,0.3,,865,,,,,,vegetarian,false,false,,,
+multiseed-loaf,Multiseed Loaf,Rolls & breads,,1446,58.1,197.8,44.4,6.7,,3.9,8.1,,6048,,,,,,vegetarian,false,false,,,
+softie-roll,Softie Roll,Rolls & breads,,227,6.8,40.3,4,1.8,,0.6,3.9,,950,,,,,,vegetarian,false,false,,,
+traditional-morning-loaf,Traditional Morning Loaf,Rolls & breads,,1379,47.5,259.0,14.8,5.7,,5.2,2.2,,5769,,,,,,vegetarian,false,false,,,
+traditional-morning-roll,Traditional Morning Roll,Rolls & breads,,210,7.2,39.4,2.3,0.9,,0.8,0.3,,878,,,,,,vegetarian,false,false,,,
+rye-roll,Rye Roll,Rolls & breads,,196,6.8,38.2,1.4,0.5,,1,1.3,,821,,,,,,vegetarian,false,false,,,
+beef-sausage-roll,Beef Sausage Roll,Freshly baked savouries,,402,8.7,36,24.5,12.3,,2.5,0.6,,1684,,,,,,contains_beef,false,true,,,
+cheese-and-onion-pasty,Cheese & Onion Pasty,Freshly baked savouries,,505,9.7,45.4,31.3,17.1,,1.8,3,,2112,,,,,,vegetarian,false,true,,,
+chicken-pie,Chicken Pie,Freshly baked savouries,,370,11.3,42,16.1,7.7,,2,3.2,,1548,,,,,,,false,true,,,
+large-steak-pie,Large Steak Pie,Freshly baked savouries,,3123,172.2,209.6,175.8,84.2,,17.1,2.2,,13067,,,,,,contains_beef,false,false,,,"Very large total (3,123 kcal): not suggested as an order."
+macaroni-pie,Macaroni Pie,Freshly baked savouries,,332,10.7,37,15.5,8.3,,1.9,3.9,,1390,,,,,,vegetarian,false,true,,,
+margherita-pizza-slice,Margherita Pizza Slice,Freshly baked savouries,,435,22,42.4,19.2,11.2,,2.3,7.2,,1818,,,,,,vegetarian,false,true,,,
+pepperoni-pizza-slice,Pepperoni Pizza Slice,Freshly baked savouries,,461,23,40.8,22.5,12.3,,2.5,7,,1931,,,,,,contains_pork,false,true,,,
+medium-steak-pie,Medium Steak Pie,Freshly baked savouries,,1749,87,122.6,100.2,48.2,,8.6,1.3,,7319,,,,,,contains_beef,false,false,,,"Very large total (1,749 kcal): not suggested as an order."
+mince-and-onion-bridie,Mince & Onion Bridie,Freshly baked savouries,,565,11.9,49.9,35.1,17.8,,2.4,2.4,,2364,,,,,,,false,true,,,
+pork-sausage-roll,Pork Sausage Roll,Freshly baked savouries,,258,5.3,24.4,15.3,7.7,,1.3,0.4,,1079,,,,,,contains_pork,false,true,,,
+scotch-pie,Scotch Pie,Freshly baked savouries,,370,13.3,40.1,17.1,6.7,,2.4,0.5,,1548,,,,,,,false,true,,,
+steak-bake,Steak Bake,Freshly baked savouries,,524,14.9,45.2,31.2,15.9,,2.2,1.9,,2194,,,,,,contains_beef,false,true,,,
+shell-steak-pie,Shell Steak Pie,Freshly baked savouries,,382,16.4,41,16.6,7,,2,2.3,,1598,,,,,,contains_beef,false,true,,,
+sweet-and-spicy-chicken-pasty,Sweet & Spicy Chicken Pasty,Freshly baked savouries,,522,13.6,47,29.3,15.7,,2,4.2,,2184,,,,,,,false,true,,,
+chicken-and-haggis-pie,Chicken & Haggis Pie,Freshly baked savouries,,525,15.4,48.9,27.2,13,,3,4,,2195,,,,,,,false,true,,,
+apple-puff,Apple Puff,Small cream cakes,,558,6,50,36.3,20.3,,1.2,13.6,,2334,,,,,,,false,false,,,
+chocolate-eclair,Chocolate Éclair,Small cream cakes,,293,3.3,25.1,19.9,10.9,,0.3,13.4,,1226,,,,,,vegetarian,false,false,,,Per-100 g fat is printed as 207 (not used); the per-product block is consistent.
+cream-pancake,Cream Pancake,Small cream cakes,,451,6.4,48.4,25.7,12.3,,0.7,19.2,,1889,,,,,,vegetarian,false,false,,,
+fudge-cream-doughnut,Fudge Cream Doughnut,Small cream cakes,,455,7.9,57.3,21.3,10.6,,1.4,17.3,,1902,,,,,,vegetarian,false,false,,,
+strawberry-tart,Strawberry Tart,Small cream cakes,,255,2.4,34.3,11.9,5.2,,0.2,13.6,,1069,,,,,,vegetarian,false,false,,,
+strawberry-turnover,Strawberry Turnover,Small cream cakes,,482,5.5,41.9,32.3,18.2,,1.0,13.5,,2016,,,,,,vegetarian,false,false,,,
+individual-trifle,Individual Trifle,Small cream cakes,,433,3.9,53.1,22.7,12.5,,0.8,38.0,,1811,,,,,,,false,false,,,
+large-strawberry-torten,Large Strawberry Torten,Large cream cakes,,3201,32.9,325,196.4,102.9,,6.7,194.8,,13394,,,,,,,false,false,,,
+large-trifle,Large Trifle,Large cream cakes,,2540,23.5,312.8,131.7,71.8,,4.8,221.3,,10627,,,,,,,false,false,,,
+medium-strawberry-torten,Medium Strawberry Torten,Large cream cakes,,1830,20.4,202.9,106.2,65.2,,2.3,122.9,,7658,,,,,,,false,false,,,
+medium-trifle,Medium Trifle,Large cream cakes,,1335,12.3,164.7,69.1,37.7,,2.5,116.7,,5584,,,,,,,false,false,,,
+strawberry-flan,Strawberry Flan,Large cream cakes,,1559,12.6,199.7,77.9,37.3,,0.9,87.1,,6525,,,,,,vegetarian,false,false,,,
+strawberry-sponge,Strawberry Sponge,Large cream cakes,,1209,14.3,202.3,39.4,23.3,,1.8,124,,5058,,,,,,vegetarian,false,false,,,
+crumpet,Crumpet,Tea breads,,193,4.6,32.1,5.0,0.6,,0.6,9.8,,807.1,,,,,,vegetarian,false,false,,,
+fruit-scone,Fruit Scone,Tea breads,,239,4.6,41.2,5.9,2.7,,0.7,15,,1001,,,,,,vegetarian,false,false,,,
+small-girdle-scone,Small Girdle Scone,Tea breads,,247,4.8,36.1,8.9,0.8,,1.5,1.4,,1035,,,,,,vegetarian,false,false,,,
+wheaten-scone,Wheaten Scone,Tea breads,,262,6.7,43.2,6.2,0.7,,0.9,7.8,,1096,,,,,,vegetarian,false,false,,,
+treacle-scone,Treacle Scone,Seasonal tea bread,,223,4.2,30.1,9.2,1.7,,1.0,8.2,,934,,,,,,vegetarian,true,false,,,
+caramel-yum-yum,Caramel Yum Yum,Iced tea breads,,474,6.4,60.5,22.7,11.1,,1.2,24.4,,1981,,,,,,vegetarian,false,false,,,
+fudge-custard-doughnut,Fudge Custard Doughnut,Iced tea breads,,359,6.7,54.7,12.4,6.4,,1.2,21.1,,1503,,,,,,vegetarian,false,false,,,
+pink-iced-doughring,Pink Iced Doughring,Iced tea breads,,230,3.5,34.8,8.1,0.9,,1,16.6,,961,,,,,,,false,false,,,
+sugar-doughring,Sugar Doughring,Iced tea breads,,255,3.5,40.9,8.2,0.9,,1,23.4,,1068,,,,,,vegetarian,false,false,,,
+white-iced-doughring,White Iced Doughring,Iced tea breads,,230,3.5,34.8,8.1,0.9,,1,16.6,,962,,,,,,vegetarian,false,false,,,
+yum-yum,Yum Yum,Iced tea breads,,342,6.1,43.8,15.6,7.3,,1,9.2,,1430,,,,,,vegetarian,false,false,,,
+belgian-bun,Belgian Bun,Iced tea breads,,520,10.2,89.6,13,4.7,,0.9,45.6,,2176,,,,,,vegetarian,false,false,,,
+chocolate-crisp,Chocolate Crisp,Small cakes,,302,2.8,37,15.6,9.5,,0.2,28.6,,1265,,,,,,vegetarian,false,false,,,
+custard-slice,Custard Slice,Small cakes,,390,5.2,57.8,15.1,8.1,,1.0,33.2,,1631,,,,,,vegetarian,false,false,,,
+empire-biscuit-with-jelly-sweet,Empire Biscuit with Jelly Sweet,Small cakes,,373,3.2,53.7,15.9,5.8,,0.4,28.0,,1592,,,,,,,false,false,,,Printed 'Empire Biscuit with jelly sweet' under 'Small Cakes'
+white-french-cake-with-lilac-drizzle,White French Cake with Lilac Drizzle,Small cakes,,304,2.3,60.0,6.0,2.3,,0.6,46.4,,1273,,,,,,,false,false,,,
+fruit-slice,Fruit Slice,Small cakes,,202,2.6,31.8,7.3,3.7,,0.4,19.6,,843,,,,,,vegetarian,false,false,,,
+millionaire-shortbread,Millionaire Shortbread,Small cakes,,428,3.5,54.5,21.2,13.2,,0.4,33.9,,1792,,,,,,vegetarian,false,false,,,
+mr-blobby-biscuit,Mr Blobby Biscuit,Small cakes,,297,2.2,47.3,10.8,4.3,,0.3,29.7,,1241,,,,,,,false,false,,,
+original-cup-cake,Original Cup Cake,Small cakes,,348,4.1,48.2,15.4,2.6,,0.7,34.4,,1456,,,,,,,false,false,,,
+pineapple-cake,Pineapple Cake,Small cakes,,309,2.2,46.4,12.4,6.5,,0.2,26.9,,1294,,,,,,vegetarian,false,false,,,
+snowball,Snowball,Small cakes,,353,3.7,62.1,9.6,2.1,,0.6,41.2,,1476,,,,,,vegetarian,false,false,,,
+sous-lug,Sous Lug,Small cakes,,233,2.1,41.0,6.6,2.6,,0.4,26.0,,975,,,,,,vegetarian,false,false,,,
+triple-chocolate-muffin,Triple Chocolate Muffin,Small cakes,,411,5.2,50.4,19.7,3.5,,0.8,34.1,,1721,,,,,,vegetarian,false,false,,,
+truffle,Truffle,Small cakes,,269,2.9,36.4,12.5,7.5,,0.5,25.2,,1126,,,,,,,false,false,,,
+belgian-milk-chocolate-cookies,Belgian Milk Chocolate Cookies,Small cakes,,323,3.9,45.8,13.7,7.9,,0.4,27.6,,1353,,,,,,vegetarian,false,false,,,
+apple-flan,Apple Flan,Large cakes,,1657,17.2,227.2,74.2,28.7,,1.2,93.3,,6934,,,,,,vegetarian,false,false,,,
+gingerbread,Gingerbread,Large cakes,,1393,19.8,216.2,49.2,6.9,,1.0,113.5,,5829,,,,,,,false,false,,,
+bacon,Bacon,Components of hot filled rolls,1 slice,46,5.3,0.5,3.2,0.7,,0.9,0.1,,192,,,,,,contains_pork,false,false,,,Printed 'Bacon (1 slice)' under 'Components Of Hot Filled Rolls'
+pork-link-sausage,Pork Link Sausage,Components of hot filled rolls,1 sausage,85,6.2,1.7,6,2.2,,0.8,0.03,,357,,,,,,contains_pork,false,false,,,Printed 'Pork Link Sausage (1 sausage)' under 'Components Of Hot Filled Rolls'
+black-pudding,Black Pudding,Components of hot filled rolls,1 slice,229,4.5,8.4,19.9,9.9,,0.9,0.7,,957,,,,,,,false,false,,,Printed 'Black Pudding (1 slice)' under 'Components Of Hot Filled Rolls'
+sliced-sausage,Sliced Sausage,Components of hot filled rolls,1 slice,223,16.4,10.6,12.5,5.2,,2.2,0.3,,932,,,,,,contains_pork,false,false,,,Printed 'Sliced Sausage (1 slice)' under 'Components Of Hot Filled Rolls'; Meat not stated: tagged pork because of the word sausage.
+omelette,Omelette,Components of hot filled rolls,1 piece,47,4.3,0.4,3.1,0.9,,0.3,0.4,,195,,,,,,,false,false,,,Printed 'Omelette (1 piece)' under 'Components Of Hot Filled Rolls'
+bran-roll-with-butter,Bran Roll with Butter,Rolls with butter,,293,6.7,37.6,12.4,5.7,,0.7,3.5,,1226,,,,,,vegetarian,false,false,,,
+cabin-roll-with-butter,Cabin Roll with Butter,Rolls with butter,,354,8.4,51.2,12.6,6,,1.4,6.2,,1481,,,,,,vegetarian,false,false,,,
+dark-fired-morning-roll-with-butter,Dark Fired Morning Roll with Butter,Rolls with butter,,290,7.5,40.9,10.5,4.8,,0.9,0.4,,1215,,,,,,vegetarian,false,false,,,
+softie-roll-with-butter,Softie Roll with Butter,Rolls with butter,,301,6.8,40.6,12.2,5.7,,0.7,4,,1259,,,,,,vegetarian,false,false,,,
+traditional-morning-roll-with-butter,Traditional Morning Roll with Butter,Rolls with butter,,290,7.5,40.9,10.5,4.8,,0.9,0.4,,1215,,,,,,vegetarian,false,false,,,Per-100 g carbohydrate is printed as 551.8 (not used); the per-product block is consistent.
+rye-roll-with-butter,Rye Roll with Butter,Rolls with butter,,279,7.1,40.3,9.6,4.4,,1.1,1.5,,1165,,,,,,vegetarian,false,false,,,
+ham-and-cheese-baguette-melt,Ham & Cheese Baguette Melt,Hot rolls,,580,24.6,65.2,24.8,12.6,,3.1,1.9,,2425,,,,,,contains_pork,false,true,,,
+ham-and-cheese-roll-melt,Ham & Cheese Roll Melt,Hot rolls,,475,24.4,35.6,25.7,14.1,,2.4,0.5,,1988,,,,,,contains_pork,false,true,,,
+tuna-roll-melt,Tuna Roll Melt,Hot rolls,,459,23,43.8,20.6,6.3,,2.3,7,,1920,,,,,,,false,true,,,
+pepperoni-and-mozzarella-roll-melt,Pepperoni & Mozzarella Roll Melt,Hot rolls,,394,18,44,15.8,7.2,,1.8,7.2,,1650,,,,,,contains_pork,false,true,,,
+lentil-soup,Lentil Soup,Soup,,100,6.1,10.9,2.4,0.7,,1.3,2.4,,417,,,,,,vegetarian,false,true,,,
+tomato-soup,Tomato Soup,Soup,,123,1.8,15.5,4.8,0.5,,1.1,10.9,,515,,,,,,vegetarian,false,true,,,
+hot-chocolate,Hot Chocolate,Tea & hot chocolate,,195,8.4,29.9,4,2.6,,0.3,28.3,,815,,,,,,,false,false,,,Per-product protein 8.4 g is about 16% above what the per-100 g protein (3.4 g) gives at the weight the other columns imply; published as printed.
+hot-chocolate-with-cream,Hot Chocolate with Cream,Tea & hot chocolate,,252,8.9,31.6,9.4,6.2,,0.3,29.9,,1054,,,,,,vegetarian,false,false,,,
+hazelnut-hot-chocolate-with-cream,Hazelnut Hot Chocolate with Cream,Tea & hot chocolate,,316,8.9,47.6,9.4,6.2,,0.3,45.3,,1323,,,,,,vegetarian,false,false,,,
+burnt-orange-hot-chocolate-with-mallows-and-cream,Burnt Orange Hot Chocolate with Mallows & Cream,Tea & hot chocolate,,318,9,47.1,9.4,6.2,,0.3,45.1,,1332,,,,,,,false,false,,,
+tetley-tea-large-black,Tetley Tea Large (Black),Tea & hot chocolate,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.2,,,,,,,false,false,,,
+tetley-tea-regular-black,Tetley Tea Regular (Black),Tea & hot chocolate,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.2,,,,,,,false,false,,,
+tea-with-oat-drink,Tea with Oat Drink,Tea & hot chocolate,,12,0.2,1.4,0.6,0.1,,0.0,0.7,,51,,,,,,vegetarian,false,false,,,
+twinings-tea-large-black,Twining's Tea Large (Black),Tea & hot chocolate,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.2,,,,,,,false,false,,,
+twinings-tea-regular-black,Twining's Tea Regular (Black),Tea & hot chocolate,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.2,,,,,,,false,false,,,
+green-tea,Green Tea,Tea & hot chocolate,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.2,,,,,,vegetarian,false,false,,,
+lemon-and-ginger-tea,Lemon and Ginger Tea,Tea & hot chocolate,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.3,,,,,,vegetarian,false,false,,,
+peppermint-tea,Peppermint Tea,Tea & hot chocolate,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.3,,,,,,vegetarian,false,false,,,
+black-coffee-large,Black Coffee Large,Freshly ground coffee,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.6,,,,,,vegetarian,false,false,,,
+black-coffee-regular,Black Coffee Regular,Freshly ground coffee,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.5,,,,,,vegetarian,false,false,,,
+cappuccino-large,Cappuccino Large,Freshly ground coffee,,119,8.7,11.6,4.2,2.7,,0.3,11.6,,496,,,,,,vegetarian,false,false,,,
+cappuccino-regular,Cappuccino Regular,Freshly ground coffee,,85,6.2,8.3,3.0,2.0,,0.2,8.3,,357,,,,,,vegetarian,false,false,,,
+cappuccino-regular-oat-drink,Cappuccino Regular Oat Drink,Freshly ground coffee,,105,1.4,11.9,5.3,0.5,,0.2,5.9,,439,,,,,,,false,false,,,
+double-espresso,Double Espresso,Freshly ground coffee,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.6,,,,,,vegetarian,false,false,,,
+espresso,Espresso,Freshly ground coffee,,0.1,0.0,0.0,0.0,0.0,,0.0,0.0,,0.4,,,,,,vegetarian,false,false,,,
+flat-white,Flat White,Freshly ground coffee,8 oz,67,4.9,6.5,2.4,1.5,,0.2,6.5,,279,,,,,,,false,false,,,Printed 'Flat White (8oz)' under 'Freshly Ground Coffee'
+flat-white-oat-drink,Flat White Oat Drink,Freshly ground coffee,,82,1.1,9.3,4.2,0.4,,0.2,4.6,,343,,,,,,,false,false,,,
+latte-large,Latte Large,Freshly ground coffee,,141,10.3,13.8,5.0,3.2,,0.3,13.8,,592,,,,,,vegetarian,false,false,,,
+latte-regular,Latte Regular,Freshly ground coffee,,91,6.6,8.9,3.2,2.1,,0.2,8.9,,381,,,,,,vegetarian,false,false,,,
+latte-regular-oat-drink,Latte Regular Oat Drink,Freshly ground coffee,,112,1.5,12.7,5.7,0.6,,0.3,6.3,,468,,,,,,,false,false,,,
+gingerbread-latte-with-cream-and-sprinkles,Gingerbread Latte with Cream & Sprinkles,Freshly ground coffee,,273,9.2,37.0,9.8,6.3,,0.3,36.2,,1144,,,,,,vegetarian,false,false,,,
+mocha,Mocha,Freshly ground coffee,12 oz,231,10.8,34.1,5.1,3.3,,0.3,32.3,,967,,,,,,vegetarian,false,false,,,Printed 'Mocha (12oz)' under 'Freshly Ground Coffee'
+mocha-oat-drink,Mocha Oat Drink,Freshly ground coffee,,258,4.1,39.0,8.3,1.3,,0.4,28.8,,1081,,,,,,,false,false,,,
+white-coffee-large,White Coffee Large,Freshly ground coffee,,53,3.9,5.2,1.9,1.2,,0.1,5.2,,221,,,,,,vegetarian,false,false,,,
+white-coffee-regular,White Coffee Regular,Freshly ground coffee,,35,2.6,3.4,1.3,0.8,,0.1,3.4,,147,,,,,,vegetarian,false,false,,,
+white-coffee-oat-drink,White Coffee Oat Drink,Freshly ground coffee,,43,0.6,4.9,2.2,0.2,,0.1,2.4,,181,,,,,,,false,false,,,
+pineapple-twist,Pineapple Twist,Iced drinks,,85,0.0,21.0,0.0,0.0,,0.0,20.9,,356,,,,,,vegetarian,false,false,,,Per-100 g carbohydrate is printed as 47.0 with sugars 4.7 (not used); the per-product block is consistent.
+strawberry-twist,Strawberry Twist,Iced drinks,,102,0.0,24.6,0.0,0.0,,0.1,24.5,,425,,,,,,vegetarian,false,false,,,
+iced-latte,Iced Latte,Iced drinks,,80,5.8,7.8,2.8,1.8,,0.2,7.8,,335,,,,,,vegetarian,false,false,,,
+iced-vanilla-latte,Iced Vanilla Latte,Iced drinks,,136,5.8,21.7,2.8,1.8,,0.2,21.7,,568,,,,,,vegetarian,false,false,,,
+iced-caramel-latte,Iced Caramel Latte,Iced drinks,,136,5.9,21.5,2.9,1.9,,0.2,21.5,,527,,,,,,vegetarian,false,false,,,
+iced-caramel-crown-w-coffee,Iced Caramel Crown w/ Coffee,Iced drinks,,226,6.6,33.5,7.1,4.7,,0.3,31.9,,947,,,,,,vegetarian,false,false,,,
+iced-caramel-crown,Iced Caramel Crown,Iced drinks,,233,6.8,34.6,7.3,4.8,,0.3,32.9,,976,,,,,,vegetarian,false,false,,,
+chocolate-8-round,"Chocolate 8"" Round",Celebration cakes,,9088,66.1,1065,485.4,168.8,,10.3,865.2,,38023,,,,,,vegetarian,false,false,,,"Printed 'Chocolate 8""Round' under 'Celebration Cakes'"
+chocolate-8-square,"Chocolate 8"" Square",Celebration cakes,,9792,72.9,1151,531.3,180.2,,11,930.4,,40969,,,,,,vegetarian,false,false,,,"Printed 'Chocolate 8""Square' under 'Celebration Cakes'"
+sponge-sugar-paste-8-round,"Sponge Sugar Paste 8"" Round",Celebration cakes,,8682,56.6,1632,213.9,74.7,,16.2,1396,,36325,,,,,,,false,false,,,"Printed 'Sponge Sugar Paste 8""Round' under 'Celebration Cakes'"
+sponge-sugar-paste-8-square,"Sponge Sugar Paste 8"" Square",Celebration cakes,,8535,67,1866,221.8,72,,18.1,1288,,35711,,,,,,,false,false,,,"Printed 'Sponge Sugar Paste 8""Square' under 'Celebration Cakes'"
+ham-salad-filled-morning-rolls,Ham Salad (Filled Morning Rolls),Filled morning rolls,,318,13.9,39.7,11.4,5,,1.5,1.8,,1331,,,,,,contains_pork,false,true,,,Printed 'Ham Salad' under 'Filled Morning Rolls'
+cheese-salad-filled-morning-rolls,Cheese Salad (Filled Morning Rolls),Filled morning rolls,,467,18.2,42.7,24.7,13.6,,1.6,2,,1953,,,,,,vegetarian,false,true,,,Printed 'Cheese Salad' under 'Filled Morning Rolls'
+cheese-savoury-salad-filled-morning-rolls,Cheese Savoury Salad (Filled Morning Rolls),Filled morning rolls,,455,14.5,44.3,23.5,7.3,,1.8,3.6,,1902,,,,,,vegetarian,false,true,,,Printed 'Cheese Savoury Salad' under 'Filled Morning Rolls'
+chicken-mayonnaise-salad-filled-morning-rolls,Chicken Mayonnaise Salad (Filled Morning Rolls),Filled morning rolls,,419,18.9,44,17.7,2.3,,1.5,3.2,,1751,,,,,,,false,true,,,Printed 'Chicken Mayonnaise Salad' under 'Filled Morning Rolls'
+chicken-tikka-salad-filled-morning-rolls,Chicken Tikka Salad (Filled Morning Rolls),Filled morning rolls,,396,18.9,43.9,15.3,2.1,,1.3,3.2,,1656,,,,,,,false,true,,,Printed 'Chicken Tikka Salad' under 'Filled Morning Rolls'
+egg-mayonnaise-filled-morning-rolls,Egg Mayonnaise (Filled Morning Rolls),Filled morning rolls,,415,13.8,42.1,20.8,3.2,,1.5,2.2,,1735,,,,,,vegetarian,false,true,,,Printed 'Egg Mayonnaise' under 'Filled Morning Rolls'
+tuna-mayonnaise-salad-filled-morning-rolls,Tuna Mayonnaise Salad (Filled Morning Rolls),Filled morning rolls,,368,18.3,43,12.9,1.7,,1.6,2.8,,1538,,,,,,,false,true,,,Printed 'Tuna Mayonnaise Salad' under 'Filled Morning Rolls'
+corned-beef-salad-filled-morning-rolls,Corned Beef Salad (Filled Morning Rolls),Filled morning rolls,,368,16,42.7,14.8,6.9,,1.7,2.21,,1540,,,,,,contains_beef,false,true,,,Printed 'Corned Beef Salad' under 'Filled Morning Rolls'
+mexican-chicken-mayo-salad-filled-morning-rolls,Mexican Chicken Mayo Salad (Filled Morning Rolls),Filled morning rolls,,413,22.7,46.9,13.2,1.9,,1.6,4.2,,1728,,,,,,,false,true,,,Printed 'Mexican Chicken Mayo Salad' under 'Filled Morning Rolls'
+ham-salad-filled-rye-rolls,Ham Salad (Filled Rye Rolls),Filled rye rolls,,309,13.6,39.4,10.6,4.7,,1.7,2.8,,1294,,,,,,contains_pork,false,true,,,Printed 'Ham Salad' under 'Filled Rye Rolls'
+cheese-salad-filled-rye-rolls,Cheese Salad (Filled Rye Rolls),Filled rye rolls,,456,17.8,42.4,23.7,13.1,,1.8,3,,1908,,,,,,vegetarian,false,true,,,Printed 'Cheese Salad' under 'Filled Rye Rolls'
+cheese-savoury-salad-filled-rye-rolls,Cheese Savoury Salad (Filled Rye Rolls),Filled rye rolls,,449,14.3,44.5,22.9,7,,2,4.6,,1879,,,,,,vegetarian,false,true,,,Printed 'Cheese Savoury Salad' under 'Filled Rye Rolls'
+chicken-mayonnaise-salad-filled-rye-rolls,Chicken Mayonnaise Salad (Filled Rye Rolls),Filled rye rolls,,408,18.5,43.7,16.8,2,,1.7,4.2,,1709,,,,,,,false,true,,,Printed 'Chicken Mayonnaise Salad' under 'Filled Rye Rolls'
+chicken-tikka-salad-filled-rye-rolls,Chicken Tikka Salad (Filled Rye Rolls),Filled rye rolls,,384,18.1,43.4,14.4,1.8,,1.5,4.2,,1606,,,,,,,false,true,,,Printed 'Chicken Tikka Salad' under 'Filled Rye Rolls'
+egg-mayonnaise-filled-rye-rolls,Egg Mayonnaise (Filled Rye Rolls),Filled rye rolls,,405,13.4,41.8,19.9,2.8,,1.7,3.2,,1693,,,,,,vegetarian,false,true,,,Printed 'Egg Mayonnaise' under 'Filled Rye Rolls'
+tuna-mayonnaise-salad-filled-rye-rolls,Tuna Mayonnaise Salad (Filled Rye Rolls),Filled rye rolls,,362,18.1,43.1,12.2,1.4,,1.8,3.8,,1513,,,,,,,false,true,,,Printed 'Tuna Mayonnaise Salad' under 'Filled Rye Rolls'
+corned-beef-salad-filled-rye-rolls,Corned Beef Salad (Filled Rye Rolls),Filled rye rolls,,356,15.6,42.1,13.8,6.5,,1.9,3.2,,1490,,,,,,contains_beef,false,true,,,Printed 'Corned Beef Salad' under 'Filled Rye Rolls'
+mexican-chicken-mayo-salad-filled-rye-rolls,Mexican Chicken Mayo Salad (Filled Rye Rolls),Filled rye rolls,,403,22.3,46.6,12.3,1.6,,1.8,5.2,,1686,,,,,,,false,true,,,Printed 'Mexican Chicken Mayo Salad' under 'Filled Rye Rolls'
+salad-no-filling,Salad (no filling),Filled rye rolls,,290,7.8,42.3,9.8,4.5,,1.1,2.9,,1214,,,,,,vegetarian,false,true,,,Per-100 g block prints 867 kJ with 507 kcal (not used); the per-product block is consistent.
+ham-and-cheese-filled-rye-rolls,Ham & Cheese (Filled Rye Rolls),Filled rye rolls,,405,19,40.7,18.1,9.3,,2.2,1.5,,1695,,,,,,contains_pork,false,true,,,Printed 'Ham & Cheese' under 'Filled Rye Rolls'
+simply-ham-filled-rye-rolls,Simply Ham (Filled Rye Rolls),Filled rye rolls,,322,14,40.6,11.2,5,,1.8,1.5,,1348,,,,,,contains_pork,false,true,,,Printed 'Simply Ham' under 'Filled Rye Rolls'
+simply-cheese-filled-rye-rolls,Simply Cheese (Filled Rye Rolls),Filled rye rolls,,486,19.6,40.6,26.9,15.2,,2,1.5,,2034,,,,,,vegetarian,false,true,,,Printed 'Simply Cheese' under 'Filled Rye Rolls'
+chicken-mayonnaise-simply-morning-roll-range,Chicken Mayonnaise (Simply Morning Roll Range),Simply morning roll range,,409,18.4,42.5,17.5,2.3,,1.5,1.8,,1712,,,,,,,false,true,,,Printed 'Chicken Mayonnaise' under 'Simply Morning Roll Range'
+egg-mayonnaise-simply-morning-roll-range,Egg Mayonnaise (Simply Morning Roll Range),Simply morning roll range,,410,13.5,41.1,20.8,3.1,,1.5,0.8,,1714,,,,,,vegetarian,false,true,,,Printed 'Egg Mayonnaise' under 'Simply Morning Roll Range'
+tuna-mayonnaise-simply-morning-roll-range,Tuna Mayonnaise (Simply Morning Roll Range),Simply morning roll range,,362,18.1,41.9,12.8,1.7,,1.6,1.3,,1515,,,,,,,false,true,,,Printed 'Tuna Mayonnaise' under 'Simply Morning Roll Range'
+cheese-and-ham,Cheese and Ham,Simply morning roll range,,419,19.6,41.3,19.2,9.8,,2,0.5,,1754,,,,,,contains_pork,false,true,,,
+simply-ham-simply-morning-roll-range,Simply Ham (Simply Morning Roll Range),Simply morning roll range,,336,14.5,41.4,12.1,5.4,,1.7,0.5,,1405,,,,,,contains_pork,false,true,,,Printed 'Simply Ham' under 'Simply Morning Roll Range'
+simply-cheese-simply-morning-roll-range,Simply Cheese (Simply Morning Roll Range),Simply morning roll range,,461,17.7,41.3,24.7,13.6,,1.7,0.5,,1927,,,,,,vegetarian,false,true,,,Printed 'Simply Cheese' under 'Simply Morning Roll Range'
+ham-salad-filled-dark-fired-rolls,Ham Salad (Filled Dark Fired Rolls),Filled dark fired rolls,,330,14.4,41.1,11.8,5.2,,1.6,1.9,,1379,,,,,,contains_pork,false,true,,,Printed 'Ham Salad' under 'Filled Dark Fired Rolls'
+cheese-salad-filled-dark-fired-rolls,Cheese Salad (Filled Dark Fired Rolls),Filled dark fired rolls,,437,18.1,42.5,21.4,12,,1.6,1.9,,1829,,,,,,,false,true,,,Printed 'Cheese Salad' under 'Filled Dark Fired Rolls'
+cheese-savoury-salad-filled-dark-fired-rolls,Cheese Savoury Salad (Filled Dark Fired Rolls),Filled dark fired rolls,,459,14.6,44.8,23.8,7.4,,1.8,3.6,,1922,,,,,,,false,true,,,Printed 'Cheese Savoury Salad' under 'Filled Dark Fired Rolls'
+chicken-mayonnaise-salad-filled-dark-fired-rolls,Chicken Mayonnaise Salad (Filled Dark Fired Rolls),Filled dark fired rolls,,419,18.9,44,17.7,2.3,,1.5,3.2,,1751,,,,,,,false,true,,,Printed 'Chicken Mayonnaise Salad' under 'Filled Dark Fired Rolls'
+chicken-tikka-salad-filled-dark-fired-rolls,Chicken Tikka Salad (Filled Dark Fired Rolls),Filled dark fired rolls,,400,18.8,44.4,15.5,2.2,,1.4,3.3,,1674,,,,,,,false,true,,,Printed 'Chicken Tikka Salad' under 'Filled Dark Fired Rolls'
+egg-mayonnaise-filled-dark-fired-rolls,Egg Mayonnaise (Filled Dark Fired Rolls),Filled dark fired rolls,,419,13.9,42.5,21,3.2,,1.5,2.2,,1754,,,,,,,false,true,,,Printed 'Egg Mayonnaise' under 'Filled Dark Fired Rolls'
+tuna-mayonnaise-salad-filled-dark-fired-rolls,Tuna Mayonnaise Salad (Filled Dark Fired Rolls),Filled dark fired rolls,,372,18.5,43.4,13,1.8,,1.6,2.8,,1554,,,,,,,false,true,,,Printed 'Tuna Mayonnaise Salad' under 'Filled Dark Fired Rolls'
+corned-beef-salad-filled-dark-fired-rolls,Corned Beef Salad (Filled Dark Fired Rolls),Filled dark fired rolls,,368,16,42.7,14.8,6.9,,1.7,2.21,,1540,,,,,,contains_beef,false,true,,,Printed 'Corned Beef Salad' under 'Filled Dark Fired Rolls'
+mexican-chicken-mayo-salad-filled-dark-fired-rolls,Mexican Chicken Mayo Salad (Filled Dark Fired Rolls),Filled dark fired rolls,,413,22.7,46.9,13.2,1.9,,1.6,4.2,,1728,,,,,,,false,true,,,Printed 'Mexican Chicken Mayo Salad' under 'Filled Dark Fired Rolls'
+ham-and-cheese-filled-dark-fired-rolls,Ham and Cheese (Filled Dark Fired Rolls),Filled dark fired rolls,,387,13.4,40.9,15.8,8.2,,2,0.4,,1617,,,,,,contains_pork,false,true,,,Printed 'Ham and Cheese' under 'Filled Dark Fired Rolls'
+simply-ham-filled-dark-fired-rolls,Simply Ham (Filled Dark Fired Rolls),Filled dark fired rolls,,336,14.5,41.4,12.1,5.4,,1.7,0.5,,1405,,,,,,contains_pork,false,true,,,Printed 'Simply Ham' under 'Filled Dark Fired Rolls'
+simply-cheese-filled-dark-fired-rolls,Simply Cheese (Filled Dark Fired Rolls),Filled dark fired rolls,,461,17.7,41.3,24.7,13.6,,1.7,0.4,,1927,,,,,,,false,true,,,Printed 'Simply Cheese' under 'Filled Dark Fired Rolls'
+ham-egg-mayonnaise-and-tomato,"Ham, Egg Mayonnaise & Tomato",Filled granary rolls,,442,17.6,40.2,23.3,4.7,,1.7,4.1,,1850,,,,,,contains_pork,false,true,,,
+chicken-and-bacon,Chicken & Bacon,Filled granary rolls,,467,22.5,39.6,24.7,4.6,,1.8,4.1,,1956,,,,,,contains_pork,false,true,,,
+ploughmans,Ploughmans,Filled granary rolls,,549,20.4,46,30.9,17.1,,2.4,8.8,,2295,,,,,,vegetarian,false,true,,,
+tuna-mayonnaise-red-onion-and-tomato-chutney,"Tuna Mayonnaise, Red Onion & Tomato Chutney",Filled granary rolls,,401,17.8,44.3,16.1,2.8,,1.5,7.4,,1677,,,,,,,false,true,,,
+ham-and-cheese-filled-baguettes,Ham & Cheese (Filled Baguettes),Filled baguettes,,536,24.4,62.7,21.1,10.8,,3,1.8,,2244,,,,,,contains_pork,false,true,,,Printed 'Ham & Cheese' under 'Filled Baguettes'
+chicken-mayonnaise-filled-baguettes,Chicken Mayonnaise (Filled Baguettes),Filled baguettes,,583,25,66.2,23.1,2.5,,2.4,5.6,,2440,,,,,,,false,true,,,Printed 'Chicken Mayonnaise' under 'Filled Baguettes'
+mexican-tuna,Mexican Tuna,Filled baguettes,,571,26.2,65.3,21.6,2,,3.1,3.8,,2389,,,,,,,false,true,,,
+chicken-mayonnaise-filled-batons,Chicken Mayonnaise (Filled Batons),Filled batons,,624,27,53.2,32.3,4.5,,1.8,4.9,,2613,,,,,,,false,true,,,Printed 'Chicken Mayonnaise' under 'Filled Batons'
+chicken-tikka,Chicken Tikka,Filled batons,,594,26.9,53.9,28.7,4.2,,1.7,5,,2487,,,,,,,false,true,,,
+tuna-mayonnaise-filled-batons,Tuna Mayonnaise (Filled Batons),Filled batons,,548,26.4,52.3,24.8,3.6,,2,4.2,,2293,,,,,,,false,true,,,Printed 'Tuna Mayonnaise' under 'Filled Batons'
+cheese-savoury,Cheese Savoury,Filled batons,,697,20.3,55,42.7,12.8,,2.5,5.5,,2916,,,,,,vegetarian,false,true,,,
+egg-mayonnaise-filled-batons,Egg Mayonnaise (Filled Batons),Filled batons,,631,19.2,51.3,38.1,5.9,,1.9,3.3,,2640,,,,,,vegetarian,false,true,,,Printed 'Egg Mayonnaise' under 'Filled Batons'
