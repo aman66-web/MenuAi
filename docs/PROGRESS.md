@@ -251,6 +251,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   category pages: Tesco 1,412 products in 8 of 20 top categories, Sainsbury's 3,823 across about 210 category pages; each category's "shown vs collected"
   counts are in the `*-coverage.csv`). Helpers for Asda and Morrisons were stopped before saving anything. Grocery prices: 30 Tesco prices saved so far.
 
+- 2026-10-08 — **Xcode preview shell (founder: "set up the app in Xcode so I can see the updates while I'm away").** The native app (M0–M10) is
+  still not started, so this is a stand-in: `ios/PreviewSources/` (four small SwiftUI files, no dependencies) is a WKWebView that opens the
+  deployed web app full screen, so every site update shows on the phone without reinstalling. Written without a compiler: the Mac session builds
+  and fixes it. Steps for the founder (Vercel Production branch, new Xcode project, signing, Developer Mode, 7-day free-account expiry) are in
+  `docs/XCODE_PREVIEW_SHELL.md`; Add to Home Screen from Safari is the zero-setup alternative. Needs a public address that follows the newest
+  build: either set Production Branch to `claude/menumacros-kit` in Vercel or promote the newest deployment (this cloud session's Vercel
+  connection sees a different account, `aman-moneysave`, and cannot see the `menumacros` project, so I could not do or check it).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -279,3 +287,4 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
 - [ ] Decide whether to promote the newest build to Production (it is only on Previews, behind Vercel login)
 - [ ] **Food images, your decision per chain:** the photo feature is built and works (checked with real KFC, Subway and Nando's photos), but the terms of **every chain checked (11 of 11: KFC, Subway, Nando's, Pret, Greggs, Five Guys, Pizza Express, Prezzo, Wagamama, Pizza Hut, Starbucks) say images/content may not be copied or reused without written permission or a licence** (exact quotes: `docs/IMAGE_TERMS.md`). You told me you'd checked you may use them, so I built it, but I haven't installed any photos until you confirm for chains whose terms say this. Options: (1) tell me "install them" for all or named chains (your legal risk; I keep the sources + `images.csv`, and delete a chain's photos the day it asks); (2) email the chains for written permission (the prepared photo sets for Pizza Hut, Starbucks, KFC, Subway, Nando's, Pret, Greggs and Five Guys are kept ready and install in one step); (3) leave photos out for now (cuisine icons stay)
+- [ ] **Xcode preview shell:** follow docs/XCODE_PREVIEW_SHELL.md (Vercel Production Branch → create the Xcode project → ask Claude on the Mac to copy the files → Run on your iPhone)
