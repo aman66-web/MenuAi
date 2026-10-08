@@ -10,7 +10,6 @@ usually published monthly: download it, run the script, and it stops if the menu
 | Chain | Published | Source and date | Things to know |
 |---|---|---|---|
 | KFC | 108 | Official PDF, September 2026 | Ireland-only and Northern-Ireland-only rows left out. Popcorn chicken prints the same number for fat, carbs and protein (calories agree with it). |
-| Burger King | 193 of 197 | The site's own /nutritional-info page, which links its nutrition PDF (Kit 6 National, 18 June 2026) | **The PDF is image-only, so it was read by OCR** (nine readings per cell, a vote, arithmetic alarms) and then all 200 rows were checked by eye against enlarged crops; an independent 20-item check found 0 mismatches. 14 cells were corrected by eye after OCR (listed as `OVERRIDES` in the script). **4 held back** (Big King at 1,402 kcal, Chilli Cheese Bites 20pc at 106 kcal, Big King Sauce with kcal/kJ swapped, Caesar Style Sauce with 161 g fat). Both vanilla milkshakes left out (columns shifted in print). The table is older than the newer allergen poster, so some newer items (wraps, tenders, drinks) aren't in it. The extractor needs `pip install rapidocr-onnxruntime pillow numpy` and takes about 18 minutes (`--cache` skips the OCR). |
 | Greggs | 263 | Official guide PDF, September 2026 | Hospital-shop rows and three Fairtrade juices left out. "Bread & rolls" (8 rows) may not be sold on their own: easy to drop. |
 | Pizza Hut | 237 | Official dine-in booklet, July 2026 | **Dine-in menu only**; the delivery/takeaway guide could not be read (JavaScript page). Per slice by size and base. Ice-cream rows (per 100 g only) and two superseded tenders rows left out. |
 | Nando's | 138 | The menu page's own data feed, last modified 2 Oct 2026 | Sharing platters left out (Nando's publishes only the chicken). Gatwick-only, regional-trial and delivery-only rows left out. |
@@ -254,8 +253,8 @@ source (every agent compared at least 15 items, mostly 20-60, or every row of a 
 
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
-Seven chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):
-Subway, Zizzi, Pizza Express, ASK Italian, Coco di Mama, Ole & Steen and, found later by the accuracy re-check, **Starbucks**
+Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):
+Subway, Zizzi, Pizza Express, ASK Italian, Coco di Mama, Ole & Steen and, found later by the accuracy and allergen passes, **Starbucks** (guide PDFs disallowed) and **Burger King** (nutrition PDF fetched from Google Drive's download path, which Drive's robots.txt disallows)
 (`starbucks.co.uk`: `Disallow: /*.pdf`; both guide PDFs). They are out of the app and kept in `data/held-robots/` (README there): download the
 PDF yourself in your browser and send it, or say "restore anyway" (your accepted risk).
 
