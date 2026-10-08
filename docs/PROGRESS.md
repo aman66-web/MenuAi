@@ -23,7 +23,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 | Milestone | Status | Notes |
 |---|---|---|
-| M0 Project foundation | not started | |
+| M0 Project foundation | in progress | Xcode project + four-tab shell + AppConfig + icon + 2 tests created 2026-10-08, unit tests pass; still to do: PreviewContent dev assets, bundled menus, Xcode-only capability clicks (see decisions log) |
 | M1 Menu data layer | not started | |
 | M2 Settings, targets, onboarding | not started | |
 | M3 Home, nearby, search, favourites | not started | |
@@ -332,6 +332,15 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   "Photo: Open Food Facts contributors (CC BY-SA)". The privacy page (copy added at the founder's request) now says a picture can be loaded from our own site, the
   supermarket's website or Open Food Facts, and what each can see. The service worker caches `/grocery-images/` cache-first. Stored copies live on our server, not on the
   visitor's phone (only the pictures a person opens are cached in their browser, capped at 150).
+
+- 2026-10-08 — **Xcode project created by Claude (founder: "You create it for me", overriding CLAUDE.md's "founder creates new targets" once).** `MenuMacros.xcodeproj` at the repo
+  root (targets MenuMacros, MenuMacrosTests, MenuMacrosUITests; synchronized folders; shared scheme MenuMacros), bundle ID `com.amanmarwaha.MenuMacros` (same prefix as the
+  founder's other apps), team S7G6ZHHK59 (CLARIFO DEVELOPERS LTD), automatic signing, iOS 17.0, iPhone only (also off for Mac/Vision-designed-for-iPhone), Swift 6 + strict
+  concurrency complete, MainActor default isolation on the app target only (test targets nonisolated), no Info.plist file (generated; display name "Menu Math"). It was generated
+  once with XcodeGen (installed on this Mac) from a spec kept outside the repo: edit the project in Xcode from now on, never regenerate. Source: `MenuMacros/App/` (MenuMacrosApp,
+  RootView with Home · Saved · Today · Settings placeholder tabs, AppConfig per SPEC §17 with the `com.amanmarwaha` IDs, AppEnvironment, PlaceholderScreen), asset catalogue
+  with our own icon (web/design/icon.svg drawn at 1024 px) and a green accent. `./scripts/test.sh --unit` passes. Still M0's: `PreviewContent` fixtures, bundled menus, then the
+  Xcode-only clicks (App Groups, HealthKit, In-App Purchase capabilities need the Apple account, not done).
 
 - 2026-10-09 — **Xcode preview shell running on the founder's iPhone** (docs/XCODE_PREVIEW_SHELL.md). `ios/MenuMacrosPreview/MenuMacrosPreview.xcodeproj` was
   created by Claude at the founder's request (overriding CLAUDE.md's "founder creates new targets" once; XcodeGen was used once as a generator and is not kept in
