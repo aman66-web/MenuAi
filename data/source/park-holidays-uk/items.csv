@@ -1,0 +1,77 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+chicken-wrap,Chicken Wrap,Lite Bites,,690,,,,,,,,,,,,,,,,false,false,,,Printed under 'AMAZING VALUE ALL UNDER £10'; Printed 'CHICKEN WRAP 690 kcal'
+three-cheese-and-onion-toastie,Three Cheese & Onion Toastie,Lite Bites,,496,,,,,,,,,,,,,,,,false,false,,,'All our toasties come with a side of chips'; Printed 'THREE CHEESE & ONION TOASTIE 496 kcal £9.75'
+bbq-chicken-toastie,BBQ Chicken Toastie,Lite Bites,,516,,,,,,,,,,,,,,,,false,false,,,'All our toasties come with a side of chips'; Printed 'BBQ CHICKEN TOASTIE 516 kcal'
+tuna-melt-toastie,Tuna Melt Toastie,Lite Bites,,451,,,,,,,,,,,,,,,,false,false,,,'All our toasties come with a side of chips'; Printed 'TUNA MELT TOASTIE 451 kcal'
+jacket-potato,Jacket Potato,Lite Bites,,247,,,,,,,,,,,,,,,vegetarian,false,false,,,"'Baked potato with your choice of filling & salad garnish'; the fillings print their own calories (listed separately); the menu does not say whether 247 includes a filling; Printed 'JACKET POTATO 247 kcal V VE', marks: V VE"
+jacket-potato-filling-cheese,Jacket Potato Filling: Cheese,Lite Bites,,380,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed under 'Filling options'; the menu does not say whether the potato's 247 kcal already includes a filling; Printed 'CHEESE 380 kcal V BEANS 108 kcal V', marks: V"
+jacket-potato-filling-beans,Jacket Potato Filling: Beans,Lite Bites,,108,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed under 'Filling options'; the menu does not say whether the potato's 247 kcal already includes a filling; Printed 'CHEESE 380 kcal V BEANS 108 kcal V', marks: V"
+jacket-potato-filling-vegan-cheese,Jacket Potato Filling: Vegan Cheese,Lite Bites,,267,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed under 'Filling options'; the menu does not say whether the potato's 247 kcal already includes a filling; Printed 'VEGAN CHEESE 267 kcal VE', marks: VE"
+jacket-potato-tuna-and-sweetcorn,Jacket Potato Tuna & Sweetcorn,Lite Bites,,149,,,,,,,,,,,,,,,,false,false,,,"HELD BACK: the plain Jacket Potato prints 247 kcal, so 149 cannot be the whole dish (probably the filling only); Printed 'JACKET POTATO TUNA & SWEETCORN 149 kcal £8.95'"
+tomato-and-basil-soup,Tomato & Basil Soup,Starters,,283,,,,,,,,,,,,,,,vegetarian,false,false,,,"Served with a bread roll & butter; Printed 'TOMATO & BASIL SOUP 283 kcal V', marks: V"
+garlic-ciabatta-bites-bucket,Garlic Ciabatta Bites Bucket,Starters,,260,,,,,,,,,,,,,,,,false,false,,,"Name printed on two lines; 'Bucket Style, great to mix & match'; Printed 'BITES BUCKET 260 kcal'"
+onion-bhajis-bucket,Onion Bhajis Bucket,Starters,,420,,,,,,,,,,,,,,,vegetarian,false,false,,,"Marks V VE GF; 'Bucket Style, great to mix & match'; Printed 'ONION BHAJIS BUCKET 420 kcal', marks: V VE GF"
+chicken-goujon-bucket,Chicken Goujon Bucket,Starters,,534,,,,,,,,,,,,,,,,false,false,,,"'Bucket Style, great to mix & match'; Printed 'CHICKEN GOUJON BUCKET 534 kcal'"
+onion-ring-tower,Onion Ring Tower,Starters,,1284,,,,,,,,,,,,,,,vegetarian,false,false,,,"'Ideal for sharing'; Printed 'ONION RING TOWER 1284 kcal V', marks: V"
+tear-and-share-garlic-bread,Tear & Share Garlic Bread,Starters,,1031,,,,,,,,,,,,,,,vegetarian,false,false,,,"'Ideal for sharing'; printed again under Pizzas with the same figure; Printed 'TEAR & SHARE GARLIC BREAD 1031 kcal V', marks: V"
+tear-and-share-garlic-bread-with-added-cheese,Tear & Share Garlic Bread with added cheese,Starters,,1221,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'WHY NOT ADD CHEESE 1221 kcal + £2.00'; the figure is above the plain bread's 1031, so it is read as the bread with cheese; Printed 'WHY NOT ADD CHEESE 1221 kcal V', marks: V"
+piri-piri-roast-chicken,Piri-Piri Roast Chicken,Favourites,,1100,,,,,,,,,,,,,,,,false,false,,,"Mark GF; Printed 'PIRI-PIRI ROAST CHICKEN 1100 kcal GF', marks: GF"
+scampi,Scampi,Favourites,,580,,,,,,,,,,,,,,,,false,false,,,Marine Stewardship Council mark; Printed 'SCAMPI 580 kcal'
+chicken-ham-hock-and-leek-pie,Chicken Ham Hock & Leek Pie,Favourites,,1125,,,,,,,,,,,,,,,contains_pork,false,false,,,"Description: 'chicken, slow cooked ham hock and leeks'; Printed 'CHICKEN HAM HOCK & LEEK PIE 1125 kcal £15.25'"
+fish-n-chips,Fish 'n' Chips,Favourites,,590,,,,,,,,,,,,,,,,false,false,,,Marine Stewardship Council mark; gluten free batter available; Printed 'FISH ‘N’ CHIPS 590 kcal'
+chip-shop-platter,Chip Shop Platter,Favourites,,752,,,,,,,,,,,,,,,contains_pork,false,false,,,Marked NEW; description: 'battered sausage'; Printed 'NEW CHIP SHOP PLATTER 752 kcal' NEW
+mac-n-cheese,Mac 'n' Cheese,2 Meals for £25,,761,,,,,,,,,,,,,,,vegetarian,false,false,,,"Served with garlic bread; Printed 'MAC ‘N’ CHEESE 761 kcal £13.95', marks: V"
+add-a-chicken-breast-to-mac-n-cheese,Add a Chicken Breast (to Mac 'n' Cheese),2 Meals for £25,,85,,,,,,,,,,,,,,,,false,false,,,Printed as an add-on with its own price: the add-on's own calories; Printed 'ADD A CHICKEN BREAST 85 kcal'
+traditional-ham-egg-and-chips,"Traditional Ham, Egg & Chips",2 Meals for £25,,600,,,,,,,,,,,,,,,contains_pork,false,false,,,"Mark GF; Printed 'TRADITIONAL HAM, EGG & CHIPS 600 kcal GF £13.95', marks: GF"
+chilli-con-carne,Chilli Con Carne,2 Meals for £25,,588,,,,,,,,,,,,,,,contains_beef,false,false,,,Description: 'Lean minced beef'; Printed 'CHILLI CON CARNE 588 kcal'
+sausage-and-mash,Sausage & Mash,2 Meals for £25,,842,,,,,,,,,,,,,,,contains_pork,false,false,,,Description: '3 Cumberland sausages'; Printed 'SAUSAGE & MASH 842 kcal'
+5-battered-onion-rings,5 Battered Onion Rings,Sides,,290,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed '5 BATTERED ONION RINGS 290 kcal V', marks: V"
+dirty-house-chips,Dirty House Chips,Sides,,840,,,,,,,,,,,,,,,contains_pork,false,false,,,Description: 'crispy smoked bacon'; Printed 'DIRTY HOUSE CHIPS 840 kcal'
+portion-of-chips,Portion of Chips,Sides,,280,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'PORTION OF CHIPS 280 kcal V VE', marks: V VE"
+cheesy-chips,Cheesy Chips,Sides,,380,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'CHEESY CHIPS 380 kcal V', marks: V"
+garlic-bread,Garlic Bread,Sides,,240,,,,,,,,,,,,,,,vegetarian,false,false,,,"'3 slices of toasted bread'; Printed 'GARLIC BREAD 240 kcal V', marks: V"
+cheesy-garlic-bread,Cheesy Garlic Bread,Sides,,585,,,,,,,,,,,,,,,vegetarian,false,false,,,"'3 slices of toasted garlic bread topped with melted cheese'; Printed 'CHEESY GARLIC BREAD 585 kcal V', marks: V"
+mixed-green-vegetables,Mixed Green Vegetables,Sides,,63,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'MIXED GREEN VEGETABLES 63 kcal V VE GF', marks: V VE GF"
+red-cabbage-with-apple,Red Cabbage with Apple,Sides,,95,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'RED CABBAGE WITH APPLE 95 kcal V VE GF', marks: V VE GF"
+coleslaw,Coleslaw,Sides,,259,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed 'COLESLAW 259 kcal V', marks: V"
+house-cheeseburger,House Cheeseburger,From the Grill,,1360,,,,,,,,,,,,,,,,false,false,,,'double quarter pounders': meat type not stated; Printed 'HOUSE CHEESEBURGER 1360 kcal'
+bacon-bbq-burger,Bacon BBQ Burger,From the Grill,,1500,,,,,,,,,,,,,,,contains_pork,false,false,,,'2 massive quarter pounders ... bacon'; the patty's meat type is not stated; Printed 'BACON BBQ BURGER 1500 kcal'
+chargrilled-chicken-bbq-burger,Chargrilled Chicken BBQ Burger,From the Grill,,1150,,,,,,,,,,,,,,,,false,false,,,Name printed on two lines; Printed 'BBQ BURGER 1150 kcal'
+plant-based-burger,Plant Based Burger,From the Grill,,1086,,,,,,,,,,,,,,,vegetarian,false,false,,,"Marks V VE; gluten free buns available; Printed 'PLANT BASED BURGER 1086 kcal V VE', marks: V VE"
+add-extra-cheese-3-slices,Add Extra Cheese (3 slices),From the Grill,3 slices,110,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed as an add-on with its own price: the add-on's own calories ('WHY NOT ADD', + £2.00); Printed '• Extra cheese (3 slices) 110 kcal V', marks: V"
+add-4oz-beef-pattie,Add 4oz Beef Pattie,From the Grill,4oz,245,,,,,,,,,,,,,,,contains_beef,false,false,,,"Printed as an add-on with its own price: the add-on's own calories ('WHY NOT ADD', + £3.00); Printed '• 4oz beef pattie 245 kcal'"
+add-bacon-2-slices,Add Bacon (2 slices),From the Grill,2 slices,188,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed as an add-on with its own price: the add-on's own calories ('WHY NOT ADD', + £2.00); Printed '• Bacon ( 2 slices) 188 kcal'"
+8oz-sirloin-steak,8oz Sirloin Steak,From the Grill,,791,,,,,,,,,,,,,,,contains_beef,false,false,,,Marked NEW; Printed 'NEW 8oz SIRLOIN STEAK 791 kcal' NEW
+surf-and-turf,Surf & Turf,From the Grill,,848,,,,,,,,,,,,,,,contains_beef,false,false,,,Marked NEW; 8oz sirloin steak and six pieces of scampi; Printed 'NEW SURF & TURF 848 kcal' NEW
+add-diane-sauce-or-peppercorn-sauce,Add Diane Sauce or Peppercorn Sauce,From the Grill,,115,,,,,,,,,,,,,,,,false,false,,,Printed as an add-on with its own price: the add-on's own calories (+ £2.50); one figure printed for either sauce; Printed 'ADD DIANE SAUCE OR PEPPERCORN SAUCE 115 kcal + £2.50'
+margherita-pizza,Margherita Pizza,Pizzas,11 inch,1238,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed under 'All above are available as gluten free bases'; 11"" sourdough base; Printed 'MARGHERITA PIZZA 1238 kcal V', marks: V"
+perfect-pepperoni-pizza,Perfect Pepperoni Pizza,Pizzas,11 inch,1447,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed under 'All above are available as gluten free bases'; 11"" sourdough base; 'spicy pepperoni sausage'; Printed 'PERFECT PEPPERONI 1447 kcal'"
+mighty-meat-feast-pizza,Mighty Meat Feast Pizza,Pizzas,11 inch,1415,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed under 'All above are available as gluten free bases'; 11"" sourdough base; meatballs (meat type not stated), pepperoni, ham, chicken slices; Printed 'MIGHTY MEAT FEAST 1415 kcal'"
+pizza-topping-red-onions,Pizza Topping: Red Onions,Pizzas,,5,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed under 'ADD EXTRA TOPPINGS FOR £1 EACH': the topping's own calories; Printed '• Red onions 5 kcal V VE • Tomatoes 10 kcal V VE • Jalapeños 5 kcal V VE', marks: V VE"
+pizza-topping-tomatoes,Pizza Topping: Tomatoes,Pizzas,,10,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed under 'ADD EXTRA TOPPINGS FOR £1 EACH': the topping's own calories; Printed '• Red onions 5 kcal V VE • Tomatoes 10 kcal V VE • Jalapeños 5 kcal V VE', marks: V VE"
+pizza-topping-jalape-os,Pizza Topping: Jalapeños,Pizzas,,5,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed under 'ADD EXTRA TOPPINGS FOR £1 EACH': the topping's own calories; Printed '• Red onions 5 kcal V VE • Tomatoes 10 kcal V VE • Jalapeños 5 kcal V VE', marks: V VE"
+pizza-topping-cheese,Pizza Topping: Cheese,Pizzas,,230,,,,,,,,,,,,,,,vegetarian,false,false,,,"Printed under 'EXTRA TOPPINGS FOR £2 EACH': the topping's own calories; Printed '• Cheese 230 kcal V', marks: V"
+pizza-topping-pepperoni,Pizza Topping: Pepperoni,Pizzas,,276,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed under 'EXTRA TOPPINGS FOR £2 EACH': the topping's own calories; Printed '• Pepperoni 276 kcal'
+pizza-topping-chicken,Pizza Topping: Chicken,Pizzas,,64,,,,,,,,,,,,,,,,false,false,,,Printed under 'EXTRA TOPPINGS FOR £2 EACH': the topping's own calories; Printed '• Chicken 64 kcal'
+pizza-topping-bbq-chicken,Pizza Topping: BBQ Chicken,Pizzas,,82,,,,,,,,,,,,,,,,false,false,,,Printed under 'EXTRA TOPPINGS FOR £2 EACH': the topping's own calories; Printed '• BBQ chicken 82 kcal • Meat Balls 90 kcal'
+pizza-topping-meat-balls,Pizza Topping: Meat Balls,Pizzas,,90,,,,,,,,,,,,,,,,false,false,,,Printed under 'EXTRA TOPPINGS FOR £2 EACH': the topping's own calories; meat type not stated; Printed '• BBQ chicken 82 kcal • Meat Balls 90 kcal'
+sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,690,,,,,,,,,,,,,,,vegetarian,false,false,,,"With custard & toffee sauce; Printed 'STICKY TOFFEE PUDDING 690 kcal V', marks: V"
+apple-crumble,Apple Crumble,Desserts,,663,,,,,,,,,,,,,,,vegetarian,false,false,,,"Served with custard; Printed 'APPLE CRUMBLE 663 kcal V', marks: V"
+pancake-delight,Pancake Delight,Desserts,,516,,,,,,,,,,,,,,,vegetarian,false,false,,,"3 American style pancakes, berries, ice cream, cream; Printed 'PANCAKE DELIGHT 516 kcal V', marks: V"
+doughnut-tower,Doughnut Tower,Desserts,,972,,,,,,,,,,,,,,,vegetarian,false,false,,,"'Ideal for sharing'; 6 sugared ring doughnuts with chocolate and toffee sauces; Printed 'DOUGHNUT TOWER 972 kcal V', marks: V"
+vanilla-ice-cream-2-scoops,Vanilla Ice Cream (2 scoops),Desserts,2 scoops,170,,,,,,,,,,,,,,,,false,false,,,Printed 'Why not add 2 scoops ... 170 kcal £2.95' under the Doughnut Tower; Printed 'Why not add 2 scoops of vanilla ice cream 170 kcal'
+vanilla-ice-cream-4-scoops,Vanilla Ice Cream (4 scoops),Desserts,4 scoops,340,,,,,,,,,,,,,,,,false,false,,,Printed 'or 4 scoops ... 340 kcal £4.95' under the Doughnut Tower; Printed 'or 4 scoops of vanilla ice cream 340 kcal'
+espresso,Espresso,Coffee,,5,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'ESPRESSO 5 kcal'
+double-espresso,Double Espresso,Coffee,,10,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'DOUBLE ESPRESSO 10 kcal'
+americano,Americano,Coffee,,10,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'AMERICANO 10 kcal'
+caffe-latte,Caffe Latte,Coffee,,50,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'CAFFE LATTE 50 kcal'
+flat-white,Flat White,Coffee,,50,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'FLAT WHITE 50 kcal'
+cappuccino,Cappuccino,Coffee,,50,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'CAPPUCCINO 50 kcal'
+caffe-mocha,Caffe Mocha,Coffee,,125,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'CAFFE MOCHA 125 kcal'
+hot-chocolate,Hot Chocolate,Coffee,,200,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'HOT CHOCOLATE 200 kcal'
+earl-grey-tea,Earl Grey Tea,Tea,,10,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'EARL GREY TEA 10 kcal £2.90'
+decaf-tea,Decaf Tea,Tea,,10,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'DECAF TEA 10 kcal £2.90'
+breakfast-tea,Breakfast Tea,Tea,,10,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'BREAKFAST TEA 10 kcal £2.90'
+lemon-tea,Lemon Tea,Tea,,10,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'LEMON TEA 10 kcal £2.90'
+peppermint-tea,Peppermint Tea,Tea,,10,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'PEPPERMINT TEA 10 kcal £2.90'
+green-tea,Green Tea,Tea,,10,,,,,,,,,,,,,,,,false,false,,,No size printed; Printed 'GREEN TEA 10 kcal £2.90'
