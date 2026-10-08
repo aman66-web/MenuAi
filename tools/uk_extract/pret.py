@@ -117,6 +117,7 @@ IGNORED_LABELS = {
     "Selenium (\u03bcg)", "Thiamin (mg)", "Vitamin B12 (\u03bcg)", "Vitamin B6 (mg)", "Vitamin C (mg)", "Zinc (mg)",
 }
 UNKNOWN_LABELS: set[str] = set()
+HELD_BACK: list[tuple[str, str]] = []   # (item id, reason): rows whose own printed figures contradict each other
 REQUIRED = {"kj", "calories", "fat_g", "carbs_g", "protein_g"}  # the others are left blank when a row does not print them
 NUM = re.compile(r"<?\d+(?:\.\d+)?")
 # Variant rows of barista drinks are labelled from the site's own flags (baristaAttributes), checked against its `milk` /
@@ -299,7 +300,11 @@ def build_items(rawdir: Path):
                 notes.append("Pret's own description calls it seasonal")
             kj, kcal = num(n["kj"]), num(n["calories"])
             if abs(kj - 4.184 * kcal) > max(0.05 * kj, 8):  # 8 kJ is about 2 kcal of rounding
-                notes.append(f"printed kJ {n['kj']} and kcal {n['calories']} do not agree")
+                # We publish kJ for Pret, so a kJ figure that the same row's kcal contradicts is not published: the item is held
+                # back (holdback.csv), never corrected or chosen between.
+                notes.append(f"printed kJ {n['kj']} and kcal {n['calories']} do not agree; HELD BACK, see holdback.csv")
+                HELD_BACK.append((slug(iname), f"Pret's data prints {n['kj']} kJ with {n['calories']} kcal for this drink "
+                                  f"({n['calories']} kcal is about {round(4.184 * kcal)} kJ), so the two energy figures contradict each other."))
             if n.get("sat_fat_g") and num(n["sat_fat_g"]) > num(n["fat_g"]):
                 notes.append("saturates printed higher than fat")
             if n.get("sugar_g") and num(n["sugar_g"]) > num(n["carbs_g"]):
@@ -377,6 +382,13 @@ def main() -> int:
     (args.out / "modifiers.csv").write_text(
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
+    if HELD_BACK:
+        with open(args.out / "holdback.csv", "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            w.writerow(["item_id", "reason"])
+            w.writerows(HELD_BACK)
+    else:
+        (args.out / "holdback.csv").unlink(missing_ok=True)
     write_allergens(args.out, CHAIN_ID, [(i["id"], a) for i, (a, _) in zip(items, allergens)],
                     {"title": ALLERGEN_GUIDE_TITLE, "url": ALLERGEN_GUIDE_URL, "checked_on": args.checked_on,
                      "may_contain_published": False})

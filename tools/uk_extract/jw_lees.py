@@ -28,6 +28,9 @@ What is published, what is not (each exclusion is written down here and counted 
   and Cosy) with identical energy and allergens is listed once, under the first menu it appears on (the script stops if the two prints differ).
 - HELD BACK (listed in items.csv and holdback.csv, never published): both portions of John Willies beer battered fish (the guide prints the same
   1316 kcal for "small" and "large"), and Cosy "Two scoops of ice cream" (44 kcal, while the same page prints 206 to 233 kcal for ONE scoop).
+  Held back after the independent re-read of 8 Oct 2026 because the allergen row contradicts the dish name (never corrected): the baked apple
+  crumble "with hot custard or pouring cream" (no milk marked), the cheese & red onion chutney and tuna mayonnaise sandwiches (no gluten and no
+  NGCI label), and the whitebait with lemon & dill aioli (no egg, no VG label).
 - NOT held back although they look odd (we never judge a number, only contradictions inside the guide): Main "Chilli cheese nachos" 175 kcal and
   "WITH Fried Eggs" 4 kcal. Both are in the report for the founder.
 - Names: the guide's name and description are one run-in line, so the name is the part before the description where the guide's own comma or
@@ -81,6 +84,13 @@ MEAT_NOT_STATED = {"Chilli cheese nachos", "Hot roast bap of the day", "Black pu
 
 HELD_FISH = ("The guide prints the same energy (1316 kcal) for the small and the large portion of John Willies beer battered fish, so at "
              "least one of the two figures is wrong: not published")
+HELD_CRUMBLE = ("Allergen row contradicts the dish name: the dish is served with hot custard or pouring cream, but the guide marks no milk for it "
+                "(it marks milk for the sponge pudding with custard and for the sticky toffee pudding with custard): not published")
+HELD_SANDWICH = ("Allergen row contradicts the dish name: a sandwich with no cereal (gluten) marked and no NGCI label. The guide lists 'On White bread' "
+                 "and 'On Brown bread' as separate rows (Gluten, Soya) but does not say this row leaves the bread out: not published")
+HELD_AIOLI = ("Allergen row contradicts the dish name: aioli is an egg-yolk sauce, but the guide marks no egg (not even 'may contain') and gives the "
+              "dish no VG/vegan label (its vegan-labelled mayonnaise dishes carry no egg, so an egg-free aioli is possible but not stated): "
+              "not published")
 HELD_SCOOPS = ("The Cosy menu prints 44 kcal for 'Two scoops of ice cream' but 206 to 233 kcal for ONE scoop of each flavour on the same page: "
                "the guide contradicts itself, not published")
 
@@ -115,7 +125,7 @@ def main_table() -> list:
     T.h("STARTERS", "Main menu: Starters")
     T.d("Chilli cheese nachos Chilli con carne", "Chilli cheese nachos", note="Printed 175 kcal: looks low for the dish, copied as printed; the same figure is printed for the garlic prawns add-on")
     T.d("Warm pork pie, pickles", "Warm pork pie, pickles and apple & ale chutney")
-    T.d("Crispy fried whitebait", "Crispy fried whitebait, lemon & dill aioli")
+    T.d("Crispy fried whitebait", "Crispy fried whitebait, lemon & dill aioli", hold=HELD_AIOLI)
     T.d("Sticky pork belly bites", "Sticky pork belly bites with stout BBQ glaze")
     T.d("Thai honey halloumi fries", "Thai honey halloumi fries")
     T.d("Button mushrooms in a creamy Stilton sauce", "Button mushrooms in a creamy Stilton sauce")
@@ -176,7 +186,7 @@ def main_table() -> list:
     T.h("PUDDINGS", "Main menu: Puddings")
     T.d("Salted caramel & dark chocolate tart with clotted", "Salted caramel & dark chocolate tart with clotted cream ice cream")
     T.d("Vegan Salted caramel & dark chocolate tart", "Vegan salted caramel & dark chocolate tart with dairy free vanilla ice cream")
-    T.d("Baked apple crumble", "Baked apple crumble with hot custard or pouring cream")
+    T.d("Baked apple crumble", "Baked apple crumble with hot custard or pouring cream", hold=HELD_CRUMBLE)
     T.d("Warm chocolate brownie", "Warm chocolate brownie, dark chocolate sauce and vanilla ice cream")
     T.d("Burnt Basque cheesecake, mulled berries", "Burnt Basque cheesecake, mulled berries and cream")
     T.d("Ginger & black pepper sponge pudding", "Ginger & black pepper sponge pudding with custard and raspberry sauce")
@@ -208,9 +218,9 @@ def lunch_table() -> list:
     T.d("Hot chicken tika wrap", "Hot chicken tika wrap")
     T.d("Hot roast bap of the day", "Hot roast bap of the day", note="The roast changes daily ('See server for todays roast')")
     T.h("SANDWICHES", "Pub lunch: Sandwiches")
-    T.d("Cheese & red onion chutney sandwich", "Cheese & red onion chutney sandwich")
+    T.d("Cheese & red onion chutney sandwich", "Cheese & red onion chutney sandwich", hold=HELD_SANDWICH)
     T.d("Honey baked ham & mustard", "Honey baked ham & mustard sandwich", note="Printed 'Honey baked ham & mustard' under SANDWICHES; 'sandwich' added from the section title")
-    T.d("Tuna Mayonnaise", "Tuna mayonnaise sandwich", note="Printed 'Tuna Mayonnaise' under SANDWICHES; 'sandwich' added from the section title")
+    T.d("Tuna Mayonnaise", "Tuna mayonnaise sandwich", note="Printed 'Tuna Mayonnaise' under SANDWICHES; 'sandwich' added from the section title", hold=HELD_SANDWICH)
     T.d("On White bread", "White bread (sandwich option)", note="Printed 'On White bread' under SANDWICHES with its own figure; the guide does not say whether the sandwich figures include bread")
     T.d("On Brown bread", "Brown bread (sandwich option)", note="Printed 'On Brown bread' under SANDWICHES with its own figure; the guide does not say whether the sandwich figures include bread")
     return T.rows

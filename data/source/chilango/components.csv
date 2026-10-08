@@ -1,12 +1,12 @@
-id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,removable,allow_double
-cos-lettuce,base,Cos lettuce,,5.1,0.1,0.1,0.0,0.0,,0.0,0.1,0.1,vegetarian,false,false
-black-beans,topping,Black beans,,104.0,7.0,20.7,1.1,0.2,,0.5,1.3,8.0,vegetarian,false,false
-fajita-peppers-and-onions,topping,Fajita peppers and onions,,44.0,1.0,5.8,1.3,0.1,,1.0,4.7,2.5,vegetarian,false,false
-chicken-protein-box,protein,Chicken (Protein Box portion),,421.8,51.3,5.3,21.3,6.3,,1.4,1.3,0.0,,false,false
-pico-de-gallo,topping,Pico de gallo,,9.5,0.3,1.7,0.1,0.0,,0.2,1.6,0.6,vegetarian,false,false
-steak,protein,Steak,,277.4,19.1,0.5,22.1,8.6,,1.0,0.0,0.0,contains_beef,false,false
-monterey-jack-cheese,topping,Cheese (Monterey Jack),,32.1,2.5,0.0,2.4,1.5,,0.2,0.0,0.0,vegetarian,true,false
-sour-cream,topping,Sour cream,,29.9,0.6,0.8,2.6,1.7,,0.0,0.8,0.0,vegetarian,true,false
-guacamole,topping,Guacamole,,161.5,1.5,1.8,15.6,3.2,,0.0,0.7,3.7,vegetarian,true,false
-chicken,protein,Chicken,,211.0,25.7,2.7,10.6,3.1,,0.7,0.7,0.0,,false,false
-coriander-lime-rice,base,Coriander lime rice,,283.2,6.5,58.8,2.2,0.2,,2.6,0.2,1.0,vegetarian,false,false
+id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,removable,allow_double
+cos-lettuce,base,Cos lettuce,,5.1,0.1,0.1,0.0,0.0,,0.0,0.1,0.1,20.7,,,,,,vegetarian,false,false
+black-beans,topping,Black beans,,104.0,7.0,20.7,1.1,0.2,,0.5,1.3,8.0,436.8,,,,,,vegetarian,false,false
+fajita-peppers-and-onions,topping,Fajita peppers and onions,,44.0,1.0,5.8,1.3,0.1,,1.0,4.7,2.5,184.8,,,,,,vegetarian,false,false
+chicken-protein-box,protein,Chicken (Protein Box portion),,421.8,51.3,5.3,21.3,6.3,,1.4,1.3,0.0,1765.1,,,,,,,false,false
+pico-de-gallo,topping,Pico de gallo,,9.5,0.3,1.7,0.1,0.0,,0.2,1.6,0.6,40.0,,,,,,vegetarian,false,false
+steak,protein,Steak,,277.4,19.1,0.5,22.1,8.6,,1.0,0.0,0.0,1150.5,,,,,,contains_beef,false,false
+monterey-jack-cheese,topping,Cheese (Monterey Jack),,32.1,2.5,0.0,2.4,1.5,,0.2,0.0,0.0,133.5,,,,,,vegetarian,true,false
+sour-cream,topping,Sour cream,,29.9,0.6,0.8,2.6,1.7,,0.0,0.8,0.0,117.0,,,,,,vegetarian,true,false
+guacamole,topping,Guacamole,,161.5,1.5,1.8,15.6,3.2,,0.0,0.7,3.7,664.7,,,,,,vegetarian,true,false
+chicken,protein,Chicken,,211.0,25.7,2.7,10.6,3.1,,0.7,0.7,0.0,883.0,,,,,,,false,false
+coriander-lime-rice,base,Coriander lime rice,,283.2,6.5,58.8,2.2,0.2,,2.6,0.2,1.0,1200.0,,,,,,vegetarian,false,false

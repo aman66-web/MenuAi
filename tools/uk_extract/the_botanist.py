@@ -4,7 +4,7 @@ with a complete allergen matrix.
 
     python3 tools/uk_extract/the_botanist.py --pages DIR --checked-on 2026-10-08 [--fetch] [--out DIR]
 
-DIR holds the 16 saved pages botanist_00.html ... botanist_15.html (one per menu in the page's own menu list); --fetch downloads
+DIR holds the 18 saved pages botanist_00.html ... botanist_17.html (one per menu in the page's own menu list); --fetch downloads
 them first (one request per second, normal browser User-Agent; robots.txt of menus.tenkites.com only disallows /fonts/ and /views/).
 
 Source: https://menus.tenkites.com/nwtc/thebotanist (unit view "Allergen Matrix"), the page https://thebotanist.uk.com/menus links as
@@ -30,7 +30,8 @@ How the page's structure is read (nothing is converted, estimated or filled in):
   A dish printed outside any section (Popcorn) goes under the menu's name.
 - Left out as event/venue specific: the "Race Days Only" section of Botanista Brunch (Full English).
 - Held back (not corrected): "Moet et Chandon 20CL" prints "0 kcal", impossible for champagne.
-- limited_time: dishes that appear only in the Christmas Menu, Christmas Nibbles or Festive Finger Food menus.
+- limited_time: dishes that appear only in the Christmas Menu, Christmas Nibbles, Festive Finger Food, Beaujolais Day Set Menu or
+  "Group Dining Celebration Menu - From November 18th" menus.
 - Tags: vegetarian when the page ticks Vegan or Vegetarian for the dish; contains_pork / contains_beef only when the dish's name or
   printed description says so (tenkites_c.meat_tags).
 """
@@ -55,19 +56,25 @@ MENUS = [
     ("botanist_03.html", "Kids Menu", "82ac48dc-45a2-4437-a563-f7f63326f35a", 21),
     ("botanist_04.html", "Botanista Brunch", "ef9886d3-9e37-40b9-aa06-160f293cb3cf", 24),
     ("botanist_05.html", "Group Dining Celebration Menu", "a536f02a-befb-40b0-838c-fcbdb2e7ba70", 39),
-    ("botanist_06.html", "Gardener's Table Finger Food", "286b47c4-e4bc-491f-9cff-8e2b282e0917", 16),
-    ("botanist_07.html", "Midnight Menu", "5d189dec-aecf-4c0c-9130-3da6df83a205", 3),
-    ("botanist_08.html", "Pizza", "a4b8aaed-41fe-48a3-8568-964dbbb24476", 5),
-    ("botanist_09.html", "Condiments", "22b08608-14ba-4e38-b9fd-4bd16cff3417", 2),
-    ("botanist_10.html", "Cocktails", "ea8224c7-120a-4e25-8f1a-db64fb9924c3", 37),
-    ("botanist_11.html", "Draught & Bottled", "593fb2d5-eb0d-4706-9875-5e51c806fd19", 18),
-    ("botanist_12.html", "Wine & Sparkling", "6725f342-7ea0-4bd7-8ed4-7fdf81b71d8d", 22),
-    ("botanist_13.html", "Christmas Menu", "f2179f6c-0a97-41a4-9a36-fe29c3b5cb13", 13),
-    ("botanist_14.html", "Christmas Nibbles", "04043cdd-910d-49cb-8314-6b6321905161", 4),
-    ("botanist_15.html", "Festive Finger Food", "91fa9750-50be-476a-b8b2-45e87ebaccd2", 17),
+    ("botanist_06.html", "Group Dining Celebration Menu - From November 18th", "9f9ad524-a85e-4cf4-a103-4c97aa25317a", 38),
+    ("botanist_07.html", "Gardener's Table Finger Food", "286b47c4-e4bc-491f-9cff-8e2b282e0917", 16),
+    ("botanist_08.html", "Midnight Menu", "5d189dec-aecf-4c0c-9130-3da6df83a205", 3),
+    ("botanist_09.html", "Pizza", "be312523-a669-458b-ace0-1b4a993102d3", 10),
+    ("botanist_10.html", "Condiments", "22b08608-14ba-4e38-b9fd-4bd16cff3417", 2),
+    ("botanist_11.html", "Cocktails", "ea8224c7-120a-4e25-8f1a-db64fb9924c3", 37),
+    ("botanist_12.html", "Draught & Bottled", "593fb2d5-eb0d-4706-9875-5e51c806fd19", 18),
+    ("botanist_13.html", "Wine & Sparkling", "6725f342-7ea0-4bd7-8ed4-7fdf81b71d8d", 22),
+    ("botanist_14.html", "Beaujolais Day Set Menu", "38da41eb-2675-4653-aa1e-c348df871ef2", 38),
+    ("botanist_15.html", "Christmas Menu", "f2179f6c-0a97-41a4-9a36-fe29c3b5cb13", 13),
+    ("botanist_16.html", "Christmas Nibbles", "04043cdd-910d-49cb-8314-6b6321905161", 4),
+    ("botanist_17.html", "Festive Finger Food", "91fa9750-50be-476a-b8b2-45e87ebaccd2", 17),
 ]
 FIRST_MENU = "A La Carte"
-SEASONAL_MENUS = {"Christmas Menu", "Christmas Nibbles", "Festive Finger Food"}
+SEASONAL_MENUS = {"Christmas Menu", "Christmas Nibbles", "Festive Finger Food", "Beaujolais Day Set Menu",
+                  "Group Dining Celebration Menu - From November 18th"}
+# The page's own menu list calls the Christmas menu "Christmas Set Menu" (it was "Christmas Menu" until 8 Oct 2026); its page <title>
+# still says "Christmas Menu", and that name is kept here so the items' categories and ids do not change.
+LIST_NAMES = {"Christmas Menu": "Christmas Set Menu"}
 # sections left out of the published menu (reason in the report)
 EXCLUDED_SECTIONS = {("Botanista Brunch", "Race Days Only"): "event/venue-specific section (race days only)"}
 # rows whose printed calories are impossible: published nowhere (holdback.csv); any other 0 kcal row stops the run
@@ -82,7 +89,7 @@ ALLERGEN_COLUMNS = ["Celery", "Crustaceans", "Eggs", "Fish", "Lupin", "Milk", "M
                     "Sulphur Dioxide/Sulphites", "Peanuts", "Tree Nuts", "Cereals with Gluten"]
 SUITABLE_COLUMNS = ["Vegan", "Vegetarian"]
 
-SOURCE_TITLE = "The Botanist Allergen Matrix with calories, 16 menus (Ten Kites page; no date printed, read {day})"
+SOURCE_TITLE = "The Botanist Allergen Matrix with calories, 18 menus (Ten Kites page; no date printed, read {day})"
 ALLERGEN_TITLE = "The Botanist Allergen Matrix (Ten Kites page; no date printed, read {day})"
 NOTE = ("Calories only (kcal beside each dish); the page prints no protein, carbs or fat. Choices and add-ons are listed as their "
         "own items; the page does not say whether a dish's kcal includes the side offered with it. Drinks are left out: the page "
@@ -203,8 +210,8 @@ def build(pages_dir: Path, day: str) -> tuple[list[dict], list[tuple[str, str]],
     occurrences = []   # every printed dish: (menu, row, category, parent name)
     first_text = (pages_dir / MENUS[0][0]).read_text(encoding="utf-8")
     listed = menu_options(first_text)
-    if listed != [(g, n) for _, n, g, _ in MENUS]:
-        raise SystemExit(f"The page's menu list changed: {listed} is not the 16 menus this script was checked against. "
+    if listed != [(g, LIST_NAMES.get(n, n)) for _, n, g, _ in MENUS]:
+        raise SystemExit(f"The page's menu list changed: {listed} is not the 18 menus this script was checked against. "
                          "Fetch and check the new menus, then update MENUS.")
     for fname, menu, guid, expected in MENUS:
         text = first_text if fname == MENUS[0][0] else (pages_dir / fname).read_text(encoding="utf-8")
@@ -313,7 +320,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--pages", type=Path, required=True)
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you compared the pages with the live menus")
-    ap.add_argument("--fetch", action="store_true", help="download the 16 pages into --pages first")
+    ap.add_argument("--fetch", action="store_true", help="download the 18 pages into --pages first")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
     if args.fetch:
