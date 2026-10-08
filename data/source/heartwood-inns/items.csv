@@ -1,0 +1,246 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+rustica-olives,Rustica olives,Nibbles,,125,0.9,0.9,12.5,1.7,,3.0,0.3,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Nibbles; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+baguette-netherend-farm-salted-butter,Baguette (Netherend Farm salted butter),Nibbles,,193,11.4,69.0,13.4,8.4,,2.2,1.7,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Nibbles > Baguette; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+baguette-without-butter,Baguette (without butter),Nibbles,,80,11.3,68.6,0.8,0.0,,2.0,1.7,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Nibbles > Baguette; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+baguette-gluten-free-bread,Baguette (gluten-free bread),Nibbles,,281,2.0,56.1,5.7,0.4,,1.7,4.3,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Nibbles > Baguette; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+dips-baguette,Dips (baguette),Nibbles,,604,19.6,77.4,53.1,10.0,,3.1,8.4,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Nibbles > Dips; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+dips-gluten-free-bread,Dips (gluten free bread),Nibbles,,805,10.2,64.9,57.9,10.4,,2.8,11.0,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Nibbles > Dips; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+free-range-scotch-egg,Free-range Scotch egg,Nibbles,,455,21.7,46.7,21.5,7.1,,3.0,16.4,,,,,,,,,false,false,,,"Source: À la carte > Nibbles; also on Bar menu, Saturday, Weekday Lunch"
+tomato-and-chargrilled-pepper-arancini,Tomato & chargrilled pepper arancini,Small plates,,437,10.6,48.6,22.0,4.4,,3.2,10.2,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Small plates; also on Bar menu
+blythburgh-sausage-roll,Blythburgh sausage roll,Small plates,,679,22.0,34.9,50.3,18.0,,3.9,7.3,,,,,,,,contains_pork,false,true,,,Source: Weekday Lunch > Small plates; also on Bar menu
+grilled-minute-steak-baguette,Grilled minute-steak baguette,Small plates,,1062,46.3,135.8,64.6,20.9,,6.9,21.7,,,,,,,,contains_beef,false,true,,,Source: Weekday Lunch > Small plates; also on Bar menu
+charcuterie-platter,Charcuterie platter,Sharing plates,,125,9.1,55.0,6.4,0.9,,3.4,6.5,,,,,,,,contains_pork,false,false,,,"Source: À la carte > Sharing plates; also on Bar menu, Saturday, Weekday Lunch"
+vegetarian-platter,Vegetarian platter,Sharing plates,,1494,57.1,98.7,102.5,46.1,,8.6,47.4,,,,,,,,,false,false,,,"Source: À la carte > Sharing plates; also on Bar menu, Saturday, Weekday Lunch"
+twice-baked-cheese-souffle,Twice-baked cheese souffle,Starters,,390,18.2,15.4,28.8,17.2,,1.3,3.3,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Starters; also on Saturday, Sunday, Weekday Lunch"
+french-onion-soup,French onion soup,Starters,,295,18.0,22.4,18.5,9.6,,3.0,4.9,,,,,,,,,false,true,,,"Source: À la carte > Starters; also on Saturday, Sunday"
+prawn-and-crayfish-cocktail,Prawn & crayfish cocktail,Starters,,266,21.5,16.0,26.6,3.2,,1.9,1.9,,,,,,,,,false,true,,,"Source: À la carte > Starters; also on Saturday, Sunday, Weekday Lunch"
+chicken-liver-parfait,Chicken liver parfait,Starters,,549,10.3,39.1,45.3,20.8,,3.8,14.5,,,,,,,,,false,true,,,"Source: À la carte > Starters; also on Bar menu, Saturday, Sunday"
+deep-fried-goats-cheese-and-black-olive-parcel,Deep-fried goat’s cheese and black olive parcel,Starters,,301,12.0,11.8,23.3,9.8,,2.1,5.7,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Starters; also on Saturday, Sunday, Weekday Lunch"
+wild-mushroom-tartine-poached-egg,Wild mushroom tartine (poached egg),Starters,,608,14.3,40.9,40.7,7.4,,2.1,2.2,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Starters > Wild mushroom tartine; also on Bar menu, Saturday, Weekday Lunch"
+wild-mushroom-tartine-without-egg,Wild mushroom tartine (without egg),Starters,,543,8.0,40.9,36.2,6.2,,1.9,2.2,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Starters > Wild mushroom tartine; also on Bar menu, Saturday, Weekday Lunch"
+beetroot-terrine,Beetroot terrine,Starters,,192,3.8,24.0,9.1,1.3,,1.6,19.7,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Starters; also on Saturday, Sunday, Weekday Lunch"
+potted-devon-crab,Potted Devon crab,Starters,,495,16.1,37.4,35.6,12.0,,4.3,2.1,,,,,,,,,false,true,,,"Source: À la carte > Starters; also on Bar menu, Saturday"
+muscat-pumpkin-and-kirsch-soup,Muscat pumpkin & kirsch soup,Seasonal set starters,,137,1.8,6.1,10.7,3.0,,1.6,5.2,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set starters
+celeriac-remoulade,Celeriac remoulade,Seasonal set starters,,263,7.9,3.7,24.6,3.0,,2.9,2.5,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set starters
+pan-fried-gnocchi,Pan-fried gnocchi,Seasonal set starters,,539,11.7,34.8,38.7,15.8,,2.6,1.3,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set starters
+chicken-ballotine,Chicken ballotine,Mains,,907,61.1,20.2,78.6,33.0,,3.9,7.4,,,,,,,,,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday, Weekday Lunch"
+jerusalem-artichoke-and-roasted-garlic-ravioli,Jerusalem artichoke & roasted garlic ravioli,Mains,,676,17.8,18.2,29.3,4.0,,2.9,12.4,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday, Weekday Lunch"
+grilled-cauliflower-steak,Grilled cauliflower steak,Mains,,902,8.5,65.4,68.7,8.2,,5.5,20.0,,,,,,,,vegetarian,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday"
+pork-tomahawk,Pork tomahawk,Mains,,1633,97.1,27.8,126.9,47.1,,5.8,10.6,,,,,,,,contains_pork,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday, Weekday Lunch"
+grass-fed-8oz-rump,Grass-fed 8oz rump,Mains,,1111,56.4,50.1,76.2,27.3,,5.6,2.4,,,,,,,,contains_beef,false,true,,,Source: À la carte > Mains; also on Saturday
+celeriac-artichoke-and-chestnut-mushroom-wellington,"Celeriac, artichoke & chestnut mushroom Wellington",Mains,,983,15.8,89.1,65.8,18.5,,4.8,17.7,,,,,,,,vegetarian,false,true,,,Source: À la carte > Mains; also on Saturday
+venison-and-ale-pie,Venison & ale pie,Mains,,1183,18.8,98.9,76.8,40.1,,4.7,10.0,,,,,,,,,false,true,,,"Source: À la carte > Mains; also on Saturday, Weekday Lunch"
+provencale-crusted-devon-scallops,Provençale-crusted Devon scallops,Mains,,944,35.4,47.9,69.8,21.4,,5.0,9.8,,,,,,,,,false,true,,,Source: À la carte > Mains; also on Saturday
+free-range-beef-burger-sesame-brioche-bun,Free-range beef burger (sesame brioche bun),Mains,,1120,43.5,90.1,65.4,15.5,,5.8,13.0,,,,,,,,contains_beef,false,true,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+free-range-beef-burger-gluten-free-bun,Free-range beef burger (gluten free bun),Mains,,1105,41.4,85.1,65.7,14.6,,5.8,12.2,,,,,,,,contains_beef,false,true,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+grilled-cod-lemon-butter-and-caper-sauce,"Grilled cod, lemon butter & caper sauce",Mains,,636,36.1,22.1,45.4,21.0,,2.9,2.8,,,,,,,,,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday"
+moules-mariniere,Moules marinière,Mains,,1165,87.5,67.3,59.7,21.7,,8.0,4.3,,,,,,,,,false,true,,,"Source: À la carte > Mains; also on Saturday, Weekday Lunch"
+malabar-fish-curry,Malabar fish curry,Mains,,542,40.1,46.3,21.5,10.5,,2.9,7.9,,,,,,,,,false,true,,,"Source: À la carte > Mains; also on Saturday, Sunday"
+gordo-chickpeas-and-roasted-red-pepper-salad,Gordo chickpeas and roasted red pepper salad,Mains,,867,31.1,129.4,49.1,10.8,,5.4,26.4,,,,,,,,vegetarian,false,true,,,Source: À la carte > Mains; also on Saturday
+fish-and-chips,Fish and chips,Mains,,1027,15.3,94.0,65.3,5.4,,6.6,6.3,,,,,,,,,false,true,,,Source: Weekday Lunch > Mains
+grilled-minute-steak-and-triple-cooked-chips,Grilled minute-steak & triple-cooked chips,Seasonal set mains,,1004,34.8,47.8,75.1,24.1,,6.1,1.6,,,,,,,,contains_beef,false,true,,,Source: Weekday Lunch > Seasonal set mains
+pork-loin-confit,Pork loin confit,Seasonal set mains,,1252,90.1,22.3,89.7,40.0,,4.9,7.2,,,,,,,,contains_pork,false,true,,,Source: Weekday Lunch > Seasonal set mains
+smoked-haddock-and-chalkstream-trout-fishcake,Smoked haddock & ChalkStream trout fishcake,Seasonal set mains,,665,38.0,37.3,42.1,19.1,,2.8,6.3,,,,,,,,,false,true,,,Source: Weekday Lunch > Seasonal set mains
+cannellini-bean-cassoulet,Cannellini bean cassoulet,Seasonal set mains,,263,13.7,52.7,11.5,1.9,,5.6,7.2,,,,,,,,vegetarian,false,true,,,Source: Weekday Lunch > Seasonal set mains
+8oz-sirloin,8oz sirloin,Steaks,,991,56.6,48.5,63.6,21.3,,7.3,2.4,,,,,,,,contains_beef,false,true,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
+7oz-fillet,7oz fillet,Steaks,,826,47.1,48.5,49.2,15.6,,7.2,2.4,,,,,,,,contains_beef,false,true,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
+14oz-chateaubriand-for-two,14oz chateaubriand for two,Steaks,for two,1591,94.2,96.9,91.6,26.1,,13.4,4.7,,,,,,,,contains_beef,false,false,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
+21-day-matured-british-beef-rump,21-day matured British beef rump,Sunday roasts,,1161,60.9,103.4,63.8,22.3,,7.2,36.5,,,,,,,,contains_beef,false,true,,,Source: Sunday > Our Roasts
+half-a-roast-grain-fed-chicken,Half a roast grain-fed chicken,Sunday roasts,,1756,87.9,123.9,109.7,29.9,,45.5,57.3,,,,,,,,,false,true,,,Source: Sunday > Our Roasts
+outdoor-bred-british-pork-loin,Outdoor-bred British pork loin,Sunday roasts,,1747,98.7,106.8,111.1,40.7,,8.5,39.8,,,,,,,,contains_pork,false,true,,,Source: Sunday > Our Roasts
+beetroot-and-smoked-cheddar-pasty,Beetroot and smoked cheddar pasty,Sunday roasts,,1259,36.7,128.5,74.2,26.4,,5.9,40.6,,,,,,,,vegetarian,false,true,,,Source: Sunday > Our Roasts
+triple-cooked-chips,Triple-cooked chips,Sides,,425,5.1,50.6,21.9,2.4,,3.2,0.9,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+mash-potatoes,Mash potatoes,Sides,,278,3.5,20.0,19.7,12.5,,1.4,2.3,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
+burnt-hispi-cabbage,Burnt hispi cabbage,Sides,,408,7.7,6.3,42.2,19.0,,4.2,4.9,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
+cream-spinach,Cream spinach,Sides,,463,9.5,5.8,42.7,27.7,,2.6,4.1,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
+green-beans,Green beans,Sides,,111,2.7,5.0,9.8,1.4,,2.5,2.8,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
+mixed-leaf-salad,Mixed leaf salad,Sides,,4,0.6,1.7,0.1,0.0,,4.6,0.2,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
+bramley-apple-crumble,Bramley apple crumble,Puddings and cheese,,595,2.8,107.5,16.3,7.7,,0.5,86.0,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese; also on Saturday, Sunday, Weekday Lunch"
+chocolate-fondant,Chocolate fondant,Puddings and cheese,,595,7.9,64.3,33.5,21.0,,0.5,54.6,,,,,,,,,false,false,,,"Source: À la carte > Puddings and cheese; also on Saturday, Sunday, Weekday Lunch"
+sticky-toffee-pudding,Sticky toffee pudding,Puddings and cheese,,755,5.6,78.1,45.5,26.2,,0.4,56.9,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese; also on Saturday, Sunday, Weekday Lunch"
+callebaut-dark-chocolate-mousse,Callebaut dark chocolate mousse,Puddings and cheese,,251,6.3,24.6,12.7,8.6,,0.1,23.2,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese; also on Kids, Saturday, Sunday, Weekday Lunch"
+pistachio-souffle,Pistachio soufflé,Puddings and cheese,,368,8.0,49.3,15.2,8.0,,0.1,44.1,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese; also on Saturday, Sunday, Weekday Lunch"
+rum-baba,Rum baba,Puddings and cheese,,696,5.5,77.7,37.7,23.1,,0.5,58.0,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese; also on Saturday, Sunday, Weekday Lunch"
+judes-ice-creams-and-sorbets-three-scoops-and-biscuit,Jude's ice creams and sorbets (three scoops & biscuit),Puddings and cheese,,46,0.5,8.4,1.0,0.7,,0.1,5.0,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Saturday, Sunday, Weekday Lunch"
+judes-ice-creams-and-sorbets-three-scoops-without-biscuit,Jude's ice creams and sorbets (three scoops without biscuit),Puddings and cheese,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Saturday, Sunday, Weekday Lunch"
+ice-cream-vanilla,Ice cream: Vanilla,Puddings and cheese,,92,0.4,12.5,4.2,3.6,,0.1,9.0,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Kids, Saturday, Sunday, Weekday Lunch"
+ice-cream-chocolate,Ice cream: Chocolate,Puddings and cheese,,101,0.4,13.7,4.5,3.6,,0.1,10.6,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Kids, Saturday, Sunday, Weekday Lunch"
+ice-cream-strawberry,Ice cream: Strawberry,Puddings and cheese,,94,0.5,13.8,3.9,3.4,,0.1,9.7,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Kids, Saturday, Sunday, Weekday Lunch"
+ice-cream-salted-caramel,Ice cream: Salted caramel,Puddings and cheese,,88,0.4,12.6,4.1,3.6,,0.2,8.9,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Saturday, Sunday, Weekday Lunch"
+ice-cream-honeycomb,Ice cream: Honeycomb,Puddings and cheese,,104,0.5,15.2,4.2,3.5,,0.1,11.1,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Saturday, Sunday, Weekday Lunch"
+sorbet-raspberry,Sorbet: Raspberry,Puddings and cheese,,49,0.1,11.6,0.0,0.0,,0.0,10.9,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Saturday, Sunday, Weekday Lunch"
+sorbet-mango,Sorbet: Mango,Puddings and cheese,,50,0.1,12.3,0.1,0.0,,0.0,11.3,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Saturday, Sunday, Weekday Lunch"
+sorbet-blackcurrant,Sorbet: Blackcurrant,Puddings and cheese,,51,0.1,12.7,0.0,0.0,,0.0,10.2,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Saturday, Sunday, Weekday Lunch"
+sorbet-lemon,Sorbet: Lemon,Puddings and cheese,,58,0.1,14.1,0.1,0.1,,0.0,12.1,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Puddings and cheese > Jude's ice creams and sorbets; also on Saturday, Sunday, Weekday Lunch"
+selection-of-british-and-french-cheese-crackers-and-accompaniments,Selection of British & French cheese (crackers & accompaniments),Puddings and cheese,,604,29.7,42.2,40.9,24.6,,2.6,18.6,,,,,,,,,false,false,,,"Source: À la carte > Puddings and cheese > Selection of British & French cheese; also on Saturday, Sunday, Weekday Lunch"
+selection-of-british-and-french-cheese-gluten-free-bread-and-accompaniments,Selection of British & French cheese (gluten free bread & accompaniments),Puddings and cheese,,681,26.3,53.6,41.4,24.0,,2.7,20.3,,,,,,,,,false,false,,,"Source: À la carte > Puddings and cheese > Selection of British & French cheese; also on Saturday, Sunday, Weekday Lunch"
+chorizo-ketchup-burger-add-on,Chorizo ketchup (burger add-on),Add-ons & extras,,102,3.5,3.8,4.7,0.6,,0.7,3.5,,,,,,,,contains_pork,false,false,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+emmental-burger-add-on,Emmental (burger add-on),Add-ons & extras,,79,6.0,0.0,6.2,4.1,,0.1,0.0,,,,,,,,,false,false,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Kids, Saturday, Sunday, Weekday Lunch"
+tomato-chutney-burger-add-on,Tomato chutney (burger add-on),Add-ons & extras,,43,0.5,2.8,0.8,0.4,,0.2,2.5,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Kids, Saturday, Sunday, Weekday Lunch"
+gorgonzola-burger-add-on,Gorgonzola (burger add-on),Add-ons & extras,,78,4.5,0.0,6.8,4.8,,0.4,0.0,,,,,,,,,false,false,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+raclette-burger-add-on,Raclette (burger add-on),Add-ons & extras,,115,7.3,0.3,9.3,6.7,,0.6,0.0,,,,,,,,,false,false,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+bacon-burger-add-on,Bacon (burger add-on),Add-ons & extras,,109,6.3,0.0,9.4,3.3,,1.3,0.0,,,,,,,,contains_pork,false,false,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Kids, Saturday, Sunday, Weekday Lunch"
+rich-lardon-gravy-burger-add-on,Rich lardon gravy (burger add-on),Add-ons & extras,,221,6.3,4.2,18.5,3.8,,1.3,1.3,,,,,,,,,false,false,,,"Source: À la carte > Mains > Free-range beef burger; also on Bar menu, Saturday, Sunday, Weekday Lunch"
+garlic-and-herb-butter-steak-add-on,Garlic & herb butter (steak add-on),Add-ons & extras,,140,0.6,0.7,14.8,9.3,,0.6,0.4,,,,,,,,,false,false,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
+bearnaise-steak-add-on,Béarnaise (steak add-on),Add-ons & extras,,215,1.7,0.4,23.0,13.7,,0.3,0.3,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
+roquefort-steak-add-on,Roquefort (steak add-on),Add-ons & extras,,129,2.8,1.8,12.2,7.9,,0.3,1.1,,,,,,,,,false,false,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
+peppercorn-steak-add-on,Peppercorn (steak add-on),Add-ons & extras,,104,2.3,2.0,9.7,4.8,,0.6,0.8,,,,,,,,,false,false,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
+aged-black-garlic-mayonnaise-steak-add-on,Aged black garlic mayonnaise (steak add-on),Add-ons & extras,,313,1.0,1.0,34.5,4.2,,0.6,0.3,,,,,,,,,false,false,,,"Source: À la carte > Chargrilled grass-fed, dry-aged steaks; also on Saturday, Sunday, Weekday Lunch"
+classic-dijon-mustard-dressing,Classic Dijon mustard dressing,Add-ons & extras,,255,0.4,0.2,28.5,3.4,,0.6,0.1,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
+balsamic-with-fig-leaf-oil-salad-dressing,Balsamic with fig leaf oil (salad dressing),Add-ons & extras,,134,0.1,3.0,13.5,1.9,,0.2,2.8,,,,,,,,vegetarian,false,false,,,"Source: À la carte > Sides; also on Saturday, Sunday, Weekday Lunch"
+crunchy-pickles-burger-add-on,Crunchy pickles (burger add-on),Add-ons & extras,,33,0.9,8.0,0.0,0.0,,0.4,6.2,,,,,,,,vegetarian,false,false,,,Source: Kids > Marvellous mains
+veggie-dippers-and-houmous,Veggie dippers & houmous,Kids: Starters,,252,6.3,12.0,19.0,1.4,,0.1,6.7,,,,,,,,vegetarian,false,false,,,Source: Kids > Scrummy starters
+breadsticks-and-houmous,Breadsticks & houmous,Kids: Starters,,316,7.8,22.5,20.1,1.8,,0.5,1.8,,,,,,,,vegetarian,false,false,,,Source: Kids > Scrummy starters
+veggie-bolognese,Veggie bolognese,Kids: Mains,,466,18.3,61.1,17.6,5.7,,3.0,8.4,,,,,,,,vegetarian,false,false,,,Source: Kids > Marvellous mains
+grill-chalkstream-trout,Grill ChalkStream trout,Kids: Mains,,401,23.7,31.1,21.1,2.7,,2.5,6.3,,,,,,,,,false,false,,,Source: Kids > Marvellous mains
+sausage-and-mash,Sausage & mash,Kids: Mains,,672,22.5,29.3,52.3,21.7,,3.1,6.3,,,,,,,,contains_pork,false,false,,,Source: Kids > Marvellous mains
+chicken-roulade,Chicken roulade,Kids: Mains,,841,43.0,45.4,56.6,6.1,,2.9,5.6,,,,,,,,contains_pork,false,false,,,Source: Kids > Marvellous mains
+beef-burger,Beef burger,Kids: Mains,,639,25.7,52.3,36.4,8.0,,3.0,9.4,,,,,,,,contains_beef,false,false,,,Source: Kids > Marvellous mains
+watermelon-and-pineapple-fruit-salad,Watermelon & pineapple fruit salad,Kids: Desserts,,124,1.5,28.6,0.9,0.0,,0.0,28.5,,,,,,,,vegetarian,false,false,,,Source: Kids > Sweet tweets
+judes-fruit-twist,Jude's fruit twist,Kids: Desserts,,47,0.1,10.0,0.3,0.3,,0.0,7.0,,,,,,,,vegetarian,false,false,,,Source: Kids > Sweet tweets
+strawberry-knickerbocker-glory,Strawberry knickerbocker glory,Kids: Desserts,,315,2.5,37.3,17.1,12.5,,0.1,29.2,,,,,,,,,false,false,,,Source: Kids > Sweet tweets
+judes-chocolate-milk,Jude’s chocolate milk,Kids: Drinks,,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Kids > Delightful drinks
+cawston-press-juices-apple-and-pear,Cawston Press juices (apple & pear),Kids: Drinks,,56,0.2,12.8,0.0,0.0,,0.0,12.8,,,,,,,,,false,false,,,Source: Kids > Delightful drinks > Cawston Press juices
+cawston-press-juices-apple-and-summer-berries,Cawston Press juices (apple & summer berries),Kids: Drinks,,51,0.6,11.6,0.2,0.0,,0.0,11.0,,,,,,,,,false,false,,,Source: Kids > Delightful drinks > Cawston Press juices
+deluxe-hot-chocolate,Deluxe hot chocolate,Kids: Drinks,,52,0.8,10.2,0.7,0.4,,0.0,9.4,,,,,,,,,false,false,,,Source: Kids > Delightful drinks
+babyccino,Babyccino,Kids: Drinks,,56,3.1,4.0,3.2,2.1,,0.1,4.0,,,,,,,,,false,false,,,Source: Kids > Delightful drinks
+cinnamon-and-pomegranate-margarita-on-the-rocks,Cinnamon & Pomegranate Margarita (on the rocks),Drinks: Cocktails,,195,0.4,24.3,0.1,0.0,,2.0,18.8,,,,,,,,,false,false,,,Source: Drinks > Our seasonal favourites; energy includes alcohol
+cranberry-collins,Cranberry Collins,Drinks: Cocktails,,199,0.1,25.2,0.0,0.0,,0.0,24.3,,,,,,,,,false,false,,,Source: Drinks > Our seasonal favourites; energy includes alcohol
+moscow-mule,Moscow Mule,Drinks: Cocktails,,120,0.6,1.9,0.3,0.1,,0.0,6.3,,,,,,,,,false,false,,,Source: Drinks > Our seasonal favourites; energy includes alcohol
+orchard-frost,Orchard Frost,Drinks: Cocktails,,157,0.6,8.4,0.4,0.0,,0.0,7.1,,,,,,,,,false,false,,,Source: Drinks > Our seasonal favourites; energy includes alcohol
+plymouth-sloe-g-and-t,Plymouth Sloe G&T,Drinks: Cocktails,,101,0.4,3.0,0.3,0.0,,0.0,10.3,,,,,,,,,false,false,,,Source: Drinks > Our seasonal favourites; energy includes alcohol
+spiced-apple-mojito,Spiced Apple Mojito,Drinks: Cocktails,,195,1.2,18.6,0.5,0.1,,0.1,17.5,,,,,,,,,false,false,,,Source: Drinks > Our seasonal favourites; energy includes alcohol
+velvet-espresso-martini,Velvet Espresso Martini,Drinks: Cocktails,,225,0.3,2.5,20.1,12.5,,0.5,7.7,,,,,,,,,false,false,,,Source: Drinks > Our seasonal favourites; energy includes alcohol
+bellini,Bellini,Drinks: Cocktails,,110,0.1,6.3,0.0,0.0,,0.0,6.3,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+blood-orange-paloma,Blood Orange Paloma,Drinks: Cocktails,,160,0.5,22.0,0.2,0.0,,0.0,18.2,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+bloody-mary,Bloody Mary,Drinks: Cocktails,,134,1.7,8.2,0.6,0.1,,3.6,10.4,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+bramble,Bramble,Drinks: Cocktails,,152,0.2,15.7,0.0,0.0,,0.1,15.7,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+espresso-martini,Espresso Martini,Drinks: Cocktails,,160,0.0,16.1,0.0,0.0,,0.1,16.1,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+dark-n-stormy,Dark 'n' Stormy,Drinks: Cocktails,,119,0.6,1.8,0.3,0.1,,0.0,6.3,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+margarita-on-the-rocks,Margarita (on the rocks),Drinks: Cocktails,,165,0.3,16.2,0.1,0.0,,2.0,15.0,,,,,,,,vegetarian,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+negroni,Negroni,Drinks: Cocktails,,159,0.2,11.7,0.1,0.0,,0.0,8.9,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+mojito,Mojito,Drinks: Cocktails,,156,1.0,10.3,0.4,0.1,,0.1,9.6,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+pornstar-martini,Pornstar Martini,Drinks: Cocktails,,176,0.5,6.3,0.1,0.0,,0.0,15.9,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+old-fashioned,Old Fashioned,Drinks: Cocktails,,169,0.6,11.0,0.2,0.1,,0.0,11.0,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+spicy-margarita,Spicy Margarita,Drinks: Cocktails,,171,0.2,12.5,0.2,0.0,,0.9,10.5,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+tom-collins,Tom Collins,Drinks: Cocktails,,143,0.1,12.3,0.0,0.0,,0.1,12.3,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+whiskey-sour,Whiskey Sour,Drinks: Cocktails,,141,3.0,13.8,0.1,0.0,,0.1,13.8,,,,,,,,,false,false,,,Source: Drinks > Classic cocktails; energy includes alcohol
+aperol-spritz,Aperol Spritz,Drinks: Cocktails,,146,0.5,18.1,0.1,0.1,,0.0,18.1,,,,,,,,,false,false,,,Source: Drinks > The Spritz list; energy includes alcohol
+citrus-spritz,Citrus Spritz,Drinks: Cocktails,,143,0.2,17.3,0.1,0.0,,0.0,17.3,,,,,,,,,false,false,,,Source: Drinks > The Spritz list; energy includes alcohol
+hugo-spritz,Hugo Spritz,Drinks: Cocktails,,124,0.3,13.8,0.1,0.0,,0.0,13.7,,,,,,,,,false,false,,,Source: Drinks > The Spritz list; energy includes alcohol
+sarti-rosa-spritz,Sarti Rosa Spritz,Drinks: Cocktails,,138,0.3,14.2,0.1,0.0,,0.0,13.7,,,,,,,,,false,false,,,Source: Drinks > The Spritz list; energy includes alcohol
+signature-g-and-t,Signature G&T,Drinks: Gin,,117,0.2,13.0,0.3,0.0,,0.0,11.9,,,,,,,,,false,false,,,Source: Drinks > Gin menu; energy includes alcohol
+bombay-sapphire-mediterranean-tonic-lime-wedge,"Bombay Sapphire - Mediterranean Tonic, lime wedge",Drinks: Gin,,105,0.1,8.8,0.1,0.0,,0.0,8.8,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
+hendricks-elderflower-tonic-lime-wedge,"Hendrick’s - Elderflower Tonic, lime wedge",Drinks: Gin,,98,0.1,8.9,0.0,0.0,,0.0,8.9,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
+malfy-originale-mediterranean-tonic-lemon-wedge,"Malfy Originale - Mediterranean Tonic, lemon wedge",Drinks: Gin,,91,0.0,8.5,0.0,0.0,,0.0,8.5,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
+monkey-47-mediterranean-tonic-blackberries,"Monkey 47 - Mediterranean Tonic, blackberries",Drinks: Gin,,103,0.2,9.2,0.0,0.0,,0.0,9.2,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
+tanqueray-indian-tonic-lime-wedge,"Tanqueray - Indian Tonic, lime wedge",Drinks: Gin,,87,0.1,8.0,0.1,0.0,,0.0,8.0,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
+the-botanist-elderflower-tonic-lime-wedge,"The Botanist - Elderflower Tonic, lime wedge",Drinks: Gin,,103,0.1,9.2,0.1,0.0,,0.0,9.2,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Classics; energy includes alcohol
+warners-rhubarb-mediterranean-tonic-orange-slice,"Warner’s Rhubarb - Mediterranean tonic, orange slice",Drinks: Gin,,128,0.2,10.7,0.1,0.0,,0.0,10.7,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Fruits & Flavours; energy includes alcohol
+tanqueray-0-0-indian-tonic-lime-wedge,"Tanqueray 0.0% - Indian Tonic, lime wedge",Drinks: Gin,,33,0.1,0.4,0.1,0.0,,0.0,6.2,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Alcohol Free
+tanqueray-flor-de-sevilla-0-0-mediterranean-tonic-orange-slice,"Tanqueray Flor de Sevilla 0.0% - Mediterranean Tonic, orange Slice",Drinks: Gin,,43,0.2,10.3,0.1,0.0,,0.0,10.3,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Alcohol Free
+warners-pink-berry-0-0-elderflower-tonic-blackberries,"Warner’s Pink Berry 0.0% - Elderflower tonic, blackberries",Drinks: Gin,,43,0.2,9.7,0.0,0.0,,0.0,9.7,,,,,,,,,false,false,,,Source: Drinks > Gin menu > Alcohol Free
+asahi-super-dry-5-2,Asahi Super Dry 5.2%,Drinks: Beer & cider,330ml bottle,135,1.0,9.2,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders; energy includes alcohol
+beavertown-gamma-ray-5-4-can,Beavertown Gamma Ray 5.4% (can),Drinks: Beer & cider,,152,1.3,11.6,0.3,0.3,,0.1,0.7,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders; energy includes alcohol
+corona-4-5,Corona 4.5%,Drinks: Beer & cider,330ml bottle,141,1.1,13.6,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders; energy includes alcohol
+camden-eazy-hazy-ipa-5-0-can,Camden Eazy Hazy IPA 5.0% (can),Drinks: Beer & cider,,145,1.7,11.9,0.0,0.0,,0.0,1.0,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders; energy includes alcohol
+peroni-gluten-free-5-0,Peroni Gluten Free 5.0%,Drinks: Beer & cider,330ml bottle,139,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders; energy includes alcohol
+asahi-super-dry-0-0,Asahi Super Dry 0.0%,Drinks: Beer & cider,330ml bottle,83,0.7,20.1,0.0,0.0,,0.0,3.0,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders > Low/No Alcohol
+corona-cero-0-0,Corona Cero 0.0%,Drinks: Beer & cider,330ml bottle,59,0.8,13.6,0.1,0.0,,0.0,7.4,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders > Low/No Alcohol
+guinness-0-0-538ml-can,Guinness 0.0% (538ml can),Drinks: Beer & cider,538ml can,91,2.2,20.4,0.0,0.0,,0.0,3.8,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders > Low/No Alcohol
+lucky-saint-hazy-ipa-0-5,Lucky Saint Hazy IPA 0.5%,Drinks: Beer & cider,330ml bottle,59,1.0,12.2,0.3,0.3,,0.0,0.3,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders > Low/No Alcohol
+peroni-0-0,Peroni 0.0%,Drinks: Beer & cider,330ml bottle,76,0.0,18.5,0.0,0.0,,0.0,2.6,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders > Low/No Alcohol
+cornish-orchards-cherry-and-blackberry-4-0-500ml,Cornish Orchards Cherry & Blackberry 4.0% (500ml),Drinks: Beer & cider,500ml,265,0.5,39.0,2.3,0.5,,0.1,36.5,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders > Cider; energy includes alcohol
+cornish-orchards-raspberry-and-elderflower-4-0-500ml,Cornish Orchards Raspberry & Elderflower 4.0% (500ml),Drinks: Beer & cider,500ml,265,0.5,37.5,2.5,0.5,,0.1,35.0,,,,,,,,,false,false,,,Source: Drinks > Beers & Ciders > Cider; energy includes alcohol
+aper-no-spritz-non-alcoholic,Aper-NO Spritz (non-alcoholic),Drinks: Low & no alcohol,,66,0.4,15.8,0.1,0.1,,0.0,15.8,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Non-alcoholic cocktails
+dark-n-stormy-non-alcoholic,Dark 'n' Stormy (non-alcoholic),Drinks: Low & no alcohol,,49,0.6,3.4,0.3,0.1,,0.0,7.4,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Non-alcoholic cocktails
+espresso-martini-non-alcoholic,Espresso Martini (non-alcoholic),Drinks: Low & no alcohol,,62,0.0,15.4,0.0,0.0,,0.1,15.4,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Non-alcoholic cocktails
+margarita-non-alcoholic,Margarita (non-alcoholic),Drinks: Low & no alcohol,,58,0.3,14.1,0.1,0.0,,2.1,13.4,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Non-alcoholic cocktails
+mojito-non-alcoholic,Mojito (non-alcoholic),Drinks: Low & no alcohol,,54,1.0,11.9,0.4,0.1,,0.1,10.6,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Non-alcoholic cocktails
+signature-g-and-t-non-alcoholic,Signature G&T (non-alcoholic),Drinks: Low & no alcohol,,59,0.2,14.3,0.3,0.0,,0.1,13.2,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Non-alcoholic cocktails
+tom-collins-non-alcoholic,Tom Collins (non-alcoholic),Drinks: Low & no alcohol,,52,0.1,12.3,0.0,0.0,,0.2,12.3,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Non-alcoholic cocktails
+elderflower-and-apricot-cooler,Elderflower & Apricot Cooler,Drinks: Low & no alcohol,,69,0.2,16.7,0.0,0.0,,0.0,16.5,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Coolers
+orange-and-rhubarb-cooler,Orange & Rhubarb Cooler,Drinks: Low & no alcohol,,25,0.6,5.5,0.2,0.1,,0.0,5.5,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Coolers
+passion-fruit-and-ginger-cooler,Passion Fruit & Ginger Cooler,Drinks: Low & no alcohol,,62,0.7,6.5,0.2,0.0,,0.0,12.5,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Coolers
+pineapple-and-pink-grapefruit-cooler,Pineapple & Pink Grapefruit Cooler,Drinks: Low & no alcohol,,13,0.4,3.6,0.3,0.0,,0.0,2.5,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Coolers
+apple-and-ginger-spritz,Apple & Ginger Spritz,Drinks: Low & no alcohol,,71,0.2,14.3,0.1,0.0,,0.0,17.0,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Mocktails
+berry-burst,Berry Burst,Drinks: Low & no alcohol,,37,0.5,8.8,0.1,0.0,,0.0,8.8,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Mocktails
+zest-fest,Zest Fest,Drinks: Low & no alcohol,,73,0.6,17.5,0.1,0.0,,0.0,16.9,,,,,,,,,false,false,,,Source: Drinks > Low and no-alcohol > Mocktails
+coca-cola-classic-330ml,Coca-Cola Classic 330ml,Drinks: Soft drinks & mixers,330ml,139,0.0,35.0,0.0,0.0,,0.0,35.0,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+coke-zero-330ml,Coke Zero 330ml,Drinks: Soft drinks & mixers,330ml,1,0.0,0.1,0.0,0.0,,0.0,0.1,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+diet-coke-330ml,Diet Coke 330ml,Drinks: Soft drinks & mixers,330ml,2,0.0,0.1,0.0,0.0,,0.0,0.1,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+sprite-zero-330ml,Sprite Zero 330ml,Drinks: Soft drinks & mixers,330ml,0,0.0,0.1,0.0,0.0,,0.0,0.1,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+appletiser-275ml,Appletiser 275ml,Drinks: Soft drinks & mixers,275ml,129,0.0,30.3,0.0,0.0,,0.0,28.9,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+fever-tree-raspberry-and-rose-lemonade-275ml,Fever-Tree raspberry & rose lemonade 275ml,Drinks: Soft drinks & mixers,275ml,49,0.0,12.1,0.0,0.0,,0.1,12.1,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+fever-tree-sicilian-lemonade-275ml,Fever-Tree Sicilian lemonade 275ml,Drinks: Soft drinks & mixers,275ml,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+fever-tree-sparkling-english-elderflower-275ml,Fever-Tree sparkling English elderflower 275ml,Drinks: Soft drinks & mixers,275ml,49,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+frobishers-apple-and-mango-275ml,Frobishers Apple and Mango 275ml,Drinks: Soft drinks & mixers,275ml,91,0.8,22.6,0.0,0.0,,0.0,22.6,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+frobishers-apple-and-raspberry-275ml,Frobishers Apple and Raspberry 275ml,Drinks: Soft drinks & mixers,275ml,83,0.6,20.4,0.0,0.0,,0.0,20.4,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+frobishers-orange-and-passionfruit-275ml,Frobishers Orange and Passionfruit 275ml,Drinks: Soft drinks & mixers,275ml,99,1.4,24.5,0.0,0.0,,0.0,24.5,,,,,,,,,false,false,,,Source: Drinks > Fruit juices & soft drinks
+elderflower-tonic,Elderflower tonic,Drinks: Soft drinks & mixers,200ml,36,0.0,8.8,0.0,0.0,,0.0,8.8,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+ginger-ale,Ginger ale,Drinks: Soft drinks & mixers,200ml,36,0.0,8.8,0.0,0.0,,0.0,8.8,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+ginger-beer,Ginger beer,Drinks: Soft drinks & mixers,200ml,39,0.0,0.0,0.0,0.0,,0.0,8.0,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+indian-tonic,Indian tonic,Drinks: Soft drinks & mixers,200ml,30,0.0,7.6,0.0,0.0,,0.0,7.6,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+italian-blood-orange-soda,Italian blood orange soda,Drinks: Soft drinks & mixers,200ml,40,0.0,9.8,0.0,0.0,,0.0,9.8,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+mediterranean-tonic,Mediterranean tonic,Drinks: Soft drinks & mixers,200ml,34,0.0,8.4,0.0,0.0,,0.0,8.4,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+pink-grapefruit-soda,Pink grapefruit soda,Drinks: Soft drinks & mixers,200ml,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+rhubarb-and-raspberry-tonic,Rhubarb & raspberry tonic,Drinks: Soft drinks & mixers,200ml,0,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+white-grape-and-apricot-soda,White grape & apricot soda,Drinks: Soft drinks & mixers,200ml,37,0.0,9.0,0.0,0.0,,0.0,9.0,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+fever-tree-indian-tonic-water-200ml,Fever Tree Indian Tonic Water 200ml,Drinks: Soft drinks & mixers,200ml,60,0.0,14.8,0.0,0.0,,0.0,14.8,,,,,,,,,false,false,,,Source: Drinks > Fever-Tree Refreshingly Light Mixers 200ml
+finlandia,Finlandia,Drinks: Spirits & liqueurs,25ml,57,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Vodkas - 25ml; energy includes alcohol
+ketel-one,Ketel One,Drinks: Spirits & liqueurs,25ml,58,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Vodkas - 25ml; energy includes alcohol
+chase,Chase,Drinks: Spirits & liqueurs,25ml,60,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Vodkas - 25ml; energy includes alcohol
+grey-goose,Grey Goose,Drinks: Spirits & liqueurs,25ml,58,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Vodkas - 25ml; energy includes alcohol
+bacardi-carta-blanca,Bacardi Carta Blanca,Drinks: Spirits & liqueurs,25ml,58,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Rums - 25ml > White; energy includes alcohol
+lyres-white-cane-non-alcoholic,Lyre's White Cane (non-alcoholic),Drinks: Spirits & liqueurs,25ml,6,0.1,1.2,0.1,0.0,,0.0,0.9,,,,,,,,,false,false,,,Source: Drinks > Spirits > Rums - 25ml > White
+goslings,Gosling's,Drinks: Spirits & liqueurs,25ml,58,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Rums - 25ml > Dark; energy includes alcohol
+lyres-dark-cane-non-alcoholic,Lyre's Dark Cane (non-alcoholic),Drinks: Spirits & liqueurs,25ml,8,0.1,1.6,0.1,0.0,,0.0,1.2,,,,,,,,,false,false,,,Source: Drinks > Spirits > Rums - 25ml > Dark
+bacardi-caribbean-spiced,Bacardi Caribbean Spiced,Drinks: Spirits & liqueurs,25ml,61,0.1,1.1,0.1,0.0,,0.0,1.1,,,,,,,,,false,false,,,Source: Drinks > Spirits > Rums - 25ml > Gold/Spiced; energy includes alcohol
+bacardi-8yr,Bacardi 8yr,Drinks: Spirits & liqueurs,25ml,60,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Rums - 25ml > Gold/Spiced; energy includes alcohol
+the-kraken,The Kraken,Drinks: Spirits & liqueurs,25ml,58,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Rums - 25ml > Gold/Spiced; energy includes alcohol
+ron-zacapa-23yr,Ron Zacapa 23yr,Drinks: Spirits & liqueurs,25ml,69,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Rums - 25ml > Aged; energy includes alcohol
+el-jimador-blanco,El Jimador Blanco,Drinks: Spirits & liqueurs,25ml,58,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Tequilas - 25ml; energy includes alcohol
+el-jimador-reposado,El Jimador Reposado,Drinks: Spirits & liqueurs,25ml,55,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Tequilas - 25ml; energy includes alcohol
+patron-anejo,Patron Anejo,Drinks: Spirits & liqueurs,25ml,58,0.1,0.4,0.1,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Tequilas - 25ml; energy includes alcohol
+lyres-agave-blanco-non-alcoholic,Lyre's Agave Blanco (non-alcoholic),Drinks: Spirits & liqueurs,25ml,5,0.1,1.0,0.1,0.0,,0.0,0.7,,,,,,,,,false,false,,,Source: Drinks > Spirits > Tequilas - 25ml
+johnnie-walker-black-label,Johnnie Walker Black Label,Drinks: Spirits & liqueurs,25ml,56,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch; energy includes alcohol
+bulleit,Bulleit,Drinks: Spirits & liqueurs,25ml,56,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > American; energy includes alcohol
+jack-daniels,Jack Daniel's,Drinks: Spirits & liqueurs,25ml,55,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > American; energy includes alcohol
+woodford-reserve,Woodford Reserve,Drinks: Spirits & liqueurs,25ml,59,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > American; energy includes alcohol
+lyres-american-malt-non-alcoholic,Lyre's American Malt (non-alcoholic),Drinks: Spirits & liqueurs,25ml,3,0.0,0.6,0.0,0.0,,0.0,0.1,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > American
+jameson,Jameson,Drinks: Spirits & liqueurs,25ml,55,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Irish; energy includes alcohol
+hatozaki,Hatozaki,Drinks: Spirits & liqueurs,25ml,83,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Japanese; energy includes alcohol
+monkey-shoulder,Monkey Shoulder,Drinks: Spirits & liqueurs,25ml,70,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Blended Malt; energy includes alcohol
+glenmorangie-12-yr,Glenmorangie 12 yr,Drinks: Spirits & liqueurs,25ml,55,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Highland Malt; energy includes alcohol
+talisker-10yr,Talisker 10yr,Drinks: Spirits & liqueurs,25ml,56,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Highland Malt; energy includes alcohol
+glenfiddich-15-year-dram,Glenfiddich 15 year dram,Drinks: Spirits & liqueurs,25ml,56,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Speyside Malt; energy includes alcohol
+glenlivet-12yr,Glenlivet 12yr,Drinks: Spirits & liqueurs,25ml,55,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Speyside Malt; energy includes alcohol
+auchentoshan,Auchentoshan,Drinks: Spirits & liqueurs,25ml,60,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Lowland Malt; energy includes alcohol
+laphroaig-10-yr,Laphroaig 10 yr,Drinks: Spirits & liqueurs,25ml,55,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Blended Scotch > Islay Malt; energy includes alcohol
+st-remy-xo,St-Remy XO,Drinks: Spirits & liqueurs,25ml,55,0.5,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Brandies - 25ml > Brandy; energy includes alcohol
+remy-martin-vsop,Remy Martin VSOP,Drinks: Spirits & liqueurs,25ml,55,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Brandies - 25ml > Cognac; energy includes alcohol
+martell-xo,Martell XO,Drinks: Spirits & liqueurs,25ml,57,0.0,0.3,0.0,0.0,,0.0,0.3,,,,,,,,,false,false,,,Source: Drinks > Spirits > Brandies - 25ml > Cognac; energy includes alcohol
+chateau-du-breuil,Chateau du Breuil,Drinks: Spirits & liqueurs,25ml,63,0.0,0.5,0.0,0.0,,0.0,0.4,,,,,,,,,false,false,,,Source: Drinks > Spirits > Brandies - 25ml > Calvados; energy includes alcohol
+janneau-vsop,Janneau VSOP,Drinks: Spirits & liqueurs,25ml,70,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Brandies - 25ml > Armagnac; energy includes alcohol
+cockburns-ruby,Cockburn's Ruby,Drinks: Spirits & liqueurs,50ml,78,0.1,6.9,0.0,0.0,,0.0,3.9,,,,,,,,,false,false,,,Source: Drinks > Spirits > Ports - 50ml; energy includes alcohol
+dows-tawny,Dow's Tawny,Drinks: Spirits & liqueurs,50ml,83,0.1,7.0,0.0,0.0,,0.0,4.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Ports - 50ml; energy includes alcohol
+grahams-lbv,Graham's LBV,Drinks: Spirits & liqueurs,50ml,79,0.0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Ports - 50ml; energy includes alcohol
+gonzalez-bypass-tio-pepe,Gonzalez Bypass Tio Pepe,Drinks: Spirits & liqueurs,,58,0.1,3.0,0.0,0.0,,0.0,3.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Sherries; energy includes alcohol
+harveys-bristol-cream,Harvey's Bristol Cream,Drinks: Spirits & liqueurs,,75,0.0,7.1,0.0,0.0,,0.0,6.9,,,,,,,,,false,false,,,Source: Drinks > Spirits > Sherries; energy includes alcohol
+baileys-50ml,Baileys (50ml),Drinks: Spirits & liqueurs,50ml,152,1.5,10.9,6.5,4.1,,0.1,10.9,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+campari,Campari,Drinks: Spirits & liqueurs,25ml,77,0.2,8.7,0.1,0.0,,0.0,8.7,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+chambord,Chambord,Drinks: Spirits & liqueurs,25ml,53,0.0,8.0,0.0,0.0,,0.0,8.0,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+cointreau,Cointreau,Drinks: Spirits & liqueurs,25ml,71,0.0,8.5,0.0,0.0,,0.0,7.1,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+disaronno-amaretto,Disaronno Amaretto,Drinks: Spirits & liqueurs,25ml,76,0.0,7.9,0.0,0.0,,0.0,7.9,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+luxardo-limoncello,Luxardo Limoncello,Drinks: Spirits & liqueurs,25ml,71,0.0,9.8,0.0,0.0,,0.0,9.8,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+pernod,Pernod,Drinks: Spirits & liqueurs,25ml,78,0.0,6.1,0.0,0.0,,0.0,6.1,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+regal-rogue-red-50ml,Regal Rogue Red (50ml),Drinks: Spirits & liqueurs,50ml,55,0.0,6.0,0.0,0.0,,0.0,0.5,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+regal-rogue-dry-50ml,Regal Rogue Dry (50ml),Drinks: Spirits & liqueurs,50ml,65,0.0,1.7,0.0,0.0,,0.0,0.2,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+tia-maria,Tia Maria,Drinks: Spirits & liqueurs,25ml,75,0.0,8.2,0.0,0.0,,0.0,8.2,,,,,,,,,false,false,,,Source: Drinks > Spirits > Liqueurs & vermouths - 25ml unless stated; energy includes alcohol
+amaretto-liqueur-coffee,Amaretto (liqueur coffee),Drinks: Liqueur coffees,,262,1.0,9.4,19.0,12.6,,0.1,9.4,,,,,,,,,false,false,,,Source: Drinks > Liqueur coffees; energy includes alcohol
+baileys-liqueur-coffee,Baileys (liqueur coffee),Drinks: Liqueur coffees,,338,2.5,12.4,25.5,16.7,,0.2,12.4,,,,,,,,,false,false,,,Source: Drinks > Liqueur coffees; energy includes alcohol
+cointreau-liqueur-coffee,Cointreau (liqueur coffee),Drinks: Liqueur coffees,,257,1.0,10.0,19.0,12.6,,0.1,8.6,,,,,,,,,false,false,,,Source: Drinks > Liqueur coffees; energy includes alcohol
+irish-liqueur-coffee,Irish (liqueur coffee),Drinks: Liqueur coffees,,271,1.0,9.4,19.0,12.6,,0.1,9.4,,,,,,,,,false,false,,,Source: Drinks > Liqueur coffees; energy includes alcohol
+brandy-liqueur-coffee,Brandy (liqueur coffee),Drinks: Liqueur coffees,,271,1.5,9.4,19.0,12.6,,0.1,9.4,,,,,,,,,false,false,,,Source: Drinks > Liqueur coffees; energy includes alcohol
+tia-maria-liqueur-coffee,Tia Maria (liqueur coffee),Drinks: Liqueur coffees,,261,1.0,9.7,19.0,12.6,,0.1,9.7,,,,,,,,,false,false,,,Source: Drinks > Liqueur coffees; energy includes alcohol
+floater-coffee-non-alcoholic,Floater Coffee (non-alcoholic),Drinks: Liqueur coffees,,216,1.0,9.4,19.0,12.6,,0.1,9.4,,,,,,,,,false,false,,,Source: Drinks > Liqueur coffees
