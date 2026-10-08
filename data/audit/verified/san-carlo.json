@@ -1,0 +1,13 @@
+{
+ "chain": "san-carlo",
+ "date": "2026-10-08",
+ "source_read": "https://menus.tenkites.com/sancarlo/<unit> for all 11 units (10 Web Menu pages + the Bristol Allergen Page), every food menu downloaded fresh 2026-10-08 (linked from https://sancarlo.co.uk/menus/)",
+ "compared_items": 347,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 4,
+ "marked_ok": 57,
+ "not_verifiable": "",
+ "notes": "A fresh run of the script on the fresh pages reproduced data/source exactly; an independent regex read of all 11 units matched all 347 items on 7 printed values and on Contains/May contain (incl. cereal and tree-nut kinds; the 67 Bristol-only condiments/toppings against the Allergen Page's own columns). Held back 4: Filetto alla Griglia and Spaghetti Pomodoro e Basilico (kcal 30-32% off their own macros; threshold lowered from 35% to 30%), Monkfish in Salsa Verde (no fish marked) and Cookie Sauce (no gluten marked). The page's own kcal disagrees with its macros by 15-30% for about 47 dishes: printed as is, flagged by check_chain."
+}

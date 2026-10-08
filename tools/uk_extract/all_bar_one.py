@@ -39,10 +39,11 @@ NOTE = ("Cocktails, wines and beers have no nutrition table in the guide, so the
 
 # Accuracy audit 2026-10-08. The guide prints kJ and kcal for every dish, and for 41 of the 149 dishes they disagree (27 by more than
 # 15%: in almost every case the kcal agrees with the printed protein, carbohydrate and fat and the kJ is the odd one out, e.g. Latte
-# 645 kJ / 110 kcal, Onion Rings 1569 kJ / 580 kcal). We publish no kJ, but the guide contradicts itself, so these dishes are held back
-# (never corrected, never chosen between). Same bands as tools/audit/accuracy_audit.py "high": kJ outside 0.85-1.15 x (kcal x 4.184)
-# from 20 kcal, and kcal more than 30% away from 4P+4C+9F for food (mb_guide's own check only stops at 40%). Restoring them is deleting
-# this wrapper. The wrapper replaces mb_guide's check for this chain's run only (the module is shared with the other M&B chains).
+# 645 kJ / 110 kcal, Onion Rings 1569 kJ / 580 kcal). We publish no kJ, so a kJ column that disagrees with the kcal does not touch any
+# number we show, and the kcal is corroborated by the dish's own protein, carbohydrate and fat: those dishes stay. What does hold a dish
+# back (never corrected, never chosen between) is the kcal itself disagreeing with its own macros by more than 30% for food (the audit's
+# "high" band; mb_guide's own check only stops at 40%). The wrapper replaces mb_guide's check for this chain's run only (the module is
+# shared with the other M&B chains).
 _impossible_mb = mb_guide._impossible
 
 
@@ -51,12 +52,10 @@ def _impossible_audited(n: dict, category: str = "") -> str:
     if why:
         return why
     try:
-        kj, kcal = float(n["kj"]), float(n["kcal"])
+        kcal = float(n["kcal"])
         prot, carb, fat = (float(str(n[k]).lstrip("<")) for k in ("protein", "carbs", "fat"))
     except (KeyError, ValueError):
         return ""
-    if kcal >= 20 and not 0.85 <= kj / (kcal * 4.184) <= 1.15:
-        return f"the guide prints {n['kcal']} kcal but {n['kj']} kJ (about {kj / 4.184:.0f} kcal)"
     macro = 4 * prot + 4 * carb + 9 * fat
     if category != "Drinks" and kcal >= 50 and abs(kcal - macro) / kcal > 0.30:
         return f"the guide prints {n['kcal']} kcal; its own protein, carbohydrate and fat add up to about {round(macro)} kcal"

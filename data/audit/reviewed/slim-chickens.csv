@@ -1,0 +1,7 @@
+item,code,verdict,evidence
+full-reload-bundle,huge-protein,ok,Page's own table prints Protein 178.4 g with 2210 kcal for a sharing bundle (name says Bundle); independent re-read of the data-recipe JSON matches all nine values.
+slims-crave-box,huge-protein,ok,Page's own table prints Protein 232.6 g with 2590 kcal for a sharing box (name says Box); independent re-read of the modal table matches all nine values.
+10-buffalo-wings-meal,salt-very-high,ok,"Page prints Salt 21 g for the meal (wings tossed in buffalo sauce, fries, sauce, drink); independent re-read matches; the chain's own figure."
+8-buffalo-wings-meal,salt-very-high,ok,Page prints Salt 16.8 g; independent re-read matches; the chain's own figure.
+6-buffalo-wings-meal,salt-very-high,ok,Page prints Salt 12.9 g; independent re-read matches; the chain's own figure.
+buffalo-tossed-boneless-bites,salt-very-high,ok,Page prints Salt 5 g for the buffalo-tossed bites; independent re-read of the modal table matches; the chain's own figure.
