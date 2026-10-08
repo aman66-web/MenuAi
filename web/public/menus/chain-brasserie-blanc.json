@@ -3222,56 +3222,6 @@
    }
   },
   {
-   "id": "tartine-a-lavocat",
-   "name": "Tartine a l’Avocat",
-   "category": "Breakfast: Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 380,
-    "protein": 20.2,
-    "carbs": 38,
-    "fat": 29.9,
-    "saturatedFat": 6.9,
-    "sugar": 1.8,
-    "salt": 2.3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "nuts",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard",
-     "sesame",
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
-    ]
-   }
-  },
-  {
    "id": "pain-perdu-a-la-cannelle",
    "name": "Pain Perdu à la Cannelle",
    "category": "Breakfast: Mains",

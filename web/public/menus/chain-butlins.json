@@ -627,38 +627,6 @@
    }
   },
   {
-   "id": "poppy-seed-bun",
-   "name": "Poppy Seed Bun",
-   "category": "Firehouse Grill: Build your own and add-ons",
-   "serving": "",
-   "nutrients": {
-    "calories": 361,
-    "protein": 2.7,
-    "carbs": 46.7,
-    "fat": 17.7,
-    "saturatedFat": 1.1,
-    "sugar": 6.6,
-    "fiber": 3.2,
-    "salt": 1.7,
-    "energyKj": 1512
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "mustard"
-    ],
-    "mayContain": [
-     "sesame"
-    ]
-   }
-  },
-  {
    "id": "add-chicken-breast",
    "name": "Add Chicken Breast",
    "category": "Firehouse Grill: Build your own and add-ons",
@@ -2053,44 +2021,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "vegan-warm-chocolate-brownie-firehouse-grill-the-diner",
-   "name": "Vegan Warm Chocolate Brownie (Firehouse Grill / The Diner)",
-   "category": "Firehouse Grill: Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 672,
-    "protein": 4.8,
-    "carbs": 88.8,
-    "fat": 32.2,
-    "saturatedFat": 25.1,
-    "sugar": 58.4,
-    "fiber": 3.9,
-    "salt": 0,
-    "energyKj": 2814
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "peanuts"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -5166,43 +5096,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "vegan-warm-chocolate-brownie-beachcomber-inn",
-   "name": "Vegan Warm Chocolate Brownie (Beachcomber Inn)",
-   "category": "Beachcomber Inn: Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 809,
-    "protein": 5.5,
-    "carbs": 108.3,
-    "fat": 38.4,
-    "saturatedFat": 30.7,
-    "sugar": 71.9,
-    "fiber": 3.9,
-    "salt": 0.2,
-    "energyKj": 3385
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -13551,44 +13444,6 @@
    }
   },
   {
-   "id": "vegan-brownie",
-   "name": "Vegan Brownie",
-   "category": "The Diner: Kids' desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 336,
-    "protein": 2.4,
-    "carbs": 44.4,
-    "fat": 16.1,
-    "saturatedFat": 12.5,
-    "sugar": 29.2,
-    "fiber": 2,
-    "salt": 0,
-    "energyKj": 1407
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "peanuts"
-    ],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
    "id": "mini-pancakes",
    "name": "Mini Pancakes",
    "category": "The Diner: Kids' desserts",
@@ -14664,34 +14519,6 @@
     "cereals": [
      "wheat"
     ]
-   }
-  },
-  {
-   "id": "mushy-peas",
-   "name": "Mushy Peas",
-   "category": "Fish & Chips: Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 125,
-    "protein": 8.3,
-    "carbs": 19.7,
-    "fat": 0.6,
-    "saturatedFat": 0.1,
-    "sugar": 1.8,
-    "fiber": 3.9,
-    "salt": 0.6,
-    "energyKj": 440
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
    }
   },
   {
@@ -17273,34 +17100,6 @@
     "fiber": 0,
     "salt": 0,
     "energyKj": 250
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cranberry-juice",
-   "name": "Cranberry Juice",
-   "category": "Drinks: Soft drinks (draught)",
-   "serving": "",
-   "nutrients": {
-    "calories": 60,
-    "protein": 1.3,
-    "carbs": 12.3,
-    "fat": 1.3,
-    "saturatedFat": 0.3,
-    "sugar": 12,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 203
    },
    "tags": [
     "vegetarian"

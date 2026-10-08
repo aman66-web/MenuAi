@@ -1,7 +1,7 @@
 chain,kind,severity,code,item,name,category,detail
-wimpy,allergen,high,vegan-contains-animal,plant-based-salad-basket,Plant-Based Salad Basket,Chicken & plant-based,"named vegan/plant-based but allergens say it contains ['eggs', 'milk']"
-wimpy,allergen,high,vegan-contains-animal,plant-based-wrap-excl-sauce,Plant-Based Wrap (excl. sauce),Chicken & plant-based,"named vegan/plant-based but allergens say it contains ['eggs', 'milk']"
-wimpy,allergen,medium,name-implies-milk,chocolate-brownie-excl-cream-or-ice-cream,Chocolate Brownie (excl. cream or ice cream),Desserts,"'cream' in the name but milk is not marked (contains: ['eggs', 'gluten', 'soya'])"
 wimpy,nutrition,low,fibre-gt-carbs,mushrooms,Mushrooms,Sides,fibre 1.7 g > carbohydrate 0.4 g
 wimpy,nutrition,low,zero-named-has-kcal,7up-zero-sugar-float,7UP Zero Sugar Float,Shakes & floats,named diet/zero/no sugar but 106 kcal
 wimpy,nutrition,low,zero-named-has-kcal,tango-orange-sugar-free-float,Tango Orange Sugar Free Float,Shakes & floats,named diet/zero/no sugar but 103 kcal
+wimpy,allergen,reviewed,name-implies-milk,chocolate-brownie-excl-cream-or-ice-cream,Chocolate Brownie (excl. cream or ice cream),Desserts,"'cream' in the name but milk is not marked (contains: ['eggs', 'gluten', 'soya'])"
+wimpy,allergen,reviewed,vegan-contains-animal,plant-based-salad-basket,Plant-Based Salad Basket,Chicken & plant-based,"named vegan/plant-based but allergens say it contains ['eggs', 'milk']"
+wimpy,allergen,reviewed,vegan-contains-animal,plant-based-wrap-excl-sauce,Plant-Based Wrap (excl. sauce),Chicken & plant-based,"named vegan/plant-based but allergens say it contains ['eggs', 'milk']"

@@ -1,10 +1,8 @@
 chain,kind,severity,code,item,name,category,detail
-burger-king,nutrition,high,salt-sodium,burger-buddies-big-king,Burger Buddies - Big King,Beef,salt 1.4 g vs sodium 416 mg (salt = 2.5 x sodium gives 1.04 g)
-burger-king,nutrition,high,salt-sodium,wellington-wagyu,Wellington Wagyu,Beef,salt 2 g vs sodium 589 mg (salt = 2.5 x sodium gives 1.47 g)
-burger-king,nutrition,medium,sodium-very-high,bacon-caesar-angus,Bacon Caesar Angus,Beef,sodium 2700 mg
-burger-king,nutrition,medium,sodium-very-high,bacon-caesar-crispy-chicken,Bacon Caesar Crispy Chicken,Chicken,sodium 3100 mg
-burger-king,nutrition,medium,sodium-very-high,burger-buddies-box-9,Burger Buddies - Box 9,Beef,sodium 3461 mg
-burger-king,nutrition,medium,sodium-very-high,chicken-royale-double-with-cheese-bacon,Chicken Royale Double with Cheese & Bacon,Chicken,sodium 2454 mg
-burger-king,nutrition,medium,sugar-implausible,chocolate-milkshake-22oz,Chocolate Milkshake 22oz,Sweets,sugar 124 g in one item
 burger-king,nutrition,low,fibre-gt-carbs,plant-based-whopper-patty,Plant-based Whopper Patty,Extras,fibre 6.6 g > carbohydrate 2.3 g
 burger-king,nutrition,low,sugar+fibre-gt-carbs,apple-slices,Apple Slices,Kids,sugars 9.9 + fibre 2.2 > carbohydrate 9.9 (starch would be negative)
+burger-king,nutrition,reviewed,sodium-very-high,bacon-caesar-angus,Bacon Caesar Angus,Beef,sodium 2700 mg
+burger-king,nutrition,reviewed,sodium-very-high,bacon-caesar-crispy-chicken,Bacon Caesar Crispy Chicken,Chicken,sodium 3100 mg
+burger-king,nutrition,reviewed,sodium-very-high,burger-buddies-box-9,Burger Buddies - Box 9,Beef,sodium 3461 mg
+burger-king,nutrition,reviewed,sodium-very-high,chicken-royale-double-with-cheese-bacon,Chicken Royale Double with Cheese & Bacon,Chicken,sodium 2454 mg
+burger-king,nutrition,reviewed,sugar-implausible,chocolate-milkshake-22oz,Chocolate Milkshake 22oz,Sweets,sugar 124 g in one item

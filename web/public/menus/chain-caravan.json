@@ -1,0 +1,4002 @@
+{
+ "schemaVersion": 1,
+ "id": "caravan",
+ "name": "Caravan",
+ "cuisine": "World food",
+ "builderType": "standard",
+ "aliases": [
+  "caravan",
+  "caravan restaurants",
+  "caravan coffee roasters",
+  "caravan restaurants & coffee roasters"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Caravan Nutritional + Allergen Info: the London (caravanlondon05), Manchester (caravanmanchester05) and Vardo (vardo04) menus on Ten Kites, all menu tabs (accessed 2026-10-08, no date shown)",
+  "url": "https://caravanandco.com/pages/nutrition",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed beside each dish; dishes with none (mostly alcohol) are not listed. The London, Manchester and Vardo menus differ, so a dish is listed only if its calories and allergens match on every menu that prints it (35 left out). Coffees exclude milk. The chain's 'Deep Fat Fryer' mark (a shared fryer) is not in the allergen list.",
+ "allergenGuide": {
+  "title": "Caravan Nutritional + Allergen Info (London, Manchester and Vardo menus on Ten Kites; accessed 2026-10-08, no date shown)",
+  "url": "https://caravanandco.com/pages/nutrition",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "For the table",
+  "Small plates",
+  "Grains and bowls",
+  "Sourdough pizza",
+  "Large plates",
+  "Sides",
+  "Pudding",
+  "Fruits and cereals",
+  "On toast",
+  "Brunch plates",
+  "Coffee",
+  "Not coffee",
+  "Juices and smoothies",
+  "Ferments and sodas",
+  "Cocktails 0.0%",
+  "Beer and cider 0.0%",
+  "Sparkling 0.0%",
+  "Mixers, cordials and syrups",
+  "Canapes",
+  "Canape bowls",
+  "Mains",
+  "Shared mains",
+  "Baked goods",
+  "Brunch buns"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "marcona-almonds-and-nocellera-del-belice-olives",
+   "name": "Marcona almonds and nocellera del belice olives",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 236
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "crispy-prawn-crackers-sesame-nori-salt",
+   "name": "Crispy prawn crackers, sesame nori salt",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "fish",
+     "molluscs"
+    ]
+   }
+  },
+  {
+   "id": "steamed-edamame-beans-sea-salt",
+   "name": "Steamed edamame beans, sea salt",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "padron-peppers-smoked-maldon-sea-salt",
+   "name": "Padron peppers, smoked maldon sea salt",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smacked-cucumber-sesame-chilli-oil-spring-onion-crispy-shallots",
+   "name": "Smacked cucumber, sesame chilli oil, spring onion, crispy shallots",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jalapeno-cornbread-chipotle-butter-coriander-lime",
+   "name": "Jalapeno cornbread, chipotle butter, coriander, lime",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 478
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "daily-oysters-yuzu-mignonette",
+   "name": "Daily oysters, yuzu mignonette",
+   "category": "For the table",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garam-masala-labneh-fenugreek-chilli-butter-spice-chickpeas-house-flatbread",
+   "name": "Garam masala labneh, fenugreek-chilli butter, spice chickpeas, house flatbread",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "burrata-garden-peas-chargrilled-courgettes-sherry-dressing",
+   "name": "Burrata, garden peas, chargrilled courgettes, sherry dressing",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 345
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "charred-hispi-cabbage-den-miso-macadamia-cheese-mint-basil-spring-onion",
+   "name": "Charred hispi cabbage, den miso, macadamia ‘cheese’, mint, basil, spring onion",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "walnut",
+     "cashew",
+     "pecan",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "cod-dumplings-sambal-soy-crispy-shallot-coriander-cress",
+   "name": "Cod dumplings, sambal, soy, crispy shallot, coriander cress",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "jamon-and-smoked-san-simon-croquettes-saffron-mayonnaise",
+   "name": "Jamon and smoked san simon croquettes, saffron mayonnaise",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 746
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "broken-lamb-meatballs-chermoula-aubergine-tahini-labneh-pickled-red-onion",
+   "name": "Broken lamb meatballs, chermoula, aubergine, tahini labneh, pickled red onion",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 442
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "king-scallop-chilli-and-citrus-butter-sichuan-salt",
+   "name": "King scallop, chilli & citrus butter, sichuan salt",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish"
+    ]
+   }
+  },
+  {
+   "id": "spiced-squid-sriracha-sauce-fried-garlic-coriander-lime",
+   "name": "Spiced squid, sriracha sauce, fried garlic, coriander, lime",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 424
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "char-grilled-masala-spiced-lamb-cutlets-ginger-jam-mint-relish-each",
+   "name": "Char-grilled masala spiced lamb cutlets, ginger jam, mint relish (each)",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "furikake-spiced-corn-ribs-soy-pickle-japanese-mayo-togarashi-covent-garden-only",
+   "name": "Furikake spiced corn ribs, soy pickle, japanese mayo, togarashi (Covent Garden Only)",
+   "category": "Small plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 393
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "seasoned-rice-avocado-miso-mayonnaise-mung-beans-pickled-ginger-sesame-furikake-with-hot-smoked-salmon",
+   "name": "Seasoned rice, avocado, miso mayonnaise, mung beans, pickled ginger, sesame furikake with hot-smoked salmon",
+   "category": "Grains and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs"
+    ]
+   }
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken",
+   "category": "Grains and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 141
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-halloumi",
+   "name": "Grilled halloumi",
+   "category": "Grains and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chorizo",
+   "name": "Chorizo",
+   "category": "Grains and bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 249
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tomato-mozzarella-basil-pizza",
+   "name": "Tomato, mozzarella, basil pizza",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1050
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "roasted-courgette-plant-based-stracciatella-rocket-mint-pizza",
+   "name": "Roasted courgette, plant-based stracciatella, rocket, mint pizza",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1147
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "anchovy-tomato-oregano-red-chilli-capers-mozzarella-parsley-pizza",
+   "name": "Anchovy, tomato, oregano, red chilli, capers, mozzarella, parsley pizza",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "spiced-lamb-zhoug-creme-fraiche-cumin-mozzarella-parmesan-pizza",
+   "name": "Spiced lamb, zhoug, crème fraiche, cumin, mozzarella, parmesan pizza",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1236
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "pepperoni-tomato-mozzarella-parmesan-parsley-pizza",
+   "name": "Pepperoni, tomato, mozzarella, parmesan, parsley pizza",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1257
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "speck-egg-confit-garlic-rosemary-oil-mozzarella-parmesan-pizza",
+   "name": "Speck, egg, confit garlic, rosemary oil, mozzarella, parmesan pizza",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1438
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mcr-spiced-lamb-zhoug-creme-fraiche-cumin-mozzarella-parmesan-pizza",
+   "name": "MCR - Spiced Lamb, Zhoug, Crème Fraiche, Cumin, Mozzarella, Parmesan PIZZA",
+   "category": "Sourdough pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1236
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "lamb-barnsley-chop-salsa-verde-crushed-new-potatoes-lemon-yoghurt",
+   "name": "Lamb barnsley chop. salsa verde, crushed new potatoes, lemon yoghurt",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1216
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "coconut-red-curry-daikon-carrot-squash-peanuts-coriander-and-rice-with-grilled-chicken",
+   "name": "Coconut red curry, daikon, carrot, squash, peanuts, coriander and rice - with grilled chicken",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "coconut-red-curry-daikon-carrot-squash-peanuts-spring-onion-coriander-and-rice-with-crisp-chilli-salt-tofu",
+   "name": "Coconut red curry, daikon, carrot, squash, peanuts, spring onion, coriander and rice - with crisp chilli-salt tofu",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1171
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "roasted-cod-sweet-potato-romaine-lettuce-miso-mayonnaise-pickled-ginger-herby-radish-salad-togarashi",
+   "name": "Roasted cod, sweet potato, romaine lettuce, miso mayonnaise, pickled ginger, herby radish salad, togarashi",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dingley-dell-pork-schnitzel-fried-egg-mustard-dill-cream-pickles-sage-fries-rosemary-salt",
+   "name": "Dingley dell pork schnitzel, fried egg, mustard dill cream, pickles, sage, fries, rosemary salt",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1202
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "coconut-red-curry-daikon-carrot-squash-peanuts-coriander-and-rice-with-crisp-chilli-salt-tofu",
+   "name": "Coconut red curry, daikon, carrot, squash, peanuts, coriander and rice - with crisp chilli-salt tofu",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "palourde-clam-linguine-chilli-shallot-lemon",
+   "name": "Palourde clam linguine, chilli, shallot, lemon",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 721
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "veal-schnitzel-fried-egg-worcestershire-brown-butter-sauce-french-fries-rosemary-salt",
+   "name": "Veal schnitzel, fried egg, worcestershire brown butter sauce, french fries, rosemary salt",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1179
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "crispy-sea-bass-yam-style-salad-green-mango-nam-phrik-peanuts-thai-herbs",
+   "name": "Crispy sea bass, yam style salad, green mango nam phrik, peanuts, thai herbs",
+   "category": "Large plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "fries-rosemary-salt",
+   "name": "Fries, rosemary salt",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "steamed-rice",
+   "name": "Steamed rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "charred-tenderstem-broccoli-chilli-lime",
+   "name": "Charred tenderstem broccoli, chilli, lime",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chopped-baby-gem-garden-herb-dressing",
+   "name": "Chopped baby gem, garden herb dressing",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "charred-tenderstem-broccoli-sweet-soy",
+   "name": "Charred tenderstem broccoli, sweet soy",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "thyme-roasted-field-mushrooms",
+   "name": "Thyme roasted field mushrooms",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "slow-roasted-tomatoes",
+   "name": "Slow roasted tomatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smashed-avocado-chilli-lemon",
+   "name": "Smashed avocado, chilli, lemon",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thick-cut-bacon",
+   "name": "Thick cut bacon",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-chorizo",
+   "name": "Grilled chorizo",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "french-fries-rosemary-salt",
+   "name": "French fries, rosemary salt",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 402
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-new-potatoes",
+   "name": "Roasted new potatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 314
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coconut-sorbet-1-scoop",
+   "name": "Coconut sorbet (1 scoop)",
+   "category": "Pudding",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "mango-sorbet-1-scoop",
+   "name": "Mango sorbet (1 scoop)",
+   "category": "Pudding",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-sorbet-1-scoop",
+   "name": "Raspberry sorbet (1 scoop)",
+   "category": "Pudding",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caravan-espresso-caramel-tiramisu",
+   "name": "Caravan espresso caramel tiramisu",
+   "category": "Pudding",
+   "serving": "",
+   "nutrients": {
+    "calories": 547
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "flourless-chocolate-cake-poached-summer-berries-vanilla-cream-cheese",
+   "name": "Flourless chocolate cake, poached summer berries, vanilla cream cheese",
+   "category": "Pudding",
+   "serving": "",
+   "nutrients": {
+    "calories": 618
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-cheesecake-creme-fraiche",
+   "name": "Chocolate cheesecake, creme fraiche",
+   "category": "Pudding",
+   "serving": "",
+   "nutrients": {
+    "calories": 434
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "white-chocolate-and-matcha-mousse-lime-jelly-miso-cream-sesame-brittle-edible-flowers-covent-garden-only",
+   "name": "White Chocolate and matcha mousse, lime jelly, miso cream, sesame brittle, edible flowers (Covent Garden Only)",
+   "category": "Pudding",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "steel-cut-oat-porridge-medjool-dates-black-sesame-tahini",
+   "name": "Steel cut oat porridge, medjool dates, black sesame, tahini",
+   "category": "Fruits and cereals",
+   "serving": "",
+   "nutrients": {
+    "calories": 463
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "rye",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bowl-of-fresh-fruit-berries-banana-pineapple-grapes-cardamom-syrup",
+   "name": "Bowl of fresh fruit: berries, banana, pineapple, grapes, cardamom syrup",
+   "category": "Fruits and cereals",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "greek-yoghurt",
+   "name": "Greek yoghurt",
+   "category": "Fruits and cereals",
+   "serving": "",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coconut-yoghurt",
+   "name": "Coconut yoghurt",
+   "category": "Fruits and cereals",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberries",
+   "name": "Strawberries",
+   "category": "Fruits and cereals",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smashed-avocado-on-sourdough-toast-lemon-spiced-crispy-chickpeas-chilli-sprouts-add-poached-egg",
+   "name": "Smashed avocado on sourdough toast, lemon, spiced crispy chickpeas, chilli, sprouts - add poached egg",
+   "category": "On toast",
+   "serving": "",
+   "nutrients": {
+    "calories": 566
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "wildfarmed-sourdough-toast-salted-butter-fruit-jam",
+   "name": "Wildfarmed sourdough toast, salted butter, fruit jam",
+   "category": "On toast",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sourdough-toast-salted-butter-fruit-jam",
+   "name": "Sourdough toast, salted butter, fruit jam",
+   "category": "On toast",
+   "serving": "",
+   "nutrients": {
+    "calories": 574
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fried-egg",
+   "name": "Fried egg",
+   "category": "On toast",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-pancakes-vanilla-cream-cheese-poached-strawberries-ginger-lime",
+   "name": "Vanilla pancakes, vanilla cream cheese, poached strawberries, ginger, lime",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 786
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-pancakes-crispy-bacon-butter-maple-syrup",
+   "name": "Vanilla pancakes, crispy bacon, butter, maple syrup",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 911
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "jalapeno-cornbread-fried-egg-spinach-curd-cheese-mojo-verde-chilli-butter",
+   "name": "Jalapeno cornbread, fried egg, spinach, curd cheese, mojo verde, chilli butter",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 840
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chorizo-and-potato-hash-spinach-poached-eggs-tomato-fresca-saffron-buttermilk-dressing",
+   "name": "Chorizo and potato hash, spinach, poached eggs, tomato fresca, saffron buttermilk dressing",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 838
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "korean-style-buttermilk-fried-chicken-kimchi-pancakes-gochujang-ketchup-fried-eggs",
+   "name": "Korean style buttermilk fried chicken, kimchi pancakes, gochujang ketchup, fried eggs",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 967
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "baked-eggs-spiced-tomato-pepper-and-chickpea-ragu-rose-harissa-greek-yoghurt-flatbread-parsley",
+   "name": "Baked eggs, spiced tomato, pepper and chickpea ragu rose harissa, greek yoghurt, flatbread, parsley",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "baked-eggs-spiced-tomato-pepper-and-chickpea-ragu-rose-harissa-greek-yoghurt-flatbread-parsley-add-merguez",
+   "name": "Baked eggs, spiced tomato, pepper and chickpea ragu rose harissa, greek yoghurt, flatbread, parsley - add merguez",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 892
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "poached-eggs-whipped-yoghurt-garlic-fenugreek-chilli-butter-gunpowder-parsley-house-flatbread",
+   "name": "Poached eggs, whipped yoghurt, garlic, fenugreek chilli butter, gunpowder, parsley, house flatbread",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "vege-fry-2-poached-eggs-slow-roast-tomatoes-roasted-mushrooms-grilled-halloumi-smashed-avocado-house-spiced-black-beans",
+   "name": "Vege fry: 2 poached eggs, slow roast tomatoes, roasted mushrooms, grilled halloumi, smashed avocado, house spiced black beans",
+   "category": "Brunch plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 916
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "house-filter-excluding-milk",
+   "name": "House filter (excluding milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "house-espresso-excluding-milk",
+   "name": "House espresso (excluding milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "single-origin-excluding-milk",
+   "name": "Single origin (excluding milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-excluding-milk",
+   "name": "Mocha (excluding milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "focus-flat-white-excluding-milk",
+   "name": "Focus flat white (excluding milk)",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "whole-milk-100ml",
+   "name": "Whole milk 100ml",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oat-milk-100ml",
+   "name": "Oat milk 100ml",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coconut-milk-100ml",
+   "name": "Coconut milk 100ml",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "soya-milk-100ml",
+   "name": "Soya milk 100ml",
+   "category": "Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "turmeric-citrus-tea",
+   "name": "Turmeric, citrus tea",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-mint-tea",
+   "name": "Fresh mint tea",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-excluding-milk",
+   "name": "Matcha latte (excluding milk)",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-iced-latte-excluding-milk",
+   "name": "Matcha iced latte (excluding milk)",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "golden-spiced-milk",
+   "name": "Golden spiced milk",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-excluding-milk",
+   "name": "Chai latte (excluding milk)",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dirty-chai-latte-excluding-milk",
+   "name": "Dirty chai latte (excluding milk)",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "islands-hot-chocolate-excluding-milk",
+   "name": "Island's hot chocolate (excluding milk)",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "islands-caramel-hot-chocolate-excluding-milk",
+   "name": "Island's caramel hot chocolate (excluding milk)",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "everystate-calm-cacao-excluding-milk",
+   "name": "Everystate calm cacao (excluding milk)",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 25
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea",
+   "name": "English breakfast tea",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jade-tips-tea",
+   "name": "Jade tips tea",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-tea",
+   "name": "Earl grey tea",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemongrass-tea",
+   "name": "Lemongrass tea",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peppermint-tea",
+   "name": "Peppermint tea",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rooibos-chai",
+   "name": "Rooibos chai",
+   "category": "Not coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "turmeric-citrus-black-pepper-shot",
+   "name": "Turmeric, citrus, black pepper shot",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "carrot-apple-turmeric-ginger-juice",
+   "name": "Carrot, apple, turmeric, ginger juice",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "beetroot-apple-ginger-juice",
+   "name": "Beetroot, apple, ginger juice",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cucumber-pear-spinach-ginger-juice",
+   "name": "Cucumber, pear, spinach, ginger juice",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange juice",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple juice",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pink-grapefruit-juice",
+   "name": "Pink grapefruit juice",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "juice-tomato",
+   "name": "Juice - tomato",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "juice-cranberry",
+   "name": "Juice - cranberry",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pineapple-juice",
+   "name": "Pineapple juice",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoothie-banana-peanut-butter-date-cocoa-almond-milk",
+   "name": "Smoothie - banana, peanut butter, date, cocoa, almond milk",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "smoothie-mixed-berry-banana-coconut-milk-agave",
+   "name": "Smoothie - mixed berry, banana, coconut milk, agave",
+   "category": "Juices and smoothies",
+   "serving": "",
+   "nutrients": {
+    "calories": 216
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "you-i-ginger-kombucha",
+   "name": "You + I ginger kombucha",
+   "category": "Ferments and sodas",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "agua-de-madre-pink-grapefruit-lime-water-kefir",
+   "name": "Agua de madre, pink grapefruit + lime water kefir",
+   "category": "Ferments and sodas",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "living-things-peach-and-blood-orange-prebiotic-soda",
+   "name": "Living things, peach and blood orange prebiotic soda",
+   "category": "Ferments and sodas",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerella-ginger-ale",
+   "name": "Gingerella, ginger ale",
+   "category": "Ferments and sodas",
+   "serving": "",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "house-lemonade",
+   "name": "House lemonade",
+   "category": "Ferments and sodas",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pentire-adrift-spicy-margarita",
+   "name": "Pentire adrift spicy margarita",
+   "category": "Cocktails 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rhubarb-cooler",
+   "name": "Rhubarb cooler",
+   "category": "Cocktails 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "botivo-spritz",
+   "name": "Botivo spritz",
+   "category": "Cocktails 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pina-nolada",
+   "name": "Pina nolada",
+   "category": "Cocktails 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crodino-perfect-serve",
+   "name": "Crodino perfect serve",
+   "category": "Cocktails 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "the-daily-espresso-martini",
+   "name": "The daily espresso martini",
+   "category": "Cocktails 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "lupin",
+     "nuts",
+     "peanuts"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "nagroni",
+   "name": "Nagroni",
+   "category": "Cocktails 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lucky-saint-lager-0-5",
+   "name": "Lucky saint lager, 0.5%",
+   "category": "Beer and cider 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "lucky-saint-hazy-ipa-0-5",
+   "name": "Lucky saint, hazy IPA, 0.5%",
+   "category": "Beer and cider 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "real-peony-blush-fermented-tea",
+   "name": "Real, peony blush, fermented tea",
+   "category": "Sparkling 0.0%",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lemonade-mixer",
+   "name": "Lemonade (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "soda-water-mixer",
+   "name": "Soda water (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-mixer",
+   "name": "Coca cola (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coca-cola-mixer",
+   "name": "Diet coca cola (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ginger-ale-mixer",
+   "name": "Ginger ale (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ginger-beer-mixer",
+   "name": "Ginger beer (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tonic-water-mixer",
+   "name": "Tonic water (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 35
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tomato-juice-mixer",
+   "name": "Tomato juice (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orange-juice-mixer",
+   "name": "Orange juice (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pink-grapefruit-juice-mixer",
+   "name": "Pink grapefruit juice (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cranberry-juice-mixer",
+   "name": "Cranberry juice (mixer)",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "elderflower-cordial-20ml",
+   "name": "Elderflower cordial 20ml",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lime-cordial-20ml",
+   "name": "Lime cordial 20ml",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 11
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sugar-syrup-5ml",
+   "name": "Sugar syrup 5ml",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "agave-syrup-5ml",
+   "name": "Agave syrup 5ml",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "blood-orange-syrup-5ml",
+   "name": "Blood orange syrup 5ml",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "butterscotch-syrup-5ml",
+   "name": "Butterscotch syrup 5ml",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cinnamon-syrup-5ml",
+   "name": "Cinnamon syrup 5ml",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rhubarb-syrup-5ml",
+   "name": "Rhubarb syrup 5ml",
+   "category": "Mixers, cordials and syrups",
+   "serving": "",
+   "nutrients": {
+    "calories": 16
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jalapeno-cornbread-chipotle-mayo-lime-coriander-cress",
+   "name": "Jalapeno cornbread, chipotle mayo, lime, coriander cress",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "flatbread-garam-masala-labneh-spiced-chickpeas-sour-onions-coriander-cress-gunpowder",
+   "name": "Flatbread, garam masala labneh, spiced chickpeas, sour onions, coriander cress, gunpowder",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fior-di-latte-tartlet-garden-peas-sherry-dressing",
+   "name": "Fior di latte tartlet, garden peas, sherry dressing",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 51
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "crisp-chilli-salt-tofu-ketjap-manis-shiso-cress",
+   "name": "Crisp chilli-salt tofu, ketjap manis, shiso cress",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "seared-king-scallops-sichaun-salt-citrus-mayo",
+   "name": "Seared king scallops, sichaun salt, citrus mayo",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "molluscs"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish"
+    ]
+   }
+  },
+  {
+   "id": "jamon-and-smoked-san-simon-croquette-saffron-mayo",
+   "name": "Jamon and smoked san simon croquette, saffron mayo",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "buttermilk-fried-chicken-gochujang-ketchup",
+   "name": "Buttermilk fried chicken, gochujang ketchup",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "anz-lamb-and-mint-kumara-tart",
+   "name": "ANZ - Lamb and Mint Kumara Tart",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-manchester-only",
+   "name": "Tiramisu (manchester only)",
+   "category": "Canapes",
+   "serving": "",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "burnt-stem-broccoli-spiced-black-bean-salsa-green-chutney-coconut-yoghurt",
+   "name": "Burnt stem broccoli, spiced black bean salsa, green chutney coconut yoghurt",
+   "category": "Canape bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "coconut-red-curry-daikon-carrot-squash-peanuts-spring-onion-coriander-and-rice-with-crisp-chill-salt-tofu",
+   "name": "Coconut red curry, daikon, carrot, squash, peanuts, spring onion, coriander and rice - with crisp chill-salt tofu",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1216
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "burnt-stem-broccoli-charred-sweet-potato-spiced-black-bean-salsa-green-chutney-coconut-yoghurt-feasting-size",
+   "name": "Burnt stem broccoli, charred sweet potato, spiced black bean salsa, green chutney, coconut yoghurt (Feasting size)",
+   "category": "Shared mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 891
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "flat-iron-half-chicken-lime-slaw-sichuan-salt-crispy-curry-leaves-feasting-size",
+   "name": "Flat-iron half chicken, lime slaw, sichuan salt, crispy curry leaves (Feasting size)",
+   "category": "Shared mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 3581
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain au chocolat",
+   "category": "Baked goods",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Baked goods",
+   "serving": "",
+   "nutrients": {
+    "calories": 371
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "brioche-bun-thick-cut-bacon-salted-butter",
+   "name": "Brioche bun, thick cut bacon, salted butter",
+   "category": "Brunch buns",
+   "serving": "",
+   "nutrients": {
+    "calories": 548
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

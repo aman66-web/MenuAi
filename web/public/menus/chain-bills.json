@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Bill's Allergen & Nutritional menus, all 12 menu tabs (Ten Kites pages linked from bills-website.co.uk/menus; accessed 2026-10-07, no date shown)",
+  "title": "Bill's Allergen & Nutritional menus, all 12 menu tabs (Ten Kites pages linked from bills-website.co.uk/menus; accessed 2026-10-08, no date shown)",
   "url": "https://menus.tenkites.com/bills/bills",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Bill's prints calories only, per portion, so protein, carbs and fat are not published. Menu items may vary per location. Alcoholic drinks (and one juice) print no calories and are not listed; Sunday roasts and the Kids pancake parlour are on selected sites only and are left out.",
  "allergenGuide": {
-  "title": "Bill's Allergen & Nutritional menus (Ten Kites): per-dish allergens and 'may contain' on the same pages (accessed 2026-10-07, no date shown)",
+  "title": "Bill's Allergen & Nutritional menus (Ten Kites): per-dish allergens and 'may contain' on the same pages (accessed 2026-10-08, no date shown)",
   "url": "https://menus.tenkites.com/bills/bills",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -6805,8 +6805,8 @@
    }
   },
   {
-   "id": "ice-creams-and-sorbets-salted-caramel-chocolate-strawberry-vanilla",
-   "name": "Ice Creams & Sorbets (Salted caramel, chocolate, strawberry, vanilla)",
+   "id": "gluten-free-ice-creams-and-sorbets-no-wafer",
+   "name": "Gluten Free Ice Creams & Sorbets (no wafer)",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
@@ -6829,8 +6829,8 @@
    }
   },
   {
-   "id": "ice-creams-and-sorbets-coconut-ice-cream-lemon-sorbet",
-   "name": "Ice Creams & Sorbets (Coconut ice cream, lemon sorbet)",
+   "id": "vegan-and-gluten-free-ice-creams-and-sorbets-no-wafer",
+   "name": "Vegan & Gluten Free Ice Creams & Sorbets (no wafer)",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
@@ -8116,26 +8116,6 @@
   {
    "id": "honeycomb-syrup",
    "name": "Honeycomb Syrup",
-   "category": "Tea & coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 107
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "hazelnut-syrup",
-   "name": "Hazelnut Syrup",
    "category": "Tea & coffee",
    "serving": "",
    "nutrients": {

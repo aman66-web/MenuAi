@@ -306,38 +306,6 @@
    }
   },
   {
-   "id": "crispy-tofu-vg",
-   "name": "Crispy Tofu (VG)",
-   "category": "Small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 387,
-    "protein": 17.3,
-    "carbs": 25.1,
-    "fat": 20.3,
-    "saturatedFat": 4.6,
-    "sugar": 14.5,
-    "salt": 2,
-    "energyKj": 1489
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard"
-    ]
-   }
-  },
-  {
    "id": "iberico-ham-croquettes",
    "name": "Ibérico Ham Croquettes",
    "category": "Small plates",
@@ -2060,39 +2028,6 @@
    }
   },
   {
-   "id": "fish-and-chips-excluding-your-pea-option-see-below",
-   "name": "Fish & Chips (Excluding Your Pea Option, see below)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1404,
-    "protein": 47,
-    "carbs": 102.7,
-    "fat": 87.4,
-    "saturatedFat": 22.4,
-    "sugar": 2.6,
-    "salt": 5.2,
-    "energyKj": 5866
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish",
-     "mustard"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "sesame",
-     "sulphites"
-    ]
-   }
-  },
-  {
    "id": "scampi-and-chips-excluding-your-pea-option-see-below",
    "name": "Scampi & Chips (Excluding Your Pea Option, see below)",
    "category": "Mains",
@@ -2446,38 +2381,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "fish-goujons-excluding-accompaniment-option-see-below",
-   "name": "Fish Goujons (Excluding Accompaniment Option, see below)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 240,
-    "protein": 12,
-    "carbs": 13.5,
-    "fat": 15.1,
-    "saturatedFat": 4.5,
-    "sugar": 2.1,
-    "salt": 0.9,
-    "energyKj": 999
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "sesame",
-     "sulphites"
     ]
    }
   },
@@ -3986,39 +3889,6 @@
    }
   },
   {
-   "id": "fish-goujon-excluding-base-option-see-below",
-   "name": "Fish Goujon (Excluding Base Option, see below)",
-   "category": "Lunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 824,
-    "protein": 17.3,
-    "carbs": 73.4,
-    "fat": 49.8,
-    "saturatedFat": 10.9,
-    "sugar": 2.8,
-    "salt": 3.2,
-    "energyKj": 3449
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish",
-     "mustard"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "sesame",
-     "sulphites"
-    ]
-   }
-  },
-  {
    "id": "avocado-and-poached-egg-bagel-v",
    "name": "Avocado & Poached Egg Bagel (V)",
    "category": "Light bites",
@@ -4527,31 +4397,6 @@
    }
   },
   {
-   "id": "crodino-spritz",
-   "name": "Crodino Spritz",
-   "category": "Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 41,
-    "protein": 0.2,
-    "carbs": 9.7,
-    "fat": 0.1,
-    "saturatedFat": 0,
-    "sugar": 9.7,
-    "salt": 0,
-    "energyKj": 1330
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
    "id": "zombie-zero",
    "name": "Zombie Zero",
    "category": "Drinks",
@@ -4801,31 +4646,6 @@
     "contains": [
      "sulphites"
     ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "crodino-spritz-175ml",
-   "name": "Crodino Spritz - 175ml",
-   "category": "Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 30,
-    "protein": 0,
-    "carbs": 7.7,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 7.7,
-    "salt": 0,
-    "energyKj": 1285
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
     "mayContain": []
    }
   },

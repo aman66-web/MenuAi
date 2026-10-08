@@ -1,10 +1,7 @@
 chain,kind,severity,code,item,name,category,detail
-giraffe,allergen,high,vegan-contains-animal,kids-vegan-breakfast-with-fried-egg,Kids Vegan Breakfast with Fried Egg,Kids breakfast,named vegan/plant-based but allergens say it contains ['eggs']
-giraffe,allergen,high,vegan-contains-animal,kids-vegan-breakfast-with-scrambled-egg,Kids Vegan Breakfast with Scrambled Egg,Kids breakfast,"named vegan/plant-based but allergens say it contains ['eggs', 'milk']"
-giraffe,allergen,high,vegan-contains-animal,vegan-classic-cheeseburger,Vegan Classic Cheeseburger,Burgers,named vegan/plant-based but allergens say it contains ['milk']
-giraffe,allergen,high,vegan-contains-animal,vegan-giraffe-burger,Vegan Giraffe Burger,Burgers,named vegan/plant-based but allergens say it contains ['eggs']
-giraffe,allergen,medium,name-implies-fish,moroccan-caesar-salad-gluten-free-menu,Moroccan Caesar Salad (gluten free menu),Gluten free menu,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk', 'mustard'])"
-giraffe,allergen,medium,name-implies-fish,moroccan-caesar-salad-mains,Moroccan Caesar Salad (mains),Mains,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk', 'mustard', 'sesame', 'soya'])"
-giraffe,allergen,medium,name-implies-gluten,brownie,Brownie,Kids desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-giraffe,allergen,medium,name-implies-gluten,warm-chocolate-brownie-desserts,Warm Chocolate Brownie (desserts),Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-giraffe,allergen,medium,name-implies-nuts,hazelnut-espresso-martini,Hazelnut Espresso Martini,Cocktails,'Hazelnut' in the name but nuts is not marked (contains: none)
+giraffe,allergen,reviewed,name-implies-gluten,brownie,Brownie,Kids desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+giraffe,allergen,reviewed,name-implies-gluten,warm-chocolate-brownie-desserts,Warm Chocolate Brownie (desserts),Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+giraffe,allergen,reviewed,vegan-contains-animal,kids-vegan-breakfast-with-fried-egg,Kids Vegan Breakfast with Fried Egg,Kids breakfast,named vegan/plant-based but allergens say it contains ['eggs']
+giraffe,allergen,reviewed,vegan-contains-animal,kids-vegan-breakfast-with-scrambled-egg,Kids Vegan Breakfast with Scrambled Egg,Kids breakfast,"named vegan/plant-based but allergens say it contains ['eggs', 'milk']"
+giraffe,allergen,reviewed,vegan-contains-animal,vegan-classic-cheeseburger,Vegan Classic Cheeseburger,Burgers,named vegan/plant-based but allergens say it contains ['milk']
+giraffe,allergen,reviewed,vegan-contains-animal,vegan-giraffe-burger,Vegan Giraffe Burger,Burgers,named vegan/plant-based but allergens say it contains ['eggs']

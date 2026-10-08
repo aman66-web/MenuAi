@@ -1,25 +1,24 @@
 chain,kind,severity,code,item,name,category,detail
-giggling-squid,nutrition,high,sat-gt-fat,feeling-fruity-cooler-mixed-berry,Feeling Fruity Cooler - Mixed Berry,Drinks,saturates 26 g > fat 0.1 g
-giggling-squid,nutrition,medium,huge-protein,sea-bass-samun-prai,Sea Bass Samun Prai,Seafood specials,129 g protein
-giggling-squid,nutrition,medium,huge-protein,whole-sea-bass-green-curry,Whole Sea Bass Green Curry,Seafood specials,124 g protein
-giggling-squid,allergen,medium,name-implies-gluten,chicken-and-prawn-glass-noodles,Chicken & Prawn Glass Noodles,Noodles,"'Noodle' in the name but gluten is not marked (contains: ['crustaceans', 'fish', 'peanuts'])"
-giggling-squid,allergen,medium,name-implies-gluten,drunken-noodles-chicken,Drunken Noodles - Chicken,Noodles,'Noodle' in the name but gluten is not marked (contains: ['soya'])
-giggling-squid,allergen,medium,name-implies-gluten,drunken-noodles-chicken-and-prawns,Drunken Noodles - Chicken & Prawns,Noodles,"'Noodle' in the name but gluten is not marked (contains: ['crustaceans', 'soya'])"
-giggling-squid,allergen,medium,name-implies-gluten,drunken-noodles-prawn,Drunken Noodles - Prawn,Noodles,"'Noodle' in the name but gluten is not marked (contains: ['crustaceans', 'soya'])"
-giggling-squid,allergen,medium,name-implies-gluten,drunken-noodles-vegetable,Drunken Noodles - Vegetable,Noodles,'Noodle' in the name but gluten is not marked (contains: ['soya'])
-giggling-squid,allergen,medium,name-implies-gluten,garlic-steamed-noodles,Garlic Steamed Noodles,Noodles,'Noodle' in the name but gluten is not marked (contains: ['soya'])
-giggling-squid,allergen,medium,name-implies-gluten,jasmine-and-toasted-rice-ice-cream,Jasmine & Toasted Rice Ice Cream,Desserts,'Toast' in the name but gluten is not marked (contains: ['milk'])
-giggling-squid,allergen,medium,name-implies-molluscs,chicken-satay-big-squids-menu,Chicken Satay (Big Squids menu),Big Squids sides,'Squid' in the name but molluscs is not marked (contains: ['peanuts'])
-giggling-squid,allergen,medium,name-implies-molluscs,cookies-and-cream-ice-cream-kids-menu-big-squids-menu,Cookies & Cream Ice Cream (kids menu / Big Squids menu),Desserts,"'Squid' in the name but molluscs is not marked (contains: ['gluten', 'milk', 'soya'])"
-giggling-squid,allergen,medium,name-implies-molluscs,thai-green-curry-vegetable-big-squids-menu,Thai Green Curry - Vegetable (Big Squids menu),Big Squids mains,'Squid' in the name but molluscs is not marked (contains: ['soya'])
-giggling-squid,allergen,medium,name-implies-molluscs,thai-red-curry-chicken-big-squids-menu,Thai Red Curry - Chicken (Big Squids menu),Big Squids mains,'Squid' in the name but molluscs is not marked (contains: none)
-giggling-squid,allergen,medium,name-implies-molluscs,thai-red-curry-vegetable-big-squids-menu,Thai Red Curry - Vegetable (Big Squids menu),Big Squids mains,"'Squid' in the name but molluscs is not marked (contains: ['mustard', 'soya'])"
-giggling-squid,allergen,medium,name-implies-molluscs,thai-salted-caramel-ice-cream-kids-menu-big-squids-menu,Thai Salted Caramel Ice Cream (kids menu / Big Squids menu),Desserts,"'Squid' in the name but molluscs is not marked (contains: ['gluten', 'milk', 'soya'])"
-giggling-squid,nutrition,medium,salt-very-high,chilli-and-basil-gra-pao-chicken,Chilli & Basil Gra Pao - Chicken,Stir fries,salt 5.4 g with 300 kcal (6 g is the whole day's limit)
-giggling-squid,nutrition,medium,salt-very-high,chilli-and-basil-gra-pao-prawn,Chilli & Basil Gra Pao - Prawn,Stir fries,salt 5.7 g with 295 kcal (6 g is the whole day's limit)
-giggling-squid,nutrition,medium,salt-very-high,chilli-and-basil-gra-pao-slow-cooked-beef,Chilli & Basil Gra Pao - Slow-cooked Beef,Stir fries,salt 5.8 g with 352 kcal (6 g is the whole day's limit)
-giggling-squid,nutrition,medium,salt-very-high,chilli-and-basil-gra-pao-vegetable,Chilli & Basil Gra Pao - Vegetable,Stir fries,salt 5 g with 246 kcal (6 g is the whole day's limit)
-giggling-squid,nutrition,medium,salt-very-high,chilli-lime-sea-bass,Chilli Lime Sea Bass,Seafood specials,salt 10.4 g with 412 kcal (6 g is the whole day's limit)
-giggling-squid,nutrition,medium,salt-very-high,morning-glory,Morning Glory,Stir fries,salt 5.3 g with 219 kcal (6 g is the whole day's limit)
-giggling-squid,nutrition,medium,salt-very-high,steamed-seafood-feast,Steamed Seafood Feast,Seafood specials,salt 10.9 g with 651 kcal (6 g is the whole day's limit)
 giggling-squid,nutrition,low,zero-named-has-kcal,cobra-zero-330ml,Cobra Zero (330ml),Drinks,named diet/zero/no sugar but 79 kcal
+giggling-squid,nutrition,reviewed,huge-protein,sea-bass-samun-prai,Sea Bass Samun Prai,Seafood specials,129 g protein
+giggling-squid,nutrition,reviewed,huge-protein,whole-sea-bass-green-curry,Whole Sea Bass Green Curry,Seafood specials,124 g protein
+giggling-squid,allergen,reviewed,name-implies-gluten,chicken-and-prawn-glass-noodles,Chicken & Prawn Glass Noodles,Noodles,"'Noodle' in the name but gluten is not marked (contains: ['crustaceans', 'fish', 'peanuts'])"
+giggling-squid,allergen,reviewed,name-implies-gluten,drunken-noodles-chicken,Drunken Noodles - Chicken,Noodles,'Noodle' in the name but gluten is not marked (contains: ['soya'])
+giggling-squid,allergen,reviewed,name-implies-gluten,drunken-noodles-chicken-and-prawns,Drunken Noodles - Chicken & Prawns,Noodles,"'Noodle' in the name but gluten is not marked (contains: ['crustaceans', 'soya'])"
+giggling-squid,allergen,reviewed,name-implies-gluten,drunken-noodles-prawn,Drunken Noodles - Prawn,Noodles,"'Noodle' in the name but gluten is not marked (contains: ['crustaceans', 'soya'])"
+giggling-squid,allergen,reviewed,name-implies-gluten,drunken-noodles-vegetable,Drunken Noodles - Vegetable,Noodles,'Noodle' in the name but gluten is not marked (contains: ['soya'])
+giggling-squid,allergen,reviewed,name-implies-gluten,garlic-steamed-noodles,Garlic Steamed Noodles,Noodles,'Noodle' in the name but gluten is not marked (contains: ['soya'])
+giggling-squid,allergen,reviewed,name-implies-gluten,jasmine-and-toasted-rice-ice-cream,Jasmine & Toasted Rice Ice Cream,Desserts,'Toast' in the name but gluten is not marked (contains: ['milk'])
+giggling-squid,allergen,reviewed,name-implies-molluscs,chicken-satay-big-squids-menu,Chicken Satay (Big Squids menu),Big Squids sides,'Squid' in the name but molluscs is not marked (contains: ['peanuts'])
+giggling-squid,allergen,reviewed,name-implies-molluscs,cookies-and-cream-ice-cream-kids-menu-big-squids-menu,Cookies & Cream Ice Cream (kids menu / Big Squids menu),Desserts,"'Squid' in the name but molluscs is not marked (contains: ['gluten', 'milk', 'soya'])"
+giggling-squid,allergen,reviewed,name-implies-molluscs,thai-green-curry-vegetable-big-squids-menu,Thai Green Curry - Vegetable (Big Squids menu),Big Squids mains,'Squid' in the name but molluscs is not marked (contains: ['soya'])
+giggling-squid,allergen,reviewed,name-implies-molluscs,thai-red-curry-chicken-big-squids-menu,Thai Red Curry - Chicken (Big Squids menu),Big Squids mains,'Squid' in the name but molluscs is not marked (contains: none)
+giggling-squid,allergen,reviewed,name-implies-molluscs,thai-red-curry-vegetable-big-squids-menu,Thai Red Curry - Vegetable (Big Squids menu),Big Squids mains,"'Squid' in the name but molluscs is not marked (contains: ['mustard', 'soya'])"
+giggling-squid,allergen,reviewed,name-implies-molluscs,thai-salted-caramel-ice-cream-kids-menu-big-squids-menu,Thai Salted Caramel Ice Cream (kids menu / Big Squids menu),Desserts,"'Squid' in the name but molluscs is not marked (contains: ['gluten', 'milk', 'soya'])"
+giggling-squid,nutrition,reviewed,salt-very-high,chilli-and-basil-gra-pao-chicken,Chilli & Basil Gra Pao - Chicken,Stir fries,salt 5.4 g with 300 kcal (6 g is the whole day's limit)
+giggling-squid,nutrition,reviewed,salt-very-high,chilli-and-basil-gra-pao-prawn,Chilli & Basil Gra Pao - Prawn,Stir fries,salt 5.7 g with 295 kcal (6 g is the whole day's limit)
+giggling-squid,nutrition,reviewed,salt-very-high,chilli-and-basil-gra-pao-slow-cooked-beef,Chilli & Basil Gra Pao - Slow-cooked Beef,Stir fries,salt 5.8 g with 352 kcal (6 g is the whole day's limit)
+giggling-squid,nutrition,reviewed,salt-very-high,chilli-and-basil-gra-pao-vegetable,Chilli & Basil Gra Pao - Vegetable,Stir fries,salt 5 g with 246 kcal (6 g is the whole day's limit)
+giggling-squid,nutrition,reviewed,salt-very-high,chilli-lime-sea-bass,Chilli Lime Sea Bass,Seafood specials,salt 10.4 g with 412 kcal (6 g is the whole day's limit)
+giggling-squid,nutrition,reviewed,salt-very-high,morning-glory,Morning Glory,Stir fries,salt 5.3 g with 219 kcal (6 g is the whole day's limit)
+giggling-squid,nutrition,reviewed,salt-very-high,steamed-seafood-feast,Steamed Seafood Feast,Seafood specials,salt 10.9 g with 651 kcal (6 g is the whole day's limit)

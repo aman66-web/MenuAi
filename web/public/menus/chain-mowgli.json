@@ -45,7 +45,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/c1aa0c73fd70.webp"
   },
   {
    "id": "rainbow-frankie-wrap",
@@ -61,7 +62,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/6e720dc41598.webp"
   },
   {
    "id": "mowgli-chicken-salad",
@@ -75,7 +77,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/0fcba8f75b97.webp"
   },
   {
    "id": "mowgli-tenderstem-salad",
@@ -91,7 +94,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/a724ef3206b1.webp"
   },
   {
    "id": "yoghurt-chat-bombs",
@@ -107,7 +111,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/56351f7280f7.webp"
   },
   {
    "id": "onion-bhajis",
@@ -123,7 +128,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/82fbcd0b4017.webp"
   },
   {
    "id": "himalayan-cheese-toast",
@@ -139,7 +145,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/3e73b9623c10.webp"
   },
   {
    "id": "fenugreek-kissed-fries",
@@ -155,7 +162,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/2075ec663e84.webp"
   },
   {
    "id": "treacle-tamarind-fries",
@@ -171,7 +179,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/c859584aa24e.webp"
   },
   {
    "id": "mowgli-chip-butty",
@@ -187,7 +196,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/02e639434033.webp"
   },
   {
    "id": "diwali-cauliflower",
@@ -203,7 +213,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/7b840a5bd34c.webp"
   },
   {
    "id": "mowgli-crispy-wings",
@@ -217,7 +228,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/1631ded05544.webp"
   },
   {
    "id": "monkey-tandoor-roti",
@@ -231,7 +243,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/722b43b6fa1d.webp"
   },
   {
    "id": "angry-bird",
@@ -245,7 +258,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/223775247bcd.webp"
   },
   {
    "id": "gunpowder-chicken",
@@ -259,7 +273,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/54098a7c83d7.webp"
   },
   {
    "id": "sticky-chicken",
@@ -273,7 +288,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/abd66cf83c8a.webp"
   },
   {
    "id": "maas-lamb-chops",
@@ -287,7 +303,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/1fa8e2f36fca.webp"
   },
   {
    "id": "mother-butter-chicken",
@@ -301,7 +318,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/7865bd2ee229.webp"
   },
   {
    "id": "house-chicken-curry",
@@ -315,7 +333,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/0d80ee6c9ac9.webp"
   },
   {
    "id": "house-lamb-curry",
@@ -329,7 +348,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/b51cfccb2a65.webp"
   },
   {
    "id": "mowgli-chicken-biryani",
@@ -343,7 +363,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/372cfa8fbe15.webp"
   },
   {
    "id": "goan-fish-curry",
@@ -357,7 +378,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/39a0feb4add3.webp"
   },
   {
    "id": "aunty-geetas-prawn-curry",
@@ -371,7 +393,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/9f3845db9309.webp"
   },
   {
    "id": "mowgli-paneer",
@@ -387,7 +410,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/d94a4881ac7d.webp"
   },
   {
    "id": "mowgli-black-dahl",
@@ -403,7 +427,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/8933fd3ce590.webp"
   },
   {
    "id": "temple-dahl",
@@ -419,7 +444,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/65486e7ed94f.webp"
   },
   {
    "id": "tea-steeped-chickpeas",
@@ -435,7 +461,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/18d5d776285d.webp"
   },
   {
    "id": "picnic-potato-curry",
@@ -451,7 +478,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/3c7e1015eb1b.webp"
   },
   {
    "id": "homestyle-cumin-rice",
@@ -467,7 +495,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/80555e01f0d1.webp"
   },
   {
    "id": "garlic-butter-paratha",
@@ -483,7 +512,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/41267cb6f35b.webp"
   },
   {
    "id": "puffed-puri-bread",
@@ -499,7 +529,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/8206a8caf3bd.webp"
   },
   {
    "id": "roti-breads",
@@ -515,7 +546,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/1d2ac39f9fda.webp"
   },
   {
    "id": "mini-poppadoms",
@@ -531,7 +563,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/5ec414ac72c7.webp"
   },
   {
    "id": "mowgli-slaw",
@@ -547,7 +580,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/14b5edc6d13f.webp"
   },
   {
    "id": "kids-gunpowder-chicken-and-fries",
@@ -561,7 +595,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/fef3646a1bb6.webp"
   },
   {
    "id": "kids-mother-butter-chicken-and-rice",
@@ -575,7 +610,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/4e1b3a4a388d.webp"
   },
   {
    "id": "kids-house-chicken-curry-and-rice",
@@ -589,7 +625,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/33c7f7b502f1.webp"
   },
   {
    "id": "kids-mowgli-paneer-and-rice",
@@ -621,7 +658,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/3e3bc2b43f37.webp"
   },
   {
    "id": "kids-mowgli-chocolate-brownie",
@@ -637,7 +675,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/bb85ba500567.webp"
   },
   {
    "id": "ice-cream-cone-vanilla",
@@ -653,7 +692,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/d986ab6bc9da.webp"
   },
   {
    "id": "ice-cream-cone-salted-caramel",
@@ -669,7 +709,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/97b31d7d5222.webp"
   },
   {
    "id": "ice-cream-cone-coconut",
@@ -685,7 +726,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/b81d9662d9e0.webp"
   },
   {
    "id": "ice-cream-cone-mango-sorbet",
@@ -701,7 +743,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/f43af203021f.webp"
   },
   {
    "id": "gulab-jamun",
@@ -717,7 +760,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/fc743468802e.webp"
   },
   {
    "id": "the-mowgli-chocolate-brownie",
@@ -733,7 +777,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "mowgli/bb85ba500567.webp"
   }
  ],
  "combinations": []

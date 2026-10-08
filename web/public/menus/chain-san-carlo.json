@@ -2881,37 +2881,6 @@
    }
   },
   {
-   "id": "spaghetti-pomodoro-e-basilico",
-   "name": "Spaghetti Pomodoro e Basilico",
-   "category": "Pasta e risotto",
-   "serving": "",
-   "nutrients": {
-    "calories": 820,
-    "protein": 21.4,
-    "carbs": 97.4,
-    "fat": 9.3,
-    "saturatedFat": 1.4,
-    "sugar": 16.8,
-    "salt": 0.7
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "spaghettini-aragosta",
    "name": "Spaghettini Aragosta",
    "category": "Pasta e risotto",
@@ -3730,36 +3699,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "filetto-alla-griglia",
-   "name": "Filetto alla Griglia",
-   "category": "Macelleria",
-   "serving": "",
-   "nutrients": {
-    "calories": 749,
-    "protein": 49.1,
-    "carbs": 3.8,
-    "fat": 85,
-    "saturatedFat": 26.7,
-    "sugar": 1.7,
-    "salt": 2.9
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
     "mayContain": []
    }
   },
@@ -6902,35 +6841,6 @@
    }
   },
   {
-   "id": "monkfish-in-salsa-verde",
-   "name": "Monkfish in Salsa Verde",
-   "category": "Seasonal specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 717,
-    "protein": 1.6,
-    "carbs": 3.5,
-    "fat": 78.1,
-    "saturatedFat": 20.5,
-    "sugar": 1.5,
-    "salt": 1.4
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "affogato-al-tiramisu",
    "name": "Affogato al Tiramisu",
    "category": "Seasonal specials",
@@ -9263,32 +9173,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cookie-sauce",
-   "name": "Cookie Sauce",
-   "category": "Children's menu: Gelati & toppings",
-   "serving": "",
-   "nutrients": {
-    "calories": 31,
-    "protein": 0.2,
-    "carbs": 6.6,
-    "fat": 0.4,
-    "saturatedFat": 0.3,
-    "sugar": 6,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
     "mayContain": []
    }
   },

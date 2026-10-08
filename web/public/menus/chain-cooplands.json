@@ -12,13 +12,13 @@
  "source": {
   "title": "Cooplands 2026 March Allergen and Nutrition Information (PDF created 19 March 2026)",
   "url": "https://cooplands-bakery.co.uk/wp-content/uploads/2026/03/Cooplands-Allergen-Nutrition-March-2026.pdf",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
- "note": "Per product from Cooplands' March 2026 guide, the latest on its website: its seasonal (Easter) lines may no longer be sold. Bread, rolls and a few multipack rows aren't listed, and five items whose printed numbers contradict each other are held back.",
+ "note": "Per product from Cooplands' March 2026 guide, the latest on its website: its seasonal (Easter) lines may no longer be sold. Bread, rolls and a few multipack rows aren't listed, and eight items whose printed numbers or allergens contradict themselves are held back.",
  "allergenGuide": {
   "title": "Cooplands 2026 March Allergen and Nutrition Information (PDF created 19 March 2026): Contains and May Contain columns",
   "url": "https://cooplands-bakery.co.uk/wp-content/uploads/2026/03/Cooplands-Allergen-Nutrition-March-2026.pdf",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -2013,44 +2013,6 @@
    }
   },
   {
-   "id": "almond-tart",
-   "name": "Almond Tart",
-   "category": "Cakes & sweet treats",
-   "serving": "55 g",
-   "nutrients": {
-    "calories": 234,
-    "protein": 1.7,
-    "carbs": 34,
-    "fat": 9.4,
-    "saturatedFat": 2.1,
-    "sugar": 23,
-    "salt": 0.25,
-    "energyKj": 978,
-    "weight": 55
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs"
-    ],
-    "mayContain": [
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "cornflake-nest-with-chocolate-eggs",
    "name": "Cornflake Nest with Chocolate Eggs",
    "category": "Cakes & sweet treats",
@@ -2347,44 +2309,6 @@
     "cereals": [
      "wheat",
      "barley"
-    ]
-   }
-  },
-  {
-   "id": "fun-gingerbread-biscuit",
-   "name": "Fun Gingerbread Biscuit",
-   "category": "Cakes & sweet treats",
-   "serving": "45 g",
-   "nutrients": {
-    "calories": 230,
-    "protein": 2.4,
-    "carbs": 40,
-    "fat": 6.3,
-    "saturatedFat": 3,
-    "sugar": 24,
-    "salt": 0.13,
-    "energyKj": 968,
-    "weight": 45
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3048,44 +2972,6 @@
      "eggs",
      "nuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "gingerbread",
-   "name": "Gingerbread",
-   "category": "Cakes & sweet treats",
-   "serving": "45 g",
-   "nutrients": {
-    "calories": 230,
-    "protein": 2.4,
-    "carbs": 40,
-    "fat": 6.3,
-    "saturatedFat": 3,
-    "sugar": 24,
-    "salt": 0.13,
-    "energyKj": 968,
-    "weight": 45
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs"
     ],
     "cereals": [
      "wheat"

@@ -688,66 +688,6 @@
    }
   },
   {
-   "id": "ice-cream-1-scoop",
-   "name": "Ice Cream 1 scoop",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 66
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "ice-cream-2-scoop",
-   "name": "Ice Cream 2 Scoop",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 133
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "ice-cream-3-scoop",
-   "name": "Ice Cream 3 Scoop",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 199
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "ice-cream-and-sorbet-vegan",
    "name": "Ice cream and sorbet vegan",
    "category": "Desserts",

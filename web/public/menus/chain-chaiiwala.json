@@ -50,7 +50,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp"
   },
   {
    "id": "our-famous-karak-chaii-large",
@@ -66,7 +67,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp"
   },
   {
    "id": "karak-chaii-no-added-sugar-regular",
@@ -80,7 +82,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp"
   },
   {
    "id": "karak-chaii-no-added-sugar-large",
@@ -94,7 +97,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp"
   },
   {
    "id": "vegan-chaii-regular",
@@ -110,7 +114,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp"
   },
   {
    "id": "vegan-chaii-large",
@@ -126,7 +131,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/46836cedd361.webp"
   },
   {
    "id": "pink-chaii-regular",
@@ -140,7 +146,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/aea2639ce156.webp"
   },
   {
    "id": "pink-chaii-large",
@@ -154,7 +161,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/aea2639ce156.webp"
   },
   {
    "id": "karak-coffee-regular",
@@ -168,7 +176,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/7c9e591597f8.webp"
   },
   {
    "id": "karak-coffee-large",
@@ -182,7 +191,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/7c9e591597f8.webp"
   },
   {
    "id": "chaii-flask",
@@ -196,7 +206,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/f9755ab59a39.webp"
   },
   {
    "id": "chaii-latte-regular",
@@ -210,7 +221,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/c3916ef51695.webp"
   },
   {
    "id": "chaii-latte-large",
@@ -224,7 +236,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/c3916ef51695.webp"
   },
   {
    "id": "garam-chocolate-regular",
@@ -238,7 +251,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/adfa28c1015b.webp"
   },
   {
    "id": "garam-chocolate-large",
@@ -252,7 +266,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/adfa28c1015b.webp"
   },
   {
    "id": "latte-regular",
@@ -266,7 +281,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/64bea63e6ade.webp"
   },
   {
    "id": "latte-large",
@@ -280,7 +296,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/64bea63e6ade.webp"
   },
   {
    "id": "caramel-chaii-regular",
@@ -294,7 +311,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/6ba1aabec05b.webp"
   },
   {
    "id": "caramel-chaii-large",
@@ -308,7 +326,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/6ba1aabec05b.webp"
   },
   {
    "id": "flat-white-regular",
@@ -322,7 +341,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/fd746a49963e.webp"
   },
   {
    "id": "flat-white-large",
@@ -336,7 +356,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/fd746a49963e.webp"
   },
   {
    "id": "espresso-regular",
@@ -378,7 +399,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/fac577334874.webp"
   },
   {
    "id": "americano-large",
@@ -392,7 +414,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/fac577334874.webp"
   },
   {
    "id": "cappuccino-regular",
@@ -406,7 +429,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/768977e069ba.webp"
   },
   {
    "id": "cappuccino-large",
@@ -420,7 +444,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/768977e069ba.webp"
   },
   {
    "id": "cinnamon-tea-regular",
@@ -434,7 +459,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/54c5c36c098e.webp"
   },
   {
    "id": "cinnamon-tea-large",
@@ -448,7 +474,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/54c5c36c098e.webp"
   },
   {
    "id": "english-tea-regular",
@@ -462,7 +489,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/4bc38b119a4e.webp"
   },
   {
    "id": "english-tea-large",
@@ -476,7 +504,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/4bc38b119a4e.webp"
   },
   {
    "id": "arabic-tea-regular",
@@ -518,7 +547,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/f960c2e75815.webp"
   },
   {
    "id": "the-family-platter",
@@ -532,7 +562,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/3ce4c1f5f27a.webp"
   },
   {
    "id": "the-wala-box-veg",
@@ -548,7 +579,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/564169f238ce.webp"
   },
   {
    "id": "the-family-platter-veg",
@@ -564,7 +596,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/d9096cc14928.webp"
   },
   {
    "id": "badam-milk-shake",
@@ -580,7 +613,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/27c34eb59fd9.webp"
   },
   {
    "id": "desi-cold-coffee",
@@ -594,7 +628,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/5d04bd22dd31.webp"
   },
   {
    "id": "iced-karak-coffee-regular",
@@ -610,7 +645,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/aa29a61d4b65.webp"
   },
   {
    "id": "iced-karak-coffee-large",
@@ -626,7 +662,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/aa29a61d4b65.webp"
   },
   {
    "id": "mango-lassi-regular",
@@ -642,7 +679,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/ed9c09626df4.webp"
   },
   {
    "id": "mango-lassi-large",
@@ -658,7 +696,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/ed9c09626df4.webp"
   },
   {
    "id": "falooda-mango-milkshake-regular",
@@ -672,7 +711,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/7063c18f0027.webp"
   },
   {
    "id": "falooda-mango-milkshake-large",
@@ -686,7 +726,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/7063c18f0027.webp"
   },
   {
    "id": "falooda-rose-milkshake-regular",
@@ -702,7 +743,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/3c42e6a57a72.webp"
   },
   {
    "id": "falooda-rose-milkshake-large",
@@ -718,7 +760,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/3c42e6a57a72.webp"
   },
   {
    "id": "toasted-cinnamon-and-vanilla-matcha-regular",
@@ -734,7 +777,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/202b64785b49.webp"
   },
   {
    "id": "toasted-cinnamon-and-vanilla-matcha-large",
@@ -750,7 +794,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/202b64785b49.webp"
   },
   {
    "id": "blueberry-and-white-chocolate-matcha-regular",
@@ -764,7 +809,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/974a07d8c14a.webp"
   },
   {
    "id": "blueberry-and-white-chocolate-matcha-large",
@@ -778,7 +824,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/974a07d8c14a.webp"
   },
   {
    "id": "mango-mojito-regular",
@@ -794,7 +841,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/d0a693a98154.webp"
   },
   {
    "id": "mango-mojito-large",
@@ -810,7 +858,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/d0a693a98154.webp"
   },
   {
    "id": "watermelon-spritz-regular",
@@ -824,7 +873,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/cce42f101a1a.webp"
   },
   {
    "id": "watermelon-spritz-large",
@@ -838,7 +888,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/cce42f101a1a.webp"
   },
   {
    "id": "blueberry-mocktail-regular",
@@ -852,7 +903,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/9d8df4658b91.webp"
   },
   {
    "id": "blueberry-mocktail-large",
@@ -866,7 +918,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/9d8df4658b91.webp"
   },
   {
    "id": "tahitian-lime-mocktail-regular",
@@ -880,7 +933,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/a802dfcc75e4.webp"
   },
   {
    "id": "tahitian-lime-mocktail-large",
@@ -894,7 +948,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/a802dfcc75e4.webp"
   },
   {
    "id": "chilli-guava-lemonade-regular",
@@ -910,7 +965,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/f42e852ce2e5.webp"
   },
   {
    "id": "chilli-guava-lemonade-large",
@@ -926,7 +982,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/f42e852ce2e5.webp"
   },
   {
    "id": "limbu-pani-lemonade-regular",
@@ -940,7 +997,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/9944f5646dc8.webp"
   },
   {
    "id": "limbu-pani-lemonade-large",
@@ -954,7 +1012,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/9944f5646dc8.webp"
   },
   {
    "id": "blue-limbu-pani-lemonade-regular",
@@ -968,7 +1027,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/5ade2d9dc103.webp"
   },
   {
    "id": "blue-limbu-pani-lemonade-large",
@@ -982,7 +1042,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/5ade2d9dc103.webp"
   },
   {
    "id": "red-bull-energy-drink",
@@ -996,7 +1057,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/8c836bd41fa3.webp"
   },
   {
    "id": "red-bull-sugarfree",
@@ -1010,7 +1072,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/c48e629756f9.webp"
   },
   {
    "id": "red-bull-summer-edition-citrus-zest",
@@ -1024,7 +1087,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/184a88e2c5e2.webp"
   },
   {
    "id": "red-bull-apple-edition",
@@ -1038,7 +1102,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/840baf496c3b.webp"
   },
   {
    "id": "red-bull-coconut-edition",
@@ -1052,7 +1117,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/ac0b818ee853.webp"
   },
   {
    "id": "desi-breakfast",
@@ -1066,7 +1132,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/65f24bb3d0f1.webp"
   },
   {
    "id": "english-ish-breakfast",
@@ -1080,7 +1147,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/639851104e31.webp"
   },
   {
    "id": "omelette-wrap",
@@ -1094,7 +1162,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/f3113b4c81b0.webp"
   },
   {
    "id": "spiced-chicken-sausage-and-egg-wrap",
@@ -1108,7 +1177,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/a94dc8f8183e.webp"
   },
   {
    "id": "rasher-and-egg-breakfast-wrap",
@@ -1122,7 +1192,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/e01415734f80.webp"
   },
   {
    "id": "aloo-paratha",
@@ -1136,7 +1207,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/8c2f193b5678.webp"
   },
   {
    "id": "halwa-puri",
@@ -1150,7 +1222,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/6cfd49befae7.webp"
   },
   {
    "id": "classic-roti",
@@ -1164,7 +1237,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/e5bc02062e36.webp"
   },
   {
    "id": "classic-paratha",
@@ -1178,7 +1252,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/754066908dfb.webp"
   },
   {
    "id": "butter-chicken-avo-toast",
@@ -1192,7 +1267,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/5fa1198ce0eb.webp"
   },
   {
    "id": "egg-burji-avo-toast",
@@ -1208,7 +1284,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/a8dbe8150d17.webp"
   },
   {
    "id": "chicken-tikka-wala-wrap",
@@ -1222,7 +1299,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/4f21dad59c93.webp"
   },
   {
    "id": "mixed-kebab-wala-wrap",
@@ -1236,7 +1314,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/39a9d0160981.webp"
   },
   {
    "id": "chicken-kebab-wala-wrap",
@@ -1250,7 +1329,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/d0df499a6135.webp"
   },
   {
    "id": "bombay-twister",
@@ -1264,7 +1344,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/bcdd83dfc7c8.webp"
   },
   {
    "id": "veg-kebab-wala-wrap",
@@ -1370,7 +1451,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/c48f0761436b.webp"
   },
   {
    "id": "chana-biryani",
@@ -1384,7 +1466,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/b842722363c7.webp"
   },
   {
    "id": "butter-chicken-rice-bowl",
@@ -1398,7 +1481,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/3feb8cc4ba66.webp"
   },
   {
    "id": "butter-chicken-bombay-chips-bowl",
@@ -1428,7 +1512,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/d521b2168ced.webp"
   },
   {
    "id": "daal-masala-bombay-chips-bowl",
@@ -1458,7 +1543,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/449dc47e3aaa.webp"
   },
   {
    "id": "classic-bombay-toastie",
@@ -1488,7 +1574,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/9ff8686f231f.webp"
   },
   {
    "id": "pav-bhaji-toastie",
@@ -1534,7 +1621,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/fd09096164d6.webp"
   },
   {
    "id": "butter-chicken-roll",
@@ -1548,7 +1636,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/48a07be69411.webp"
   },
   {
    "id": "masala-chips",
@@ -1562,7 +1651,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/3ef67bac0725.webp"
   },
   {
    "id": "samosa-chaat",
@@ -1576,7 +1666,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/41b0b993ddce.webp"
   },
   {
    "id": "loaded-chips-chicken",
@@ -1604,7 +1695,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/0870a7222645.webp"
   },
   {
    "id": "vada-pav",
@@ -1618,7 +1710,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/d4fcc96ef91f.webp"
   },
   {
    "id": "veg-kebab-roll",
@@ -1632,7 +1725,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/75533fae06d1.webp"
   },
   {
    "id": "chicken-kebab-roll",
@@ -1646,7 +1740,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/75533fae06d1.webp"
   },
   {
    "id": "aloo-tikki-chaat",
@@ -1660,7 +1755,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/f0f9ac68a273.webp"
   },
   {
    "id": "aloo-tikki-burger",
@@ -1674,7 +1770,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/2305b0f88700.webp"
   },
   {
    "id": "loaded-chips-veg",
@@ -1688,7 +1785,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/63ad1d085933.webp"
   },
   {
    "id": "chicken-nuggets-and-chips",
@@ -1702,7 +1800,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/799acfe363ed.webp"
   },
   {
    "id": "cheese-and-masala-beans-toastie-and-chips",
@@ -1718,7 +1817,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/3c8d4a29b7c2.webp"
   },
   {
    "id": "mini-chicken-wala-wrap-and-chips",
@@ -1732,7 +1832,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/c4088d9b7492.webp"
   },
   {
    "id": "veg-nuggets-and-chips",
@@ -1748,7 +1849,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/799acfe363ed.webp"
   },
   {
    "id": "mini-veggie-wala-wrap-and-chips",
@@ -1778,7 +1880,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/70e0bf647310.webp"
   },
   {
    "id": "nutella-wrap",
@@ -1792,7 +1895,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/aaf3d766fa05.webp"
   },
   {
    "id": "pistachio-fix-ice-cream",
@@ -1806,7 +1910,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/a5329af577aa.webp"
   },
   {
    "id": "rocky-road-cheesecake",
@@ -1820,7 +1925,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/7df15d20d0c8.webp"
   },
   {
    "id": "loaded-cheesecake",
@@ -1834,7 +1940,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/9ab5044e81df.webp"
   },
   {
    "id": "mango-ice-cream",
@@ -1890,7 +1997,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/fe98fcc01895.webp"
   },
   {
    "id": "pistachio-milk-cake",
@@ -1904,7 +2012,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/2ee66361d09c.webp"
   },
   {
    "id": "biscoff-milk-cake",
@@ -1918,7 +2027,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/7d533c380e01.webp"
   },
   {
    "id": "gajar-halwa",
@@ -1932,7 +2042,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/bd8739530d7a.webp"
   },
   {
    "id": "gulab-jamun",
@@ -1946,7 +2057,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "chaiiwala/a9c7de06e923.webp"
   }
  ],
  "combinations": []

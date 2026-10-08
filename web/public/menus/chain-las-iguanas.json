@@ -38,7 +38,6 @@
   "Kids: Desserts",
   "Kids: Drinks",
   "Drinks: Mocktails",
-  "Drinks: Shots",
   "Drinks: Beer & cider",
   "Drinks: Soft drinks"
  ],
@@ -473,7 +472,9 @@
     "sugar": 1.7,
     "salt": 3
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1020,7 +1021,9 @@
     "sugar": 0.6,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1028,40 +1031,6 @@
    "allergens": {
     "contains": [],
     "mayContain": []
-   }
-  },
-  {
-   "id": "quesadilla-pork-and-cheese-bottomless-tapas",
-   "name": "Quesadilla: Pork & Cheese (Bottomless Tapas)",
-   "category": "Tapas & starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 535,
-    "protein": 26.6,
-    "carbs": 39.1,
-    "fat": 30.4,
-    "saturatedFat": 7.1,
-    "sugar": 11.5,
-    "salt": 2.5
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
-    ]
    }
   },
   {
@@ -3242,7 +3211,9 @@
     "sugar": 0.8,
     "salt": 0.4
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -3266,7 +3237,9 @@
     "sugar": 4.4,
     "salt": 0.8
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3407,7 +3380,9 @@
     "sugar": 14,
     "salt": 0.5
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4011,7 +3986,9 @@
     "sugar": 4.7,
     "salt": 0.8
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4583,7 +4560,9 @@
     "sugar": 0.3,
     "salt": 1
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4607,7 +4586,9 @@
     "sugar": 0.8,
     "salt": 0.4
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5278,7 +5259,9 @@
     "sugar": 1.9,
     "salt": 0.4
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5302,7 +5285,9 @@
     "sugar": 2.1,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5326,7 +5311,9 @@
     "sugar": 2,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5421,7 +5408,9 @@
     "sugar": 8.3,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5445,7 +5434,9 @@
     "sugar": 7,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5497,7 +5488,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5521,7 +5514,9 @@
     "sugar": 30,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5545,7 +5540,9 @@
     "sugar": 27.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5625,7 +5622,9 @@
     "sugar": 1.4,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5677,7 +5676,9 @@
     "sugar": 12.7,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5720,63 +5721,6 @@
     ],
     "cereals": [
      "oats"
-    ]
-   }
-  },
-  {
-   "id": "iguana-bomb",
-   "name": "Iguana Bomb",
-   "category": "Drinks: Shots",
-   "serving": "",
-   "nutrients": {
-    "calories": 131,
-    "protein": 0.5,
-    "carbs": 6,
-    "fat": 0.3,
-    "saturatedFat": 0.1,
-    "sugar": 5.9,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "lupin",
-     "milk",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats",
-     "spelt",
-     "kamut"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -5852,7 +5796,9 @@
     "sugar": 35.4,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5876,7 +5822,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5900,7 +5848,9 @@
     "sugar": 1.3,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5924,7 +5874,9 @@
     "sugar": 0,
     "salt": 0.1
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5948,7 +5900,9 @@
     "sugar": 32.4,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5972,7 +5926,9 @@
     "sugar": 32.4,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6052,7 +6008,9 @@
     "sugar": 27.5,
     "salt": 0.3
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6076,7 +6034,9 @@
     "sugar": 0,
     "salt": 0.3
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6124,7 +6084,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6148,7 +6110,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6172,7 +6136,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6196,7 +6162,9 @@
     "sugar": 33,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6220,7 +6188,9 @@
     "sugar": 34,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6244,7 +6214,9 @@
     "sugar": 34.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6268,7 +6240,9 @@
     "sugar": 22,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

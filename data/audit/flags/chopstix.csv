@@ -1,8 +1,6 @@
 chain,kind,severity,code,item,name,category,detail
-chopstix,nutrition,high,kj-kcal,panko-chicken-katsu-curry-regular-large-2-pieces,"Panko Chicken Katsu Curry (regular / large, 2 pieces)",Toppings,1243 kJ vs 219 kcal (expected about 916 kJ)
-chopstix,nutrition,high,kj-kcal,panko-chicken-katsu-curry-small-2-pieces,"Panko Chicken Katsu Curry (small, 2 pieces)",Toppings,1243 kJ vs 219 kcal (expected about 916 kJ)
-chopstix,nutrition,medium,energy-gap,pumpkin-katsu-curry,Pumpkin Katsu Curry,Toppings,215 kcal vs 4P+4C+9F=170 (21% off)
 chopstix,nutrition,low,sugar+fibre-gt-carbs,no-chickn-sweet-and-sour-regular-large,No Chick'n Sweet & Sour (regular / large),Toppings,sugars 14.4 + fibre 8.8 > carbohydrate 16.4 (starch would be negative)
 chopstix,nutrition,low,sugar+fibre-gt-carbs,no-chickn-sweet-and-sour-small,No Chick'n Sweet & Sour (small),Toppings,sugars 19.2 + fibre 11.7 > carbohydrate 21.9 (starch would be negative)
 chopstix,nutrition,low,sugar+fibre-gt-carbs,no-chickn-sweet-and-sour-taster-topping,No Chick'n Sweet & Sour (taster topping),Toppings,sugars 9.6 + fibre 5.8 > carbohydrate 11 (starch would be negative)
 chopstix,nutrition,low,sugar+fibre-gt-carbs,no-chickn-sweet-and-sour-topper-pot,No Chick'n Sweet & Sour (topper pot),Toppings,sugars 23 + fibre 14 > carbohydrate 26.3 (starch would be negative)
+chopstix,nutrition,reviewed,energy-gap,pumpkin-katsu-curry,Pumpkin Katsu Curry,Toppings,215 kcal vs 4P+4C+9F=170 (21% off)

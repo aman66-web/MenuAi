@@ -1,8 +1,7 @@
 chain,kind,severity,code,item,name,category,detail
-eds-easy-diner,allergen,medium,name-implies-milk,peanut-butter,Peanut Butter,Junior breakfast,'Butter' in the name but milk is not marked (contains: ['peanuts'])
-eds-easy-diner,nutrition,medium,salt-very-high,ketchup,Ketchup,Condiments,salt 6.2 g with 349 kcal (6 g is the whole day's limit)
-eds-easy-diner,nutrition,medium,salt-very-high,nashville-hot,Nashville Hot,Chicken burgers,salt 10.1 g with 980 kcal (6 g is the whole day's limit)
-eds-easy-diner,nutrition,medium,sugar-implausible,mud-pie-freak-shake,Mud Pie Freak Shake,Freak shakes,sugar 133.8 g in one item
 eds-easy-diner,nutrition,low,energy-gap-alcohol,budweiser,Budweiser,Beer,135 kcal vs 4P+4C+9F=47: energy not in the macros (alcohol?)
 eds-easy-diner,nutrition,low,sugar+fibre-gt-carbs,12-wings-buffalo,12 Wings Buffalo,Starters,sugars 3.2 + fibre 4.5 > carbohydrate 3.6 (starch would be negative)
-eds-easy-diner,nutrition,low,sugar+fibre-gt-carbs,peanut-butter-pretzel-shake,Peanut Butter Pretzel Shake,Freak shakes,sugars 67.4 + fibre 5.6 > carbohydrate 70.9 (starch would be negative)
+eds-easy-diner,allergen,reviewed,name-implies-milk,peanut-butter,Peanut Butter,Junior breakfast,'Butter' in the name but milk is not marked (contains: ['peanuts'])
+eds-easy-diner,nutrition,reviewed,salt-very-high,ketchup,Ketchup,Condiments,salt 6.2 g with 349 kcal (6 g is the whole day's limit)
+eds-easy-diner,nutrition,reviewed,salt-very-high,nashville-hot,Nashville Hot,Chicken burgers,salt 10.1 g with 980 kcal (6 g is the whole day's limit)
+eds-easy-diner,nutrition,reviewed,sugar-implausible,mud-pie-freak-shake,Mud Pie Freak Shake,Freak shakes,sugar 133.8 g in one item

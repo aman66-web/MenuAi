@@ -133,36 +133,6 @@
    }
   },
   {
-   "id": "whipped-spicy-feta-50-g",
-   "name": "Whipped Spicy Feta (50 g)",
-   "category": "Flatbread and dips",
-   "serving": "50 g",
-   "nutrients": {
-    "calories": 456,
-    "protein": 7.1,
-    "carbs": 5.7,
-    "fat": 42.9,
-    "saturatedFat": 12.9,
-    "sugar": 4.3,
-    "fiber": 0.7,
-    "salt": 1.14,
-    "weight": 50
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "taramasalata",
    "name": "Taramasalata",
    "category": "Flatbread and dips",
@@ -196,40 +166,6 @@
    }
   },
   {
-   "id": "taramasalata-50-g",
-   "name": "Taramasalata (50 g)",
-   "category": "Flatbread and dips",
-   "serving": "50 g",
-   "nutrients": {
-    "calories": 544,
-    "protein": 5,
-    "carbs": 12.9,
-    "fat": 50,
-    "saturatedFat": 7.1,
-    "sugar": 2.1,
-    "fiber": 1.4,
-    "salt": 0,
-    "weight": 50
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "houmous",
    "name": "Houmous",
    "category": "Flatbread and dips",
@@ -243,37 +179,6 @@
     "sugar": 2,
     "fiber": 9,
     "salt": 2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "houmous-50-g",
-   "name": "Houmous (50 g)",
-   "category": "Flatbread and dips",
-   "serving": "50 g",
-   "nutrients": {
-    "calories": 363,
-    "protein": 9.3,
-    "carbs": 15.7,
-    "fat": 32.9,
-    "saturatedFat": 4.3,
-    "sugar": 1.4,
-    "fiber": 6.4,
-    "salt": 1.43,
-    "weight": 50
    },
    "tags": [
     "vegetarian"

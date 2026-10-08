@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Gourmet Burger Kitchen allergen and nutrition menus (menus.tenkites.com/brg/gourmetburgerkitchen: main, kids, drinks and no gluten menus, files dated 6 October 2026)",
+  "title": "Gourmet Burger Kitchen allergen and nutrition menus (menus.tenkites.com/brg/gourmetburgerkitchen: main, kids, drinks and no gluten menus; accessed 2026-10-08, no date shown)",
   "url": "https://menus.tenkites.com/brg/gourmetburgerkitchen",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "GBK calculates these values using typical weights and measures. Dishes that differ on the no gluten, kids or drinks menus appear once per version.",
  "allergenGuide": {
-  "title": "Gourmet Burger Kitchen allergen menus (menus.tenkites.com/brg/gourmetburgerkitchen, files dated 6 October 2026)",
+  "title": "Gourmet Burger Kitchen allergen menus (menus.tenkites.com/brg/gourmetburgerkitchen; accessed 2026-10-08, no date shown)",
   "url": "https://menus.tenkites.com/brg/gourmetburgerkitchen",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -3508,39 +3508,6 @@
    }
   },
   {
-   "id": "paprika-onions",
-   "name": "Paprika Onions",
-   "category": "GBK your way: extras",
-   "serving": "",
-   "nutrients": {
-    "calories": 170,
-    "protein": 2,
-    "carbs": 11.7,
-    "fat": 12.5,
-    "saturatedFat": 5.9,
-    "sugar": 27.9,
-    "fiber": 2,
-    "salt": 0.5,
-    "energyKj": 707
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "onion-ring",
    "name": "Onion Ring",
    "category": "GBK your way: extras",
@@ -4075,67 +4042,6 @@
     "mayContain": [
      "mustard"
     ]
-   }
-  },
-  {
-   "id": "bbq-sauce",
-   "name": "BBQ Sauce",
-   "category": "Sauces",
-   "serving": "",
-   "nutrients": {
-    "calories": 101,
-    "protein": 0.7,
-    "carbs": 18.5,
-    "fat": 1.8,
-    "saturatedFat": 0.3,
-    "sugar": 16.2,
-    "fiber": 0.2,
-    "salt": 1.7,
-    "energyKj": 393
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sesame",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "firey-red-root-relish",
-   "name": "Firey Red Root Relish",
-   "category": "Sauces",
-   "serving": "",
-   "nutrients": {
-    "calories": 33,
-    "protein": 0.6,
-    "carbs": 7.4,
-    "fat": 0.1,
-    "saturatedFat": 2.1,
-    "sugar": 6.6,
-    "fiber": 0.5,
-    "salt": 0.2,
-    "energyKj": 141
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -6617,41 +6523,6 @@
     "fiber": 1.1,
     "salt": 1.3,
     "energyKj": 4240
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "oreo-shake",
-   "name": "Oreo® shake",
-   "category": "Shakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 823,
-    "protein": 13.6,
-    "carbs": 129.4,
-    "fat": 37.3,
-    "saturatedFat": 19.7,
-    "sugar": 110.1,
-    "fiber": 1.5,
-    "salt": 1.8,
-    "energyKj": 3828
    },
    "tags": [
     "vegetarian"

@@ -6954,72 +6954,6 @@
    }
   },
   {
-   "id": "gelato-hazelnut",
-   "name": "Gelato: Hazelnut",
-   "category": "Kids: Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 136,
-    "protein": 2.9,
-    "carbs": 12.9,
-    "fat": 8.2,
-    "saturatedFat": 3.8,
-    "sugar": 12.6,
-    "salt": 0.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "hazelnut"
-    ]
-   }
-  },
-  {
-   "id": "gelato-pistachio",
-   "name": "Gelato: Pistachio",
-   "category": "Kids: Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 139,
-    "protein": 3.2,
-    "carbs": 14.7,
-    "fat": 7.4,
-    "saturatedFat": 3.4,
-    "sugar": 12.9,
-    "salt": 0.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [
-     "peanuts"
-    ],
-    "nuts": [
-     "pistachio"
-    ]
-   }
-  },
-  {
    "id": "gelato-coffee",
    "name": "Gelato: Coffee",
    "category": "Kids: Desserts",
@@ -7776,37 +7710,6 @@
    }
   },
   {
-   "id": "peroni-nastro-azzurro-gluten-free",
-   "name": "Peroni Nastro Azzurro Gluten Free",
-   "category": "Drinks: Beers & ciders",
-   "serving": "",
-   "nutrients": {
-    "calories": 139,
-    "protein": 1.3,
-    "carbs": 9.9,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "old-mout-cider-berries-and-cherries",
    "name": "Old Mout Cider: Berries & Cherries",
    "category": "Drinks: Beers & ciders",
@@ -8153,30 +8056,6 @@
   {
    "id": "americano-regular",
    "name": "Americano (Regular)",
-   "category": "Drinks: Hot drinks",
-   "serving": "Regular",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "macchiato-regular",
-   "name": "Macchiato (Regular)",
    "category": "Drinks: Hot drinks",
    "serving": "Regular",
    "nutrients": {

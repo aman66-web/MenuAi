@@ -27,7 +27,6 @@
   "Curry",
   "Rice",
   "Ramen",
-  "Noodles",
   "Street food",
   "Sushi & fish",
   "Yasai (vegetable)",
@@ -35,8 +34,7 @@
   "To share",
   "Desserts",
   "Condiments",
-  "Sides",
-  "Limited time"
+  "Sides"
  ],
  "components": [],
  "items": [
@@ -395,123 +393,6 @@
    }
   },
   {
-   "id": "chicken-bulgogi-fried-rice",
-   "name": "Chicken Bulgogi Fried Rice",
-   "category": "Rice",
-   "serving": "",
-   "nutrients": {
-    "calories": 409,
-    "protein": 14.3,
-    "carbs": 47.1,
-    "fat": 17.5,
-    "saturatedFat": 3.1,
-    "sugar": 10.5,
-    "fiber": 3.6,
-    "salt": 2.9,
-    "energyKj": 1865
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "pulled-shiitake-teriyaki-fried-rice",
-   "name": "Pulled Shiitake Teriyaki Fried Rice",
-   "category": "Rice",
-   "serving": "",
-   "nutrients": {
-    "calories": 460,
-    "protein": 8.8,
-    "carbs": 52.5,
-    "fat": 23.1,
-    "saturatedFat": 5.8,
-    "sugar": 10.6,
-    "fiber": 7.6,
-    "salt": 3.2,
-    "energyKj": 2077
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "salmon-teriyaki-fried-rice",
-   "name": "Salmon Teriyaki Fried Rice",
-   "category": "Rice",
-   "serving": "",
-   "nutrients": {
-    "calories": 441,
-    "protein": 10.8,
-    "carbs": 46.9,
-    "fat": 22.6,
-    "saturatedFat": 3.6,
-    "sugar": 11.2,
-    "fiber": 3.3,
-    "salt": 2.9,
-    "energyKj": 1987
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "vegetable-gyoza-and-shiitake-ramen",
    "name": "Vegetable Gyoza & Shiitake Ramen",
    "category": "Ramen",
@@ -666,123 +547,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chicken-bulgogi-noodles",
-   "name": "Chicken Bulgogi Noodles",
-   "category": "Noodles",
-   "serving": "",
-   "nutrients": {
-    "calories": 339,
-    "protein": 14,
-    "carbs": 42.9,
-    "fat": 11.9,
-    "saturatedFat": 2.3,
-    "sugar": 14.3,
-    "fiber": 3.1,
-    "salt": 2.4,
-    "energyKj": 1581
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "pulled-shiitake-teriyaki-noodles",
-   "name": "Pulled Shiitake Teriyaki Noodles",
-   "category": "Noodles",
-   "serving": "",
-   "nutrients": {
-    "calories": 390,
-    "protein": 8.5,
-    "carbs": 48.3,
-    "fat": 17.6,
-    "saturatedFat": 5,
-    "sugar": 14.4,
-    "fiber": 7.1,
-    "salt": 2.7,
-    "energyKj": 1794
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "prawn-noodles",
-   "name": "Prawn Noodles",
-   "category": "Noodles",
-   "serving": "",
-   "nutrients": {
-    "calories": 317,
-    "protein": 10.9,
-    "carbs": 40.7,
-    "fat": 11.8,
-    "saturatedFat": 2.2,
-    "sugar": 12.6,
-    "fiber": 3,
-    "salt": 2.5,
-    "energyKj": 1488
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "crustaceans",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -944,75 +708,6 @@
      "mustard",
      "sulphites"
     ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chicken-teriyaki",
-   "name": "Chicken Teriyaki",
-   "category": "Street food",
-   "serving": "",
-   "nutrients": {
-    "calories": 193,
-    "protein": 19.8,
-    "carbs": 12.5,
-    "fat": 7.1,
-    "saturatedFat": 1.9,
-    "sugar": 8.5,
-    "fiber": 0.6,
-    "salt": 2.1,
-    "energyKj": 887
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "pulled-shiitake-teriyaki",
-   "name": "Pulled Shiitake Teriyaki",
-   "category": "Street food",
-   "serving": "",
-   "nutrients": {
-    "calories": 271,
-    "protein": 10.2,
-    "carbs": 24.5,
-    "fat": 14.5,
-    "saturatedFat": 7.8,
-    "sugar": 7.5,
-    "fiber": 12.4,
-    "salt": 2,
-    "energyKj": 1216
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -1544,44 +1239,6 @@
    }
   },
   {
-   "id": "prawn-crackers",
-   "name": "Prawn Crackers",
-   "category": "Street food",
-   "serving": "",
-   "nutrients": {
-    "calories": 142,
-    "protein": 0.6,
-    "carbs": 21.2,
-    "fat": 4.3,
-    "saturatedFat": 0.3,
-    "sugar": 0,
-    "fiber": 0.5,
-    "salt": 0.5,
-    "energyKj": 510
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "crustaceans",
-     "sulphites"
-    ],
-    "mayContain": [
-     "gluten",
-     "eggs",
-     "fish",
-     "milk",
-     "molluscs",
-     "mustard",
-     "sesame",
-     "soya"
-    ]
-   }
-  },
-  {
    "id": "furi-furi-salt-and-pepper-chicken",
    "name": "Furi Furi Salt & Pepper Chicken",
    "category": "Street food",
@@ -1930,34 +1587,6 @@
    }
   },
   {
-   "id": "salmon-maki",
-   "name": "Salmon Maki",
-   "category": "Sushi & fish",
-   "serving": "",
-   "nutrients": {
-    "calories": 215,
-    "protein": 6.6,
-    "carbs": 31.5,
-    "fat": 4.8,
-    "saturatedFat": 0.6,
-    "sugar": 4.1,
-    "fiber": 1.6,
-    "salt": 1,
-    "energyKj": 808
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "salmon-sashimi",
    "name": "Salmon Sashimi",
    "category": "Sushi & fish",
@@ -2232,47 +1861,6 @@
    }
   },
   {
-   "id": "monster-maki",
-   "name": "Monster Maki",
-   "category": "Sushi & fish",
-   "serving": "",
-   "nutrients": {
-    "calories": 179,
-    "protein": 4.6,
-    "carbs": 24.4,
-    "fat": 5.5,
-    "saturatedFat": 0.7,
-    "sugar": 3.7,
-    "fiber": 1.6,
-    "salt": 1.2,
-    "energyKj": 681
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [
-     "milk",
-     "molluscs",
-     "mustard",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "salmon-dragon-roll",
    "name": "Salmon Dragon Roll",
    "category": "Sushi & fish",
@@ -2342,72 +1930,6 @@
    }
   },
   {
-   "id": "salmon-avocado-handroll",
-   "name": "Salmon + Avocado Handroll",
-   "category": "Sushi & fish",
-   "serving": "",
-   "nutrients": {
-    "calories": 200,
-    "protein": 5.2,
-    "carbs": 15.1,
-    "fat": 11.2,
-    "saturatedFat": 1.5,
-    "sugar": 1.9,
-    "fiber": 1.7,
-    "salt": 0.5,
-    "energyKj": 743
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "fish",
-     "sesame"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "california-handroll",
-   "name": "California Handroll",
-   "category": "Sushi & fish",
-   "serving": "",
-   "nutrients": {
-    "calories": 234,
-    "protein": 4.7,
-    "carbs": 19.3,
-    "fat": 13.5,
-    "saturatedFat": 1.5,
-    "sugar": 2.8,
-    "fiber": 1.7,
-    "salt": 1.1,
-    "energyKj": 886
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "classic-edamame",
    "name": "Classic Edamame",
    "category": "Yasai (vegetable)",
@@ -2435,45 +1957,6 @@
      "soya"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "kaiso-seaweed",
-   "name": "Kaiso Seaweed",
-   "category": "Yasai (vegetable)",
-   "serving": "",
-   "nutrients": {
-    "calories": 171,
-    "protein": 4.8,
-    "carbs": 26.8,
-    "fat": 3.3,
-    "saturatedFat": 0.5,
-    "sugar": 23.4,
-    "fiber": 2.4,
-    "salt": 5.3,
-    "energyKj": 661
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "mustard",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "fish"
-    ],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -2508,64 +1991,6 @@
     "cereals": [
      "wheat"
     ]
-   }
-  },
-  {
-   "id": "sesame-cucumber-maki",
-   "name": "Sesame Cucumber Maki",
-   "category": "Yasai (vegetable)",
-   "serving": "",
-   "nutrients": {
-    "calories": 163,
-    "protein": 3.1,
-    "carbs": 32,
-    "fat": 0.5,
-    "saturatedFat": 0.1,
-    "sugar": 4.5,
-    "fiber": 1.8,
-    "salt": 1,
-    "energyKj": 593
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sesame"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "avocado-maki",
-   "name": "Avocado Maki",
-   "category": "Yasai (vegetable)",
-   "serving": "",
-   "nutrients": {
-    "calories": 220,
-    "protein": 3.1,
-    "carbs": 32,
-    "fat": 6.4,
-    "saturatedFat": 1.2,
-    "sugar": 4.3,
-    "fiber": 2.5,
-    "salt": 1,
-    "energyKj": 824
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
    }
   },
   {
@@ -2639,41 +2064,6 @@
      "crustaceans",
      "fish"
     ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "yasai-handroll",
-   "name": "Yasai Handroll",
-   "category": "Yasai (vegetable)",
-   "serving": "",
-   "nutrients": {
-    "calories": 155,
-    "protein": 2.9,
-    "carbs": 16.7,
-    "fat": 6.5,
-    "saturatedFat": 1,
-    "sugar": 3.5,
-    "fiber": 1.7,
-    "salt": 0.6,
-    "energyKj": 558
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -3450,47 +2840,6 @@
      "soya"
     ],
     "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "cod-bites",
-   "name": "Cod Bites",
-   "category": "Limited time",
-   "serving": "",
-   "nutrients": {
-    "calories": 254,
-    "protein": 24.7,
-    "carbs": 22.7,
-    "fat": 6,
-    "saturatedFat": 0.6,
-    "sugar": 2.6,
-    "fiber": 2.2,
-    "salt": 2.1,
-    "energyKj": 1447
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "milk",
-     "molluscs",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
     "cereals": [
      "wheat"
     ]

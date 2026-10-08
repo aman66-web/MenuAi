@@ -16,7 +16,7 @@
   "url": "https://tkmenus.com/socialpubkitchen",
   "checkedOn": "2026-10-08"
  },
- "note": "Not every pub serves every menu or dish; Scottish pubs have their own breakfast and brunch dishes (not included). A dish with different figures on two menus appears once per menu, named after it. Values are per dish as served; dishes marked 'Excluding ...' leave out the part named (see Options & add-ons). Most alcoholic drinks have no published figures.",
+ "note": "Not every pub serves every menu or dish; Scottish pubs have their own breakfast and brunch dishes (not included). A dish with different figures on two menus appears once per menu, named after it. Values are per dish as served; dishes marked 'Excluding ...' leave out the part named (see Options & add-ons). Alcoholic drinks print no figures, so none is listed (the 0% versions are).",
  "allergenGuide": {
   "title": "Social Pub & Kitchen allergen & nutritional data (tkmenus.com/socialpubkitchen, April 2026 menus, data correct as of 8 October 2026)",
   "url": "https://tkmenus.com/socialpubkitchen",
@@ -4050,6 +4050,48 @@
     "sugar": 28.9,
     "salt": 0,
     "energyKj": 542
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oasis-summer-fruits-can-330ml",
+   "name": "Oasis Summer Fruits Can - 330ml",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 59,
+    "sugar": 13.2,
+    "salt": 0.3,
+    "energyKj": 251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oasis-exotic-zero-can-330ml",
+   "name": "Oasis Exotic Zero Can - 330ml",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 7,
+    "sugar": 0.3,
+    "salt": 0.3,
+    "energyKj": 26
    },
    "tags": [],
    "limitedTime": false,

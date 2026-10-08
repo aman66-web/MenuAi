@@ -1,0 +1,13 @@
+{
+ "chain": "cafe-rouge",
+ "date": "2026-10-08",
+ "source_read": "https://menus.tenkites.com/thebigtg/mobilemenuscaferouge (all 10 tabs re-downloaded 8 Oct; re-running tools/uk_extract/cafe_rouge.py on them reproduces data/source byte for byte)",
+ "compared_items": 140,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 1,
+ "marked_ok": 3,
+ "not_verifiable": "",
+ "notes": "Every one of the 260 popovers on the six used tabs parsed by an independent parser (name, 7 nutrients, Contains/May contain incl. cereals and tree nuts, Suitable for tags); all 140 rows in items.csv (139 published + the held-back Olives) match a source popover on all 7 numbers, allergens and vegetarian tag; schema.org JSON-LD agrees to rounding. Passion Fruitini, Tanqueary 0% Gin and the three Cawston Press sparkling waters print all 14 allergens as Contains (the chain's own placeholder, over-warns, kept as printed). Olives stays held back (237 kcal vs macros 48 kcal)."
+}

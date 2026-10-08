@@ -1654,34 +1654,6 @@
    }
   },
   {
-   "id": "chocolate-brownie",
-   "name": "Chocolate Brownie",
-   "category": "Cakes & pastries",
-   "serving": "",
-   "nutrients": {
-    "calories": 508,
-    "protein": 6.2,
-    "carbs": 56,
-    "fat": 28,
-    "saturatedFat": 17,
-    "sugar": 51,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "nutella-and-sea-salt-cookie",
    "name": "Nutella & Sea Salt Cookie",
    "category": "Cakes & pastries",
@@ -4220,65 +4192,6 @@
    }
   },
   {
-   "id": "brownie-and-ice-cream",
-   "name": "Brownie & Ice Cream",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 679,
-    "protein": 12,
-    "carbs": 71,
-    "fat": 38,
-    "saturatedFat": 21,
-    "sugar": 66,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
-   "id": "baileys-tiramisu-brownie",
-   "name": "Baileys Tiramisu Brownie",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 920,
-    "protein": 13,
-    "carbs": 71,
-    "fat": 64,
-    "saturatedFat": 41,
-    "sugar": 63,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "lemon-olive-oil-and-sea-salt-ice-cream-coupe",
    "name": "Lemon, Olive Oil & Sea Salt - Ice Cream Coupe",
    "category": "Desserts",
@@ -5250,34 +5163,6 @@
    }
   },
   {
-   "id": "ice-cream-topping-brownie-pieces",
-   "name": "Ice Cream Topping - Brownie Pieces",
-   "category": "Kids desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 129,
-    "protein": 1.6,
-    "carbs": 14,
-    "fat": 7.2,
-    "saturatedFat": 4.3,
-    "sugar": 13,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "ice-cream-topping-blueberry-compote",
    "name": "Ice Cream Topping - Blueberry Compote",
    "category": "Kids desserts",
@@ -5365,36 +5250,6 @@
     ],
     "nuts": [
      "hazelnut"
-    ]
-   }
-  },
-  {
-   "id": "kids-chocolate-brownie-bite-and-ice-cream",
-   "name": "Kids Chocolate Brownie Bite & Ice Cream",
-   "category": "Kids desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 310,
-    "protein": 4.3,
-    "carbs": 34,
-    "fat": 17,
-    "saturatedFat": 10,
-    "sugar": 32,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
     ]
    }
   },
@@ -5544,30 +5399,6 @@
     "saturatedFat": 0,
     "sugar": 7.2,
     "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "hazelnut-syrup",
-   "name": "Hazelnut Syrup",
-   "category": "Milks & syrups",
-   "serving": "",
-   "nutrients": {
-    "calories": 39,
-    "protein": 0,
-    "carbs": 9.8,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 7.2,
-    "salt": 0
    },
    "tags": [],
    "limitedTime": false,

@@ -1826,34 +1826,6 @@
    }
   },
   {
-   "id": "bramley-apple-crumble",
-   "name": "Bramley apple crumble",
-   "category": "Puddings and cheese",
-   "serving": "",
-   "nutrients": {
-    "calories": 595,
-    "protein": 2.8,
-    "carbs": 107.5,
-    "fat": 16.3,
-    "saturatedFat": 7.7,
-    "sugar": 86,
-    "salt": 0.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "chocolate-fondant",
    "name": "Chocolate fondant",
    "category": "Puddings and cheese",

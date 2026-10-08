@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "All Bar One Allergen & Nutrition Guide, Mitchells & Butlers (page stamped 2026-10-05)",
+  "title": "All Bar One Allergen & Nutrition Guide, Mitchells & Butlers (page stamped 2026-10-08)",
   "url": "https://allergens.mbplc.io/AllergenGuideAllBarOneEstate.html",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Cocktails, wines and beers have no nutrition table in the guide, so they are not included. Small Appetites portions are listed separately; swaps, 'With ...' choices and the hotel, group, buffet and tour menus are not included.",
  "allergenGuide": {
-  "title": "All Bar One Allergen & Nutrition Guide, Mitchells & Butlers (live page)",
+  "title": "All Bar One Allergen & Nutrition Guide, Mitchells & Butlers (page stamped 2026-10-08)",
   "url": "https://allergens.mbplc.io/AllergenGuideAllBarOneEstate.html",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
   "complete": false
  },
@@ -63,12 +63,12 @@
    "serving": "",
    "nutrients": {
     "calories": 195,
-    "protein": 10,
+    "protein": 11,
     "carbs": 24,
-    "fat": 5.2,
+    "fat": 5.1,
     "saturatedFat": 0.5,
     "sugar": 19,
-    "salt": 1.8
+    "salt": 2
    },
    "tags": [
     "vegetarian"
@@ -881,26 +881,6 @@
    "modifiers": []
   },
   {
-   "id": "salt-and-pepper-calamari",
-   "name": "Salt & Pepper Calamari",
-   "category": "Starters & sharing",
-   "serving": "",
-   "nutrients": {
-    "calories": 260,
-    "protein": 7.5,
-    "carbs": 33,
-    "fat": 2,
-    "saturatedFat": 0.3,
-    "sugar": 17,
-    "salt": 2.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "harissa-chicken-skewers",
    "name": "Harissa Chicken Skewers",
    "category": "Starters & sharing",
@@ -1104,7 +1084,7 @@
     "fat": 2.9,
     "saturatedFat": 0.5,
     "sugar": 27,
-    "salt": 1.8
+    "salt": 1.9
    },
    "tags": [
     "vegetarian"
@@ -1168,7 +1148,7 @@
     "fat": 12,
     "saturatedFat": 0.9,
     "sugar": 20,
-    "salt": 4.2
+    "salt": 4.3
    },
    "tags": [
     "vegetarian"
@@ -1231,10 +1211,10 @@
     "calories": 265,
     "protein": 7.3,
     "carbs": 38,
-    "fat": 8.2,
+    "fat": 8.1,
     "saturatedFat": 4.4,
     "sugar": 30,
-    "salt": 1.9
+    "salt": 2
    },
    "tags": [
     "vegetarian"
@@ -1315,8 +1295,8 @@
     "carbs": 89,
     "fat": 13,
     "saturatedFat": 1.5,
-    "sugar": 40,
-    "salt": 6.9
+    "sugar": 41,
+    "salt": 7.1
    },
    "tags": [
     "vegetarian"
@@ -1380,7 +1360,7 @@
     "fat": 54,
     "saturatedFat": 11,
     "sugar": 20,
-    "salt": 5.9
+    "salt": 6
    },
    "tags": [],
    "limitedTime": false,

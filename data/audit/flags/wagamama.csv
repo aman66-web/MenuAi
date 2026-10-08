@@ -1,27 +1,17 @@
 chain,kind,severity,code,item,name,category,detail
-wagamama,nutrition,high,kj-kcal,buldak-fire-wings,Buldak fire wings,Limited time,4845 kJ vs 780 kcal (expected about 3264 kJ)
-wagamama,nutrition,medium,kj-kcal,gochujang-tamarind-pork-ribs,Gochujang tamarind pork ribs,Big flavour bites,2767 kJ vs 599 kcal (expected about 2506 kJ)
-wagamama,nutrition,medium,kj-kcal,katsu-udon,Katsu udon,Teppanyaki,3050 kJ vs 848 kcal (expected about 3548 kJ)
-wagamama,nutrition,medium,kj-kcal,matcha-chocolate-bao-nut,Matcha + chocolate bao nut,Desserts,1715 kJ vs 454 kcal (expected about 1900 kJ)
-wagamama,nutrition,medium,kj-kcal,miso-caramel-toffee-bao-nut,Miso caramel + toffee bao nut,Desserts,1768 kJ vs 468 kcal (expected about 1958 kJ)
-wagamama,nutrition,medium,kj-kcal,tonkatsu-pork-bao-bun,Tonkatsu pork bao bun,Bao buns,3676 kJ vs 797 kcal (expected about 3335 kJ)
-wagamama,nutrition,medium,kj-kcal,ube-cherry-bao-nut,Ube + cherry bao nut,Desserts,2048 kJ vs 533 kcal (expected about 2230 kJ)
-wagamama,allergen,medium,name-implies-crustaceans,koko-prawn-crackers,Koko 'prawn' crackers,Lighter bites,'prawn' in the name but crustaceans is not marked (contains: ['sulphites'])
-wagamama,allergen,medium,name-implies-gluten,chocolate-brownie,Chocolate brownie,Desserts,"'brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-wagamama,allergen,medium,name-implies-gluten,kids-mini-brownie-bite,Kids mini brownie bite,Kids,"'brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-wagamama,allergen,medium,name-implies-gluten,kids-yasai-ramen-rice-noodles,Kids yasai ramen (rice noodles),Kids,'noodle' in the name but gluten is not marked (contains: ['soya'])
-wagamama,allergen,medium,name-implies-gluten,kids-yasai-yaki-soba-rice-noodles,Kids yasai yaki soba (rice noodles),Kids,'noodle' in the name but gluten is not marked (contains: ['soya'])
-wagamama,allergen,medium,name-implies-milk,iced-matcha-strawberry-latte,Iced matcha + strawberry latte,Coffee + tea,'latte' in the name but milk is not marked (contains: none)
-wagamama,allergen,medium,name-implies-milk,miso-caramel-ice-cream,Miso caramel ice cream,Desserts,'ice cream' in the name but milk is not marked (contains: ['soya'])
-wagamama,allergen,medium,name-implies-molluscs,oyster-shiitake-mushrooms-bao-bun,Oyster + shiitake mushrooms bao bun,Bao buns,"'Oyster' in the name but molluscs is not marked (contains: ['gluten', 'sesame', 'soya'])"
-wagamama,nutrition,medium,salt-very-high,signature-seafood-ramen-may-contain-small-bones,Signature seafood ramen (may contain small bones),Ramen,salt 10.4 g with 974 kcal (6 g is the whole day's limit)
 wagamama,nutrition,low,fibre-gt-carbs,edamame-with-chilli-garlic-salt,Edamame with chilli + garlic salt,Lighter bites,fibre 13.9 g > carbohydrate 10.2 g
 wagamama,nutrition,low,fibre-gt-carbs,edamame-with-salt,Edamame with salt,Lighter bites,fibre 13.6 g > carbohydrate 9.2 g
 wagamama,allergen,low,name-implies-sulphites,strawberry-spritz,Strawberry spritz,Soft drinks,'spritz' in the name but sulphites is not marked (contains: none)
 wagamama,nutrition,low,sugar+fibre-gt-carbs,high-five-juice,High five juice,Juices,sugars 30.3 + fibre 4.2 > carbohydrate 30.5 (starch would be negative)
 wagamama,nutrition,low,sugar+fibre-gt-carbs,kids-mini-apple-juice,Kids mini apple juice,Kids,sugars 20.1 + fibre 3.1 > carbohydrate 20.1 (starch would be negative)
 wagamama,nutrition,low,sugar+fibre-gt-carbs,kids-mini-apple-orange-juice,Kids mini apple + orange juice,Kids,sugars 21.5 + fibre 2.8 > carbohydrate 21.8 (starch would be negative)
-wagamama,nutrition,low,sugar+fibre-gt-carbs,matcha-colada-juice,Matcha colada juice,Juices,sugars 30.3 + fibre 4.2 > carbohydrate 30.5 (starch would be negative)
 wagamama,nutrition,low,sugar+fibre-gt-carbs,positive-juice,Positive juice,Juices,sugars 29.1 + fibre 5.2 > carbohydrate 29.1 (starch would be negative)
 wagamama,nutrition,low,sugar+fibre-gt-carbs,power-juice,Power juice,Juices,sugars 33.2 + fibre 5.6 > carbohydrate 33.3 (starch would be negative)
 wagamama,nutrition,low,sugar+fibre-gt-carbs,tropical-juice,Tropical juice,Juices,sugars 34.6 + fibre 5.3 > carbohydrate 34.7 (starch would be negative)
+wagamama,allergen,reviewed,name-implies-crustaceans,koko-prawn-crackers,Koko 'prawn' crackers,Lighter bites,'prawn' in the name but crustaceans is not marked (contains: ['sulphites'])
+wagamama,allergen,reviewed,name-implies-gluten,kids-yasai-ramen-rice-noodles,Kids yasai ramen (rice noodles),Kids,'noodle' in the name but gluten is not marked (contains: ['soya'])
+wagamama,allergen,reviewed,name-implies-gluten,kids-yasai-yaki-soba-rice-noodles,Kids yasai yaki soba (rice noodles),Kids,'noodle' in the name but gluten is not marked (contains: ['soya'])
+wagamama,allergen,reviewed,name-implies-milk,iced-matcha-strawberry-latte,Iced matcha + strawberry latte,Coffee + tea,'latte' in the name but milk is not marked (contains: none)
+wagamama,allergen,reviewed,name-implies-milk,miso-caramel-ice-cream,Miso caramel ice cream,Desserts,'ice cream' in the name but milk is not marked (contains: ['soya'])
+wagamama,allergen,reviewed,name-implies-molluscs,oyster-shiitake-mushrooms-bao-bun,Oyster + shiitake mushrooms bao bun,Bao buns,"'Oyster' in the name but molluscs is not marked (contains: ['gluten', 'sesame', 'soya'])"
+wagamama,nutrition,reviewed,salt-very-high,signature-seafood-ramen-may-contain-small-bones,Signature seafood ramen (may contain small bones),Ramen,salt 10.4 g with 974 kcal (6 g is the whole day's limit)

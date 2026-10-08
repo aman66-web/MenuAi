@@ -15,13 +15,13 @@
  "source": {
   "title": "Côte Brasserie allergen and nutrition menus (June 2026 menus, menus.tenkites.com/cote/cote: weekday, weekend, brunch, prix fixe, treat yourself, breakfast, kids and drinks, with gluten free versions)",
   "url": "https://menus.tenkites.com/cote/cote",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
- "note": "Carbohydrate is the menu's 'Available Carb' column, and the menu prints salt for only some dishes. Dishes that differ on the gluten free, weekend or kids menus appear once per version.",
+ "note": "Carbohydrate is the menu's 'Available Carb' column, and the menu prints salt for only some dishes. Dishes that differ on the gluten free, weekend or kids menus appear once per version. Where a dish contains one kind of tree nut or cereal the menu may also list other kinds as 'may contain'; the app shows only what the dish contains.",
  "allergenGuide": {
   "title": "Côte Brasserie allergen and nutrition menus (June 2026 menus, menus.tenkites.com/cote/cote)",
   "url": "https://menus.tenkites.com/cote/cote",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -436,44 +436,6 @@
     ],
     "mayContain": [
      "sesame"
-    ]
-   }
-  },
-  {
-   "id": "veggie-french-onion-soup",
-   "name": "Veggie French Onion Soup",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 291,
-    "protein": 8.9,
-    "carbs": 33,
-    "fat": 10.8,
-    "saturatedFat": 3.8,
-    "sugar": 14.5,
-    "salt": 1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1614,130 +1576,6 @@
      "milk",
      "sulphites"
     ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "risotto-vert-vegan-weekday-gluten-free-menu",
-   "name": "Risotto Vert - Vegan (weekday gluten free menu)",
-   "category": "Côte icons",
-   "serving": "",
-   "nutrients": {
-    "calories": 576,
-    "protein": 14,
-    "carbs": 83,
-    "fat": 19.6,
-    "saturatedFat": 46.7,
-    "sugar": 7.4,
-    "salt": 2.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "half-poulet-breton-gluten-free",
-   "name": "Half Poulet Breton (gluten free)",
-   "category": "Côte icons",
-   "serving": "",
-   "nutrients": {
-    "calories": 1146,
-    "protein": 77.1,
-    "carbs": 2,
-    "fat": 91.1,
-    "saturatedFat": 35.5,
-    "sugar": 0.7
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "whole-poulet-breton-gluten-free",
-   "name": "Whole Poulet Breton (gluten free)",
-   "category": "Côte icons",
-   "serving": "",
-   "nutrients": {
-    "calories": 2459,
-    "protein": 160.9,
-    "carbs": 4,
-    "fat": 168.4,
-    "saturatedFat": 53.6,
-    "sugar": 1.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "risotto-vert-weekend-gluten-free-menu",
-   "name": "Risotto Vert (weekend gluten free menu)",
-   "category": "Côte icons",
-   "serving": "",
-   "nutrients": {
-    "calories": 611,
-    "protein": 16.9,
-    "carbs": 83,
-    "fat": 22.3,
-    "saturatedFat": 5.4,
-    "sugar": 7.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "risotto-vert-vegan-weekend-gluten-free-menu",
-   "name": "Risotto Vert - Vegan (weekend gluten free menu)",
-   "category": "Côte icons",
-   "serving": "",
-   "nutrients": {
-    "calories": 576,
-    "protein": 14,
-    "carbs": 83,
-    "fat": 19.6,
-    "saturatedFat": 46.7,
-    "sugar": 7.4
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
     "mayContain": []
    }
   },
@@ -2955,9 +2793,7 @@
     "saturatedFat": 7.4,
     "sugar": 2.7
    },
-   "tags": [
-    "vegetarian"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -4126,33 +3962,6 @@
    }
   },
   {
-   "id": "poulet-grille",
-   "name": "Poulet Grille",
-   "category": "Prix fixe mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 728,
-    "protein": 54.9,
-    "carbs": 2,
-    "fat": 44.1,
-    "saturatedFat": 21.6,
-    "sugar": 6.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "fish-parmentier",
    "name": "Fish Parmentier",
    "category": "Prix fixe mains",
@@ -4321,44 +4130,6 @@
    }
   },
   {
-   "id": "chocolate-mousse-for-one",
-   "name": "Chocolate Mousse for One",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 636,
-    "protein": 11.4,
-    "carbs": 22,
-    "fat": 49.1,
-    "saturatedFat": 24,
-    "sugar": 23.9,
-    "salt": 3.4
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
-    ]
-   }
-  },
-  {
    "id": "pastry-platter",
    "name": "Pastry Platter",
    "category": "Pastries",
@@ -4511,39 +4282,6 @@
      "milk"
     ],
     "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "andreas-pasta",
-   "name": "Andrea's Pasta",
-   "category": "Kids mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 233,
-    "protein": 10.9,
-    "carbs": 34,
-    "fat": 5.1,
-    "saturatedFat": 2.2,
-    "sugar": 5.4,
-    "salt": 0.7
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ],
     "cereals": [
      "wheat"
     ]
@@ -5481,32 +5219,6 @@
     "cereals": [
      "wheat"
     ]
-   }
-  },
-  {
-   "id": "botivo-elderflower-spritz",
-   "name": "Botivo Elderflower Spritz",
-   "category": "Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 47,
-    "protein": 0.2,
-    "carbs": 6,
-    "fat": 0.2,
-    "saturatedFat": 0,
-    "sugar": 10.6,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
    }
   },
   {

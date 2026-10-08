@@ -63,7 +63,9 @@
     "sugar": 0.3,
     "salt": 1.7
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -1157,7 +1159,9 @@
     "sugar": 0.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1207,7 +1211,9 @@
     "sugar": 3.9,
     "salt": 0.7
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1309,7 +1315,9 @@
     "sugar": 26.3,
     "salt": 0.9
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -2498,7 +2506,9 @@
     "sugar": 21.1,
     "salt": 0.6
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2621,7 +2631,9 @@
     "sugar": 35.1,
     "salt": 1.2
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -2674,7 +2686,9 @@
     "sugar": 17.6,
     "salt": 0.6
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -2758,7 +2772,9 @@
     "sugar": 70.2,
     "salt": 2.4
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3235,7 +3251,9 @@
     "sugar": 4.7,
     "salt": 0.8
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3339,7 +3357,9 @@
     "sugar": 0.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3363,7 +3383,9 @@
     "sugar": 17.6,
     "salt": 0.6
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3479,7 +3501,9 @@
     "sugar": 4,
     "salt": 0.4
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -3651,7 +3675,9 @@
     "sugar": 1.1,
     "salt": 0.2
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4232,7 +4258,9 @@
     "sugar": 5,
     "salt": 0.8
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4316,7 +4344,9 @@
     "sugar": 1.7,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4340,7 +4370,9 @@
     "sugar": 1.8,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4364,7 +4396,9 @@
     "sugar": 1.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4420,7 +4454,9 @@
     "sugar": 5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4503,7 +4539,9 @@
     "sugar": 15.6,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4527,7 +4565,9 @@
     "sugar": 18.3,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4551,7 +4591,9 @@
     "sugar": 21.9,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4575,7 +4617,9 @@
     "sugar": 20.2,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4599,7 +4643,9 @@
     "sugar": 0.1,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4623,7 +4669,9 @@
     "sugar": 0.1,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4647,7 +4695,9 @@
     "sugar": 0,
     "salt": 0.1
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4671,7 +4721,9 @@
     "sugar": 0.8,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4933,7 +4985,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -4957,7 +5011,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5049,7 +5105,9 @@
     "sugar": 35.1,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5103,7 +5161,9 @@
     "sugar": 22.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5187,7 +5247,9 @@
     "sugar": 48.4,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5211,7 +5273,9 @@
     "sugar": 54.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5235,7 +5299,9 @@
     "sugar": 42.8,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5259,7 +5325,9 @@
     "sugar": 30.3,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5283,7 +5351,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5307,7 +5377,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5331,7 +5403,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5355,7 +5429,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5379,7 +5455,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5403,7 +5481,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5475,234 +5555,6 @@
    }
   },
   {
-   "id": "bottled-water-still",
-   "name": "Bottled Water: Still",
-   "category": "Drinks: Soft drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1,
-    "protein": 0,
-    "carbs": 0.1,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0.1,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "lupin",
-     "milk",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats",
-     "spelt",
-     "kamut"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
-    ]
-   }
-  },
-  {
-   "id": "bottled-water-still-large",
-   "name": "Bottled Water: Still Large",
-   "category": "Drinks: Soft drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1,
-    "protein": 0.1,
-    "carbs": 0.2,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0.2,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "lupin",
-     "milk",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats",
-     "spelt",
-     "kamut"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
-    ]
-   }
-  },
-  {
-   "id": "bottled-water-sparkling-regular",
-   "name": "Bottled Water: Sparkling Regular",
-   "category": "Drinks: Soft drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "lupin",
-     "milk",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats",
-     "spelt",
-     "kamut"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
-    ]
-   }
-  },
-  {
-   "id": "bottled-water-sparkling-large",
-   "name": "Bottled Water: Sparkling Large",
-   "category": "Drinks: Soft drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "lupin",
-     "milk",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats",
-     "spelt",
-     "kamut"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
-    ]
-   }
-  },
-  {
    "id": "j2o-apple-and-mango",
    "name": "J2O: Apple and Mango",
    "category": "Drinks: Soft drinks",
@@ -5716,7 +5568,9 @@
     "sugar": 11,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5740,7 +5594,9 @@
     "sugar": 11.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5764,7 +5620,9 @@
     "sugar": 40,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5788,7 +5646,9 @@
     "sugar": 19.3,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5812,7 +5672,9 @@
     "sugar": 27.5,
     "salt": 0.3
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5836,7 +5698,9 @@
     "sugar": 15.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5860,7 +5724,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5884,7 +5750,9 @@
     "sugar": 35.5,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5908,7 +5776,9 @@
     "sugar": 0,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5932,7 +5802,9 @@
     "sugar": 0.1,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5956,7 +5828,9 @@
     "sugar": 0.9,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -5980,7 +5854,9 @@
     "sugar": 0.1,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

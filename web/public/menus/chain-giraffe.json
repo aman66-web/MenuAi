@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Giraffe Dietary Information: Breakfast, Main, Dessert, Gluten Free, Kid's and Drinks menus on Ten Kites (accessed 2026-10-07, no date shown)",
+  "title": "Giraffe Dietary Information: Breakfast, Main, Dessert, Gluten Free, Kid's and Drinks menus on Ten Kites (accessed 2026-10-08, no date shown)",
   "url": "https://menus.tenkites.com/brg/giraffeadults",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Giraffe prints calories only, so protein, carbs and fat are not published. Figures use \"typical weights and measures\" and can vary a little. Drinks with no calorie figure on the page (most wines, some cocktails) are not listed, and a few rows that contradict the same page are held back.",
  "allergenGuide": {
-  "title": "Giraffe Dietary Information: allergens on the Ten Kites menus (accessed 2026-10-07, no date shown)",
+  "title": "Giraffe Dietary Information: allergens on the Ten Kites menus (accessed 2026-10-08, no date shown)",
   "url": "https://menus.tenkites.com/brg/giraffeadults",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -2031,36 +2031,6 @@
    }
   },
   {
-   "id": "moroccan-caesar-salad-mains",
-   "name": "Moroccan Caesar Salad (mains)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 621
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "mustard",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "nuts",
-     "peanuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
    "id": "add-chicken",
    "name": "Add Chicken",
    "category": "Mains",
@@ -3433,31 +3403,6 @@
    }
   },
   {
-   "id": "moroccan-caesar-salad-gluten-free-menu",
-   "name": "Moroccan Caesar Salad (gluten free menu)",
-   "category": "Gluten free menu",
-   "serving": "",
-   "nutrients": {
-    "calories": 459
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [
-     "celery",
-     "sulphites"
-    ]
-   }
-  },
-  {
    "id": "british-steak-and-chips-gluten-free-menu",
    "name": "British Steak and Chips (gluten free menu)",
    "category": "Gluten free menu",
@@ -4519,26 +4464,6 @@
     "contains": [
      "celery"
     ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "hazelnut-espresso-martini",
-   "name": "Hazelnut Espresso Martini",
-   "category": "Cocktails",
-   "serving": "",
-   "nutrients": {
-    "calories": 162
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
     "mayContain": []
    }
   },

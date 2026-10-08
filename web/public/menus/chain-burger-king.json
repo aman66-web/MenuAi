@@ -13,7 +13,7 @@
  "source": {
   "title": "Burger King UK Nutritional Information (Kit 6 National, 18 June 2026)",
   "url": "https://www.burgerking.co.uk/nutritional-info",
-  "checkedOn": "2026-10-05"
+  "checkedOn": "2026-10-08"
  },
  "note": "Based on Burger King's June 2026 nutrition table: newer items (for example some wraps, tenders and drinks) aren't in it yet.",
  "allergenGuide": {
@@ -217,28 +217,6 @@
     "sugar": 6,
     "fiber": 2.5,
     "salt": 0.9
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "burger-buddies-big-king",
-   "name": "Burger Buddies - Big King",
-   "category": "Beef",
-   "serving": "119 g",
-   "nutrients": {
-    "calories": 293,
-    "protein": 14,
-    "carbs": 24,
-    "fat": 15,
-    "saturatedFat": 5,
-    "sodium": 416,
-    "sugar": 5,
-    "fiber": 2.3,
-    "salt": 1.4
    },
    "tags": [],
    "limitedTime": false,
@@ -509,30 +487,6 @@
     "salt": 3.1
    },
    "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "wellington-wagyu",
-   "name": "Wellington Wagyu",
-   "category": "Beef",
-   "serving": "283 g",
-   "nutrients": {
-    "calories": 821,
-    "protein": 42.1,
-    "carbs": 45.2,
-    "fat": 52.1,
-    "saturatedFat": 16.9,
-    "sodium": 589,
-    "sugar": 13.1,
-    "fiber": 3.6,
-    "salt": 2
-   },
-   "tags": [
-    "contains_beef"
-   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2731,28 +2685,6 @@
    "modifiers": []
   },
   {
-   "id": "cheesecake-bar-gooey-salted-caramel",
-   "name": "Cheesecake Bar - Gooey Salted Caramel",
-   "category": "Sweets",
-   "serving": "82 g",
-   "nutrients": {
-    "calories": 285,
-    "protein": 4.8,
-    "carbs": 34.2,
-    "fat": 8.7,
-    "saturatedFat": 7.1,
-    "sodium": 140,
-    "sugar": 17,
-    "fiber": 1.1,
-    "salt": 0.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "cheesecake-bar-strawberry-milkshake",
    "name": "Cheesecake Bar - Strawberry Milkshake",
    "category": "Sweets",
@@ -3273,28 +3205,6 @@
     "sugar": 23,
     "fiber": 0.5,
     "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "vanilla-milkshake-16oz",
-   "name": "Vanilla Milkshake 16oz",
-   "category": "Sweets",
-   "serving": "510 g",
-   "nutrients": {
-    "calories": 531,
-    "protein": 16,
-    "carbs": 86,
-    "fat": 13,
-    "saturatedFat": 9.2,
-    "sodium": 440,
-    "sugar": 0.7,
-    "fiber": 2.5,
-    "salt": 1.1
    },
    "tags": [],
    "limitedTime": false,
@@ -4302,30 +4212,6 @@
    },
    "tags": [
     "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "wagyu-patty",
-   "name": "Wagyu Patty",
-   "category": "Extras",
-   "serving": "125 g",
-   "nutrients": {
-    "calories": 340,
-    "protein": 24,
-    "carbs": 0.1,
-    "fat": 24,
-    "saturatedFat": 9.9,
-    "sodium": 95,
-    "sugar": 0.1,
-    "fiber": 0.5,
-    "salt": 0.2
-   },
-   "tags": [
-    "contains_beef"
    ],
    "limitedTime": false,
    "rankable": false,

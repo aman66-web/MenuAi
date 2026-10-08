@@ -2869,33 +2869,6 @@
    }
   },
   {
-   "id": "carrot-cake",
-   "name": "Carrot Cake",
-   "category": "Lunch - Cakes",
-   "serving": "per slice",
-   "nutrients": {
-    "calories": 500
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "hazelnut"
-    ]
-   }
-  },
-  {
    "id": "chocolate-and-caramel-tart",
    "name": "Chocolate & caramel tart",
    "category": "Lunch - Cakes",
@@ -3172,31 +3145,6 @@
      "wheat",
      "spelt",
      "kamut"
-    ]
-   }
-  },
-  {
-   "id": "fruit-scone-with-clotted-cream-and-strawberry-jam",
-   "name": "Fruit scone with clotted cream and strawberry jam",
-   "category": "Lunch - Scones",
-   "serving": "per scone",
-   "nutrients": {
-    "calories": 676
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "nuts"
     ]
    }
   },
@@ -3610,94 +3558,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cappuccino-large",
-   "name": "Cappuccino Large",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 89
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "cappuccino-regular",
-   "name": "Cappuccino Regular",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 93
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "latte-large",
-   "name": "Latte Large",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 108
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "latte-regular",
-   "name": "Latte Regular",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 117
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
     "mayContain": []
    }
   },

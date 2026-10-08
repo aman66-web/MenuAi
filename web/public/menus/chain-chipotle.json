@@ -15,6 +15,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Chipotle UK publishes values for single ingredients only, not finished burritos or bowls, and we don't add them together. The sheet is dated August 2022, so some ingredients may have changed since.",
+ "allergenGuide": {
+  "title": "Chipotle UK 14 allergens and nutrition facts chart (UK270726)",
+  "url": "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/Allergen-UK270726.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": false
+ },
  "categories": [
   "Ingredients"
  ],
@@ -34,27 +41,6 @@
     "sugar": 1.8,
     "fiber": 4.4,
     "salt": 1.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "flour-tortilla-taco",
-   "name": "Flour Tortilla (taco)",
-   "category": "Ingredients",
-   "serving": "",
-   "nutrients": {
-    "calories": 94,
-    "protein": 2.5,
-    "carbs": 15.5,
-    "fat": 2.8,
-    "saturatedFat": 0.2,
-    "sugar": 0.6,
-    "fiber": 1.4,
-    "salt": 0.5
    },
    "tags": [],
    "limitedTime": false,
@@ -435,27 +421,6 @@
     "sugar": 1.2,
     "fiber": 0,
     "salt": 1.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chips-large",
-   "name": "Chips (large)",
-   "category": "Ingredients",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 834,
-    "protein": 9.2,
-    "carbs": 108.2,
-    "fat": 43.2,
-    "saturatedFat": 3.4,
-    "sugar": 2.4,
-    "fiber": 0,
-    "salt": 2.6
    },
    "tags": [],
    "limitedTime": false,

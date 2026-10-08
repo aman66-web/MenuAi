@@ -1291,28 +1291,6 @@
    "image": "pho/de0cef7c58bb.webp"
   },
   {
-   "id": "rice-bowl-this-isnt-chicken-and-veg",
-   "name": "Rice bowl - THIS isn't chicken & veg",
-   "category": "Rice bowls",
-   "serving": "",
-   "nutrients": {
-    "calories": 205,
-    "protein": 21.8,
-    "carbs": 27,
-    "fat": 8.1,
-    "saturatedFat": 0,
-    "sugar": 2.5,
-    "fiber": 6.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "wok-fried-rice-chicken-and-dried-shrimp-com-chien",
    "name": "Wok fried rice - Chicken & dried shrimp (Cơm chiên)",
    "category": "Wok fried rice",

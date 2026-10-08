@@ -1,52 +1,4 @@
 chain,kind,severity,code,item,name,category,detail
-butlins,nutrition,high,kj-kcal,cranberry-juice,Cranberry Juice,Drinks: Soft drinks (draught),203 kJ vs 60 kcal (expected about 251 kJ)
-butlins,nutrition,high,kj-kcal,mushy-peas,Mushy Peas,Fish & Chips: Sides,440 kJ vs 125 kcal (expected about 523 kJ)
-butlins,nutrition,medium,huge-protein,1-2-chicken,1/2 Chicken,Firehouse Grill: Chicken from the grill,131.2 g protein
-butlins,nutrition,medium,huge-protein,boneless-chicken-platter-serves-2,Boneless Chicken Platter (serves 2),Firehouse Grill: Sharing platters,146.1 g protein
-butlins,nutrition,medium,huge-protein,family-chicken-platter-serves-3-4,Family Chicken Platter (serves 3-4),Firehouse Grill: Sharing platters,459.9 g protein
-butlins,allergen,medium,name-implies-eggs,custard,Custard,Beachcomber Inn: Desserts,'Custard' in the name but eggs is not marked (contains: ['milk'])
-butlins,allergen,medium,name-implies-eggs,jacket-potato-with-tuna-mayo,Jacket Potato with Tuna Mayo,Beachcomber Inn: Jacket potatoes,"'Mayo' in the name but eggs is not marked (contains: ['fish', 'milk'])"
-butlins,allergen,medium,name-implies-eggs,piri-piri-mayo,Piri-Piri Mayo,Firehouse Grill: Sides,'Mayo' in the name but eggs is not marked (contains: none)
-butlins,allergen,medium,name-implies-eggs,toasted-brioche-style-bun,Toasted Brioche-Style Bun,Firehouse Grill: Build your own and add-ons,"'Brioche' in the name but eggs is not marked (contains: ['gluten', 'mustard'])"
-butlins,allergen,medium,name-implies-eggs,tuna-mayo-and-cucumber,Tuna Mayo & Cucumber,Beachcomber Inn: Light bites,'Mayo' in the name but eggs is not marked (contains: ['fish'])
-butlins,allergen,medium,name-implies-fish,caesar-dressing-v,Caesar Dressing (V),Papa Johns: Salad bar,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk'])"
-butlins,allergen,medium,name-implies-fish,caesar-salad-beachcomber-inn-salad,"Caesar Salad (Beachcomber Inn, Salad)",Beachcomber Inn: Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
-butlins,allergen,medium,name-implies-fish,caesar-salad-the-diner-choose-your-main,"Caesar Salad (The Diner, Choose your main)",The Diner: Build your own and add-ons,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
-butlins,allergen,medium,name-implies-fish,caesar-salad-the-diner-mac-n-cheese,"Caesar Salad (The Diner, Mac 'n' cheese)",The Diner: Classics,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
-butlins,allergen,medium,name-implies-fish,gravy-fish-and-chips,Gravy (Fish & Chips),Fish & Chips: Sides,'Fish' in the name but fish is not marked (contains: none)
-butlins,allergen,medium,name-implies-fish,jalapenos-ve-ngci-fish-and-chips,Jalapeños (VE NGCI) (Fish & Chips),Fish & Chips: Loaded chips,'Fish' in the name but fish is not marked (contains: none)
-butlins,allergen,medium,name-implies-fish,ngci-caesar-salad,NGCI Caesar Salad,The Diner: Classics,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk'])"
-butlins,allergen,medium,name-implies-fish,onion-rings-fish-and-chips-sides,"Onion Rings (Fish & Chips, Sides)",Fish & Chips: Sides,'Fish' in the name but fish is not marked (contains: ['gluten'])
-butlins,allergen,medium,name-implies-gluten,cheesy-pasta-beachcomber-inn,Cheesy Pasta (Beachcomber Inn),Beachcomber Inn: Kids' mains,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'soya'])"
-butlins,allergen,medium,name-implies-gluten,cheesy-pasta-firehouse-grill,Cheesy Pasta (Firehouse Grill),Firehouse Grill: Kids' mains,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'soya'])"
-butlins,allergen,medium,name-implies-gluten,gravy-fish-and-chips,Gravy (Fish & Chips),Fish & Chips: Sides,'Fish & Chips' in the name but gluten is not marked (contains: none)
-butlins,allergen,medium,name-implies-gluten,jalapenos-ve-ngci-fish-and-chips,Jalapeños (VE NGCI) (Fish & Chips),Fish & Chips: Loaded chips,'Fish & Chips' in the name but gluten is not marked (contains: none)
-butlins,allergen,medium,name-implies-gluten,ngci-cheesy-pasta,NGCI Cheesy Pasta,The Diner: Bottomless brunch,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'soya'])"
-butlins,allergen,medium,name-implies-gluten,ngci-tomato-pasta-the-diner-kids-juniors,"NGCI Tomato Pasta (The Diner, kids, Juniors)",The Diner: Kids' mains,'Pasta' in the name but gluten is not marked (contains: ['milk'])
-butlins,allergen,medium,name-implies-gluten,ngci-tomato-pasta-the-diner-kids-tots,"NGCI Tomato Pasta (The Diner, kids, Tots)",The Diner: Kids' mains,'Pasta' in the name but gluten is not marked (contains: ['milk'])
-butlins,allergen,medium,name-implies-gluten,non-gluten-containing-cheesy-pasta-ngci,Non-Gluten Containing Cheesy Pasta (NGCI),Beachcomber Inn: Pub classics,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'soya'])"
-butlins,allergen,medium,name-implies-gluten,non-gluten-containing-white-bread-ve-ngci,Non-Gluten Containing White Bread (VE NGCI),Buffet breakfast: Bakery,'Bread' in the name but gluten is not marked (contains: none)
-butlins,allergen,medium,name-implies-gluten,poppy-seed-bun,Poppy Seed Bun,Firehouse Grill: Build your own and add-ons,'Bun' in the name but gluten is not marked (contains: ['mustard'])
-butlins,allergen,medium,name-implies-gluten,vegan-brownie,Vegan Brownie,The Diner: Kids' desserts,"'Brownie' in the name but gluten is not marked (contains: ['nuts', 'soya'])"
-butlins,allergen,medium,name-implies-gluten,vegan-non-gluten-containing-mushroom-bourguignon-pie,Vegan Non-Gluten Containing Mushroom Bourguignon Pie,Beachcomber Inn: Carvery,"'Pie' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
-butlins,allergen,medium,name-implies-gluten,vegan-warm-chocolate-brownie-beachcomber-inn,Vegan Warm Chocolate Brownie (Beachcomber Inn),Beachcomber Inn: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['nuts', 'soya'])"
-butlins,allergen,medium,name-implies-gluten,vegan-warm-chocolate-brownie-firehouse-grill-the-diner,Vegan Warm Chocolate Brownie (Firehouse Grill / The Diner),Firehouse Grill: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['nuts', 'soya'])"
-butlins,allergen,medium,name-implies-gluten,waffle-fries-the-diner,Waffle Fries (The Diner),The Diner: Build your own and add-ons,'Waffle' in the name but gluten is not marked (contains: none)
-butlins,allergen,medium,name-implies-gluten,waffle-fries-the-diner-kids,"Waffle Fries (The Diner, kids)",The Diner: Kids' sides,'Waffle' in the name but gluten is not marked (contains: none)
-butlins,allergen,medium,name-implies-milk,add-quorntm-buttermilk-style-fillet,Add Quorn™ Buttermilk-Style Fillet,Firehouse Grill: Build your own and add-ons,'Butter' in the name but milk is not marked (contains: ['gluten'])
-butlins,allergen,medium,name-implies-milk,bbq-pulled-pork-the-diner-mac-n-cheese,"BBQ Pulled Pork (The Diner, Mac 'n' cheese)",The Diner: Build your own and add-ons,'cheese' in the name but milk is not marked (contains: ['soya'])
-butlins,allergen,medium,name-implies-milk,buttermilk-style-quorntm-fillet-firehouse-grill,Buttermilk-Style Quorn™ Fillet (Firehouse Grill),Firehouse Grill: Build your own and add-ons,'Butter' in the name but milk is not marked (contains: ['gluten'])
-butlins,allergen,medium,name-implies-milk,buttermilk-style-quorntm-fillet-firehouse-grill-kids,"Buttermilk-Style Quorn™ Fillet (Firehouse Grill, kids)",Firehouse Grill: Kids' mains,'Butter' in the name but milk is not marked (contains: ['gluten'])
-butlins,allergen,medium,name-implies-milk,buttermilk-style-quorntm-fillet-wrap,Buttermilk-Style Quorn™ Fillet Wrap,Firehouse Grill: Lunch wraps,"'Butter' in the name but milk is not marked (contains: ['gluten', 'mustard'])"
-butlins,allergen,medium,name-implies-milk,orange-soft-whip-ice-cream-ve-ngci,Orange Soft Whip Ice Cream (VE NGCI),Papa Johns: Ice cream factory,'Ice Cream' in the name but milk is not marked (contains: none)
-butlins,allergen,medium,name-implies-milk,plain-ice-cream-sundae-beachcomber-inn,Plain Ice Cream Sundae (Beachcomber Inn),Beachcomber Inn: Desserts,'Ice Cream' in the name but milk is not marked (contains: none)
-butlins,allergen,medium,name-implies-milk,plain-ice-cream-sundae-beachcomber-inn-kids,"Plain Ice Cream Sundae (Beachcomber Inn, kids)",Beachcomber Inn: Kids' desserts,'Ice Cream' in the name but milk is not marked (contains: none)
-butlins,allergen,medium,name-implies-milk,soft-whip-ice-cream-ve-ngci,Soft Whip Ice Cream (VE NGCI),Firehouse Grill: Ice cream factory,'Ice Cream' in the name but milk is not marked (contains: none)
-butlins,nutrition,medium,salt-very-high,family-chicken-platter-serves-3-4,Family Chicken Platter (serves 3-4),Firehouse Grill: Sharing platters,salt 16.4 g with 4899 kcal (6 g is the whole day's limit)
-butlins,nutrition,medium,salt-very-high,mega-mountain,Mega Mountain,The Diner: Burgers,salt 11.4 g with 2209 kcal (6 g is the whole day's limit)
-butlins,nutrition,medium,salt-very-high,sticky-glazed-roast-gammon,Sticky Glazed Roast Gammon,Beachcomber Inn: Carvery,salt 6.1 g with 342 kcal (6 g is the whole day's limit)
-butlins,nutrition,medium,salt-very-high,the-vegetarian-cheese-meltdown-v,The Vegetarian Cheese Meltdown (V),The Diner: Burgers,salt 10.7 g with 2087 kcal (6 g is the whole day's limit)
-butlins,nutrition,medium,salt-very-high,ultimate-mega-stack-burger,Ultimate Mega Stack Burger,Beachcomber Inn: Burgers,salt 10.5 g with 1984 kcal (6 g is the whole day's limit)
 butlins,nutrition,low,energy-gap-alcohol,baileys-irish-cream-liqueur-50ml,Baileys Irish Cream Liqueur 50ml,Drinks: Spirits,160 kcal vs 4P+4C+9F=116: energy not in the macros (alcohol?)
 butlins,nutrition,low,energy-gap-alcohol,chambord-raspberry-liqueur-25ml,Chambord Raspberry Liqueur 25ml,Drinks: Spirits,97 kcal vs 4P+4C+9F=49: energy not in the macros (alcohol?)
 butlins,nutrition,low,energy-gap-alcohol,drambuie-25ml,Drambuie 25ml,Drinks: Spirits,91 kcal vs 4P+4C+9F=32: energy not in the macros (alcohol?)
@@ -56,3 +8,45 @@ butlins,nutrition,low,energy-gap-alcohol,vk-strawberry-and-lime-275ml,VK Strawbe
 butlins,nutrition,low,huge,family-chicken-platter-serves-3-4,Family Chicken Platter (serves 3-4),Firehouse Grill: Sharing platters,4899 kcal in one sharing item
 butlins,nutrition,low,sugar+fibre-gt-carbs,fresh-fruit-basket-v-ngci,Fresh Fruit Basket (V NGCI),Buffet breakfast: Refrigerated counter,sugars 48.1 + fibre 7.1 > carbohydrate 49.7 (starch would be negative)
 butlins,nutrition,low,zero-named-has-kcal,fanta-orange-zero-pet-500ml-bottle,Fanta Orange Zero PET 500ml Bottle,Drinks: Soft drinks (bottled),named diet/zero/no sugar but 16 kcal
+butlins,nutrition,reviewed,huge-protein,1-2-chicken,1/2 Chicken,Firehouse Grill: Chicken from the grill,131.2 g protein
+butlins,nutrition,reviewed,huge-protein,boneless-chicken-platter-serves-2,Boneless Chicken Platter (serves 2),Firehouse Grill: Sharing platters,146.1 g protein
+butlins,nutrition,reviewed,huge-protein,family-chicken-platter-serves-3-4,Family Chicken Platter (serves 3-4),Firehouse Grill: Sharing platters,459.9 g protein
+butlins,allergen,reviewed,name-implies-eggs,custard,Custard,Beachcomber Inn: Desserts,'Custard' in the name but eggs is not marked (contains: ['milk'])
+butlins,allergen,reviewed,name-implies-eggs,jacket-potato-with-tuna-mayo,Jacket Potato with Tuna Mayo,Beachcomber Inn: Jacket potatoes,"'Mayo' in the name but eggs is not marked (contains: ['fish', 'milk'])"
+butlins,allergen,reviewed,name-implies-eggs,piri-piri-mayo,Piri-Piri Mayo,Firehouse Grill: Sides,'Mayo' in the name but eggs is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-eggs,toasted-brioche-style-bun,Toasted Brioche-Style Bun,Firehouse Grill: Build your own and add-ons,"'Brioche' in the name but eggs is not marked (contains: ['gluten', 'mustard'])"
+butlins,allergen,reviewed,name-implies-eggs,tuna-mayo-and-cucumber,Tuna Mayo & Cucumber,Beachcomber Inn: Light bites,'Mayo' in the name but eggs is not marked (contains: ['fish'])
+butlins,allergen,reviewed,name-implies-fish,caesar-dressing-v,Caesar Dressing (V),Papa Johns: Salad bar,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk'])"
+butlins,allergen,reviewed,name-implies-fish,caesar-salad-beachcomber-inn-salad,"Caesar Salad (Beachcomber Inn, Salad)",Beachcomber Inn: Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+butlins,allergen,reviewed,name-implies-fish,caesar-salad-the-diner-choose-your-main,"Caesar Salad (The Diner, Choose your main)",The Diner: Build your own and add-ons,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+butlins,allergen,reviewed,name-implies-fish,caesar-salad-the-diner-mac-n-cheese,"Caesar Salad (The Diner, Mac 'n' cheese)",The Diner: Classics,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+butlins,allergen,reviewed,name-implies-fish,gravy-fish-and-chips,Gravy (Fish & Chips),Fish & Chips: Sides,'Fish' in the name but fish is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-fish,jalapenos-ve-ngci-fish-and-chips,Jalapeños (VE NGCI) (Fish & Chips),Fish & Chips: Loaded chips,'Fish' in the name but fish is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-fish,ngci-caesar-salad,NGCI Caesar Salad,The Diner: Classics,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk'])"
+butlins,allergen,reviewed,name-implies-fish,onion-rings-fish-and-chips-sides,"Onion Rings (Fish & Chips, Sides)",Fish & Chips: Sides,'Fish' in the name but fish is not marked (contains: ['gluten'])
+butlins,allergen,reviewed,name-implies-gluten,cheesy-pasta-beachcomber-inn,Cheesy Pasta (Beachcomber Inn),Beachcomber Inn: Kids' mains,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+butlins,allergen,reviewed,name-implies-gluten,cheesy-pasta-firehouse-grill,Cheesy Pasta (Firehouse Grill),Firehouse Grill: Kids' mains,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+butlins,allergen,reviewed,name-implies-gluten,gravy-fish-and-chips,Gravy (Fish & Chips),Fish & Chips: Sides,'Fish & Chips' in the name but gluten is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-gluten,jalapenos-ve-ngci-fish-and-chips,Jalapeños (VE NGCI) (Fish & Chips),Fish & Chips: Loaded chips,'Fish & Chips' in the name but gluten is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-gluten,ngci-cheesy-pasta,NGCI Cheesy Pasta,The Diner: Bottomless brunch,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+butlins,allergen,reviewed,name-implies-gluten,ngci-tomato-pasta-the-diner-kids-juniors,"NGCI Tomato Pasta (The Diner, kids, Juniors)",The Diner: Kids' mains,'Pasta' in the name but gluten is not marked (contains: ['milk'])
+butlins,allergen,reviewed,name-implies-gluten,ngci-tomato-pasta-the-diner-kids-tots,"NGCI Tomato Pasta (The Diner, kids, Tots)",The Diner: Kids' mains,'Pasta' in the name but gluten is not marked (contains: ['milk'])
+butlins,allergen,reviewed,name-implies-gluten,non-gluten-containing-cheesy-pasta-ngci,Non-Gluten Containing Cheesy Pasta (NGCI),Beachcomber Inn: Pub classics,"'Pasta' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+butlins,allergen,reviewed,name-implies-gluten,non-gluten-containing-white-bread-ve-ngci,Non-Gluten Containing White Bread (VE NGCI),Buffet breakfast: Bakery,'Bread' in the name but gluten is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-gluten,vegan-non-gluten-containing-mushroom-bourguignon-pie,Vegan Non-Gluten Containing Mushroom Bourguignon Pie,Beachcomber Inn: Carvery,"'Pie' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
+butlins,allergen,reviewed,name-implies-gluten,waffle-fries-the-diner,Waffle Fries (The Diner),The Diner: Build your own and add-ons,'Waffle' in the name but gluten is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-gluten,waffle-fries-the-diner-kids,"Waffle Fries (The Diner, kids)",The Diner: Kids' sides,'Waffle' in the name but gluten is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-milk,add-quorntm-buttermilk-style-fillet,Add Quorn™ Buttermilk-Style Fillet,Firehouse Grill: Build your own and add-ons,'Butter' in the name but milk is not marked (contains: ['gluten'])
+butlins,allergen,reviewed,name-implies-milk,bbq-pulled-pork-the-diner-mac-n-cheese,"BBQ Pulled Pork (The Diner, Mac 'n' cheese)",The Diner: Build your own and add-ons,'cheese' in the name but milk is not marked (contains: ['soya'])
+butlins,allergen,reviewed,name-implies-milk,buttermilk-style-quorntm-fillet-firehouse-grill,Buttermilk-Style Quorn™ Fillet (Firehouse Grill),Firehouse Grill: Build your own and add-ons,'Butter' in the name but milk is not marked (contains: ['gluten'])
+butlins,allergen,reviewed,name-implies-milk,buttermilk-style-quorntm-fillet-firehouse-grill-kids,"Buttermilk-Style Quorn™ Fillet (Firehouse Grill, kids)",Firehouse Grill: Kids' mains,'Butter' in the name but milk is not marked (contains: ['gluten'])
+butlins,allergen,reviewed,name-implies-milk,buttermilk-style-quorntm-fillet-wrap,Buttermilk-Style Quorn™ Fillet Wrap,Firehouse Grill: Lunch wraps,"'Butter' in the name but milk is not marked (contains: ['gluten', 'mustard'])"
+butlins,allergen,reviewed,name-implies-milk,orange-soft-whip-ice-cream-ve-ngci,Orange Soft Whip Ice Cream (VE NGCI),Papa Johns: Ice cream factory,'Ice Cream' in the name but milk is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-milk,plain-ice-cream-sundae-beachcomber-inn,Plain Ice Cream Sundae (Beachcomber Inn),Beachcomber Inn: Desserts,'Ice Cream' in the name but milk is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-milk,plain-ice-cream-sundae-beachcomber-inn-kids,"Plain Ice Cream Sundae (Beachcomber Inn, kids)",Beachcomber Inn: Kids' desserts,'Ice Cream' in the name but milk is not marked (contains: none)
+butlins,allergen,reviewed,name-implies-milk,soft-whip-ice-cream-ve-ngci,Soft Whip Ice Cream (VE NGCI),Firehouse Grill: Ice cream factory,'Ice Cream' in the name but milk is not marked (contains: none)
+butlins,nutrition,reviewed,salt-very-high,family-chicken-platter-serves-3-4,Family Chicken Platter (serves 3-4),Firehouse Grill: Sharing platters,salt 16.4 g with 4899 kcal (6 g is the whole day's limit)
+butlins,nutrition,reviewed,salt-very-high,mega-mountain,Mega Mountain,The Diner: Burgers,salt 11.4 g with 2209 kcal (6 g is the whole day's limit)
+butlins,nutrition,reviewed,salt-very-high,sticky-glazed-roast-gammon,Sticky Glazed Roast Gammon,Beachcomber Inn: Carvery,salt 6.1 g with 342 kcal (6 g is the whole day's limit)
+butlins,nutrition,reviewed,salt-very-high,the-vegetarian-cheese-meltdown-v,The Vegetarian Cheese Meltdown (V),The Diner: Burgers,salt 10.7 g with 2087 kcal (6 g is the whole day's limit)
+butlins,nutrition,reviewed,salt-very-high,ultimate-mega-stack-burger,Ultimate Mega Stack Burger,Beachcomber Inn: Burgers,salt 10.5 g with 1984 kcal (6 g is the whole day's limit)

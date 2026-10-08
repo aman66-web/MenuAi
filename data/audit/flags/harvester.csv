@@ -1,9 +1,5 @@
 chain,kind,severity,code,item,name,category,detail
-harvester,nutrition,medium,huge-protein,the-classics,The Classics,Sharing platters,126.9 g protein
-harvester,nutrition,medium,huge-protein,the-harvester-trilogy,The Harvester Trilogy,Grills & combos,121.6 g protein
-harvester,nutrition,medium,huge-protein,whole-rotisserie-chicken,Whole Rotisserie Chicken,"Rotisserie, skewers & ribs",128.7 g protein
-harvester,allergen,medium,name-implies-eggs,rotisserie-flavour-mayo,Rotisserie Flavour Mayo,Sauces & dips,"'Mayo' in the name but eggs is not marked (contains: ['milk', 'mustard'])"
-harvester,allergen,medium,name-implies-gluten,apple-and-blackberry-crumble-dessert,Apple & Blackberry Crumble (Dessert),Desserts,'Crumb' in the name but gluten is not marked (contains: none)
-harvester,allergen,medium,name-implies-gluten,apple-and-blackberry-crumble-mini-dessert,Apple & Blackberry Crumble (Mini dessert),Desserts,'Crumb' in the name but gluten is not marked (contains: none)
-harvester,allergen,medium,name-implies-gluten,chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-harvester,nutrition,medium,salt-very-high,our-favourites,Our Favourites,Sharing platters,salt 10.07 g with 1974 kcal (6 g is the whole day's limit)
+harvester,nutrition,reviewed,huge-protein,the-classics,The Classics,Sharing platters,126.9 g protein
+harvester,nutrition,reviewed,huge-protein,the-harvester-trilogy,The Harvester Trilogy,Grills & combos,121.6 g protein
+harvester,nutrition,reviewed,huge-protein,whole-rotisserie-chicken,Whole Rotisserie Chicken,"Rotisserie, skewers & ribs",128.7 g protein
+harvester,nutrition,reviewed,salt-very-high,our-favourites,Our Favourites,Sharing platters,salt 10.07 g with 1974 kcal (6 g is the whole day's limit)

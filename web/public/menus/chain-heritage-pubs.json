@@ -4041,33 +4041,6 @@
    }
   },
   {
-   "id": "pork-orange-and-fig-stuffing",
-   "name": "Pork, Orange & Fig Stuffing",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 86,
-    "protein": 3.2,
-    "carbs": 11.4,
-    "fat": 2.6,
-    "saturatedFat": 0.6,
-    "sugar": 5.4,
-    "salt": 0.4,
-    "energyKj": 359
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
    "id": "giant-pork-and-marmalade-pigs-in-blankets",
    "name": "Giant Pork & Marmalade Pigs in Blankets",
    "category": "Sides",
@@ -7311,33 +7284,6 @@
    }
   },
   {
-   "id": "baked-fish-fingers",
-   "name": "Baked Fish Fingers",
-   "category": "Kids: mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 221,
-    "protein": 12.3,
-    "carbs": 20.5,
-    "fat": 9.8,
-    "saturatedFat": 0.9,
-    "sugar": 0.4,
-    "salt": 0.6,
-    "energyKj": 929
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "hand-battered-fish",
    "name": "Hand-Battered Fish",
    "category": "Kids: mains",
@@ -9008,36 +8954,6 @@
    }
   },
   {
-   "id": "salted-caramel-chocolate-brownie-vg",
-   "name": "Salted Caramel Chocolate Brownie (VG)",
-   "category": "Coffee shop",
-   "serving": "",
-   "nutrients": {
-    "calories": 255,
-    "protein": 3.3,
-    "carbs": 33.6,
-    "fat": 11.2,
-    "saturatedFat": 4.2,
-    "sugar": 27.8,
-    "salt": 0.4,
-    "energyKj": 1066
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
    "id": "coconut-and-raspberry-jam-shortcake-v",
    "name": "Coconut & Raspberry Jam Shortcake (V)",
    "category": "Coffee shop",
@@ -9404,36 +9320,6 @@
    }
   },
   {
-   "id": "chocolate-brownie-vg",
-   "name": "Chocolate Brownie (VG)",
-   "category": "Coffee shop",
-   "serving": "",
-   "nutrients": {
-    "calories": 255,
-    "protein": 3.3,
-    "carbs": 33.6,
-    "fat": 11.2,
-    "saturatedFat": 4.2,
-    "sugar": 27.8,
-    "salt": 0.4,
-    "energyKj": 1066
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
    "id": "lemon-drizzle-cake-v",
    "name": "Lemon Drizzle Cake (V)",
    "category": "Coffee shop",
@@ -9646,39 +9532,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chocolate-chunk-cookie-v",
-   "name": "Chocolate Chunk Cookie (V)",
-   "category": "Coffee shop",
-   "serving": "",
-   "nutrients": {
-    "calories": 239,
-    "protein": 2.1,
-    "carbs": 31.4,
-    "fat": 11,
-    "saturatedFat": 8.8,
-    "sugar": 17.1,
-    "salt": 0.2,
-    "energyKj": 1001
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "nuts"
     ]
    }
   },

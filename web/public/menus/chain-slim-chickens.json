@@ -1331,45 +1331,6 @@
    }
   },
   {
-   "id": "plant-based-buffalo-sandwich-meal",
-   "name": "Plant Based Buffalo Sandwich Meal",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 863,
-    "protein": 45.5,
-    "carbs": 57.4,
-    "fat": 48.7,
-    "saturatedFat": 6.3,
-    "sugar": 6.2,
-    "fiber": 7.1,
-    "salt": 6.3,
-    "energyKj": 3592
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "eggs",
-     "fish",
-     "mustard",
-     "sesame"
-    ]
-   }
-  },
-  {
    "id": "slims-salad",
    "name": "Slim's Salad",
    "category": "Salad & Wraps",

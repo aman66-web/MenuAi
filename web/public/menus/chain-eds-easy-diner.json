@@ -4444,39 +4444,6 @@
    }
   },
   {
-   "id": "peanut-butter-pretzel-shake",
-   "name": "Peanut Butter Pretzel Shake",
-   "category": "Freak shakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 1040,
-    "protein": 30.7,
-    "carbs": 70.9,
-    "fat": 69.1,
-    "saturatedFat": 27.9,
-    "sugar": 67.4,
-    "fiber": 5.6,
-    "salt": 5,
-    "energyKj": 4327
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "peanuts"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
    "id": "j20-orange-and-passion-fruit",
    "name": "J20 Orange and Passion Fruit",
    "category": "Soft drinks",

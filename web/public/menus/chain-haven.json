@@ -5263,38 +5263,6 @@
    }
   },
   {
-   "id": "vegan-nuggets-fries-and-beans-ve",
-   "name": "Vegan Nuggets Fries & Beans (VE)",
-   "category": "Kids menu: Kids Meal",
-   "serving": "",
-   "nutrients": {
-    "calories": 565
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "mustard",
-     "soya"
-    ],
-    "mayContain": [
-     "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
    "id": "kids-toasted-ham-and-cheese-wrap-with-fries-and-beans",
    "name": "Kids Toasted Ham & Cheese Wrap With Fries & Beans",
    "category": "Kids menu: Kids Meal",
@@ -6518,30 +6486,6 @@
    },
    "tags": [
     "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "eggs",
-     "mustard"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "kids-penne-pomodoro-vegan",
-   "name": "Kids Penne Pomodoro Vegan",
-   "category": "NGCI menu: Kids NGCI",
-   "serving": "",
-   "nutrients": {
-    "calories": 246
-   },
-   "tags": [
-    "vegetarian"
    ],
    "limitedTime": false,
    "rankable": false,
@@ -7921,33 +7865,6 @@
      "wheat",
      "spelt",
      "kamut"
-    ]
-   }
-  },
-  {
-   "id": "carrot-and-walnut-cake",
-   "name": "Carrot and Walnut Cake",
-   "category": "Cake counter: Cakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 398
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "walnut"
     ]
    }
   },

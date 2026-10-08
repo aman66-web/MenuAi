@@ -13,13 +13,13 @@
  "source": {
   "title": "Chopstix Nutritional Data V22 (September 2026)",
   "url": "https://chopstixnoodles.co.uk/wp-content/uploads/2026/09/NUTRITIONAL-TABLE-V22-SEPT-26.pdf",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Pots are published as separate parts (a base, a topping and an optional flavour boost, each by size), not as complete pots, so a full pot is the sum of its parts. The guide lists no ingredients, so the pork and beef filters can't vouch for any dish.",
  "allergenGuide": {
   "title": "Chopstix Customer Allergen Chart (CS QA 07, V22 September 2026)",
   "url": "https://chopstixnoodles.co.uk/wp-content/uploads/2026/09/CUSTOMER-ALLERGENS-NON-QR-V22-SEPT-2026.pdf",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": false
  },
@@ -1422,50 +1422,6 @@
    "modifiers": []
   },
   {
-   "id": "panko-chicken-katsu-curry-small-2-pieces",
-   "name": "Panko Chicken Katsu Curry (small, 2 pieces)",
-   "category": "Toppings",
-   "serving": "Small (2 pieces)",
-   "nutrients": {
-    "calories": 219,
-    "protein": 12.4,
-    "carbs": 16.2,
-    "fat": 15.1,
-    "saturatedFat": 4.6,
-    "sugar": 1.1,
-    "fiber": 1.5,
-    "salt": 1.44,
-    "energyKj": 1243
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "panko-chicken-katsu-curry-regular-large-2-pieces",
-   "name": "Panko Chicken Katsu Curry (regular / large, 2 pieces)",
-   "category": "Toppings",
-   "serving": "Regular / Large (2 pieces)",
-   "nutrients": {
-    "calories": 219,
-    "protein": 12.4,
-    "carbs": 16.2,
-    "fat": 15.1,
-    "saturatedFat": 4.6,
-    "sugar": 1.1,
-    "fiber": 1.5,
-    "salt": 1.44,
-    "energyKj": 1243
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "pumpkin-katsu-curry",
    "name": "Pumpkin Katsu Curry",
    "category": "Toppings",
@@ -2734,50 +2690,6 @@
     "fiber": 0,
     "salt": 0.03,
     "energyKj": 38
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "fruit-shoot-blackcurrant-275-ml-bottle",
-   "name": "Fruit Shoot Blackcurrant (275 ml bottle)",
-   "category": "Drinks",
-   "serving": "275 ml bottle",
-   "nutrients": {
-    "calories": 17,
-    "protein": 0,
-    "carbs": 2.2,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 2.2,
-    "fiber": 0,
-    "salt": 0.08,
-    "energyKj": 55
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "fruit-shoot-orange-275-ml-bottle",
-   "name": "Fruit Shoot Orange (275 ml bottle)",
-   "category": "Drinks",
-   "serving": "275 ml bottle",
-   "nutrients": {
-    "calories": 17,
-    "protein": 0,
-    "carbs": 2.2,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 2.2,
-    "fiber": 0,
-    "salt": 0.08,
-    "energyKj": 55
    },
    "tags": [],
    "limitedTime": false,

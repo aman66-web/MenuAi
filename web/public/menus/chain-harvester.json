@@ -809,33 +809,6 @@
    }
   },
   {
-   "id": "rotisserie-flavour-mayo",
-   "name": "Rotisserie Flavour Mayo",
-   "category": "Sauces & dips",
-   "serving": "",
-   "nutrients": {
-    "calories": 65,
-    "protein": 0.5,
-    "carbs": 2.6,
-    "fat": 5.9,
-    "saturatedFat": 0.5,
-    "sugar": 0.9,
-    "salt": 0.38
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "mustard"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "harvester-chicken-gravy",
    "name": "Harvester Chicken Gravy",
    "category": "Sauces & dips",
@@ -2913,38 +2886,6 @@
    }
   },
   {
-   "id": "chocolate-fudge-cake",
-   "name": "Chocolate Fudge Cake",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 702,
-    "protein": 7.3,
-    "carbs": 93.2,
-    "fat": 33.2,
-    "saturatedFat": 8.4,
-    "sugar": 72,
-    "salt": 0.46
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
    "id": "sliced-bramley-apple-pie",
    "name": "Sliced Bramley Apple Pie",
    "category": "Desserts",
@@ -3077,34 +3018,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "apple-and-blackberry-crumble-dessert",
-   "name": "Apple & Blackberry Crumble (Dessert)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 482,
-    "protein": 1.8,
-    "carbs": 82.7,
-    "fat": 15.1,
-    "saturatedFat": 6,
-    "sugar": 44.3,
-    "salt": 0.01
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": [
-     "nuts"
     ]
    }
   },
@@ -3326,34 +3239,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "apple-and-blackberry-crumble-mini-dessert",
-   "name": "Apple & Blackberry Crumble (Mini dessert)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 292,
-    "protein": 1.2,
-    "carbs": 48.8,
-    "fat": 9.7,
-    "saturatedFat": 3.8,
-    "sugar": 25.2,
-    "salt": 0.01
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": [
-     "nuts"
     ]
    }
   },

@@ -5812,33 +5812,6 @@
    }
   },
   {
-   "id": "add-corn-ribs",
-   "name": "Add Corn Ribs",
-   "category": "Add-ons",
-   "serving": "1 portion",
-   "nutrients": {
-    "calories": 59,
-    "protein": 2.7,
-    "carbs": 16.7,
-    "fat": 1.4,
-    "saturatedFat": 0.2,
-    "sugar": 1.9,
-    "salt": 0,
-    "energyKj": 246
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
    "id": "add-baked-beans",
    "name": "Add Baked Beans",
    "category": "Add-ons",

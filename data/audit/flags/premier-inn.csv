@@ -1,8 +1,7 @@
 chain,kind,severity,code,item,name,category,detail
-premier-inn,nutrition,high,energy-gap,add-corn-ribs,Add Corn Ribs,Add-ons,59 kcal vs 4P+4C+9F=90 (53% off)
-premier-inn,nutrition,medium,energy-gap,add-crispy-prawns-x-5,Add Crispy Prawns x 5,Add-ons,208 kcal vs 4P+4C+9F=154 (26% off)
-premier-inn,allergen,medium,name-implies-eggs,add-custard,Add Custard,Add-ons,'Custard' in the name but eggs is not marked (contains: ['milk'])
-premier-inn,allergen,medium,name-implies-gluten,add-non-gluten-containing-ingredient-burger-bun,Add Non Gluten Containing Ingredient Burger Bun,Add-ons,'Burger Bun' in the name but gluten is not marked (contains: ['eggs'])
-premier-inn,allergen,medium,name-implies-gluten,prawn-cocktail-with-non-gluten-containing-ingredient-bread,Prawn Cocktail with Non Gluten Containing Ingredient Bread,Starters & light bites,"'Bread' in the name but gluten is not marked (contains: ['crustaceans', 'eggs', 'milk', 'mustard'])"
-premier-inn,allergen,medium,name-implies-gluten,tomato-soup-with-non-gluten-containing-ingredient-bread,Tomato Soup with Non Gluten Containing Ingredient Bread,Soup,'Bread' in the name but gluten is not marked (contains: none)
-premier-inn,allergen,medium,name-implies-milk,peanut-butter-portions-per-each,Peanut Butter Portions (per each),Spreads & preserves,'Butter' in the name but milk is not marked (contains: ['peanuts'])
+premier-inn,nutrition,reviewed,energy-gap,add-crispy-prawns-x-5,Add Crispy Prawns x 5,Add-ons,208 kcal vs 4P+4C+9F=154 (26% off)
+premier-inn,allergen,reviewed,name-implies-eggs,add-custard,Add Custard,Add-ons,'Custard' in the name but eggs is not marked (contains: ['milk'])
+premier-inn,allergen,reviewed,name-implies-gluten,add-non-gluten-containing-ingredient-burger-bun,Add Non Gluten Containing Ingredient Burger Bun,Add-ons,'Burger Bun' in the name but gluten is not marked (contains: ['eggs'])
+premier-inn,allergen,reviewed,name-implies-gluten,prawn-cocktail-with-non-gluten-containing-ingredient-bread,Prawn Cocktail with Non Gluten Containing Ingredient Bread,Starters & light bites,"'Bread' in the name but gluten is not marked (contains: ['crustaceans', 'eggs', 'milk', 'mustard'])"
+premier-inn,allergen,reviewed,name-implies-gluten,tomato-soup-with-non-gluten-containing-ingredient-bread,Tomato Soup with Non Gluten Containing Ingredient Bread,Soup,'Bread' in the name but gluten is not marked (contains: none)
+premier-inn,allergen,reviewed,name-implies-milk,peanut-butter-portions-per-each,Peanut Butter Portions (per each),Spreads & preserves,'Butter' in the name but milk is not marked (contains: ['peanuts'])

@@ -1,0 +1,13 @@
+{
+ "chain": "leon",
+ "date": "2026-10-08",
+ "source_read": "https://leon.co/menu/{all-day,breakfast,bits-in-between,coffee,drinks,kids}/ and 94 item pages https://leon.co/menu/<slug>/ (menu pages downloaded fresh 2026-10-08, byte-identical to the copy saved earlier that day; no robots.txt on the site, 404)",
+ "compared_items": 94,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 1,
+ "not_verifiable": "allergens: none published (link-only by design: the item pages' own allergen summary still contradicts their ingredient lists, e.g. Baked Fries lists no allergen while its ingredients print OAT), so no marks were compared",
+ "notes": "All 94 item pages' rendered nutrition tables (a different parse from the script's flight-data parse) match items.csv on every published value; the only difference is two matcha lattes whose page prints portion weight 0 (we leave serving blank). Vegetarian/vegan tags match the page badges; pork/beef tags match ingredient text. Poker Night Chilli 680 kcal vs 541 from macros (20%) marked ok as printed; LOVe Burger (29%) stays held back."
+}

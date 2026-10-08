@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Fat Hippo website nutrition panels: Food, Kids, Drinks and Special menu pages (accessed 2026-10-06, no date shown)",
+  "title": "Fat Hippo website nutrition panels: Food, Kids, Drinks and Special menu pages (accessed 2026-10-08, no date shown)",
   "url": "https://fathippo.co.uk/menus/food/",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Per serving from each dish's nutrition panel on fathippo.co.uk (no date shown), in whole grams: salt often reads 0 g. Burgers come with a free side of your choice, listed separately and not added in. Dishes whose printed numbers contradict each other are left out, and so are drinks with no numbers (beers, wines, spirits).",
  "allergenGuide": {
-  "title": "Fat Hippo allergen information: Allergens page and each dish's allergen details on its online menus (accessed 2026-10-06, no date shown)",
+  "title": "Fat Hippo allergen information: Allergens page and each dish's allergen details on its online menus (accessed 2026-10-08, no date shown)",
   "url": "https://fathippo.co.uk/allergens/",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": false
  },
@@ -61,7 +61,9 @@
     "fiber": 5,
     "salt": 1
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -198,7 +200,8 @@
     "salt": 0
    },
    "tags": [
-    "contains_beef"
+    "contains_beef",
+    "contains_pork"
    ],
    "limitedTime": false,
    "rankable": true,
@@ -366,7 +369,9 @@
     "fiber": 2,
     "salt": 0
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -634,30 +639,6 @@
    "image": "fat-hippo/823b2a68e556.webp"
   },
   {
-   "id": "vegan-dirty-tots-upgrade",
-   "name": "Vegan Dirty Tots (upgrade)",
-   "category": "Upgrades",
-   "serving": "",
-   "nutrients": {
-    "calories": 514,
-    "protein": 7,
-    "carbs": 56,
-    "fat": 41,
-    "saturatedFat": 3,
-    "sugar": 5,
-    "fiber": 7,
-    "salt": 2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/823b2a68e556.webp"
-  },
-  {
    "id": "5oz-beef-patty-upgrade",
    "name": "5oz Beef Patty (upgrade)",
    "category": "Upgrades",
@@ -897,30 +878,6 @@
    "components": [],
    "modifiers": [],
    "image": "fat-hippo/faeec3cd7772.webp"
-  },
-  {
-   "id": "dirty-handcut-fries",
-   "name": "Dirty Handcut Fries",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 234,
-    "protein": 6,
-    "carbs": 31,
-    "fat": 16,
-    "saturatedFat": 0,
-    "sugar": 3,
-    "fiber": 1,
-    "salt": 0
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/e94db08c9833.webp"
   },
   {
    "id": "dirty-tots",

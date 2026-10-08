@@ -1,6 +1,5 @@
 chain,kind,severity,code,item,name,category,detail
-pho,nutrition,high,energy-gap,rice-bowl-this-isnt-chicken-and-veg,Rice bowl - THIS isn't chicken & veg,Rice bowls,205 kcal vs 4P+4C+9F=268 (31% off)
-pho,nutrition,medium,energy-gap,prawnless-crackers-with-sweet-chilli-sauce-banh-phong-chay,Prawnless crackers with sweet chilli sauce (Bánh phồng chay),Crackers,320 kcal vs 4P+4C+9F=254 (20% off)
-pho,nutrition,medium,energy-gap,rice-bowl-chargrilled-chicken-thigh,Rice bowl - Chargrilled chicken thigh,Rice bowls,239 kcal vs 4P+4C+9F=296 (24% off)
-pho,nutrition,medium,energy-gap,rice-bowl-chargrilled-pork,Rice bowl - Chargrilled pork,Rice bowls,281 kcal vs 4P+4C+9F=218 (23% off)
-pho,nutrition,medium,energy-gap,spicy-curry-tofu,Spicy curry - Tofu,Curry,789 kcal vs 4P+4C+9F=572 (28% off)
+pho,nutrition,reviewed,energy-gap,prawnless-crackers-with-sweet-chilli-sauce-banh-phong-chay,Prawnless crackers with sweet chilli sauce (Bánh phồng chay),Crackers,320 kcal vs 4P+4C+9F=254 (20% off)
+pho,nutrition,reviewed,energy-gap,rice-bowl-chargrilled-chicken-thigh,Rice bowl - Chargrilled chicken thigh,Rice bowls,239 kcal vs 4P+4C+9F=296 (24% off)
+pho,nutrition,reviewed,energy-gap,rice-bowl-chargrilled-pork,Rice bowl - Chargrilled pork,Rice bowls,281 kcal vs 4P+4C+9F=218 (23% off)
+pho,nutrition,reviewed,energy-gap,spicy-curry-tofu,Spicy curry - Tofu,Curry,789 kcal vs 4P+4C+9F=572 (28% off)

@@ -1,11 +1,9 @@
 chain,kind,severity,code,item,name,category,detail
-las-iguanas,nutrition,medium,huge-protein,3-way-wings,3 Way Wings,Sharing,179.7 g protein
-las-iguanas,allergen,medium,name-implies-gluten,chocolate-brownie,Chocolate Brownie,Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-las-iguanas,allergen,medium,name-implies-gluten,chocolate-ganache-churro-dip,Chocolate Ganache (churro dip),Add-ons & extras,'churro' in the name but gluten is not marked (contains: ['soya'])
-las-iguanas,allergen,medium,name-implies-gluten,dulce-de-leche-churro-dip,Dulce de leche (churro dip),Add-ons & extras,'churro' in the name but gluten is not marked (contains: ['milk'])
-las-iguanas,allergen,medium,name-implies-gluten,warm-chocolate-brownie,Warm Chocolate Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-las-iguanas,allergen,medium,name-implies-milk,quesadilla-pork-and-cheese-bottomless-tapas,Quesadilla: Pork & Cheese (Bottomless Tapas),Tapas & starters,"'Cheese' in the name but milk is not marked (contains: ['gluten', 'sulphites'])"
-las-iguanas,nutrition,medium,salt-very-high,3-way-wings,3 Way Wings,Sharing,salt 12.3 g with 1901 kcal (6 g is the whole day's limit)
-las-iguanas,nutrition,medium,salt-very-high,sizzling-fajitas-prawn,Sizzling Fajitas: Prawn,Mains,salt 5.1 g with 309 kcal (6 g is the whole day's limit)
-las-iguanas,nutrition,low,energy-gap-alcohol,iguana-bomb,Iguana Bomb,Drinks: Shots,131 kcal vs 4P+4C+9F=29: energy not in the macros (alcohol?)
 las-iguanas,nutrition,low,energy-gap-alcohol,pacifico-clara-4-5,Pacifico Clara (4.5%),Drinks: Beer & cider,178 kcal vs 4P+4C+9F=62: energy not in the macros (alcohol?)
+las-iguanas,nutrition,reviewed,huge-protein,3-way-wings,3 Way Wings,Sharing,179.7 g protein
+las-iguanas,allergen,reviewed,name-implies-gluten,chocolate-brownie,Chocolate Brownie,Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+las-iguanas,allergen,reviewed,name-implies-gluten,chocolate-ganache-churro-dip,Chocolate Ganache (churro dip),Add-ons & extras,'churro' in the name but gluten is not marked (contains: ['soya'])
+las-iguanas,allergen,reviewed,name-implies-gluten,dulce-de-leche-churro-dip,Dulce de leche (churro dip),Add-ons & extras,'churro' in the name but gluten is not marked (contains: ['milk'])
+las-iguanas,allergen,reviewed,name-implies-gluten,warm-chocolate-brownie,Warm Chocolate Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+las-iguanas,nutrition,reviewed,salt-very-high,3-way-wings,3 Way Wings,Sharing,salt 12.3 g with 1901 kcal (6 g is the whole day's limit)
+las-iguanas,nutrition,reviewed,salt-very-high,sizzling-fajitas-prawn,Sizzling Fajitas: Prawn,Mains,salt 5.1 g with 309 kcal (6 g is the whole day's limit)

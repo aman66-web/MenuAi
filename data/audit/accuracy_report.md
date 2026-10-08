@@ -2,112 +2,102 @@
 
 Flags are questions for a re-read of the chain's official source, never corrections. Severity: high = arithmetic that cannot hold or a contradiction inside the data; medium = suspicious; low = worth a glance.
 
-Chains: 150 · items: 23482 · nutrition flags high/med/low: 41/387/485 · allergen flags high/med/low: 35/455/20
+Chains: 152 · items: 23506 · nutrition flags high/med/low: 0/187/482 · allergen flags high/med/low: 3/101/15
 
 | chain | items | level | with allergens | nutr H/M/L | allergen H/M/L | high-severity codes |
 |---|---|---|---|---|---|---|
-| real-greek | 46 | full | 46 | 4/0/0 | 0/0/0 | macros-exceed-weight×3, kcal-per-gram×1 |
-| cooplands | 107 | full | 107 | 6/0/0 | 0/1/0 | size-inverted×4, macros-exceed-weight×2 |
-| chipotle | 22 | full | 0 | 1/1/3 | 0/0/0 | energy-gap×1 |
-| be-at-one | 23 | full | 23 | 1/1/0 | 0/1/0 | sugar-gt-carbs×1 |
-| cote-brasserie | 173 | full | 173 | 5/2/1 | 2/6/1 | sugar-gt-carbs×3, sat-gt-fat×2, vegetarian-contains-fish×1, vegan-contains-animal×1 |
-| afrikana | 74 | calories | 0 | 2/0/3 | 0/0/0 | huge×2 |
-| giraffe | 239 | calories | 239 | 0/0/0 | 4/5/0 | vegan-contains-animal×4 |
-| gourmet-burger-kitchen | 188 | full | 188 | 2/5/5 | 1/0/0 | sugar-gt-carbs×1, sat-gt-fat×1, vegan-contains-animal×1 |
-| chopstix | 126 | full | 0 | 2/1/4 | 0/0/0 | kj-kcal×2 |
-| slug-and-lettuce | 232 | full | 232 | 2/3/3 | 1/17/3 | kj-kcal×2, vegan-contains-animal×1 |
-| frankie-and-bennys | 254 | full | 254 | 1/3/17 | 2/11/1 | free-from-gluten-contains×2, energy-gap×1 |
-| bills | 366 | calories | 366 | 0/0/1 | 4/20/3 | free-from-gluten-contains×3, vegan-contains-animal×1 |
-| wimpy | 183 | full | 183 | 0/0/3 | 2/1/0 | vegan-contains-animal×2 |
-| slim-chickens | 94 | full | 94 | 0/6/2 | 1/0/0 | vegan-contains-animal×1 |
-| yo-sushi | 94 | full | 94 | 1/19/1 | 0/3/0 | kj-kcal×1 |
-| burger-king | 193 | full | 0 | 2/5/2 | 0/0/0 | salt-sodium×2 |
-| pho | 97 | full | 0 | 1/4/0 | 0/0/0 | energy-gap×1 |
-| kfc | 108 | full | 108 | 1/0/0 | 0/2/0 | zero-kcal×1 |
-| english-heritage | 498 | calories | 498 | 0/3/0 | 4/10/0 | vegan-contains-animal×4 |
-| tesco-cafe | 378 | calories | 378 | 0/0/5 | 3/6/0 | free-from-milk-contains×3 |
-| loungers | 397 | calories | 397 | 0/0/0 | 3/8/1 | free-from-gluten-contains×3 |
-| wagamama | 138 | full | 138 | 1/7/9 | 0/8/1 | kj-kcal×1 |
-| all-bar-one | 148 | full | 0 | 1/0/1 | 0/0/0 | energy-gap×1 |
 | rosas-thai | 152 | calories | 152 | 0/0/0 | 1/5/0 | vegetarian-contains-fish×1 |
-| warner-hotels | 158 | calories | 158 | 1/0/0 | 0/10/0 | size-inverted×1 |
-| san-carlo | 322 | full | 322 | 2/49/8 | 0/10/0 | energy-gap×2 |
 | barburrito | 171 | calories | 171 | 0/0/0 | 1/9/0 | vegan-contains-animal×1 |
 | hickorys | 188 | full | 188 | 0/61/7 | 1/0/0 | free-from-gluten-contains×1 |
-| giggling-squid | 205 | full | 205 | 1/9/1 | 0/13/0 | sat-gt-fat×1 |
-| social-pub-and-kitchen | 213 | full | 213 | 0/8/1 | 1/9/2 | vegan-contains-animal×1 |
-| brasserie-blanc | 241 | full | 241 | 1/7/85 | 0/7/0 | energy-gap×1 |
-| premier-inn | 267 | full | 267 | 1/1/0 | 0/5/0 | energy-gap×1 |
-| bella-italia | 272 | full | 272 | 0/0/11 | 1/22/1 | free-from-gluten-contains×1 |
-| haven | 575 | calories | 575 | 0/0/3 | 2/21/0 | vegan-contains-animal×2 |
-| butlins | 607 | full | 607 | 2/8/9 | 0/38/0 | kj-kcal×2 |
-| coffee-1 | 595 | full | 595 | 0/1/10 | 1/35/0 | free-from-gluten-contains×1 |
 | abokado | 118 | full | 0 | 0/1/4 | 0/0/0 |  |
+| afrikana | 74 | calories | 0 | 0/0/3 | 0/0/0 |  |
+| all-bar-one | 147 | full | 0 | 0/0/1 | 0/0/0 |  |
 | amigos-burgers-and-shakes | 33 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | aunties-anne | 170 | full | 0 | 0/0/0 | 0/0/0 |  |
 | bagel-factory | 26 | full | 0 | 0/0/0 | 0/0/0 |  |
 | banana-tree | 141 | full | 141 | 0/6/1 | 0/1/0 |  |
 | baskin-robbins | 23 | full | 23 | 0/0/0 | 0/1/0 |  |
-| baynes | 175 | full | 0 | 0/13/6 | 0/0/0 |  |
+| baynes | 175 | full | 0 | 0/0/6 | 0/0/0 |  |
+| be-at-one | 21 | full | 21 | 0/0/0 | 0/0/0 |  |
+| bella-italia | 268 | full | 268 | 0/0/10 | 0/0/1 |  |
 | benugo | 79 | calories | 0 | 0/0/17 | 0/0/0 |  |
 | bettys | 134 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| bills | 365 | calories | 365 | 0/0/0 | 0/0/0 |  |
 | birds-bakery | 80 | full | 80 | 0/0/0 | 0/0/0 |  |
 | bistrot-pierre | 114 | calories | 114 | 0/0/1 | 0/1/0 |  |
+| blacklock | 68 | calories | 68 | 0/0/0 | 0/0/0 |  |
 | blank-street-coffee | 178 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | boston-tea-party | 147 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| brasserie-blanc | 240 | full | 240 | 0/0/85 | 0/0/0 |  |
 | british-garden-centres | 97 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | browns | 228 | full | 0 | 0/6/3 | 0/0/0 |  |
 | burger-and-lobster | 52 | calories | 0 | 0/0/1 | 0/0/0 |  |
+| burger-king | 188 | full | 0 | 0/0/2 | 0/0/0 |  |
 | burger-shack | 6 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| butlins | 601 | full | 601 | 0/0/9 | 0/0/0 |  |
 | buzz-bingo | 94 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | cafe-rouge | 139 | full | 139 | 0/1/0 | 0/2/0 |  |
 | caffe-nero | 373 | full | 0 | 0/0/1 | 0/0/0 |  |
+| caravan | 161 | calories | 161 | 0/0/2 | 0/8/1 |  |
 | carluccios | 45 | full | 45 | 0/1/1 | 0/0/0 |  |
 | castle-carvery | 80 | full | 80 | 0/6/0 | 0/2/0 |  |
 | chaiiwala | 132 | calories | 0 | 0/0/2 | 0/0/0 |  |
 | chilango | 15 | full | 0 | 0/0/5 | 0/0/0 |  |
-| chiquito | 196 | full | 196 | 0/2/11 | 0/7/0 |  |
+| chipotle | 20 | full | 0 | 0/0/3 | 0/0/0 |  |
+| chiquito | 192 | full | 192 | 0/0/11 | 0/0/0 |  |
+| chopstix | 122 | full | 0 | 0/0/4 | 0/0/0 |  |
+| coffee-1 | 553 | full | 553 | 0/0/10 | 0/0/0 |  |
 | comptoir-libanais | 101 | calories | 101 | 0/0/0 | 0/1/0 |  |
+| cooplands | 104 | full | 104 | 0/0/0 | 0/0/0 |  |
 | cornish-bakery | 75 | calories | 75 | 0/0/0 | 0/2/0 |  |
+| cote-brasserie | 163 | full | 163 | 0/0/1 | 0/0/0 |  |
 | creams-cafe | 300 | calories | 300 | 0/0/0 | 0/0/0 |  |
 | daves-hot-chicken | 51 | calories | 0 | 0/0/4 | 0/0/0 |  |
 | dim-t | 92 | calories | 0 | 0/0/0 | 0/0/0 |  |
-| drake-and-morgan | 93 | calories | 93 | 0/0/2 | 0/3/0 |  |
+| drake-and-morgan | 89 | calories | 89 | 0/0/2 | 0/0/0 |  |
 | dunkin | 132 | calories | 0 | 0/0/0 | 0/0/0 |  |
-| eds-easy-diner | 168 | full | 168 | 0/3/3 | 0/1/0 |  |
+| eds-easy-diner | 167 | full | 167 | 0/0/2 | 0/0/0 |  |
 | ember-inns | 255 | full | 0 | 0/7/0 | 0/0/0 |  |
+| english-heritage | 493 | calories | 493 | 0/0/0 | 0/0/0 |  |
 | esquires | 54 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | everyman | 113 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | farmer-j | 74 | full | 74 | 0/0/2 | 0/4/0 |  |
-| fat-hippo | 102 | full | 0 | 0/4/7 | 0/0/0 |  |
+| fat-hippo | 100 | full | 0 | 0/2/7 | 0/0/0 |  |
 | five-guys | 69 | full | 0 | 0/1/0 | 0/0/0 |  |
 | flight-club | 77 | full | 77 | 0/1/3 | 0/9/0 |  |
 | forest-holidays | 82 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | franco-manca | 76 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| frankie-and-bennys | 250 | full | 250 | 0/0/17 | 0/0/1 |  |
 | gails | 267 | calories | 267 | 0/0/0 | 0/2/0 |  |
+| giggling-squid | 204 | full | 204 | 0/0/1 | 0/0/0 |  |
+| giraffe | 236 | calories | 236 | 0/0/0 | 0/0/0 |  |
+| gourmet-burger-kitchen | 184 | full | 184 | 0/0/5 | 0/0/0 |  |
 | greene-king | 143 | full | 0 | 0/4/0 | 0/0/0 |  |
 | greggs | 263 | full | 0 | 0/4/10 | 0/0/0 |  |
-| gusto | 172 | calories | 172 | 0/0/0 | 0/12/1 |  |
+| gusto | 166 | calories | 166 | 0/0/0 | 0/0/1 |  |
 | hard-rock-cafe | 113 | calories | 0 | 0/0/0 | 0/0/0 |  |
-| harvester | 109 | full | 109 | 0/4/0 | 0/4/0 |  |
-| heartwood-inns | 220 | full | 220 | 0/4/82 | 0/7/0 |  |
-| heritage-pubs | 306 | full | 306 | 0/6/2 | 0/24/3 |  |
+| harvester | 105 | full | 105 | 0/0/0 | 0/0/0 |  |
+| haven | 572 | calories | 572 | 0/0/3 | 0/0/0 |  |
+| heartwood-inns | 219 | full | 219 | 0/0/82 | 0/0/0 |  |
+| heritage-pubs | 301 | full | 301 | 0/0/2 | 0/0/3 |  |
 | hoburne-holidays | 201 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | hollywood-bowl | 106 | calories | 0 | 0/0/1 | 0/0/0 |  |
-| hotel-du-vin | 67 | calories | 67 | 0/0/0 | 0/7/0 |  |
+| hotel-du-vin | 67 | calories | 67 | 0/0/0 | 0/0/0 |  |
 | hungry-horse | 220 | calories | 0 | 0/0/1 | 0/0/0 |  |
 | ikea | 118 | full | 0 | 0/1/0 | 0/0/0 |  |
 | itsu | 132 | full | 0 | 0/1/6 | 0/0/0 |  |
 | jamies-italian | 67 | full | 0 | 0/0/1 | 0/0/0 |  |
 | joseph-holt | 121 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | jw-lees | 111 | calories | 111 | 0/0/0 | 0/20/0 |  |
+| kfc | 104 | full | 104 | 0/0/0 | 0/0/0 |  |
 | kokoro | 69 | calories | 0 | 0/0/0 | 0/0/0 |  |
-| las-iguanas | 197 | full | 197 | 0/3/2 | 0/5/0 |  |
+| las-iguanas | 195 | full | 195 | 0/0/1 | 0/0/0 |  |
 | leon | 93 | full | 0 | 0/1/5 | 0/0/0 |  |
 | little-dessert-shop | 104 | calories | 104 | 0/0/0 | 0/4/0 |  |
-| malmaison | 74 | calories | 74 | 0/0/0 | 0/7/0 |  |
+| loungers | 397 | calories | 397 | 0/0/0 | 0/0/1 |  |
+| malmaison | 71 | calories | 71 | 0/0/0 | 0/0/0 |  |
 | mcmullens | 190 | full | 190 | 0/11/0 | 0/6/0 |  |
-| megans | 197 | full | 197 | 0/8/0 | 0/16/0 |  |
+| megans | 191 | full | 191 | 0/0/0 | 0/0/0 |  |
 | mildreds | 48 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | miller-and-carter | 103 | full | 103 | 0/5/0 | 0/1/0 |  |
 | mowgli | 46 | calories | 0 | 0/0/0 | 0/0/0 |  |
@@ -117,27 +107,35 @@ Chains: 150 · items: 23482 · nutrition flags high/med/low: 41/387/485 · aller
 | oneills | 62 | full | 0 | 0/0/0 | 0/0/0 |  |
 | patisserie-valerie | 287 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | pepes-piri-piri | 109 | full | 109 | 0/10/2 | 0/0/0 |  |
+| pho | 96 | full | 0 | 0/0/0 | 0/0/0 |  |
 | ping-pong | 47 | full | 0 | 0/0/0 | 0/0/0 |  |
 | pizza-hut | 237 | full | 0 | 0/0/0 | 0/0/0 |  |
 | pizza-union | 65 | full | 65 | 0/0/2 | 0/1/0 |  |
 | places-leisure | 299 | calories | 299 | 0/0/0 | 0/0/0 |  |
-| popeyes | 187 | full | 187 | 0/12/3 | 0/0/0 |  |
+| popeyes | 187 | full | 187 | 0/0/3 | 0/0/0 |  |
+| premier-inn | 266 | full | 266 | 0/0/0 | 0/0/0 |  |
 | pret | 329 | full | 0 | 0/0/22 | 0/0/0 |  |
 | prezzo | 419 | full | 419 | 0/11/6 | 0/10/0 |  |
 | puccinos | 654 | full | 0 | 0/0/3 | 0/0/0 |  |
 | pure | 138 | full | 0 | 0/0/7 | 0/0/0 |  |
 | puttshack-uk | 36 | calories | 36 | 0/0/0 | 0/1/0 |  |
+| real-greek | 43 | full | 43 | 0/0/0 | 0/0/0 |  |
 | rick-steins | 196 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | rudys-pizza-napoletana | 61 | full | 61 | 0/4/0 | 0/0/0 |  |
+| san-carlo | 318 | full | 318 | 0/0/8 | 0/0/0 |  |
 | sbarro | 91 | full | 0 | 0/21/5 | 0/0/0 |  |
 | shahs-halal-food | 10 | full | 0 | 0/1/0 | 0/0/0 |  |
 | sizzling-pubs | 103 | full | 103 | 0/2/0 | 0/0/2 |  |
+| slim-chickens | 93 | full | 93 | 0/0/2 | 0/0/0 |  |
+| slug-and-lettuce | 226 | full | 226 | 0/0/3 | 0/0/1 |  |
+| social-pub-and-kitchen | 215 | full | 215 | 0/0/1 | 0/0/2 |  |
 | soho-coffee-co | 198 | full | 0 | 0/0/7 | 0/0/0 |  |
 | starbucks | 347 | full | 0 | 0/0/16 | 0/0/0 |  |
 | sticks-n-sushi | 125 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | stonehouse | 84 | full | 84 | 0/1/0 | 0/1/0 |  |
 | strada | 62 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | taco-bell | 102 | full | 0 | 0/1/2 | 0/0/0 |  |
+| tesco-cafe | 378 | calories | 378 | 0/0/5 | 0/0/0 |  |
 | tgi-fridays | 123 | calories | 123 | 0/0/1 | 0/0/0 |  |
 | the-botanist | 159 | calories | 159 | 0/0/1 | 0/4/0 |  |
 | the-breakfast-club | 51 | calories | 0 | 0/0/0 | 0/0/0 |  |
@@ -148,7 +146,9 @@ Chains: 150 · items: 23482 · nutrition flags high/med/low: 41/387/485 · aller
 | village-hotels | 89 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | vintage-inns | 56 | full | 0 | 0/0/0 | 0/0/0 |  |
 | vue | 58 | full | 0 | 0/0/0 | 0/0/0 |  |
+| wagamama | 114 | full | 114 | 0/0/8 | 0/0/1 |  |
 | wahaca | 44 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| warner-hotels | 152 | calories | 152 | 0/0/0 | 0/0/0 |  |
 | warrens-bakery | 146 | calories | 146 | 0/0/0 | 0/0/0 |  |
 | wasabi | 207 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | wendys | 137 | full | 137 | 0/2/1 | 0/0/0 |  |
@@ -156,3 +156,5 @@ Chains: 150 · items: 23482 · nutrition flags high/med/low: 41/387/485 · aller
 | westmorland-services | 293 | full | 293 | 0/1/6 | 0/4/1 |  |
 | wild-bean-cafe | 59 | full | 59 | 0/0/0 | 0/0/0 |  |
 | wildwood | 114 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| wimpy | 183 | full | 183 | 0/0/3 | 0/0/0 |  |
+| yo-sushi | 76 | full | 76 | 0/0/1 | 0/0/0 |  |

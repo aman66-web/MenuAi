@@ -42,7 +42,6 @@
   "Zero-proofs",
   "Coffee & hot chocolate",
   "Tea",
-  "Desserts",
   "D&M Classics & Twists",
   "Spritzes",
   "Hot drinks",
@@ -50,8 +49,7 @@
   "Children's: the main event",
   "Children's: baby food",
   "Children's: weekend brunch options",
-  "Children's: Sunday roast main options",
-  "Children's: desserts"
+  "Children's: Sunday roast main options"
  ],
  "components": [],
  "items": [
@@ -1925,30 +1923,6 @@
    }
   },
   {
-   "id": "winter-berry-crumble",
-   "name": "Winter berry crumble",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 818
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
    "id": "classic-mojito",
    "name": "Classic Mojito",
    "category": "D&M Classics & Twists",
@@ -2041,33 +2015,6 @@
    "allergens": {
     "contains": [],
     "mayContain": []
-   }
-  },
-  {
-   "id": "buttermilk-chicken-bites",
-   "name": "Buttermilk chicken bites",
-   "category": "Children's: the main event",
-   "serving": "",
-   "nutrients": {
-    "calories": 882
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
-    ],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -2307,60 +2254,6 @@
     "mayContain": [
      "celery"
     ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "winterberry-and-apple-crumble",
-   "name": "Winterberry & apple crumble",
-   "category": "Children's: desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 818
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
-   "id": "stickey-toffee-pudding",
-   "name": "Stickey toffee pudding",
-   "category": "Children's: desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 820
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
     "cereals": [
      "wheat"
     ]

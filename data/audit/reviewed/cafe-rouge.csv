@@ -1,0 +1,4 @@
+item,code,verdict,evidence
+waldorf-salad,energy-gap,ok,"Main Menu popover (and menu-item card) prints Energy 523 kCal, Protein 17.3, Carb 11.7, Fat 32.9 as copied; JSON-LD agrees (523 cal, 12 g carb, 33 g fat). Gap to 4P+4C+9F (412) is 21%, below the 30% hold line; copied as printed"
+caesar-salad,name-implies-fish,ok,"Main Menu card text: 'Gem and radicchio lettuce tossed with Italian cheese, Caesar dressing and fresh basil. Topped with ciabatta croutons and roasted sliced chicken breast'; no anchovy/fish named and the popover Contains is Eggs / Milk / Mustard / Cereals (Rye, Wheat); a Caesar dressing can be anchovy-free"
+chocolate-brownie,name-implies-gluten,ok,"Kids tab popover: 'Suitable for: Gluten Free / Vegetarian', Contains Eggs / Milk / Soya (card text 'with vanilla ice cream'); a gluten-free brownie as printed"

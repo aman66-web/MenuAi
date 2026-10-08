@@ -1,29 +1,28 @@
 chain,kind,severity,code,item,name,category,detail
-bills,allergen,high,free-from-gluten-contains,bills-classic-burger-gluten-free,Bill's Classic Burger (gluten-free),Mains,named 'gluten-free' but allergens say it contains gluten
-bills,allergen,high,free-from-gluten-contains,double-decker-brekkie-burger-gluten-free-breakfast,"Double-Decker Brekkie Burger (gluten-free, breakfast)",Breakfast,named 'gluten-free' but allergens say it contains gluten
-bills,allergen,high,free-from-gluten-contains,double-decker-brekkie-burger-gluten-free-brunch-lunch-and-dinner,"Double-Decker Brekkie Burger (gluten-free, brunch, lunch & dinner)",Brunch,named 'gluten-free' but allergens say it contains gluten
-bills,allergen,high,vegan-contains-animal,scrambled-eggs-on-toast-with-vegan-bacon,Scrambled Eggs on Toast with Vegan Bacon,Eggs,"named vegan/plant-based but allergens say it contains ['eggs', 'milk']"
-bills,allergen,medium,name-implies-fish,caesar-salad,Caesar Salad,Sides,"'Caesar' in the name but fish is not marked (contains: ['gluten', 'milk', 'mustard', 'soya'])"
-bills,allergen,medium,name-implies-fish,caesar-salad-gluten-free,Caesar Salad (gluten-free),Sides,"'Caesar' in the name but fish is not marked (contains: ['milk', 'mustard'])"
-bills,allergen,medium,name-implies-fish,classic-caesar-salad,Classic Caesar Salad,Mains & salads,"'Caesar' in the name but fish is not marked (contains: ['gluten', 'milk', 'mustard', 'soya'])"
-bills,allergen,medium,name-implies-fish,classic-chicken-caesar,Classic Chicken Caesar,Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk', 'mustard'])"
-bills,allergen,medium,name-implies-gluten,bills-blueberry-pancakes,Bill's Blueberry Pancakes,Kids breakfast,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
-bills,allergen,medium,name-implies-gluten,bills-brownie,Bill's Brownie,Kids desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-bills,allergen,medium,name-implies-gluten,bills-fish-pie,Bill's Fish Pie,Mains & salads,"'Pie' in the name but gluten is not marked (contains: ['crustaceans', 'fish', 'milk'])"
-bills,allergen,medium,name-implies-gluten,blueberry-pancakes-with-smoked-streaky-bacon-3-stack,Blueberry Pancakes with Smoked Streaky Bacon (3 stack),Pancakes,"'Pancake' in the name but gluten is not marked (contains: ['milk', 'soya', 'sulphites'])"
-bills,allergen,medium,name-implies-gluten,blueberry-pancakes-with-smoked-streaky-bacon-5-stack,Blueberry Pancakes with Smoked Streaky Bacon (5 stack),Pancakes,"'Pancake' in the name but gluten is not marked (contains: ['milk', 'soya', 'sulphites'])"
-bills,allergen,medium,name-implies-gluten,mini-salted-carmel-and-brownie-pot,Mini Salted Carmel & Brownie Pot,Mini desserts & a hot drink,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-bills,allergen,medium,name-implies-gluten,triple-chocolate-brownie,Triple Chocolate Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-bills,allergen,medium,name-implies-gluten,vegan-bacon-pancakes-3-stack,Vegan Bacon Pancakes (3 stack),Vegan pancakes,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
-bills,allergen,medium,name-implies-gluten,vegan-bacon-pancakes-5-stack,Vegan Bacon Pancakes (5 stack),Vegan pancakes,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
-bills,allergen,medium,name-implies-gluten,vegan-berries-and-whipped-vanilla-cream-pancakes-3-stack,Vegan Berries & Whipped Vanilla Cream Pancakes (3 stack),Vegan pancakes,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
-bills,allergen,medium,name-implies-gluten,vegan-berries-and-whipped-vanilla-cream-pancakes-5-stack,Vegan Berries & Whipped Vanilla Cream Pancakes (5 stack),Vegan pancakes,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
-bills,allergen,medium,name-implies-milk,bills-golden-latte,Bill's Golden Latte,Tea & coffee,'Latte' in the name but milk is not marked (contains: ['soya'])
-bills,allergen,medium,name-implies-milk,buttered-seasonal-greens,Buttered Seasonal Greens,Sides,'Butter' in the name but milk is not marked (contains: none)
-bills,allergen,medium,name-implies-milk,creamy-slaw-brunch-lunch-and-dinner,"Creamy Slaw (brunch, lunch & dinner)",Sides,'Cream' in the name but milk is not marked (contains: ['mustard'])
-bills,allergen,medium,name-implies-milk,creamy-slaw-set-lunch,Creamy Slaw (set lunch),Sides,'Cream' in the name but milk is not marked (contains: ['mustard'])
-bills,allergen,medium,name-implies-nuts,hazelnut-syrup,Hazelnut Syrup,Tea & coffee,'Hazelnut' in the name but nuts is not marked (contains: none)
-bills,nutrition,low,huge,the-mighty-brunch-gluten-free,The Mighty Brunch (gluten-free),Breakfast,2558 kcal in one item
-bills,allergen,low,name-implies-sulphites,crodino-spritz-wine-glass,Crodino Spritz (Wine Glass),Get spritzy,'Spritz' in the name but sulphites is not marked (contains: none)
-bills,allergen,low,name-implies-sulphites,english-garden-spritz-wine-glass,English Garden Spritz (Wine Glass),Get spritzy,'Spritz' in the name but sulphites is not marked (contains: none)
-bills,allergen,low,name-implies-sulphites,seedlip-and-raspberry-spritz-wine-glass,Seedlip & Raspberry Spritz (Wine Glass),Get spritzy,'Spritz' in the name but sulphites is not marked (contains: none)
+bills,allergen,reviewed,free-from-gluten-contains,bills-classic-burger-gluten-free,Bill's Classic Burger (gluten-free),Mains,named 'gluten-free' but allergens say it contains gluten
+bills,allergen,reviewed,free-from-gluten-contains,double-decker-brekkie-burger-gluten-free-breakfast,"Double-Decker Brekkie Burger (gluten-free, breakfast)",Breakfast,named 'gluten-free' but allergens say it contains gluten
+bills,allergen,reviewed,free-from-gluten-contains,double-decker-brekkie-burger-gluten-free-brunch-lunch-and-dinner,"Double-Decker Brekkie Burger (gluten-free, brunch, lunch & dinner)",Brunch,named 'gluten-free' but allergens say it contains gluten
+bills,nutrition,reviewed,huge,the-mighty-brunch-gluten-free,The Mighty Brunch (gluten-free),Breakfast,2558 kcal in one item
+bills,allergen,reviewed,name-implies-fish,caesar-salad,Caesar Salad,Sides,"'Caesar' in the name but fish is not marked (contains: ['gluten', 'milk', 'mustard', 'soya'])"
+bills,allergen,reviewed,name-implies-fish,caesar-salad-gluten-free,Caesar Salad (gluten-free),Sides,"'Caesar' in the name but fish is not marked (contains: ['milk', 'mustard'])"
+bills,allergen,reviewed,name-implies-fish,classic-caesar-salad,Classic Caesar Salad,Mains & salads,"'Caesar' in the name but fish is not marked (contains: ['gluten', 'milk', 'mustard', 'soya'])"
+bills,allergen,reviewed,name-implies-fish,classic-chicken-caesar,Classic Chicken Caesar,Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'milk', 'mustard'])"
+bills,allergen,reviewed,name-implies-gluten,bills-blueberry-pancakes,Bill's Blueberry Pancakes,Kids breakfast,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
+bills,allergen,reviewed,name-implies-gluten,bills-brownie,Bill's Brownie,Kids desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+bills,allergen,reviewed,name-implies-gluten,bills-fish-pie,Bill's Fish Pie,Mains & salads,"'Pie' in the name but gluten is not marked (contains: ['crustaceans', 'fish', 'milk'])"
+bills,allergen,reviewed,name-implies-gluten,blueberry-pancakes-with-smoked-streaky-bacon-3-stack,Blueberry Pancakes with Smoked Streaky Bacon (3 stack),Pancakes,"'Pancake' in the name but gluten is not marked (contains: ['milk', 'soya', 'sulphites'])"
+bills,allergen,reviewed,name-implies-gluten,blueberry-pancakes-with-smoked-streaky-bacon-5-stack,Blueberry Pancakes with Smoked Streaky Bacon (5 stack),Pancakes,"'Pancake' in the name but gluten is not marked (contains: ['milk', 'soya', 'sulphites'])"
+bills,allergen,reviewed,name-implies-gluten,mini-salted-carmel-and-brownie-pot,Mini Salted Carmel & Brownie Pot,Mini desserts & a hot drink,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+bills,allergen,reviewed,name-implies-gluten,triple-chocolate-brownie,Triple Chocolate Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+bills,allergen,reviewed,name-implies-gluten,vegan-bacon-pancakes-3-stack,Vegan Bacon Pancakes (3 stack),Vegan pancakes,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
+bills,allergen,reviewed,name-implies-gluten,vegan-bacon-pancakes-5-stack,Vegan Bacon Pancakes (5 stack),Vegan pancakes,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
+bills,allergen,reviewed,name-implies-gluten,vegan-berries-and-whipped-vanilla-cream-pancakes-3-stack,Vegan Berries & Whipped Vanilla Cream Pancakes (3 stack),Vegan pancakes,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
+bills,allergen,reviewed,name-implies-gluten,vegan-berries-and-whipped-vanilla-cream-pancakes-5-stack,Vegan Berries & Whipped Vanilla Cream Pancakes (5 stack),Vegan pancakes,"'Pancake' in the name but gluten is not marked (contains: ['soya', 'sulphites'])"
+bills,allergen,reviewed,name-implies-milk,bills-golden-latte,Bill's Golden Latte,Tea & coffee,'Latte' in the name but milk is not marked (contains: ['soya'])
+bills,allergen,reviewed,name-implies-milk,buttered-seasonal-greens,Buttered Seasonal Greens,Sides,'Butter' in the name but milk is not marked (contains: none)
+bills,allergen,reviewed,name-implies-milk,creamy-slaw-brunch-lunch-and-dinner,"Creamy Slaw (brunch, lunch & dinner)",Sides,'Cream' in the name but milk is not marked (contains: ['mustard'])
+bills,allergen,reviewed,name-implies-milk,creamy-slaw-set-lunch,Creamy Slaw (set lunch),Sides,'Cream' in the name but milk is not marked (contains: ['mustard'])
+bills,allergen,reviewed,name-implies-sulphites,crodino-spritz-wine-glass,Crodino Spritz (Wine Glass),Get spritzy,'Spritz' in the name but sulphites is not marked (contains: none)
+bills,allergen,reviewed,name-implies-sulphites,english-garden-spritz-wine-glass,English Garden Spritz (Wine Glass),Get spritzy,'Spritz' in the name but sulphites is not marked (contains: none)
+bills,allergen,reviewed,name-implies-sulphites,seedlip-and-raspberry-spritz-wine-glass,Seedlip & Raspberry Spritz (Wine Glass),Get spritzy,'Spritz' in the name but sulphites is not marked (contains: none)
+bills,allergen,reviewed,vegan-contains-animal,scrambled-eggs-on-toast-with-vegan-bacon,Scrambled Eggs on Toast with Vegan Bacon,Eggs,"named vegan/plant-based but allergens say it contains ['eggs', 'milk']"

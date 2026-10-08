@@ -1,6 +1,3 @@
 chain,kind,severity,code,item,name,category,detail
-drake-and-morgan,allergen,medium,name-implies-gluten,winter-berry-crumble,Winter berry crumble,Desserts,'crumb' in the name but gluten is not marked (contains: ['soya'])
-drake-and-morgan,allergen,medium,name-implies-gluten,winterberry-and-apple-crumble,Winterberry & apple crumble,Children's: desserts,'crumb' in the name but gluten is not marked (contains: ['soya'])
-drake-and-morgan,allergen,medium,name-implies-milk,buttermilk-chicken-bites,Buttermilk chicken bites,Children's: the main event,"'Butter' in the name but milk is not marked (contains: ['eggs', 'gluten', 'soya'])"
 drake-and-morgan,nutrition,low,huge,chateaubriand-18oz,Chateaubriand 18oz,Steaks,3656 kcal in one item
 drake-and-morgan,nutrition,low,huge,metre-long-steak,Metre long steak,Steaks,8770 kcal in one sharing item

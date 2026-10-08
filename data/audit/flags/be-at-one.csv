@@ -1,4 +1,2 @@
 chain,kind,severity,code,item,name,category,detail
-be-at-one,nutrition,high,sugar-gt-carbs,peach-tom-collins-0,Peach Tom Collins 0%,Alcohol-free cocktails,sugars 27.4 g > carbohydrate 25.3 g
-be-at-one,allergen,medium,name-implies-gluten,double-chocolate-brownie-and-marshmallows,Double Chocolate Brownie & Marshmallows,Sweet treats,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-be-at-one,nutrition,medium,sugar-implausible,sweet-treats,Sweet Treats,Sweet treats,sugar 143.6 g in one item
+be-at-one,nutrition,reviewed,sugar-implausible,sweet-treats,Sweet Treats,Sweet treats,sugar 143.6 g in one item

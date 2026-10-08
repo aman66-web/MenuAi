@@ -1,10 +1,9 @@
 chain,kind,severity,code,item,name,category,detail
-slim-chickens,allergen,high,vegan-contains-animal,plant-based-buffalo-sandwich-meal,Plant Based Buffalo Sandwich Meal,Sandwiches,named vegan/plant-based but allergens say it contains ['milk']
-slim-chickens,nutrition,medium,huge-protein,full-reload-bundle,Full Reload Bundle,Chicken Tenders,178.4 g protein
-slim-chickens,nutrition,medium,huge-protein,slims-crave-box,Slims Crave Box,Sides,232.6 g protein
-slim-chickens,nutrition,medium,salt-very-high,10-buffalo-wings-meal,10 Buffalo Wings Meal,Crispy Wings,salt 21 g with 1579 kcal (6 g is the whole day's limit)
-slim-chickens,nutrition,medium,salt-very-high,6-buffalo-wings-meal,6 Buffalo Wings Meal,Crispy Wings,salt 12.9 g with 1025 kcal (6 g is the whole day's limit)
-slim-chickens,nutrition,medium,salt-very-high,8-buffalo-wings-meal,8 Buffalo Wings Meal,Crispy Wings,salt 16.8 g with 1227 kcal (6 g is the whole day's limit)
-slim-chickens,nutrition,medium,salt-very-high,buffalo-tossed-boneless-bites,Buffalo Tossed Boneless Bites,Sides,salt 5 g with 208 kcal (6 g is the whole day's limit)
 slim-chickens,nutrition,low,huge,slims-crave-box,Slims Crave Box,Sides,2590 kcal in one item
 slim-chickens,nutrition,low,sugar+fibre-gt-carbs,flake-shake,Flake Shake,Handspun Shakes,sugars 86.8 + fibre 8.4 > carbohydrate 92.2 (starch would be negative)
+slim-chickens,nutrition,reviewed,huge-protein,full-reload-bundle,Full Reload Bundle,Chicken Tenders,178.4 g protein
+slim-chickens,nutrition,reviewed,huge-protein,slims-crave-box,Slims Crave Box,Sides,232.6 g protein
+slim-chickens,nutrition,reviewed,salt-very-high,10-buffalo-wings-meal,10 Buffalo Wings Meal,Crispy Wings,salt 21 g with 1579 kcal (6 g is the whole day's limit)
+slim-chickens,nutrition,reviewed,salt-very-high,6-buffalo-wings-meal,6 Buffalo Wings Meal,Crispy Wings,salt 12.9 g with 1025 kcal (6 g is the whole day's limit)
+slim-chickens,nutrition,reviewed,salt-very-high,8-buffalo-wings-meal,8 Buffalo Wings Meal,Crispy Wings,salt 16.8 g with 1227 kcal (6 g is the whole day's limit)
+slim-chickens,nutrition,reviewed,salt-very-high,buffalo-tossed-boneless-bites,Buffalo Tossed Boneless Bites,Sides,salt 5 g with 208 kcal (6 g is the whole day's limit)
