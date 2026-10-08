@@ -29,6 +29,8 @@ means contains, an asterisk means may contain traces. It has NO columns for fish
 marked (the app shows them as "Not listed", which it explains is not "free from"); note.txt says so. "sulphur" is read as sulphites
 (the column for sulphur dioxide and sulphites). "queensland nuts" is read as macadamia (the same nut, common._A). The HTML matrix,
 the PDF matrix and the allergen icons on the menu cards must all agree, or the run stops.
+Published since 2026-10-08 (PUBLISH_ALLERGENS = True): every one of the 132 published items has its own matrix row (the names are identical to
+the cards), copied exactly. Fish, crustaceans and molluscs are not matrix columns, so they read "Not listed" in the app, never "free from".
 Set PUBLISH_ALLERGENS = False to publish the guide link only.
 
 Tags: vegetarian when the card shows the chain's Vegetarian or Vegan badge. contains_pork / contains_beef only when the dish name or its
@@ -61,7 +63,8 @@ SOURCE_TITLE = "Chaiiwala website menu pages with calories (accessed 2026-10-08,
 ALLERGEN_TITLE = "Chaiiwala allergen matrix, Allergen Information V15 (October 2026)"
 ALLERGEN_URL = BASE + "/allergens"
 MAY_CONTAIN_PUBLISHED = True  # the matrix prints "*" = may contain traces
-PUBLISH_ALLERGENS = False   # the matrix has no fish, crustacean or mollusc columns: "none" would be a guess, so link only
+PUBLISH_ALLERGENS = True    # 2026-10-08: published. The matrix has no fish, crustacean or mollusc columns, so those three are never marked and the
+                            # app shows them as "Not listed" (it says that is not "free from"); the chain note says so too. False = link only.
 EXCLUDE_SELECT_STORES = False
 ALIASES = ["chaiiwala"]
 NOTE = ("Calories only: Chaiiwala prints kcal on its menu pages (drinks for Regular and Large), no protein, carbs or fat. Dishes with no kcal "

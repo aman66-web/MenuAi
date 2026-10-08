@@ -66,7 +66,7 @@ ALIASES = ["patisserie valerie", "patisserie valerie cafe", "patisserie valerie 
 MAY_CONTAIN_PUBLISHED = True
 NOTE = ("Calories only: the chain's Autumn 2026 allergen guide prints one Kcal figure per product and no other nutrients or sizes. "
         "Allergens are its grid plus its 'May contain' column, shown together (they don't always agree). "
-        "Dishes printed with different figures, or with blank or conflicting allergen cells, are left out.")
+        "Dishes printed with different figures, or with blank or conflicting allergen cells, are left out. Alcoholic and 'see menu' drinks have no figure.")
 
 # printed section heading (lower-case) -> category shown. A heading matches when it is exactly one of EXACT, else when it starts with
 # one of PREFIXES (first match wins). Headings are taken from the PDFs as printed (some are cut short by the chain's own layout).
