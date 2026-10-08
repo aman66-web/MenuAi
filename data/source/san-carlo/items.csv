@@ -1,0 +1,348 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+green-olives,Green Olives,To start,,269,0.9,3.7,26.7,3.7,,5.3,0.4,,,,,,,,,false,false,,,
+arancini,Arancini,To start,,1500,28.2,105.8,104.4,38.4,,3.2,3.5,,,,,,,,,false,false,,,
+ostriche-nine,Ostriche (nine),To start,Nine,105,9.6,7.0,3.3,1.0,,0.9,1.9,,,,,,,,,false,false,,,
+ostriche-six,Ostriche (six),To start,Six,74,6.6,5.3,2.3,0.7,,0.6,1.9,,,,,,,,,false,false,,,
+focaccia,Focaccia,Bruschette e pane,,690,22.0,115.3,18.6,2.9,,6.0,0.5,,,,,,,,,false,false,,,
+garlic-bread-with-garlic-and-sea-salt,Garlic Bread with Garlic and Sea Salt,Bruschette e pane,,1015,22.3,116.4,54.5,7.0,,4.8,0.5,,,,,,,,,false,false,,,
+garlic-bread-with-tomato,Garlic Bread with Tomato,Bruschette e pane,,915,24.4,124.8,38.9,5.2,,4.7,8.2,,,,,,,,,false,false,,,
+garlic-bread-with-cheese,Garlic Bread with Cheese,Bruschette e pane,,1159,45.6,118.2,60.8,20.8,,4.4,1.7,,,,,,,,,false,false,,,
+garlic-bread-with-tomato-and-cheese,Garlic Bread with Tomato and Cheese,Bruschette e pane,,1213,47.3,125.3,63.0,21.1,,5.0,7.9,,,,,,,,,false,false,,,
+bruschetta-romana,Bruschetta Romana,Bruschette e pane,,415,9.5,37.4,24.6,3.7,,2.2,4.8,,,,,,,,,false,false,,,
+cocktail-di-gamberetti,Cocktail di Gamberetti,Antipasti,,397,31.3,5.1,28.3,2.2,,1.3,3.8,,,,,,,,,false,false,,,
+minestrone,Minestrone,Antipasti,,348,3.0,10.4,30.5,4.4,,0.6,3.1,,,,,,,,,false,false,,,
+chicken-liver-pate,Chicken Liver Pate,Antipasti,,918,26.4,26.6,77.3,20.1,,1.7,9.4,,,,,,,,,false,false,,,
+cozze-all-arrabbiata,Cozze all Arrabbiata,Antipasti,,547,41.0,40.5,9.4,1.6,,3.2,10.2,,,,,,,,,false,false,,,"Printed calories (547) differ from the energy of the printed protein, carbs and fat (about 411 kcal) by 25%"
+cozze-all-marini-re,Cozze all Marinière,Antipasti,,857,39.8,30.2,66.1,38.2,,2.9,4.7,,,,,,,,,false,false,,,
+funghi-piemontese,Funghi Piemontese,Antipasti,,244,5.0,6.8,23.1,2.6,,0.8,2.6,,,,,,,,,false,false,,,
+gamberoni-fritti,Gamberoni Fritti,Antipasti,,682,16.7,50.8,44.7,3.1,,3.4,2.3,,,,,,,,,false,false,,,
+mozzarella-in-carrozza,Mozzarella in Carrozza,Antipasti,,648,25.6,48.1,31.8,10.0,,2.3,5.8,,,,,,,,,false,false,,,"Printed calories (648) differ from the energy of the printed protein, carbs and fat (about 581 kcal) by 10%"
+avocado-bernardo,Avocado Bernardo,Antipasti,,409,29.7,6.7,34.1,3.4,,0.7,3.6,,,,,,,,,false,false,,,"Printed calories (409) differ from the energy of the printed protein, carbs and fat (about 452 kcal) by 11%"
+gamberoni-alla-diavola,Gamberoni alla Diavola,Antipasti,,400,17.0,24.3,25.2,15.6,,3.1,2.0,,,,,,,,,false,false,,,
+costine-di-maiale-orientale,Costine di Maiale Orientale,Antipasti,,1158,71.5,31.6,84.1,29.4,,7.3,26.3,,,,,,,,contains_pork,false,false,,,
+salmone-affumicato,Salmone Affumicato,Antipasti,,522,41.0,24.1,23.9,4.7,,5.8,2.8,,,,,,,,,false,false,,,
+burrata-e-pomodoro,Burrata e Pomodoro,Antipasti,,704,10.5,10.5,51.6,14.5,,3.6,9.8,,,,,,,,contains_beef,false,false,,,"Printed calories (704) differ from the energy of the printed protein, carbs and fat (about 548 kcal) by 22%"
+chicken-caesar-salad-main,Chicken Caesar Salad (main),Antipasti,Main,809,85.4,15.8,41.4,10.9,,1.6,2.8,,,,,,,,,false,false,,,
+chicken-caesar-salad-starter,Chicken Caesar Salad (starter),Antipasti,Starter,495,46.7,15.4,25.4,6.6,,1.1,2.5,,,,,,,,,false,false,,,
+melanzane-al-forno-main,Melanzane Al Forno (main),Antipasti,Main,977,31.0,66.0,45.8,12.5,,2.0,12.1,,,,,,,,,false,false,,,"Printed calories (977) differ from the energy of the printed protein, carbs and fat (about 800 kcal) by 18%"
+melanzane-al-forno-starter,Melanzane Al Forno (starter),Antipasti,Starter,733,22.6,49.9,33.7,8.9,,1.5,9.5,,,,,,,,,false,false,,,"Printed calories (733) differ from the energy of the printed protein, carbs and fat (about 593 kcal) by 19%"
+insalata-di-bufala-and-parma-ham,Insalata di Bufala & Parma ham,Antipasti,,988,46.0,51.3,64.1,21.7,,5.5,8.8,,,,,,,,contains_pork|contains_beef,false,false,,,
+insalata-gamberi-and-avocado,Insalata Gamberi & Avocado,Antipasti,,536,28.6,12.9,38.9,5.0,,6.9,9.3,,,,,,,,,false,false,,,
+prosciutto-e-melone,Prosciutto E Melone,Antipasti,,416,36.2,10.5,24.3,8.2,,5.9,10.5,,,,,,,,contains_pork,false,false,,,
+parmigiana-al-forno,Parmigiana al Forno,Antipasti,,753,25.6,49.0,36.4,10.7,,1.6,8.7,,,,,,,,,false,false,,,"Printed calories (753) differ from the energy of the printed protein, carbs and fat (about 626 kcal) by 17%"
+tricolore-salad,Tricolore Salad,Antipasti,,468,24.6,6.8,37.0,15.9,,3.2,6.0,,,,,,,,,false,false,,,
+cozze-allarrabbiata-or-mariniere-a-spicy-tomato-sauce-with-chilli-and-garlic,Cozze all'Arrabbiata or Mariniere (a spicy tomato sauce with chilli & garlic),Antipasti,,831,32.2,24.4,41.9,6.0,,4.8,12.9,,,,,,,,,false,false,,,"Printed calories (831) differ from the energy of the printed protein, carbs and fat (about 604 kcal) by 27%"
+cozze-allarrabbiata-or-mariniere-white-wine-shallots-cream-and-parsley,"Cozze all'Arrabbiata or Mariniere (white wine, shallots, cream & parsley)",Antipasti,,857,39.8,30.2,66.1,38.2,,2.9,4.7,,,,,,,,,false,false,,,
+classic-minestrone,Classic Minestrone,Zuppe,,348,3.0,10.4,30.5,4.4,,0.6,3.1,,,,,,,,,false,false,,,
+formaggi,Formaggi,Formaggi,,993,53.0,50.0,50.0,27.5,,4.8,35.0,,,,,,,,,false,false,,,"Printed calories (993) differ from the energy of the printed protein, carbs and fat (about 862 kcal) by 13%"
+quattro-stagioni,Quattro Stagioni,Pizza,,2069,55.8,134.8,89.0,24.5,,15.1,12.8,,,,,,,,,false,true,,,"Printed calories (2069) differ from the energy of the printed protein, carbs and fat (about 1563 kcal) by 24%"
+pollo-e-rosmarino,Pollo e Rosmarino,Pizza,,1354,83.0,129.2,59.6,21.7,,5.3,11.2,,,,,,,,,false,true,,,
+calzone-salsiccia-piccante,Calzone Salsiccia Piccante,Pizza,,1434,62.3,125.9,65.9,24.5,,7.4,8.9,,,,,,,,contains_pork,false,true,,,
+tartufo,Tartufo,Pizza,,1399,57.0,116.3,78.3,30.0,,4.0,5.1,,,,,,,,,false,true,,,
+vegetali,Vegetali,Pizza,,1589,46.5,116.5,68.2,22.1,,3.3,4.0,,,,,,,,,false,true,,,"Printed calories (1589) differ from the energy of the printed protein, carbs and fat (about 1266 kcal) by 20%"
+risotto-gamberi-and-asparagi,Risotto Gamberi & Asparagi,Pasta e risotto,,898,33.8,63.1,56.6,32.1,,10.5,6.5,,,,,,,,,false,true,,,
+tagliolini-crab,Tagliolini Crab,Pasta e risotto,,1418,29.9,84.7,109.7,62.3,,2.4,10.8,,,,,,,,,false,true,,,
+zitoni-toscanini,Zitoni Toscanini,Pasta e risotto,,1351,52.5,100.9,53.7,21.0,,6.4,16.6,,,,,,,,contains_pork,false,true,,,"Printed calories (1351) differ from the energy of the printed protein, carbs and fat (about 1097 kcal) by 19%"
+penne-pollo-e-gamberetti,Penne Pollo e Gamberetti,Pasta e risotto,,1786,61.4,74.8,142.7,77.4,,1.4,8.1,,,,,,,,,false,true,,,
+tortellini-panna-e-prosciutto,Tortellini Panna e Prosciutto,Pasta e risotto,,2031,38.7,73.1,161.5,83.4,,2.7,10.4,,,,,,,,contains_pork,false,true,,,
+tagliatelle-montecarlo,Tagliatelle Montecarlo,Pasta e risotto,,1082,42.0,78.0,60.2,25.2,,2.3,8.6,,,,,,,,,false,true,,,
+spaghetti-gamberoni-piccanti,Spaghetti Gamberoni Piccanti,Pasta e risotto,,860,28.8,82.3,32.7,4.4,,4.7,9.0,,,,,,,,,false,true,,,"Printed calories (860) differ from the energy of the printed protein, carbs and fat (about 739 kcal) by 14%"
+our-famous-spaghetti-frutti-di-mare,Our Famous Spaghetti Frutti di Mare,Pasta e risotto,,993,56.9,89.2,31.6,4.5,,3.3,9.1,,,,,,,,,false,true,,,"Printed calories (993) differ from the energy of the printed protein, carbs and fat (about 869 kcal) by 13%"
+mafaldine-con-rag-di-manzo,Mafaldine con Ragú di Manzo,Pasta e risotto,,1054,33.3,105.6,32.3,10.0,,1.3,13.5,,,,,,,,contains_beef,false,true,,,"Printed calories (1054) differ from the energy of the printed protein, carbs and fat (about 846 kcal) by 20%"
+penne-salmone,Penne Salmone,Pasta e risotto,,1077,36.4,79.2,61.0,23.7,,3.3,8.2,,,,,,,,,false,true,,,
+tagliolini-allaragosta,Tagliolini all’Aragosta,Pasta e risotto,,994,97.1,87.7,51.4,19.8,,2.5,9.2,,,,,,,,,false,true,,,"Printed calories (994) differ from the energy of the printed protein, carbs and fat (about 1202 kcal) by 21%"
+risotto-san-carlo,Risotto San Carlo,Pasta e risotto,,1093,28.8,58.0,87.9,46.9,,5.5,5.7,,,,,,,,contains_pork,false,true,,,
+pipette-piccanti,Pipette Piccanti,Pasta e risotto,,1752,34.9,116.6,130.7,79.6,,4.3,19.7,,,,,,,,,false,true,,,
+ravioli-tartufo-main,Ravioli Tartufo (main),Pasta e risotto,Main,1849,46.9,55.9,166.1,92.7,,3.8,7.5,,,,,,,,,false,true,,,
+ravioli-tartufo-starter,Ravioli Tartufo (starter),Pasta e risotto,Starter,1004,25.1,33.0,88.8,47.2,,2.0,4.1,,,,,,,,,false,false,,,
+penne-arrabbiata-main,Penne Arrabbiata (main),Pasta e risotto,Main,1086,22.7,101.0,31.9,3.9,,0.8,19.9,,,,,,,,,false,true,,,"Printed calories (1086) differ from the energy of the printed protein, carbs and fat (about 782 kcal) by 28%"
+penne-arrabbiata-starter,Penne Arrabbiata (starter),Pasta e risotto,Starter,544,11.4,50.6,15.9,1.9,,0.4,10.0,,,,,,,,,false,false,,,"Printed calories (544) differ from the energy of the printed protein, carbs and fat (about 391 kcal) by 28%"
+rigatoni-alla-norma-main,Rigatoni alla Norma (main),Pasta e risotto,Main,1195,24.7,94.8,46.6,6.9,,2.2,20.2,,,,,,,,,false,true,,,"Printed calories (1195) differ from the energy of the printed protein, carbs and fat (about 897 kcal) by 25%"
+rigatoni-alla-norma-starter,Rigatoni alla Norma (starter),Pasta e risotto,Starter,580,12.5,48.4,20.9,3.3,,1.1,10.2,,,,,,,,,false,false,,,"Printed calories (580) differ from the energy of the printed protein, carbs and fat (about 432 kcal) by 26%"
+spaghetti-puttanesca-main,Spaghetti Puttanesca (main),Pasta e risotto,Main,1200,22.8,99.2,51.4,6.4,,5.7,16.9,,,,,,,,,false,true,,,"Printed calories (1200) differ from the energy of the printed protein, carbs and fat (about 951 kcal) by 21%"
+spaghetti-puttanesca-starter,Spaghetti Puttanesca (starter),Pasta e risotto,Starter,684,12.9,56.4,31.7,4.0,,3.8,8.5,,,,,,,,,false,false,,,"Printed calories (684) differ from the energy of the printed protein, carbs and fat (about 562 kcal) by 18%"
+tagliatelle-bolognese-main,Tagliatelle Bolognese (main),Pasta e risotto,Main,1067,36.0,82.7,46.6,12.5,,1.2,14.6,,,,,,,,,false,true,,,"Printed calories (1067) differ from the energy of the printed protein, carbs and fat (about 894 kcal) by 16%"
+tagliatelle-bolognese-starter,Tagliatelle Bolognese (starter),Pasta e risotto,Starter,533,18.0,41.4,23.3,6.2,,0.6,7.3,,,,,,,,,false,false,,,"Printed calories (533) differ from the energy of the printed protein, carbs and fat (about 447 kcal) by 16%"
+pappardelle-allanatra-main,Pappardelle all’Anatra (main),Pasta e risotto,Main,963,41.5,74.7,54.1,12.9,,2.3,7.7,,,,,,,,,false,true,,,
+pappardelle-allanatra-starter,Pappardelle all’Anatra (starter),Pasta e risotto,Starter,630,27.2,47.8,35.9,8.5,,1.5,5.0,,,,,,,,,false,false,,,
+lasagne-emiliane-main,Lasagne Emiliane (main),Pasta e risotto,Main,1331,72.6,48.3,75.2,41.1,,2.8,19.4,,,,,,,,,false,true,,,"Printed calories (1331) differ from the energy of the printed protein, carbs and fat (about 1160 kcal) by 13%"
+lasagne-emiliane-starter,Lasagne Emiliane (starter),Pasta e risotto,Starter,967,52.6,35.7,54.6,29.7,,2.0,14.2,,,,,,,,,false,false,,,"Printed calories (967) differ from the energy of the printed protein, carbs and fat (about 845 kcal) by 13%"
+ravioli-allastice-main,Ravioli all'Astice (main),Pasta e risotto,Main,689,30.2,57.3,29.9,13.2,,2.1,8.4,,,,,,,,,false,true,,,"Printed calories (689) differ from the energy of the printed protein, carbs and fat (about 619 kcal) by 10%"
+ravioli-allastice-starter,Ravioli all'Astice (starter),Pasta e risotto,Starter,584,18.1,35.6,37.2,19.9,,1.4,5.9,,,,,,,,,false,false,,,
+trofie-pesto-and-stracciatella,Trofie pesto & stracciatella,Pasta e risotto,,764,19.4,90.4,35.4,5.5,,1.2,2.8,,,,,,,,,false,true,,,
+gnocchi-sorrentina,Gnocchi Sorrentina,Pasta e risotto,,1222,22.1,94.3,47.0,13.1,,2.7,26.7,,,,,,,,,false,true,,,"Printed calories (1222) differ from the energy of the printed protein, carbs and fat (about 889 kcal) by 27%"
+ravioli-lobster,Ravioli Lobster,Pasta e risotto,,689,30.2,57.3,29.9,13.2,,2.1,8.4,,,,,,,,,false,true,,,"Printed calories (689) differ from the energy of the printed protein, carbs and fat (about 619 kcal) by 10%"
+fettuccine-alfredo,Fettuccine Alfredo,Pasta e risotto,,1551,38.7,85.7,121.2,74.3,,2.2,6.1,,,,,,,,,false,true,,,
+risotto-ai-porcini-and-tartufo,Risotto ai Porcini & Tartufo,Pasta e risotto,,788,25.2,44.9,56.9,31.2,,5.3,3.2,,,,,,,,,false,true,,,
+mafaldine-con-ragu-di-manzo,Mafaldine con Ragu di Manzo,Pasta e risotto,,1054,33.3,105.6,32.3,10.0,,1.3,13.5,,,,,,,,contains_beef,false,true,,,"Printed calories (1054) differ from the energy of the printed protein, carbs and fat (about 846 kcal) by 20%"
+ravioli-aragosta,Ravioli Aragosta,Pasta e risotto,,806,30.6,57.7,43.4,21.6,,2.1,8.9,,,,,,,,,false,true,,,
+spaghetti-al-pesce,Spaghetti al Pesce,Pasta e risotto,,928,48.4,68.7,37.1,5.3,,2.0,8.7,,,,,,,,,false,true,,,"Printed calories (928) differ from the energy of the printed protein, carbs and fat (about 802 kcal) by 14%"
+spaghetti-alle-vongole-veraci,Spaghetti alle Vongole Veraci,Pasta e risotto,,841,36.2,67.7,34.6,4.5,,1.2,8.3,,,,,,,,,false,true,,,"Printed calories (841) differ from the energy of the printed protein, carbs and fat (about 727 kcal) by 14%"
+spaghetti-pomodoro-e-basilico,Spaghetti Pomodoro e Basilico,Pasta e risotto,,820,21.4,97.4,9.3,1.4,,0.7,16.8,,,,,,,,,false,true,,,"Printed calories (820) differ from the energy of the printed protein, carbs and fat (about 559 kcal) by 32%"
+spaghettini-aragosta,Spaghettini Aragosta,Pasta e risotto,,996,94.9,87.6,37.3,5.4,,2.8,12.6,,,,,,,,,false,true,,,
+tortellini-crema-e-pollo,Tortellini Crema E Pollo,Pasta e risotto,,1195,43.2,70.7,83.9,46.1,,4.0,4.3,,,,,,,,,false,true,,,
+suprema-di-pollo-principessa,Suprema di Pollo Principessa,Carne,,867,72.0,8.6,60.8,24.5,,1.0,4.4,,,,,,,,,false,true,,,
+pollo-milanese,Pollo Milanese,Carne,,1296,87.1,80.5,60.2,9.1,,2.9,6.5,,,,,,,,,false,true,,,
+pollo-diavola,Pollo Diavola,Carne,,745,71.6,9.4,31.9,5.0,,2.7,7.1,,,,,,,,contains_pork,false,true,,,"Printed calories (745) differ from the energy of the printed protein, carbs and fat (about 611 kcal) by 18%"
+classic-saltimbocca-alla-romana,Classic Saltimbocca alla Romana,Carne,,792,62.7,25.7,48.5,20.6,,3.3,3.2,,,,,,,,contains_pork,false,true,,,
+scaloppa-alla-milanese,Scaloppa alla Milanese,Carne,,1085,58.4,80.7,51.7,8.1,,2.8,5.6,,,,,,,,,false,true,,,
+scaloppine-signor-sassi,Scaloppine Signor Sassi,Carne,,910,45.8,27.7,70.6,30.8,,2.4,4.1,,,,,,,,,false,true,,,
+agnello-toscana,Agnello Toscana,Carne,,1164,83.7,8.4,89.4,37.5,,4.8,3.6,,,,,,,,,false,true,,,
+filetto-al-tartufo,Filetto al Tartufo,Carne,,1109,64.0,3.9,119.8,44.7,,4.8,2.3,,,,,,,,contains_pork|contains_beef,false,true,,,"Printed calories (1109) differ from the energy of the printed protein, carbs and fat (about 1350 kcal) by 22%"
+pollo-parmigiana,Pollo Parmigiana,Carne,,1498,96.6,83.6,70.7,15.4,,1.2,8.8,,,,,,,,,false,true,,,
+pollo-funghi-e-tartufo,Pollo Funghi e Tartufo,Carne,,901,70.7,6.4,65.7,25.2,,1.0,3.3,,,,,,,,,false,true,,,
+scaloppina-limone,Scaloppina Limone,Carne,,1138,47.6,17.9,97.6,37.4,,2.4,3.6,,,,,,,,,false,true,,,
+costata-reale-milanese,Costata Reale Milanese,Carne,,1188,95.6,30.1,68.1,29.7,,4.1,2.4,,,,,,,,,false,true,,,
+saltimbocca-alla-romana,Saltimbocca alla Romana,Carne,,744,69.4,26.1,39.8,15.9,,6.4,3.7,,,,,,,,contains_pork,false,true,,,
+scaloppine-al-limone,Scaloppine al Limone,Carne,,1138,47.6,17.9,97.6,37.4,,2.4,3.6,,,,,,,,,false,true,,,
+suprema-di-pollo-san-carlo,Suprema di Pollo San Carlo,Carne,,867,72.0,8.6,60.8,24.5,,1.0,4.4,,,,,,,,,false,true,,,
+nodino-di-vitello-butter-and-sage,Nodino di Vitello (butter & sage),Carne,,1492,89.3,30.1,115.3,44.8,,3.7,1.6,,,,,,,,,false,true,,,
+nodino-di-vitello-fresh-italian-black-truffle,Nodino di Vitello (fresh Italian black truffle),Carne,,1384,93.3,6.5,112.9,42.5,,4.4,1.5,,,,,,,,,false,true,,,
+san-carlo-mixed-grill,San Carlo Mixed Grill,Macelleria,,1350,97.2,12.9,99.2,19.4,,5.5,3.2,,,,,,,,contains_pork|contains_beef,false,true,,,
+fillet-steak,Fillet Steak,Macelleria,,573,48.4,1.5,66.5,21.3,,2.5,0.8,,,,,,,,contains_beef,false,true,,,"Printed calories (573) differ from the energy of the printed protein, carbs and fat (about 798 kcal) by 39%"
+tagliata-di-filetto-di-manzo,Tagliata Di Filetto Di Manzo,Macelleria,,887,53.8,2.4,98.1,27.3,,2.7,2.0,,,,,,,,contains_beef,false,true,,,"Printed calories (887) differ from the energy of the printed protein, carbs and fat (about 1108 kcal) by 25%"
+pollo-marinato,Pollo Marinato,Macelleria,,675,68.1,3.4,40.9,14.2,,1.1,2.9,,,,,,,,,false,true,,,
+tomahawk,Tomahawk,Macelleria,,3036,200.8,2.6,217.5,81.5,,4.1,2.3,,,,,,,,contains_beef,false,true,,,
+chateaubriand,Chateaubriand,Macelleria,,952,115.7,3.0,53.6,20.9,,3.7,1.1,,,,,,,,,false,true,,,
+agnello,Agnello,Macelleria,,1267,72.9,3.3,107.9,39.4,,3.3,2.4,,,,,,,,,false,true,,,
+filetto-alla-griglia,Filetto alla Griglia,Macelleria,,749,49.1,3.8,85.0,26.7,,2.9,1.7,,,,,,,,contains_beef,false,true,,,"Printed calories (749) differ from the energy of the printed protein, carbs and fat (about 977 kcal) by 30%"
+filetto-di-manzo-and-aragosta,Filetto di Manzo and Aragosta,Big cuts to share,,1452,225.9,63.9,114.6,44.0,,9.9,9.1,,,,,,,,,false,false,,,"Printed calories (1452) differ from the energy of the printed protein, carbs and fat (about 2191 kcal) by 51%"
+north-pacific-halibut,North Pacific Halibut,Pesci,,747,54.9,2.5,57.7,7.8,,2.1,2.0,,,,,,,,,false,true,,,
+north-pacific-halibut-with-lobster-sauce,North Pacific Halibut with lobster sauce,Pesci,,624,74.4,19.2,33.6,4.9,,2.8,2.4,,,,,,,,,false,true,,,
+aragosta-grigliata,Aragosta Grigliata,Pesci,,348,153.0,11.2,22.9,3.0,,3.2,1.6,,,,,,,,,false,true,,,"Printed calories (348) differ from the energy of the printed protein, carbs and fat (about 863 kcal) by 148%"
+aragosta-grigliata-with-garlic-butter,Aragosta Grigliata with garlic butter,Pesci,,681,153.7,12.7,59.8,26.3,,3.2,1.7,,,,,,,,,false,true,,,"Printed calories (681) differ from the energy of the printed protein, carbs and fat (about 1204 kcal) by 77%"
+gamberi-sicilia,Gamberi Sicilia,Pesci,,720,69.6,5.9,46.4,5.8,,2.2,3.1,,,,,,,,,false,true,,,
+coda-di-rospo-aurora-2,Coda di Rospo 'Aurora',Pesci,,928,68.8,37.0,41.8,22.0,,4.9,10.8,,,,,,,,,false,true,,,"Printed calories (928) differ from the energy of the printed protein, carbs and fat (about 799 kcal) by 14%"
+grigliata-mista-di-pesce,Grigliata Mista di Pesce,Pesci,,1160,143.9,3.9,61.6,9.9,,5.4,1.8,,,,,,,,,false,true,,,
+halibut,Halibut,Pesci,,601,70.8,2.4,40.2,9.2,,3.3,1.1,,,,,,,,,false,true,,,
+lemon-sole-carlo,Lemon Sole Carlo,Pesci,,945,87.1,23.6,56.9,19.7,,3.5,3.9,,,,,,,,,false,true,,,
+salmone-alla-griglia,Salmone alla Griglia,Pesci,,1075,61.0,3.7,92.7,42.2,,3.3,1.9,,,,,,,,,false,true,,,
+san-carlo-special-shellfish,San Carlo Special Shellfish,Pesci,,1675,166.8,15.7,102.8,33.8,,5.9,1.6,,,,,,,,,false,true,,,
+aragosta-a-classic-thermidor-sauce,Aragosta (a classic Thermidor sauce),Pesci,,1201,176.8,16.9,109.6,65.4,,2.9,5.8,,,,,,,,,false,true,,,"Printed calories (1201) differ from the energy of the printed protein, carbs and fat (about 1761 kcal) by 47%"
+aragosta-garlic-butter,Aragosta (garlic butter),Pesci,,681,153.7,12.7,59.8,26.3,,3.2,1.7,,,,,,,,,false,true,,,"Printed calories (681) differ from the energy of the printed protein, carbs and fat (about 1204 kcal) by 77%"
+dover-sole-served-with-capers-and-lemon-butter-sauce,Dover Sole (served with capers & lemon butter sauce),Pesci,,1053,139.3,11.2,49.6,15.3,,11.4,3.4,,,,,,,,,false,true,,,
+dover-sole-whole-grilled-dover-sole,Dover Sole (whole grilled Dover sole),Pesci,,843,136.2,1.7,32.1,4.5,,5.1,1.6,,,,,,,,,false,true,,,
+spigola-alla-griglia-o-al-sale-baked-in-trapani-salt,Spigola alla Griglia o al Sale (baked in Trapani salt),Pesci,,731,52.3,6.2,53.3,8.8,,439.8,2.5,,,,,,,,,false,true,,,
+spigola-alla-griglia-o-al-sale-grilled-whole-sea-bass,Spigola alla Griglia o al Sale (grilled whole sea bass),Pesci,,687,50.7,2.5,51.2,8.1,,3.0,2.0,,,,,,,,,false,true,,,
+lemon-sole-with-clams-and-asparagus,Lemon Sole with Clams and Asparagus,Specials,,2243,102.1,30.6,188.9,45.4,,7.4,1.6,,,,,,,,,false,true,,,
+coda-di-rospo-aurora,Coda di Rospo “Aurora”,Specials,,865,56.8,37.0,40.5,21.7,,4.9,10.8,,,,,,,,,false,true,,,"Printed calories (865) differ from the energy of the printed protein, carbs and fat (about 740 kcal) by 14%"
+tonno-e-lenticchie,Tonno e Lenticchie,Specials,,824,71.3,43.5,26.8,3.8,,4.3,9.7,,,,,,,,,false,true,,,"Printed calories (824) differ from the energy of the printed protein, carbs and fat (about 700 kcal) by 15%"
+capesante-san-carlo,Capesante San Carlo,Specials,,560,42.4,19.2,36.9,7.2,,1.4,2.2,,,,,,,,,false,true,,,
+seafood-mixed-grill,Seafood Mixed Grill,Specials,,968,136.2,5.3,43.3,7.7,,4.9,2.0,,,,,,,,,false,true,,,
+branzino-al-sale,Branzino al Sale,Specials,,731,52.3,6.2,53.3,8.8,,439.8,2.5,,,,,,,,,false,true,,,
+mixed-roasted-shellfish,Mixed Roasted Shellfish,Specials,,1675,166.8,15.7,102.8,33.8,,5.9,1.6,,,,,,,,,false,true,,,
+sogliola,Sogliola,Specials,,1095,136.5,2.9,58.4,8.2,,4.2,2.0,,,,,,,,,false,true,,,
+aragosta-thermidor,Aragosta Thermidor,Specials,,1201,176.8,16.9,109.6,65.4,,2.9,5.8,,,,,,,,,false,true,,,"Printed calories (1201) differ from the energy of the printed protein, carbs and fat (about 1761 kcal) by 47%"
+branzino-grigliato,Branzino Grigliato,Specials,,687,50.7,2.5,51.2,8.1,,3.0,2.0,,,,,,,,,false,true,,,
+gambero-gigante-e-capesante,Gambero Gigante e Capesante,Specials,,1075,92.0,5.3,76.8,37.5,,4.0,2.1,,,,,,,,,false,true,,,
+salmone-prosecco-e-gamberetti,Salmone Prosecco e Gamberetti,Specials,,806,70.0,19.8,43.9,7.0,,5.0,1.9,,,,,,,,,false,true,,,
+zucchine-fritte,Zucchine Fritte,Contorni,,562,12.6,42.8,37.2,3.4,,0.8,7.2,,,,,,,,vegetarian,false,false,,,
+piselli-con-pancetta,Piselli con Pancetta,Contorni,,570,15.4,19.8,47.4,25.4,,2.6,7.5,,,,,,,,contains_pork,false,false,,,
+fagiolini,Fagiolini,Contorni,,295,2.3,4.8,28.9,18.0,,0.8,2.4,,,,,,,,,false,false,,,
+tenderstem-broccoli,Tenderstem Broccoli,Contorni,,146,5.6,4.7,10.3,1.6,,2.0,2.9,,,,,,,,,false,false,,,
+insalata-di-pomodori-siciliani-e-cipolla,Insalata di Pomodori Siciliani e Cipolla,Contorni,,204,2.3,10.8,15.8,2.4,,0.4,8.9,,,,,,,,,false,false,,,
+rucola-e-grana-padano,Rucola e Grana Padano,Contorni,,198,8.6,0.7,17.5,5.9,,1.2,0.2,,,,,,,,,false,false,,,
+insalata-mista,Insalata Mista,Contorni,,167,1.9,3.4,15.7,2.2,,0.4,2.2,,,,,,,,,false,false,,,
+mashed-potato,Mashed Potato,Contorni,,294,5.6,38.5,12.4,6.0,,0.7,2.0,,,,,,,,,false,false,,,
+mashed-potato-with-truffle,Mashed Potato with Truffle,Contorni,,294,5.6,38.5,12.4,6.0,,0.7,2.0,,,,,,,,,false,false,,,
+patate-fritte,Patate Fritte,Contorni,,638,5.3,50.8,44.0,7.8,,0.5,2.6,,,,,,,,vegetarian,false,false,,,
+patate-fritte-with-fresh-truffle-and-grana-padano,Patate Fritte with fresh truffle and Grana Padano,Contorni,,759,11.1,69.9,45.6,11.5,,1.0,4.0,,,,,,,,,false,false,,,
+patate-arrosto-with-bacon-onion-and-rosemary,"Patate Arrosto with bacon, onion and rosemary",Contorni,,528,11.0,44.0,33.4,8.9,,2.0,2.9,,,,,,,,contains_pork,false,false,,,
+insalata-di-pomodori-siciliani-and-cipolla,Insalata di Pomodori Siciliani and Cipolla,Contorni,,204,2.3,10.8,15.8,2.4,,0.4,8.9,,,,,,,,,false,false,,,
+longstem-broccoli,Longstem Broccoli,Contorni,,240,5.6,4.8,20.3,3.0,,2.0,3.0,,,,,,,,,false,false,,,
+piselli-e-pancetta,Piselli e Pancetta,Contorni,,798,15.9,21.9,72.2,40.9,,3.0,8.2,,,,,,,,contains_pork,false,false,,,
+rucola-and-grana-padano,Rucola & Grana Padano,Contorni,,215,9.5,4.2,17.7,6.0,,1.2,2.2,,,,,,,,,false,false,,,
+patatine-fritte-french-fries,Patatine Fritte (french fries),Contorni,,638,5.3,50.8,44.0,7.8,,0.5,2.6,,,,,,,,vegetarian,false,false,,,
+patatine-fritte-with-fresh-truffle-and-grana-padano,Patatine Fritte (with fresh truffle & Grana Padano),Contorni,,828,11.1,69.9,53.3,12.0,,1.0,4.0,,,,,,,,,false,false,,,
+torta-pistacchio,Torta Pistacchio,Dolci,,847,13.9,41.7,66.2,34.4,,0.2,37.7,,,,,,,,,false,false,,,
+mantecato-alla-nocciola,Mantecato Alla Nocciola,Dolci,,996,17.7,93.4,59.4,22.6,,0.4,91.4,,,,,,,,,false,false,,,
+torta-caprese,Torta Caprese,Dolci,,882,38.7,71.9,61.0,28.6,,0.4,61.3,,,,,,,,,false,false,,,"Printed calories (882) differ from the energy of the printed protein, carbs and fat (about 991 kcal) by 12%"
+meringata-alle-fragole,Meringata alle Fragole,Dolci,,588,23.0,74.6,30.3,19.4,,0.2,72.5,,,,,,,,,false,false,,,"Printed calories (588) differ from the energy of the printed protein, carbs and fat (about 663 kcal) by 13%"
+millefoglie,Millefoglie,Dolci,,572,5.7,48.9,38.6,22.2,,0.5,29.6,,,,,,,,,false,false,,,
+torta-setteveli,Torta Setteveli,Dolci,,914,10.6,55.7,69.4,40.1,,0.3,92.2,,,,,,,,,false,false,,,Sugars are printed higher than carbohydrate
+cr-me-br-l-e,Crème Brûlée,Dolci,,839,7.8,43.5,74.3,42.4,,0.1,43.5,,,,,,,,,false,false,,,
+cheesecake,Cheesecake,Dolci,,795,14.7,68.0,52.0,31.1,,0.8,54.8,,,,,,,,,false,false,,,
+lemon-tart,Lemon Tart,Dolci,,424,6.5,55.6,19.8,11.4,,0.3,35.9,,,,,,,,,false,false,,,
+arancia-di-cioccolato,Arancia Di Cioccolato,Dolci,,163,1.9,10.9,12.3,8.7,,0.0,10.0,,,,,,,,,false,false,,,
+celebration-mini-birthday-cake,Celebration Mini Birthday Cake,Dolci,,1156,14.3,95.6,80.8,44.7,,0.2,183.6,,,,,,,,,false,false,,,Sugars are printed higher than carbohydrate
+birthday-plate,Birthday Plate,Dolci,,453,6.1,46.8,26.4,16.0,,0.2,32.7,,,,,,,,,false,false,,,
+panna-cotta,Panna Cotta,Dolci,,790,7.6,48.2,67.1,41.5,,0.1,41.7,,,,,,,,,false,false,,,
+affogato,Affogato,Gelato,,162,3.3,21.6,7.3,4.6,,0.2,20.1,,,,,,,,,false,false,,,
+coppa-san-carlo,Coppa San Carlo,Gelato,,623,10.9,95.4,22.8,14.4,,0.4,87.2,,,,,,,,,false,false,,,
+coppa-di-fragole,Coppa di Fragole,Gelato,,388,5.1,38.6,21.6,14.7,,0.2,35.0,,,,,,,,,false,false,,,
+extra-english-mustard,Extra English Mustard,Condiments,,95,3.3,8.0,5.0,0.4,,4.2,5.5,,,,,,,,vegetarian,false,false,,,
+extra-french-mustard,Extra French Mustard,Condiments,,59,2.3,1.7,3.6,0.2,,1.4,1.2,,,,,,,,vegetarian,false,false,,,"Printed calories (59) differ from the energy of the printed protein, carbs and fat (about 48 kcal) by 18%"
+extra-gravy,Extra Gravy,Condiments,,79,8.7,2.0,4.1,0.5,,0.8,1.2,,,,,,,,,false,false,,,
+extra-horseradish,Extra Horseradish,Condiments,,52,0.7,4.3,3.3,0.3,,0.7,3.4,,,,,,,,vegetarian,false,false,,,
+extra-ketchup,Extra Ketchup,Condiments,,51,0.6,11.6,0.1,0.1,,0.9,11.4,,,,,,,,vegetarian,false,false,,,
+extra-mayonnaise,Extra Mayonnaise,Condiments,,295,0.2,0.9,32.1,2.2,,0.2,0.5,,,,,,,,vegetarian,false,false,,,
+extra-mint-sauce,Extra Mint Sauce,Condiments,,23,0.9,1.7,0.2,0.1,,2.1,0.0,,,,,,,,vegetarian,false,false,,,
+extra-tartare-sauce,Extra Tartare Sauce,Condiments,,218,0.5,3.0,19.9,1.4,,0.4,2.0,,,,,,,,,false,false,,,"Printed calories (218) differ from the energy of the printed protein, carbs and fat (about 193 kcal) by 11%"
+extra-wholegrain-mustard,Extra Wholegrain Mustard,Condiments,,83,3.4,3.8,4.8,0.3,,1.5,3.6,,,,,,,,vegetarian,false,false,,,"Printed calories (83) differ from the energy of the printed protein, carbs and fat (about 72 kcal) by 13%"
+add-anchovies,Add Anchovies,Toppings,,186,4.9,0.0,18.8,1.9,,3.0,0.0,,,,,,,,,false,false,,,
+add-artichoke,Add Artichoke,Toppings,,93,1.1,2.9,7.9,0.8,,3.9,0.8,,,,,,,,vegetarian,false,false,,,
+add-asparagus,Add Asparagus,Toppings,,14,1.6,2.8,0.1,0.0,,0.0,1.3,,,,,,,,vegetarian,false,false,,,
+add-aubergine,Add Aubergine,Toppings,,24,1.1,6.0,0.1,0.0,,0.0,0.6,,,,,,,,vegetarian,false,false,,,
+add-baby-prawns,Add Baby Prawns,Toppings,,54,12.2,0.0,0.8,0.2,,0.4,0.0,,,,,,,,,false,false,,,
+add-blue-cheese,Add Blue Cheese,Toppings,,153,9.5,0.9,12.5,0.9,,0.9,0.0,,,,,,,,,false,false,,,
+add-broccoli,Add Broccoli,Toppings,,21,2.3,1.6,0.1,0.1,,0.0,1.2,,,,,,,,vegetarian,false,false,,,
+add-buffalo-mozzarella,Add Buffalo Mozzarella,Toppings,,147,11.3,0.2,11.3,6.9,,0.6,0.2,,,,,,,,,false,false,,,
+add-burrata,Add Burrata,Toppings,,131,4.0,0.6,5.0,4.1,,0.2,0.6,,,,,,,,,false,false,,,"Printed calories (131) differ from the energy of the printed protein, carbs and fat (about 63 kcal) by 52%"
+add-cherry-tomato,Add Cherry tomato,Toppings,,11,0.6,2.4,0.2,0.1,,0.0,1.6,,,,,,,,vegetarian,false,false,,,
+add-chicken,Add Chicken,Toppings,,173,33.5,0.0,3.0,0.9,,0.1,0.0,,,,,,,,,false,false,,,
+add-chilli-flakes,Add Chilli Flakes,Toppings,,11,0.4,0.6,0.5,0.1,,0.1,0.2,,,,,,,,vegetarian,false,false,,,
+add-chilli-fresh,Add Chilli Fresh,Toppings,,9,0.4,2.0,0.1,0.0,,0.0,1.2,,,,,,,,vegetarian,false,false,,,
+add-clams,Add Clams,Toppings,,87,15.1,3.1,1.2,0.1,,0.0,0.0,,,,,,,,,false,false,,,
+add-egg,Add Egg,Toppings,,66,6.3,0.0,4.5,3.7,,0.2,0.0,,,,,,,,vegetarian,false,false,,,
+add-garlic,Add Garlic,Toppings,,15,0.6,3.3,0.1,0.0,,0.0,0.1,,,,,,,,vegetarian,false,false,,,
+add-goat-cheese,Add Goat Cheese,Toppings,,146,10.0,0.5,11.5,8.1,,0.8,0.0,,,,,,,,,false,false,,,
+add-ham,Add Ham,Toppings,,301,8.1,0.3,4.3,1.7,,1.1,0.3,,,,,,,,contains_pork,false,false,,,"Printed calories (301) differ from the energy of the printed protein, carbs and fat (about 72 kcal) by 76%"
+add-king-prawns,Add King Prawns,Toppings,,25,5.5,0.0,0.0,0.0,,1.2,0.0,,,,,,,,,false,false,,,
+add-fresh-sausage,Add Fresh Sausage,Toppings,,210,12.3,5.4,13.8,0.0,,1.6,0.0,,,,,,,,contains_pork,false,false,,,
+add-mozzarella,Add Mozzarella,Toppings,,144,10.8,1.1,11.4,7.4,,0.2,0.5,,,,,,,,,false,false,,,
+add-mushrooms,Add Mushrooms,Toppings,,11,1.5,1.6,0.2,0.0,,0.0,0.8,,,,,,,,vegetarian,false,false,,,
+add-mussels,Add Mussels,Toppings,,90,12.6,3.9,2.4,0.5,,0.6,0.0,,,,,,,,,false,false,,,
+add-nduja,Add Nduja,Toppings,,221,8.8,0.3,20.4,9.6,,1.1,0.0,,,,,,,,contains_pork,false,false,,,
+add-olives,Add Olives,Toppings,,110,0.8,0.5,11.6,1.4,,2.7,0.5,,,,,,,,vegetarian,false,false,,,
+add-onions,Add Onions,Toppings,,26,0.5,6.3,0.1,0.0,,0.0,2.7,,,,,,,,vegetarian,false,false,,,
+add-pancetta,Add Pancetta,Toppings,,227,8.3,0.2,21.5,8.9,,2.0,0.0,,,,,,,,contains_pork,false,false,,,
+add-parma-ham,Add Parma Ham,Toppings,,178,17.3,0.0,12.0,4.1,,2.9,0.0,,,,,,,,contains_pork,false,false,,,
+add-grana-padano,Add Grana Padano,Toppings,,159,13.2,0.0,11.6,7.2,,0.6,0.0,,,,,,,,,false,false,,,
+add-peppers,Add Peppers,Toppings,,351,2.1,0.0,8.3,1.0,,1.0,0.0,,,,,,,,vegetarian,false,false,,,"Printed calories (351) differ from the energy of the printed protein, carbs and fat (about 83 kcal) by 76%"
+add-pizza-sauce,Add Pizza Sauce,Toppings,,36,1.2,4.8,1.5,0.2,,0.4,4.1,,,,,,,,,false,false,,,
+add-porcini-mushrooms,Add Porcini Mushrooms,Toppings,,122,12.0,10.4,1.8,0.2,,0.0,2.5,,,,,,,,vegetarian,false,false,,,"Printed calories (122) differ from the energy of the printed protein, carbs and fat (about 106 kcal) by 13%"
+add-rocket,Add Rocket,Toppings,,4,0.2,0.5,0.2,0.0,,0.0,0.1,,,,,,,,vegetarian,false,false,,,
+add-salame,Add Salame,Toppings,,180,13.0,0.5,14.0,5.5,,1.9,0.5,,,,,,,,contains_pork,false,false,,,
+add-spicy-sausage,Add Spicy Sausage,Toppings,,149,14.3,0.3,10.0,3.9,,2.6,0.1,,,,,,,,contains_pork,false,false,,,
+add-spinach,Add Spinach,Toppings,,23,2.9,3.6,0.4,0.1,,0.2,0.4,,,,,,,,vegetarian,false,false,,,
+add-taleggio,Add Taleggio,Toppings,,158,9.5,0.5,13.1,8.4,,1.1,0.5,,,,,,,,,false,false,,,
+carpaccio-di-barbabietola,Carpaccio di Barbabietola,Seasonal specials,,729,14.7,24.2,62.6,15.4,,3.0,11.1,,,,,,,,,true,false,,,
+carpaccio-di-vitello,Carpaccio di Vitello,Seasonal specials,,817,75.6,5.5,54.4,12.0,,3.2,2.0,,,,,,,,,true,false,,,
+insalata-di-zucca,Insalata di Zucca,Seasonal specials,,736,11.1,50.8,57.2,8.1,,4.6,11.4,,,,,,,,,true,false,,,
+rigatoro-affumicato-and-monkfish,Rigatoro Affumicato & Monkfish,Seasonal specials,,1234,34.9,100.4,74.5,19.1,,11.5,5.7,,,,,,,,,true,true,,,
+rigatoro-affumicato-and-ragu-di-maiale,Rigatoro Affumicato & Ragu di Maiale,Seasonal specials,,1624,53.6,103.2,90.2,24.0,,2.9,14.1,,,,,,,,contains_pork,true,true,,,"Printed calories (1624) differ from the energy of the printed protein, carbs and fat (about 1439 kcal) by 11%"
+risotto-zucca-and-tartufo,Risotto Zucca & Tartufo,Seasonal specials,,990,47.2,74.8,57.5,30.5,,5.1,3.0,,,,,,,,,true,true,,,
+tagliatelle-castagne,Tagliatelle Castagne,Seasonal specials,,1651,45.4,134.3,111.1,60.5,,2.5,10.8,,,,,,,,,true,true,,,
+beef-cheek,Beef Cheek,Seasonal specials,,990,72.9,61.4,38.6,10.4,,4.1,10.8,,,,,,,,contains_beef,true,true,,,"Printed calories (990) differ from the energy of the printed protein, carbs and fat (about 885 kcal) by 11%"
+zuppetta-di-mare,Zuppetta di Mare,Seasonal specials,,1226,94.9,44.9,69.6,11.5,,6.0,3.5,,,,,,,,,true,true,,,
+monkfish-in-salsa-verde,Monkfish in Salsa Verde,Seasonal specials,,717,1.6,3.5,78.1,20.5,,1.4,1.5,,,,,,,,,true,true,,,
+affogato-al-tiramisu,Affogato al Tiramisu,Seasonal specials,,480,8.5,70.1,18.9,11.2,,0.3,59.0,,,,,,,,,true,false,,,
+centre-court-cocktail,Centre Court Cocktail,Wimbledon specials,,165,0.3,17.3,0.1,0.0,,0.0,17.2,,,,,,,,,true,false,,,"Printed calories are higher than the energy of the printed protein, carbs and fat (alcohol is not listed)"
+the-grand-slam-dessert,The Grand Slam Dessert,Wimbledon specials,,487,7.0,97.5,7.0,4.3,,0.7,95.0,,,,,,,,,true,false,,,
+avocado-diverso,Avocado Diverso,1996 menu: Starters,,708,25.9,5.8,63.0,7.4,,1.6,4.5,,,,,,,,,true,false,,,
+penne-romana,Penne Romana,1996 menu: Mains,,1332,38.5,101.4,58.4,17.0,,3.0,18.5,,,,,,,,contains_pork,true,true,,,"Printed calories (1332) differ from the energy of the printed protein, carbs and fat (about 1085 kcal) by 19%"
+tagliolini-san-daniele,Tagliolini San Daniele,1996 menu: Mains,,1098,49.7,72.0,67.4,36.5,,5.3,6.0,,,,,,,,contains_pork,true,true,,,
+steak-diane,Steak Diane,1996 menu: Mains,,410,35.7,4.5,40.6,16.4,,3.5,2.5,,,,,,,,contains_beef,true,true,,,"Printed calories (410) differ from the energy of the printed protein, carbs and fat (about 526 kcal) by 28%"
+chicken-kiev,Chicken Kiev,1996 menu: Mains,,1796,87.4,80.8,116.6,38.0,,2.9,4.9,,,,,,,,,true,true,,,
+branzino-pizzaiola,Branzino Pizzaiola,1996 menu: Mains,,1093,78.7,19.3,44.4,7.1,,4.3,17.6,,,,,,,,,true,true,,,"Printed calories (1093) differ from the energy of the printed protein, carbs and fat (about 792 kcal) by 28%"
+tiramis,Tiramisù,1996 menu: Desserts,,592,7.2,40.6,45.5,28.6,,0.2,27.7,,,,,,,,,true,false,,,
+selection-of-ice-creams-and-sorbets-3-scoops,Selection of Ice Creams & Sorbets (3 scoops),1996 menu: Desserts,,8,0.1,1.8,0.1,0.0,,0.0,0.5,,,,,,,,vegetarian,true,false,,,
+cozze-all-arrabbiata-lunch-menu,Cozze all Arrabbiata (lunch menu),Lunch menu: Starters,,547,41.0,40.5,9.4,1.6,,4.3,10.2,,,,,,,,,false,false,,,"Printed calories (547) differ from the energy of the printed protein, carbs and fat (about 411 kcal) by 25%"
+mozzarella-in-carrozza-lunch-menu,Mozzarella in Carrozza (lunch menu),Lunch menu: Starters,,513,25.6,48.1,16.8,9.0,,2.3,5.8,,,,,,,,,false,false,,,"Printed calories (513) differ from the energy of the printed protein, carbs and fat (about 446 kcal) by 13%"
+melanzane-alla-parmigiana,Melanzane alla Parmigiana,Lunch menu: Starters,,791,26.1,50.7,36.9,10.8,,1.6,10.2,,,,,,,,,false,false,,,"Printed calories (791) differ from the energy of the printed protein, carbs and fat (about 639 kcal) by 19%"
+burrata-pomodoro,Burrata Pomodoro,Lunch menu: Starters,,704,10.5,10.5,51.6,14.5,,3.6,9.8,,,,,,,,contains_beef,false,false,,,"Printed calories (704) differ from the energy of the printed protein, carbs and fat (about 548 kcal) by 22%"
+insalata-cesare,Insalata Cesare,Lunch menu: Starters,,495,46.7,15.4,25.4,6.6,,1.1,2.5,,,,,,,,,false,false,,,
+calmari-fritti,Calmari Fritti,Lunch menu: Starters,,348,8.4,43.8,14.2,1.9,,4.1,5.0,,,,,,,,,false,false,,,
+insalata-gamberi-and-avocado-lunch-menu,Insalata Gamberi & Avocado (lunch menu),Lunch menu: Starters,,470,3.8,21.3,38.5,5.6,,0.8,15.7,,,,,,,,,false,false,,,
+insalata-di-cesare,Insalata di Cesare,Lunch menu: Starters,,809,85.4,15.8,41.4,10.9,,1.6,2.8,,,,,,,,,false,false,,,
+tortellini-panna-e-prosciutto-lunch-menu,Tortellini Panna e Prosciutto (lunch menu),Lunch menu: Mains,,1973,37.2,62.7,160.4,83.9,,2.6,9.6,,,,,,,,contains_pork,false,true,,,
+pollo-milanese-lunch-menu,Pollo Milanese (lunch menu),Lunch menu: Mains,,1934,92.4,131.3,104.2,17.0,,3.0,9.1,,,,,,,,,false,true,,,
+rump-steak-and-fries,Rump Steak & Fries,Lunch menu: Mains,,452,37.7,23.3,22.2,9.8,,0.5,1.2,,,,,,,,contains_beef,false,true,,,
+rigatoni-norma,Rigatoni Norma,Lunch menu: Mains,,1087,24.7,94.8,34.6,6.0,,2.2,20.2,,,,,,,,,false,true,,,"Printed calories (1087) differ from the energy of the printed protein, carbs and fat (about 789 kcal) by 27%"
+branzino-spinaci,Branzino Spinaci,Lunch menu: Mains,,629,43.7,11.5,45.8,7.1,,2.3,3.0,,,,,,,,,false,true,,,
+salmone-prosecco,Salmone Prosecco,Lunch menu: Mains,,934,74.6,23.8,53.4,8.2,,5.4,4.3,,,,,,,,,false,true,,,
+branzino-e-spinaci,Branzino e Spinaci,Lunch menu: Mains,,609,42.1,8.5,45.5,7.0,,2.2,1.2,,,,,,,,,false,true,,,
+selection-of-ice-creams-and-sorbets,Selection of Ice Creams & Sorbets,Lunch menu: Desserts,,8,0.1,1.8,0.1,0.0,,0.0,0.5,,,,,,,,vegetarian,false,false,,,
+selection-of-homemade-ice-creams-and-sorbets,Selection of Homemade Ice creams & Sorbets,Lunch menu: Desserts,,8,0.1,1.8,0.1,0.0,,0.0,0.5,,,,,,,,vegetarian,false,false,,,
+pizza-tartufo,Pizza Tartufo,Lunch menu: Pizza,,1399,57.0,116.3,78.3,30.0,,4.0,5.1,,,,,,,,,false,true,,,
+pizza-prosciutto-e-funghi,Pizza Prosciutto e Funghi,Lunch menu: Pizza,,1672,60.9,122.1,59.0,23.0,,4.9,12.9,,,,,,,,contains_pork,false,true,,,"Printed calories (1672) differ from the energy of the printed protein, carbs and fat (about 1263 kcal) by 24%"
+roast-chicken,Roast Chicken,Sunday roast,,1931,131.6,47.0,142.1,38.2,,2.9,8.5,,,,,,,,,false,true,,,
+roast-rump-of-lamb,Roast Rump of Lamb,Sunday roast,,775,20.9,45.4,54.1,9.7,,2.8,6.9,,,,,,,,contains_beef,false,true,,,
+roast-rib-of-beef,Roast Rib of Beef,Sunday roast,,1392,68.7,47.0,103.4,29.5,,2.9,8.5,,,,,,,,contains_beef,false,true,,,
+t-bone-steak-two-people,T-Bone Steak (Two People),Sunday roast,,3366,252.6,47.1,232.1,85.3,,4.0,7.5,,,,,,,,contains_beef,false,true,,,
+cauliflower-cheese,Cauliflower Cheese,Sunday roast,,495,28.3,26.4,31.9,19.0,,3.2,12.6,,,,,,,,,false,true,,,
+arancini-childrens-menu,Arancini (children's menu),Children's menu: Little starters,,651,20.1,53.9,38.1,15.3,,2.4,1.8,,,,,,,,contains_beef,false,false,,,
+garlic-bread-plain,Garlic Bread (plain),Children's menu: Little starters,,597,16.0,83.4,24.5,3.3,,2.9,0.4,,,,,,,,,false,false,,,
+garlic-bread-with-cheese-2,Garlic Bread (with cheese),Children's menu: Little starters,,765,28.6,84.6,37.8,11.9,,3.1,1.0,,,,,,,,,false,false,,,
+garlic-bread-with-tomato-2,Garlic Bread (with tomato),Children's menu: Little starters,,468,16.9,87.0,8.3,1.4,,3.2,4.0,,,,,,,,,false,false,,,
+mozzarella-fritters,Mozzarella Fritters,Children's menu: Little starters,,445,11.2,25.7,24.2,7.1,,1.4,8.7,,,,,,,,,false,false,,,"Printed calories (445) differ from the energy of the printed protein, carbs and fat (about 365 kcal) by 18%"
+vegetable-sticks,Vegetable Sticks,Children's menu: Little starters,,81,3.2,12.8,1.7,0.0,,0.0,10.9,,,,,,,,vegetarian,false,false,,,
+lemon-sole-goujons,Lemon Sole Goujons,Children's menu: Main event,,865,32.9,14.6,55.8,5.2,,1.3,5.3,,,,,,,,,false,false,,,"Printed calories (865) differ from the energy of the printed protein, carbs and fat (about 692 kcal) by 20%"
+mini-milanese,Mini Milanese,Children's menu: Main event,,558,37.1,2.6,42.4,4.2,,0.5,1.9,,,,,,,,,false,false,,,
+grilled-salmon,Grilled Salmon,Children's menu: Main event,,428,31.9,12.1,26.4,3.9,,0.5,8.7,,,,,,,,,false,false,,,
+lasagne,Lasagne,Children's menu: Main event,,967,52.6,35.7,54.6,29.7,,2.0,14.2,,,,,,,,,false,false,,,"Printed calories (967) differ from the energy of the printed protein, carbs and fat (about 845 kcal) by 13%"
+build-your-own-pasta-bolognese-sauce,Build Your Own Pasta (Bolognese Sauce),Children's menu: Main event,,202,10.4,4.1,11.6,4.6,,0.5,3.3,,,,,,,,,false,false,,,"Printed calories (202) differ from the energy of the printed protein, carbs and fat (about 162 kcal) by 20%"
+build-your-own-pasta-butter-and-parmesan-sauce,Build Your Own Pasta (Butter & Parmesan Sauce),Children's menu: Main event,,589,13.7,0.0,60.3,38.0,,0.6,0.0,,,,,,,,,false,false,,,
+build-your-own-pasta-pomodoro-sauce,Build Your Own Pasta (Pomodoro Sauce),Children's menu: Main event,,186,2.4,7.9,2.4,0.2,,0.4,7.1,,,,,,,,,false,false,,,"Printed calories (186) differ from the energy of the printed protein, carbs and fat (about 63 kcal) by 66%"
+build-your-own-pasta-rigatoni,Build Your Own Pasta (Rigatoni),Children's menu: Main event,,215,8.4,41.8,1.2,0.2,,0.0,2.1,,,,,,,,vegetarian,false,false,,,
+build-your-own-pasta-spaghetti,Build Your Own Pasta (Spaghetti),Children's menu: Main event,,215,8.4,41.8,0.2,0.2,,0.0,2.1,,,,,,,,vegetarian,false,false,,,
+build-your-own-pizza-chicken,Build Your Own Pizza (Chicken),Children's menu: Main event,,173,33.5,0.0,3.0,0.9,,0.1,0.0,,,,,,,,,false,false,,,
+build-your-own-pizza-ham,Build Your Own Pizza (Ham),Children's menu: Main event,,301,8.1,0.3,4.3,1.7,,1.1,0.3,,,,,,,,contains_pork,false,false,,,"Printed calories (301) differ from the energy of the printed protein, carbs and fat (about 72 kcal) by 76%"
+build-your-own-pizza-mozarrella,Build Your Own Pizza (Mozarrella),Children's menu: Main event,,144,10.8,1.1,11.4,7.4,,0.2,0.5,,,,,,,,,false,false,,,
+build-your-own-pizza-mushrooms,Build Your Own Pizza (Mushrooms),Children's menu: Main event,,11,1.5,1.6,0.2,0.0,,0.0,0.8,,,,,,,,vegetarian,false,false,,,
+build-your-own-pizza-pizza-base,Build Your Own Pizza (Pizza Base),Children's menu: Main event,,428,15.8,82.8,6.1,1.1,,2.9,0.4,,,,,,,,vegetarian,false,false,,,
+build-your-own-pizza-pizza-sauce,Build Your Own Pizza (Pizza Sauce),Children's menu: Main event,,36,1.2,4.8,1.5,0.2,,0.4,4.1,,,,,,,,,false,false,,,
+fries,Fries,Children's menu: Little sides,,171,2.6,25.4,5.5,2.8,,0.1,1.3,,,,,,,,vegetarian,false,false,,,
+potatoes,Potatoes,Children's menu: Little sides,,90,1.6,14.4,2.5,0.4,,0.1,0.5,,,,,,,,,false,false,,,
+cheesecake-childrens-menu,Cheesecake (children's menu),Children's menu: Something sweet,,327,5.9,24.7,22.8,13.5,,0.3,17.9,,,,,,,,,false,false,,,
+fruit-salad,Fruit Salad,Children's menu: Something sweet,,103,1.6,24.9,0.6,0.0,,0.0,20.1,,,,,,,,vegetarian,false,false,,,
+soft-serve,Soft Serve,Children's menu: Something sweet,,42,4.9,19.8,8.3,2.1,,0.2,19.6,,,,,,,,,false,false,,,
+ice-cream,Ice Cream,Children's menu: Gelati & toppings,,8,0.1,1.8,0.1,0.0,,0.0,0.5,,,,,,,,vegetarian,false,false,,,
+caramel,Caramel,Children's menu: Gelati & toppings,,172,3.4,21.2,7.9,5.0,,0.1,21.4,,,,,,,,,false,false,,,Sugars are printed higher than carbohydrate
+chocolate-bueno,Chocolate Bueno,Children's menu: Gelati & toppings,,177,3.7,16.5,10.2,4.3,,0.1,16.4,,,,,,,,,false,false,,,
+chocolate,Chocolate,Children's menu: Gelati & toppings,,179,4.5,18.4,8.8,5.6,,0.1,18.2,,,,,,,,,false,false,,,
+hazelnut,Hazelnut,Children's menu: Gelati & toppings,,204,4.3,18.3,12.2,4.9,,0.1,18.5,,,,,,,,,false,false,,,Sugars are printed higher than carbohydrate
+pistachio,Pistachio,Children's menu: Gelati & toppings,,203,3.3,17.9,7.7,4.6,,0.1,18.2,,,,,,,,,false,false,,,"Sugars are printed higher than carbohydrate; Printed calories (203) differ from the energy of the printed protein, carbs and fat (about 154 kcal) by 24%"
+salted-caramel-popcorn,Salted Caramel Popcorn,Children's menu: Gelati & toppings,,166,2.8,20.2,8.0,4.1,,0.2,19.4,,,,,,,,,false,false,,,
+strawberry,Strawberry,Children's menu: Gelati & toppings,,173,3.1,22.9,7.2,4.6,,0.1,22.8,,,,,,,,,false,false,,,
+vanilla,Vanilla,Children's menu: Gelati & toppings,,152,3.1,19.4,7.2,4.6,,0.1,19.6,,,,,,,,,false,false,,,Sugars are printed higher than carbohydrate
+lemon-sorbet,Lemon Sorbet,Children's menu: Gelati & toppings,,96,0.1,23.1,0.2,0.2,,0.0,22.4,,,,,,,,vegetarian,false,false,,,
+mango,Mango,Children's menu: Gelati & toppings,,96,0.1,23.1,0.2,0.2,,0.0,22.4,,,,,,,,,false,false,,,
+wafer-curls,Wafer Curls,Children's menu: Gelati & toppings,,9,0.1,1.5,0.3,0.3,,0.0,0.9,,,,,,,,,false,false,,,
+blue-bubble-crunch,Blue Bubble Crunch,Children's menu: Gelati & toppings,,40,0.0,9.9,0.0,0.0,,0.0,9.8,,,,,,,,,false,false,,,
+strawberry-crunch,Strawberry Crunch,Children's menu: Gelati & toppings,,41,0.0,10.0,0.0,0.0,,0.0,9.9,,,,,,,,,false,false,,,
+nonpareille,Nonpareille,Children's menu: Gelati & toppings,,38,0.0,9.5,0.0,0.0,,0.0,9.4,,,,,,,,,false,false,,,
+chocolate-mini-fudge,Chocolate Mini Fudge,Children's menu: Gelati & toppings,,43,0.3,7.1,1.5,1.1,,0.0,5.9,,,,,,,,,false,false,,,
+popping-candy,Popping Candy,Children's menu: Gelati & toppings,,48,0.4,7.5,1.8,1.2,,0.0,6.5,,,,,,,,,false,false,,,
+oreo-crumb,Oreo Crumb,Children's menu: Gelati & toppings,,48,0.5,6.8,2.0,0.5,,0.1,3.7,,,,,,,,,false,false,,,
+mini-marshmallow,Mini Marshmallow,Children's menu: Gelati & toppings,,33,0.3,7.9,0.0,0.0,,0.0,6.9,,,,,,,,,false,false,,,
+cookie-sauce,Cookie Sauce,Children's menu: Gelati & toppings,,31,0.2,6.6,0.4,0.3,,0.1,6.0,,,,,,,,,false,false,,,
+bueno-sauce,Bueno Sauce,Children's menu: Gelati & toppings,,57,0.5,5.5,3.6,0.3,,0.0,5.5,,,,,,,,,false,false,,,
+chocolate-sauce,Chocolate Sauce,Children's menu: Gelati & toppings,,30,0.2,7.1,0.1,0.1,,0.0,6.8,,,,,,,,,false,false,,,
+white-chocolate-sauce,White Chocolate Sauce,Children's menu: Gelati & toppings,,57,0.1,5.5,3.7,1.1,,0.0,4.6,,,,,,,,,false,false,,,
+strawberry-sauce,Strawberry Sauce,Children's menu: Gelati & toppings,,23,0.0,5.8,0.0,0.0,,0.0,5.7,,,,,,,,,false,false,,,
+biscotto,Biscotto,Children's menu: Gelati extras,,76,1.2,10.2,3.3,2.1,,0.1,3.9,,,,,,,,,false,false,,,
+lollipop,Lollipop,Children's menu: Gelati extras,,132,2.6,21.7,3.8,1.9,,0.3,2.6,,,,,,,,,false,false,,,
+tartufo-cioccolato,Tartufo Cioccolato,Children's menu: Gelati extras,,155,2.5,17.9,8.0,4.1,,0.2,7.7,,,,,,,,,false,false,,,
+garlic-mushrooms-and-truffle,Garlic Mushrooms & Truffle,Christmas menu: Starters,,550,26.4,40.8,30.7,8.3,,3.0,4.7,,,,,,,,,true,false,,,
+tuscan-p-t,Tuscan Pâté,Christmas menu: Starters,,1010,26.6,47.6,77.4,20.1,,1.7,30.0,,,,,,,,,true,false,,,
+burrata-e-pomodoro-christmas-lunch,Burrata e Pomodoro (Christmas lunch),Christmas menu: Starters,,703,10.4,10.4,51.6,14.5,,3.6,9.8,,,,,,,,contains_beef,true,false,,,"Printed calories (703) differ from the energy of the printed protein, carbs and fat (about 548 kcal) by 22%"
+zuppa-di-funghi,Zuppa di Funghi,Christmas menu: Starters,,1142,12.5,25.1,112.4,35.8,,6.9,6.1,,,,,,,,,true,false,,,
+zuppa-di-aragosta,Zuppa di Aragosta,Christmas menu: Starters,,500,21.0,8.5,46.3,28.4,,2.2,2.1,,,,,,,,,true,false,,,
+champagne-sorbet,Champagne Sorbet,Christmas menu: Starters,,137,0.1,23.9,0.2,0.2,,0.0,22.8,,,,,,,,,true,false,,,"Printed calories (137) differ from the energy of the printed protein, carbs and fat (about 98 kcal) by 29%"
+scaloppine-signor-sassi-christmas-day,Scaloppine Signor Sassi (Christmas Day),Christmas menu: Mains,,907,45.7,27.7,70.6,30.8,,2.3,4.1,,,,,,,,,true,true,,,
+sogliola-christmas-day,Sogliola (Christmas Day),Christmas menu: Mains,,687,84.0,22.4,28.6,16.3,,2.8,1.0,,,,,,,,,true,true,,,
+salmone-prosecco-e-gamberetti-christmas-lunch,Salmone Prosecco e Gamberetti (Christmas lunch),Christmas menu: Mains,,841,71.2,27.0,44.0,7.0,,5.0,2.0,,,,,,,,,true,true,,,
+branzino,Branzino,Christmas menu: Mains,,1004,73.6,3.5,77.5,32.0,,4.4,3.3,,,,,,,,,true,true,,,
+tacchino-con-ripieno-di-castagne,Tacchino con Ripieno di Castagne,Christmas menu: Mains,,890,3.9,11.4,92.2,11.1,,2.1,3.6,,,,,,,,contains_pork,true,true,,,
+medaglioni-al-pepe,Medaglioni al Pepe,Christmas menu: Mains,,857,54.5,5.5,68.0,20.2,,4.0,1.9,,,,,,,,contains_beef,true,true,,,
+chicken-supreme,Chicken Supreme,Christmas menu: Mains,,867,72.0,8.6,60.8,24.5,,1.0,4.4,,,,,,,,,true,true,,,
+roasted-cauliflower,Roasted Cauliflower,Christmas menu: Mains,,704,15.5,29.0,62.8,4.9,,0.5,9.0,,,,,,,,,true,true,,,
+mafaldine-con-rag-di-manzo-2,Mafaldine con Ragù di Manzo,Christmas menu: Mains,,1054,33.3,105.6,32.3,10.0,,1.3,13.5,,,,,,,,contains_beef,true,true,,,"Printed calories (1054) differ from the energy of the printed protein, carbs and fat (about 846 kcal) by 20%"
+ravioli-spinaci,Ravioli Spinaci,Christmas menu: Mains,,961,22.5,77.6,47.3,7.7,,3.3,14.4,,,,,,,,,true,true,,,"Printed calories (961) differ from the energy of the printed protein, carbs and fat (about 826 kcal) by 14%"
+seasonal-vegetables-and-rosemary-potatoes,Seasonal Vegetables & Rosemary Potatoes,Christmas menu: Mains,,470,3.9,16.6,40.7,5.8,,2.0,6.1,,,,,,,,,true,true,,,
+spaghetti-frutti-di-mare,Spaghetti frutti di Mare,Christmas menu: Mains,,993,56.9,89.2,31.6,4.5,,3.3,9.1,,,,,,,,,true,true,,,"Printed calories (993) differ from the energy of the printed protein, carbs and fat (about 869 kcal) by 13%"
+tournedos-rossini,Tournedos Rossini,Christmas menu: Mains,,836,67.3,18.5,78.4,24.3,,4.8,3.4,,,,,,,,contains_beef,true,true,,,"Printed calories (836) differ from the energy of the printed protein, carbs and fat (about 1049 kcal) by 25%"
+tagliolini-con-aragosta,Tagliolini con Aragosta,Christmas menu: Mains,,994,97.1,87.7,51.4,19.8,,2.5,9.2,,,,,,,,,true,true,,,"Printed calories (994) differ from the energy of the printed protein, carbs and fat (about 1202 kcal) by 21%"
+beef-cheek-and-spinach,Beef Cheek & Spinach,Christmas menu: Mains,,1017,92.1,52.4,36.0,7.9,,4.7,12.6,,,,,,,,contains_beef,true,true,,,"Printed calories (1017) differ from the energy of the printed protein, carbs and fat (about 902 kcal) by 11%"
+panettone-bread-and-butter-pudding,Panettone Bread & Butter Pudding,Christmas menu: Desserts,,1051,16.4,103.5,65.1,40.5,,0.6,64.4,,,,,,,,,true,false,,,
+ferrero-rocher-cake,Ferrero Rocher Cake,Christmas menu: Desserts,,941,12.9,48.3,73.9,37.9,,0.3,60.4,,,,,,,,,true,false,,,Sugars are printed higher than carbohydrate
+chocolate-and-orange-vegan-cake,Chocolate & Orange Vegan Cake,Christmas menu: Desserts,,472,4.6,75.6,16.1,33.9,,0.4,45.9,,,,,,,,vegetarian,true,false,,,Saturates are printed higher than fat
+pere-al-chianti,Pere al Chianti,Christmas menu: Desserts,,515,4.5,104.8,8.2,4.7,,0.2,99.4,,,,,,,,,true,false,,,
+petit-fours,Petit Fours,Christmas menu: Desserts,,148,2.2,11.3,10.7,6.5,,0.1,11.0,,,,,,,,,true,false,,,
+fireside-negroni,Fireside Negroni,Seasonal cocktails,,223,0.0,14.2,0.0,0.0,,0.3,14.2,,,,,,,,,true,false,,,"Printed calories are higher than the energy of the printed protein, carbs and fat (alcohol is not listed)"
+bellini-festivo,Bellini Festivo,Seasonal cocktails,,182,0.3,7.0,0.0,0.0,,0.0,6.7,,,,,,,,,true,false,,,"Printed calories are higher than the energy of the printed protein, carbs and fat (alcohol is not listed)"
+coco-bianco,Coco Bianco,Seasonal cocktails,,196,0.9,7.8,1.6,1.4,,0.0,28.0,,,,,,,,,true,false,,,"Sugars are printed higher than carbohydrate; Printed calories are higher than the energy of the printed protein, carbs and fat (alcohol is not listed)"
+amalfi-in-winter,Amalfi in Winter,Seasonal cocktails,,157,0.1,11.1,0.1,0.0,,0.0,11.0,,,,,,,,,true,false,,,"Printed calories are higher than the energy of the printed protein, carbs and fat (alcohol is not listed)"
+winter-rose,Winter Rose,Seasonal cocktails,,165,0.1,16.7,0.0,0.0,,0.0,16.7,,,,,,,,,true,false,,,"Printed calories are higher than the energy of the printed protein, carbs and fat (alcohol is not listed)"
+ghost-of-venezia,Ghost of Venezia,Seasonal cocktails,,195,0.1,20.1,0.1,0.1,,0.0,23.1,,,,,,,,,true,false,,,"Sugars are printed higher than carbohydrate; Printed calories are higher than the energy of the printed protein, carbs and fat (alcohol is not listed)"
