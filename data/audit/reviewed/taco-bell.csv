@@ -1,0 +1,2 @@
+item,code,verdict,evidence
+black-beans,energy-gap,ok,"Taco Bell UK table (nutritionix.com/taco-bell-uk/menu/premium, fetched 2026-10-08, Sides > Black Beans): 346 kJ / 83 kcal, fat 1.3 g, sat 0.2 g, carbs 6.5 g, sugars <0.5 g, fibre 11 g, protein 5.8 g, salt 0.86 g; 346 kJ = 83 kcal agrees with the printed kcal, and 4P+4C+9F+2 per g fibre = 83 kcal exactly, so the gap against 4P+4C+9F (61) is the fibre the chain counts at 2 kcal/g (carbohydrate excludes fibre here); the note under the item already says fibre is above carbohydrate"

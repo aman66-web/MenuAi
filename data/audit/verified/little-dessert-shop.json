@@ -1,0 +1,13 @@
+{
+ "chain": "little-dessert-shop",
+ "date": "2026-10-08",
+ "source_read": "https://www.littledessertshop.co.uk/allergens and /menu/<id>/<slug> for all 18 stores the script reads (downloaded fresh 2026-10-08 19:05-19:12; robots.txt allows /menu and /allergens), plus product pages 6114, 6108, 6139, 6090, 6070, 6193, 6170, 6092, 6067, 6068 for the full descriptions",
+ "compared_items": 104,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 3,
+ "marked_ok": 3,
+ "not_verifiable": "calories-only chain: the site prints no protein, carbs, fat, salt, sugar, kJ or weight, so only calories were compared. The site's menu cards carry hidden allergen icons that are inconsistent (nuts icon on 103 of 104 dishes), so they were used only as supporting evidence for Caramel Chocolate Cake",
+ "notes": "Fresh re-run of the script on all 18 stores + the allergens page reproduced data/source byte for byte (the allergens table only changed row order). Independent html.parser read: all 104 kcal match on 3 fresh stores (Wolverhampton, Croydon, Balham) and all 104 allergen rows (14 columns, contains vs may) match allergens.csv. Held back (allergen row marks no milk although the description names milk/dairy): Strawberry Cheesecake, Roche Krunch Kunafa Cake, Coconut Snowflake Crunch Loaded Crepe. Marked ok: two 'Sushi Crepe' (rolled crepes, no fish) and Caramel Chocolate Cake (gluten-free by the table and the card icon). Left published but noted: Concrete Cake, Sleeping Bear and Date & Peanut Butter Gelato Bites mark an allergen the description implies (milk via custard/ice cream, gluten via sponge, hazelnut shell) only as may contain, so the user is still warned."
+}

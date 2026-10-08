@@ -1,0 +1,13 @@
+{
+ "chain": "caffe-nero",
+ "date": "2026-10-08",
+ "source_read": "https://www.caffenero.com/uk/menu/* (all 8 menu pages re-downloaded 8 Oct; robots.txt allows) + the Allergen, Nutritional & Ingredient Guide (GB) issued 09/09/26 (caffenerowebsite.blob.core.windows.net PDF, re-downloaded, byte-identical to the earlier copy)",
+ "compared_items": 373,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 2,
+ "fixed": 0,
+ "held_back": 17,
+ "marked_ok": 14,
+ "not_verifiable": "",
+ "notes": "Website had drifted (436 -> 434 tables: Plant Based Mushroom & Tomato Ragu Panini and Cappuccino Cake removed; all other tables unchanged), so caffe_nero.py was re-run on the fresh pages (EXPECTED_* updated); data/source now has 373 rows (was 375), energy_kj and, new, allergens.csv + allergen_guide.csv (the old folder pre-dated the allergen code). All 373 rows match an independent parse of the pages on all 8 per-product numbers and all 373 allergen lists match; 8 pages of the guide cross-checked (food ingredient CAPS words for 92 food items vs website lists, drink ALLERGENS cells via the script, 6 pages rendered). Held back (17, in the script's HOLDBACK): Macchiato soya single (website Milk vs guide SOYA), Gingerbread Biscuit (guide ingredients name SULPHUR DIOXIDE, website omits), Cortado soya (protein 3.0 vs guide 3.8), Espresso & Caramel Luxury Frappe oat (website/guide differ on kcal, protein, carbs), Spicy Chicken & Red Pepper Focaccia (salt 0.88 vs per-100g implies 2.2), 12 Spiced Pecan Latte rows (hot+iced, no nut mark and no 'flavouring only' statement). kJ printed against kcal for Almond Biscotti and Matcha Latte (skimmed, regular): kJ not published, kcal kept. images.csv still lists the two removed products (cappuccino-cake, plant-based-mushroom-and-tomato-ragu-panini): orphan warning, left untouched by instruction."
+}

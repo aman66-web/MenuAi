@@ -1,0 +1,13 @@
+{
+ "chain": "browns",
+ "date": "2026-10-08",
+ "source_read": "earlier saved copy: the 2026-10-06 download of https://allergens.mbplc.io/AllergenGuideBrownsEstate.html stamped 'Browns - 2026-10-05 06:22' (scratchpad x-mb-html/raw/Browns.html, sha256 4488c038...), the exact file data/source/browns was built from. The LIVE page (downloaded fresh 2026-10-08 19:07, stamped 2026-10-08 06:21, robots.txt 404 = no rules) no longer lists any of Browns' menus: it holds only the two pre-booked 'Celebration Graduation' and 'Classic Graduation' menus (51 dishes), so it could not be used to verify or rebuild.",
+ "compared_items": 230,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 3,
+ "marked_ok": 4,
+ "not_verifiable": "The live guide currently has no A la Carte/Lunch/Sunday/Brunch/Children's/Drinks menus, so the published numbers could only be checked against the saved 5 Oct copy, not against today's page. Allergens are not published for this chain (link only; mb_guide.py does not parse them), so none were compared; V/VE tags and pork/beef tags were checked against the page's own names and descriptions. Browns' own website returned 403 to its robots.txt request and was not visited.",
+ "notes": "All 230 rows re-read with an independent regex parser: every value (kcal, fat, saturates, carbs, sugars, protein, salt) matches the page cell for cell, in the menu/section named in the row's note; no tag errors. Newly held back (source contradicts itself): Baked Scallops (salt 46.4 g beside 77 g of macros; 46 g in the GF menu too), Crispy Calamari (301 kcal vs 261 from its kJ vs 223 from its macros), Add Bacon & Cheese (174 kcal vs 225 from kJ vs 143 from macros); rules added in browns.py. Kept although kJ or macros are off: 11 dishes where the kcal agrees with their macros (policy 1), Crispy Calamari (Bar Snacks) 228 kcal (kJ gives 208), Iced Black Coffee and Decaf (drinks; kJ agrees with kcal; the guide also prints Eggs/Milk/Wheat marks for a black coffee, not published). Marked ok: Nocellara Olives and Hispi Cabbage salt, Trio of Roasts for Two salt and protein (double the single roast)."
+}

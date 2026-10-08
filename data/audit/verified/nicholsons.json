@@ -1,0 +1,13 @@
+{
+ "chain": "nicholsons",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.mbplc.io/AllergenGuideNicholsonsEstate.html (live page stamped 2026-10-08 06:25, downloaded fresh 2026-10-08 with curl; robots.txt on the host is a 404, no rules)",
+ "compared_items": 193,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 3,
+ "marked_ok": 0,
+ "not_verifiable": "allergens: none are published for this chain (the guide's allergen markup is not extracted, link to the guide only), so none were compared",
+ "notes": "Fresh page identical to data/source in every published number (re-run of nicholsons.py changed only the page stamp). An independent regex parse of the page found every one of the 193 published rows (calories, fat, saturates, carbs, sugars, protein, salt) under the same dish name; vegetarian tags match the guide's V/VE marks. 3 more dishes held back (Add Beef Patty, Add Scampi, Wholetail Scottish Scampi): printed kcal is 23-29% away from their own protein+carbs+fat AND their printed kJ does not corroborate it; rule added to nicholsons.py (wrapper, mb_guide.py untouched). 47 dishes whose kJ disagrees with kcal but whose kcal agrees with their macros stay (kJ is not published). Two check_chain warnings explained: Add Avocado & Bacon (121 kcal vs macros 102, 16%, kJ is the outlier) and Decaf Iced Black Coffee (50 kcal, kJ 206 agrees, printed twice identically)."
+}

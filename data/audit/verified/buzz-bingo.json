@@ -1,0 +1,13 @@
+{
+ "chain": "buzz-bingo",
+ "date": "2026-10-08",
+ "source_read": "https://www.buzzbingo.com/library/Clubs/food-and-drink/kcal-info-june25.pdf (fresh download 2026-10-08, sha256 d1c150a9..., 133,236 bytes, PDF created 15 June 2025, 5 pages; robots.txt allows /library/)",
+ "compared_items": 94,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 0,
+ "not_verifiable": "The sheet is the June 2025 file; the chain's own note says the menu was reissued in March 2026 and the clubs' calorie/allergen page (https://www.buzzbingo.com/clubs/food-and-drink) is a JavaScript app that shows no text or file links here, so no newer sheet could be found or compared. Dishes added or changed since June 2025 are not in the data.",
+ "notes": "The fresh PDF is the same file and re-running the script reproduces data/source exactly. All 94 rows re-read from pdftotext -layout (name and number sequence identical to items.csv) and all 5 pages viewed as images: every item, including the two wrapped Fiver Faves hot-dog rows and the 16oz/20oz drinks, carries the number printed in its own row. Calories only, no allergen information published; V/pork/beef tags follow the printed names (Lorne sausage, Uncle Johns hot dog and Hunters chips untagged because the meat is not stated)."
+}

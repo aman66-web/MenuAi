@@ -1,0 +1,9 @@
+item,code,verdict,evidence
+social-platter,huge-protein,ok,"Sharing Plates tab, Social Platter card: 3,951 kcal, protein 143.8, carbs 252.2, fat 260.3 (4P+4C+9F = 3,927 kcal); a platter of garlic bread bites, peri-peri chicken sticks, Korean chicken sliders, crispy cod tacos and padron peppers, copied as printed"
+waffle-fries,name-implies-gluten,ok,"Sides tab, Fries > Waffle fries: description 'Signature seasoning', 'Suitable for: Vegetarian'; 'Contains: Celery, Mustard'; 'May contain: Soya'; waffle-cut potato fries, no flour named, no gluten mark printed"
+pizza-dip-chimmi-churri,name-implies-gluten,ok,"Sharing Pizza Paddles tab, Pizza Dips section: a sauce served with pizza (not dough); 'Suitable for: Vegan, Vegetarian'; 'Contains: Sulphur Dioxide/ Sulphites'"
+pizza-dip-garlic-mayo,name-implies-gluten,ok,"Pizza Dips section: a mayonnaise dip (not dough); 'Contains: Eggs, Milk, Mustard'; no gluten mark printed"
+pizza-dip-hot-sauce,name-implies-gluten,ok,"Pizza Dips section: a hot sauce dip (not dough); 'Suitable for: Vegetarian'; 'Contains: Milk'"
+pizza-dip-jalapeno-creama,name-implies-gluten,ok,"Pizza Dips section: a jalapeno cream dip (not dough); 'Suitable for: Vegetarian'; 'Contains: Milk'"
+pizza-dip-pesto,name-implies-gluten,ok,"Pizza Dips section: a pesto dip (not dough); 'Suitable for: Vegetarian'; 'Contains: Milk, Tree Nuts (Cashew Nuts)'"
+pizza-dip-red-pepper,name-implies-gluten,ok,"Pizza Dips section: a red pepper dip (not dough); 'Suitable for: Vegan, Vegetarian'; no allergen listed"

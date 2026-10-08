@@ -1,0 +1,2 @@
+item,code,verdict,evidence
+falafel-gyro,sodium-very-high,ok,"Page /our-menu/falafel-gyro/ (re-read 2026-10-08 and viewed rendered): Nutrition Summary prints 'Sodium: 4551.16mg' beside 702.6 Cal, Total Carbs 112.55g, Total Fat 16.4g, Protein 31.53g; our figure is the printed one (the page's own macros agree with its calories to 3%)"

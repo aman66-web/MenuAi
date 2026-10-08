@@ -1,0 +1,13 @@
+{
+ "chain": "burger-shack",
+ "date": "2026-10-08",
+ "source_read": "https://www.youngs.co.uk/burger-shack (fresh download 2026-10-08, sha256 6976a567..., robots.txt allows everything), also rendered in headless Chromium and read as visible text",
+ "compared_items": 6,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 0,
+ "not_verifiable": "",
+ "notes": "All 6 calorie figures (The Original 757, Chilli Cheese 771, Bacon Chilli Cheese 1028, Loaded Plant 467, Hot Chick 842, Bratwurst Dog 630) match the page in three readings (script's cards, plain tag-stripped text, rendered text); the other six cards print no calories. The fresh page reproduces data/source exactly; only checked_on moved to 2026-10-08. The page prints no allergen information (only a 've' mark on Loaded Plant, tagged vegetarian); Bratwurst Dog's contains_pork comes from the 'sausage' rule, the page does not name the meat."
+}
