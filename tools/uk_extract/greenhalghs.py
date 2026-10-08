@@ -27,7 +27,7 @@ list or the product name says so (Beef, Steak; Ham, Pork, Bacon, Sausage ...). N
 
 Allergens (docs/DATA.md "Allergens") are link-only. The shop's allergen matrix (Version 9, 16/06/2026, linked from /allergen-information/) is a table of
 product CODES and shop names ("Butter Pies", "Potato & Meat Pie Large Baked") that are not the web shop's names and, for most published products, not its
-SKUs (Butter Pie sells as 12301-1000, the matrix has 10301-0001; the multi-portion pies have SKU "N/A"; the soups are not in the matrix). Each product page
+SKUs (Butter Pie sells as 12301-1000, the matrix has 10301-0001; the multi-portion pies have SKU "N/A"; the soups' SKUs 34511-3900 / 34531-3900 are not the matrix's 4510 / 4530 for "Tomato Soup" / "Pea and Ham Soup"). Each product page
 prints its ingredients with the allergens in bold, which is ingredient text rather than a list. Allergens are safety information: no name matching,
 no guessing, so only the guide's link is published (all or nothing).
 """
@@ -98,7 +98,7 @@ HOLD = {
 SAME_AS_PER_100G = ("The page prints 'Cals per unit {kcal} kcal' but its own 'Nutrition Information - Per 100g' table also gives {kcal} kcal, so the "
                     "figure may be the per-100 g value and its basis cannot be confirmed. The page does not say what a unit weighs.")
 
-PORK = re.compile(r"\b(pork|bacon|ham|sausage|sausages|pepperoni|salami|chorizo|gammon)\b", re.I)
+PORK = re.compile(r"\b(pork|bacon|ham|sausage|sausages|pepperoni|salami|chorizo|gammon|lard)\b", re.I)  # lard: the pies list it in their own ingredients
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
 
 
